@@ -1,6 +1,6 @@
 ---
-title: Accesso delegato in Windows Virtual Desktop - AzureDelegated access in Windows Virtual Desktop - Azure
-description: Come delegare le funzionalità amministrative in una distribuzione di Windows Virtual Desktop, inclusi esempi.
+title: Accesso delegato in desktop virtuale Windows-Azure
+description: Come delegare le funzionalità amministrative in una distribuzione di desktop virtuali Windows, inclusi esempi.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,17 +9,17 @@ ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683905"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Accesso delegato in Desktop virtuale Windows
 
-Windows Virtual Desktop dispone di un modello di accesso delegato che consente di definire la quantità di accesso che un determinato utente può avere assegnando loro un ruolo. Un'assegnazione di ruolo è composta da tre componenti: entità di sicurezza, definizione del ruolo e ambito. Il modello di accesso delegato di Windows Virtual Desktop è basato sul modello di controllo degli accessi in base al ruolo di Azure.The Windows Virtual Desktop delegated access model is based on the Azure RBAC model. Per altre informazioni sulle assegnazioni di ruolo specifiche e sui relativi componenti, vedere Panoramica del controllo degli accessi basato sui ruoli di Azure.To learn more about specific role assignments and their components, see [the Azure role-based access control overview](../role-based-access-control/built-in-roles.md).
+Desktop virtuale di Windows dispone di un modello di accesso delegato che consente di definire la quantità di accesso consentito a un determinato utente assegnando loro un ruolo. Un'assegnazione di ruolo dispone di tre componenti: entità di sicurezza, definizione del ruolo e ambito. Il modello di accesso delegato di desktop virtuale Windows è basato sul modello di controllo degli accessi in base al ruolo di Azure Per altre informazioni sulle assegnazioni di ruolo specifiche e sui relativi componenti, vedere [Panoramica del controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md).
 
-L'accesso delegato di Windows Virtual Desktop supporta i valori seguenti per ogni elemento dell'assegnazione di ruolo:
+Accesso delegato desktop virtuale Windows supporta i valori seguenti per ogni elemento dell'assegnazione di ruolo:
 
 * Entità di sicurezza
     * Utenti
@@ -27,44 +27,44 @@ L'accesso delegato di Windows Virtual Desktop supporta i valori seguenti per ogn
 * Definizione di ruolo
     * Ruoli predefiniti
 * Scope
-    * Gruppi di tenant
+    * Gruppi tenant
     * Tenant
     * Pool host
     * Gruppi di app
 
 ## <a name="built-in-roles"></a>Ruoli predefiniti
 
-L'accesso delegato in Windows Virtual Desktop include diverse definizioni di ruolo predefinite che è possibile assegnare a utenti ed entità servizio.
+Per l'accesso delegato nel desktop virtuale di Windows sono disponibili diverse definizioni di ruolo predefinite che è possibile assegnare a utenti ed entità servizio.
 
-* Un proprietario di Servizi Desktop remoto può gestire tutto, incluso l'accesso alle risorse.
-* Un collaboratore RDS può gestire tutto, ma non può accedere alle risorse.
-* Un lettore RDS può visualizzare tutto, ma non può apportare modifiche.
+* Un proprietario RDS può gestire tutto, incluso l'accesso alle risorse.
+* Un collaboratore RDS può gestire tutti gli elementi, ma non può accedere alle risorse.
+* Un lettore RDS può visualizzare tutti gli elementi, ma non può apportare alcuna modifica.
 * Un operatore RDS può visualizzare le attività di diagnostica.
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlet di PowerShell per le assegnazioni di ruolo
 
-È possibile eseguire i cmdlet seguenti per creare, visualizzare e rimuovere assegnazioni di ruolo:
+Per creare, visualizzare e rimuovere assegnazioni di ruolo, è possibile eseguire i cmdlet seguenti:
 
-* **Get-RdsRoleAssignment** visualizza un elenco di assegnazioni di ruolo.
+* **Get-RdsRoleAssignment** Visualizza un elenco di assegnazioni di ruolo.
 * **New-RdsRoleAssignment** crea una nuova assegnazione di ruolo.
-* **Remove-RdsRoleAssignment** elimina le assegnazioni di ruolo.
+* **Remove-RdsRoleAssignment** Elimina le assegnazioni di ruolo.
 
 ### <a name="accepted-parameters"></a>Parametri accettati
 
 È possibile modificare i tre cmdlet di base con i parametri seguenti:
 
-* **AadTenantId**: specifica l'ID tenant di Azure Active Directory di cui l'entità servizio è membro.
-* **AppGroupName:** nome del gruppo di app Desktop remoto.
-* **Diagnostica**: indica l'ambito di diagnostica. (Deve essere associato ai parametri **Infrastruttura** o **Tenant.)**
-* **HostPoolName:** nome del pool host di Desktop remoto.
+* **AadTenantId**: specifica il Azure Active Directory ID tenant da cui l'entità servizio è membro.
+* **AppGroupName**: nome del gruppo di app desktop remoto.
+* **Diagnostics**: indica l'ambito di diagnostica. (Deve essere abbinato ai parametri dell' **infrastruttura** o del **tenant** ).
+* **HostPoolName**: nome del pool di host desktop remoto.
 * **Infrastruttura**: indica l'ambito dell'infrastruttura.
-* **RoleDefinitionName:** nome del ruolo di controllo di accesso basato sui ruoli di Servizi Desktop remoto assegnato all'utente, al gruppo o all'app. Ad esempio, Proprietario Servizi Desktop remoto, Lettore Servizi Desktop remoto e così via.
-* **ServerPrincipleName:** nome dell'applicazione Azure Active Directory.
-* **SignInName:** indirizzo di posta elettronica o nome dell'entità utente dell'utente.
-* **TenantName:** nome del tenant di Desktop remoto.
+* **RoleDefinitionName**: nome del Servizi Desktop remoto ruolo di controllo degli accessi in base al ruolo assegnato all'utente, al gruppo o all'app. Ad esempio Servizi Desktop remoto proprietario, Servizi Desktop remoto Reader e così via.
+* **ServerPrincipleName**: nome dell'applicazione Azure Active Directory.
+* **SignInName**: indirizzo di posta elettronica dell'utente o nome dell'entità utente.
+* **TenantName**: nome del tenant desktop remoto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un elenco più completo dei cmdlet di PowerShell che ogni ruolo può utilizzare, vedere le informazioni di riferimento su [PowerShell.](/powershell/windows-virtual-desktop/overview)
+Per un elenco più completo dei cmdlet di PowerShell che possono essere usati da ogni ruolo, vedere le informazioni di [riferimento su PowerShell](/powershell/windows-virtual-desktop/overview).
 
-Per istruzioni su come configurare un ambiente Windows Virtual Desktop, vedere [Ambiente Windows Virtual Desktop](environment-setup.md).
+Per le linee guida su come configurare un ambiente desktop virtuale Windows, vedere [ambiente desktop virtuale di Windows](environment-setup.md).

@@ -4,10 +4,10 @@ description: Informazioni sul modo in cui la gestione risorse delegate di Azure 
 ms.date: 11/8/2019
 ms.topic: conceptual
 ms.openlocfilehash: 3fe7e48c56e9a5af93e9642ee16c50cfbce34f9e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81481814"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
@@ -18,7 +18,7 @@ Questo argomento illustra come usare [Criteri di Azure](../../governance/policy/
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Usare Azure Resource Graph per eseguire query tra tenant di clienti
 
-È possibile usare [Azure Resource Graph](../../governance/resource-graph/index.yml) per eseguire query su tutte le sottoscrizioni nei tenant di clienti gestiti. In questo esempio verranno identificati tutti gli account di archiviazione in queste sottoscrizioni che attualmente non richiedono traffico HTTPS.  
+È possibile usare [Azure Resource Graph](../../governance/resource-graph/index.yml) per eseguire query su tutte le sottoscrizioni nei tenant di clienti gestiti. In questo esempio verranno identificati gli account di archiviazione in queste sottoscrizioni che attualmente non richiedono il traffico HTTPS.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -32,7 +32,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Distribuire criteri tra più tenant di clienti
 
-L'esempio seguente illustra come usare un [modello di Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) per distribuire una definizione e un'assegnazione dei criteri tra sottoscrizioni delegate in più tenant di clienti. Questa definizione dei criteri richiede che tutti gli account di archiviazione utilizzino il traffico HTTPS, impedendo la creazione di nuovi account di archiviazione che non sono conformi e contrassegnando gli account di archiviazione esistenti senza l'impostazione come non conforme.
+L'esempio seguente illustra come usare un [modello di Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) per distribuire una definizione e un'assegnazione dei criteri tra sottoscrizioni delegate in più tenant di clienti. Questa definizione di criteri richiede che tutti gli account di archiviazione usino il traffico HTTPS, impedendo la creazione di nuovi account di archiviazione non conformi e contrassegnando gli account di archiviazione esistenti senza l'impostazione come non conforme.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -50,7 +50,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="validate-the-policy-deployment"></a>Convalidare la distribuzione dei criteri
 
-Dopo aver distribuito il modello di Azure Resource Manager, è possibile verificare che la definizione dei criteri sia stata applicata correttamente tentando di creare un account di archiviazione con **EnableHttpsTrafficOnly** impostato su **false** in una delle sottoscrizioni delegate. Per via dell'assegnazione dei criteri, non è possibile creare questo account di archiviazione.  
+Dopo aver distribuito il modello di Azure Resource Manager, è possibile verificare che la definizione dei criteri sia stata applicata correttamente provando a creare un account di archiviazione con **EnableHttpsTrafficOnly** impostato su **false** in una delle sottoscrizioni Delegate. Per via dell'assegnazione dei criteri, non è possibile creare questo account di archiviazione.  
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -Location eastus -Force).ResourceGroupName `
@@ -61,9 +61,9 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
                      -Verbose                  
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
-Al termine, rimuovere la definizione e l'assegnazione dei criteri create dalla distribuzione.
+Al termine, rimuovere la definizione dei criteri e l'assegnazione creata dalla distribuzione.
 
 ```powershell
 foreach ($ManagedSub in $ManagedSubscriptions)

@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di un nome DNS attivoMigrate an active DNS name
+title: Eseguire la migrazione di un nome DNS attivo
 description: Informazioni su come eseguire la migrazione di un nome di dominio DNS personalizzato già assegnato a un sito live al Servizio app di Azure senza tempi di inattività.
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535690"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure
@@ -46,9 +46,9 @@ Il record TXT necessario varia a seconda del record DNS di cui si vuole eseguire
 
 | Esempio di record DNS | Host TXT | Valore TXT |
 | - | - | - |
-| \@ (radice) | _awverify_ | _&lt;nomeapp>.azurewebsites.net_ |
-| www (sottodominio) | _awverify.www_ | _&lt;nomeapp>.azurewebsites.net_ |
-| \* (wildcard) | _awverify.\*_ | _&lt;nomeapp>.azurewebsites.net_ |
+| \@ (radice) | _awverify_ | _&lt;AppName>. azurewebsites.net_ |
+| www (sottodominio) | _awverify.www_ | _&lt;AppName>. azurewebsites.net_ |
+| \* (wildcard) | _awverify.\*_ | _&lt;AppName>. azurewebsites.net_ |
 
 Nella pagina dei record DNS prendere nota del tipo di record del nome DNS di cui si vuole eseguire la migrazione. Il servizio app supporta i mapping da record CNAME e A.
 
@@ -114,22 +114,22 @@ Per l'esempio di dominio radice `contoso.com`, modificare il mapping del record 
 | Esempio di FQDN | Tipo di record | Host | valore |
 | - | - | - | - |
 | contoso.com (radice) | Una | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
-| www\.contoso.com (sub) | CNAME | `www` | _&lt;nomeapp>.azurewebsites.net_ |
-| \*.contoso.com (carattere jolly) | CNAME | _\*_ | _&lt;nomeapp>.azurewebsites.net_ |
+| www\.contoso.com (Sub) | CNAME | `www` | _&lt;AppName>. azurewebsites.net_ |
+| \*.contoso.com (carattere jolly) | CNAME | _\*_ | _&lt;AppName>. azurewebsites.net_ |
 
 Salvare le impostazioni.
 
 Le query DNS inizieranno a risolversi nell'app del servizio app immediatamente dopo la propagazione DNS.
 
-## <a name="active-domain-in-azure"></a>Dominio attivo in AzureActive domain in Azure
+## <a name="active-domain-in-azure"></a>Dominio attivo in Azure
 
-È possibile eseguire la migrazione di un dominio personalizzato attivo in Azure, tra sottoscrizioni o all'interno della stessa sottoscrizione. Tuttavia, una migrazione senza tempi di inattività richiede l'app di origine e all'app di destinazione viene assegnato lo stesso dominio personalizzato in un determinato momento. Pertanto, è necessario assicurarsi che le due applicazioni non vengono distribuite nella stessa unità di distribuzione (internamente noto come uno spazio web). Un nome di dominio può essere assegnato a una sola app in ogni unità di distribuzione.
+È possibile eseguire la migrazione di un dominio personalizzato attivo in Azure, tra sottoscrizioni o all'interno della stessa sottoscrizione. Tuttavia, tale migrazione senza tempi di inattività richiede che l'app di origine e l'app di destinazione siano assegnate allo stesso dominio personalizzato in un determinato momento. Pertanto, è necessario assicurarsi che le due app non vengano distribuite nella stessa unità di distribuzione (internamente nota come spazio Web). Un nome di dominio può essere assegnato a una sola app in ogni unità di distribuzione.
 
-È possibile trovare l'unità di distribuzione per l'app esaminando `<deployment-unit>.ftp.azurewebsites.windows.net`il nome di dominio dell'URL FTP/S . Verificare che l'unità di distribuzione sia diversa tra l'app di origine e l'app di destinazione. L'unità di distribuzione di un'app è determinata dal piano di [servizio app](overview-hosting-plans.md) in cui si trova. Viene selezionato in modo casuale da Azure quando si crea il piano e non può essere modificato. Azure si assicura che due piani si trovino nella stessa unità di distribuzione quando vengono creati nello stesso gruppo di [risorse *e* nella stessa area,](app-service-plan-manage.md#create-an-app-service-plan)ma non dispone di alcuna logica per assicurarsi che i piani si trovino in unità di distribuzione diverse. L'unico modo per creare un piano in un'unità di distribuzione diversa consiste nel continuare a creare un piano in un nuovo gruppo di risorse o area fino a quando non si ottiene un'unità di distribuzione diversa.
+È possibile trovare l'unità di distribuzione per l'app esaminando il nome di dominio dell'URL `<deployment-unit>.ftp.azurewebsites.windows.net`FTP/S. Verificare e verificare che l'unità di distribuzione sia diversa tra l'app di origine e quella di destinazione. L'unità di distribuzione di un'app è determinata dal [piano di servizio app](overview-hosting-plans.md) in cui si trova. Viene selezionato in modo casuale da Azure quando si crea il piano e non può essere modificato. Azure assicura solo che due piani si trovino nella stessa unità di distribuzione quando vengono [creati nello stesso gruppo di risorse *e* nella stessa area](app-service-plan-manage.md#create-an-app-service-plan), ma non ha alcuna logica per assicurarsi che i piani siano in unità di distribuzione diverse. L'unico modo per creare un piano in un'unità di distribuzione diversa consiste nel creare un piano in un nuovo gruppo di risorse o in un'area fino a ottenere un'unità di distribuzione diversa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come associare un certificato TLS/SSL personalizzato al servizio app.
 
 > [!div class="nextstepaction"]
-> [Proteggere un nome DNS personalizzato con un'associazione TLS nel servizio app di AzureSecure a custom DNS name with a TLS binding in Azure App Service](configure-ssl-bindings.md)
+> [Proteggere un nome DNS personalizzato con un'associazione TLS nel servizio app Azure](configure-ssl-bindings.md)

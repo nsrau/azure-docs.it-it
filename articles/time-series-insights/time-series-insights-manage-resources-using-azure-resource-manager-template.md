@@ -1,6 +1,6 @@
 ---
-title: Gestire l'ambiente usando i modelli di Azure Resource Manager - Azure Time Series Insights Documenti Microsoft
-description: Informazioni su come gestire l'ambiente Azure Time Series Insights a livello di programmazione usando Azure Resource Manager.Learn how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
+title: Gestire l'ambiente usando modelli di Azure Resource Manager-Azure Time Series Insights | Microsoft Docs
+description: Informazioni su come gestire l'ambiente di Azure Time Series Insights a livello di codice usando Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536319"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
-In questo articolo viene descritto come creare e distribuire risorse di Time Series Insights usando i modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell e il provider di risorse Time Series Insights.
+Questo articolo descrive come creare e distribuire Time Series Insights risorse usando [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell e il provider di risorse di Time Series Insights.
 
 Time Series Insights supporta le risorse seguenti:
 
    | Risorsa | Descrizione |
    | --- | --- |
-   | Environment | Un ambiente Time Series Insights è un raggruppamento logico di eventi letti dai gestori eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [Pianificare l'ambiente Azure Time Series InsightsFor](time-series-insights-environment-planning.md) more information, read Plan your Azure Time Series Insights environment |
+   | Ambiente | Un ambiente Time Series Insights è un raggruppamento logico di eventi che vengono letti dai broker di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [pianificare l'ambiente di Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |
    | Set di dati di riferimento | I set di dati di riferimento forniscono metadati sugli eventi nell'ambiente. I metadati nei set di dati di riferimento verranno aggiunto agli eventi durante l'ingresso. I set di dati di riferimento sono definiti come risorse dalle relative proprietà chiave evento. I metadati effettivi che costituiscono il set di dati di riferimento vengono caricati o modificati tramite le API del piano dati. |
-   | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, vedere [Concedere l'accesso ai dati a un ambiente Time Series Insights usando](time-series-insights-data-access.md) il portale di AzureFor more information, read Grant data access to a Time Series Insights environment using Azure portal |
+   | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, vedere [concedere l'accesso ai dati a un ambiente Time Series Insights usando portale di Azure](time-series-insights-data-access.md) |
 
-Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. I seguenti documenti descrivono i file modello in modo più dettagliato:
+Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. I documenti seguenti descrivono i file modello in modo più dettagliato:
 
-- [Distribuzione del modello di Azure Resource ManagerAzure Resource Manager template deployment](../azure-resource-manager/templates/overview.md)
+- [Distribuzione del modello di Azure Resource Manager](../azure-resource-manager/templates/overview.md)
 - [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Tipi di risorsa Microsoft.TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
@@ -41,7 +41,7 @@ Il modello di avvio rapido [201-timeseriesinsights-environment-with-eventhub](ht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="specify-deployment-template-and-parameters"></a>Specificare il modello di distribuzione e i parametriSpecify deployment template and parameters
+## <a name="specify-deployment-template-and-parameters"></a>Specificare il modello e i parametri di distribuzione
 
 La procedura seguente descrive come usare PowerShell per distribuire un modello di Azure Resource Manager che crea un ambiente Time Series Insights, un origine evento figlio configurato per usare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
 
@@ -64,8 +64,8 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      | eventHubNamespaceName | Lo spazio dei nomi dello hub eventi di origine. |
      | eventHubName | Il nome dello hub eventi di origine. |
      | consumerGroupName | Il nome del gruppo di consumer che verrà usato dal servizio Time Series Insights per leggere i dati dall'hub eventi. **NOTA:** per evitare conflitti di risorse, questo gruppo di consumer deve essere dedicato al servizio Time Series Insights e non condiviso con altri lettori. |
-     | environmentName | Il nome dell'ambiente. Il nome non `<` `>`può `%` `&`includere: `?`, `/`, , , `:`, `\\`, , e i caratteri di controllo. Sono consentiti tutti gli altri caratteri.|
-     | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non `<` `>`può `%` `&`includere: `?`, `/`, , , `:`, `\\`, , e i caratteri di controllo. Sono consentiti tutti gli altri caratteri. |
+     | environmentName | Il nome dell'ambiente. Il nome non può includere `<`: `>`, `%`, `&`, `:`, `\\`, `?`, `/`, e qualsiasi carattere di controllo. Sono consentiti tutti gli altri caratteri.|
+     | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non può includere `<`: `>`, `%`, `&`, `:`, `\\`, `?`, `/`, e qualsiasi carattere di controllo. Sono consentiti tutti gli altri caratteri. |
 
     <div id="optional-parameters"></div>
 
@@ -75,14 +75,14 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      | --- | --- |
      | existingEventHubResourceId | Un ID di risorsa facoltativo di un hub eventi esistente che verrà connesso all'ambiente di Time Series Insights tramite l'origine evento. **NOTA:** l'utente che distribuisce il modello deve disporre delle autorizzazioni necessarie per eseguire l'operazione listkey nell'hub eventi di origine. Se non viene superato alcun valore, verrà creato un nuovo hub eventi dal modello. |
      | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'ambiente. |
-     | environmentSkuName | Il nome dello SKU. Per ulteriori informazioni, leggere la [pagina Prezzi di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
-     | environmentSkuCapacity | La capacità unità dello Sku. Per ulteriori informazioni, leggere la [pagina Prezzi di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-     | environmentDataRetentionTime | L'intervallo di tempo minimo in cui gli eventi dell'ambiente saranno disponibili per la query. Il valore deve essere specificato nel formato ISO `P30D` 8601, ad esempio per un criterio di conservazione di 30 giorni. |
+     | environmentSkuName | Il nome dello SKU. Per ulteriori informazioni, leggere la [pagina relativa ai prezzi Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+     | environmentSkuCapacity | La capacità unità dello Sku. Per ulteriori informazioni, leggere la [pagina relativa ai prezzi Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
+     | environmentDataRetentionTime | L'intervallo di tempo minimo in cui gli eventi dell'ambiente saranno disponibili per la query. Il valore deve essere specificato nel formato ISO 8601, ad esempio `P30D` per i criteri di conservazione di 30 giorni. |
      | eventSourceDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'origine evento. |
      | eventSourceTimestampPropertyName | La proprietà di evento che verrà usata come timestamp dell'origine evento. Se non è specificato un valore per timestampPropertyName o se viene specificato null o una stringa vuota, verrà usata l'ora di creazione dell'evento. |
      | eventSourceKeyName | Il nome della chiave di accesso condivisa che verrà usata dal servizio Time Series Insights per connettersi all'hub eventi. |
-     | accessPolicyReaderObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso in lettura all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando i cmdlet **Get-AzADUser** o **Get-AzADServicePrincipal.** La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
-     | accessPolicyContributorObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso per collaboratori all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando i cmdlet **Get-AzADUser** o **Get-AzADServicePrincipal.** La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
+     | accessPolicyReaderObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso in lettura all'ambiente. È possibile ottenere l'objectId dell'entità servizio chiamando il cmdlet **Get-AzADUser** o **Get-AzADServicePrincipal** . La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
+     | accessPolicyContributorObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso per collaboratori all'ambiente. È possibile ottenere l'objectId dell'entità servizio chiamando il cmdlet **Get-AzADUser** o **Get-AzADServicePrincipal** . La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
 
    * Ad esempio, per creare un ambiente verrebbe usato il file dei parametri seguente e un'origine evento che legge gli eventi da un hub eventi esistente. Crea inoltre due criteri di accesso che concedono l'accesso per i collaboratori all'ambiente.
 
@@ -119,12 +119,12 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
      }
      ```
 
-    * Per ulteriori informazioni, leggere l'articolo [Parametri.For](../azure-resource-manager/templates/parameter-files.md) more information, read the Parameters article.
+    * Per altre informazioni, vedere l'articolo [sui parametri](../azure-resource-manager/templates/parameter-files.md) .
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuire il modello di avvio rapido in locale tramite PowerShell
 
 > [!IMPORTANT]
-> Le operazioni della riga di comando visualizzate di seguito descrivono il [modulo Az PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+> Le operazioni da riga di comando visualizzate di seguito descrivono il [modulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 1. In PowerShell accedere all'account Azure.
 
@@ -148,7 +148,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Se non esiste, creare un nuovo gruppo di risorse.
 
-   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup.If** you do not have an existing resource group, create a new resource group with the New-AzResourceGroup command. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
+   * Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -174,7 +174,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Creare la distribuzione
 
-    * Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene utilizzato il valore predefinito **Incremental.** Per ulteriori informazioni, leggere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
+    * Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **mode** non è specificato, viene usato il valore predefinito **Incremental** . Per ulteriori informazioni, vedere [distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
 
     * Il comando seguente richiede cinque parametri obbligatori nella finestra di PowerShell:
 
@@ -252,4 +252,4 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulla gestione a livello di codice delle risorse di Time Series Insights tramite le API REST, leggere [Time Series Insights Management](https://docs.microsoft.com/rest/api/time-series-insights-management/).
+- Per informazioni sulla gestione a livello di codice delle risorse Time Series Insights usando le API REST, vedere [gestione Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).

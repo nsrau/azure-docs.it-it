@@ -4,10 +4,10 @@ description: L'analisi di flusso può trasformare, filtrare e instradare continu
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536880"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
@@ -89,7 +89,7 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 
 ### <a name="set-path-prefix-pattern"></a>Impostare lo schema prefisso percorso
 
-**Assicurarsi di impostare il formato data a AAAA-MM-GG (con trattini).**
+**Assicurarsi di impostare il formato della data su aaaa-MM-GG (con i trattini).**
 
 Lo schema prefisso percorso specifica dove l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
@@ -107,7 +107,7 @@ Esempio:
 > 
 
 ## <a name="add-new-output"></a>Aggiungere un nuovo output
-Selezionare ora il lavoro > **Output** > **Aggiungi**.
+A questo punto, selezionare il processo > **output** > **Aggiungi**.
 
 ![](./media/export-stream-analytics/SA006.png)
 

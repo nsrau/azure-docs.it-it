@@ -4,10 +4,10 @@ description: Monitorare i ruoli Web e di lavoro in modo efficace con Application
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537594"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
@@ -18,7 +18,7 @@ ms.locfileid: "81537594"
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, è necessario disporre di quanto segue:
 
-* Una sottoscrizione di [Azure.An Azure](https://azure.com) subscription. Accedere con l'account Microsoft per Windows, Xbox Live o altri servizi cloud Microsoft. 
+* Una sottoscrizione di [Azure](https://azure.com) . Accedere con l'account Microsoft per Windows, Xbox Live o altri servizi cloud Microsoft. 
 * Strumenti di Microsoft Azure 2.9 o versione successiva.
 * Developer Analytics Tools 7.10 o versione successiva.
 
@@ -31,7 +31,7 @@ Questa opzione instrumenta l'app in fase di esecuzione, fornendo tutti i dati di
 
 Se non si hanno altre esigenze, non è necessario eseguire altre operazioni. 
 
-I passaggi successivi sono [la visualizzazione delle metriche dall'app,](../../azure-monitor/platform/metrics-charts.md) [l'esecuzione di query sui dati con Analytics](../../azure-monitor/app/analytics.md). 
+I passaggi successivi sono la [visualizzazione delle metriche dall'app](../../azure-monitor/platform/metrics-charts.md)e [l'esecuzione di query sui dati con l'analisi](../../azure-monitor/app/analytics.md). 
 
 Per monitorare le prestazioni nel browser, potrebbe essere necessario configurare [test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) e [aggiungere codice alle pagine Web](../../azure-monitor/app/javascript.md).
 
@@ -48,7 +48,7 @@ Nella sezione successiva viene illustrato come adattare nello stesso modo il pro
 ## <a name="plan-resources-and-resource-groups"></a>Pianificare le risorse e i gruppi di risorse
 I dati di telemetria provenienti dall'app vengono archiviati, analizzati e visualizzati in una risorsa di Azure di tipo Application Insights. 
 
-Ogni risorsa appartiene a un gruppo di risorse. I gruppi di risorse vengono usati per gestire i costi, concedere l'accesso ai membri di un team e distribuire gli aggiornamenti in una singola transazione coordinata. Ad esempio, è possibile [scrivere uno script per distribuire](../../azure-resource-manager/templates/deploy-powershell.md) un servizio cloud di Azure e le relative risorse di monitoraggio di Application Insights in un'unica operazione.
+Ogni risorsa appartiene a un gruppo di risorse. I gruppi di risorse vengono usati per gestire i costi, concedere l'accesso ai membri di un team e distribuire gli aggiornamenti in una singola transazione coordinata. Ad esempio, è possibile [scrivere uno script per distribuire](../../azure-resource-manager/templates/deploy-powershell.md) un servizio cloud di Azure e le relative Application Insights risorse di monitoraggio in un'unica operazione.
 
 ### <a name="resources-for-components"></a>Risorse per i componenti
 È consigliabile creare una risorsa separata per ogni componente dell'app, ovvero per ogni ruolo Web e ruolo di lavoro. È possibile analizzare ogni componente separatamente, ma anche creare un [dashboard](../../azure-monitor/app/overview-dashboard.md) che riunisca i grafici chiave per tutti i componenti, per poterli confrontare e monitorare tutti insieme in un'unica visualizzazione. 
@@ -82,7 +82,7 @@ Ogni risorsa viene identificata da una chiave di strumentazione che potrebbe ess
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurare Diagnostica di Azure per ogni ruolo
 Impostare questa opzione per monitorare l'app con Application Insights. Per i ruoli Web, questa opzione offre monitoraggio delle prestazioni, avvisi, diagnostica e analisi dell'utilizzo. Per gli altri ruoli, è possibile cercare e monitorare i dati di Diagnostica di Azure, ad esempio riavvio, contatori delle prestazioni e chiamate a System.Diagnostics.Trace. 
 
-1. In Esplora soluzioni di Visual Studio, in  >  ** \<YourCloudService>** **Roles**, aprire le proprietà di ogni ruolo.
+1. In Visual Studio Esplora soluzioni, in ** \<serviziocloud>**  >  **roles**, aprire le proprietà di ogni ruolo.
 
 1. In **Configurazione** selezionare la casella di controllo **Invia i dati di diagnostica ad Application Insights** e selezionare la risorsa di Application Insights creata in precedenza.
 
@@ -90,7 +90,7 @@ Se si è deciso di usare una risorsa di Application Insights separata per ogni c
 
 ![Configura Application Insights](./media/cloudservices/configure-azure-diagnostics.png)
 
-Le chiavi di strumentazione di Application Insights verranno così inserite nei file denominati *ServiceConfiguration.\*.cscfg*. Di seguito è riportato il [codice di esempio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+Le chiavi di strumentazione di Application Insights verranno così inserite nei file denominati *ServiceConfiguration.\*.cscfg*. Ecco il [codice di esempio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
 Per variare il livello delle informazioni diagnostiche inviate ad Application Insights, [modificare direttamente i file *CSCFG*](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
@@ -111,7 +111,7 @@ In Visual Studio configurare Application Insights SDK per ogni progetto di app c
 
 1. Per configurare l'SDK per inviare i dati alla risorsa di Application Insights:
 
-    a. In una funzione di avvio appropriata, impostare la chiave di strumentazione dall'impostazione di configurazione nel file con estensione cscfg:In a suitable startup function, set the instrumentation key from the configuration setting in the *.cscfg* file:
+    a. In una funzione di avvio adatta, impostare la chiave di strumentazione dall'impostazione di configurazione nel file con *estensione cscfg* :
  
     ```csharp
    
@@ -124,15 +124,15 @@ In Visual Studio configurare Application Insights SDK per ogni progetto di app c
     * [Ruolo di lavoro](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [Per le pagine Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Impostare il file *ApplicationInsights.config* da copiare sempre nella directory di output.
+1. Impostare il file *ApplicationInsights. config* da copiare sempre nella directory di output.
 
    Un messaggio nel file *CONFIG* chiede di inserire la chiave di strumentazione. Tuttavia, per le app cloud è preferibile che venga impostata dal file *CSCFG*. Questo approccio assicura che il ruolo venga identificato correttamente nel portale.
 
-## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Configurare Status Monitor per raccogliere query SQL complete (facoltativo)Set up Status Monitor to collect full SQL Queries (optional)
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Configurare Status Monitor per la raccolta di query SQL complete (facoltativo)
 
-Questo passaggio è necessario solo se si desidera acquisire query SQL complete in .NET Framework. 
+Questo passaggio è necessario solo se si desidera acquisire query SQL complete su .NET Framework. 
 
-1. Nel `\*.csdef` file Aggiungi attività di [avvio](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) per ogni ruolo simile a 
+1. In `\*.csdef` file Aggiungi [attività di avvio](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) per ogni ruolo simile a 
 
     ```xml
     <Startup>
@@ -147,9 +147,9 @@ Questo passaggio è necessario solo se si desidera acquisire query SQL complete 
     </Startup>
     ```
     
-2. Scaricare [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), `AppInsightsAgent` inserirli nella cartella in ogni progetto di ruolo. Assicurarsi di copiarli nella directory di output tramite le proprietà dei file di Visual Studio o gli script di compilazione.
+2. Scaricare [InstallAgent. bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent. ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)e inserirli nella `AppInsightsAgent` cartella in ogni progetto di ruolo. Assicurarsi di copiarli nella directory di output tramite le proprietà dei file di Visual Studio o gli script di compilazione.
 
-3. In tutti i ruoli di lavoro aggiungere variabili di ambiente:On all Worker Roles, add environment variables: 
+3. In tutti i ruoli di lavoro aggiungere le variabili di ambiente: 
 
     ```xml
       <Environment>
@@ -220,7 +220,7 @@ Per i ruoli di lavoro esistono due modi per tenere traccia delle eccezioni:
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Per impostazione predefinita, vengono raccolti i contatori seguenti:
 
-* Processo(?? APP_WIN32_PROC??) \% Tempo processore
+* \Processo (?? APP_WIN32_PROC? \% Tempo processore
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes

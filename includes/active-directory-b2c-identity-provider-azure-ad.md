@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
 ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678053"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registrare un'app di Azure AD
@@ -17,12 +17,12 @@ ms.locfileid: "81678053"
 Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD, è necessario registrare un'applicazione all'interno del tenant aziendale di Azure AD.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD dell'organizzazione (ad esempio, contoso.com). Nel menu superiore, selezionare il **filtro Directory e sottoscrizione** e quindi scegliere la directory che contiene il tenant di Azure AD.
+1. Assicurarsi di usare la directory che contiene il tenant del Azure AD aziendale (ad esempio, contoso.com). Selezionare il **filtro directory + sottoscrizione** nel menu in alto e quindi scegliere la directory che contiene il tenant Azure ad.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
-1. Immettere un **Nome** per l'applicazione. Ad esempio: `Azure AD B2C App`.
-1. Accettare la selezione predefinita **Account in questa directory dell'organizzazione solo** per questa applicazione.
-1. Per l'URI di **reindirizzamento**, accettare il valore di **Web** `your-B2C-tenant-name` e immettere l'URL seguente in lettere minuscole, dove viene sostituito con il nome del tenant B2C di Azure AD.
+1. Immettere un **nome** per l'applicazione. Ad esempio: `Azure AD B2C App`.
+1. Accetta la selezione predefinita degli **account in questa directory organizzativa solo** per questa applicazione.
+1. Per l' **URI di reindirizzamento**accettare il valore di **Web**e immettere l'URL seguente in lettere minuscole, dove `your-B2C-tenant-name` viene sostituito con il nome del tenant Azure ad B2C.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -31,18 +31,18 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
     Ad esempio: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Selezionare **Registra**. Prendere nota del valore di **ID applicazione (client)**, che sarà necessario in un passaggio successivo.
-1. Selezionare **Certificati & segreti**, quindi Nuovo **segreto client**.
-1. Immettere una **Descrizione** per il segreto, selezionare una scadenza e quindi selezionare **Aggiungi**. Registrare il **valore** del segreto per l'utilizzo in un passaggio successivo.
+1. Selezionare **certificati & segreti**, quindi selezionare **nuovo segreto client**.
+1. Immettere una **Descrizione** per il segreto, selezionare una scadenza e quindi selezionare **Aggiungi**. Registrare il **valore** del segreto da usare in un passaggio successivo.
 
 ### <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 
-Se si vuole `family_name` ottenere `given_name` le attestazioni e di Azure AD, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente del portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [Come fornire attestazioni facoltative all'app Azure AD.](/active-directory/develop/active-directory-optional-claims.md)
+Se si desidera ottenere le `family_name` attestazioni `given_name` e da Azure ad, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente di portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [How to provide optional Claims to your Azure ad app](/active-directory/develop/active-directory-optional-claims.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
-1. Nella sezione **Gestisci** selezionare **Registrazioni app**.
-1. Selezionare l'applicazione per cui si desidera configurare attestazioni facoltative nell'elenco.
-1. Nella sezione **Gestisci** selezionare **Configurazione token**.
+1. Nella sezione **Gestisci** selezionare **registrazioni app**.
+1. Selezionare nell'elenco l'applicazione per la quale si desidera configurare attestazioni facoltative.
+1. Nella sezione **Gestisci** selezionare **configurazione del token**.
 1. Selezionare **Aggiungi attestazione facoltativa**.
-1. Per tipo **di token**, selezionare **ID**.
-1. Selezionare le attestazioni `family_name` `given_name`facoltative da aggiungere e .
-1. Scegliere **Aggiungi**.
+1. Per il **tipo di token**selezionare **ID**.
+1. Selezionare le attestazioni facoltative da `family_name` aggiungere `given_name`, e.
+1. Fare clic su **Aggiungi**.

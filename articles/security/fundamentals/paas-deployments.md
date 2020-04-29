@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per distribuzioni PaaS sicure - Microsoft AzureBest practices for secure PaaS deployments - Microsoft Azure
-description: Scopri le procedure consigliate per la progettazione, la creazione e la gestione di applicazioni cloud sicure in Azure e scopri i vantaggi in termini di sicurezza di PaaS rispetto ad altri modelli di servizi cloud.
+title: Procedure consigliate per le distribuzioni PaaS sicure-Microsoft Azure
+description: Informazioni sulle procedure consigliate per la progettazione, la compilazione e la gestione di applicazioni cloud sicure in Azure e per comprendere i vantaggi della sicurezza di PaaS rispetto ad altri modelli di servizio cloud.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461702"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
@@ -31,17 +31,17 @@ In questo articolo vengono fornite informazioni che consentono di:
 - Modificare l'attenzione verso la sicurezza, da un approccio di sicurezza del perimetro incentrato sulla rete a uno incentrato sulle identità
 - Implementare le procedure consigliate per la sicurezza del modello PaaS
 
-[Lo sviluppo di applicazioni sicure in Azure](abstract-develop-secure-apps.md) è una guida generale alle domande e ai controlli sulla sicurezza da considerare in ogni fase del ciclo di vita dello sviluppo software durante lo sviluppo di applicazioni per il cloud.
+[Lo sviluppo di applicazioni sicure in Azure](abstract-develop-secure-apps.md) è una guida generale alle domande e ai controlli di sicurezza da considerare in ogni fase del ciclo di vita di sviluppo del software durante lo sviluppo di applicazioni per il cloud.
 
 ## <a name="cloud-security-advantages"></a>Vantaggi della sicurezza cloud
 È importante comprendere la [divisione delle responsabilità](shared-responsibility.md) tra l'utente e Microsoft. In locale, si è proprietari dell'intero stack ma, con lo spostamento nel cloud, alcune responsabilità vengono trasferite a Microsoft.
 
-Ci sono [vantaggi di sicurezza di essere nel cloud](shared-responsibility.md#cloud-security-advantages). In un ambiente locale, le organizzazioni si ritrovano probabilmente con responsabilità non ancora gestite e con risorse limitate disponibili da investire nella sicurezza. Tutto questo porta a un ambiente in cui i malintenzionati sono in grado di sfruttare vulnerabilità a più livelli.
+[Il cloud offre vantaggi per la sicurezza](shared-responsibility.md#cloud-security-advantages). In un ambiente locale, le organizzazioni si ritrovano probabilmente con responsabilità non ancora gestite e con risorse limitate disponibili da investire nella sicurezza. Tutto questo porta a un ambiente in cui i malintenzionati sono in grado di sfruttare vulnerabilità a più livelli.
 
 Le organizzazioni possono migliorare la i tempi di rilevazione delle minacce e i tempi di risposta usando le funzionalità di sicurezza basate sul cloud e l'intelligence cloud di un provider.  Passando le responsabilità al provider di servizi cloud, le organizzazioni possono godere di una sicurezza più ampia e possono così riallocare le relative risorse e i relativi budget ad altre priorità aziendali.
 
 ## <a name="security-advantages-of-a-paas-cloud-service-model"></a>Vantaggi di sicurezza di un modello di servizio cloud PaaS
-Esaminiamo i vantaggi in termini di sicurezza di una distribuzione di Azure PaaS rispetto all'ambiente locale.
+Esaminiamo i vantaggi di sicurezza di una distribuzione di Azure PaaS rispetto a quella locale.
 
 ![Vantaggi di sicurezza del modello PaaS](./media/paas-deployments/advantages-of-paas.png)
 
@@ -49,7 +49,7 @@ Microsoft consente di ridurre i rischi e le responsabilità comuni già a partir
 
 Al centro dello stack non c'è differenza tra una distribuzione PaaS e una locale. I rischi sono simili a livello di applicazione e a livello di gestione dell'account e degli accessi. Nella sezione dell'articolo dedicata ai passaggi successivi verranno illustrate le procedure consigliate per eliminare o ridurre al minimo tali rischi.
 
-Nella parte superiore dello stack, governance dei dati e Rights Management, è possibile ridurre un rischio grazie alla gestione delle chiavi, La gestione delle chiavi è trattata nelle procedure consigliate. Sebbene la gestione delle chiavi sia una responsabilità aggiuntiva, sono presenti aree in una distribuzione PaaS che non è più necessario gestire in modo da poter trasferire le risorse alla gestione delle chiavi.
+Nella parte superiore dello stack, governance dei dati e Rights Management, è possibile ridurre un rischio grazie alla gestione delle chiavi, La gestione delle chiavi è illustrata nelle procedure consigliate. Anche se la gestione delle chiavi è una responsabilità aggiuntiva, le aree di una distribuzione di PaaS non devono più essere gestite, quindi è possibile spostare le risorse nella gestione delle chiavi.
 
 La piattaforma di Azure offre inoltre una protezione avanzata dagli attacchi DDoS grazie a varie tecnologie basate su rete. Tuttavia, tutti i tipi di protezione da attacchi DDoS basati su rete hanno vari limiti per quanto riguarda collegamenti e data center. Per evitare le problematiche legate agli attacchi DDoS di portata elevata, è possibile sfruttare la funzionalità cloud centrale di Azure per usare rapidamente e automaticamente la scalabilità come difesa da questi attacchi. Negli articoli sulle procedure consigliate verranno illustrati in dettaglio i vari passaggi.
 
@@ -74,7 +74,7 @@ I principi e i modelli per i perimetri di rete sono disponibili da molto tempo, 
 Di seguito sono illustrate le procedure consigliate per la gestione del perimetro di identità.
 
 **Procedura consigliata**: proteggere le chiavi e le credenziali per proteggere la distribuzione PaaS.   
-**Dettagli**: la perdita delle chiavi e delle credenziali è un problema comune. È possibile utilizzare una soluzione centralizzata in cui chiavi e segreti possono essere archiviati in moduli di sicurezza hardware (HSM). [L'insieme](../../key-vault/general/overview.md) di credenziali delle chiavi di Azure protegge le chiavi e i segreti crittografando le chiavi di autenticazione, le chiavi dell'account di archiviazione, le chiavi di crittografia dei dati, i file con estensione pfx e le password usando chiavi protette da HSM.
+**Dettagli**: la perdita delle chiavi e delle credenziali è un problema comune. È possibile usare una soluzione centralizzata in cui le chiavi e i segreti possono essere archiviati in moduli di protezione hardware (HSM). [Azure Key Vault](../../key-vault/general/overview.md) protegge le chiavi e i segreti crittografando le chiavi di autenticazione, le chiavi dell'account di archiviazione, le chiavi di crittografia dei dati, i file PFX e le password usando chiavi protette da HSM.
 
 **Procedura consigliata**: non inserire le credenziali e altri segreti nel codice sorgente o GitHub.   
 **Dettagli**: un rischio ben peggiore della perdita di chiavi e credenziali consiste negli accessi non autorizzati. Gli utenti malintenzionati possono sfruttare le tecnologie bot per trovare chiavi e segreti archiviati in repository di codice come GitHub. Si consiglia pertanto di non inserire chiavi e segreti in questi archivi di codice pubblici.
@@ -100,7 +100,7 @@ Nella tabella seguente sono elencate le minacce STRIDE e alcuni esempi di mitiga
 
 | Threat | Proprietà di sicurezza | Potenziali mitigazioni della piattaforma di Azure |
 | --- | --- | --- |
-| Spoofing | Authentication | Richiede connessioni HTTPS. |
+| Spoofing | Autenticazione | Richiede connessioni HTTPS. |
 | Manomissione | Integrità | Convalidare i certificati TLS/SSL. |
 | Ripudio | Non ripudio | Abilitazione del [monitoraggio e diagnostica](/azure/architecture/best-practices/monitoring) di Azure. |
 | Diffusione di informazioni | Riservatezza | Crittografare i dati sensibili inattivi tramite [certificati di servizio](/rest/api/appservice/certificates). |
@@ -128,26 +128,26 @@ Di seguito sono illustrate le procedure consigliate per l'uso della cache locale
 **Dettagli**: usare il Centro sicurezza per monitorare gli ambienti del servizio app. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea degli [elementi consigliati](../../security-center/security-center-virtual-machine-protection.md) utili per definire il processo di configurazione dei controlli necessari.
 
 > [!NOTE]
-> Il monitoraggio del servizio app è in anteprima e disponibile solo nel [livello Standard](/azure/security-center/security-center-pricing) del Centro sicurezza.
+> Il monitoraggio del servizio app è in anteprima ed è disponibile solo nel [livello standard](/azure/security-center/security-center-pricing) del Centro sicurezza.
 >
 >
 
 ## <a name="install-a-web-application-firewall"></a>Installare un web application firewall
 Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può essere un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in un gateway applicazione con Web application firewall.
 
-[Web application firewall (WAF)](/azure/frontdoor/waf-overview) è una funzionalità di Application Gateway che fornisce la protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. WAF si basa su regole di set di regole principali [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9.
+[Web Application Firewall (WAF)](/azure/frontdoor/waf-overview) è una funzionalità del gateway applicazione che offre una protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. WAF si basa su regole di set di regole principali [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9.
 
 ## <a name="monitor-the-performance-of-your-applications"></a>Monitorare le prestazioni delle applicazioni
 Il monitoraggio comporta la raccolta e l'analisi dei dati per determinare le prestazioni, l'integrità e la disponibilità dell'applicazione. Una strategia di monitoraggio efficace aiuta a comprendere il funzionamento dettagliato dei componenti dell'applicazione. Contribuisce ad aumentare il tempo di attività tramite notifiche degli aspetti critici, in modo da poterli risolvere prima che diventino effettivi problemi. Consente inoltre di rilevare le anomalie che potrebbero essere correlate alla sicurezza.
 
 Usare [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) per monitorare disponibilità, prestazioni e utilizzo dell'applicazione, indipendentemente dal fatto che sia ospitata nel cloud o in locale. Con Application Insights è anche possibile identificare e diagnosticare rapidamente gli errori nell'applicazione senza attendere che vengano segnalati da un utente. Con le informazioni raccolte, è possibile prendere decisioni informate sulla manutenzione dell'applicazione e sui miglioramenti da apportare.
 
-Application Insights include strumenti estensivi per l'interazione con i dati raccolti dal servizio stesso. Application Insights archivia questi dati in un repository comune. Può sfruttare le funzionalità condivise, ad esempio avvisi, dashboard e analisi approfondite con il linguaggio di query Kusto.
+Application Insights include strumenti estensivi per l'interazione con i dati raccolti dal servizio stesso. Application Insights archivia questi dati in un repository comune. Può sfruttare le funzionalità condivise, ad esempio gli avvisi, i dashboard e l'analisi approfondita con il linguaggio di query kusto.
 
 ## <a name="perform-security-penetration-testing"></a>Eseguire test di penetrazione della sicurezza
-La convalida delle difese di sicurezza è importante quanto il test di qualsiasi altra funzionalità. Rendere i test di [penetrazione](pen-testing.md) una parte standard del processo di compilazione e distribuzione. Pianifica i normali test di sicurezza e l'analisi delle vulnerabilità sulle applicazioni distribuite e monitora le porte, gli endpoint e gli attacchi aperti.
+La convalida delle difese di sicurezza è importante quanto il test di qualsiasi altra funzionalità. Eseguire [test di penetrazione](pen-testing.md) in una parte standard del processo di compilazione e distribuzione. Pianificare test di sicurezza e analisi delle vulnerabilità regolari sulle applicazioni distribuite e monitorare le porte aperte, gli endpoint e gli attacchi.
 
-Fuzz testing è un metodo per trovare errori di programma (errori di codice) fornendo dati di input in formato non corretto alle interfacce di programma (punti di ingresso) che analizzano e utilizzano questi dati. [Microsoft Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) è uno strumento basato su cloud che è possibile usare per cercare bug e altre vulnerabilità di sicurezza nel software prima di distribuirlo in Azure.Microsoft Security Risk Detection is a cloud-based tool that you can use to look for bugs and other security vulnerabilities in your software before you deploy it to Azure. Lo strumento è progettato per rilevare le vulnerabilità prima di distribuire il software in modo da non dover applicare patch a un bug, affrontare arresti anomali o rispondere a un attacco dopo il rilascio del software.
+Il test fuzzy è un metodo per individuare gli errori del programma (errori del codice) fornendo dati di input in formato non valido alle interfacce di programma (punti di ingresso) che analizzano e utilizzano questi dati. Il rilevamento dei rischi per la [sicurezza di Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) è uno strumento basato sul cloud che è possibile usare per cercare bug e altre vulnerabilità di sicurezza nel software prima di distribuirlo in Azure. Lo strumento è progettato per rilevare le vulnerabilità prima di distribuire il software, in modo da non dover applicare patch a un bug, gestire arresti anomali o rispondere a un attacco dopo il rilascio del software.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -160,7 +160,7 @@ In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribu
 - Bus di servizio di Azure
 - Web application firewall
 
-Vedere [Sviluppo di applicazioni sicure in Azure](abstract-develop-secure-apps.md) per domande e controlli sulla sicurezza da considerare in ogni fase del ciclo di vita dello sviluppo software durante lo sviluppo di applicazioni per il cloud.
+Vedere [sviluppo di applicazioni sicure in Azure](abstract-develop-secure-apps.md) per domande di sicurezza e controlli da considerare in ogni fase del ciclo di vita di sviluppo del software durante lo sviluppo di applicazioni per il cloud.
 
 Per altre procedure consigliate per la sicurezza da usare nella progettazione, la distribuzione e la gestione di soluzioni cloud tramite Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](best-practices-and-patterns.md).
 

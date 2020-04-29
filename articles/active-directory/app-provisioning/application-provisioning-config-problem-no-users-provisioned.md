@@ -1,5 +1,5 @@
 ---
-title: Non viene eseguito il provisioning degli utenti nell'applicazione
+title: Non è in corso il provisioning degli utenti nell'applicazione
 description: Come risolvere i problemi comuni riscontrati quando in un'applicazione della raccolta di Azure AD non vengono visualizzati utenti configurati per il provisioning utenti con Azure AD
 services: active-directory
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac6d4f24d3b6c21828ccb11785005df736c6b070
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680341"
 ---
 # <a name="no-users-are-being-provisioned"></a>Nessun utente è sottoposto a provisioning 
 >[!NOTE]
->A partire dal 16/04/2020 è stato modificato il comportamento per gli utenti assegnati al ruolo di accesso predefinito. Si prega di consultare la sezione qui sotto per i dettagli. 
+>A partire da 04/16/2020 è stato modificato il comportamento per gli utenti assegnati al ruolo di accesso predefinito. Per informazioni dettagliate, vedere la sezione seguente. 
 >
 Dopo aver configurato il provisioning automatico per un'applicazione (e dopo aver verificato la validità delle credenziali fornite ad Azure AD per connettersi all'app), viene effettuato il provisioning degli utenti e/o dei gruppi all'app. Il provisioning viene determinato dagli elementi seguenti:
 
@@ -34,42 +34,42 @@ Dopo aver configurato il provisioning automatico per un'applicazione (e dopo ave
 -   Presenza o meno di un **filtro per la definizione dell'ambito** che filtri gli utenti in base a specifici valori di attributo. Per altre informazioni sui filtri di ambito, vedere [Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   
   
-Se si osserva che non è in corso il provisioning degli utenti, vedere i log di [provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure AD. Cercare un utente specifico nelle voci dei log.
+Se si osserva che non viene eseguito il provisioning degli utenti, consultare i [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure ad. Cercare un utente specifico nelle voci dei log.
 
-È possibile accedere ai log di provisioning nel portale di Azure selezionando I log di provisioning delle app aziendali di Azure Active Directory (anteprima) nella sezione **Attività.You** can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; Provisioning logs **(preview)** in the Activity section. È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [Provisioning dei registri (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; **log di provisioning** di **app** &gt; aziendali (anteprima) nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
-I log di provisioning registrano tutte le operazioni eseguite dal servizio di provisioning, inclusa l'esecuzione di query su Azure AD per gli utenti assegnati che rientrano nell'ambito per il provisioning, l'esecuzione di query sull'app di destinazione per l'esistenza di tali utenti, il confronto degli oggetti utente tra il sistema. e quindi l'aggiunta, l'aggiornamento o la disabilitazione dell'account utente nel sistema di destinazione in base al confronto.
+I log di provisioning registrano tutte le operazioni eseguite dal servizio di provisioning, inclusa l'esecuzione di query Azure AD per gli utenti assegnati che rientrano nell'ambito del provisioning, l'esecuzione di query sull'app di destinazione per l'esistenza di tali utenti, il confronto degli oggetti utente tra il sistema. e quindi l'aggiunta, l'aggiornamento o la disabilitazione dell'account utente nel sistema di destinazione in base al confronto.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Aree problematiche generali con provisioning da considerare
 Di seguito è riportato un elenco delle aree problematiche generali che è possibile analizzare se si ha un'idea del punto da cui iniziare.
 
 - [Avvio non riuscito del servizio di provisioning](#provisioning-service-does-not-appear-to-start)
-- [I registri di provisioning indicano che gli utenti vengono ignorati e non ne viene eseguito il provisioning, anche se sono assegnati](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+- [Log di provisioning: gli utenti vengono ignorati e non sottoposti a provisioning, anche se sono assegnati](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Avvio non riuscito del servizio di provisioning
-Se si imposta **Stato provisioning** su **Attivato** nella sezione **Azure Active Directory &gt; App aziendali &gt; \[Nome applicazione\] &gt;Provisioning** del Portale di Azure, Tuttavia, nessun altro dettaglio di stato vengono visualizzati in tale pagina dopo i ricarichi successivi, è probabile che il servizio sia in esecuzione ma non abbia ancora completato un ciclo iniziale. Controllare i registri di **provisioning (anteprima)** descritti in precedenza per determinare le operazioni eseguite dal servizio e se sono presenti errori.
+Se si imposta **Stato provisioning** su **Attivato** nella sezione **Azure Active Directory &gt; App aziendali &gt; \[Nome applicazione\] &gt;Provisioning** del Portale di Azure, Tuttavia, in questa pagina non vengono visualizzati altri dettagli sullo stato dopo i ricaricamenti successivi, è probabile che il servizio sia in esecuzione, ma non ha ancora completato un ciclo iniziale. Controllare i **log di provisioning (anteprima)** descritti in precedenza per determinare le operazioni eseguite dal servizio e in caso di errori.
 
 >[!NOTE]
->Un ciclo iniziale può richiedere da 20 minuti a diverse ore, a seconda delle dimensioni della directory di Azure AD e del numero di utenti nell'ambito per il provisioning. Le sincronizzazioni successive dopo il ciclo iniziale sono più veloci, poiché il servizio di provisioning archivia le filigrane che rappresentano lo stato di entrambi i sistemi dopo il ciclo iniziale. Il ciclo iniziale migliora le prestazioni delle sincronizzazioni successive.
+>Un ciclo iniziale può richiedere da 20 minuti a diverse ore, a seconda delle dimensioni della directory Azure AD e del numero di utenti nell'ambito del provisioning. Le sincronizzazioni successive dopo il ciclo iniziale sono più veloci, perché il servizio di provisioning archivia le filigrane che rappresentano lo stato di entrambi i sistemi dopo il ciclo iniziale. Il ciclo iniziale migliora le prestazioni delle sincronizzazioni successive.
 >
 
 
-## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>I registri di provisioning indicano che gli utenti vengono ignorati e non ne viene eseguito il provisioning anche se sono assegnati
+## <a name="provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Il provisioning dei log dice che gli utenti vengono ignorati e non sottoposti a provisioning anche se sono assegnati
 
-Quando un utente viene visualizzato come "saltato" nei log di provisioning, è importante esaminare la scheda **Passaggi** del log per determinare il motivo. Di seguito sono elencati i motivi e le risoluzioni comuni:
+Quando un utente viene visualizzato come "ignorato" nei log di provisioning, è importante esaminare la scheda **passaggi** del log per determinare il motivo. Di seguito sono elencati i motivi e le risoluzioni comuni:
 
 - **È stato configurato un filtro di definizione dell'ambito** **che esclude l'utente in base a un valore di attributo**. Per altre informazioni sui filtri di definizione dell'ambito, vedere [Filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 - **L'utente "non è autorizzato in modo efficiente".** Se viene visualizzato questo messaggio di errore specifico, si è verificato un problema con il record di assegnazione degli utenti archiviato in Azure AD. Per risolvere il problema, annullare l'assegnazione dell'utente (o del gruppo) dall'app e riassegnarla. Per altre informazioni sull'assegnazione, vedere [Assegnare l'accesso utente o gruppo](../manage-apps/assign-user-or-group-access-portal.md).
 - **Attributo obbligatorio mancante o non popolato per un utente.** Un aspetto importante da considerare quando si configura il provisioning è quello di esaminare e configurare il mapping degli attributi e i flussi di lavoro che definiscono il tipo di flusso di proprietà utente (o gruppo) da Azure AD all'applicazione. Questa configurazione include l'impostazione della "proprietà corrispondente" che viene usata per identificare e abbinare in modo univoco utenti/gruppi tra i due sistemi. Per altre informazioni su questo importante processo, vedere [Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory](customize-application-attributes.md).
-- **Mapping degli attributi per gruppi:** provisioning dei dettagli del gruppo e del nome del gruppo, oltre ai membri, se supportato per alcune applicazioni. È possibile abilitare o disabilitare questa funzionalità abilitando o disabilitando il **mapping** per gli oggetti gruppo visualizzati nella scheda **Provisioning.** Se i gruppi di provisioning sono abilitati, assicurarsi di esaminare i mapping degli attributi per assicurarsi che venga utilizzato un campo appropriato per l'"ID corrispondente". L'ID di abbinamento può essere il nome visualizzato o l'alias di posta elettronica. Il provisioning di questo gruppo e dei relativi membri non viene effettuato se la proprietà corrispondente è vuota o non popolata per un gruppo in Azure AD.
+- **Mapping degli attributi per gruppi:** provisioning dei dettagli del gruppo e del nome del gruppo, oltre ai membri, se supportato per alcune applicazioni. È possibile abilitare o disabilitare questa funzionalità abilitando o disabilitando il **mapping** per gli oggetti gruppo visualizzati nella scheda **provisioning** . Se il provisioning dei gruppi è abilitato, assicurarsi di esaminare i mapping degli attributi per assicurarsi che venga usato un campo appropriato per "ID corrispondente". L'ID di abbinamento può essere il nome visualizzato o l'alias di posta elettronica. Il provisioning di questo gruppo e dei relativi membri non viene effettuato se la proprietà corrispondente è vuota o non popolata per un gruppo in Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Provisioning degli utenti assegnati al ruolo di accesso predefinito
-Il ruolo predefinito in un'applicazione dalla raccolta è denominato ruolo "accesso predefinito". Storicamente, gli utenti assegnati a questo ruolo non vengono sottoposti a provisioning e vengono contrassegnati come ignorati nei log di [provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) a causa di "non effettivamente autorizzato". 
+Il ruolo predefinito in un'applicazione dalla raccolta è denominato ruolo "accesso predefinito". In passato, gli utenti assegnati a questo ruolo non vengono sottoposti a provisioning e sono contrassegnati come ignorati nei [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) perché "non è autorizzato in modo efficace". 
 
-**Comportamento per le configurazioni di provisioning create dopo il 16/04/2020:Behavior for provisioning configurations created after 04/16/2020:** Gli utenti assegnati al ruolo di accesso predefinito verranno valutati come tutti gli altri ruoli. Un utente a cui è assegnato l'accesso predefinito non verrà ignorato come "non effettivamente autorizzato". 
+**Comportamento per il provisioning delle configurazioni create dopo 04/16/2020:** Gli utenti assegnati al ruolo di accesso predefinito verranno valutati come tutti gli altri ruoli. Un utente a cui viene assegnato l'accesso predefinito non verrà ignorato come "non autorizzato in modo efficace". 
 
-**Comportamento per le configurazioni di provisioning create prima del 16/04/2020:** Per i prossimi 3 mesi, il comportamento continuerà come è oggi. Gli utenti con il ruolo di accesso predefinito verranno ignorati perché non sono effettivamente autorizzati. Dopo luglio 2020, il comportamento sarà uniforme per tutte le applicazioni. Non ignoreremo il provisioning degli utenti con il ruolo di accesso predefinito perché non è effettivamente autorizzato. Questa modifica verrà apportata da Microsoft, senza che sia richiesta alcuna azione da parte del cliente. Se si desidera assicurarsi che questi utenti continuino a essere ignorati, anche dopo questa modifica, applicare i filtri di ambito appropriati o annullare l'assegnazione dell'utente dall'applicazione per assicurarsi che siano esterni all'ambito.  
+**Comportamento per le configurazioni di provisioning create prima del 04/16/2020:** Per i prossimi 3 mesi, il comportamento continuerà così com'è oggi. Gli utenti con il ruolo di accesso predefinito verranno ignorati in modo non autorizzato. Dopo il 2020 luglio il comportamento sarà uniforme per tutte le applicazioni. Non si ignorerà il provisioning degli utenti con il ruolo di accesso predefinito perché "non è autorizzato in modo efficace". Questa modifica viene apportata da Microsoft e non è richiesta alcuna azione da parte del cliente. Per assicurarsi che gli utenti continuino a essere ignorati, anche dopo questa modifica, applicare i filtri di ambito appropriati o annullare l'assegnazione dell'utente dall'applicazione per assicurarsi che siano fuori ambito.  
 
-Per domande su questi cambiamenti, si prega di contattareprovisioningfeedback@microsoft.com
+Per domande su queste modifiche, contattareprovisioningfeedback@microsoft.com
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

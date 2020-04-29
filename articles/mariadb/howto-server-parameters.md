@@ -1,5 +1,5 @@
 ---
-title: Configurare i parametri del server - Portale di Azure - Database di Azure per MariaDBConfigure server parameters - Azure portal - Azure Database for MariaDB
+title: Configurare i parametri del server-portale di Azure database di Azure per MariaDB
 description: Questo articolo illustra come configurare i parametri del server MariaDB in Database di Azure per MariaDB usando il portale di Azure.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/16/2020
 ms.openlocfilehash: f39e9450fb922e5b93d7b4b809df73cf5ab007c1
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81602397"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Questo articolo illustra come configurare i parametri di server del Database di Azure per MariaDB usando il portale di Azure
@@ -37,7 +37,7 @@ L'elenco di parametri del server supportati è in continua crescita. Usare la sc
 
 Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collegati al [piano tariffario](concepts-pricing-tiers.md).
 
-|**Livello di determinazione dei prezzi**| **vCore**|**Pool di buffer InnoDB (MB)**|
+|**Piano tariffario**| **vCore**|**Pool di buffer InnoDB (MB)**|
 |---|---|---|
 |Basic| 1| 1024|
 |Basic| 2| 2560|
@@ -79,7 +79,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l'interfaccia della riga di [comando.](howto-restart-server-cli.md)
+> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l' [interfaccia](howto-restart-server-cli.md)della riga di comando.
 Per visualizzare i valori di fuso orario disponibili, eseguire questo comando:
 
 ```sql

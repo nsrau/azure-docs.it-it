@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
 ms.openlocfilehash: 8e3705aaecb0760513f0605aece89b7ffc0044a8
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641654"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola. 
@@ -32,7 +32,7 @@ Questo articolo illustra come configurare il codificatore [Telestream Wirecast](
 In questa esercitazione viene illustrato come gestire Servizi multimediali di Azure (AMS) con lo strumento Azure Media Services Explorer (AMSE). Questo strumento può essere eseguito solo in PC Windows. Gli utenti di sistemi Mac o Linux possono usare il Portale di Azure per creare [canali](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programmi](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> I codificatori devono supportare TLS 1.2 quando si utilizzano protocolli RTMPS. Utilizzare la versione wirecast 13.0.2 o successiva a causa del requisito TLS 1.2.
+> I codificatori devono supportare TLS 1,2 quando si usano i protocolli RTMPS. Usare la versione Wirecast 13.0.2 o successiva a causa del requisito TLS 1,2.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Creare un account di Servizi multimediali di Azure](media-services-portal-create-account.md)
@@ -102,7 +102,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
     Denominare il set di impostazioni e verificare le seguenti impostazioni consigliate:
 
-    **Dei video**
+    **Video**
 
    * Codificatore: MainConcept h. 264
    * Fotogrammi al secondo: 30
@@ -175,5 +175,5 @@ Come materiale sussidiario, vedere l'[articolo sulla risoluzione dei problemi](m
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

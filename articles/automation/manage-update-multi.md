@@ -1,32 +1,32 @@
 ---
 title: Gestire gli aggiornamenti per più macchine virtuali Azure
-description: Questo articolo descrive come gestire gli aggiornamenti per le macchine virtuali di Azure e non di Azure.This article describes how to manage updates for Azure and non-Azure virtual machines.
+description: Questo articolo descrive come gestire gli aggiornamenti per le macchine virtuali di Azure e non Azure.
 services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676435"
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gestire gli aggiornamenti per più macchine virtuali Azure
 
-È possibile usare Gestione aggiornamenti di Automazione di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali Windows e Linux.You can use Azure Automation Update Management to manage updates and patches for your Windows and Linux virtual machines. Dall'account di [Automazione di Azure](automation-offering-get-started.md) è possibile:
+È possibile usare Gestione aggiornamenti di automazione di Azure per gestire gli aggiornamenti e le patch per le macchine virtuali Windows e Linux. Dall'account di [Automazione di Azure](automation-offering-get-started.md) è possibile:
 
 - Eseguire l'onboarding di macchine virtuali.
 - Valutare lo stato degli aggiornamenti disponibili.
 - Pianificare l'installazione degli aggiornamenti necessari.
-- Esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per le quali è abilitata la gestione degli aggiornamenti.
+- Esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitato Gestione aggiornamenti.
 
-Per informazioni sui requisiti di sistema per la gestione degli aggiornamenti, vedere [Requisiti del client di gestione degli aggiornamenti](automation-update-management.md#clients).
+Per informazioni sui requisiti di sistema per Gestione aggiornamenti, vedere [requisiti di gestione aggiornamenti client](automation-update-management.md#clients).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una macchina virtuale o un computer con uno dei sistemi operativi supportati installato.
-* Accesso a un repository di aggiornamento per le macchine virtuali Linux in onboarding per la gestione degli aggiornamenti.
+* Accesso a un repository di aggiornamenti per le macchine virtuali Linux caricate in Gestione aggiornamenti.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Abilitare Gestione aggiornamenti per le macchine virtuali di Azure
 
@@ -46,7 +46,7 @@ Al termine dell'onboarding, Gestione aggiornamenti è abilitata per la macchina 
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Abilitare Gestione aggiornamenti per computer e macchine virtuali non di Azure
 
-L'agente di Log Analytics per Windows e Linux deve essere installato nelle macchine virtuali in esecuzione nella rete aziendale o in un altro ambiente cloud per abilitarle con Gestione aggiornamenti. Per informazioni sui requisiti di sistema e sui metodi supportati per distribuire l'agente in computer ospitati all'esterno di Azure, vedere [Panoramica dell'agente log Analytics.](../azure-monitor/platform/log-analytics-agent.md)
+Per abilitarli con Gestione aggiornamenti, è necessario installare l'agente Log Analytics per Windows e Linux nelle macchine virtuali in esecuzione nella rete aziendale o in un altro ambiente cloud. Per informazioni sui requisiti di sistema e sui metodi supportati per distribuire l'agente nei computer ospitati all'esterno di Azure, vedere [Panoramica dell'agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visualizzare i computer associati all'account di Automazione
 
@@ -54,19 +54,19 @@ Dopo avere abilitato Gestione aggiornamenti per i computer, è possibile visuali
 
   ![Visualizzare la scheda Computer](./media/manage-update-multi/update-computers-tab.png)
 
-È possibile che i computer abilitati di recente per Gestione aggiornamenti non siano stati ancora valutati. Lo stato di conformità `Not assessed`per tali computer è . Di seguito è riportato un elenco di valori possibili per lo stato di conformità:
+È possibile che i computer abilitati di recente per Gestione aggiornamenti non siano stati ancora valutati. Lo stato di conformità per tali computer `Not assessed`è. Di seguito è riportato un elenco di valori possibili per lo stato di conformità:
 
-- `Compliant`: computer in cui non mancano aggiornamenti critici o di sicurezza.
-- `Non-compliant`: computer in cui manca almeno un aggiornamento critico o di protezione.
-- `Not assessed`: i dati di valutazione degli aggiornamenti non sono stati ricevuti dal computer entro l'intervallo di tempo previsto. Per i computer Linux, l'intervallo di tempo previsto è l'ultima ora. Per i computer Windows, l'intervallo di tempo previsto è le ultime 12 ore.
+- `Compliant`: Computer senza aggiornamenti critici o della sicurezza mancanti.
+- `Non-compliant`: Computer in cui manca almeno un aggiornamento critico o della sicurezza.
+- `Not assessed`: I dati di valutazione dell'aggiornamento non sono stati ricevuti dal computer entro l'intervallo di tempo previsto. Per i computer Linux, l'intervallo di tempo previsto è l'ultima ora. Per i computer Windows, l'intervallo di tempo previsto è le ultime 12 ore.
 
-Per visualizzare lo stato dell'agente, selezionare il collegamento nella colonna **Aggiorna disponibilità agente.** Se si seleziona questa opzione, viene visualizzata la pagina Ruolo di lavoro ibrido in cui è visualizzato lo stato del ruolo di lavoro ibrido. L'immagine seguente illustra un esempio di un agente che non è stato connesso a Gestione aggiornamenti per un lungo periodo di tempo:
+Per visualizzare lo stato dell'agente, selezionare il collegamento nella colonna **Aggiorna conformità agenti** . Se si seleziona questa opzione, viene visualizzata la pagina Ruolo di lavoro ibrido in cui è visualizzato lo stato del ruolo di lavoro ibrido. L'immagine seguente illustra un esempio di un agente che non è stato connesso a Gestione aggiornamenti per un lungo periodo di tempo:
 
 ![Visualizzare la scheda Computer](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Visualizzare una valutazione degli aggiornamenti
 
-Dopo aver abilitato Gestione aggiornamenti, viene visualizzato il riquadro Gestione aggiornamenti. È possibile visualizzare un elenco degli aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
+Dopo l'abilitazione di Gestione aggiornamenti, viene aperto il riquadro Gestione aggiornamenti. È possibile visualizzare un elenco degli aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
 
 ## <a name="collect-data"></a>Raccogliere i dati
 
@@ -85,7 +85,7 @@ La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 
-Dopo che un computer ha completato un'analisi per la conformità degli aggiornamenti, l'agente inoltra le informazioni in blocco ai log di Monitoraggio di Azure.After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
+Quando un computer completa un'analisi per la conformità degli aggiornamenti, l'agente trasmette le informazioni in blocco ai log di monitoraggio di Azure. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
 
 Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti dal momento del riavvio di MMA e prima e dopo l'installazione degli aggiornamenti.
 
@@ -107,17 +107,17 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
 - **Nome**: immettere un nome univoco per identificare la distribuzione di aggiornamenti.
 - **Sistema operativo**: selezionare **Windows** o **Linux**.
-- **Gruppi da aggiornare:** definire una query in base a una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per le macchine virtuali non Azure, le ricerche salvate vengono usate per creare un gruppo dinamico da includere nella distribuzione. Per ulteriori informazioni, vedere [Gruppi dinamici](automation-update-management-groups.md).
+- **Gruppi da aggiornare**: definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per le macchine virtuali non di Azure, le ricerche salvate vengono usate per creare un gruppo dinamico da includere nella distribuzione. Per ulteriori informazioni, vedere [gruppi dinamici](automation-update-management-groups.md).
 - **Computer da aggiornare**: selezionare una ricerca salvata, gruppo importato, o selezionare le macchine virtuali, per scegliere i computer che si desidera aggiornare.
 
    >[!NOTE]
-   >Se si seleziona l'opzione Ricerca salvata, non viene restituito solo le identità del computer, ma solo i nomi. Se si dispone di più macchine virtuali con lo stesso nome in più gruppi di risorse, vengono restituite nei risultati. L'uso dell'opzione **Gruppi da aggiornare** è consigliato per assicurarsi di includere macchine virtuali univoche corrispondenti ai criteri.
+   >Se si seleziona l'opzione di ricerca salvata, non vengono restituite le identità del computer, bensì solo i nomi. Se sono presenti più macchine virtuali con lo stesso nome in più gruppi di risorse, vengono restituite nei risultati. È consigliabile usare l'opzione **gruppi da aggiornare** per assicurarsi di includere VM univoche corrispondenti ai criteri.
 
-   Se si sceglie **Macchine**, la disponibilità del computer viene visualizzata nella colonna **Aggiorna preparazione agente.** È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere Gruppi di computer nei log di [Monitoraggio di AzureTo](../azure-monitor/platform/computer-groups.md) learn about the different methods of creating computer groups in Azure Monitor logs, see Computer groups in Azure Monitor logs
+   Se si sceglie **computer**, la conformità del computer viene visualizzata nella colonna **Aggiorna conformità agente** . È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per informazioni sui diversi metodi di creazione di gruppi di computer nei log di monitoraggio di Azure, vedere [gruppi di computer nei log di monitoraggio di Azure](../azure-monitor/platform/computer-groups.md)
 
   ![Riquadro Nuova distribuzione di aggiornamenti](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificazioni aggiornamenti**: selezionare i tipi di software da includere nella distribuzione di aggiornamenti. Per una descrizione dei tipi di classificazione, vedere [Aggiornare le classificazioni](automation-view-update-assessments.md#update-classifications). I tipi di classificazione sono:
+- **Classificazioni aggiornamenti**: selezionare i tipi di software da includere nella distribuzione di aggiornamenti. Per una descrizione dei tipi di classificazione, vedere [Update Classifications](automation-view-update-assessments.md#update-classifications). I tipi di classificazione sono:
   - Aggiornamenti critici
   - Aggiornamenti per la sicurezza
   - Aggiornamenti cumulativi
@@ -127,7 +127,7 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
   - Strumenti
   - Aggiornamenti
 
-- **Includi/Escludi aggiornamenti**: apre la pagina Includi/Escludi. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per ulteriori informazioni sulla modalità di gestione dell'inclusione, vedere [Pianificazione di una distribuzione](automation-tutorial-update-management.md#schedule-an-update-deployment)di aggiornamento .
+- **Includi/Escludi aggiornamenti**: apre la pagina Includi/Escludi. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per ulteriori informazioni sulla gestione dell'inclusione, vedere [pianificare una distribuzione degli aggiornamenti](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
 > Tenere presente che le esclusioni eseguono l'override delle inclusioni. Se ad esempio si definisce una regola di esclusione `*`, non vengono installate patch o pacchetti perché vengono tutti esclusi. Le patch escluse vengono ancora visualizzate come mancanti dal computer. Per i computer Linux, se un pacchetto è incluso, ma ha un pacchetto dipendente che è stato escluso, il pacchetto non viene installato.
@@ -173,9 +173,9 @@ Per visualizzare il dashboard per una distribuzione di aggiornamenti, selezionar
 
 Il riquadro Risultati aggiornamento indica il numero totale di aggiornamenti e i risultati della distribuzione per la macchina virtuale. La tabella a destra offre una suddivisione dettagliata di ogni aggiornamento e dei risultati dell'installazione, che possono corrispondere a uno dei valori seguenti.
 
-- `Not attempted`: l'aggiornamento non è stato installato perché era disponibile tempo insufficiente in base alla finestra di manutenzione definita.
-- `Succeeded`: l'aggiornamento è riuscito.
-- `Failed`: l'aggiornamento non è riuscito.
+- `Not attempted`: L'aggiornamento non è stato installato perché era disponibile tempo insufficiente in base alla finestra di manutenzione definita.
+- `Succeeded`: Aggiornamento completato.
+- `Failed`: Aggiornamento non riuscito.
 
 Per visualizzare tutte le voci di log create dalla distribuzione, selezionare **Tutti i log**.
 
@@ -185,4 +185,4 @@ Per visualizzare informazioni dettagliate sugli errori della distribuzione, sele
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sui registri, l'output e gli errori di Gestione aggiornamenti, vedere Eseguire query sui record di [aggiornamento per Gestione aggiornamenti.](automation-update-management-query-logs.md)
+Per ulteriori informazioni su Gestione aggiornamenti log, output ed errori, vedere [query Update Records for Gestione aggiornamenti](automation-update-management-query-logs.md).

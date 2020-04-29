@@ -1,6 +1,6 @@
 ---
-title: Accesso con istruttore in Azure Lab Services
-description: Questo articolo illustra come gli istruttori possono accedere alle macchine virtuali degli studenti dalla visualizzazione istruttore. Ad esempio, un assistente didattico può essere un istruttore per una classe, ma uno studente per altre classi.
+title: Istruttore che accede alle macchine virtuali in Azure Lab Services
+description: Questo articolo illustra in che modo gli insegnanti possono accedere alle VM degli studenti dalla visualizzazione Instructor. Un assistente didattico, ad esempio, può essere un insegnante per una classe, ma uno studente per altre classi.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.author: spelluru
 ms.openlocfilehash: c048a2f159784a5bd38f185af29cec314b31824f
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641940"
 ---
-# <a name="access-virtual-machines-as-a-student-from-the-instructor-view"></a>Accedere alle macchine virtuali come studente dalla visualizzazione istruttore
-Questo articolo illustra come gli istruttori possono accedere alle macchine virtuali per i corsi frequentati da studenti. 
+# <a name="access-virtual-machines-as-a-student-from-the-instructor-view"></a>Accedere alle macchine virtuali come studente dalla visualizzazione Instructor
+Questo articolo illustra in che modo i docenti possono accedere alle proprie macchine virtuali per le classi che partecipano come studenti. 
 
-Di seguito è riportato uno scenario in cui questa funzionalità sarà utile. Un assistente docente è un istruttore per una classe, ma uno studente in altre classi. Inoltre, l'istruttore di insegnamento desidera visualizzare e accedere alle macchine virtuali degli studenti dalla visualizzazione dell'istruttore che mostra i lab di cui è proprietario. 
+Di seguito è riportato uno scenario in cui questa funzionalità sarà utile. Un assistente didattico è un insegnante per una classe, ma uno studente in altre classi. L'insegnante docente desidera visualizzare e accedere alle macchine virtuali degli studenti dalla visualizzazione Instructor che mostra i Lab di cui sono proprietari. 
 
-## <a name="access-vms-from-instructor-view"></a>Accedere alle macchine virtuali dalla visualizzazione istruttore
+## <a name="access-vms-from-instructor-view"></a>Accedere alle macchine virtuali dalla visualizzazione Instructor
 
-1. Accedere al sito Web di [Servizi di laboratorio di Azure](https://labs.azure.com). Vedi i laboratori che possiedi. Questi lab possono essere laboratori creati dall'utente o dai lab assegnati dall'amministratore all'utente come proprietario. Per altre informazioni, vedere [Come aggiungere altri proprietari a un lab esistenteFor more information,](how-to-add-user-lab-owner.md) see How to add additional owners to an existing lab
-2. Per accedere alle macchine virtuali per i corsi frequentati come studente, selezionare l'icona del computer nell'angolo in alto a destra. Verificare che vengano visualizzate le macchine virtuali a cui è possibile accedere come studente. Nell'esempio seguente, l'utente è un assistente didattico per il laboratorio Python, ma uno studente del laboratorio Java. Pertanto, l'utente vede la macchina virtuale dal lab Java nell'elenco a discesa. L'utente può avviare la macchina virtuale e connettersi a essa. 
+1. Accedere al [sito web Azure Lab Services](https://labs.azure.com). Vengono visualizzati i Lab di cui si è proprietari. Questi Lab possono essere laboratori creati dall'utente o dai Lab assegnati come proprietario. Per ulteriori informazioni, vedere [come aggiungere altri proprietari a un lab esistente](how-to-add-user-lab-owner.md)
+2. Per accedere alle macchine virtuali per le classi che vengono frequentate come studente, selezionare l'icona del computer nell'angolo superiore destro. Verificare che vengano visualizzate le VM a cui è possibile accedere come studente. Nell'esempio seguente l'utente è un assistente didattico per Python Lab, ma uno studente del Lab Java. Quindi, l'utente Visualizza la macchina virtuale dal Lab Java nell'elenco a discesa. L'utente può avviare la macchina virtuale e connettersi a essa. 
     
-    ![Accedere alle macchine virtuali degli studenti](../media/instructors-access-virtual-machines/access-student-virtual-machines.png)
+    ![Accedere alle VM degli studenti](../media/instructors-access-virtual-machines/access-student-virtual-machines.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 
 - [Connettersi a una macchina virtuale](how-to-use-classroom-lab.md#connect-to-the-vm)
 - [Connettersi a una macchina virtuale usando RDP in un Mac](connect-virtual-machine-mac-rdp.md)
-- [Usare il desktop remoto per le macchine virtuali LinuxUse remote desktop for Linux virtual machines](how-to-use-remote-desktop-linux-student.md)
+- [Usare desktop remoto per le macchine virtuali Linux](how-to-use-remote-desktop-linux-student.md)

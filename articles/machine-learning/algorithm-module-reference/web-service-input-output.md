@@ -1,6 +1,6 @@
 ---
 title: Input/output del servizio Web
-description: Informazioni sui moduli di servizio Web in Progettazione Azure Machine Learning (anteprima)Learn about the web service modules in Azure Machine Learning designer (preview)
+description: Informazioni sui moduli del servizio Web in Azure Machine Learning Designer (anteprima)
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -10,43 +10,43 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
 ms.openlocfilehash: be940e3ba693270707e22ffc7b9377dbea1df5f8
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81462087"
 ---
 # <a name="web-service-inputoutput"></a>Input/output del servizio Web
 
-Questo articolo descrive il modulo **Input servizio Web** e il modulo Output servizio **Web** nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive il modulo di **input del servizio** Web e il modulo di **output del servizio Web** in Azure Machine Learning Designer (anteprima).
 
-**Il** modulo Input servizio Web può connettersi alla porta di input solo con tipo **DataFrameDirectory**. E il modulo **di output** del servizio Web può essere connesso solo dalla porta di output con tipo **DataFrameDirectory**. I due moduli sono disponibili nell'albero dei moduli, nella categoria **Servizio Web.** 
+Il modulo di **input del servizio Web** può connettersi solo a una porta di input di tipo **DataFrameDirectory**. E il modulo di **output del servizio Web** può essere connesso solo dalla porta di output di tipo **DataFrameDirectory**. I due moduli sono disponibili nell'albero del modulo, in categoria **servizio Web** . 
 
-Il modulo **Input servizio Web** viene utilizzato per indicare dove i dati utente entrano nella pipeline e il modulo Output servizio **Web** viene utilizzato per indicare dove vengono restituiti i dati utente in una pipeline di inferenza in tempo reale.
+Il modulo di **input del servizio Web** viene usato per indicare la posizione in cui i dati utente vengono inseriti nella pipeline e il modulo di **output del servizio Web** viene usato per indicare dove vengono restituiti i dati utente in una pipeline di inferenza in tempo reale
 
-## <a name="how-to-use-web-service-inputoutput"></a>Come utilizzare l'input/output del servizio Web
+## <a name="how-to-use-web-service-inputoutput"></a>Come usare input/output del servizio Web
 
-- Quando si crea una pipeline di inferenza in tempo reale dalla pipeline di training, il modulo **Input servizio Web** e Output servizio **Web** verrà aggiunto automaticamente per mostrare dove i dati utente entrano nella pipeline e dove vengono restituiti i dati. 
+- Quando si crea una pipeline di inferenza in tempo reale dalla pipeline di training, viene automaticamente aggiunto il modulo di **input del servizio Web** e di **output del servizio Web** per mostrare dove i dati utente entrano nella pipeline e dove vengono restituiti i dati. 
 
-    Ulteriori informazioni sulla creazione di una pipeline di [inferenza in tempo reale](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline).
-
-    > [!NOTE]
-    > La generazione automatica della pipeline di inferenza in tempo reale è un processo di best effort basato su regole, non è garantito la correttezza. È possibile aggiungere o rimuovere manualmente i moduli **Di input/output del servizio Web** per soddisfare le proprie esigenze. Assicurarsi che nella pipeline di inferenza in tempo reale siano presenti almeno un modulo **Input servizio Web** e un modulo Output servizio **Web.** Se si dispone di più moduli **Web Service Input** o Web Service **Output,** assicurarsi che abbiano nomi univoci, che è possibile immettere il nome nel riquadro destro del modulo.
-
-- È inoltre possibile creare manualmente una pipeline di inferenza in tempo reale aggiungendo i moduli **Input servizio Web** e Output servizio **Web** alla pipeline non inviata.
+    Altre informazioni su come [creare una pipeline di inferenza in tempo reale](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline).
 
     > [!NOTE]
-    >  Il tipo di pipeline verrà determinato al primo invio. Assicurarsi quindi di aggiungere il modulo **Input servizio Web** e Output servizio **Web** prima di inviare per la prima volta se si desidera creare una pipeline di inferenza in tempo reale.
+    > La generazione automatica della pipeline di inferenza in tempo reale è un processo basato su regole ottimali che non garantisce la correttezza. È possibile aggiungere o rimuovere manualmente moduli di **input/output del servizio Web** per soddisfare i requisiti. Verificare che sia presente almeno un modulo di **input del servizio Web** e un modulo di **output del servizio Web** nella pipeline di inferenza in tempo reale. Se sono presenti più moduli di **input del servizio Web** o di **output del servizio Web** , assicurarsi che abbiano nomi univoci, che possono essere inseriti nel riquadro destro del modulo.
 
-   Di seguito viene illustrato come creare manualmente la pipeline di inferenza in tempo reale dal modulo **Esegui script Python.** 
+- È anche possibile creare manualmente una pipeline di inferenza in tempo reale aggiungendo moduli di **input del servizio Web** e di **output del servizio Web** alla pipeline non inviata.
+
+    > [!NOTE]
+    >  Il tipo di pipeline verrà determinato al momento della prima invio. Assicurarsi quindi di aggiungere il modulo di **input del servizio** Web e di **output del servizio Web** prima di inviare per la prima volta se si vuole creare una pipeline di inferenza in tempo reale.
+
+   Nell'esempio seguente viene illustrato come creare manualmente la pipeline di inferenza in tempo reale dal modulo **Execute Python script** . 
 
    ![Esempio](media/module/web-service-input-output-example.png)
    
-   Dopo aver inviato la pipeline e l'esecuzione viene completata correttamente, sarà possibile distribuire l'endpoint in tempo reale.
+   Dopo aver inviato la pipeline e l'esecuzione è stata completata correttamente, sarà possibile distribuire l'endpoint in tempo reale.
    
    > [!NOTE]
-   >  Nell'esempio precedente, **Immettere** i dati manualmente fornisce lo schema dei dati per l'input del servizio Web ed è necessario per la distribuzione dell'endpoint in tempo reale. In genere, è sempre necessario connettere un modulo o un set di dati alla porta a cui è connesso **l'input** del servizio Web per fornire lo schema dei dati.
+   >  Nell'esempio precedente, **immettere i dati manualmente** fornisce lo schema di dati per l'input del servizio Web ed è necessario per la distribuzione dell'endpoint in tempo reale. In genere, è necessario connettere sempre un modulo o un set di dati alla porta a cui è connesso l' **input del servizio Web** per fornire lo schema di dati.
    
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sulla [distribuzione dell'endpoint in tempo reale.](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint)
-Vedere il set di moduli disponibili per Azure Machine Learning.See the [set of modules available](module-reference.md) to Azure Machine Learning.
+Altre informazioni su come [distribuire l'endpoint in tempo reale](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

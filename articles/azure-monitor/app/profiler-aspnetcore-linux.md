@@ -7,15 +7,15 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: d845e245a242a88d16a2597f0144a0ae4a727cb0
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81640964"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilare app Web ASP.NET Core Linux di Azure con Application Insights Profiler
 
-Questa funzionalità è attualmente in anteprima.
+Questa funzionalità è attualmente disponibile in anteprima.
 
 Determinare il tempo impiegato in ogni metodo dell'applicazione Web attiva con [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler è ora disponibile per le app Web ASP.NET Core ospitate in Linux in Servizio app di Azure. Questa guida fornisce istruzioni dettagliate su come raccogliere tracce del profiler per app Web ASP.NET Core Linux.
 
@@ -47,7 +47,7 @@ Le istruzioni seguenti si applicano a tutti gli ambienti di sviluppo Windows, Li
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. Abilitare Application Insights in Program.cs:Enable Application Insights in Program.cs:
+1. Abilitare Application Insights in Program.cs:
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -56,7 +56,7 @@ Le istruzioni seguenti si applicano a tutti gli ambienti di sviluppo Windows, Li
             .UseStartup<Startup>();
     ```
     
-1. Abilita Profiler nel Startup.cs:
+1. Abilitare Profiler in Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -150,7 +150,7 @@ L'output dovrebbe essere simile all'esempio seguente:
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Aggiungere Application Insights per monitorare le app Web
 
-1. [Creare una risorsa di Application Insights](./../../azure-monitor/app/create-new-resource.md ).
+1. [Creare una risorsa Application Insights](./../../azure-monitor/app/create-new-resource.md ).
 
 2. Copiare il valore **iKey** della risorsa di Application Insights e configurare le impostazioni seguenti nelle app Web:
 

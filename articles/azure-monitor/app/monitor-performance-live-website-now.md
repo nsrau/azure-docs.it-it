@@ -4,25 +4,25 @@ description: Monitorare le prestazioni di un sito Web senza ripetere la distribu
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536829"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare le app Web in fase di esecuzione con Application Insights Codeless Attach
+# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
 > [!IMPORTANT]
-> Status Monitor non è più consigliato per l'uso. È stato sostituito dall'agente di Monitoraggio dello stato di Azure Monitor Application Insights (precedentemente denominato Status Monitor v2). Vedere la documentazione per le distribuzioni di server locali o per [le distribuzioni](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) di set di scalabilità di macchine virtuali e macchine virtuali di [Azure.](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)
+> Non è più consigliabile usare Status Monitor. È stata sostituita dall'agente Application Insights di monitoraggio di Azure (in precedenza denominato Status Monitor v2). Vedere la documentazione per le distribuzioni di [server locali](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) o per le [distribuzioni di macchine virtuali di Azure e set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. È necessaria una sottoscrizione di [Microsoft Azure](https://azure.com) .
 
 Status Monitor viene usato per instrumentare un'applicazione .NET ospitata in IIS, in locale o in una macchina virtuale.
 
-- Se l'app viene distribuita nella macchina virtuale di Azure o nel set di scalabilità di macchine virtuali di Azure, seguire [queste istruzioni.](azure-vm-vmss-apps.md)
+- Se l'app viene distribuita in una VM di Azure o in un set di scalabilità di macchine virtuali di Azure, seguire [queste istruzioni](azure-vm-vmss-apps.md).
 - Se l'app viene distribuita in servizi app di Azure, seguire [queste istruzioni](azure-web-apps.md).
 - Se l'app viene distribuita in una macchina virtuale di Azure, è possibile attivare il monitoraggio di Application Insights dal pannello di controllo di Azure.
-- Esistono anche articoli separati sulla strumentazione dei servizi cloud di [Azure.](../../azure-monitor/app/cloudservices.md)
+- Sono inoltre disponibili articoli distinti sulla strumentazione [dei servizi cloud di Azure](../../azure-monitor/app/cloudservices.md).
 
 
 ![Screenshot dei grafi della panoramica di Application Insights contenente informazioni su richieste non riuscite, tempo di risposta del server e richieste server](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -144,7 +144,7 @@ Microsoft sta verificando [qui](https://github.com/Microsoft/ApplicationInsights
 * Per output di log dettagliati, modificare il file config: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e aggiungere `<add key="TraceLevel" value="All" />` ad `appsettings`.
 Quindi riavviare il monitoraggio stato.
 
-* Poiché Status Monitor è un'applicazione .NET, è anche possibile abilitare la [traccia .net aggiungendo la diagnostica appropriata al file](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)di configurazione. Ad esempio, in alcuni scenari può essere utile vedere cosa succede a livello di rete [configurando](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing) la traccia di rete
+* Poiché Status Monitor è un'applicazione .NET, è anche possibile abilitare la [traccia .NET aggiungendo la diagnostica appropriata al file di configurazione](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). In alcuni scenari, ad esempio, può essere utile vedere cosa avviene a livello di rete [configurando la traccia di rete](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
 ### <a name="insufficient-permissions"></a>Autorizzazioni insufficienti
   
@@ -181,7 +181,7 @@ Supporto del sistema operativo per Application Insights Status Monitor sul serve
 * Windows Server 2012 R2
 * Windows Server 2016
 
-con SP e .NET Framework 4.5 più recenti (Status Monitor si basa su questa versione del framework)
+con SP e .NET Framework più recenti 4,5 (Status Monitor si basa su questa versione del Framework)
 
 Sul lato client: Windows 7, 8, 8.1 e 10, con .NET Framework 4.5
 
@@ -238,7 +238,7 @@ Individuare le applicazioni sottoposte a monitoraggio:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: nome di un'app Web in IIS.
-* `-InstrumentationKey`(Facoltativo). Usare questa opzione per modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
+* `-InstrumentationKey`(Facoltativo). Usare questo per modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
 * Questo cmdlet:
   * Aggiorna l'app denominata alla versione dell'SDK scaricata più di recente nel computer. Funziona solo se `SdkState==EnabledAfterDeployment`.
   * Se si specifica una chiave di strumentazione, l'app denominata viene riconfigurata per l'invio di dati di telemetria alla risorsa con tale chiave. Funziona se `SdkState != Disabled`.
@@ -275,7 +275,7 @@ Quando si seleziona un'app Web per l'instrumentazione da parte di Status Monitor
 
 A oggi Status Monitor può installare solo le versioni di Application Insights SDK 2.3 o 2.4. 
 
-Application Insights SDK versione 2.4 è [l'ultima versione a supportare .NET 4.0,](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) che è stato [EOL gennaio 2016.](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/) Pertanto, a partire da ora Status Monitor può essere utilizzato per instrumentare un'applicazione .NET 4.0. 
+La versione 2,4 di Application Insights SDK è l' [ultima versione per il supporto di .net 4,0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) , che è stata di [EOL gennaio 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Pertanto, a partire da ora è possibile usare Status Monitor per instrumentare un'applicazione .NET 4,0. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>È necessario eseguire Status Monitor ogni volta che si aggiorna l'app?
 
@@ -306,8 +306,8 @@ Per le applicazioni già instrumentate in fase di compilazione:
 
 ## <a name="download-status-monitor"></a><a name="download"></a>Scaricare Status Monitor
 
-- Usare il nuovo [modulo di PowerShellUse](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) the new PowerShell Module
-- Scaricare ed eseguire il [programma di installazione](https://go.microsoft.com/fwlink/?LinkId=506648) di Status Monitor
+- Usare il nuovo [modulo di PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
+- Scaricare ed eseguire il [programma di installazione di status monitor](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Oppure eseguire [Installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e cercarvi all'interno Application Insights Status Monitor.
 
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi

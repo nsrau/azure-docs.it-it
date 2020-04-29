@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 titleSuffix: Azure
 description: File di inclusione
 services: internet-peering
@@ -9,30 +9,30 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2ebf5d574b4d185953ab0f7984648c440d6f107e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678683"
 ---
-Il cmdlet di PowerShell **Get-AzPeeringLocation** restituisce un `Kind`elenco di posizioni di peering con il parametro obbligatorio, che verrà usato nei passaggi successivi.
+Il cmdlet di PowerShell **Get-AzPeeringLocation** restituisce un elenco di percorsi di peering con il `Kind`parametro obbligatorio, che verrà usato nei passaggi successivi.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
 ```
 
-I percorsi di peering di Exchange contengono i seguenti campi:
-* Nome di Exchange
+I percorsi di peering di Exchange contengono i campi seguenti:
+* Exchangename
 * PeeringLocation
 * Country
-* PeeringDBFacilityIdPeeringDBFacilityId
+* PeeringDBFacilityId
 * PeeringDBFacilityLink
-* MicrosoftIPv4Indirizzo
-* MicrosoftIPv6Indirizzo
+* MicrosoftIPv4Address
+* MicrosoftIPv6Address
 
-Verificare che si è presenti nella struttura di peering desiderata facendo riferimento a [PeeringDB](https://wwww.peeringdb.com).
+Verificare di essere presenti nella struttura di peering desiderata facendo riferimento a [PeeringDB](https://wwww.peeringdb.com).
 
-In questo esempio viene illustrato come utilizzare Seattle come percorso di peering per creare un peering.
+Questo esempio illustra come usare Seattle come posizione di peering per creare un peering.
 
 ```powershell
 $exchangeLocations = Get-AzPeeringLocation -Kind Exchange

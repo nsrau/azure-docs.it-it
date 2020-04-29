@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 titleSuffix: Azure
 description: File di inclusione
 services: internet-peering
@@ -9,47 +9,47 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 00c24212706555667ad4680c086ece24f15ca59a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678544"
 ---
-1. Selezionare **Crea una risorsa** > **Visualizza tutto**.
+1. Selezionare **Crea una risorsa** > **Vedi tutto**.
 
     > [!div class="mx-imgBorder"]
     > ![Peering di ricerca](../media/setup-seeall.png)
 
-1. Cercare **Peering** nella casella di ricerca e selezionare **Invio** sulla tastiera. Nei risultati selezionare una risorsa **peering.**
+1. Cercare il **peering** nella casella di ricerca e premere **invio** sulla tastiera. Nei risultati selezionare una risorsa di **peering** .
 
     > [!div class="mx-imgBorder"]
-    > ![Avviare peering](../media/setup-launch.png)
+    > ![Avvia peering](../media/setup-launch.png)
 
-1. Dopo l'avvio **del peering,** esamina la pagina per comprendere i dettagli. Quando si è pronti, selezionare **Crea**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Creare peering](../media/setup-create.png)
-
-1. Nella scheda **Nozioni di base** della pagina **Crea peering** compilare le caselle come illustrato di seguito.
+1. Dopo l'avvio del **peering** , rivedere la pagina per comprendere i dettagli. Quando si è pronti, selezionare **Crea**.
 
     > [!div class="mx-imgBorder"]
-    > ![Scheda Nozioni di base sui peer](../media/setup-basics-tab.png)
+    > ![Crea peering](../media/setup-create.png)
 
-    * Selezionare la **sottoscrizione di**Azure .
-    * Per **Gruppo**di risorse , è possibile scegliere un gruppo di risorse esistente dall'elenco a discesa oppure creare un nuovo gruppo selezionando **Crea nuovo**. Creeremo un nuovo gruppo di risorse per questo esempio.
-    * **Il nome** corrisponde al nome della risorsa e può essere qualsiasi elemento desiderato.
-    * **L'opzione Area** è selezionata automaticamente se si sceglie un gruppo di risorse esistente. Se si è scelto di creare un nuovo gruppo di risorse, è inoltre necessario scegliere l'area di Azure in cui si vuole che la risorsa risieda.
+1. Nella pagina **Crea un peering** , nella scheda **nozioni di base** , compilare le caselle come illustrato qui.
+
+    > [!div class="mx-imgBorder"]
+    > ![Scheda nozioni di base sul peering](../media/setup-basics-tab.png)
+
+    * Selezionare la **sottoscrizione**di Azure.
+    * Per **gruppo di risorse**, è possibile scegliere un gruppo di risorse esistente dall'elenco a discesa o creare un nuovo gruppo selezionando **Crea nuovo**. Per questo esempio verrà creato un nuovo gruppo di risorse.
+    * Il **nome** corrisponde al nome della risorsa e può essere qualsiasi elemento selezionato.
+    * Se si sceglie un gruppo di risorse esistente, l' **area** viene selezionata. Se si sceglie di creare un nuovo gruppo di risorse, è necessario anche scegliere l'area di Azure in cui si vuole che la risorsa risieda.
 
         > [!NOTE]
-        > L'area in cui risiede un gruppo di risorse è indipendente dalla posizione in cui si vuole creare il peering con Microsoft.The region where a resource group resides is indipendente of the location where you want to create peering with Microsoft. È tuttavia consigliabile organizzare le risorse di peering all'interno di gruppi di risorse che risiedono nelle aree di Azure più vicine. For example, for peerings in Ashburn, you can create a resource group in East US or East US2.
+        > L'area in cui risiede un gruppo di risorse è indipendente dalla località in cui si vuole creare il peering con Microsoft. Tuttavia, è consigliabile organizzare le risorse di peering all'interno di gruppi di risorse che si trovano nelle aree di Azure più vicine. Per i peering in Ashburn, ad esempio, è possibile creare un gruppo di risorse in Stati Uniti orientali o Uniti orientali.
 
-    * Selezionare l'ASN nella casella **ASN peer.**
+    * Selezionare ASN nella casella **ASN peer** .
 
         > [!IMPORTANT]
-        > * È possibile scegliere un numero ASN solo con ValidationState come approvato prima di inviare una richiesta di peering. Se hai appena inviato la tua richiesta PeerAsn, attendi circa 12 ore per l'approvazione dell'associazione ASN. Se l'ASN selezionato è in attesa di convalida, verrà visualizzato un messaggio di errore. 
-        > * Se l'ASN non è visualizzato, verificare di aver selezionato l'abbonamento corretto. In tal caso, verificare se PeerAsn è già stato creato utilizzando [Associa asn peer alla sottoscrizione](../howto-subscription-association-portal.md)di Azure.
+        > * È possibile scegliere un ASN con ValidationState come approvato prima di inviare una richiesta di peering. Se è appena stata inviata la richiesta Peerasn sugli, attendere 12 ore o in modo che l'associazione ASN venga approvata. Se l'ASN selezionato è in attesa di convalida, verrà visualizzato un messaggio di errore. 
+        > * Se non viene visualizzato l'ASN che è necessario scegliere, verificare di aver selezionato la sottoscrizione corretta. In caso affermativo, controllare se è già stato creato Peerasn sugli usando l' [associazione dell'ASN peer alla sottoscrizione di Azure](../howto-subscription-association-portal.md).
 
         > [!div class="mx-imgBorder"]
-        > ![Nozioni di base sui peering inserite](../media/setup-direct-basics-filled-tab.png)
+        > ![Nozioni fondamentali sul peering compilate](../media/setup-direct-basics-filled-tab.png)
 
-    * Selezionare **Avanti : Configurazione >** per continuare.
+    * Fare clic su **Next: Configuration >** per continuare.

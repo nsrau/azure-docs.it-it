@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: 26695df299ba5d0f50c8f271b5da99284a8d6764
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81531134"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 
-Informazioni su come usare Apache Spark [MLlib](https://spark.apache.org/mllib/) per creare un'applicazione di apprendimento automatico. L'applicazione eseguirà l'analisi predittiva su un set di dati aperto. Dalle librerie di Machine Learning integrate di Spark, questo esempio usa la *classificazione* tramite la regressione logistica.
+Informazioni su come usare Apache Spark [MLlib](https://spark.apache.org/mllib/) per creare un'applicazione di machine learning. L'applicazione eseguirà l'analisi predittiva su un set di dati aperto. Dalle librerie di Machine Learning integrate di Spark, questo esempio usa la *classificazione* tramite la regressione logistica.
 
-MLlib è una libreria Spark di base che fornisce molte utilità utili per le attività di apprendimento automatico, ad esempio:MLlib is a core Spark library that provides many utilities useful for machine learning tasks, such as:
+MLlib è una libreria Spark di base che offre molte utilità utili per le attività di Machine Learning, ad esempio:
 
 * Classificazione
 * Regressione
@@ -30,15 +30,15 @@ MLlib è una libreria Spark di base che fornisce molte utilità utili per le att
 
 ## <a name="understand-classification-and-logistic-regression"></a>Informazioni sulla classificazione e la regressione logistica
 
-La *classificazione*, un'attività comune di apprendimento automatico, è il processo di ordinamento dei dati in categorie. È compito di un algoritmo di classificazione capire come assegnare "etichette" ai dati di input forniti. Ad esempio, si potrebbe pensare a un algoritmo di apprendimento automatico che accetta le informazioni azionarie come input. Poi divide il titolo in due categorie: azioni che dovresti vendere e azioni che dovresti mantenere.
+La *classificazione*, un'attività comune di apprendimento automatico, è il processo di ordinamento dei dati in categorie. È compito di un algoritmo di classificazione determinare come assegnare "etichette" ai dati di input forniti dall'utente. Ad esempio, è possibile pensare a un algoritmo di Machine Learning che accetta informazioni sulle azioni come input. Quindi divide le scorte in due categorie: le scorte da vendere e le scorte che è opportuno tenere.
 
 La regressione logistica è l'algoritmo usato per la classificazione. L'API di regressione logistica di Spark è utile per la *classificazione binaria*, ovvero la classificazione di dati di input in uno di due gruppi. Per altre informazioni sulle regressioni logistiche, vedere [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
-In sintesi, il processo di regressione logistica produce una *funzione logistica*. Utilizzare la funzione per stimare la probabilità che un vettore di input appartenga a un gruppo o all'altro.  
+In sintesi, il processo di regressione logistica produce una *funzione logistica*. Usare la funzione per stimare la probabilità che un vettore di input appartenga a un gruppo o all'altro.  
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>Esempio di analisi predittiva dei dati di controllo degli alimenti
 
-In questo esempio si utilizza Spark per eseguire alcune analisi predittive sui dati di ispezione degli alimenti (**Food_Inspections1.csv**). Dati acquisiti attraverso il [portale dati della città di Chicago](https://data.cityofchicago.org/). Questo set di dati contiene informazioni sulle ispezioni degli stabilimenti alimentari condotte a Chicago. Comprese le informazioni su ogni stabilimento, le eventuali violazioni trovate e i risultati dell'ispezione. Il file di dati in formato CSV è già disponibile nell'account di archiviazione associato al cluster in **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+In questo esempio si usa Spark per eseguire alcune analisi predittive sui dati di ispezione degli alimenti (**Food_Inspections1. csv**). Dati acquisiti tramite il [portale dati della città di Chicago](https://data.cityofchicago.org/). Questo set di dati contiene informazioni sui controlli degli alimenti condotti a Chicago. Sono incluse informazioni su ogni stabilimento, sulle eventuali violazioni trovate e sui risultati del controllo. Il file di dati in formato CSV è già disponibile nell'account di archiviazione associato al cluster in **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per superare o non superare un controllo sugli alimenti.
 
@@ -46,7 +46,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 1. Creare un notebook di Jupyter usando il kernel PySpark. Per le istruzioni, vedere [Creare un notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice riportato di seguito in una cella vuota, quindi premere **MAIUSC e INVIO.**
+2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -57,11 +57,11 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
     from pyspark.sql.types import *
     ```
 
-    A causa del kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice.
+    A causa del kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e hive vengono creati automaticamente quando si esegue la prima cella di codice.
 
 ## <a name="construct-the-input-dataframe"></a>Creare il frame di dati di input
 
-Usare il contesto Spark per estrarre i dati CSV non elaborati in memoria come testo non strutturato. Quindi utilizzare la libreria CSV di Python per analizzare ogni riga di dati.
+Usare il contesto Spark per eseguire il pull dei dati CSV non elaborati in memoria come testo non strutturato. Usare quindi la libreria CSV di Python per analizzare ogni riga dei dati.
 
 1. Eseguire le righe seguenti per creare un set di dati RDD (Resilient Distributed Dataset) tramite importazione e analisi dei dati di input.
 
@@ -106,9 +106,9 @@ Usare il contesto Spark per estrarre i dati CSV non elaborati in memoria come te
         '(41.97583445690982, -87.7107455232781)']]
     ```
 
-    L'output dà un'idea dello schema del file di input. Esso comprende il nome di ogni stabilimento, e il tipo di stabilimento. Inoltre, l'indirizzo, i dati delle ispezioni e la posizione, tra le altre cose.
+    L'output dà un'idea dello schema del file di input. Include il nome di ogni stabilimento e il tipo di stabilimento. Inoltre, l'indirizzo, i dati delle ispezioni e la posizione, tra le altre cose.
 
-3. Eseguire il codice seguente per creare un frame di dati (*df*) e una tabella temporanea (*CountResults*) con alcune colonne che sono utili per l'analisi predittiva. `sqlContext`viene utilizzato per eseguire trasformazioni su dati strutturati.
+3. Eseguire il codice seguente per creare un frame di dati (*df*) e una tabella temporanea (*CountResults*) con alcune colonne che sono utili per l'analisi predittiva. `sqlContext`viene usato per eseguire trasformazioni sui dati strutturati.
 
     ```PySpark
     schema = StructType([
@@ -121,7 +121,7 @@ Usare il contesto Spark per estrarre i dati CSV non elaborati in memoria come te
     df.registerTempTable('CountResults')
     ```
 
-    Le quattro colonne di interesse nel frame di dati sono **ID**, **name**, **results**e **violations**.
+    Le quattro colonne di interesse nel frame di dati sono **ID**, **Name**, **results**e **Violations**.
 
 4. Eseguire il codice seguente per ottenere un piccolo campione dei dati:
 
@@ -180,7 +180,7 @@ Ora si determinerà il contenuto del set di dati.
 
     ![Output della query SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Output della query SQL")
 
-3. È inoltre possibile utilizzare [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), una libreria utilizzata per costruire la visualizzazione dei dati, per creare un grafico. Poiché il tracciato deve essere creato dal frame di dati **countResultsdf** conservato in locale, il frammento di codice deve iniziare con `%%local`. Questa azione garantisce che il codice venga eseguito localmente sul server Jupyter.
+3. È anche possibile usare [matplotlib](https://en.wikipedia.org/wiki/Matplotlib), una libreria usata per costruire la visualizzazione dei dati, per creare un tracciato. Poiché il tracciato deve essere creato dal frame di dati **countResultsdf** conservato in locale, il frammento di codice deve iniziare con `%%local`. Questa azione garantisce che il codice venga eseguito localmente nel server Jupyter.
 
     ```PySpark
     %%local
@@ -205,9 +205,9 @@ Ora si determinerà il contenuto del set di dati.
        - Business not located
        - Out of Business
 
-     I dati con gli altri risultati ("Business Not Located" o "Out of Business") non sono utili e costituiscono comunque una piccola percentuale dei risultati.
+     I dati con gli altri risultati ("business not located" o "out of business") non sono utili e costituiscono comunque una piccola percentuale dei risultati.
 
-4. Eseguire il codice seguente per convertire il frame di dati esistente (`df`) in un nuovo frame di dati in cui ogni controllo è rappresentato come coppia etichetta-violazioni. In questo caso, `0.0` un'etichetta di rappresenta `1.0` un errore, un'etichetta di rappresenta un esito positivo e un'etichetta di `-1.0` rappresenta alcuni risultati oltre a questi due risultati.
+4. Eseguire il codice seguente per convertire il frame di dati esistente (`df`) in un nuovo frame di dati in cui ogni controllo è rappresentato come coppia etichetta-violazioni. In questo caso, un'etichetta di `0.0` rappresenta un errore, un'etichetta di `1.0` rappresenta un esito positivo e un'etichetta `-1.0` rappresenta alcuni risultati oltre a questi due risultati.
 
     ```PySpark
     def labelForResults(s):
@@ -235,9 +235,9 @@ Ora si determinerà il contenuto del set di dati.
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Creare un modello di regressione logistica dal frame di dati di input
 
-L'attività finale consiste nel convertire i dati etichettati. Convertire i dati in un formato che può essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica richiede un set di *coppie vettoriali label-feature*. Dove il "vettore di feature" è un vettore di numeri che rappresentano il punto di input. Quindi, è necessario convertire la colonna "violazioni", che è semi-strutturata e contiene molti commenti in testo libero. Convertire la colonna in una matrice di numeri reali che una macchina potrebbe facilmente comprendere.
+L'attività finale consiste nel convertire i dati con etichetta. Convertire i dati in un formato che possa essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica necessita di un set di *coppie di vettori di funzionalità di etichetta*. Dove il "vettore di funzionalità" è un vettore di numeri che rappresentano il punto di input. Quindi, è necessario convertire la colonna "violazioni", che è semistrutturata e contiene numerosi commenti in testo libero. Convertire la colonna in una matrice di numeri reali che possono essere facilmente comprensibili per un computer.
 
-Un approccio di apprendimento automatico standard per l'elaborazione del linguaggio naturale consiste nell'assegnare a ogni parola distinta un "indice". Passare quindi un vettore all'algoritmo di apprendimento automatico. In modo che il valore di ogni indice contenga la frequenza relativa di tale parola nella stringa di testo.
+Un approccio di apprendimento automatico standard per l'elaborazione del linguaggio naturale consiste nell'assegnare a ogni parola distinta un "indice". Passare quindi un vettore all'algoritmo di machine learning. In modo che il valore di ogni indice contenga la frequenza relativa di tale parola nella stringa di testo.
 
 MLlib fornisce un modo semplice per eseguire questa operazione. In primo luogo, suddividere in token ogni stringa di violazione per ottenere le parole singole in ogni stringa. Quindi, usare un `HashingTF` per convertire ogni set di token in un vettore di funzione da passare successivamente all'algoritmo di regressione logistica per creare un modello. Tutti questi passaggi vengono eseguiti in sequenza usando una "pipeline".
 
@@ -252,7 +252,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>Valutare il modello usando un altro set di dati
 
-È possibile utilizzare il modello creato in precedenza per *prevedere* quali saranno i risultati delle nuove ispezioni. Le previsioni si basano sulle violazioni osservate. Il training di questo modello è stato eseguito sul set di dati **Food_Inspections1.csv**. È possibile usare un secondo set di dati, **Food_Inspections2.csv**, per *valutare* l'efficacia di questo modello sui nuovi dati. Questo secondo set di dati (**Food_Inspections2.csv**) si trova nel contenitore di archiviazione predefinito associato al cluster.
+È possibile usare il modello creato in precedenza per *stimare* quali saranno i risultati dei nuovi controlli. Le stime si basano sulle violazioni osservate. Il training di questo modello è stato eseguito sul set di dati **Food_Inspections1.csv**. È possibile usare un secondo set di dati, **Food_Inspections2.csv**, per *valutare* l'efficacia di questo modello sui nuovi dati. Questo secondo set di dati (**Food_Inspections2.csv**) si trova nel contenitore di archiviazione predefinito associato al cluster.
 
 1. Eseguire il codice seguente per creare un nuovo frame di dati, **predictionsDf** contenente la stima generata dal modello. Il frammento di codice crea anche la tabella temporanea **Predictions** basata sul dataframe.
 
@@ -266,7 +266,7 @@ model = pipeline.fit(labeledData)
     predictionsDf.columns
     ```
 
-    Verrà visualizzato un output simile al testo seguente:You should see an output like the following text:
+    Verrà visualizzato un output simile al testo seguente:
 
     ```
     ['id',
@@ -286,9 +286,9 @@ model = pipeline.fit(labeledData)
     predictionsDf.take(1)
     ```
 
-   È disponibile una stima per la prima voce nel set di dati di test.
+   Esiste una stima per la prima voce nel set di dati di test.
 
-1. Il metodo `model.transform()` applicherà la stessa trasformazione ai nuovi dati con lo stesso schema e formulerà una stima per la classificazione dei dati. È possibile eseguire alcune statistiche per avere un'idea di come sono state le previsioni:You can do some statistics to get a sense of how the predictions were:
+1. Il metodo `model.transform()` applicherà la stessa trasformazione ai nuovi dati con lo stesso schema e formulerà una stima per la classificazione dei dati. È possibile eseguire alcune statistiche per avere un'idea del modo in cui sono state eseguite le stime:
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
@@ -307,7 +307,7 @@ model = pipeline.fit(labeledData)
     This is a 86.8169618894% success rate
     ```
 
-    L'utilizzo della regressione logistica con Spark offre un modello della relazione tra le descrizioni delle violazioni in inglese. E se una determinata azienda passerebbe o fallirebbe un'ispezione alimentare.
+    L'uso della regressione logistica con Spark offre un modello della relazione tra le descrizioni delle violazioni in inglese. E se una determinata azienda passa o non supera un controllo di cibo.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Creare una rappresentazione visiva della stima
 
@@ -351,7 +351,7 @@ model = pipeline.fit(labeledData)
 
     Dovrebbe venire visualizzato l'output seguente.
 
-    ![Output dell'applicazione Spark machine learning - percentuali del grafico a torta delle ispezioni alimentari non riuscite.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Output dei risultati dell'apprendimento automatico Spark")
+    ![Output dell'applicazione di Machine Learning Spark: percentuali dei grafici a torta di ispezioni non riuscite.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Output del risultato di Machine Learning Spark")
 
     In questo grafico un risultato positivo indica il controllo degli alimenti non superato, mentre un risultato negativo indica un controllo superato.
 
@@ -365,7 +365,7 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 ### <a name="scenarios"></a>Scenari
 
-* [Apache Spark con BI: analisi interattiva dei dati tramite Spark in HDInsight con strumenti bi](apache-spark-use-bi-tools.md)
+* [Apache Spark con BI: analisi interattiva dei dati con gli strumenti di business intelligence di Spark in HDInsight](apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Analisi dei log del sito Web con Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 

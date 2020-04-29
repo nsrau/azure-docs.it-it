@@ -1,6 +1,6 @@
 ---
-title: Connettere Raspberry Pi all'hub IoT di Azure nel cloud (Node.js)
-description: Informazioni su come configurare e connettere Raspberry Pi all'hub IoT di Azure per Raspberry Pi per inviare dati alla piattaforma cloud di Azure in questa esercitazione.
+title: Connettere Raspberry Pi all'hub delle cose di Azure nel cloud (node. js)
+description: Informazioni su come configurare e connettere Raspberry Pi all'hub Azure per l'invio di dati alla piattaforma cloud di Azure in questa esercitazione.
 author: wesmc7777
 manager: eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi invio dati al cloud, da raspberry pi al cloud
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
 ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81640521"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connettere Raspberry Pi ad Azure IoT Hub (Node. js)
@@ -94,13 +94,13 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 1. Scaricare Raspbian.
 
-   a. [Buster Raspbian con desktop](https://www.raspberrypi.org/downloads/raspbian/) (il file .zip).
+   a. [Raspbian Buster con desktop](https://www.raspberrypi.org/downloads/raspbian/) (file zip).
 
    b. Estrarre l'immagine di Raspbian in una cartella nel computer.
 
 2. Installare Raspbian nella scheda microSD.
 
-   a. [Scaricare e installare l'utilità di masterizzazione scheda Etcher SD](https://etcher.io/).
+   a. [Scaricare e installare l'utilità di masterizzazione di schede SD per etcher](https://etcher.io/).
 
    b. Eseguire Etcher e selezionare l'immagine di Raspbian estratta nel passaggio 1.
 
@@ -116,9 +116,9 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 1. Collegare Pi al monitor, alla tastiera e al mouse.
 
-2. Avviare Pi e quindi accedere a `pi` Raspbian `raspberry` utilizzando come nome utente e come password.
+2. Avviare pi e accedere a Raspbian usando `pi` come nome utente e `raspberry` come password.
 
-3. Fare clic sull'icona Raspberry > **Preferenze** > **Raspberry Pi Configuration**.
+3. Fare clic sull'icona Raspberry > la configurazione **Preferenze** > **Raspberry Pi**.
 
    ![Il menu Preferenze di Raspbian](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -148,7 +148,7 @@ Per i pin dei sensori usare i collegamenti seguenti:
 | LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | Cavo bianco   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Cavo nero   |
 
-Fare clic per visualizzare [raspberry Pi 2 & 3 pin per](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) riferimento.
+Fare clic per visualizzare i [mapping pin di Raspberry Pi 2 & 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) come riferimento.
 
 Dopo aver correttamente collegato BME280 a Raspberry Pi, dovrebbe apparire come mostrato nell'immagine di seguito.
 
@@ -192,7 +192,7 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
    node -v
    ```
 
-   Se la versione è inferiore a 10.x o se non è presente alcun Node.js nel Pi, installare la versione più recente.
+   Se la versione è inferiore a 10. x o se non è presente node. js in pi, installare la versione più recente.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
@@ -229,7 +229,7 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 
    Se **non si dispone del sensore**, impostare il valore `simulatedData` su `true` per permettere all'applicazione di esempio di creare e usare i dati del sensore simulati.
 
-   *Nota: L'indirizzo i2c utilizzato in questa esercitazione è 0x77 per impostazione predefinita. A seconda della configurazione potrebbe anche essere 0x76: se si verifica un errore i2c, provare a modificare il valore a 118 e vedere se funziona meglio. Per vedere quale indirizzo viene utilizzato `sudo i2cdetect -y 1` dal sensore, eseguire in un guscio sul pi lampone*
+   *Nota: per impostazione predefinita, l'indirizzo I2C usato in questa esercitazione è 0x77. A seconda della configurazione, potrebbe anche essere 0x76: se si verifica un errore I2C, provare a modificare il valore in 118 e verificare se il funzionamento è migliore. Per individuare l'indirizzo usato dal sensore, eseguirlo `sudo i2cdetect -y 1` in una shell in Raspberry Pi*
 
 2. Salvare e uscire premendo CTRL-O > INVIO > CTRL-X.
 
@@ -250,12 +250,12 @@ Dovrebbe essere visibile l'output seguente che mostra i dati del sensore e i mes
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Leggere i messaggi ricevuti dall'hub
 
-Un modo per monitorare i messaggi ricevuti dall'hub IoT dal dispositivo consiste nell'usare gli strumenti IoT di Azure per il codice di Visual Studio.One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. Per altre informazioni, vedere Usare gli strumenti IoT di Azure per il codice di Visual Studio per inviare e ricevere messaggi tra il dispositivo e l'hub IoT.To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Un modo per monitorare i messaggi ricevuti dall'hub delle cose dal dispositivo consiste nell'usare gli strumenti di Azure per la Visual Studio Code. Per altre informazioni, vedere [usare gli strumenti di Azure per la Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)Internet.
 
-Per ulteriori modi per elaborare i dati inviati dal dispositivo, passare alla sezione successiva.
+Per altri modi per elaborare i dati inviati dal dispositivo, continuare con la sezione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata eseguita un'applicazione di esempio per raccogliere i dati dei sensori e inviarli all'hub IoT.You've run a sample application to collect sensor data and send it to your IoT hub.
+È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore e inviarli all'hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

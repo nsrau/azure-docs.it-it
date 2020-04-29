@@ -1,23 +1,23 @@
 ---
-title: Schema di estensione diagnostica di Windows
-description: Informazioni di riferimento sullo schema di configurazione per l'estensione diagnostica di Windows (WAD) in Monitoraggio di Azure.Configuration schema reference for Windows diagnostics extension (WAD) in Azure Monitor.
+title: Schema dell'estensione di diagnostica Windows
+description: Informazioni di riferimento sullo schema di configurazione per l'estensione di diagnostica Windows (WAD) in monitoraggio di Azure.
 ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676422"
 ---
-# <a name="windows-diagnostics-extension-schema"></a>Schema di estensione diagnostica di Windows
-L'estensione Diagnostica di Azure è un agente in Monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e dai carichi di lavoro delle risorse di calcolo di Azure.Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure compute resources. Questo articolo descrive in dettaglio lo schema usato per la configurazione dell'estensione di diagnostica nelle macchine virtuali Windows e in altre risorse di calcolo.
+# <a name="windows-diagnostics-extension-schema"></a>Schema dell'estensione di diagnostica Windows
+Diagnostica di Azure estensione è un agente di monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle risorse di calcolo di Azure. Questo articolo descrive in dettaglio lo schema usato per la configurazione dell'estensione di diagnostica nelle macchine virtuali Windows e in altre risorse di calcolo.
 
 > [!NOTE]
-> Lo schema in questo articolo è valido per le versioni 1.3 e successive (Azure SDK 2.4 e versioni successive). Le sezioni di configurazione più recenti hanno commenti per indicare in quale versione sono state aggiunte. Le versioni 1.0 e 1.2 dello schema sono state archiviate e non sono più disponibili. 
+> Lo schema in questo articolo è valido per le versioni 1,3 e successive (Azure SDK 2,4 e versioni successive). Le sezioni di configurazione più recenti hanno commenti per indicare in quale versione sono state aggiunte. La versione 1,0 e la versione 1,2 dello schema sono state archiviate e non sono più disponibili. 
 
 ## <a name="public-configuration-file-schema"></a>Schema del file di configurazione pubblico
 
@@ -46,8 +46,8 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
 |**PublicConfig**|Obbligatorio. Vedere la descrizione altrove in questa pagina.|  
-|**PrivateConfig**|Facoltativa. Vedere la descrizione altrove in questa pagina.|  
-|**Isenabled**|Proprietà di tipo Boolean. Vedere la descrizione altrove in questa pagina.|  
+|**PrivateConfig**|Facoltativo. Vedere la descrizione altrove in questa pagina.|  
+|**IsEnabled**|Proprietà di tipo Boolean. Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="publicconfig-element"></a>Elemento PublicConfig  
  *Albero: radice - DiagnosticsConfiguration - PublicConfig*
@@ -76,7 +76,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |----------------|-----------------|  
 | **overallQuotaInMB** | Spazio massimo sul disco locale che può essere usato dai vari tipi di dati di diagnostica raccolti da Diagnostica di Azure. L'impostazione predefinita è 4096 MB.<br />
 |**useProxyServer** | Configurare Diagnostica di Azure per l'uso delle impostazioni del server proxy definite nelle impostazioni di Internet Explorer.|
-|**Lavandini** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
+|**affonda** | Aggiunto nella versione 1.5. Facoltativo. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
 
 
 <br /> <br />
@@ -101,9 +101,9 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Attributes|Descrizione|  
 |----------------|-----------------|  
-|**containerName**|Facoltativa. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
-|**crashDumpType**|Facoltativa.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
-|**directoryQuotaPercentage**|Facoltativa.  Configura la percentuale di **overallQuotaInMB** da riservare per i dump di arresto anomalo del sistema nella macchina virtuale.|  
+|**containerName**|Facoltativo. Nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i dump di arresto anomalo del sistema.|  
+|**crashDumpType**|Facoltativo.  Configura Diagnostica di Azure per la raccolta di dump di arresto anomalo del sistema completi o mini.|  
+|**directoryQuotaPercentage**|Facoltativo.  Configura la percentuale di **overallQuotaInMB** da riservare per i dump di arresto anomalo del sistema nella macchina virtuale.|  
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
@@ -120,7 +120,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |--------------------|-----------------|  
 |**IISLogs**|Includendo questo elemento nella configurazione viene abilitata la raccolta di log IIS:<br /><br /> **containerName**: nome del contenitore BLOB dell'account di archiviazione di Azure da usare per archiviare i log IIS.|   
 |**FailedRequestLogs**|Con questo elemento nella configurazione è possibile raccogliere i log relativi alle richieste non riuscite per un'applicazione o un sito IIS. È anche necessario abilitare le opzioni di traccia sotto **system.WebServer** in **Web.config**.|  
-|**Datasources**|Elenco di directory da monitorare.|
+|**DataSources**|Elenco di directory da monitorare.|
 
 
 
@@ -189,7 +189,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
  Consente di generare una tabella di contatori delle prestazioni ottimizzata per le query veloci. Ogni contatore delle prestazioni definito nell'elemento **PerformanceCounters** viene archiviato nella tabella delle metriche oltre che nella tabella dei contatori delle prestazioni.  
 
- L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale o del set di scalabilità di macchine virtuali in cui si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Sfoglia** -> **gruppi**  ->  ** di risorse<Nome\>**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  
+ L'attributo **resourceId** è obbligatorio.  L'ID risorsa della macchina virtuale o del set di scalabilità di macchine virtuali in cui si distribuisce Diagnostica di Azure. Ottenere l'attributo **resourceID** dal [portale di Azure](https://portal.azure.com). Selezionare **Sfoglia** -> **gruppi**  ->  di risorse **<\>nome**. Fare clic sul riquadro **Proprietà** e copiare il valore del campo **ID**.  
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
@@ -209,7 +209,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elemento figlio|Descrizione|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Gli attributi seguenti sono obbligatori:<br /><br /> - **counterSpecifier**: nome del contatore delle prestazioni. Ad esempio: `\Processor(_Total)\% Processor Time`. Per ottenere un elenco di contatori delle prestazioni nell'host eseguire il comando `typeperf`.<br /><br /> - **sampleRate**: frequenza di campionamento del contatore.<br /><br /> Attributo facoltativo:<br /><br /> **unit**: unità di misura del contatore. I valori sono disponibili nella [classe UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
-|**Lavandini** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per l'invio di dati di diagnostica, Ad esempio, Monitoraggio di Azure o Hub eventi.|    
+|**affonda** | Aggiunto nella versione 1.5. Facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, Ad esempio, Monitoraggio di Azure o Hub eventi.|    
 
 
 
@@ -224,7 +224,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Elemento figlio|Descrizione|  
 |-------------------|-----------------|  
 |**DataSource**|Log eventi di Windows da raccogliere. Attributo obbligatorio:<br /><br /> **name**: query XPath che descrive gli eventi di Windows da raccogliere. Ad esempio:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Per raccogliere tutti gli eventi, specificare "*" |
-|**Lavandini** | Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
+|**affonda** | Aggiunto nella versione 1.5. Facoltativo. Punta a una posizione di sink per inviare anche dati di diagnostica per tutti gli elementi figlio che supportano i sink. Un esempio di sink può essere Application Insights o Hub eventi.|  
 
 
 ## <a name="logs-element"></a>Elemento Logs  
@@ -236,10 +236,10 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Attributo|Type|Descrizione|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilter**|**string**|Facoltativa. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**scheduledTransferPeriod**|**duration**|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
-|**Lavandini** |**string**| Aggiunto nella versione 1.5. Facoltativa. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
+|**bufferQuotaInMB**|**unsignedInt**|Facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
+|**scheduledTransferLogLevelFilter**|**string**|Facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferPeriod**|**duration**|Facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**affonda** |**string**| Aggiunto nella versione 1.5. Facoltativo. Punta a una posizione di sink per l'invio di dati di diagnostica, ad esempio Application Insights o Hub eventi.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -248,7 +248,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Nome dell'elemento|Descrizione|  
 |------------------|-----------------|  
-|**Stats**|Indica al sistema di raccogliere statistiche per i contenitori Docker|  
+|**Statistiche**|Indica al sistema di raccogliere statistiche per i contenitori Docker|  
 
 ## <a name="sinksconfig-element"></a>Elemento SinksConfig  
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
@@ -272,8 +272,8 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elemento|Type|Descrizione|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|Usato solo per inviare dati ad Application Insights. Contiene la chiave di strumentazione per un account di Application Insights attivo a cui è possibile accedere.|  
-|**Channels**|string|Uno per ogni filtro aggiuntivo per i flussi|  
+|**Application Insights**|stringa|Usato solo per inviare dati ad Application Insights. Contiene la chiave di strumentazione per un account di Application Insights attivo a cui è possibile accedere.|  
+|**Channels**|stringa|Uno per ogni filtro aggiuntivo per i flussi|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -284,7 +284,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elemento|Type|Descrizione|  
 |-------------|----------|-----------------|  
-|**Channel**|string|Vedere la descrizione altrove in questa pagina.|  
+|**Canale**|stringa|Vedere la descrizione altrove in questa pagina.|  
 
 ## <a name="channel-element"></a>Elemento Channel
  *Albero: radice - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -296,7 +296,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 |Attributes|Type|Descrizione|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**, con il quale verranno trasferiti tutti i log. Altri valori possibili (dal più dettagliato al meno dettagliato) sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**nome**|**string**|Nome univoco per fare riferimento al canale|  
+|**name**|**string**|Nome univoco per fare riferimento al canale|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig
@@ -310,7 +310,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 |Elementi figlio|Descrizione|  
 |--------------------|-----------------|  
-|**StorageAccount**|Account di archiviazione da usare. Gli attributi seguenti sono obbligatori:<br /><br /> - **name**: nome dell'account di archiviazione.<br /><br /> - **key**: chiave dell'account di archiviazione.<br /><br /> - **endpoint**: endpoint per accedere all'account di archiviazione. <br /><br /> -**sasToken** (aggiunto 1.8.1) - È possibile specificare un token di firma di accesso condiviso anziché una chiave dell'account di archiviazione nella configurazione privata. Se specificato, la chiave dell'account di archiviazione viene ignorata. <br />Requisiti per il token di firma di accesso condiviso: <br />- Supporta solo il token di firma di accesso condiviso dell'account <br />Sono obbligatori i tipi di servizio - *b* e *t*. <br /> Sono obbligatorie le autorizzazioni - *a*, *c*, *u*, *w*. <br /> Sono obbligatori i tipi di risorse - *c*, *o*. <br /> - Supporta solo il protocollo HTTPS <br /> -I valori dell'ora di inizio e di scadenza devono essere validi.|  
+|**StorageAccount**|Account di archiviazione da usare. Gli attributi seguenti sono obbligatori:<br /><br /> - **name**: nome dell'account di archiviazione.<br /><br /> - **key**: chiave dell'account di archiviazione.<br /><br /> - **endpoint**: endpoint per accedere all'account di archiviazione. <br /><br /> -**sasToken** (aggiunto 1.8.1): è possibile specificare un token SAS anziché una chiave dell'account di archiviazione nella configurazione privata. Se specificato, la chiave dell'account di archiviazione viene ignorata. <br />Requisiti per il token di firma di accesso condiviso: <br />- Supporta solo il token di firma di accesso condiviso dell'account <br />Sono obbligatori i tipi di servizio - *b* e *t*. <br /> Sono obbligatorie le autorizzazioni - *a*, *c*, *u*, *w*. <br /> Sono obbligatori i tipi di risorse - *c*, *o*. <br /> - Supporta solo il protocollo HTTPS <br /> -I valori dell'ora di inizio e di scadenza devono essere validi.|  
 
 
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
@@ -319,15 +319,15 @@ Elemento di livello superiore del file di configurazione della diagnostica.
  Proprietà di tipo Boolean. Usare `true` per abilitare la diagnostica o `false` per disabilitarla.
 
 ## <a name="example-configuration"></a>Configurazione di esempio
- Di seguito è riportata una configurazione di esempio completa per l'estensione di diagnostica di Windows illustrata sia in JSON che in XML.
+ Di seguito è riportata una configurazione di esempio completa per l'estensione di diagnostica Windows visualizzata sia in JSON che in XML.
 
  
 ### <a name="json"></a>JSON
 
-*PublicConfig* e *PrivateConfig* sono separati perché nella maggior parte dei casi di utilizzo JSON, vengono passati come variabili diverse. Questi casi includono i modelli di Resource Manager, PowerShell e Visual Studio.These cases include Resource Manager templates, PowerShell, and Visual Studio.
+*PublicConfig* e *PrivateConfig* sono separati perché nella maggior parte dei casi di utilizzo JSON vengono passati come variabili diverse. Questi casi includono Gestione risorse modelli, PowerShell e Visual Studio.
 
 > [!NOTE]
-> La definizione del sink di Azure Monitor di configurazione pubblica ha due proprietà, *resourceId* e *region*. Questi sono necessari solo per le macchine virtuali classiche e i servizio cloud classici. Queste proprietà non devono essere utilizzate per altre risorse.
+> La definizione di sink di monitoraggio di Azure per la configurazione pubblica presenta due proprietà, *resourceId* e *Region*. Questi sono necessari solo per le macchine virtuali classiche e i servizio cloud classici. Queste proprietà non devono essere usate per altre risorse.
 
 ```json
 "PublicConfig" {
@@ -505,7 +505,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 ```
 
 > [!NOTE]
-> La definizione del sink di Configurazione privata di Azure Monitor ha due proprietà, *PrincipalId* e *Secret*. Questi sono necessari solo per le macchine virtuali classiche e i servizio cloud classici. Queste proprietà non devono essere utilizzate per altre risorse.
+> La definizione di sink di monitoraggio di Azure per la configurazione privata ha due proprietà, *PrincipalId* e *Secret*. Questi sono necessari solo per le macchine virtuali classiche e i servizio cloud classici. Queste proprietà non devono essere usate per altre risorse.
 
 
 ```json

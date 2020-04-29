@@ -1,20 +1,20 @@
 ---
-title: Eseguire la migrazione delle distribuzioni degli aggiornamenti OMS in AzureMigrate your OMS update Deployments to Azure
+title: Eseguire la migrazione delle distribuzioni degli aggiornamenti di OMS in Azure
 description: Questo articolo descrive come eseguire la migrazione delle distribuzioni di aggiornamenti di OMS esistenti in Azure
 services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81679995"
 ---
-# <a name="migrate-your-oms-update-deployments-to-azure"></a>Eseguire la migrazione delle distribuzioni degli aggiornamenti OMS in AzureMigrate your OMS update deployments to Azure
+# <a name="migrate-your-oms-update-deployments-to-azure"></a>Eseguire la migrazione delle distribuzioni degli aggiornamenti di OMS in Azure
 
-Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azure-monitor/platform/oms-portal-transition.md). Tutte le funzionalità disponibili nel portale OMS per la gestione degli aggiornamenti sono disponibili nel portale di Azure tramite i log di Monitoraggio di Azure.All functionality that was available in the OMS portal for Update Management is available in the Azure portal, through Azure Monitor logs. Questo articolo fornisce le informazioni necessarie per eseguire la migrazione al portale di Azure.This article provides the information you need to migrate to the Azure portal.
+Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azure-monitor/platform/oms-portal-transition.md). Tutte le funzionalità disponibili nel portale di OMS per Gestione aggiornamenti sono disponibili nella portale di Azure, tramite i log di monitoraggio di Azure. Questo articolo fornisce le informazioni necessarie per eseguire la migrazione al portale di Azure.
 
 ## <a name="key-information"></a>Informazioni chiave
 
@@ -23,7 +23,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 
 ## <a name="access-the-azure-portal"></a>Accedere al portale di Azure
 
-Dall'area di lavoro OMS fare clic su **Apri in Azure**. Questa selezione consente di passare all'area di lavoro di Log Analytics usata da OMS.
+Dall'area di lavoro OMS fare clic su **Apri in Azure**. Questa selezione consente di passare all'area di lavoro Log Analytics usata da OMS.
 
 ![Apri in Azure -Portale di OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -31,13 +31,13 @@ Nel portale di Azure fare clic su **Account di automazione**.
 
 ![Log di Monitoraggio di Azure](media/migrate-oms-update-deployments/log-analytics.png)
 
-Nell'account Di automazione fare clic su **Gestione aggiornamenti**.
+Nell'account di automazione fare clic su **Gestione aggiornamenti**.
 
 ![Gestione degli aggiornamenti](media/migrate-oms-update-deployments/azure-automation.png)
 
-Nel portale di Azure selezionare **Account di automazione** in **Tutti i servizi**. 
+Nella portale di Azure selezionare account di **automazione** in **tutti i servizi**. 
 
-In **Strumenti di gestione**selezionare l'account di automazione appropriato e fare clic su Gestione **aggiornamenti**.
+In **strumenti di gestione**selezionare l'account di automazione appropriato e fare clic su **Gestione aggiornamenti**.
 
 ## <a name="recreate-existing-deployments"></a>Creare nuovamente le distribuzioni esistenti
 
@@ -53,13 +53,13 @@ Per creare una nuova distribuzione di aggiornamenti, passare al portale di Azure
 
 Si apre il riquadro Nuova distribuzione di aggiornamenti. Specificare i valori per le proprietà descritte nella tabella seguente e quindi fare clic su **Crea**:
 
-Per **Macchine da aggiornare**, selezionare la ricerca salvata utilizzata dalla distribuzione di OMS esistente.
+Per **aggiornare i computer**, selezionare la ricerca salvata usata dalla distribuzione OMS esistente.
 
 | Proprietà | Descrizione |
 | --- | --- |
 |Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Selezionare **Linux** o **Windows**.|
-|Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere Gruppi di computer nei log di [Monitoraggio di AzureTo](../azure-monitor/platform/computer-groups.md) learn about the different methods of creating computer groups in Azure Monitor logs, see Computer groups in Azure Monitor logs |
+|Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per informazioni sui diversi metodi di creazione di gruppi di computer nei log di monitoraggio di Azure, vedere [gruppi di computer nei log di monitoraggio di Azure](../azure-monitor/platform/computer-groups.md) |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie. CentOS non supporta questa operazione per impostazione predefinita.|
 |Aggiornamenti da escludere|Immettere gli aggiornamenti da escludere. Per Windows, immettere l'articolo della Knowledge Base senza il prefisso **KB**. Per Linux, immettere il nome del pacchetto o usare un carattere jolly.  |
 |Impostazioni di pianificazione|Selezionare l'ora di inizio e quindi selezionare **Una sola volta** o **Ricorrente** per la ricorrenza. | 
@@ -74,4 +74,4 @@ Come accennato in precedenza, dopo la configurazione delle nuove distribuzioni t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla gestione degli aggiornamenti in Azure, vedere [Gestione aggiornamenti.](automation-update-management.md)
+Per altre informazioni sulle Gestione aggiornamenti in Azure, vedere [Gestione aggiornamenti](automation-update-management.md).

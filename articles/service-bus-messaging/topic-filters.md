@@ -1,6 +1,6 @@
 ---
 title: Filtri per gli argomenti del bus di servizio di Azure | Microsoft Docs
-description: In questo articolo viene illustrato come i sottoscrittori possono definire quali messaggi desiderano ricevere da un argomento specificando i filtri.
+description: Questo articolo illustra in che modo i sottoscrittori possono definire i messaggi che vogliono ricevere da un argomento specificando filtri.
 services: service-bus-messaging
 documentationcenter: ''
 author: spelluru
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
 ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81482057"
 ---
 # <a name="topic-filters-and-actions"></a>Filtri e azioni per gli argomenti
@@ -29,14 +29,14 @@ Il bus di servizio supporta tre condizioni di filtro.
 
 -   *Filtri booleani*: **TrueFilter** e **FalseFilter** determinano la selezione per la sottoscrizione di tutti i messaggi in arrivo (**true**) o di nessun messaggio in arrivo (**false**).
 
--   *Filtri SQL*: un **SqlFilter** contiene un'espressione condizionale di tipo SQL che viene valutata nel broker rispetto alle proprietà di sistema e definite dall'utente dei messaggi in arrivo. Nell'espressione condizionale, tutte le proprietà di sistema devono essere precedute dal prefisso `sys.`. Il sottoinsieme del [linguaggio SQL per](service-bus-messaging-sql-filter.md) le`EXISTS`condizioni di`IS NULL`filtro verifica l'esistenza di proprietà ( ), valori null `LIKE`( ), NOT/AND/OR logici, operatori relazionali, aritmetica numerica semplice e criteri di ricerca di testo semplice con .
+-   *Filtri SQL*: un **SqlFilter** contiene un'espressione condizionale di tipo SQL che viene valutata nel broker rispetto alle proprietà di sistema e definite dall'utente dei messaggi in arrivo. Nell'espressione condizionale, tutte le proprietà di sistema devono essere precedute dal prefisso `sys.`. Il [subset di linguaggio SQL per le condizioni di filtro](service-bus-messaging-sql-filter.md) verifica l'esistenza di proprietà`EXISTS`(), valori null (`IS NULL`), logiche not/and/or, operatori relazionali, semplici aritmetici numerici e semplici criteri di ricerca `LIKE`di testo con.
 
--   *Filtri di correlazione*: un **CorrelationFilter** contiene un set di condizioni che vengono confrontate con una o più proprietà utente e di sistema di un messaggio in arrivo. Un utilizzo comune consiste nel trovare una corrispondenza con la proprietà **CorrelationId,** ma l'applicazione può anche scegliere di eseguire la corrispondenza con le proprietà seguenti:A common use is to match against the CorrelationId property, but the application can also choose to match against the following properties:
+-   *Filtri di correlazione*: un **CorrelationFilter** contiene un set di condizioni che vengono confrontate con una o più proprietà utente e di sistema di un messaggio in arrivo. Un uso comune è la corrispondenza con la proprietà **CorrelationId** , ma l'applicazione può anche scegliere di confrontare le proprietà seguenti:
 
-    - **Contenttype**
-     - **Etichetta**
-     - **Messageid**
-     - **Replyto**
+    - **ContentType**
+     - **Label**
+     - **MessageId**
+     - **ReplyTo**
      - **ReplyToSessionId**
      - **SessionId** 
      - **A**
@@ -46,11 +46,11 @@ Il bus di servizio supporta tre condizioni di filtro.
 
 Tutti i filtri valutano le proprietà del messaggio. I filtri non possono valutare il corpo del messaggio.
 
-Regole di filtro complesse richiedono capacità di elaborazione. In particolare, l'uso delle regole di filtro SQL causa una velocità effettiva complessiva dei messaggi inferiore a livello di sottoscrizione, argomento e spazio dei nomi. Quando possibile, le applicazioni devono scegliere i filtri di correlazione rispetto ai filtri di tipo SQL perché sono molto più efficienti nell'elaborazione e hanno un impatto minore sulla velocità effettiva.
+Regole di filtro complesse richiedono capacità di elaborazione. In particolare, l'utilizzo delle regole di filtro SQL provoca una minore velocità effettiva del messaggio a livello di sottoscrizione, argomento e spazio dei nomi. Laddove possibile, le applicazioni devono scegliere filtri di correlazione su filtri simili a SQL perché sono molto più efficienti nell'elaborazione e hanno minore effetto sulla velocità effettiva.
 
 ## <a name="actions"></a>Azioni
 
-Con le condizioni di filtro SQL, è possibile definire un'azione per annotare il messaggio aggiungendo, rimuovendo o sostituendo le proprietà e i relativi valori. L'azione [usa un'espressione di tipo SQL](service-bus-messaging-sql-filter.md) basata approssimativamente sulla sintassi dell'istruzione SQL UPDATE. L'azione viene eseguita sul messaggio dopo che è stato abbinato e prima che il messaggio venga selezionato nella sottoscrizione. Le modifiche alle proprietà del messaggio sono private e limitate al messaggio copiato nella sottoscrizione.
+Con le condizioni di filtro SQL, è possibile definire un'azione per annotare il messaggio aggiungendo, rimuovendo o sostituendo le proprietà e i relativi valori. L'azione [usa un'espressione di tipo SQL](service-bus-messaging-sql-filter.md) basata approssimativamente sulla sintassi dell'istruzione SQL UPDATE. L'azione viene eseguita sul messaggio dopo che è stata individuata una corrispondenza e prima che il messaggio venga selezionato nella sottoscrizione. Le modifiche alle proprietà del messaggio sono private e limitate al messaggio copiato nella sottoscrizione.
 
 ## <a name="usage-patterns"></a>Modelli di utilizzo
 
@@ -64,15 +64,15 @@ Il routing usa i filtri per distribuire i messaggi tra le sottoscrizioni dell'ar
 
 
 > [!NOTE]
-> Attualmente il portale di Azure non consente di specificare le regole di filtro per le sottoscrizioni. È possibile usare uno qualsiasi degli SDK o dei modelli di Azure Resource Manager supportati per definire le regole di sottoscrizione. 
+> Attualmente il portale di Azure non consente di specificare le regole di filtro per le sottoscrizioni. Per definire le regole di sottoscrizione, è possibile usare uno qualsiasi degli SDK o dei modelli di Azure Resource Manager supportati. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli esempi seguenti:See the following samples: 
+Vedere gli esempi seguenti: 
 
-- [.NET - Esercitazione di invio e ricezione di base con filtri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
-- [.NET - Filtri per argomento](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [Esercitazione di invio e ricezione .NET-Basic con filtri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
+- [Filtri di argomento .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
-- [Tipo di script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
+- [Script di tipo](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
 - [Modello di Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 

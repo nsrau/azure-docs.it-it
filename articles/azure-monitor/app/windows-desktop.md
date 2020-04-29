@@ -4,10 +4,10 @@ description: Analizzare l'uso e le prestazioni dell'applicazione desktop di Wind
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537390"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows classiche
@@ -24,11 +24,11 @@ Tutte le applicazioni ospitate in locale, in Azure e in altri cloud possono sfru
    
     o in ApplicationInsights.config, se è installato uno dei pacchetti di telemetria standard:
    
-    `<InstrumentationKey>`*la chiave*`</InstrumentationKey>` 
+    `<InstrumentationKey>`*chiave*`</InstrumentationKey>` 
    
     Se si utilizza Applicationinsights.config, assicurarsi che le proprietà in Esplora soluzione siano impostate su **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Usare l'API](../../azure-monitor/app/api-custom-events-metrics.md) per inviare dati di telemetria.
-6. Eseguire l'app e visualizzare i dati di telemetria nella risorsa creata nel portale di Azure.Run your app, and see the telemetry in the resource you created in the Azure portal.
+6. Eseguire l'app e visualizzare i dati di telemetria nella risorsa creata nella portale di Azure.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Codice di esempio
 ```csharp
@@ -68,11 +68,11 @@ using Microsoft.ApplicationInsights;
 
 ```
 
-## <a name="override-storage-of-computer-name"></a>Ignora archiviazione del nome del computer
+## <a name="override-storage-of-computer-name"></a>Sostituisci archiviazione del nome del computer
 
-Per impostazione predefinita, questo SDK raccoglie e archivia il nome computer del sistema che genera dati di telemetria. To override collection you need to use a telemetry Initializer:
+Per impostazione predefinita, l'SDK raccoglie e archivia il nome computer del sistema che emette i dati di telemetria. Per eseguire l'override della raccolta è necessario usare un inizializzatore di telemetria:
 
-**Scrivere TelemetryInitializer personalizzato come indicato di seguito.**
+**Scrivere personalizzata telemetryinitializer personalizzati come indicato di seguito.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -93,7 +93,7 @@ namespace CustomInitializer.Telemetry
     }
 }
 ```
-Creare un'istanza `Program.cs` `Main()` dell'inizializzatore nel metodo seguente impostando la chiave di strumentazione:Instantiate the initializer in the method below setting the instrumentation key:
+Creare un'istanza dell'inizializzatore `Program.cs` `Main()` nel metodo seguente impostando la chiave di strumentazione:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

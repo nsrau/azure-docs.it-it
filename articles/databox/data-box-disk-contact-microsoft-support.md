@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a3d533080af373ca209a9b393d02d1606d7cb22d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461736"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Aprire un ticket di supporto per Azure Data Box
 
-Questo articolo si applica a Azure Data Box, Azure Data Box Heavy e Azure Data Box Disk, tutti gestiti dal servizio Azure Data Box.This article applies to Azure Data Box, Azure Data Box Heavy, and Azure Data Box Disk, all which are managed by the Azure Data Box service. Se si verificano problemi con il servizio di Azure Data Box, è possibile creare una richiesta di servizio per il supporto tecnico. In questo articolo viene descritto:
+Questo articolo si applica a Azure Data Box, Azure Data Box Heavy e Azure Data Box Disk, tutti gestiti dal servizio Azure Data Box. Se si verificano problemi con il servizio di Azure Data Box, è possibile creare una richiesta di servizio per il supporto tecnico. In questo articolo viene descritto:
 
 * Come creare una richiesta di supporto
 * Come gestire una richiesta di supporto relativa al ciclo di vita all'interno del portale.
@@ -33,8 +33,8 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 2. In **Nuova richiesta di supporto** selezionare **Informazioni di base**. In **Informazioni di base** seguire questa procedura:
 
     1. Nell'elenco a discesa **Tipo di problema** selezionare **Tecnico**.
-    2. Scegli il tuo **Abbonamento**.
-    3. Nella sezione **Servizio** selezionare **Tutti i servizi**. Nell'elenco a discesa selezionare **Casella dati**. 
+    2. Scegliere la **sottoscrizione**.
+    3. Nella sezione **Servizio** selezionare **Tutti i servizi**. Nell'elenco a discesa selezionare **Data Box**. 
     4. Specificare il **Piano di supporto**.
     5. Fare clic su **Avanti**.
 
@@ -56,8 +56,8 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 4. In **Nuova richiesta di supporto** fare clic su **Passaggio 3 - Informazioni contatto**. In **Informazioni contatto** seguire la procedura seguente:
 
    1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-   2. In **Informazioni di contatto**specificare nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
-   3. Fare clic su **Crea**.
+   2. Nelle **informazioni di contatto**specificare nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
+   3. Scegliere **Crea**.
 
        ![Informazioni contatto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
@@ -83,5 +83,5 @@ Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vi
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sulla [Risoluzione dei problemi relativi a Data Box Disk](data-box-disk-troubleshoot.md).
-Informazioni su come [risolvere i problemi relativi a Data Box](data-box-troubleshoot.md).
-Informazioni su come [risolvere i problemi relativi all'archiviazione BLOB di Data Box.](data-box-troubleshoot-rest.md)
+Informazioni su come [risolvere i problemi relativi a data box](data-box-troubleshoot.md).
+Informazioni su come [risolvere i problemi relativi all'archiviazione Blob Data Box](data-box-troubleshoot-rest.md).

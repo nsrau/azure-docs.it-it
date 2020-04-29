@@ -1,14 +1,14 @@
 ---
 title: Indirizzi IP in ingresso/in uscita
-description: Informazioni sull'uso degli indirizzi IP in ingresso e in uscita nel servizio app di Azure, quando cambiano e come trovare gli indirizzi per l'app.
+description: Informazioni sul modo in cui gli indirizzi IP in ingresso e in uscita vengono usati nel servizio app Azure, quando cambiano e come trovare gli indirizzi per l'app.
 ms.topic: article
 ms.date: 06/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537628"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Indirizzi IP in ingresso e in uscita in Servizio app di Azure
@@ -23,19 +23,19 @@ Indipendentemente dal numero di istanze cui è applicata scalabilità orizzontal
 
 - Eliminazione di un'app e sua successiva ricreazione in un gruppo di risorse diverso.
 - Eliminazione dell'ultima app in un gruppo di risorse _e_ combinazione di aree e sua ricreazione.
-- Eliminare un binding TLS esistente, ad esempio durante il rinnovo del certificato (vedere [Rinnovare](configure-ssl-certificate.md#renew-certificate)il certificato ).
+- Eliminare un'associazione TLS esistente, ad esempio durante il rinnovo del certificato (vedere [rinnovo del certificato](configure-ssl-certificate.md#renew-certificate)).
 
-## <a name="find-the-inbound-ip"></a>Trovare l'IP in ingresso
+## <a name="find-the-inbound-ip"></a>Trovare l'indirizzo IP in ingresso
 
-Basta eseguire il seguente comando in un terminale locale:
+È sufficiente eseguire il comando seguente in un terminale locale:
 
 ```bash
 nslookup <app-name>.azurewebsites.net
 ```
 
-## <a name="get-a-static-inbound-ip"></a>Ottenere un IP statico in ingressoGet a static inbound IP
+## <a name="get-a-static-inbound-ip"></a>Ottenere un indirizzo IP in ingresso statico
 
-A volte è necessario un indirizzo IP statico dedicato per l'app. Per ottenere un indirizzo IP in ingresso statico, è necessario [proteggere un dominio personalizzato.](configure-ssl-bindings.md#secure-a-custom-domain) Se non hai effettivamente bisogno della funzionalità TLS per proteggere la tua app, puoi anche caricare un certificato autofirmato per questa associazione. In un'associazione TLS basata su IP, il certificato è associato all'indirizzo IP stesso, pertanto il servizio app esegue il provisioning di un indirizzo IP statico per farlo accadere. 
+A volte è necessario un indirizzo IP statico dedicato per l'app. Per ottenere un indirizzo IP in ingresso statico, è necessario [proteggere un dominio personalizzato](configure-ssl-bindings.md#secure-a-custom-domain). Se la funzionalità TLS non è effettivamente necessaria per proteggere l'app, è anche possibile caricare un certificato autofirmato per questa associazione. In un'associazione TLS basata su IP, il certificato è associato all'indirizzo IP stesso, quindi il servizio app effettua il provisioning di un indirizzo IP statico per fare in modo che si verifichi. 
 
 ## <a name="when-outbound-ips-change"></a>Casi in cui gli indirizzi IP in uscita cambiano
 
@@ -43,11 +43,11 @@ Indipendentemente dal numero di istanze cui è applicata scalabilità orizzontal
 
 Il set di indirizzi IP in uscita per l'app cambia quando si ridimensiona l'app tra i livelli inferiori (**Basic**, **Standard** e **Premium**) e il livello ** Premium V2**.
 
-È possibile trovare il set di tutti i possibili indirizzi IP in uscita che `possibleOutboundIpAddresses` l'app può usare, indipendentemente dai piani tariffari, cercando la proprietà o nel campo **Indirizzi IP in uscita aggiuntivi** nel pannello Proprietà nel portale di Azure.You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, looking for the property or in the Additional Outbound IP Addresses field in the **Properties** blade in the Azure portal. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ips).
+È possibile trovare il set di tutti i possibili indirizzi IP in uscita che possono essere usati dall'app, indipendentemente dai piani tariffari, cercando la `possibleOutboundIpAddresses` proprietà o nel campo **indirizzi IP in uscita aggiuntivi** nel pannello **proprietà** della portale di Azure. Vedere [Trovare gli indirizzi IP in uscita](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Trovare gli indirizzi IP in uscita
 
-Per trovare gli indirizzi IP in uscita attualmente usati dall'app nel portale di Azure, fare clic su **Proprietà** nel riquadro di spostamento a sinistra dell'app. Sono elencati nel campo **Indirizzi IP in uscita.**
+Per trovare gli indirizzi IP in uscita attualmente usati dall'app nel portale di Azure, fare clic su **Proprietà** nel riquadro di spostamento a sinistra dell'app. Sono elencate nel campo **indirizzi IP in uscita** .
 
 È possibile trovare le stesse informazioni eseguendo il comando seguente in [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -59,7 +59,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Per trovare _tutti i_ possibili indirizzi IP in uscita per l'app, indipendentemente dai piani tariffari, fai clic su **Proprietà** nel riquadro di spostamento sinistro dell'app. Sono elencati nel campo **Indirizzi IP in uscita aggiuntivi.**
+Per trovare _tutti i_ possibili indirizzi IP in uscita per l'app, indipendentemente dai piani tariffari, fare clic su **Proprietà** nel riquadro di spostamento a sinistra dell'app. Sono elencate nel campo **altri indirizzi IP in uscita** .
 
 È possibile trovare le stesse informazioni eseguendo il comando seguente in [Cloud Shell](../cloud-shell/quickstart.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione dei criteri WAF per il gateway applicazione di AzureMigrate WAF policies for Azure Application Gateway
-description: Informazioni su come eseguire la migrazione dei criteri di Firewall applicazione Web di Azure usando Azure PowerShell.Learn how to migrate Azure Web Application Firewall policies using Azure PowerShell.
+title: Eseguire la migrazione dei criteri di WAF per applicazione Azure gateway
+description: Informazioni su come eseguire la migrazione dei criteri del firewall applicazione Web di Azure usando Azure PowerShell.
 services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
@@ -8,33 +8,33 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536625"
 ---
-# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Eseguire la migrazione dei criteri del firewall delle applicazioni Web tramite Azure PowerShellMigrate Web Application Firewall policies using Azure PowerShell
+# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Eseguire la migrazione dei criteri del Web Application Firewall usando Azure PowerShell
 
-Questo script semplifica la transizione da una configurazione WAF o da un criterio WAF di sole regole personalizzato a un criterio WAF completo. È possibile che nel portale venga visualizzato un avviso che indica la *migrazione ai criteri WAF*oppure che si desideri che si desiderino le nuove funzionalità WAF di anteprima pubblica, ad esempio le regole personalizzate di geocorrispondenza, i criteri WAF per sito e per URI o il set di regole di mitigazione bot. Per utilizzare una di queste funzionalità, è necessario un criterio WAF completo associato al gateway applicazione. 
+Questo script semplifica la transizione da una configurazione di WAF o un criterio personalizzato WAF solo a un criterio WAF completo. È possibile che venga visualizzato un avviso nel portale in cui viene indicato *di eseguire la migrazione ai criteri di WAF*o se si vuole che le nuove funzionalità di WAF di anteprima pubblica, ad esempio le regole personalizzate di geocorrispondenza, i criteri per sito e l'URI per ogni URI o il set di regole di mitigazione bot. Per usare una di queste funzionalità, è necessario un criterio WAF completo associato al gateway applicazione. 
 
-Per ulteriori informazioni sulla creazione di un nuovo criterio WAF, vedere [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md). Per informazioni sulla migrazione, vedere [Criterio Di migrazione a WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
+Per altre informazioni sulla creazione di un nuovo criterio WAF, vedere [creare criteri di Web Application Firewall per il gateway applicazione](create-waf-policy-ag.md). Per informazioni sulla migrazione, vedere la pagina relativa [alla migrazione a criteri WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 
-## <a name="to-migrate-to-waf-policy-using-the-migration-script"></a>Per eseguire la migrazione ai criteri WAF utilizzando lo script di migrazione
+## <a name="to-migrate-to-waf-policy-using-the-migration-script"></a>Per eseguire la migrazione a criteri WAF usando lo script di migrazione
 
-Utilizzare la procedura seguente per eseguire lo script di migrazione: 
+Per eseguire lo script di migrazione, attenersi alla procedura seguente: 
 
-1. Aprire la finestra della shell cloud seguente o una dall'interno del portale.
-2. Copiare lo script nella finestra della shell cloud ed eseguirlo.
-3. Lo script richiede l'ID sottoscrizione, il nome del gruppo di risorse, il nome del gateway applicazione a cui è associata la configurazione WAF e il nome del nuovo criterio WAF da creare. Una volta immessi questi input, lo script viene eseguito e crea il nuovo criterio WAF
-4. Associare i nuovi criteri WAF al gateway applicazione. Passare al criterio WAF nel portale e selezionare la scheda **Gateway applicazione associati.** Selezionare **Associa un gateway applicazione** e quindi selezionare il gateway applicazione a cui associare il criterio WAF.
+1. Aprire la finestra di cloud Shell seguente o aprirne una dall'interno del portale.
+2. Copiare lo script nella finestra cloud Shell ed eseguirlo.
+3. Lo script richiede l'ID sottoscrizione, il nome del gruppo di risorse, il nome del gateway applicazione a cui è associata la configurazione WAF e il nome del nuovo criterio WAF da creare. Dopo aver immesso questi input, lo script viene eseguito e crea il nuovo criterio WAF
+4. Associare il nuovo criterio WAF al gateway applicazione. Passare al criterio WAF nel portale e selezionare la scheda **gateway applicazione associati** . Selezionare **associa un gateway applicazione** e quindi selezionare il gateway applicazione a cui associare il criterio WAF.
 
 > [!NOTE]
-> Lo script non completa una migrazione se esistono le seguenti condizioni:
-> - Un'intera regola è disabilitata. Per completare una migrazione, assicurarsi che un intero gruppo di regole non sia disabilitato.
-> - Una o più voci di esclusione con l'operatore *Equals.* Per completare una migrazione, assicurarsi che le voci di esclusione con *Uguale a Qualsiasi* operatore non siano presenti.
+> Lo script non completa una migrazione se sussistono le condizioni seguenti:
+> - Un'intera regola è disabilitata. Per completare una migrazione, assicurarsi che l'intero RuleGroup non sia disabilitato.
+> - Una o più voci di esclusione con l'operatore *uguale a any* . Per completare una migrazione, assicurarsi che le voci di esclusione con operatore *uguale a any* non siano presenti.
 >
-> Per altre informazioni, vedere la funzione *ValidateInput* nello script.
+> Per ulteriori informazioni, vedere la funzione *ValidateInput* nello script.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -219,4 +219,4 @@ Main
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sui gruppi di [regole CRS di Web Application Firewall e](application-gateway-crs-rulegroups-rules.md)sulle regole .
+Altre informazioni su [regole e gruppi di regole CRS del Web Application Firewall](application-gateway-crs-rulegroups-rules.md).

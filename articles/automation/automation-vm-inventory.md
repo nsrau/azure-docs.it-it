@@ -7,24 +7,24 @@ keywords: inventario, automazione, modifica, gestione
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617365"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 
-È possibile abilitare il monitoraggio dell'inventario per una macchina virtuale di Azure dalla pagina delle risorse della macchina virtuale. È possibile raccogliere e visualizzare le seguenti informazioni di inventario nei computer:
+È possibile abilitare il monitoraggio dell'inventario per una macchina virtuale di Azure dalla pagina delle risorse della macchina virtuale. È possibile raccogliere e visualizzare le informazioni di inventario seguenti nei computer:
 
-- Software Windows (applicazioni Windows e aggiornamenti di Windows), servizi, file e chiavi del Registro di sistema
-- Daemon (pacchetti) software Linux e file
+- Software Windows (applicazioni Windows e aggiornamenti di Windows), servizi, file e chiavi del registro di sistema
+- Daemon e file di software Linux (pacchetti)
 
 Questo metodo offre un'interfaccia utente basata sul browser per la configurazione della raccolta dell'inventario.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Se non si dispone di una sottoscrizione di Azure, [creare un account gratuito.](https://azure.microsoft.com/free/)
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/).
 
 Questo articolo presuppone che sia disponibile una macchina virtuale in cui configurare la soluzione. Se non si ha una macchina virtuale di Azure, [crearne una](../virtual-machines/windows/quick-create-portal.md).
 
@@ -37,7 +37,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 1. Nel riquadro sinistro del portale di Azure selezionare **Macchine virtuali**.
 2. Nell'elenco delle macchine virtuali selezionare una macchina virtuale.
 3. In **Operazioni** scegliere **Inventario** dal menu **Risorsa**.
-4. Selezionare un'area di lavoro di Log Analytics per archiviare i log dei dati.
+4. Selezionare un'area di lavoro Log Analytics per archiviare i log di dati.
     Se non sono disponibili aree di lavoro per l'area, viene chiesto se creare un'area di lavoro e un account di automazione predefiniti.
 5. Per avviare il caricamento del computer, selezionare **Abilita**.
 
@@ -53,8 +53,8 @@ Al termine della distribuzione, la barra di stato scompare. Il sistema sta ancor
 
 Per impostazione predefinita, sono configurati per la raccolta il software, i servizi di Windows e i daemon Linux. Per raccogliere i dati di inventario dei file e del Registro di sistema di Windows, configurare le impostazioni della raccolta dell'inventario.
 
-1. Nella pagina Inventario fare clic su **Modifica impostazioni** nella parte superiore della pagina.
-2. Per aggiungere una nuova impostazione di raccolta, passare alla categoria di impostazione che si desidera aggiungere selezionando la scheda **Registro di sistema**di Windows, File di **Windows**o **File Linux.**
+1. Nella pagina inventario, fare clic su **Modifica impostazioni** nella parte superiore della pagina.
+2. Per aggiungere una nuova impostazione di raccolta, passare alla categoria di impostazioni che si desidera aggiungere selezionando la scheda **Registro di sistema di Windows**, file di **Windows**o **file Linux** .
 3. Selezionare la categoria appropriata e fare clic su **Aggiungi** nella parte superiore della pagina.
 
 Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere configurate per le diverse categorie.
@@ -66,33 +66,33 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 |Attivato     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
 |Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="windows-files"></a>File Windows
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|Attivato     | True se l'impostazione viene applicata e False in caso contrario.        |
-|Nome elemento     | Nome descrittivo del file di cui tenere traccia.        |
+|Attivato     | True se viene applicata l'impostazione e false in caso contrario.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
 |Gruppo     | Nome del gruppo per il raggruppamento logico dei file.       |
-|Immettere il percorso     | Il percorso in cui verificare la presenza del file, ad esempio **c:**
+|Immettere il percorso     | Percorso da verificare per il file, ad esempio **c:\temp\myfile.txt**.
 
 ### <a name="linux-files"></a>File di Linux
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|Attivato     | True se l'impostazione viene applicata e False in caso contrario.        |
-|Nome elemento     | Nome descrittivo del file di cui tenere traccia.        |
+|Attivato     | True se viene applicata l'impostazione e false in caso contrario.        |
+|Nome elemento     | Nome descrittivo del file da rilevare.        |
 |Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Immettere il percorso     | Il percorso in cui verificare la presenza del file, ad esempio **/etc/**       |
-|Tipo di percorso     | Tipo di elemento di cui tenere traccia. I valori sono File e Directory.        |
-|Ricorsione     | True se la ricorsione viene utilizzata durante la ricerca dell'elemento da tenere traccia e False in caso contrario.        |
-|Usa Sudo     | True se sudo viene utilizzato durante il controllo dell'elemento e False in caso contrario.         |
-|Collegamenti     | Valore che indica come vengono trattati i collegamenti simbolici durante l'attraversamento delle directory. I valori possibili sono: <br> Ignora - Ignora i collegamenti simbolici e non include i file/directory a cui si fa riferimento<br>Segui : segue i collegamenti simbolici durante la ricorsione e include anche i file/directory a cui si fa riferimento<br>Gestisci: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
+|Immettere il percorso     | Percorso da verificare per il file, ad esempio **/etc/*. conf**.       |
+|Tipo di percorso     | Tipo di elemento da rilevare. I valori sono file e directory.        |
+|Ricorsione     | True se viene utilizzata la ricorsione durante la ricerca dell'elemento da rilevare e false in caso contrario.        |
+|Usa Sudo     | True se si utilizza sudo quando si verifica l'elemento e false in caso contrario.         |
+|Collegamenti     | Valore che indica il modo in cui vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory. I valori possibili sono: <br> Ignora: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento<br>Segui: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento<br>Gestisci: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
 
 ## <a name="manage-machine-groups"></a>Gestire i gruppi di computer
 
-Inventario consente di creare e visualizzare i gruppi di computer nei log di Monitoraggio di Azure.Inventory allows you to create and view machine groups in Azure Monitor logs. I gruppi di computer sono raccolte di computer definite da una query nei log di Monitoraggio di Azure.Machine groups are collections of machines defined by a query in Azure Monitor logs.
+L'inventario consente di creare e visualizzare i gruppi di computer nei log di monitoraggio di Azure. I gruppi di computer sono raccolte di computer definiti da una query nei log di monitoraggio di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -104,9 +104,9 @@ Selezionando un gruppo di computer nell'elenco, si apre la pagina Gruppi di comp
 
 ![Visualizzare la pagina del gruppo di computer](./media/automation-vm-inventory/machine-group-page.png)
 
-Fare clic su **Clona** per clonare il gruppo di macchine. È necessario assegnare al gruppo un nuovo nome e un nuovo alias per il gruppo. In questa fase è possibile modificare la definizione. Dopo aver modificato la query, fare clic su **Convalida query** per visualizzare in anteprima i computer che verranno selezionati. Quando si è soddisfatti del gruppo, fare clic su **Crea** per creare il gruppo di macchine.
+Fare clic su **+ Clone** per clonare il gruppo di computer. È necessario assegnare al gruppo un nuovo nome e un alias per il gruppo. In questa fase è possibile modificare la definizione. Dopo aver modificato la query, fare clic su **convalida query** per visualizzare un'anteprima dei computer selezionati. Quando si è soddisfatti del gruppo, fare clic su **Crea** per creare il gruppo di computer.
 
-Se si desidera creare un nuovo gruppo di computer, fare clic su **Crea un gruppo**di computer . Questo pulsante consente di aprire la pagina Crea un gruppo di **computer,** in cui è possibile definire il nuovo gruppo. Fare clic su **Crea** per creare il gruppo.
+Se si desidera creare un nuovo gruppo di computer, fare clic su **+ Crea gruppo di computer**. Questo pulsante consente di aprire la pagina **Crea un gruppo di computer** , in cui è possibile definire il nuovo gruppo. Fare clic su **Crea** per creare il gruppo.
 
 ![Creare il nuovo gruppo di computer](./media/automation-vm-inventory/create-new-group.png)
 
@@ -115,15 +115,15 @@ Se si desidera creare un nuovo gruppo di computer, fare clic su **Crea un gruppo
 Per rimuovere la macchina virtuale dalla gestione dell'inventario:
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Log Analytics** e quindi selezionare l'area di lavoro usata durante il caricamento della macchina virtuale.
-2. Nella pagina Log Analytics aprire il menu **Risorsa.**
-3. Selezionare **Macchine virtuali** in **Origini dati area di lavoro**.
+2. Nella pagina Log Analytics aprire il menu **delle risorse** .
+3. Selezionare **macchine virtuali** in **origini dati dell'area di lavoro**.
 4. Nell'elenco selezionare la macchina virtuale che si vuole disconnettere. La macchina virtuale avrà un segno di spunta verde accanto alla voce **Questa area di lavoro** nella colonna **Connessione OMS**.
 
    >[!NOTE]
-   >Operations Management Suite (OMS) è ora indicato come log di Monitoraggio di Azure.Operations Management Suite (OMS) is now referred to as Azure Monitor logs.
+   >Operations Management Suite (OMS) è ora indicato come log di monitoraggio di Azure.
    
 5. Nella parte superiore della pagina successiva fare clic su **Disconnetti**.
-6. Nella finestra di conferma, fare clic su **Sì** per disconnettere la macchina dalla gestione.
+6. Nella finestra di conferma fare clic su **Sì** per disconnettere il computer dalla gestione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

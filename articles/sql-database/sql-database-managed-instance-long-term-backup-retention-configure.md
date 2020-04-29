@@ -1,6 +1,6 @@
 ---
-title: 'Istanza gestita: conservazione dei backup a lungo termine (PowerShell)Managed instance: Long-term backup retention (PowerShell)'
-description: Informazioni su come archiviare e ripristinare i backup automatici in contenitori di archiviazione BLOB di Azure separati per un'istanza gestita del database SQL di Azure tramite PowerShell.Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Database managed instance using PowerShell.
+title: 'Istanza gestita: conservazione dei backup a lungo termine (PowerShell)'
+description: Informazioni su come archiviare e ripristinare i backup automatici in contenitori di archiviazione BLOB di Azure separati per un'istanza gestita di database SQL di Azure tramite PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -13,43 +13,43 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/19/2020
 ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81677114"
 ---
-# <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gestire la conservazione dei backup a lungo termine dell'istanza gestita del database SQL di Azure (PowerShell)Manage Azure SQL Database managed instance long-term backup retention (PowerShell)
+# <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gestire la conservazione dei backup a lungo termine dell'istanza gestita di database SQL di Azure (PowerShell)
 
-Nell'istanza gestita del database SQL di Azure è possibile configurare criteri di conservazione dei [backup a lungo termine](sql-database-long-term-retention.md#managed-instance-support) come funzionalità di anteprima pubblica limitata. In questo modo è possibile conservare automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup con PowerShell.You can then recover a database using these backups with PowerShell.
+In istanza gestita di database SQL di Azure è possibile configurare un criterio di [conservazione dei backup a lungo termine](sql-database-long-term-retention.md#managed-instance-support) come funzionalità di anteprima pubblica limitata. In questo modo è possibile mantenere automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup con PowerShell.
 
    > [!IMPORTANT]
-   > LTR per le istanze gestite è attualmente in anteprima limitata e disponibile per le sottoscrizioni EA e CSP caso per caso. Per richiedere la registrazione, creare un ticket di supporto di [Azure](https://azure.microsoft.com/support/create-ticket/) nell'argomento di supporto **Backup, ripristino e conservazione**backup a lungo termine. 
+   > La versione LTR per le istanze gestite è attualmente in anteprima limitata ed è disponibile per le sottoscrizioni EA e CSP ogni caso. Per richiedere la registrazione, creare un ticket di [supporto di Azure](https://azure.microsoft.com/support/create-ticket/) nell'argomento del supporto per il **backup, il ripristino e la continuità aziendale/conservazione dei backup a lungo termine**. 
 
 
 Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione a lungo termine dei backup, visualizzare i backup nella risorsa di archiviazione di Azure SQL ed eseguire il ripristino da un backup nella risorsa di archiviazione di Azure SQL.
 
 ## <a name="rbac-roles-to-manage-long-term-retention"></a>Ruoli Controllo degli accessi in base al ruolo per gestire la conservazione a lungo termine
 
-Per **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase**, è necessario disporre di uno dei ruoli seguenti:
+Per **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase**è necessario disporre di uno dei ruoli seguenti:
 
-- Ruolo Proprietario sottoscrizione o
-- Ruolo Collaboratore istanza gestita o
-- Ruolo personalizzato con le autorizzazioni seguenti:Custom role with the following permissions:
+- Ruolo proprietario sottoscrizione o
+- Istanza gestita ruolo Collaboratore o
+- Ruolo personalizzato con le autorizzazioni seguenti:
   - `Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-Per **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, è necessario disporre di uno dei ruoli seguenti:
+Per **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**è necessario disporre di uno dei ruoli seguenti:
 
-- Ruolo Proprietario sottoscrizione o
-- Ruolo personalizzato con l'autorizzazione seguente:Custom role with the following permission:
+- Ruolo proprietario sottoscrizione o
+- Ruolo personalizzato con l'autorizzazione seguente:
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
 > [!NOTE]
-> Il ruolo Collaboratore istanza gestita non dispone dell'autorizzazione per eliminare i backup LTR.
+> Il ruolo Collaboratore Istanza gestita non dispone dell'autorizzazione per eliminare i backup di LTR.
 
-Le autorizzazioni RBAC possono essere concesse nell'ambito della *sottoscrizione* o del *gruppo di risorse.* Tuttavia, per accedere ai backup LTR che appartengono a un'istanza eliminata, l'autorizzazione deve essere concessa nell'ambito di *sottoscrizione* di tale istanza.
+È possibile concedere autorizzazioni RBAC nell'ambito di una *sottoscrizione* o di un *gruppo di risorse* . Tuttavia, per accedere ai backup di LTR che appartengono a un'istanza eliminata, l'autorizzazione deve essere concessa nell'ambito della *sottoscrizione* di tale istanza.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
@@ -78,7 +78,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 
 ## <a name="view-ltr-policies"></a>Visualizzare i criteri di conservazione a lungo termine
 
-In questo esempio viene illustrato come elencare i criteri LTR all'interno di un'istanza
+Questo esempio illustra come elencare i criteri di LTR all'interno di un'istanza
 
 ```powershell
 # gets the current version of LTR policy for the database
@@ -97,7 +97,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 
 ## <a name="view-ltr-backups"></a>Visualizzare i backup con conservazione a lungo termine
 
-In questo esempio viene illustrato come elencare i backup LTR all'interno di un'istanza.
+Questo esempio illustra come elencare i backup di LTR all'interno di un'istanza di.
 
 ```powershell
 # get the list of all LTR backups in a specific Azure region
@@ -128,7 +128,7 @@ Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resou
 ```
 
 > [!IMPORTANT]
-> L'eliminazione di un backup con conservazione a lungo termine non è reversibile. Per eliminare un backup LTR dopo l'eliminazione dell'istanza, è necessario disporre dell'autorizzazione ambito sottoscrizione. È possibile impostare notifiche su ogni eliminazione in Monitoraggio di Azure filtrando l'operazione 'Elimina un backup di conservazione a lungo termine'. Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
+> L'eliminazione di un backup con conservazione a lungo termine non è reversibile. Per eliminare un backup di LTR dopo l'eliminazione dell'istanza, è necessario disporre dell'autorizzazione per l'ambito della sottoscrizione. È possibile configurare le notifiche relative a ogni eliminazione in monitoraggio di Azure filtrando l'operazione "Elimina un backup di conservazione a lungo termine". Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
 
 ## <a name="restore-from-ltr-backups"></a>Eseguire il ripristino dai backup con conservazione a lungo termine
 
@@ -141,7 +141,7 @@ Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBacku
 ```
 
 > [!IMPORTANT]
-> Per eseguire il ripristino da un backup LTR dopo l'eliminazione dell'istanza, è necessario disporre delle autorizzazioni nell'ambito della sottoscrizione dell'istanza e tale sottoscrizione deve essere attiva. È inoltre necessario omettere il parametro facoltativo -ResourceGroupName.
+> Per eseguire il ripristino da un backup di LTR dopo che l'istanza è stata eliminata, è necessario disporre dell'ambito delle autorizzazioni per la sottoscrizione dell'istanza di e la sottoscrizione deve essere attiva. È inoltre necessario omettere il parametro facoltativo-ResourceGroupName.
 
 > [!NOTE]
 > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente. Vedere [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).

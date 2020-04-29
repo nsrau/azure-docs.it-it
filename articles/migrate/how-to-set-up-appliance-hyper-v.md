@@ -1,29 +1,29 @@
 ---
-title: Configurare un'appliance Di Azure Migrate per Hyper-VSet up an Azure Migrate appliance for Hyper-V
-description: Informazioni su come configurare un'appliance di Azure Migrate per valutare ed eseguire la migrazione delle macchine virtuali Hyper-V.Learn how to set up an Azure Migrate appliance to assess and migrate Hyper-V VMs.
+title: Configurare un'appliance Azure Migrate per Hyper-V
+description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538291"
 ---
-# <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le macchine virtuali Hyper-VSet up an appliance for Hyper-V VMs
+# <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le VM Hyper-V
 
-Seguire questo articolo per configurare l'appliance Di Azure Migrate per la valutazione delle macchine virtuali Hyper-V con lo strumento [Azure Migrate:Server Assessment.Follow](migrate-services-overview.md#azure-migrate-server-assessment-tool) this article to set up the Azure Migrate appliance for assessment of Hyper-V VMs with the Azure Migrate:Server Assessment tool.
+Seguire questo articolo per configurare l'appliance Azure Migrate per la valutazione delle VM Hyper-V con lo strumento di [valutazione Azure migrate: server](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
 
-[L'appliance Azure Migrate](migrate-appliance.md) è un'appliance leggera usata da Azure Migrate:Server Assessment/Migration per individuare le macchine virtuali Hyper-V locali e inviare metadati/dati sulle prestazioni della macchina virtuale ad Azure.The Azure Migrate appliance is a lightweight appliance used by Azure Migrate:Server Assessment/Migration to discover on-premises Hyper-V VMs, and send VM metadata/performance data to Azure.
+Il [Azure migrate Appliance](migrate-appliance.md) è un'appliance semplice usata da Azure migrate: valutazione/migrazione del server per individuare le macchine virtuali Hyper-V locali e inviare i dati relativi alle prestazioni e ai metadati delle VM in Azure.
 
-È possibile distribuire l'appliance utilizzando un paio di metodi:
+È possibile distribuire l'appliance usando due metodi:
 
-- Configurare una macchina virtuale Hyper-V usando un disco rigido virtuale scaricato. Questo è il metodo descritto in questo articolo.
-- Configurare una macchina virtuale Hyper-V o un computer fisico con uno script del programma di installazione di PowerShell.Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [Questo metodo](deploy-appliance-script.md) deve essere usato se non è possibile configurare una macchina virtuale usando un disco rigido virtuale o se ci si usa Azure per enti pubblici.
+- Configurare in una macchina virtuale Hyper-V usando un disco rigido virtuale scaricato. Questo è il metodo descritto in questo articolo.
+- Configurare l'appliance in una macchina virtuale Hyper-Vo in un computer fisico con uno script di installazione di PowerShell. [Questo metodo](deploy-appliance-script.md) deve essere usato se non è possibile configurare una macchina virtuale con un disco rigido virtuale o se si è in Azure per enti pubblici.
 
 Dopo aver creato l'appliance, verificare che sia in grado di connettersi ad Azure Migrate: Valutazione server, configurarla per la prima volta e registrarla nel progetto di Azure Migrate.
 
-## <a name="appliance-deployment-vhd"></a>Distribuzione dell'appliance (VHD)Appliance deployment (VHD)
+## <a name="appliance-deployment-vhd"></a>Distribuzione Appliance (VHD)
 
 Per configurare l'appliance usando un modello VHD:
 
@@ -50,7 +50,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  Per la versione 2.19.11.12 dell'appliance, l'hash generato deve corrispondere a queste [impostazioni.](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)
+3.  Per la versione appliance 2.19.11.12, l'hash generato deve corrispondere a queste [Impostazioni](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security).
 
 
 
@@ -77,7 +77,7 @@ Importare il file scaricato e creare la VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
-Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli URL di Azure per i cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi.](migrate-appliance.md#government-cloud-urls)
+Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli URL di Azure per i cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls).
 
 ## <a name="configure-the-appliance"></a>Configurare l'appliance
 
@@ -111,7 +111,7 @@ Configurare l'appliance per la prima volta. Se si distribuisce l'appliance usand
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegare le credenziali per i dischi rigidi virtuali SMB
 
-Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare la delega delle credenziali dall'appliance agli host Hyper-V. Per eseguire questa operazione dall'apparecchio:
+Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare la delega delle credenziali dall'appliance agli host Hyper-V. Per eseguire questa operazione dal dispositivo:
 
 1. Nell'appliance VM eseguire questo comando. HyperVHost1/HyperVHost2 sono nomi host di esempio.
 
@@ -150,4 +150,4 @@ Dopo l'individuazione, è possibile verificare se le VM vengono visualizzate nel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare la [valutazione di Hyper-V](tutorial-assess-hyper-v.md) con Azure Migrate Server Assessment.
+Prova [Hyper-V Assessment](tutorial-assess-hyper-v.md) con Azure migrate server assessment.

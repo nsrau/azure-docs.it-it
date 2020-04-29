@@ -1,6 +1,6 @@
 ---
-title: Proteggi la tua area di lavoro Synapse (anteprima)
-description: Questo articolo ti insegnerà come usare i ruoli e il controllo degli accessi per controllare le attività e l'accesso ai dati nell'area di lavoro Synapse.
+title: Proteggere l'area di lavoro sinapsi (anteprima)
+description: Questo articolo illustra come usare i ruoli e il controllo di accesso per controllare le attività e l'accesso ai dati nell'area di lavoro sinapsi.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -10,165 +10,165 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
 ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606015"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Proteggi la tua area di lavoro Synapse (anteprima)
+# <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro sinapsi (anteprima)
 
-Questo articolo ti insegnerà come usare i ruoli e il controllo degli accessi per controllare le attività e l'accesso ai dati. Seguendo queste istruzioni, il controllo degli accessi in Azure Synapse Analytics è semplificato. È sufficiente aggiungere e rimuovere utenti in uno dei tre gruppi di sicurezza.
+In questo articolo viene illustrato come utilizzare i ruoli e il controllo di accesso per controllare le attività e l'accesso ai dati. Seguendo queste istruzioni, il controllo di accesso in Azure sinapsi Analytics è semplificato. È sufficiente aggiungere e rimuovere utenti a uno dei tre gruppi di sicurezza.
 
 ## <a name="overview"></a>Panoramica
 
-Per proteggere un'area di lavoro Synapse (anteprima), seguire un modello di configurazione degli elementi seguenti:To secure a Synapse workspace (preview), you'll follow a pattern of configuring the following items:
+Per proteggere un'area di lavoro sinapsi (anteprima), si seguirà un modello di configurazione degli elementi seguenti:
 
-- Ruoli di Azure (ad esempio quelli predefiniti come Proprietario, Collaboratore e così via)Azure roles (such as the built-in one like Owner, Contributor, etc.)
-- Ruoli Synapse: questi ruoli sono univoci per Synapse e non sono basati sui ruoli di Azure.Synapse roles – these roles are unique to Synapse and aren't based on Azure roles. Esistono tre di questi ruoli:
-  - Amministratore dell'area di lavoro Synapse
-  - Amministratore SQL Synapse
-  - Amministratore Synapse Spark
-- Controllo di accesso per i dati in Azure Data Lake Storage Gen 2 (ADLSGEN2).
-- Controllo degli accessi per i database Synapse SQL e SparkAccess control for Synapse SQL and Spark databases
+- I ruoli di Azure, ad esempio quelli predefiniti come proprietario, collaboratore e così via.
+- Ruoli sinapsi: questi ruoli sono univoci per le sinapsi e non sono basati sui ruoli di Azure. Sono disponibili tre ruoli:
+  - Amministratore dell'area di lavoro sinapsi
+  - Amministratore SQL sinapsi
+  - Amministrazione di sinapsi Spark
+- Controllo di accesso per i dati in Azure Data Lake Storage generazione 2 (ADLSGEN2).
+- Controllo di accesso per i database sinapsi SQL e Spark
 
-## <a name="steps-to-secure-a-synapse-workspace"></a>Passaggi per proteggere un'area di lavoro Synapse
+## <a name="steps-to-secure-a-synapse-workspace"></a>Passaggi per la protezione di un'area di lavoro sinapsi
 
-Questo documento utilizza nomi standard per semplificare le istruzioni. Sostituirli con qualsiasi nome di propria scelta.
+In questo documento vengono utilizzati nomi standard per semplificare le istruzioni. Sostituirli con i nomi scelti.
 
 |Impostazione | Valore di esempio | Descrizione |
 | :------ | :-------------- | :---------- |
-| **Area di lavoro Synapse** | WS1 |  Nome dell'area di lavoro Synapse. |
-| **Account ADLSGEN2** | STG1 | Account ADLS da utilizzare con l'area di lavoro. |
-| **Contenitore** | CNT1 | Contenitore in STG1 che verrà utilizzato dall'area di lavoro per impostazione predefinita. |
-| **Tenant di Active Directory** | contoso | il nome del tenant di Active Directory.|
+| **Area di lavoro sinapsi** | WS1 |  Nome che avrà l'area di lavoro sinapsi. |
+| **Account ADLSGEN2** | STG1 | Account ADLS da usare con l'area di lavoro. |
+| **Contenitore** | CNT1 | Il contenitore in STG1 che l'area di lavoro utilizzerà per impostazione predefinita. |
+| **Tenant di Active Directory** | contoso | nome del tenant di Active Directory.|
 ||||
 
-## <a name="step-1-set-up-security-groups"></a>PASSAGGIo 1: Impostare i gruppi di sicurezzaSTEP 1: Set up security groups
+## <a name="step-1-set-up-security-groups"></a>PASSAGGIO 1: configurare i gruppi di sicurezza
 
-Creare e popolare tre gruppi di sicurezza per l'area di lavoro:Create and populate three security groups for your workspace:
+Creare e popolare tre gruppi di sicurezza per l'area di lavoro:
 
-- **WS1\_WSAdmins** – per gli utenti che necessitano di un controllo completo sull'area di lavoro
-- **WS1\_SparkAdmins** : per gli utenti che necessitano di un controllo completo sugli aspetti Spark dell'area di lavoro
-- **WS1\_SQLAdmins** – per gli utenti che necessitano di un controllo completo sugli aspetti SQL dell'area di lavoro
-- Aggiungere **WS1\_WSAdmins** a **WS1\_SQLAdmins**
-- Aggiungere **\_WS1 WSAdmins** a **WS1\_SparkAdmins**
+- **WS1\_WSAdmins** : per gli utenti che necessitano del controllo completo sull'area di lavoro
+- **WS1\_SparkAdmins** : per gli utenti che devono avere il controllo completo sugli aspetti di Spark dell'area di lavoro
+- **WS1\_sqladmins** : per gli utenti che necessitano del controllo completo sugli aspetti SQL dell'area di lavoro
+- Aggiungere **WS1\_WSAdmins** a **WS1\_sqladmins**
+- Aggiungere **WS1\_WSAdmins** a **WS1\_SparkAdmins**
 
-## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSAGGIo 2: Preparare l'account Data Lake Storage Gen2
+## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSAGGIO 2: preparare l'account Data Lake Storage Gen2
 
-Identificare queste informazioni sullo spazio di archiviazione:Identify this information about your storage:
+Identificare le informazioni relative all'archiviazione:
 
-- Account ADLSGEN2 da utilizzare per l'area di lavoro. Questo documento lo chiama STG1.  STG1 è considerato l'account di archiviazione "primario" per l'area di lavoro.
-- Contenitore all'interno di WS1 che verrà utilizzato per impostazione predefinita nell'area di lavoro Synapse. Questo documento lo chiama CNT1.  Questo contenitore viene utilizzato per:This container is used for:
+- Account ADLSGEN2 da usare per l'area di lavoro. In questo documento viene chiamato STG1.  STG1 è considerato l'account di archiviazione "primario" per l'area di lavoro.
+- Il contenitore all'interno di WS1 che l'area di lavoro sinapsi utilizzerà per impostazione predefinita. In questo documento viene chiamato CNT1.  Questo contenitore viene usato per:
   - Archiviazione dei file di dati di backup per le tabelle Spark
-  - Registri di esecuzione per i processi SparkExecution logs for Spark jobs
+  - Log di esecuzione per i processi Spark
 
-- Usando il portale di Azure, assegnare ai gruppi di sicurezza i ruoli seguenti in CNT1Using the Azure portal, assign the security groups the following roles on CNT1
+- Usando il portale di Azure, assegnare i gruppi di sicurezza i ruoli seguenti in CNT1
 
-  - Assegnare WS1 WSAdmins al ruolo **Collaboratore dati BLOB di archiviazioneAssign** **\_WS1 WSAdmins** to the Storage Blob Data Contributor role
-  - Assegnare WS1 SparkAdmins al ruolo **Collaboratore dati BLOB di archiviazioneAssign** **\_WS1 SparkAdmins** to the Storage Blob Data Contributor role
-  - Assegnare WS1 SQLAdmins al ruolo **Collaboratore dati BLOB di archiviazioneAssign** **\_WS1 SQLAdmins** to the Storage Blob Data Contributor role
+  - Assegnare **WS1\_WSAdmins** al ruolo di **collaboratore dati BLOB di archiviazione**
+  - Assegnare **WS1\_SparkAdmins** al ruolo di **collaboratore dati BLOB di archiviazione**
+  - Assegnare **Sqladmins WS1\_** al ruolo di **collaboratore dati BLOB di archiviazione**
 
-## <a name="step-3-create-and-configure-your-synapse-workspace"></a>FASE 3: Creare e configurare l'area di lavoro Synapse
+## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASSAGGIO 3: creare e configurare l'area di lavoro sinapsi
 
-Nel portale di Azure creare un'area di lavoro Synapse:In the Azure portal, create a Synapse workspace:
+Nella portale di Azure creare un'area di lavoro sinapsi:
 
-- Assegnare un nome all'area di lavoro WS1
+- Denominare l'area di lavoro WS1
 - Scegliere STG1 per l'account di archiviazione
-- Scegliere CNT1 per il contenitore utilizzato come "file system".
-- Aprire WS1 in Synapse Studio
-- Selezionare **Gestisci** > controllo di**accesso** assegnare i gruppi di sicurezza ai ruoli Synapse seguenti.
-  - Assegnare **WS1 WSAdmins\_** agli amministratori dell'area di lavoro Synapse
-  - Assegnare **WS1\_SparkAdmins** agli amministratori di Synapse Spark
-  - Assegnare SQLAdmins WS1 agli amministratori SQL di SynapseAssign **\_WS1 SQLAdmins** to Synapse SQL admins
+- Scegliere CNT1 per il contenitore usato come "filesystem".
+- Aprire WS1 in sinapsi Studio
+- Selezionare **Gestisci** > **controllo di accesso** assegnare i gruppi di sicurezza ai ruoli sinapsi seguenti.
+  - Assegnare **WS1\_WSAdmins** agli amministratori dell'area di lavoro sinapsi
+  - Assegnare **WS1\_SparkAdmins** a sinapsi Spark Admins
+  - Assegnare **Sqladmins WS1\_** agli amministratori di sinapsi SQL
 
-## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>FASE 4: Configurazione di Data Lake Storage Gen2 per l'utilizzo da parte dell'area di lavoro Synapse
+## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASSAGGIO 4: configurazione di Data Lake Storage Gen2 per l'uso da area di lavoro sinapsi
 
-L'area di lavoro Synapse deve accedere a STG1 e CNT1 in modo che possa eseguire pipeline ed eseguire attività di sistema.
+L'area di lavoro sinapsi deve accedere a STG1 e CNT1 in modo da poter eseguire le pipeline ed eseguire attività di sistema.
 
 - Aprire il portale di Azure
 - Individuare STG1
 - Passare a CNT1
-- Verificare che il file MSI (Managed Service Identity) per WS1 sia assegnato al ruolo **Collaboratore dati BLOB** di Azure in CNT1
-  - Se non vedi che è stato assegnato, assegnalo.
-  - Il file MSI ha lo stesso nome dell'area di lavoro. In questo caso, &quot;sarebbe&quot;WS1 .
+- Assicurarsi che l'identità del servizio gestito (identità del servizio gestita) per WS1 sia assegnata al ruolo di **collaboratore dati BLOB di Azure** in CNT1
+  - Se non viene visualizzato, assegnarlo.
+  - Il nome dell'identità del servizio gestito è identico a quello dell'area di lavoro. In questo caso, sarebbe &quot;WS1.&quot;
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>PASSAGGIo 5: Configurare l'accesso di amministratore per i pool SQLSTEP 5: Configure admin access for SQL pools
+## <a name="step-5-configure-admin-access-for-sql-pools"></a>PASSAGGIO 5: configurare l'accesso amministrativo per i pool SQL
 
 - Aprire il portale di Azure
 - Passare a WS1
-- In **Impostazioni**fare clic su **Amministratore di Active Directory SQL**
-- Fare clic su Imposta\_ **amministratore** e scegliere WS1 SQLAdmins
+- In **Impostazioni**fare clic su **amministratore di SQL Active Directory**
+- Fare clic su **imposta amministratore** e\_scegliere WS1 sqladmins
 
-## <a name="step-6-maintaining-access-control"></a>Passaggio 6: Mantenimento del controllo di accessoStep 6: Maintaining access control
+## <a name="step-6-maintaining-access-control"></a>PASSAGGIO 6: gestione del controllo di accesso
 
-La configurazione è terminata.
+La configurazione è stata completata.
 
-A questo punto, per gestire l'accesso per gli utenti, è possibile aggiungere e rimuovere utenti ai tre gruppi di sicurezza.
+Per gestire l'accesso per gli utenti, è ora possibile aggiungere e rimuovere utenti ai tre gruppi di sicurezza.
 
-Sebbene sia possibile assegnare manualmente gli utenti ai ruoli Synapse, in tal caso non verranno configurati in modo coerente. Al contrario, aggiungere o rimuovere utenti ai gruppi di sicurezza.
+Sebbene sia possibile assegnare manualmente gli utenti ai ruoli sinapsi, in caso contrario, non verranno configurati in modo coerente. Al contrario, aggiungere o rimuovere utenti solo nei gruppi di sicurezza.
 
-## <a name="step-7-verify-access-for-users-in-the-roles"></a>PASSAGGIo 7: Verificare l'accesso per gli utenti nei ruoli
+## <a name="step-7-verify-access-for-users-in-the-roles"></a>PASSAGGIO 7: verificare l'accesso per gli utenti nei ruoli
 
-Gli utenti in ogni ruolo devono completare i passaggi seguenti:Users in each role need to complete the following steps:
+Gli utenti di ogni ruolo devono completare i passaggi seguenti:
 
 |   | Passaggio | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
 | --- | --- | --- | --- | --- |
-| 1 | Caricare un file di parquet in CNT1 | YES | YES | YES |
-| 2 | Leggere il file di parquet utilizzando SQL su richiesta | YES | NO | YES |
-| 3 | Creare un pool Spark | SI [1] | SI [1] | NO  |
-| 4 | Legge il file di parquet con un notebook | YES | YES | NO |
-| 5 | Creare una pipeline dal blocco appunti e attivare la pipeline per l'esecuzione oraCreate a pipeline from the Notebook and Trigger the pipeline to run now | YES | NO | NO |
-| 6 | Creare un pool SQL ed eseguire &quot;uno script SQL, ad esempio SELECT 1Create a SQL Pool and run a SQL script such as SELECT 1&quot; | SI [1] | NO | SI[1] |
+| 1 | Caricare un file parquet in CNT1 | YES | YES | YES |
+| 2 | Leggi il file parquet usando SQL su richiesta | YES | NO | YES |
+| 3 | Creare un pool Spark | SÌ [1] | SÌ [1] | NO  |
+| 4 | Legge il file parquet con un notebook | YES | YES | NO |
+| 5 | Creare una pipeline dal notebook e attivare la pipeline per l'esecuzione | YES | NO | NO |
+| 6 | Creare un pool SQL ed eseguire uno script SQL, ad &quot;esempio SELECT 1&quot; | SÌ [1] | NO | SÌ [1] |
 
 > [!NOTE]
-> [1] Per creare pool SQL o Spark, l'utente deve disporre almeno del ruolo Collaboratore nell'area di lavoro Synapse.
+> [1] per creare pool SQL o Spark, l'utente deve avere almeno un ruolo Collaboratore nell'area di lavoro sinapsi.
 > [!TIP]
 >
-> - Alcuni passaggi non saranno deliberatamente consentiti a seconda del ruolo.
-> - Tenere presente che alcune attività potrebbero non riuscire se la sicurezza non è stata completamente configurata. Queste attività sono annotate nella tabella.
+> - Alcuni passaggi deliberatamente non saranno consentiti a seconda del ruolo.
+> - Tenere presente che alcune attività possono avere esito negativo se la sicurezza non è stata configurata completamente. Queste attività sono indicate nella tabella.
 
-## <a name="step-8-network-security"></a>FASE 8: Sicurezza di rete
+## <a name="step-8-network-security"></a>PASSAGGIO 8: sicurezza di rete
 
-Per configurare il firewall dell'area di lavoro, la rete virtuale e [il collegamento privato](../../sql-database/sql-database-private-endpoint-overview.md).
+Per configurare il firewall dell'area di lavoro, la rete virtuale e il [collegamento privato](../../sql-database/sql-database-private-endpoint-overview.md).
 
-## <a name="step-9-completion"></a>FASE 9: Completamento
+## <a name="step-9-completion"></a>PASSAGGIO 9: completamento
 
-L'area di lavoro è completamente configurata e protetta.
+L'area di lavoro è ora completamente configurata e protetta.
 
-## <a name="how-roles-interact-with-synapse-studio"></a>Come i ruoli interagiscono con Synapse Studio
+## <a name="how-roles-interact-with-synapse-studio"></a>Interazione dei ruoli con sinapsi Studio
 
-Synapse Studio si comporterà in modo diverso in base ai ruoli utente. Alcuni elementi potrebbero essere nascosti o disabilitati se un utente non è assegnato a ruoli che forniscono l'accesso appropriato. Nella tabella seguente viene riepilogato l'effetto su Synapse Studio.
+Sinapsi studio si comporterà in modo diverso in base ai ruoli utente. Alcuni elementi possono essere nascosti o disabilitati se un utente non è assegnato ai ruoli che forniscono l'accesso appropriato. La tabella seguente riepiloga l'effetto su sinapsi Studio.
 
 | Attività | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
 | --- | --- | --- | --- |
-| Open Synapse Studio | YES | YES | YES |
-| Visualizza hub home | YES | YES | YES |
+| Apri sinapsi Studio | YES | YES | YES |
+| Visualizza Hub Home page | YES | YES | YES |
 | Visualizza hub dati | YES | YES | YES |
-| Hub dati / Vedere account e contenitori ADLSGen2 collegati | SI [1] | SI[1] | SI[1] |
-| Hub dati / Vedere database | YES | YES | YES |
-| Hub dati / Vedere oggetti nei database | YES | YES | YES |
-| Hub dati / Dati di Access nei database del pool SQL | YES   | NO   | YES   |
-| Hub dati / Dati di Access nei database SQL su richiesta | SI [2]  | NO  | SI [2]  |
-| Hub dati / Dati di Access nei database Spark | SI [2] | SI [2] | SI [2] |
-| Usare l'hub Sviluppo | YES | YES | YES |
-| Sviluppa script SQL hub/autore | YES | NO | YES |
-| Sviluppare le definizioni dei processi Spark Hub/autore | YES | YES | NO |
-| Sviluppare blocchi appunti Hub/authorDevelop Hub / author Notebooks | YES | YES | NO |
-| Sviluppa Hub / autore Dataflows | YES | NO | NO |
-| Usare l'hub Orchestrate | YES | YES | YES |
-| Orchestrate hub / utilizzare Pipelines | YES | NO | NO |
-| Utilizzare l'hub di gestione | YES | YES | YES |
-| Gestire i pool Hub/SQLManage Hub / SQL pools | YES | NO | YES |
-| Gestire i pool Hub/Spark | YES | YES | NO |
-| Gestisci hub / Trigger | YES | NO | NO |
-| Gestire hub/servizi collegati | YES | YES | YES |
-| Gestisci hub / Controllo di accesso (assegnare gli utenti ai ruoli dell'area di lavoro Synapse) | YES | NO | NO |
-| Gestire i runtime Hub/IntegrationManage Hub / Integration runtimes | YES | YES | YES |
+| Hub dati/vedere gli account e i contenitori ADLSGen2 collegati | SÌ [1] | SÌ [1] | SÌ [1] |
+| Hub dati/vedere database | YES | YES | YES |
+| Hub dati/Visualizza oggetti nei database | YES | YES | YES |
+| Data Hub/dati di accesso nei database del pool SQL | YES   | NO   | YES   |
+| Data Hub/dati di accesso nei database SQL su richiesta | SÌ [2]  | NO  | SÌ [2]  |
+| Data Hub/dati di accesso nei database Spark | SÌ [2] | SÌ [2] | SÌ [2] |
+| Usare l'hub di sviluppo | YES | YES | YES |
+| Sviluppare script SQL per hub/autore | YES | NO | YES |
+| Sviluppare definizioni di processi Spark per hub/autore | YES | YES | NO |
+| Sviluppare notebook di hub/autore | YES | YES | NO |
+| Sviluppare flussi di Data Hub/autore | YES | NO | NO |
+| Usare l'hub orchestrazione | YES | YES | YES |
+| Orchestrazione hub/USA pipeline | YES | NO | NO |
+| Usare l'hub di gestione | YES | YES | YES |
+| Gestire i pool Hub/SQL | YES | NO | YES |
+| Gestisci pool Hub/Spark | YES | YES | NO |
+| Gestire Hub/trigger | YES | NO | NO |
+| Gestire Hub/servizi collegati | YES | YES | YES |
+| Gestire il controllo dell'hub/accesso (assegnare utenti ai ruoli dell'area di lavoro sinapsi) | YES | NO | NO |
+| Gestisci runtime di integrazione/Hub | YES | YES | YES |
 
 > [!NOTE]
-> [1] L'accesso ai dati nei contenitori dipende dal controllo di accesso in ADLSGen2 [2] Le tabelle Sql OD e le tabelle Spark archiviano i dati in ADLSGen2 e l'accesso richiede le autorizzazioni appropriate su ADLSGen2.
+> [1] l'accesso ai dati nei contenitori dipende dal controllo di accesso in ADLSGen2 [2] le tabelle SQL e le tabelle Spark archiviano i dati in ADLSGen2 e l'accesso richiede le autorizzazioni appropriate per ADLSGen2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creazione di [un'area di lavoro silnella](../quickstart-create-workspace.md)
+Creare un' [area di lavoro sinapsi](../quickstart-create-workspace.md)

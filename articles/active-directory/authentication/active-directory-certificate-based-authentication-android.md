@@ -1,5 +1,5 @@
 ---
-title: Autenticazione basata su certificati Android - Azure Active Directory
+title: Autenticazione basata su certificati Android-Azure Active Directory
 description: Informazioni sugli scenari supportati e i requisiti per configurare l'autenticazione basata su certificati nelle soluzioni con i dispositivi Android
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9760624afec111a271ae5aa0ebbe5533d6ba8d6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680203"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticazione basata su certificati di Azure Active Directory in Android
@@ -27,7 +27,7 @@ I dispositivi Android possono usare l'autenticazione basata sui certificati per 
 
 La configurazione di questa funzionalità elimina la necessità di immettere una combinazione di nome utente e password in determinate applicazioni di posta e applicazioni Microsoft Office sul dispositivo mobile.
 
-In questo argomento vengono forniti i requisiti e gli scenari supportati per la configurazione di CBA in un dispositivo Android per gli utenti di tenant nei piani Office 365 Enterprise, Business, Education, US Government, Cina e Germania.
+Questo argomento fornisce i requisiti e gli scenari supportati per la configurazione di CBA in un dispositivo Android per gli utenti dei tenant nei piani Office 365 Enterprise, business, Education, US Government, Cina e Germania.
 
 Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Government Defense e Federal.
 
@@ -35,16 +35,16 @@ Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Gove
 
 | App | Supporto |
 | --- | --- |
-| App Azure Information Protection |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| Portale aziendale Intune |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| Microsoft Teams |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| OneNote |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| OneDrive |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| Outlook |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| Power BI |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| Skype for Business Online |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| Word / Excel / PowerPoint |![Segno di spunta che indica il supporto per questa applicazione][1] |
-| Yammer |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| App Azure Information Protection |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Portale aziendale Intune |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Microsoft Teams |![Segno di spunta che significa supporto per questa applicazione][1] |
+| OneNote |![Segno di spunta che significa supporto per questa applicazione][1] |
+| OneDrive |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Outlook |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Power BI |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Skype for Business Online |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Word / Excel / PowerPoint |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Yammer |![Segno di spunta che significa supporto per questa applicazione][1] |
 
 ### <a name="implementation-requirements"></a>Requisiti di implementazione
 
@@ -66,7 +66,7 @@ Come procedura consigliata, è necessario aggiornare le pagine di errore di AD F
 
 Per altre informazioni, vedere [Personalizzazione delle pagine di accesso ad AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
-Alcune app di Office (con l'autenticazione moderna abilitata) inviano '*prompt ' login*' ad Azure AD nella richiesta. Per impostazione predefinita, Azure AD converte '*prompt ' login*nella richiesta in ADFS come '*wauth -usernamepassworduri*' (chiede ad ADFS di eseguire l'autenticazione U/P) e '*wfresh'0*' (chiede ad ADFS di ignorare lo stato SSO ed eseguire una nuova autenticazione). Per abilitare l'autenticazione basata su certificati per queste applicazioni, è necessario modificare il comportamento predefinito di Azure AD. Impostare '*PromptLoginBehavior*' nelle impostazioni del dominio federato su '*Disabled*'.
+Alcune app di Office (con autenticazione moderna abilitata) inviano '*prompt = login*' per Azure ad nella richiesta. Per impostazione predefinita, Azure AD converte '*prompt = login*' nella richiesta ad ADFS come '*wauth = usernamepassworduri*' (chiede ad ADFS di eseguire l'autenticazione U/P) è*wfresh = 0*' (chiede ad ADFS di ignorare lo stato SSO ed eseguire una nuova autenticazione). Per abilitare l'autenticazione basata su certificati per queste applicazioni, è necessario modificare il comportamento predefinito di Azure AD. Impostare '*PromptLoginBehavior*' nelle impostazioni del dominio federato su'*disabled*'.
 Per eseguire questa operazione è possibile usare il cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0):
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
