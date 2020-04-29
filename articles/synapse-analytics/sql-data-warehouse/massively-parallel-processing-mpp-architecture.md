@@ -1,6 +1,6 @@
 ---
-title: Architettura di Azure Synapse Analytics (precedentemente SQL DW)
-description: Scopri come Azure Synapse Analytics (in precedenza SQL DW) combina l'elaborazione parallela massiccia (MPP) con Archiviazione di Azure per ottenere prestazioni e scalabilità elevate.
+title: Architettura di Azure sinapsi Analytics (in precedenza SQL DW)
+description: Informazioni su come Azure sinapsi Analytics (in precedenza SQL DW) combina l'elaborazione parallela massiva (MPP) con archiviazione di Azure per ottenere prestazioni e scalabilità elevate.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,48 +11,48 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884833"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architettura di Azure Synapse Analytics (precedentemente SQL DW)
+# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architettura di Azure sinapsi Analytics (in precedenza SQL DW)
 
-Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala. Azure Synapse riunisce questi due mondi con un'esperienza unificata per l'inserimento, la preparazione, la gestione e la gestione dei dati per le esigenze immediate di Business Intelligence e apprendimento automatico.
+Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala. Azure Synapse offre questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la distribuzione dei dati per esigenze immediate di business intelligence e Machine Learning.
 
  Azure Synapse è costituito da quattro componenti:
 
-- Analisi SQL: completare l'analisi basata su T-SQL
+- Analisi SQL: completare le analisi basate su T-SQL
 
-  - Pool SQL (pay per DWU di cui è stato eseguito il provisioning) – Generalmente disponibile
+  - Pool SQL (pagamento con provisioning per DWU): disponibile a livello generale
   - SQL su richiesta (pagamento per ogni TB elaborato) - (anteprima)
-- Spark: Apache Spark profondamente integrato (anteprima)
-- Integrazione dei dati: Integrazione ibrida dei dati (anteprima)Data Integration: Hybrid data integration (Preview)
+- Spark: Apache Spark completamente integrato (anteprima)
+- Integrazione dei dati: integrazione di dati ibridi (anteprima)
 - Studio: esperienza utente unificata.  (Anteprima)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Componenti dell'architettura SQL MPP Synapse
+## <a name="synapse-sql-mpp-architecture-components"></a>Componenti dell'architettura di sinapsi SQL MPP
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) sfrutta un'architettura con scalabilità orizzontale per distribuire l'elaborazione computazionale dei dati su più nodi. L'unità di scala è un'astrazione della potenza di calcolo nota come [unità di data warehouse.](what-is-a-data-warehouse-unit-dwu-cdwu.md) Il calcolo è separato dall'archiviazione, che consente di ridimensionare il calcolo indipendentemente dai dati nel sistema.
+[Sinapsi SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) si avvale di un'architettura con scalabilità orizzontale per distribuire l'elaborazione computazionale dei dati tra più nodi. L'unità di scala è un'astrazione della potenza di calcolo nota come [unità data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Il calcolo è separato dall'archiviazione, che consente di ridimensionare le risorse di calcolo indipendentemente dai dati nel sistema.
 
-![Architettura SQL Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![Architettura di SQL Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Analytics usa un'architettura basata su nodi. Le applicazioni connettono ed emettono comandi T-SQL a un nodo Di controllo, ovvero il singolo punto di ingresso per SQL Analytics.Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for SQL Analytics. Il nodo Control esegue il motore MPP, che ottimizza le query per l'elaborazione parallela e quindi passa le operazioni ai nodi di calcolo per eseguire il proprio lavoro in parallelo.
+SQL Analytics usa un'architettura basata su nodi. Le applicazioni si connettono e inviano comandi T-SQL a un nodo di controllo, che è il singolo punto di ingresso per analisi SQL. Il nodo di controllo esegue il motore MPP, che ottimizza le query per l'elaborazione parallela, quindi passa le operazioni ai nodi di calcolo per eseguire il lavoro in parallelo.
 
 I nodi di calcolo archiviano tutti i dati utente nell'archiviazione di Azure ed eseguono le query parallele. Data Movement Service (DMS) è un servizio interno a livello di sistema che sposta i dati tra i nodi per eseguire query in parallelo e restituire risultati accurati.
 
-Con l'archiviazione e il calcolo disaccoppiati, quando si usa il pool SQL Synapse è possibile:With discoupled storage and compute, when using Synapse SQL pool si can:
+Con le risorse di archiviazione e di calcolo separate, quando si usa il pool SQL sinapsi è possibile:
 
 - Ridimensionare la potenza di calcolo indipendentemente dalle esigenze di archiviazione.
-- Aumentare o ridurre la potenza di calcolo, all'interno di un pool SQL (data warehouse), senza spostare i dati.
+- Aumentare o ridurre la potenza di calcolo, all'interno di un pool SQL (data warehouse), senza lo stato di trasferimento dei dati.
 - Sospendere la capacità di calcolo mantenendo intatti i dati e pagando solo per l'archiviazione.
 - Riprendere le capacità di calcolo durante l'orario operativo.
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-Synapse SQL sfrutta Archiviazione di Azure per proteggere i dati utente.  Poiché i dati vengono archiviati e gestiti da Archiviazione di Azure, è previsto un addebito separato per l'utilizzo dello spazio di archiviazione. I dati vengono inseriti in **distribuzioni** per ottimizzare le prestazioni del sistema. È possibile scegliere il modello di partizionamento orizzontale da usare per distribuire i dati quando si definisce la tabella. Sono supportati questi modelli di partizionamento di partizione:These sharding patterns are supported:
+Sinapsi SQL si avvale di archiviazione di Azure per proteggere i dati utente.  Poiché i dati vengono archiviati e gestiti da archiviazione di Azure, è previsto un addebito separato per il consumo di spazio di archiviazione. I dati vengono partizionati in **distribuzioni** per ottimizzare le prestazioni del sistema. È possibile scegliere il modello di partizionamento orizzontale da usare per distribuire i dati quando si definisce la tabella. Questi modelli di partizionamento orizzontale sono supportati:
 
 - Hash
 - Round robin
@@ -60,11 +60,11 @@ Synapse SQL sfrutta Archiviazione di Azure per proteggere i dati utente.  Poich�
 
 ### <a name="control-node"></a>Nodo di controllo
 
-Il nodo Control è il cervello dell'architettura. È il front-end che interagisce con tutte le applicazioni e le connessioni. Il motore MPP viene eseguito nel nodo di controllo per ottimizzare e coordinare le query parallele. Quando si invia una query T-SQL, il nodo Control la trasforma in query eseguite su ogni distribuzione in parallelo.
+Il nodo di controllo è il cervello dell'architettura. È il front-end che interagisce con tutte le applicazioni e le connessioni. Il motore MPP viene eseguito nel nodo di controllo per ottimizzare e coordinare le query parallele. Quando si invia una query T-SQL, il nodo di controllo lo trasforma in query eseguite su ogni distribuzione in parallelo.
 
 ### <a name="compute-nodes"></a>Nodi di calcolo
 
-I nodi di calcolo forniscono la potenza di calcolo. Viene eseguito il mapping delle distribuzioni ai nodi di calcolo per l'elaborazione. Quando si paga per più risorse di calcolo, le distribuzioni vengono rimappate ai nodi Compute disponibili. Il numero di nodi di calcolo varia da 1 a 60 ed è determinato dal livello di servizio per Synapse SQL.
+I nodi di calcolo forniscono la potenza di calcolo. Viene eseguito il mapping delle distribuzioni ai nodi di calcolo per l'elaborazione. Quando si paga per più risorse di calcolo, viene eseguito il mapping delle distribuzioni ai nodi di calcolo disponibili. Il numero di nodi di calcolo è compreso tra 1 e 60 ed è determinato dal livello di servizio per sinapsi SQL.
 
 Ogni nodo di calcolo ha un ID visibile nelle visualizzazioni di sistema. È possibile individuare l'ID del nodo di calcolo cercando la colonna node_id nelle visualizzazioni di sistema il cui nome inizia con sys.pdw_nodes. Per un elenco delle visualizzazioni di sistema, vedere le [visualizzazioni di sistema MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -74,15 +74,15 @@ Data Movement Service (DMS) è la tecnologia di trasporto dei dati che coordina 
 
 ## <a name="distributions"></a>Distribuzioni
 
-La distribuzione è l'unità di base dell'archiviazione e dell'elaborazione di query parallele eseguite su dati distribuiti. Quando ANALISI SQL esegue una query, il lavoro viene suddiviso in 60 query più piccole che vengono eseguite in parallelo.
+La distribuzione è l'unità di base dell'archiviazione e dell'elaborazione di query parallele eseguite su dati distribuiti. Quando SQL Analytics esegue una query, il lavoro viene suddiviso in 60 query più piccole eseguite in parallelo.
 
-Ognuna delle 60 query viene eseguita in una distribuzione dei dati. Ogni nodo di calcolo gestisce una o più delle 60 distribuzioni. Un pool SQL con risorse di calcolo massime ha una distribuzione per ogni nodo di calcolo. Un pool SQL con risorse di calcolo minime include tutte le distribuzioni in un nodo di calcolo.  
+Ognuna delle 60 query viene eseguita in una distribuzione dei dati. Ogni nodo di calcolo gestisce una o più delle 60 distribuzioni. Un pool SQL con risorse di calcolo massime dispone di una distribuzione per ogni nodo di calcolo. Un pool SQL con risorse di calcolo minime dispone di tutte le distribuzioni in un nodo di calcolo.  
 
 ## <a name="hash-distributed-tables"></a>Tabelle con distribuzione hash
 
 Una tabella con distribuzione hash offre prestazioni di query più elevate per join e aggregazioni in tabelle di grandi dimensioni.
 
-Per partizionare i dati in una tabella con distribuzione hash, viene utilizzata una funzione hash per assegnare in modo deterministico ogni riga a una distribuzione. Nella definizione della tabella una delle colonne è definita come colonna di distribuzione. La funzione hash usa i valori della colonna di distribuzione per assegnare ogni riga a una distribuzione.
+Per partizionare i dati in una tabella con distribuzione hash, viene usata una funzione hash per assegnare in modo deterministico ogni riga a una sola distribuzione. Nella definizione della tabella una delle colonne è definita come colonna di distribuzione. La funzione hash usa i valori della colonna di distribuzione per assegnare ogni riga a una distribuzione.
 
 La figura seguente illustra come una tabella completa non distribuita viene archiviata come tabella con distribuzione hash.
 
@@ -98,21 +98,21 @@ Ai fini delle prestazioni, per la selezione di una colonna di distribuzione è n
 
 La tabella round robin è la tabella più semplice da creare e offre ottime prestazioni quando viene usata come tabella di staging per i caricamenti.
 
-Una tabella con distribuzione round robin distribuisce i dati in modo uniforme all'interno della tabella senza alcuna ottimizzazione aggiuntiva. Viene innanzitutto selezionata casualmente una distribuzione, quindi i buffer di righe vengono assegnati in sequenza alle distribuzioni. Sebbene il caricamento dei dati in una tabella round robin risulti rapido, è spesso possibile ottenere prestazioni di query migliori con le tabelle con distribuzione hash. I join su tabelle round robin richiedono il rimmatomo dei dati, operazione necessaria.
+Una tabella con distribuzione round robin distribuisce i dati in modo uniforme all'interno della tabella senza alcuna ottimizzazione aggiuntiva. Viene innanzitutto selezionata casualmente una distribuzione, quindi i buffer di righe vengono assegnati in sequenza alle distribuzioni. Sebbene il caricamento dei dati in una tabella round robin risulti rapido, è spesso possibile ottenere prestazioni di query migliori con le tabelle con distribuzione hash. Per i join nelle tabelle Round Robin è necessario rimischiare i dati, operazione che richiede più tempo.
 
 ## <a name="replicated-tables"></a>Tabelle replicate
 
 Una tabella replicata offre le migliori prestazioni di query per le tabelle di piccole dimensioni.
 
-Una tabella replicata memorizza nella cache una copia completa della tabella di ogni nodo di calcolo. Di conseguenza, la replica di una tabella elimina la necessità di trasferire i dati tra i nodi di calcolo prima di un join o un'aggregazione. Le tabelle replicate sono particolarmente adatte all'uso con tabelle di piccole dimensioni. È necessaria ulteriore spazio di archiviazione ed è necessario un sovraccarico aggiuntivo che si verifica durante la scrittura di dati, che rendono le tabelle di grandi dimensioni poco pratico.  
+Una tabella replicata memorizza nella cache una copia completa della tabella di ogni nodo di calcolo. Di conseguenza, la replica di una tabella elimina la necessità di trasferire i dati tra i nodi di calcolo prima di un join o un'aggregazione. Le tabelle replicate sono particolarmente adatte all'uso con tabelle di piccole dimensioni. È necessario spazio di archiviazione aggiuntivo e si verifica un sovraccarico aggiuntivo durante la scrittura dei dati, che rendono le tabelle di grandi dimensioni non pratiche.  
 
-Il diagramma seguente mostra una tabella replicata memorizzata nella cache alla prima distribuzione in ogni nodo di calcolo.  
+Il diagramma seguente mostra una tabella replicata memorizzata nella cache nella prima distribuzione in ogni nodo di calcolo.  
 
 ![Tabella replicata](./media/massively-parallel-processing-mpp-architecture/replicated-table.png "Tabella replicata")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si conosce un po' di Azure Synapse, imparare a creare rapidamente [un pool SQL](create-data-warehouse-portal.md) e caricare i dati di [esempio.](load-data-from-azure-blob-storage-using-polybase.md) Se non si ha familiarità con Azure, il [glossario di Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) può essere utile quando si incontrano termini nuovi. Oppure esaminare alcune di queste altre risorse di Azure Synapse.Or look at some of these other Azure Synapse Resources.  
+Ora che si conoscono le sinapsi di Azure, si apprenderà come [creare rapidamente un pool SQL](create-data-warehouse-portal.md) e [caricare i dati di esempio](load-data-from-azure-blob-storage-using-polybase.md). Se non si ha familiarità con Azure, il [glossario di Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) può essere utile quando si incontrano termini nuovi. Oppure esaminare alcune di queste altre risorse di Azure sinapsi.  
 
 - [Casi di successo dei clienti](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blog](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

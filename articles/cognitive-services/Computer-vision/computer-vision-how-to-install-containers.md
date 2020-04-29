@@ -12,29 +12,29 @@ ms.date: 04/01/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879344"
 ---
-# <a name="install-and-run-read-containers-preview"></a>Installare ed eseguire contenitori di lettura (anteprima)Install and run Read containers (Preview)
+# <a name="install-and-run-read-containers-preview"></a>Installare ed eseguire i contenitori di lettura (anteprima)
 
-I contenitori consentono di eseguire le API di Visione artificiale nel proprio ambiente. I contenitori sono ideali per requisiti specifici di sicurezza e governance dei dati. In questo articolo verrà illustrato come scaricare, installare ed eseguire un contenitore Visione artificiale.
+I contenitori consentono di eseguire le API Visione artificiale nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore Visione artificiale.
 
-Un singolo contenitore Docker, *Read*, è disponibile per Visione artificiale. Il contenitore *Lettura* consente di rilevare ed estrarre *testo stampato* da immagini di vari oggetti con superfici e sfondi diversi, ad esempio ricevute, poster e biglietti da visita. Inoltre, il contenitore *Lettura* rileva *il testo scritto a mano* nelle immagini e fornisce il supporto per file PDF, TIFF e multipagina. Per altre informazioni, vedere la documentazione relativa all'API [di lettura.](concept-recognizing-text.md#read-api)
+È disponibile un singolo contenitore Docker, *letto*, per visione artificiale. Il contenitore *Read* consente di rilevare ed estrarre il *testo stampato* da immagini di vari oggetti con diverse superfici e sfondi, ad esempio ricevute, poster e biglietti da visita. Il contenitore *Read* rileva inoltre il *testo scritto a mano* nelle immagini e fornisce il supporto per file PDF, TIFF e a più pagine. Per ulteriori informazioni, vedere la documentazione relativa all'API di [lettura](concept-recognizing-text.md#read-api) .
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di utilizzare i contenitori, è necessario soddisfare i prerequisiti seguenti:
+Prima di usare i contenitori, è necessario soddisfare i prerequisiti seguenti:
 
 |Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **di Azure Computer Vision** e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e Chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**API_KEY :Una**delle due chiavi di risorsa disponibili nella pagina **Chiavi**<br><br>**ENDPOINT_URI :** l'endpoint come indicato nella pagina **Panoramica**|
+|Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
 
@@ -46,15 +46,15 @@ Prima di utilizzare i contenitori, è necessario soddisfare i prerequisiti segue
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="advanced-vector-extension-support"></a>Supporto per Advanced Vector Extension
+### <a name="advanced-vector-extension-support"></a>Supporto Advanced Vector Extension
 
-Il computer **host** è il computer che esegue il contenitore docker. L'host *deve supportare* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). È possibile verificare il supporto AVX2 su host Linux con il seguente comando:
+Il computer **host** è il computer in cui è in esecuzione il contenitore docker. L'host *deve supportare* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). È possibile verificare il supporto di AVX2 negli host Linux con il comando seguente:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
 > [!WARNING]
-> Il computer host è *necessario* per supportare AVX2. Il contenitore *non funzionerà* correttamente senza il supporto DI AVX2.
+> Il computer host è *necessario* per supportare AVX2. Il contenitore *non* funzionerà correttamente senza supporto per AVX2.
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
@@ -62,15 +62,15 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 
-Sono disponibili immagini contenitore per la lettura.
+Sono disponibili le immagini del contenitore per la lettura.
 
-| Contenitore | Registro contenitori / Repository / Nome immagine |
+| Contenitore | Container Registry/repository/nome dell'immagine |
 |-----------|------------|
 | Lettura | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-Utilizzare [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) il comando per scaricare un'immagine contenitore.
+Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore.
 
-### <a name="docker-pull-for-the-read-container"></a>Pull Docker per il contenitore Read
+### <a name="docker-pull-for-the-read-container"></a>Pull Docker per il contenitore di lettura
 
 ```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
@@ -83,13 +83,13 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), seguire questa procedura per usare il contenitore.
 
 1. [Eseguire il contenitore](#run-the-container-with-docker-run), con le impostazioni di fatturazione necessarie. Sono disponibili altri [esempi](computer-vision-resource-container-config.md) del comando `docker run`. 
-1. [Eseguire una query sull'endpoint di stima del contenitore.](#query-the-containers-prediction-endpoint) 
+1. [Eseguire una query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Fare riferimento alla raccolta dei [parametri](#gathering-required-parameters) `{ENDPOINT_URI}` obbligatori `{API_KEY}` per informazioni dettagliate su come ottenere i valori e .
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i `{ENDPOINT_URI}` valori e `{API_KEY}` , vedere raccolta dei [parametri obbligatori](#gathering-required-parameters) .
 
-[Sono](computer-vision-resource-container-config.md#example-docker-run-commands) disponibili `docker run` esempi del comando.
+[Examples](computer-vision-resource-container-config.md#example-docker-run-commands) Sono disponibili esempi `docker run` di comando.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -101,7 +101,7 @@ ApiKey={API_KEY}
 
 Questo comando:
 
-* Esegue il contenitore Read dall'immagine del contenitore.
+* Esegue il contenitore di lettura dall'immagine del contenitore.
 * Alloca 8 core CPU e 16 gigabyte (GB) di memoria.
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
@@ -125,13 +125,13 @@ Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 ### <a name="asynchronous-read"></a>Lettura asincrona
 
-È possibile `POST /vision/v2.0/read/core/asyncBatchAnalyze` usare `GET /vision/v2.0/read/operations/{operationId}` le operazioni e in concerto per leggere in modo asincrono un'immagine, in modo simile a come il servizio Visione artificiale utilizza le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un `operationId` oggetto che viene utilizzato come identificatore per la richiesta HTTP GET.
+È possibile usare le `POST /vision/v2.0/read/core/asyncBatchAnalyze` operazioni `GET /vision/v2.0/read/operations/{operationId}` e in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un `operationId` oggetto che viene usato come identificatore per la richiesta HTTP Get.
 
-Nell'interfaccia utente swagger, selezionare il `asyncBatchAnalyze` per espanderlo nel browser. Quindi selezionare **Prova** > **Scegli file**. In questo esempio verrà usata l'immagine seguente:In this example, we'll use the following image:
+Dall'interfaccia utente di spavalderia selezionare il `asyncBatchAnalyze` per espanderlo nel browser. Quindi selezionare **try it out** > **Choose file**. In questo esempio si userà l'immagine seguente:
 
-![tabulazioni vs spazi](media/tabs-vs-spaces.png)
+![tabulazioni e spazi](media/tabs-vs-spaces.png)
 
-Quando l'esecuzione post asincrona è stata eseguita correttamente, restituisce un codice di stato **HTTP 202.When** the asynchronous POST has run successfully, it returns an HTTP 202 status code. Come parte della risposta, `operation-location` è presente un'intestazione che contiene l'endpoint del risultato per la richiesta.
+Quando il POST asincrono viene eseguito correttamente, restituisce un codice di stato **HTTP 202** . Come parte della risposta, è presente un' `operation-location` intestazione che contiene l'endpoint di risultato per la richiesta.
 
 ```http
  content-length: 0
@@ -140,7 +140,7 @@ Quando l'esecuzione post asincrona è stata eseguita correttamente, restituisce 
  server: Kestrel
 ```
 
-L'URL `operation-location` è completo ed è accessibile tramite un HTTP GET. Ecco la risposta JSON dall'esecuzione dell'URL dall'immagine precedente:Here is the JSON response from executing the `operation-location` URL from the preceding image:
+`operation-location` È l'URL completo a cui è possibile accedere tramite HTTP Get. Ecco la risposta JSON dall'esecuzione dell' `operation-location` URL dall'immagine precedente:
 
 ```json
 {
@@ -186,7 +186,7 @@ L'URL `operation-location` è completo ed è accessibile tramite un HTTP GET. Ec
 
 ### <a name="synchronous-read"></a>Lettura sincrona
 
-È possibile `POST /vision/v2.0/read/core/Analyze` utilizzare l'operazione per leggere in modo sincrono un'immagine. Quando l'immagine viene letta nella sua interezza, l'API restituisce una risposta JSON. L'unica eccezione è se si verifica un errore. Quando si verifica un errore viene restituito il seguente JSON:
+È possibile usare l' `POST /vision/v2.0/read/core/Analyze` operazione per leggere in modo sincrono un'immagine. Quando l'immagine viene letta completamente, solo l'API restituisce una risposta JSON. L'unica eccezione è rappresentata dal caso in cui si verifichi un errore. Quando si verifica un errore, viene restituito il codice JSON seguente:
 
 ```json
 {
@@ -194,7 +194,7 @@ L'URL `operation-location` è completo ed è accessibile tramite un HTTP GET. Ec
 }
 ```
 
-L'oggetto risposta JSON ha lo stesso oggetto grafico della versione asincrona. Se sei un utente JavaScript e vuoi l'indipendenza dai tipi, i `AnalyzeResult` tipi seguenti potrebbero essere usati per eseguire il cast della risposta JSON come oggetto.
+L'oggetto di risposta JSON ha lo stesso oggetto grafico della versione asincrona. Se si è un utente JavaScript e si vuole l'indipendenza dai tipi, è possibile usare i tipi seguenti per eseguire il cast `AnalyzeResult` della risposta JSON come oggetto.
 
 ```typescript
 export interface AnalyzeResult {
@@ -241,7 +241,7 @@ export interface Word {
 }
 ```
 
-Per un esempio di caso d'uso, vedere la <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">sandbox TypeScript qui <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e selezionare **Esegui** per visualizzarne la facilità d'uso.
+Per un esempio di utilizzo, vedere il <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">sandbox typescript qui <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e selezionare **Run (Esegui** ) per visualizzarne la semplicità d'uso.
 
 ## <a name="stop-the-container"></a>Arrestare il contenitore
 
@@ -255,7 +255,7 @@ Se si esegue il contenitore con un punto di [montaggio](./computer-vision-resour
 
 ## <a name="billing"></a>Fatturazione
 
-I contenitori di Servizi cognitivi inviano le informazioni di fatturazione ad Azure usando la risorsa corrispondente nell'account Azure.The Cognitive Services containers send billing information to Azure, using the corresponding resource on your Azure account.
+I contenitori di servizi cognitivi inviano informazioni di fatturazione ad Azure, usando la risorsa corrispondente nell'account Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -265,12 +265,12 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./c
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori Visione artificiale. In sintesi:
 
 * Visione artificiale fornisce un contenitore Linux per Docker, incapsulando Read.
-* Container images are downloaded from the "Container Preview" container registry in Azure.
+* Le immagini del contenitore vengono scaricate dal registro contenitori "anteprima contenitore" in Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.
 * È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori di lettura specificando l'URI host del contenitore.
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
@@ -280,8 +280,8 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esaminare [Configurare i contenitori](computer-vision-resource-container-config.md) per le impostazioni di configurazioneReview Configure containers for configuration settings
+* Esaminare [configurare i contenitori](computer-vision-resource-container-config.md) per le impostazioni di configurazione
 * Rivedere [Panoramica di Visione artificiale](Home.md) per altre informazioni sul riconoscimento di testo scritto a mano e stampato
 * Fare riferimento all'[API Visione artificiale](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) per informazioni dettagliate sui metodi supportati dal contenitore.
 * Fare riferimento alle [domande frequenti](FAQ.md) per risolvere i problemi correlati alle funzionalità di Analisi del testo.
-* Usare più [contenitori di Servizi cognitiviUse more Cognitive Services Containers](../cognitive-services-container-support.md)
+* Usare più [contenitori di servizi cognitivi](../cognitive-services-container-support.md)

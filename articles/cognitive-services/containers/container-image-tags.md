@@ -1,7 +1,7 @@
 ---
 title: Tag delle immagini di contenitori in Servizi cognitivi
 titleSuffix: Azure Cognitive Services
-description: Elenco completo di tutti i tag di immagine del contenitore del servizio cognitivo.
+description: Elenco completo di tutti i tag dell'immagine del contenitore di servizi cognitivi.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 786fde90e1bcf47e08857c26235a27862c5b3d75
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878766"
 ---
-# <a name="azure-cognitive-services-container-image-tags"></a>Tag immagine del contenitore di Servizi cognitivi di AzureAzure Cognitive Services container image tags
+# <a name="azure-cognitive-services-container-image-tags"></a>Tag dell'immagine del contenitore di servizi cognitivi di Azure
 
-Servizi cognitivi di Azure offre molte immagini di contenitori. I registri contenitore e i repository corrispondenti variano tra le immagini del contenitore. Ogni nome di immagine contenitore offre più tag. Un tag immagine contenitore è un meccanismo di controllo delle versioni dell'immagine contenitore. Questo articolo deve essere usato come riferimento completo per elencare tutte le immagini del contenitore di Servizi cognitivi e i relativi tag disponibili.
+Servizi cognitivi di Azure offre molte immagini del contenitore. I registri dei contenitori e i repository corrispondenti variano tra le immagini del contenitore. Ogni nome dell'immagine del contenitore offre più tag. Un tag dell'immagine del contenitore è un meccanismo di controllo delle versioni dell'immagine del contenitore. Questo articolo è destinato a essere usato come riferimento completo per l'elenco di tutte le immagini del contenitore di servizi cognitivi e dei relativi tag disponibili.
 
 > [!TIP]
-> Quando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/)si utilizza , prestare particolare attenzione alla combinazione di maiuscole e minuscole del registro contenitori, del repository, del nome dell'immagine del contenitore e del tag corrispondente, in quanto fanno **distinzione tra maiuscole e minuscole.**
+> Quando si [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/)USA, prestare particolare attenzione alle maiuscole e minuscole del registro contenitori, al repository, al nome dell'immagine del contenitore e al tag corrispondente, poiché fanno **distinzione tra maiuscole**e minuscole.
 
 ## <a name="anomaly-detector"></a>Rilevamento anomalie
 
-L'immagine del contenitore [Anomaly Detector][ad-containers] è disponibile nel Registro di sistema del `containerpreview.azurecr.io` contenitore. Si trova all'interno `microsoft` del `cognitive-services-anomaly-detector`repository e si chiama . Il nome completo dell'immagine del contenitore è, `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector`.
+È possibile trovare l'immagine del contenitore del [rilevatore di anomalie][ad-containers] nel registro `containerpreview.azurecr.io` contenitori. Si trova all'interno del `microsoft` repository ed è denominato. `cognitive-services-anomaly-detector` Il nome completo dell'immagine del contenitore è `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
@@ -37,9 +37,9 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 
 ## <a name="computer-vision"></a>Visione artificiale
 
-L'immagine del contenitore Visione `containerpreview.azurecr.io` [artificiale][cv-containers] è disponibile nel Registro di sistema del contenitore. Si trova all'interno `microsoft` del `cognitive-services-read`repository e si chiama . Il nome completo dell'immagine del contenitore è, `containerpreview.azurecr.io/microsoft/cognitive-services-read`.
+È possibile trovare l'immagine del contenitore [visione artificiale][cv-containers] nel `containerpreview.azurecr.io` registro contenitori. Si trova all'interno del `microsoft` repository ed è denominato. `cognitive-services-read` Il nome completo dell'immagine del contenitore è `containerpreview.azurecr.io/microsoft/cognitive-services-read`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
@@ -50,9 +50,9 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 
 ## <a name="face"></a>Viso
 
-L'immagine del contenitore `containerpreview.azurecr.io` [Face][fa-containers] è disponibile nel registro contenitori. Si trova all'interno `microsoft` del `cognitive-services-face`repository e si chiama . Il nome completo dell'immagine del contenitore è, `containerpreview.azurecr.io/microsoft/cognitive-services-face`.
+L'immagine del contenitore [viso][fa-containers] è reperibile nel `containerpreview.azurecr.io` registro contenitori. Si trova all'interno del `microsoft` repository ed è denominato. `cognitive-services-face` Il nome completo dell'immagine del contenitore è `containerpreview.azurecr.io/microsoft/cognitive-services-face`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
@@ -68,9 +68,9 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 
 ## <a name="form-recognizer"></a>Riconoscimento modulo
 
-L'immagine del contenitore Form `containerpreview.azurecr.io` [Recognizer][fr-containers] è disponibile nel Registro di sistema del contenitore. Si trova all'interno `microsoft` del `cognitive-services-form-recognizer`repository e si chiama . Il nome completo dell'immagine del contenitore è, `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer`.
+L'immagine del contenitore del [riconoscitore del modulo][fr-containers] è `containerpreview.azurecr.io` disponibile nel registro contenitori. Si trova all'interno del `microsoft` repository ed è denominato. `cognitive-services-form-recognizer` Il nome completo dell'immagine del contenitore è `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
@@ -81,9 +81,9 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 
 ## <a name="language-understanding-luis"></a>Language Understanding (LUIS)
 
-L'immagine del contenitore [LUIS][lu-containers] è disponibile nel sindacato del Registro di sistema del `mcr.microsoft.com` contenitore. Si trova all'interno `azure-cognitive-services` del `luis`repository e si chiama . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/luis`.
+L'immagine del contenitore [Luis][lu-containers] si trova nel Syndicate `mcr.microsoft.com` del registro contenitori. Si trova all'interno del `azure-cognitive-services` repository ed è denominato. `luis` Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/luis`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
@@ -97,11 +97,11 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 | `1.1.007360001-amd64-preview` |       |
 | `1.1.007020001-amd64-preview` |       |
 
-## <a name="custom-speech-to-text"></a>Sintesi vocale personalizzata
+## <a name="custom-speech-to-text"></a>Da Riconoscimento vocale personalizzato a testo
 
-L'immagine personalizzata del contenitore [Speech-to-text][sp-cstt] è disponibile nel Registro di sistema del `containerpreview.azurecr.io` contenitore. Si trova all'interno `microsoft` del `cognitive-services-custom-speech-to-text`repository e si chiama . Il nome completo dell'immagine del contenitore è, `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text`.
+È possibile trovare l'immagine del contenitore [da riconoscimento vocale personalizzato a testo][sp-cstt] nel registro `containerpreview.azurecr.io` contenitori. Si trova all'interno del `microsoft` repository ed è denominato. `cognitive-services-custom-speech-to-text` Il nome completo dell'immagine del contenitore è `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine            | Note |
 |-----------------------|:------|
@@ -113,9 +113,9 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 
 ## <a name="custom-text-to-speech"></a>Sintesi vocale personalizzata
 
-L'immagine del contenitore [Custom Text-to-speech][sp-ctts] è disponibile nel Registro di sistema del `containerpreview.azurecr.io` contenitore. Si trova all'interno `microsoft` del `cognitive-services-custom-text-to-speech`repository e si chiama . Il nome completo dell'immagine del contenitore è, `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech`.
+È possibile trovare l'immagine del contenitore sintesi [vocale personalizzato][sp-ctts] nel registro `containerpreview.azurecr.io` contenitori. Si trova all'interno del `microsoft` repository ed è denominato. `cognitive-services-custom-text-to-speech` Il nome completo dell'immagine del contenitore è `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine            | Note |
 |-----------------------|:------|
@@ -124,467 +124,467 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-L'immagine del contenitore [di sintesi][sp-stt] vocale è disponibile nel Registro di sistema del `containerpreview.azurecr.io` contenitore. Si trova all'interno `microsoft` del `cognitive-services-speech-to-text`repository e si chiama . Il nome completo dell'immagine del contenitore è, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`.
+L'immagine del contenitore [di riconoscimento vocale][sp-stt] è reperibile nel registro `containerpreview.azurecr.io` contenitori. Si trova all'interno del `microsoft` repository ed è denominato. `cognitive-services-speech-to-text` Il nome completo dell'immagine del contenitore è `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                  | Note                                    |
 |-----------------------------|:-----------------------------------------|
-| `latest`                    | Immagine contenitore `en-US` con le impostazioni locali. |
-| `2.1.1-amd64-ar-ae-preview` | Immagine contenitore `ar-AE` con le impostazioni locali. |
-| `2.1.1-amd64-ar-eg-preview` | Immagine contenitore `ar-EG` con le impostazioni locali. |
-| `2.1.1-amd64-ar-kw-preview` | Immagine contenitore `ar-KW` con le impostazioni locali. |
-| `2.1.1-amd64-ar-qa-preview` | Immagine contenitore `ar-QA` con le impostazioni locali. |
-| `2.1.1-amd64-ar-sa-preview` | Immagine contenitore `ar-SA` con le impostazioni locali. |
-| `2.1.1-amd64-ca-es-preview` | Immagine contenitore `ca-ES` con le impostazioni locali. |
-| `2.1.1-amd64-da-dk-preview` | Immagine contenitore `da-DK` con le impostazioni locali. |
-| `2.1.1-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `2.1.1-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `2.1.1-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `2.1.1-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `2.1.1-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `2.1.1-amd64-en-nz-preview` | Immagine contenitore `en-NZ` con le impostazioni locali. |
-| `2.1.1-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `2.1.1-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `2.1.1-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `2.1.1-amd64-fi-fi-preview` | Immagine contenitore `fi-FI` con le impostazioni locali. |
-| `2.1.1-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `2.1.1-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `2.1.1-amd64-gu-in-preview` | Immagine contenitore `gu-IN` con le impostazioni locali. |
-| `2.1.1-amd64-hi-in-preview` | Immagine contenitore `hi-IN` con le impostazioni locali. |
-| `2.1.1-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `2.1.1-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `2.1.1-amd64-ko-kr-preview` | Immagine contenitore `ko-KR` con le impostazioni locali. |
-| `2.1.1-amd64-mr-in-preview` | Immagine contenitore `mr-IN` con le impostazioni locali. |
-| `2.1.1-amd64-nb-no-preview` | Immagine contenitore `nb-NO` con le impostazioni locali. |
-| `2.1.1-amd64-nl-nl-preview` | Immagine contenitore `nl-NL` con le impostazioni locali. |
-| `2.1.1-amd64-pl-pl-preview` | Immagine contenitore `pl-PL` con le impostazioni locali. |
-| `2.1.1-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `2.1.1-amd64-pt-pt-preview` | Immagine contenitore `pt-PT` con le impostazioni locali. |
-| `2.1.1-amd64-ru-ru-preview` | Immagine contenitore `ru-RU` con le impostazioni locali. |
-| `2.1.1-amd64-sv-se-preview` | Immagine contenitore `sv-SE` con le impostazioni locali. |
-| `2.1.1-amd64-ta-in-preview` | Immagine contenitore `ta-IN` con le impostazioni locali. |
-| `2.1.1-amd64-te-in-preview` | Immagine contenitore `te-IN` con le impostazioni locali. |
-| `2.1.1-amd64-th-th-preview` | Immagine contenitore `th-TH` con le impostazioni locali. |
-| `2.1.1-amd64-tr-tr-preview` | Immagine contenitore `tr-TR` con le impostazioni locali. |
-| `2.1.1-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `2.1.1-amd64-zh-hk-preview` | Immagine contenitore `zh-HK` con le impostazioni locali. |
-| `2.1.1-amd64-zh-tw-preview` | Immagine contenitore `zh-TW` con le impostazioni locali. |
-| `2.1.0-amd64-ar-ae-preview` | Immagine contenitore `ar-AE` con le impostazioni locali. |
-| `2.1.0-amd64-ar-eg-preview` | Immagine contenitore `ar-EG` con le impostazioni locali. |
-| `2.1.0-amd64-ar-kw-preview` | Immagine contenitore `ar-KW` con le impostazioni locali. |
-| `2.1.0-amd64-ar-qa-preview` | Immagine contenitore `ar-QA` con le impostazioni locali. |
-| `2.1.0-amd64-ar-sa-preview` | Immagine contenitore `ar-SA` con le impostazioni locali. |
-| `2.1.0-amd64-ca-es-preview` | Immagine contenitore `ca-ES` con le impostazioni locali. |
-| `2.1.0-amd64-da-dk-preview` | Immagine contenitore `da-DK` con le impostazioni locali. |
-| `2.1.0-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `2.1.0-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `2.1.0-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `2.1.0-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `2.1.0-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `2.1.0-amd64-en-nz-preview` | Immagine contenitore `en-NZ` con le impostazioni locali. |
-| `2.1.0-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `2.1.0-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `2.1.0-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `2.1.0-amd64-fi-fi-preview` | Immagine contenitore `fi-FI` con le impostazioni locali. |
-| `2.1.0-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `2.1.0-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `2.1.0-amd64-gu-in-preview` | Immagine contenitore `gu-IN` con le impostazioni locali. |
-| `2.1.0-amd64-hi-in-preview` | Immagine contenitore `hi-IN` con le impostazioni locali. |
-| `2.1.0-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `2.1.0-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `2.1.0-amd64-ko-kr-preview` | Immagine contenitore `ko-KR` con le impostazioni locali. |
-| `2.1.0-amd64-mr-in-preview` | Immagine contenitore `mr-IN` con le impostazioni locali. |
-| `2.1.0-amd64-nb-no-preview` | Immagine contenitore `nb-NO` con le impostazioni locali. |
-| `2.1.0-amd64-nl-nl-preview` | Immagine contenitore `nl-NL` con le impostazioni locali. |
-| `2.1.0-amd64-pl-pl-preview` | Immagine contenitore `pl-PL` con le impostazioni locali. |
-| `2.1.0-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `2.1.0-amd64-pt-pt-preview` | Immagine contenitore `pt-PT` con le impostazioni locali. |
-| `2.1.0-amd64-ru-ru-preview` | Immagine contenitore `ru-RU` con le impostazioni locali. |
-| `2.1.0-amd64-sv-se-preview` | Immagine contenitore `sv-SE` con le impostazioni locali. |
-| `2.1.0-amd64-ta-in-preview` | Immagine contenitore `ta-IN` con le impostazioni locali. |
-| `2.1.0-amd64-te-in-preview` | Immagine contenitore `te-IN` con le impostazioni locali. |
-| `2.1.0-amd64-th-th-preview` | Immagine contenitore `th-TH` con le impostazioni locali. |
-| `2.1.0-amd64-tr-tr-preview` | Immagine contenitore `tr-TR` con le impostazioni locali. |
-| `2.1.0-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `2.1.0-amd64-zh-hk-preview` | Immagine contenitore `zh-HK` con le impostazioni locali. |
-| `2.1.0-amd64-zh-tw-preview` | Immagine contenitore `zh-TW` con le impostazioni locali. |
-| `2.0.3-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `2.0.2-amd64-ar-ae-preview` | Immagine contenitore `ar-AE` con le impostazioni locali. |
-| `2.0.2-amd64-ar-eg-preview` | Immagine contenitore `ar-EG` con le impostazioni locali. |
-| `2.0.2-amd64-ar-kw-preview` | Immagine contenitore `ar-KW` con le impostazioni locali. |
-| `2.0.2-amd64-ar-qa-preview` | Immagine contenitore `ar-QA` con le impostazioni locali. |
-| `2.0.2-amd64-ar-sa-preview` | Immagine contenitore `ar-SA` con le impostazioni locali. |
-| `2.0.2-amd64-ca-es-preview` | Immagine contenitore `ca-ES` con le impostazioni locali. |
-| `2.0.2-amd64-da-dk-preview` | Immagine contenitore `da-DK` con le impostazioni locali. |
-| `2.0.2-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `2.0.2-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `2.0.2-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `2.0.2-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `2.0.2-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `2.0.2-amd64-en-nz-preview` | Immagine contenitore `en-NZ` con le impostazioni locali. |
-| `2.0.2-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `2.0.2-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `2.0.2-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `2.0.2-amd64-fi-fi-preview` | Immagine contenitore `fi-FI` con le impostazioni locali. |
-| `2.0.2-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `2.0.2-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `2.0.2-amd64-gu-in-preview` | Immagine contenitore `gu-IN` con le impostazioni locali. |
-| `2.0.2-amd64-hi-in-preview` | Immagine contenitore `hi-IN` con le impostazioni locali. |
-| `2.0.2-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `2.0.2-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `2.0.2-amd64-ko-kr-preview` | Immagine contenitore `ko-KR` con le impostazioni locali. |
-| `2.0.2-amd64-mr-in-preview` | Immagine contenitore `mr-IN` con le impostazioni locali. |
-| `2.0.2-amd64-nb-no-preview` | Immagine contenitore `nb-NO` con le impostazioni locali. |
-| `2.0.2-amd64-nl-nl-preview` | Immagine contenitore `nl-NL` con le impostazioni locali. |
-| `2.0.2-amd64-pl-pl-preview` | Immagine contenitore `pl-PL` con le impostazioni locali. |
-| `2.0.2-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `2.0.2-amd64-pt-pt-preview` | Immagine contenitore `pt-PT` con le impostazioni locali. |
-| `2.0.2-amd64-ru-ru-preview` | Immagine contenitore `ru-RU` con le impostazioni locali. |
-| `2.0.2-amd64-sv-se-preview` | Immagine contenitore `sv-SE` con le impostazioni locali. |
-| `2.0.2-amd64-ta-in-preview` | Immagine contenitore `ta-IN` con le impostazioni locali. |
-| `2.0.2-amd64-te-in-preview` | Immagine contenitore `te-IN` con le impostazioni locali. |
-| `2.0.2-amd64-th-th-preview` | Immagine contenitore `th-TH` con le impostazioni locali. |
-| `2.0.2-amd64-tr-tr-preview` | Immagine contenitore `tr-TR` con le impostazioni locali. |
-| `2.0.2-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `2.0.2-amd64-zh-hk-preview` | Immagine contenitore `zh-HK` con le impostazioni locali. |
-| `2.0.2-amd64-zh-tw-preview` | Immagine contenitore `zh-TW` con le impostazioni locali. |
-| `2.0.1-amd64-ar-ae-preview` | Immagine contenitore `ar-AE` con le impostazioni locali. |
-| `2.0.1-amd64-ar-eg-preview` | Immagine contenitore `ar-EG` con le impostazioni locali. |
-| `2.0.1-amd64-ar-kw-preview` | Immagine contenitore `ar-KW` con le impostazioni locali. |
-| `2.0.1-amd64-ar-qa-preview` | Immagine contenitore `ar-QA` con le impostazioni locali. |
-| `2.0.1-amd64-ar-sa-preview` | Immagine contenitore `ar-SA` con le impostazioni locali. |
-| `2.0.1-amd64-ca-es-preview` | Immagine contenitore `ca-ES` con le impostazioni locali. |
-| `2.0.1-amd64-da-dk-preview` | Immagine contenitore `da-DK` con le impostazioni locali. |
-| `2.0.1-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `2.0.1-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `2.0.1-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `2.0.1-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `2.0.1-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `2.0.1-amd64-en-nz-preview` | Immagine contenitore `en-NZ` con le impostazioni locali. |
-| `2.0.1-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `2.0.1-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `2.0.1-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `2.0.1-amd64-fi-fi-preview` | Immagine contenitore `fi-FI` con le impostazioni locali. |
-| `2.0.1-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `2.0.1-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `2.0.1-amd64-gu-in-preview` | Immagine contenitore `gu-IN` con le impostazioni locali. |
-| `2.0.1-amd64-hi-in-preview` | Immagine contenitore `hi-IN` con le impostazioni locali. |
-| `2.0.1-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `2.0.1-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `2.0.1-amd64-ko-kr-preview` | Immagine contenitore `ko-KR` con le impostazioni locali. |
-| `2.0.1-amd64-mr-in-preview` | Immagine contenitore `mr-IN` con le impostazioni locali. |
-| `2.0.1-amd64-nb-no-preview` | Immagine contenitore `nb-NO` con le impostazioni locali. |
-| `2.0.1-amd64-nl-nl-preview` | Immagine contenitore `nl-NL` con le impostazioni locali. |
-| `2.0.1-amd64-pl-pl-preview` | Immagine contenitore `pl-PL` con le impostazioni locali. |
-| `2.0.1-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `2.0.1-amd64-pt-pt-preview` | Immagine contenitore `pt-PT` con le impostazioni locali. |
-| `2.0.1-amd64-ru-ru-preview` | Immagine contenitore `ru-RU` con le impostazioni locali. |
-| `2.0.1-amd64-sv-se-preview` | Immagine contenitore `sv-SE` con le impostazioni locali. |
-| `2.0.1-amd64-ta-in-preview` | Immagine contenitore `ta-IN` con le impostazioni locali. |
-| `2.0.1-amd64-te-in-preview` | Immagine contenitore `te-IN` con le impostazioni locali. |
-| `2.0.1-amd64-th-th-preview` | Immagine contenitore `th-TH` con le impostazioni locali. |
-| `2.0.1-amd64-tr-tr-preview` | Immagine contenitore `tr-TR` con le impostazioni locali. |
-| `2.0.1-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `2.0.1-amd64-zh-hk-preview` | Immagine contenitore `zh-HK` con le impostazioni locali. |
-| `2.0.1-amd64-zh-tw-preview` | Immagine contenitore `zh-TW` con le impostazioni locali. |
-| `2.0.0-amd64-ar-eg-preview` | Immagine contenitore `ar-EG` con le impostazioni locali. |
-| `2.0.0-amd64-ca-es-preview` | Immagine contenitore `ca-ES` con le impostazioni locali. |
-| `2.0.0-amd64-da-dk-preview` | Immagine contenitore `da-DK` con le impostazioni locali. |
-| `2.0.0-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `2.0.0-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `2.0.0-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `2.0.0-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `2.0.0-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `2.0.0-amd64-en-nz-preview` | Immagine contenitore `en-NZ` con le impostazioni locali. |
-| `2.0.0-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `2.0.0-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `2.0.0-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `2.0.0-amd64-fi-fi-preview` | Immagine contenitore `fi-FI` con le impostazioni locali. |
-| `2.0.0-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `2.0.0-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `2.0.0-amd64-hi-in-preview` | Immagine contenitore `hi-IN` con le impostazioni locali. |
-| `2.0.0-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `2.0.0-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `2.0.0-amd64-ko-kr-preview` | Immagine contenitore `ko-KR` con le impostazioni locali. |
-| `2.0.0-amd64-nb-no-preview` | Immagine contenitore `nb-NO` con le impostazioni locali. |
-| `2.0.0-amd64-nl-nl-preview` | Immagine contenitore `nl-NL` con le impostazioni locali. |
-| `2.0.0-amd64-pl-pl-preview` | Immagine contenitore `pl-PL` con le impostazioni locali. |
-| `2.0.0-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `2.0.0-amd64-pt-pt-preview` | Immagine contenitore `pt-PT` con le impostazioni locali. |
-| `2.0.0-amd64-ru-ru-preview` | Immagine contenitore `ru-RU` con le impostazioni locali. |
-| `2.0.0-amd64-sv-se-preview` | Immagine contenitore `sv-SE` con le impostazioni locali. |
-| `2.0.0-amd64-th-th-preview` | Immagine contenitore `th-TH` con le impostazioni locali. |
-| `2.0.0-amd64-tr-tr-preview` | Immagine contenitore `tr-TR` con le impostazioni locali. |
-| `2.0.0-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `2.0.0-amd64-zh-hk-preview` | Immagine contenitore `zh-HK` con le impostazioni locali. |
-| `2.0.0-amd64-zh-tw-preview` | Immagine contenitore `zh-TW` con le impostazioni locali. |
-| `1.2.0-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `1.2.0-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `1.2.0-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `1.2.0-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `1.2.0-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `1.2.0-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `1.2.0-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `1.2.0-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `1.2.0-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `1.2.0-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `1.2.0-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `1.2.0-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `1.2.0-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `1.2.0-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `1.1.3-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `1.1.3-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `1.1.3-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `1.1.3-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `1.1.3-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `1.1.3-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `1.1.3-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `1.1.3-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `1.1.3-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `1.1.3-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `1.1.3-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `1.1.3-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `1.1.3-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `1.1.3-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `1.1.2-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `1.1.2-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `1.1.2-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `1.1.2-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `1.1.2-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `1.1.2-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `1.1.2-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `1.1.2-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `1.1.2-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `1.1.2-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `1.1.2-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `1.1.2-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `1.1.2-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `1.1.2-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `1.1.1-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `1.1.1-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `1.1.1-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `1.1.1-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `1.1.1-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `1.1.1-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `1.1.1-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `1.1.1-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `1.1.1-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `1.1.1-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `1.1.1-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `1.1.1-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `1.1.1-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `1.1.1-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `1.1.0-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `1.1.0-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `1.1.0-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `1.1.0-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `1.1.0-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `1.1.0-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `1.1.0-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `1.1.0-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `1.1.0-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `1.1.0-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `1.1.0-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `1.1.0-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `1.1.0-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `1.1.0-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
-| `1.0.0-amd64-de-de-preview` | Immagine contenitore `de-DE` con le impostazioni locali. |
-| `1.0.0-amd64-en-au-preview` | Immagine contenitore `en-AU` con le impostazioni locali. |
-| `1.0.0-amd64-en-ca-preview` | Immagine contenitore `en-CA` con le impostazioni locali. |
-| `1.0.0-amd64-en-gb-preview` | Immagine contenitore `en-GB` con le impostazioni locali. |
-| `1.0.0-amd64-en-in-preview` | Immagine contenitore `en-IN` con le impostazioni locali. |
-| `1.0.0-amd64-en-us-preview` | Immagine contenitore `en-US` con le impostazioni locali. |
-| `1.0.0-amd64-es-es-preview` | Immagine contenitore `es-ES` con le impostazioni locali. |
-| `1.0.0-amd64-es-mx-preview` | Immagine contenitore `es-MX` con le impostazioni locali. |
-| `1.0.0-amd64-fr-ca-preview` | Immagine contenitore `fr-CA` con le impostazioni locali. |
-| `1.0.0-amd64-fr-fr-preview` | Immagine contenitore `fr-FR` con le impostazioni locali. |
-| `1.0.0-amd64-it-it-preview` | Immagine contenitore `it-IT` con le impostazioni locali. |
-| `1.0.0-amd64-ja-jp-preview` | Immagine contenitore `ja-JP` con le impostazioni locali. |
-| `1.0.0-amd64-pt-br-preview` | Immagine contenitore `pt-BR` con le impostazioni locali. |
-| `1.0.0-amd64-zh-cn-preview` | Immagine contenitore `zh-CN` con le impostazioni locali. |
+| `latest`                    | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `2.1.1-amd64-ar-ae-preview` | Immagine del contenitore con `ar-AE` le impostazioni locali. |
+| `2.1.1-amd64-ar-eg-preview` | Immagine del contenitore con `ar-EG` le impostazioni locali. |
+| `2.1.1-amd64-ar-kw-preview` | Immagine del contenitore con `ar-KW` le impostazioni locali. |
+| `2.1.1-amd64-ar-qa-preview` | Immagine del contenitore con `ar-QA` le impostazioni locali. |
+| `2.1.1-amd64-ar-sa-preview` | Immagine del contenitore con `ar-SA` le impostazioni locali. |
+| `2.1.1-amd64-ca-es-preview` | Immagine del contenitore con `ca-ES` le impostazioni locali. |
+| `2.1.1-amd64-da-dk-preview` | Immagine del contenitore con `da-DK` le impostazioni locali. |
+| `2.1.1-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `2.1.1-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `2.1.1-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `2.1.1-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `2.1.1-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `2.1.1-amd64-en-nz-preview` | Immagine del contenitore con `en-NZ` le impostazioni locali. |
+| `2.1.1-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `2.1.1-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `2.1.1-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `2.1.1-amd64-fi-fi-preview` | Immagine del contenitore con `fi-FI` le impostazioni locali. |
+| `2.1.1-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `2.1.1-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `2.1.1-amd64-gu-in-preview` | Immagine del contenitore con `gu-IN` le impostazioni locali. |
+| `2.1.1-amd64-hi-in-preview` | Immagine del contenitore con `hi-IN` le impostazioni locali. |
+| `2.1.1-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `2.1.1-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `2.1.1-amd64-ko-kr-preview` | Immagine del contenitore con `ko-KR` le impostazioni locali. |
+| `2.1.1-amd64-mr-in-preview` | Immagine del contenitore con `mr-IN` le impostazioni locali. |
+| `2.1.1-amd64-nb-no-preview` | Immagine del contenitore con `nb-NO` le impostazioni locali. |
+| `2.1.1-amd64-nl-nl-preview` | Immagine del contenitore con `nl-NL` le impostazioni locali. |
+| `2.1.1-amd64-pl-pl-preview` | Immagine del contenitore con `pl-PL` le impostazioni locali. |
+| `2.1.1-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `2.1.1-amd64-pt-pt-preview` | Immagine del contenitore con `pt-PT` le impostazioni locali. |
+| `2.1.1-amd64-ru-ru-preview` | Immagine del contenitore con `ru-RU` le impostazioni locali. |
+| `2.1.1-amd64-sv-se-preview` | Immagine del contenitore con `sv-SE` le impostazioni locali. |
+| `2.1.1-amd64-ta-in-preview` | Immagine del contenitore con `ta-IN` le impostazioni locali. |
+| `2.1.1-amd64-te-in-preview` | Immagine del contenitore con `te-IN` le impostazioni locali. |
+| `2.1.1-amd64-th-th-preview` | Immagine del contenitore con `th-TH` le impostazioni locali. |
+| `2.1.1-amd64-tr-tr-preview` | Immagine del contenitore con `tr-TR` le impostazioni locali. |
+| `2.1.1-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `2.1.1-amd64-zh-hk-preview` | Immagine del contenitore con `zh-HK` le impostazioni locali. |
+| `2.1.1-amd64-zh-tw-preview` | Immagine del contenitore con `zh-TW` le impostazioni locali. |
+| `2.1.0-amd64-ar-ae-preview` | Immagine del contenitore con `ar-AE` le impostazioni locali. |
+| `2.1.0-amd64-ar-eg-preview` | Immagine del contenitore con `ar-EG` le impostazioni locali. |
+| `2.1.0-amd64-ar-kw-preview` | Immagine del contenitore con `ar-KW` le impostazioni locali. |
+| `2.1.0-amd64-ar-qa-preview` | Immagine del contenitore con `ar-QA` le impostazioni locali. |
+| `2.1.0-amd64-ar-sa-preview` | Immagine del contenitore con `ar-SA` le impostazioni locali. |
+| `2.1.0-amd64-ca-es-preview` | Immagine del contenitore con `ca-ES` le impostazioni locali. |
+| `2.1.0-amd64-da-dk-preview` | Immagine del contenitore con `da-DK` le impostazioni locali. |
+| `2.1.0-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `2.1.0-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `2.1.0-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `2.1.0-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `2.1.0-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `2.1.0-amd64-en-nz-preview` | Immagine del contenitore con `en-NZ` le impostazioni locali. |
+| `2.1.0-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `2.1.0-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `2.1.0-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `2.1.0-amd64-fi-fi-preview` | Immagine del contenitore con `fi-FI` le impostazioni locali. |
+| `2.1.0-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `2.1.0-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `2.1.0-amd64-gu-in-preview` | Immagine del contenitore con `gu-IN` le impostazioni locali. |
+| `2.1.0-amd64-hi-in-preview` | Immagine del contenitore con `hi-IN` le impostazioni locali. |
+| `2.1.0-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `2.1.0-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `2.1.0-amd64-ko-kr-preview` | Immagine del contenitore con `ko-KR` le impostazioni locali. |
+| `2.1.0-amd64-mr-in-preview` | Immagine del contenitore con `mr-IN` le impostazioni locali. |
+| `2.1.0-amd64-nb-no-preview` | Immagine del contenitore con `nb-NO` le impostazioni locali. |
+| `2.1.0-amd64-nl-nl-preview` | Immagine del contenitore con `nl-NL` le impostazioni locali. |
+| `2.1.0-amd64-pl-pl-preview` | Immagine del contenitore con `pl-PL` le impostazioni locali. |
+| `2.1.0-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `2.1.0-amd64-pt-pt-preview` | Immagine del contenitore con `pt-PT` le impostazioni locali. |
+| `2.1.0-amd64-ru-ru-preview` | Immagine del contenitore con `ru-RU` le impostazioni locali. |
+| `2.1.0-amd64-sv-se-preview` | Immagine del contenitore con `sv-SE` le impostazioni locali. |
+| `2.1.0-amd64-ta-in-preview` | Immagine del contenitore con `ta-IN` le impostazioni locali. |
+| `2.1.0-amd64-te-in-preview` | Immagine del contenitore con `te-IN` le impostazioni locali. |
+| `2.1.0-amd64-th-th-preview` | Immagine del contenitore con `th-TH` le impostazioni locali. |
+| `2.1.0-amd64-tr-tr-preview` | Immagine del contenitore con `tr-TR` le impostazioni locali. |
+| `2.1.0-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `2.1.0-amd64-zh-hk-preview` | Immagine del contenitore con `zh-HK` le impostazioni locali. |
+| `2.1.0-amd64-zh-tw-preview` | Immagine del contenitore con `zh-TW` le impostazioni locali. |
+| `2.0.3-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `2.0.2-amd64-ar-ae-preview` | Immagine del contenitore con `ar-AE` le impostazioni locali. |
+| `2.0.2-amd64-ar-eg-preview` | Immagine del contenitore con `ar-EG` le impostazioni locali. |
+| `2.0.2-amd64-ar-kw-preview` | Immagine del contenitore con `ar-KW` le impostazioni locali. |
+| `2.0.2-amd64-ar-qa-preview` | Immagine del contenitore con `ar-QA` le impostazioni locali. |
+| `2.0.2-amd64-ar-sa-preview` | Immagine del contenitore con `ar-SA` le impostazioni locali. |
+| `2.0.2-amd64-ca-es-preview` | Immagine del contenitore con `ca-ES` le impostazioni locali. |
+| `2.0.2-amd64-da-dk-preview` | Immagine del contenitore con `da-DK` le impostazioni locali. |
+| `2.0.2-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `2.0.2-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `2.0.2-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `2.0.2-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `2.0.2-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `2.0.2-amd64-en-nz-preview` | Immagine del contenitore con `en-NZ` le impostazioni locali. |
+| `2.0.2-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `2.0.2-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `2.0.2-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `2.0.2-amd64-fi-fi-preview` | Immagine del contenitore con `fi-FI` le impostazioni locali. |
+| `2.0.2-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `2.0.2-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `2.0.2-amd64-gu-in-preview` | Immagine del contenitore con `gu-IN` le impostazioni locali. |
+| `2.0.2-amd64-hi-in-preview` | Immagine del contenitore con `hi-IN` le impostazioni locali. |
+| `2.0.2-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `2.0.2-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `2.0.2-amd64-ko-kr-preview` | Immagine del contenitore con `ko-KR` le impostazioni locali. |
+| `2.0.2-amd64-mr-in-preview` | Immagine del contenitore con `mr-IN` le impostazioni locali. |
+| `2.0.2-amd64-nb-no-preview` | Immagine del contenitore con `nb-NO` le impostazioni locali. |
+| `2.0.2-amd64-nl-nl-preview` | Immagine del contenitore con `nl-NL` le impostazioni locali. |
+| `2.0.2-amd64-pl-pl-preview` | Immagine del contenitore con `pl-PL` le impostazioni locali. |
+| `2.0.2-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `2.0.2-amd64-pt-pt-preview` | Immagine del contenitore con `pt-PT` le impostazioni locali. |
+| `2.0.2-amd64-ru-ru-preview` | Immagine del contenitore con `ru-RU` le impostazioni locali. |
+| `2.0.2-amd64-sv-se-preview` | Immagine del contenitore con `sv-SE` le impostazioni locali. |
+| `2.0.2-amd64-ta-in-preview` | Immagine del contenitore con `ta-IN` le impostazioni locali. |
+| `2.0.2-amd64-te-in-preview` | Immagine del contenitore con `te-IN` le impostazioni locali. |
+| `2.0.2-amd64-th-th-preview` | Immagine del contenitore con `th-TH` le impostazioni locali. |
+| `2.0.2-amd64-tr-tr-preview` | Immagine del contenitore con `tr-TR` le impostazioni locali. |
+| `2.0.2-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `2.0.2-amd64-zh-hk-preview` | Immagine del contenitore con `zh-HK` le impostazioni locali. |
+| `2.0.2-amd64-zh-tw-preview` | Immagine del contenitore con `zh-TW` le impostazioni locali. |
+| `2.0.1-amd64-ar-ae-preview` | Immagine del contenitore con `ar-AE` le impostazioni locali. |
+| `2.0.1-amd64-ar-eg-preview` | Immagine del contenitore con `ar-EG` le impostazioni locali. |
+| `2.0.1-amd64-ar-kw-preview` | Immagine del contenitore con `ar-KW` le impostazioni locali. |
+| `2.0.1-amd64-ar-qa-preview` | Immagine del contenitore con `ar-QA` le impostazioni locali. |
+| `2.0.1-amd64-ar-sa-preview` | Immagine del contenitore con `ar-SA` le impostazioni locali. |
+| `2.0.1-amd64-ca-es-preview` | Immagine del contenitore con `ca-ES` le impostazioni locali. |
+| `2.0.1-amd64-da-dk-preview` | Immagine del contenitore con `da-DK` le impostazioni locali. |
+| `2.0.1-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `2.0.1-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `2.0.1-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `2.0.1-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `2.0.1-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `2.0.1-amd64-en-nz-preview` | Immagine del contenitore con `en-NZ` le impostazioni locali. |
+| `2.0.1-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `2.0.1-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `2.0.1-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `2.0.1-amd64-fi-fi-preview` | Immagine del contenitore con `fi-FI` le impostazioni locali. |
+| `2.0.1-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `2.0.1-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `2.0.1-amd64-gu-in-preview` | Immagine del contenitore con `gu-IN` le impostazioni locali. |
+| `2.0.1-amd64-hi-in-preview` | Immagine del contenitore con `hi-IN` le impostazioni locali. |
+| `2.0.1-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `2.0.1-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `2.0.1-amd64-ko-kr-preview` | Immagine del contenitore con `ko-KR` le impostazioni locali. |
+| `2.0.1-amd64-mr-in-preview` | Immagine del contenitore con `mr-IN` le impostazioni locali. |
+| `2.0.1-amd64-nb-no-preview` | Immagine del contenitore con `nb-NO` le impostazioni locali. |
+| `2.0.1-amd64-nl-nl-preview` | Immagine del contenitore con `nl-NL` le impostazioni locali. |
+| `2.0.1-amd64-pl-pl-preview` | Immagine del contenitore con `pl-PL` le impostazioni locali. |
+| `2.0.1-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `2.0.1-amd64-pt-pt-preview` | Immagine del contenitore con `pt-PT` le impostazioni locali. |
+| `2.0.1-amd64-ru-ru-preview` | Immagine del contenitore con `ru-RU` le impostazioni locali. |
+| `2.0.1-amd64-sv-se-preview` | Immagine del contenitore con `sv-SE` le impostazioni locali. |
+| `2.0.1-amd64-ta-in-preview` | Immagine del contenitore con `ta-IN` le impostazioni locali. |
+| `2.0.1-amd64-te-in-preview` | Immagine del contenitore con `te-IN` le impostazioni locali. |
+| `2.0.1-amd64-th-th-preview` | Immagine del contenitore con `th-TH` le impostazioni locali. |
+| `2.0.1-amd64-tr-tr-preview` | Immagine del contenitore con `tr-TR` le impostazioni locali. |
+| `2.0.1-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `2.0.1-amd64-zh-hk-preview` | Immagine del contenitore con `zh-HK` le impostazioni locali. |
+| `2.0.1-amd64-zh-tw-preview` | Immagine del contenitore con `zh-TW` le impostazioni locali. |
+| `2.0.0-amd64-ar-eg-preview` | Immagine del contenitore con `ar-EG` le impostazioni locali. |
+| `2.0.0-amd64-ca-es-preview` | Immagine del contenitore con `ca-ES` le impostazioni locali. |
+| `2.0.0-amd64-da-dk-preview` | Immagine del contenitore con `da-DK` le impostazioni locali. |
+| `2.0.0-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `2.0.0-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `2.0.0-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `2.0.0-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `2.0.0-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `2.0.0-amd64-en-nz-preview` | Immagine del contenitore con `en-NZ` le impostazioni locali. |
+| `2.0.0-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `2.0.0-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `2.0.0-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `2.0.0-amd64-fi-fi-preview` | Immagine del contenitore con `fi-FI` le impostazioni locali. |
+| `2.0.0-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `2.0.0-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `2.0.0-amd64-hi-in-preview` | Immagine del contenitore con `hi-IN` le impostazioni locali. |
+| `2.0.0-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `2.0.0-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `2.0.0-amd64-ko-kr-preview` | Immagine del contenitore con `ko-KR` le impostazioni locali. |
+| `2.0.0-amd64-nb-no-preview` | Immagine del contenitore con `nb-NO` le impostazioni locali. |
+| `2.0.0-amd64-nl-nl-preview` | Immagine del contenitore con `nl-NL` le impostazioni locali. |
+| `2.0.0-amd64-pl-pl-preview` | Immagine del contenitore con `pl-PL` le impostazioni locali. |
+| `2.0.0-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `2.0.0-amd64-pt-pt-preview` | Immagine del contenitore con `pt-PT` le impostazioni locali. |
+| `2.0.0-amd64-ru-ru-preview` | Immagine del contenitore con `ru-RU` le impostazioni locali. |
+| `2.0.0-amd64-sv-se-preview` | Immagine del contenitore con `sv-SE` le impostazioni locali. |
+| `2.0.0-amd64-th-th-preview` | Immagine del contenitore con `th-TH` le impostazioni locali. |
+| `2.0.0-amd64-tr-tr-preview` | Immagine del contenitore con `tr-TR` le impostazioni locali. |
+| `2.0.0-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `2.0.0-amd64-zh-hk-preview` | Immagine del contenitore con `zh-HK` le impostazioni locali. |
+| `2.0.0-amd64-zh-tw-preview` | Immagine del contenitore con `zh-TW` le impostazioni locali. |
+| `1.2.0-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `1.2.0-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `1.2.0-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `1.2.0-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `1.2.0-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `1.2.0-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `1.2.0-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `1.2.0-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `1.2.0-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `1.2.0-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `1.2.0-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `1.2.0-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `1.2.0-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `1.2.0-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `1.1.3-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `1.1.3-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `1.1.3-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `1.1.3-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `1.1.3-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `1.1.3-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `1.1.3-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `1.1.3-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `1.1.3-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `1.1.3-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `1.1.3-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `1.1.3-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `1.1.3-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `1.1.3-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `1.1.2-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `1.1.2-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `1.1.2-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `1.1.2-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `1.1.2-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `1.1.2-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `1.1.2-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `1.1.2-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `1.1.2-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `1.1.2-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `1.1.2-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `1.1.2-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `1.1.2-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `1.1.2-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `1.1.1-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `1.1.1-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `1.1.1-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `1.1.1-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `1.1.1-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `1.1.1-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `1.1.1-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `1.1.1-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `1.1.1-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `1.1.1-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `1.1.1-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `1.1.1-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `1.1.1-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `1.1.1-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `1.1.0-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `1.1.0-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `1.1.0-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `1.1.0-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `1.1.0-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `1.1.0-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `1.1.0-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `1.1.0-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `1.1.0-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `1.1.0-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `1.1.0-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `1.1.0-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `1.1.0-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `1.1.0-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `1.0.0-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `1.0.0-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `1.0.0-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `1.0.0-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `1.0.0-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `1.0.0-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `1.0.0-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `1.0.0-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `1.0.0-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `1.0.0-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `1.0.0-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `1.0.0-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `1.0.0-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `1.0.0-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
-L'immagine del contenitore [sintesi][sp-tts] vocale `containerpreview.azurecr.io` è disponibile nel Registro di sistema del contenitore. Si trova all'interno `microsoft` del `cognitive-services-text-to-speech`repository e si chiama . Il nome completo dell'immagine del contenitore è, `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`.
+L'immagine del contenitore [da sintesi vocale][sp-tts] è reperibile nel registro `containerpreview.azurecr.io` contenitori. Si trova all'interno del `microsoft` repository ed è denominato. `cognitive-services-text-to-speech` Il nome completo dell'immagine del contenitore è `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                                  | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
-| `latest`                                    | Immagine contenitore `en-US` con `en-US-JessaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-ar-eg-hoda-preview`            | Immagine contenitore `ar-EG` con `ar-EG-Hoda` le impostazioni locali e la voce.            |
-| `1.3.0-amd64-ar-sa-naayf-preview`           | Immagine contenitore `ar-SA` con `ar-SA-Naayf` le impostazioni locali e la voce.           |
-| `1.3.0-amd64-bg-bg-ivan-preview`            | Immagine contenitore `bg-BG` con `bg-BG-Ivan` le impostazioni locali e la voce.            |
-| `1.3.0-amd64-ca-es-herenarus-preview`       | Immagine contenitore `ca-ES` con `ca-ES-HerenaRUS` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-cs-cz-jakub-preview`           | Immagine contenitore `cs-CZ` con `cs-CZ-Jakub` le impostazioni locali e la voce.           |
-| `1.3.0-amd64-da-dk-hellerus-preview`        | Immagine contenitore `da-DK` con `da-DK-HelleRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-de-at-michael-preview`         | Immagine contenitore `de-AT` con `de-AT-Michael` le impostazioni locali e la voce.         |
-| `1.3.0-amd64-de-ch-karsten-preview`         | Immagine contenitore `de-CH` con `de-CH-Karsten` le impostazioni locali e la voce.         |
-| `1.3.0-amd64-de-de-hedda-preview`           | Immagine contenitore `de-DE` con `de-DE-Hedda` le impostazioni locali e la voce.           |
-| `1.3.0-amd64-de-de-heddarus-preview`        | Immagine contenitore `de-DE` con `de-DE-Hedda` le impostazioni locali e la voce.           |
-| `1.3.0-amd64-de-de-heddarus-preview`        | Immagine contenitore `de-DE` con `de-DE-HeddaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-de-de-stefan-apollo-preview`   | Immagine contenitore `de-DE` con `de-DE-Stefan-Apollo` le impostazioni locali e la voce.   |
-| `1.3.0-amd64-el-gr-stefanos-preview`        | Immagine contenitore `el-GR` con `el-GR-Stefanos` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-en-au-catherine-preview`       | Immagine contenitore `en-AU` con `en-AU-Catherine` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-en-au-hayleyrus-preview`       | Immagine contenitore `en-AU` con `en-AU-HayleyRUS` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-en-ca-heatherrus-preview`      | Immagine contenitore `en-CA` con `en-CA-HeatherRUS` le impostazioni locali e la voce.      |
-| `1.3.0-amd64-en-ca-linda-preview`           | Immagine contenitore `en-CA` con `en-CA-Linda` le impostazioni locali e la voce.           |
-| `1.3.0-amd64-en-gb-george-apollo-preview`   | Immagine contenitore `en-GB` con `en-GB-George-Apollo` le impostazioni locali e la voce.   |
-| `1.3.0-amd64-en-gb-hazelrus-preview`        | Immagine contenitore `en-GB` con `en-GB-HazelRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-en-gb-susan-apollo-preview`    | Immagine contenitore `en-GB` con `en-GB-Susan-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-en-ie-sean-preview`            | Immagine contenitore `en-IE` con `en-IE-Sean` le impostazioni locali e la voce.            |
-| `1.3.0-amd64-en-in-heera-apollo-preview`    | Immagine contenitore `en-IN` con `en-IN-Heera-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-en-in-priyarus-preview`        | Immagine contenitore `en-IN` con `en-IN-PriyaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-en-in-ravi-apollo-preview`     | Immagine contenitore `en-IN` con `en-IN-Ravi-Apollo` le impostazioni locali e la voce.     |
-| `1.3.0-amd64-en-us-benjaminrus-preview`     | Immagine contenitore `en-US` con `en-US-BenjaminRUS` le impostazioni locali e la voce.     |
-| `1.3.0-amd64-en-us-guy24krus-preview`       | Immagine contenitore `en-US` con `en-US-Guy24kRUS` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-en-us-jessa24krus-preview`     | Immagine contenitore `en-US` con `en-US-Jessa24kRUS` le impostazioni locali e la voce.     |
-| `1.3.0-amd64-en-us-jessarus-preview`        | Immagine contenitore `en-US` con `en-US-JessaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-en-us-zirarus-preview`         | Immagine contenitore `en-US` con `en-US-ZiraRUS` le impostazioni locali e la voce.         |
-| `1.3.0-amd64-es-es-helenarus-preview`       | Immagine contenitore `es-ES` con `es-ES-HelenaRUS` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-es-es-laura-apollo-preview`    | Immagine contenitore `es-ES` con `es-ES-Laura-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-es-es-pablo-apollo-preview`    | Immagine contenitore `es-ES` con `es-ES-Pablo-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-es-mx-hildarus-preview`        | Immagine contenitore `es-MX` con `es-MX-HildaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-es-mx-raul-apollo-preview`     | Immagine contenitore `es-MX` con `es-MX-Raul-Apollo` le impostazioni locali e la voce.     |
-| `1.3.0-amd64-fi-fi-heidirus-preview`        | Immagine contenitore `fi-FI` con `fi-FI-HeidiRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-fr-ca-caroline-preview`        | Immagine contenitore `fr-CA` con `fr-CA-Caroline` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-fr-ca-harmonierus-preview`     | Immagine contenitore `fr-CA` con `fr-CA-HarmonieRUS` le impostazioni locali e la voce.     |
-| `1.3.0-amd64-fr-ch-guillaume-preview`       | Immagine contenitore `fr-CH` con `fr-CH-Guillaume` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-fr-fr-hortenserus-preview`     | Immagine contenitore `fr-FR` con `fr-FR-HortenseRUS` le impostazioni locali e la voce.     |
-| `1.3.0-amd64-fr-fr-julie-apollo-preview`    | Immagine contenitore `fr-FR` con `fr-FR-Julie-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-fr-fr-paul-apollo-preview`     | Immagine contenitore `fr-FR` con `fr-FR-Paul-Apollo` le impostazioni locali e la voce.     |
-| `1.3.0-amd64-he-il-asaf-preview`            | Immagine contenitore `he-IL` con `he-IL-Asaf` le impostazioni locali e la voce.            |
-| `1.3.0-amd64-hi-in-hemant-preview`          | Immagine contenitore `hi-IN` con `hi-IN-Hemant` le impostazioni locali e la voce.          |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Immagine contenitore `hi-IN` con `hi-IN-Kalpana-Apollo` le impostazioni locali e la voce.  |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Immagine contenitore `hi-IN` con `hi-IN-Kalpana` le impostazioni locali e la voce.         |
-| `1.3.0-amd64-hi-in-kalpana-preview`         | Immagine contenitore `hi-IN` con `hi-IN-Kalpana` le impostazioni locali e la voce.         |
-| `1.3.0-amd64-hr-hr-matej-preview`           | Immagine contenitore `hr-HR` con `hr-HR-Matej` le impostazioni locali e la voce.           |
-| `1.3.0-amd64-hu-hu-szabolcs-preview`        | Immagine contenitore `hu-HU` con `hu-HU-Szabolcs` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-id-id-andika-preview`          | Immagine contenitore `id-ID` con `id-ID-Andika` le impostazioni locali e la voce.          |
-| `1.3.0-amd64-it-it-cosimo-apollo-preview`   | Immagine contenitore `it-IT` con `it-IT-Cosimo-Apollo` le impostazioni locali e la voce.   |
-| `1.3.0-amd64-it-it-luciarus-preview`        | Immagine contenitore `it-IT` con `it-IT-LuciaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-ja-jp-ayumi-apollo-preview`    | Immagine contenitore `ja-JP` con `ja-JP-Ayumi-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-ja-jp-harukarus-preview`       | Immagine contenitore `ja-JP` con `ja-JP-HarukaRUS` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-ja-jp-ichiro-apollo-preview`   | Immagine contenitore `ja-JP` con `ja-JP-Ichiro-Apollo` le impostazioni locali e la voce.   |
-| `1.3.0-amd64-ko-kr-heamirus-preview`        | Immagine contenitore `ko-KR` con `ko-KR-HeamiRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-ms-my-rizwan-preview`          | Immagine contenitore `ms-MY` con `ms-MY-Rizwan` le impostazioni locali e la voce.          |
-| `1.3.0-amd64-nb-no-huldarus-preview`        | Immagine contenitore `nb-NO` con `nb-NO-HuldaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-nl-nl-hannarus-preview`        | Immagine contenitore `nl-NL` con `nl-NL-HannaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-pl-pl-paulinarus-preview`      | Immagine contenitore `pl-PL` con `pl-PL-PaulinaRUS` le impostazioni locali e la voce.      |
-| `1.3.0-amd64-pt-br-daniel-apollo-preview`   | Immagine contenitore `pt-BR` con `pt-BR-Daniel-Apollo` le impostazioni locali e la voce.   |
-| `1.3.0-amd64-pt-br-heloisarus-preview`      | Immagine contenitore `pt-BR` con `pt-BR-HeloisaRUS` le impostazioni locali e la voce.      |
-| `1.3.0-amd64-pt-pt-heliarus-preview`        | Immagine contenitore `pt-PT` con `pt-PT-HeliaRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-ro-ro-andrei-preview`          | Immagine contenitore `ro-RO` con `ro-RO-Andrei` le impostazioni locali e la voce.          |
-| `1.3.0-amd64-ru-ru-ekaterinarus-preview`    | Immagine contenitore `ru-RU` con `ru-RU-EkaterinaRUS` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-ru-ru-irina-apollo-preview`    | Immagine contenitore `ru-RU` con `ru-RU-Irina-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-ru-ru-pavel-apollo-preview`    | Immagine contenitore `ru-RU` con `ru-RU-Pavel-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-sk-sk-filip-preview`           | Immagine contenitore `sk-SK` con `sk-SK-Filip` le impostazioni locali e la voce.           |
-| `1.3.0-amd64-sl-si-lado-preview`            | Immagine contenitore `sl-SI` con `sl-SI-Lado` le impostazioni locali e la voce.            |
-| `1.3.0-amd64-sv-se-hedvigrus-preview`       | Immagine contenitore `sv-SE` con `sv-SE-HedvigRUS` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-ta-in-valluvar-preview`        | Immagine contenitore `ta-IN` con `ta-IN-Valluvar` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-te-in-chitra-preview`          | Immagine contenitore `te-IN` con `te-IN-Chitra` le impostazioni locali e la voce.          |
-| `1.3.0-amd64-th-th-pattara-preview`         | Immagine contenitore `th-TH` con `th-TH-Pattara` le impostazioni locali e la voce.         |
-| `1.3.0-amd64-tr-tr-sedarus-preview`         | Immagine contenitore `tr-TR` con `tr-TR-SedaRUS` le impostazioni locali e la voce.         |
-| `1.3.0-amd64-vi-vn-an-preview`              | Immagine contenitore `vi-VN` con `vi-VN-An` le impostazioni locali e la voce.              |
-| `1.3.0-amd64-zh-cn-huihuirus-preview`       | Immagine contenitore `zh-CN` con `zh-CN-HuihuiRUS` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-zh-cn-kangkang-apollo-preview` | Immagine contenitore `zh-CN` con `zh-CN-Kangkang-Apollo` le impostazioni locali e la voce. |
-| `1.3.0-amd64-zh-cn-yaoyao-apollo-preview`   | Immagine contenitore `zh-CN` con `zh-CN-Yaoyao-Apollo` le impostazioni locali e la voce.   |
-| `1.3.0-amd64-zh-hk-danny-apollo-preview`    | Immagine contenitore `zh-HK` con `zh-HK-Danny-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-zh-hk-tracy-apollo-preview`    | Immagine contenitore `zh-HK` con `zh-HK-Tracy-Apollo` le impostazioni locali e la voce.    |
-| `1.3.0-amd64-zh-hk-tracyrus-preview`        | Immagine contenitore `zh-HK` con `zh-HK-TracyRUS` le impostazioni locali e la voce.        |
-| `1.3.0-amd64-zh-tw-hanhanrus-preview`       | Immagine contenitore `zh-TW` con `zh-TW-HanHanRUS` le impostazioni locali e la voce.       |
-| `1.3.0-amd64-zh-tw-yating-apollo-preview`   | Immagine contenitore `zh-TW` con `zh-TW-Yating-Apollo` le impostazioni locali e la voce.   |
-| `1.3.0-amd64-zh-tw-zhiwei-apollo-preview`   | Immagine contenitore `zh-TW` con `zh-TW-Zhiwei-Apollo` le impostazioni locali e la voce.   |
-| `1.2.0-amd64-de-de-heddarus-preview`        | Immagine contenitore `de-DE` con `de-DE-Hedda` le impostazioni locali e la voce.           |
-| `1.2.0-amd64-de-de-heddarus-preview`        | Immagine contenitore `de-DE` con `de-DE-HeddaRUS` le impostazioni locali e la voce.        |
-| `1.2.0-amd64-de-de-stefan-apollo-preview`   | Immagine contenitore `de-DE` con `de-DE-Stefan-Apollo` le impostazioni locali e la voce.   |
-| `1.2.0-amd64-en-au-catherine-preview`       | Immagine contenitore `en-AU` con `en-AU-Catherine` le impostazioni locali e la voce.       |
-| `1.2.0-amd64-en-au-hayleyrus-preview`       | Immagine contenitore `en-AU` con `en-AU-HayleyRUS` le impostazioni locali e la voce.       |
-| `1.2.0-amd64-en-gb-george-apollo-preview`   | Immagine contenitore `en-GB` con `en-GB-George-Apollo` le impostazioni locali e la voce.   |
-| `1.2.0-amd64-en-gb-hazelrus-preview`        | Immagine contenitore `en-GB` con `en-GB-HazelRUS` le impostazioni locali e la voce.        |
-| `1.2.0-amd64-en-gb-susan-apollo-preview`    | Immagine contenitore `en-GB` con `en-GB-Susan-Apollo` le impostazioni locali e la voce.    |
-| `1.2.0-amd64-en-in-heera-apollo-preview`    | Immagine contenitore `en-IN` con `en-IN-Heera-Apollo` le impostazioni locali e la voce.    |
-| `1.2.0-amd64-en-in-priyarus-preview`        | Immagine contenitore `en-IN` con `en-IN-PriyaRUS` le impostazioni locali e la voce.        |
-| `1.2.0-amd64-en-in-ravi-apollo-preview`     | Immagine contenitore `en-IN` con `en-IN-Ravi-Apollo` le impostazioni locali e la voce.     |
-| `1.2.0-amd64-en-us-benjaminrus-preview`     | Immagine contenitore `en-US` con `en-US-BenjaminRUS` le impostazioni locali e la voce.     |
-| `1.2.0-amd64-en-us-guy24krus-preview`       | Immagine contenitore `en-US` con `en-US-Guy24kRUS` le impostazioni locali e la voce.       |
-| `1.2.0-amd64-en-us-jessa24krus-preview`     | Immagine contenitore `en-US` con `en-US-Jessa24kRUS` le impostazioni locali e la voce.     |
-| `1.2.0-amd64-en-us-jessarus-preview`        | Immagine contenitore `en-US` con `en-US-JessaRUS` le impostazioni locali e la voce.        |
-| `1.2.0-amd64-en-us-zirarus-preview`         | Immagine contenitore `en-US` con `en-US-ZiraRUS` le impostazioni locali e la voce.         |
-| `1.2.0-amd64-es-es-helenarus-preview`       | Immagine contenitore `es-ES` con `es-ES-HelenaRUS` le impostazioni locali e la voce.       |
-| `1.2.0-amd64-es-es-laura-apollo-preview`    | Immagine contenitore `es-ES` con `es-ES-Laura-Apollo` le impostazioni locali e la voce.    |
-| `1.2.0-amd64-es-es-pablo-apollo-preview`    | Immagine contenitore `es-ES` con `es-ES-Pablo-Apollo` le impostazioni locali e la voce.    |
-| `1.2.0-amd64-es-mx-hildarus-preview`        | Immagine contenitore `es-MX` con `es-MX-HildaRUS` le impostazioni locali e la voce.        |
-| `1.2.0-amd64-es-mx-raul-apollo-preview`     | Immagine contenitore `es-MX` con `es-MX-Raul-Apollo` le impostazioni locali e la voce.     |
-| `1.2.0-amd64-fr-ca-caroline-preview`        | Immagine contenitore `fr-CA` con `fr-CA-Caroline` le impostazioni locali e la voce.        |
-| `1.2.0-amd64-fr-ca-harmonierus-preview`     | Immagine contenitore `fr-CA` con `fr-CA-HarmonieRUS` le impostazioni locali e la voce.     |
-| `1.2.0-amd64-fr-fr-hortenserus-preview`     | Immagine contenitore `fr-FR` con `fr-FR-HortenseRUS` le impostazioni locali e la voce.     |
-| `1.2.0-amd64-fr-fr-julie-apollo-preview`    | Immagine contenitore `fr-FR` con `fr-FR-Julie-Apollo` le impostazioni locali e la voce.    |
-| `1.2.0-amd64-fr-fr-paul-apollo-preview`     | Immagine contenitore `fr-FR` con `fr-FR-Paul-Apollo` le impostazioni locali e la voce.     |
-| `1.2.0-amd64-it-it-cosimo-apollo-preview`   | Immagine contenitore `it-IT` con `it-IT-Cosimo-Apollo` le impostazioni locali e la voce.   |
-| `1.2.0-amd64-it-it-luciarus-preview`        | Immagine contenitore `it-IT` con `it-IT-LuciaRUS` le impostazioni locali e la voce.        |
-| `1.2.0-amd64-ja-jp-ayumi-apollo-preview`    | Immagine contenitore `ja-JP` con `ja-JP-Ayumi-Apollo` le impostazioni locali e la voce.    |
-| `1.2.0-amd64-ja-jp-harukarus-preview`       | Immagine contenitore `ja-JP` con `ja-JP-HarukaRUS` le impostazioni locali e la voce.       |
-| `1.2.0-amd64-ja-jp-ichiro-apollo-preview`   | Immagine contenitore `ja-JP` con `ja-JP-Ichiro-Apollo` le impostazioni locali e la voce.   |
-| `1.2.0-amd64-ko-kr-heamirus-preview`        | Immagine contenitore `ko-KR` con `ko-KR-HeamiRUS` le impostazioni locali e la voce.        |
-| `1.2.0-amd64-pt-br-daniel-apollo-preview`   | Immagine contenitore `pt-BR` con `pt-BR-Daniel-Apollo` le impostazioni locali e la voce.   |
-| `1.2.0-amd64-pt-br-heloisarus-preview`      | Immagine contenitore `pt-BR` con `pt-BR-HeloisaRUS` le impostazioni locali e la voce.      |
-| `1.2.0-amd64-zh-cn-huihuirus-preview`       | Immagine contenitore `zh-CN` con `zh-CN-HuihuiRUS` le impostazioni locali e la voce.       |
-| `1.2.0-amd64-zh-cn-kangkang-apollo-preview` | Immagine contenitore `zh-CN` con `zh-CN-Kangkang-Apollo` le impostazioni locali e la voce. |
-| `1.2.0-amd64-zh-cn-yaoyao-apollo-preview`   | Immagine contenitore `zh-CN` con `zh-CN-Yaoyao-Apollo` le impostazioni locali e la voce.   |
-| `1.1.0-amd64-de-de-hedda-preview`           | Immagine contenitore `de-DE` con `de-DE-Hedda` le impostazioni locali e la voce.           |
-| `1.1.0-amd64-de-de-heddarus-preview`        | Immagine contenitore `de-DE` con `de-DE-Hedda` le impostazioni locali e la voce.           |
-| `1.1.0-amd64-de-de-heddarus-preview`        | Immagine contenitore `de-DE` con `de-DE-HeddaRUS` le impostazioni locali e la voce.        |
-| `1.1.0-amd64-de-de-stefan-apollo-preview`   | Immagine contenitore `de-DE` con `de-DE-Stefan-Apollo` le impostazioni locali e la voce.   |
-| `1.1.0-amd64-en-au-catherine-preview`       | Immagine contenitore `en-AU` con `en-AU-Catherine` le impostazioni locali e la voce.       |
-| `1.1.0-amd64-en-au-hayleyrus-preview`       | Immagine contenitore `en-AU` con `en-AU-HayleyRUS` le impostazioni locali e la voce.       |
-| `1.1.0-amd64-en-gb-george-apollo-preview`   | Immagine contenitore `en-GB` con `en-GB-George-Apollo` le impostazioni locali e la voce.   |
-| `1.1.0-amd64-en-gb-hazelrus-preview`        | Immagine contenitore `en-GB` con `en-GB-HazelRUS` le impostazioni locali e la voce.        |
-| `1.1.0-amd64-en-gb-susan-apollo-preview`    | Immagine contenitore `en-GB` con `en-GB-Susan-Apollo` le impostazioni locali e la voce.    |
-| `1.1.0-amd64-en-in-heera-apollo-preview`    | Immagine contenitore `en-IN` con `en-IN-Heera-Apollo` le impostazioni locali e la voce.    |
-| `1.1.0-amd64-en-in-priyarus-preview`        | Immagine contenitore `en-IN` con `en-IN-PriyaRUS` le impostazioni locali e la voce.        |
-| `1.1.0-amd64-en-in-ravi-apollo-preview`     | Immagine contenitore `en-IN` con `en-IN-Ravi-Apollo` le impostazioni locali e la voce.     |
-| `1.1.0-amd64-en-us-benjaminrus-preview`     | Immagine contenitore `en-US` con `en-US-BenjaminRUS` le impostazioni locali e la voce.     |
-| `1.1.0-amd64-en-us-guy24krus-preview`       | Immagine contenitore `en-US` con `en-US-Guy24kRUS` le impostazioni locali e la voce.       |
-| `1.1.0-amd64-en-us-jessa24krus-preview`     | Immagine contenitore `en-US` con `en-US-Jessa24kRUS` le impostazioni locali e la voce.     |
-| `1.1.0-amd64-en-us-jessarus-preview`        | Immagine contenitore `en-US` con `en-US-JessaRUS` le impostazioni locali e la voce.        |
-| `1.1.0-amd64-en-us-zirarus-preview`         | Immagine contenitore `en-US` con `en-US-ZiraRUS` le impostazioni locali e la voce.         |
-| `1.1.0-amd64-es-es-helenarus-preview`       | Immagine contenitore `es-ES` con `es-ES-HelenaRUS` le impostazioni locali e la voce.       |
-| `1.1.0-amd64-es-es-laura-apollo-preview`    | Immagine contenitore `es-ES` con `es-ES-Laura-Apollo` le impostazioni locali e la voce.    |
-| `1.1.0-amd64-es-es-pablo-apollo-preview`    | Immagine contenitore `es-ES` con `es-ES-Pablo-Apollo` le impostazioni locali e la voce.    |
-| `1.1.0-amd64-es-mx-hildarus-preview`        | Immagine contenitore `es-MX` con `es-MX-HildaRUS` le impostazioni locali e la voce.        |
-| `1.1.0-amd64-es-mx-raul-apollo-preview`     | Immagine contenitore `es-MX` con `es-MX-Raul-Apollo` le impostazioni locali e la voce.     |
-| `1.1.0-amd64-fr-ca-caroline-preview`        | Immagine contenitore `fr-CA` con `fr-CA-Caroline` le impostazioni locali e la voce.        |
-| `1.1.0-amd64-fr-ca-harmonierus-preview`     | Immagine contenitore `fr-CA` con `fr-CA-HarmonieRUS` le impostazioni locali e la voce.     |
-| `1.1.0-amd64-fr-fr-hortenserus-preview`     | Immagine contenitore `fr-FR` con `fr-FR-HortenseRUS` le impostazioni locali e la voce.     |
-| `1.1.0-amd64-fr-fr-julie-apollo-preview`    | Immagine contenitore `fr-FR` con `fr-FR-Julie-Apollo` le impostazioni locali e la voce.    |
-| `1.1.0-amd64-fr-fr-paul-apollo-preview`     | Immagine contenitore `fr-FR` con `fr-FR-Paul-Apollo` le impostazioni locali e la voce.     |
-| `1.1.0-amd64-it-it-cosimo-apollo-preview`   | Immagine contenitore `it-IT` con `it-IT-Cosimo-Apollo` le impostazioni locali e la voce.   |
-| `1.1.0-amd64-it-it-luciarus-preview`        | Immagine contenitore `it-IT` con `it-IT-LuciaRUS` le impostazioni locali e la voce.        |
-| `1.1.0-amd64-ja-jp-ayumi-apollo-preview`    | Immagine contenitore `ja-JP` con `ja-JP-Ayumi-Apollo` le impostazioni locali e la voce.    |
-| `1.1.0-amd64-ja-jp-harukarus-preview`       | Immagine contenitore `ja-JP` con `ja-JP-HarukaRUS` le impostazioni locali e la voce.       |
-| `1.1.0-amd64-ja-jp-ichiro-apollo-preview`   | Immagine contenitore `ja-JP` con `ja-JP-Ichiro-Apollo` le impostazioni locali e la voce.   |
-| `1.1.0-amd64-ko-kr-heamirus-preview`        | Immagine contenitore `ko-KR` con `ko-KR-HeamiRUS` le impostazioni locali e la voce.        |
-| `1.1.0-amd64-pt-br-daniel-apollo-preview`   | Immagine contenitore `pt-BR` con `pt-BR-Daniel-Apollo` le impostazioni locali e la voce.   |
-| `1.1.0-amd64-pt-br-heloisarus-preview`      | Immagine contenitore `pt-BR` con `pt-BR-HeloisaRUS` le impostazioni locali e la voce.      |
-| `1.1.0-amd64-zh-cn-huihuirus-preview`       | Immagine contenitore `zh-CN` con `zh-CN-HuihuiRUS` le impostazioni locali e la voce.       |
-| `1.1.0-amd64-zh-cn-kangkang-apollo-preview` | Immagine contenitore `zh-CN` con `zh-CN-Kangkang-Apollo` le impostazioni locali e la voce. |
-| `1.1.0-amd64-zh-cn-yaoyao-apollo-preview`   | Immagine contenitore `zh-CN` con `zh-CN-Yaoyao-Apollo` le impostazioni locali e la voce.   |
-| `1.0.0-amd64-en-us-benjaminrus-preview`     | Immagine contenitore `en-US` con `en-US-BenjaminRUS` le impostazioni locali e la voce.     |
-| `1.0.0-amd64-en-us-guy24krus-preview`       | Immagine contenitore `en-US` con `en-US-Guy24kRUS` le impostazioni locali e la voce.       |
-| `1.0.0-amd64-en-us-jessa24krus-preview`     | Immagine contenitore `en-US` con `en-US-Jessa24kRUS` le impostazioni locali e la voce.     |
-| `1.0.0-amd64-en-us-jessarus-preview`        | Immagine contenitore `en-US` con `en-US-JessaRUS` le impostazioni locali e la voce.        |
-| `1.0.0-amd64-en-us-zirarus-preview`         | Immagine contenitore `en-US` con `en-US-ZiraRUS` le impostazioni locali e la voce.         |
-| `1.0.0-amd64-zh-cn-huihuirus-preview`       | Immagine contenitore `zh-CN` con `zh-CN-HuihuiRUS` le impostazioni locali e la voce.       |
-| `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Immagine contenitore `zh-CN` con `zh-CN-Kangkang-Apollo` le impostazioni locali e la voce. |
-| `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Immagine contenitore `zh-CN` con `zh-CN-Yaoyao-Apollo` le impostazioni locali e la voce.   |
+| `latest`                                    | Immagine del contenitore con `en-US` le impostazioni locali `en-US-JessaRUS` e la voce.        |
+| `1.3.0-amd64-ar-eg-hoda-preview`            | Immagine del contenitore con `ar-EG` le impostazioni locali `ar-EG-Hoda` e la voce.            |
+| `1.3.0-amd64-ar-sa-naayf-preview`           | Immagine del contenitore con `ar-SA` le impostazioni locali `ar-SA-Naayf` e la voce.           |
+| `1.3.0-amd64-bg-bg-ivan-preview`            | Immagine del contenitore con `bg-BG` le impostazioni locali `bg-BG-Ivan` e la voce.            |
+| `1.3.0-amd64-ca-es-herenarus-preview`       | Immagine del contenitore con `ca-ES` le impostazioni locali `ca-ES-HerenaRUS` e la voce.       |
+| `1.3.0-amd64-cs-cz-jakub-preview`           | Immagine del contenitore con `cs-CZ` le impostazioni locali `cs-CZ-Jakub` e la voce.           |
+| `1.3.0-amd64-da-dk-hellerus-preview`        | Immagine del contenitore con `da-DK` le impostazioni locali `da-DK-HelleRUS` e la voce.        |
+| `1.3.0-amd64-de-at-michael-preview`         | Immagine del contenitore con `de-AT` le impostazioni locali `de-AT-Michael` e la voce.         |
+| `1.3.0-amd64-de-ch-karsten-preview`         | Immagine del contenitore con `de-CH` le impostazioni locali `de-CH-Karsten` e la voce.         |
+| `1.3.0-amd64-de-de-hedda-preview`           | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-Hedda` e la voce.           |
+| `1.3.0-amd64-de-de-heddarus-preview`        | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-Hedda` e la voce.           |
+| `1.3.0-amd64-de-de-heddarus-preview`        | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-HeddaRUS` e la voce.        |
+| `1.3.0-amd64-de-de-stefan-apollo-preview`   | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-Stefan-Apollo` e la voce.   |
+| `1.3.0-amd64-el-gr-stefanos-preview`        | Immagine del contenitore con `el-GR` le impostazioni locali `el-GR-Stefanos` e la voce.        |
+| `1.3.0-amd64-en-au-catherine-preview`       | Immagine del contenitore con `en-AU` le impostazioni locali `en-AU-Catherine` e la voce.       |
+| `1.3.0-amd64-en-au-hayleyrus-preview`       | Immagine del contenitore con `en-AU` le impostazioni locali `en-AU-HayleyRUS` e la voce.       |
+| `1.3.0-amd64-en-ca-heatherrus-preview`      | Immagine del contenitore con `en-CA` le impostazioni locali `en-CA-HeatherRUS` e la voce.      |
+| `1.3.0-amd64-en-ca-linda-preview`           | Immagine del contenitore con `en-CA` le impostazioni locali `en-CA-Linda` e la voce.           |
+| `1.3.0-amd64-en-gb-george-apollo-preview`   | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-George-Apollo` e la voce.   |
+| `1.3.0-amd64-en-gb-hazelrus-preview`        | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-HazelRUS` e la voce.        |
+| `1.3.0-amd64-en-gb-susan-apollo-preview`    | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-Susan-Apollo` e la voce.    |
+| `1.3.0-amd64-en-ie-sean-preview`            | Immagine del contenitore con `en-IE` le impostazioni locali `en-IE-Sean` e la voce.            |
+| `1.3.0-amd64-en-in-heera-apollo-preview`    | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-Heera-Apollo` e la voce.    |
+| `1.3.0-amd64-en-in-priyarus-preview`        | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-PriyaRUS` e la voce.        |
+| `1.3.0-amd64-en-in-ravi-apollo-preview`     | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-Ravi-Apollo` e la voce.     |
+| `1.3.0-amd64-en-us-benjaminrus-preview`     | Immagine del contenitore con `en-US` le impostazioni locali `en-US-BenjaminRUS` e la voce.     |
+| `1.3.0-amd64-en-us-guy24krus-preview`       | Immagine del contenitore con `en-US` le impostazioni locali `en-US-Guy24kRUS` e la voce.       |
+| `1.3.0-amd64-en-us-jessa24krus-preview`     | Immagine del contenitore con `en-US` le impostazioni locali `en-US-Jessa24kRUS` e la voce.     |
+| `1.3.0-amd64-en-us-jessarus-preview`        | Immagine del contenitore con `en-US` le impostazioni locali `en-US-JessaRUS` e la voce.        |
+| `1.3.0-amd64-en-us-zirarus-preview`         | Immagine del contenitore con `en-US` le impostazioni locali `en-US-ZiraRUS` e la voce.         |
+| `1.3.0-amd64-es-es-helenarus-preview`       | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-HelenaRUS` e la voce.       |
+| `1.3.0-amd64-es-es-laura-apollo-preview`    | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-Laura-Apollo` e la voce.    |
+| `1.3.0-amd64-es-es-pablo-apollo-preview`    | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-Pablo-Apollo` e la voce.    |
+| `1.3.0-amd64-es-mx-hildarus-preview`        | Immagine del contenitore con `es-MX` le impostazioni locali `es-MX-HildaRUS` e la voce.        |
+| `1.3.0-amd64-es-mx-raul-apollo-preview`     | Immagine del contenitore con `es-MX` le impostazioni locali `es-MX-Raul-Apollo` e la voce.     |
+| `1.3.0-amd64-fi-fi-heidirus-preview`        | Immagine del contenitore con `fi-FI` le impostazioni locali `fi-FI-HeidiRUS` e la voce.        |
+| `1.3.0-amd64-fr-ca-caroline-preview`        | Immagine del contenitore con `fr-CA` le impostazioni locali `fr-CA-Caroline` e la voce.        |
+| `1.3.0-amd64-fr-ca-harmonierus-preview`     | Immagine del contenitore con `fr-CA` le impostazioni locali `fr-CA-HarmonieRUS` e la voce.     |
+| `1.3.0-amd64-fr-ch-guillaume-preview`       | Immagine del contenitore con `fr-CH` le impostazioni locali `fr-CH-Guillaume` e la voce.       |
+| `1.3.0-amd64-fr-fr-hortenserus-preview`     | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-HortenseRUS` e la voce.     |
+| `1.3.0-amd64-fr-fr-julie-apollo-preview`    | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-Julie-Apollo` e la voce.    |
+| `1.3.0-amd64-fr-fr-paul-apollo-preview`     | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-Paul-Apollo` e la voce.     |
+| `1.3.0-amd64-he-il-asaf-preview`            | Immagine del contenitore con `he-IL` le impostazioni locali `he-IL-Asaf` e la voce.            |
+| `1.3.0-amd64-hi-in-hemant-preview`          | Immagine del contenitore con `hi-IN` le impostazioni locali `hi-IN-Hemant` e la voce.          |
+| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Immagine del contenitore con `hi-IN` le impostazioni locali `hi-IN-Kalpana-Apollo` e la voce.  |
+| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Immagine del contenitore con `hi-IN` le impostazioni locali `hi-IN-Kalpana` e la voce.         |
+| `1.3.0-amd64-hi-in-kalpana-preview`         | Immagine del contenitore con `hi-IN` le impostazioni locali `hi-IN-Kalpana` e la voce.         |
+| `1.3.0-amd64-hr-hr-matej-preview`           | Immagine del contenitore con `hr-HR` le impostazioni locali `hr-HR-Matej` e la voce.           |
+| `1.3.0-amd64-hu-hu-szabolcs-preview`        | Immagine del contenitore con `hu-HU` le impostazioni locali `hu-HU-Szabolcs` e la voce.        |
+| `1.3.0-amd64-id-id-andika-preview`          | Immagine del contenitore con `id-ID` le impostazioni locali `id-ID-Andika` e la voce.          |
+| `1.3.0-amd64-it-it-cosimo-apollo-preview`   | Immagine del contenitore con `it-IT` le impostazioni locali `it-IT-Cosimo-Apollo` e la voce.   |
+| `1.3.0-amd64-it-it-luciarus-preview`        | Immagine del contenitore con `it-IT` le impostazioni locali `it-IT-LuciaRUS` e la voce.        |
+| `1.3.0-amd64-ja-jp-ayumi-apollo-preview`    | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-Ayumi-Apollo` e la voce.    |
+| `1.3.0-amd64-ja-jp-harukarus-preview`       | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-HarukaRUS` e la voce.       |
+| `1.3.0-amd64-ja-jp-ichiro-apollo-preview`   | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-Ichiro-Apollo` e la voce.   |
+| `1.3.0-amd64-ko-kr-heamirus-preview`        | Immagine del contenitore con `ko-KR` le impostazioni locali `ko-KR-HeamiRUS` e la voce.        |
+| `1.3.0-amd64-ms-my-rizwan-preview`          | Immagine del contenitore con `ms-MY` le impostazioni locali `ms-MY-Rizwan` e la voce.          |
+| `1.3.0-amd64-nb-no-huldarus-preview`        | Immagine del contenitore con `nb-NO` le impostazioni locali `nb-NO-HuldaRUS` e la voce.        |
+| `1.3.0-amd64-nl-nl-hannarus-preview`        | Immagine del contenitore con `nl-NL` le impostazioni locali `nl-NL-HannaRUS` e la voce.        |
+| `1.3.0-amd64-pl-pl-paulinarus-preview`      | Immagine del contenitore con `pl-PL` le impostazioni locali `pl-PL-PaulinaRUS` e la voce.      |
+| `1.3.0-amd64-pt-br-daniel-apollo-preview`   | Immagine del contenitore con `pt-BR` le impostazioni locali `pt-BR-Daniel-Apollo` e la voce.   |
+| `1.3.0-amd64-pt-br-heloisarus-preview`      | Immagine del contenitore con `pt-BR` le impostazioni locali `pt-BR-HeloisaRUS` e la voce.      |
+| `1.3.0-amd64-pt-pt-heliarus-preview`        | Immagine del contenitore con `pt-PT` le impostazioni locali `pt-PT-HeliaRUS` e la voce.        |
+| `1.3.0-amd64-ro-ro-andrei-preview`          | Immagine del contenitore con `ro-RO` le impostazioni locali `ro-RO-Andrei` e la voce.          |
+| `1.3.0-amd64-ru-ru-ekaterinarus-preview`    | Immagine del contenitore con `ru-RU` le impostazioni locali `ru-RU-EkaterinaRUS` e la voce.    |
+| `1.3.0-amd64-ru-ru-irina-apollo-preview`    | Immagine del contenitore con `ru-RU` le impostazioni locali `ru-RU-Irina-Apollo` e la voce.    |
+| `1.3.0-amd64-ru-ru-pavel-apollo-preview`    | Immagine del contenitore con `ru-RU` le impostazioni locali `ru-RU-Pavel-Apollo` e la voce.    |
+| `1.3.0-amd64-sk-sk-filip-preview`           | Immagine del contenitore con `sk-SK` le impostazioni locali `sk-SK-Filip` e la voce.           |
+| `1.3.0-amd64-sl-si-lado-preview`            | Immagine del contenitore con `sl-SI` le impostazioni locali `sl-SI-Lado` e la voce.            |
+| `1.3.0-amd64-sv-se-hedvigrus-preview`       | Immagine del contenitore con `sv-SE` le impostazioni locali `sv-SE-HedvigRUS` e la voce.       |
+| `1.3.0-amd64-ta-in-valluvar-preview`        | Immagine del contenitore con `ta-IN` le impostazioni locali `ta-IN-Valluvar` e la voce.        |
+| `1.3.0-amd64-te-in-chitra-preview`          | Immagine del contenitore con `te-IN` le impostazioni locali `te-IN-Chitra` e la voce.          |
+| `1.3.0-amd64-th-th-pattara-preview`         | Immagine del contenitore con `th-TH` le impostazioni locali `th-TH-Pattara` e la voce.         |
+| `1.3.0-amd64-tr-tr-sedarus-preview`         | Immagine del contenitore con `tr-TR` le impostazioni locali `tr-TR-SedaRUS` e la voce.         |
+| `1.3.0-amd64-vi-vn-an-preview`              | Immagine del contenitore con `vi-VN` le impostazioni locali `vi-VN-An` e la voce.              |
+| `1.3.0-amd64-zh-cn-huihuirus-preview`       | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-HuihuiRUS` e la voce.       |
+| `1.3.0-amd64-zh-cn-kangkang-apollo-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-Kangkang-Apollo` e la voce. |
+| `1.3.0-amd64-zh-cn-yaoyao-apollo-preview`   | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-Yaoyao-Apollo` e la voce.   |
+| `1.3.0-amd64-zh-hk-danny-apollo-preview`    | Immagine del contenitore con `zh-HK` le impostazioni locali `zh-HK-Danny-Apollo` e la voce.    |
+| `1.3.0-amd64-zh-hk-tracy-apollo-preview`    | Immagine del contenitore con `zh-HK` le impostazioni locali `zh-HK-Tracy-Apollo` e la voce.    |
+| `1.3.0-amd64-zh-hk-tracyrus-preview`        | Immagine del contenitore con `zh-HK` le impostazioni locali `zh-HK-TracyRUS` e la voce.        |
+| `1.3.0-amd64-zh-tw-hanhanrus-preview`       | Immagine del contenitore con `zh-TW` le impostazioni locali `zh-TW-HanHanRUS` e la voce.       |
+| `1.3.0-amd64-zh-tw-yating-apollo-preview`   | Immagine del contenitore con `zh-TW` le impostazioni locali `zh-TW-Yating-Apollo` e la voce.   |
+| `1.3.0-amd64-zh-tw-zhiwei-apollo-preview`   | Immagine del contenitore con `zh-TW` le impostazioni locali `zh-TW-Zhiwei-Apollo` e la voce.   |
+| `1.2.0-amd64-de-de-heddarus-preview`        | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-Hedda` e la voce.           |
+| `1.2.0-amd64-de-de-heddarus-preview`        | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-HeddaRUS` e la voce.        |
+| `1.2.0-amd64-de-de-stefan-apollo-preview`   | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-Stefan-Apollo` e la voce.   |
+| `1.2.0-amd64-en-au-catherine-preview`       | Immagine del contenitore con `en-AU` le impostazioni locali `en-AU-Catherine` e la voce.       |
+| `1.2.0-amd64-en-au-hayleyrus-preview`       | Immagine del contenitore con `en-AU` le impostazioni locali `en-AU-HayleyRUS` e la voce.       |
+| `1.2.0-amd64-en-gb-george-apollo-preview`   | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-George-Apollo` e la voce.   |
+| `1.2.0-amd64-en-gb-hazelrus-preview`        | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-HazelRUS` e la voce.        |
+| `1.2.0-amd64-en-gb-susan-apollo-preview`    | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-Susan-Apollo` e la voce.    |
+| `1.2.0-amd64-en-in-heera-apollo-preview`    | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-Heera-Apollo` e la voce.    |
+| `1.2.0-amd64-en-in-priyarus-preview`        | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-PriyaRUS` e la voce.        |
+| `1.2.0-amd64-en-in-ravi-apollo-preview`     | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-Ravi-Apollo` e la voce.     |
+| `1.2.0-amd64-en-us-benjaminrus-preview`     | Immagine del contenitore con `en-US` le impostazioni locali `en-US-BenjaminRUS` e la voce.     |
+| `1.2.0-amd64-en-us-guy24krus-preview`       | Immagine del contenitore con `en-US` le impostazioni locali `en-US-Guy24kRUS` e la voce.       |
+| `1.2.0-amd64-en-us-jessa24krus-preview`     | Immagine del contenitore con `en-US` le impostazioni locali `en-US-Jessa24kRUS` e la voce.     |
+| `1.2.0-amd64-en-us-jessarus-preview`        | Immagine del contenitore con `en-US` le impostazioni locali `en-US-JessaRUS` e la voce.        |
+| `1.2.0-amd64-en-us-zirarus-preview`         | Immagine del contenitore con `en-US` le impostazioni locali `en-US-ZiraRUS` e la voce.         |
+| `1.2.0-amd64-es-es-helenarus-preview`       | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-HelenaRUS` e la voce.       |
+| `1.2.0-amd64-es-es-laura-apollo-preview`    | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-Laura-Apollo` e la voce.    |
+| `1.2.0-amd64-es-es-pablo-apollo-preview`    | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-Pablo-Apollo` e la voce.    |
+| `1.2.0-amd64-es-mx-hildarus-preview`        | Immagine del contenitore con `es-MX` le impostazioni locali `es-MX-HildaRUS` e la voce.        |
+| `1.2.0-amd64-es-mx-raul-apollo-preview`     | Immagine del contenitore con `es-MX` le impostazioni locali `es-MX-Raul-Apollo` e la voce.     |
+| `1.2.0-amd64-fr-ca-caroline-preview`        | Immagine del contenitore con `fr-CA` le impostazioni locali `fr-CA-Caroline` e la voce.        |
+| `1.2.0-amd64-fr-ca-harmonierus-preview`     | Immagine del contenitore con `fr-CA` le impostazioni locali `fr-CA-HarmonieRUS` e la voce.     |
+| `1.2.0-amd64-fr-fr-hortenserus-preview`     | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-HortenseRUS` e la voce.     |
+| `1.2.0-amd64-fr-fr-julie-apollo-preview`    | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-Julie-Apollo` e la voce.    |
+| `1.2.0-amd64-fr-fr-paul-apollo-preview`     | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-Paul-Apollo` e la voce.     |
+| `1.2.0-amd64-it-it-cosimo-apollo-preview`   | Immagine del contenitore con `it-IT` le impostazioni locali `it-IT-Cosimo-Apollo` e la voce.   |
+| `1.2.0-amd64-it-it-luciarus-preview`        | Immagine del contenitore con `it-IT` le impostazioni locali `it-IT-LuciaRUS` e la voce.        |
+| `1.2.0-amd64-ja-jp-ayumi-apollo-preview`    | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-Ayumi-Apollo` e la voce.    |
+| `1.2.0-amd64-ja-jp-harukarus-preview`       | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-HarukaRUS` e la voce.       |
+| `1.2.0-amd64-ja-jp-ichiro-apollo-preview`   | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-Ichiro-Apollo` e la voce.   |
+| `1.2.0-amd64-ko-kr-heamirus-preview`        | Immagine del contenitore con `ko-KR` le impostazioni locali `ko-KR-HeamiRUS` e la voce.        |
+| `1.2.0-amd64-pt-br-daniel-apollo-preview`   | Immagine del contenitore con `pt-BR` le impostazioni locali `pt-BR-Daniel-Apollo` e la voce.   |
+| `1.2.0-amd64-pt-br-heloisarus-preview`      | Immagine del contenitore con `pt-BR` le impostazioni locali `pt-BR-HeloisaRUS` e la voce.      |
+| `1.2.0-amd64-zh-cn-huihuirus-preview`       | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-HuihuiRUS` e la voce.       |
+| `1.2.0-amd64-zh-cn-kangkang-apollo-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-Kangkang-Apollo` e la voce. |
+| `1.2.0-amd64-zh-cn-yaoyao-apollo-preview`   | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-Yaoyao-Apollo` e la voce.   |
+| `1.1.0-amd64-de-de-hedda-preview`           | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-Hedda` e la voce.           |
+| `1.1.0-amd64-de-de-heddarus-preview`        | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-Hedda` e la voce.           |
+| `1.1.0-amd64-de-de-heddarus-preview`        | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-HeddaRUS` e la voce.        |
+| `1.1.0-amd64-de-de-stefan-apollo-preview`   | Immagine del contenitore con `de-DE` le impostazioni locali `de-DE-Stefan-Apollo` e la voce.   |
+| `1.1.0-amd64-en-au-catherine-preview`       | Immagine del contenitore con `en-AU` le impostazioni locali `en-AU-Catherine` e la voce.       |
+| `1.1.0-amd64-en-au-hayleyrus-preview`       | Immagine del contenitore con `en-AU` le impostazioni locali `en-AU-HayleyRUS` e la voce.       |
+| `1.1.0-amd64-en-gb-george-apollo-preview`   | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-George-Apollo` e la voce.   |
+| `1.1.0-amd64-en-gb-hazelrus-preview`        | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-HazelRUS` e la voce.        |
+| `1.1.0-amd64-en-gb-susan-apollo-preview`    | Immagine del contenitore con `en-GB` le impostazioni locali `en-GB-Susan-Apollo` e la voce.    |
+| `1.1.0-amd64-en-in-heera-apollo-preview`    | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-Heera-Apollo` e la voce.    |
+| `1.1.0-amd64-en-in-priyarus-preview`        | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-PriyaRUS` e la voce.        |
+| `1.1.0-amd64-en-in-ravi-apollo-preview`     | Immagine del contenitore con `en-IN` le impostazioni locali `en-IN-Ravi-Apollo` e la voce.     |
+| `1.1.0-amd64-en-us-benjaminrus-preview`     | Immagine del contenitore con `en-US` le impostazioni locali `en-US-BenjaminRUS` e la voce.     |
+| `1.1.0-amd64-en-us-guy24krus-preview`       | Immagine del contenitore con `en-US` le impostazioni locali `en-US-Guy24kRUS` e la voce.       |
+| `1.1.0-amd64-en-us-jessa24krus-preview`     | Immagine del contenitore con `en-US` le impostazioni locali `en-US-Jessa24kRUS` e la voce.     |
+| `1.1.0-amd64-en-us-jessarus-preview`        | Immagine del contenitore con `en-US` le impostazioni locali `en-US-JessaRUS` e la voce.        |
+| `1.1.0-amd64-en-us-zirarus-preview`         | Immagine del contenitore con `en-US` le impostazioni locali `en-US-ZiraRUS` e la voce.         |
+| `1.1.0-amd64-es-es-helenarus-preview`       | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-HelenaRUS` e la voce.       |
+| `1.1.0-amd64-es-es-laura-apollo-preview`    | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-Laura-Apollo` e la voce.    |
+| `1.1.0-amd64-es-es-pablo-apollo-preview`    | Immagine del contenitore con `es-ES` le impostazioni locali `es-ES-Pablo-Apollo` e la voce.    |
+| `1.1.0-amd64-es-mx-hildarus-preview`        | Immagine del contenitore con `es-MX` le impostazioni locali `es-MX-HildaRUS` e la voce.        |
+| `1.1.0-amd64-es-mx-raul-apollo-preview`     | Immagine del contenitore con `es-MX` le impostazioni locali `es-MX-Raul-Apollo` e la voce.     |
+| `1.1.0-amd64-fr-ca-caroline-preview`        | Immagine del contenitore con `fr-CA` le impostazioni locali `fr-CA-Caroline` e la voce.        |
+| `1.1.0-amd64-fr-ca-harmonierus-preview`     | Immagine del contenitore con `fr-CA` le impostazioni locali `fr-CA-HarmonieRUS` e la voce.     |
+| `1.1.0-amd64-fr-fr-hortenserus-preview`     | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-HortenseRUS` e la voce.     |
+| `1.1.0-amd64-fr-fr-julie-apollo-preview`    | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-Julie-Apollo` e la voce.    |
+| `1.1.0-amd64-fr-fr-paul-apollo-preview`     | Immagine del contenitore con `fr-FR` le impostazioni locali `fr-FR-Paul-Apollo` e la voce.     |
+| `1.1.0-amd64-it-it-cosimo-apollo-preview`   | Immagine del contenitore con `it-IT` le impostazioni locali `it-IT-Cosimo-Apollo` e la voce.   |
+| `1.1.0-amd64-it-it-luciarus-preview`        | Immagine del contenitore con `it-IT` le impostazioni locali `it-IT-LuciaRUS` e la voce.        |
+| `1.1.0-amd64-ja-jp-ayumi-apollo-preview`    | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-Ayumi-Apollo` e la voce.    |
+| `1.1.0-amd64-ja-jp-harukarus-preview`       | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-HarukaRUS` e la voce.       |
+| `1.1.0-amd64-ja-jp-ichiro-apollo-preview`   | Immagine del contenitore con `ja-JP` le impostazioni locali `ja-JP-Ichiro-Apollo` e la voce.   |
+| `1.1.0-amd64-ko-kr-heamirus-preview`        | Immagine del contenitore con `ko-KR` le impostazioni locali `ko-KR-HeamiRUS` e la voce.        |
+| `1.1.0-amd64-pt-br-daniel-apollo-preview`   | Immagine del contenitore con `pt-BR` le impostazioni locali `pt-BR-Daniel-Apollo` e la voce.   |
+| `1.1.0-amd64-pt-br-heloisarus-preview`      | Immagine del contenitore con `pt-BR` le impostazioni locali `pt-BR-HeloisaRUS` e la voce.      |
+| `1.1.0-amd64-zh-cn-huihuirus-preview`       | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-HuihuiRUS` e la voce.       |
+| `1.1.0-amd64-zh-cn-kangkang-apollo-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-Kangkang-Apollo` e la voce. |
+| `1.1.0-amd64-zh-cn-yaoyao-apollo-preview`   | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-Yaoyao-Apollo` e la voce.   |
+| `1.0.0-amd64-en-us-benjaminrus-preview`     | Immagine del contenitore con `en-US` le impostazioni locali `en-US-BenjaminRUS` e la voce.     |
+| `1.0.0-amd64-en-us-guy24krus-preview`       | Immagine del contenitore con `en-US` le impostazioni locali `en-US-Guy24kRUS` e la voce.       |
+| `1.0.0-amd64-en-us-jessa24krus-preview`     | Immagine del contenitore con `en-US` le impostazioni locali `en-US-Jessa24kRUS` e la voce.     |
+| `1.0.0-amd64-en-us-jessarus-preview`        | Immagine del contenitore con `en-US` le impostazioni locali `en-US-JessaRUS` e la voce.        |
+| `1.0.0-amd64-en-us-zirarus-preview`         | Immagine del contenitore con `en-US` le impostazioni locali `en-US-ZiraRUS` e la voce.         |
+| `1.0.0-amd64-zh-cn-huihuirus-preview`       | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-HuihuiRUS` e la voce.       |
+| `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-Kangkang-Apollo` e la voce. |
+| `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Immagine del contenitore con `zh-CN` le impostazioni locali `zh-CN-Yaoyao-Apollo` e la voce.   |
 
 ## <a name="key-phrase-extraction"></a>Estrazione frasi chiave
 
-L'immagine del contenitore Key `mcr.microsoft.com` Phrase [Extraction][ta-kp] è disponibile nel sindacato del Registro di sistema del contenitore. Si trova all'interno `azure-cognitive-services` del `keyphrase`repository e si chiama . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/keyphrase`.
+Il [estrazione frasi chiave][ta-kp] immagine del contenitore è disponibile nel Syndicate `mcr.microsoft.com` del registro contenitori. Si trova all'interno del `azure-cognitive-services` repository ed è denominato. `keyphrase` Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/keyphrase`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
@@ -597,9 +597,9 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 
 ## <a name="language-detection"></a>Rilevamento lingua
 
-L'immagine del contenitore [Rilevamento lingua][ta-la] è disponibile nel sindacato del Registro di sistema del `mcr.microsoft.com` contenitore. Si trova all'interno `azure-cognitive-services` del `language`repository e si chiama . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/language`.
+Il [rilevamento lingua][ta-la] immagine del contenitore è disponibile nel Syndicate `mcr.microsoft.com` del registro contenitori. Si trova all'interno del `azure-cognitive-services` repository ed è denominato. `language` Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/language`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
@@ -612,9 +612,9 @@ Questa immagine contenitore ha i seguenti tag disponibili:
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 
-L'immagine del contenitore Sentiment `mcr.microsoft.com` [Analysis][ta-se] è disponibile nel sindacato del Registro di sistema del contenitore. Si trova all'interno `azure-cognitive-services` del `sentiment`repository e si chiama . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/sentiment`.
+Il [analisi del sentiment][ta-se] immagine del contenitore è disponibile nel Syndicate `mcr.microsoft.com` del registro contenitori. Si trova all'interno del `azure-cognitive-services` repository ed è denominato. `sentiment` Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/sentiment`,.
 
-Questa immagine contenitore ha i seguenti tag disponibili:
+Questa immagine del contenitore include i tag seguenti:
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|

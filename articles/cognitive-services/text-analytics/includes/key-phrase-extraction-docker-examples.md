@@ -1,7 +1,7 @@
 ---
-title: Esempi di docker del contenitore Estrazione frase chiaveKey Phrase Extraction container docker examples
+title: Esempi di Docker di Estrazione frasi chiave container
 titleSuffix: Azure Cognitive Services
-description: Esempi di docker del contenitore Estrazione frase chiaveKey Phrase Extraction container docker examples
+description: Esempi di Docker di Estrazione frasi chiave container
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 1c079df3171d89da4ef40e5008aaeb08b6504e66
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878673"
 ---
-### <a name="key-phrase-extraction-container-docker-examples"></a>Esempi di docker del contenitore Estrazione frase chiaveKey Phrase Extraction container docker examples
+### <a name="key-phrase-extraction-container-docker-examples"></a>Esempi di Docker di Estrazione frasi chiave container
 
-Gli esempi di docker seguenti riguardano il contenitore Estrazione frase chiave.
+Gli esempi di Docker seguenti sono per il contenitore Estrazione frasi chiave.
 
 #### <a name="basic-example"></a>Esempio di base 
 

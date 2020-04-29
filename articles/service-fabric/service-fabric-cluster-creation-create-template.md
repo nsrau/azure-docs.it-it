@@ -1,13 +1,13 @@
 ---
-title: Creare un modello di cluster di Azure Service FabricCreate an Azure Service Fabric cluster template
+title: Creare un modello di cluster di Service Fabric di Azure
 description: Informazioni su come creare un modello di Resource Manager per un cluster di Service Fabric. Configurare la sicurezza, Azure Key Vault e Azure Active Directory (Azure AD) per l'autenticazione client.
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 6cf0f9c3b8b54db7bd27ec8dd9c9d59d849c74cc
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985372"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Creare un modello di Cluster Resource Manager di Service Fabric
@@ -30,10 +30,10 @@ Questo articolo usa il modello di esempio di un [cluster protetto a cinque nodi]
 > Per i cloud nazionali (Azure per enti pubblici, Azure Cina, Azure Germania), aggiungere anche i valori `fabricSettings` seguenti al modello: `AADLoginEndpoint`, `AADTokenEndpointFormat` e `AADCertEndpointFormat`.
 
 ## <a name="add-certificates"></a>Aggiungere certificati
-I certificati vengono aggiunti a un modello di Resource Manager per cluster facendo riferimento all'insieme di credenziali delle chiavi che contiene le chiavi del certificato. Aggiungere i parametri e i valori dell'insieme di chiavi in un file dei parametri del modello di Resource Manager (*azuredeploy.parameters.json*).
+I certificati vengono aggiunti a un modello di Resource Manager per cluster facendo riferimento all'insieme di credenziali delle chiavi che contiene le chiavi del certificato. Aggiungere i parametri e i valori dell'insieme di credenziali delle chiavi in un file di parametri del modello di Gestione risorse (*file azuredeploy. Parameters. JSON*).
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Aggiungere tutti i certificati all'elemento osProfile del set di scalabilità di macchine virtuali
-Ogni certificato installato nel cluster deve essere configurato nella sezione **osProfile** della risorsa del set di scalabilità (Microsoft.Compute/virtualMachineScaleSets). Questa azione indica al provider di risorse di installare il certificato nelle macchine virtuali, includendo sia il certificato del cluster che eventuali certificati di sicurezza dell'applicazione che si intende usare per le applicazioni:
+Ogni certificato installato nel cluster deve essere configurato nella sezione **osProfile** della risorsa del set di scalabilità (Microsoft. Compute/virtualMachineScaleSets). Questa azione indica al provider di risorse di installare il certificato nelle macchine virtuali, includendo sia il certificato del cluster che eventuali certificati di sicurezza dell'applicazione che si intende usare per le applicazioni:
 
 ```json
 {
@@ -132,10 +132,10 @@ Il certificato di autenticazione del cluster deve essere configurato sia nella r
 
 ## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Aggiungere la configurazione di Azure AD per l'uso di Azure AD per l'accesso client
 
-La configurazione di Azure AD viene aggiunta a un modello di Resource Manager per cluster facendo riferimento all'insieme di credenziali delle chiavi contenente le chiavi del certificato. Aggiungere i parametri e i valori di Azure AD in un file di parametri del modello di Resource Manager (*azuredeploy.parameters.json*). 
+La configurazione di Azure AD viene aggiunta a un modello di Resource Manager per cluster facendo riferimento all'insieme di credenziali delle chiavi contenente le chiavi del certificato. Aggiungere i parametri e i valori Azure AD in un file di parametri del modello di Gestione risorse (*file azuredeploy. Parameters. JSON*). 
 
 > [!NOTE]
-> In Linux, i tenant e gli utenti di Azure AD devono essere creati prima di creare il cluster.  Per altre informazioni, vedere [Configurare Azure AD per autenticare i client](service-fabric-cluster-creation-setup-aad.md).
+> In Linux è necessario creare Azure AD tenant e utenti prima di creare il cluster.  Per altre informazioni, vedere [Configurare Azure AD per autenticare i client](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {

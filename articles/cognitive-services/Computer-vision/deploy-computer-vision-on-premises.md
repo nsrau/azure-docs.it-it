@@ -1,7 +1,7 @@
 ---
-title: Utilizzare il contenitore Visione artificiale con Kubernetes e Helm
+title: Usare Visione artificiale contenitore con Kubernetes e Helm
 titleSuffix: Azure Cognitive Services
-description: Distribuire il contenitore Visione artificiale in un'istanza del contenitore di Azure e testarlo in un Web browser.
+description: Distribuire il contenitore Visione artificiale in un'istanza di contenitore di Azure e testarlo in un Web browser.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 9aac374de5af748eafbe4c22e5fc89f64e483c2a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877975"
 ---
-# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Utilizzare il contenitore Visione artificiale con Kubernetes e Helm
+# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Usare Visione artificiale contenitore con Kubernetes e Helm
 
-Un'opzione per gestire i contenitori di Visione artificiale in locale consiste nell'utilizzare Kubernetes e Helm. Usando Kubernetes e Helm per definire un'immagine del contenitore Computer Vision, creeremo un pacchetto Kubernetes. Questo pacchetto verrà distribuito in un cluster Kubernetes locale. Infine, verrà illustrato come testare i servizi distribuiti. Per ulteriori informazioni sull'esecuzione di contenitori Docker senza orchestrazione Kubernetes, vedere [installare ed eseguire contenitori Computer Vision](computer-vision-how-to-install-containers.md).
+Un'opzione per gestire i contenitori di Visione artificiale in locale consiste nell'usare Kubernetes e Helm. Usando Kubernetes e Helm per definire un'immagine del contenitore Visione artificiale, verrà creato un pacchetto Kubernetes. Questo pacchetto verrà distribuito in un cluster Kubernetes locale. Si esaminerà infine come testare i servizi distribuiti. Per altre informazioni sull'esecuzione di contenitori Docker senza orchestrazione Kubernetes, vedere [installare ed eseguire visione artificiale contenitori](computer-vision-how-to-install-containers.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prerequisiti seguenti prima di usare i contenitori di Visione artificiale in locale:The following prerequisites before using Computer Vision containers on-premises:
+I prerequisiti seguenti prima di usare Visione artificiale contenitori in locale:
 
 | Obbligatoria | Scopo |
 |----------|---------|
 | Account Azure | Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare. |
-| Kubernetes CLI | [L'interfaccia della riga di comando di Kubernetes][kubernetes-cli] è necessaria per la gestione delle credenziali condivise dal Registro di sistema del contenitore. Kubernetes è anche necessario prima di Helm, che è il gestore di pacchetti Kubernetes. |
-| Interfaccia della riga di comando di Helm | Installare [l'interfaccia della riga di comando Helm,][helm-install]utilizzata per installare un grafico helm (definizione del pacchetto contenitore). |
-| Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **di Azure Computer Vision** e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e Chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**API_KEY :Una**delle due chiavi di risorsa disponibili nella pagina **Chiavi**<br><br>**ENDPOINT_URI :** l'endpoint come indicato nella pagina **Panoramica**|
+| INTERFACCIA della riga di comando Kubernetes | L' [interfaccia][kubernetes-cli] della riga di comando di Kubernetes è necessaria per gestire le credenziali condivise dal registro contenitori. Kubernetes è necessario anche prima di Helm, ovvero Kubernetes Package Manager. |
+| Interfaccia della riga di comando di Helm | Installare l' [interfaccia][helm-install]della riga di comando di Helm, che viene usata per installare un grafico Helm (definizione del pacchetto del contenitore). |
+| Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -44,13 +44,13 @@ Prerequisiti seguenti prima di usare i contenitori di Visione artificiale in loc
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Connettersi al cluster Kubernetes
 
-Si prevede che il computer host disponga di un cluster Kubernetes disponibile. Vedere questa [esercitazione sulla distribuzione di un cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) per informazioni concettuali su come distribuire un cluster Kubernetes in un computer host.
+Il computer host dovrebbe avere un cluster Kubernetes disponibile. Per informazioni concettuali su come distribuire un cluster Kubernetes in un computer host, vedere questa esercitazione sulla [distribuzione di un cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) .
 
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Condivisione delle credenziali Docker con il cluster Kubernetes
+### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Condivisione di credenziali Docker con il cluster Kubernetes
 
-Per consentire al cluster Kubernetes `docker pull` di configurare `containerpreview.azurecr.io` le immagini dal Registro di sistema del contenitore, è necessario trasferire le credenziali docker nel cluster. Eseguire [`kubectl create`][kubectl-create] il comando seguente per creare un *segreto docker-registry* in base alle credenziali fornite dal prerequisito di accesso al Registro di sistema del contenitore.
+Per consentire al cluster Kubernetes di `docker pull` accedere alle immagini configurate dal registro `containerpreview.azurecr.io` contenitori, è necessario trasferire le credenziali Docker nel cluster. Eseguire il [`kubectl create`][kubectl-create] comando seguente per creare un *segreto del registro Docker* in base alle credenziali fornite dal prerequisito di accesso del registro contenitori.
 
-Dall'interfaccia della riga di comando scelta, eseguire il comando seguente. Assicurarsi di `<username>`sostituire `<password>`, `<email-address>` e con le credenziali del Registro di sistema del contenitore.
+Dall'interfaccia della riga di comando desiderata, eseguire il comando seguente. Assicurarsi di sostituire `<username>`, `<password>`e `<email-address>` con le credenziali del registro contenitori.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -61,26 +61,26 @@ kubectl create secret docker-registry containerpreview \
 ```
 
 > [!NOTE]
-> Se si ha già `containerpreview.azurecr.io` accesso al Registro di sistema del contenitore, è possibile creare un segreto Kubernetes utilizzando invece il flag generico. Si consideri il comando seguente che viene eseguito sul JSON di configurazione Docker.Consider the following command that executes against your Docker configuration JSON.
+> Se si ha già accesso al registro `containerpreview.azurecr.io` contenitori, è possibile creare un segreto Kubernetes usando invece il flag generico. Si consideri il comando seguente che viene eseguito sul file JSON di configurazione di Docker.
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
 >      --type=kubernetes.io/dockerconfigjson
 > ```
 
-L'output seguente viene stampato nella console quando il segreto è stato creato correttamente.
+Il seguente output viene stampato nella console quando il segreto è stato creato correttamente.
 
 ```console
 secret "containerpreview" created
 ```
 
-Per verificare che il segreto [`kubectl get`][kubectl-get] sia `secrets` stato creato, eseguire l'oggetto con il flag .
+Per verificare che la chiave privata sia stata creata, eseguire [`kubectl get`][kubectl-get] con il `secrets` flag.
 
 ```console
 kubectl get secrets
 ```
 
-L'esecuzione `kubectl get secrets` dei segreti configurati consente di stampare tutti i segreti configurati.
+L'esecuzione di `kubectl get secrets` stampa tutti i segreti configurati.
 
 ```console
 NAME                  TYPE                                  DATA      AGE
@@ -89,7 +89,7 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurare i valori del grafico Helm per la distribuzione
 
-Iniziare creando una cartella denominata *read*, quindi incollare il seguente contenuto YAML in un nuovo file denominato *Chart.yml*.
+Per iniziare, creare una cartella denominata *Read*, quindi incollare il contenuto YAML seguente in un nuovo file denominato *Chart. yml*.
 
 ```yaml
 apiVersion: v1
@@ -98,7 +98,7 @@ version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
 ```
 
-Per configurare i valori predefiniti del grafico Helm, copiare `values.yaml`e incollare il seguente YAML in un file denominato . Sostituire `# {ENDPOINT_URI}` i `# {API_KEY}` commenti e con i propri valori.
+Per configurare i valori predefiniti del grafico Helm, copiare e incollare il codice YAML seguente in un `values.yaml`file denominato. Sostituire i `# {ENDPOINT_URI}` commenti `# {API_KEY}` e con i propri valori.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -118,11 +118,11 @@ read:
 ```
 
 > [!IMPORTANT]
-> Se `billing` i `apikey` valori e non vengono forniti, i servizi scadranno dopo 15 min. Allo stesso modo, la verifica avrà esito negativo in quanto i servizi non saranno disponibili.
+> Se i `billing` valori `apikey` e non vengono specificati, i servizi scadranno dopo 15 minuti. Analogamente, la verifica avrà esito negativo perché i servizi non saranno disponibili.
 
-Creare una cartella di *modelli* nella directory *di lettura.* Copiare e incollare il seguente `deployment.yaml`YAML in un file denominato . Il `deployment.yaml` file fungerà da modello Helm.
+Creare una cartella *templates* sotto la directory *Read* . Copiare e incollare il codice YAML seguente in un file `deployment.yaml`denominato. Il `deployment.yaml` file fungerà da modello Helm.
 
-> I modelli generano file manifesto, ovvero descrizioni delle risorse in formato YAML che Kubernetes è in grado di comprendere. [- Guida al modello di Helm Chart][chart-template-guide]
+> I modelli generano file manifesto, che sono descrizioni di risorse in formato YAML che Kubernetes può comprendere. [-Guida ai modelli del grafico Helm][chart-template-guide]
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -165,23 +165,23 @@ spec:
 
 Il modello specifica un servizio di bilanciamento del carico e la distribuzione del contenitore/immagine per la lettura.
 
-### <a name="the-kubernetes-package-helm-chart"></a>Il pacchetto Kubernetes (grafico Helm)
+### <a name="the-kubernetes-package-helm-chart"></a>Pacchetto di Kubernetes (grafico Helm)
 
-Il *grafico Helm* contiene la configurazione delle immagini docker `containerpreview.azurecr.io` da estrarre dal Registro di sistema del contenitore.
+Il *grafico Helm* contiene la configurazione dell'immagine o delle immagini Docker da estrarre dal registro `containerpreview.azurecr.io` contenitori.
 
-> Un [grafico Helm][helm-charts] è una raccolta di file che descrivono un set correlato di risorse Kubernetes. Un singolo grafico può essere usato per distribuire qualcosa di semplice, come un pod memcached o qualcosa di complesso, come uno stack di app Web completo con server HTTP, database, cache e così via.
+> Un [grafico Helm][helm-charts] è una raccolta di file che descrivono un set correlato di risorse Kubernetes. Un singolo grafico può essere usato per distribuire elementi semplici, ad esempio un pod Memcache, o un elemento complesso, ad esempio uno stack di app Web completo con server HTTP, database, cache e così via.
 
-I *grafici Helm* forniti estraggono le immagini della finestra `containerpreview.azurecr.io` mobile del servizio di visione artificiale e il servizio corrispondente dal Registro di sistema del contenitore.
+I *grafici Helm* forniti tirano le immagini docker del servizio visione artificiale e il servizio corrispondente dal registro `containerpreview.azurecr.io` contenitori.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installare il grafico Helm nel cluster Kubernetes
 
-Per installare il *grafico helm,* è [`helm install`][helm-install-cmd] necessario eseguire il comando. Assicurarsi di eseguire il comando `read` di installazione dalla directory sopra la cartella.
+Per installare il *grafico Helm*, è necessario eseguire il [`helm install`][helm-install-cmd] comando. Assicurarsi di eseguire il comando install dalla directory sopra la `read` cartella.
 
 ```console
 helm install read ./read
 ```
 
-Di seguito è riportato un output di esempio che ci si potrebbe aspettare di vedere da un'esecuzione di installazione riuscita:Here is an example output you might expect to see from a successful install execution:
+Di seguito è riportato un esempio di output che può essere visualizzato dopo una corretta esecuzione dell'installazione:
 
 ```console
 NAME: read
@@ -203,13 +203,13 @@ NAME    READY  UP-TO-DATE  AVAILABLE  AGE
 read    0/1    1           0          0s
 ```
 
-Il completamento della distribuzione di Kubernetes può richiedere alcuni minuti. Per verificare che sia i pod che i servizi siano distribuiti correttamente e siano disponibili, eseguire il comando seguente:
+Per il completamento della distribuzione di Kubernetes possono essere necessari diversi minuti. Per verificare che i pod e i servizi siano distribuiti e disponibili correttamente, eseguire il comando seguente:
 
 ```console
 kubectl get all
 ```
 
-Si dovrebbe aspettare di vedere qualcosa di simile al seguente output:
+Dovrebbe essere visualizzato un output simile al seguente:
 
 ```console
 kubectl get all
@@ -232,7 +232,7 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sull'installazione di applicazioni con Helm nel servizio Azure Kubernetes (AKS), [visitare il sito Web all'indirizzo .][installing-helm-apps-in-aks]
+Per altri dettagli sull'installazione di applicazioni con Helm in Azure Kubernetes Service (AKS), [visitare qui][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
 > [Contenitori di servizi cognitivi][cog-svcs-containers]

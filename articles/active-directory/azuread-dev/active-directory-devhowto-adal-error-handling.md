@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la gestione degli errori dell'app client ADAL Azure
+title: Procedure consigliate per la gestione degli errori dell'app client ADAL | Azure
 description: Fornisce linee guida e procedure consigliate per la gestione degli errori per le applicazioni client ADAL.
 services: active-directory
 author: rwike77
@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8973412b2d6575d524874ba05b34af7661655e19
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981070"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
@@ -44,7 +44,7 @@ Esiste un set di errori generati dal sistema operativo, che potrebbe richiedere 
 
 ### <a name="application-scenarios"></a>Scenari applicativi
 
-- [Applicazioni client native](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#native-client) (iOS, Android, .NET Desktop o Xamarin)
+- Applicazioni [client native](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#native-client) (iOS, Android, desktop .NET o Novell)
 - Applicazioni [client Web](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#web-client) che chiamano una [risorsa](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#resource-server) (.NET)
 
 ### <a name="error-cases-and-actionable-steps"></a>Casi di errore e azioni implementabili
@@ -189,7 +189,7 @@ Anche il sistema operativo può generare un set di errori e ciò richiede una ge
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casi di errore e azioni implementabili: applicazioni client native
 
-Se si sta creando un'applicazione client nativa, esistono alcuni casi di gestione degli errori da prendere in considerazione che riguardano i problemi di rete, gli errori temporanei e altri errori specifici della piattaforma. Nella maggior parte dei casi, un'applicazione non deve eseguire tentativi immediati, ma piuttosto attendere l'interazione dell'utente finale che richiede un accesso. 
+Se si sta creando un'applicazione client nativa, esistono alcuni casi di gestione degli errori da prendere in considerazione che riguardano i problemi di rete, gli errori temporanei e altri errori specifici della piattaforma. Nella maggior parte dei casi, un'applicazione non deve eseguire tentativi immediati, ma piuttosto attendere l'interazione dell'utente finale che richiede l'accesso. 
 
 Esistono alcuni casi speciali in cui un singolo tentativo potrebbe risolvere il problema. Ad esempio, quando un utente deve abilitare i dati in un dispositivo o ha completato il download del broker di Azure AD dopo l'errore iniziale. 
 
@@ -199,8 +199,8 @@ La gestione degli errori nelle applicazioni native può essere definita da due c
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Errore irreversibile (la maggior parte dei casi) | 1. Non tentare immediatamente. Presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo (ad esempio, "Prova ad accedere di nuovo" o "Scarica applicazione broker di Azure AD"). |
-| **Caso 2**:<br>Errore non irreversibile | 1. Eseguire un singolo tentativo poiché l'utente finale potrebbe aver immesso uno stato che comporta un esito positivo.<br><br>2. Se un nuovo tentativo non riesce, presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo ("Prova ad accedere di nuovo", "Scarica l'app broker di Azure AD" e così via). |
+| **Caso 1**:<br>Errore irreversibile (la maggior parte dei casi) | 1. non provare immediatamente a riprovare. Presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo (ad esempio, "riprovare ad accedere" o "scaricare Azure AD applicazione broker"). |
+| **Caso 2**:<br>Errore non irreversibile | 1. eseguire un singolo tentativo perché l'utente finale potrebbe essere entrato in uno stato che comporta un esito positivo.<br><br>2. se il tentativo non riesce, presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo ("riprovare a eseguire l'accesso", "Scarica Azure AD app broker" e così via). |
 
 > [!IMPORTANT]
 > Se un account utente viene passato ad ADAL in una chiamata invisibile all'utente con esito negativo, la richiesta interattiva successiva consente all'utente finale di eseguire l'accesso con un account diverso. Dopo una corretta chiamata di AcquireToken con un account utente, l'applicazione deve verificare che l'utente connesso corrisponda all'oggetto utente locale dell'applicazione. Una mancata corrispondenza non genera un'eccezione (tranne che in Objective C), ma deve essere presa in considerazione nei casi in cui un utente è noto in locale prima delle richieste di autenticazione (ad esempio una chiamata invisibile all'utente non riuscita).
@@ -211,9 +211,9 @@ La gestione degli errori nelle applicazioni native può essere definita da due c
 Le linee guida seguenti offrono esempi per la gestione degli errori in combinazione con tutti i metodi ADAL AcquireToken(…) non invisibili all'utente, *tranne*: 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(..., ClientCredential, ...)
-- AcquireTokenAsync(..., ClientAssertion, ...)
-- AcquireTokenAsync(..., UserAssertion,...)   
+- AcquireTokenAsync (..., ClientCredential,...)
+- AcquireTokenAsync (..., ClientAssertion,...)
+- AcquireTokenAsync (..., UserAssertion,...)   
 
 Il codice verrebbe implementato come segue:
 
@@ -373,9 +373,9 @@ Per una chiamata AcquireToken non riuscita esistono i casi seguenti:
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Risolvibile con una richiesta interattiva | 1. Se login() ha esito negativo, non eseguire un nuovo tentativo immediato. Ripetere solo dopo la richiesta di un nuovo tentativo con un'azione dell'utente.|
-| **Caso 2**:<br>Non risolvibile con una richiesta interattiva. L'errore non è irreversibile. | 1. Eseguire un singolo tentativo poiché l'utente finale principale è entrato in uno stato che comporta un esito positivo.<br><br>2. Se un nuovo tentativo non riesce, presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Riprova ad accedere"). |
-| **Caso 3**:<br>Non risolvibile con una richiesta interattiva. L'errore è irreversibile. | 1. Non tentare immediatamente. Presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Ritenta l'accesso"). |
+| **Caso 1**:<br>Risolvibile con una richiesta interattiva | 1. Se login () non riesce, non eseguire immediatamente un nuovo tentativo. Ripetere solo dopo la richiesta di un nuovo tentativo con un'azione dell'utente.|
+| **Caso 2**:<br>Non risolvibile con una richiesta interattiva. L'errore non è irreversibile. | 1. eseguire un singolo tentativo quando il principale dell'utente finale è entrato in uno stato che determina un esito positivo.<br><br>2. se il tentativo non riesce, presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("riprovare a eseguire l'accesso"). |
+| **Caso 3**:<br>Non risolvibile con una richiesta interattiva. L'errore è irreversibile. | 1. non provare immediatamente a riprovare. Presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Ritenta l'accesso"). |
 
 Il codice verrebbe implementato come segue:
 
@@ -481,8 +481,8 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>Informazioni di riferimento su errori e registrazione
 
-### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registrazione delle informazioni di identificazione personale & informazioni di identificazione dell'organizzazione 
-Per impostazione predefinita, la registrazione ADAL non acquisisce o registra informazioni personali identificabili o identificabili dall'organizzazione. La libreria consente agli sviluppatori di app di attivare questa funzionalità tramite un setter della classe Logger. Registrando informazioni personali identificabili o identificabili dall'organizzazione, l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e di rispettare eventuali requisiti normativi.
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registrazione di informazioni personali & informazioni di identificazione dell'organizzazione 
+Per impostazione predefinita, la registrazione ADAL non acquisisce né registra informazioni personali o informazioni identificabili dall'organizzazione. La libreria consente agli sviluppatori di app di attivare questa funzionalità tramite un setter della classe Logger. Grazie alla registrazione di informazioni personali o informazioni identificabili dall'organizzazione, l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e rispettare eventuali requisiti normativi.
 
 ### <a name="net"></a>.NET
 
@@ -543,7 +543,7 @@ Per esplorare errori ADAL specifici, la fonte di informazioni di riferimento ide
 
 #### <a name="operating-system-errors"></a>Errori del sistema operativo
 
-Gli errori di iOS possono verificarsi durante l'accesso quando gli utenti usano visualizzazioni Web e in base al tipo di autenticazione. Ciò può essere causato da condizioni quali errori TLS, timeout o errori di rete:This can be caused by conditions such as TLS errors, timeouts, or network errors:
+Gli errori di iOS possono verificarsi durante l'accesso quando gli utenti usano visualizzazioni Web e in base al tipo di autenticazione. Questo problema può essere causato da condizioni quali errori TLS, timeout o errori di rete:
 
 - Per la condivisione dei diritti, gli account di accesso non sono persistenti e la cache sembra vuota. È possibile risolvere il problema aggiungendo la riga di codice seguente al keychain:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Per il set di errori NsUrlDomain, l'azione cambia in base alla logica dell'app. Vedere la [documentazione di riferimento su NSURLErrorDomain](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) per informazioni sulle istanze specifiche che possono essere gestite.
@@ -581,7 +581,7 @@ window.Logging = {
 
 * [Azure AD Authentication Libraries][AAD-Auth-Libraries] (Librerie di autenticazione di Azure AD)
 * [Scenari di autenticazione per Azure AD][AAD-Auth-Scenarios]
-* [Integrazione di applicazioni con Azure Active DirectoryIntegrating Applications with Azure Active Directory][AAD-Integrating-Apps]
+* [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
 
 Usare la sezione dei commenti di seguito per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

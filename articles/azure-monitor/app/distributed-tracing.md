@@ -1,25 +1,25 @@
 ---
 title: Traccia distribuita in Azure Application Insights | Microsoft Docs
-description: Fornisce informazioni sul supporto di Microsoft per il tracciamento distribuito attraverso la partnership nel progetto OpenCensus
+description: Fornisce informazioni sul supporto di Microsoft per la traccia distribuita tramite la partnership nel progetto OpenCensus
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892258"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
 
-L'avvento delle moderne architetture cloud e [microservizi](https://azure.com/microservices) ha dato origine a servizi semplici e distribuibili in modo indipendente che possono contribuire a ridurre i costi aumentando al contempo la disponibilità e la velocità effettiva. Ma mentre questi movimenti hanno reso i singoli servizi più facili da capire nel suo complesso, hanno reso i sistemi complessivi più difficili da ragionare ed eseguire il debug.
+L'avvento delle architetture moderne di [microservizi](https://azure.com/microservices) e cloud ha dato luogo a servizi semplici e distribuiti in modo indipendente che consentono di ridurre i costi aumentando la disponibilità e la velocità effettiva. Mentre questi movimenti hanno reso i singoli servizi più facili da comprendere nel suo complesso, hanno reso i sistemi complessivi più difficili da motivare ed eseguire il debug.
 
-Nelle architetture monolitiche, ci siamo abituati a eseguire il debug con gli stack di chiamate. Gli stack di chiamate sono strumenti molto utili per la visualizzazione del flusso di esecuzione (il metodo A ha chiamato il metodo B che ha chiamato il metodo C), insieme a informazioni dettagliate e parametri per ognuna delle chiamate. Si tratta di uno strumento ideale per le architetture monolitiche o i servizi in esecuzione in un singolo processo, ma come eseguire il debug quando la chiamata passa attraverso un limite di processo e non è semplicemente un riferimento nello stack locale? 
+Nelle architetture monolitiche, abbiamo usato per eseguire il debug con stack di chiamate. Gli stack di chiamate sono strumenti molto utili per la visualizzazione del flusso di esecuzione (il metodo A ha chiamato il metodo B che ha chiamato il metodo C), insieme a informazioni dettagliate e parametri per ognuna delle chiamate. Si tratta di uno strumento ideale per le architetture monolitiche o i servizi in esecuzione in un singolo processo, ma come eseguire il debug quando la chiamata passa attraverso un limite di processo e non è semplicemente un riferimento nello stack locale? 
 
-È qui che entra in gioco il tracciamento distribuito.  
+Qui viene fornita la traccia distribuita.  
 
 La traccia distribuita è l'equivalente degli stack di chiamate per le architetture di microservizi e cloud moderne, con l'aggiunta di un profiler di prestazioni semplicistico. Monitoraggio di Azure offre due esperienze per l'utilizzo dei dati di traccia distribuita. La prima è costituita dalla vista della [diagnostica delle transazioni](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics), che è analoga a uno stack di chiamate con l'aggiunta di una dimensione temporale. La vista della diagnostica delle transazioni offre visibilità su una singola transazione o richiesta ed è utile per individuare la causa principale dei problemi di affidabilità e i colli di bottiglia delle prestazioni per ogni singola richiesta.
 
@@ -27,11 +27,11 @@ Monitoraggio di Azure offre inoltre una vista della [mappa delle applicazioni](h
 
 ## <a name="how-to-enable-distributed-tracing"></a>Come abilitare la traccia distribuita
 
-L'abilitazione dell'analisi distribuita tra i servizi in un'applicazione è semplice come aggiungere l'agente, l'SDK o la libreria appropriata a ogni servizio, in base al linguaggio in cui è stato implementato il servizio.
+L'abilitazione della traccia distribuita tra i servizi di un'applicazione è semplice quanto l'aggiunta dell'agente, dell'SDK o della libreria appropriata a ogni servizio, in base alla lingua in cui è stato implementato il servizio.
 
-## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Abilitazione tramite Application Insights tramite strumentazione automatica o SDKEnabling via Application Insights through auto-instrumentation or SDKs
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Abilitazione tramite Application Insights tramite strumentazione o SDK automatici
 
-Gli agenti e/o gli SDK di Application Insights per .NET, .NET Core, Java, Node.js e JavaScript supportano l'analisi distribuita in modo nativo. Le istruzioni per l'installazione e la configurazione di ogni versione di Application Insights SDK sono disponibili di seguito:
+Gli agenti Application Insights e/o gli SDK per .NET, .NET Core, Java, node. js e JavaScript supportano in modo nativo la traccia distribuita. Le istruzioni per l'installazione e la configurazione di ogni versione di Application Insights SDK sono disponibili di seguito:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
@@ -55,5 +55,5 @@ Il sito Web OpenCensus include la documentazione di riferimento delle API per [P
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Guida all'utilizzo di Python con OpenCensus](https://opencensus.io/api/python/trace/usage.html)
-* [Mappa dell'applicazione](./../../azure-monitor/app/app-map.md)
+* [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)

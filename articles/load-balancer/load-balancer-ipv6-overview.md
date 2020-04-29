@@ -1,6 +1,6 @@
 ---
-title: Panoramica di IPv6 - Azure Load BalancerOverview of IPv6 - Azure Load Balancer
-description: Con questo percorso di apprendimento, inizia a usare il supporto IPv6 per Azure Load Balancer e le macchine virtuali con bilanciamento del carico.
+title: Panoramica di IPv6-Azure Load Balancer
+description: Con questo percorso di apprendimento, iniziare a usare il supporto IPv6 per le macchine virtuali Azure Load Balancer e con bilanciamento del carico.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
 ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981852"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Panoramica di IPv6 per Azure Load Balancer
 
 
 >[!NOTE] 
->Questo contenuto è stato sostituito da [IPv6 per Panoramica della rete virtuale](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)di Azure. Azure consiglia di utilizzare le nuove distribuzioni IPv6 per le nuove funzionalità IPv6 per le reti virtuali di Azure.Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
+>Questo contenuto è stato sostituito da [IPv6 per la Panoramica di Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure consiglia alle nuove distribuzioni di IPv6 di usare le nuove funzionalità IPv6 per le reti virtuali di Azure.
 
 >[!NOTE]
 >Azure Load Balancer supporta due tipi diversi: Basic e Standard. Questo articolo illustra Load Balancer Basic. Per altre informazioni su Load Balancer Standard, vedere la [panoramica di Load Balancer Standard](load-balancer-standard-overview.md).
 
-I servizi di bilanciamento del carico con connessione Internet dello SKU di base possono essere distribuiti con un indirizzo IPv6.Basic SKU Internet-facing load balancers can be deployed with an IPv6 address. Oltre alla connettività IPv4, sono abilitate le funzionalità seguenti:
+I bilanciamenti del carico con connessione Internet dello SKU Basic possono essere distribuiti con un indirizzo IPv6. Oltre alla connettività IPv4, sono abilitate le funzionalità seguenti:
 
 * Connettività IPv6 nativa end-to-end tra client Internet pubblici e macchine virtuali di Azure tramite il servizio di bilanciamento del carico.
 * Connettività IPv6 nativa end-to-end in uscita tra macchine virtuali e client Internet pubblici abilitati per IPv6.
@@ -40,7 +40,7 @@ L'immagine seguente illustra la funzionalità IPv6 per Azure Load Balancer.
 
 Dopo la distribuzione, un client Internet abilitato per IPv4 o IPv6 può comunicare con gli indirizzi (o nomi host) IPv4 o IPv6 pubblici dell'istanza di Azure Load Balancer con connessione Internet. Il servizio di bilanciamento del carico instrada i pacchetti IPv6 agli indirizzi IPv6 privati delle macchine virtuali tramite NAT (Network Address Translation). Il client Internet IPv6 non può comunicare direttamente con l'indirizzo IPv6 delle macchine virtuali.
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>Caratteristiche
 
 Il supporto IPv6 nativo per le macchine virtuali distribuite tramite Azure Resource Manager offre:
 
@@ -81,7 +81,7 @@ Limitazioni
 * La modifica del parametro loadDistributionMethod per IPv6 **è attualmente non supportata**.
 * Gli indirizzi IP IPv6 riservati (dove IPAllocationMethod = statico) sono **attualmente non supportati**.
 * NAT64 (conversione di IPv6 in IPv4) non supportato.
-* La connessione di una scheda di interfaccia di rete secondaria che fa riferimento a una subnet IPv6 a un pool back-end non è **attualmente supportata.**
+* Il fissaggio di una scheda di interfaccia di rete secondaria che fa riferimento a una subnet IPv6 a un pool back-end **non è attualmente supportata**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

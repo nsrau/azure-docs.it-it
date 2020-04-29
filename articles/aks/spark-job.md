@@ -1,21 +1,21 @@
 ---
 title: Eseguire un processo Apache Spark con il servizio Azure Kubernetes
-description: Usare il servizio Azure Kubernetes (AKS) per creare ed eseguire un processo Apache Spark per l'elaborazione di dati su larga scala.
+description: Usare Azure Kubernetes Service (AKS) per creare ed eseguire un processo di Apache Spark per l'elaborazione di dati su larga scala.
 author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80877628"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in servizio Azure Kubernetes
 
-[Apache Spark][apache-spark] è un motore veloce per l'elaborazione di dati su larga scala. A partire dalla [versione 2.3.0][spark-latest-release], Apache Spark supporta l'integrazione nativa con i cluster Kubernetes. Il servizio Azure Kubernetes è un ambiente Kubernetes gestito in esecuzione in Azure. Questo documento descrive la preparazione e l'esecuzione di processi Apache Spark in un cluster del servizio Azure Kubernetes.
+[Apache Spark][apache-spark] è un motore rapido per l'elaborazione di dati su larga scala. A partire dalla [versione 2.3.0][spark-latest-release], Apache Spark supporta l'integrazione nativa con i cluster Kubernetes. Il servizio Azure Kubernetes è un ambiente Kubernetes gestito in esecuzione in Azure. Questo documento descrive la preparazione e l'esecuzione di processi Apache Spark in un cluster del servizio Azure Kubernetes.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,13 +40,13 @@ Creare un gruppo di risorse per il cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Creare un'entità servizio per il cluster. Dopo la creazione, sono necessari l'appId dell'entità servizio e la password per il comando successivo.
+Creare un'entità servizio per il cluster. Al termine della creazione, sarà necessario disporre dell'appId e della password dell'entità servizio per il comando successivo.
 
 ```azurecli
 az ad sp create-for-rbac --name SparkSP
 ```
 
-Creare il cluster AKS con `Standard_D3_v2`nodi di dimensioni e valori di appId e password passati come parametri service-principal e client-secret.
+Creare il cluster AKS con nodi di dimensioni `Standard_D3_v2`e valori di AppID e password passati come parametri di entità servizio e client-Secret.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -217,7 +217,7 @@ Tornare alla radice del repository Spark.
 cd $sparkdir
 ```
 
-Creare un account di servizio con autorizzazioni sufficienti per l'esecuzione di un processo.
+Creare un account del servizio che disponga di autorizzazioni sufficienti per l'esecuzione di un processo.
 
 ```bash
 kubectl create serviceaccount spark
@@ -293,7 +293,7 @@ Pi is roughly 3.152155760778804
 
 Nell'esempio precedente, il file JAR di Spark è stato caricato nell'archiviazione di Azure. Un'altra possibilità è creare un pacchetto del file JAR come immagine Docker personalizzata.
 
-A questo scopo, trovare il `dockerfile` per l'immagine Spark nella directory `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Aggiungere `ADD` un'istruzione per `jar` il `WORKDIR` processo `ENTRYPOINT` Spark tra e le dichiarazioni.
+A questo scopo, trovare il `dockerfile` per l'immagine Spark nella directory `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Aggiungere un' `ADD` istruzione per il processo `jar` Spark in un `WORKDIR` punto `ENTRYPOINT` qualsiasi tra le dichiarazioni e.
 
 Aggiornare il percorso del file JAR nel percorso del file `SparkPi-assembly-0.1.0-SNAPSHOT.jar` nel sistema di sviluppo. È anche possibile usare un file JAR personalizzato.
 

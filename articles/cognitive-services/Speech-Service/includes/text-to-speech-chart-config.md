@@ -1,7 +1,7 @@
 ---
-title: Installare i contenitori di riconoscimento vocaleInstall Speech containers
+title: Installare i contenitori di sintesi vocale
 titleSuffix: Azure Cognitive Services
-description: Vengono descritte le opzioni di configurazione del grafico helm di sintesi vocale.
+description: Descrive le opzioni di configurazione del grafico Helm di sintesi vocale.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 22168974ab8b285413b4fa6e947c05f65a73ae12
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80874347"
 ---
-### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Sintesi vocale (sottografico: grafici/textToSpeech)
+### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Sintesi vocale (grafico secondario: grafici/textToSpeech)
 
-Per sostituire il grafico "ombrello", aggiungere il prefisso `textToSpeech.` su qualsiasi parametro per renderlo più specifico. Ad esempio, eseguirà l'override `textToSpeech.numberOfConcurrentRequest` del `numberOfConcurrentRequest`parametro corrispondente, ad esempio, esegue l'override di .
+Per eseguire l'override del grafico "Umbrella", aggiungere `textToSpeech.` il prefisso su qualsiasi parametro per renderlo più specifico. Ad esempio, eseguirà l'override del parametro corrispondente, `textToSpeech.numberOfConcurrentRequest` ad esempio `numberOfConcurrentRequest`override.
 
 |Parametro|Descrizione|Predefinito|
 | -- | -- | -- |
-| `enabled` | Se il servizio di **sintesi vocale** è abilitato. | `false` |
-| `numberOfConcurrentRequest` | Numero di richieste simultanee per il servizio di **sintesi vocale.** Questo grafico calcola automaticamente le risorse della CPU e della memoria, in base a questo valore. | `2` |
-| `optimizeForTurboMode`| Se il servizio deve essere ottimizzato per l'input di testo tramite file di testo. Se `true`, questo grafico allocherà più risorse della CPU al servizio. | `false` |
-| `image.registry`| Registro delle immagini docker di **sintesi vocale.** | `containerpreview.azurecr.io` |
-| `image.repository` | Archivio immagini docker **sintesi vocale.** | `microsoft/cognitive-services-text-to-speech` |
-| `image.tag` | Tag dell'immagine docker di **sintesi vocale.** | `latest` |
-| `image.pullSecrets` | I segreti dell'immagine per estrarre l'immagine della finestra mobile **di sintesi vocale.** | |
-| `image.pullByHash`| Se l'immagine docker viene tirata dall'hash. Se `true` `image.hash` è necessario , | `false` |
-| `image.hash`| Hash dell'immagine docker **di sintesi vocale.** Utilizzato solo `image.pullByHash: true`quando .  | |
-| `image.args.eula` (obbligatorio) | Indica che hai accettato la licenza. L'unico valore valido è`accept` | |
-| `image.args.billing` (obbligatorio) | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina Panoramica vocale del portale di Azure.The billing endpoint URI value is available on the Azure portal's Speech Overview page. | |
+| `enabled` | Indica se il servizio **di sintesi vocale** è abilitato. | `false` |
+| `numberOfConcurrentRequest` | Numero di richieste simultanee per il servizio **di sintesi vocale** . Questo grafico calcola automaticamente le risorse di CPU e memoria in base a questo valore. | `2` |
+| `optimizeForTurboMode`| Indica se il servizio deve essere ottimizzato per l'input di testo tramite file di testo. Se `true`, il grafico alloca più risorse della CPU al servizio. | `false` |
+| `image.registry`| Registro immagini Docker **per sintesi vocale** . | `containerpreview.azurecr.io` |
+| `image.repository` | Archivio di immagini Docker **di sintesi vocale** . | `microsoft/cognitive-services-text-to-speech` |
+| `image.tag` | Tag dell'immagine Docker **di sintesi vocale** . | `latest` |
+| `image.pullSecrets` | I segreti dell'immagine per il pull dell'immagine Docker **di sintesi vocale** . | |
+| `image.pullByHash`| Indica se viene eseguito il pull dell'immagine Docker in base all'hash. Se `true`, `image.hash` è obbligatorio. | `false` |
+| `image.hash`| Hash dell'immagine Docker **di sintesi vocale** . Utilizzato solo quando `image.pullByHash: true`.  | |
+| `image.args.eula` (obbligatorio) | Indica che la licenza è stata accettata. L'unico valore valido è`accept` | |
+| `image.args.billing` (obbligatorio) | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica del discorso del portale di Azure. | |
 | `image.args.apikey` (obbligatorio) | Si usa per rilevare le informazioni di fatturazione. ||
-| `service.type` | Il tipo di servizio Kubernetes del servizio **di sintesi vocale.** Per ulteriori informazioni, consulta le istruzioni sui [tipi di servizio Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) e verifica il supporto del provider cloud. | `LoadBalancer` |
-| `service.port`|  Porta del servizio di **sintesi vocale.** | `80` |
-| `service.annotations` | Annotazioni di **sintesi vocale** per i metadati del servizio. Le annotazioni sono coppie di valori chiave. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
-| `service.autoScaler.enabled` | Se la [scalatrice automatica del pod orizzontale](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) è abilitata. Se `true`, `text-to-speech-autoscaler` verrà distribuito nel cluster Kubernetes. | `true` |
-| `service.podDisruption.enabled` | Se il [budget di interruzione Pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) è abilitato. Se `true`, `text-to-speech-poddisruptionbudget` verrà distribuito nel cluster Kubernetes. | `true` |
+| `service.type` | Tipo di servizio Kubernetes del servizio di sintesi **vocale** . Vedere le [istruzioni sui tipi di servizio Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) per altri dettagli e verificare il supporto del provider di servizi cloud. | `LoadBalancer` |
+| `service.port`|  Porta del servizio di sintesi **vocale** . | `80` |
+| `service.annotations` | Annotazioni di sintesi **vocale** per i metadati del servizio. Le annotazioni sono coppie chiave-valore. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
+| `service.autoScaler.enabled` | Indica se il [ridimensionamento automatico del Pod orizzontale](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) è abilitato. Se `true`, il `text-to-speech-autoscaler` verrà distribuito nel cluster Kubernetes. | `true` |
+| `service.podDisruption.enabled` | Indica se il [budget di interferenza Pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) è abilitato. Se `true`, il `text-to-speech-poddisruptionbudget` verrà distribuito nel cluster Kubernetes. | `true` |

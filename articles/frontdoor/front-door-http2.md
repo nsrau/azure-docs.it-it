@@ -1,6 +1,6 @@
 ---
-title: Porta anteriore di Azure - Supporto HTTP2 Documenti Microsoft
-description: Questo articolo illustra il supporto HTTP/2 in Azure Front Door
+title: Azure front door-supporto HTTP2 | Microsoft Docs
+description: Questo articolo fornisce informazioni sul supporto HTTP/2 in Azure front door
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,20 +12,20 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 8a3ae8065553b34a72528cb0f2681e327dc90097
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985185"
 ---
-# <a name="http2-support-in-azure-front-door"></a>Supporto HTTP/2 in Azure Front Door
+# <a name="http2-support-in-azure-front-door"></a>Supporto HTTP/2 nella porta anteriore di Azure
 
-Attualmente, il supporto HTTP/2 è attivo per tutte le configurazioni di Azure Front Door.Currently, HTTP/2 support is active for all Azure Front Door configurations. Non è necessaria alcuna azione da parte dei clienti.
+Attualmente, il supporto HTTP/2 è attivo per tutte le configurazioni di porte di Azure front-end. Non è necessaria alcuna azione da parte dei clienti.
 
 HTTP/2 è una revisione principale del protocollo HTTP/1.1. Fornisce prestazioni Web più veloci, riduce il tempo di risposta e offre un'esperienza utente migliore pur mantenendo invariati i metodi, i codici di stato e la semantica di HTTP. Anche se HTTP/2 è progettato per funzionare con HTTP e HTTPS, molti browser Web client supportano solo HTTP/2 su TLS.
 
 > [!NOTE]
-> Il supporto del protocollo HTTP/2 è disponibile solo per le richieste dei client a Front Door. La comunicazione da front door a back termina nel pool back-end avviene tramite HTTP/1.1. 
+> Il supporto del protocollo HTTP/2 è disponibile solo per le richieste da client a sportello anteriore. La comunicazione dalla porta anteriore ai back-end nel pool back-end avviene tramite HTTP/1.1. 
 
 ### <a name="http2-benefits"></a>Vantaggi di HTTP/2
 

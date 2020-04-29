@@ -1,6 +1,6 @@
 ---
 title: Migliorare la sicurezza della gestione remota in Azure | Documentazione Microsoft
-description: Questo articolo illustra i passaggi per migliorare la sicurezza di gestione remota durante l'amministrazione di ambienti Microsoft Azure, inclusi servizi cloud, macchine virtuali e applicazioni personalizzate.
+description: Questo articolo illustra i passaggi per migliorare la sicurezza della gestione remota durante l'amministrazione di ambienti Microsoft Azure, tra cui servizi cloud, macchine virtuali e applicazioni personalizzate.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981308"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
-I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi, le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il portale di [Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
+I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi, le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio la [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
 
 Anche se le funzionalità multiple di accesso e gestione offrono una vasta gamma di opzioni, questa variabilità può aggiungere rischi significativi a una distribuzione cloud, complicando la gestione, la verifica e il controllo delle azioni amministrative. Questa variabilità potrebbe introdurre anche minacce alla sicurezza tramite accesso non regolamentato agli endpoint client usati per la gestione dei servizi cloud. L'uso di workstation generiche o personali per lo sviluppo e la gestione dell'infrastruttura genera vettori di minaccia imprevedibili, come l'esplorazione del Web (ad esempio attacchi di tipo watering hole) o la posta elettronica (ad esempio "ingegneria sociale" e phishing).
 
@@ -118,8 +118,8 @@ Un Gateway Desktop remoto è un servizio proxy RDP basato su criteri che applica
 ## <a name="security-guidelines"></a>Linee guida sulla sicurezza
 In genere, la configurazione della sicurezza delle workstation dell'amministratore per l'uso con il cloud è simile alle procedure usate per qualsiasi workstation locale, ad esempio compilazione ridotta al minimo e autorizzazioni restrittive. Alcuni aspetti unici della gestione cloud sono più simili alla gestione remota o alla gestione aziendale fuori banda, ad esempio l'uso e il controllo delle credenziali, l'accesso remoto con sicurezza avanzata e il rilevamento e la risposta alle minacce.
 
-### <a name="authentication"></a>Authentication
-È possibile usare le restrizioni di accesso di Azure per impedire agli indirizzi IP di origine di accedere agli strumenti amministrativi e controllare le richieste di accesso. Per consentire ad Azure di identificare i client di gestione (workstation e/o applicazioni), è possibile configurare sia SMAPI (tramite strumenti sviluppati dal cliente, ad esempio i cmdlet di Windows PowerShell) che il portale di Azure per richiedere l'installazione di certificati di gestione lato client, oltre ai certificati TLS/SSL. È anche consigliabile che l'accesso amministratore richieda l'autenticazione a più fattori.
+### <a name="authentication"></a>Autenticazione
+È possibile usare le restrizioni di accesso di Azure per impedire agli indirizzi IP di origine di accedere agli strumenti amministrativi e controllare le richieste di accesso. Per consentire ad Azure di identificare i client di gestione (workstation e/o applicazioni), è possibile configurare entrambi SMAPI (tramite strumenti sviluppati dal cliente, ad esempio i cmdlet di Windows PowerShell) e il portale di Azure per richiedere l'installazione di certificati di gestione lato client, oltre ai certificati TLS/SSL. È anche consigliabile che l'accesso amministratore richieda l'autenticazione a più fattori.
 
 Alcune applicazioni o alcuni servizi distribuiti in Azure possono avere meccanismi di autenticazione specifici per l'accesso degli utenti finali e degli amministratori, mentre altri sfruttano tutte le funzionalità di Azure AD. Indipendentemente dalla federazione di credenziali tramite Active Directory Federation Services (AD FS), dall'uso della sincronizzazione delle directory o dalla gestione degli account utente esclusivamente nel cloud, l'uso di [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx), incluso in Azure AD Premium, semplifica la gestione dei cicli di vita delle identità tra le risorse.
 
@@ -176,7 +176,7 @@ Occorre non presupporre che il blocco di una workstation renda superflui gli alt
 
 | Cosa non fare | Cosa fare |
 | --- | --- |
-| Non inviare credenziali tramite posta elettronica per l'accesso come amministratore o altri segreti (ad esempio, TLS/SSL o certificati di gestione) |Mantenere la riservatezza comunicando a voce i nomi e le password degli account, ma non memorizzandoli nella posta vocale, eseguire un'installazione remota di certificati client/server (tramite una sessione crittografata), eseguire il download da una condivisione di rete crittografata oppure eseguire la distribuzione manuale tramite un supporto rimovibile. |
+| Non inviare tramite posta elettronica le credenziali per l'accesso amministratore o altri segreti, ad esempio TLS/SSL o certificati di gestione |Mantenere la riservatezza comunicando a voce i nomi e le password degli account, ma non memorizzandoli nella posta vocale, eseguire un'installazione remota di certificati client/server (tramite una sessione crittografata), eseguire il download da una condivisione di rete crittografata oppure eseguire la distribuzione manuale tramite un supporto rimovibile. |
 | - | Gestire in modo proattivo i cicli di vita del certificati di gestione. |
 | Non memorizzare le password dell'account senza crittografarle o senza hash nella risorsa di archiviazione dell'applicazione, ad esempio in fogli di calcolo, siti di SharePoint o condivisioni di rete. |Definire principi di gestione della sicurezza e criteri di protezione avanzata del sistema e applicarli all'ambiente di sviluppo. |
 | - | Usare le regole di associazione del certificato di [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) per assicurare un accesso appropriato ai siti SSL/TLS di Azure. |
@@ -206,7 +206,7 @@ La riduzione al minimo del numero di attività che gli amministratori possono es
 * Crittografia. Assicurarsi che le workstation di gestione abbiano un TPM per abilitare in modo più sicuro [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) e BitLocker.
 * Governance. Usare gli oggetti Criteri di gruppo di Active Directory Domain Services per controllare tutte le interfacce amministrative di Windows, ad esempio la condivisione di file. Includere le workstation di gestione nei processi di controllo, monitoraggio e registrazione. Tenere traccia di tutti gli accessi e gli utilizzi di amministratori e sviluppatori.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 L'uso di una configurazione di workstation con protezione avanzata per l'amministrazione dei servizi cloud di Azure, delle macchine virtuali e delle applicazione può contribuire a evitare numerosi rischi e minacce derivanti dalla gestione remota dell'infrastruttura IT essenziale. Azure e Windows offrono meccanismi utili per semplificare la protezione e il controllo di comunicazioni, autenticazione e comportamento del client.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -214,4 +214,4 @@ Le risorse seguenti sono disponibili per fornire altre informazioni generali su 
 
 * [Protezione dell'accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): dettagli tecnici per la progettazione e la creazione di una workstation amministrativa sicura per la gestione di Azure
 * [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure): informazioni sulle funzionalità della piattaforma Azure che proteggono l'infrastruttura e i carichi di lavoro di Azure in esecuzione in Azure
-* [Microsoft Security Response Center,](https://www.microsoft.com/msrc) in cui possono essere segnalate le vulnerabilità della sicurezza Microsoft, inclusi i problemi con Azure,[secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft Security Response Center](https://www.microsoft.com/msrc) , in cui le vulnerabilità della sicurezza Microsoft, inclusi i problemi con Azure, possono essere segnalate o tramite posta elettronica a[secure@microsoft.com](mailto:secure@microsoft.com)

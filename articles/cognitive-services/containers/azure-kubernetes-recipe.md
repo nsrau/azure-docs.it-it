@@ -1,5 +1,5 @@
 ---
-title: Eseguire il contenitore di rilevamento della lingua nel servizio KubernetesRun Language Detection container in Kubernetes Service
+title: Eseguire Rilevamento lingua contenitore nel servizio Kubernetes
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Distribuire il contenitore di rilevamento della lingua, con un esempio di esecuzione, nel servizio Azure Kubernetes e testarlo in un Web browser.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: cdd1cf255c943c8dc6d55a5b749b30357bdcd373
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876726"
 ---
-# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua di Analisi del testo nel servizio Azure KubernetesDeploy the Text Analytics language detection container to Azure Kubernetes Service
+# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua Analisi del testo nel servizio Azure Kubernetes
 
 Informazioni su come distribuire il contenitore di rilevamento della lingua. Questa procedura illustra come creare i contenitori Docker locali, eseguire il push dei contenitori in un registro contenitori privato, eseguire il contenitore in un cluster Kubernetes e testarlo in un Web browser.
 
@@ -27,7 +27,7 @@ Questa procedura richiede diversi strumenti che devono essere installati ed eseg
 
 * Usare una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * [Git](https://git-scm.com/downloads) per il sistema operativo, in modo che sia possibile clonare l'[esempio](https://github.com/Azure-Samples/cognitive-services-containers-samples) usato in questa procedura.
-* [L'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)della riga di comando di Azure.
 * [Motore Docker](https://www.docker.com/products/docker-engine) e verificare che l'interfaccia della riga di comando di Docker funzioni in una finestra della console.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * Una risorsa di Azure con il piano tariffario corretto. Non tutti i piani tariffari funzionano con questo contenitore:
@@ -36,7 +36,7 @@ Questa procedura richiede diversi strumenti che devono essere installati ed eseg
 
 ## <a name="running-the-sample"></a>Esecuzione dell'esempio
 
-Questa procedura carica ed esegue l'esempio di contenitore di Servizi cognitivi per il rilevamento della lingua. L'esempio include due contenitori, uno per l'applicazione client e uno per il contenitore di Servizi cognitivi. Eseguire il push di entrambe queste immagini nel Registro di sistema del contenitore di Azure.We'll push both of these images to the Azure Container Registry. Una volta che si trovano nel proprio registro, creare un servizio Azure Kubernetes per accedere a queste immagini ed eseguire i contenitori. Quando i contenitori sono in esecuzione, usare l'interfaccia della riga di comando di **kubectl** per osservare le prestazioni dei contenitori. Accedere all'applicazione client con una richiesta HTTP e visualizzare i risultati.
+Questa procedura carica ed esegue l'esempio di contenitore di Servizi cognitivi per il rilevamento della lingua. L'esempio include due contenitori, uno per l'applicazione client e uno per il contenitore di Servizi cognitivi. Queste immagini verranno inoltrate al Container Registry di Azure. Una volta che si trovano nel proprio registro, creare un servizio Azure Kubernetes per accedere a queste immagini ed eseguire i contenitori. Quando i contenitori sono in esecuzione, usare l'interfaccia della riga di comando di **kubectl** per osservare le prestazioni dei contenitori. Accedere all'applicazione client con una richiesta HTTP e visualizzare i risultati.
 
 ![Informazioni generali sull'esecuzione di contenitori di esempio](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 
@@ -389,7 +389,7 @@ Aprire un browser e passare all'indirizzo IP esterno del contenitore `language` 
 
 Modificare l'URL nel browser impostando l'indirizzo IP esterno del contenitore `language-frontend` nel formato seguente: `http://<external-ip>/helloworld`. Il testo `helloworld` nelle impostazioni cultura inglese viene stimato come `English`.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando il cluster non è più necessario, eliminare il gruppo di risorse di Azure.
 

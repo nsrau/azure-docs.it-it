@@ -1,7 +1,7 @@
 ---
-title: Eseguire il contenitore Anomaly Detector nelle istanze del contenitore di AzureRun Anomaly Detector Container in Azure Container Instances
+title: Esegui il contenitore del rilevamento anomalie nelle istanze di contenitore di Azure
 titleSuffix: Azure Cognitive Services
-description: Distribuire il contenitore Rilevatore di anomalie in un'istanza del contenitore di Azure e testarlo in un Web browser.
+description: Distribuire il contenitore di rilevatori di anomalie in un'istanza di contenitore di Azure e testarlo in un Web browser.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: a4973254c8a53917d99daf38b0d11e5dbecbb731
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80875123"
 ---
-# <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuire un contenitore Anomaly Detector nelle istanze del contenitore di AzureDeploy an Anomaly Detector container to Azure Container Instances
+# <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuire un contenitore di rilevatori di anomalie in istanze di contenitore di Azure
 
-Informazioni su come distribuire il contenitore [Rilevatore anomalie](../anomaly-detector-container-howto.md) servizi cognitivi in [Istanze del contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. In questa procedura viene illustrata la creazione di una risorsa Rilevatore anomalie. Quindi viene illustrato il pull dell'immagine contenitore associata. Infine, evidenziamo la possibilità di esercitare l'orchestrazione dei due da un browser. L'utilizzo dei contenitori può spostare l'attenzione degli sviluppatori dalla gestione dell'infrastruttura al contrario concentrandosi sullo sviluppo di applicazioni.
+Informazioni su come distribuire il contenitore [Rilevamento anomalie](../anomaly-detector-container-howto.md) dei servizi cognitivi in [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Questa procedura illustra la creazione di una risorsa del rilevatore di anomalie. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
 
-È innanzitutto necessario completare e inviare il modulo di [richiesta del rilevatore](https://aka.ms/adcontainer) di anomalie per richiedere l'accesso al contenitore.
+È necessario prima completare e inviare il [modulo di richiesta del contenitore del rilevatore di anomalie](https://aka.ms/adcontainer) per richiedere l'accesso al contenitore.
 
 [!INCLUDE [Request access](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -37,6 +37,6 @@ Informazioni su come distribuire il contenitore [Rilevatore anomalie](../anomaly
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esaminare [Installare ed eseguire contenitori](../anomaly-detector-container-configuration.md) per estrarre l'immagine del contenitore ed eseguire il contenitoreReview Install and run containers for pulling the container image and run the container
-* Esaminare [Configurare i contenitori](../anomaly-detector-container-configuration.md) per le impostazioni di configurazioneReview Configure containers for configuration settings
-* [Ulteriori informazioni sul servizio API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+* Esaminare [installare ed eseguire i contenitori](../anomaly-detector-container-configuration.md) per il pull dell'immagine del contenitore ed eseguire il contenitore
+* Esaminare [configurare i contenitori](../anomaly-detector-container-configuration.md) per le impostazioni di configurazione
+* [Altre informazioni sul servizio API del rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

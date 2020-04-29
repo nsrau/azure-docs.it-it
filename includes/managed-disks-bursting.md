@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 03/29/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 84736b7f1dcdf8b186fddbced5dd773e008c0dd2
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887418"
 ---
 L'espansione del disco è supportata per le unità SSD Premium. L'espansione è supportata in qualsiasi dimensione di dischi SSD Premium <= 512 GiB (P20 o di seguito). Queste dimensioni del disco supportano il proporziono al massimo sforzo e utilizzano un sistema di credito per gestire il picchio. I crediti si accumulano in un bucket di espansione ogni volta che il traffico del disco è al di sotto dell'obiettivo di prestazioni con provisioning per le dimensioni del disco e utilizza crediti quando il traffico supera la destinazione. Il traffico su disco viene monitorato in base a IOPS e larghezza di banda nella destinazione sottoposta a provisioning. L'espansione del disco non esclude le limitazioni delle dimensioni delle macchine virtuali (VM) per IOPS o velocità effettiva.

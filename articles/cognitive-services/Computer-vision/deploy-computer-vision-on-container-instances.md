@@ -1,7 +1,7 @@
 ---
-title: Eseguire il contenitore Visione artificiale nelle istanze del contenitore di AzureRun Computer Vision container in Azure Container Instances
+title: Eseguire Visione artificiale contenitore in istanze di contenitore di Azure
 titleSuffix: Azure Cognitive Services
-description: Distribuire il contenitore Visione artificiale in un'istanza del contenitore di Azure e testarlo in un Web browser.
+description: Distribuire il contenitore Visione artificiale in un'istanza di contenitore di Azure e testarlo in un Web browser.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: ecb0b6a6577161a5349d9d701dd6c116f69411f0
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876088"
 ---
-# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Distribuire il contenitore Visione artificiale in Istanze del contenitore di AzureDeploy the Computer Vision container to Azure Container Instances
+# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Distribuire il contenitore Visione artificiale nelle istanze di contenitore di Azure
 
-Informazioni su come distribuire il contenitore [Visione artificiale](computer-vision-how-to-install-containers.md) di Servizi cognitivi in [Istanze del contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. In questa procedura viene illustrata la creazione della risorsa Visione artificiale. Quindi viene illustrato il pull dell'immagine contenitore associata. Infine, evidenziamo la possibilità di esercitare l'orchestrazione dei due da un browser. L'utilizzo dei contenitori può spostare l'attenzione degli sviluppatori dalla gestione dell'infrastruttura al contrario concentrandosi sullo sviluppo di applicazioni.
+Informazioni su come distribuire il contenitore [visione artificiale](computer-vision-how-to-install-containers.md) di servizi cognitivi in [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Questa procedura illustra la creazione della risorsa Visione artificiale. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

@@ -9,25 +9,25 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878970"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticazione in uscita per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> App per la logica di Azure sostituisce [l'Utilità](../logic-apps/logic-apps-overview.md) di pianificazione di Azure, che [viene ritirata.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Per continuare a usare i processi impostati nell'utilità di pianificazione, [eseguire la migrazione ad App per la logica](../scheduler/migrate-from-scheduler-to-logic-apps.md) di Azure appena possibile. 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
 >
-> L'utilità di pianificazione non è più disponibile nel portale di Azure, ma i cmdlet di PowerShell [per l'API REST](/rest/api/scheduler) e [l'utilità di pianificazione](scheduler-powershell-reference.md) di Azure rimangono disponibili in questo momento in modo da poter gestire i processi e le raccolte di processi.
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 I processi dell'Utilità di pianificazione di Azure potrebbero dover chiamare servizi che richiedono l'autenticazione, ad esempio altri servizi di Azure, Salesforce.com, Facebook e siti Web personalizzati protetti. Il servizio chiamato può determinare se il processo dell'Utilità di pianificazione può accedere alle risorse richieste. 
 
 L'Utilità di pianificazione supporta questi modelli di autenticazione: 
 
 * Autenticazione con *certificato client* quando si usano certificati client SSL/TLS
-* *Autenticazione di base*
+* Autenticazione di *base*
 * Autenticazione *OAuth Active Directory*
 
 ## <a name="add-or-remove-authentication"></a>Aggiungere o rimuovere un'autenticazione
@@ -48,9 +48,9 @@ Quando si aggiunge un'autenticazione usando il modello `ClientCertificate`, spec
 | Elemento | Obbligatoria | Descrizione |
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto di autenticazione per l'utilizzo di un certificato client SSL/TLS |
-| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate`. |
+| **type** | Sì | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore `ClientCertificate`è. |
 | **pfx** | Sì | Contenuto del file PFX in codifica base64. |
-| **password utente** | Sì | Password per accedere al file PFX. |
+| **password** | Sì | Password per accedere al file PFX. |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Corpo della risposta - Certificato client 
@@ -60,8 +60,8 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 | Elemento | Descrizione | 
 |---------|-------------| 
 | **authentication** (elemento padre) | Oggetto di autenticazione per l'utilizzo di un certificato client SSL/TLS |
-| **type** | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore è `ClientCertificate`. |
-| **certificatoIdentificazion personale** |Identificazione personale del certificato. |
+| **type** | Il tipo di autenticazione. Per i certificati client SSL/TLS, il valore `ClientCertificate`è. |
+| **certificateThumbprint** |Identificazione personale del certificato. |
 | **certificateSubjectName** |Nome distintivo del soggetto del certificato. |
 | **certificateExpiration** | Data di scadenza del certificato. |
 ||| 
@@ -169,8 +169,8 @@ Quando si aggiunge un'autenticazione usando il modello `Basic`, specificare i se
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. | 
 | **type** | Sì | Il tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. | 
-| **Nome utente** | Sì | Nome utente per eseguire l'autenticazione. | 
-| **password utente** | Sì | Password per eseguire l'autenticazione. |
+| **nome utente** | Sì | Nome utente per eseguire l'autenticazione. | 
+| **password** | Sì | Password per eseguire l'autenticazione. |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo della risposta - Autenticazione di base
@@ -181,7 +181,7 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 |---------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'uso dell'autenticazione di base. |
 | **type** | Il tipo di autenticazione. Per l'autenticazione di base il valore è `Basic`. |
-| **Nome utente** | Nome utente autenticato. |
+| **nome utente** | Nome utente autenticato. |
 ||| 
 
 ### <a name="sample-rest-request---basic"></a>Richiesta REST di esempio - Autenticazione di base
@@ -287,10 +287,10 @@ Quando si aggiunge un'autenticazione usando il modello `ActiveDirectoryOAuth`, s
 |---------|----------|-------------|
 | **authentication** (elemento padre) | Sì | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
 | **type** | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |
-| **Inquilino** | Sì | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
-| **Pubblico** | Sì | Questo valore è impostato su `https://management.core.windows.net/`. | 
-| **Clientid** | Sì | Identificatore client per l'applicazione Azure AD | 
-| **Segreto** | Sì | Segreto del client che richiede il token | 
+| **tenant** | Sì | L'identificatore del tenant di Azure AD. Per trovare l'identificatore del tenant di Azure AD, eseguire `Get-AzureAccount` in Azure PowerShell. |
+| **pubblico** | Sì | Questo valore è impostato su `https://management.core.windows.net/`. | 
+| **clientId** | Sì | Identificatore client per l'applicazione Azure AD | 
+| **segreto** | Sì | Segreto del client che richiede il token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corpo della risposta - Autenticazione OAuth Active Directory
@@ -301,9 +301,9 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 |---------|-------------|
 | **authentication** (elemento padre) | Oggetto autenticazione per l'autenticazione OAuth Active Directory. |
 | **type** | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
-| **Inquilino** | L'identificatore del tenant di Azure AD |
-| **Pubblico** | Questo valore è impostato su `https://management.core.windows.net/`. |
-| **Clientid** | Identificatore client per l'applicazione Azure AD |
+| **tenant** | L'identificatore del tenant di Azure AD |
+| **pubblico** | Questo valore è impostato su `https://management.core.windows.net/`. |
+| **clientId** | Identificatore client per l'applicazione Azure AD |
 ||| 
 
 ### <a name="sample-rest-request---active-directory-oauth"></a>Richiesta REST di esempio - Autenticazione OAuth Active Directory

@@ -1,6 +1,6 @@
 ---
-title: Come usare il modulo i/O spaziale di Azure Maps Mappe di Microsoft Azure
-description: Informazioni su come usare il modulo i/O spaziale fornito da Azure Maps Web SDK. Questo modulo offre funzionalità affidabili che semplificano agli sviluppatori l'integrazione dei dati spaziali con il Web sdk di Azure Maps.This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web sdk.
+title: Come usare il modulo di i/o spaziale di Maps di Azure | Mappe Microsoft Azure
+description: Informazioni su come usare il modulo IO spaziale fornito da Azure Maps Web SDK. Questo modulo fornisce funzionalità affidabili per consentire agli sviluppatori di integrare con facilità i dati spaziali con Azure Maps Web SDK.
 author: philmea
 ms.author: philmea
 ms.date: 02/28/2020
@@ -9,65 +9,65 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804640"
 ---
-# <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Come usare il modulo i/O spaziale di Azure MapsHow to use the Azure Maps Spatial IO module
+# <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Come usare il modulo di i/o spaziale di Maps di Azure
 
-Il Web SDK di Azure Maps fornisce il **modulo I/O spaziale**, che integra i dati spaziali con Azure Maps Web SDK tramite JavaScript o TypeScript. Le caratteristiche affidabili di questo modulo consentono agli sviluppatori di:
+Azure Maps Web SDK fornisce il modulo di i/o **spaziale**, che integra i dati spaziali con Azure Maps Web SDK usando JavaScript o typescript. Le funzionalità affidabili di questo modulo consentono agli sviluppatori di:
 
-- Leggere e scrivere file di [dati spaziali comuni.](spatial-io-read-write-spatial-data.md) I formati di file supportati includono: KML, KM, GPX, GeoRSS, GML, GeoJSON e file CSV contenenti colonne con informazioni spaziali. Supporta anche il testo noto (WKT).
-- [Connettersi ai servizi Open Geospatial Consortium (OGC) e integrarsi con Azure Maps Web SDK. Overlay Web Map Services (WMS) e Web Map Tile Services (WMTS) come layer sulla mappa](spatial-io-add-ogc-map-layer.md).
-- [Eseguire query sui dati in un Web Feature Service (WFS)](spatial-io-connect-wfs-service.md).
-- [Sovrapporre set di dati complessi che contengono informazioni sullo stile e fare in modo che il rendering venga eseguito automaticamente utilizzando codice minimo.](spatial-io-add-simple-data-layer.md)
-- Sfruttare le classi di lettura e scrittura di [file XML e delimitate ad alta velocità.](spatial-io-core-operations.md)
+- [Leggere e scrivere file di dati spaziali comuni](spatial-io-read-write-spatial-data.md). I formati di file supportati sono i file KML, KMZ, GPX, GeoRSS, GML, GeoJSON e CSV contenenti colonne con informazioni spaziali. Supporta anche WKT (Well-Known Text).
+- [Connettersi ai servizi di Open Geospatial Consortium (OGC) ed eseguire l'integrazione con Azure Maps Web SDK. Sovrapposizione dei servizi di Web Map Services (WMS) e delle tessere mappa Web (WMTS) come livelli sulla mappa](spatial-io-add-ogc-map-layer.md).
+- [Eseguire query sui dati in un servizio funzionalità Web (WFS)](spatial-io-connect-wfs-service.md).
+- [Sovrapporre set di dati complessi che contengono informazioni sullo stile e visualizzarli automaticamente usando il codice minimo](spatial-io-add-simple-data-layer.md).
+- [Sfruttare le classi di lettura e scrittura di file XML e delimitate ad alta velocità](spatial-io-core-operations.md).
 
-In questa guida verrà illustrato come integrare e utilizzare il modulo I/O spaziale in un'applicazione Web.In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
+In questa guida verrà illustrato come integrare e utilizzare il modulo di i/o spaziale in un'applicazione Web.
 
-Questo video offre una panoramica del modulo I/O spaziale in Azure Maps Web SDK.
+Questo video offre una panoramica del modulo di i/o spaziale in Azure Maps Web SDK.
 
 <br/>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integra facilmente i dati spaziali in Azure Maps - Video di Microsoft Channel 9"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integra facilmente i dati spaziali in mappe di Azure-video Microsoft Channel 9"></iframe>
 
 
 > [!WARNING]
-> Utilizzare solo dati e servizi provenienti da un'origine attendibile, soprattutto se si fa riferimento ad esso da un altro dominio. Il modulo I/O spaziale adotta misure per ridurre al minimo i rischi, tuttavia l'approccio più sicuro è troppo non consentire l'inizio di dati in danagerous nell'applicazione. 
+> Usare solo i dati e i servizi provenienti da un'origine attendibile, soprattutto se vi si fa riferimento da un altro dominio. Il modulo di i/o spaziale esegue i passaggi per ridurre al minimo i rischi, ma l'approccio più sicuro è troppo non consentire l'inizio di tutti i dati danagerous nell'applicazione. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter usare il modulo I/O spaziale, è necessario [creare un account Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) e ottenere la chiave di sottoscrizione principale per [l'account.](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)
+Prima di poter usare il modulo di i/o spaziale, è necessario [creare un account Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) e [ottenere la chiave di sottoscrizione primaria per l'account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
-## <a name="installing-the-spatial-io-module"></a>Installazione del modulo I/O spaziale
+## <a name="installing-the-spatial-io-module"></a>Installazione del modulo IO spaziale
 
-È possibile caricare il modulo I/O spaziale di Azure Maps usando una delle due opzioni:You can load the Azure Maps spatial IO module using one of the two options:
+È possibile caricare il modulo di i/o spaziale Maps di Azure usando una delle due opzioni seguenti:
 
-* Rete CDN di Azure ospitata a livello globale per il modulo I/O spaziale di Azure Maps.The globally hosted Azure CDN for the Azure Maps spatial IO module. Per questa opzione, aggiungete un riferimento `<head>` a JavaScript nell'elemento del file HTML.
+* Rete CDN di Azure ospitata a livello globale per il modulo di i/o spaziale di Maps di Azure. Per questa opzione, si aggiunge un riferimento a JavaScript nell' `<head>` elemento del file HTML.
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-* Il codice sorgente per [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) può essere caricato in locale e quindi ospitato con l'app. Questo pacchetto include anche le definizioni TypeScript. Per questa opzione, utilizzare il comando seguente per installare il pacchetto:
+* Il codice sorgente per [Azure-Maps-Spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) può essere caricato localmente e quindi ospitato con l'app. Questo pacchetto include anche le definizioni TypeScript. Per questa opzione, utilizzare il comando seguente per installare il pacchetto:
 
     ```sh
     npm install azure-maps-spatial-io
     ```
 
-    Quindi, aggiungete un riferimento a `<head>` JavaScript nell'elemento del documento HTML:
+    Aggiungere quindi un riferimento a JavaScript nell' `<head>` elemento del documento HTML:
 
     ```html
     <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
     ```
 
-## <a name="using-the-spatial-io-module"></a>Utilizzo del modulo IO spaziale
+## <a name="using-the-spatial-io-module"></a>Uso del modulo IO spaziale
 
 1. Creare un nuovo file HTML.
 
-2. Caricare Azure Maps Web SDK e inizializzare il controllo mappa. Per i dettagli, vedere la guida al controllo delle mappe di Mappe di Azure.See the [Azure Maps map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) guide for the details. Una volta che hai finito con questo passaggio, il file HTML dovrebbe essere simile al seguente:
+2. Caricare Azure Maps Web SDK e inizializzare il controllo mappa. Per informazioni dettagliate, vedere la Guida di [controllo mappa di Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) . Al termine di questo passaggio, il file HTML dovrebbe essere simile al seguente:
 
     ```html
     <!DOCTYPE html>
@@ -121,13 +121,13 @@ Prima di poter usare il modulo I/O spaziale, è necessario [creare un account Az
     </html>
     ```
 
-2. Caricare il modulo di I/O spaziale di Azure Maps.Load the Azure Maps spatial IO module. Per questo esercizio, usare la rete CDN per il modulo i/O spaziale di Azure Maps.For this exercise, use the CDN for the Azure Maps spatial IO module. Aggiungi il riferimento `<head>` seguente all'elemento del file HTML:
+2. Caricare il modulo di i/o spaziale Maps di Azure. Per questo esercizio, usare la rete CDN per il modulo di i/o spaziale di Maps di Azure. Aggiungere il riferimento seguente all' `<head>` elemento del file HTML:
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-3. Inizializzare `datasource`un oggetto e aggiungere l'origine dati alla mappa. Inizializzare `layer`un oggetto e aggiungere l'origine dati al livello mappa. Quindi, eseguire il rendering sia dell'origine dati che del livello. Prima di scorrere verso il basso per visualizzare il codice completo nel passaggio successivo, considerare le posizioni migliori in cui inserire l'origine dati e gli snippet di codice del livello. Tenere presente che, prima di modificare la mappa a livello di codice, è necessario attendere che la risorsa mappa sia pronta.
+3. Inizializzare `datasource`un oggetto e aggiungere l'origine dati alla mappa. Inizializzare `layer`un oggetto e aggiungere l'origine dati al livello mappa. Eseguire quindi il rendering dell'origine dati e del livello. Prima di scorrere verso il basso per visualizzare il codice completo nel passaggio successivo, valutare i punti migliori in cui inserire i frammenti di codice dell'origine dati e del livello. Prima di modificare a livello di codice la mappa, è necessario attendere che la risorsa della mappa sia pronta.
 
     ```javascript
     var datasource, layer;
@@ -145,7 +145,7 @@ Prima di poter usare il modulo I/O spaziale, è necessario [creare un account Az
     map.layers.add(layer);
     ```
 
-4. Mettendo tutto insieme, il codice HTML dovrebbe essere simile al codice seguente. In questo esempio viene illustrato come leggere un file XML da un URL. Quindi, caricare e visualizzare i dati di feature del file sulla mappa. 
+4. Riunendola, il codice HTML dovrebbe essere simile al codice seguente. In questo esempio viene illustrato come leggere un file XML da un URL. Quindi, caricare e visualizzare i dati delle funzionalità del file sulla mappa. 
 
     ```html
     <!DOCTYPE html>
@@ -222,7 +222,7 @@ Prima di poter usare il modulo I/O spaziale, è necessario [creare un account Az
     </html>
     ```
 
-5. Ricordarsi `<Your Azure Maps Key>` di sostituirlo con la chiave primaria. Apri il file HTML e vedrai risultati simili all'immagine seguente:
+5. Ricordarsi di `<Your Azure Maps Key>` sostituire con la chiave primaria. Aprire il file HTML. verranno visualizzati risultati simili all'immagine seguente:
 
     <center>
 
@@ -232,13 +232,13 @@ Prima di poter usare il modulo I/O spaziale, è necessario [creare un account Az
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La funzionalità che abbiamo dimostrato qui è solo una delle molte funzionalità disponibili nel modulo IO spaziale. Leggi le guide seguenti per scoprire come usare altre funzionalità nel modulo I/O spaziale:
+La funzionalità illustrata di seguito è solo una delle numerose funzionalità disponibili nel modulo IO spaziale. Leggere le guide seguenti per informazioni su come usare altre funzionalità nel modulo IO spaziale:
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello dati semplice](spatial-io-add-simple-data-layer.md)
 
 > [!div class="nextstepaction"]
-> [Lettura e scrittura di dati spaziali](spatial-io-read-write-spatial-data.md)
+> [Lettura e scrittura dei dati spaziali](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello mappa OGC](spatial-io-add-ogc-map-layer.md)
@@ -247,12 +247,12 @@ La funzionalità che abbiamo dimostrato qui è solo una delle molte funzionalit�
 > [Connettersi a un servizio WFS](spatial-io-connect-wfs-service.md)
 
 > [!div class="nextstepaction"]
-> [Sfruttare le operazioni di base](spatial-io-core-operations.md)
+> [Sfruttare le operazioni principali](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Dettagli sul formato dati supportati](spatial-io-supported-data-format-details.md)
+> [Dettagli del formato dati supportati](spatial-io-supported-data-format-details.md)
 
-Fare riferimento alla documentazione di I/O spaziale di Azure Maps:Refer to the Azure Maps Spatial IO documentation:
+Vedere la documentazione relativa ai i/o spaziali di Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Pacchetto i/O spaziale di Azure MapsAzure Maps Spatial IO package](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Pacchetto di i/o spaziale di mappe di Azure](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)

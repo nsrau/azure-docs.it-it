@@ -1,57 +1,57 @@
 ---
-title: L'API REST di conversione degli assetThe asset conversion REST API
-description: Descrive come convertire un asset tramite l'API RESTDescribes how to convert an asset via the REST API
+title: API REST per la conversione di asset
+description: Viene descritto come convertire un asset tramite l'API REST
 author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887045"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Usare l'API REST per la conversione di modelli
 
-Il servizio di [conversione](model-conversion.md) del modello viene controllato tramite [un'API REST.](https://en.wikipedia.org/wiki/Representational_state_transfer) Questo articolo descrive i dettagli dell'API del servizio di conversione.
+Il servizio di [conversione del modello](model-conversion.md) viene controllato tramite un' [API REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Questo articolo descrive i dettagli dell'API del servizio di conversione.
 
 ## <a name="regions"></a>Regioni
 
-Consulta [l'elenco delle aree disponibili](../../reference/regions.md) per gli URL di base a cui inviare le richieste.
+Vedere l' [elenco delle aree disponibili](../../reference/regions.md) per gli URL di base a cui inviare le richieste.
 
 ## <a name="common-headers"></a>Intestazioni comuni
 
 ### <a name="common-request-headers"></a>Intestazioni di richiesta comuni
 
-Queste intestazioni devono essere specificate per tutte le richieste:These headers must be specified for all requests:
+È necessario specificare queste intestazioni per tutte le richieste:
 
-- L'intestazione **Authorization** deve avere il valore di "Bearer [*TOKEN*]", dove [*TOKEN*] è un token di accesso al [servizio.](../tokens.md)
+- L'intestazione dell' **autorizzazione** deve avere il valore "Bearer [*token*]", dove [*token*] è un [token di accesso al servizio](../tokens.md).
 
 ### <a name="common-response-headers"></a>Intestazioni di risposta comuni
 
-Tutte le risposte contengono le intestazioni seguenti:All responses contain these headers:
+Tutte le risposte contengono le intestazioni seguenti:
 
-- L'intestazione **MS-CV** contiene una stringa univoca che può essere utilizzata per tracciare la chiamata all'interno del servizio.
+- L'intestazione **MS-CV** contiene una stringa univoca che può essere usata per tracciare la chiamata all'interno del servizio.
 
 ## <a name="endpoints"></a>Endpoint
 
-Il servizio di conversione fornisce tre endpoint dell'API REST per:The conversion service provides three REST API endpoints to:
+Il servizio di conversione fornisce tre endpoint API REST per:
 
-- avviare la conversione del modello usando un account di archiviazione collegato all'account di rendering remoto di Azure.Start model conversion using a storage account linked with your Azure Remote Rendering account. 
-- avviare la conversione del modello utilizzando le firme di *accesso condiviso (SAS, Shared Access Signatures)* fornite.
-- eseguire una query sullo stato della conversione
+- avviare la conversione del modello usando un account di archiviazione collegato all'account di rendering remoto di Azure. 
+- avviare la conversione del modello usando le *firme di accesso condiviso (SAS)* fornite.
+- eseguire query sullo stato di conversione
 
-### <a name="start-conversion-using-a-linked-storage-account"></a>Avviare la conversione usando un account di archiviazione collegatoStart conversion using a linked storage account
-L'account di rendering remoto di Azure deve avere accesso all'account di archiviazione fornito seguendo la procedura descritta in Collegamento degli [account di archiviazione.](../create-an-account.md#link-storage-accounts)
+### <a name="start-conversion-using-a-linked-storage-account"></a>Avviare la conversione usando un account di archiviazione collegato
+L'account di rendering remoto di Azure deve avere accesso all'account di archiviazione specificato seguendo i passaggi per collegare gli [account di archiviazione](../create-an-account.md#link-storage-accounts).
 
 | Endpoint | Metodo |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversioni/create | POST |
+| /V1/Accounts/**AccountID**/Conversions/create | POST |
 
-Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapping in un documento JSON. Il nome del campo è "conversionId".
+Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è "conversionId".
 
-#### <a name="request-body"></a>Corpo della richiesta
+#### <a name="request-body"></a>Testo della richiesta
 
 
 ```json
@@ -72,21 +72,21 @@ Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrappin
     }
 }
 ```
-### <a name="start-conversion-using-provided-shared-access-signatures"></a>Avviare la conversione utilizzando le firme di accesso condiviso fornite
-Se l'account ARR non è collegato all'account di archiviazione, questa interfaccia REST consente di fornire l'accesso tramite firme di *accesso condiviso.*
+### <a name="start-conversion-using-provided-shared-access-signatures"></a>Avviare la conversione usando le firme di accesso condiviso fornite
+Se l'account ARR non è collegato all'account di archiviazione, questa interfaccia REST consente di fornire l'accesso tramite *firme di accesso condiviso (SAS)*.
 
 | Endpoint | Metodo |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversioni/createWithSharedAccessSignature | POST |
+| /V1/Accounts/**AccountID**/Conversions/createWithSharedAccessSignature | POST |
 
-Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapping in un documento JSON. Il nome del campo è "conversionId".
+Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è "conversionId".
 
-#### <a name="request-body"></a>Corpo della richiesta
+#### <a name="request-body"></a>Testo della richiesta
 
-Il corpo della richiesta è lo stesso della chiamata REST di creazione precedente, ma l'input e l'output contengono token di firma di *accesso condiviso .* Questi token forniscono l'accesso all'account di archiviazione per la lettura dell'input e la scrittura del risultato della conversione.
+Il corpo della richiesta è identico a quello della precedente chiamata REST, ma l'input e l'output contengono *token di firma di accesso condiviso (SAS)*. Questi token forniscono l'accesso all'account di archiviazione per la lettura dell'input e la scrittura del risultato della conversione.
 
 > [!NOTE]
-> Questi token URI di firma di accesso condiviso sono le stringhe di query e non l'URI completo. 
+> Questi token URI SAS sono le stringhe di query e non l'URI completo. 
 
 
 ```json
@@ -110,23 +110,23 @@ Il corpo della richiesta è lo stesso della chiamata REST di creazione precedent
 }
 ```
 
-### <a name="poll-conversion-status"></a>Stato di conversione sondaggio
-Lo stato di una conversione in corso avviata con una delle chiamate REST precedenti può essere sottoposto a query utilizzando l'interfaccia seguente:
+### <a name="poll-conversion-status"></a>Stato di conversione del polling
+Lo stato di una conversione in corso avviata con una delle chiamate REST sopra riportate può essere sottoposto a query usando l'interfaccia seguente:
 
 
 | Endpoint | Metodo |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/**conversionI** | GET |
+| /V1/Accounts/**AccountID**/Conversions/**conversionId** | GET |
 
-Restituisce un documento JSON con un campo "stato" che può avere i valori seguenti:Returns a JSON document with a "status" field that can have the following values:
+Restituisce un documento JSON con un campo "status" che può avere i valori seguenti:
 
-- "In esecuzione"
+- Esecuzione
 - "Esito positivo"
-- "Errore"
+- Errore
 
-Se lo stato è "Errore", ci sarà un campo "errore" aggiuntivo con un sottocampo "messaggio" contenente le informazioni sull'errore. I log aggiuntivi verranno caricati nel contenitore di output.
+Se lo stato è "errore", sarà presente un ulteriore campo "Error" con un sottocampo "message" contenente le informazioni sull'errore. I log aggiuntivi verranno caricati nel contenitore di output.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Usare l'archiviazione BLOB di Azure per la conversione dei modelli](blob-storage.md)
-- [Conversione del modello](model-conversion.md)
+- [Conversione di modelli](model-conversion.md)

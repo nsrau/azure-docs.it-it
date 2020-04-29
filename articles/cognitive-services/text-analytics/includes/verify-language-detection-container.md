@@ -1,7 +1,7 @@
 ---
-title: Verificare l'istanza del contenitore di rilevamento della linguaVerify the Language Detection container instance
+title: Verificare l'istanza del contenitore Rilevamento lingua
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come verificare l'istanza del contenitore di rilevamento della lingua.
+description: Informazioni su come verificare l'istanza del contenitore Rilevamento lingua.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: dc52586550f89ddae147d79458584331ed984eea
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876432"
 ---
-### <a name="verify-the-language-detection-container-instance"></a>Verificare l'istanza del contenitore di rilevamento della linguaVerify the Language Detection container instance
+### <a name="verify-the-language-detection-container-instance"></a>Verificare l'istanza del contenitore Rilevamento lingua
 
 1. Selezionare la scheda **Panoramica** e copiare l'indirizzo IP.
-1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, `http://<IP-address>:5000 (http://55.55.55.55:5000`immettere ). Viene visualizzata la home page del contenitore, che consente di sapere che il contenitore è in esecuzione.
+1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, immettere `http://<IP-address>:5000 (http://55.55.55.55:5000`). Viene visualizzato il home page del contenitore, che consente di verificare che il contenitore sia in esecuzione.
 
-    ![Visualizzare la home page del contenitore per verificare che sia in esecuzione](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Visualizzare il contenitore home page per verificare che sia in esecuzione](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. Selezionare il collegamento **Descrizione API servizio** per passare alla pagina Swagger del contenitore.
+1. Selezionare il collegamento **Descrizione API servizio** per passare alla pagina di spavalderia del contenitore.
 
-1. Scegliere una delle API **POST** e selezionare **Prova.** Vengono visualizzati i parametri, che include questo input di esempio:The parameters are displayed, which includes this example input:
+1. Scegliere una delle API **post** , quindi fare clic **su prova**. Vengono visualizzati i parametri, che includono questo input di esempio:
 
     ```json
     {
@@ -51,11 +51,11 @@ ms.locfileid: "80876432"
 
 1. Impostare **showStats** su `true`.
 
-1. Selezionare **Esegui** per determinare il sentiment del testo.
+1. Selezionare **Execute (Esegui** ) per determinare i sentimenti del testo.
 
-    Il modello incluso nel contenitore genera un punteggio compreso tra 0 e 1, dove 0 è un sentiment negativo e 1 è un sentiment positivo.
+    Il modello incluso nel contenitore genera un punteggio compreso tra 0 e 1, dove 0 è un sentimento negativo e 1 è un sentimento positivo.
 
-    La risposta JSON restituita include il sentiment per l'input di testo aggiornato:The JSON response that's returned includes sentiment for the updated text input:
+    La risposta JSON restituita include i sentimenti per l'input di testo aggiornato:
 
     ```json
     {
@@ -127,4 +127,4 @@ ms.locfileid: "80876432"
     }
     ```
 
-È ora possibile correlare i documenti dei dati JSON del payload `id`della risposta ai documenti di payload della richiesta originale in base ai corrispondenti file . Ogni documento viene trattato in `characterCount` modo `transactionCount`indipendente contenente varie statistiche come e . Inoltre, ogni documento risultante `detectedLanguages` include `name` `iso6391Name`la `score` matrice con , e per ogni lingua rilevata. Quando vengono rilevate `score` più lingue, l'oggetto viene utilizzato per determinare la lingua più probabile.
+È ora possibile mettere in correlazione i documenti dei dati JSON del payload di risposta ai documenti del payload della richiesta originale `id`in base al corrispondente. Ogni documento viene gestito in `characterCount` modo indipendente con diverse statistiche, ad `transactionCount`esempio e. Ogni documento `detectedLanguages` risultante dispone inoltre della matrice con `name`, `iso6391Name`e `score` per ogni lingua rilevata. Quando vengono rilevate più lingue `score` , viene usato per determinare la lingua più probabile.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API Java SQL, risorse di SDK &'
+title: 'Azure Cosmos DB: API Java SQL, risorse & SDK'
 description: Informazioni complete sull'SDK e sull'API Java, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB SQL Java SDK.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,16 +9,16 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: sngun
 ms.openlocfilehash: e57029e53365fbf99054e2d926296ccca3360663
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80983603"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed di modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -27,8 +27,8 @@ ms.locfileid: "80983603"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Esecutore in blocco - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asincrone, usare [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
@@ -37,64 +37,64 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 |**Download dell'SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Documentazione API**|[Documentazione di riferimento API Java](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuire all'SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Introduzione**|[Introduzione a SDK Java](sql-api-java-get-started.md)|
+|**Operazioni preliminari**|[Introduzione a SDK Java](sql-api-java-get-started.md)|
 |**Esercitazione sull'app Web**|[Sviluppo di applicazioni Web con Azure Cosmos DB](sql-api-java-application.md)|
-|**Runtime minimo supportato**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+|**Runtime minimo supportato**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="247"></a><a name="2.4.7"/>2.4.7
-* Risolve il problema di timeout del pool di connessioni.
-* Corregge l'aggiornamento del token di autenticazione nei tentativi interni.
+* Corregge il problema di timeout del pool di connessioni.
+* Corregge l'aggiornamento del token di autenticazione per i tentativi interni.
 
 ### <a name="246"></a><a name="2.4.6"/>2.4.6
-* Aggiornato il tag dei criteri di replica lato client corretto in databaseAccount e ha reso la configurazione databaseAccount letta dalla cache.
+* Il tag del criterio di replica lato client è stato aggiornato in databaseAccount e le letture della configurazione databaseAccount dalla cache.
 
 ### <a name="245"></a><a name="2.4.5"/>2.4.5
-* Evitare di ripetere l'errore di intervallo di chiavi di partizione non valido, se l'utente fornisce pkRangeId.Avoiding retry on invalid partition key range error, if user provides pkRangeId.
+* Se l'utente fornisce pkRangeId, evitando di ritentare l'intervallo di chiavi di partizione non valido.
 
 ### <a name="244"></a><a name="2.4.4"/>2.4.4
-* Ottimizzato l'intervallo di chiavi di partizione della cache.
-* Corregge lo scenario in cui l'SDK non intratterrà l'hint di divisione partizione dal server e comporta l'aggiornamento delle cache di routing sul lato client non corretto.
+* Aggiornamenti della cache degli intervalli di chiavi di partizione ottimizzati.
+* Corregge lo scenario in cui l'SDK non intrattiene l'hint di suddivisione della partizione dal server e comporta l'aggiornamento delle cache di routing lato client non corrette.
 
-### <a name="242"></a><a name="2.4.2"/>2.4.2
-* Aggiornamento ottimizzato della cache di raccolta.
+### <a name="242"></a><a name="2.4.2"/>2.4.2 Sections
+* Aggiornamenti della cache della raccolta ottimizzata.
 
 ### <a name="241"></a><a name="2.4.1"/>2.4.1
 * Aggiunto il supporto per recuperare il messaggio di eccezione interna dalla stringa di diagnostica della richiesta.
 
 ### <a name="240"></a><a name="2.4.0"/>2.4.0
-* Introdotta la versione api su PartitionKeyDefinition.Introduced version api on PartitionKeyDefinition.
+* È stata introdotta l'API della versione in PartitionKeyDefinition.
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Aggiunto il supporto di timeout separato per la modalità diretta.
+* Aggiunto il supporto del timeout separato per la modalità diretta.
 
 ### <a name="223"></a><a name="2.2.3"/>2.2.3
-* Utilizzo di un messaggio di errore null dal servizio e generazione di eccezioni client documento.
+* Utilizzo del messaggio di errore null dal servizio e generazione dell'eccezione client del documento.
 
 ### <a name="222"></a><a name="2.2.2"/>2.2.2
 * Miglioramento della connessione socket, aggiungendo SoKeepAlive default true.
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
-* Aggiunto il supporto della stringa di diagnostica delle richieste.
+* Aggiunta del supporto per la stringa di diagnostica della richiesta.
 
 ### <a name="213"></a><a name="2.1.3"/>2.1.3
-* Corretto bug in PartitionKey per Hash V2.
+* Correzione di un bug in PartitionKey per hash V2.
 
 ### <a name="212"></a><a name="2.1.2"/>2.1.2
-* Aggiunto il supporto per gli indici compositi.
-* Corretto un bug in Gestione endpoint globale per forzare l'aggiornamento.
-* Corretto bug per upserts con precondizioni in modalità diretta.
+* Aggiunta del supporto per gli indici compositi.
+* Correzione del bug in Gestione endpoint globale per forzare l'aggiornamento.
+* Correzione del bug per Upsert con le condizioni preliminari in modalità diretta.
 
 ### <a name="211"></a><a name="2.1.1"/>2.1.1
-* Corretto il bug nella cache degli indirizzi del gateway.
+* Correzione del bug nella cache degli indirizzi del gateway.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Aggiunto il supporto per la scrittura in più aree per la modalità diretta.
 * Aggiunto il supporto per la gestione di IOExceptions generate come eccezioni ServiceUnavailable, da un proxy.
 * Risolto un bug nei criteri di ripetizione dei tentativi di individuazione degli endpoint.
 * Risolto un bug per assicurare che non vengano generate eccezioni del puntatore Null in BaseDatabaseAccountConfigurationProvider.
-* Corretto un bug per garantire che QueryIterator non restituisca valori null.
+* Correzione di un bug per assicurarsi che QueryIterator non restituisca valori null.
 * Risolto un bug per garantire che sia consentito PartitionKey ampio
 
 ### <a name="200"></a><a name="2.0.0"/>2.0.0
@@ -131,7 +131,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 
 ### <a name="1150"></a><a name="1.15.0"/>1.15.0
 * Miglioramento delle prestazioni di serializzazione Json.
-* Questa versione SDK richiede la versione più recente di [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
+* Questa versione dell'SDK richiede la versione più recente dell' [emulatore Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="1140"></a><a name="1.14.0"/>1.14.0
 * Modifiche interne per le librerie Friend di Microsoft.
@@ -162,7 +162,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 * Aggiunta del supporto per la modifica del feed.
 * Aggiunta del supporto per informazioni sulla quota della raccolta tramite RequestOptions.setPopulateQuotaInfo.
 * Aggiunta del supporto per la registrazione dello script della procedura archiviata tramite RequestOptions.setScriptLoggingEnabled.
-* Corretto un bug in cui la query in modalità DirectHttps potrebbe bloccarsi quando si verificano errori di limitazione.
+* Correzione di un bug in cui la query in modalità DirectHttps potrebbe smettere di rispondere quando si verificano errori di limitazione.
 * Risoluzione di un bug in modalità di coerenza di sessione.
 * Risoluzione di un bug che potrebbe causare l'eccezione NullReferenceException in HttpContext quando la frequenza delle richieste è elevata.
 * Miglioramento delle prestazioni della modalità DirectHttps.
@@ -250,7 +250,7 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
 > [!WARNING]
-> Tutte le versioni **1.x** di SQL SDK for Java verranno ritirate il **30 maggio 2020.**
+> Tutte le versioni **1. x** di SQL SDK per Java verranno ritirate il **30 maggio 2020**.
 > 
 >
 
@@ -263,53 +263,53 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.4.7](#2.4.7) |20 faio 2020 |--- |
-| [2.4.6](#2.4.6) |24 gennaio 2020 |--- |
+| [2.4.7](#2.4.7) |20 feb, 2020 |--- |
+| [2.4.6](#2.4.6) |24 gen, 2020 |--- |
 | [2.4.5](#2.4.5) |10 novembre 2019 |--- |
-| [2.4.4](#2.4.4) |giovedì 24 ottobre 2019 |--- |
-| [2.4.2](#2.4.2) |giovedì 26 settembre 2019 |--- |
-| [2.4.1](#2.4.1) |18 lug 2019 |--- |
-| [2.4.0](#2.4.0) |giovedì 04 maggio 2019 |--- |
-| [2.3.0](#2.3.0) |24 aprile 2019 |--- |
+| [2.4.4](#2.4.4) |24 ottobre 2019 |--- |
+| [2.4.2 Sections](#2.4.2) |26 settembre, 2019 |--- |
+| [2.4.1](#2.4.1) |18 luglio 2019 |--- |
+| [2.4.0](#2.4.0) |04 maggio, 2019 |--- |
+| [2.3.0](#2.3.0) |24 aprile, 2019 |--- |
 | [2.2.3](#2.2.3) |16 aprile 2019 |--- |
-| [2.2.2](#2.2.2) |apr 05, 2019 |--- |
-| [2.2.0](#2.2.0) |martedì 27 marzo 2019 |--- |
-| [2.1.3](#2.1.3) |martedì mar 13, 2019 |--- |
-| [2.1.2](#2.1.2) |martedì 09, 2019 |--- |
-| [2.1.1](#2.1.1) |dicembre 13, 2018 |--- |
-| [2.1.0](#2.1.0) |20 novembre 2018 |--- |
+| [2.2.2](#2.2.2) |05 aprile, 2019 |--- |
+| [2.2.0](#2.2.0) |27 mar 2019 |--- |
+| [2.1.3](#2.1.3) |13 marzo, 2019 |--- |
+| [2.1.2](#2.1.2) |9 mar 2019 |--- |
+| [2.1.1](#2.1.1) |13 dicembre 2018 |--- |
+| [2.1.0](#2.1.0) |20 nov, 2018 |--- |
 | [2.0.0](#2.0.0) |21 settembre 2018 |--- |
-| [1.16.4](#1.16.4) |10 settembre 2018 |giovedì 30 maggio 2020 |
-| [1.16.3](#1.16.3) |9 settembre 2018 |giovedì 30 maggio 2020 |
-| [1.16.2](#1.16.2) |29 giugno 2018 |giovedì 30 maggio 2020 |
-| [1.16.1](#1.16.1) |16 maggio 2018 |giovedì 30 maggio 2020 |
-| [1.16.0](#1.16.0) |15 marzo 2018 |giovedì 30 maggio 2020 |
-| [1.15.0](#1.15.0) |14 novembre 2017 |giovedì 30 maggio 2020 |
-| [1.14.0](#1.14.0) |28 ottobre 2017 |giovedì 30 maggio 2020 |
-| [1.13.0](#1.13.0) |25 agosto 2017 |giovedì 30 maggio 2020 |
-| [1.12.0](#1.12.0) |11 luglio 2017 |giovedì 30 maggio 2020 |
-| [1.11.0](#1.11.0) |10 maggio 2017 |giovedì 30 maggio 2020 |
-| [1.10.0](#1.10.0) |11 marzo 2017 |giovedì 30 maggio 2020 |
-| [1.9.6](#1.9.6) |21 febbraio 2017 |giovedì 30 maggio 2020 |
-| [1.9.5](#1.9.5) |31 gennaio 2017 |giovedì 30 maggio 2020 |
-| [1.9.4](#1.9.4) |24 novembre 2016 |giovedì 30 maggio 2020 |
-| [1.9.3](#1.9.3) |30 ottobre 2016 |giovedì 30 maggio 2020 |
-| [1.9.2](#1.9.2) |28 ottobre 2016 |giovedì 30 maggio 2020 |
-| [1.9.1](#1.9.1) |26 ottobre 2016 |giovedì 30 maggio 2020 |
-| [1.9.0](#1.9.0) |03 ottobre 2016 |giovedì 30 maggio 2020 |
-| [1.8.1](#1.8.1) |30 giugno 2016 |giovedì 30 maggio 2020 |
-| [1.8.0](#1.8.0) |14 giugno 2016 |giovedì 30 maggio 2020 |
-| [1.7.1](#1.7.1) |30 aprile 2016 |giovedì 30 maggio 2020 |
-| [1.7.0](#1.7.0) |27 aprile 2016 |giovedì 30 maggio 2020 |
-| [1.6.0](#1.6.0) |29 marzo 2016 |giovedì 30 maggio 2020 |
-| [1.5.1](#1.5.1) |31 dicembre 2015 |giovedì 30 maggio 2020 |
-| [1.5.0](#1.5.0) |04 dicembre 2015 |giovedì 30 maggio 2020 |
-| [1.4.0](#1.4.0) |05 ottobre 2015 |giovedì 30 maggio 2020 |
-| [1.3.0](#1.3.0) |05 ottobre 2015 |giovedì 30 maggio 2020 |
-| [1.2.0](#1.2.0) |05 agosto 2015 |giovedì 30 maggio 2020 |
-| [1.1.0](#1.1.0) |09 luglio 2015 |giovedì 30 maggio 2020 |
-| 1.0.1 |12 maggio 2015 |giovedì 30 maggio 2020 |
-| [1.0.0](#1.0.0) |07 aprile 2015 |giovedì 30 maggio 2020 |
+| [1.16.4](#1.16.4) |10 settembre 2018 |30 maggio 2020 |
+| [1.16.3](#1.16.3) |9 settembre 2018 |30 maggio 2020 |
+| [1.16.2](#1.16.2) |29 giugno 2018 |30 maggio 2020 |
+| [1.16.1](#1.16.1) |16 maggio 2018 |30 maggio 2020 |
+| [1.16.0](#1.16.0) |15 marzo 2018 |30 maggio 2020 |
+| [1.15.0](#1.15.0) |14 novembre 2017 |30 maggio 2020 |
+| [1.14.0](#1.14.0) |28 ottobre 2017 |30 maggio 2020 |
+| [1.13.0](#1.13.0) |25 agosto 2017 |30 maggio 2020 |
+| [1.12.0](#1.12.0) |11 luglio 2017 |30 maggio 2020 |
+| [1.11.0](#1.11.0) |10 maggio 2017 |30 maggio 2020 |
+| [1.10.0](#1.10.0) |11 marzo 2017 |30 maggio 2020 |
+| [1.9.6](#1.9.6) |21 febbraio 2017 |30 maggio 2020 |
+| [1.9.5](#1.9.5) |31 gennaio 2017 |30 maggio 2020 |
+| [1.9.4](#1.9.4) |24 novembre 2016 |30 maggio 2020 |
+| [1.9.3](#1.9.3) |30 ottobre 2016 |30 maggio 2020 |
+| [1.9.2](#1.9.2) |28 ottobre 2016 |30 maggio 2020 |
+| [1.9.1](#1.9.1) |26 ottobre 2016 |30 maggio 2020 |
+| [1.9.0](#1.9.0) |03 ottobre 2016 |30 maggio 2020 |
+| [1.8.1](#1.8.1) |30 giugno 2016 |30 maggio 2020 |
+| [1.8.0](#1.8.0) |14 giugno 2016 |30 maggio 2020 |
+| [1.7.1](#1.7.1) |30 aprile 2016 |30 maggio 2020 |
+| [1.7.0](#1.7.0) |27 aprile 2016 |30 maggio 2020 |
+| [1.6.0](#1.6.0) |29 marzo 2016 |30 maggio 2020 |
+| [1.5.1](#1.5.1) |31 dicembre 2015 |30 maggio 2020 |
+| [1.5.0](#1.5.0) |04 dicembre 2015 |30 maggio 2020 |
+| [1.4.0](#1.4.0) |05 ottobre 2015 |30 maggio 2020 |
+| [1.3.0](#1.3.0) |05 ottobre 2015 |30 maggio 2020 |
+| [1.2.0](#1.2.0) |05 agosto 2015 |30 maggio 2020 |
+| [1.1.0](#1.1.0) |09 luglio 2015 |30 maggio 2020 |
+| 1.0.1 |12 maggio 2015 |30 maggio 2020 |
+| [1.0.0](#1.0.0) |07 aprile 2015 |30 maggio 2020 |
 | 0.9.5-prelease |09 marzo 2015 |29 febbraio 2016 |
 | 0.9.4-prelease |17 febbraio 2015 |29 febbraio 2016 |
 | 0.9.3-prelease |13 gennaio 2015 |29 febbraio 2016 |

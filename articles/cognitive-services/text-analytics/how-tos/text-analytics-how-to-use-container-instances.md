@@ -1,7 +1,7 @@
 ---
-title: Eseguire le istanze del contenitore di Azure - Analisi del testoRun Azure Container Instances - Text Analytics
+title: Eseguire istanze di contenitore di Azure-Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Distribuire i contenitori di analisi di testo nell'istanza del contenitore di Azure e testarla in un Web browser.
+description: Distribuire i contenitori di analisi del testo nell'istanza di contenitore di Azure e testarli in un Web browser.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e4b61c6fe2f62745d0f5268221cbb5c84803eb10
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876431"
 ---
-# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuire un contenitore Analisi del testo nelle istanze del contenitore di AzureDeploy a Text Analytics container to Azure Container Instances
+# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuire un contenitore Analisi del testo in istanze di contenitore di Azure
 
-Informazioni su come distribuire il contenitore [Analisi del testo][install-and-run-containers] di Servizi cognitivi in [Istanze del contenitore][container-instances]di Azure. Questa procedura esemplifica la creazione di una risorsa Analisi del testo, la creazione di un'immagine di analisi del sentiment associata e la possibilità di esercitare questa orchestrazione dei due da un browser. L'utilizzo dei contenitori può spostare l'attenzione degli sviluppatori dalla gestione dell'infrastruttura al contrario concentrandosi sullo sviluppo di applicazioni.
+Informazioni su come distribuire il contenitore [analisi del testo][install-and-run-containers] di servizi cognitivi in [istanze di contenitore][container-instances]di Azure. Questa procedura esemplifica la creazione di una risorsa Analisi del testo, la creazione di un'immagine Analisi del sentiment associata e la possibilità di eseguire questa orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +37,7 @@ Informazioni su come distribuire il contenitore [Analisi del testo][install-and-
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-#### <a name="sentiment-analysis"></a>[Analisi del sentimento](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
@@ -45,8 +45,8 @@ Informazioni su come distribuire il contenitore [Analisi del testo][install-and-
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-* Usare più [contenitori di Servizi cognitiviUse more Cognitive Services Containers](../../cognitive-services-container-support.md)
-* Usare il [servizio di analisi del testo connessoUse the Text Analytics Connected Service](../vs-text-connected-service.md)
+* Usare più [contenitori di servizi cognitivi](../../cognitive-services-container-support.md)
+* Usare il [servizio analisi del testo connesso](../vs-text-connected-service.md)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

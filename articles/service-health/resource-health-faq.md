@@ -4,10 +4,10 @@ description: Panoramica su Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985032"
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
@@ -37,7 +37,7 @@ Lo stato di integrità è impostato su Sconosciuto quando Integrità risorse non
 ## <a name="how-can-i-get-help-for-a-resource-that-is-unavailable"></a>Come è possibile ottenere supporto per una risorsa che non è disponibile?
 È possibile inviare una richiesta di supporto dal pannello di Integrità risorse. Se la risorsa non è disponibile a causa di eventi della piattaforma, non è necessario un contratto di supporto con Microsoft per aprire una richiesta.
 
-## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>Integrità delle risorse distingue tra indisponibilità causata da problemi di piattaforma rispetto a qualcosa che ho fatto?
+## <a name="does-resource-health-differentiate-between-unavailability-caused-by-platform-problems-versus-something-i-did"></a>Integrità risorse distingue tra la mancata disponibilità causata da problemi della piattaforma rispetto a una cosa che ho fatto?
 Sì, quando una risorsa non è disponibile, Integrità risorse identifica la causa radice tra una delle categorie seguenti: 
 -   Azione avviata dall'utente
 -   Evento pianificato 
@@ -46,12 +46,12 @@ Sì, quando una risorsa non è disponibile, Integrità risorse identifica la cau
 Nel portale le azioni avviate dall'utente sono indicate da un'icona di notifica blu, mentre gli eventi pianificati e non pianificati sono indicati da un'icona di avviso rossa. Altri dettagli sono disponibili in [Panoramica su Integrità risorse di Azure](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>È possibile aggiungere Integrità risorse agli strumenti di monitoraggio personali?
-Integrità delle risorse include [il supporto dell'anteprima](resource-health-alert-arm-template-guide.md) per gli avvisi basati sul log attività. Gli avvisi del log attività usano i gruppi di [azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) per notificare agli utenti che è stato attivato un avviso. I gruppi di azioni supportano una varietà di canali di notifica, ad esempio e-mail, SMS, webhook e azioni ITSM.
+Integrità risorse dispone del [supporto in anteprima](resource-health-alert-arm-template-guide.md) per gli avvisi basati sul log attività. Gli avvisi del log attività usano i [gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) per notificare agli utenti che è stato attivato un avviso. I gruppi di azione supportano un'ampia gamma di canali di notifica, ad esempio le azioni di posta elettronica, SMS, webhook e ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>Dove si trova Integrità risorse?
 Dopo avere eseguito l'accesso al portale di Azure, è possibile accedere a Integrità risorse in diversi modi:
 - Passare alla risorsa. Nel riquadro di spostamento a sinistra selezionare **Integrità risorse**.
-- Passare al pannello Integrità dei servizi di Azure.  Nel riquadro di spostamento sinistro selezionare **Integrità risorse**.
+- Passare al pannello Integrità dei servizi di Azure.  Nella finestra di spostamento a sinistra selezionare **integrità risorse**.
 - Aprire il pannello **Guida e supporto** selezionando il punto interrogativo nell'angolo in alto a destra del portale e quindi selezionando **Guida e supporto**. Quando il pannello si apre, selezionare **Integrità risorse**.
 
 È anche possibile usare l'API di Integrità risorse per ottenere informazioni sullo stato delle risorse.
@@ -63,7 +63,7 @@ L'elenco dei controlli di integrità e dei tipi di risorse supportati per Integr
 Durante il controllo dell'integrità di una risorsa, immediatamente sotto lo stato di integrità è possibile fare clic su **Segnala stato di integrità non corretto**. Prima di inviare il report, è possibile specificare ulteriori dettagli sul motivo per cui si ritiene che lo stato di integrità corrente non sia corretto.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Integrità risorse è disponibile in tutte le aree di Azure? 
-Integrità delle risorse è disponibile in tutte le aree geografiche di Azure.Resource health is available in all Azure geos.
+Integrità risorse è disponibile in tutte le aree geografiche di Azure.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>In che modo Integrità risorse differisce dallo Stato di Azure o dal dashboard per l'integrità dei servizi?
 Le informazioni messe a disposizione da Integrità risorse sono più specifiche di quelle messe a disposizione da Stato di Azure o dal dashboard per l'integrità dei servizi di Azure.
@@ -87,5 +87,5 @@ In base allo stato di integrità, Integrità risorse offre consigli per ridurre 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su Integrità risorse:
--  [Panoramica di Azure Resource HealthAzure Resource Health overview](Resource-health-overview.md)
--  [Resource types and health checks available through Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Panoramica di Integrità risorse di Azure](Resource-health-overview.md)
+-  [Tipi di risorse e controlli di integrità disponibili tramite Integrità risorse di Azure](resource-health-checks-resource-types.md)

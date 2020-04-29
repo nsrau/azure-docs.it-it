@@ -1,24 +1,24 @@
 ---
-title: Prerequisiti dell'anteprima pubblica del contenitoreContainer Public Preview Prerequisites
+title: Prerequisiti di anteprima pubblica del contenitore
 services: cognitive-services
 author: aahill
 manager: nitinme
-description: Prerequisito comune per i contenitori di anteprima pubblici
+description: Prerequisito comune per i contenitori di anteprima pubblica
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 01df991e469c35f171d89b99ca9054ee620ebcca
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80875122"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Usare una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-account] prima di iniziare.
-* Installare [l'interfaccia della riga di comando][azure-cli] di Azure (az).
+* Installare l' [interfaccia][azure-cli] della riga di comando di Azure (AZ).
 * [Motore Docker][docker-engine] e verificare che l'interfaccia della riga di comando di Docker funzioni in una finestra della console.
 
 [free-account]: https://azure.microsoft.com/free

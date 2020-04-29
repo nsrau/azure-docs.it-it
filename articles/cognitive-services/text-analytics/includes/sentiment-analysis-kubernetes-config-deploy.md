@@ -1,7 +1,7 @@
 ---
-title: Sentiment Analysis Kubernetes config e distribuire i passaggi
+title: Analisi del sentiment la configurazione di Kubernetes e i passaggi di distribuzione
 titleSuffix: Azure Cognitive Services
-description: Sentiment Analysis Kubernetes config e distribuire i passaggi
+description: Analisi del sentiment la configurazione di Kubernetes e i passaggi di distribuzione
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,21 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: b43299974034f55b57b86191b3556c3d5c2ee83b
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877832"
 ---
-### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Distribuire il contenitore di analisi del sentiment in un cluster AKSDeploy the Sentiment Analysis container to an AKS cluster
+### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Distribuire il contenitore Analisi del sentiment in un cluster AKS
 
-1. Aprire l'interfaccia della riga di comando di Azure e accedere ad Azure.Open the Azure CLI, and sign in to Azure.
+1. Aprire l'interfaccia della riga di comando di Azure e accedere ad Azure.
 
     ```azurecli
     az login
     ```
 
-1. Accedere al cluster AKS. Sostituire `your-cluster-name` `your-resource-group` e con i valori appropriati.
+1. Accedere al cluster AKS. Sostituire `your-cluster-name` e `your-resource-group` con i valori appropriati.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
@@ -37,18 +37,18 @@ ms.locfileid: "80877832"
     ```
 
     > [!WARNING]
-    > Se nell'account Azure sono disponibili più `az aks get-credentials` sottoscrizioni e il comando restituisce un errore, un problema comune è che si usa la sottoscrizione errata. Impostare il contesto della sessione dell'interfaccia della riga di comando di Azure in modo che utilizzi la stessa sottoscrizione con cui sono state create le risorse e riprovare.
+    > Se sono disponibili più sottoscrizioni per l'account Azure e il `az aks get-credentials` comando restituisce un errore, un problema comune è che si sta usando una sottoscrizione non corretta. Impostare il contesto della sessione dell'interfaccia della riga di comando di Azure in modo che usi la stessa sottoscrizione con cui sono state create le risorse e riprovare.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. Aprire l'editor di testo preferito. In questo esempio viene utilizzato Visual Studio Code.This example uses Visual Studio Code.
+1. Aprire l'editor di testo desiderato. In questo esempio viene usato Visual Studio Code.
 
     ```console
     code .
     ```
 
-1. All'interno dell'editor di testo, creare un nuovo file denominato *sentiment.yaml*e incollarvi il seguente YAML. Assicurati di `billing/value` sostituire `apikey/value` e con le tue informazioni.
+1. Nell'editor di testo creare un nuovo file denominato *sentimenti. YAML*e incollare il file YAML seguente. Assicurarsi di sostituire `billing/value` e `apikey/value` con le proprie informazioni.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -95,25 +95,25 @@ ms.locfileid: "80877832"
     ```
 
 1. Salvare il file e chiudere l'editor di testo.
-1. Eseguire il comando Kubernetes `apply` con il file *sentiment.yaml* come destinazione:
+1. Eseguire il comando `apply` Kubernetes con il file *sentimento. YAML* come destinazione:
 
     ```console
     kubectl apply -f sentiment.yaml
     ```
 
-    Dopo che il comando applica correttamente la configurazione di distribuzione, viene visualizzato un messaggio simile al seguente output:
+    Quando il comando applica correttamente la configurazione della distribuzione, viene visualizzato un messaggio simile all'output seguente:
 
     ```output
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
-1. Verificare che il contenitore sia stato distribuito:
+1. Verificare che il POD sia stato distribuito:
 
     ```console
     kubectl get pods
     ```
 
-    L'output per lo stato di esecuzione del contenitore:
+    Output per lo stato di esecuzione del Pod:
 
     ```output
     NAME                         READY     STATUS    RESTARTS   AGE
@@ -126,7 +126,7 @@ ms.locfileid: "80877832"
     kubectl get services
     ```
 
-    Output per lo stato di esecuzione del servizio *sentiment* nel pod:
+    Output per lo stato di esecuzione *del servizio di* valutazione nel pod:
 
     ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

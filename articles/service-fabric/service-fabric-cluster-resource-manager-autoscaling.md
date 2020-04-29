@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric Auto Scaling Services and Containers
+title: Servizi e contenitori per la scalabilità automatica di Azure Service Fabric
 description: Azure Service Fabric consente di impostare i criteri di scalabilità automatica per i servizi e i contenitori.
 author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
 ms.openlocfilehash: edcf2774873cc23a74a47cc1c9a12e2daa2ed419
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984538"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduzione alla scalabilità automatica
@@ -39,8 +39,8 @@ Sono disponibili due meccanismi che sono attualmente supportati per la scalabili
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Trigger di carico medio della partizione con scalabilità basata sull’istanza
 Il primo tipo di trigger è basato sul carico delle istanze in una partizione del servizio senza stato. I carichi della metrica vengono innanzitutto livellati per ottenere il carico di ogni istanza di una partizione, quindi viene calcolata una media di questi valori per tutte le istanze della partizione. Esistono tre fattori che determinano quando il servizio verrà ridimensionato:
 
-* _Soglia_ di carico inferiore è un valore che determina quando il servizio verrà **ridimensionato in**. Se il carico medio di tutte le istanze delle partizioni è inferiore a questo valore, il servizio verrà ridotto.
-* _Soglia di carico superiore_ è un valore che determina quando il servizio verrà **scalato orizzontalmente.** Se il carico medio di tutte le istanze della partizione è superiore a questo valore, il servizio verrà scalato orizzontalmente.
+* La _soglia di carico inferiore_ è un valore che determina quando il servizio verrà **ridimensionato**. Se il carico medio di tutte le istanze delle partizioni è inferiore a questo valore, il servizio verrà ridotto.
+* La _soglia di carico superiore_ è un valore che determina quando il servizio verrà **scalato**orizzontalmente. Se il carico medio di tutte le istanze della partizione è superiore a questo valore, il servizio verrà scalato orizzontalmente.
 * L’_intervallo di scalabilità_ determina ogni quanto verrà eseguito un controllo del trigger. Una volta controllato il trigger, se è necessario eseguire un ridimensionamento verrà applicato il meccanismo. Se il ridimensionamento non è necessario, non verrà eseguita alcuna azione. In entrambi i casi, il trigger non verrà controllato nuovamente prima dello scadere dell'intervallo di scalabilità.
 
 Questo trigger può essere utilizzato solo con i servizi senza stato (contenitori senza stato o servizi di Service Fabric). Nel caso in cui un servizio dispone di più partizioni, il trigger viene valutato separatamente per ogni partizione e per ognuna di esse verrà applicato il meccanismo specificato in modo indipendente. Di conseguenza, in questo caso, è possibile che, in base al loro carico, alcune delle partizioni del servizio verranno aumentate, alcune verranno ridotte e altre non subiranno nessun ridimensionamento.
@@ -48,7 +48,7 @@ Questo trigger può essere utilizzato solo con i servizi senza stato (contenitor
 L'unico meccanismo che può essere utilizzato con questo trigger è PartitionInstanceCountScaleMechanism. Esistono tre fattori che determinano il modo in cui viene applicato questo meccanismo:
 * L’_incremento di scalabilità_ determina il numero di istanze che verranno aggiunte o rimosse quando viene attivato meccanismo.
 * Il _numero massimo di istanze_ definisce il limite superiore per la scalabilità. Se il numero di istanze della partizione raggiunge questo limite, non sarà possibile aumentare il servizio, indipendentemente dal carico. È possibile omettere questo limite specificando il valore -1: in tal caso il servizio verrà aumentato quanto più possibile (il limite corrisponde al numero di nodi che sono disponibili nel cluster).
-* _Numero minimo di istanze_ definisce il limite inferiore per il ridimensionamento. Se il numero di istanze della partizione raggiunge questo limite, non sarà possibile ridurre il servizio, indipendentemente dal carico.
+* Il _numero minimo di istanze_ definisce il limite inferiore per la scalabilità. Se il numero di istanze della partizione raggiunge questo limite, non sarà possibile ridurre il servizio, indipendentemente dal carico.
 
 ## <a name="setting-auto-scaling-policy"></a>Impostazione dei criteri di scalabilità automatica
 
@@ -109,8 +109,8 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 ## <a name="average-service-load-trigger-with-partition-based-scaling"></a>Trigger di carico medio del servizio con scalabilità basata sulla partizione
 Il secondo tipo di trigger è basato sul carico di tutte le partizioni di un servizio. I carichi della metrica vengono innanzitutto livellati per ottenere il carico per ogni replica o istanza di una partizione. Per i servizi con stato, il carico della partizione è considerato il carico della replica primaria, mentre per i servizi senza stato il carico della partizione è il carico medio di tutte le istanze della partizione. Questi valori sono calcolati in media tra tutte le partizioni del servizio e questo valore viene utilizzato per attivare la scalabilità automatica. Come per il meccanismo precedente, esistono tre fattori che determinano quando il servizio verrà ridimensionato:
 
-* _Soglia_ di carico inferiore è un valore che determina quando il servizio verrà **ridimensionato in**. Se il carico medio di tutte le partizioni del servizio è inferiore a questo valore, il servizio verrà ridotto.
-* _Soglia di carico superiore_ è un valore che determina quando il servizio verrà **scalato orizzontalmente.** Se il carico medio di tutte le partizioni del servizio è superiore a questo valore, il servizio verrà scalato orizzontalmente.
+* La _soglia di carico inferiore_ è un valore che determina quando il servizio verrà **ridimensionato**. Se il carico medio di tutte le partizioni del servizio è inferiore a questo valore, il servizio verrà ridotto.
+* La _soglia di carico superiore_ è un valore che determina quando il servizio verrà **scalato**orizzontalmente. Se il carico medio di tutte le partizioni del servizio è superiore a questo valore, il servizio verrà scalato orizzontalmente.
 * L’_intervallo di scalabilità_ determina ogni quanto verrà eseguito un controllo del trigger. Una volta controllato il trigger, se è necessario eseguire un ridimensionamento verrà applicato il meccanismo. Se il ridimensionamento non è necessario, non verrà eseguita alcuna azione. In entrambi i casi, il trigger non verrà controllato nuovamente prima dello scadere dell'intervallo di scalabilità.
 
 Questo trigger può essere utilizzato sia con i servizi con stato sia con i servizi senza stato. L'unico meccanismo che può essere usato con questo trigger è AddRemoveIncrementalNamedPartitionScalingMechanism. Quando il servizio viene aumentato, viene aggiunta una nuova partizione; quando il servizio viene ridotto, viene rimossa una delle partizioni esistenti. Vi sono restrizioni che verranno controllate quando il servizio viene creato o aggiornato; la creazione o l’aggiornamento del servizio avrà esito negativo se non vengono soddisfatte le condizioni seguenti:
@@ -127,7 +127,7 @@ Anche l'effettiva operazione di scalabilità automatica che viene eseguita rispe
 Come per il meccanismo che usa la scalabilità per aggiungere o rimuovere istanze, esistono tre parametri che determinano il modo in cui viene applicato tale meccanismo:
 * L’_incremento di scalabilità_ determina il numero di partizioni che verranno aggiunte o rimosse quando viene attivato il meccanismo.
 * Il _numero massimo di partizioni_ definisce il limite superiore per la scalabilità. Se il numero di partizioni del servizio raggiunge questo limite, non sarà possibile aumentare il servizio, indipendentemente dal carico. È possibile omettere questo limite specificando il valore -1: in tal caso il servizio verrà aumentato quanto più possibile (il limite corrisponde alla capacità corrente del cluster).
-* _Numero minimo di istanze_ definisce il limite inferiore per il ridimensionamento. Se il numero di partizioni del servizio raggiunge questo limite, non sarà possibile ridurre il servizio, indipendentemente dal carico.
+* Il _numero minimo di istanze_ definisce il limite inferiore per la scalabilità. Se il numero di partizioni del servizio raggiunge questo limite, non sarà possibile ridurre il servizio, indipendentemente dal carico.
 
 > [!WARNING] 
 > Quando AddRemoveIncrementalNamedPartitionScalingMechanism viene usata con i servizi con stato, Service Fabric aggiunge o rimuove partizioni **senza produrre notifiche o avvisi**. Quando viene attivato il meccanismo di ridimensionamento, il ripartizionamento dei dati non viene eseguito. Nel caso di un'operazione di aumento le nuove partizioni sono vuote, mentre nel caso di una riduzione **la partizione viene eliminata insieme a tutti i dati che contiene**.

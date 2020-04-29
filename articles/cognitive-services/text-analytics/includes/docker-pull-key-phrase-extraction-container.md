@@ -1,7 +1,7 @@
 ---
-title: Eseguire il pull Docker per il contenitore Estrazione frase chiaveDocker pull for the Key Phrase Extraction container
+title: Pull Docker per il contenitore di Estrazione frasi chiave
 titleSuffix: Azure Cognitive Services
-description: Comando pull Docker per il contenitore Estrazione frase chiave
+description: Comando pull di Docker per Estrazione frasi chiave contenitore
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: db5d0cfecde32d3dd6afe181d67a6ce6c0826eda
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877129"
 ---
-#### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Eseguire il pull Docker per il contenitore Estrazione frase chiaveDocker pull for the Key Phrase Extraction container
+#### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Pull Docker per il contenitore di Estrazione frasi chiave
 
-Utilizzare [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) il comando per scaricare un'immagine contenitore da Microsoft Container Registry.
+Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore da Microsoft container Registry.
 
-Per una descrizione completa dei tag disponibili per i contenitori di Analisi del testo, vedere il contenitore [Estrazione frase chiave](https://go.microsoft.com/fwlink/?linkid=2018757) nell'hub Docker.
+Per una descrizione completa dei tag disponibili per i contenitori di Analisi del testo, vedere il [estrazione frasi chiave](https://go.microsoft.com/fwlink/?linkid=2018757) contenitore nell'hub docker.
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest

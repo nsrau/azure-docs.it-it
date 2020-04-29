@@ -1,5 +1,5 @@
 ---
-title: Usare la libreria .NET dell'esecutore bulk del grafico con l'API DiAzure Cosmos DB Gremlin APIUse the graph bulk executor .NET library with Azure Cosmos DB Gremlin API
+title: Usare la libreria .NET dell'executor in blocco Graph con Azure Cosmos DB API Gremlin
 description: Informazioni su come usare la libreria BulkExecutor per importare volumi elevati di dati dei grafi nel contenitore di API Gremlin di Azure Cosmos DB.
 author: luisbosquez
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
 ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982704"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Uso della libreria .NET BulkExecutor per i grafi per eseguire operazioni in blocco nell'API Gremlin di Azure Cosmos DB

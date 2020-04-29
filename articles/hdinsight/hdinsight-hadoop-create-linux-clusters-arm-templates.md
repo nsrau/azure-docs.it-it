@@ -1,5 +1,5 @@
 ---
-title: Creare cluster Apache Hadoop usando i modelli - Azure HDInsightCreate Apache Hadoop clusters using templates - Azure HDInsight
+title: Creare cluster di Apache Hadoop usando modelli-Azure HDInsight
 description: Informazioni su come creare cluster per HDInsight usando modelli di Resource Manager
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,41 +9,41 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
 ms.openlocfilehash: 67d5481b82b7469c5ae55704768ce494dbc9dca5
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879140"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In questo articolo vengono appesi diversi modi per creare cluster di Azure HDInsight usando i modelli di Azure Resource Manager.In this article, you learn several ways to create Azure HDInsight clusters using [Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md). Per informazioni su altri strumenti e funzionalità di creazione di cluster, fare clic sul selettore di scheda nella parte superiore di questa pagina. Vedere anche [Metodi di creazione cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
+Questo articolo illustra diversi modi per creare cluster Azure HDInsight usando [modelli di Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md). Per informazioni su altri strumenti e funzionalità per la creazione di cluster, fare clic sul selettore di schede nella parte superiore di questa pagina. Vedere anche [metodi di creazione di cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
-Un modello di Resource Manager semplifica la creazione delle risorse seguenti per l'applicazione in un'unica operazione coordinata:A Resource Manager template makes it easy to create the following resources for your application in a single, coordinated operation:
+Un modello di Gestione risorse rende più semplice creare le risorse seguenti per l'applicazione in un'unica operazione coordinata:
 
 * Cluster HDInsight e le relative risorse dipendenti, ad esempio l'account di archiviazione predefinito.
 * Altre risorse, ad esempio il database SQL di Azure per usare [Apache Sqoop](https://sqoop.apache.org/).
 
 Nel modello si definiscono le risorse necessarie per l'applicazione. È anche possibile specificare i parametri di distribuzione per immettere valori per ambienti diversi. Il modello è composto da JSON ed espressioni da usare per creare valori per la distribuzione.
 
-È possibile trovare esempi di modelli HDInsight in [Modelli di avvio rapido](https://azure.microsoft.com/resources/templates/?term=hdinsight)di Azure.You can find HDInsight template samples at Azure quickstart templates . Usare lo strumento multipiattaforma [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) con l'[estensione per Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor di testo per salvare il modello in un file sulla workstation.
+È possibile trovare esempi di modelli HDInsight nei [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Usare lo strumento multipiattaforma [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) con l'[estensione per Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor di testo per salvare il modello in un file sulla workstation.
 
 Per altre informazioni sui modelli di Resource Manager, consultare gli articoli e gli esempi seguenti:
 
 * [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Distribuire un'applicazione con i modelli di Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
 * Informazioni di riferimento sul modello [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions)
-* [Modelli di guida introduttiva di AzureAzure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
+* [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Generare modelli
 
-Gestione risorse consente di esportare un modello di Gestione risorse dalle risorse esistenti nella sottoscrizione usando diversi strumenti. Il modello generato può essere usato per ottenere informazioni sulla sintassi del modello o per automatizzare la ridistribuzione della soluzione in base alle esigenze. Per ulteriori informazioni, consultate [Esportazione di modelli.](../azure-resource-manager/templates/export-template-portal.md)
+Gestione risorse consente di esportare un modello di Gestione risorse dalle risorse esistenti nella sottoscrizione usando diversi strumenti. Il modello generato può essere usato per ottenere informazioni sulla sintassi del modello o per automatizzare la ridistribuzione della soluzione in base alle esigenze. Per ulteriori informazioni, vedere [Export templates](../azure-resource-manager/templates/export-template-portal.md).
 
 ## <a name="deploy-using-the-portal"></a>Distribuire tramite il portale
 
@@ -75,7 +75,7 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-* Per altri modelli correlati a HDInsight, vedere Modelli di avvio rapido di Azure.For more HDInsight related templates, see [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+* Per altri modelli correlati a HDInsight, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Per un esempio di distribuzione delle risorse tramite la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service/deploy-complex-application-predictably.md).
 * Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](../solution-dev-test-environments.md).

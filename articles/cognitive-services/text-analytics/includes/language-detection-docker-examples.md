@@ -1,7 +1,7 @@
 ---
-title: Esempi di docker del contenitore di rilevamento della lingua
+title: Esempi di Docker di Rilevamento lingua container
 titleSuffix: Azure Cognitive Services
-description: Esempi di docker del contenitore di rilevamento della lingua
+description: Esempi di Docker di Rilevamento lingua container
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 01863bfd1bf1c2c6f5688145ac5cbf74d1d2dfc1
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878671"
 ---
-### <a name="language-detection-container-docker-examples"></a>Esempi di docker del contenitore di rilevamento della lingua
+### <a name="language-detection-container-docker-examples"></a>Esempi di Docker di Rilevamento lingua container
 
-Gli esempi di docker seguenti sono per il contenitore di rilevamento della lingua.
+Gli esempi di Docker seguenti sono per il contenitore Rilevamento lingua.
 
 #### <a name="basic-example"></a>Esempio di base 
 

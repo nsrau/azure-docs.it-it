@@ -1,6 +1,6 @@
 ---
-title: Usare il modulo Servizi di Mappe di Azure. Mappe di Microsoft Azure
-description: In questo articolo verrà illustrato come usare i servizi REST di Microsoft Azure Maps usando il modulo dei servizi di Azure Maps.In this article, you'll learn how to use the Microsoft Azure Maps REST services using the Azure Maps services module.
+title: Usare il modulo servizi di mappe di Azure | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come usare i servizi REST di Microsoft Azure Maps usando il modulo servizi di Azure maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -9,39 +9,39 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804657"
 ---
-# <a name="use-the-azure-maps-services-module"></a>Usare il modulo dei servizi di Mappe di AzureUse the Azure Maps services module
+# <a name="use-the-azure-maps-services-module"></a>Usare il modulo servizi di mappe di Azure
 
-Azure Maps Web SDK fornisce un modulo di *servizi*. Questo modulo è una libreria helper che semplifica l'uso dei servizi REST di Azure Maps nelle applicazioni Web o Node.js usando JavaScript o TypeScript.This module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript.
+Azure Maps Web SDK fornisce un *modulo dei servizi*. Questo modulo è una libreria helper che semplifica l'uso dei servizi REST di Maps di Azure nelle applicazioni Web o node. js usando JavaScript o TypeScript.
 
-## <a name="use-the-services-module-in-a-webpage"></a>Utilizzare il modulo servizi in una pagina Web
+## <a name="use-the-services-module-in-a-webpage"></a>Usare il modulo servizi in una pagina Web
 
 1. Creare un nuovo file HTML.
-1. Caricare il modulo dei servizi di Mappe di Azure.Load the Azure Maps services module. È possibile caricarlo in uno dei due modi seguenti:
-    - Usare la versione della rete per la distribuzione di contenuti di Azure ospitata a livello globale del modulo dei servizi di Azure Maps.Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Aggiungere un riferimento `<head>` di script all'elemento del file:
+1. Caricare il modulo servizi di mappe di Azure. È possibile caricarlo in uno dei due modi seguenti:
+    - Usare la versione di rete per la distribuzione di contenuti di Azure ospitata a livello globale del modulo servizi di Azure maps. Aggiungere un riferimento allo script all' `<head>` elemento del file:
 
         ```html
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - In alternativa, caricare il modulo di servizi per il codice sorgente di Azure Maps Web SDK in locale usando il pacchetto [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm e quindi ospitarlo con l'app. Questo pacchetto include anche le definizioni TypeScript. Usare questo comando:
+    - In alternativa, caricare localmente il modulo Servizi per il codice sorgente di Azure Maps Web SDK usando il pacchetto NPM [Azure-Maps-REST](https://www.npmjs.com/package/azure-maps-rest) e quindi ospitarlo nell'app. Questo pacchetto include anche le definizioni TypeScript. Usare questo comando:
     
         > **npm install azure-maps-rest**
     
-        Quindi, aggiungere un riferimento `<head>` di script all'elemento del file:
+        Aggiungere quindi un riferimento allo script all' `<head>` elemento del file:
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
          ```
 
-1. Creare una pipeline di autenticazione. La pipeline deve essere creata prima di poter inizializzare un endpoint client URL del servizio. Usare la chiave dell'account di Azure Maps o le credenziali di Azure Active Directory (Azure AD) per autenticare un client del servizio di ricerca di Azure Maps.Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In questo esempio verrà creato il client URL del servizio di ricerca. 
+1. Creare una pipeline di autenticazione. Prima di poter inizializzare un endpoint client dell'URL del servizio, è necessario creare la pipeline. Usare la chiave dell'account di Azure Maps personalizzata o le credenziali Azure Active Directory (Azure AD) per autenticare un client del servizio di ricerca di Azure maps. In questo esempio verrà creato il client dell'URL del servizio di ricerca. 
 
-    Se si usa una chiave di sottoscrizione per l'autenticazione:If you use a subscription key for authentication:
+    Se si usa una chiave di sottoscrizione per l'autenticazione:
 
     ```javascript
     // Get an Azure Maps key at https://azure.com/maps.
@@ -59,7 +59,7 @@ Azure Maps Web SDK fornisce un modulo di *servizi*. Questo modulo è una libreri
     var searchURL = new atlas.service.SearchURL(pipeline);
     ```
 
-    Se si usa Azure AD per l'autenticazione:If you use Azure AD for authentication:
+    Se si usa Azure AD per l'autenticazione:
 
     ```javascript
     // Enter your Azure AD client ID.
@@ -122,9 +122,9 @@ Azure Maps Web SDK fornisce un modulo di *servizi*. Questo modulo è una libreri
     }
     ```
 
-    Per altre informazioni, vedere [Autenticazione con Azure Maps.For](azure-maps-authentication.md)more information, see Authentication with Azure Maps.
+    Per altre informazioni, vedere [autenticazione con mappe di Azure](azure-maps-authentication.md).
 
-1. Il codice seguente usa il client URL del servizio Ricerca mappe di Azure appena creato per geocodificare un indirizzo: "1 Microsoft Way, Redmond, WA". Il codice `searchAddress` utilizza la funzione e visualizza i risultati come tabella nel corpo della pagina.
+1. Il codice seguente usa il client dell'URL del servizio di ricerca di Azure Maps appena creato per la geocodifica di un indirizzo: "1 Microsoft Way, Redmond, WA". Il codice usa la `searchAddress` funzione e Visualizza i risultati come tabella nel corpo della pagina.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
@@ -155,56 +155,56 @@ Azure Maps Web SDK fornisce un modulo di *servizi*. Questo modulo è una libreri
     });
     ```
 
-    Ecco l'esempio di codice completo e in esecuzione:Here's the full, running code sample:
+    Ecco l'esempio di codice completo in esecuzione:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Utilizzo del modulo Servizi" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere la penna utilizzando il modulo<a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>servizi</a> di Azure Maps ( ) su <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Uso del modulo Services" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere la penna <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando il modulo Servizi</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
-## <a name="azure-government-cloud-support"></a>Supporto cloud di Azure per enti pubbliciAzure Government cloud support
+## <a name="azure-government-cloud-support"></a>Supporto cloud di Azure per enti pubblici
 
-Il Web SDK di Azure Maps supporta il cloud di Azure per enti pubblici. Tutti gli URL JavaScript e CSS usati per accedere a Azure Maps Web SDK rimangono invariati, tuttavia sarà necessario eseguire le attività seguenti per connettersi alla versione cloud di Azure per enti pubblici della piattaforma Azure Maps.
+Azure Maps Web SDK supporta il cloud di Azure per enti pubblici. Tutti gli URL JavaScript e CSS usati per accedere ad Azure Maps Web SDK rimangono invariati, ma è necessario eseguire le attività seguenti per connettersi alla versione cloud di Azure per enti pubblici della piattaforma Azure maps.
 
-Quando si utilizza il controllo mappa interattivo, aggiungere la `Map` seguente riga di codice prima di creare un'istanza della classe. 
+Quando si usa il controllo mappa interattiva, aggiungere la riga di codice seguente prima di creare un'istanza `Map` della classe. 
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
 ```
 
-Assicurarsi di usare i dettagli di autenticazione di Azure Maps dalla piattaforma cloud di Azure per enti pubblici durante l'autenticazione della mappa e dei servizi.
+Assicurarsi di usare i dettagli di autenticazione di Azure Maps della piattaforma cloud di Azure per enti pubblici durante l'autenticazione della mappa e dei servizi.
 
-Quando si usa il modulo services, è necessario impostare il dominio per i servizi quando si crea un'istanza di un endpoint URL API. Ad esempio, il codice seguente `SearchURL` crea un'istanza della classe e punta il dominio al cloud di Azure per enti pubblici.
+Quando si usa il modulo Services, il dominio per i servizi deve essere impostato quando si crea un'istanza di un endpoint dell'URL dell'API. Ad esempio, il codice seguente crea un'istanza della `SearchURL` classe e punta il dominio al cloud di Azure per enti pubblici.
 
 ```javascript
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Se si accede direttamente ai servizi REST `atlas.azure.us`di Azure Maps, modificare il dominio dell'URL in . Ad esempio, se si utilizza il servizio `https://atlas.microsoft.com/search/` API `https://atlas.azure.us/search/`di ricerca, modificare il dominio URL da in .
+Se si accede direttamente ai servizi REST di Azure Maps, modificare il dominio dell' `atlas.azure.us`URL in. Ad esempio, se si usa il servizio API di ricerca, modificare il dominio `https://atlas.microsoft.com/search/` URL `https://atlas.azure.us/search/`da a.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [MappeURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-maps-typescript-latest)
+> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [URL di ricerca](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-maps-typescript-latest)
+> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [URL percorso](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest)
+> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [SubscriptionKeyCredentialSubscriptionKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential?view=azure-maps-typescript-latest)
+> [SubscriptionKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential?view=azure-maps-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-maps-typescript-latest)
 
-Per altri esempi di codice che usano il modulo dei servizi, vedere gli articoli seguenti:For more code samples that use the services module, see these articles:
+Per altri esempi di codice che usano il modulo Services, vedere questi articoli:
 
 > [!div class="nextstepaction"]
 > [Visualizzare i risultati della ricerca sulla mappa](./map-search-location.md)

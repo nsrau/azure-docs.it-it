@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80877899"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
@@ -32,7 +32,7 @@ Le applicazioni spesso richiedono tipi e velocità di archiviazione diversi. Le 
 
 La tabella seguente descrive i tipi di archiviazione disponibili e le relative funzionalità:
 
-| Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto dei contenitori di Windows Server |
+| Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto per i contenitori di Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Configurazione condivisa       | File di Azure   | Sì | Sì | Sì | Sì |
 | Dati di app strutturati        | Dischi di Azure   | Sì | No  | No  | Sì |
@@ -40,7 +40,7 @@ La tabella seguente descrive i tipi di archiviazione disponibili e le relative f
 
 I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo del servizio Azure Kubernetes.
 
-Sia i file di Azure che i dischi di Azure sono disponibili nei livelli di prestazioni Standard e Premium:Both Azure Files and Azure Disks are available in Standard and Premium performance tiers:
+Sia File di Azure che i dischi di Azure sono disponibili nei livelli di prestazioni standard e Premium:
 
 - I dischi *Premium* sono basati su dischi SSD a prestazioni elevate. Sono consigliati per tutti i carichi di lavoro di produzione.
 - I dischi *Standard* sono basati su normali dischi HDD e sono adatti per i dati di archivio o i dati a cui si accede di rado.
@@ -76,7 +76,7 @@ Quando occorre collegare risorse di archiviazione ai pod, si usano i volumi perm
 
 ![Attestazioni di volume permanente in un cluster del servizio Azure Kubernetes](media/concepts-storage/persistent-volume-claims.png)
 
-Un'attestazione di volume permanente consente di creare dinamicamente le risorse di archiviazione necessarie. I dischi di Azure sottostanti vengono creati man mano che i pod li richiedono. Nella definizione del contenitore, richiedete un volume da creare e associare a un percorso di montaggio designato.
+Un'attestazione di volume permanente consente di creare dinamicamente le risorse di archiviazione necessarie. I dischi di Azure sottostanti vengono creati man mano che i pod li richiedono. Nella definizione del Pod è necessario creare un volume e collegarlo a un percorso di montaggio designato.
 
 Per i concetti relativi alla creazione dinamica e all'uso dei volumi, vedere [Attestazioni di volume permanente][aks-concepts-storage-pvcs].
 
@@ -88,9 +88,9 @@ Per altre informazioni sulle opzioni delle classi di archiviazione, vedere [Clas
 
 ## <a name="secure-and-back-up-your-data"></a>Proteggere ed eseguire il backup dei dati
 
-**Indicazioni sulle procedure consigliate:** eseguire il backup dei dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero o Azure Site Recovery.Best practice guidance - Back up your data using an appropriate tool for your storage type, such as Velero or Azure Site Recovery. Verificare l'integrità e la sicurezza di tali backup.
+**Indicazioni sulle procedure consigliate** : eseguire il backup dei dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero o Azure Site Recovery. Verificare l'integrità e la sicurezza di tali backup.
 
-Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Potrebbe essere necessario cercare le applicazioni per lo scaricamento delle scritture su disco prima di eseguire l'operazione snapshot. [Velero][velero] può eseguire il backup di volumi persistenti insieme a risorse e configurazioni del cluster aggiuntive. Se non è possibile [rimuovere lo stato dall'applicazione][remove-state], eseguire il backup dei dati di volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
+Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Prima di eseguire l'operazione di snapshot, potrebbe essere necessario cercare le applicazioni per scaricare le Scritture su disco. [Velero][velero] può eseguire il backup di volumi permanenti insieme a risorse e configurazioni aggiuntive del cluster. Se non è possibile [rimuovere lo stato dall'applicazione][remove-state], eseguire il backup dei dati di volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
 
 Comprendere le limitazioni dei diversi approcci ai backup dei dati e la necessità o meno di disattivare i dati prima di creare lo snapshot. Non sempre i backup dei dati consentono di ripristinare l'ambiente applicativo della distribuzione cluster. Per altre informazioni su questi scenari, vedere le [procedure consigliate per continuità aziendale e ripristino di emergenza nel servizio Azure Kubernetes][best-practices-multi-region].
 

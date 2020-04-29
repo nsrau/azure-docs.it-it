@@ -1,40 +1,40 @@
 ---
-title: Azure resources - QnA Maker
-description: QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Comprendere come vengono utilizzati singolarmente consente di pianificare e selezionare il piano tariffario corretto o di sapere quando modificare il piano tariffario. Comprendere come vengono utilizzati in combinazione consente di trovare e risolvere i problemi quando si verificano.
+title: Risorse di Azure-QnA Maker
+description: QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Per comprendere il modo in cui vengono usati singolarmente, è possibile pianificare e selezionare il piano tariffario corretto o sapere quando modificare il piano tariffario. La comprensione del modo in cui vengono usate in combinazione consente di individuare e risolvere i problemi quando si verificano.
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80873906"
 ---
-# <a name="azure-resources-for-qna-maker"></a>Azure resources for QnA Maker
+# <a name="azure-resources-for-qna-maker"></a>Risorse di Azure per QnA Maker
 
-QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Comprendere come vengono utilizzati singolarmente consente di pianificare e selezionare il piano tariffario corretto o di sapere quando modificare il piano tariffario. Comprendere come vengono utilizzati _in combinazione_ consente di trovare e risolvere i problemi quando si verificano.
+QnA Maker usa diverse origini di Azure, ognuna con uno scopo diverso. Per comprendere il modo in cui vengono usati singolarmente, è possibile pianificare e selezionare il piano tariffario corretto o sapere quando modificare il piano tariffario. La comprensione del modo in cui vengono usate _in combinazione_ consente di individuare e risolvere i problemi quando si verificano.
 
 ## <a name="resource-planning"></a>Pianificazione delle risorse
 
-Quando si sviluppa per la prima volta una knowledge base Di QnA Maker, nella fase di prototipo, è comune avere una singola risorsa QnA Maker sia per il test che per la produzione.
+Quando si sviluppa una QnA Maker Knowledge base nella fase di prototipo, è comune disporre di una singola risorsa QnA Maker per i test e la produzione.
 
-Quando si passa alla fase di sviluppo del progetto, è necessario considerare:
+Quando si passa alla fase di sviluppo del progetto, è consigliabile prendere in considerazione quanto segue:
 
-* quante lingue il sistema di Knowledge Base conterrà
-* quante regioni hai bisogno che la tua knowledge base sia disponibile da/verso
-* quanti documenti in ogni dominio il sistema conterrà
+* il numero di linguaggi che il sistema Knowledge base terrà in attesa
+* il numero di aree in cui è necessario che la Knowledge base sia disponibile in/da
+* il numero di documenti in ogni dominio che il sistema conterrà
 
-Pianificare la disponibilità di una singola risorsa QnA Maker che contenga tutte le Knowledge Base con la stessa lingua, la stessa area geografica e la stessa combinazione di dominio soggetto.
+Pianificare un'unica risorsa QnA Maker contenere tutte le Knowledge base con lo stesso linguaggio, la stessa area e la stessa combinazione di dominio soggetto.
 
-## <a name="pricing-tier-considerations"></a>Considerazioni sul livello di determinazione dei prezzi
+## <a name="pricing-tier-considerations"></a>Considerazioni sui piani tariffari
 
 Ci sono generalmente tre parametri da considerare:
 
 * **La velocità effettiva che il servizio deve fornire**:
     * scegliere il [piano app](https://azure.microsoft.com/pricing/details/app-service/plans/) appropriato per il servizio app in base alle proprie esigenze. È possibile [aumentare](https://docs.microsoft.com/azure/app-service/manage-scale-up) o ridurre le prestazioni dell'app.
-    * Questo dovrebbe influenzare anche la selezione SKU **di Ricerca cognitiva** di Azure, vedere altri dettagli [qui](https://docs.microsoft.com/azure/search/search-sku-tier). Inoltre, potrebbe essere necessario regolare la [capacità](../../../search/search-capacity-planning.md) di ricerca cognitiva con le repliche.
+    * Questo dovrebbe influire anche sulla selezione dello SKU **ricerca cognitiva** di Azure. per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/search/search-sku-tier). Inoltre, potrebbe essere necessario regolare ricerca cognitiva [capacità](../../../search/search-capacity-planning.md) con le repliche.
 
-* **Dimensioni e numero di Knowledge Base**: scegliere lo [SKU di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/) appropriato per lo scenario. In genere, si decide il numero di knowledge base necessarie in base al numero di domini oggetto diversi. Una volta che il dominio dell'oggetto (per una singola lingua) deve essere in una Knowledge Base.
+* **Dimensioni e numero di Knowledge Base**: scegliere lo [SKU di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/) appropriato per lo scenario. In genere, si decide il numero di Knowledge base necessarie in base al numero di domini soggetto diversi. Una volta che il dominio dell'oggetto (per un singolo linguaggio) deve trovarsi in una Knowledge base.
 
     È possibile pubblicare N-1 Knowledge Base in un particolare livello, dove N è il numero massimo di indici consentiti nel livello. Verificare anche le dimensioni massime e il numero di documenti consentiti per ogni livello.
 
@@ -47,145 +47,145 @@ La tabella seguente indica alcune linee guida generali.
 |                        | Gestione di QnA Maker | Servizio app | Ricerca cognitiva di Azure | Limitazioni                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Sperimentazione        | SKU gratuito             | Livello gratuito   | Livello gratuito    | Pubblicazione di massimo 2 Knowledge Base, dimensioni 50 MB  |
-| Ambiente di sviluppo/test   | SKU Standard         | Condiviso      | Basic        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |
+| Ambiente di sviluppo/test   | SKU Standard         | Shared      | Basic        | Pubblicazione di massimo 14 Knowledge Base, dimensioni 2 GB    |
 | Ambiente di produzione | SKU Standard         | Basic       | Standard     | Pubblicazione di massimo 49 Knowledge Base, dimensioni 25 GB |
 
 ## <a name="recommended-settings"></a>Impostazioni consigliate
 
-|QPS di destinazione | Servizio app | Ricerca cognitiva di Azure |
+|QUERY al secondo di destinazione | Servizio app | Ricerca cognitiva di Azure |
 | -------------------- | ----------- | ------------ |
-| 3             | S1, 1 Istanza   | S1, 1 Istanza    |
-| 50         | S3, 10 Istanze       | S1, 12 Istanze         |
-| 80         | S3, 10 Istanze      |  S3, 12 Istanze  |
-| 100         | P3V2, 10 Istanze  | S3, 12 istanze, 3 partizioni   |
-| Da 200 a 250         | P3V2, 20 Istanze | S3, 12 istanze, 3 partizioni    |
+| 3             | S1, 1 istanza   | S1, 1 istanza    |
+| 50         | S3, 10 istanze       | S1, 12 istanze         |
+| 80         | S3, 10 istanze      |  S3, 12 istanze  |
+| 100         | P3V2, 10 istanze  | S3, 12 istanze, 3 partizioni   |
+| da 200 a 250         | P3V2, 20 istanze | S3, 12 istanze, 3 partizioni    |
 
-## <a name="when-to-change-a-pricing-tier"></a>Quando modificare un piano tariffarioWhen to change a pricing tier
+## <a name="when-to-change-a-pricing-tier"></a>Quando modificare un piano tariffario
 
 |Aggiornamento|Motivo|
 |--|--|
-|[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) SKU di gestione di QnA Maker|Si desidera avere più coppie QnA o origini documento nella Knowledge Base.|
-|[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) SKU del servizio app e controllare il livello Ricerca cognitiva e [creare repliche di Ricerca cognitiva](../../../search/search-capacity-planning.md)|La Knowledge Base deve soddisfare più richieste dall'app client, ad esempio un bot di chat.|
-|[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Servizio Ricerca cognitiva di AzureAzure Cognitive Search service|Si prevede di avere molte basi di conoscenza.|
+|[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) di SKU di gestione QnA Maker|Si desidera avere più coppie di QnA o origini documenti nella Knowledge base.|
+|[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) di SKU del servizio app e controllare ricerca cognitiva livello e [creare repliche ricerca cognitiva](../../../search/search-capacity-planning.md)|La Knowledge base deve soddisfare un numero maggiore di richieste provenienti dall'app client, ad esempio un bot di chat.|
+|[Aggiornamento](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) di Servizio ricerca cognitiva di Azure|Si prevede di avere molte Knowledge base.|
 
-Ottenere gli aggiornamenti di runtime più recenti [aggiornando il servizio app nel portale](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)di Azure.
+Per ottenere gli aggiornamenti più recenti del runtime, [aggiornare il servizio app nel portale di Azure](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
 ## <a name="resource-naming-considerations"></a>Considerazioni sulla denominazione delle risorse
 
-Il nome della risorsa QnA Maker, ad `qna-westus-f0-b`esempio , viene utilizzato anche per denominare le altre risorse.
+Il nome della risorsa per la risorsa QnA Maker, ad `qna-westus-f0-b`esempio, viene usato anche per assegnare un nome alle altre risorse.
 
-La finestra di creazione del portale di Azure consente di creare una risorsa QnA Maker e selezionare i piani tariffari per le altre risorse.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot del portale di Azure per la creazione di risorse QnA Maker](../media/concept-azure-resource/create-blade.png)
-
-Dopo la creazione, le risorse hanno lo stesso nome, ad eccezione della risorsa facoltativa di Application Insights, che invia i caratteri al nome.
+La finestra portale di Azure crea consente di creare una risorsa QnA Maker e selezionare i piani tariffari per le altre risorse.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot dell'elenco delle risorse del portale di Azure](../media/concept-azure-resource/all-azure-resources-created-qnamaker.png)
+> ![Screenshot di portale di Azure per la creazione di risorse QnA Maker](../media/concept-azure-resource/create-blade.png)
+
+Una volta create, le risorse hanno lo stesso nome, ad eccezione della risorsa Application Insights facoltativa, che antepone i caratteri al nome.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot dell'elenco di portale di Azure risorse](../media/concept-azure-resource/all-azure-resources-created-qnamaker.png)
 
 > [!TIP]
-> Creare un nuovo gruppo di risorse quando si crea una risorsa QnA Maker.Create a new resource group when you create a QnA Maker resource. Ciò consente di visualizzare tutte le risorse associate alla risorsa QnA Maker durante la ricerca in base al gruppo di risorse.
+> Creare un nuovo gruppo di risorse quando si crea una risorsa QnA Maker. Che consente di visualizzare tutte le risorse associate alla risorsa QnA Maker durante la ricerca in base al gruppo di risorse.
 
 > [!TIP]
-> Usare una convenzione di denominazione per indicare i livelli dei prezzi all'interno del nome della risorsa o del gruppo di risorse. Quando si ricevono errori dalla creazione di una nuova Knowledge Base o dall'aggiunta di nuovi documenti, il limite del livello dei prezzi ricerca cognitiva è un problema comune.
+> Usare una convenzione di denominazione per indicare i piani tariffari nel nome della risorsa o del gruppo di risorse. Quando si ricevono errori dalla creazione di una nuova Knowledge base o dall'aggiunta di nuovi documenti, il ricerca cognitiva limite del piano tariffario è un problema comune.
 
-## <a name="resource-purposes"></a>Scopi delle risorse
+## <a name="resource-purposes"></a>Finalità delle risorse
 
-Ogni risorsa di Azure creata con QnA Maker ha uno scopo specifico:Each Azure resource created with QnA Maker has a specific purpose:
+Ogni risorsa di Azure creata con QnA Maker ha uno scopo specifico:
 
 * Risorsa QnA Maker
-* Risorsa Ricerca cognitiva
+* Risorsa ricerca cognitiva
 * Servizio app
-* Servizio piano app
+* Servizio del piano app
 * Servizio Application Insights
 
 
-### <a name="cognitive-search-resource"></a>Risorsa Ricerca cognitiva
+### <a name="cognitive-search-resource"></a>Risorsa ricerca cognitiva
 
-La risorsa [Ricerca cognitiva](../../../search/index.yml) viene utilizzata per:
+La risorsa [ricerca cognitiva](../../../search/index.yml) viene utilizzata per:
 
-* Memorizzare le coppie QnA
-* Fornire la classificazione iniziale (#1 più bile) delle coppie QnA in fase di esecuzioneProvide the initial ranking (ranker #1) of the QnA pairs at runtime
+* Archiviare le coppie QnA
+* Fornire la classificazione iniziale (Ranker #1) delle coppie QnA in fase di esecuzione
 
-#### <a name="index-usage"></a>Utilizzo dell'indice
+#### <a name="index-usage"></a>Utilizzo indici
 
-La risorsa mantiene un indice che funga da indice di test e gli indici rimanenti sono correlati a una Knowledge Base pubblicata ciascuno.
+La risorsa mantiene un indice che funga da indice di test e gli indici rimanenti sono correlati a una Knowledge base pubblicata ciascuna.
 
-Una risorsa con un prezzo di 15 indici, conterrà 14 knowledge base pubblicate e un indice viene utilizzato per testare tutte le knowledge base. Questo indice di test viene partizionato in base alla Knowledge Base in modo che una query che utilizza il riquadro di test interattivo utilizzi l'indice di test ma restituisca solo i risultati della partizione specifica associata alla Knowledge Base specifica.
+Una risorsa con prezzi per la presenza di 15 indici, conterrà 14 Knowledge base pubblicate e un indice viene utilizzato per il test di tutte le Knowledge base. Questo indice di test viene partizionato in base alla Knowledge base, in modo che una query che utilizza il riquadro test interattivo utilizzerà l'indice di test, ma restituirà solo i risultati della partizione specifica associata alla Knowledge base specifica.
 
 #### <a name="language-usage"></a>Utilizzo della lingua
 
-La prima Knowledge Base creata nella risorsa QnA Maker viene utilizzata per determinare la _singola_ lingua impostata per la risorsa Ricerca cognitiva e tutti i relativi indici. È possibile _impostare una_ sola lingua per un servizio QnA Maker.
+La prima Knowledge base creata nella risorsa QnA Maker viene utilizzata per determinare il _singolo_ set di lingue per la risorsa ricerca cognitiva e tutti i relativi indici. È possibile _impostare una sola lingua_ per un servizio QnA Maker.
 
 ### <a name="qna-maker-resource"></a>Risorsa QnA Maker
 
-La risorsa QnA Maker fornisce l'accesso alle API di creazione e pubblicazione, nonché al secondo livello di classificazione basato su NLP (Natural Language Processing) in base al livello di classificazione (#2) delle coppie QnA in fase di esecuzione.
+La risorsa QnA Maker fornisce l'accesso alle API di creazione e pubblicazione, nonché al secondo livello di classificazione (PNL) basato sul linguaggio naturale di elaborazione del linguaggio naturale (Ranker #2) delle coppie di QnA in fase di esecuzione.
 
-La seconda classificazione applica filtri intelligenti che possono includere metadati e prompt di completamento.
+Il secondo rango applica filtri intelligenti che possono includere metadati e richieste di completamento.
 
-#### <a name="qna-maker-resource-configuration-settings"></a>Impostazioni di configurazione delle risorse QnA Maker
+#### <a name="qna-maker-resource-configuration-settings"></a>Impostazioni di configurazione della risorsa QnA Maker
 
-Quando si crea una nuova Knowledge Base nel [portale QnA Maker](https://qnamaker.ai), l'impostazione **Lingua** è l'unica impostazione applicata a livello di risorsa. Selezionare la lingua quando si crea la prima Knowledge Base per la risorsa.
+Quando si crea una nuova Knowledge base nel [portale di QnA Maker](https://qnamaker.ai), l'impostazione della **lingua** è l'unica che viene applicata a livello di risorsa. Selezionare la lingua quando si crea la prima Knowledge base per la risorsa.
 
 ### <a name="app-service-and-app-service-plan"></a>Servizio app e piano di servizio app
 
-Il [servizio app](../../../app-service/index.yml) viene usato dall'applicazione client per accedere alle Knowledge Base pubblicate tramite l'endpoint di runtime.
+Il [servizio app](../../../app-service/index.yml) viene usato dall'applicazione client per accedere alle Knowledge base pubblicate tramite l'endpoint di Runtime.
 
-Per eseguire una query sulla Knowledge Base pubblicata, tutte le Knowledge Base pubblicate utilizzano lo stesso endpoint URL, ma specificano **l'ID della Knowledge Base** all'interno della route.
+Per eseguire una query sulla Knowledge base pubblicata, tutte le Knowledge base pubblicate utilizzano lo stesso endpoint URL, ma specificano l' **ID Knowledge base** nella route.
 
 `{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../../azure-monitor/app/app-insights-overview.md) viene usato per raccogliere log di chat e dati di telemetria. Esaminare le [query Kusto](../how-to/get-analytics-knowledge-base.md) comuni per informazioni sul servizio.
+[Application Insights](../../../azure-monitor/app/app-insights-overview.md) viene usato per raccogliere i log di chat e i dati di telemetria. Esaminare le [query kusto](../how-to/get-analytics-knowledge-base.md) comuni per informazioni sul servizio.
 
 ## <a name="share-services-with-qna-maker"></a>Condividere i servizi con QnA Maker
 
-QnA Maker crea diverse risorse di Azure.QnA Maker creates several Azure resources. Per ridurre la gestione e trarre vantaggio dalla condivisione dei costi, utilizzare la tabella seguente per comprendere cosa è possibile o non è possibile condividere:
+QnA Maker crea diverse risorse di Azure. Per ridurre la gestione e trarre vantaggio dalla condivisione dei costi, usare la tabella seguente per comprendere cosa è possibile e non è possibile condividere:
 
-|Service|Condividi|Motivo|
+|Servizio|Condividi|Motivo|
 |--|--|--|
-|Servizi cognitivi|X|Non possibile per progettazione|
-|Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app che condividono lo stesso piano di servizio app utilizzano uno spazio su disco significativo, l'istanza del servizio app QnAMaker incontrerà problemi.|
-|Servizio app|X|Non possibile per progettazione|
+|Servizi cognitivi|X|Non possibile dalla progettazione|
+|Piano di servizio app|✔|Spazio su disco fisso allocato per un piano di servizio app. Se altre app che condividono lo stesso piano di servizio app usano spazio su disco significativo, si verificheranno problemi nell'istanza del servizio app QnAMaker.|
+|Servizio app|X|Non possibile dalla progettazione|
 |Application Insights|✔|Può essere condivisa|
-|Servizio di ricerca|✔|1. `testkb` è un nome riservato per il servizio QnAMaker; non può essere utilizzato da altri.<br>2. La mappa dei sinonimi con il nome `synonym-map` è riservata al servizio QnAMaker.<br>3. Il numero di Knowledge Base pubblicate è limitato dal livello del servizio di ricerca. Se sono disponibili indici gratuiti, altri servizi possono utilizzarli.|
+|Servizio di ricerca|✔|1. `testkb` è un nome riservato per il servizio QnAMaker. non può essere usato da altri.<br>2. il mapping dei sinonimi `synonym-map` con il nome è riservato per il servizio QnAMaker.<br>3. il numero di Knowledge base pubblicate è limitato dal livello di servizio di ricerca. Se sono disponibili indici gratuiti, possono essere usati da altri servizi.|
 
-### <a name="using-a-single-cognitive-search-service"></a>Utilizzo di un singolo servizio di ricerca cognitivaUsing a single Cognitive Search service
+### <a name="using-a-single-cognitive-search-service"></a>Uso di un singolo servizio ricerca cognitiva
 
-Se si crea un servizio QnA e le relative dipendenze (ad esempio ricerca) tramite il portale, viene creato automaticamente un servizio di ricerca e collegato al servizio QnA Maker. Dopo aver creato queste risorse, è possibile aggiornare l'impostazione del servizio app per usare un servizio di ricerca esistente in precedenza e rimuovere quella appena creata.
+Se si crea un servizio QnA e le relative dipendenze (ad esempio la ricerca) tramite il portale, viene creato un servizio di ricerca e collegato al servizio QnA Maker. Dopo aver creato queste risorse, è possibile aggiornare l'impostazione del servizio app per usare un servizio di ricerca precedentemente esistente e rimuovere quello appena creato.
 
-Informazioni su [come configurare](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker per l'utilizzo di una risorsa del servizio cognitivo diversa da quella creata nell'ambito del processo di creazione delle risorse QnA Maker.
+Informazioni [su come configurare](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker per l'uso di una risorsa di servizi cognitivi diversa da quella creata come parte del processo di creazione delle risorse QnA Maker.
 
 ## <a name="management-service-region"></a>Area del servizio di gestione
 
-Il servizio di gestione di QnA Maker viene utilizzato solo per il portale QnA Maker e per l'elaborazione iniziale dei dati. Questo servizio è disponibile solo nella regione **degli Stati Uniti occidentali.** Nessun dato dei clienti è memorizzato in questo servizio west US.
+Il servizio di gestione di QnA Maker viene usato solo per il portale di QnA Maker e per l'elaborazione iniziale dei dati. Questo servizio è disponibile solo nell'area **Stati Uniti occidentali** . Nessun dato cliente è archiviato in questo servizio Stati Uniti occidentali.
 
-## <a name="keys-in-qna-maker"></a>Tasti in QnA Maker
+## <a name="keys-in-qna-maker"></a>Chiavi in QnA Maker
 
-Il servizio QnA Maker gestisce due tipi di chiavi: **le chiavi** di creazione e le **chiavi dell'endpoint di query** usate con il runtime ospitato nel servizio app.
+Il servizio QnA Maker gestisce due tipi di chiavi: la **creazione** di chiavi e le **chiavi dell'endpoint di query** usate con il runtime ospitato nel servizio app.
 
-Se si sta cercando la chiave di **sottoscrizione,** [la terminologia è cambiata.](#subscription-keys)
+Se si sta cercando la **chiave della sottoscrizione**, [la terminologia è cambiata](#subscription-keys).
 
 Usare queste chiavi quando si effettuano richieste al servizio tramite le API.
 
 ![Gestione delle chiavi](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Nome|Location|Scopo|
+|Name|Location|Scopo|
 |--|--|--|
-|Chiave di creazione|[Portale di Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge Base e di pubblicare la Knowledge Base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.These keys are created when you create a new QnA Maker service.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **Chiavi.Find** these keys on the Cognitive Services resource on the Keys page.|
-|Chiave dell'endpoint di query|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono usate per eseguire una query sull'endpoint della Knowledge Base pubblicato per ottenere una risposta per una domanda dell'utente. Questo endpoint di query viene in genere usato nel bot di chat o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la Knowledge Base di QnA Maker.<br><br>Trova queste chiavi nella pagina **Impostazioni del servizio.** Trova questa pagina dal menu dell'utente in alto a destra della pagina nel menu a discesa.|
+|Chiave di creazione|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|queste chiavi vengono usate per accedere alle [API del servizio di gestione di QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Queste API consentono di modificare le domande e le risposte nella Knowledge base e di pubblicare la Knowledge base. Queste chiavi vengono create quando si crea un nuovo servizio QnA Maker.<br><br>Trovare queste chiavi nella risorsa **Servizi cognitivi** nella pagina **chiavi** .|
+|Chiave endpoint query|[Portale di QnA Maker](https://www.qnamaker.ai)|Queste chiavi vengono utilizzate per eseguire una query sull'endpoint della Knowledge base pubblicata per ottenere una risposta per una domanda utente. Questo endpoint di query viene in genere usato in chat bot o nel codice dell'applicazione client che si connette al servizio QnA Maker. Queste chiavi vengono create quando si pubblica la QnA Maker Knowledge base.<br><br>Trovare queste chiavi nella pagina **Impostazioni servizio** . Trovare questa pagina dal menu dell'utente nella parte superiore destra della pagina nel menu a discesa.|
 
 ### <a name="subscription-keys"></a>Chiavi di sottoscrizione
 
-I termini di creazione e chiave dell'endpoint di query sono termini correttivi. Il termine precedente era **chiave di sottoscrizione**. Se viene visualizzata altra documentazione che fa riferimento alle chiavi di sottoscrizione, queste sono equivalenti alla creazione e alla query delle chiavi dell'endpoint (usate nel runtime).
+La chiave di endpoint per la creazione e la query sono termini correttivi. Il termine precedente è una **chiave di sottoscrizione**. Se viene visualizzata un'altra documentazione che fa riferimento alle chiavi di sottoscrizione, queste sono equivalenti alle chiavi dell'endpoint di creazione ed esecuzione di query (usate nel Runtime).
 
-È necessario sapere qual è la chiave di accesso, gestione della Knowledge Base o query della Knowledge Base, per sapere quale chiave è necessario trovare.
+Per conoscere la chiave che è necessario trovare, è necessario conoscere il tipo di accesso alla chiave, la gestione della Knowledge base o l'esecuzione di query sulla Knowledge base.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più sulla [Knowledge Base](knowledge-base.md) di QnA Maker
-* Comprendere un [ciclo di vita della knowledge base](development-lifecycle-knowledge-base.md)
-* Esaminare i [limiti](../limits.md) del servizio e della Knowledge BaseReview service and knowledge base limits
+* Informazioni sulla QnA Maker [Knowledge base](knowledge-base.md)
+* Informazioni sul [ciclo di vita della Knowledge base](development-lifecycle-knowledge-base.md)
+* Esaminare i [limiti](../limits.md) del servizio e della Knowledge base
 
