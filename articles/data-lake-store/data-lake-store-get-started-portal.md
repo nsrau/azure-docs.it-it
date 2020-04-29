@@ -1,47 +1,47 @@
 ---
-title: Introduzione a Azure Data Lake Storage Gen1 - portale
-description: Usare il portale di Azure per creare un account Data Lake Storage Gen1 ed eseguire operazioni di base nell'account.
+title: Introduzione a Azure Data Lake Storage Gen1-Portal
+description: Usare il portale di Azure per creare un account di Data Lake Storage Gen1 ed eseguire operazioni di base nell'account.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265584"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](data-lake-store-get-started-portal.md)
-> * [Powershell](data-lake-store-get-started-powershell.md)
-> * [Interfaccia della riga di comando di AzureAzure](data-lake-store-get-started-cli-2.0.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Informazioni su come usare il portale di Azure per creare un account Data Lake Storage Gen1 ed eseguire operazioni di base come creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per altre informazioni, vedere [Panoramica di Azure Data Lake Storage Gen1.](data-lake-store-overview.md)
+Informazioni su come usare la portale di Azure per creare un account di Data Lake Storage Gen1 ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per ulteriori informazioni, vedere [Panoramica di Azure Data Lake storage Gen1](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Creare un account Data Lake Storage Gen1
 
-1. Accedere al nuovo portale di [Azure](https://portal.azure.com).
+1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Crea una risorsa > Archiviazione > Data Lake Storage Gen1**.
 3. Nel pannello **Nuovo account Data Lake Storage Gen1** specificare i valori come illustrato nello screenshot seguente:
 
-    ![Creare un nuovo account Data Lake Storage Gen1Create a new Data Lake Storage Gen1 account](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Creare un nuovo account Data Lake Storage Gen1Create a new Data Lake Storage Gen1 account")
+    ![Crea un nuovo account Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Crea un nuovo account Data Lake Storage Gen1")
 
    * **Nome**. Immettere un nome univoco per l'account Data Lake Storage Gen1.
-   * **Abbonamento**. Selezionare la sottoscrizione in cui si vuole creare un nuovo account Data Lake Storage Gen1.
+   * **Sottoscrizione**. Selezionare la sottoscrizione in cui si vuole creare un nuovo account Data Lake Storage Gen1.
    * **Gruppo di risorse**. Selezionare un gruppo di risorse esistente oppure selezionare l'opzione **Crea nuovo** per crearne uno. Un gruppo di risorse è un contenitore che contiene risorse correlate per un'applicazione. Per altre informazioni, vedere [Gruppi di risorse in Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Località**: selezionare una località dove creare l'account Data Lake Storage Gen1.
    * **Impostazioni di crittografia**. Sono disponibili tre opzioni:
@@ -50,13 +50,13 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
      * **Usare chiavi gestite da Data Lake Storage Gen1**, se si vuole che Data Lake Storage Gen1 gestisca le chiavi di crittografia.
      * **Usare chiavi incluse nell'insieme di credenziali delle chiavi personale**. È possibile selezionare un'istanza di Azure Key Vault esistente oppure crearne una nuova. Per usare le chiavi di un'istanza di Key Vault, è necessario assegnare all'account Data Lake Storage Gen1 le autorizzazioni per accedere ad Azure Key Vault. Per istruzioni, vedere [Assegnare le autorizzazioni per Azure Key Vault](#assign-permissions-to-azure-key-vault).
 
-        ![Crittografia Gen1 di Data Lake Storage](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Crittografia Gen1 di Data Lake Storage")
+        ![Crittografia Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Crittografia Data Lake Storage Gen1")
 
         Fare clic su **OK** nel pannello **Impostazioni crittografia**.
 
         Per altre informazioni, vedere [Crittografia dei dati in Azure Data Lake Storage Gen1](./data-lake-store-encryption.md).
 
-4. Fare clic su **Crea**. Se si è scelto di aggiungere l'account al dashboard, viene visualizzato di nuovo il dashboard, dove è possibile visualizzare lo stato di avanzamento del provisioning dell'account Data Lake Storage Gen1. Una volta eseguito il provisioning dell'account Data Lake Storage Gen1, viene visualizzato il pannello dell'account.
+4. Scegliere **Crea**. Se si è scelto di aggiungere l'account al dashboard, viene visualizzato di nuovo il dashboard, dove è possibile visualizzare lo stato di avanzamento del provisioning dell'account Data Lake Storage Gen1. Una volta eseguito il provisioning dell'account Data Lake Storage Gen1, viene visualizzato il pannello dell'account.
 
 ## <a name="assign-permissions-to-azure-key-vault"></a><a name="assign-permissions-to-azure-key-vault"></a>Assegnare le autorizzazioni per Azure Key Vault
 
@@ -64,10 +64,10 @@ Se sono state usate le chiavi di un'istanza di Azure Key Vault per configurare l
 
 1. Se sono state usate le chiavi di Azure Key Vault, nella parte superiore del pannello dell'account Data Lake Storage Gen1 viene visualizzato un avviso. Fare clic sull'avviso per aprire **Crittografia**.
 
-    ![Crittografia Gen1 di Data Lake Storage](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Crittografia Gen1 di Data Lake Storage")
+    ![Crittografia Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Crittografia Data Lake Storage Gen1")
 2. Il pannello mostra due opzioni per configurare l'accesso.
 
-    ![Crittografia Gen1 di Data Lake Storage](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Crittografia Gen1 di Data Lake Storage")
+    ![Crittografia Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Crittografia Data Lake Storage Gen1")
 
    * Nella prima opzione fare clic su **Concedi autorizzazioni** per configurare l'accesso. La prima opzione è abilitata solo quando l'utente che ha creato l'account Data Lake Storage Gen1 è anche un amministratore di Azure Key Vault.
    * L'altra opzione consiste nell'eseguire il cmdlet di PowerShell visualizzato nel pannello. È necessario essere il proprietario dell'insieme di credenziali delle chiavi di Azure o poter concedere le autorizzazioni per l'insieme di credenziali delle chiavi di Azure. Dopo avere eseguito il cmdlet, tornare al pannello e fare clic su **Abilita** per configurare l'accesso.
@@ -80,11 +80,11 @@ Se sono state usate le chiavi di un'istanza di Azure Key Vault per configurare l
 >
 >
 
-## <a name="create-folders"></a><a name="createfolder"></a>Creare cartelle
+## <a name="create-folders"></a><a name="createfolder"></a>Creazione di cartelle
 
 È possibile creare cartelle nell'account Data Lake Storage Gen1 per gestire e archiviare i dati.
 
-1. Aprire l'account Data Lake Storage Gen1 creato. Nel riquadro sinistro fare clic su **Tutte le risorse**e quindi nel pannello Tutte le **risorse** fare clic sul nome dell'account con cui si desidera creare cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
+1. Aprire l'account Data Lake Storage Gen1 creato. Nel riquadro sinistro fare clic su **tutte le risorse**e quindi nel pannello **tutte le risorse** fare clic sul nome dell'account in cui si desidera creare le cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
 2. Nel pannello dell'account Data Lake Storage Gen1 fare clic su **Esplora dati**.
 
     ![Creare cartelle in un account Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creare cartelle in un account Data Lake Storage Gen1")
@@ -94,7 +94,7 @@ Se sono state usate le chiavi di un'istanza di Azure Key Vault per configurare l
 
     La cartella appena creata verrà elencata nel pannello **Esplora dati**. È possibile creare cartelle nidificate per qualsiasi livello.
 
-    ![Creare cartelle in un account Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creare cartelle in un account Data Lake")
+    ![Creazione di cartelle in un account Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creazione di cartelle in un account Data Lake")
 
 ## <a name="upload-data"></a><a name="uploaddata"></a>Caricare dati
 
@@ -121,7 +121,7 @@ Fare clic sull'icona con i puntini di sospensione per un file e dal menu a compa
 
 Per eliminare un account Data Lake Storage Gen1, dal pannello di Data Lake Storage Gen1 fare clic su **Elimina**. Per confermare l'azione, verrà chiesto di immettere il nome dell'account che si desidera eliminare. Immettere il nome dell’account e quindi fare clic su **Elimina**.
 
-![Eliminare l'account Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Eliminare account di Data Lake")
+![Elimina account Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Eliminare account di Data Lake")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

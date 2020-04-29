@@ -1,5 +1,5 @@
 ---
-title: Eseguire un'esercitazione sul ripristino di emergenza di NHyper-V in un sito secondario con Azure Site RecoveryRun a NHyper-V disaster recovery drill to a secondary site with Azure Site Recovery
+title: Eseguire un'esercitazione sul ripristino di emergenza NHyper-V in un sito secondario con Azure Site Recovery
 description: Informazioni su come eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V di cloud VMM in un data center locale secondario usando Azure Site Recovery.
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257966"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
@@ -117,13 +117,13 @@ Preparare un server DNS per il failover di test come segue:
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 
-Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa, è possibile eseguire il failover per una singola macchina virtuale nella scheda **Macchine virtuali.**
+Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa, è possibile eseguire il failover per una singola macchina virtuale nella scheda **macchine virtuali** .
 
-1. Selezionare **Piani** > di ripristino*recoveryplan_name*. Fare clic su**Failover di test** **di failover** > .
+1. Selezionare i **piani** > di ripristino*recoveryplan_name*.  > Fare **clic su failover di****test**failover.
 2. Nel pannello **Failover di test** specificare come le macchine virtuali di replica devono essere connesse alle reti dopo il failover di test.
 3. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** .
 4. Dopo il completamento del failover verificare che le macchine virtuali vengano avviate correttamente.
-5. Al termine fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. In **Notes**registrare e salvare eventuali osservazioni associate al failover di test. Questa operazione elimina le macchine virtuali e le reti create da Site Recovery durante il failover di test. 
+5. Al termine fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. Questa operazione elimina le macchine virtuali e le reti create da Site Recovery durante il failover di test. 
 
 ![Failover di test](./media/hyper-v-vmm-test-failover/TestFailover.png)
  

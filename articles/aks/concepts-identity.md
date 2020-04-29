@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259604"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
@@ -27,7 +27,7 @@ Questo articolo introduce i principali concetti utili per l'autenticazione e l'a
 
 Uno dei tipi di utenti primari in Kubernetes è un *account del servizio*. Un account del servizio esiste ed è gestito nell'API Kubernetes. Le credenziali per gli account del servizio vengono archiviate come segreti di Kubernetes e possono quindi essere usate da pod autorizzati a comunicare con il server dell'API. La maggior parte delle richieste dell'API fornisce un token di autenticazione per un account del servizio o un account utente normale.
 
-Gli account utente normali consentono un accesso più tradizionale per amministratori o sviluppatori umani, non solo per servizi e processi. Kubernetes non fornisce una soluzione di gestione delle identità in cui vengono archiviati gli account utente regolari e le password. ma è possibile integrare in Kubernetes soluzioni di gestione delle identità esterne. Per i cluster del servizio Azure Kubernetes, la soluzione integrata di gestione delle identità è Azure Active Directory.
+Gli account utente normali consentono un accesso più tradizionale per amministratori o sviluppatori umani, non solo per servizi e processi. Kubernetes stesso non fornisce una soluzione di gestione delle identità in cui vengono archiviati gli account utente e le password normali. ma è possibile integrare in Kubernetes soluzioni di gestione delle identità esterne. Per i cluster del servizio Azure Kubernetes, la soluzione integrata di gestione delle identità è Azure Active Directory.
 
 Per altre informazioni sulle opzioni di gestione delle identità in Kubernetes, vedere [Kubernetes authentication][kubernetes-authentication] (Autenticazione di Kubernetes).
 
@@ -72,7 +72,7 @@ Un ClusterRoleBinding associa i ruoli agli utenti nello stesso modo, ma può ess
 
 Per iniziare a usare Azure AD e il controllo degli accessi in base al ruolo di Kubernetes, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes][aks-aad].
 
-Per le procedure consigliate associate, vedere [Procedure consigliate per l'autenticazione e l'autorizzazione in AKS][operator-best-practices-identity].
+Per le procedure consigliate associate, vedere procedure consigliate [per l'autenticazione e l'autorizzazione in AKS][operator-best-practices-identity].
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 

@@ -1,5 +1,5 @@
 ---
-title: Comprendere i modelli a oggetti e il grafico dell'intelligenza spaziale - Gemelli digitali di Azure Documenti Microsoft
+title: Informazioni sui modelli a oggetti e sul grafico di intelligence spaziale-dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Gemelli digitali di Azure consente di modellare le relazioni tra persone, luoghi e dispositivi
 ms.author: alinast
 author: alinamstanciu
@@ -9,17 +9,17 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265207"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 
 Gemelli digitali di Azure è un servizio IoT di Azure che permette rappresentazioni virtuali complete di ambienti fisici e dei dispositivi, delle persone e dei sensori associati. Migliora lo sviluppo organizzando concetti specifici di dominio in modelli utili. I modelli vengono quindi situati all'interno di un grafico di intelligenza spaziale. Questi concetti modellano fedelmente le relazioni e le interazioni tra persone, spazi e dispositivi.
 
-I modelli a oggetti di Gemelli digitali descrivono concetti, categorie e proprietà specifici per un dominio. I modelli vengono predefiniti dagli utenti che vogliono adattare la soluzione alle proprie esigenze specifiche. Insieme, questi modelli a oggetti digitali gemelli predefiniti costituiscono _un'ontologia._ L'ontologia di un edificio intelligente descrive aree, ambienti, piani, uffici, zone, sale conferenze e sale riunioni. L'ontologia di una rete energetica descrive le diverse centrali elettriche, le sottostazioni, le risorse di energia e i clienti. Con i modelli a oggetti di Gemelli digitali e le ontologie, è possibile personalizzare diversi scenari ed esigenze.
+I modelli a oggetti di Gemelli digitali descrivono concetti, categorie e proprietà specifici per un dominio. I modelli vengono predefiniti dagli utenti che vogliono adattare la soluzione alle proprie esigenze specifiche. Insieme, questi modelli a oggetti dei gemelli digitali predefiniti costituiscono un' _ontologia_. L'ontologia di un edificio intelligente descrive aree, ambienti, piani, uffici, zone, sale conferenze e sale riunioni. L'ontologia di una rete energetica descrive le diverse centrali elettriche, le sottostazioni, le risorse di energia e i clienti. Con i modelli a oggetti di Gemelli digitali e le ontologie, è possibile personalizzare diversi scenari ed esigenze.
 
 Predisponendo modelli a oggetti di Gemelli digitali e un’ontologia, è possibile popolare un _grafico spaziale_. I grafici spaziali sono rappresentazioni virtuali delle molte relazioni tra spazi, dispositivi e persone rilevanti per una soluzione IoT. Questo diagramma mostra un esempio di grafico spaziale che usa l'ontologia di un edificio intelligente.
 
@@ -31,7 +31,7 @@ Il grafico spaziale riunisce spazi, dispositivi, sensori e utenti. Ogni elemento
 
 I modelli a oggetti di Gemelli digitali supportano queste categorie principali di oggetti:
 
-- **I vani** sono posizioni virtuali `Tenant` `Customer`o `Region`fisiche, ad esempio , , , e `Venue`.
+- Gli **spazi** sono posizioni virtuali o fisiche, ad esempio `Tenant` `Customer` `Region`,,, e `Venue`.
 - I **dispositivi** sono parti virtuali o fisiche di apparecchiature, ad esempio `AwesomeCompany Device` e `Raspberry Pi 3`.
 - I **sensori** sono oggetti che rilevano eventi, ad esempio `AwesomeCompany Temperature Sensor` e `AwesomeCompany Presence Sensor`.
 - Gli **utenti** identificano gli occupanti e le rispettive caratteristiche.
@@ -41,9 +41,9 @@ Altre categorie di oggetti:
 - Le **risorse** sono associate a uno spazio e in genere rappresentano risorse di Azure usate dagli oggetti nel grafico spaziale, ad esempio `IoTHub`.
 - I **BLOB** sono associati agli oggetti (quali spazi, dispositivi, sensori e utenti). Sono utilizzati come file con tipo MIME e metadati, ad esempio, `maps`, `pictures` e `manuals`.
 - I **tipi estesi** sono enumerazioni estendibili che ottimizzano le entità con caratteristiche specifiche, ad esempio `SpaceType` e `SpaceSubtype`.
-- **Le ontologie** rappresentano un insieme `Default`di `Building` `BACnet`tipi `EnergyGrid`estesi, ad esempio , , , e .
-- **Le chiavi e** i valori delle proprietà sono caratteristiche personalizzate di vani, dispositivi, sensori e utenti. Possono essere usati oltre alle caratteristiche predefinite, ad esempio `DeltaProcessingRefreshTime` come chiave e `10` come valore.
-- **I ruoli** sono insiemi di autorizzazioni assegnati `Space Administrator`a `User Administrator`utenti `Device Administrator`e dispositivi nel grafico spaziale, ad esempio , e .
+- Le **ontologie** rappresentano un set di tipi estesi, ad `Default`esempio `Building` `BACnet`,,, `EnergyGrid`e.
+- Le **chiavi e i valori delle proprietà** sono caratteristiche personalizzate di spazi, dispositivi, sensori e utenti. Possono essere usati oltre alle caratteristiche predefinite, ad esempio `DeltaProcessingRefreshTime` come chiave e `10` come valore.
+- I **ruoli** sono set di autorizzazioni assegnate a utenti e dispositivi nel grafico spaziale, ad esempio `Space Administrator` `User Administrator`,, e. `Device Administrator`
 - Le **assegnazioni di ruolo** sono l'associazione tra un ruolo e un oggetto nel grafico spaziale. Ad esempio, a un utente o a un'entità servizio può essere concessa l'autorizzazione per gestire uno spazio del grafico spaziale.
 - Gli **archivi chiavi di sicurezza** forniscono le chiavi di sicurezza per tutti i dispositivi nella gerarchia al di sotto di un oggetto dello spazio specifico per permettere al dispositivo di comunicare in tutta sicurezza con Gemelli digitali.
 - Le **funzioni definite dall'utente** (UDF) permettono l'elaborazione all'interno del grafico spaziale di dati di telemetria dei sensori personalizzabili. Ad esempio, una funzione definita dall'utente può:
@@ -52,13 +52,13 @@ Altre categorie di oggetti:
   - Collegare i metadati a uno spazio.
   - Inviare notifiche quando vengono soddisfatte le condizioni predefinite. Attualmente le funzioni definite dall'utente possono essere scritte in JavaScript.
 - I **matcher** sono oggetti che determinano quali funzioni definite dall'utente vengono eseguite per un messaggio di telemetria specificato.
-- **Gli endpoint** sono i percorsi in cui è possibile instradare `Service Bus`i `Event Grid`messaggi di telemetria e gli eventi Gemelli digitali, ad esempio `Event Hub`, e .
+- Gli **endpoint** sono le posizioni in cui è possibile instradare i messaggi di telemetria e gli eventi `Event Hub`gemelli digitali, ad esempio `Service Bus`,, e `Event Grid`.
 
 ## <a name="spatial-intelligence-graph"></a>Grafico di intelligenza spaziale
 
 Il grafico spaziale è il grafico gerarchico di spazi, dispositivi e utenti definiti nel modello a oggetti di Gemelli digitali. Il grafico spaziale supporta ereditarietà, filtri, attraversamento, scalabilità ed estendibilità. È possibile interagire con il grafico spaziale e gestirlo con una raccolta di API REST.
 
-L’utente che distribuisce un servizio di Gemelli digitali nella sottoscrizione diventa amministratore globale del nodo radice. Dispone pertanto dell’accesso completo all’intera struttura. Può effettuare il provisioning di spazi nel grafico tramite l'API Space. Può effettuare il provisioning dei servizi tramite l'API del dispositivo e dei sensori tramite l'API Sensor. [Sono](https://github.com/Azure-Samples/digital-twins-samples-csharp) inoltre disponibili strumenti open source per eseguire il provisioning del grafico in blocco.
+L’utente che distribuisce un servizio di Gemelli digitali nella sottoscrizione diventa amministratore globale del nodo radice. Dispone pertanto dell’accesso completo all’intera struttura. Può effettuare il provisioning di spazi nel grafico tramite l'API Space. Può effettuare il provisioning dei servizi tramite l'API del dispositivo e dei sensori tramite l'API Sensor. Sono disponibili anche [strumenti open source](https://github.com/Azure-Samples/digital-twins-samples-csharp) per eseguire il provisioning del grafo in blocco.
 
 **Ereditarietà del grafico**. L'ereditarietà si applica alle autorizzazioni e alle proprietà che derivano da un nodo padre a tutti i nodi al suo interno. Ad esempio, quando un ruolo viene assegnato a un utente in un determinato nodo, l'utente ha le autorizzazioni del ruolo per il nodo specificato e tutti i nodi al suo interno. Ogni chiave di proprietà e tipo esteso definiti per un determinato nodo vengono ereditati da tutti i nodi all'interno di tale nodo.
 
@@ -78,14 +78,14 @@ Dopo aver distribuito Gemelli digitali dal [portale di Azure](https://portal.azu
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome | Sostituire con |
+| Name | Sostituire con |
 | --- | --- |
 | NOME_ISTANZA_UTENTE | Nome dell'istanza di Gemelli digitali dell'utente |
 | POSIZIONE_UTENTE | Area del server in cui è ospitata l'istanza |
 
  Il formato dell'URL completo viene visualizzato in questa immagine.
 
-[![API di gestione del portale Digital Twins](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
+[![API di gestione del portale per i dispositivi digitali gemelli](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 Per altre informazioni sull'uso dei grafici di intelligenza spaziale, visitare l'anteprima di prova delle API di gestione di Gemelli digitali di Azure.
 

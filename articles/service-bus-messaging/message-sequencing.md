@@ -1,6 +1,6 @@
 ---
 title: Timestamp e sequenze di messaggi del bus di servizio di Azure | Microsoft Docs
-description: Questo articolo illustra come mantenere la sequenza e l'ordinamento (con timestamp) dei messaggi del bus di servizio di Azure.This article explains how to preserve sequencing and ordering (with timestamps) of Azure Service Bus messages.
+description: Questo articolo illustra come mantenere la sequenziazione e l'ordinamento (con timestamp) dei messaggi del bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261658"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Timestamp e sequenze di messaggi

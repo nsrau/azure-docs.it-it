@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265961"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
@@ -29,12 +29,12 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 -   [Elenco API](#APIList)  
 -   [Operazione](#Product)  
 -   [Esempi di codice](#CodeSamples)  
-    -   [Curl](#Curl)  
-    -   [C #](#CSharp)  
+    -   [CURL](#Curl)  
+    -   [C#](#CSharp)  
     -   [Java](#Stub)  
-    -   [Javascript](#JavaScript)  
-    -   [Obiettivo C](#ObjectiveC)  
-    -   [Php](#PHP)  
+    -   [JavaScript](#JavaScript)  
+    -   [Objective C](#ObjectiveC)  
+    -   [PHP](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
 
@@ -48,7 +48,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 ## <a name="api-list"></a><a name="APIList"></a> Elenco API  
  Il modello **Elenco API** consente di personalizzare il corpo della pagina di elenco API nel portale per sviluppatori.  
   
- ![Elenco API del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Elenco API dei modelli del portale per sviluppatori APIM")  
+ ![Elenco API del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Elenco API dei modelli del portale per sviluppatori gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -116,7 +116,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 ## <a name="operation"></a><a name="Product"></a>Operazione  
  Il modello **Operazione** consente di personalizzare il corpo della pagina dell'operazione nel portale per sviluppatori.  
   
- ![Pagina Operazioni portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Pagina operazioni dei modelli del portale per sviluppatori APIM")  
+ ![Pagina operazione del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Pagina dell'operazione sui modelli del portale per sviluppatori gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -347,11 +347,11 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`apiId`|string|ID dell'API corrente.|  
-|`apiName`|string|Nome dell'API.|  
-|`apiDescription`|string|Descrizione dell'API.|  
+|`apiName`|stringa|Nome dell'API.|  
+|`apiDescription`|stringa|Descrizione dell'API.|  
 |`api`|Entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|API corrente.|  
 |`operation`|[Operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
-|`sampleUrl`|string|L'URL per l'operazione corrente.|  
+|`sampleUrl`|stringa|L'URL per l'operazione corrente.|  
 |`operationMenu`|[Menu operazione](api-management-template-data-model-reference.md#Menu)|Un menu di operazioni per questa API.|  
 |`consoleUrl`|URI|L'URI per il pulsante **Prova**.|  
 |`samples`|Raccolta di entità [Esempio di codice](api-management-template-data-model-reference.md#Sample).|Gli esempi di codice per l'operazione corrente.|  
@@ -643,28 +643,28 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 }  
 ```  
   
-## <a name="code-samples"></a><a name="CodeSamples"></a> Esempi di codice  
+## <a name="code-samples"></a><a name="CodeSamples"></a>Esempi di codice  
  I modelli seguenti consentono di personalizzare il corpo degli esempi di codice singoli nella pagina operazione.  
   
- ![Esempi di codice per i modelli del portale per sviluppatoriDeveloper Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Esempi di codice per i modelli del portale per sviluppatori APIM")  
+ ![Esempi di codice per i modelli del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Esempi di codice per i modelli del portale per sviluppatori gestione API")  
   
--   [Curl](#Curl)  
+-   [CURL](#Curl)  
   
--   [C #](#CSharp)  
+-   [C#](#CSharp)  
   
 -   [Java](#Stub)  
   
--   [Javascript](#JavaScript)  
+-   [JavaScript](#JavaScript)  
   
--   [Obiettivo C](#ObjectiveC)  
+-   [Objective C](#ObjectiveC)  
   
--   [Php](#PHP)  
+-   [PHP](#PHP)  
   
 -   [Python](#Python)  
   
 -   [Ruby](#Ruby)  
   
-### <a name="curl"></a><a name="Curl"></a>Curl  
+### <a name="curl"></a><a name="Curl"></a>CURL  
  Il modello **DocumentationSamplesCurl** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -992,7 +992,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="javascript"></a><a name="JavaScript"></a>Javascript  
+### <a name="javascript"></a><a name="JavaScript"></a>JavaScript  
  Il modello **DocumentationSamplesJs** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -1193,7 +1193,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="php"></a><a name="PHP"></a>Php  
+### <a name="php"></a><a name="PHP"></a>PHP  
  Il modello **DocumentationSamplesPhp** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -1401,7 +1401,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="ruby"></a><a name="Ruby"></a>rubino  
+### <a name="ruby"></a><a name="Ruby"></a>Ruby  
  Il modello **DocumentationSamplesRuby** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  

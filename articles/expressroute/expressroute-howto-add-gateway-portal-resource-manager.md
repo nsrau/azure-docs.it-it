@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Aggiungere un gateway a una rete virtuale: portaleAzure ExpressRoute: Add a gateway to a VNet: portal'
-description: Questo articolo illustra come aggiungere un gateway di rete virtuale a una rete virtuale di Resource Manager già creata per ExpressRoute usando il portale di Azure.This article walks you through adding a virtual network gateway to an already created Resource Manager VNet for ExpressRoute using the Azure portal.
+title: 'Azure ExpressRoute: aggiungere un gateway a una VNet: portale'
+description: Questo articolo illustra l'aggiunta di un gateway di rete virtuale a un VNet già creato Gestione risorse per ExpressRoute usando il portale di Azure.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 87b656f0ef999b3b15a89476f5cba4c4fcfc2b1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264830"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurare un gateway di rete virtuale per ExpressRoute usando il portale di Azure
@@ -20,7 +20,7 @@ ms.locfileid: "79264830"
 > * [Resource Manager - Portale di Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Classica: PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -31,7 +31,7 @@ Questo articolo illustra le procedure per l'aggiunta di un gateway di rete virtu
 
 Nei passaggi di questa attività viene usata una rete virtuale basata sui valori indicati nell'elenco di riferimento per la configurazione riportato di seguito. Nelle procedure degli esempi viene usato questo elenco. È possibile copiare l'elenco per usarlo come riferimento, sostituendo i valori con quelli personalizzati.
 
-**Elenco di riferimento per la configurazione**
+**Elenco dei riferimenti alla configurazione**
 
 * Nome rete virtuale = "TestVNet"
 * Spazio degli indirizzi della rete virtuale = 192.168.0.0/16
@@ -49,7 +49,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 
 ## <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
 
-1. Nel [portale](https://portal.azure.com)passare alla rete virtuale di Resource Manager per cui si desidera creare un gateway di rete virtuale.
+1. Nel [portale](https://portal.azure.com)passare alla rete virtuale Gestione risorse per cui si vuole creare un gateway di rete virtuale.
 2. Nella sezione **Impostazioni** del pannello della rete virtuale fare clic su **Subnet** per espandere il pannello Subnet.
 3. Nel pannello **Subnet** fare clic su **Subnet del gateway** per aprire il pannello **Aggiungi subnet**. 
    
@@ -62,7 +62,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 
 ## <a name="create-the-virtual-network-gateway"></a>Creare il gateway di rete virtuale
 
-1. Nel portale, sul lato **+** sinistro, fare clic e digitare 'Gateway di rete virtuale' nella ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella parte inferiore del pannello **Gateway di rete virtuale** fare clic su **Crea**. Verrà aperto il pannello **Gateway di rete virtuale**.
+1. Sul lato sinistro del portale fare clic **+** su e digitare "gateway di rete virtuale" nella pagina search. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella parte inferiore del pannello **Gateway di rete virtuale** fare clic su **Crea**. Verrà aperto il pannello **Gateway di rete virtuale**.
 2. Nel pannello **Crea gateway di rete virtuale** inserire i valori per il gateway di rete virtuale.
 
     ![Campi del pannello Crea gateway di rete virtuale](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Campi del pannello Crea gateway di rete virtuale")
@@ -70,7 +70,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 4. **Tipo di gateway**: selezionare **ExpressRoute**.
 5. **SKU**: selezionare lo SKU del gateway dall'elenco a discesa.
 6. **Località**: modificare il campo **Località** in modo che faccia riferimento alla località in cui si trova la rete virtuale. Se la località non fa riferimento all'area in cui si trova la rete virtuale, quest'ultima non verrà visualizzata nell'elenco a discesa "Scegliere una rete virtuale".
-7. Scegliere la rete virtuale a cui si vuole aggiungere il gateway. Fare clic su **Rete virtuale** per aprire il pannello Scegliere una **rete virtuale.** Selezionare la rete virtuale. Se la rete virtuale non è visualizzata, assicurarsi che il campo **Posizione** punti all'area in cui si trova la rete virtuale.
+7. Scegliere la rete virtuale a cui si vuole aggiungere il gateway. Fare clic su **rete virtuale** per aprire il pannello **scegliere una rete virtuale** . Selezionare la rete virtuale. Se la VNet non viene visualizzata, verificare che il campo **percorso** stia puntando all'area in cui si trova la rete virtuale.
 9. Definire un indirizzo IP pubblico. Fare clic su **Indirizzo IP pubblico** per aprire il pannello **Scegli indirizzo IP pubblico**. Fare clic su **+Crea nuovo** per aprire il pannello **Crea indirizzo IP pubblico**. Immettere un nome per l'indirizzo IP pubblico. Il pannello crea un oggetto indirizzo IP pubblico a cui verrà assegnato dinamicamente un indirizzo IP pubblico. Fare clic su **OK** per salvare le modifiche al pannello.
 10. **Sottoscrizione**: verificare che sia selezionata la sottoscrizione corretta.
 11. **Gruppo di risorse**: questa impostazione è determinata dalla rete virtuale selezionata.

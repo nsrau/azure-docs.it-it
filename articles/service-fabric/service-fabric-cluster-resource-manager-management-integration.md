@@ -1,15 +1,15 @@
 ---
-title: Gestione risorse cluster - Integrazione della gestione
+title: Gestione risorse cluster-integrazione della gestione
 description: Panoramica dei punti di integrazione tra Cluster Resource Manager e le funzionalità di gestione di Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258746"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
@@ -93,7 +93,7 @@ Esaminiamo ciascuno dei vincoli presenti nei report di integrità. Verranno visu
 ## <a name="blocklisting-nodes"></a>Nodi sottoposti a blocklisting
 Un altro messaggio di integrità notificato da Cluster Resource Manager si verifica quando i nodi sono sottoposti a blocklisting. È possibile considerare il blocklisting come un vincolo temporaneo che viene applicato automaticamente per l'utente. I nodi vengono sottoposti a blocklisting quando si verificano errori ripetuti durante l'avvio di istanze di quel tipo di servizio. I nodi vengono sottoposti a blocklisting in base al tipo di servizio. Un nodo può essere sottoposto a blocklisting per un tipo di servizio ma non per un altro. 
 
-Il blocklisting avviene spesso in fase di sviluppo: alcuni bug causano l'arresto anomalo dell'host servizio all'avvio. Service Fabric tenta di creare l'host servizio più volte e l'errore continua a verificarsi. Dopo alcuni tentativi, il nodo viene sottoposto a blocklisting e Cluster Resource Manager tenterà di creare il servizio in un'altra posizione. Se l'errore continua a verificarsi in più nodi, è possibile che tutti i nodi validi del cluster vengano bloccati. Blocklisting può anche rimuovere così tanti nodi che non abbastanza possono avviare correttamente il servizio per soddisfare la scala desiderata. Verranno visualizzati altri errori o avvisi da Cluster Resource Manager che indicano che il servizio è al di sotto del numero di repliche o di istanze desiderato, nonché messaggi di integrità che indicano qual è l'errore che causa il blocklisting nella prima posizione.
+Il blocklisting avviene spesso in fase di sviluppo: alcuni bug causano l'arresto anomalo dell'host servizio all'avvio. Service Fabric tenta di creare l'host servizio più volte e l'errore continua a verificarsi. Dopo alcuni tentativi, il nodo viene sottoposto a blocklisting e Cluster Resource Manager tenterà di creare il servizio in un'altra posizione. Se l'errore continua a verificarsi in più nodi, è possibile che tutti i nodi validi del cluster vengano bloccati. Blocklisting può anche rimuovere un numero così elevato di nodi che non sufficiente possono avviare correttamente il servizio per soddisfare la scala desiderata. Verranno visualizzati altri errori o avvisi da Cluster Resource Manager che indicano che il servizio è al di sotto del numero di repliche o di istanze desiderato, nonché messaggi di integrità che indicano qual è l'errore che causa il blocklisting nella prima posizione.
 
 Il blocklisting non è una condizione permanente. Dopo alcuni minuti, il nodo viene rimosso dal blocco e Service Fabric potrebbe attivare nuovamente i servizi su tale nodo. Se i servizi continuano a dare errore, il nodo è nuovamente sottoposto a blocklisting per quel tipo di servizio. 
 
@@ -179,7 +179,7 @@ Cluster Resource Manager potrebbe dover comprimere un paio di repliche in un dom
 Se l'ambiente è configurato correttamente tutti i vincoli vengono completamente rispettati anche durante gli aggiornamenti. L'elemento fondamentale è che Cluster Resource Manager controlla i vincoli. Quando rileva una violazione la segnala immediatamente e tenta di risolvere il problema.
 
 ## <a name="the-preferred-location-constraint"></a>Il vincolo di posizione preferita
-Il vincolo PreferredLocation è leggermente diverso, perché ha due diversi usi. Un uso di questo vincolo avviene durante gli aggiornamenti dell'applicazione. Cluster Resource Manager gestisce automaticamente questo vincolo durante gli aggiornamenti. Viene usato per assicurare che quando gli aggiornamenti vengono completati le repliche tornino alle posizioni iniziali. L'altro utilizzo del vincolo PreferredLocation è per i [ `PreferredPrimaryDomain` criteri di posizionamento.](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) Entrambi sono ottimizzazioni e il vincolo PreferredLocation è l'unico vincolo impostato su "Optimization" per impostazione predefinita.
+Il vincolo PreferredLocation è leggermente diverso, perché ha due diversi usi. Un uso di questo vincolo avviene durante gli aggiornamenti dell'applicazione. Cluster Resource Manager gestisce automaticamente questo vincolo durante gli aggiornamenti. Viene usato per assicurare che quando gli aggiornamenti vengono completati le repliche tornino alle posizioni iniziali. L'altro uso del vincolo PreferredLocation è per i [ `PreferredPrimaryDomain` criteri di posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Entrambi sono ottimizzazioni e il vincolo PreferredLocation è l'unico vincolo impostato su "Optimization" per impostazione predefinita.
 
 ## <a name="upgrades"></a>Aggiornamenti
 Cluster Resource Manager facilita le cose anche durante gli aggiornamenti di applicazioni e cluster, quando ha due compiti:

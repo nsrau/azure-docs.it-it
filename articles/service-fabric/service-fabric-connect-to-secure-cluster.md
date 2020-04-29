@@ -1,13 +1,13 @@
 ---
-title: Connettersi in modo sicuro a un cluster di Azure Service FabricConnect securely to an Azure Service Fabric cluster
+title: Connettersi in modo sicuro a un cluster di Azure Service Fabric
 description: Descrive come autenticare l'accesso client a un cluster di Service Fabric e come proteggere la comunicazione tra i client e un cluster.
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258577"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
@@ -344,7 +344,7 @@ Per connettersi a un cluster protetto con AAD, inserire nel browser l'indirizzo 
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Viene richiesto automaticamente di accedere con AAD.
+Verrà automaticamente richiesto di accedere con AAD.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
 
@@ -381,7 +381,7 @@ Viene automaticamente richiesto di selezionare un certificato del client.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Processo di aggiornamento del cluster di infrastruttura di servizi e operazioni eseguibile dall'utente](service-fabric-cluster-upgrade.md)
-* [Gestione delle applicazioni Service Fabric in Visual StudioManaging your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+* [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Introduzione al modello di integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
 * [Sicurezza delle applicazioni e RunAs](service-fabric-application-runas-security.md)
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
