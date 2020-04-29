@@ -16,23 +16,23 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.openlocfilehash: 72d413c5d8bc982d885d889da35b29a3607410cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472068"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
->Ricevere una notifica su quando rivedere questa pagina per gli `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` aggiornamenti copiando e incollando questo URL: nel lettore di feed RSS.
+>Consente di ricevere notifiche su quando rivisitare la pagina per gli aggiornamenti copiando e incollando questo `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` URL: nel lettore di feed RSS.
 
-In questo articolo vengono fornite le indicazioni per la migrazione da Servizi multimediali v2 a v3.
+Questo articolo fornisce indicazioni sulla migrazione da Media Services V2 a V3.
 
 In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi multimediali v2](../previous/media-services-overview.md), è necessario rivedere le linee guida e considerazioni seguenti prima della migrazione alle API v3. L'API v3 include numerosi vantaggi e nuove funzionalità che migliorano l'esperienza di sviluppo e le funzionalità di Servizi multimediali. Tuttavia, come definito nella sezione [Problemi noti](#known-issues) di questo articolo, esistono anche alcune limitazioni causate da differenze tra le versioni delle API. Questa pagina viene aggiornata man mano che il team di Servizi multimediali apporta costanti miglioramenti alle API v3 e colma le lacune tra le versioni. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Esaminare [Servizi multimediali v2 e v. v3Review Media Services v2 vs.](media-services-v2-vs-v3.md)
+* Esaminare i [servizi multimediali V2 e V3](media-services-v2-vs-v3.md)
 * [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="benefits-of-media-services-v3"></a>Vantaggi di Servizi multimediali v3
@@ -40,7 +40,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 ### <a name="api-is-more-approachable"></a>API più accessibile
 
 *  v3 si basa su una superficie API unificata, che espone funzionalità operative e di gestione basate su Azure Resource Manager. I modelli di Azure Resource Manager possono essere usati per creare e distribuire trasformazioni, endpoint di streaming, eventi live e altro ancora.
-* [OpenAPI Specification (precedentemente denominato Swagger).](https://aka.ms/ams-v3-rest-sdk)
+* Documento di [specifica openapi (noto in precedenza come spavalderia)](https://aka.ms/ams-v3-rest-sdk) .
     Espone lo schema per tutti i componenti del servizio, tra cui la codifica basata su file.
 * SDK disponibili per [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) e Ruby.
 * Integrazione dell'[interfaccia della riga di comando di Azure](https://aka.ms/ams-v3-cli-ref) per semplificare il supporto di scripting.
@@ -50,7 +50,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 * Per l'elaborazione di processi basata su file è possibile usare un URL HTTP(S) come input.<br/>Non è necessario avere contenuto già archiviato in Azure né creare asset.
 * Introduce il concetto di [trasformazioni](transforms-jobs-concept.md) per l'elaborazione di processi basata su file. Una trasformazione consente di creare configurazioni riutilizzabili, creare modelli di Azure Resource Manager e isolare le impostazioni di elaborazione tra più clienti o tenant.
 * Un asset può avere più [localizzatori di streaming](streaming-locators-concept.md), ognuno con impostazioni diverse di [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e crittografia dinamica.
-* [La protezione dei contenuti](content-key-policy-concept.md) supporta funzionalità multi-chiave.
+* La [protezione del contenuto](content-key-policy-concept.md) supporta funzionalità multichiave.
 * È possibile trasmettere eventi live per una durata massima di 24 ore quando si usa Servizi multimediali per la transcodifica di un feed di contributi a bitrate singolo in un flusso di output a bitrate multipli.
 * Nuovo supporto per streaming live a bassa latenza per eventi live. Per altre informazioni, vedere [Latenza](live-event-latency.md).
 * L'anteprima degli eventi live supporta la [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e la crittografia dinamica. Questo consente la protezione del contenuto nell'anteprima, nonché la creazione di pacchetti DASH e HLS.
@@ -61,16 +61,16 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 
 ## <a name="known-issues"></a>Problemi noti
 
-*  Attualmente, è possibile usare il portale di Azure per:Currently, you can use the [Azure portal](https://portal.azure.com/) to:
+*  Attualmente, è possibile utilizzare il [portale di Azure](https://portal.azure.com/) per:
 
-    * gestire Media Services v3 [Live Events](live-events-outputs-concept.md), 
-    * visualizza (non gestisce) [Risorse](assets-concept.md)v3 , 
+    * gestione [degli eventi live](live-events-outputs-concept.md)di servizi multimediali V3 
+    * visualizzare (non gestire) gli [Asset](assets-concept.md)V3, 
     * [ottenere informazioni sull'accesso alle API](access-api-portal.md). 
 
-    Per tutte le altre attività di gestione, ad esempio [Trasformazioni e processi](transforms-jobs-concept.md) e [Protezione contenuto,](content-protection-overview.md)utilizzare l'API [REST](https://docs.microsoft.com/rest/api/media/), l'interfaccia della riga [di comando](https://aka.ms/ams-v3-cli-ref)o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
-* È necessario effettuare il provisioning di unità riservate di codifica nell'account per controllare la concorrenza e le prestazioni dei processi, in particolare quelli che includono l'analisi audio o video. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). È possibile gestire le MRU usando [l'interfaccia della riga di comando 2.0 per Servizi multimediali v3,](media-reserved-units-cli-how-to.md)usando il portale di [Azure](../previous/media-services-portal-scale-media-processing.md)o le [API v2.](../previous/media-services-dotnet-encoding-units.md) È necessario effettuare il provisioning delle unità riservate di codifica, indipendentemente dall'uso di Servizi multimediali v2 o delle API v3.
+    Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md)), usare l' [API REST](https://docs.microsoft.com/rest/api/media/), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
+* È necessario effettuare il provisioning di unità riservate di codifica nell'account per controllare la concorrenza e le prestazioni dei processi, in particolare quelli che includono l'analisi audio o video. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). È possibile gestire MRU usando l' [interfaccia della riga di comando 2,0 per Media Services V3](media-reserved-units-cli-how-to.md), usando il [portale di Azure](../previous/media-services-portal-scale-media-processing.md)o le [API v2](../previous/media-services-dotnet-encoding-units.md). È necessario effettuare il provisioning delle unità riservate di codifica, indipendentemente dall'uso di Servizi multimediali v2 o delle API v3.
 * Le entità di Servizi multimediali create con l'API v3 non possono essere gestite dall'API v2.  
-* Non tutte le entità nell'API V2 vengono visualizzate automaticamente nell'API V3.  Di seguito sono riportati esempi di entità nelle due versioni incompatibili:  
+* Non tutte le entità nell'API v2 vengono visualizzate automaticamente nell'API V3.  Di seguito sono riportati esempi di entità nelle due versioni incompatibili:  
     * I processi e le attività creati in v2 non vengono visualizzati in v3 in quanto non sono associati a una trasformazione. È consigliabile passare a trasformazioni e processi v3. Per un periodo di tempo relativamente breve è necessario monitorare i processi v2 in fase di elaborazione durante il passaggio.
     * I canali e i programmi creati con v2 (corrispondenti a eventi live e output live in v3) non possono continuare a essere gestiti con v3. È consigliabile passare agli eventi live e agli output live v3 in corrispondenza di un arresto canale pratico.<br/>Non è attualmente possibile eseguire la migrazione di canali in continua esecuzione.  
 
@@ -83,4 +83,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esercitazione: Codificare un file remoto in base all'URL e trasmettere il video - .NETTutorial: Encode a remote file based on URL and stream the video - .NET](stream-files-dotnet-quickstart.md)
+[Esercitazione: codificare un file remoto in base all'URL e trasmettere il video-.NET](stream-files-dotnet-quickstart.md)

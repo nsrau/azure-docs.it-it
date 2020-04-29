@@ -14,10 +14,10 @@ ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: eacdfe8211c97e75b6609f5e11b681f84ae55846
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472085"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Sviluppare con le API di servizi multimediali V3
@@ -118,7 +118,7 @@ L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.co
 > [!NOTE]
 > Gli SDK di servizi multimediali di Azure V3 non sono necessariamente thread-safe. Quando si sviluppa un'app multithread, è necessario aggiungere la propria logica di sincronizzazione dei thread per proteggere il client o usare un nuovo oggetto AzureMediaServicesClient per ogni thread. È anche necessario prestare attenzione ai problemi di multithreading introdotti da oggetti facoltativi forniti dal codice al client (ad esempio, un'istanza di HttpClient in .NET).
 
-|SDK|Informazioni di riferimento|
+|SDK|Riferimento|
 |---|---|
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[Informazioni di riferimento su .NET](https://aka.ms/ams-v3-dotnet-ref)|
 |[SDK per Java](https://aka.ms/ams-v3-java-sdk)|[Informazioni di riferimento su Java](https://aka.ms/ams-v3-java-ref)|
@@ -127,7 +127,7 @@ L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.co
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Informazioni di riferimento su Go](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Vedi anche
+### <a name="see-also"></a>Vedere anche
 
 - [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -146,7 +146,7 @@ Vedere [filtro, ordinamento e paging delle entità di servizi multimediali di Az
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

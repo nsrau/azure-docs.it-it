@@ -5,10 +5,10 @@ tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.openlocfilehash: bc1568c53cdb5518f694d77a2f28f3cf77296ee2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460382"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
@@ -28,7 +28,7 @@ Se si stanno cercando informazioni su un codice di errore e tali informazioni no
 | AllocationFailed | Il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni di macchina virtuale richieste. Ripetere la richiesta in un secondo momento oppure richiedere una dimensione di macchina virtuale diversa. | [Problemi di provisioning e allocazione per Linux](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemi di provisioning e allocazione per Windows](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [Risolvere i problemi relativi agli errori di allocazione](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendere il completamento dell'operazione simultanea. | |
 | AuthorizationFailed | L'account o l'entità servizio non dispone dell'accesso sufficiente per completare la distribuzione. Selezionare il ruolo a cui appartiene l'account e il relativo accesso per l'ambito della distribuzione.<br><br>Questo errore può essere visualizzato quando un provider di risorse richiesto non è registrato. | [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
-| RichiestaNonValida | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-location.md) |
+| BadRequest | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-location.md) |
 | Conflitto | Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. Il ridimensionamento del disco, ad esempio, è consentito solo quando viene creata o deallocata una macchina virtuale. | |
 | DeploymentActiveAndUneditable | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
 | DeploymentFailedCleanUp | Quando si esegue la distribuzione in modalità completa, vengono eliminate tutte le risorse che non sono incluse nel modello. Questo errore si verifica quando non si dispone delle autorizzazioni appropriate per eliminare tutte le risorse non presenti nel modello. Per evitare l'errore, impostare la modalità di distribuzione su incrementale. | [Modelli di distribuzione Azure Resource Manager](deployment-modes.md) |

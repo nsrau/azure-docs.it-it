@@ -1,5 +1,5 @@
 ---
-title: Filtro geografico in un dominio per Azure Front Door Service
+title: Filtro geografico in un dominio per il servizio front door di Azure
 description: Questo articolo fornisce informazioni sui criteri di filtro geografico per il servizio Frontdoor di Azure
 services: web-application-firewall
 author: vhorne
@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472606"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Cos'è il filtro geografico in un dominio per il servizio Frontdoor di Azure?
@@ -35,7 +35,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | AM | Armenia|
 | AO | Angola|
 | AR | Argentina|
-| AS | Isole Samoa americane|
+| AS | Samoa Americane|
 | AT | Austria|
 | AU | Australia|
 | AZ | Azerbaigian|
@@ -59,7 +59,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | BZ | Belize|
 | CA | Canada|
 | CD | Congo, Repubblica democratica|
-| CF | Repubblica centrafricana|
+| CF | Repubblica Centrafricana|
 | CH | Svizzera|
 | CI | Côte d'Ivoire (Costa d'Avorio)|
 | CL | Cile|
@@ -86,13 +86,13 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | VF | Francia|
 | GB | Regno Unito|
 | GE | Georgia|
-| GF | Guayana francese|
+| GF | Guayana Francese|
 | GH | Ghana|
 | GN | Guinea|
 | GP | Guadalupa|
 | GR | Grecia|
 | GT | Guatemala|
-| GY | Guiana|
+| GY | Guyana|
 | HK | RAS di Hong Kong|
 | HN | Honduras|
 | HR | Croazia|
@@ -145,7 +145,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | MX | Messico|
 | MY | Malaysia|
 | MZ | Mozambico|
-| ND | Namibia|
+| N/D | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nicaragua|
@@ -183,7 +183,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | SV | El Salvador|
 | SY | Repubblica araba siriana|
 | SZ | Swaziland|
-| TC | Isole Turks e Caicos|
+| TC | Turks e Caicos, Isole|
 | TG | Togo|
 | TH | Thailandia|
 | TN | Tunisia|

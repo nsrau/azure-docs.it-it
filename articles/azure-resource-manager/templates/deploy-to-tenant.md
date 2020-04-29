@@ -4,10 +4,10 @@ description: Viene descritto come distribuire le risorse nell'ambito del tenant 
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460263"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant

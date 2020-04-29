@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 6e1ab30e8b4cf44f7d1f82fd94fb9bf854915557
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79478253"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Ottenere le credenziali per accedere all'API di servizi multimediali  

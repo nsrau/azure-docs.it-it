@@ -4,10 +4,10 @@ description: Informazioni su come usare i parametri di matrice e le espressioni 
 ms.date: 11/26/2019
 ms.topic: how-to
 ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280664"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Modificare i criteri per le proprietà delle matrici nelle risorse di Azure

@@ -1,20 +1,20 @@
 ---
-title: Azure Service Fabric deployment with PowerShell
-description: Informazioni sulla rimozione e la distribuzione di applicazioni in Azure Service Fabric e su come eseguire queste azioni in Powershell.Learn about removing and deploying applications in Azure Service Fabric and how to perform these actions in Powershell.
+title: Distribuzione di Service Fabric di Azure con PowerShell
+description: Informazioni sulla rimozione e la distribuzione di applicazioni in Azure Service Fabric e su come eseguire queste azioni in PowerShell.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282510"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuire e rimuovere applicazioni con PowerShell
 
 > [!div class="op_single_selector"]
 > * [Gestione risorse](service-fabric-application-arm-resource.md)
-> * [Powershell](service-fabric-deploy-remove-applications.md)
+> * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -191,7 +191,7 @@ Register application type succeeded
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>Registrare il pacchetto dell'applicazione copiato in un archivio esterno
 
-A partire Service Fabric versione 6.1, il provisioning supporta il download del pacchetto da un archivio esterno. L'URI di download rappresenta il percorso del [ `sfpkg` pacchetto dell'applicazione](service-fabric-package-apps.md#create-an-sfpkg) da cui il pacchetto dell'applicazione può essere scaricato utilizzando protocolli HTTP o HTTPS. È necessario tuttavia che il pacchetto sia stato precedentemente caricato in questa posizione esterna. L'URI deve inoltre consentire l'accesso in lettura affinché Service Fabric possa scaricare il file. Il file `sfpkg` deve avere l'estensione sfpkg. L'operazione di provisioning deve includere le informazioni sul tipo di applicazione disponibili nel manifesto dell'applicazione.
+A partire Service Fabric versione 6.1, il provisioning supporta il download del pacchetto da un archivio esterno. L'URI di download rappresenta il percorso del [ `sfpkg` pacchetto dell'applicazione](service-fabric-package-apps.md#create-an-sfpkg) da cui è possibile scaricare il pacchetto dell'applicazione usando i protocolli http o HTTPS. È necessario tuttavia che il pacchetto sia stato precedentemente caricato in questa posizione esterna. L'URI deve inoltre consentire l'accesso in lettura affinché Service Fabric possa scaricare il file. Il file `sfpkg` deve avere l'estensione sfpkg. L'operazione di provisioning deve includere le informazioni sul tipo di applicazione disponibili nel manifesto dell'applicazione.
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
@@ -353,7 +353,7 @@ Soluzione:
 Se il computer client si trova in un'area diversa dal cluster, si consiglia di usare un computer cliente in un'area più vicina o nella stessa area del cluster.
 - Controllare se si stiano raggiungendo le limitazioni esterne. Ad esempio, quando l'archivio immagini è configurato per usare l'archiviazione di Azure, il caricamento potrebbe essere limitato.
 
-Problema: il caricamento del pacchetto è stato completato correttamente, ma si timeout di Register-ServiceFabricApplicationType.Issue: Upload package completed successfully, but [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) timeout. Provare:
+Problema: il pacchetto di caricamento è stato completato correttamente, ma si verifica il timeout di [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) . Provare
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini.
 La compressione riduce le dimensioni e il numero di file, cosa che a sua volta riduce il traffico e le operazioni di Service Fabric. L'operazione di caricamento potrebbe risultare più lenta (specialmente se si include il tempo di compressione), ma registrazione e relativo annullamento del tipo dell'applicazione saranno più veloci.
 - Specificare un timeout maggiore per il comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps), con il parametro `TimeoutSec`.
@@ -392,7 +392,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un pacchetto di un'applicazionePackage an application](service-fabric-package-apps.md)
+[Inserire un'applicazione in un pacchetto](service-fabric-package-apps.md)
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 

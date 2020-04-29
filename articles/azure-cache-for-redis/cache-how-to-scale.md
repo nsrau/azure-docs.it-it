@@ -1,16 +1,16 @@
 ---
 title: Come ridimensionare Cache Redis di Azure
-description: Informazioni su come ridimensionare la cache di Azure per le istanze Redis usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.Learn how to scale your Azure Cache for Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI.
+description: Informazioni su come ridimensionare la cache di Azure per le istanze di redis usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277999"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
@@ -64,7 +64,7 @@ Oltre a usare il portale di Azure, per ridimensionare le istanze di Cache Redis 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile ridimensionare la cache di Azure per le istanze Redis con PowerShell `ShardCount` usando il cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando vengono modificate le proprietà `Size`, `Sku`o . L'esempio seguente illustra come ridimensionare una cache denominata `myCache` in una cache di 2,5 GB. 
+È possibile ridimensionare la cache di Azure per le istanze di redis con PowerShell usando il cmdlet [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando vengono modificate le `Size`proprietà, `Sku`o. `ShardCount` L'esempio seguente illustra come ridimensionare una cache denominata `myCache` in una cache di 2,5 GB. 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -126,7 +126,7 @@ No, il nome della cache e le chiavi restano invariati durante un'operazione di r
 ### <a name="how-does-scaling-work"></a>Come funziona il ridimensionamento?
 * Quando viene ridimensionata una cache **Basic** , essa viene chiusa e viene eseguito il provisioning di una nuova cache utilizzando la nuova dimensione. Durante questo periodo, la cache non è disponibile e tutti i dati nella cache vengono persi.
 * Quando una cache **Basic** viene ridimensionata in una cache **Standard**, viene effettuato il provisioning di una cache di replica e i dati vengono copiati dalla cache principale alla cache di replica. Durante il processo di ridimensionamento, la cache rimane disponibile.
-* Quando una cache **Standard** viene ridimensionata a una dimensione diversa o a una cache **Premium,** una delle repliche viene arrestata e sottoposta a provisioning alla nuova dimensione e i dati trasferiti tramite e quindi l'altra replica esegue un failover prima che venga nuovamente eseguito il provisioning, in modo simile al processo che si verifica durante un errore di uno dei nodi della cache.
+* Quando una cache standard viene ridimensionata a una dimensione diversa o a una cache **Premium** , una delle repliche viene arrestata e sottoposta a nuovo il provisioning in **base** alla nuova dimensione e ai dati trasferiti, quindi l'altra replica esegue un failover prima del nuovo provisioning, in modo analogo al processo che si verifica durante un errore di uno dei nodi della cache.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Durante il ridimensionamento i dati nella cache andranno persi?
 * Quando una cache **Basic** viene ridimensionata, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
@@ -166,7 +166,7 @@ Se un'operazione di ridimensionamento ha esito negativo, il servizio tenta di an
 
 
 ### <a name="how-long-does-scaling-take"></a>Quanto tempo richiede il ridimensionamento?
-Il tempo di scalabilità dipende dalla quantità di dati nella cache, con una maggiore quantità di dati che richiede più tempo per il completamento. Il ridimensionamento richiede circa 20 minuti. Per le cache cluster, la scalabilità richiede circa 20 minuti per partizione.
+Il tempo di ridimensionamento dipende dalla quantità di dati presenti nella cache, con una quantità maggiore di dati che richiedono più tempo per il completamento. La scalabilità richiede circa 20 minuti. Per le cache in cluster, la scalabilità richiede circa 20 minuti per partizione.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Come è possibile stabilire quando il ridimensionamento è completato?
 Nel portale di Azure è possibile visualizzare l'operazione di ridimensionamento in corso. Quando il ridimensionamento è completo, lo stato della cache passa a **In esecuzione**.

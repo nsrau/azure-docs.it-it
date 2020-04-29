@@ -8,10 +8,10 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 02d04076ccc41d243a493838667f5e8cc6bfa5ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371155"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(DEPRECATO) Monitorare un cluster del servizio Azure Container con Log Analytics
@@ -92,7 +92,7 @@ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installazione dell'agente di Log Analytics tramite un segreto Kubernetes
 Per proteggere l'ID e la chiave dell'area di lavoro Log Analytics è possibile usare il segreto Kubernetes come parte del file YAML di DaemonSet.
 
-- Copiare lo script, il file modello segreto e il file YAML DaemonSet (dal [repository)](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)e assicurarsi che si trovino nella stessa directory.
+- Copiare lo script, il file di modello del segreto e il file YAML di DaemonSet (dal [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e assicurarsi che si trovino nella stessa directory.
   - Script per la generazione di segreti: secret-gen.sh
   - Modello di segreto: secret-template.yaml
     - File DaemonSet YAML: omsagent-ds-secrets.yaml
@@ -132,11 +132,11 @@ Per proteggere l'ID e la chiave dell'area di lavoro Log Analytics è possibile u
   KEY:    88 bytes
   ```
 
-  - Creare il set daemon omsagent eseguendo quanto segue:
+  - Creare il set di daemon omsagent eseguendo il comando seguente:
   
   ```console
   kubectl create -f omsagent-ds-secrets.yaml
   ```
 
 ### <a name="conclusion"></a>Conclusioni
-L'operazione è terminata. Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard di Log Analytics.
+Ecco fatto! Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard di Log Analytics.

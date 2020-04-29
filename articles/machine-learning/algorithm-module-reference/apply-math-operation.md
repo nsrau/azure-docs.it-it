@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456744"
 ---
 # <a name="apply-math-operation"></a>Applicare operazioni matematiche
@@ -260,7 +260,7 @@ Operazione|Num1|Num2|Colonna risultati|Valore risultato|
 |Divisione|1|5|Divisione (Num2_Num1)|5|
 |Divisione|0|1|Divisione (Num2_Num1)|Infinity|
 
-### <a name="add"></a>Add
+### <a name="add"></a>Aggiunta
 
 Specificare le colonne di origine utilizzando il **set di colonne**e quindi aggiungere a tali valori un numero specificato nel **secondo argomento**.  
 

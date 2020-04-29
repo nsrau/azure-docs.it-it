@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283004"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati di Cosmos DB usando un indicizzatore in Ricerca cognitiva di Azure 
@@ -257,7 +257,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 | Bool |Edm.Boolean, Edm.String |
 | Numeri che rappresentano numeri interi |Edm.Int32, Edm.Int64, Edm.String |
 | Numeri che rappresentano numeri a virgola mobile |Edm.Double, Edm.String |
-| string |Edm.String |
+| Stringa |Edm.String |
 | Matrici di tipi primitivi, ad esempio ["a", "b", "c"] |Collection(Edm.String) |
 | Stringhe che rappresentano date |Edm.DateTimeOffset, Edm.String |
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 40d4dc898efe6b719ec5e1f1ec0471a9677d3c95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371121"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(DEPRECATO) Configurare un'entità servizio di Azure AD per un cluster Kubernetes in servizio Container
@@ -33,9 +33,9 @@ Questo articolo illustra le diverse opzioni disponibili per configurare un'entit
 
 * **Ambito**: gruppo di risorse
 
-* **Ruolo**: Collaboratore
+* **Ruolo**: collaboratore
 
-* **Segreto client**: Deve essere una password. Non è attualmente possibile usare un'entità servizio configurata per l'autenticazione del certificato.
+* **Segreto client**: deve essere una password. Non è attualmente possibile usare un'entità servizio configurata per l'autenticazione del certificato.
 
 > [!IMPORTANT]
 > Per creare un'entità servizio sono necessarie autorizzazioni sufficienti per registrare un'applicazione con il tenant di Azure AD e assegnare l'applicazione a un ruolo nella sottoscrizione. È possibile verificare se si hanno a disposizione le autorizzazioni necessarie [nel portale](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
@@ -61,7 +61,7 @@ L'output è simile al seguente (visualizzato con alcune modifiche):
 
 ![Creare un'entità servizio](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
 
-Sono evidenziati l'ID **client** (`appId`) e il **segreto client** (`password`) utilizzati come parametri dell'entità servizio per la distribuzione del cluster.
+Evidenziati sono l' **ID client** (`appId`) e il **segreto client** (`password`) usati come parametri dell'entità servizio per la distribuzione del cluster.
 
 
 ### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Specificare l'entità servizio quando si crea il cluster Kubernetes
@@ -78,7 +78,7 @@ L'esempio seguente illustra un modo per passare i parametri con l'interfaccia de
 
 1. [Scaricare](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) il file di parametri del modello `azuredeploy.parameters.json` da GitHub.
 
-2. Per specificare l'entità servizio, immettere i valori per `servicePrincipalClientId` e `servicePrincipalClientSecret` nel file. È anche necessario specificare valori personalizzati per `dnsNamePrefix` e `sshRSAPublicKey`, Quest'ultima è la chiave pubblica SSH per accedere al cluster.) Salvare il file.
+2. Per specificare l'entità servizio, immettere i valori per `servicePrincipalClientId` e `servicePrincipalClientSecret` nel file. È anche necessario specificare valori personalizzati per `dnsNamePrefix` e `sshRSAPublicKey`, Il secondo è la chiave pubblica SSH per accedere al cluster. Salvare il file.
 
     ![Passare i parametri dell'entità servizio](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -97,7 +97,7 @@ L'esempio seguente illustra un modo per passare i parametri con l'interfaccia de
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opzione 2: generare un'entità servizio durante la creazione del cluster con `az acs create`
 
-Se si [`az acs create`](/cli/azure/acs#az-acs-create) esegue il comando per creare il cluster Kubernetes, è possibile generare automaticamente un'entità servizio.
+Se si esegue il [`az acs create`](/cli/azure/acs#az-acs-create) comando per creare il cluster Kubernetes, è possibile scegliere di generare automaticamente un'entità servizio.
 
 Analogamente alle altre opzioni di creazione del cluster Kubernetes, è possibile specificare i parametri per un'entità servizio esistente quando si esegue `az acs create`. Quando tuttavia si omettono questi parametri, l'interfaccia della riga di comando di Azure crea automaticamente un'entità servizio da usare con il servizio contenitore. Questa operazione viene eseguita in modo trasparente durante la distribuzione.
 

@@ -4,10 +4,10 @@ description: Questo articolo illustra come il servizio backup di Azure esegue il
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: f4b36f57362607a13c09896cd7109596aba0a852
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79415974"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
@@ -49,7 +49,7 @@ Ecco come backup di Azure completa un backup per le macchine virtuali di Azure:
 
 Quando si esegue il backup di macchine virtuali di Azure con Backup di Azure, viene eseguita la crittografia dei dati inattivi delle macchine virtuali con la crittografia del servizio di archiviazione. Backup di Azure può anche eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure.
 
-**Crittografia** | **Dettagli** | **Supporto**
+**Crittografia** | **Dettagli** | **Supporto tecnico**
 --- | --- | ---
 **Azure Disk Encryption** | Crittografia dischi di Azure crittografa i dischi dati e del sistema operativo per le macchine virtuali di Azure.<br/><br/> Crittografia dischi di Azure si integra con le chiavi di crittografia di BitLocker (BEKs), che vengono protette in un insieme di credenziali delle chiavi come segreti. Crittografia dischi di Azure si integra inoltre con Azure Key Vault chiavi di crittografia della chiave (KEKs). | Backup di Azure supporta il backup di macchine virtuali di Azure gestite e non gestite crittografate solo con BEKs o con BEKs insieme a KEKs.<br/><br/> Viene eseguito il backup e la crittografia sia di BEKs che di KEKs.<br/><br/> Poiché viene eseguito il backup di KEKs e BEKs, gli utenti con le autorizzazioni necessarie possono ripristinare chiavi e segreti nell'insieme di credenziali delle chiavi, se necessario. Questi utenti possono anche ripristinare la macchina virtuale crittografata.<br/><br/> Le chiavi e i segreti crittografati non possono essere letti da utenti non autorizzati o da Azure.
 **Crittografia del servizio di archiviazione** | Con SSE, archiviazione di Azure offre la crittografia dei dati inattivi crittografando automaticamente i dati prima di archiviarli. Archiviazione di Azure decrittografa anche i dati prima di recuperarli. | Backup di Azure usa SSE per la crittografia inattiva delle VM di Azure.

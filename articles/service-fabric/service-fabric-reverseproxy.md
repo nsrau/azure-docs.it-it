@@ -1,15 +1,15 @@
 ---
-title: Proxy inverso di Azure Service FabricAzure Service Fabric reverse proxy
+title: Proxy inverso di Azure Service Fabric
 description: Usare un proxy inverso di Service Fabric per comunicare con i microservizi dall'interno e dall'esterno del cluster.
 author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282224"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso in Azure Service Fabric
@@ -78,7 +78,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector** Specifica la modalità di selezione della replica o dell'istanza di destinazione.
   * Quando il servizio di destinazione è con stato, TargetReplicaSelector può essere uno dei valori seguenti: "PrimaryReplica", "RandomSecondaryReplica" o "RandomReplica". Il valore predefinito quando non viene specificato questo parametro è "PrimaryReplica".
   * Quando il servizio di destinazione è senza stato, il proxy inverso sceglie un'istanza casuale della partizione del servizio a cui inoltrare la richiesta.
-* **Timeout:**  Specifica il timeout per la richiesta HTTP creata dal proxy inverso al servizio per conto della richiesta client. Il valore predefinito è 60 secondi. Questo parametro è facoltativo.
+* **Timeout:**  Specifica il timeout per la richiesta HTTP creata dal proxy inverso per il servizio per conto della richiesta del client. Il valore predefinito è 60 secondi. Questo parametro è facoltativo.
 
 ### <a name="example-usage"></a>Esempio di utilizzo
 Si prenda come esempio il servizio *fabric:/MyApp/MyService* che apre un listener HTTP nell'URL seguente:

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471728"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoraggio di metriche e log in front-end di Azure
@@ -38,7 +38,7 @@ Le metriche sono una funzionalità per alcune risorse di Azure che consentono di
 | BackendRequestCount | Conteggio delle richieste del back-end | Conteggio | HttpStatus</br>HttpStatusGroup</br>Back-end | Numero di richieste inviate da Frontdoor ai back-end. |
 | BackendRequestLatency | Latenza della richiesta del back-end | Millisecondi | Back-end | Tempo calcolato dal momento dell'invio della richiesta al back-end da parte di Frontdoor al momento della ricezione da parte di Frontdoor dell'ultimo byte della risposta inviata dal back-end. |
 | BackendHealthPercentage | Percentuale di integrità del back-end | Percentuale | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
-| WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Azione | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
+| WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Action | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
 
 ## <a name="activity-logs"></a><a name="activity-log"></a>Log attività
 
@@ -99,7 +99,7 @@ La porta anteriore fornisce attualmente log di diagnostica (in batch ogni ora). 
 | Scenari | Numero di voci di log | POP | BackendHostname | SentToOriginShield | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Regola di routing senza caching abilitato | 1 | Codice POP perimetrale | Back-end in cui la richiesta è stata trasmessa | False | CONFIG_NOCACHE |
-| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Empty | False | COLPITO |
+| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Vuoto | False | COLPITO |
 | Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache al POP perimetrale, ma riscontro nella cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. vuoto | 1. true</br>2. false | 1. MISS</br>2. PARTIAL_HIT |
 | Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache dei bordi e della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. back-end che consente di popolare la cache | 1. true</br>2. false | 1. MISS</br>2. MISS |
 

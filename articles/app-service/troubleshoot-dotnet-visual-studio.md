@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
 ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280053"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
@@ -33,7 +33,7 @@ Per questa esercitazione si presuppone che siano stati configurati l'ambiente di
 
 Gli esempi di codice illustrati nell'esercitazione sono relativi ad applicazioni Web MVC scritte in C#, ma le procedure di risoluzione dei problemi sono identiche per le applicazioni di Visual Basic e Web Form.
 
-L'esercitazione presuppone che si sta utilizzando Visual Studio 2019.The tutorial assumes you're using Visual Studio 2019. 
+L'esercitazione presuppone che si stia usando Visual Studio 2019. 
 
 La funzionalità dei log in streaming può essere utilizzata solo per le applicazioni destinate a .NET Framework 4 o versione successiva.
 
@@ -61,7 +61,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
     In questa esercitazione verranno usati gli elenchi a discesa relativi a registrazione e traccia. Verrà inoltre utilizzato il debug remoto, che tuttavia verrà abilitato con un metodo diverso.
 
-    Per informazioni sulle caselle Impostazioni app e Stringhe di connessione in questa finestra, vedere Servizio app di Azure: funzionamento delle [stringhe dell'applicazione e](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)delle stringhe di connessione.
+    Per informazioni sulle caselle impostazioni app e stringhe di connessione in questa finestra, vedere [servizio app Azure: funzionamento delle stringhe dell'applicazione e delle stringhe di connessione](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
     Se si vuole eseguire un'attività di gestione di app che non può essere completata in questa finestra, fare clic su **Apri nel portale di gestione** per aprire una finestra del browser nel portale di Azure.
 
@@ -127,7 +127,7 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
 1. [Impostare un punto di interruzione](https://docs.microsoft.com/visualstudio/debugger/) sulla riga `ViewBag.Message`.
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e **scegliere Pubblica**.
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **pubblica**.
 
 1. Nell'elenco a discesa del **Profilo** selezionare lo stesso profilo usato in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure). Quindi fare clic su Impostazioni.
 
@@ -165,7 +165,7 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
      ![Pagina About con il nuovo valore](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a>Debug remoto WebJobs
+## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a>Debug remoto di processi Web
 Questa sezione illustra come eseguire il debug remoto usando il progetto e l'app creati in [Introduzione ad Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Le funzionalità illustrate in questa sezione sono disponibili solo in Visual Studio 2013 con Update 4 o successivo.
@@ -271,7 +271,7 @@ In questa sezione vengono eseguite le attività seguenti:
 Per informazioni su come creare i log applicazioni nei processi Web, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK - Come scrivere i log](https://github.com/Azure/azure-webjobs-sdk/wiki). Le seguenti istruzioni per visualizzare i log e controllare come vengono archiviati in Azure si applicano anche ai log delle applicazioni creati dai processi Web.
 
 ### <a name="add-tracing-statements-to-the-application"></a>Aggiungere istruzioni di traccia all'applicazione
-1. Aprire *Controllers, HomeController.cs*e `Index` `About`sostituire `Contact` i metodi , e con `Trace` il codice `using` seguente `System.Diagnostics`per aggiungere istruzioni e un'istruzione per :
+1. Aprire *Controllers\HomeController.cs* `Index`e sostituire i metodi, `About`e `Contact` con il codice seguente per `Trace` aggiungere istruzioni e un' `using` istruzione per: `System.Diagnostics`
 
     ```csharp
     public ActionResult Index()
@@ -337,7 +337,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
     ```
 
 1. Premere CTRL+F5 per eseguire l'applicazione.
-1. Nella barra degli indirizzi della finestra del browser, aggiungere *trace.axd* all'URL, `http://localhost:53370/trace.axd`quindi premere INVIO (l'URL è simile a ).
+1. Nella barra degli indirizzi della finestra del browser aggiungere *Trace. axd* all'URL, quindi premere INVIO (l'URL è simile a `http://localhost:53370/trace.axd`).
 1. Nella pagina **Application Trace** fare clic su **View Details** nella prima riga (non la riga BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -567,7 +567,7 @@ Le app del Servizio app usano la stessa funzionalità di traccia delle richieste
 
 3. In Visual Studio, nella scheda **Configurazione** della finestra **App Web di Azure** fare clic su **Apri nel portale di gestione**.
 
-4. Nella pagina **Impostazioni** portale di [Azure](https://portal.azure.com) per l'app fare clic su Credenziali **di distribuzione**e quindi immettere un nuovo nome utente e una nuova password.
+4. Nella pagina [Azure portal](https://portal.azure.com) **Impostazioni** portale di Azure per l'app fare clic su **credenziali di distribuzione**e quindi immettere un nuovo nome utente e una nuova password.
 
     ![Nuovo nome utente e nuova password FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
@@ -577,7 +577,7 @@ Le app del Servizio app usano la stessa funzionalità di traccia delle richieste
 
 5. In una nuova finestra del browser passare all'URL indicato in **Nome host FTP** o **Nome host FTPS** della pagina **Panoramica** per l'app.
 
-6. Accedere utilizzando le credenziali FTP create in precedenza (incluso il prefisso del nome dell'app per il nome utente).
+6. Accedere con le credenziali FTP create in precedenza (incluso il prefisso del nome dell'app per il nome utente).
 
     Nel browser verrà visualizzata la cartella radice dell'app.
 
@@ -613,7 +613,7 @@ Questo articolo ha illustrato come Visual Studio semplifica la visualizzazione d
 ### <a name="app-service-troubleshooting"></a>Risoluzione dei problemi relativi al Servizio app
 Per altre informazioni sulla risoluzione dei problemi di app nel Servizio app di Azure, consultare le risorse seguenti:
 
-* [Informazioni su come monitorare le app](web-sites-monitor.md)
+* [Come monitorare le app](web-sites-monitor.md)
 * [Analisi delle perdite di memoria nel Servizio app di Azure con Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Post del blog di Microsoft ALM sulle funzionalità di Visual Studio per l'analisi dei problemi relativi alla memoria gestita.
 * [Strumenti online del Servizio app di Azure che è necessario conoscere](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Post del blog di Amit Apple.
 
@@ -676,7 +676,7 @@ Per ulteriori informazioni sull'analisi dei log del server Web, vedere le risors
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Strumento per la visualizzazione di dati nei log del server Web (file con estensione*log* ).
-* [Risoluzione dei problemi di prestazioni di IIS o errori dell'applicazione mediante LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Risoluzione dei problemi relativi alle prestazioni di IIS o degli errori dell'applicazione tramite LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    Introduzione allo strumento Log Parser, che è possibile utilizzare per analizzare i log del server Web.
 * [Post di blog di Robert McMurray sull'uso di Log Parser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [Codice di stato HTTP in IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)

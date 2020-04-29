@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282328"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Actors
@@ -50,7 +50,7 @@ Per la categoria `Service Fabric Actor`, i nomi delle istanze dei contatori sono
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) la relativa rappresentazione di stringa viene generata tramite il metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) il metodo con l'identificatore di formato "D".
 
 *ActorRuntimeInternalID* è la rappresentazione sotto forma di stringa di un numero intero a 64 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
@@ -69,7 +69,7 @@ Per la categoria `Service Fabric Actor Method`, i nomi delle istanze dei contato
 
 *ActorsRuntimeMethodId* è la rappresentazione sotto forma di stringa di un numero intero a 32 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) la relativa rappresentazione di stringa viene generata tramite il metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) il metodo con l'identificatore di formato "D".
 
 *ActorRuntimeInternalID* è la rappresentazione sotto forma di stringa di un numero intero a 64 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 

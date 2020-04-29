@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
 ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79300154"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sicurezza di rete per le risorse di griglia di eventi di Azure
@@ -25,7 +25,7 @@ Questo articolo descrive come usare le funzionalità di sicurezza seguenti con g
 ## <a name="service-tags"></a>Tag di servizio
 Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
 
-È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). Usare i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **AzureEventGrid**) nel campo di di *origine* o di *destinazione* di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi](../virtual-network/security-overview.md#security-rules) di sicurezza di rete o nel [firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **AzureEventGrid**) nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
 | Tag servizio | Scopo | È possibile usare in ingresso o in uscita? | Può essere regionale? | È possibile usare con il firewall di Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -58,23 +58,23 @@ Quando si crea un endpoint privato, il record CNAME DNS per la risorsa viene agg
 
 Quando si risolve l'argomento o l'URL dell'endpoint del dominio dall'esterno del VNet con l'endpoint privato, viene risolto nell'endpoint pubblico del servizio. I record di risorse DNS per ' topica ', quando risolti dall' **esterno del VNet** che ospita l'endpoint privato, saranno:
 
-| Name                                          | Type      | Valore                                         |
+| Nome                                          | Type      | valore                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<\> profilo di gestione traffico di Azure
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Profilo di gestione traffico di Azure\>
 
 È possibile negare o controllare l'accesso per un client esterno a VNet tramite l'endpoint pubblico usando il [firewall IP](#ip-firewall). 
 
 Quando viene risolto da VNet che ospita l'endpoint privato, l'argomento o l'URL dell'endpoint di dominio viene risolto nell'indirizzo IP dell'endpoint privato. I record di risorse DNS per l'argomento ' topica ', quando risolti dall' **interno di VNet** che ospita l'endpoint privato, saranno:
 
-| Name                                          | Type      | Valore                                         |
+| Nome                                          | Type      | valore                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | Una         | 10.0.0.5
 
 Questo approccio consente di accedere all'argomento o al dominio usando la stessa stringa di connessione per i client in VNet che ospitano gli endpoint privati e i client esterni al VNet.
 
-Se si usa un server DNS personalizzato nella rete, i client possono risolvere l'FQDN per l'argomento o l'endpoint di dominio nell'indirizzo IP dell'endpoint privato. Configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A per `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` con l'indirizzo IP dell'endpoint privato.
+Se si usa un server DNS personalizzato nella rete, i client possono risolvere l'FQDN per l'argomento o l'endpoint di dominio nell'indirizzo IP dell'endpoint privato. Configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` per con l'indirizzo IP dell'endpoint privato.
 
 Il nome della zona DNS consigliata è `privatelink.eventgrid.azure.net`.
 
@@ -84,9 +84,9 @@ Nella tabella seguente vengono descritti i vari Stati della connessione all'endp
 
 | Stato connessione   |  Pubblicazione completata (sì/no) |
 | ------------------ | -------------------------------|
-| Approvato           | Sì                            |
+| Approved           | Sì                            |
 | Rifiutato           | No                             |
-| In sospeso            | No                             |
+| Pending            | No                             |
 | Disconnesso       | No                             |
 
 Per la corretta pubblicazione, lo stato di connessione dell'endpoint privato deve essere **approvato**. Se una connessione viene rifiutata, non può essere approvata utilizzando la portale di Azure. L'unica possibilità consiste nell'eliminare la connessione e crearne una nuova.

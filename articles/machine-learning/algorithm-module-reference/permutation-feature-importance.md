@@ -1,7 +1,7 @@
 ---
-title: 'Permutazione Caratteristica Importanza: Riferimento al modulo'
+title: 'Importanza della funzionalità di permutazione: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Permutazione importanza funzionalità in Azure Machine Learning per calcolare i punteggi di importanza della funzionalità di permutazione delle variabili di funzionalità, dati un modello sottoposto a training e un set di dati di test.
+description: Informazioni su come usare il modulo Permutation feature importance in Azure Machine Learning per calcolare i punteggi di importanza delle funzionalità di permutazione delle variabili di funzionalità, dati un modello sottoposto a training e un set di dati di
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,63 +10,63 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
 ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456064"
 ---
 # <a name="permutation-feature-importance"></a>Permutation Feature Importance
 
-Questo articolo descrive come usare il modulo Permutazione importanza funzionalità nella finestra di progettazione di Azure Machine Learning (anteprima) per calcolare un set di punteggi di importanza delle funzionalità per il set di dati. Questi punteggi consentono di determinare le funzioni migliori da utilizzare in un modello.
+Questo articolo descrive come usare il modulo Permutation feature importance in Azure Machine Learning Designer (Preview) per calcolare un set di punteggi di importanza della funzionalità per il set di dati. Questi punteggi vengono utilizzati per determinare le funzionalità migliori da utilizzare in un modello.
 
-In questo modulo, i valori delle funzionalità vengono mescolati in modo casuale, una colonna alla volta. Le prestazioni del modello vengono misurate prima e dopo. È possibile scegliere una delle metriche standard per misurare le prestazioni.
+In questo modulo i valori delle funzionalità vengono mescolati in modo casuale, una colonna alla volta. Le prestazioni del modello vengono misurate prima e dopo. È possibile scegliere una metrica standard per misurare le prestazioni.
 
-I punteggi restituiti dal modulo rappresentano la *modifica* delle prestazioni di un modello sottoposto a training, dopo la permutazione. Le caratteristiche importanti sono in genere più sensibili al processo di rimescolamento, quindi si tradurranno in punteggi di importanza più alta. 
+I punteggi restituiti dal modulo rappresentano la *modifica* delle prestazioni di un modello sottoposto a training, dopo la permutazione. Le funzionalità importanti sono in genere più sensibili al processo di shuffle, pertanto si otterranno punteggi di importanza maggiore. 
 
-In questo articolo viene fornita una panoramica della funzionalità di permutazione, della relativa base teorica e delle relative applicazioni nell'apprendimento automatico: [Permutation Feature Importance](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Questo articolo fornisce una panoramica della funzionalità di permutazione, della relativa base teorica e delle relative applicazioni in Machine Learning: [importanza della funzionalità di permutazione](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
 
-## <a name="how-to-use-permutation-feature-importance"></a>Come utilizzare permutazione L'importanza della funzione
+## <a name="how-to-use-permutation-feature-importance"></a>Come usare l'importanza della funzionalità di permutazione
 
-La generazione di un set di punteggi di funzionalità richiede un modello già sottoposto a training e un set di dati di test.  
+Per generare un set di punteggi di funzionalità, è necessario disporre di un modello già sottoposto a training, oltre a un set di dati di test.  
 
-1.  Aggiungere il modulo Permutazione importanza funzionalità alla pipeline. È possibile trovare questo modulo nella categoria **Selezione funzionalità.** 
+1.  Aggiungere il modulo Permutation feature Importance alla pipeline. È possibile trovare questo modulo nella categoria **Selezione funzionalità** . 
 
-2.  Collegare un modello sottoposto a training all'input a sinistra. Il modello deve essere un modello di regressione o un modello di classificazione.  
+2.  Connettere un modello sottoposto a training all'input di sinistra. Il modello deve essere un modello di regressione o un modello di classificazione.  
 
-3.  Nell'input a destra, collegare un set di dati. È preferibile scegliere uno diverso dal set di dati usato per il training del modello. Questo set di dati viene usato per il punteggio in base al modello sottoposto a training. Viene inoltre utilizzato per la valutazione del modello dopo che i valori delle entità geografiche sono stati modificati.  
+3.  Nell'input di destra, connettere un set di dati. Preferibilmente, scegliere una diversa dal set di dati usato per il training del modello. Questo set di dati viene usato per l'assegnazione dei punteggi in base al modello con training. Viene usato anche per la valutazione del modello dopo la modifica dei valori delle funzionalità.  
 
-4.  In **Valore di serie casuale**, immettere un valore da utilizzare come valore di serie per la randomizzazione. Se si specifica 0 (impostazione predefinita), viene generato un numero in base all'orologio di sistema.
+4.  Per il valore di **inizializzazione casuale**, immettere un valore da usare come valore di inizializzazione per la sequenza casuale. Se si specifica 0 (impostazione predefinita), viene generato un numero in base al clock di sistema.
 
-     Un valore di valore di serie è facoltativo, ma è necessario fornire un valore se si desidera riproducibilità tra le esecuzioni della stessa pipeline.  
+     Un valore di inizializzazione è facoltativo, ma è necessario fornire un valore se si desidera la riproducibilità tra le esecuzioni della stessa pipeline.  
 
-5.  Per **Metrica per la misurazione delle prestazioni,** selezionare una singola metrica da utilizzare quando si calcola la qualità del modello dopo la permutazione.  
+5.  Per la **metrica per la misurazione delle prestazioni**, selezionare una singola metrica da usare quando si calcola la qualità del modello dopo la permutazione.  
 
-     La finestra di progettazione di Azure Machine Learning supporta le metriche seguenti, a seconda che si stia valutando un modello di classificazione o regressione:Azure Machine Learning designer supports the following metrics, depending on whether you're evaluating a classification or regression model:  
+     Azure Machine Learning Designer supporta le metriche seguenti, a seconda che si stia valutando un modello di classificazione o di regressione:  
 
     -   **Classificazione**
 
-        Precisione, Precisione, Richiamo  
+        Accuratezza, precisione, richiamo  
 
     -   **Regressione**
 
-        Precisione, richiamo, Errore assoluto medio, Errore al quadrato radice, Errore assoluto relativo, Errore al quadrato relativo, Coefficiente di determinazione  
+        Precisione, richiamo, errore assoluto medio, radice errore quadratico medio, errore assoluto relativo, errore quadratico relativo, coefficiente di determinazione  
 
-     Per una descrizione più dettagliata di queste metriche di valutazione e del modo in cui vengono calcolate, vedere [Valutare il modello](evaluate-model.md).  
+     Per una descrizione più dettagliata di queste metriche di valutazione e del modo in cui vengono calcolate, vedere [Evaluate Model](evaluate-model.md).  
 
 6.  Inviare la pipeline.  
 
-7.  Il modulo restituisce un elenco di colonne di entità geografiche e i punteggi ad esse associati. L'elenco è classificato in ordine decrescente dei punteggi.  
+7.  Il modulo restituisce un elenco di colonne di funzionalità e i punteggi associati. L'elenco è classificato in ordine decrescente dei punteggi.  
 
 
 ##  <a name="technical-notes"></a>Note tecniche
 
-Permutazione Importanza funzionalità funziona modificando in modo casuale i valori di ogni colonna di funzionalità, una colonna alla volta. Viene quindi valutato il modello. 
+L'importanza della funzionalità di permutazione funziona modificando in modo casuale i valori di ogni colonna della funzionalità, una colonna alla volta. Viene quindi valutato il modello. 
 
-Le classificazioni fornite dal modulo sono spesso diverse da quelle ottenute da [Selezione funzionalità basata su filtro.](filter-based-feature-selection.md) Selezione feature basata su filtro calcola i punteggi *prima* della creazione di un modello. 
+Le classificazioni fornite dal modulo sono spesso diverse da quelle che si ottengono dalla [selezione delle funzioni basata su filtri](filter-based-feature-selection.md). La selezione delle funzioni basata su filtro calcola i punteggi *prima* della creazione di un modello. 
 
-Il motivo della differenza è che permutazione l'importanza della funzionalità non misura l'associazione tra una feature e un valore di destinazione. Al contrario, acquisisce l'influenza di ogni funzionalità sulle stime dal modello.
+Il motivo della differenza è che l'importanza della funzionalità di permutazione non misura l'associazione tra una funzionalità e un valore di destinazione. Al contrario, acquisisce la quantità di influenza di ogni funzionalità sulle stime del modello.
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il set di moduli disponibili per Azure Machine Learning.See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

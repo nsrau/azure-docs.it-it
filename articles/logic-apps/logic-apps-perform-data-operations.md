@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283940"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
@@ -35,7 +35,7 @@ Queste azioni consentono di operare sui dati in matrici.
 | [**Crea tabella HTML**](#create-html-table-action) | Creare una tabella HTML da una matrice. |
 | [**Filtra matrice**](#filter-array-action) | Creare un subset di matrice da una matrice in base al filtro o alla condizione specificati. |
 | [**Join**](#join-action) | Creare una stringa da tutti gli elementi in una matrice e separare gli elementi con il carattere specificato. |
-| [**Selezionare**](#select-action) | Creare una matrice dalle proprietà specificate per tutti gli elementi in una matrice diversa. |
+| [**Select**](#select-action) | Creare una matrice dalle proprietà specificate per tutti gli elementi in una matrice diversa. |
 ||| 
 
 **Azioni per JSON**

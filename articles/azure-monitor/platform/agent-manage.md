@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275100"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestione e manutenzione dell'agente di Log Analytics per Windows e Linux
@@ -20,9 +20,9 @@ Dopo la distribuzione iniziale dell'agente Log Analytics Windows o Linux in moni
 
 L'agente di Log Analytics per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente in base allo scenario di distribuzione e all'ambiente in cui è in esecuzione la macchina virtuale. Per aggiornare l'agente, è possibile utilizzare i metodi seguenti.
 
-| Environment | Metodo di installazione | Metodo di aggiornamento |
+| Ambiente | Metodo di installazione | Metodo di aggiornamento |
 |--------|----------|-------------|
-| Macchina virtuale di Azure | Estensione macchina virtuale agente Log Analytics per Windows/Linux | Per impostazione predefinita, Agent viene aggiornato automaticamente a meno che non sia stato configurato il modello di Azure Resource Manager per rifiutare esplicitamente l'impostazione della proprietà *autoUpgradeMinorVersion* su **false**. |
+| Macchina virtuale Azure | Estensione macchina virtuale agente Log Analytics per Windows/Linux | Per impostazione predefinita, Agent viene aggiornato automaticamente a meno che non sia stato configurato il modello di Azure Resource Manager per rifiutare esplicitamente l'impostazione della proprietà *autoUpgradeMinorVersion* su **false**. |
 | Immagini personalizzate di VM di Azure | Installazione manuale dell'agente di Log Analytics per Windows/Linux | L'aggiornamento delle macchine virtuali alla versione più recente dell'agente deve essere eseguito dalla riga di comando che esegue il pacchetto di Windows Installer o il bundle di script di Shell autoestraente e installabile di Linux.|
 | Macchine virtuali non di Azure | Installazione manuale dell'agente di Log Analytics per Windows/Linux | L'aggiornamento delle macchine virtuali alla versione più recente dell'agente deve essere eseguito dalla riga di comando che esegue il pacchetto di Windows Installer o il bundle di script di Shell autoestraente e installabile di Linux. |
 

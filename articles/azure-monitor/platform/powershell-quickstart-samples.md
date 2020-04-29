@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274320"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
@@ -20,7 +20,7 @@ Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamen
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="set-up-powershell"></a>Configurare PowerShell
-Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per ulteriori informazioni, vedere [Come installare e configurare PowerShell.](/powershell/azure/overview)
+Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per ulteriori informazioni, vedere [come installare e configurare PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Esempi in questo articolo
 Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
@@ -38,7 +38,7 @@ Verrà visualizzata una schermata di accesso. Dopo aver effettuato l'accesso, ve
 Get-AzSubscription
 ```
 
-Per visualizzare il contesto di lavoro (in base alla sottoscrizione con cui vengono eseguiti i comandi), utilizzare il comando seguente:
+Per visualizzare il contesto di lavoro (per la sottoscrizione in cui vengono eseguiti i comandi), usare il comando seguente:
 
 ```powershell
 Get-AzContext
@@ -51,9 +51,9 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>Recuperare il registro attività per una sottoscrizione
-Utilizzare il cmdlet [Get-AzLog.](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog)  Di seguito sono riportati alcuni esempi comuni. Il log attività contiene gli ultimi 90 giorni di operazioni. L'utilizzo di date precedenti a questo orario genera un messaggio di errore.  
+Usare il cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) .  Di seguito sono riportati alcuni esempi comuni. Il log attività include gli ultimi 90 giorni di operazioni. L'utilizzo di date prima di questa ora genera un messaggio di errore.  
 
-Vedere quali sono la data/ora corrente per verificare quali ore utilizzare nei comandi seguenti:
+Vedere qual è la data e l'ora correnti per verificare quali orari usare nei comandi seguenti:
 ```powershell
 Get-Date
 ```
@@ -97,7 +97,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` supporta diversi altri parametri. Per altre informazioni, vedere il riferimento `Get-AzLog` .
 
 > [!NOTE]
-> `Get-AzLog` fornisce solo 15 giorni di cronologia. L'utilizzo del parametro **-MaxRecords** consente di eseguire query sugli ultimi N eventi, oltre i 15 giorni. Per accedere agli eventi precedenti ai 15 giorni, usare l'API REST o l'SDK (esempio di C# tramite il SDK). Se non si include **StartTime**, il valore predefinito è **EndTime** meno un'ora. Se non si include **EndTime**, il valore predefinito è l’ora corrente. Tutte le ore sono in formato UTC.
+> `Get-AzLog` fornisce solo 15 giorni di cronologia. L'utilizzo del parametro **-maxRecords** consente di eseguire una query sugli ultimi N eventi, oltre i 15 giorni. Per accedere agli eventi precedenti ai 15 giorni, usare l'API REST o l'SDK (esempio di C# tramite il SDK). Se non si include **StartTime**, il valore predefinito è **EndTime** meno un'ora. Se non si include **EndTime**, il valore predefinito è l’ora corrente. Tutte le ore sono in formato UTC.
 > 
 > 
 
@@ -148,7 +148,7 @@ La tabella seguente descrive i parametri e valori usati per creare un avviso tra
 
 | parametro | value |
 | --- | --- |
-| Nome |simpletestdiskwrite |
+| Name |simpletestdiskwrite |
 | Posizione di questa regola di avviso |Stati Uniti orientali |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282822"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipi di query e composizione in ricerca cognitiva di Azure
@@ -111,7 +111,7 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 Azure ricerca cognitiva supporta un'ampia gamma di tipi di query. 
 
-| Tipo di query | Uso | Altre informazioni ed esempi |
+| Tipo di query | Utilizzo | Altre informazioni ed esempi |
 |------------|--------|-------------------------------|
 | Ricerca di testo in formato libero | Parametro di ricerca ed entrambi i parser| La ricerca full-text scansiona uno o più termini in tutti i campi *ricercabili* dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. L'esempio nella sezione introduttiva è di ricerca full-text.<br/><br/>La ricerca full-text viene sottoposta ad analisi del testo usando l'analizzatore Lucene standard (per impostazione predefinita) per rendere tutti i termini minuscoli, rimuovere parole non significative, ad esempio "il". È possibile sostituire l'impostazione predefinita con [analizzatori di lingua diversa dall'inglese](index-add-language-analyzers.md#language-analyzer-list) oppure [analizzatori specializzati indipendenti dalla lingua](index-add-custom-analyzers.md#AnalyzerTable) che modificano l'analisi del testo. Ad esempio [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) gestisce l'intero contenuto di un campo come un token singolo. Ciò è utile per i dati come i codici postali, gli ID e alcuni nomi di prodotto. | 
 | Ricerca filtrata | [Espressione di filtro OData](query-odata-filter-orderby-syntax.md) ed entrambi i parser | Le query filtro valutano un'espressione booleana su tutti i campi *filtrabili* in un indice. Contrariamente alla ricerca, una query filtro corrisponde al contenuto esatto di un campo, inclusa la distinzione tra maiuscole e minuscole nei campi della stringa. Un'altra differenza è che le query filtro vengono espresse nella sintassi di OData. <br/>[Esempio di espressione filtro](search-query-simple-examples.md#example-3-filter-queries) |
@@ -157,7 +157,7 @@ Se si vuole che Azure ricerca cognitiva restituisca i risultati ordinati in base
 ### <a name="hit-highlighting"></a>Evidenziazione dei risultati
 In ricerca cognitiva di Azure, l'accento sulla parte esatta dei risultati della ricerca che corrispondono alla query di ricerca è semplificato **`highlight`** usando **`highlightPreTag`** i parametri **`highlightPostTag`** , e. È possibile specificare i campi *ricercabili* con il testo corrispondente evidenziato, nonché specificare i tag di stringa esatti da accodare all'inizio e alla fine del testo corrispondente restituito da Azure ricerca cognitiva.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Funzionamento della ricerca full-text in Azure ricerca cognitiva (architettura di analisi delle query)](search-lucene-query-architecture.md)
 + [Esplora ricerche](search-explorer.md)

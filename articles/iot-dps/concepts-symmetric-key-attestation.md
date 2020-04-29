@@ -1,6 +1,6 @@
 ---
 title: Servizio Device Provisioning in hub IoT di Azure - Attestazione chiave simmetrica
-description: Questo articolo fornisce una panoramica concettuale dell'attestazione della chiave simmetrica tramite il servizio DPS (Device Provisioning) IoT.
+description: Questo articolo fornisce una panoramica concettuale dell'attestazione della chiave simmetrica tramite il servizio Device provisioning (DPS).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271512"
 ---
 # <a name="symmetric-key-attestation"></a>Attestazione con chiave simmetrica

@@ -9,23 +9,23 @@ ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371597"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Acquisizione dell'immagine multisessione Enterprise di Windows 10
 
-Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Marketplace **, selezionare inizia** > **Microsoft Windows 10** > e [Windows 10 Enterprise per desktop virtuali, versione 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Marketplace, selezionare **Introduzione** > a**Microsoft Windows 10** > e [Windows 10 Enterprise per desktop virtuali, versione 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ![Screenshot della selezione di Windows 10 Enterprise per desktop virtuali, versione 1809.](media/AzureMarketPlace.png)
 
@@ -100,10 +100,10 @@ Per visualizzare l'errore nel log attività:
 1. Uscire dall'offerta di distribuzione corrente di Azure Marketplace.
 2. Nella barra di ricerca superiore cercare e selezionare **log attività**.
 3. Individuare un'attività denominata **Validate Deployment** con lo stato **non riuscito** e selezionare l'attività.
-   ![screenshot della singola attività * * Validate Deployment * * con uno stato * * Failed * *](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+   ![Screenshot della singola attività * * Validate Deployment * * con lo stato * * Failed * *](media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Selezionare JSON, quindi scorrere fino alla fine della schermata fino a visualizzare il campo "statusMessage".
-   ![screenshot dell'attività non riuscita, con una casella rossa intorno alla proprietà statusMessage del testo JSON.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+   ![Screenshot dell'attività non riuscita, con una casella rossa intorno alla proprietà statusMessage del testo JSON.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 Se il modello di operazione supera il limite di quota, è possibile eseguire una delle operazioni seguenti per risolvere il problema:
 
@@ -119,7 +119,7 @@ Seguire queste istruzioni per risolvere i problemi relativi alle distribuzioni n
 3. Una volta identificato l'errore, usare il messaggio di errore e le risorse in [risolvere gli errori comuni di distribuzione di Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) per risolvere il problema.
 4. Eliminare tutte le risorse create durante la distribuzione precedente e riprovare a distribuire il modello.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Errore: la distribuzione non è riuscita....\<nome host >/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Errore: la distribuzione non è riuscita..\<. hostname>/JoinDomain
 
 ![Screenshot della distribuzione non riuscita.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 

@@ -4,10 +4,10 @@ description: Illustra come specificare come destinazione più gruppi di sottoscr
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: 70868f5a3598c26ffff81f0ad3536a6c5c0a7e53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460348"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse
@@ -209,7 +209,7 @@ Le funzioni [resourceGroup ()](template-functions-resource.md#resourcegroup) e [
 
 La tabella seguente mostra se le funzioni vengono risolte nel gruppo di risorse padre o incorporato e nella sottoscrizione.
 
-| Tipo di modello | Scope | Risoluzione |
+| Tipo di modello | Scope | Soluzione |
 | ------------- | ----- | ---------- |
 | nidificati        | Outer (impostazione predefinita) | Gruppo di risorse padre |
 | nidificati        | interno | Gruppo di risorse secondario |

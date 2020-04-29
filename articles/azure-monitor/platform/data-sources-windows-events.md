@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274684"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origini dei dati del registro eventi di Windows in Monitoraggio di Azure
@@ -52,7 +52,7 @@ I record degli eventi di Windows hanno un tipo di **evento** e hanno le propriet
 | ParameterXml |Valori dei parametri dell'evento in formato XML. |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore è`AOI-<workspace ID>` |
 | RenderedDescription |Descrizione dell'evento con i valori dei parametri. |
-| Origine |Origine dell'evento. |
+| Source (Sorgente) |Origine dell'evento. |
 | SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora in cui l'evento è stato creato in Windows. |
 | UserName |Nome utente dell'account che ha registrato l'evento. |

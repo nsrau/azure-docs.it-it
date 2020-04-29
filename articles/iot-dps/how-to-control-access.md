@@ -1,6 +1,6 @@
 ---
 title: Endpoint di sicurezza nel servizio Device Provisioning in hub IoT | Microsoft Docs
-description: "Concetti: è possibile controllare l'accesso al servizio DPS (Device Provisioning) IoT per le app back-end. Include informazioni sui token di sicurezza."
+description: "Concetti: come controllare l'accesso al servizio Device provisioning (DPS) per le app back-end. Include informazioni sui token di sicurezza."
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79285149"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controllo dell'accesso al servizio Device Provisioning in hub IoT di Azure
@@ -32,14 +32,14 @@ L'articolo illustra:
 
 Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è possibile procedere nei modi seguenti:
 
-* **Criteri**di autorizzazione di accesso condiviso . I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#device-provisioning-service-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del servizio Device Provisioning][lnk-resource-provider-apis]. Un servizio di provisioning appena creato ha i criteri predefiniti seguenti:
+* **Criteri di autorizzazione dell'accesso condiviso**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#device-provisioning-service-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del servizio Device Provisioning][lnk-resource-provider-apis]. Un servizio di provisioning appena creato ha i criteri predefiniti seguenti:
 
 * **provisioningserviceowner**: criteri con tutte le autorizzazioni.
 
 > [!NOTE]
 > Per informazioni dettagliate, vedere [Autorizzazioni](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Servizio Device Provisioning in hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso. Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
 

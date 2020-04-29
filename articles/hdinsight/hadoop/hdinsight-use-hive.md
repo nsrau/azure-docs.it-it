@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471354"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Cosa sono Apache Hive e HiveQL in Azure HDInsight
 
-[Apache Hive](https://hive.apache.org/) è un sistema di data warehouse per Apache Hadoop. Hive consente di eseguire attività di riepilogo, query e analisi dei dati. Le query di Hive sono scritte in HiveQL, linguaggio di query simile a SQL.
+[Apache hive](https://hive.apache.org/) è un sistema data warehouse per Apache Hadoop. Hive consente di eseguire attività di riepilogo, query e analisi dei dati. Le query di Hive sono scritte in HiveQL, linguaggio di query simile a SQL.
 
 Hive consente di proiettare la struttura su dati principalmente non strutturati. Dopo aver definito la struttura, è possibile usare HiveQL per eseguire una query sui dati anche senza alcuna conoscenza di Java o MapReduce.
 
@@ -37,15 +37,15 @@ Consultare la tabella seguente per informazioni sui vari modi in cui è possibil
 | **Usare questo metodo** se si vuole... | ...**query** interattive | ... elaborazione **batch** | ...da questo **sistema operativo client** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Strumenti di HDInsight per Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X o Windows |
-| [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |WINDOWS |
-| [Visualizzazione Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Qualsiasi versione (basata su browser) |
+| [Strumenti HDInsight per Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
+| [Visualizzazione hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Qualsiasi versione (basata su browser) |
 | [Client Beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X o Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X o Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |WINDOWS |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 ## <a name="hiveql-language-reference"></a>Informazioni di riferimento sul linguaggio HiveQL
 
-Informazioni di riferimento sulla lingua HiveQL sono disponibili nel manuale della [lingua.](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Informazioni di riferimento sul linguaggio HiveQL sono disponibili nel [manuale della lingua](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Hive e la struttura dei dati
 
@@ -86,7 +86,7 @@ Con Hive è possibile creare due tipi di tabelle:
     * I dati vengono usati anche all'esterno di Hive. Ad esempio, i file di dati vengono aggiornati da un altro processo (che non blocca i file).
     * I dati devono rimanere nel percorso sottostante, anche dopo l'eliminazione della tabella.
     * È necessario un percorso personalizzato, ad esempio un account di archiviazione non predefinito.
-    * Un programma diverso dall'hive gestisce il formato dei dati, la posizione e così via.
+    * Un programma diverso da hive gestisce il formato dati, la posizione e così via.
 
 Per altre informazioni, vedere il post di blog [Hive Internal and External Tables Intro](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) (Introduzione alle tabelle interne ed esterne di Hive).
 
@@ -134,11 +134,11 @@ Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 |. |Descrizione |
 |---|---|
 |DROP TABLE|se la tabella esiste già, la elimina.|
-|CREA TABELLA ESTERNA|Crea una nuova tabella **esterna** in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso e nel formato originale.|
-|FORMATO RIGA|indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.|
-|MEMORIZZATO COME PERCORSO FILE DI TESTO|Indica a Hive dove sono `example/data` archiviati i dati (la directory) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.|
+|CREATE EXTERNAL TABLE|Crea una nuova tabella **esterna** in hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso e nel formato originale.|
+|FORMATO DI RIGA|indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.|
+|ARCHIVIATO COME PERCORSO DI TEXTFILE|Indica a hive dove sono archiviati i dati ( `example/data` la directory) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.|
 |SELECT|seleziona un conteggio di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]**. L'istruzione restituisce un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.|
-|INPUT__FILE__NAME LIKE '%.log'|Hive tenta di applicare lo schema a tutti i file nella directory. In questo caso, la directory contiene file che non corrispondono allo schema. Per evitare dati errati nei risultati, questa istruzione indica a Hive che devono essere restituiti dati solo da file che terminano con .log.|
+|INPUT__FILE__NAME LIKE '%. log '|Hive tenta di applicare lo schema a tutti i file nella directory. In questo caso, la directory contiene file che non corrispondono allo schema. Per evitare dati errati nei risultati, questa istruzione indica a Hive che devono essere restituiti dati solo da file che terminano con .log.|
 
 > [!NOTE]  
 > Usa le tabelle esterne se si prevede che i dati sottostanti verranno aggiornati da un'origine esterna. Ad esempio, un processo di caricamento dati automatizzato o un'operazione MapReduce.
@@ -166,8 +166,8 @@ Le istruzioni eseguono queste azioni:
 
 |. |Descrizione |
 |---|---|
-|CREA TABELLA SE NON ESISTE|Se la tabella non esiste, crearla. Poiché la parola chiave **EXTERNAL** non viene utilizzata, questa istruzione crea una tabella interna. La tabella viene archiviata nel data warehouse di Hive e gestita completamente da Hive.|
-|STORED AS ORC|archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.|
+|CREATE TABLE SE NON ESISTE|Se la tabella non esiste, crearla. Poiché non viene usata la parola chiave **External** , questa istruzione crea una tabella interna. La tabella viene archiviata nel data warehouse di Hive e gestita completamente da Hive.|
+|ARCHIVIATO COME ORC|archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.|
 |INSERISCI SOVRASCRITTURA... Selezionare|seleziona dalla tabella**log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.|
 
 > [!NOTE]  
@@ -177,7 +177,7 @@ Le istruzioni eseguono queste azioni:
 
 ### <a name="apache-tez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) è un framework che consente di eseguire applicazioni come Hive, che richiedono un uso elevato di dati, in modo molto più efficiente e scalabile. Tez è abilitato per impostazione predefinita.  La [documentazione sulla progettazione di Apache Hive su Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contiene le informazioni dettagliate sulle scelte di implementazione e l'ottimizzazione delle configurazioni.
+[Apache Tez](https://tez.apache.org) è un framework che consente di eseguire applicazioni come Hive, che richiedono un uso elevato di dati, in modo molto più efficiente e scalabile. TeZ è abilitato per impostazione predefinita.  La [documentazione sulla progettazione di Apache Hive su Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contiene le informazioni dettagliate sulle scelte di implementazione e l'ottimizzazione delle configurazioni.
 
 ### <a name="low-latency-analytical-processing-llap"></a>Low Latency Analytical Processing (LLAP)
 
@@ -197,7 +197,7 @@ Azure Data Factory consente di usare HDInsight come parte di una pipeline di Dat
 
 È possibile usare SQL Server Integration Services (SSIS) per eseguire un processo Hive. Il Feature Pack di Azure per SSIS fornisce i seguenti componenti che funzionano con i processi Hive in HDInsight.
 
-* [Attività di Hive di Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Attività Hive di Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
 * [Gestione connessione della sottoscrizione di Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
@@ -211,6 +211,6 @@ Apache Oozie è un sistema di coordinamento dei flussi di lavoro che consente di
 
 Dopo avere appreso che cos'è Hive e come si usa con Hadoop in HDInsight, vedere i collegamenti seguenti per scoprire altri modi di usare Azure HDInsight.
 
-* [Caricare i dati in HDInsightUpload data to HDInsight](../hdinsight-upload-data.md)
+* [Caricare i dati in HDInsight](../hdinsight-upload-data.md)
 * [Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight](./python-udf-hdinsight.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)

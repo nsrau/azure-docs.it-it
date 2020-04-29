@@ -8,10 +8,10 @@ ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472742"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
@@ -655,7 +655,7 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 | properties.recommendationImpact| Impatto della raccomandazione. I valori possibili sono "High", "Medium", "Low" |
 | properties.recommendationRisk| Rischio della raccomandazione. I valori possibili sono "Error", "Warning", "None" |
 
-## <a name="policy"></a>Condizione
+## <a name="policy"></a>Policy
 
 Questa categoria include i record di tutte le operazioni relative ad azioni effetto eseguite da [Criteri di Azure](../../governance/policy/overview.md). Esempi di tipi di eventi visualizzati in questa categoria includono _Audit_ e _Deny_. Ogni azione eseguita da Criteri viene modellata come operazione su una risorsa.
 

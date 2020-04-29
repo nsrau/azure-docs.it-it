@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284278"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
@@ -64,10 +64,10 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 Proprietari e utenti possono essere aggiunti a livello di lab tramite il portale di Azure. Un utente può essere un utente esterne con un [account Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account)valido.
 Il processo di aggiunta di un proprietario o di un utente a un lab in Azure DevTest Labs prevede i passaggi seguenti:
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
-2. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. Selezionare **tutti i servizi**, quindi selezionare **DevTest Labs** dall'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.
-4. Nel pannello del lab selezionare **Configurazione e criteri**. 
+4. Nel pannello del Lab selezionare **configurazione e criteri**. 
 5. Nella pagina **Configurazione e criteri** selezionare **Controllo di accesso (IAM)** nel menu a sinistra. 
 6. Selezionare **Aggiungi un'assegnazione di ruolo** sulla barra degli strumenti per aggiungere un utente a un ruolo.
 1. Nella finestra **Aggiungi autorizzazioni** eseguire queste operazioni: 
@@ -119,13 +119,13 @@ Le autorizzazioni di Azure vengono propagate dall'ambito padre all'ambito figlio
 
 Per aggiungere un proprietario a una sottoscrizione di Azure, seguire questi passaggi:
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **Sottoscrizioni** dall'elenco.
 3. Selezionare la sottoscrizione da usare.
 4. Selezionare l'icona **Accesso** . 
    
     ![Utenti di accesso](./media/devtest-lab-add-devtest-user/access-users.png)
-5. Nel pannello **Utenti** selezionare **Aggiungi**.
+5. Nel pannello **utenti** selezionare **Aggiungi**.
    
     ![Add User](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 6. Nel pannello **Selezionare un ruolo** selezionare **Proprietario**.

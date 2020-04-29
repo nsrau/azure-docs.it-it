@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271967"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Eccezioni OutOfMemoryError per Apache Spark in Azure HDInsight
@@ -56,7 +56,7 @@ java.lang.OutOfMemoryError
 
 La causa più probabile per questa eccezione è costituita dall'allocazione di memoria heap insufficiente alle macchine virtuali Java (JVM). Questi JVM vengono avviati come Executor o driver come parte dell'applicazione Apache Spark.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Determinare le dimensioni massime dei dati che possono essere gestiti dall'applicazione Spark. Eseguire una stima delle dimensioni in base al valore massimo della dimensione dei dati di input, i dati intermedi prodotti dalla trasformazione dei dati di input e dei dati di output prodotte ulteriormente la trasformazione dei dati intermedi. Se la stima iniziale non è sufficiente, aumentare leggermente le dimensioni e scorrere fino a quando non si verificano errori di memoria.
 
@@ -114,7 +114,7 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 **2.1 G**  wasb:///hdp/spark2-events/application_1503957839788_0264_1
 ```
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 È possibile aumentare la memoria del server della cronologia di Spark `SPARK_DAEMON_MEMORY` modificando la proprietà nella configurazione di Spark e riavviando tutti i servizi.
 
@@ -200,7 +200,7 @@ Quando il server Livio si interrompe in modo imprevisto, vengono interrotte anch
 
 Quando un numero elevato di processi viene inviato tramite Titone, come parte della disponibilità elevata per il server Livio archivia questi stati di sessione in ZK (nei cluster HDInsight) e recupera tali sessioni quando il servizio Livio viene riavviato. Al riavvio dopo la terminazione imprevista, Livio crea un thread per sessione e questo accumula un certo numero di sessioni da ripristinare, causando la creazione di troppi thread.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Eliminare tutte le voci usando i passaggi descritti di seguito.
 
