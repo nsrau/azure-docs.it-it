@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430890"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
@@ -65,7 +65,7 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
 - 3xx – Redirection (Reindirizzamento): può essere restituito il messaggio 304 "Not Modified" (Non modificato) per soddisfare un'operazione GET condizionale. Altri codici 3xx potranno essere usati in futuro per indicare modifiche di DNS e percorso.  
 
-- 4xx – Errore client: utilizzato per richieste non valide, chiavi mancanti, errori di sintassi, parametri non validi, errori di autenticazione e così via. Il corpo della risposta conterrà una spiegazione dettagliata dell'errore.  
+- 4xx-Errore del client: usato per richieste non corrette, chiavi mancanti, errori di sintassi, parametri non validi, errori di autenticazione e così via. Il corpo della risposta conterrà una spiegazione dettagliata dell'errore.  
 
 - 5xx – Server Error (Errore server): usato per errori interni del server. L'organo di risposta contiene informazioni riassuntive sull'errore.  
 
@@ -88,7 +88,7 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
 ```  
 
-## <a name="authentication"></a>Authentication  
+## <a name="authentication"></a>Autenticazione  
  Tutte le richieste inviate ad Azure Key Vault DEVONO essere autenticate. Azure Key Vault supporta i token di accesso di Azure Active Directory che possono essere ottenuti tramite OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Per altre informazioni sulla registrazione dell'applicazione e l'autenticazione per l'uso di Azure Key Vault, vedere [Registrare l'applicazione client con Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
@@ -113,5 +113,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: indirizzo del servizio di autorizzazione OAuth2 che può essere usato per ottenere un token di accesso per la richiesta.  
 
--   resource: il nome della`https://vault.azure.net`risorsa ( ) da utilizzare nella richiesta di autorizzazione.  
+-   Resource: nome della risorsa (`https://vault.azure.net`) da usare nella richiesta di autorizzazione.  
 

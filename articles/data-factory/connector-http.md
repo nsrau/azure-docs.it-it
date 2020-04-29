@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da un'origine HTTP tramite Azure Data FactoryCopy data from an HTTP source by using Azure Data Factory
+title: Copiare dati da un'origine HTTP usando Azure Data Factory
 description: Informazioni su come copiare dati da un'origine HTTP locale o cloud in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416947"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP tramite Azure Data Factory
@@ -36,10 +36,10 @@ La differenza tra questo connettore HTTP, il [connettore REST](connector-rest.md
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore HTTP è supportato per le attività seguenti:This HTTP connector is supported for the following activities:
+Questo connettore HTTP è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un'origine HTTP in qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati dall'attività di copia come origini e sink, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -68,11 +68,11 @@ Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su **HttpServer**. | Sì |
+| type | La proprietà **Type** deve essere impostata su **HttpServer**. | Sì |
 | url | URL di base del server Web. | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato TLS/SSL del server quando ci si connette a un endpoint HTTP. Se il server HTTPS usa un certificato autofirmato, impostare questa proprietà su **false**. | No<br /> (il valore predefinito è **true**) |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Vedere le sezioni seguenti per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [Prerequisiti.](#prerequisites) Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando l'autenticazione Basic, Digest o Windows
 
@@ -120,11 +120,11 @@ Per usare l'autenticazione ClientCertificate, impostare la proprietà **authenti
 Se si usa **certThumbprint** per l'autenticazione e il certificato è installato nell'archivio personale del computer locale, concedere l'autorizzazione di lettura al runtime di integrazione self-hosted:
 
 1. Aprire Microsoft Management Console (MMC). Aggiungere lo snap-in **Certificati** con **Computer locale** come destinazione.
-2. Espandere **Certificati** > **personali**, quindi selezionare **Certificati**.
-3. Fare clic con il pulsante destro del mouse sul certificato dell'archivio personale e quindi scegliere **Tutte le attività** > **Gestisci chiavi private**.
+2. Espandere **Certificates** > **Personal**, quindi selezionare **Certificates**.
+3. Fare clic con il pulsante destro del mouse sul certificato nell'archivio personale, quindi selezionare **tutte le attività** > **Gestisci chiavi private**.
 3. Nella scheda **Sicurezza** aggiungere l'account utente in cui è in esecuzione il servizio host di Integration Runtime (DIAHostService), con l'accesso in lettura al certificato.
 
-**Esempio 1: Utilizzo di certThumbprintExample 1: Using certThumbprint**
+**Esempio 1: uso di certThumbprint**
 
 ```json
 {
@@ -144,7 +144,7 @@ Se si usa **certThumbprint** per l'autenticazione e il certificato è installato
 }
 ```
 
-**Esempio 2: Utilizzo di embeddedCertDataExample 2: Using embeddedCertData**
+**Esempio 2: uso di embeddedCertData**
 
 ```json
 {
@@ -170,16 +170,16 @@ Se si usa **certThumbprint** per l'autenticazione e il certificato è installato
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di](concepts-datasets-linked-services.md) dati. 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere l'articolo [set di impostazioni](concepts-datasets-linked-services.md) . 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Le proprietà seguenti sono `location` supportate per HTTP nelle impostazioni nel set di dati basato su formato:The following properties are supported for HTTP under settings in format-based dataset:
+Le proprietà seguenti sono supportate per HTTP in `location` impostazioni nel set di dati basato sul formato:
 
 | Proprietà    | Descrizione                                                  | Obbligatoria |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | La proprietà `location` type in nel dataset deve essere impostata su **HttpServerLocation**. | Sì      |
-| relativeUrl | URL relativo della risorsa che contiene i dati. Il connettore HTTP copia i `[URL specified in linked service][relative URL specified in dataset]`dati dall'URL combinato: .   | No       |
+| type        | La proprietà Type `location` nel set di dati deve essere impostata su **HttpServerLocation**. | Sì      |
+| relativeUrl | URL relativo della risorsa che contiene i dati. Il connettore HTTP copia i dati dall'URL combinato: `[URL specified in linked service][relative URL specified in dataset]`.   | No       |
 
 > [!NOTE]
 > Le dimensioni del payload della richiesta HTTP supportate sono circa 500 KB. Se le dimensioni del payload da passare all'endpoint Web sono maggiori di 500 KB, provare a inviare in batch il payload in blocchi più piccoli.
@@ -220,16 +220,16 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Le seguenti proprietà sono `storeSettings` supportate per HTTP nelle impostazioni nell'origine di copia basata sul formato:
+Le proprietà seguenti sono supportate per HTTP in `storeSettings` impostazioni in origine copia basata sul formato:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà `storeSettings` type in deve essere impostata su **HttpReadSettings**. | Sì      |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **HttpReadSettings**. | Sì      |
 | requestMethod            | Metodo HTTP. <br>I valori consentiti sono **Get** (predefinito) e **Post**. | No       |
-| addtionalHeaders (Intestazioni aggiuntive)         | Intestazioni richiesta HTTP aggiuntive.                             | No       |
+| addtionalHeaders         | Intestazioni richiesta HTTP aggiuntive.                             | No       |
 | requestBody              | Corpo della richiesta HTTP.                               | No       |
 | httpRequestTimeout           | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**. | No       |
-| maxConcurrentConnections | Numero di connessioni da connettere contemporaneamente all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
 
 **Esempio:**
 
@@ -272,20 +272,20 @@ Le seguenti proprietà sono `storeSettings` supportate per HTTP nelle impostazio
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="legacy-models"></a>Modelli legacy
 
 >[!NOTE]
->I modelli seguenti sono ancora supportati così come sono per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello indicato nelle sezioni precedenti in futuro e l'interfaccia utente di creazione di ADF è passata alla generazione del nuovo modello.
+>I modelli seguenti sono ancora supportati così come sono per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nelle sezioni precedenti in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-### <a name="legacy-dataset-model"></a>Modello di set di dati legacy
+### <a name="legacy-dataset-model"></a>Modello DataSet legacy
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del dataset deve essere impostata su **HttpFile**. | Sì |
+| type | La proprietà **Type** del set di dati deve essere impostata su **HttpFile**. | Sì |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. | No |
 | requestMethod | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | No |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No |
@@ -339,7 +339,7 @@ Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata **su HttpSource**. | Sì |
+| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **HttpSource**. | Sì |
 | httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**.  | No |
 
 **Esempio**

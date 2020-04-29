@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417216"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Attività filtro in Azure Data Factory
@@ -46,7 +46,7 @@ items | Matrice di input a cui deve essere applicato il filtro. | Expression | S
 
 ## <a name="example"></a>Esempio
 
-In questo esempio, la pipeline contiene due attività: **Filter** e **ForEach**. L'attività filtro è configurata per filtrare la matrice di input per gli elementi con un valore maggiore di 3. L'attività ForEach scorre quindi i valori filtrati e imposta la variabile **test** sul valore corrente.
+In questo esempio, la pipeline contiene due attività: **Filter** e **ForEach**. L'attività filtro è configurata per filtrare la matrice di input per gli elementi con un valore maggiore di 3. L'attività ForEach scorre quindi i valori filtrati e imposta il **test** della variabile sul valore corrente.
 
 ```json
 {

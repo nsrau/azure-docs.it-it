@@ -1,6 +1,6 @@
 ---
 title: Uso delle stored procedure
-description: Suggerimenti per l'implementazione di stored procedure nel pool SQL Synapse (data warehouse) per lo sviluppo di soluzioni.
+description: Suggerimenti per l'implementazione di stored procedure nel pool SQL sinapsi (data warehouse) per lo sviluppo di soluzioni.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,29 +11,29 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: a431df1ff4ef0984d1197933e7ca78979fa23089
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430981"
 ---
-# <a name="using-stored-procedures-in-sql-pool"></a>Utilizzo di stored procedure nel pool SQLUsing stored procedures in SQL pool
+# <a name="using-stored-procedures-in-sql-pool"></a>Utilizzo di stored procedure nel pool SQL
 
-Suggerimenti per l'implementazione di stored procedure nel pool SQL Synapse (data warehouse) per lo sviluppo di soluzioni.
+Suggerimenti per l'implementazione di stored procedure nel pool SQL sinapsi (data warehouse) per lo sviluppo di soluzioni.
 
 ## <a name="what-to-expect"></a>Cosa aspettarsi
 
-SQL pool supports many of the T-SQL features that are used in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione.
+Il pool SQL supporta molte delle funzionalità T-SQL usate in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione.
 
-Tuttavia, per mantenere la scalabilità e le prestazioni del pool SQL sono disponibili anche alcune funzionalità e differenze di comportamento e altre non supportate.
+Tuttavia, per mantenere la scalabilità e le prestazioni del pool SQL sono disponibili anche alcune funzionalità e funzionalità con differenze comportamentali e altre che non sono supportate.
 
 ## <a name="introducing-stored-procedures"></a>Introduzione alle stored procedure
 
 Le stored procedure sono un ottimo modo per incapsulare il codice SQL, archiviandolo vicino i dati nel data warehouse. Le stored procedure consentono agli sviluppatori di rendere modulari le soluzioni incapsulando il codice in unità gestibili, facilitano così il riutilizzo del codice stesso. Ogni stored procedure può anche accettare parametri per essere ancora più flessibile.
 
-Il pool SQL fornisce un'implementazione semplificata e semplificata delle stored procedure. La differenza principale rispetto a SQL Server è che la stored procedure non è codice precompilato. Nei data warehouse il tempo di compilazione è limitato rispetto al tempo necessario per eseguire query su grandi volumi di dati. È più importante assicurarsi che il codice della stored procedure sia correttamente ottimizzato per le query di grandi dimensioni. L'obiettivo consiste nel risparmiare ore, minuti e secondi, non millisecondi. È quindi più utile pensare alle stored procedure come contenitori per la logica di SQL.
+Il pool SQL fornisce un'implementazione di stored procedure semplificata e semplificata. La differenza principale rispetto a SQL Server è che la stored procedure non è codice precompilato. Nei data warehouse il tempo di compilazione è limitato rispetto al tempo necessario per eseguire query su grandi volumi di dati. È più importante assicurarsi che il codice della stored procedure sia correttamente ottimizzato per le query di grandi dimensioni. L'obiettivo consiste nel risparmiare ore, minuti e secondi, non millisecondi. È quindi più utile pensare alle stored procedure come contenitori per la logica di SQL.
 
-Quando il pool SQL esegue la stored procedure, le istruzioni SQL vengono analizzate, convertite e ottimizzate in fase di esecuzione. Durante questo processo ogni istruzione viene convertita in query distribuite. Il codice SQL eseguito sui dati è diverso dalla query inviata.
+Quando il pool SQL esegue il stored procedure, le istruzioni SQL vengono analizzate, convertite e ottimizzate in fase di esecuzione. Durante questo processo ogni istruzione viene convertita in query distribuite. Il codice SQL eseguito sui dati è diverso dalla query inviata.
 
 ## <a name="nesting-stored-procedures"></a>Annidamento di stored procedure
 
@@ -68,15 +68,15 @@ EXEC prc_nesting
 ```
 
 > [!NOTE]
-> Il pool SQL non supporta attualmente [.@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) È necessario tenere traccia del livello di annidamento. È improbabile superare il limite di otto livelli di annidamento, ma se lo si fa, è necessario rielaborare il codice per adattare i livelli di annidamento entro tale limite.
+> Il pool SQL attualmente non supporta [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). È necessario tenere traccia del livello di annidamento. È improbabile superare il limite di otto livelli di annidamento, ma se lo si fa, è necessario rielaborare il codice per adattare i livelli di annidamento entro tale limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Il pool SQL non consente di utilizzare il set di risultati di una stored procedure con un'istruzione INSERT. Si può tuttavia un approccio alternativo. Per un esempio, vedere l'articolo sulle [tabelle temporanee](develop-tables-temporary.md).
+Il pool SQL non consente di utilizzare il set di risultati di un stored procedure con un'istruzione INSERT. Si può tuttavia un approccio alternativo. Per un esempio, vedere l'articolo sulle [tabelle temporanee](develop-tables-temporary.md).
 
 ## <a name="limitations"></a>Limitazioni
 
-Esistono alcuni aspetti delle stored procedure Transact-SQLTransact-SQL che non vengono implementate nel pool SQL.
+Esistono alcuni aspetti delle stored procedure Transact-SQL che non sono implementate nel pool SQL.
 
 ovvero:
 

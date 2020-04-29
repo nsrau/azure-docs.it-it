@@ -1,6 +1,6 @@
 ---
-title: Eseguire query sui file di parquet tramite SQL su richiesta (anteprima)Query Parquet files using SQL on-demand (preview)
-description: In questo articolo verrà illustrato come eseguire query sui file di parquet utilizzando SQL su richiesta (anteprima).
+title: Eseguire query su file parquet con SQL su richiesta (anteprima)
+description: Questo articolo illustra come eseguire query su file parquet usando SQL su richiesta (anteprima).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,50 +10,50 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 0b272a8c8ce81fc40585014e5930f5d7b1b5f2c0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431696"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query sui file di parquet usando SQL su richiesta (anteprima) in Azure Synapse Analytics
+# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file parquet usando SQL su richiesta (anteprima) in Azure sinapsi Analytics
 
-In questo articolo verrà illustrato come scrivere una query utilizzando SQL su richiesta (anteprima) che leggerà i file di parquet.
+In questo articolo verrà illustrato come scrivere una query usando SQL su richiesta (anteprima) che leggerà i file parquet.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di leggere il resto di questo articolo, leggere i seguenti articoli:
+Prima di leggere il resto di questo articolo, vedere gli articoli seguenti:
 
-- [Configurazione al primo tempo](query-data-storage.md#first-time-setup)
+- [Prima configurazione](query-data-storage.md#first-time-setup)
 - [Prerequisiti](query-data-storage.md#prerequisites)
 
 ## <a name="dataset"></a>Set di dati
 
-È possibile eseguire una query sui file Parquet nello stesso modo in cui si leggono i file CSV. L'unica differenza è che il parametro FILEFORMAT deve essere impostato su PARQUET. Esempi in questo articolo mostrano le specifiche di lettura dei file di parquet.
+È possibile eseguire query su file parquet nello stesso modo in cui si leggono i file CSV. L'unica differenza è che il parametro FileFormat deve essere impostato su PARQUET. Gli esempi in questo articolo illustrano le specifiche relative alla lettura di file parquet.
 
 > [!NOTE]
-> Non è necessario specificare colonne nella clausola OPENROWSET WITH durante la lettura dei file di parquet. SQL su richiesta utilizzerà i metadati nel file Parquet e le colonne di associazione in base al nome.
+> Non è necessario specificare le colonne nella clausola OPENROWSET WITH durante la lettura dei file parquet. SQL su richiesta utilizzerà i metadati nel file parquet e legherà le colonne in base al nome.
 
-Si utilizzerà la cartella *parquet/taxi* per le query di esempio. Contiene i dati di NYC Taxi - Yellow Taxi Trip Records di luglio 2016. giugno 2018.
+Per le query di esempio, si userà la cartella *parquet/taxi* . Contiene i dati relativi ai taxi di NYC Taxi-yellow Trip registrati dal 2016 luglio. al 2018 giugno.
 
-I dati vengono partizionati per anno e mese e la struttura delle cartelle è la seguente:
+I dati vengono partizionati per anno e mese e la struttura di cartelle è la seguente:
 
-- Anno 2016
-  - Mese n. 6
+- anno = 2016
+  - mese = 6
   - ...
-  - Mese 12
-- Anno 2017
-  - Mese n. 1
+  - mese = 12
+- anno = 2017
+  - mese = 1
   - ...
-  - Mese 12
-- Anno 2018
-  - Mese n. 1
+  - mese = 12
+- anno = 2018
+  - mese = 1
   - ...
-  - Mese n. 6
+  - mese = 6
 
-## <a name="query-set-of-parquet-files"></a>Set di query di file di parquet
+## <a name="query-set-of-parquet-files"></a>Set di query di file parquet
 
-È possibile specificare solo le colonne di interesse quando si esegue una query sui file di parquet.
+È possibile specificare solo le colonne di interesse quando si eseguono query sui file parquet.
 
 ```sql
 SELECT
@@ -78,12 +78,12 @@ ORDER BY
 
 ## <a name="automatic-schema-inference"></a>Inferenza automatica dello schema
 
-Non è necessario utilizzare la clausola OPENROWSET WITH durante la lettura dei file di parquet. I nomi di colonna e i tipi di dati vengono letti automaticamente dai file Parquet.
+Non è necessario usare la clausola OPENROWSET WITH durante la lettura dei file parquet. I nomi di colonna e i tipi di dati vengono letti automaticamente da file parquet.
 
-L'esempio seguente mostra le funzionalità di inferenza automatica dello schema per i file Diquet. Restituisce il numero di righe a settembre 2017 senza specificare uno schema.
+Nell'esempio seguente vengono illustrate le funzionalità di inferenza automatica dello schema per i file parquet. Restituisce il numero di righe di settembre 2017 senza specificare uno schema.
 
 > [!NOTE]
-> Non è necessario specificare colonne nella clausola OPENROWSET WITH durante la lettura dei file Diquet. In tal caso, il servizio query SQL su richiesta utilizzerà i metadati nel file di parquet e associa le colonne in base al nome.
+> Non è necessario specificare le colonne nella clausola OPENROWSET WITH durante la lettura dei file parquet. In tal caso, il servizio query SQL su richiesta utilizzerà i metadati nel file parquet e legherà le colonne in base al nome.
 
 ```sql
 SELECT
@@ -95,12 +95,12 @@ FROM
     ) AS nyc;
 ```
 
-### <a name="query-partitioned-data"></a>Eseguire query su dati partizionatiQuery partitioned data
+### <a name="query-partitioned-data"></a>Eseguire query sui dati partizionati
 
-Il set di dati fornito in questo esempio è suddiviso in sottocartelle separate. È possibile scegliere come destinazione partizioni specifiche utilizzando la funzione filepath. Questo esempio mostra gli importi delle tariffe per anno, mese e payment_type per i primi tre mesi del 2017.
+Il set di dati fornito in questo esempio viene diviso (partizionato) in sottocartelle separate. È possibile fare riferimento a partizioni specifiche usando la funzione FilePath. Questo esempio Mostra gli importi delle tariffe per anno, mese e payment_type per i primi tre mesi di 2017.
 
 > [!NOTE]
-> La query su richiesta SQL è compatibile con lo schema di partizionamento Hive/Hadoop.The SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
+> La query SQL su richiesta è compatibile con lo schema di partizionamento hive/Hadoop.
 
 ```sql
 SELECT
@@ -129,44 +129,44 @@ ORDER BY
 
 ## <a name="type-mapping"></a>Mapping dei tipi
 
-I file di parquet contengono descrizioni dei tipi per ogni colonna. Nella tabella seguente viene descritto come i tipi di parquet vengono mappati ai tipi nativi SQL.
+I file parquet contengono descrizioni dei tipi per ogni colonna. La tabella seguente descrive come viene eseguito il mapping dei tipi parquet ai tipi SQL nativi.
 
-| Tipo di parquet | Parquet tipo logico (annotazione) | Tipo di dati SQL |
+| Tipo parquet | Tipo logico parquet (annotazione) | Tipo di dati SQL |
 | --- | --- | --- |
 | BOOLEAN | | bit |
-| BINARY / BYTE_ARRAY | | varbinary |
+| BINARIO/BYTE_ARRAY | | varbinary |
 | DOUBLE | | float |
 | FLOAT | | real |
-| INT32 (inT32) | | INT |
+| INT32 | | INT |
 | INT64 | | bigint |
-| INT96 (inT96) | |datetime2 |
+| INT96 | |datetime2 |
 | FIXED_LEN_BYTE_ARRAY | |BINARY |
 | BINARY |UTF8 |varchar \*(regole di confronto UTF8) |
 | BINARY |STRING |varchar \*(regole di confronto UTF8) |
-| BINARY |Enum|varchar \*(regole di confronto UTF8) |
+| BINARY |ENUM|varchar \*(regole di confronto UTF8) |
 | BINARY |UUID |UNIQUEIDENTIFIER |
 | BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar(max) \*(regole di confronto UTF8) |
-| BINARY |BION |varbinary(max) |
+| BINARY |JSON |varchar (max) \*(regole di confronto UTF8) |
+| BINARY |BSON |varbinary(max) |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max), serializzato in formato standardizzato |
-| INT32 (inT32) |INT(8, vero) |SMALLINT |
-| INT32 (inT32) |INT(16, vero) |SMALLINT |
-| INT32 (inT32) |INT(32, vero) |INT |
-| INT32 (inT32) |INT(8, falso) |TINYINT |
-| INT32 (inT32) |INT(16, falso) |INT |
-| INT32 (inT32) |INT(32, falso) |bigint |
-| INT32 (inT32) |DATE |Data |
-| INT32 (inT32) |DECIMAL |decimal |
-| INT32 (inT32) |TEMPO (MILLIS)|time |
-| INT64 |INT(64, vero) |bigint |
-| INT64 |INT(64, falso ) |decimale(20,0) |
+| BYTE_ARRAY |INTERVAL |varchar (max), serializzato in formato standardizzato |
+| INT32 |INT (8, true) |SMALLINT |
+| INT32 |INT (16, true) |SMALLINT |
+| INT32 |INT (32, true) |INT |
+| INT32 |INT (8, false) |TINYINT |
+| INT32 |INT (16, false) |INT |
+| INT32 |INT (32, false) |bigint |
+| INT32 |DATE |Data |
+| INT32 |DECIMAL |decimal |
+| INT32 |TEMPO (MILLIS)|time |
+| INT64 |INT (64, true) |bigint |
+| INT64 |INT (64, false) |Decimal (20, 0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TEMPO (MICROS / NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Tipo complesso](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |INSERZIONE |varchar(max), serializzato in JSON |
-|[Tipo complesso](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serializzato in JSON |
+| INT64 |TEMPO (MICROS/NANO) |time |
+|INT64 |TIMESTAMP (MILLIS/MICROS/NANOS) |datetime2 |
+|[Tipo complesso](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |INSERZIONE |varchar (max), serializzato in JSON |
+|[Tipo complesso](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar (max), serializzato in JSON |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Passare all'articolo successivo per informazioni su come eseguire query sui [tipi nidificati](query-parquet-nested-types.md).
+Passare all'articolo successivo per informazioni su come [eseguire una query sui tipi annidati parquet](query-parquet-nested-types.md).

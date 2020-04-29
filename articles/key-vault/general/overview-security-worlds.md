@@ -1,6 +1,6 @@
 ---
 title: Scenari di sicurezza di Azure Key Vault | Microsoft Docs
-description: L'insieme di credenziali delle chiavi di Azure è un servizio multi-tenant. Usa un pool di HSM in ogni posizione di Azure.It uses a pool of HSMs in each Azure location. Tutte le posizioni in un'area geografica condividono un limite crittografico.
+description: Azure Key Vault è un servizio multi-tenant. Usa un pool di HSM in ogni località di Azure. Tutte le posizioni in un'area geografica condividono un limite crittografico.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -9,10 +9,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
 ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428953"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Scenari di sicurezza di Azure Key Vault e confini geografici
@@ -32,7 +32,7 @@ Ad esempio, un backup preso da una sottoscrizione data di una chiave in un insie
 
 ## <a name="regions-and-products"></a>Aree e prodotti
 
-- [Aree di AzureAzure regions](https://azure.microsoft.com/regions/)
+- [Aree di Azure](https://azure.microsoft.com/regions/)
 - [Prodotti Microsoft in base all'area](https://azure.microsoft.com/regions/services/)
 
 Le aree vengono mappate in scenari di sicurezza, visualizzati come intestazioni principali nelle tabelle:

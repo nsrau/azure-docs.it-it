@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da PostgreSQL usando Azure Data FactoryCopy data From PostgreSQL using Azure Data Factory
+title: Copiare dati da PostgreSQL usando Azure Data Factory
 description: Informazioni su come copiare dati da PostgreSQL in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
 ms.openlocfilehash: 6d10e7b9b24817eb738172bd0f2d2c3e7f8f2cbf
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416755"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiare i dati da PostgreSQL mediante Azure Data Factory
@@ -29,10 +29,10 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore PostgreSQL è supportato per le seguenti attività:
+Questo connettore PostgreSQL è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un database PostgreSQL in un qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -44,7 +44,7 @@ In particolare, questo connettore PostgreSQL supporta la **versione 7.4 e le ver
 
 Il runtime di integrazione offre un driver PostgreSQL predefinito a partire dalla versione 3.7 e non è quindi necessario installare manualmente alcun driver.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -58,14 +58,14 @@ Per il servizio collegato di PostgreSQL sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **PostgreSql** | Sì |
 | connectionString | Stringa di connessione ODBC per la connessione al Database di Azure per PostgreSQL. <br/>È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [Prerequisiti.](#prerequisites) Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 Una stringa di connessione tipica è `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Altre proprietà che è possibile impostare per il case:
 
-| Proprietà | Descrizione | Opzioni | Obbligatoria |
+| Proprietà | Descrizione | Options | Obbligatoria |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod (EM)| Il metodo usato dal driver per crittografare i dati inviati tra il driver e il server di database. Ad esempio.`EncryptionMethod=<0/1/6>;`| 0 (Nessuna crittografia) **(impostazione predefinita)** / 1 (SSL) / 6 (RequestSSL) | No |
-| ValidateServerCertificate (VSC) | Determina se il driver convalida il certificato inviato dal server di database quando è abilitata la crittografia SSL (metodo di crittografia = 1). Ad esempio.`ValidateServerCertificate=<0/1>;`| 0 (disabilitato) **(impostazione predefinita)** / 1 (abilitato) | No |
+| EncryptionMethod (EM)| Il metodo usato dal driver per crittografare i dati inviati tra il driver e il server di database. Ad esempio,`EncryptionMethod=<0/1/6>;`| 0 (Nessuna crittografia) **(impostazione predefinita)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidateServerCertificate (VSC) | Determina se il driver convalida il certificato inviato dal server di database quando è abilitata la crittografia SSL (metodo di crittografia = 1). Ad esempio,`ValidateServerCertificate=<0/1>;`| 0 (disabilitato) **(impostazione predefinita)** / 1 (abilitato) | No |
 
 **Esempio:**
 
@@ -141,14 +141,14 @@ Il servizio collegato PostgreSQL con il payload seguente è ancora supportato se
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di PostgreSQL.
 
-Per copiare i dati da PostgreSQL, sono supportate le seguenti proprietà:
+Per copiare dati da PostgreSQL, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **PostgreSqlTable** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **PostgreSqlTable** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | tabella | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
-| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Utilizzare `schema` `table` e per un nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e `table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -168,7 +168,7 @@ Per copiare i dati da PostgreSQL, sono supportate le seguenti proprietà:
 }
 ```
 
-Se si `RelationalTable` usa un set di dati tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Se si usa `RelationalTable` un set di dati tipizzato, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -176,11 +176,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="postgresql-as-source"></a>PostgreSQL come origine
 
-Per copiare i dati da PostgreSQL, nella sezione **dell'origine** dell'attività di copia sono supportate le seguenti proprietà:
+Per copiare dati da PostgreSQL, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **PostgreSqlSource** | Sì |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **PostgreSqlSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (se nel set di dati è specificato "tableName") |
 
 > [!NOTE]
@@ -218,11 +218,11 @@ Per copiare i dati da PostgreSQL, nella sezione **dell'origine** dell'attività 
 ]
 ```
 
-Se si `RelationalSource` utilizza l'origine digitata, questa è comunque supportata così com'è, mentre viene consigliato di utilizzare quella nuova in futuro.
+Se si usa `RelationalSource` l'origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

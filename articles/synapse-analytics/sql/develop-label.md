@@ -1,6 +1,6 @@
 ---
-title: Usare le etichette di query in Synapse SQLUse query labels in Synapse SQL
-description: In questo articolo sono inclusi suggerimenti essenziali per l'utilizzo di etichette di query in Synapse SQL.
+title: Usare le etichette delle query in sinapsi SQL
+description: Le informazioni contenute in questo articolo sono suggerimenti essenziali per l'uso delle etichette di query in sinapsi SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 47b476cbc6997ca5ec63968bdc269e2273662100
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430032"
 ---
-# <a name="use-query-labels-in-synapse-sql"></a>Usare le etichette di query in Synapse SQLUse query labels in Synapse SQL
-In questo articolo sono inclusi suggerimenti essenziali per l'utilizzo di etichette di query in Synapse SQL.
+# <a name="use-query-labels-in-synapse-sql"></a>Usare le etichette delle query in sinapsi SQL
+Le informazioni contenute in questo articolo sono suggerimenti essenziali per l'uso delle etichette di query in sinapsi SQL.
 
 > [!NOTE]
-> SQL on-demand (anteprima) non supporta le query di etichettatura.
+> SQL su richiesta (anteprima) non supporta l'assegnazione di etichette alle query.
 
-## <a name="what-are-query-labels"></a>Che cosa sono le etichette di query
+## <a name="what-are-query-labels"></a>Cosa sono le etichette delle query
 Il pool SQL supporta un concetto denominato etichette di query. Prima di approfondire il concetto, eccone un esempio:
 
 ```sql
@@ -34,11 +34,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-L'ultima riga contrassegna la stringa 'My Query Label' per la query. Questo tag è particolarmente utile in quanto l'etichetta suppor la query tramite le DMV. L'esecuzione di query per le etichette fornisce un meccanismo per individuare le query di problema e consente di identificare lo stato di avanzamento tramite un'esecuzione ELT.
+L'ultima riga contrassegna la stringa 'My Query Label' per la query. Questo tag è particolarmente utile in quanto l'etichetta suppor la query tramite le DMV. L'esecuzione di query per le etichette fornisce un meccanismo per individuare le query sui problemi e consente di identificare lo stato di avanzamento tramite un'esecuzione ELT.
 
-Una buona convenzione di denominazione è molto utile. Ad esempio, l'avvio dell'etichetta con PROJECT, PROCEDURE, STATEMENT o COMMENT identifica in modo univoco la query tra tutto il codice nel controllo del codice sorgente.
+Una buona convenzione di denominazione è molto utile. Ad esempio, se si avvia l'etichetta con PROJECT, PROCEDURE, istruzione o commento, viene identificata in modo univoco la query tra tutto il codice nel controllo del codice sorgente.
 
-La query seguente utilizza una vista a gestione dinamica per eseguire la ricerca in base all'etichetta:
+Nella query seguente viene utilizzata una vista a gestione dinamica per eseguire la ricerca in base all'etichetta:
 
 ```sql
 SELECT  *

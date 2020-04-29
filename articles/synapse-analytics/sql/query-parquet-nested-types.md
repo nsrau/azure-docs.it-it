@@ -1,6 +1,6 @@
 ---
-title: Query Parquet tipi nidificati utilizzando SQL su richiesta (anteprima)Query Parquet nested types using SQL on-demand (preview)
-description: In questo articolo verrà illustrato come eseguire query sui tipi nidificati di parquet.
+title: Eseguire query su tipi annidati parquet usando SQL su richiesta (anteprima)
+description: In questo articolo si apprenderà come eseguire una query sui tipi annidati parquet.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,26 +10,26 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: a1e3d3c7494aa75b3f6d481d12135316791772d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431657"
 ---
-# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Query Parquet nested types using SQL on-demand (preview) in Azure Synapse Analytics
+# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati parquet usando SQL su richiesta (anteprima) in Azure sinapsi Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics.  Questa query leggerà i tipi nidificati Parquet.
+Questo articolo illustra come scrivere una query usando SQL su richiesta (anteprima) in Azure sinapsi Analytics.  Questa query eseguirà la lettura di tipi annidati parquet.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di leggere il resto di questo articolo, leggere i seguenti articoli:
+Prima di leggere la parte restante di questo articolo, vedere gli articoli seguenti:
 
-- [Configurazione al primo tempo](query-data-storage.md#first-time-setup)
+- [Prima configurazione](query-data-storage.md#first-time-setup)
 - [Prerequisiti](query-data-storage.md#prerequisites)
 
-## <a name="project-nested-or-repeated-data"></a>Proiettare dati nidificati o ripetuti
+## <a name="project-nested-or-repeated-data"></a>Proiettare dati annidati o ripetuti
 
-La query seguente legge il file *justSimpleArray.parquet.* Proietta tutte le colonne del file Parquet inclusi i dati nidificati o ripetuti.
+La query seguente legge il file *justSimpleArray. parquet* . Proietta tutte le colonne del file parquet, inclusi i dati nidificati o ripetuti.
 
 ```sql
 SELECT
@@ -41,9 +41,9 @@ FROM
     ) AS [r];
 ```
 
-## <a name="access-elements-from-nested-columns"></a>Accedere agli elementi da colonne annidateAccess elements from nested columns
+## <a name="access-elements-from-nested-columns"></a>Accesso agli elementi di colonne annidate
 
-La query seguente legge il file *structExample.parquet* e mostra come esporre gli elementi di una colonna nidificata:
+Nella query seguente viene letto il file *structExample. parquet* e viene illustrato come visualizzare gli elementi di una colonna nidificata:
 
 ```sql
 SELECT
@@ -68,9 +68,9 @@ FROM
     ) AS [r];
 ```
 
-## <a name="access-elements-from-repeated-columns"></a>Accedere agli elementi da colonne ripetute
+## <a name="access-elements-from-repeated-columns"></a>Accesso agli elementi di colonne ripetute
 
-La query seguente legge il file *justSimpleArray.parquet* e [utilizza JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
+La query seguente legge il file *justSimpleArray. parquet* e USA [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
 
 ```sql
 SELECT
@@ -85,7 +85,7 @@ FROM
     ) AS [r];
 ```
 
-La query seguente legge il file *mapExample.parquet* e [utilizza JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **non scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
+La query seguente legge il file *mapExample. parquet* e USA [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **non scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
 
 ```sql
 SELECT
@@ -100,4 +100,4 @@ FROM
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il prossimo articolo ti mostrerà come eseguire query sui [file JSON.](query-json-files.md)
+Nell'articolo successivo verrà illustrato come eseguire una [query sui file JSON](query-json-files.md).

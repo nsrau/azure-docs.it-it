@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d0ada9c1e6b45b1be17b15b67f67fc64fc266203
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430877"
 ---
 # <a name="common-parameters-and-headers"></a>Parametri e intestazioni comuni
@@ -26,7 +26,7 @@ Le seguenti informazioni sono comuni a tutte le operazioni che è possibile eseg
 - Sostituire `{resource-group-name}` con il gruppo di risorse. Per altre informazioni, vedere Uso di gruppi di risorse per gestire le risorse di Azure.
 - Sostituire `{vault-name}` con il nome dell'insieme di credenziali delle chiavi nell'URI.
 - Impostare l'intestazione Content-Type su application/json.
-- Impostare l'intestazione dell'autorizzazione su un token JSON Web ottenuto da Azure Active Directory. Per altre informazioni, vedere Autenticazione delle richieste di Azure Resource Manager.For more information, see [Authenticating Azure Resource Manager](authentication-requests-and-responses.md) requests.
+- Impostare l'intestazione dell'autorizzazione su un token JSON Web ottenuto da Azure Active Directory. Per ulteriori informazioni, vedere [autenticazione](authentication-requests-and-responses.md) delle richieste di Azure Resource Manager.
 
 ## <a name="common-error-response"></a>Risposta di errore comune
 Il servizio userà i codici di stato HTTP per indicare l'esito positivo o negativo. Gli errori contengono inoltre una risposta nel formato seguente:
@@ -42,8 +42,8 @@ Il servizio userà i codici di stato HTTP per indicare l'esito positivo o negati
 
 |Nome dell'elemento | Type | Descrizione |
 |---|---|---|
-| codice | string | Il tipo di errore che si è verificato.|
-| message | string | Descrizione della causa dell'errore. |
+| code | stringa | Il tipo di errore che si è verificato.|
+| message | stringa | Descrizione della causa dell'errore. |
 
 
 

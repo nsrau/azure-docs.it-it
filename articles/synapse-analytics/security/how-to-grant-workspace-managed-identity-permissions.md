@@ -1,6 +1,6 @@
 ---
-title: Come concedere autorizzazioni all'identità gestita nell'area di lavoro di Azure SynapseHow to grant permissions to managed identity in Azure Synapse workspace
-description: Un articolo che spiega come configurare le autorizzazioni per l'identità gestita nell'area di lavoro di Azure Synapse.
+title: Come concedere le autorizzazioni per l'identità gestita nell'area di lavoro di Azure sinapsi
+description: Articolo che illustra come configurare le autorizzazioni per l'identità gestita nell'area di lavoro sinapsi di Azure.
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
@@ -8,114 +8,114 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9f519022fffe98c565c3b2d30f6578b9ebb70c57
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428017"
 ---
-# <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concedere autorizzazioni all'identità gestita dell'area di lavoro (anteprima)Grant permissions to workspace managed identity (preview)
+# <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concedere le autorizzazioni per l'identità gestita dell'area di lavoro (anteprima)
 
-Questo articolo illustra come concedere autorizzazioni all'identità gestita nell'area di lavoro di protezione di Azure.This article teaches you how to grant permissions to the managed identity in Azure synapse workspace. Le autorizzazioni, a loro volta, consentono l'accesso ai pool SQL nell'area di lavoro e all'account di archiviazione ADLS gen2 tramite il portale di Azure.Permissions, in turn, allow access to SQL pools in the workspace and ADLS gen2 storage account through the Azure portal.
+Questo articolo illustra come concedere le autorizzazioni per l'identità gestita nell'area di lavoro di sinapsi di Azure. Le autorizzazioni, a loro volta, consentono l'accesso ai pool SQL nell'area di lavoro e l'account di archiviazione ADLS Gen2 tramite il portale di Azure.
 
 >[!NOTE]
->Questa identità gestita dell'area di lavoro verrà definita identità gestita tramite il resto di questo documento.
+>A questa identità gestita dell'area di lavoro verrà fatto riferimento come identità gestita nel resto di questo documento.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Concedere le autorizzazioni di identità gestita al pool SQLGrant the managed identity permissions to the SQL pool
+## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Concedere le autorizzazioni di identità gestite al pool SQL
 
-L'identità gestita concede autorizzazioni ai pool SQL nell'area di lavoro. Con le autorizzazioni concesse, è possibile orchestrare le pipeline che eseguono attività correlate al pool SQL. Quando si crea un'area di lavoro di Azure Synapse usando il portale di Azure, è possibile concedere le autorizzazioni CONTROL di identità gestite nei pool SQL.
+L'identità gestita concede le autorizzazioni ai pool SQL nell'area di lavoro. Con le autorizzazioni concesse è possibile orchestrare le pipeline che eseguono attività correlate al pool SQL. Quando si crea un'area di lavoro di Azure sinapsi usando portale di Azure, è possibile concedere le autorizzazioni di controllo identità gestite nei pool SQL.
 
-Selezionare Sicurezza e rete quando si crea l'area di lavoro Synapse di Azure.Select **Security - networking** when you're creating your Azure Synapse workspace. Selezionare **quindi Concedi CONTROLLO all'identità gestita dell'area**di lavoro nei pool SQL.
+Selezionare **sicurezza e rete** quando si crea l'area di lavoro di Azure sinapsi. Selezionare quindi **Concedi controllo all'identità gestita dell'area di lavoro nei pool SQL**.
 
-![Autorizzazione CONTROL sui pool SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![Autorizzazione CONTROL per i pool SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
-## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Concedere le autorizzazioni di identità gestita all'account di archiviazione ADLS gen2Grant the managed identity permissions to ADLS gen2 storage account
+## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Concedere le autorizzazioni di identità gestite per l'account di archiviazione ADLS Gen2
 
-Per creare un'area di lavoro di Azure Synapse, è necessario un account di archiviazione gen2 ADLS.An ADLS gen2 storage account is required to create an Azure Synapse workspace. Per avviare correttamente i pool Spark nell'area di lavoro di Azure Synapse, l'identità gestita di Azure Synapse richiede il ruolo *Collaboratore dati BLOB* di archiviazione in questo account di archiviazione. Anche l'orchestrazione della pipeline in Azure Synapse trae vantaggio da questo ruolo.
+Per creare un'area di lavoro di Azure sinapsi, è necessario un account di archiviazione Gen2 di ADLS. Per avviare correttamente i pool Spark nell'area di lavoro sinapsi di Azure, l'identità gestita di Azure sinapsi richiede il ruolo di *collaboratore dati BLOB di archiviazione* per questo account di archiviazione. Anche l'orchestrazione della pipeline in Azure sinapsi trae vantaggio da questo ruolo.
 
-### <a name="grant-permissions-to-managed-identity-during-workspace-creation"></a>Concedere autorizzazioni all'identità gestita durante la creazione dell'area di lavoroGrant permissions to managed identity during workspace creation
+### <a name="grant-permissions-to-managed-identity-during-workspace-creation"></a>Concedere le autorizzazioni all'identità gestita durante la creazione dell'area di lavoro
 
-Azure Synapse tenterà di concedere il ruolo Collaboratore dati BLOB di archiviazione all'identità gestita dopo aver creato l'area di lavoro di Azure Synapse tramite il portale di Azure.Azure Synapse will attempt to grant the Storage Blob Data Contributor role to the managed identity after you create the Azure Synapse workspace using Azure portal. I dettagli dell'account di archiviazione gen2 di ADLS vengono forniti nella scheda **Nozioni di base.**
+La sinapsi di Azure tenterà di concedere al ruolo di collaboratore dati BLOB di archiviazione l'identità gestita dopo avere creato l'area di lavoro di Azure sinapsi usando portale di Azure. Specificare i dettagli dell'account di archiviazione ADLS Gen2 nella scheda **nozioni di base** .
 
-![Scheda Nozioni di base nel flusso di creazione dell'area di lavoro](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
+![Scheda nozioni fondamentali nel flusso di creazione dell'area di lavoro](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
 
-Scegliere l'account di archiviazione gen2 e il file system di ADLS in **Nome account** e Nome **file system**.
+Scegliere l'account di archiviazione ADLS Gen2 e il file System in **nome account** e **nome file System**.
 
-![Fornire i dettagli di un account di archiviazione adLS gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
+![Fornire i dettagli dell'account di archiviazione ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
-Se l'autore dell'area di lavoro è anche **proprietario** dell'account di archiviazione gen2 di ADLS, Azure Synapse assegnerà il ruolo *Storage Blob Data Contributor* all'identità gestita. Verrà visualizzato il messaggio seguente sotto i dettagli dell'account di archiviazione immesso.
+Se il creatore dell'area di lavoro è anche **proprietario** dell'account di archiviazione ADLS Gen2, Azure sinapsi assegnerà il ruolo di *collaboratore dati BLOB di archiviazione* all'identità gestita. Il messaggio seguente verrà visualizzato sotto i dettagli dell'account di archiviazione immesso.
 
-![Assegnazione del collaboratore dei dati BLOB di archiviazione riuscita](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-3.png)
+![Assegnazione di collaboratore dati BLOB di archiviazione riuscita](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-3.png)
 
-Se l'autore dell'area di lavoro non è il proprietario dell'account di archiviazione gen2 di ADLS, Azure Synapse non assegna il ruolo *Storage Blob Data Contributor* all'identità gestita. Il messaggio visualizzato sotto i dettagli dell'account di archiviazione notifica all'autore dell'area di lavoro che non dispone di autorizzazioni sufficienti per concedere il ruolo *Collaboratore dati BLOB* di archiviazione all'identità gestita.
+Se l'autore dell'area di lavoro non è il proprietario dell'account di archiviazione ADLS Gen2, Azure sinapsi non assegna il ruolo di *collaboratore dei dati BLOB di archiviazione* all'identità gestita. Il messaggio visualizzato sotto i dettagli dell'account di archiviazione notifica al creatore dell'area di lavoro che non dispongono di autorizzazioni sufficienti per concedere al ruolo di *collaboratore dati BLOB di archiviazione* l'identità gestita.
 
-![Assegnazione di collaboratori ai dati BLOB di archiviazione non riuscitaUnsuccessful Storage BLOB Data Contributor assignment](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-4.png)
+![Assegnazione di collaboratore dati BLOB di archiviazione non riuscita](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-4.png)
 
-Come indica il messaggio, non è possibile creare pool Spark a meno che il *collaboratore dei dati BLOB* di archiviazione non sia assegnato all'identità gestita.
+Come indicato nel messaggio, non è possibile creare pool Spark, a meno che il *collaboratore dati BLOB di archiviazione* non sia assegnato all'identità gestita.
 
-### <a name="grant-permissions-to-managed-identity-after-workspace-creation"></a>Concedere autorizzazioni per l'identità gestita dopo la creazione dell'area di lavoroGrant permissions to managed identity after workspace creation
+### <a name="grant-permissions-to-managed-identity-after-workspace-creation"></a>Concedere le autorizzazioni all'identità gestita dopo la creazione dell'area di lavoro
 
-Durante la creazione dell'area di lavoro, se non si assegna il *collaboratore* ai dati BLOB di archiviazione all'identità gestita, il **proprietario** dell'account di archiviazione ADLS gen2 assegna manualmente tale ruolo all'identità. I passaggi seguenti ti aiuteranno a svolgere l'assegnazione manuale.
+Durante la creazione dell'area di lavoro, se non si assegna il *collaboratore dei dati del BLOB di archiviazione* all'identità gestita, il **proprietario** dell'account di archiviazione ADLS Gen2 assegna manualmente tale ruolo all'identità. I passaggi seguenti consentiranno di eseguire l'assegnazione manuale.
 
-#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Passaggio 1: Passare all'account di archiviazione ADLS gen2 nel portale di AzureStep 1: Navigate to the ADLS gen2 storage account in Azure portal
+#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Passaggio 1: passare all'account di archiviazione ADLS Gen2 in portale di Azure
 
-Nel portale di Azure aprire l'account di archiviazione ADLS gen2 e selezionare **Panoramica** nel riquadro di spostamento sinistro. Sarà sufficiente assegnare il ruolo *Collaboratore dati BLOB di archiviazione* solo a livello di contenitore o file system. Selezionare **Contenitori**.  
-![Panoramica dell'account di archiviazione gen2 di ADLSADLS gen2 storage account overview](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
+In portale di Azure aprire l'account di archiviazione Gen2 di ADLS e selezionare **Panoramica** dal percorso di spostamento a sinistra. È necessario solo assegnare il ruolo di *collaboratore dei dati BLOB di archiviazione* a livello di contenitore o file System. Selezionare **Contenitori**.  
+![Panoramica dell'account di archiviazione Gen2 di ADLS](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
-#### <a name="step-2-select-the-container"></a>Passaggio 2: Selezionare il contenitoreStep 2: Select the container
+#### <a name="step-2-select-the-container"></a>Passaggio 2: selezionare il contenitore
 
-L'identità gestita deve disporre dell'accesso ai dati al contenitore (file system) fornito al momento della creazione dell'area di lavoro. È possibile trovare questo contenitore o file system nel portale di Azure.You can find this container or file system in Azure portal. Aprire l'area di lavoro Synapse di Azure nel portale di Azure e selezionare la scheda **Panoramica** nel riquadro di spostamento sinistro.
-![Contenitore di account di archiviazione gen2 di ADLSADLS gen2 storage account container](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-7.png)
+L'identità gestita deve avere accesso ai dati al contenitore (file system) fornito durante la creazione dell'area di lavoro. È possibile trovare questo contenitore o file system in portale di Azure. Aprire l'area di lavoro sinapsi di Azure in portale di Azure e selezionare la scheda **Panoramica** dal pannello di navigazione sinistro.
+![Contenitore dell'account di archiviazione Gen2 di ADLS](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-7.png)
 
 
-Selezionare lo stesso contenitore o file system per concedere il ruolo *Collaboratore dati BLOB di archiviazione* all'identità gestita.
-![Selezione del contenitore dell'account di archiviazione gen2 di ADLS](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+Selezionare lo stesso contenitore o file system per concedere al ruolo *collaboratore dati BLOB di archiviazione* l'identità gestita.
+![Selezione del contenitore dell'account di archiviazione ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
-#### <a name="step-3-navigate-to-access-control"></a>Passaggio 3: Passare al controllo di accessoStep 3: Navigate to Access control
+#### <a name="step-3-navigate-to-access-control"></a>Passaggio 3: passare a controllo di accesso
 
 Selezionare **Controllo di accesso (IAM)**.
 
-![Controllo accessi (IAM)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
+![Controllo di accesso (IAM)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
 
-#### <a name="step-4-add-a-new-role-assignment"></a>Passaggio 4: Aggiungere una nuova assegnazione di ruoloStep 4: Add a new role assignment
+#### <a name="step-4-add-a-new-role-assignment"></a>Passaggio 4: aggiungere una nuova assegnazione di ruolo
 
 Selezionare **+ Aggiungi**.
 
-![Aggiungere una nuova assegnazione di ruoloAdd new role assignment](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
+![Aggiungi nuova assegnazione di ruolo](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
-#### <a name="step-5-select-the-rbac-role"></a>Passaggio 5: Selezionare il ruolo Controllo degli accessi in base al ruoloStep 5: Select the RBAC role
+#### <a name="step-5-select-the-rbac-role"></a>Passaggio 5: selezionare il ruolo RBAC
 
-Selezionare il ruolo **Collaboratore dati BLOB di archiviazione.**
+Selezionare il ruolo **collaboratore dati BLOB di archiviazione** .
 
-![Selezionare il ruolo Controllo degli accessi in base al ruolo](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
+![Selezionare il ruolo RBAC](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
 
-#### <a name="step-6-select-the-azure-ad-security-principal"></a>Passaggio 6: Selezionare l'entità di sicurezza di Azure ADStep 6: Select the Azure AD security principal
+#### <a name="step-6-select-the-azure-ad-security-principal"></a>Passaggio 6: selezionare l'entità di sicurezza Azure AD
 
-Selezionare Utente, gruppo o entità servizio di Azure AD dall'elenco a discesa Assegna accesso a.Select **Azure AD user, group,** or service principal from the **Assign access to** drop down.
+Selezionare **Azure ad utente, gruppo o entità servizio** nell'elenco **a discesa assegna accesso a** .
 
-![Selezionare l'entità di sicurezza AADSelect AAD security principal](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
+![Selezionare l'entità di sicurezza di AAD](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
 
-#### <a name="step-7-search-for-the-managed-identity"></a>Passaggio 7: Cercare l'identità gestitaStep 7: Search for the managed identity
+#### <a name="step-7-search-for-the-managed-identity"></a>Passaggio 7: ricerca dell'identità gestita
 
-Il nome dell'identità gestita è anche il nome dell'area di lavoro. Cercare l'identità gestita immettendo il nome dell'area di lavoro Di Azure Synapse in **Seleziona**. Verrà visualizzata l'identità gestita nell'elenco.
+Il nome dell'identità gestita è anche il nome dell'area di lavoro. Per cercare l'identità gestita, immettere il nome dell'area di lavoro sinapsi di Azure in **Select**. Verrà visualizzata l'identità gestita elencata.
 
-![Trovare l'identità gestitaFind the managed identity](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
+![Trovare l'identità gestita](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
 
-#### <a name="step-8-select-the-managed-identity"></a>Passaggio 8: Selezionare l'identità gestitaStep 8: Select the managed identity
+#### <a name="step-8-select-the-managed-identity"></a>Passaggio 8: selezionare l'identità gestita
 
-Selezionare l'identità gestita per i **membri selezionati**. Selezionare **Salva** per aggiungere l'assegnazione di ruolo.
+Consente di selezionare l'identità gestita per i **membri selezionati**. Selezionare **Save (Salva** ) per aggiungere l'assegnazione di ruolo.
 
 ![Selezionare l'identità gestita](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-13.png)
 
-#### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>Passaggio 9: Verificare che il ruolo Collaboratore dati BLOB di archiviazione sia assegnato all'identità gestitaStep 9: Verify that the Storage Blob Data Contributor role is assigned to the managed identity
+#### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>Passaggio 9: verificare che il ruolo di collaboratore dati BLOB di archiviazione sia assegnato all'identità gestita
 
-Selezionare **Controllo di accesso (IAM)** e quindi **Assegnazioni di**ruolo .
+Selezionare **controllo di accesso (IAM)** , quindi selezionare **assegnazioni di ruolo**.
 
-![Verificare l'assegnazione dei ruoli](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
+![Verificare l'assegnazione di ruolo](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
 
-L'identità gestita dovrebbe essere elencata nella sezione **Collaboratore dati BLOB di archiviazione** con il ruolo *Collaboratore dati BLOB* di archiviazione assegnato. 
-![Selezione del contenitore dell'account di archiviazione gen2 di ADLS](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
+L'identità gestita dovrebbe essere elencata nella sezione **archiviazione dei dati BLOB di archiviazione** a cui è assegnato il ruolo di *collaboratore dei dati BLOB di archiviazione* . 
+![Selezione del contenitore dell'account di archiviazione ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni [sull'identità gestita dell'area di lavoro](./synapse-workspace-managed-identity.md)
+Altre informazioni sull' [identità gestita dell'area di lavoro](./synapse-workspace-managed-identity.md)

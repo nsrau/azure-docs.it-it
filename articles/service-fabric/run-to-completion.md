@@ -1,28 +1,28 @@
 ---
-title: RunToCompletion semantics in Service Fabric
-description: Descrive la semantica RunToCompletion in Service Fabric.
+title: Semantica di RunToCompletion in Service Fabric
+description: Descrive la semantica di RunToCompletion in Service Fabric.
 author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431293"
 ---
-# <a name="runtocompletion"></a>RunToCompletion (Completamento delle runToCompletion)
+# <a name="runtocompletion"></a>RunToCompletion
 
-A partire dalla versione 7.1, Service Fabric supporta la semantica **RunToCompletion** per [contenitori][containers-introduction-link] e applicazioni [eseguibili guest.][guest-executables-introduction-link] Questa semantica consente ad applicazioni e servizi che completano un'attività e terminano, a differenza di applicazioni e servizi sempre in esecuzione.
+A partire dalla versione 7,1, Service Fabric supporta la semantica **RunToCompletion** per [contenitori][containers-introduction-link] e applicazioni [eseguibili Guest][guest-executables-introduction-link] . Queste semantiche consentono alle applicazioni e ai servizi di completare un'attività e di uscire, al contrario, a eseguire sempre le applicazioni e i servizi.
 
-Prima di procedere con questo articolo, è consigliabile acquisire familiarità con il modello di [applicazione di Service Fabric][application-model-link] e il modello di hosting di Service [Fabric][hosting-model-link].
+Prima di procedere con questo articolo, è consigliabile acquisire familiarità con il [modello di applicazione Service Fabric][application-model-link] e con il [modello di hosting Service Fabric][hosting-model-link].
 
 > [!NOTE]
-> La semantica RunToCompletion non è attualmente supportata per i servizi scritti utilizzando il modello di programmazione Reliable Services.RunToCompletion semantics are currently not supported for services written using the [Reliable Services][reliable-services-link] programming model.
+> La semantica RunToCompletion non è attualmente supportata per i servizi scritti con il modello di programmazione [Reliable Services][reliable-services-link] .
  
 ## <a name="runtocompletion-semantics-and-specification"></a>Semantica e specifica RunToCompletion
-La semantica RunToCompletion può essere specificata come **ExecutionPolicy** durante [l'importazione di ServiceManifest][application-and-service-manifests-link]. I criteri specificati vengono ereditati da tutti i CodePackage che comprendono ServiceManifest. Il frammento ApplicationManifest.xml seguente fornisce un esempio.
+La semantica RunToCompletion può essere specificata come **ExecutionPolicy** durante [l'importazione di ServiceManifest][application-and-service-manifests-link]. Il criterio specificato viene ereditato da tutti i CodePackage che comprendono ServiceManifest. Il seguente frammento ApplicationManifest. XML fornisce un esempio.
 
 ```xml
 <ServiceManifestImport>
@@ -32,22 +32,22 @@ La semantica RunToCompletion può essere specificata come **ExecutionPolicy** du
   </Policies>
 </ServiceManifestImport>
 ```
-**ExecutionPolicy** consente i due attributi seguenti:ExecutionPolicy allows the following two attributes:
+**ExecutionPolicy** consente i due attributi seguenti:
 * **Tipo:** **RunToCompletion** è attualmente l'unico valore consentito per questo attributo.
-* **Riavviare:** Questo attributo specifica i criteri di riavvio applicati ai CodePackage che comprendono ServicePackage, in caso di errore. Un CodePackage in uscita con un codice di **uscita diverso da zero** è considerato non riuscito. I valori consentiti per questo attributo sono **OnFailure** e **Mai** con **OnFailure** come impostazione predefinita.
+* **Riavvio:** Questo attributo specifica i criteri di riavvio applicati ai CodePackage che comprendono ServicePackage, in caso di errore. Un CodePackage che termina con un **codice di uscita diverso da zero** viene considerato non riuscito. I valori consentiti per questo attributo sono **OnFailure** e **mai** con **OnFailure** come valore predefinito.
 
-Con i criteri di riavvio impostati **su OnFailure**, se un CodePackage ha esito negativo (codice di **uscita diverso da zero),** viene riavviato, con back-off tra errori ripetuti. Con il criterio di riavvio impostato su **Never**, se un CodePackage ha esito negativo, lo stato di distribuzione di DeployedServicePackage viene contrassegnato come **Failed** ma ad altri CodePackage è consentito continuare l'esecuzione. Se tutti i CodePackage che comprendono ServicePackage vengono eseguiti correttamente (codice di **uscita 0)**, lo stato di distribuzione di DeployedServicePackage viene contrassegnato come **RanToCompletion**. 
+Con i criteri di riavvio impostati su **OnFailure**, in caso di errore di un CodePackage **(codice di uscita diverso da zero)**, questo viene riavviato, con i back-off tra gli errori ripetuti. Con i criteri di riavvio impostati su **Never**, se si verifica un errore in un CodePackage, lo stato della distribuzione di DeployedServicePackage è contrassegnato come **failed** , ma è possibile continuare l'esecuzione di altri CodePackage. Se tutti i CodePackage che includono ServicePackage vengono eseguiti fino al completamento **(codice di uscita 0)**, lo stato della distribuzione di DeployedServicePackage è contrassegnato come **RanToCompletion**. 
 
-## <a name="complete-example-using-runtocompletion-semantics"></a>Esempio completo di utilizzo della semantica RunToCompletionComplete example using RunToCompletion semantics
+## <a name="complete-example-using-runtocompletion-semantics"></a>Esempio completo con la semantica RunToCompletion
 
-Esaminiamo un esempio completo usando la semantica RunToCompletion.Let's look at a complete example using RunToCompletion semantics.
+Viene ora esaminato un esempio completo che usa la semantica RunToCompletion.
 
 > [!IMPORTANT]
-> Nell'esempio seguente si presuppone la familiarità con la creazione di [applicazioni contenitore Windows utilizzando Service Fabric e Docker][containers-getting-started-link].
+> Nell'esempio seguente si presuppone una certa familiarità con la creazione di [applicazioni contenitore Windows con Service Fabric e Docker][containers-getting-started-link].
 >
 > Questo esempio fa riferimento a mcr.microsoft.com/windows/nanoserver:1809. I contenitori di Windows Server non sono compatibili con tutte le versioni del sistema operativo host. Per altre informazioni, vedere [Compatibilità delle versioni dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Il file ServiceManifest.xml seguente descrive un ServicePackage costituito da due CodePackage, che rappresentano i contenitori. *RunToCompletionCodePackage1* registra semplicemente un messaggio in **stdout** ed esce. *RunToCompletionCodePackage2* esegue il ping dell'indirizzo di loopback per un po' e quindi esce con un codice di uscita pari a **0**, **1** o **2**.
+Il ServiceManifest. XML seguente descrive un ServicePackage costituito da due CodePackage, che rappresentano i contenitori. *RunToCompletionCodePackage1* registra semplicemente un messaggio in **stdout** e viene chiuso. *RunToCompletionCodePackage2* effettua il ping dell'indirizzo di loopback per un periodo di tempo e quindi viene chiuso con un codice di uscita pari a **0**, **1** o **2**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ Il file ServiceManifest.xml seguente descrive un ServicePackage costituito da du
 </ServiceManifest>
 ```
 
-ApplicationManifest.xml seguente descrive un'applicazione basata sul file ServiceManifest.xml descritto in precedenza. Specifica **RunToCompletion** **ExecutionPolicy** per *WindowsRunToCompletionServicePackage* con un criterio di riavvio **OnFailure**. Dopo l'attivazione di *WindowsRunToCompletionServicePackage*, verranno avviati i codePackage costitutivi. *RunToCompletionCodePackage1* deve essere chiuso correttamente alla prima attivazione. Tuttavia, *RunToCompletionCodePackage2* può avere esito negativo (codice di **uscita diverso da zero),** nel qual caso verrà riavviato poiché il criterio di riavvio è **OnFailure**.
+Nel file ApplicationManifest. XML seguente viene descritta un'applicazione basata su ServiceManifest. XML descritto in precedenza. Specifica **RunToCompletion** **ExecutionPolicy** per *WindowsRunToCompletionServicePackage* con i criteri di riavvio di **OnFailure**. Al momento dell'attivazione di *WindowsRunToCompletionServicePackage*, verranno avviati i relativi CodePackage costitutivi. *RunToCompletionCodePackage1* dovrebbe uscire correttamente al primo attivazione. Tuttavia, *RunToCompletionCodePackage2* può avere esito negativo **(codice di uscita diverso da zero)**, nel qual caso verrà riavviato perché i criteri di riavvio sono **OnFailure**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -102,22 +102,22 @@ ApplicationManifest.xml seguente descrive un'applicazione basata sul file Servic
   </DefaultServices>
 </ApplicationManifest>
 ```
-## <a name="querying-deployment-status-of-a-deployedservicepackage"></a>Esecuzione di query sullo stato di distribuzione di un DeployedServicePackageQuerying deployment status of a DeployedServicePackage
-Lo stato di distribuzione di un DeployedServicePackage può essere interrogato da PowerShell utilizzando [Get-ServiceFabricDeployedServicePackage][deployed-service-package-link] o da C , utilizzando [fabricClient][fabric-client-link] API [GetDeployedServicePackageListAsync(String, Uri, String)][deployed-service-package-fabricclient-link]
+## <a name="querying-deployment-status-of-a-deployedservicepackage"></a>Esecuzione di query sullo stato della distribuzione di un DeployedServicePackage
+È possibile eseguire query sullo stato della distribuzione di un DeployedServicePackage da PowerShell usando [Get-ServiceFabricDeployedServicePackage][deployed-service-package-link] o da C# usando [FabricClient][fabric-client-link] API [GetDeployedServicePackageListAsync (String, Uri, String)][deployed-service-package-fabricclient-link]
 
-## <a name="considerations-when-using-runtocompletion-semantics"></a>Considerazioni sull'utilizzo della semantica RunToCompletionConsiderations when using RunToCompletion semantics
+## <a name="considerations-when-using-runtocompletion-semantics"></a>Considerazioni sull'uso della semantica RunToCompletion
 
-I punti seguenti devono essere annotati per il supporto RunToCompletion corrente.
-* Questa semantica è supportata solo per [i contenitori][containers-introduction-link] e le applicazioni [eseguibili guest.][guest-executables-introduction-link]
-* Gli scenari di aggiornamento per le applicazioni con semantica RunToCompletion non sono consentiti. Gli utenti devono eliminare e ricreare tali applicazioni, se necessario.
-* Gli eventi di failover possono causare la riesecuzione di CodePackage dopo il completamento, nello stesso nodo o in altri nodi del cluster. Esempi di eventi di failover sono, riavvii dei nodi e aggiornamenti di runtime di Service Fabric in un nodo.
+Per il supporto RunToCompletion corrente, è necessario notare i punti seguenti.
+* Queste semantiche sono supportate solo per i [contenitori][containers-introduction-link] e le applicazioni [eseguibili Guest][guest-executables-introduction-link] .
+* Gli scenari di aggiornamento per le applicazioni con semantica RunToCompletion non sono consentiti. Se necessario, gli utenti devono eliminare e ricreare tali applicazioni.
+* Gli eventi di failover possono causare la ripetizione dell'esecuzione di CodePackage dopo il completamento, nello stesso nodo o in altri nodi del cluster. Esempi di eventi di failover sono i riavvii dei nodi e Service Fabric aggiornamenti in fase di esecuzione in un nodo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni correlate, vedere gli articoli seguenti.
 
 * [Service Fabric e contenitori.][containers-introduction-link]
-* [Service Fabric ed eseguibili guest.][guest-executables-introduction-link]
+* [Service Fabric e gli eseguibili Guest.][guest-executables-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

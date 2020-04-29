@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: cynthn
@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81422236"
 ---
 L'inserimento di macchine virtuali in una singola area riduce la distanza fisica tra le istanze. L'inserimento di tali elementi all'interno di una singola zona di disponibilità li rende anche fisicamente più vicini. Tuttavia, man mano che il footprint di Azure cresce, una singola zona di disponibilità può estendersi su più data center fisici, causando una latenza di rete che influisca sull'applicazione. 

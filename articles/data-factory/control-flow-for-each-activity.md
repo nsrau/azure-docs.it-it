@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417187"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
@@ -75,7 +75,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatoria
 name | Nome dell'attività ForEach. | string | Sì
 type | Deve essere impostato su **ForEach** | string | Sì
 isSequential | Specifica se il ciclo deve essere eseguito in sequenza o in parallelo.  È possibile eseguire un numero massimo di 20 iterazioni del ciclo simultanee in parallelo. Se si dispone ad esempio di un'iterazione di attività ForEach su un'attività di copia con 10 set di dati di origine e sink diversi con **isSequential** impostato su False, tutte le copie vengono eseguite simultaneamente. Il valore predefinito è False. <br/><br/> Se "isSequential" è impostato su False, assicurarsi che sia presente una configurazione corretta per usare più eseguibili. In caso contrario, questa proprietà deve essere usata con attenzione per evitare di incorrere in conflitti di scrittura. Per altre informazioni, vedere la sezione [Esecuzione parallela](#parallel-execution). | Boolean | No. Il valore predefinito è False.
-batchCount | Numero di batch da usare per controllare il numero di esecuzione parallela (quando isSequential è impostato su Falso). Questo è il limite di concorrenza superiore, ma l'attività for-each non verrà sempre eseguita a questo numero | Valore intero (massimo 50) | No. Il valore predefinito è 20.
+batchCount | Numero di batch da usare per controllare il numero di esecuzione parallela (quando isSequential è impostato su Falso). Si tratta del limite di concorrenza superiore, ma l'attività for-each non verrà sempre eseguita a questo numero | Valore intero (massimo 50) | No. Il valore predefinito è 20.
 Items | Un'espressione che restituisce una matrice JSON su cui eseguire un'iterazione. | Espressione (che restituisce una matrice JSON) | Sì
 attività | Le attività da eseguire. | Elenco di attività | Sì
 
@@ -475,7 +475,7 @@ Nell'attività ForEach, fornire una matrice di cui eseguire un'iterazione per la
 
 ## <a name="aggregating-outputs"></a>Aggregazione di output
 
-Per aggregare gli output dell'attività __foreach,__ utilizzare _variabili_ e aggiungere attività _variabili._
+Per aggregare gli output dell'attività __foreach__ , utilizzare le _variabili_ e aggiungere l'attività di _variabile_ .
 
 Innanzitutto, dichiarare una `array` _variabile_ nella pipeline. Quindi, richiamare l'attività _Aggiungi variabile_ all'interno di ogni ciclo __foreach__. Successivamente, è possibile recuperare l'aggregazione dall'array.
 

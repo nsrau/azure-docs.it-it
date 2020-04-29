@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per il caricamento di dati
-description: Consigli e ottimizzazioni delle prestazioni per il caricamento dei dati in Synapse SQLRecommendations and performance optimizations for loading data into Synapse SQL
+description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in sinapsi SQL
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: b80fe79a2c27de7dbaaa2edccf7b4598c6c63f47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431046"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Procedure consigliate per il caricamento dei dati per il data warehousing
 
-Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento dei datiRecommendations and performance optimizations for loading data
+Suggerimenti e ottimizzazioni delle prestazioni per il caricamento di dati
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparazione dei dati in Archiviazione di Azure
 
@@ -38,7 +38,7 @@ Suddividere i file compressi di grandi dimensioni in file compressi di dimension
 
 Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL prima del caricamento.
 
-Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, accedere come uno degli utenti di caricamento e quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
+Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
 
 ### <a name="example-of-creating-a-loading-user"></a>Esempio di creazione di un utente addetto al caricamento
 
@@ -58,7 +58,7 @@ Connettersi al data warehouse e creare un utente. Il codice seguente presuppone 
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Per eseguire un carico con risorse per le classi di risorse staticRC20, accedere come LoaderRC20 ed eseguiil carico.
+Per eseguire un caricamento con risorse per le classi di risorse staticRC20, accedere come LoaderRC20 ed eseguire il caricamento.
 
 Eseguire i caricamenti con classi di risorse statiche anziché dinamiche. L'uso di classi di risorse statiche garantisce le stesse risorse indipendentemente dalle [unità data warehouse](resource-consumption-models.md). Se si usa una classe di risorse dinamica, le risorse variano in base al livello di servizio. Per le classi dinamiche, un livello di servizio inferiore renderà probabilmente necessario usare una classe di risorse di maggiori dimensioni per l'utente addetto al caricamento.
 
@@ -88,9 +88,9 @@ Gli indici columnstore richiedono una grande quantità di memoria per la compres
 - Per garantire all'utente addetto al caricamento una quantità di memoria sufficiente per raggiungere i massimi tassi di compressione, usare utenti addetti al caricamento che siano membri di una classe di risorse di medie o grandi dimensioni.
 - Caricare un numero di righe sufficiente a riempire completamente i nuovi rowgroup. Durante un caricamento bulk, ogni gruppo di 1.048.576 righe viene compresso direttamente nel columnstore come rowgroup completo. In caso di caricamenti con meno di 102.400 righe, le righe vengono inviate nell'archivio differenziale, in cui vengono mantenute in un indice albero B. Se si carica un numero troppo basso di righe, le righe potrebbero essere inserite tutte nell'archivio differenziale e non essere immediatamente compresse nel formato columnstore.
 
-## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si utilizza l'API SQLBulkCopy o BCP
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si usa l'API SQLBulkCopy o BCP
 
-Come accennato in precedenza, il caricamento con PolyBase fornirà la velocità effettiva massima con il pool SQL Synapse.As mentioned before, loading with PolyBase will provide the highest throughput with Synapse SQL pool. Se non è possibile usare PolyBase per caricare e è necessario usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per migliorare la velocità effettiva: una buona regola generale è una dimensione del batch compresa tra 100K e 1M righe.
+Come indicato in precedenza, il caricamento con polibase fornirà la massima velocità effettiva con il pool SQL sinapsi. Se non è possibile usare la modalità polibase per caricare e usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva. una regola empirica ottimale è una dimensione del batch compresa tra 100.000 e 1 milione di righe.
 
 ## <a name="handling-loading-failures"></a>Gestione degli errori di caricamento
 
@@ -106,9 +106,9 @@ Se nel corso di una giornata si eseguono migliaia di singoli inserimenti o più,
 
 ## <a name="creating-statistics-after-the-load"></a>Creazione di statistiche dopo il caricamento
 
-Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o modifiche sostanziali ai dati.  Questa operazione può essere eseguita manualmente oppure è possibile abilitare [la creazione automatica di statistiche](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o modifiche sostanziali ai dati.  Questa operazione può essere eseguita manualmente oppure è possibile abilitare le [statistiche create automaticamente](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](develop-tables-statistics.md). Nell'esempio seguente viene illustrato come creare manualmente le statistiche su cinque colonne della tabella Customer_Speed.
+Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](develop-tables-statistics.md). Nell'esempio seguente viene illustrato come creare manualmente statistiche per cinque colonne della tabella Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

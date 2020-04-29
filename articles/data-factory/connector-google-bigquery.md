@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 6751f64706444176f0df8f8fc0c6132e76b39b2d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417310"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiare dati da Google BigQuery usando Azure Data Factory
@@ -26,12 +26,12 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Google BigQuery è supportato per le seguenti attività:
+Questo connettore Google BigQuery è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
-È possibile copiare dati da Google BigQuery a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella [Archivi dati supportati.](copy-activity-overview.md#supported-data-stores-and-formats)
+È possibile copiare dati da Google BigQuery a qualsiasi archivio dati di sink supportato. Per un elenco di archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Data Factory fornisce un driver predefinito per abilitare la connettività. Non è pertanto necessario installare manualmente un driver per usare questo connettore.
 
@@ -100,7 +100,7 @@ Impostare la proprietà "authenticationType" su **ServiceAuthentication** e spec
 |:--- |:--- |:--- |
 | email | ID di posta elettronica dell'account del servizio usato per ServiceAuthentication. Può essere usato solo sul runtime di integrazione self-hosted.  | No |
 | keyFilePath | Percorso completo per il file di chiave con estensione p12 usato per autenticare l'indirizzo di posta elettronica dell'account del servizio. | No |
-| trustedCertPath | Il percorso completo del file con estensione pem che contiene i certificati CA attendibili utilizzati per verificare il server quando ci si connette tramite TLS. Questa proprietà può essere impostata solo quando si utilizza TLS in Runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
+| trustedCertPath | Percorso completo del file con estensione PEM contenente i certificati CA attendibili utilizzati per verificare il server quando si esegue la connessione tramite TLS. Questa proprietà può essere impostata solo quando si utilizza TLS in Integration Runtime indipendenti. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
 | useSystemTrustStore | Specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. Il valore predefinito è **false**.  | No |
 
 **Esempio:**
@@ -127,16 +127,16 @@ Impostare la proprietà "authenticationType" su **ServiceAuthentication** e spec
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di](concepts-datasets-linked-services.md) dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati di Google BigQuery.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere l'articolo [set di impostazioni](concepts-datasets-linked-services.md) . Questa sezione presenta un elenco delle proprietà supportate dal set di dati di Google BigQuery.
 
 Per copiare dati da Google BigQuery, impostare la proprietà type del set di dati su **GoogleBigQueryObject**. Sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del dataset deve essere impostata su: **GoogleBigQueryObject** | Sì |
-| dataset | Nome del set di dati BigQuery di Google. |No (se nell'origine dell'attività è specificato "query")  |
+| type | La proprietà Type del set di dati deve essere impostata su: **GoogleBigQueryObject** | Sì |
+| dataset | Nome del set di dati di Google BigQuery. |No (se nell'origine dell'attività è specificato "query")  |
 | tabella | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
-| tableName | Nome della tabella. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per un nuovo `dataset` `table`carico di lavoro, utilizzare e . | No (se nell'origine dell'attività è specificato "query") |
+| tableName | Nome della tabella. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `dataset` lavoro `table`, utilizzare e. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -161,7 +161,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="googlebigquerysource-as-a-source-type"></a>GoogleBigQuerySource come tipo di origine
 
-Per copiare dati da Google BigQuery, impostare il tipo di origine nell'attività di copia su **GoogleBigQuerySource**. Le proprietà seguenti sono supportate nella sezione **relativa all'origine** dell'attività di copia.
+Per copiare dati da Google BigQuery, impostare il tipo di origine nell'attività di copia su **GoogleBigQuerySource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -200,9 +200,9 @@ Per copiare dati da Google BigQuery, impostare il tipo di origine nell'attività
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini e sink dall'attività di copia in Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

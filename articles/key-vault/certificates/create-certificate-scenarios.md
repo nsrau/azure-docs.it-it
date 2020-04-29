@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430968"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorare e gestire la creazione di certificati
@@ -36,7 +36,7 @@ In questo articolo sono illustrati gli scenari e le operazioni seguenti:
 
 ## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Richiedere un certificato di Key Vault presso un'autorità di certificazione supportata 
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -79,7 +79,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="get-pending-request---request-status-is-inprogress"></a>Recuperare una richiesta in sospeso con stato "inProgress"
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -115,7 +115,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>Richiesta
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -147,7 +147,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ### <a name="request"></a>Richiesta
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -185,7 +185,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Recuperare una richiesta in sospeso con stato "deleted" o "overwritten"
 Un oggetto in sospeso può essere eliminato o sovrascritto da un'operazione di creazione/importazione quando lo stato dell'oggetto non è "inProgress".
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -223,7 +223,7 @@ Per risolvere un conflitto:
 > [!NOTE]
 > L'eliminazione di un oggetto in sospeso può annullare o meno la richiesta di certificato x509 presso il provider.
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -260,7 +260,7 @@ L'unione non è consentita quando un oggetto in sospeso viene creato con un'auto
 
 Se la richiesta di creazione del certificato x509 ha esito negativo o viene annullata per qualche motivo ed è possibile recuperare un certificato x509 fuori banda, si può eseguire un'operazione di unione per completare il certificato di Key Vault.
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
@@ -289,7 +289,7 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 ## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Richiedere un annullamento mentre lo stato della richiesta in sospeso è "inProgress"
 Un annullamento può solo essere richiesto. Una richiesta può essere annullata o meno. Se una richiesta non è "inProgress", viene restituito lo stato HTTP 400 (Richiesta non valida).
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |PATCH|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -329,7 +329,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 > [!NOTE]
 > L'eliminazione dell'oggetto in sospeso può annullare o meno la richiesta di certificato x509 presso il provider.
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
@@ -359,7 +359,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="create-a-kv-certificate-manually"></a>Creare un certificato di Key Vault manualmente
 È possibile creare un certificato rilasciato con una CA di propria scelta tramite un processo di creazione manuale. Impostare il nome dell'autorità di certificazione su "Unknown" o non specificare tale campo.
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
@@ -399,7 +399,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Eseguire l'unione durante la creazione di una richiesta in sospeso (creazione manuale di certificati)
 
-|Metodo|URI della richiesta|
+|Metodo|URI richiesta|
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 

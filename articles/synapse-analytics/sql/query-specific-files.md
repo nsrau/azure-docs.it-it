@@ -1,6 +1,6 @@
 ---
-title: Utilizzo dei metadati dei file nelle query
-description: La funzione OPENROWSET fornisce informazioni su file e percorso su ogni file utilizzato nella query per filtrare o analizzare i dati in base al nome e/o al percorso della cartella.
+title: Uso di metadati di file nelle query
+description: La funzione OPENROWSET fornisce informazioni su file e percorso su ogni file utilizzato nella query per filtrare o analizzare i dati in base al nome file e/o al percorso della cartella.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,25 +10,25 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 40a8e2c153ec3d8e7b4007340b9433a38f9ccc89
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431553"
 ---
-# <a name="using-file-metadata-in-queries"></a>Utilizzo dei metadati dei file nelle query
+# <a name="using-file-metadata-in-queries"></a>Uso di metadati di file nelle query
 
-Il servizio query su richiesta SQL è in grado di indirizzare più file e cartelle, come descritto nell'articolo [Query folders and multiple files (Informazioni](query-folders-multiple-csv-files.md) in lingua inglese). In questo articolo viene illustrato come utilizzare le informazioni sui metadati relative ai nomi di file e cartelle nelle query.
+Il servizio query su richiesta SQL può indirizzare più file e cartelle, come descritto nell'articolo [cartelle query e più file](query-folders-multiple-csv-files.md) . In questo articolo viene illustrato come utilizzare le informazioni sui metadati sui nomi di file e cartelle nelle query.
 
-A volte, potrebbe essere necessario sapere quale origine di file o cartelle è correlata a una riga specifica nel set di risultati.
+In alcuni casi, potrebbe essere necessario individuare l'origine file o cartella correlata a una riga specifica nel set di risultati.
 
-È possibile `filepath` utilizzare `filename` function e restituire i nomi dei file e/o il percorso nel set di risultati. In alternativa, è possibile utilizzarli per filtrare i dati in base al nome e/o al percorso della cartella. Queste funzioni sono descritte nella sezione relativa alla sintassi [filename function](develop-storage-files-overview.md#filename-function) e [filepath function](develop-storage-files-overview.md#filepath-function). Qui di seguito troverete brevi descrizioni lungo i campioni.
+È possibile utilizzare la `filepath` funzione `filename` e per restituire i nomi di file e/o il percorso nel set di risultati. In alternativa, è possibile usarli per filtrare i dati in base al nome del file e/o al percorso della cartella. Queste funzioni sono descritte nella sezione sintassi [nome file](develop-storage-files-overview.md#filename-function) e [funzione FilePath](develop-storage-files-overview.md#filepath-function). Di seguito sono riportate le brevi descrizioni degli esempi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di leggere il resto di questo articolo, esaminare i prerequisiti seguenti:
+Prima di leggere la parte restante di questo articolo, esaminare i prerequisiti seguenti:
 
-- [Configurazione al primo tempo](query-data-storage.md#first-time-setup)
+- [Prima configurazione](query-data-storage.md#first-time-setup)
 - [Prerequisiti](query-data-storage.md#prerequisites)
 
 ## <a name="functions"></a>Funzioni
@@ -37,7 +37,7 @@ Prima di leggere il resto di questo articolo, esaminare i prerequisiti seguenti:
 
 Questa funzione restituisce il nome del file da cui ha origine la riga.
 
-L'esempio seguente legge i file di dati di NYC Yellow Taxi per gli ultimi tre mesi del 2017 e restituisce il numero di corse per file. La parte OPENROWSET della query specifica quali file verranno letti.
+L'esempio seguente legge i file di dati dei taxi gialli di NYC per gli ultimi tre mesi di 2017 e restituisce il numero di corse per ogni file. La parte OPENROWSET della query specifica i file che verranno letti.
 
 ```sql
 SELECT
@@ -52,9 +52,9 @@ ORDER BY
     [filename];
 ```
 
-L'esempio seguente mostra come *utilizzare filename()* nella clausola WHERE per filtrare i file da leggere. Accede all'intera cartella nella parte OPENROWSET della query e filtra i file nella clausola WHERE.
+Nell'esempio seguente viene illustrato il modo in cui *FileName ()* può essere utilizzato nella clausola WHERE per filtrare i file da leggere. Accede all'intera cartella nella parte OPENROWSET della query e filtra i file nella clausola WHERE.
 
-I risultati saranno gli stessi dell'esempio precedente.
+I risultati saranno identici a quelli dell'esempio precedente.
 
 ```sql
 SELECT
@@ -71,14 +71,14 @@ ORDER BY
     [filename];
 ```
 
-### <a name="filepath"></a>Filepath
+### <a name="filepath"></a>FilePath
 
-La funzione filepath restituisce un percorso completo o parziale:The filepath function returns a full or partial path:
+La funzione FilePath restituisce un percorso completo o parziale:
 
-- Quando viene chiamato senza un parametro, restituisce il percorso completo del file da cui ha origine la riga.
-- Quando viene chiamato con un parametro, restituisce parte del percorso che corrisponde al carattere jolly nella posizione specificata nel parametro. Ad esempio, il valore del parametro 1 restituirebbe parte del percorso che corrisponde al primo carattere jolly.
+- Quando viene chiamato senza un parametro, restituisce il percorso file completo da cui ha origine la riga.
+- Quando viene chiamato con un parametro, viene restituita una parte del percorso che corrisponde al carattere jolly nella posizione specificata nel parametro. Ad esempio, il valore del parametro 1 restituirà parte del percorso che corrisponde al primo carattere jolly.
 
-L'esempio seguente legge i file di dati di NYC Yellow Taxi per gli ultimi tre mesi del 2017. Restituisce il numero di corse per percorso di file. La parte OPENROWSET della query specifica quali file verranno letti.
+L'esempio seguente legge i file di dati dei taxi gialli di NYC per gli ultimi tre mesi 2017. Restituisce il numero di corse per percorso file. La parte OPENROWSET della query specifica i file che verranno letti.
 
 ```sql
 SELECT
@@ -114,9 +114,9 @@ ORDER BY
     filepath;
 ```
 
-L'esempio seguente mostra come *utilizzare filepath()* nella clausola WHERE per filtrare i file da leggere.
+Nell'esempio seguente viene illustrato come è possibile utilizzare *filePath ()* nella clausola WHERE per filtrare i file da leggere.
 
-È possibile utilizzare i caratteri jolly nella parte OPENROWSET della query e filtrare i file nella clausola WHERE. I risultati saranno gli stessi dell'esempio precedente.
+È possibile utilizzare i caratteri jolly nella parte OPENROWSET della query e filtrare i file nella clausola WHERE. I risultati saranno identici a quelli dell'esempio precedente.
 
 ```sql
 SELECT
@@ -161,4 +161,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nel prossimo articolo, imparerai come eseguire una query sui [file di parquet.](query-parquet-files.md)
+Nell'articolo successivo verrà illustrato come eseguire una query sui [file parquet](query-parquet-files.md).

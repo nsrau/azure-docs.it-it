@@ -1,6 +1,6 @@
 ---
 title: Copiare dati da e in Salesforce Service Cloud
-description: Informazioni su come copiare i dati da Salesforce Service Cloud agli archivi dati sink supportati o dagli archivi dati di origine supportati in Salesforce Service Cloud usando un'attività di copia in una pipeline di data factory.
+description: Informazioni su come copiare dati dal cloud del servizio Salesforce in archivi dati di sink supportati o da archivi dati di origine supportati a Salesforce Service Cloud usando un'attività di copia in una pipeline data factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,32 +12,32 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416665"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce Service Cloud usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Salesforce Service Cloud.This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce Service Cloud. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Salesforce Service Cloud. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Salesforce Service Cloud è supportato per le attività seguenti:
+Questo connettore Cloud del servizio Salesforce è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
-È possibile copiare i dati da Salesforce Service Cloud in qualsiasi archivio dati sink supportato. È inoltre possibile copiare i dati da qualsiasi archivio dati di origine supportato in Salesforce Service Cloud. Per un elenco degli archivi dati supportati come origini o sink dall'attività Copia, vedere la tabella [Archivi dati supportati.](copy-activity-overview.md#supported-data-stores-and-formats)
+È possibile copiare dati dal cloud del servizio Salesforce in qualsiasi archivio dati di sink supportato. È anche possibile copiare dati da qualsiasi archivio dati di origine supportato a Salesforce Service Cloud. Per un elenco di archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-In particolare, questo connettore Salesforce Service Cloud supporta:
+In particolare, il connettore Cloud del servizio salesforce supporta:
 
 - Le edizioni Developer, Professional, Enterprise o Unlimited di Salesforce.
 - La copia di dati da e nell'ambiente di produzione, nella sandbox e nel dominio personalizzato di Salesforce.
 
-Il connettore Salesforce si basa sull'API REST/Bulk di Salesforce. Per impostazione predefinita, il connettore utilizza [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare i dati da Salesforce e [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati in Salesforce. È anche possibile impostare in modo esplicito [ `apiVersion` ](#linked-service-properties) la versione dell'API usata per leggere/scrivere i dati tramite la proprietà nel servizio collegato.
+Il connettore Salesforce è basato sull'API REST/bulk di Salesforce. Per impostazione predefinita, il connettore USA [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare i dati da Salesforce e USA [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati in Salesforce. È anche possibile impostare in modo esplicito la versione dell'API usata per leggere/ [ `apiVersion` ](#linked-service-properties) scrivere dati tramite la proprietà nel servizio collegato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +56,7 @@ In entrambi gli scenari è anche possibile che venga visualizzato il messaggio d
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Nelle sezioni seguenti vengono fornite informazioni dettagliate sulle proprietà utilizzate per definire le entità di Data Factory specifiche del connettore Salesforce Service Cloud.
+Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire Data Factory entità specifiche del connettore del servizio cloud di Salesforce.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
@@ -64,16 +64,16 @@ Per il servizio collegato di Salesforce sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type |La proprietà type deve essere impostata su **SalesforceServiceCloud**. |Sì |
+| type |La proprietà Type deve essere impostata su **SalesforceServiceCloud**. |Sì |
 | environmentUrl | Specificare l'URL dell'istanza di Salesforce Service Cloud. <br> - Il valore predefinito è `"https://login.salesforce.com"`. <br> - Per copiare dati dalla sandbox, specificare `"https://test.salesforce.com"`. <br> - Per copiare dati dal dominio personalizzato, specificare ad esempio `"https://[domain].my.salesforce.com"`. |No |
-| username |Specificare un nome utente per l'account utente. |Sì |
+| nomeutente |Specificare un nome utente per l'account utente. |Sì |
 | password |Specificare la password per l'account utente.<br/><br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
-| securityToken |Specificare un token di sicurezza per l'account utente. <br/><br/>Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). Il token di sicurezza può essere ignorato solo se si aggiunge l'indirizzo IP del runtime di integrazione all'elenco di [indirizzi IP attendibili](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) in Salesforce. Quando si usa il runtime di integrazione di Azure, vedere Indirizzi IP del runtime di integrazione di [Azure.](azure-integration-runtime-ip-addresses.md)<br/><br/>Per istruzioni su come ottenere e reimpostare un token di sicurezza, vedere Ottenere un token di [sicurezza.](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No |
-| apiVersion | Specificare la versione dell'API REST/Bulk di `48.0`Salesforce da utilizzare, ad esempio . Per impostazione predefinita, il connettore utilizza [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare i dati da Salesforce e [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati in Salesforce. | No |
-| connectVia | Runtime [di integrazione](concepts-integration-runtime.md) da utilizzare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone di un runtime di integrazione |
+| securityToken |Specificare un token di sicurezza per l'account utente. <br/><br/>Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). Il token di sicurezza può essere ignorato solo se si aggiunge l'IP del Integration Runtime all' [elenco di indirizzi IP attendibili](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) in Salesforce. Quando si usa Azure IR, fare riferimento a [Azure Integration Runtime indirizzi IP](azure-integration-runtime-ip-addresses.md).<br/><br/>Per istruzioni su come ottenere e reimpostare un token di sicurezza, vedere [ottenere un token di sicurezza](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| apiVersion | Specificare la versione REST/API bulk di Salesforce da usare, ad `48.0`esempio. Per impostazione predefinita, il connettore USA [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) per copiare i dati da Salesforce e USA [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) per copiare i dati in Salesforce. | No |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone di un runtime di integrazione |
 
 >[!IMPORTANT]
->Quando si copiano dati in Salesforce Service Cloud, il runtime di integrazione di Azure predefinito non può essere usato per eseguire la copia. In altre parole, se il servizio collegato di origine non dispone di un runtime di integrazione specificato, creare in modo esplicito un runtime di integrazione di Azure con un percorso vicino all'istanza di Salesforce Service Cloud.In other words, if your source linked service doesn't have a specified integration [runtime, explicitly create an Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) with a location near your Salesforce Service Cloud instance. Associare il servizio collegato Salesforce Service Cloud come nell'esempio seguente.
+>Quando si copiano dati in Salesforce Service Cloud, non è possibile usare il Azure Integration Runtime predefinito per eseguire la copia. In altre parole, se il servizio collegato all'origine non dispone di un runtime di integrazione specifico, creare in modo esplicito [un Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) con una posizione vicina all'istanza del cloud del servizio salesforce. Associare il servizio collegato del cloud del servizio Salesforce come nell'esempio seguente.
 
 **Esempio: Archiviare le credenziali in Data Factory**
 
@@ -137,13 +137,13 @@ Per il servizio collegato di Salesforce sono supportate le proprietà seguenti.
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di](concepts-datasets-linked-services.md) dati. In questa sezione viene fornito un elenco delle proprietà supportate dal set di dati Salesforce Service Cloud.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere l'articolo [set di impostazioni](concepts-datasets-linked-services.md) . Questa sezione presenta un elenco delle proprietà supportate dal set di dati del servizio Salesforce Service Cloud.
 
-Per copiare i dati da e in Salesforce Service Cloud, sono supportate le proprietà seguenti.
+Per copiare dati da e in Salesforce Service Cloud, sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **SalesforceServiceCloudObject**.  | Sì |
+| type | La proprietà Type deve essere impostata su **SalesforceServiceCloudObject**.  | Sì |
 | objectApiName | Nome dell'oggetto di Salesforce da cui recuperare i dati. | No per l'origine, Sì per il sink |
 
 > [!IMPORTANT]
@@ -177,16 +177,16 @@ Per copiare i dati da e in Salesforce Service Cloud, sono supportate le propriet
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). In questa sezione viene fornito un elenco delle proprietà supportate dall'origine e dal sink di Salesforce Service Cloud.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal sink del servizio salesforce.
 
-### <a name="salesforce-service-cloud-as-a-source-type"></a>Salesforce Service Cloud come tipo di origine
+### <a name="salesforce-service-cloud-as-a-source-type"></a>Cloud del servizio Salesforce come tipo di origine
 
-Per copiare i dati da Salesforce Service Cloud, nella sezione **dell'origine** dell'attività di copia sono supportate le proprietà seguenti.
+Per copiare dati da Salesforce Service Cloud, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SalesforceServiceCloudSource**. | Sì |
-| query |Usare la query personalizzata per leggere i dati. È possibile usare una query SQL-92 o una query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Vedere altri suggerimenti nella sezione [Suggerimenti di query](#query-tips). Se query non è specificata, verranno recuperati tutti i dati dell'oggetto Salesforce Service Cloud specificato in "objectApiName" nel set di dati. | No (se "objectApiName" è specificato nel set di dati) |
+| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **SalesforceServiceCloudSource**. | Sì |
+| query |Usare la query personalizzata per leggere i dati. È possibile usare una query SQL-92 o una query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Vedere altri suggerimenti nella sezione [Suggerimenti di query](#query-tips). Se la query non è specificata, verranno recuperati tutti i dati dell'oggetto Cloud del servizio salesforce specificato in "objectApiName" nel set di dati. | No (se "objectApiName" è specificato nel set di dati) |
 | readBehavior | Indica se eseguire query sui record esistenti o su tutti i record inclusi quelli eliminati. Se non specificato, il comportamento predefinito è quello indicato per primo. <br>Valori consentiti: **query** (predefinito), **queryAll**.  | No |
 
 > [!IMPORTANT]
@@ -226,16 +226,16 @@ Per copiare i dati da Salesforce Service Cloud, nella sezione **dell'origine** d
 ]
 ```
 
-### <a name="salesforce-service-cloud-as-a-sink-type"></a>Salesforce Service Cloud come tipo di sink
+### <a name="salesforce-service-cloud-as-a-sink-type"></a>Cloud del servizio Salesforce come tipo di sink
 
-Per copiare i dati in Salesforce Service Cloud, nella sezione del **sink** attività di copia sono supportate le proprietà seguenti.
+Per copiare dati in Salesforce Service Cloud, nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su **SalesforceServiceCloudSink**. | Sì |
+| type | La proprietà Type del sink dell'attività di copia deve essere impostata su **SalesforceServiceCloudSink**. | Sì |
 | writeBehavior | Comportamento dell'azione di scrittura per l'operazione.<br/>I valori consentiti sono: **Insert** e **Upsert**. | No (il valore predefinito è Insert) |
-| externalIdFieldName | Nome del campo ID esterno per l'operazione upsert. Il campo specificato deve essere definito come "Campo ID esterno" nell'oggetto Salesforce Service Cloud. Non può includere valori NULL nei dati di input corrispondenti. | Sì per "Upsert" |
-| writeBatchSize | Il numero di righe di dati scritti in Salesforce Service Cloud in ogni batch. | No (il valore predefinito è 5.000) |
+| externalIdFieldName | Nome del campo ID esterno per l'operazione upsert. Il campo specificato deve essere definito come "campo ID esterno" nell'oggetto Cloud del servizio salesforce. Non può includere valori NULL nei dati di input corrispondenti. | Sì per "Upsert" |
+| writeBatchSize | Conteggio delle righe dei dati scritti in Salesforce Service Cloud in ogni batch. | No (il valore predefinito è 5.000) |
 | ignoreNullValues | Indica se ignorare i valori NULL dai dati di input durante un'operazione di scrittura.<br/>I valori consentiti sono **true** e **false**.<br>- **True**: i dati nell'oggetto di destinazione rimangono invariati quando si esegue un'operazione di upsert o aggiornamento. Inserire un valore predefinito definito quando si esegue un'operazione di inserimento.<br/>- **False**: i dati nell'oggetto di destinazione vengono aggiornati a NULL quando si esegue un'operazione di upsert o aggiornamento. Inserire un valore NULL quando si esegue un'operazione di inserimento. | No (il valore predefinito è false) |
 
 **Esempio:**
@@ -275,17 +275,17 @@ Per copiare i dati in Salesforce Service Cloud, nella sezione del **sink** attiv
 
 ## <a name="query-tips"></a>Suggerimenti di query
 
-### <a name="retrieve-data-from-a-salesforce-service-cloud-report"></a>Recuperare dati da un report Salesforce Service Cloud
+### <a name="retrieve-data-from-a-salesforce-service-cloud-report"></a>Recuperare dati da un report cloud di servizio salesforce
 
-È possibile recuperare dati dai report Salesforce Service `{call "<report name>"}`Cloud specificando una query come . Un esempio è `"query": "{call \"TestReport\"}"`.
+È possibile recuperare dati dai report cloud del servizio salesforce specificando una query `{call "<report name>"}`come. Un esempio è `"query": "{call \"TestReport\"}"`.
 
-### <a name="retrieve-deleted-records-from-the-salesforce-service-cloud-recycle-bin"></a>Recuperare i record eliminati dal Cestino cloud di Salesforce Service
+### <a name="retrieve-deleted-records-from-the-salesforce-service-cloud-recycle-bin"></a>Recuperare i record eliminati dal cestino del servizio salesforce
 
-Per eseguire una query sui record eliminati temporaneamente dal `readBehavior` `queryAll`Cestino cloud di Salesforce Service, è possibile specificare come . 
+Per eseguire una query sui record eliminati temporaneamente dal cestino del servizio Salesforce, è possibile specificare `readBehavior` come. `queryAll` 
 
 ### <a name="difference-between-soql-and-sql-query-syntax"></a>Differenza tra la sintassi di query SOQL e SQL
 
-Quando si copiano dati da Salesforce Service Cloud, è possibile utilizzare una query SOQL o una query SQL. Si noti che queste due query hanno una sintassi e un supporto di funzionalità diversi. Non mischiarli. Si consiglia di utilizzare la query SOQL supportata in modo nativo da Salesforce Service Cloud. Nella tabella seguente sono elencate le differenze principali:
+Quando si copiano dati da Salesforce Service Cloud, è possibile usare query SOQL o query SQL. Si noti che queste due query hanno una sintassi e un supporto di funzionalità diversi. Non mischiarli. Si consiglia di usare la query SOQL, supportata in modo nativo da Salesforce Service Cloud. Nella tabella seguente sono elencate le differenze principali:
 
 | Sintassi | Modalità SOQL | Modalità SQL |
 |:--- |:--- |:--- |
@@ -293,49 +293,49 @@ Quando si copiano dati da Salesforce Service Cloud, è possibile utilizzare una 
 | Virgolette | I nomi di campo/oggetto non possono essere racchiusi tra virgolette. | I nomi di campo/oggetto non possono essere racchiusi tra virgolette, ad es. `SELECT "id" FROM "Account"` |
 | Formato Datetime |  Fare riferimento a informazioni dettagliate [qui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ed esempi nella sezione successiva. | Fare riferimento a informazioni dettagliate [qui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ed esempi nella sezione successiva. |
 | Valori booleani | Rappresentati come `False` e `True`, ad esempio `SELECT … WHERE IsDeleted=True`. | Rappresentati come 0 o 1, ad esempio `SELECT … WHERE IsDeleted=1`. |
-| Ridenominazione delle colonne | Non supportato. | Supportata, ad es. `SELECT a AS b FROM …`. |
-| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportato. |
+| Ridenominazione delle colonne | Non supportata. | Supportata, ad es. `SELECT a AS b FROM …`. |
+| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportata. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperare i dati usando una clausola where nella colonna DateTime
 
 Quando si specifica la query SOQL o SQL, prestare attenzione alla differenza di formato di DateTime. Ad esempio:
 
-* **Campione SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Esempio SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Esempio SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformed_querytruncated"></a>Errore di MALFORMED_QUERY:Troncato
+### <a name="error-of-malformed_querytruncated"></a>Errore di MALFORMED_QUERY: troncato
 
-Se si colpisce l'errore "MALFORMED_QUERY: troncato", in genere è dovuto alla data di cui è presente una colonna di tipo JunctionIdList nei dati e Salesforce ha limitazioni sul supporto di tali dati con un numero elevato di righe. Per attenuare, provare a escludere la colonna JunctionIdList o limitare il numero di righe da copiare (è possibile eseguire più attività di copia).
+Se si è verificato un errore di "MALFORMED_QUERY: troncato", in genere è dovuto a una colonna di tipo JunctionIdList nei dati e a Salesforce è possibile limitare il supporto di tali dati con un numero elevato di righe. Per attenuare, provare a escludere la colonna JunctionIdList o a limitare il numero di righe da copiare (è possibile partizionare in più esecuzioni di attività di copia).
 
 ## <a name="data-type-mapping-for-salesforce-service-cloud"></a>Mapping dei tipi di dati per Salesforce Service Cloud
 
-Quando si copiano dati da Salesforce Service Cloud, i mapping seguenti vengono utilizzati dai tipi di dati Salesforce Service Cloud ai tipi di dati provvisori di Data Factory. Per informazioni su come l'attività di copia esegue il mapping dello schema di origine e del tipo di dati al sink, vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md).
+Quando si copiano dati da Salesforce Service Cloud, vengono usati i mapping seguenti dai tipi di dati del servizio Salesforce per Data Factory tipi di dati provvisori. Per informazioni su come l'attività di copia esegue il mapping dello schema di origine e del tipo di dati al sink, vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md).
 
-| Tipo di dati Salesforce Service Cloud | Tipo di dati provvisorio di Data Factory |
+| Tipo di dati cloud del servizio salesforce | Tipo di dati provvisorio di Data Factory |
 |:--- |:--- |
-| Numero automatico |string |
+| Numero automatico |Stringa |
 | Casella di controllo |Boolean |
 | Valuta |Decimal |
 | Data |Datetime |
 | Data/ora |Datetime |
-| Email |string |
-| ID |string |
-| Relazione di ricerca |string |
-| Elenco a discesa seleziona multipla |string |
-| Number |Decimal |
+| Posta elettronica |Stringa |
+| ID |Stringa |
+| Relazione di ricerca |Stringa |
+| Elenco a discesa seleziona multipla |Stringa |
+| Numero |Decimal |
 | Percentuale |Decimal |
-| Telefono |string |
-| Elenco a discesa |string |
-| Text |string |
-| Area di testo |string |
-| Area di testo (Long) |string |
-| Area di testo (Rich) |string |
-| Testo (Crittografato) |string |
-| URL |string |
+| Telefono |Stringa |
+| Elenco a discesa |Stringa |
+| Testo |Stringa |
+| Area di testo |Stringa |
+| Area di testo (Long) |Stringa |
+| Area di testo (Rich) |Stringa |
+| Testo (Crittografato) |Stringa |
+| URL |Stringa |
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

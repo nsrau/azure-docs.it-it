@@ -1,6 +1,6 @@
 ---
-title: Esercitazione caricare i dati da Archiviazione di Azure Data LakeTutorial load data from Azure Data Lake Storage
-description: Usare le tabelle esterne PolyBase per caricare dati da Archiviazione data lake di Azure per Synapse SQL.
+title: Esercitazione caricare i dati da Azure Data Lake Storage
+description: Usare le tabelle esterne di base per caricare dati da Azure Data Lake Storage per sinapsi SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 9713d73ee132f743ceea98cbaca6a83f36fd3a45
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416107"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Caricare dati da Archiviazione data lake di Azure per l'analisi SQLLoad data from Azure Data Lake Storage for SQL Analytics
+# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Caricare dati da Azure Data Lake Storage per analisi SQL
 
-Questa guida illustra come usare le tabelle esterne PolyBase per caricare dati da Archiviazione data lake di Azure.This guide outlines how to use PolyBase external tables to load data from Azure Data Lake Storage. Sebbene sia possibile eseguire query ad hoc sui dati archiviati in Data Lake Storage, è consigliabile importare i dati per ottenere prestazioni ottimali.
+Questa guida illustra come usare le tabelle esterne di base per caricare i dati da Azure Data Lake Storage. Sebbene sia possibile eseguire query ad hoc sui dati archiviati in Data Lake Storage, è consigliabile importare i dati per ottenere prestazioni ottimali.
 
 > [!NOTE]  
-> Un'alternativa al caricamento è [l'istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) attualmente in anteprima pubblica.  L'istruzione COPY offre la massima flessibilità. Per fornire commenti e suggerimenti sull'istruzione COPY, sqldwcopypreview@service.microsoft.cominviare un messaggio di posta elettronica alla lista di distribuzione seguente: .
+> Un'alternativa al caricamento è l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) attualmente disponibile in anteprima pubblica.  L'istruzione COPY offre la massima flessibilità. Per fornire commenti e suggerimenti sull'istruzione COPY, inviare un messaggio di posta elettronica alla seguente sqldwcopypreview@service.microsoft.comlista di distribuzione:.
 >
 > [!div class="checklist"]
 >
-> * Creare oggetti di database necessari per caricare da Data Lake Storage.
-> * Connettersi a una directory di data lake Storage.
+> * Creare gli oggetti di database necessari per il caricamento da Data Lake Storage.
+> * Connettersi a una directory Data Lake Storage.
 > * Caricare i dati nel data warehouse.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -39,18 +39,18 @@ Prima di iniziare questa esercitazione, scaricare e installare la versione più 
 
 Per eseguire questa esercitazione è necessario:
 
-* Un pool SQL. Vedere [Creare un pool SQL ed eseguire query sui dati.](create-data-warehouse-portal.md)
-* Un account di data lake storage. Vedere [Introduzione ad Archiviazione dati di Azure](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per questo account di archiviazione, è necessario configurare o specificare una delle credenziali seguenti da caricare: una chiave dell'account di archiviazione, un utente dell'applicazione directory di Azure o un utente AAD con il ruolo RBAC appropriato per l'account di archiviazione.
+* Un pool SQL. Vedere [creare un pool SQL ed eseguire query sui dati](create-data-warehouse-portal.md).
+* Un account Data Lake Storage. Vedere iniziare [a usare Azure Data Lake storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per questo account di archiviazione, è necessario configurare o specificare una delle credenziali seguenti per il caricamento: una chiave dell'account di archiviazione, un utente dell'applicazione di directory di Azure o un utente di AAD con il ruolo controllo degli accessi in base al ruolo appropriato per l'account di archiviazione.
 
 ## <a name="create-a-credential"></a>Creare una credenziale
 
-È possibile ignorare questa sezione e passare a "Creare l'origine dati esterna" durante l'autenticazione tramite pass-through di AAD. Non è necessario creare o specificare una credenziale con ambito database quando si usa il pass-through AAD, ma assicurarsi che l'utente AAD disponga del ruolo RBAC appropriato (Lettore dati BLOB di archiviazione, Collaboratore o Ruolo proprietario) per l'account di archiviazione. Maggiori dettagli sono descritti [qui](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260).
+È possibile ignorare questa sezione e passare a "creare l'origine dati esterna" quando si esegue l'autenticazione tramite il pass-through di AAD. Non è necessario creare o specificare credenziali con ambito database quando si usa AAD pass-through, ma assicurarsi che l'utente AAD disponga del ruolo controllo degli accessi in base al ruolo appropriato (lettore dati BLOB di archiviazione, collaboratore o ruolo proprietario) nell'account di archiviazione. Altre informazioni sono illustrate [qui](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260).
 
-Per accedere all'account di archiviazione data lake, è necessario creare una chiave master del database per crittografare il segreto delle credenziali. Creare quindi una credenziale con ambito database per archiviare il segreto. Quando si esegue l'autenticazione tramite entità servizio (utente dell'applicazione directory di Azure), le credenziali con ambito database archiviano le credenziali dell'entità servizio impostate in AAD. È anche possibile usare le credenziali con ambito database per archiviare la chiave dell'account di archiviazione per Gen2.You can also use the Database Scoped Credential to store the storage account key for Gen2.
+Per accedere all'account di Data Lake Storage, sarà necessario creare una chiave master del database per crittografare il segreto delle credenziali. Si creeranno quindi le credenziali con ambito database per archiviare il segreto. Quando si esegue l'autenticazione usando entità servizio (utente dell'applicazione directory di Azure), le credenziali con ambito database archiviano le credenziali dell'entità servizio impostate in AAD. È anche possibile usare le credenziali con ambito database per archiviare la chiave dell'account di archiviazione per Gen2.
 
-Per connettersi a Data Lake Storage usando le entità servizio, è **innanzitutto** necessario creare un'applicazione Azure Active Directory, creare una chiave di accesso e concedere all'applicazione l'accesso all'account di archiviazione di Data Lake.To connect to Data Lake Storage using service principals, you must first create an Azure Active Directory Application, create an access key, and grant the application access to the Data Lake Storage account. Per istruzioni, vedere [Autenticazione ad Archiviazione di Azure Data Lake tramite Active Directory](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Per connettersi a Data Lake Storage usando entità servizio, è **prima** necessario creare un'applicazione Azure Active Directory, creare una chiave di accesso e concedere all'applicazione l'accesso all'account data Lake storage. Per istruzioni, vedere [eseguire l'autenticazione a Azure Data Lake storage usando Active Directory](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Accedere al pool SQL con un utente con autorizzazioni a livello di CONTROL ed eseguire le istruzioni SQL seguenti sul database:
+Accedere al pool SQL con un utente che disponga delle autorizzazioni a livello di controllo ed eseguire le istruzioni SQL seguenti sul database:
 
 ```sql
 -- A: Create a Database Master Key.
@@ -93,7 +93,7 @@ WITH
 
 ## <a name="create-the-external-data-source"></a>Creare un'origine dati esterna.
 
-Usare il comando [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per archiviare il percorso dei dati. Se si esegue l'autenticazione con AAD pass-through, il parametro CREDENTIAL non è obbligatorio. Se si esegue l'autenticazione tramite identità gestita per gli endpoint del servizio, seguire questa [documentazione](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) per configurare l'origine dati esterna.
+Usare il comando [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per archiviare il percorso dei dati. Se si esegue l'autenticazione con il pass-through AAD, il parametro CREDENTIAL non è obbligatorio. Se si esegue l'autenticazione tramite identità gestita per gli endpoint di servizio, seguire questa [documentazione](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) per configurare l'origine dati esterna.
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -123,7 +123,7 @@ WITH (
 
 ## <a name="configure-data-format"></a>Configurare il formato dei dati
 
-Per importare i dati da Data Lake Storage, è necessario specificare il formato di file esterno. Questo oggetto definisce la modalità di scrittura dei file in Data Lake Storage.
+Per importare i dati da Data Lake Storage, è necessario specificare il formato di file esterno. Questo oggetto definisce il modo in cui i file vengono scritti in Data Lake Storage.
 Per un elenco completo, vedere la documentazione di T-SQL di [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ```sql
@@ -187,7 +187,7 @@ Data Lake Storage Gen1 usa il controllo degli accessi in base al ruolo per contr
 
 ## <a name="load-the-data"></a>Caricare i dati
 
-Per caricare dati da Data Lake Storage, utilizzare l'istruzione [CREATE TABLE AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Per caricare dati da Data Lake Storage utilizzare l'istruzione [create table As Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 CTAS crea una nuova tabella e la popola con i risultati di un'istruzione SELECT. CTAS definisce la nuova tabella in modo che abbia le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Se si selezionano tutte le colonne da una tabella esterna, la nuova tabella sarà una replica delle colonne e dei tipi di dati della tabella esterna.
 
@@ -233,12 +233,12 @@ In questa esercitazione sono state create tabelle esterne per definire la strutt
 Sono state eseguite queste operazioni:
 > [!div class="checklist"]
 >
-> * Oggetti di database creati necessari per il caricamento da Data Lake Storage.
-> * Connesso a una directory di data Lake Storage.
-> * Caricamento dei dati nel data warehouse.
+> * Creazione di oggetti di database necessari per il caricamento da Data Lake Storage.
+> * Connessione a una directory Data Lake Storage.
+> * I dati sono stati caricati nel data warehouse.
 >
 
-Il caricamento dei dati è il primo passaggio per lo sviluppo di una soluzione di data warehouse con Azure Synapse Analytics.Loading data is the first step to developing a data warehouse solution using Azure Synapse Analytics. Vedere le risorse di sviluppo.
+Il caricamento dei dati è il primo passaggio per lo sviluppo di una soluzione data warehouse usando Azure sinapsi Analytics. Vedere le risorse di sviluppo.
 
 > [!div class="nextstepaction"]
-> [Scopri come sviluppare tabelle per il data warehousing](sql-data-warehouse-tables-overview.md)
+> [Informazioni su come sviluppare tabelle per il data warehousing](sql-data-warehouse-tables-overview.md)

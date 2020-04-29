@@ -1,6 +1,6 @@
 ---
-title: Ottimizzazione delle transazioni per il pool SQLOptimizing transactions for SQL pool
-description: Informazioni su come ottimizzare le prestazioni del codice transazionale nel pool SQL (data warehouse), riducendo al minimo i rischi per lunghi rollback.
+title: Ottimizzazione delle transazioni per il pool SQL
+description: Informazioni su come ottimizzare le prestazioni del codice transazionale nel pool SQL (data warehouse) riducendo al minimo i rischi per i rollback lunghi.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,21 +11,21 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: d6902b2b076df86012cec6941be417ad0f0c7660
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428732"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>Ottimizzazione delle transazioni nel pool SQLOptimizing transactions in SQL pool
+# <a name="optimizing-transactions-in-sql-pool"></a>Ottimizzazione delle transazioni nel pool SQL
 
-Informazioni su come ottimizzare le prestazioni del codice transazionale nel pool SQL riducendo al minimo i rischi per lunghi rollback.
+Informazioni su come ottimizzare le prestazioni del codice transazionale nel pool SQL riducendo al minimo i rischi per i rollback lunghi.
 
 ## <a name="transactions-and-logging"></a>Transazioni e registrazione
 
-Le transazioni sono un componente importante in un motore di database relazionale. Il pool SQL utilizza le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole INSERT, UPDATE e DELETE sono esempi di transazioni implicite. Le transazioni esplicite usano BEGIN TRAN, COMMIT TRAN o ROLLBACK TRAN. Le transazioni esplicite vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica.
+Le transazioni sono un componente importante in un motore di database relazionale. Il pool SQL usa le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole INSERT, UPDATE e DELETE sono esempi di transazioni implicite. Le transazioni esplicite usano BEGIN TRAN, COMMIT TRAN o ROLLBACK TRAN. Le transazioni esplicite vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica.
 
-Il pool SQL esegue il commit delle modifiche al database utilizzando i log delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, se da un lato questo processo garantisce la scrittura dall'altro provoca un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
+Il pool SQL esegue il commit delle modifiche apportate al database usando i log delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, se da un lato questo processo garantisce la scrittura dall'altro provoca un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
 
 * Usare costrutti di registrazione minima, dove possibile
 * Elaborare i dati tramite batch con ambito per evitare singole transazioni a esecuzione prolungata.
@@ -44,7 +44,7 @@ I limiti di sicurezza delle transazioni si applicano solo alle operazioni con re
 
 Le operazioni indicate di seguito sono compatibili con la registrazione minima:
 
-* CREA TABELLA COME SELEZIONE ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* CREATE TABLE come SELECT ([CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -78,7 +78,7 @@ CTAS e INSERT...SELECT sono entrambe operazioni di caricamento bulk. Tuttavia, e
 Si noti che eventuali scritture di aggiornamento di indici secondari o non cluster saranno sempre operazioni con registrazione completa.
 
 > [!IMPORTANT]
-> Il pool SQL ha 60 distribuzioni. Di conseguenza, supponendo che tutte le righe siano distribuite in modo uniforme e che vengano inserite in una singola partizione, il batch dovrà contenere almeno 6.144.000 di righe per la registrazione minima durante la scrittura un indice columnstore cluster. Se la tabella è partizionata e le righe da inserire si estendono oltre i limiti della partizione, saranno necessari 6.144.000 di righe per limite di partizione, supponendo una distribuzione uniforme dei dati. Per la registrazione minima dell'inserimento nella distribuzione, ogni partizione in ogni distribuzione deve superare singolarmente la soglia di 102.400 righe.
+> Il pool SQL contiene 60 distribuzioni. Di conseguenza, supponendo che tutte le righe siano distribuite in modo uniforme e che vengano inserite in una singola partizione, il batch dovrà contenere almeno 6.144.000 di righe per la registrazione minima durante la scrittura un indice columnstore cluster. Se la tabella è partizionata e le righe da inserire si estendono oltre i limiti della partizione, saranno necessari 6.144.000 di righe per limite di partizione, supponendo una distribuzione uniforme dei dati. Per la registrazione minima dell'inserimento nella distribuzione, ogni partizione in ogni distribuzione deve superare singolarmente la soglia di 102.400 righe.
 
 Il caricamento di dati in una tabella non vuota con un indice cluster può spesso contenere una combinazione di righe con registrazione completa e con registrazione minima. Un indice cluster è un albero B (bilanciato) di pagine. Se la pagina in cui si scrive contiene già righe provenienti da un'altra transazione, la scrittura verrà eseguita con registrazione completa. Se invece la pagina è vuota, la scrittura verrà eseguita con registrazione minima.
 
@@ -116,7 +116,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## <a name="optimizing-updates"></a>Ottimizzazione degli aggiornamenti
 
-UPDATE è un'operazione con registrazione completa.  Se è necessario aggiornare un numero elevato di righe in una tabella o in una partizione, spesso può essere molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAS,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) in modo da poter eseguire questa operazione.
+UPDATE è un'operazione con registrazione completa.  Se è necessario aggiornare un numero elevato di righe in una tabella o in una partizione, spesso può risultare molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) .
 
 Nell'esempio seguente l'aggiornamento completo di una tabella è stato convertito in CTAS per consentire la registrazione minima.
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> La ricreazione di tabelle di grandi dimensioni può trarre vantaggio dall'utilizzo delle funzionalità di gestione del carico di lavoro del pool SQL. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Per ricreare tabelle di grandi dimensioni può essere utile utilizzare le funzionalità di gestione del carico di lavoro del pool SQL. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="optimizing-with-partition-switching"></a>Ottimizzazione con cambio della partizione
 
@@ -406,20 +406,20 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Linee guida per la sospensione e il ridimensionamento
 
-Azure Synapse Analytics consente di [sospendere, riprendere e ridimensionare](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) il pool SQL su richiesta. 
+Azure sinapsi Analytics ti permette di [sospendere, riprendere e ridimensionare](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) il pool SQL su richiesta. 
 
-Quando si sospende o si ridimensiona il pool SQL, è importante comprendere che tutte le transazioni in corso vengono terminate immediatamente. causando il rollback di tutte le transazioni aperte. 
+Quando si sospende o si ridimensiona il pool SQL, è importante comprendere che le transazioni in corso vengono interrotte immediatamente. viene eseguito il rollback di tutte le transazioni aperte. 
 
-Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questa annullamento potrebbe influire sul tempo necessario per sospendere o ridimensionare il pool SQL. 
+Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questa operazione può influisca sul tempo necessario per sospendere o ridimensionare il pool SQL. 
 
 > [!IMPORTANT]
 > `UPDATE` e `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti.
 
-Lo scenario migliore consiste nel consentire il completamento delle transazioni di modifica dei dati in volo prima di sopperere o ridimensionare il pool SQL. Tuttavia, questo potrebbe non essere sempre possibile. Per ridurre il rischio di un rollback troppo lungo, prendere in considerazione una delle opzioni seguenti:
+Lo scenario migliore consiste nel lasciare le transazioni di modifica dei dati in volo prima di sospendere o ridimensionare il pool SQL. Tuttavia, questo potrebbe non essere sempre possibile. Per ridurre il rischio di un rollback troppo lungo, prendere in considerazione una delle opzioni seguenti:
 
-* Riscrivere le operazioni a esecuzione prolungata usando [CTASRewrite](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) long running operations using CTAS
+* Riscrivere le operazioni a esecuzione prolungata con [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Suddividere l'operazione in blocchi e lavorare su un subset delle righe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui livelli di isolamento e sui limiti transazionali, vedere [Transazioni nel pool SQL.](develop-transactions.md)  Per una panoramica di altre procedure consigliate, vedere Procedure consigliate per [il pool SQL](best-practices-sql-pool.md).
+Vedere [transazioni nel pool SQL](develop-transactions.md) per altre informazioni sui livelli di isolamento e sui limiti transazionali.  Per una panoramica delle altre procedure consigliate, vedere procedure consigliate per il [pool SQL](best-practices-sql-pool.md).

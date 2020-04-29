@@ -1,6 +1,6 @@
 ---
-title: Utilizzo delle opzioni Raggruppa per
-description: Suggerimenti per l'implementazione di gruppi in base alle opzioni nel pool Synapse SQL.
+title: Utilizzo di opzioni Group by
+description: Suggerimenti per l'implementazione di opzioni Group by nel pool di SQL sinapsi.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5d8d4c6d47e33ca365415542c2da9779b4d7d1dd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416189"
 ---
-# <a name="group-by-options-in-synapse-sql-pool"></a>Raggruppa per opzioni nel pool SQL Synapse
+# <a name="group-by-options-in-synapse-sql-pool"></a>Opzioni Group by nel pool SQL sinapsi
 
-In questo articolo sono disponibili suggerimenti per l'implementazione di opzioni di raggruppamento nel pool SQL.
+In questo articolo sono disponibili suggerimenti per l'implementazione di opzioni Group by nel pool SQL.
 
 ## <a name="what-does-group-by-do"></a>Qual è la funzione di GROUP BY?
 
-La clausola T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) viene usata per aggregare i dati in un set di righe di riepilogo. GROUP BY dispone di alcune opzioni non supportate dal pool SQL. Queste opzioni hanno soluzioni alternative, che sono le seguenti:
+La clausola T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) viene usata per aggregare i dati in un set di righe di riepilogo. Per GROUP BY sono disponibili alcune opzioni che non sono supportate dal pool SQL. Per queste opzioni sono disponibili soluzioni alternative, come indicato di seguito:
 
 * GROUP BY con ROLLUP
 * GROUPING SETS
@@ -32,7 +32,7 @@ La clausola T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc
 
 ## <a name="rollup-and-grouping-sets-options"></a>Opzioni di rollup e raggruppamento di set
 
-L'opzione più semplice consiste nell'utilizzare UNION ALL per eseguire il rollup anziché basarsi sulla sintassi esplicita. Il risultato è esattamente lo stesso.
+L'opzione più semplice consiste nell'usare UNION ALL per eseguire il rollup anziché basarsi sulla sintassi esplicita. Il risultato è esattamente lo stesso.
 
 Nell'esempio seguente viene usata l'istruzione GROUP BY con l'opzione ROLLUP:
 
@@ -86,11 +86,11 @@ Per sostituire GROUPING SETS, si applica lo stesso principio. È sufficiente cre
 
 ## <a name="cube-options"></a>Opzioni Cube
 
-È possibile creare un GROUP BY WITH CUBE utilizzando l'approccio UNION ALL. Il problema è che il codice può risultare complesso e difficile da gestire. Per attenuare questo problema, è possibile utilizzare questo approccio più avanzato.
+È possibile creare un GROUP BY con CUBE usando l'approccio UNION ALL. Il problema è che il codice può risultare complesso e difficile da gestire. Per attenuare questo problema, è possibile usare questo approccio più avanzato.
 
-Utilizzando l'esempio precedente, il primo passaggio consiste nel definire il "cubo" che definisce tutti i livelli di aggregazione che si desidera creare.
+Utilizzando l'esempio precedente, il primo passaggio consiste nel definire ' Cube ' che definisce tutti i livelli di aggregazione che si desidera creare.
 
-Prendere nota del CROSS JOIN delle due tabelle derivate poiché questo genera tutti i livelli per noi. Il resto del codice è disponibile per la formattazione:
+Prendere nota del CROSS JOIN delle due tabelle derivate, perché questo genera tutti i livelli. Il resto del codice è disponibile per la formattazione:
 
 ```sql
 CREATE TABLE #Cube
@@ -121,11 +121,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-L'immagine seguente mostra i risultati del CTAS:
+La figura seguente mostra i risultati di CTAS:
 
 ![Raggruppare per cubo](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
-Il secondo passaggio consiste nello specificare una tabella di destinazione per l'archiviazione dei risultati intermedi:The second step is to specify a target table for storing interim results:
+Il secondo passaggio consiste nel specificare una tabella di destinazione per l'archiviazione dei risultati intermedi:
 
 ```sql
 DECLARE
@@ -148,7 +148,7 @@ WITH
 ;
 ```
 
-Il terzo passaggio consiste nell’eseguire il ciclo del cubo delle colonne per eseguire l'aggregazione. La query verrà eseguita una volta per ogni riga della tabella temporanea #Cube. I risultati vengono archiviati nella tabella temporanea #Results:
+Il terzo passaggio consiste nell’eseguire il ciclo del cubo delle colonne per eseguire l'aggregazione. La query viene eseguita una volta per ogni riga nella #Cube tabella temporanea. I risultati vengono archiviati nella tabella #Results Temp:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -172,7 +172,7 @@ BEGIN
 END
 ```
 
-Infine, è possibile restituire i risultati leggendo dalla tabella temporanea #Results:
+Infine, è possibile restituire i risultati leggendo dalla #Results tabella temporanea:
 
 ```sql
 SELECT *
