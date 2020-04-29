@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 07/15/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 39b61c78cbd0333183c80234256d6041a109d846
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68249928"
 ---
 Un ID di risorsa Azure AD indica i destinatari per i quali è possibile usare un token emesso per fornire l'accesso a una risorsa di Azure. Nel caso di archiviazione di Azure, l'ID risorsa può essere specifico per un singolo account di archiviazione o può essere applicato a qualsiasi account di archiviazione. La tabella seguente descrive i valori che è possibile fornire per l'ID risorsa:

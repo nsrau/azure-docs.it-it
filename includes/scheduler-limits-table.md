@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: scheduler
 ms.service: scheduler
@@ -9,17 +9,17 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75392254"
 ---
 Nella tabella seguente viene descritto ciascuno dei principali quote, limiti, impostazioni predefinite e limitazioni nell'utilità di pianificazione di Azure.
 
-| Risorsa | Descrizione del limite |
+| Risorsa | Descrizione limite |
 | -------- | ----------------- |
-| **Dimensioni del processo** | La dimensione massima del lavoro è 16.000. Se un'operazione PUT o PATCH determina un processo di dimensioni maggiori rispetto a questo limite, viene restituito un codice di stato 400 di richiesta non valida. | 
+| **Dimensioni del processo** | Le dimensioni massime del processo sono pari a 16.000. Se un'operazione PUT o PATCH determina un processo di dimensioni maggiori rispetto a questo limite, viene restituito un codice di stato 400 di richiesta non valida. | 
 | **Raccolte processi** | Il numero massimo di raccolte processi per ogni sottoscrizione di Azure è 200.000. | 
 | **Processi per raccolta** | Per impostazione predefinita, il numero massimo è di cinque processi per le raccolte di processi gratuite e di 50 processi nelle raccolte di processi standard. È possibile modificare il numero massimo di processi nelle raccolte di processi. Tutti i processi in una raccolta sono limitati al valore impostato nella raccolta stessa. Se si prova a creare più processi rispetto alla quota massima, la richiesta ha esito negativo e restituisce un codice di stato 409 conflitto. | 
 | **Tempo dall’ora di inizio** | Il massimo "tempo dall'ora di inizio" è di 18 mesi. |
@@ -28,10 +28,10 @@ Nella tabella seguente viene descritto ciascuno dei principali quote, limiti, im
 | **Dimensioni del corpo** | La dimensione massima del corpo per una richiesta è 8.192 caratteri. |
 | **Dimensioni dell’URL della richiesta** | La dimensione massima per un URL di richiesta è 2.048 caratteri. |
 | **Numero di intestazioni** | Il numero massimo di intestazioni è di 50 intestazioni. | 
-| **Dimensioni aggregate dell'intestazione** | La dimensione massima dell'intestazione di aggregazione è 4.096 caratteri. |
-| **Timeout** | Il timeout della richiesta è statico, ovvero non configurabile. e è 60 secondi per le azioni HTTP. Per le operazioni con tempi di esecuzione più lunghi, seguire i protocolli asincroni HTTP. Restituire, ad esempio, un errore 202 immediatamente, ma continuare a lavorare in background. | 
-| **Cronologia dei processi** | Il corpo di risposta massimo archiviato nella cronologia dei processi è 2.048 byte. |
-| **Periodo di memorizzazione della cronologia dei processi** | La cronologia dei processi viene conservata per un massimo di due mesi o fino alle ultime 1.000 esecuzioni. | 
+| **Dimensioni aggregate dell'intestazione** | Le dimensioni massime dell'intestazione di aggregazione sono 4.096 caratteri. |
+| **Timeout** | Il timeout della richiesta è statico, ovvero non è configurabile. e è 60 secondi per le azioni HTTP. Per le operazioni con tempi di esecuzione più lunghi, seguire i protocolli asincroni HTTP. Restituire, ad esempio, un errore 202 immediatamente, ma continuare a lavorare in background. | 
+| **Cronologia processo** | Il corpo della risposta massimo archiviato nella cronologia processo è pari a 2.048 byte. |
+| **Periodo di memorizzazione della cronologia dei processi** | La cronologia processo viene mantenuta per un massimo di due mesi o fino alle ultime 1.000 esecuzioni. | 
 | **Memorizzazione di processi completati e con errori** | I processi completati e con errori vengono conservati per 60 giorni. |
 ||| 
 

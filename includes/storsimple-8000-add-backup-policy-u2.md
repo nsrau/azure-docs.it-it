@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180337"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Per aggiungere un criterio di backup per StorSimple
@@ -23,7 +23,7 @@ ms.locfileid: "67180337"
    
    1. **Seleziona dispositivo** viene popolato automaticamente in base al dispositivo selezionato.
    
-   2. Specificare un **nome di criterio** di backup contenente da 3 a 150 caratteri. Dopo essere stati creati, i criteri non possono essere rinominati.
+   2. Specificare un **nome di criteri** di backup che contenga tra 3 e 150 caratteri. Dopo essere stati creati, i criteri non possono essere rinominati.
        
    3. Per assegnare volumi ai criteri di backup, selezionare **Aggiungi volumi** e nell'elenco tabulare dei volumi fare clic sulle caselle di controllo per assegnare uno o più volumi ai criteri di backup.
 
@@ -35,7 +35,7 @@ ms.locfileid: "67180337"
 
        1. Per **Tipo di snapshot** selezionare **Cloud** o **Locale**.
 
-       2. Indicare la frequenza dei backup (specificare un numero, quindi scegliere **Giorni** o **Settimane** dall'elenco a discesa.
+       2. Indicare la frequenza dei backup (specificare un numero, quindi scegliere **giorni** o **settimane** dall'elenco a discesa.
 
        3. Immettere una pianificazione di conservazione.
 

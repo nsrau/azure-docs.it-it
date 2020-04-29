@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: shandilvarun
@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180086"
 ---
 Per Macchine virtuali di Azure (VM) sono previsti vari stati che possono essere categorizzati come stati di *provisioning* e di *alimentazione*. Lo scopo di questo articolo è descrivere questi stati e sottolineare in particolare quando viene addebitato l'utilizzo delle istanze ai clienti. 
@@ -40,7 +40,7 @@ Fatturazione dell'utilizzo dell'istanza
 </tr>
 <tr>
 <td>
-<p><b>A partire</b></p>
+<p><b>Avvio in corso</b></p>
 </td>
 <td>
 <p>Avvio della macchina virtuale in corso.</p>
@@ -71,12 +71,12 @@ Fatturazione dell'utilizzo dell'istanza
  ]</code><br>
 </td>
 <td>
-<p><b>Fatturati</b></p>
+<p><b>Fatturato</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Arresto</b></p>
+<p><b>Stopping</b></p>
 </td>
 <td>
 <p>Si tratta di uno stato transitorio. Al termine, verrà visualizzato lo stato **Arrestato**.</p>
@@ -89,12 +89,12 @@ Fatturazione dell'utilizzo dell'istanza
  ]</code><br>
 </td>
 <td>
-<p><b>Fatturati</b></p>
+<p><b>Fatturato</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Fermato</b></p>
+<p><b>Arrestato</b></p>
 </td>
 <td>
 <p>La macchina virtuale è stato chiusa dall'interno del sistema operativo guest o tramite le API PowerOff.</p>

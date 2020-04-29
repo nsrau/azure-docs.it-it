@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67180102"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configurare un'etichetta DNS per l'indirizzo IP pubblico
@@ -28,7 +28,7 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 1. Immettere un nome per l'etichetta DNS. Il nome è un record A che consente di connettersi alla macchina virtuale di SQL Server usando il nome, anziché tramite l'indirizzo IP.
 
-1. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva**.
 
     ![etichetta dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
@@ -36,7 +36,7 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 1. In un computer connesso a Internet aprire SQL Server Management Studio (SSMS). Se SQL Server Management Studio non è installato, è possibile scaricarlo [qui](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP o il nome DNS completo della macchina virtuale, determinato nell'attività precedente. È anche possibile aggiungere una virgola e specificare la porta TCP di SQL Server. Ad esempio, `mysqlvmlabel.eastus.cloudapp.azure.com,1433`
+1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP o il nome DNS completo della macchina virtuale, determinato nell'attività precedente. È anche possibile aggiungere una virgola e specificare la porta TCP di SQL Server. Ad esempio: `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 
 1. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
 

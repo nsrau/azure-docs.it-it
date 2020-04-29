@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: functions
 author: ggailey777
@@ -9,10 +9,10 @@ ms.date: 05/25/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 94cac0932da5880e5e7b8a8fac3870b5bc464af9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75564757"
 ---
 ## <a name="register-extensions"></a>Registrare le estensioni

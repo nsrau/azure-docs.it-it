@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: iot-fundamentals
 author: robinsh
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76748970"
 ---
 L'articolo fornisce una serie di informazioni avanzate per proteggere l'infrastruttura Azure IoT e fornisce i collegamenti ai dettagli a livello di implementazione per configurare e distribuire ciascun componente. Offre anche una serie di confronti e scelte tra i vari metodi concorrenti.
@@ -77,7 +77,7 @@ Durante il tentativo di stabilire una connessione TLS sicura con l'hub IoT, il d
 
 ## <a name="securing-the-connection"></a>Proteggere la connessione
 
-La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante lo standard TLS (Transport Layer Security). Azure IoT supporta [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, in questo ordine. Il supporto per lo standard TLS 1.0 viene fornito soltanto per la compatibilità con le versioni precedenti. Controllare il [supporto TLS nell'hub IoT](../articles/iot-hub/iot-hub-tls-support.md) per vedere come configurare l'hub per l'utilizzo di TLS 1.2, in quanto fornisce la massima sicurezza.
+La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante lo standard TLS (Transport Layer Security). Azure Internet delle cose supporta [tls 1,2](https://tools.ietf.org/html/rfc5246), TLS 1,1 e TLS 1,0, in questo ordine. Il supporto per lo standard TLS 1.0 viene fornito soltanto per la compatibilità con le versioni precedenti. Controllare il [supporto TLS nell'hub](../articles/iot-hub/iot-hub-tls-support.md) Internet per informazioni su come configurare l'hub per l'uso di TLS 1,2, poiché fornisce la maggiore sicurezza.
 
 ## <a name="securing-the-cloud"></a>Proteggere il cloud
 
@@ -107,7 +107,7 @@ I dati inseriti dall'Hub IoT di Azure possono essere usati da una serie di servi
 
 * [App per la logica](https://azure.microsoft.com/services/app-service/logic/): la funzionalità App per la logica del servizio app di Azure consente di integrare la soluzione IoT con i sistemi line-of-business esistenti e automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
 
-* Archiviazione BLOB di [Azure:](https://azure.microsoft.com/services/storage/)archiviazione cloud affidabile ed economica per i dati inviati dai dispositivi al cloud.
+* [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/): archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.
 
 ## <a name="conclusion"></a>Conclusioni
 

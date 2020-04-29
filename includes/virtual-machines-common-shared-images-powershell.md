@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: cynthn
@@ -9,17 +9,17 @@ ms.date: 05/21/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: bae66078a1bcb1d80f0798b1d501598fa785fb80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "66241224"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
 Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
 
-Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È inoltre possibile avviare Cloud Shell in [https://shell.azure.com/powershell](https://shell.azure.com/powershell)una scheda separata del browser accedendo a . Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
+Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
 
 ## <a name="get-the-managed-image"></a>Ottenere l'immagine gestita
@@ -51,9 +51,9 @@ $gallery = New-AzGallery `
    
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
 
-Le definizioni delle immagini creano un raggruppamento logico per le immagini. Vengono utilizzati per gestire le informazioni sulle versioni dell'immagine create al loro interno. I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. Per ulteriori informazioni sui valori che è possibile specificare per una definizione di immagine, vedere [Definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono utilizzati per gestire le informazioni sulle versioni delle immagini create al suo interno. I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. Per ulteriori informazioni sui valori che è possibile specificare per la definizione di un'immagine, vedere [definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Creare la definizione dell'immagine utilizzando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio, l'immagine della raccolta è denominata *myGalleryImage*.
+Creare la definizione dell'immagine usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio, l'immagine della raccolta è denominata *myGalleryImage*.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -71,7 +71,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Creare una versione di immagine
 
-Creare una versione dell'immagine da un'immagine gestita utilizzando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Creare una versione dell'immagine da un'immagine gestita usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
 
@@ -101,15 +101,15 @@ $job.State
 ```
 
 > [!NOTE]
-> È necessario attendere che la versione dell'immagine termini completamente la compilazione e la replica prima di poter utilizzare la stessa immagine gestita per creare un'altra versione dell'immagine. 
+> È necessario attendere che la versione dell'immagine completi la compilazione e la replica prima di poter usare la stessa immagine gestita per creare un'altra versione dell'immagine. 
 >
-> È inoltre possibile archiviare la versione `-StorageAccountType Standard_ZRS` dell'immagine in [Archiviazione ridondante](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) di zona aggiungendo quando si crea la versione dell'immagine.
+> È anche possibile archiviare la versione dell'immagine nell' [archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) aggiungendo `-StorageAccountType Standard_ZRS` quando si crea la versione dell'immagine.
 >
 
 
-## <a name="share-the-gallery"></a>Condividere la galleria
+## <a name="share-the-gallery"></a>Condividere la raccolta
 
-È consigliabile condividere l'accesso a livello di raccolta immagini. Utilizzare un indirizzo di posta elettronica e il cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) per ottenere l'ID oggetto per l'utente, quindi utilizzare [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) per concedere l'accesso alla raccolta. Sostituire l'e-mail di esempio, alinne_montes@contoso.com in questo esempio, con le proprie informazioni.
+Si consiglia di condividere l'accesso a livello di raccolta immagini. Usare un indirizzo di posta elettronica e il cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) per ottenere l'ID oggetto per l'utente e quindi usare [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) per concedere loro l'accesso alla raccolta. Sostituire l'indirizzo di posta alinne_montes@contoso.com elettronica di esempio, in questo esempio, con le proprie informazioni.
 
 ```azurepowershell-interactive
 # Get the object ID for the user

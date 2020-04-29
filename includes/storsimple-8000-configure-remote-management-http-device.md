@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 473bc0a58fe49c7f454c81402b57ddce7fc745b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180208"
 ---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>Per configurare la gestione remota sull'appliance cloud
@@ -27,7 +27,7 @@ ms.locfileid: "67180208"
 
     1. Assicurarsi che **Abilitare l'amministrazione remota** sia abilitato.
     2. La connessione tramite HTTPS rappresenta la scelta predefinita. È possibile scegliere di connettersi usando HTTP. La connessione tramite HTTP dovrebbe essere eseguita solo su reti attendibili. Assicurarsi che HTTP sia abilitato.
-    3. Dalla barra dei comandi nella parte superiore della lama, fare clic su **... Altro** e quindi fare clic su **Scarica certificato** per scaricare un certificato di gestione remoto. È possibile specificare il percorso in cui salvare il file. Tale certificato deve essere installato nel computer client o host che si usa per connettersi all'appliance cloud.
+    3. Dalla barra dei comandi nella parte superiore del pannello fare clic su **... Altro** e quindi fare clic su **Scarica certificato** per scaricare un certificato di gestione remota. È possibile specificare il percorso in cui salvare il file. Tale certificato deve essere installato nel computer client o host che si usa per connettersi all'appliance cloud.
 
         ![Pannello Gestione remota](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage4.png)
 5. Fare clic su **Salva** e, quando richiesto, confermare le modifiche.

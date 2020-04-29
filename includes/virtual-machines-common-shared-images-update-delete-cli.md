@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: cynthn
@@ -9,15 +9,15 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180159"
 ---
 ## <a name="update-resources"></a>Aggiornare le risorse
 
-Ci sono alcune limitazioni su ciò che può essere aggiornato. È possibile aggiornare i seguenti elementi: 
+Esistono alcune limitazioni sugli elementi che è possibile aggiornare. È possibile aggiornare gli elementi seguenti: 
 
 Raccolta di immagini condivise:
 - Descrizione
@@ -34,9 +34,9 @@ Versione immagine:
 - Esclusione dalla versione più recente
 - Data di scadenza
 
-Se si prevede di aggiungere aree di replica, non eliminare l'immagine gestita di origine. L'immagine gestita di origine è necessaria per replicare la versione dell'immagine in aree aggiuntive. 
+Se si prevede di aggiungere aree di replica, non eliminare l'immagine gestita di origine. L'immagine gestita di origine è necessaria per la replica della versione dell'immagine in altre aree. 
 
-Aggiornare la descrizione di una raccolta utilizzando ([az sig update](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
+Aggiornare la descrizione di una raccolta usando ([AZ Sig Update](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
 
 ```azurecli-interactive
 az sig update \
@@ -46,7 +46,7 @@ az sig update \
 ```
 
 
-Aggiornare la descrizione di una definizione di immagine utilizzando [az sig image-definition update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update).
+Aggiornare la descrizione di una definizione di immagine usando [AZ sig Image-Definition Update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update).
 
 ```azurecli-interactive
 az sig image-definition update \
@@ -56,7 +56,7 @@ az sig image-definition update \
    --set description="My updated description."
 ```
 
-Aggiornare una versione dell'immagine per aggiungere un'area da replicare utilizzando [az sig image-version update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update). Questa modifica richiederà un po' di tempo quando l'immagine viene replicata nella nuova area.
+Aggiornare una versione dell'immagine per aggiungere un'area in cui eseguire la replica usando [AZ sig Image-Version Update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update). Questa modifica può richiedere un po' di tempo quando l'immagine viene replicata nella nuova area.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -71,7 +71,7 @@ az sig image-version update \
 
 È necessario eliminare le risorse in ordine inverso, eliminando prima la versione dell'immagine. Dopo aver eliminato tutte le versioni dell'immagine, è possibile eliminare la definizione dell'immagine. Dopo aver eliminato tutte le definizioni dell'immagine, è possibile eliminare la raccolta. 
 
-Eliminare una versione dell'immagine utilizzando [az sig image-version delete](https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete).
+Eliminare una versione dell'immagine usando [AZ sig Image-version Delete](https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete).
 
 ```azurecli-interactive
 az sig image-version delete \
@@ -81,7 +81,7 @@ az sig image-version delete \
    --gallery-image-version 1.0.0 
 ```
 
-Eliminare una definizione di immagine utilizzando [az sig image-definition delete](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete).
+Eliminare una definizione di immagine usando [AZ sig Image-Definition Delete](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete).
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -91,7 +91,7 @@ az sig image-definition delete \
 ```
 
 
-Eliminare una raccolta immagini utilizzando [az sig delete](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-delete).
+Eliminare una raccolta immagini usando [AZ sig Delete](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-delete).
 
 ```azurecli-interactive
 az sig delete \

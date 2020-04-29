@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180606"
 ---
 Se si verificano problemi relativi ai dispositivi, è possibile creare un pacchetto per il supporto dai registri di sistema. Supporto tecnico Microsoft utilizza questo pacchetto per risolvere i problemi. Per creare un pacchetto per il supporto, attenersi alla procedura seguente:

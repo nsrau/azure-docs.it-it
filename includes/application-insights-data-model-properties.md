@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: eb4fb0e08564921556c0562e9fa7d670b76e860a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67179904"
 ---
 Raccolta nome-valore di proprietà personalizzate. Questa raccolta viene usata per estendere la telemetria standard con dimensioni personalizzate, ad esempio uno slot di distribuzione che ha generato dati di telemetria o una proprietà specifica degli elementi di telemetria come il numero d'ordine. 

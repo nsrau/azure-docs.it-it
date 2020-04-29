@@ -1,6 +1,6 @@
 ---
 title: Caricare un file VHD in Azure DevTest Labs usando AzCopy | Microsoft Docs
-description: Questo articolo offre una procedura dettagliata per usare l'utilità della riga di comando AzCopy per caricare un file VHD nell'account di archiviazione di un lab in Azure DevTest Labs.This article provides a walkthrough to use the AzCopy command-line utility to upload a VHD file to a lab's storage account in Azure DevTest Labs.
+description: Questo articolo fornisce una procedura dettagliata per l'uso dell'utilità della riga di comando AzCopy per caricare un file VHD nell'account di archiviazione di un Lab in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 49dc70788bf2a44b6925c5f3f8226fdadab8768c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76757423"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Caricare un file VHD nell'account di archiviazione del lab usando AzCopy
@@ -37,9 +37,9 @@ La procedura seguente illustra come caricare un file VHD in Azure DevTest Labs u
 
 1. Ottenere il nome dell'account di archiviazione del lab tramite il portale di Azure:
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **tutti i servizi**, quindi selezionare **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.  
 

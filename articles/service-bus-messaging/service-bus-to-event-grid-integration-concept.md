@@ -1,6 +1,6 @@
 ---
 title: Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi | Microsoft Docs
-description: Questo articolo fornisce una descrizione della modalità di integrazione della messaggistica del bus di servizio di Azure con Griglia di eventi di Azure.This article provides a description of how Azure Service Bus messaging integrates with Azure Event Grid.
+description: Questo articolo fornisce una descrizione del modo in cui la messaggistica del bus di servizio di Azure si integra con griglia di eventi di Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773468"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
@@ -38,7 +38,7 @@ Per abilitare questa funzionalità, sono necessari gli elementi seguenti:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verificare di avere l'accesso di tipo Collaboratore
-Passare allo spazio dei nomi del bus di servizio e quindi selezionare Controllo di accesso **(IAM)** e selezionare la scheda **Assegnazioni** di ruolo . Verificare di disporre dell'accesso del collaboratore allo spazio dei nomi. 
+Passare allo spazio dei nomi del bus di servizio e quindi selezionare **controllo di accesso (IAM)** e selezionare scheda **assegnazioni di ruolo** . Verificare di disporre dell'accesso collaboratore allo spazio dei nomi. 
 
 ### <a name="events-and-event-schemas"></a>Eventi e schemi di eventi
 
@@ -119,14 +119,14 @@ Se si vogliono ottenere eventi solo da una coda o una sottoscrizione nello spazi
 
 * Nel portale di Azure
 * Nell'[interfaccia della riga di comando di Azure](#azure-cli-instructions)
-* In [PowerShellIn PowerShell](#powershell-instructions)
+* In [PowerShell](#powershell-instructions)
 
 ## <a name="azure-portal-instructions"></a>Istruzioni del portale di Azure
 
 Per creare una nuova sottoscrizione di Griglia di eventi, seguire questa procedura:
 1. Nel portale di Azure passare allo spazio dei nomi.
 2. Nel riquadro a sinistra selezionare **Griglia eventi**. 
-3. Selezionare **Sottoscrizione evento**.  
+3. Selezionare **sottoscrizione di eventi**.  
 
    L'immagine seguente mostra uno spazio dei nomi con una sottoscrizione di Griglia di eventi:
 
@@ -138,7 +138,7 @@ Per creare una nuova sottoscrizione di Griglia di eventi, seguire questa procedu
 
 ## <a name="azure-cli-instructions"></a>Istruzioni per l'interfaccia della riga di comando di Azure
 
-Verificare prima di tutto che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. [Scaricare il programma di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selezionare **Windows e X**e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
+Verificare prima di tutto che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. [Scaricare il programma di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selezionare **Windows + X**e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
 
 Eseguire questo codice:
 
@@ -152,7 +152,7 @@ namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type 
 az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-Se si utilizza BASH 
+Se si usa BASH 
 
 ## <a name="powershell-instructions"></a>Istruzioni per PowerShell
 

@@ -5,26 +5,26 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76766260"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stato dell'orchestrazione personalizzato in Funzioni permanenti (Funzioni di Azure)
 
-Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite [l'API HTTP GetStatus](durable-functions-http-api.md#get-instance-status) o l'API [ `GetStatusAsync` ](durable-functions-instance-management.md#query-instances) nel client di orchestrazione.
+Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l' [API HTTP GetStatus](durable-functions-http-api.md#get-instance-status) o l' [ `GetStatusAsync` API](durable-functions-instance-management.md#query-instances) nel client di orchestrazione.
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
 
 > [!NOTE]
-> Negli esempi seguenti viene illustrato come utilizzare la funzionalità di stato personalizzato in C .NET e JavaScript. Gli esempi di C, sono scritti per Funzioni durevoli 2.x e non sono compatibili con Durable Functions 1.x. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
+> Gli esempi seguenti illustrano come usare la funzionalità di stato personalizzato in C# e JavaScript. Gli esempi in C# sono scritti per Durable Functions 2. x e non sono compatibili con Durable Functions 1. x. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 ### <a name="visualize-progress"></a>Visualizzazione dello stato
 
 I client possono eseguire il polling dell'endpoint di stato e visualizzare un elemento dell'interfaccia utente con lo stato che mostra la fase di esecuzione corrente. L'esempio seguente mostra la condivisione dello stato:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -51,7 +51,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 `E1_HelloSequence`funzione dell'agente di orchestrazione:
 
@@ -73,7 +73,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-`E1_SayHello`funzione di attività:
+`E1_SayHello`funzione Activity:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -85,7 +85,7 @@ module.exports = async function(context, name) {
 
 A questo punto il client riceverà l'output dell'orchestrazione solo quando il campo `CustomStatus`è impostato su "London":
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -118,7 +118,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -156,7 +156,7 @@ module.exports = async function(context, req) {
 
 Un altro scenario interessante è la segmentazione degli utenti con la restituzione di un output personalizzato in base a caratteristiche o interazioni univoche. Con l'aiuto dello stato dell'orchestrazione personalizzato, il codice lato client viene mantenuto generico. Tutte le modifiche principali avverranno sul lato server come illustrato nell'esempio seguente:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -194,7 +194,7 @@ public static void Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -233,7 +233,7 @@ module.exports = df.orchestrator(function*(context) {
 
 L'agente di orchestrazione può offrire istruzioni univoche ai client tramite lo stato personalizzato. Le istruzioni dello stato personalizzate verranno mappate ai passaggi nel codice di orchestrazione:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -261,7 +261,7 @@ public static async Task<bool> Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -294,7 +294,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Nell'esempio seguente lo stato personalizzato è impostato per primo:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -309,7 +309,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -347,9 +347,9 @@ I client visualizzano la risposta seguente:
 ```
 
 > [!WARNING]
-> Il payload dello stato personalizzato è limitato a 16 kB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archivio tabelle di Azure. Ti consigliamo di usare l'archiviazione esterna se hai bisogno di un carico utile maggiore.
+> Il payload dello stato personalizzato è limitato a 16 kB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archivio tabelle di Azure. Se è necessario un payload di dimensioni maggiori, è consigliabile usare l'archiviazione esterna.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Scopri di più sui timer durevoli](durable-functions-timers.md)
+> [Informazioni sui timer durevoli](durable-functions-timers.md)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67671190"
 ---
 1. Installare dapl, rdmacm, ibverbs e mlx4
@@ -28,7 +28,7 @@ ms.locfileid: "67671190"
    OS.UpdateRdmaDriver=y
    ```
 
-3. Aggiungere o modificare le impostazioni della memoria seguenti espresse in KB nel file /etc/security/limits.conf. Per modificare questo file è necessario l'accesso alla radice. A scopo di test è possibile impostare memlock su unlimited. Ad esempio `<User or group name>   hard    memlock   unlimited`.
+3. Aggiungere o modificare le impostazioni della memoria seguenti espresse in KB nel file /etc/security/limits.conf. Per modificare questo file è necessario l'accesso alla radice. A scopo di test è possibile impostare memlock su unlimited. Ad esempio: `<User or group name>   hard    memlock   unlimited`.
 
    ```
    <User or group name> hard    memlock <memory required for your application in KB>

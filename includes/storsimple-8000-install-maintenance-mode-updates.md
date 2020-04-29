@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180343"
 ---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Installare gli aggiornamenti in modalità manutenzione tramite Windows PowerShell per StorSimple
@@ -16,10 +16,10 @@ ms.locfileid: "67180343"
 Quando si applicano gli aggiornamenti in modalità manutenzione al dispositivo StorSimple, tutte le richieste di I/O sono in pausa. Vengono arrestati servizi come la memoria ad accesso casuale non volatile (NVRAM) o il servizio cluster. Entrambi i controller vengono riavviati quando si entra o esce dalla modalità. Quando si esce da questa modalità, tutti i servizi vengono ripresi e sono integri. L'operazione potrebbe richiedere alcuni minuti.
 
 > [!IMPORTANT]
-> * Prima di avviare la modalità manutenzione, verificare che entrambi i controller del dispositivo siano integri nel portale di Azure. Se il controller non è integro, [contattare](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) il supporto tecnico Microsoft per i passaggi successivi.
+> * Prima di avviare la modalità manutenzione, verificare che entrambi i controller del dispositivo siano integri nel portale di Azure. Se il controller non è integro, [contattare supporto tecnico Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) per i passaggi successivi.
 > * In modalità manutenzione è necessario aggiornare prima un controller e quindi l'altro.
 
-1. Usare PuTTY per connettersi alla console seriale. Seguire le istruzioni riportate in [Usare PuTTY per connettersi alla console seriale](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**. Selezionare opzione 1, **Accedi con accesso completo**.
+1. Usare PuTTY per connettersi alla console seriale. Seguire le istruzioni riportate in [Usare PuTTY per connettersi alla console seriale](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**. Selezionare l'opzione 1, **Accedi con accesso completo**.
 
 2. Per attivare la modalità di manutenzione per il controller, digitare:
     

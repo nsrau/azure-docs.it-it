@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f3bb391dceb1948820d00c0d09229f2c106ffc0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68601344"
 ---
 In un dispositivo Data Box Edge in cui è configurato il ruolo di calcolo, è disponibile un subset di comandi di Docker per monitorare o risolvere i problemi relativi ai moduli. Per visualizzare un elenco dei comandi disponibili, [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface) e utilizzare la `dkrdbe` funzione.

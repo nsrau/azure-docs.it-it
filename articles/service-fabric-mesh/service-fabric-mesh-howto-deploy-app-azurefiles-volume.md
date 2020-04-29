@@ -1,5 +1,5 @@
 ---
-title: Usare un volume basato su File di Azure in un'app basata su Service Fabric MeshUse an Azure Files based volume in a Service Fabric Mesh app
+title: Usare un volume basato su File di Azure in un'app Service Fabric mesh
 description: Informazioni sull'archiviazione dello stato in un'applicazione di Azure Service Fabric Mesh attraverso il montaggio di un volume basato su File di Azure all'interno di un servizio che usa l'interfaccia della riga di comando di Azure.
 author: dkkapur
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76718821"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montare un volume basato su File di Azure in un'applicazione di Service Fabric Mesh 
@@ -21,13 +21,13 @@ Per montare un volume in un servizio, creare una risorsa di volume nell'applicaz
 
 ## <a name="prerequisites"></a>Prerequisiti
 > [!NOTE]
-> **Problema noto con la distribuzione nel computer di sviluppo Windows RS5:** C'è un bug aperto con il cmdlet di Powershell New-SmbGlobalMapping nei computer Windows RS5 che impedisce il montaggio dei volumi di Azurefile. Di seguito è riportato un errore di esempio che si verifica quando il volume basato su AzureFile viene montato nel computer di sviluppo locale.
+> **Problemi noti relativi alla distribuzione nel computer di sviluppo RS5 di Windows:** È presente un bug aperto con il cmdlet di PowerShell New-SmbGlobalMapping nei computer Windows RS5 che impedisce il montaggio di volumi Azurefile. Di seguito è riportato un errore di esempio che si verifica quando viene montato il volume basato su AzureFile nel computer di sviluppo locale.
 ```
 Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
 There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
 Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
 ```
-La soluzione per il problema è a 1)Eseguire il comando seguente come amministratore di Powershell e 2)Riavviare il computer.
+La soluzione alternativa per il problema è 1) eseguire il comando seguente come amministratore di PowerShell e 2) riavviare il computer.
 ```powershell
 PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 ```
