@@ -1,5 +1,5 @@
 ---
-title: Azure Compute - Linux Diagnostic Extension
+title: Calcolo di Azure-estensione diagnostica Linux
 description: Come configurare l'estensione Diagnostica di Azure per Linux (LAD) per raccogliere le metriche e gli eventi dei registri dalle macchine virtuali Linux in esecuzione in Azure.
 services: virtual-machines-linux
 author: axayjo
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
 ms.openlocfilehash: 7a7c1af1193ba391550438229a22c4a8c116e6be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289176"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
@@ -52,14 +52,14 @@ La configurazione scaricabile è solo un esempio; modificarla per adattarla alle
 ### <a name="prerequisites"></a>Prerequisiti
 
 * **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) per aggiornarla.
-* **L'interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale.
+* **Interfaccia**della riga di comando di Azure. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale.
 * Il comando wget. Se non è già disponibile, eseguire `sudo apt-get install wget`.
 * Una sottoscrizione di Azure esistente e un account di archiviazione al suo interno per l'archiviazione dei dati.
 * L'elenco delle distribuzioni Linux supportate è disponibile all'indirizzo https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### <a name="sample-installation"></a>Installazione di esempio
 
-Compilare i valori corretti per le variabili nella prima sezione prima di essere eseguiti:
+Inserire i valori corretti per le variabili nella prima sezione prima di eseguire:
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -89,7 +89,7 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-La configurazione di esempio scaricata in questi esempi raccoglie un set di dati standard e li invia all'archiviazione tabelle. L'URL per la configurazione di esempio e il relativo contenuto sono soggetti a modifiche. Nella maggior parte dei casi, è necessario scaricare una copia del file JSON delle impostazioni del portale e personalizzarlo in base alle proprie esigenze, quindi fare in modo che i modelli o l'automazione creati utilizzino la propria versione del file di configurazione anziché scaricare l'URL ogni volta.
+La configurazione di esempio scaricata in questi esempi raccoglie un set di dati standard e li invia all'archiviazione tabelle. L'URL per la configurazione di esempio e il relativo contenuto è soggetto a modifiche. Nella maggior parte dei casi, è consigliabile scaricare una copia del file JSON delle impostazioni del portale e personalizzarla in base alle proprie esigenze, quindi fare in maniera che tutti i modelli o l'automazione creata usino la propria versione del file di configurazione anziché scaricare tale URL ogni volta.
 
 #### <a name="powershell-sample"></a>Esempio PowerShell
 
@@ -163,7 +163,7 @@ storageAccountSasToken | Un [token SAS dell'account](https://azure.microsoft.com
 mdsdHttpProxy | (facoltativo) Informazioni sul proxy HTTP necessarie per abilitare l'estensione affinché si connetta all'account di archiviazione e all'endpoint specificati.
 sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui possono essere inviati le metriche e gli eventi. Nelle sezioni che seguono vengono illustrati i dettagli specifici di ogni sink di dati supportato dall'estensione.
 
-Per ottenere un token di firma di accesso condiviso all'interno di un modello di Resource Manager, usare la funzione **listAccountSas.** Per un modello di esempio, vedere [Esempio di funzione List](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
+Per ottenere un token di firma di accesso condiviso all'interno di un modello di Gestione risorse, usare la funzione **listAccountSas** . Per un modello di esempio, vedere [esempio di funzione List](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 È possibile costruire con facilità il token SAS richiesto tramite il portale di Azure.
 
@@ -225,7 +225,7 @@ Se è stata creata una firma di accesso condiviso valida fino alla mezzanotte UT
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Per altre informazioni sulla generazione e il recupero di informazioni sui token di firma di accesso condiviso per gli hub eventi, vedere [questa pagina Web.](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell)
+Per altre informazioni sulla generazione e il recupero di informazioni sui token SAS per hub eventi, vedere [Questa pagina Web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>Sink JsonBlob
 
@@ -528,7 +528,7 @@ TransfersPerSecond | Operazioni di lettura o scrittura per secondo
 
 È possibile ottenere i valori aggregati in tutti i file System impostando `"condition": "IsAggregate=True"`. È possibile ottenere i valori per un determinato file system montato, ad esempio "/mnt", può essere ottenuto impostando `"condition": 'Name="/mnt"'`. 
 
-**NOTA:** se si usa il portale di Azure anziché JSON, il formato del campo della condizione corretto è Nome'/mnt'
+**Nota**: se si usa il portale di Azure anziché JSON, il formato del campo di condizione corretto è Name ='/mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Metriche Builtin per la classe Disco
 
@@ -723,7 +723,7 @@ I dati inviati ai sink JsonBlob sono archiviati nei BLOB nell'account di archivi
 È anche possibile usare questi strumenti dell'interfaccia utente per accedere ai dati nell'archiviazione di Azure:
 
 * Esplora server di Visual Studio.
-* [Esplora archivi di Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Esplora archivi Azure").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Esplora archivi Azure").
 
 Questo snapshot di una sessione di Microsoft Azure Storage Explorer mostra le tabelle di archiviazione di Azure e i contenitori generati da un'estensione LAD 3.0 correttamente configurata su una macchina virtuale di test. L'immagine non corrisponde esattamente alla [configurazione LAD 3.0 di esempio](#an-example-lad-30-configuration).
 

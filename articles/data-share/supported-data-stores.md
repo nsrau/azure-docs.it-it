@@ -7,10 +7,10 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 624bb45de3e2ff184326949611d437f71f3e2def
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79501799"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati nella condivisione dati di Azure
@@ -28,7 +28,7 @@ La tabella seguente illustra in dettaglio le origini dati supportate per la cond
 | Archiviazione BLOB di Azure |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Database SQL di Azure |Anteprima pubblica | |
+| database SQL di Azure |Anteprima pubblica | |
 | Azure sinapsi Analytics (in precedenza Azure SQL DW) |Anteprima pubblica | |
 | Esplora dati di Azure | |Anteprima pubblica |
 
@@ -38,12 +38,12 @@ La condivisione di dati di Azure offre la flessibilità dei consumer di dati per
 
 Nella tabella seguente vengono illustrate le diverse combinazioni e scelte che i consumer di dati hanno per l'accettazione e la configurazione della condivisione di dati. Per ulteriori informazioni su come configurare i mapping dei set di dati, vedere [come configurare i mapping dei set di dati](how-to-configure-mapping.md).
 
-|  | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Database SQL di Azure | Azure Synapse Analytics 
+|  | Archiviazione BLOB di Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | database SQL di Azure | Azure Synapse Analytics 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Archiviazione BLOB di Azure | ✓ || ✓|
 | Azure Data Lake Storage Gen1 | ✓ | | ✓|
 | Azure Data Lake Storage Gen2 | ✓ | | ✓|
-| Database SQL di Azure | ✓ | | ✓| ✓| ✓|
+| database SQL di Azure | ✓ | | ✓| ✓| ✓|
 | Azure sinapsi Analytics (in precedenza Azure SQL DW) | ✓ | | ✓| ✓| ✓|
 
 ## <a name="share-from-a-storage-account"></a>Condividi da un account di archiviazione
