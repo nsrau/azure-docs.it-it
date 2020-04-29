@@ -1,5 +1,5 @@
 ---
-title: Identità del modulo Hub IoT di Azure & modulo gemello (portale e .NET)Azure IoT Hub module & module twin (portal and .NET)
+title: Identità del modulo Hub Azure Internet delle cose & modulo gemello (portale e .NET)
 description: Come creare l'identità del modulo e aggiornare il modulo gemello usando il portale e .NET.
 author: robinsh
 manager: philmea
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759774"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
@@ -22,48 +22,48 @@ ms.locfileid: "81759774"
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Le identità del modulo e i moduli gemelli](iot-hub-devguide-module-twins.md) sono simili alle identità del dispositivo e ai dispositivi gemelli dell'hub IoT di Azure, ma offrono una granularità superiore. Mentre l'identità del dispositivo hub Di Azure IoT e il dispositivo gemello consentono all'applicazione back-end di configurare un dispositivo e fornire visibilità sulle condizioni del dispositivo, un'identità del modulo e un modulo gemello forniscono queste funzionalità per i singoli componenti di un dispositivo. Nei dispositivi in grado con più componenti, ad esempio dispositivi basati su sistemi operativi o dispositivi firmware, le identità dei moduli e i moduli gemelli consentono la configurazione e le condizioni isolate per ogni componente.
+> [Le identità del modulo e i moduli gemelli](iot-hub-devguide-module-twins.md) sono simili alle identità del dispositivo e ai dispositivi gemelli dell'hub IoT di Azure, ma offrono una granularità superiore. Mentre l'identità del dispositivo e il dispositivo gemello dell'hub Azure è possibile abilitare l'applicazione back-end per configurare un dispositivo e fornire visibilità sulle condizioni del dispositivo, un'identità del modulo e un modulo gemello forniscono queste funzionalità per i singoli componenti di un dispositivo. Nei dispositivi compatibili con più componenti, ad esempio dispositivi basati sul sistema operativo o dispositivi firmware, le identità dei moduli e i moduli gemelli consentono la configurazione e le condizioni isolate per ogni componente.
 >
 
 In questa esercitazione si apprenderà:
 
 * Come creare un'identità del modulo nel portale.
 
-* Come usare un SDK del dispositivo .NET per aggiornare il modulo gemello dal dispositivo.
+* Come usare un SDK per dispositivi .NET per aggiornare il modulo gemello dal dispositivo.
 
 > [!NOTE]
-> Per informazioni sugli SDK di Azure IoT che è possibile usare per compilare entrambe le applicazioni da eseguire nei dispositivi e il back-end della soluzione, vedere [SDK ioT](iot-hub-devguide-sdks.md)di Azure.
+> Per informazioni sugli SDK di Azure per le cose che è possibile usare per compilare entrambe le applicazioni da eseguire nei dispositivi e il back-end della soluzione, vedere gli [SDK di Azure](iot-hub-devguide-sdks.md).
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Visual Studio.
 
-* Un account Azure attivo. Se non hai un account, puoi creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 ## <a name="create-a-hub"></a>Creare un hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-hub"></a>Registrare un nuovo dispositivo nell'hubRegister a new device in the hub
+## <a name="register-a-new-device-in-the-hub"></a>Registrare un nuovo dispositivo nell'hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Creare un'identità del modulo nel portale
 
-In una identità del dispositivo è possibile creare fino a 20 identità del modulo. Per aggiungere un'identità, attenersi alla seguente procedura:
+In una identità del dispositivo è possibile creare fino a 20 identità del modulo. Per aggiungere un'identità, attenersi alla procedura seguente:
 
 1. Per il dispositivo creato nella sezione precedente, scegliere **Aggiungi identità modulo** per creare la prima identità del modulo.
 
 1. Immettere il nome *myFirstModule*. Salvare l'identità del modulo.
 
-    ![Aggiungere l'identità del modulo](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
+    ![Aggiungi identità modulo](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
 
-    La nuova identità del modulo viene visualizzata nella parte inferiore dello schermo. Selezionarlo per visualizzare i dettagli dell'identità del modulo.
+    La nuova identità del modulo viene visualizzata nella parte inferiore della schermata. Selezionarlo per visualizzare i dettagli relativi all'identità del modulo.
 
-    ![Vedi i dettagli dell'identità del modulo](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
+    ![Vedere i dettagli relativi all'identità del modulo](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
-Salvare la **stringa Connect - chiave primaria**. Utilizzarlo nella sezione successiva per configurare il modulo sul dispositivo.
+Salvare la **stringa di connessione-chiave primaria**. Viene usato nella sezione successiva per configurare il modulo nel dispositivo.
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Aggiornare il modulo gemello usando l'SDK per dispositivi .NET
 
@@ -71,23 +71,23 @@ L'identità del modulo è stata correttamente creata nell'hub IoT. Proviamo ora 
 
 ### <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
-Per creare un'app che aggiorna le proprietà segnalate del modulo gemello, attenersi alla seguente procedura:
+Per creare un'app che aggiorna le proprietà segnalate dal modulo gemello, attenersi alla procedura seguente:
 
-1. In Visual Studio selezionare **Crea un nuovo progetto**, quindi scegliere App console **(.NET Framework)** e scegliere **Avanti**.
+1. In Visual Studio selezionare **Crea un nuovo progetto**, quindi scegliere **App Console (.NET Framework)** e fare clic su **Avanti**.
 
-1. In **Configura il nuovo progetto**immettere *UpdateModuleTwinReportedProperties* come **nome del progetto**. Fare clic su **Crea** per continuare.
+1. In **Configura il nuovo progetto**, immettere *UpdateModuleTwinReportedProperties* come **nome del progetto**. Fare clic su **Crea** per continuare.
 
-    ![Configurare un progetto di Visual StudioConfigure you're a visual Studio project](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
+    ![Configura sei un progetto di Visual Studio](./media/iot-hub-portal-csharp-module-twin-getstarted/configure-twins-project.png)
 
 ### <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Installare la versione più recente di Azure IoT Hub SDK per dispositivi .NET
 
-Le funzionalità di identità del modulo e di modulo gemello sono disponibili in anteprima pubblica. È disponibile solo negli SDK del dispositivo non definitivo dell'hub IoT. Per installarlo, attenersi alla seguente procedura:
+Le funzionalità di identità del modulo e di modulo gemello sono disponibili in anteprima pubblica. È disponibile solo nella versione non definitiva degli SDK per dispositivi. Per installarlo, attenersi alla seguente procedura:
 
-1. In Visual Studio aprire **Strumenti** > **Gestione** > pacchetti NuGet Gestisci pacchetti**NuGet per soluzione**.
+1. In Visual Studio aprire **strumenti** > **gestione** > pacchetti NuGet**Gestisci pacchetti NuGet per la soluzione**.
 
-1. Selezionare **Sfoglia**, quindi **Includi versione non definitiva**. Cercare *Microsoft.Azure.Devices.Client*. Selezionare la versione più recente e installarla.
+1. Selezionare **Sfoglia**, quindi selezionare **Includi versione preliminare**. Cercare *Microsoft. Azure. Devices. client*. Selezionare la versione più recente e installarla.
 
-    ![Installare l'anteprima di Azure IoT Hub .NET Service SDK Install Azure IoT Hub .NET service SDK preview](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
+    ![Installare l'anteprima dell'SDK del servizio .NET dell'hub Azure.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
     Ora si ha accesso a tutte le funzionalità dei moduli.
 
@@ -97,17 +97,17 @@ Le funzionalità di identità del modulo e di modulo gemello sono disponibili in
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Passare all'hub IoT e selezionare **Dispositivi IoT**. Aprire **myFirstDevice** e si nota che **myFirstModule** è stato creato correttamente.
+1. Passare all'hub Internet e selezionare **dispositivi**. Aprire **myFirstDevice** . si noterà che **myFirstModule** è stato creato correttamente.
 
-1. Selezionare **myFirstModule** in **Identità modulo**. In **Dettagli identità modulo**copiare la stringa di connessione **(chiave primaria)**.
+1. Selezionare **myFirstModule** in **identità modulo**. In **Dettagli identità modulo**copiare la **stringa di connessione (chiave primaria)**.
 
     ![Dettagli del modulo nel portale di Azure](./media/iot-hub-portal-csharp-module-twin-getstarted/module-identity-details.png)
 
 ### <a name="create-updatemoduletwinreportedproperties-console-app"></a>Creare un'app console UpdateModuleTwinReportedProperties
 
-Per creare l'app, procedi nel seguente modo:
+Per creare l'app, seguire questa procedura:
 
-1. Aggiungere le `using` seguenti istruzioni all'inizio del file **Program.cs:**
+1. Aggiungere le seguenti `using` istruzioni all'inizio del file **Program.cs** :
 
   ```csharp
   using Microsoft.Azure.Devices.Client;
@@ -139,7 +139,7 @@ Per creare l'app, procedi nel seguente modo:
       }
   ```
 
-4. Infine, sostituire il metodo Main con il codice seguente:Finally, replace the **Main** method with the following code:
+4. Sostituire infine il metodo **Main** con il codice seguente:
 
   ```csharp
   static void Main(string[] args)
@@ -180,7 +180,7 @@ Per creare l'app, procedi nel seguente modo:
   }
   ```
   
-  È possibile compilare ed eseguire questa app utilizzando **F5**.
+  È possibile compilare ed eseguire l'app con **F5**.
 
 Questo esempio di codice mostra come recuperare il modulo gemello e aggiornare le proprietà segnalate con il protocollo AMQP. L'anteprima pubblica supporta AMQP solo per le operazioni di modulo gemello.
 

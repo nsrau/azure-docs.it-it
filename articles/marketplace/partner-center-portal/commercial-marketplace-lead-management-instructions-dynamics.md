@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131050"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurare la gestione dei lead per Dynamics 365 Customer Engagement
@@ -192,7 +192,7 @@ Per configurare le informazioni di gestione dei lead per l'offerta nel portale d
     ![Casella nome utente di Office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
 1. Per il **messaggio di posta**elettronica di contatto, immettere gli indirizzi di posta elettronica per gli utenti della società che devono ricevere notifiche tramite posta elettronica quando viene ricevuto un nuovo lead. È possibile immettere più indirizzi di posta elettronica separandoli con punti e virgola.
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 Per assicurarsi di avere effettuato la connessione a una destinazione principale, selezionare il pulsante **convalida** . In caso di esito positivo, sarà presente un lead di test nella destinazione principale.
 

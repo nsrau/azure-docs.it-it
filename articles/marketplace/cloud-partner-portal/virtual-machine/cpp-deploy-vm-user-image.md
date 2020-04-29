@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
 ms.openlocfilehash: e3bad2dc63f6a75f52c537aabfa6e85d1846ef15
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147926"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuire una macchina virtuale di Azure dal disco rigido virtuale di un utente
@@ -34,7 +34,7 @@ Copiare il modello di Azure Resource Manager per la [distribuzione del disco rig
 | userStorageAccountName     | Nome dell'account di archiviazione                                                    |
 | sNameForPublicIP           | Nome DNS per l'indirizzo IP pubblico. Deve essere costituito da caratteri minuscoli                                  |
 | subscriptionId             | Identificatore della sottoscrizione di Azure                                                  |
-| Location                   | Posizione geografica di Azure standard del gruppo di risorse                       |
+| Percorso                   | Posizione geografica di Azure standard del gruppo di risorse                       |
 | vmName                     | Nome della macchina virtuale                                                    |
 | vaultName                  | Nome dell'insieme di credenziali delle chiavi                                                          |
 | vaultResourceGroup         | Gruppo di risorse dell'insieme di credenziali delle chiavi

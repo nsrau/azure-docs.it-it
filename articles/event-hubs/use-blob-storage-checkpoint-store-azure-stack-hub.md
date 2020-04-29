@@ -1,6 +1,6 @@
 ---
-title: Usare l'archiviazione BLOB come archivio di checkpoint nell'hub di Azure Stack (anteprima)Use Blob Storage as checkpoint store on Azure Stack Hub (preview)
-description: Questo articolo descrive come usare l'archivio BLOB come archivio di checkpoint negli hub eventi nell'hub di Azure Stack (anteprima).
+title: Usare l'archiviazione BLOB come archivio di checkpoint nell'hub Azure Stack (anteprima)
+description: Questo articolo descrive come usare l'archiviazione BLOB come archivio di checkpoint in hub eventi nell'hub Azure Stack (anteprima).
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -9,32 +9,32 @@ ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: spelluru
 ms.openlocfilehash: 2938099383c32eac493e4b4bb620f03c76ca5c44
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82023656"
 ---
-# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Usare l'archiviazione BLOB come archivio di checkpoint : Hub eventi nell'hub di Azure Stack (anteprima)Use Blob Storage as checkpoint store - Event Hubs on Azure Stack Hub (preview)
-Se si usa Archiviazione BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di Storage Blob SDK rispetto a quelle in genere disponibili in Azure, è necessario usare il codice per modificare la versione dell'API del servizio di archiviazione alla versione specifica supportata da tale ambiente. Ad esempio, se si esegue Hub eventi in un Hub di Azure Stack versione 2002, la versione più alta disponibile per il servizio di archiviazione è la versione 2017-11-09.For example, if you're running [Event Hubs on an Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In questo caso, è necessario usare il codice per la versione dell'API del servizio di archiviazione a 2017-11-09.In this case, you need to use code to target the Storage service API version to 2017-11-09. Per un esempio su come scegliere come destinazione una versione dell'API di archiviazione specifica, vedere questi esempi in GitHub:For an example on how to target a specific Storage API version, see these samples on GitHub: 
+# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Usare l'archiviazione BLOB come archivio di checkpoint-Hub eventi nell'hub Azure Stack (anteprima)
+Se si usa l'archiviazione BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di storage BLOB SDK rispetto a quelle disponibili in genere in Azure, sarà necessario usare il codice per modificare la versione dell'API del servizio di archiviazione nella versione specifica supportata da tale ambiente. Ad esempio, se si esegue [Hub eventi in un hub Azure stack versione 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è la versione 2017-11-09. In questo caso, è necessario usare il codice per fare riferimento alla versione dell'API del servizio di archiviazione a 2017-11-09. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere questi esempi su GitHub: 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
-- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
-- Python - [Sincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [Asincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) o [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
+- Python [sincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asincrono](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 
 > [!IMPORTANT]
-> Gli hub eventi nell'hub di Azure Stack sono attualmente in [anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) ed è gratuito. 
+> Hub eventi nell'hub Azure Stack è attualmente disponibile in [Anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) ed è gratuito. 
 
-Se si esegue il ricevitore Hub eventi che usa l'archivio BLOB come archivio di checkpoint senza assegnare la versione supportata dall'hub di Azure Stack, verrà visualizzato il seguente messaggio di errore:
+Se si esegue il ricevitore di hub eventi che usa l'archiviazione BLOB come archivio di checkpoint senza avere come destinazione la versione supportata da Azure Stack Hub, verrà visualizzato il messaggio di errore seguente:
 
 ```
 The value for one of the HTTP headers is not in the correct format
 ```
 
 
-## <a name="sample-error-message-in-python"></a>Esempio di messaggio di errore in PythonSample error message in Python
-Per Python, un `azure.core.exceptions.HttpResponseError` errore di viene `on_error(partition_context, error)` `EventHubConsumerClient.receive()`passato al gestore degli errori di . Tuttavia, `receive()` il metodo non genera un'eccezione. `print(error)`stamperà le seguenti informazioni sull'eccezione:
+## <a name="sample-error-message-in-python"></a>Messaggio di errore di esempio in Python
+Per Python, un errore di `azure.core.exceptions.HttpResponseError` viene passato al gestore `on_error(partition_context, error)` degli errori di `EventHubConsumerClient.receive()`. Tuttavia, il metodo `receive()` non genera un'eccezione. `print(error)`stamperà le seguenti informazioni sull'eccezione:
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.
@@ -47,7 +47,7 @@ HeaderName:x-ms-version
 HeaderValue:2019-07-07
 ```
 
-Il logger registrerà due avvisi simili ai seguenti:
+Il logger registrerà due avvisi come quelli seguenti:
 
 ```bash
 WARNING:azure.eventhub.extensions.checkpointstoreblobaio._blobstoragecsaio: 
@@ -64,4 +64,4 @@ The exception is HttpResponseError('The value for one of the HTTP headers is not
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere l'articolo seguente informazioni sul partizionamento e il checkpoint: Bilanciare il [carico della partizione tra più istanze dell'applicazioneSee](event-processor-balance-partition-load.md) the following article learn about partitioning and checkpointing: Balance partition load across multiple instances of your application
+Vedere l'articolo seguente informazioni sul partizionamento e il Checkpoint: [bilanciamento del carico delle partizioni tra più istanze dell'applicazione](event-processor-balance-partition-load.md)

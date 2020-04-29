@@ -1,13 +1,13 @@
 ---
-title: Introduzione alle raccolte affidabiliIntroduction to Reliable Collections
+title: Introduzione a reliable Collections
 description: I servizi con stato di Service Fabric forniscono raccolte Reliable Collections che consentono di sviluppare applicazioni cloud a disponibilità elevata, scalabili e a bassa latenza.
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398438"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduzione alle Reliable Collections nei servizi con stato di Service Fabric
@@ -26,7 +26,7 @@ Le raccolte Reliable Collections possono essere considerate l'evoluzione natural
 * Replicate: le modifiche apportate allo stato vengono replicate per assicurare disponibilità elevata.
 * Asincrone: le API sono asincrone per assicurare che i thread non vengano bloccati durante le operazioni di IO.
 * Transazionali: le API utilizzano l'astrazione delle transazioni per consentire all'utente di gestire facilmente più raccolte Reliable Collections all'interno di un servizio.
-* Persistenza o volatile: i dati possono essere resi persistenti su disco per garantire la durabilità in base a interruzioni su larga scala (ad esempio, un'interruzione dell'alimentazione del data center). Alcune raccolte Reliable Collections supportano inoltre una modalità volatile (con [Avvertats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)) in cui tutti i dati vengono mantenuti in memoria, ad esempio una cache in memoria replicata.
+* Permanente o volatile: i dati possono essere salvati in modo permanente su disco per la durabilità in caso di interruzioni su larga scala (ad esempio, un'interruzione dell'alimentazione del Data Center). Alcune raccolte affidabili supportano anche una modalità volatile (con [avvertenze](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)) in cui tutti i dati vengono mantenuti in memoria, ad esempio una cache in memoria replicata.
 
 Le raccolte Reliable Collections offrono garanzie predefinite di coerenza assoluta, per facilitare la definizione della logica relativa allo stato delle applicazioni.
 La coerenza assoluta è ottenuta assicurando che i commit delle transazioni siano completati solo dopo che l'intera transazione è stata registrata su un quorum di repliche di maggioranza, inclusa quella primaria.
@@ -35,7 +35,7 @@ Per ottenere una coerenza più debole, le applicazioni possono rinviare un ackno
 Le API Reliable Collections sono un'evoluzione delle API delle raccolte disponibili nello spazio dei nomi **System.Collections.Concurrent** :
 
 * Asincrone: restituiscono un'attività dal momento che, a differenza delle raccolte Concurrent Collections, le operazioni vengono replicate e rese persistenti.
-* Nessun parametro `ConditionalValue<T>` out: `bool` consente di restituire un e un valore anziché i parametri out. `ConditionalValue<T>` è come `Nullable<T>` ma non richiede una T per essere una struttura.
+* Nessun parametro out: USA `ConditionalValue<T>` per restituire un `bool` oggetto e un valore anziché parametri out. `ConditionalValue<T>` è come `Nullable<T>` ma non richiede una T per essere una struttura.
 * Transazioni: usano un oggetto transazione per consentire all'utente di raggruppare azioni su più raccolte Reliable Collections in una transazione.
 
 Attualmente **Microsoft.ServiceFabric.Data.Collections** include tre raccolte:
@@ -46,7 +46,7 @@ Attualmente **Microsoft.ServiceFabric.Data.Collections** include tre raccolte:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Linee guida per la raccolta affidabile & raccomandazioni](service-fabric-reliable-services-reliable-collections-guidelines.md)
+* [Linee guida per la raccolta affidabile & consigli](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Lavorare con le raccolte Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transazioni e blocchi](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestione dei dati

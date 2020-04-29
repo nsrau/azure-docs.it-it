@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100907"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
@@ -113,7 +113,7 @@ Un errore interno del servizio non può essere corretto dall'utente. È possibil
 
 Questi errori possono essere corretti dall'utente. A seconda del tipo di file e del codice di errore, il servizio Genomica di Microsoft restituisce codici di errore distinti. Seguire le procedure consigliate per la risoluzione dei problemi elencate di seguito.
 
-| Tipo di file | Codice di errore | Messaggio di errore                                                                           | Passaggi consigliati per la risoluzione dei problemi                                                                                         |
+| Tipo di file | Codice errore | Messaggio di errore                                                                           | Passaggi consigliati per la risoluzione dei problemi                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Qualsiasi          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength] (La lettura [idLettura] ha [numeroBasi] basi, ma il limite è [lunghezzaMaxLettura])           | Il motivo più comune di questo errore è dato dal danneggiamento dei file che ha determinato la concatenazione di due operazioni di lettura. Controllare i file di input. |
 | BAM          | 200        |   Unable to read file '[yourFileName]'. (Non è possibile leggere il file '[nomeFile]'.)                                                                                       | Controllare il formato del file BAM. Inviare nuovamente il flusso di lavoro con un file nel formato corretto.                                                                           |

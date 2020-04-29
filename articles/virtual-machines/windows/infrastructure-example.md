@@ -1,5 +1,5 @@
 ---
-title: Esempio di procedura dettagliata dell'infrastruttura di AzureExample Azure Infrastructure Walkthrough
+title: Procedura dettagliata di esempio dell'infrastruttura di Azure
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un'infrastruttura di esempio in Azure.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 43e96b891e60dfcf8bc3c29b202bb60213905372
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869476"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Windows
@@ -45,7 +45,7 @@ La progettazione risultante deve includere:
 Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 
 * Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
-  * Per questo esempio, "**azos**" (Azure Online Store) è il nome del carico di lavoro IT e "**use**" (East US 2) è la posizione
+  * Per questo esempio, "**Azos**" (Azure Online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
 * Le reti virtuali usano AZOS-USE-VN **[numero]**
 * I set di disponibilità usano azos-use-as-**[ruolo]**
 * I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**

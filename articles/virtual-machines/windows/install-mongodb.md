@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: a5ba7d7fce3f3eabd223956ca8d9cc824fbd0c5f
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869444"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installare e configurare MongoDB in una VM Windows in Azure
@@ -54,13 +54,13 @@ Per iniziare a installare e configurare MongoDB, [accedere a una VM Windows Serv
 ## <a name="configure-the-vm-and-mongodb"></a>Configurare la VM e MongoDB
 1. Le variabili di percorso non vengono aggiornate dal programma di installazione di MongoDB. Senza il percorso `bin` di MongoDB nella variabile di percorso, è necessario specificare il percorso completo ogni volta che si usa un file eseguibile di MongoDB. Per aggiungere il percorso alla variabile:
    
-   * Fare clic con il pulsante destro del mouse sul menu **Start** e scegliere **Sistema**.
+   * Fare clic con il pulsante destro del mouse sul menu **Start** e scegliere **sistema**.
    * Fare clic sulla scheda **Impostazioni di sistema avanzate**, quindi su **Variabili d'ambiente**.
    * In **Variabili di sistema** selezionare **Percorso** e quindi fare clic su **Modifica**.
      
      ![Configurare le variabili di PERCORSO](./media/install-mongodb/configure-path-variables.png)
      
-     Aggiungere il percorso alla cartella `bin` di MongoDB. MongoDB viene in genere installato in *C:* Verificare il percorso di installazione nella VM. Nell'esempio seguente viene aggiunto il percorso di installazione predefinito di MongoDB alla variabile `PATH`:
+     Aggiungere il percorso alla cartella `bin` di MongoDB. MongoDB viene in genere installato in *C:\Program Files\MongoDB*. Verificare il percorso di installazione nella VM. Nell'esempio seguente viene aggiunto il percorso di installazione predefinito di MongoDB alla variabile `PATH`:
      
      ```
      ;C:\Program Files\MongoDB\Server\3.6\bin

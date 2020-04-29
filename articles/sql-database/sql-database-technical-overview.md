@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
 ms.openlocfilehash: 4cb2159b02635e659a8ca7236523e899bf01550c
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133247"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
@@ -119,7 +119,7 @@ Zone di disponibilità di Azure tenta di proteggersi da un'interruzione di una s
 
 Infatti, il contratto di servizio di Azure, basato su una rete globale di data center gestiti da Microsoft, [consente di garantire](https://azure.microsoft.com/support/legal/sla/) l'esecuzione dell'app 24/7. La piattaforma Azure gestisce completamente tutti i database e non garantisce alcuna perdita di dati e una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori di hardware, software o rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. La disponibilità standard viene ottenuta separando i livelli di calcolo e archiviazione. La disponibilità Premium viene eseguita integrando risorse di calcolo e archiviazione in un singolo nodo per le prestazioni e quindi implementando una tecnologia simile a Always On gruppi di disponibilità. Per una descrizione completa delle funzionalità a disponibilità elevata del database SQL di Azure, vedere la [disponibilità del database SQL](sql-database-high-availability.md). 
 
-Inoltre, il database SQL offre funzionalità integrate per la [continuità aziendale e la scalabilità globale](sql-database-business-continuity.md) . incluse le seguenti:
+Inoltre, il database SQL offre funzionalità integrate per la [continuità aziendale e la scalabilità globale](sql-database-business-continuity.md) . Sono inclusi:
 
 - [Backup automatici](sql-database-automated-backups.md):
 

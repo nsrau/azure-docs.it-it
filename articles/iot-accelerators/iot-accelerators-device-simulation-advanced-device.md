@@ -13,10 +13,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683821"
 ---
 # <a name="create-an-advanced-device-model"></a>Creare un modello di dispositivo avanzato
@@ -164,7 +164,7 @@ I campi elencati nello schema possono essere dei tipi seguenti:
 
 * Oggetto: serializzato con JSON
 * Binario: serializzato con base64
-* Text
+* Testo
 * Boolean
 * Integer
 * Double
@@ -258,7 +258,7 @@ I file JavaScript devono avere una funzione **main**, che accetta due parametri:
 
 * Un oggetto **context** che contiene tre proprietà:
     * **currentTime**, una stringa in formato **aaaa-MM-gg'T'HH:mm:sszzz**.
-    * **deviceId**. ad esempio **Simulated.Elevator.123**.
+    * **DeviceID**. ad esempio **Simulated.Elevator.123**.
     * **deviceModel**. ad esempio **Elevator**.
 * Un oggetto **state** corrispondente al valore restituito dalla funzione nella chiamata precedente. Questo stato del dispositivo viene gestito dal servizio di simulazione e usato per generare messaggi di telemetria.
 

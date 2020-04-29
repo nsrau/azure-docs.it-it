@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per l'API per la creazione di report di Active Directory con i certificati Documenti Microsoft
+title: Esercitazione per l'API di creazione report di Active Directory con certificati | Microsoft Docs
 description: Questa esercitazione spiega come usare l'API di creazione report di Azure AD con le credenziali del certificato per ottenere i dati provenienti da directory senza intervento dell'utente.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82081711"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Esercitazione: Ottenere i dati usando l'API di creazione report di Azure Active Directory con i certificati
@@ -44,9 +44,9 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
     - Token di accesso dell'utente, chiavi dell'applicazione e certificati con ADAL
     - API Graph che gestisce i risultati di paging
 
-6. Se è la prima volta che si utilizza il modulo **Install-MSCloudIdUtilsModule**, altrimenti importarlo utilizzando il comando **Import-Module** PowerShell. La sessione dovrebbe essere simile ![a questa schermata: Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Se è la prima volta che si usa il modulo, eseguire **Install-MSCloudIdUtilsModule**, altrimenti importarlo usando il comando **Import-Module** di PowerShell. La sessione dovrebbe avere un aspetto simile a questa ![schermata: Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Usare il comando **PowerShell New-SelfSignedCertificate** per creare un certificato di prova.
+7. Usare il cmdlet di PowerShell **New-SelfSignedCertificate** per creare un certificato di prova.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -63,13 +63,13 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
 
 1. Passare al [portale di Azure](https://portal.azure.com), selezionare **Azure Active Directory**, quindi selezionare **Registrazioni app** e scegliere l'app dall'elenco. 
 
-2. Selezionare **Certificati & segreti** in Sezione **Gestisci** nel pannello Registrazione applicazione e selezionare **Carica certificato**.
+2. Selezionare **certificati & segreti** nella sezione **Gestisci** del pannello registrazione dell'applicazione e selezionare **Carica certificato**.
 
 3. Selezionare il file del certificato nel passaggio precedente e selezionare **Aggiungi**. 
 
-4. Si noti l'ID applicazione e l'identificazione personale del certificato appena registrato con l'applicazione. Per trovare l'identificazione personale, dalla pagina dell'applicazione nel portale passare a **Certificati & i segreti** nella sezione Gestisci.To find the thumbprint, on your application page in the portal, go to Certificates & secrets under **Manage** section. L'identificazione personale sarà sotto l'elenco **Certificati.**
+4. Si noti l'ID applicazione e l'identificazione personale del certificato appena registrato con l'applicazione. Per trovare l'identificazione personale, dalla pagina dell'applicazione nel portale passare a **certificati & segreti** sotto la sezione **Gestisci** . L'identificazione personale sarà nell'elenco dei **certificati** .
 
-5. Aprire il manifesto dell'applicazione nell'editor del manifesto inline e verificare che la proprietà *keyCredentials* venga aggiornata con le informazioni sul nuovo certificato, come illustrato di seguito: 
+5. Aprire il manifesto dell'applicazione nell'editor del manifesto inline e verificare che la proprietà *Credentials* sia aggiornata con le nuove informazioni del certificato, come illustrato di seguito: 
 
    ```
    "keyCredentials": [
@@ -86,7 +86,7 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
 
    ![Portale di Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-7. Usare il token di accesso nello script di PowerShell per eseguire una query sull'API Graph.Use the access token in your PowerShell script to query the Graph API. Usare il cmdlet **Invoke-MSCloudIdMSGraphQuery** da MSCloudIDUtils per enumerare l'endpoit Signins e directoryAudits. Questo cmdlet gestisce i risultati di multi-paging e li invia alla pipeline di PowerShell.
+7. Usare il token di accesso nello script di PowerShell per eseguire una query sul API Graph. Usare il cmdlet **Invoke-MSCloudIdMSGraphQuery** da MSCloudIDUtils per enumerare l'endpoit Signins e directoryAudits. Questo cmdlet gestisce i risultati di multi-paging e li invia alla pipeline di PowerShell.
 
 8. Eseguire una query sull'endpoint directoryAudits per recuperare i log di controllo. 
    ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)

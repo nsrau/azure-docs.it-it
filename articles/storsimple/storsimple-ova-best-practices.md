@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460648"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
@@ -159,10 +159,10 @@ Nell'array virtuale è possibile effettuare il provisioning di condivisioni quan
 
 Tenere presenti le procedure consigliate seguenti quando si effettua il provisioning di condivisioni o volumi nel dispositivo virtuale.
 
-* Le dimensioni dei file in relazione alle dimensioni con cui è stato effettuato il provisioning di una condivisione a livelli possono compromettere le prestazioni della suddivisione in livelli. L'utilizzo di file di grandi dimensioni potrebbe comportare un livello di uscita lento. Quando si lavora con file di grandi dimensioni, è consigliabile che il file più grande sia inferiore al 3% delle dimensioni della condivisione.
+* Le dimensioni dei file in relazione alle dimensioni con cui è stato effettuato il provisioning di una condivisione a livelli possono compromettere le prestazioni della suddivisione in livelli. L'uso di file di grandi dimensioni può causare un rallentamento del livello. Quando si lavora con file di grandi dimensioni, è consigliabile che il file più grande sia inferiore al 3% delle dimensioni della condivisione.
 * Nell'array virtuale è possibile creare un massimo di 16 volumi o condivisioni. Per i limiti delle dimensioni dei volumi o delle condivisioni a livelli e aggiunti localmente, fare riferimento sempre ai [limiti di array virtuale StorSimple](storsimple-ova-limits.md).
-* Quando si crea un volume, tenere conto anche dell'utilizzo di dati previsto, nonché della crescita futura. Il volume o la condivisione non può essere espansa in un secondo momento.
-* Una volta creato il volume/condivisione, non è possibile ridurre le dimensioni del volume/condivisione su StorSimple.
+* Quando si crea un volume, tenere conto anche dell'utilizzo di dati previsto, nonché della crescita futura. Impossibile espandere il volume o la condivisione in un secondo momento.
+* Una volta creata la condivisione o il volume, non è possibile compattare le dimensioni del volume o della condivisione in StorSimple.
 * Quando si scrive in un volume a livelli in StorSimple, le operazioni di I/O vengono limitate quando i dati del volume raggiungono una determinata soglia, relativamente allo spazio locale riservato per il volume. Se si continua a scrivere in questo volume, le operazioni di I/O rallentano in modo significativo. Anche se è possibile scrivere in un volume a livelli oltre la capacità di cui è stato effettuato il provisioning (non viene attivamente impedito all'utente di scrivere oltre tale capacità), viene visualizzato un messaggio di notifica per segnalare il superamento della sottoscrizione. Dopo aver visualizzato l'avviso, è fondamentale adottare misure correttive, ad esempio eliminare i dati del volume. L'espansione di un volume non è attualmente supportata.
 * Per i casi d'uso di ripristino di emergenza, poiché il numero di condivisioni o volumi consentiti è pari a 16 e il numero massimo di condivisioni o volumi che possono essere elaborati in parallelo è 16, il numero di condivisioni o volumi non ha un impatto su RPO e RTO.
 

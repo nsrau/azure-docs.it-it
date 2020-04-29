@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 5b50906fac613a4e7470b0e13d6f068c3872f625
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82136907"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
@@ -101,17 +101,17 @@ A tale scopo, seguire questa procedura:
 |          Produttore            |         Nome del produttore    |
 |  ProductCode                    |  Codice prodotto del dispositivo o numero o nome del modello. Ad esempio, EnviroMonitor # 6800.  |
 |            Porte          |     Nome e tipo della porta, che è digitale o analogo.
-|     Nome                 |  Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
-      Description     | Fornire una descrizione significativa del modello.
+|     Name                 |  Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
+      Descrizione     | Fornire una descrizione significativa del modello.
 |    Proprietà          |    Proprietà aggiuntive del produttore.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID del modello di dispositivo associato.  |
 |  HardwareId          | ID univoco per il dispositivo, ad esempio l'indirizzo MAC.
 |  ReportingInterval        |   Intervallo di Reporting in secondi.
-|  Location            |  Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).   
+|  Percorso            |  Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).   
 |ParentDeviceId       |    ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio, un nodo connesso a un gateway. Un nodo ha parentDeviceId come gateway.  |
-|    Nome            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
-|     Description       |      Fornire una descrizione significativa. |
+|    Name            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
+|     Descrizione       |      Fornire una descrizione significativa. |
 |     Proprietà    |  Proprietà aggiuntive del produttore.
 |     **SensorModel**        |          |
 |       Tipo (analogico, digitale)          |      Tipo di sensore, sia analogico che digitale.       |
@@ -122,17 +122,17 @@ A tale scopo, seguire questa procedura:
 |    Tipo > SensorMeasures    |Tipo di misura dei dati di telemetria del sensore. I tipi definiti dal sistema sono Temperaturaambiente, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione, PAR. Per aggiungere altre informazioni, vedere l'API/ExtendedType.|
 |        Unità > SensorMeasures              | Unità di dati di telemetria del sensore. Le unità definite dal sistema sono nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, millimetro, centimetro, metro, pollice, piedi, miglio, chilometro, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, percentuale, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, Millilitr, seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour per aggiungere altro, fare riferimento all'API/ExtendedType.|
 |    SensorMeasures > AggregationType    |  I valori possibili sono None, Average, Maximum, Minimum o StandardDeviation.  |
-|          Nome            | Nome per identificare una risorsa. Ad esempio, il nome del modello o il nome del prodotto.  |
-|    Description        | Fornire una descrizione significativa del modello.|
+|          Name            | Nome per identificare una risorsa. Ad esempio, il nome del modello o il nome del prodotto.  |
+|    Descrizione        | Fornire una descrizione significativa del modello.|
 |   Proprietà       |  Proprietà aggiuntive del produttore.|
 |    **Sensore**      |          |
 | HardwareId          |   ID univoco per il sensore impostato dal produttore.|
 |  SensorModelId     |    ID del modello di sensore associato.|
-| Location          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
+| Percorso          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
 |   Nome > porta        |  Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo.|
 |    DeviceID  |    ID del dispositivo a cui è connesso il sensore. |
-| Nome            |   Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
-|    Description      | Fornire una descrizione significativa.|
+| Name            |   Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
+|    Descrizione      | Fornire una descrizione significativa.|
 |    Proprietà        |Proprietà aggiuntive del produttore.|
 
 Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
@@ -141,7 +141,7 @@ Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/Fa
 
 Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API e l'URI di una risorsa per eseguire query, inviare dati a, creare o eliminare una richiesta. Quindi si aggiungono una o più intestazioni della richiesta HTTP. L'URL del servizio API è l'endpoint API, ovvero l'URL datahub (https://\<yourdatahub>. azurewebsites.NET).  
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 FarmBeats datahub usa l'autenticazione della porta, che richiede le credenziali seguenti generate nella sezione precedente:
 

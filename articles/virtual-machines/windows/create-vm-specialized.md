@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale Windows da un disco rigido virtuale specializzato in AzureCreate a Windows VM from a specialized VHD in Azure
+title: Creare una macchina virtuale Windows da un disco rigido virtuale specializzato in Azure
 description: Creare una nuova macchina virtuale Windows collegando un disco gestito specializzato come disco del sistema operativo usando il modello di distribuzione Resource Manager.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 2939726898abc2abc0e62d0e36feedbfe7ba3645
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086403"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato usando PowerShell
@@ -27,9 +27,9 @@ Sono disponibili diverse opzioni:
 
 È anche possibile usare il portale di Azure per [creare una nuova macchina virtuale da un disco rigido virtuale specializzato](create-vm-specialized-portal.md).
 
-Questo articolo illustra come usare i dischi gestiti. Se si ha una distribuzione legacy che richiede l'uso di un account di archiviazione, vedere [Creare una macchina virtuale da un disco rigido virtuale specializzato in un account di archiviazione.](sa-create-vm-specialized.md)
+Questo articolo illustra come usare i dischi gestiti. Se si dispone di una distribuzione legacy che richiede l'uso di un account di archiviazione, vedere [creare una macchina virtuale da un disco rigido virtuale specializzato in un account di archiviazione](sa-create-vm-specialized.md).
 
-È consigliabile limitare il numero di distribuzioni simultanee a 20 macchine virtuali da un singolo disco rigido virtuale o snapshot. 
+È consigliabile limitare il numero di distribuzioni simultanee a 20 VM da un singolo disco rigido virtuale o snapshot. 
 
 ## <a name="option-1-use-an-existing-disk"></a>Opzione 1: Usare un disco esistente
 
@@ -51,20 +51,20 @@ Sarà quindi possibile collegare questo disco come disco del sistema operativo a
 ### <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 Usare il disco rigido virtuale così com'è per creare una nuova macchina virtuale. 
   
-  * Preparare un disco rigido virtuale di [Windows per il caricamento in Azure.Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale usando Sysprep.
+  * [Preparare un disco rigido virtuale Windows da caricare in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale usando Sysprep.
   * Rimuovere tutti gli strumenti di virtualizzazione guest e gli agenti installati nella macchina virtuale, ad esempio gli strumenti VMware.
   * Verificare che la macchina virtuale sia configurata per ottenere l'indirizzo IP e le impostazioni DNS da DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio. 
 
 
 ### <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale
 
-È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per istruzioni, vedere [Caricare un disco rigido virtuale in Azure usando Azure PowerShell.For instructions, see Upload a VHD to Azure using Azure PowerShell.](disks-upload-vhd-to-managed-disk-powershell.md)
+È ora possibile caricare un disco rigido virtuale direttamente in un disco gestito. Per istruzioni, vedere [caricare un disco rigido virtuale in Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>Opzione 3: Copiare una macchina virtuale di Azure esistente
 
 È possibile creare una copia di una macchina virtuale che usa dischi gestiti acquisendo uno snapshot della macchina virtuale e quindi usando tale snapshot per creare un nuovo disco gestito e una nuova macchina virtuale.
 
-Se si desidera copiare una macchina virtuale esistente in un'altra area, è possibile usare la copia a punto per [creare una copia di un disco in un'altra area.](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) 
+Se si vuole copiare una macchina virtuale esistente in un'altra area, è consigliabile usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Acquisire uno snapshot del disco del sistema operativo
 
@@ -112,7 +112,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Per usare questo snapshot per creare una macchina virtuale che `-AccountType Premium_LRS` deve essere performante, aggiungere il parametro al comando New-AzSnapshotConfig.To use this snapshot to create a VM that needs to be high-performing, add the parameter to the New-AzSnapshotConfig command. Questo parametro crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Poiché i dischi gestiti Premium sono più costosi di quelli Standard, assicurarsi che il disco Premium sia effettivamente necessario prima di usare questo parametro.
+Per usare questo snapshot per creare una macchina virtuale che deve essere a prestazioni elevate, aggiungere il `-AccountType Premium_LRS` parametro al comando New-AzSnapshotConfig. Questo parametro crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Poiché i dischi gestiti Premium sono più costosi di quelli Standard, assicurarsi che il disco Premium sia effettivamente necessario prima di usare questo parametro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Creare un nuovo disco dallo snapshot
 
@@ -261,7 +261,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verificare che la VM sia stata creata
-La macchina virtuale appena creata dovrebbe essere visualizzata nel portale di [Azure](https://portal.azure.com) in **Esplora** > **macchine virtuali**oppure usando i comandi di PowerShell seguenti.
+La VM appena creata verrà visualizzata nella [portale di Azure](https://portal.azure.com) in **Sfoglia** > **macchine virtuali**o usando i comandi di PowerShell seguenti.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

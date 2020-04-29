@@ -1,6 +1,6 @@
 ---
-title: Scaricare il modello per una macchina virtuale di AzureDownload the template for an Azure VM
-description: Scaricare il modello per una macchina virtuale usando il portale o PowerShell.Download the template for a VM using the portal or PowerShell.
+title: Scaricare il modello per una macchina virtuale di Azure
+description: Scaricare il modello per una VM usando il portale o PowerShell.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: af6905f0ba62a9053e44134348721312ade6b9d7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085383"
 ---
 # <a name="download-the-template-for-a-vm"></a>Scaricare il modello per una VM

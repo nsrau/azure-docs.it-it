@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 18e1ab1d01394d585cfb06ced8c5fbac04114177
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431956"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
@@ -20,11 +20,11 @@ ms.locfileid: "81431956"
 Key Vault consente di accedere in modo sicuro ai dati sensibili dall'interno delle applicazioni:
 
 - Le chiavi e i segreti vengano protetti senza dover scrivere manualmente il codice e possano essere usati dalle applicazioni.
-- I clienti possano avere e gestire autonomamente le rispettive chiavi in modo che lo sviluppatore possa concentrarsi su altre attività, ad esempio fornire le principali funzionalità del software. In questo modo, le applicazioni non saranno proprietarie della responsabilità o della responsabilità potenziale per le chiavi e i segreti tenant dei clienti.
+- I clienti possano avere e gestire autonomamente le rispettive chiavi in modo che lo sviluppatore possa concentrarsi su altre attività, ad esempio fornire le principali funzionalità del software. In questo modo, le applicazioni non sono proprietarie della responsabilità o della responsabilità potenziale per i segreti e le chiavi dei tenant dei clienti.
 - L'applicazione possa usare le chiavi per la firma e la crittografia, ma tenga la gestione della chiave esterna all'applicazione in modo che la soluzione sia adatta a essere un'app geograficamente distribuita.
-- Gestire i certificati dell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [CertificatiFor more](../certificates/about-certificates.md) information, see Certificates
+- Gestire i certificati Key Vault. Per ulteriori informazioni, vedere [certificati](../certificates/about-certificates.md) .
 
-Per altre informazioni generali su Archiviazione delle chiavi di Azure, vedere [Che cos'è l'insieme di credenziali delle chiavi](overview.md).
+Per informazioni più generali sui Azure Key Vault, vedere [che cos'è Key Vault](overview.md)).
 
 ## <a name="public-previews"></a>Anteprime pubbliche
 
@@ -34,17 +34,17 @@ Periodicamente, viene rilasciata un'anteprima pubblica di una nuova funzionalit�
 
 Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. Le identità gestite per le risorse di Azure consentono di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice. 
 
-Per altre informazioni sulle identità gestite per le risorse di Azure, vedere [la panoramica delle identità gestite](../../active-directory/managed-identities-azure-resources/overview.md). Per altre informazioni sull'uso di Azure AD, vedere [Integrazione di applicazioni con Azure Active Directory.For](../../active-directory/develop/active-directory-integrating-applications.md)more information on working with Azure AD, see Integrating applications with Azure Active Directory .
+Per altre informazioni sulle identità gestite per le risorse di Azure, vedere [la panoramica delle identità gestite](../../active-directory/managed-identities-azure-resources/overview.md). Per ulteriori informazioni sull'utilizzo di Azure AD, vedere [integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md).
 
 Prima di usare chiavi, segreti o certificati nell'insieme di credenziali delle chiavi, l'insieme deve essere creato e gestito tramite l'interfaccia della riga di comando, PowerShell, modelli di Resource Manager o REST, come descritto negli articoli seguenti:
 
 - [Creare e gestire insiemi di credenziali delle chiavi tramite l'interfaccia della riga di comando](../secrets/quick-create-cli.md)
 - [Creare e gestire insiemi di credenziali delle chiavi tramite PowerShell](../secrets/quick-create-powershell.md)
-- [Creare e gestire gli insiemi di credenziali delle chiavi con la porta di AzureCreate and manage Key Vaults with the Azure port](../secrets/quick-create-portal.md)
-- [Crea e gestisci gli insiemi di credenziali delle chiavi con Python](../secrets/quick-create-python.md)
-- [Creare e gestire gli insiemi di credenziali delle chiavi con Java](../secrets/quick-create-java.md)
-- [Creare e gestire gli insiemi di credenziali delle chiavi con Node.js](../secrets/quick-create-node.md)
-- [Creare e gestire gli insiemi di credenziali delle chiavi con .NET (v4 SDK)](../secrets/quick-create-net.md)
+- [Creare e gestire insiemi di credenziali delle chiavi con la porta di Azure](../secrets/quick-create-portal.md)
+- [Creare e gestire insiemi di credenziali delle chiavi con Python](../secrets/quick-create-python.md)
+- [Creare e gestire insiemi di credenziali delle chiavi con Java](../secrets/quick-create-java.md)
+- [Creare e gestire insiemi di credenziali delle chiavi con node. js](../secrets/quick-create-node.md)
+- [Creare e gestire insiemi di credenziali delle chiavi con .NET (v4 SDK)](../secrets/quick-create-net.md)
 - [Creare un insieme di credenziali delle chiavi e aggiungere un segreto tramite un modello di Azure Resource Manager](../secrets/quick-create-template.md)
 - [Creare e gestire Key Vault con REST](/rest/api/keyvault/)
 
@@ -117,15 +117,15 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 
 Questi articoli illustrano altri scenari e servizi che usano o si integrano con Key Vault.
 
-- [Crittografia disco](../../security/fundamentals/encryption-overview.md) di Azure sfrutta la funzionalità [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) standard del settore di Windows e la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per il sistema operativo e i dischi dati. La soluzione è integrata con l'insieme di credenziali delle chiavi di Azure per facilitare il controllo e la gestione dei segreti e delle chiavi di crittografa del disco nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando allo stesso tempo che tutti i dati inattivi sui dischi delle macchine virtuali siano crittografati nell'archiviazione di Azure.
+- [Crittografia dischi di Azure](../../security/fundamentals/encryption-overview.md) sfrutta la funzionalità standard di settore [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Windows e la funzionalità [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per il sistema operativo e i dischi dati. La soluzione è integrata con l'insieme di credenziali delle chiavi di Azure per facilitare il controllo e la gestione dei segreti e delle chiavi di crittografa del disco nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando allo stesso tempo che tutti i dati inattivi sui dischi delle macchine virtuali siano crittografati nell'archiviazione di Azure.
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md) offre la possibilità di crittografare i dati archiviati nell'account. In merito alla gestione delle chiavi, Data Lake Store offre due modalità per la gestione delle chiavi di crittografia master (MEK) necessarie per decrittografare i dati archiviati in Data Lake Store. È possibile affidare la gestione delle chiavi MEK a Data Lake Store oppure mantenere la proprietà delle chiavi MEK usando il proprio account dell'insieme di credenziali delle chiavi di Azure. La modalità di gestione delle chiavi viene specificata durante la creazione dell'account di Data Lake Store.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) consente di gestire la propria chiave tenant. Ad esempio, anziché affidare a Microsoft la gestione della chiave tenant (impostazione predefinita), l'utente può gestire la propria chiave tenant per garantire la conformità alle normative specifiche che si applicano all'organizzazione. La gestione della propria chiave tenant viene definita Bring Your Own Key o BYOK.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Panoramiche e concetti su Key Vault
 
-- Comportamento di [eliminazione temporanea dell'insieme di credenziali delle chiavi)](overview-soft-delete.md) descrive una funzionalità che consente il ripristino degli oggetti eliminati, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale.
+- [Key Vault comportamento di eliminazione](overview-soft-delete.md)temporanea) descrive una funzionalità che consente il ripristino di oggetti eliminati, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale.
 - [Limitazione del client di Key Vault](overview-throttling.md) descrive i concetti di base della limitazione e offre un approccio per l'app.
-- [Panoramica delle chiavi dell'account di archiviazione dell'insieme di credenziali delle chiavi](../secrets/overview-storage-keys.md)) descrive le chiavi di integrazione dell'insieme delle chiavi per gli account di archiviazione di Azure.describes the Key Vault integration Azure Storage Accounts keys.
+- [Panoramica delle chiavi dell'account di archiviazione Key Vault](../secrets/overview-storage-keys.md)) descrive le chiavi degli account di archiviazione di Azure Key Vault Integration.
 - [Scenari di sicurezza di Key Vault](overview-security-worlds.md) descrive le relazioni tra le aree e le zone di sicurezza.
 
 ## <a name="social"></a>Social media

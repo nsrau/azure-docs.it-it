@@ -1,32 +1,32 @@
 ---
-title: Panoramica delle definizioni di ruolo personalizzate
+title: Panoramica delle definizioni dei ruoli personalizzati
 description: Viene descritto il concetto di creazione di definizioni di ruolo personalizzate per le applicazioni gestite.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81391835"
 ---
-# <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Elemento di definizione dei ruoli personalizzato nelle applicazioni gestite di AzureCustom role definition artifact in Azure Managed Applications
+# <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Elemento di definizione del ruolo personalizzato nelle applicazioni gestite di Azure
 
-La definizione di ruolo personalizzata è un elemento facoltativo nelle applicazioni gestite. Viene utilizzato per determinare le autorizzazioni necessarie all'applicazione gestita per eseguire le funzioni.
+La definizione di ruolo personalizzata è un elemento facoltativo nelle applicazioni gestite. Viene usato per determinare le autorizzazioni necessarie all'applicazione gestita per eseguire le funzioni.
 
-In questo articolo viene fornita una panoramica dell'elemento di definizione dei ruoli personalizzato e delle relative funzionalità.
+Questo articolo fornisce una panoramica dell'artefatto di definizione del ruolo personalizzato e delle relative funzionalità.
 
-## <a name="custom-role-definition-artifact"></a>Elemento di definizione dei ruoli personalizzati
+## <a name="custom-role-definition-artifact"></a>Artefatto di definizione del ruolo personalizzato
 
-È necessario denominare l'elemento di definizione del ruolo personalizzato customRoleDefinition.json.You need to name the custom role definition artifact customRoleDefinition.json. Posizionarlo allo stesso livello di createUiDefinition.json e mainTemplate.json nel pacchetto .zip che crea una definizione di applicazione gestita. Per informazioni su come creare il pacchetto .zip e pubblicare una definizione di applicazione gestita, vedere [Pubblicare una definizione di applicazione gestita.](publish-service-catalog-app.md)
+È necessario denominare l'artefatto di definizione del ruolo personalizzato customRoleDefinition. JSON. Posizionare lo stesso livello di createUiDefinition. JSON e mainTemplate. JSON nel pacchetto con estensione zip che consente di creare una definizione di applicazione gestita. Per informazioni su come creare il pacchetto zip e pubblicare una definizione di applicazione gestita, vedere [pubblicare una definizione di applicazione gestita.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>Schema di definizione del ruolo personalizzato
 
-Il file customRoleDefinition.json ha `roles` una proprietà di primo livello che è una matrice di ruoli. Questi ruoli sono le autorizzazioni necessarie per il funzionamento dell'applicazione gestita. Attualmente sono consentiti solo i ruoli predefiniti, ma è possibile specificare più ruoli. A un ruolo può essere fatto riferimento dall'ID della definizione del ruolo o dal nome del ruolo.
+Il file customRoleDefinition. JSON ha una proprietà di primo `roles` livello che è una matrice di ruoli. Questi ruoli sono le autorizzazioni necessarie per il funzionamento dell'applicazione gestita. Attualmente, sono consentiti solo i ruoli predefiniti, ma è possibile specificare più ruoli. È possibile fare riferimento a un ruolo mediante l'ID della definizione di ruolo o il nome del ruolo.
 
-JSON di esempio per la definizione di ruolo personalizzato:Sample JSON for custom role definition:
+Esempio di JSON per la definizione di ruolo personalizzata:
 
 ```json
 {
@@ -49,7 +49,7 @@ JSON di esempio per la definizione di ruolo personalizzato:Sample JSON for custo
 
 ## <a name="roles"></a>Ruoli
 
-Un ruolo è composto `$.properties.roleName` da `id`un:
+Un ruolo è costituito da un `$.properties.roleName` oggetto o `id`da:
 
 ```json
 {
@@ -61,9 +61,9 @@ Un ruolo è composto `$.properties.roleName` da `id`un:
 ```
 
 > [!NOTE]
-> È possibile utilizzare `id` `roleName` il campo o . Ne è richiesto solo uno. Questi campi vengono utilizzati per cercare la definizione del ruolo da applicare. Se vengono forniti entrambi, verrà utilizzato il `id` campo.
+> È possibile utilizzare il `id` campo o `roleName` . È necessario solo un. Questi campi vengono usati per cercare la definizione di ruolo da applicare. Se vengono specificati entrambi, verrà `id` usato il campo.
 
-|Proprietà|Obbligatorio?|Descrizione|
+|Proprietà|Necessaria?|Descrizione|
 |---------|---------|---------|
-|id|Sì|ID del ruolo predefinito. È possibile utilizzare l'ID completo o solo il GUID.|
-|Rolename|Sì|Nome del ruolo predefinito.|
+|id|Sì|ID del ruolo predefinito. È possibile usare l'ID completo o solo il GUID.|
+|roleName|Sì|Nome del ruolo predefinito.|

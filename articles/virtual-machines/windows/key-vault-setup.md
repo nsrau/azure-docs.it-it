@@ -1,6 +1,6 @@
 ---
 title: Configurare l'insieme di credenziali delle chiavi
-description: Come configurare Key Vault per l'utilizzo con una macchina virtuale.
+description: Come configurare Key Vault per l'uso con una macchina virtuale.
 author: mimckitt
 manager: vashan
 ms.service: virtual-machines
@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
 ms.openlocfilehash: e4bff4d1826d9586495207095eccf8f6c66164a0
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870017"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager
@@ -46,7 +46,7 @@ Per l'interfaccia della riga di comando, prima di assegnare i criteri di distrib
 
     az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
     
-Quindi, per abilitare Key Vault per l'utilizzo con la distribuzione di modelli, eseguire il comando seguente:
+Per abilitare Key Vault per l'uso con la distribuzione del modello, eseguire il comando seguente:
 
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
@@ -65,4 +65,4 @@ Se si usa un modello, è necessario impostare la proprietà `enabledForDeploymen
       }
     }
 
-Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere [Creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi usando i modelli, vedere [creare un](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)insieme di credenziali delle chiavi.

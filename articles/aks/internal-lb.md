@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 9c2966215d07c4ddf052d30a5757a2deee2e0b5c
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392784"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes
@@ -17,15 +17,15 @@ ms.locfileid: "81392784"
 Per limitare l'accesso alle applicazioni nel servizio Azure Kubernetes, è possibile creare e usare un bilanciamento del carico interno. Un bilanciamento del carico interno rende accessibile un servizio Kubernetes solo alle applicazioni in esecuzione nella stessa rete virtuale del cluster Kubernetes. Questo articolo descrive come usare un servizio di bilanciamento del carico interno con il servizio Azure Kubernetes.
 
 > [!NOTE]
-> Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per impostazione predefinita, lo SKU Standard viene usato quando si crea un cluster AKS.  Quando si crea un servizio con tipo LoadBalancer, si otterrà lo stesso tipo LB di quando si esegue il provisioning del cluster. Per altre informazioni, vedere [Confronto tra SKU di Load Balancer][azure-lb-comparison].
+> Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per impostazione predefinita, quando si crea un cluster AKS viene usato lo SKU standard.  Quando si crea un servizio con tipo come LoadBalancer, si otterrà lo stesso tipo di LB di quando si esegue il provisioning del cluster. Per altre informazioni, vedere [Confronto tra SKU di Load Balancer][azure-lb-comparison].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-È inoltre necessaria l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-L'entità servizio cluster AKS deve disporre dell'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. In generale, assegnare il ruolo *Collaboratore di rete* all'entità servizio nelle risorse delegate. Anziché un'entità servizio, è possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per ulteriori informazioni, vedere [Utilizzare le identità gestite](use-managed-identity.md). Per altre informazioni sulle autorizzazioni, vedere [Delegare l'accesso AKS ad altre risorse][aks-sp]di Azure.For more information on permissions, see Delegate AKS access to other Azure resources.
+L'entità servizio cluster AKS necessita dell'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. In generale, assegnare il ruolo *collaboratore rete* all'entità servizio per le risorse Delegate. Anziché un'entità servizio, è possibile utilizzare l'identità gestita assegnata dal sistema per le autorizzazioni. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md). Per altre informazioni sulle autorizzazioni, vedere [delega dell'accesso AKS ad altre risorse di Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Creare un bilanciamento del carico interno
 
@@ -46,15 +46,15 @@ spec:
     app: internal-app
 ```
 
-Distribuire il servizio di bilanciamento del carico interno usando l'applicazione kubectl e specificare il nome del manifesto YAML:Deploy the internal load balancer using the [kubectl apply][kubectl-apply] and specify the name of your YAML manifest:
+Distribuire il servizio di bilanciamento del carico interno usando [kubectl Apply][kubectl-apply] e specificare il nome del manifesto YAML:
 
 ```console
 kubectl apply -f internal-lb.yaml
 ```
 
-Un servizio di bilanciamento del carico di Azure viene creato nel gruppo di risorse del nodo e connesso alla stessa rete virtuale del cluster AKS.
+Viene creato un servizio di bilanciamento del carico di Azure nel gruppo di risorse nodo e connesso alla stessa rete virtuale del cluster AKS.
 
-Quando si visualizzano i dettagli del servizio, l'indirizzo IP del bilanciamento del carico interno viene visualizzato nella colonna *EXTERNAL-IP*. In questo contesto, *External* è in relazione all'interfaccia esterna del servizio di bilanciamento del carico, non che riceva un indirizzo IP esterno pubblico. La modifica dell'indirizzo IP da * \<in sospeso\> * a un indirizzo IP interno effettivo, come illustrato nell'esempio seguente, potrebbe essere necessario un o due minuti:
+Quando si visualizzano i dettagli del servizio, l'indirizzo IP del bilanciamento del carico interno viene visualizzato nella colonna *EXTERNAL-IP*. In questo contesto, l' *esterno* è correlato all'interfaccia esterna del servizio di bilanciamento del carico, non alla ricezione di un indirizzo IP pubblico esterno. La modifica dell'indirizzo IP da * \<pending\> * a un indirizzo IP interno effettivo potrebbe richiedere un paio di minuti, come illustrato nell'esempio seguente:
 
 ```
 $ kubectl get service internal-app
@@ -83,7 +83,7 @@ spec:
     app: internal-app
 ```
 
-Quando viene distribuito e si visualizzano i dettagli del servizio, l'indirizzo IP nella colonna *EXTERNAL-IP* riflette l'indirizzo IP specificato:
+Quando si distribuisce e si visualizzano i dettagli del servizio, l'indirizzo IP nella colonna *External-IP* riflette l'indirizzo IP specificato:
 
 ```
 $ kubectl get service internal-app
@@ -94,7 +94,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>Usare le reti private
 
-Quando si crea il cluster servizio Azure Kubernetes è possibile specificare impostazioni di rete avanzate. Questo approccio consente di distribuire il cluster in una rete virtuale di Azure esistente e nelle subnet. Uno scenario consiste nella distribuzione del cluster servizio Azure Kubernetes in una rete privata connessa all'ambiente locale e nell'esecuzione dei servizi accessibili solo internamente. Per altre informazioni, vedere configurare subnet di rete virtuale personalizzate con [Kubenet][use-kubenet] o [Azure CNI.][advanced-networking]
+Quando si crea il cluster servizio Azure Kubernetes è possibile specificare impostazioni di rete avanzate. Questo approccio consente di distribuire il cluster in una rete virtuale di Azure esistente e nelle subnet. Uno scenario consiste nella distribuzione del cluster servizio Azure Kubernetes in una rete privata connessa all'ambiente locale e nell'esecuzione dei servizi accessibili solo internamente. Per altre informazioni, vedere Configurare le subnet della rete virtuale con [Kubenet][use-kubenet] o [Azure CNI][advanced-networking].
 
 Non sono necessarie modifiche dei passaggi precedenti per distribuire un servizio di bilanciamento del carico interno in un cluster servizio Azure Kubernetes che usa una rete privata. Il servizio di bilanciamento del carico viene creato nello stesso gruppo di risorse del cluster servizio Azure Kubernetes ma è connesso alla rete virtuale e alla subnet private, come illustrato nell'esempio seguente:
 

@@ -1,5 +1,5 @@
 ---
-title: Selezionare le immagini della macchina virtuale Windows in AzureSelect Windows VM images in Azure
+title: Selezionare le immagini di macchine virtuali Windows in Azure
 description: Usare Azure PowerShell per determinare l'editore, l'offerta, lo SKU e la versione per le immagini di macchine virtuali del Marketplace.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 46a2badbbe957f6a8a6af7f5a40633ea24cadcd4
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82083366"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Trovare immagini di macchine virtuali Windows in Azure Marketplace con Azure PowerShell
@@ -40,7 +40,7 @@ Questa tabella illustra un subset degli SKU disponibili per le offerte e i serve
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
-| MicrosoftSharePoint |MicrosoftSharePointServer |sp2019 (sp2019) |
+| MicrosoftSharePoint |MicrosoftSharePointServer |sp2019 |
 | MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
 | MicrosoftRServer |RServer-WS2016 |Enterprise |
 
@@ -206,7 +206,7 @@ DataDiskImages   : []
 
 ```
 
-Nell'esempio seguente viene illustrato un comando simile per l'immagine Data Science `PurchasePlan` Virtual `name` `product`Machine `publisher` *- Windows 2016,* con le proprietà seguenti: , e . Alcune immagini hanno anche una proprietà `promotion code`. Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
+Nell'esempio seguente viene illustrato un comando simile per l'immagine *Data Science Virtual Machine-Windows 2016* , che presenta le `PurchasePlan` proprietà seguenti `name`: `product`, e `publisher`. Alcune immagini hanno anche una proprietà `promotion code`. Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
@@ -319,6 +319,6 @@ Passare quindi la configurazione della macchina virtuale e gli oggetti di config
 Per creare rapidamente una macchina virtuale con il cmdlet `New-AzVM` usando le informazioni di base sull'immagine, vedere [Creare una macchina virtuale Windows con PowerShell](quick-create-powershell.md).
 
 
-Vedere un esempio di script di PowerShell per [creare una macchina virtuale completamente configurata.](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)
+Vedere un esempio di script di PowerShell per [creare una macchina virtuale completamente configurata](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
 
 

@@ -1,24 +1,24 @@
 ---
-title: API front-end di Azure per l'autenticazioneAzure Frontend APIs for authentication
-description: Viene illustrato come utilizzare l'API front-end di C'è per l'autenticazione
+title: API front-end di Azure per l'autenticazione
+description: Spiega come usare l'API front-end C# per l'autenticazione
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.openlocfilehash: 04296a3dab61fdb569126abc1bc1f975d69e226d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681350"
 ---
-# <a name="use-the-azure-frontend-apis-for-authentication"></a>Usare le API front-end di Azure per l'autenticazioneUse the Azure Frontend APIs for authentication
+# <a name="use-the-azure-frontend-apis-for-authentication"></a>Usare le API front-end di Azure per l'autenticazione
 
-In questa sezione verrà descritto come usare l'API di C'è per l'autenticazione.
+In questa sezione verrà descritto come usare l'API C# per l'autenticazione.
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo
 
-AzureFrontendAccountInfo viene usato per configurare ```AzureFrontend``` le informazioni di autenticazione per un'istanza nell'SDK.
+AzureFrontendAccountInfo viene utilizzato per configurare le informazioni di autenticazione per un' ```AzureFrontend``` istanza di nell'SDK.
 
 I campi importanti sono:
 
@@ -41,19 +41,19 @@ I campi importanti sono:
 
 ```
 
-Per la parte _dell'area_ del dominio, utilizzare [un'area vicina a te.](../reference/regions.md)
+Per la parte _Region_ nel dominio, usare un' [area vicina all'utente](../reference/regions.md).
 
-Le informazioni sull'account possono essere ottenute dal portale come descritto nel paragrafo Recuperare le [informazioni sull'account.](create-an-account.md#retrieve-the-account-information)
+Le informazioni sull'account possono essere ottenute dal portale, come descritto nel paragrafo [recuperare le informazioni sull'account](create-an-account.md#retrieve-the-account-information) .
 
 ## <a name="azure-frontend"></a>Front-end di Azure
 
-Le classi ```AzureFrontend``` pertinenti ```AzureSession```sono e . ```AzureFrontend```viene utilizzato per la gestione dell'account e la funzionalità a livello di account, che include: la conversione degli asset e la creazione della sessione di rendering. ```AzureSession```viene utilizzato per la funzionalità a livello di sessione e include: aggiornamento della sessione, query, rinnovo e rimozione delle autorizzazioni.
+Le classi pertinenti sono ```AzureFrontend``` e ```AzureSession```. ```AzureFrontend```viene usato per la gestione degli account e la funzionalità a livello di account, che include la conversione di asset e la creazione della sessione di rendering. ```AzureSession```viene usato per le funzionalità a livello di sessione e include: aggiornamento della sessione, query, rinnovo e rimozione delle autorizzazioni.
 
-Ogni apertura/creazione ```AzureSession``` manterrà un riferimento al frontend che lo ha creato. Per arrestare correttamente, tutte le sessioni devono essere deallocate prima che il frontend venga deallocato.
+Ogni apertura/creazione ```AzureSession``` manterrà un riferimento al front-end che lo ha creato. Per arrestare il sistema, è necessario deallocare tutte le sessioni prima che il front-end venga deallocato.
 
-La deallocazione di una sessione `AzureSession.StopAsync` non arresterà la macchina virtuale in Azure, deve essere chiamata in modo esplicito.
+La deallocazione di una sessione non arresterà la macchina virtuale `AzureSession.StopAsync` in Azure. deve essere chiamata in modo esplicito.
 
-Una volta creata una sessione e contrassegnato come pronto, è possibile `AzureSession.ConnectToRuntime`connettersi al runtime di rendering remoto con .
+Dopo che una sessione è stata creata e il suo stato è stato contrassegnato come pronto, può connettersi al runtime di rendering remoto `AzureSession.ConnectToRuntime`con.
 
 ### <a name="threading"></a>Threading
 
@@ -61,9 +61,9 @@ Tutte le chiamate asincrone AzureSession e AzureFrontend vengono completate in u
 
 ### <a name="conversion-apis"></a>API di conversione
 
-Per altre informazioni sul servizio di conversione, vedere [l'API REST](conversion/conversion-rest-api.md)di conversione del modello .
+Per ulteriori informazioni sul servizio di conversione, vedere [l'API REST di conversione del modello](conversion/conversion-rest-api.md).
 
-#### <a name="start-asset-conversion"></a>Avviare la conversione delle risorse
+#### <a name="start-asset-conversion"></a>Avvia conversione asset
 
 ``` cs
 private StartConversionAsync _pendingAsync = null;
@@ -89,7 +89,7 @@ void StartAssetConversion(AzureFrontend frontend, string modelName, string model
 }
 ```
 
-#### <a name="get-conversion-status"></a>Ottenere lo stato di conversioneGet conversion status
+#### <a name="get-conversion-status"></a>Ottenere lo stato della conversione
 
 ``` cs
 private ConversionStatusAsync _pendingAsync = null
@@ -113,11 +113,11 @@ void GetConversionStatus(AzureFrontend frontend, string assetId)
 }
 ```
 
-### <a name="rendering-apis"></a>API di rendering
+### <a name="rendering-apis"></a>Rendering delle API
 
-Vedere [l'API REST](session-rest-api.md) di gestione della sessione per informazioni dettagliate sulla gestione delle sessioni.
+Per informazioni dettagliate sulla gestione delle sessioni, vedere [l'API REST di gestione delle sessioni](session-rest-api.md) .
 
-Una sessione di rendering può essere creata dinamicamente nel servizio oppure un ID di sessione già esistente può essere 'aperto' in un oggetto AzureSession.A rendering session can either be created dynamically on the service or an already existing session ID can be 'opened' into an AzureSession object.
+Una sessione di rendering può essere creata dinamicamente nel servizio oppure un ID di sessione già esistente può essere ' aperto ' in un oggetto AzureSession.
 
 #### <a name="create-rendering-session"></a>Crea sessione di rendering
 
@@ -156,7 +156,7 @@ void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 }
 ```
 
-#### <a name="get-current-rendering-sessions"></a>Ottenere le sessioni di rendering correntiGet current rendering sessions
+#### <a name="get-current-rendering-sessions"></a>Ottenere sessioni di rendering correnti
 
 ``` cs
 private SessionPropertiesArrayAsync _pendingAsync = null;
@@ -181,7 +181,7 @@ void GetCurrentRenderingSessions(AzureFrontend frontend)
 
 ### <a name="session-apis"></a>API di sessione
 
-#### <a name="get-rendering-session-properties"></a>Ottenere le proprietà della sessione di renderingGet rendering session properties
+#### <a name="get-rendering-session-properties"></a>Ottenere le proprietà della sessione di rendering
 
 ``` cs
 private SessionPropertiesAsync _pendingAsync = null;
@@ -251,7 +251,7 @@ void StopRenderingSession(AzureSession session)
 }
 ```
 
-#### <a name="connect-to-arr-inspector"></a>Connettersi al controllo ARR
+#### <a name="connect-to-arr-inspector"></a>Connetti a controllo ARR
 
 ``` cs
 private ArrInspectorAsync _pendingAsync = null;
@@ -289,4 +289,4 @@ void ConnectToArrInspector(AzureSession session, string hostname)
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un account](create-an-account.md)
-* [Script di PowerShell di esempioExample PowerShell scripts](../samples/powershell-example-scripts.md)
+* [Script di Azure PowerShell di esempio](../samples/powershell-example-scripts.md)

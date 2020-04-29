@@ -10,18 +10,18 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878392"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> App per la logica di Azure sostituisce [l'Utilità](../logic-apps/logic-apps-overview.md) di pianificazione di Azure, che [viene ritirata.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Per continuare a usare i processi impostati nell'utilità di pianificazione, [eseguire la migrazione ad App per la logica](../scheduler/migrate-from-scheduler-to-logic-apps.md) di Azure appena possibile. 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
 >
-> L'utilità di pianificazione non è più disponibile nel portale di Azure, ma i cmdlet di PowerShell [per l'API REST](/rest/api/scheduler) e [l'utilità di pianificazione](scheduler-powershell-reference.md) di Azure rimangono disponibili in questo momento in modo da poter gestire i processi e le raccolte di processi.
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 ## <a name="entity-hierarchy"></a>Gerarchia di entità
 
@@ -31,7 +31,7 @@ L'API REST di Utilità di pianificazione di Microsoft Azure espone e utilizza le
 |--------|-------------|
 | **Processo** | Definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio. | 
 | **Raccolta di processi** | Contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi della raccolta. In quanto proprietario della sottoscrizione di Azure, è possibile creare raccolte di processi e raggruppare i processi in base ai limiti di utilizzo o dell'applicazione. Una raccolta processi presenta questi attributi: <p>- È vincolata a un'area. <br>- Consente di applicare quote in modo che sia possibile limitare l'utilizzo per tutti i processi in una raccolta. <br>- Le quote includono MaxJobs e MaxRecurrence. | 
-| **Cronologia dei processi** | Descrive i dettagli per l'esecuzione del processo, ad esempio, lo stato e i dettagli della risposta. |
+| **Cronologia processo** | Descrive i dettagli per l'esecuzione del processo, ad esempio, lo stato e i dettagli della risposta. |
 ||| 
 
 ## <a name="entity-management"></a>Gestione delle entità
@@ -40,7 +40,7 @@ A livelli elevati, l'API REST di Utilità di pianificazione di Microsoft Azure e
 
 ### <a name="job-management"></a>Gestione dei processi
 
-Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Ecco l'indirizzo URI per queste operazioni:Here's the URI address for these operations:
+Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Ecco l'indirizzo URI per queste operazioni:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -48,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Gestione delle raccolte di processi
 
-Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Ecco l'indirizzo URI per queste operazioni:Here's the URI address for these operations:
+Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Ecco l'indirizzo URI per queste operazioni:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -56,7 +56,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Gestione della cronologia dei processi
 
-Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Ecco l'indirizzo URI per questa operazione:Here's the URI address for this operation:
+Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Ecco l'indirizzo URI per questa operazione:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 Utilità di pianificazione di Microsoft Azure supporta più tipi di processo: 
 
-* Processi HTTP, inclusi i processi HTTPS che supportano TLS, per quando si dispone dell'endpoint per un servizio o un carico di lavoro esistenteHTTP jobs, including HTTPS jobs that support TLS, for when you have the endpoint for an existing service or workload
+* Processi HTTP, inclusi i processi HTTPS che supportano TLS, quando si dispone dell'endpoint per un servizio o un carico di lavoro esistente
 * Processi di code di archiviazione per carichi di lavoro che usano le code di archiviazione, ad esempio l'invio di messaggi alle code di archiviazione
 * Processi di coda del bus di servizio per i carichi di lavoro che usano le code del bus di servizio
 * Processi degli argomenti del bus di servizio per i carichi di lavoro che usano gli argomenti del bus di servizio
@@ -85,12 +85,12 @@ Il processo include anche i dati forniti dal sistema, ad esempio l'ora successiv
 | Elemento | Obbligatoria | Descrizione | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | No | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**Azione**](#action) | Sì | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
+| [**azione**](#action) | Sì | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
 | [**errorAction**](#error-action) | No | I dettagli per l’azione secondaria eseguita se l'azione principale ha esito negativo |
-| [**Ricorrenza**](#recurrence) | No | I dettagli, ad esempio frequenza e intervallo per un processo ricorrente | 
+| [**ricorrenza**](#recurrence) | No | I dettagli, ad esempio frequenza e intervallo per un processo ricorrente | 
 | [**retryPolicy**](#retry-policy) | No | I dettagli per la frequenza con cui ripetere un'azione | 
-| [**Stato**](#state) | Sì | I dettagli per lo stato del processo corrente |
-| [**Stato**](#status) | Sì | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
+| [**stato**](#state) | Sì | I dettagli per lo stato del processo corrente |
+| [**stato**](#status) | Sì | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
 ||||
 
 Ecco un esempio che illustra una definizione del processo completo per un'azione HTTP. I dettagli più completi degli elementi sono descritti nelle sezioni successive: 
@@ -248,16 +248,16 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 
 | Proprietà | Obbligatoria | valore | Descrizione | 
 |----------|----------|-------|-------------| 
-| **frequency** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
-| **Intervallo** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
-| **schedule** | No | Variabile | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
-| **hours** | No | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 
-| **Minuti** | No | Da 0 a 59 anni | Una matrice con i minuti segna quando eseguire il processo | 
+| **frequenza** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
+| **interval** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
+| **pianificazione** | No | Variabile | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
+| **ore** | No | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 
+| **minuti** | No | da 0 a 59 | Una matrice con i minuti segna quando eseguire il processo | 
 | **months** | No | Da 1 a 12 | Una matrice con i mesi segna quando eseguire il processo | 
 | **monthDays** | No | Variabile | Una matrice con i giorni segna quando eseguire il processo | 
-| **giorni feriali** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matrice con i giorni della settimana segna quando eseguire il processo | 
-| **count** | No | <*Nessuno*> | Il numero di ricorrenze. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
-| **Endtime** | No | <*Nessuno*> | Data e ora di arresto della ricorrenza. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
+| **Giorni feriali** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matrice con i giorni della settimana segna quando eseguire il processo | 
+| **count** | No | <*nessuno*> | Il numero di ricorrenze. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
+| **endTime** | No | <*nessuno*> | Data e ora di arresto della ricorrenza. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
 ||||
 
 Per altre informazioni su questi elementi, vedere [Creare pianificazioni complesse e ricorrenze avanzate](../scheduler/scheduler-advanced-complexity.md).

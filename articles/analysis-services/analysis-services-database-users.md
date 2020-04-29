@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81454204"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
@@ -25,15 +25,15 @@ Le autorizzazioni di ruoli includono:
 *  **Elabora**: utenti che possono connettersi ed eseguire operazioni di elaborazione nel database e analizzare i dati del database modello.
 *  **Lettura**: utenti che possono usare un'applicazione client per connettersi e analizzare i dati del database modello.
 
-Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono utenti o gruppi a tali ruoli utilizzando Gestione ruoli in Visual Studio con progetti di Analysis Services. Quando viene distribuito in un server, utilizzare SQL Server Management Studio (SSMS), i cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)per Analysis Services o [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) per aggiungere o rimuovere ruoli e membri utente.
+Quando si crea un progetto di modello tabulare, è possibile creare ruoli e aggiungere utenti o gruppi a tali ruoli usando Gestione ruoli in Visual Studio con Analysis Services progetti. Quando si esegue la distribuzione in un server, usare SQL Server Management Studio (SSMS), [Analysis Services cmdlet di PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)o TMSL ( [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) ) per aggiungere o rimuovere ruoli e membri utente.
 
-Quando si aggiunge un `obj:groupid@tenantid`gruppo di **sicurezza**, utilizzare .
+Quando si aggiunge un **gruppo**di sicurezza `obj:groupid@tenantid`, utilizzare.
 
-## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Per aggiungere o gestire ruoli e utenti in Visual StudioTo add or manage roles and users in Visual Studio  
+## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Per aggiungere o gestire ruoli e utenti in Visual Studio  
   
-1.  In **Esplora modelli tabulari**fare clic con il pulsante destro del mouse su **Ruoli**.  
+1.  In **Esplora modelli tabulari**fare clic con il pulsante destro del mouse su **ruoli**.  
   
-2.  In **Gestione ruoli**fare clic su **Nuovo**.  
+2.  In **Gestione ruoli**fare clic su **nuovo**.  
   
 3.  Digitare un nome per il ruolo.  
   
@@ -51,7 +51,7 @@ Quando si aggiunge un `obj:groupid@tenantid`gruppo di **sicurezza**, utilizzare 
   
 5.  Se il ruolo che si sta creando dispone delle autorizzazioni Lettura o Lettura ed elaborazione, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic sulla scheda **Filtri di riga**, quindi selezionare una tabella, quindi scegliere il campo **Filtro DAX** e quindi digitare una formula DAX.
   
-6.  Fare clic su **Membri** > **Aggiungi esterno**.  
+6.  Fare clic su **membri** > **Aggiungi esterno**.  
   
 8.  In **Aggiungi membro esterno** immettere gli utenti o i gruppi nel tenant di Azure AD dall'indirizzo e-mail. Dopo avere fatto clic su OK e avere chiuso Gestione ruoli, i ruoli e i membri del ruolo vengono visualizzati in Esplora modelli tabulari. 
  
@@ -64,7 +64,7 @@ Quando si aggiunge un `obj:groupid@tenantid`gruppo di **sicurezza**, utilizzare 
 
 Per aggiungere ruoli e utenti a un database modello distribuito, è necessario connettersi al server come amministratore del server o già in un ruolo del database con autorizzazioni di amministratore.
 
-1. In Object Exporer fare clic con il pulsante destro del mouse su**Nuovo ruolo** **.** > 
+1. In Explorer oggetto, fare clic con il pulsante destro del mouse su **ruoli** > **nuovo ruolo**.
 
 2. In **Crea ruolo** immettere il nome di un ruolo e una descrizione.
 
@@ -132,7 +132,7 @@ I filtri di riga definiscono le righe di una tabella su cui i membri di uno spec
   
 I filtri di riga possono essere definiti solo per i ruoli con le autorizzazioni Lettura e Lettura ed elaborazione. Per impostazione predefinita, se non si definisce un filtro di riga per una determinata tabella, i membri possono eseguire query su tutte le righe della tabella a meno che non vengano applicati filtri incrociati da un'altra tabella.
   
- I filtri di riga richiedono una formula DAX, che deve restituire un valore TRUE/FALSE, per definire le righe su cui i membri del ruolo specifico possono eseguire query. Non è possibile eseguire query su righe non incluse nella formula DAX. Ad esempio, la tabella Clienti con l'espressione di filtro di riga seguente, *"Customers [Paese] - "USA",* i membri del ruolo Vendite possono visualizzare solo i clienti negli Stati Uniti.  
+ I filtri di riga richiedono una formula DAX, che deve restituire un valore TRUE/FALSE, per definire le righe su cui i membri del ruolo specifico possono eseguire query. Non è possibile eseguire query su righe non incluse nella formula DAX. Ad esempio, la tabella Customers con l'espressione dei filtri di riga seguente, *= Customers [Country] = "USA"*, i membri del ruolo Sales possono visualizzare solo i clienti negli Stati Uniti.  
   
 I filtri di riga si applicano alle righe specificate e alle righe correlate. Quando una tabella dispone di più relazioni, tramite i filtri viene applicata la sicurezza alla relazione che è attiva. I filtri di riga vengono intersecati con altri filtri di riga definiti per le tabelle correlate, ad esempio:  
   

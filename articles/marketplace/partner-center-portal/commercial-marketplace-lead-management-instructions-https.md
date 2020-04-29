@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133744"
 ---
 # <a name="configure-lead-management-by-using-an-https-endpoint"></a>Configurare la gestione dei lead tramite un endpoint HTTPS
@@ -205,7 +205,7 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 1. Selezionare **Connetti** nella sezione **gestione dei lead** .
 1. Nella finestra popup **Dettagli connessione** selezionare **endpoint HTTPS** per la **destinazione principale**. Incollare l'URL HTTP POST dal flusso creato seguendo i passaggi precedenti nel campo **URL endpoint HTTPS** .
 1. In **Contact email**immettere gli indirizzi di posta elettronica per gli utenti della società che devono ricevere notifiche tramite posta elettronica quando viene ricevuto un nuovo lead. È possibile specificare più messaggi di posta elettronica separandoli con un punto e virgola.
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 Per assicurarsi di avere effettuato la connessione a una destinazione principale, selezionare il pulsante **convalida** . In caso di esito positivo, sarà presente un lead di test nella destinazione principale.
 

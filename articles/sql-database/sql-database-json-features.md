@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
 ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687748"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introduzione alle funzionalità JSON nel database SQL di Azure
@@ -69,7 +69,7 @@ L'output di questa query è simile al seguente:
 }
 ```
 
-In questo esempio è stato restituito un singolo oggetto JSON anziché una matrice specificando l'opzione [WITHOUT_ARRAY_WRAPPER.](https://msdn.microsoft.com/library/mt631354.aspx) È possibile usare questa opzione se è noto che si sta restituendo un oggetto singolo come risultato della query.
+In questo esempio è stato restituito un singolo oggetto JSON anziché una matrice specificando l'opzione [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) . È possibile usare questa opzione se è noto che si sta restituendo un oggetto singolo come risultato della query.
 
 Il valore principale della clausola FOR JSON è che consente di restituire dati gerarchici complessi dal database formattati come array o oggetti JSON annidati. Nell'esempio seguente viene illustrato come includere le righe della tabella `Orders` che appartengono a `Customer` come array annidato di `Orders`:
 

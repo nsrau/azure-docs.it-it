@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985066"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorare le prestazioni di applicazioni Web
@@ -102,7 +102,7 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 * Confrontare il conteggio delle richieste con altre metriche per verificare se gli errori o la risposta lenta sono collegati al carico.
 * [Inserire e cercare istruzioni di traccia][diagnostic] nel codice per individuare i problemi.
 * Monitorare l'applicazione Web in esecuzione con [Live Metrics Stream][livestream].
-* Acquisire lo stato dell'applicazione .NET con [Snapshot Debugger][snapshot].
+* Acquisire lo stato dell'applicazione .NET con [snapshot debugger][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Individuare e risolvere i colli di bottiglia delle prestazioni con l'esperienza di analisi delle prestazioni
 

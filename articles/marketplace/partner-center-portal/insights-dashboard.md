@@ -1,6 +1,6 @@
 ---
-title: Dashboard di Marketplace Insights nell'analisi del marketplace commerciale nel Centro per i partner
-description: Accedi a un riepilogo dell'analisi Web del marketplace, che consente ai publisher di misurare il coinvolgimento dei clienti nelle vetrine di AppSource e Azure Marketplace.
+title: Dashboard di Marketplace Insights in Commercial Marketplace Analytics nel centro per i partner
+description: Accedi a un riepilogo di analisi Web del Marketplace, che consente agli editori di misurare il coinvolgimento dei clienti in AppSource e nelle vetrine di Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,137 +8,137 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81251708"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di Marketplace Insights nell'analisi del marketplace commerciale
+# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di Marketplace Insights in analisi del Marketplace commerciale
 
-Questo articolo fornisce informazioni sul dashboard di Marketplace Insights nel Centro per i partner. Questo dashboard visualizza un riepilogo dell'analisi Web del marketplace, che consente agli editori di misurare il coinvolgimento dei clienti per le rispettive pagine dei dettagli del prodotto elencate nelle vetrine del marketplace: AppSource e Azure Marketplace.
+Questo articolo fornisce informazioni sul dashboard di Marketplace Insights nel centro per i partner. Questo dashboard Visualizza un riepilogo di analisi Web del Marketplace, che consente agli editori di misurare il coinvolgimento dei clienti per le rispettive pagine dei dettagli del prodotto elencate nelle vetrine del Marketplace: AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Dashboard Informazioni dettagliate sul marketplace
 
-Per accedere al **dashboard Marketplace Insights** nel Centro per i partner, apri la scheda **[Analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Mercato commerciale.
+Per accedere al **dashboard di Marketplace Insights** in centro per i partner, aprire la **[scheda analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
 
-È possibile visualizzare le rappresentazioni grafiche dei seguenti elementi:  
+È possibile visualizzare le rappresentazioni grafiche degli elementi seguenti:  
 
 - [Riepilogo di Marketplace Insights](#marketplace-insights-summary)
-- [Visite alle pagine per area geografica](#page-visits-by-geography)  
-- [Visita delle pagine rispetto alla tendenza dei visitatori unici](#page-visits-versus-unique-visitors-trend)
-- [Invito all'azione contro visitatori unici con CTA](#call-to-action-versus-unique-visitors-with-ctas)
-- [Visite alle pagine e invito all'azione da parte delle offerte](#page-visits-and-calls-to-action-by-offers)
-- [Tendenza percentuale invito all'azione](#call-to-action-percentage-trend)
-- [Visite alle pagine e inviti all'azione da parte dei domini di riferimento](#page-visits-and-calls-to-action-by-referral-domains)
-- [Tabella dei dettagli di Marketplace Insights](#marketplace-insights-details-table)
+- [Pagine visite per geografia](#page-visits-by-geography)  
+- [Tendenze della pagina visite rispetto ai visitatori univoci](#page-visits-versus-unique-visitors-trend)
+- [Chiamata a Action rispetto a visitatori univoci con CTAs](#call-to-action-versus-unique-visitors-with-ctas)
+- [Visite di pagina e chiamata a Action by offers](#page-visits-and-calls-to-action-by-offers)
+- [Tendenza percentuale chiamata a azione](#call-to-action-percentage-trend)
+- [Visite di pagina e chiamate all'azione da domini di riferimento](#page-visits-and-calls-to-action-by-referral-domains)
+- [Tabella dettagli di Marketplace Insights](#marketplace-insights-details-table)
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia dell'analisi, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)del mercato commerciale.
+> Per le definizioni dettagliate della terminologia di analisi, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
 
 ### <a name="insights-dashboard-layout"></a>Layout del dashboard di Insights
 
-Puoi visualizzare le metriche di Marketplace in diversi modi:
+È possibile visualizzare le metriche del Marketplace in diversi modi:
 
-- Schede Storefront
+- Schede storefront
 - Filtri pagina
 - Filtri per data
 
-**Schede Storefront**: È possibile visualizzare le metriche delle offerte separatamente tramite le schede AppSource & Azure Marketplace. Seleziona le offerte dall'elenco a discesa delle offerte a destra per visualizzare una visualizzazione delle metriche per le offerte selezionate. Per impostazione predefinita, sono selezionate tutte le offerte.
+**Schede storefront**: è possibile visualizzare le metriche delle offerte separatamente tramite le schede AppSource & Azure Marketplace. Selezionare le offerte dall'elenco a discesa dell'offerta a destra per visualizzare una visualizzazione delle metriche per le offerte selezionate (s). Per impostazione predefinita, vengono selezionate tutte le offerte.
 
-![Elenco a discesa dell'offerta del dashboard Insights del Centro per i partner](./media/insights-offer-dropdown.png)
+![Elenco a discesa dell'offerta dashboard di Insights per partner Center](./media/insights-offer-dropdown.png)
 
-**Filtri pagina Insights**: Questi filtri vengono applicati a livello di offerta (pagina dettagli prodotto). È possibile selezionare più filtri per i criteri che si desidera visualizzare. Questo filtro si applica all'intera sezione di Marketplace Insights, inclusi grafici e dettagli.
+**Filtri di pagina Insights**: questi filtri vengono applicati al livello dell'offerta (pagina dei dettagli del prodotto). È possibile selezionare più filtri per i criteri che si desidera visualizzare. Questo filtro si applica all'intera sezione del Marketplace Insights, inclusi i grafici e i dettagli.
 
-![Filtri delle pagine del dashboard di Business Intelligence per i partner](./media/insights-page-filter.png)
+![Filtri della pagina dashboard di Insights per partner Center](./media/insights-page-filter.png)
 
-- I nomi delle offerte sono elencati solo per le offerte con visite di pagina nell'intervallo di date selezionato.  
-- La selezione predefinita è 'Tutti' per ciascuna delle opzioni di filtro
-- I filtri applicati mostrano il numero di selezioni per le scelte effettuate. I filtri applicati non verranno visualizzati per la selezione predefinita "Tutti".
+- I nomi delle offerte sono elencati solo per le offerte che includono visite di pagina nell'intervallo di date selezionato.  
+- La selezione predefinita è' all'per ogni opzione di filtro
+- I filtri applicati mostrano il numero di selezioni per le scelte effettuate. I filtri applicati non verranno visualizzati per la selezione predefinità tutti '.
 
-![Filtri approfondimenti del Centro per i partner applicati](./media/insights-page-filter-two.png)
+![Filtri di Insights per partner Center applicati](./media/insights-page-filter-two.png)
 
-**Filtri data Insights:** questo filtro si applica all'intera sezione Insights del Marketplace. I filtri possono includere intervalli di date predeterminati o un intervallo di date personalizzato.
+**Filtri di data Insights**: questo filtro si applica all'intera sezione relativa alle informazioni dettagliate sul Marketplace. I filtri possono includere intervalli di date pre-determinati o un intervallo di date personalizzato.
 
-![Filtri data Approfondimenti del Centro per i partner](./media/insights-date-range.png)
+![Filtri data di Insights per partner Center](./media/insights-date-range.png)
 
 ## <a name="marketplace-insights-summary"></a>Riepilogo di Marketplace Insights
 
-Nella sezione Riepilogo approfondimenti sul Marketplace viene visualizzato il conteggio delle visite alla **Pagina,** delle **inviti all'azione**e dei **visitatori univoci** per l'intervallo di date selezionato.
+La sezione di riepilogo di Marketplace Insights Visualizza il numero di **visite di pagina**, le **chiamate all'azione**e **i visitatori univoci** per l'intervallo di date selezionato.
 
-### <a name="page-visits"></a>Visite alle pagine
+### <a name="page-visits"></a>Visite di pagina
 
-Questo numero rappresenta il numero di sessioni utente distinte nella pagina dell'offerta (pagina dei dettagli del prodotto) per un intervallo di date selezionato. L'indicatore percentuale rosso/verde rappresenta la percentuale di crescita delle visite di pagina. Il grafico delle tendenze rappresenta il conteggio mensile delle visite alle pagine.
+Questo numero rappresenta il numero di sessioni utente distinte nella pagina dell'offerta (pagina dei dettagli del prodotto) per un intervallo di date selezionato. L'indicatore percentuale di rosso/verde rappresenta la percentuale di crescita delle visite alle pagine. Il grafico di tendenza rappresenta il numero di visite di pagina per il mese.
 
-### <a name="unique-visitors"></a>Visitatori unici
+### <a name="unique-visitors"></a>Visitatori univoci
 
-Questo numero rappresenta il numero di visitatori distinto durante l'intervallo di date selezionato per le offerte selezionate nel filtro di pagina. Un visitatore che ha visitato una o più pagine dei dettagli del prodotto verrà conteggiato come un visitatore unico.
+Questo numero rappresenta il conteggio dei visitatori distinti durante l'intervallo di date selezionato per le offerte selezionate nel filtro della pagina. Un visitatore che ha visitato una o più pagine di dettagli sul prodotto verrà conteggiato come un visitatore univoco.
 
 ### <a name="call-to-action"></a>Chiamata all'azione
 
-Questo numero rappresenta il conteggio dei clic del pulsante **Invito all'azione** completati nella pagina dell'offerta (pagina dei dettagli del prodotto). **Gli inviti all'azione** vengono conteggiati quando vengono selezionati i pulsanti **Scarica ora**, **Prova gratuita**, **Contattami**e **Test drive.**
+Questo numero rappresenta il conteggio dei clic del pulsante **di chiamata a azione** completato nella pagina dell'offerta (pagina dei dettagli del prodotto). Le **chiamate all'azione** vengono conteggiate quando sono selezionati i pulsanti **Ottieni ora**, **versione di valutazione gratuita**, **contattami**e **test drive** .
 
-![Riepilogo dell'invito all'azione di Insights del Centro per i partner](./media/insights-summary.png)
+![Riepilogo delle azioni della chiamata al centro per i partner](./media/insights-summary.png)
 
-## <a name="page-visits-by-geography"></a>Visite alle pagine per area geografica
+## <a name="page-visits-by-geography"></a>Pagine visite per geografia
 
-La mappa termica riportata di seguito mostra il numero di visite alla **Pagina**, **Inviti all'azione**e Visitatori unici in base al paese del **cliente.** Le visite di pagina più alte sono rappresentate da colori mappa più scuri e le visite di pagina più basse sono rappresentate da colori della mappa più chiari.
+Il mappa termica riportato di seguito Visualizza il numero di **visite di pagina**, le **chiamate all'azione**e **i visitatori univoci in base al paese del cliente**. Le visite di pagina superiori sono rappresentate da colori di mappa più scuri e le visite di pagina più bassa sono rappresentate da colori mappa più semplici.
 
-![Diffusione geografica di Partner Center Insights](./media/insights-geography.png)
+![Distribuzione geografica di Insights per il centro per i partner](./media/insights-geography.png)
 
-La mappa termica include le seguenti funzionalità:
+Il mappa termica include le funzionalità seguenti:
 
-- La mappa termica ha una griglia supplementare per visualizzare i dettagli di **Visite alla Pagina,** **Inviti all'azione** e **Visitatori unici** in una posizione specifica; è possibile ingrandire una posizione specifica, se lo si preferisce.  
-- **La distribuzione dei paesi** è il numero di tutti i paesi da cui i clienti hanno segnalato visite alle pagine durante l'intervallo di date selezionato.
-- È possibile cercare e selezionare un paese nella griglia per ingrandire la posizione nella mappa. Ripristinare la visualizzazione originale selezionando **Home** sulla mappa.
+- Mappa termica dispone di una griglia supplementare per visualizzare i dettagli delle **visite alle pagine**, le **chiamate all'azione** e **i visitatori univoci** in una posizione specifica. Se si preferisce, è possibile ingrandire una posizione specifica.  
+- **Paesi distribuiti** è il conteggio di tutti i paesi in cui i clienti hanno segnalato visite di pagina durante l'intervallo di date selezionato.
+- È possibile cercare e selezionare un paese nella griglia per ingrandire la posizione della mappa. Ripristinare la visualizzazione originale selezionando **Home** sulla mappa.
 
-## <a name="page-visits-versus-unique-visitors-trend"></a>Visita delle pagine rispetto alla tendenza dei visitatori unici
+## <a name="page-visits-versus-unique-visitors-trend"></a>Tendenze della pagina visite rispetto ai visitatori univoci
 
 Le colonne seguenti rappresentano il numero di visite mensili alle pagine, visualizzate sull'asse Y (asse sul lato sinistro del grafico). La linea di tendenza rappresenta la tendenza mensile dei visitatori univoci, visualizzata sull'asse Y secondario (asse sul lato destro del grafico), per le offerte pubblicate nelle vetrine: Azure Marketplace e AppSource.
 
-![Visite alla pagina Approfondimenti del Centro per i partner rispetto alla tendenza dei visitatori unici](./media/insights-page-vists-unique-visitors.png)
+![Tendenze delle visite alle pagine del centro per i partner e visitatori univoci](./media/insights-page-vists-unique-visitors.png)
 
-## <a name="call-to-action-versus-unique-visitors-with-ctas"></a>Invito all'azione contro visitatori unici con CTA
+## <a name="call-to-action-versus-unique-visitors-with-ctas"></a>Chiamata a Action rispetto a visitatori univoci con CTAs
 
-Le colonne in pila rappresentano inviti all'azione mensili (CTA), suddivisi per tipi CTA (**Get it now**, Contact **me**e **Free Trial**) e tracciati sull'asse Y (asse sul lato sinistro della pagina). La linea di tendenza rappresenta la tendenza mensile dei visitatori univoci con CTA, visualizzata sull'asse Y secondario (asse sul lato destro del grafico), per le offerte pubblicate in Azure Marketplace e AppSource.
+Le colonne in pila rappresentano le chiamate mensili a Action (CTA), suddivise in base ai tipi CTA (**Get Now**, **Contact me**e **Free Trial**) e tracciate sull'asse Y (asse sul lato sinistro della pagina). La linea di tendenza rappresenta la tendenza mensile dei visitatori univoci con CTAs, che viene visualizzato sull'asse Y secondario (asse sul lato destro del grafico) per le offerte pubblicate in Azure Marketplace e AppSource.
 
-![Invito all'azione di Analisi del Centro per i partner rispetto ai visitatori unici con CTA](./media/insights-call-to-action-unique-visitors.png)
+![Una chiamata a Action e ai visitatori univoci del centro per i partner con CTAs](./media/insights-call-to-action-unique-visitors.png)
 
-## <a name="page-visits-and-calls-to-action-by-offers"></a>Visite alle pagine e inviti all'azione da parte delle offerte
+## <a name="page-visits-and-calls-to-action-by-offers"></a>Visite di pagina e chiamate all'azione tramite offerte
 
-Il grafico a torta esterno rappresenta la suddivisione delle visite alla **Pagina** in base alle offerte pubblicate nel marketplace e selezionate nel filtro. Il grafico interno rappresenta la ripartizione **delle chiamate all'azione** per le stesse offerte.
+Il grafico a torta esterno rappresenta la suddivisione delle **visite alle pagine** in base alle offerte pubblicate nel Marketplace e selezionate nel filtro. Il grafico interno rappresenta le **chiamate alla** suddivisione delle azioni per le stesse offerte.
 
-![Pagina Approfondimenti del Centro per i partner visite e inviti all'azione tramite offerte](./media/insights-page-visits-and-cta-by-offer.png)
+![Visita la pagina di partner Center Insights e le chiamate a Action by offers](./media/insights-page-visits-and-cta-by-offer.png)
 
-## <a name="call-to-action-percentage-trend"></a>Tendenza percentuale invito all'azione
+## <a name="call-to-action-percentage-trend"></a>Tendenza percentuale chiamata a azione
 
-La tendenza percentuale di **invito all'azione** presenta la percentuale CTA per le offerte pubblicate sul mercato. CTA % (CTA/visite alla pagina) - 100.
+La **tendenza percentuale chiamata a azione** Visualizza la percentuale di CTA per le offerte pubblicate nel Marketplace. CTA% = (CTAs/visite di pagina) * 100.
 
-![Tendenza percentuale di invito all'azione di Insights del Centro per i partner](./media/insights-call-to-action-percentage-trend.png)
+![La tendenza percentuale della chiamata al centro partner per le azioni](./media/insights-call-to-action-percentage-trend.png)
 
-## <a name="page-visits-and-calls-to-action-by-referral-domains"></a>Visite alle pagine e inviti all'azione da parte dei domini di riferimento
+## <a name="page-visits-and-calls-to-action-by-referral-domains"></a>Visite di pagina e chiamate all'azione da domini di riferimento
 
-Il grafico seguente presenta i primi 50 domini di riferimento. La selezione di un dominio di riferimento specifico mostra la tendenza mensile delle visite alle pagine e degli inviti all'azione sul grafico a destra.
+Il grafico riportato di seguito presenta i primi 50 domini di riferimento. La selezione di un dominio di riferimento specifico Mostra la tendenza mensile delle visite alle pagine e le chiamate all'azione sul grafico a destra.
 
-![La pagina Approfondimenti del Centro per i partner visita e invita all'azione da parte dei domini di referral e delle campagne](./media/insights-page-visits-call-to-actions.png)
+![Pagine di partner Center Insights e chiamate all'azione da domini e campagne di riferimento](./media/insights-page-visits-call-to-actions.png)
 
-## <a name="marketplace-insights-details-table"></a>Tabella dei dettagli di Marketplace Insights
+## <a name="marketplace-insights-details-table"></a>Tabella dettagli di Marketplace Insights
 
-Questa tabella fornisce una visualizzazione elenco delle visite alle pagine e gli inviti all'azione delle offerte selezionate ordinate per data.
+Questa tabella fornisce una visualizzazione elenco delle visite alle pagine e le chiamate all'azione delle offerte selezionate, ordinate per data.
 
-![Tabella dei dettagli di Approfondimenti del Centro per i partner](./media/insights-details-page.png)
+![Tabella dei dettagli di partner Center Insights](./media/insights-details-page.png)
 
 - I dati possono essere estratti in un file CSV se il numero di record è inferiore a 1000.
-- Se il numero di record è superiore a 1000, i dati esportati verranno inseriti in modo asincrono in una pagina di download per i successivi 30 giorni.
-- I filtri possono essere applicati per visualizzare i dati a cui si è interessati. I dati possono essere filtrati in base ai nomi delle offerte e ai nomi delle campagne.  
+- Se il numero di record è superiore a 1000, i dati esportati verranno posizionati in modo asincrono in una pagina di download per i successivi 30 giorni.
+- È possibile applicare filtri per visualizzare i dati a cui si è interessati. I dati possono essere filtrati in base ai nomi delle offerte e ai nomi delle campagne.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dei report di analisi disponibili nel marketplace commerciale del Centro per i partner, vedere Analisi per il marketplace commerciale nel Centro per i [partner.](./analytics.md)
-- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)del marketplace commerciale.
-- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
-- Per la macchina virtuale (VM) offre l'utilizzo e le metriche di fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi del marketplace commerciale.](./usage-dashboard.md)
-- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
-- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Download Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- Per visualizzare una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Valutazioni e recensioni del dashboard nell'analisi](./ratings-reviews.md)del marketplace commerciale.
-- Per le domande frequenti sull'analisi del mercato commerciale e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)del mercato commerciale.
+- Per una panoramica dei report di analisi disponibili nel Marketplace commerciale del centro per i partner, vedere [analisi per il Marketplace commerciale nel centro per i partner](./analytics.md).
+- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del Marketplace per l'offerta, vedere [dashboard di riepilogo in analisi del Marketplace commerciale](./summary-dashboard.md).
+- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard Orders in Commercial Marketplace Analytics](./orders-dashboard.md).
+- Per la macchina virtuale (VM) offre metriche di fatturazione di utilizzo e a consumo, vedere [dashboard di utilizzo in analisi del Marketplace commerciale](./usage-dashboard.md).
+- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [dashboard dei clienti in analisi del Marketplace commerciale](./customer-dashboard.md).
+- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere la pagina relativa ai [download del dashboard in Commercial Marketplace Analytics](./downloads-dashboard.md).
+- Per una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Dashboard ratings and Reviews in Commercial Marketplace Analytics](./ratings-reviews.md).
+- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).

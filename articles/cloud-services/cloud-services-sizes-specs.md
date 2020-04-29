@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086250"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
@@ -76,11 +76,11 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 * La larghezza di banda della rete massima è la larghezza di banda aggregata massima allocata e assegnata a ogni tipo di VM. La larghezza di banda massima fornisce indicazioni per selezionare il tipo di VM corretto per garantire la disponibilità della capacità di rete adeguata. Quando si passa da bassa, moderata, alta e molto alta, la velocità effettiva aumenta di conseguenza. Le prestazioni di rete effettive dipenderanno da molti fattori, tra cui carichi di rete e dell'applicazione e le impostazioni di rete dell'applicazione.
 
 ## <a name="a-series"></a>Serie A
-| Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo: GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB  | Archivio temporaneo: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Molto piccola      | 1         | 0,768        | 20                   | 1/bassa |
 | Piccolo           | 1         | 1,75         | 225                  | 1/moderata |
-| Media          | 2         | 3,5          | 490                  | 1/moderata |
+| Medio          | 2         | 3,5          | 490                  | 1/moderata |
 | large           | 4         | 7            | 1000                 | 2/alta |
 | Molto grande      | 8         | 14           | 2040                 | 4/alta |
 | A5              | 2         | 14           | 490                  | 1/moderata |
@@ -90,7 +90,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 ## <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo
 Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensioni delle VM High Performance Computing (HPC)](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo: GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB  | Archivio temporaneo: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2/alta |
 | A9*             |16         | 112          | 1817                 | 4/molto alta |
@@ -101,7 +101,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 
 ## <a name="av2-series"></a>Serie Av2
 
-| Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1/moderata                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2/moderata                 |
@@ -113,7 +113,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 
 
 ## <a name="d-series"></a>Serie D
-| Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3,5          | 50                   | 1/moderata |
 | Standard_D2     | 2         | 7            | 100                  | 2/alta |
@@ -125,7 +125,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 | Standard_D14    | 16        | 112          | 800                  | 8/molto alta |
 
 ## <a name="dv2-series"></a>Serie Dv2
-| Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3,5          | 50                   | 1/moderata |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2/alta |
@@ -140,7 +140,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 
 ## <a name="dv3-series"></a>Serie Dv3
 
-| Dimensione            | Core CPU | Memoria: GiB   | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB   | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2/moderata |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2/alta |
@@ -152,7 +152,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 
 ## <a name="ev3-series"></a>Serie Ev3
 
-| Dimensione            | Core CPU | Memoria: GiB   | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB   | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2/moderata |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2/alta |
@@ -164,7 +164,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 
 
 ## <a name="g-series"></a>Serie G
-| Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1/alta |
 | Standard_G2     | 4         | 56           | 768                  |2/alta |
@@ -177,7 +177,7 @@ Le macchine virtuali serie H di Azure sono le VM high performance computing di p
 
 Oltre alla sostanziale potenza della CPU, la serie H offre diverse opzioni per rete RDMA a bassa latenza con FDR InfiniBand e diverse configurazioni di memoria a supporto di requisiti di calcolo a elevato uso di memoria.
 
-| Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
+| Dimensioni            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1000                 | 8/alta |
 | Standard_H16    | 16        | 112          | 2000                 | 8/molto alta |
@@ -216,7 +216,7 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni su [limiti, quote e vincoli](../azure-resource-manager/management/azure-subscription-service-limits.md)di sottoscrizione e servizio di Azure.
+* Informazioni su [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 * Altre informazioni [sulle Dimensioni delle VM High Performance Computing (HPC)](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro HPC.
 
 

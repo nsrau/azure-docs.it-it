@@ -1,5 +1,5 @@
 ---
-title: CA consentita per l'abilitazione di HTTPS personalizzato nella rete CDN di AzureAllowed CA for enabling custom HTTPS on Azure CDN
+title: CA consentita per l'abilitazione di HTTPS personalizzato nella rete CDN di Azure
 description: Se si usa un certificato proprio per abilitare HTTPS in un dominio personalizzato, è necessario usare un'autorità di certificazione (CA) consentita per crearlo.
 services: cdn
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/18/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: faf51dbb1f1c3c0346b1ae9104494538efcc2ee7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259971"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Autorità di certificazione consentite per abilitare la funzionalità HTTPS personalizzata nella rete CDN di Azure
 
-È necessario soddisfare requisiti specifici del certificato quando si [abilita la funzionalità HTTPS usando il proprio certificato](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) per un dominio personalizzato della rete per la distribuzione di contenuti (CDN) di Azure.You must meet specific certificate requirements when you enable the HTTPS feature by using your own certificate for an Azure Content Delivery Network (CDN) custom domain. Il profilo **Standard della rete CDN di Azure da Microsoft** richiede un certificato da una delle autorità di certificazione (CA) approvate nell'elenco seguente. Se viene certificato di una CA non approvata o se viene utilizzato un certificato autofirmato, la richiesta viene rifiutata. La rete CDN standard di **Azure di Verizon** e i profili **di Azure CDN Premium di Verizon** accettano qualsiasi certificato valido da qualsiasi CA valida.
+Quando si [Abilita la funzionalità HTTPS usando il proprio certificato](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) per un dominio personalizzato della rete per la distribuzione di contenuti (CDN) di Azure, è necessario soddisfare requisiti specifici del certificato. Il profilo della rete **CDN standard di Azure di Microsoft** richiede un certificato di una delle autorità di certificazione (CA) approvate nell'elenco seguente. Se viene usato un certificato da una CA non approvata o se viene usato un certificato autofirmato, la richiesta viene rifiutata. I profili della rete **CDN standard di Azure di Verizon** e **della rete CDN Premium di Azure da Verizon** accettano tutti i certificati validi da qualsiasi CA valida.
 
 > [!NOTE]
-> L'opzione di usare il proprio certificato per abilitare la funzionalità HTTPS di dominio personalizzato *non* è disponibile per Azure CDN Standard dai profili **Akamai.** 
+> La possibilità di usare il proprio certificato per abilitare la funzionalità HTTPS del dominio personalizzato *non* è disponibile per la rete **CDN standard di Azure dai profili Akamai** . 
 >
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]
