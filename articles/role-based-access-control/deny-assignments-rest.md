@@ -1,6 +1,6 @@
 ---
-title: Elencare le assegnazioni di negazione per le risorse di Azure con l'API RESTList deny assignments for Azure resources with the REST API
-description: Informazioni su come elencare le assegnazioni di negazione per utenti, gruppi e applicazioni usando il controllo degli accessi in base al ruolo per le risorse di Azure e l'API REST.
+title: Elencare le assegnazioni di accesso negato per le risorse di Azure con l'API REST
+description: Informazioni su come elencare le assegnazioni di rifiuto per utenti, gruppi e applicazioni usando il controllo degli accessi in base al ruolo per le risorse di Azure e l'API REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -16,24 +16,24 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 0f648405a3d71bf27c64dacbb3fd78f3e9801137
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063026"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST
 
-Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come elencare le assegnazioni di negazione usando l'API REST.
+Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come elencare le assegnazioni di rifiuto usando l'API REST.
 
 > [!NOTE]
-> Non è possibile creare direttamente le proprie assegnazioni di negazione. Per informazioni sulla modalità di creazione delle assegnazioni di negazione, vedere [Negare le assegnazioni](deny-assignments.md).
+> Non è possibile creare direttamente le assegnazioni di rifiuto. Per informazioni sul modo in cui vengono create le assegnazioni Deny, vedere [Deny assegnazioni](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per ottenere informazioni su un'assegnazione di negazione, è necessario disporre di:
+Per ottenere informazioni su un'assegnazione Deny, è necessario disporre di:
 
-- `Microsoft.Authorization/denyAssignments/read`autorizzazioni, inclusa nella maggior parte dei ruoli predefiniti per le risorse di [Azure.](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read`autorizzazione, inclusa nella maggior parte dei [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Elencare una singola assegnazione di rifiuto
 
@@ -46,7 +46,7 @@ Per ottenere informazioni su un'assegnazione di negazione, è necessario disporr
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di rifiuto.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -71,7 +71,7 @@ Per ottenere informazioni su un'assegnazione di negazione, è necessario disporr
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di rifiuto.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
@@ -82,12 +82,12 @@ Per ottenere informazioni su un'assegnazione di negazione, è necessario disporr
     > [!div class="mx-tableFixed"]
     > | Filtro | Descrizione |
     > | --- | --- |
-    > | (nessun filtro) | Elenca tutte le assegnazioni di negazione in corrispondenza, sopra e sotto l'ambito specificato. |
-    > | `$filter=atScope()` | Elenca le assegnazioni di negazione solo per l'ambito specificato e versioni successive. Le assegnazioni di rifiuto nei sottoambiti non sono incluse. |
-    > | `$filter=assignedTo('{objectId}')` | Elenca le assegnazioni di negazione per l'utente o l'entità servizio specificata.<br/>Se l'utente è membro di un gruppo con un'assegnazione di negazione, viene elencata anche tale assegnazione di negazione. Questo filtro è transitivo per i gruppi, il che significa che se l'utente è membro di un gruppo e tale gruppo è membro di un altro gruppo che dispone di un'assegnazione di negazione, viene elencata anche tale assegnazione di negazione.<br/>Questo filtro accetta solo un ID oggetto per un utente o un'entità servizio. Non è possibile passare un ID oggetto per un gruppo. |
-    > | `$filter=atScope()+and+assignedTo('{objectId}')` | Elenca le assegnazioni di negazione per l'utente o l'entità servizio specificata e l'ambito specificato. |
-    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Elenca le assegnazioni di negazione con il nome specificato. |
-    > | `$filter=principalId+eq+'{objectId}'` | Elenca le assegnazioni di negazione per l'utente, il gruppo o l'entità servizio specificata. |
+    > | (nessun filtro) | Elenca tutte le assegnazioni Deny in corrispondenza di, sopra e sotto l'ambito specificato. |
+    > | `$filter=atScope()` | Elenca le assegnazioni Deny solo per l'ambito specificato e versioni successive. Le assegnazioni di rifiuto nei sottoambiti non sono incluse. |
+    > | `$filter=assignedTo('{objectId}')` | Elenca le assegnazioni Deny per l'utente o l'entità servizio specificata.<br/>Se l'utente è membro di un gruppo che dispone di un'assegnazione Deny, viene elencata anche l'assegnazione Deny. Questo filtro è transitivo per i gruppi, il che significa che se l'utente è un membro di un gruppo e tale gruppo è membro di un altro gruppo che dispone di un'assegnazione Deny, viene anche elencata l'assegnazione di negazione.<br/>Questo filtro accetta solo un ID oggetto per un utente o un'entità servizio. Non è possibile passare un ID oggetto per un gruppo. |
+    > | `$filter=atScope()+and+assignedTo('{objectId}')` | Elenca le assegnazioni Deny per l'utente o l'entità servizio specificata e per l'ambito specificato. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Elenca le assegnazioni Deny con il nome specificato. |
+    > | `$filter=principalId+eq+'{objectId}'` | Elenca le assegnazioni Deny per l'utente, il gruppo o l'entità servizio specificati. |
 
 ## <a name="list-deny-assignments-at-the-root-scope-"></a>Elenca le assegnazioni di rifiuto all'ambito radice (/)
 
@@ -112,5 +112,5 @@ Per ottenere informazioni su un'assegnazione di negazione, è necessario disporr
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](deny-assignments.md)
-- [Elevare l'accesso per un amministratore globale in Azure Active DirectoryElevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md)
-- [Guida di riferimento all'API REST di AzureAzure REST API Reference](/rest/api/azure/)
+- [Elevare l'accesso per un amministratore globale in Azure Active Directory](elevate-access-global-admin.md)
+- [Informazioni di riferimento sull'API REST di Azure](/rest/api/azure/)

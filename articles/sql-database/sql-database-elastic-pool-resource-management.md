@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: carlrab
 ms.date: 03/13/2019
 ms.openlocfilehash: 014f9edca1706c39930c6e48bb64cd8873bcace9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473728"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Gestione risorse in pool elastici densi
