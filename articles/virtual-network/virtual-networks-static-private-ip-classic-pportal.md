@@ -16,10 +16,10 @@ ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0bc080ed41f32ae2af018e9316e67ab38c2d0650
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81449902"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Configurare indirizzi IP privati per una macchina virtuale (classica) mediante il portale di Azure
@@ -40,13 +40,13 @@ La procedura di esempio seguente prevede che un ambiente semplice sia già creat
 Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtuale denominata *TestVNet* con un indirizzo IP statico privato di *192.168.1.101*, seguire la procedura seguente:
 
 1. In un browser passare a https://portal.azure.com e, se necessario, accedere con l'account Azure.
-2. Selezionare **NUOVO** > **calcolo** > **Windows Server 2012 R2 Datacenter**, si noti che nell'elenco **Selezionare un modello** di distribuzione è già visualizzato **Classico**, quindi selezionare **Crea**.
+2. Selezionare **nuovo** > **calcolo** > **Windows Server 2012 R2 Datacenter**. si noti che l'elenco **selezionare un modello di distribuzione** Mostra già **classico**, quindi selezionare **Crea**.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
 3. In **Crea macchina virtuale** immettere il nome della macchina virtuale da creare (*DNS01* nello scenario), l'account amministratore locale e la password.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
-4. Selezionare**Rete virtuale****di rete** > di **configurazione** > facoltativa , quindi **selezionare TestVNet**. Se **TestVNet** non è disponibile, verificare che si utilizzi la posizione *Stati Uniti centrali* e di aver creato l'ambiente di prova descritto all'inizio di questo articolo.
+4. Selezionare > **Network**configurazione >  **facoltativa****rete rete virtuale**e quindi selezionare **TestVNet**. Se **TestVNet** non è disponibile, verificare che si utilizzi la posizione *Stati Uniti centrali* e di aver creato l'ambiente di prova descritto all'inizio di questo articolo.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 5. In **Rete** assicurarsi che la subnet attualmente selezionata sia *FrontEnd*, selezionare **Indirizzi IP**, in **Assegnazione indirizzi IP** selezionare **Statico** e quindi immettere *192.168.1.101* per **Indirizzo IP** come indicato di seguito.
@@ -60,7 +60,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP privato statico per una VM
 Per visualizzare le informazioni dell’indirizzo IP privato statico per la macchina virtuale creata con la procedura descritta sopra, eseguire la procedura seguente.
 
-1. Dal portale di Azure selezionare **BROWSE ALL** > **Virtual machines (classic)** > **DNS01** > Tutti**gli indirizzi IP** delle**impostazioni** > e notare l'assegnazione degli indirizzi IP e l'indirizzo IP come illustrato di seguito.
+1. Dal portale di Azure selezionare **Esplora tutto** > **macchine virtuali (versione classica)** > **DNS01** > **tutte le impostazioni** > **indirizzi** IP e notare l'assegnazione di indirizzi IP e l'indirizzo IP come illustrato di seguito.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 

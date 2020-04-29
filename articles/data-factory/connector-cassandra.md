@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417479"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiare dati da Cassandra usando Azure Data Factory
@@ -29,10 +29,10 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Cassandra è supportato per le seguenti attività:
+Questo connettore Cassandra è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un database Cassandra in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -50,7 +50,7 @@ In particolare, il connettore Cassandra supporta:
 
 Il runtime di integrazione offre un driver per Cassandra integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in Cassandra.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -65,13 +65,13 @@ Per il servizio collegato di Cassandra sono supportate le proprietà seguenti:
 | type |La proprietà type deve essere impostata su: **Cassandra** |Sì |
 | host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No (il valore predefinito è 9042) |
-| authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono: **Basic**, e **Anonymous**. |Sì |
-| username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
+| authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono: **Basic**e **Anonymous**. |Sì |
+| nomeutente |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì, se authenticationType è impostato su Basic. |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per ulteriori informazioni, vedere la sezione [Prerequisiti.](#prerequisites) Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
->Attualmente la connessione a Cassandra tramite TLS non è supportata.
+>Attualmente la connessione a Cassandra usando TLS non è supportata.
 
 **Esempio:**
 
@@ -182,16 +182,16 @@ Quando si copiano dati da Cassandra, vengono usati i mapping seguenti tra i tipi
 
 | Tipo di dati di Cassandra | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| ASCII |string |
+| ASCII |Stringa |
 | bigint |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |Boolean |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | FLOAT |Single |
-| INET |string |
+| INET |Stringa |
 | INT |Int32 |
-| TEXT |string |
+| TEXT |Stringa |
 | timestamp |Datetime |
 | TIMEUUID |Guid |
 | UUID |Guid |
@@ -267,9 +267,9 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 | 3 |Una |
 | 3 |E |
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

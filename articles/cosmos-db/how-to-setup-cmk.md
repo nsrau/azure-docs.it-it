@@ -4,33 +4,31 @@ description: Informazioni su come configurare le chiavi gestite dal cliente per 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 02b1009a69a8a408581ce23b3845881bba6bb51e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 8f58887a056c8ca0cd175a44127556562338de38
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252012"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81450033"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurare le chiavi gestite dal cliente per l'account Azure Cosmos con Azure Key Vault
 
 > [!NOTE]
 > A questo punto, è necessario richiedere l'accesso per usare questa funzionalità. A tale scopo, contattare [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
 
-I dati archiviati nell'account Azure Cosmos vengono crittografati automaticamente e senza interruzioni. Azure Cosmos DB offre due opzioni per gestire le chiavi usate per crittografare i dati inattivi:
+I dati archiviati nell'account Azure Cosmos vengono crittografati automaticamente e facilmente con le chiavi gestite da Microsoft (**chiavi gestite dal servizio**). Facoltativamente, è possibile scegliere di aggiungere un secondo livello di crittografia con le chiavi gestite (**chiavi gestite dal cliente**).
 
-- **Chiavi gestite dal servizio**: per impostazione predefinita, Microsoft gestisce le chiavi usate per crittografare i dati nell'account Azure Cosmos.
+![Livelli di crittografia relativi ai dati dei clienti](./media/how-to-setup-cmk/cmk-intro.png)
 
-- **Chiavi gestite dal cliente (CMK)** : è possibile scegliere facoltativamente di aggiungere un secondo livello di crittografia con le proprie chiavi.
-
-È necessario archiviare le chiavi gestite dal cliente in [Azure Key Vault](../key-vault/key-vault-overview.md) e fornire una chiave per ogni account Azure Cosmos abilitato con chiavi gestite dal cliente. Questa chiave viene usata per crittografare tutti i dati archiviati nell'account.
+È necessario archiviare le chiavi gestite dal cliente in [Azure Key Vault](../key-vault/general/overview.md) e fornire una chiave per ogni account Azure Cosmos abilitato con chiavi gestite dal cliente. Questa chiave viene usata per crittografare tutti i dati archiviati nell'account.
 
 > [!NOTE]
 > Attualmente, le chiavi gestite dal cliente sono disponibili solo per i nuovi account Azure Cosmos. È necessario configurarli durante la creazione dell'account.
 
-## <a id="register-resource-provider"></a>Registrare il provider di risorse Azure Cosmos DB per la sottoscrizione di Azure
+## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a>Registrare il provider di risorse Azure Cosmos DB per la sottoscrizione di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/), passare alla sottoscrizione di Azure e selezionare **provider di risorse** nella scheda **Impostazioni** :
 
@@ -46,8 +44,8 @@ Per utilizzare chiavi gestite dal cliente con Azure Cosmos DB è necessario impo
 
 Per informazioni su come abilitare queste proprietà in un'istanza di Azure Key Vault esistente, vedere le sezioni "Abilitazione dell'eliminazione temporanea" e "Abilitazione della protezione dell'eliminazione" in uno degli articoli seguenti:
 
-- [Come usare l'eliminazione temporanea con PowerShell](../key-vault/key-vault-soft-delete-powershell.md)
-- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando di Azure](../key-vault/key-vault-soft-delete-cli.md)
+- [Come usare l'eliminazione temporanea con PowerShell](../key-vault/general/soft-delete-powershell.md)
+- [Come usare l'eliminazione temporanea con l'interfaccia della riga di comando di Azure](../key-vault/general/soft-delete-cli.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Aggiungere un criterio di accesso all'istanza di Azure Key Vault
 
@@ -61,7 +59,7 @@ Per informazioni su come abilitare queste proprietà in un'istanza di Azure Key 
 
    ![Selezione delle autorizzazioni corrette](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. In **Seleziona entità**selezionare **Nessuno selezionato**. Quindi, cercare l'entità **Azure Cosmos DB** e selezionarla (per facilitarne l'individuazione, è anche possibile eseguire la ricerca in base all'ID entità: `a232010e-820c-4083-83bb-3ace5fc29d0b` per qualsiasi area di Azure, ad eccezione delle aree di Azure per enti pubblici in cui l'ID principale è `57506a73-e302-42a9-b869-6f12d9ec29e9`). Infine, scegliere **Seleziona** nella parte inferiore. Se l'entità **Azure Cosmos DB** non è presente nell'elenco, potrebbe essere necessario registrare nuovamente il provider di risorse **Microsoft. DocumentDB** come descritto nella sezione [registrare il provider di risorse](#register-resource-provider) di questo articolo.
+1. In **Seleziona entità**selezionare **Nessuno selezionato**. Quindi, cercare l'entità **Azure Cosmos DB** e selezionarla (per facilitarne l'individuazione, è anche possibile eseguire la ricerca in base all' `a232010e-820c-4083-83bb-3ace5fc29d0b` ID entità: per qualsiasi area di Azure, ad eccezione delle aree `57506a73-e302-42a9-b869-6f12d9ec29e9`di Azure per enti pubblici in cui l'ID principale è). Infine, scegliere **Seleziona** nella parte inferiore. Se l'entità **Azure Cosmos DB** non è presente nell'elenco, potrebbe essere necessario registrare nuovamente il provider di risorse **Microsoft. DocumentDB** come descritto nella sezione [registrare il provider di risorse](#register-resource-provider) di questo articolo.
 
    ![Selezionare l'entità di Azure Cosmos DB](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
@@ -73,7 +71,7 @@ Per informazioni su come abilitare queste proprietà in un'istanza di Azure Key 
 
    ![Voce "chiavi" nel menu a sinistra](./media/how-to-setup-cmk/portal-akv-keys.png)
 
-1. Selezionare **genera/importa**, specificare un nome per la nuova chiave e selezionare le dimensioni della chiave RSA. Per una sicurezza ottimale, è consigliabile usare almeno 3072. quindi selezionare **Crea**:
+1. Selezionare **genera/importa**, specificare un nome per la nuova chiave e selezionare le dimensioni della chiave RSA. Per una sicurezza ottimale, è consigliabile usare almeno 3072. Quindi selezionare **Crea**:
 
    ![Creare una nuova chiave](./media/how-to-setup-cmk/portal-akv-gen.png)
 
@@ -100,7 +98,7 @@ Quando si crea un nuovo account Azure Cosmos DB con PowerShell:
 - Usare **2019-12-12** come versione dell'API.
 
 > [!IMPORTANT]
-> È necessario impostare il parametro `Location` in modo esplicito per l'account da creare correttamente con le chiavi gestite dal cliente.
+> È necessario impostare il `Location` parametro in modo esplicito per l'account da creare correttamente con le chiavi gestite dal cliente.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -131,7 +129,7 @@ Quando si crea un nuovo account Azure Cosmos tramite un modello di Azure Resourc
 - Usare **2019-12-12** come versione dell'API.
 
 > [!IMPORTANT]
-> È necessario impostare il parametro `Location` in modo esplicito per l'account da creare correttamente con le chiavi gestite dal cliente.
+> È necessario impostare il `Location` parametro in modo esplicito per l'account da creare correttamente con le chiavi gestite dal cliente.
 
 ```json
 {

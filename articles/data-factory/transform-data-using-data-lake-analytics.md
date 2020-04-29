@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando lo script U-SQLTransform data using U-SQL script
+title: Trasformare i dati con lo script U-SQL
 description: Informazioni su come elaborare o trasformare i dati eseguendo gli script U-SQL nel servizio di calcolo di Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 427b7fff7b8f76412d7bd9d63aeb64583637779c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418967"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
@@ -39,10 +39,10 @@ La tabella seguente fornisce le descrizioni delle proprietà generiche usate nel
 | Proprietà                 | Descrizione                              | Obbligatoria                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Sì                                      |
-| **Accountname**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
+| **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
 | **dataLakeAnalyticsUri** | URI di Azure Data Lake Analytics.           | No                                       |
-| **Subscriptionid**       | ID sottoscrizione di Azure                    | No                                       |
-| **ResourceGroupName (NomeGruppoRisorsa)**    | Nome del gruppo di risorse di Azure                | No                                       |
+| **subscriptionId**       | ID della sottoscrizione di Azure                    | No                                       |
+| **resourceGroupName**    | Nome del gruppo di risorse di Azure                | No                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticazione di un'entità servizio
 Per connettersi al servizio Azure Data Lake Analytics, il servizio collegato di Azure Data Lake Analytics richiede l'autenticazione di un'entità servizio. Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (Azure AD) e concedere a questa l'accesso ai servizi Data Lake Analytics e Data Lake Store che usa. Per la procedura dettaglia, vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
@@ -57,9 +57,9 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 
 | Proprietà                | Descrizione                              | Obbligatoria |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId (IdServizioPrincipale)**  | Specificare l'ID client dell'applicazione.     | Sì      |
+| **servicePrincipalId**  | Specificare l'ID client dell'applicazione.     | Sì      |
 | **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | Sì      |
-| **Inquilino**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì      |
+| **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì      |
 
 **Esempio: autenticazione basata su entità servizio**
 ```json
@@ -164,7 +164,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Nell'esempio di script precedente, l'input ** \@** e l'output nello script vengono definiti nei parametri in e ** \@out.** I valori ** \@** per ** \@** i parametri in e out nello script U-SQL vengono passati in modo dinamico da Data Factory usando la sezione 'parameters'. 
+Nell'esempio di script precedente, l'input e l'output dello script sono definiti ** \@** nei parametri in e ** \@out** . I valori per ** \@** i parametri in e ** \@out** nello script U-SQL vengono passati in modo dinamico da data factory usando la sezione "Parameters". 
 
 È possibile specificare anche altre proprietà come degreeOfParallelism e priorità nella definizione della pipeline per i processi in esecuzione sul servizio Azure Data Lake Analytics.
 
@@ -193,10 +193,10 @@ In questo caso, i file di input vengono prelevati dalla cartella /datalake/input
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 
 
 * [Attività Hive](transform-data-using-hadoop-hive.md)
-* [Attività suina](transform-data-using-hadoop-pig.md)
+* [Attività Pig](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
+* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Attività di esecuzione batch di Machine Learning](transform-data-using-machine-learning.md)
-* [Attività della stored procedure](transform-data-using-stored-procedure.md)
+* [Machine Learning attività di esecuzione batch](transform-data-using-machine-learning.md)
+* [Attività stored procedure](transform-data-using-stored-procedure.md)

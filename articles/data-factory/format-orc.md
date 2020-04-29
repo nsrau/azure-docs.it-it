@@ -1,6 +1,6 @@
 ---
 title: Formato ORC in Azure Data Factory
-description: Questo argomento descrive come gestire il formato ORC in Azure Data Factory.This topic describes how to deal with ORC format in Azure Data Factory.
+description: In questo argomento viene descritto come gestire il formato ORC in Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 9b68d3724c6390fc5d30745924451e27ef9855b3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417726"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC in Azure Data Factory
@@ -22,18 +22,18 @@ ms.locfileid: "81417726"
 
 Seguire questo articolo quando si desidera **analizzare i file ORC o scrivere i dati in formato ORC**. 
 
-Il formato ORC è supportato per i connettori seguenti: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), Azure Data Lake Storage [Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Archiviazione file di Azure](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), Google [Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
+Il formato ORC è supportato per i connettori seguenti [: Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md), [archiviazione file di Azure](connector-azure-file-storage.md), [file System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di](concepts-datasets-linked-services.md) dati. In questa sezione viene fornito un elenco delle proprietà supportate dal set di dati ORC.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere l'articolo [set di impostazioni](concepts-datasets-linked-services.md) . Questa sezione presenta un elenco delle proprietà supportate dal set di dati ORC.
 
 | Proprietà         | Descrizione                                                  | Obbligatoria |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La proprietà type del dataset deve essere impostata su **Orc**. | Sì      |
-| posizione         | Impostazioni di posizione dei file. Ogni connettore basato su file ha `location`il proprio tipo di posizione e le proprietà supportate in . **Vedere i dettagli nell'articolo del connettore -> sezione delle proprietà del set di dati**. | Sì      |
+| type             | La proprietà Type del set di dati deve essere impostata su **ORC**. | Sì      |
+| posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
 
-Di seguito è riportato un esempio di set di dati ORC in Archiviazione BLOB di Azure:Below is an example of ORC dataset on Azure Blob Storage:
+Di seguito è riportato un esempio di set di dati ORC nell'archivio BLOB di Azure:
 
 ```json
 {
@@ -64,46 +64,46 @@ Tenere presente quanto segue:
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). In questa sezione viene fornito un elenco delle proprietà supportate dall'origine ORC e dal sink.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal sink ORC.
 
-### <a name="orc-as-source"></a>ORC come fonte
+### <a name="orc-as-source"></a>ORC come origine
 
-Le proprietà seguenti sono supportate nella sezione *** \*relativa all'origine\* *** dell'attività di copia.
-
-| Proprietà      | Descrizione                                                  | Obbligatoria |
-| ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà type dell'origine dell'attività di copia deve essere impostata su **OrcSource**. | Sì      |
-| StoreImpostazioni | Gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file `storeSettings`dispone di impostazioni di lettura supportate in . **Vedere i dettagli nell'articolo del connettore -> sezione Delle proprietà dell'attività Copy**. | No       |
-
-### <a name="orc-as-sink"></a>ORC come lavandino
-
-Le proprietà seguenti sono supportate nella sezione del *** \*sink\* *** dell'attività di copia.
+Nella sezione *** \*origine\* *** dell'attività di copia sono supportate le proprietà seguenti.
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà type dell'origine dell'attività di copia deve essere impostata su **OrcSink**. | Sì      |
-| StoreImpostazioni | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file `storeSettings`dispone di impostazioni di scrittura supportate in . **Vedere i dettagli nell'articolo del connettore -> sezione Delle proprietà dell'attività Copy**. | No       |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSource**. | Sì      |
+| storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate `storeSettings`in. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
-## <a name="using-self-hosted-integration-runtime"></a>Utilizzo del runtime di integrazione self-hostedUsing Self-hosted Integration Runtime
+### <a name="orc-as-sink"></a>ORCO come sink
+
+Nella sezione *** \*sink\* *** dell'attività di copia sono supportate le proprietà seguenti.
+
+| Proprietà      | Descrizione                                                  | Obbligatoria |
+| ------------- | ------------------------------------------------------------ | -------- |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSink**. | Sì      |
+| storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate `storeSettings`in. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
+
+## <a name="using-self-hosted-integration-runtime"></a>Uso di Integration Runtime self-hosted
 
 > [!IMPORTANT]
-> Per la copia consentita dal runtime di integrazione self-hosted, ad esempio tra archivi dati locali e cloud, se non si copiano file ORC così **come sono,** è necessario installare il pacchetto ridistribuibile **A 64 bit JRE 8 (Java Runtime Environment) o OpenJDK** e **Microsoft Visual C. 2010 Redistributable Package** nel computer a raggi- per mano. Controlla il paragrafo seguente con ulteriori dettagli.
+> Per la copia abilitata da self-hosted Integration Runtime ad esempio tra archivi dati locali e cloud, se non si esegue la copia dei file ORC **così come sono**, è necessario installare il pacchetto **64-bit JRE 8 (Java Runtime Environment) o OpenJDK** e **Microsoft Visual C++ 2010 ridistribuibile** nel computer IR. Per altri dettagli, vedere il paragrafo seguente.
 
-Per la copia in esecuzione su Runtime di runtime self-hosted con serializzazione/deserializzazione *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* dei file ORC, ADF individua *`JAVA_HOME`* il runtime Java controllando innanzitutto il Registro di sistema per JRE, se non viene trovato, in secondo luogo controllando la variabile di sistema per OpenJDK.
+Per la copia in esecuzione sul runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file ORC, ADF individua il runtime *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* Java controllando prima di tutto il registro di sistema per jre *`JAVA_HOME`* , se non è stato trovato, controllando in secondo luogo la variabile di sistema per OpenJDK.
 
-- **Per utilizzare JRE**: l'IR a 64 bit richiede JRE a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Per utilizzare OpenJDK**: È supportato dalla versione IR 3.13. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
-- **Per installare il pacchetto ridistribuibile di Visual C, 2010**: il pacchetto ridistribuibile di Visual Cè 2010 non viene installato con le installazioni a distribuzione a distribuzione automatica. disponibile [qui](https://www.microsoft.com/download/details.aspx?id=14632).
+- **Per usare JRE**: il runtime di integrazione a 64 bit richiede jre a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Per usare OpenJDK**: è supportata dalla versione 3,13 di IR. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
+- **Per installare Visual C++ pacchetto ridistribuibile 2010**: Visual C++ 2010 Redistributable Package non è installato con installazioni di runtime di integrazione self-hosted. disponibile [qui](https://www.microsoft.com/download/details.aspx?id=14632).
 
 > [!TIP]
-> Se si copiano dati in/dal formato ORC utilizzando Self-hosted Integration Runtime e si colpisce l'errore "Si è verificato un errore durante `_JAVA_OPTIONS` la chiamata di java, messaggio: **java.lang.OutOfMemoryError:Java heap space**", è possibile aggiungere una variabile di ambiente nel computer che ospita il runtime di integrazione self-hosted per regolare la dimensione dell'heap min/max per JVM per consentire tale copia, quindi eseguire nuovamente la pipeline.
+> Se si copiano dati da e verso il formato ORC usando Integration Runtime indipendenti e si verifica un errore indicante che si è verificato un errore durante la chiamata a Java, messaggio: **java. lang. OutOfMemoryError: spazio heap Java**, è `_JAVA_OPTIONS` possibile aggiungere una variabile di ambiente nel computer che ospita il runtime di integrazione self-hosted per modificare le dimensioni dell'heap min/max per JVM in modo da consentire la
 
 ![Impostare le dimensioni dell'heap JVM nel runtime di integrazione self-hosted](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`. Il flag `Xms` specifica il pool di allocazione della memoria iniziale per Java Virtual Machine (JVM), mentre `Xmx` specifica il pool di allocazione della memoria massima. JVM verrà quindi avviato con una quantità di memoria pari a `Xms` e potrà usare una quantità massima di memoria pari a `Xmx`. Per impostazione predefinita, ADF utilizza min 64 MB e max 1G.
+Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`. Il flag `Xms` specifica il pool di allocazione della memoria iniziale per Java Virtual Machine (JVM), mentre `Xmx` specifica il pool di allocazione della memoria massima. JVM verrà quindi avviato con una quantità di memoria pari a `Xms` e potrà usare una quantità massima di memoria pari a `Xmx`. Per impostazione predefinita, ADF USA min 64 MB e Max 1G.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
 ms.openlocfilehash: 766520fe44047eee76029adf8ee1683c7b8008a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417862"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
@@ -39,16 +39,16 @@ L'attività di copia supporta tre scenari per rilevare, ignorare e registrare i 
 
 - **Mancata corrispondenza nel numero di colonne tra l'origine e il sink**.
 
-    Esempio: si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene sei colonne. Le righe del file CSV che contengono sei colonne vengono copiate nell'archivio sink. Le righe del file CSV che contengono più di sei colonne vengono rilevate come incompatibili e vengono ignorate.
+    Esempio: si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene sei colonne. Le righe del file CSV che contengono sei colonne vengono copiate nell'archivio sink. Le righe del file CSV contenenti più di sei colonne vengono rilevate come incompatibili e vengono ignorate.
 
-- **Violazione di chiave primaria durante la scrittura in SQL Server/Database SQL di Azure/Database Cosmos di Azure**.
+- **Violazione della chiave primaria durante la scrittura in SQL Server/database SQL di Azure/Azure Cosmos DB**.
 
     Esempio: si vogliono copiare dati da un'istanza di SQL Server a un database SQL. Il database SQL del sink contiene la definizione di una chiave primaria, che invece manca nell'istanza di SQL Server di origine. Non è possibile copiare nel sink le righe duplicate presenti nell'origine. L'attività di copia copierà nel sink solo la prima riga dei dati di origine. Le righe di origine successive che contengono il valore della chiave primaria duplicato vengono rilevate come incompatibili e vengono ignorate.
 
 >[!NOTE]
 >- Per caricare dati in SQL Data Warehouse mediante PolyBase, configurare le impostazioni native della tolleranza di errore di PolyBase specificando i criteri di rifiuto tramite "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" nell'attività di copia. È comunque possibile abilitare il reindirizzamento delle righe incompatibili di PolyBase a BLOB o ADLS come di consueto, come illustrato di seguito.
 >- Questa funzionalità non è applicabile quando è configurata l'attività di copia per richiamare lo strumento [Unload di Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- Questa funzionalità non si applica quando l'attività di copia è configurata per richiamare una [stored procedure da un sink SQL.](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)
+>- Questa funzionalità non si applica quando l'attività di copia è configurata per richiamare un [stored procedure da un sink SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 
 ## <a name="configuration"></a>Configurazione
 L'esempio seguente offre la definizione JSON per specificare di ignorare le righe incompatibili nell'attività di copia:

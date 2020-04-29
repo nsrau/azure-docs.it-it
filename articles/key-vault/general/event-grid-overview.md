@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cc12cc9a4828404e960aee239bd388af5b1ea3b7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431904"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)
@@ -44,7 +44,7 @@ Per le applicazioni che gestiscono gli eventi di Key Vault è consigliabile segu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica dell'insieme di credenziali delle chiavi di Azure](overview.md))
+- [Panoramica di Azure Key Vault](overview.md)
 - [Panoramica di Griglia di eventi di Azure](../../event-grid/overview.md)
 - Procedura: [Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-tutorial.md).
 - Procedura: [Ricevere un messaggio di posta elettronica quando viene modificato un segreto dell'insieme di credenziali delle chiavi](event-grid-logicapps.md)

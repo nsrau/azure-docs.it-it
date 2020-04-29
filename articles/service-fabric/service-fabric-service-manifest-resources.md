@@ -1,30 +1,30 @@
 ---
-title: Specifica degli endpoint del servizio Service FabricSpecifying Service Fabric service endpoints
+title: Specifica degli endpoint di servizio Service Fabric
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417583"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
-Il manifesto del servizio consente alle risorse utilizzate dal servizio di essere dichiarate, o modificate, senza modificare il codice compilato. Service Fabric supporta la configurazione delle risorse endpoint per il servizio. È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio tramite SecurityGroup nel manifesto dell'applicazione. La dichiarazione delle risorse consente a queste ultime di essere modificate in fase di distribuzione, in questo modo il servizio non deve introdurre un nuovo meccanismo di configurazione. La definizione dello schema per il file ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Il manifesto del servizio consente alle risorse usate dal servizio di essere dichiarate o modificate senza modificare il codice compilato. Service Fabric supporta la configurazione delle risorse endpoint per il servizio. È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio tramite SecurityGroup nel manifesto dell'applicazione. La dichiarazione delle risorse consente a queste ultime di essere modificate in fase di distribuzione, in questo modo il servizio non deve introdurre un nuovo meccanismo di configurazione. La definizione dello schema per il file ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Endpoint
 Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se la porta non è esplicitamente specificata. Ad esempio, esaminare l'endpoint *ServiceEndpoint1* specificato nel frammento di manifesto fornito dopo questo paragrafo. Inoltre, i servizi possono richiedere anche una porta specifica in una risorsa. Alle repliche del servizio in esecuzione sui diversi nodi del cluster possono essere assegnati diversi numeri di porta, mentre le repliche di un servizio in esecuzione nello stesso nodo condividono la porta. Le repliche del servizio possono quindi usare queste porte in base alle esigenze per la replica e l'ascolto delle richieste client.
 
-All'attivazione di un servizio che specifica un endpoint https, Service Fabric imposterà la voce di controllo di accesso per la porta, associerà il certificato server specificato alla porta e concederà anche l'identità che il servizio è in esecuzione come autorizzazioni per la chiave privata del certificato. Il flusso di attivazione viene richiamato a ogni avvio di Service Fabric o quando la dichiarazione del certificato dell'applicazione viene modificata tramite un aggiornamento. Il certificato dell'endpoint verrà inoltre monitorato per le modifiche/rinnovi e le autorizzazioni verranno periodicamente riapplicate in base alle esigenze.
+Quando si attiva un servizio che specifica un endpoint HTTPS, Service Fabric imposta la voce di controllo di accesso per la porta, associa il certificato server specificato alla porta e concede anche l'identità che il servizio è in esecuzione come autorizzazioni per la chiave privata del certificato. Il flusso di attivazione viene richiamato ogni volta che viene avviato Service Fabric o quando la dichiarazione del certificato dell'applicazione viene modificata tramite un aggiornamento. Il certificato dell'endpoint verrà monitorato anche per le modifiche o i rinnovi e le autorizzazioni verranno riapplicate periodicamente secondo necessità.
 
-Al termine del servizio, Service Fabric pulirà la voce di controllo di accesso all'endpoint e rimuoverà l'associazione del certificato. Tuttavia, le autorizzazioni applicate alla chiave privata del certificato non verranno pulite.
+Al termine del servizio, Service Fabric pulisce la voce di controllo di accesso dell'endpoint e rimuove l'associazione del certificato. Tuttavia, qualsiasi autorizzazione applicata alla chiave privata del certificato non verrà pulita.
 
 > [!WARNING] 
-> Per impostazione della progettazione, le porte statiche non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla all'esterno dell'intervallo di porte dell'applicazione, altrimenti si tradurrà in conflitti di porta. Con la versione 6.5CU2 verrà emanato un **avviso** di integrità quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui in sincronia con il comportamento fornito 6.5. Tuttavia, è possibile impedire la distribuzione dell'applicazione dalle versioni principali successive.
+> Le porte statiche di progettazione non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla al di fuori dell'intervallo di porte dell'applicazione. in caso contrario, verrà generato un conflitto tra porte. Con la versione 6.5 CU2 verrà emesso un **avviso di integrità** quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui a essere sincronizzata con il comportamento 6,5 fornito. Tuttavia, potrebbe impedire la distribuzione dell'applicazione dalle versioni principali successive.
 >
-> Con la versione 7.0 verrà emettere un **avviso** di integrità quando viene rilevato l'utilizzo dell'intervallo di porte dell'applicazione va oltre HostingConfig::ApplicationPortExhaustThresholdPercentage(default 80%).
+> Con la versione 7,0 verrà emesso un **avviso di integrità** quando si rileva che l'utilizzo dell'intervallo di porte dell'applicazione va oltre HostingConfig:: ApplicationPortExhaustThresholdPercentage (valore predefinito 80%).
 >
 
 ```xml
@@ -111,7 +111,7 @@ Il protocollo HTTPS fornisce l’autenticazione del server e viene anche usato p
 > Quando si usa HTTPS, non usare la stessa porta e lo stesso certificato per diverse istanze del servizio (indipendenti dall'applicazione) distribuite nello stesso nodo. L'aggiornamento di due servizi diversi mediante la stessa porta in istanze dell'applicazione diverse comporterà un errore di aggiornamento. Per altre informazioni, vedere [Aggiornamento di più applicazioni con endpoint HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-Di seguito è riportato un esempio Di ApplicationManifest che illustra la configurazione necessaria per un endpoint HTTPS. Il certificato del server/endpoint può essere dichiarato tramite identificazione personale o nome comune del soggetto ed è necessario specificare un valore. EndpointRef è un riferimento a EndpointResource in ServiceManifest e il cui protocollo deve essere stato impostato sul protocollo 'https'. È possibile aggiungere più Endpointcertificate.  
+Di seguito è riportato un esempio di ApplicationManifest che illustra la configurazione necessaria per un endpoint HTTPS. Il certificato server/endpoint può essere dichiarato tramite identificazione personale o nome comune del soggetto ed è necessario fornire un valore. EndpointRef è un riferimento a EndpointResource in ServiceManifest e il cui protocollo deve essere stato impostato sul protocollo "https". È possibile aggiungere più Endpointcertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -216,4 +216,4 @@ Se in ServiceManifest è stato specificato
 
 e i valori Port1 e Protocol1 per i parametri di Aplication sono null o vuoti. La porta è comunque stabilita da ServiceFabric. E il protocollo sarà tcp.
 
-Si supponga di specificare un valore errato. Come per Port è stato specificato un valore stringa "Foo" anziché un int.  Il comando New-ServiceFabricApplication avrà esito negativo con un errore: il parametro di override con nome 'ServiceEndpoint1' attributo 'Port1' nella sezione 'ResourceOverrides' non è valido. Il valore specificato è "Foo", mentre era richiesto "int".
+Si supponga di specificare un valore errato. Come per la porta è stato specificato un valore stringa "foo" invece di int.  Il comando New-ServiceFabricApplication ha esito negativo e restituisce un errore: il parametro di override denominato ' ServiceEndpoint1' dell'attributo ' PORT1' nella sezione ' ResourceOverrides ' non è valido. Il valore specificato è "Foo", mentre era richiesto "int".

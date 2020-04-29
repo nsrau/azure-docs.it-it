@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417896"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
@@ -25,7 +25,7 @@ ms.locfileid: "81417896"
 L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi.
 
 > [!NOTE]
-> Attività Web può chiamare solo URL esposti pubblicamente. Non è supportato per gli URL ospitati in una rete virtuale privata.
+> L'attività Web può chiamare solo URL esposti pubblicamente. Non è supportata per gli URL ospitati in una rete virtuale privata.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -83,7 +83,7 @@ linkedServices | Elenco dei servizi collegati passato all'endpoint. | Matrice di
 
 La tabella seguente indica i requisiti per il contenuto JSON:
 
-| Tipo di valore | Corpo della richiesta | Corpo della risposta |
+| Tipo valore | Testo della richiesta | Corpo della risposta |
 |---|---|---|
 |Oggetto JSON | Supportato | Supportato |
 |Matrice JSON | Supportato <br/>Al momento, le matrici JSON non funzionano per via di un bug. È in corso una correzione. | Non supportato |
@@ -91,11 +91,11 @@ La tabella seguente indica i requisiti per il contenuto JSON:
 | Tipo non JSON | Non supportato | Non supportato |
 ||||
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Di seguito sono riportati i tipi di autenticazione supportati nell'attività Web.
 
-### <a name="none"></a>nessuno
+### <a name="none"></a>Nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà "authentication".
 
@@ -135,7 +135,7 @@ Specificare l'URI di risorsa per cui verrà richiesto il token di accesso usando
 ```
 
 > [!NOTE]
-> Se la data factory è configurata con un repository git, è necessario archiviare le credenziali nell'insieme di credenziali delle chiavi di Azure per usare l'autenticazione del certificato di base o client. Azure Data Factory non archivia le password in git.
+> Se la data factory è configurata con un repository git, è necessario archiviare le credenziali in Azure Key Vault per usare l'autenticazione di base o del certificato client. Azure Data Factory non archivia le password in git.
 
 ## <a name="request-payload-schema"></a>Schema del payload della richiesta
 Quando si usa il metodo POST o PUT, la proprietà body rappresenta il payload che viene inviato all'endpoint. È possibile passare i servizi collegati e i set di dati come parte del payload. Di seguito è riportato lo schema per il payload:

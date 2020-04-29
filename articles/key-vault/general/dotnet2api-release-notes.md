@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431917"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Guida alla migrazione e note sulla versione .NET 2.0 per l'insieme di credenziali delle chiavi di Azure
@@ -49,12 +49,12 @@ I certificati Key Vault gestiscono i certificati x509 e supportano i comportamen
 
 * *Secret* modificato in *SecretBundle*
 * *Dictionary* modificato in *IDictionary*
-* *Elenco\<T>, stringa []* modificata in *\<IList T>*
+* *List\<t>, String []* modificato in *IList\<t>*
 * *NextList* modificato in *NextPageLink*
 
 ## <a name="return-types"></a>Tipi restituiti
 
-* **KeyList** e **SecretList** ora restituisce *IPage\<T>* anziché *ListKeysResponseMessage*
+* **Elenco** di chiave e **segreto** ora restituisce *iPage\<T>* invece di *ListKeysResponseMessage*
 * L'oggetto **BackupKeyAsync** generato restituirà *BackupKeyResult* che contiene *Valore* (BLOB di backup). Prima veniva eseguito il wrapping del metodo e veniva restituito solo il valore.
 
 ## <a name="exceptions"></a>Eccezioni
@@ -91,7 +91,7 @@ Quando un client elabora una dipendenza Key Vault, vengono scaricati i pacchetti
 ## <a name="class-changes"></a>Modifiche alle classi
 
 * La classe **UnixEpoch** è stata rimossa.
-* La classe **Base64UrlConverter** viene rinominata **in Base64UrlJsonConverter**.
+* La classe **Base64UrlConverter** è stata rinominata in **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Altre modifiche
 
@@ -99,7 +99,7 @@ Quando un client elabora una dipendenza Key Vault, vengono scaricati i pacchetti
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Per le operazioni che hanno restituito un *insieme di credenziali,* il tipo restituito era una classe che conteneva una proprietà **Vault.** Il tipo restituito è ora *Vault*.
+* Per le operazioni che hanno restituito un *insieme di credenziali, il*tipo restituito era una classe che conteneva **una proprietà dell'insieme di credenziali** . Il tipo restituito è ora *Vault*.
 * *PermissionsToKeys* e *PermissionsToSecrets* ora sono *Permissions.Keys* e *Permissions.Secrets*
 * Alcune delle modifiche che riguardano i tipi restituiti si applicano anche al piano di controllo.
 

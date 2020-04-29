@@ -1,5 +1,5 @@
 ---
-title: Copia i dati da Amazon Redshift
+title: Copiare dati da Amazon spostamento
 description: Informazioni su come copiare dati da Amazon Redshift in archivi dati di sink supportati usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418253"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiare dati da Amazon Redshift usando Azure Data Factory
@@ -30,10 +30,10 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Amazon Redshift è supportato per le seguenti attività:
+Questo connettore Amazon per la porta di spostamento è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Amazon Redshift a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -47,7 +47,7 @@ In particolare, il connettore Amazon Redshift supporta il recupero di dati da Re
 * Se si copiano dati in un archivio dati locale usando il [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md), concedere al runtime di integrazione (usare l'indirizzo IP del computer) l'accesso al cluster Amazon Redshift. Vedere [Autorizzare l'accesso al cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) per le istruzioni.
 * Se si copiano dati in un archivio dati di Azure, vedere [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli IP del centro dati di Azure) per gli intervalli di indirizzi IP ed SQL di calcolo usati dai data center di Azure.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,11 +59,11 @@ Per il servizio collegato di Amazon Redshift sono supportate le proprietà segue
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AmazonRedshift** | Sì |
+| type | La proprietà Type deve essere impostata su: **AmazonRedshift** | Sì |
 | server |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
 | port |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No, il valore predefinito è 5439 |
 | database |Nome del database Amazon Redshift. |Sì |
-| username |Nome dell'utente che ha accesso al database. |Sì |
+| nomeutente |Nome dell'utente che ha accesso al database. |Sì |
 | password |La password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
@@ -97,14 +97,14 @@ Per il servizio collegato di Amazon Redshift sono supportate le proprietà segue
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Amazon Redshift.
 
-Per copiare i dati da Amazon Redshift, sono supportate le seguenti proprietà:
+Per copiare i dati da Amazon spostamento, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AmazonRedshiftTable** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **AmazonRedshiftTable** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
 | tabella | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
-| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Utilizzare `schema` `table` e per un nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e `table` per il nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -124,7 +124,7 @@ Per copiare i dati da Amazon Redshift, sono supportate le seguenti proprietà:
 }
 ```
 
-Se si `RelationalTable` utilizza un set di dati tipizzato, è comunque supportato così com'è, mentre viene suggerito di usare quello nuovo in futuro.
+Se si usa `RelationalTable` un set di dati tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -221,21 +221,21 @@ Quando si copiano dati da Amazon Redshift, vengono usati i mapping seguenti tra 
 | Tipo di dati di Amazon Redshift | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
-| BOOLEAN |string |
-| CHAR |string |
+| BOOLEAN |Stringa |
+| CHAR |Stringa |
 | DATE |Datetime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | real |Single |
 | SMALLINT |Int16 |
-| TEXT |string |
+| TEXT |Stringa |
 | timestamp |Datetime |
 | VARCHAR |string |
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

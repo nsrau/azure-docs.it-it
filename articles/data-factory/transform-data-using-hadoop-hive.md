@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando l'attività Hadoop HiveTransform data using Hadoop Hive activity
+title: Trasformare i dati usando l'attività hive di Hadoop
 description: Informazioni su come usare l'attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight.
 services: data-factory
 ms.service: data-factory
@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/15/2019
 ms.openlocfilehash: 8c5c917e12b1314c40763f58a7723a4df787ffa0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418933"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Trasformare i dati usando l'attività Hive di Hadoop in Azure Data Factory
@@ -75,10 +75,10 @@ Se non si ha familiarità con Azure Data Factory, prima di leggere questo artico
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 
 
 * [Attività U-SQL](transform-data-using-data-lake-analytics.md)
-* [Attività suina](transform-data-using-hadoop-pig.md)
+* [Attività Pig](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
+* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Attività di esecuzione batch di Machine Learning](transform-data-using-machine-learning.md)
-* [Attività della stored procedure](transform-data-using-stored-procedure.md)
+* [Machine Learning attività di esecuzione batch](transform-data-using-machine-learning.md)
+* [Attività stored procedure](transform-data-using-stored-procedure.md)

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418001"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
@@ -54,10 +54,10 @@ Per l'attività Lookup attualmente sono supportate le origini dati seguenti. Il 
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Nome | Descrizione | Type | Obbligatorio?
+Name | Descrizione | Type | Necessaria?
 ---- | ----------- | ---- | --------
 dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Ottenere informazioni dettagliate dalla sezione **Copia proprietà attività** in ogni articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Ottenere i dettagli dalla sezione **proprietà dell'attività di copia** in ogni articolo del connettore corrispondente. | Coppia chiave/valore | Sì
 firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boolean | No. Il valore predefinito è `true`.
 
 > [!NOTE]
@@ -108,7 +108,7 @@ In questo esempio viene illustrata la ricerca solo per la prima riga. Per la ric
 ### <a name="pipeline"></a>Pipeline
 Questa pipeline contiene due attività: Lookup e Copy. 
 
-- L'attività Lookup è configurata per l'uso di LookupDataset , che fa riferimento a un percorso nell'archivio BLOB di Azure.The Lookup activity is configured to use **LookupDataset**, which refers to a location in Azure Blob storage. L'attività Lookup legge il nome della tabella SQL da un file JSON in questo percorso. 
+- L'attività Lookup è configurata per l'uso di **LookupDataset**, che fa riferimento a una posizione nell'archivio BLOB di Azure. L'attività Lookup legge il nome della tabella SQL da un file JSON in questo percorso. 
 - L'attività Copy usa l'output dell'attività Lookup, ovvero il nome della tabella SQL. La proprietà **tableName** in **SourceDataset** è configurata in modo da usare l'output dell'attività Lookup. L'attività Copy copia i dati dalla tabella SQL in un percorso di Archiviazione BLOB di Azure. Il percorso è specificato dalla proprietà **SinkDataset**. 
 
 ```json
@@ -190,7 +190,7 @@ Il set di dati di **ricerca** è il file **sourcetable.json** nella cartella di 
 ```
 
 ### <a name="source-dataset-for-copy-activity"></a>Set di dati di **origine** per l'attività Copy
-Il set di dati di **origine** utilizza l'output dell'attività Lookup, ovvero il nome della tabella SQL. L'attività Copy copia i dati da questa tabella SQL in un percorso di Archiviazione BLOB di Azure. Il percorso è specificato dal set di dati **sink**. 
+Il set di dati di **origine** usa l'output dell'attività Lookup, che è il nome della tabella SQL. L'attività Copy copia i dati da questa tabella SQL in un percorso di Archiviazione BLOB di Azure. Il percorso è specificato dal set di dati **sink**. 
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Passare da un'attività all'altra in Azure Data FactorySwitch activity in Azure Data Factory
+title: Cambia attività in Azure Data Factory
 description: L'attività Switch consente di controllare il flusso di elaborazione in base a una condizione.
 services: data-factory
 author: djpmsft
@@ -10,17 +10,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418015"
 ---
-# <a name="switch-activity-in-azure-data-factory"></a>Passare da un'attività all'altra in Azure Data FactorySwitch activity in Azure Data Factory
+# <a name="switch-activity-in-azure-data-factory"></a>Cambia attività in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L'attività Switch fornisce le stesse funzionalità fornite da un'istruzione switch nei linguaggi di programmazione. Valuta un set di attività corrispondenti a un caso che corrisponde alla valutazione della condizione.
+L'attività switch fornisce la stessa funzionalità fornita da un'istruzione switch nei linguaggi di programmazione. Valuta un set di attività corrispondenti a un case che corrisponde alla valutazione della condizione.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -72,8 +72,8 @@ Proprietà | Descrizione | Valori consentiti | Obbligatoria
 name | Nome dell'attività switch. | string | Sì
 type | Deve essere impostato su *Switch** | string | Sì
 expression | Espressione che deve restituire un valore stringa | Espressione con stringa del tipo di risultato | Sì
-cases | Set di case che contengono un valore e un set di attività da eseguire quando il valore corrisponde alla valutazione dell'espressione. Deve fornire almeno un caso. C'è un limite massimo di 25 casi. | Matrice di oggetti Case | Sì
-defaultAttività | Set di attività che vengono eseguite quando la valutazione dell'espressione non viene soddisfatta. | Matrice di attività | Sì
+cases | Set di case che contengono un valore e un set di attività da eseguire quando il valore corrisponde alla valutazione dell'espressione. Deve fornire almeno un case. È previsto un limite massimo di 25 case. | Matrice di oggetti case | Sì
+defaultActivities | Set di attività che vengono eseguite quando la valutazione dell'espressione non viene soddisfatta. | Matrice di attività | Sì
 
 ## <a name="example"></a>Esempio
 
@@ -82,7 +82,7 @@ La pipeline in questo esempio copia i dati da una cartella di input a una cartel
 > [!NOTE]
 > Questa sezione include le definizioni JSON e i comandi di PowerShell di esempio per eseguire la pipeline. Per la procedura dettagliata di creazione di una pipeline di Data Factory tramite Azure PowerShell e le definizioni JSON, vedere [Esercitazione: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline con attività Switch (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline con attività Switch (Adfv2QuickStartPipeline. Json)
 
 ```json
 {
@@ -288,7 +288,7 @@ La pipeline imposta **folderPath** sul valore del parametro **outputPath1** o **
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questi comandi presuppongono che i file JSON siano stati salvati nella cartella: C:. 
+Questi comandi presuppongono che i file JSON siano stati salvati nella cartella: C:\ADF. 
 
 ```powershell
 Connect-AzAccount

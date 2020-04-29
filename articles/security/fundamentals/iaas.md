@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 49a40d78b4ba3bc1e90bb341cca90bece0b998a8
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81450016"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
@@ -33,14 +33,14 @@ Nella maggior parte degli scenari Infrastructure as a Service (IaaS) le [macchin
 Il primo passo per proteggere le VM consiste nel garantire che solo gli utenti autorizzati possano configurare nuove VM e accedervi.
 
 > [!NOTE]
-> Per migliorare la sicurezza delle macchine virtuali Linux in Azure, è possibile integrarla con l'autenticazione di Azure AD. Quando si usa [l'autenticazione](/azure/virtual-machines/linux/login-using-aad)di Azure AD per le macchine virtuali Linux, è possibile controllare e applicare criteri che consentono o negano l'accesso alle macchine virtuali.
+> Per migliorare la sicurezza delle macchine virtuali Linux in Azure, è possibile integrare con l'autenticazione Azure AD. Quando si usa [l'autenticazione Azure ad per le macchine virtuali Linux](/azure/virtual-machines/linux/login-using-aad), è possibile controllare e applicare i criteri in modo centralizzato che consentono o negano l'accesso alle macchine virtuali.
 >
 >
 
 **Procedura consigliata**: controllare l'accesso alle VM.   
 **Dettagli**: usare i [criteri di Azure](/azure/azure-policy/azure-policy-introduction) per stabilire convenzioni per le risorse all'interno dell'organizzazione e creare criteri personalizzati. Applicare questi criteri alle risorse, ad esempio ai [gruppi di risorse](/azure/azure-resource-manager/resource-group-overview). Le VM che appartengono a un gruppo di risorse ereditano i suoi criteri.
 
-Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario gestire in modo efficace l'accesso, i criteri e la conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](/azure/azure-resource-manager/management-groups-overview) forniscono un livello di ambito al di sopra delle sottoscrizioni. Le sottoscrizioni sono organizzate in gruppi di gestione, o contenitori, a cui vengono applicate le condizioni di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo. I gruppi di gestione offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.
+Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario gestire in modo efficace l'accesso, i criteri e la conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](/azure/azure-resource-manager/management-groups-overview) offrono un livello di ambito superiore alle sottoscrizioni. Le sottoscrizioni sono organizzate in gruppi di gestione, o contenitori, a cui vengono applicate le condizioni di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo. I gruppi di gestione offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.
 
 **Procedura consigliata**: ridurre la variabilità nel programma di configurazione e distribuzione delle macchine virtuali.   
 **Dettagli**: usare i modelli di [Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates) per rafforzare le opzioni di distribuzione e facilitare l'individuazione e la creazione di un inventario delle macchine virtuali dell'ambiente.
@@ -63,12 +63,12 @@ Gli amministratori e i coamministratori della sottoscrizione possono modificare 
 Le organizzazioni che controllano l'accesso alle VM e la loro configurazione migliorano la sicurezza complessiva delle VM.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>Usare più VM per una maggiore disponibilità
-Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una migliore disponibilità, usare un set di [disponibilità](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) o [zone](../../availability-zones/az-overview.md)di disponibilità .
+Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una migliore disponibilità, usare un [set di disponibilità](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) o le [zone](../../availability-zones/az-overview.md)di disponibilità.
 
 Un set di disponibilità è un raggruppamento logico che è possibile usare in Azure per garantire che le risorse delle macchine virtuali inserite dall'utente siano isolate tra loro quando vengono distribuite all'interno di un data center di Azure. Azure garantisce che le macchine virtuali inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. In caso di guasto hardware o errore software in Azure, viene interessato solo un subset delle macchine virtuali. L'applicazione nel suo complesso rimarrà disponibile per i clienti. I set di disponibilità sono una funzionalità essenziale da sfruttare quando si vogliono creare soluzioni cloud affidabili.
 
 ## <a name="protect-against-malware"></a>Protezione dal malware
-È consigliabile installare una protezione antimalware per identificare e rimuovere virus, spyware e altro software dannoso. È possibile installare [Microsoft Antimalware](antimalware.md) o la soluzione di protezione degli endpoint di un partner Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)e System Center [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+È consigliabile installare una protezione antimalware per identificare e rimuovere virus, spyware e altro software dannoso. È possibile installare [Microsoft antimalware](antimalware.md) o la soluzione Endpoint Protection di un partner Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)e [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Microsoft Antimalware include caratteristiche come la protezione in tempo reale, l'analisi pianificata, il monitoraggio e aggiornamento malware, l'aggiornamento delle firme e del motore, il reporting di campioni e la raccolta degli eventi di esclusione. Per gli ambienti ospitati separatamente dall'ambiente di produzione, è possibile usare un'estensione antimalware per la protezione delle VM e dei servizi cloud.
 
@@ -101,8 +101,8 @@ Se si usa Windows Update, lasciare abilitata l'impostazione automatica di Window
 **Procedura consigliata**: ridistribuire periodicamente le VM per forzare una versione aggiornata del sistema operativo.   
 **Dettagli**: definire la VM con un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) in modo che sia possibile ridistribuirla facilmente. La scelta di un modello offre l'opportunità di avere una VM sicura e con patch applicate quando serve.
 
-**Procedura consigliata:** applicare rapidamente gli aggiornamenti della sicurezza alle macchine virtuali.   
-**Dettaglio:** abilitare il Centro sicurezza di Azure (livello gratuito o livello Standard) per identificare gli aggiornamenti di [sicurezza mancanti e applicarli.](../../security-center/security-center-apply-system-updates.md)
+**Procedura consigliata**: applicare rapidamente gli aggiornamenti della sicurezza alle macchine virtuali.   
+**Dettagli**: abilitare il Centro sicurezza di Azure (livello gratuito o standard) per [identificare gli aggiornamenti della sicurezza mancanti e applicarli](../../security-center/security-center-apply-system-updates.md).
 
 **Procedura consigliata**: installare gli aggiornamenti della sicurezza più recenti.   
 **Dettagli**: i lab e i sistemi esterni sono tra i primi carichi di lavoro che i clienti spostano in Azure. Se le VM di Azure ospitano applicazioni o servizi che devono essere accessibili da Internet, è importante fare attenzione all'applicazione di patch. Non limitarsi all'applicazione di patch relative al sistema operativo. Anche le vulnerabilità senza patch delle applicazioni di partner possono causare problemi facilmente evitabili con una buona gestione delle patch.
@@ -130,7 +130,7 @@ Per monitorare le condizioni di sicurezza delle [VM Windows](../../security-cent
 
 Il Centro sicurezza può monitorare attivamente le minacce e le minacce potenziali sono esposte negli avvisi di sicurezza. Le minacce correlate sono aggregate in un'unica visualizzazione denominata evento imprevisto per la sicurezza.
 
-Il Centro sicurezza archivia i dati nei log di [Monitoraggio di Azure.](/azure/log-analytics/log-analytics-overview) I log di Monitoraggio di Azure offrono un motore di analisi e linguaggio di query che offre informazioni dettagliate sul funzionamento delle applicazioni e delle risorse. I dati vengono raccolti anche da [Monitoraggio di Azure](../../batch/monitoring-overview.md), dalle soluzioni di gestione e dagli agenti installati su macchine virtuali nel cloud o in locale. Questa funzionalità condivisa permette di ottenere il quadro completo dell'ambiente.
+Il Centro sicurezza archivia i dati nei [log di monitoraggio di Azure](/azure/log-analytics/log-analytics-overview). Log di monitoraggio di Azure fornisce un linguaggio di query e un motore di analisi che offre informazioni dettagliate sul funzionamento delle applicazioni e delle risorse. I dati vengono raccolti anche da [Monitoraggio di Azure](../../batch/monitoring-overview.md), dalle soluzioni di gestione e dagli agenti installati su macchine virtuali nel cloud o in locale. Questa funzionalità condivisa permette di ottenere il quadro completo dell'ambiente.
 
 Le organizzazioni che non applicano condizioni di sicurezza avanzate per le proprie VM rimangono all'oscuro della presenza di potenziali tentativi da parte di utenti non autorizzati di aggirare i controlli di sicurezza.
 
@@ -147,7 +147,7 @@ Le organizzazioni che non monitorano le prestazioni delle VM non possono capire 
 ## <a name="encrypt-your-virtual-hard-disk-files"></a>Crittografare i file dei dischi rigidi virtuali
 È consigliabile crittografare i dischi rigidi virtuali per proteggere il volume di avvio e i volumi dei dati inattivi in archiviazione, oltre alle chiavi di crittografia e ai segreti.
 
-[Crittografia disco di Azure](../azure-security-disk-encryption-overview.md) consente di crittografare i dischi delle macchine virtuali Windows e Linux IaaS.Azure Disk Encryption helps you encrypt your Windows and Linux IaaS virtual machine disks. Crittografia dischi di Azure usa la funzionalità standard di settore [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Windows e la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per i dischi dati e il sistema operativo. La soluzione è integrata con [l'insieme](https://azure.microsoft.com/documentation/services/key-vault/) di credenziali delle chiavi di Azure per controllare e gestire le chiavi e i segreti di crittografia del disco nella sottoscrizione dell'insieme di credenziali delle chiavi. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure.
+[Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) consente di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi di Azure usa la funzionalità standard di settore [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Windows e la funzionalità [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per i dischi dati e il sistema operativo. La soluzione è integrata con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) per facilitare il controllo e la gestione delle chiavi di crittografia dei dischi e dei segreti nella sottoscrizione di Key Vault. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure.
 
 Di seguito sono illustrate le procedure consigliate per l'uso della Crittografia dischi di Azure:
 
@@ -155,10 +155,10 @@ Di seguito sono illustrate le procedure consigliate per l'uso della Crittografia
 **Dettagli**: Crittografia dischi di Azure genera e scrive le chiavi di crittografia nell'insieme di credenziali delle chiavi. La gestione delle chiavi di crittografia nell'insieme di credenziali delle chiavi richiede l'autenticazione di Azure AD. Creare un'applicazione Azure AD per questo scopo. Ai fini dell'autenticazione, è possibile usare l'autenticazione basata sul segreto client o l'[autenticazione di Azure AD basata sul certificato client](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 **Procedura consigliata**: usare una chiave di crittografia della chiave per aggiungere un livello di sicurezza ulteriore per le chiavi di crittografia. Aggiungere una chiave di crittografia della chiave all'insieme di credenziali delle chiavi.   
-**Dettaglio:** utilizzare il cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) per creare una chiave di crittografia della chiave nell'insieme di credenziali delle chiavi. Per gestire le chiavi, è anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware. Per altre informazioni, vedere la [documentazione di Azure Key Vault](../../key-vault/keys/hsm-protected-keys.md). Quando viene specificata una chiave di crittografia della chiave, Crittografia dischi di Azure la usa per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi. Mantenere una copia di deposito della chiave in un modulo di protezione hardware locale offre un ulteriore livello di protezione contro l'eliminazione accidentale delle chiavi.
+**Dettagli**: usare il cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) per creare una chiave di crittografia della chiave nell'insieme di credenziali delle chiavi. Per gestire le chiavi, è anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware. Per altre informazioni, vedere la [documentazione di Azure Key Vault](../../key-vault/keys/hsm-protected-keys.md). Quando viene specificata una chiave di crittografia della chiave, Crittografia dischi di Azure la usa per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi. Mantenere una copia di deposito della chiave in un modulo di protezione hardware locale offre un ulteriore livello di protezione contro l'eliminazione accidentale delle chiavi.
 
 **Procedura consigliata**: catturare uno [snapshot](../../virtual-machines/windows/snapshot-copy-managed-disk.md) e/o eseguire il backup prima che i dischi vengano crittografati. Se si verifica un errore imprevisto durante la crittografia, i backup offrono un'opzione di ripristino.   
-**Dettagli**: le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Dopo aver eseguito un backup, è possibile utilizzare il cmdlet **Set-AzVMDiskEncryptionExtension** per crittografare i dischi gestiti specificando il parametro *-skipVmBackup.* Per altre informazioni su come eseguire il backup e il ripristino di macchine virtuali crittografate, vedere l'articolo [Backup di Azure](../../backup/backup-azure-vms-encryption.md).
+**Dettagli**: le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Dopo aver eseguito un backup, è possibile usare il cmdlet **set-AzVMDiskEncryptionExtension** per crittografare i dischi gestiti specificando il parametro *-skipVmBackup* . Per altre informazioni su come eseguire il backup e il ripristino di macchine virtuali crittografate, vedere l'articolo [Backup di Azure](../../backup/backup-azure-vms-encryption.md).
 
 **Procedura consigliata**: per assicurarsi che i segreti di crittografia non superino i confini a livello di area, Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area.   
 **Dettagli**: creare e usare un insieme di credenziali delle chiavi nella stessa area della macchina virtuale da crittografare.
@@ -168,17 +168,17 @@ Quando si applica Crittografia dischi di Azure, è possibile soddisfare le esige
 - Le VM IaaS inattive sono protette con la tecnologia di crittografia standard, per soddisfare i requisiti di sicurezza e conformità dell'organizzazione.
 - Le VM IaaS vengono avviate con chiavi e criteri controllati dai clienti ed è possibile controllarne l'utilizzo nell'insieme di credenziali delle chiavi.
 
-## <a name="restrict-direct-internet-connectivity"></a>Limitare la connettività Internet diretta
-Monitorare e limitare la connettività Internet diretta delle macchine virtuali. Gli aggressori analizzano costantemente gli intervalli IP cloud pubblici per le porte di gestione aperte e tentano attacchi "facili" come password comuni e vulnerabilità note senza patch. Nella tabella seguente sono elencate le procedure consigliate per la protezione da questi attacchi:
+## <a name="restrict-direct-internet-connectivity"></a>Limita connettività Internet diretta
+Monitorare e limitare la connettività Internet diretta della macchina virtuale. Gli utenti malintenzionati analizzano costantemente gli intervalli IP del cloud pubblico per le porte di gestione aperte e tentano gli attacchi "semplici", come le password comuni e le vulnerabilità note senza patch. La tabella seguente elenca le procedure consigliate per la protezione da questi attacchi:
 
-**Procedura consigliata**: Impedisce l'esposizione involontaria al routing e alla sicurezza della rete.   
-**Dettaglio**: utilizzare il controllo degli accessi in base al ruolo per assicurarsi che solo il gruppo di rete centrale disponga dell'autorizzazione per le risorse di rete.
+**Procedura consigliata**: impedire l'esposizione accidentale al routing e alla sicurezza di rete.   
+**Dettagli**: usare il controllo degli accessi in base al ruolo per assicurarsi che solo il gruppo di rete centrale disponga delle autorizzazioni per la rete
 
-**Procedura consigliata:** identificare e correggere le macchine virtuali esposte che consentono l'accesso da un indirizzo IP di origine "qualsiasi".   
-**Dettaglio**: Usare il Centro sicurezza di Azure.Detail : Use Azure Security Center. Il Centro sicurezza consiglia di limitare l'accesso tramite endpoint con connessione Internet se uno dei gruppi di sicurezza di rete dispone di una o più regole in ingresso che consentono l'accesso da un indirizzo IP di origine "qualsiasi". Il Centro sicurezza consiglia di modificare queste regole in ingresso per [limitare l'accesso](../../security-center/security-center-network-recommendations.md) agli indirizzi IP di origine che effettivamente richiedono l'accesso.
+**Procedura consigliata**: identificare e correggere le macchine virtuali esposte che consentono l'accesso da un indirizzo IP di origine "any".   
+**Dettagli**: usare il Centro sicurezza di Azure. Il Centro sicurezza consiglia di limitare l'accesso tramite endpoint con connessione Internet se uno dei gruppi di sicurezza di rete ha una o più regole in ingresso che consentono l'accesso da un indirizzo IP di origine "any". Il Centro sicurezza consiglierà di modificare queste regole in ingresso per [limitare l'accesso](../../security-center/security-center-network-recommendations.md) agli indirizzi IP di origine che necessitano effettivamente dell'accesso.
 
-**Procedura consigliata**: Limitare le porte di gestione (RDP, SSH).   
-**Dettaglio:** [l'accesso alle macchine virtuali JIT (Just-In-Time)](../../security-center/security-center-just-in-time.md) può essere usato per bloccare il traffico in ingresso verso le macchine virtuali di Azure, riducendo l'esposizione agli attacchi e fornendo un facile accesso per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato, il Centro sicurezza blocca il traffico in ingresso verso le macchine virtuali di Azure creando una regola del gruppo di sicurezza di rete. Selezionare le porte nella macchina virtuale per cui proteggere il traffico in ingresso. Queste porte sono controllate dalla soluzione JIT.
+**Procedura consigliata**: limitare le porte di gestione (RDP, SSH).   
+**Dettagli**: [l'accesso alla macchina virtuale JIT (just-in-Time)](../../security-center/security-center-just-in-time.md) può essere usato per bloccare il traffico in ingresso verso le macchine virtuali di Azure, riducendo l'esposizione agli attacchi offrendo un facile accesso per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato, il Centro sicurezza blocca il traffico in ingresso nelle macchine virtuali di Azure creando una regola del gruppo di sicurezza di rete. Selezionare le porte nella macchina virtuale per cui proteggere il traffico in ingresso. Queste porte sono controllate dalla soluzione JIT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre procedure consigliate per la sicurezza da usare nella progettazione, la distribuzione e la gestione di soluzioni cloud tramite Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](best-practices-and-patterns.md).
