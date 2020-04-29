@@ -1,7 +1,7 @@
 ---
-title: Rilevamento facciale - Visione artificiale
+title: Rilevamento viso-Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Scopri i concetti relativi alla funzionalità di rilevamento volti dell'API Visione artificiale.
+description: Informazioni sui concetti relativi alla funzionalità di rilevamento viso del API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80244702"
 ---
 # <a name="face-detection-with-computer-vision"></a>Rilevamento volto con Visione artificiale
@@ -113,7 +113,7 @@ L'esempio successivo mostra la risposta JSON restituita per un'immagine che cont
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità di rilevamento volti fa parte dell'API [Analizza immagine.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Faces` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è `"faces"` sufficiente analizzare la stringa per il contenuto della sezione.
+La funzionalità di rilevamento viso fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Faces` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"faces"` sezione.
 
-* [Guida introduttiva: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Guida introduttiva: Analizzare un'immagine (API REST)Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+* [Guida introduttiva: Visione artificiale .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

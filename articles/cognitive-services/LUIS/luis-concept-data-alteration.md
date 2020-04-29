@@ -1,26 +1,26 @@
 ---
-title: Alterazione dei dati - LUIS
+title: Modifica dei dati-LUIS
 description: Informazioni su come modificare i dati prima delle previsioni in Language Understanding (LUIS)
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: b3b36351a64a4e1a0bd13d5785a4e0609a80901d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292068"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modificare i dati delle espressioni prima e durante la stima
-LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. Questi includono la correzione di errori di [ortografia](luis-tutorial-bing-spellcheck.md)e la correzione dei problemi di fuso orario per [datetimeV2](luis-reference-prebuilt-datetimev2.md)precompilato.
+LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. Che includono la [correzione dell'ortografia](luis-tutorial-bing-spellcheck.md)e la correzione dei problemi di fuso orario per [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefiniti.
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Correggere gli errori di ortografia nell'espressione
 
 
 ### <a name="v3-runtime"></a>Runtime V3
 
-Pre-elaborare il testo per le correzioni ortografiche prima di inviare l'espressione a LUIS. Usare espressioni di esempio con l'ortografia corretta per garantire che si ottraggano le stime corrette.
+Pre-elaborare il testo per le correzioni ortografiche prima di inviare l'espressione a LUIS. Usare espressioni di esempio con l'ortografia corretta per assicurarsi di ottenere le stime corrette.
 
-Utilizzare [controllo ortografico Bing](../bing-spell-check/overview.md) per correggere il testo prima di inviarlo a LUIS.
+Usare [controllo ortografico Bing](../bing-spell-check/overview.md) per correggere il testo prima di inviarlo a Luis.
 
 ### <a name="prior-to-v3-runtime"></a>Prima del runtime V3
 
@@ -28,7 +28,7 @@ Per correggere gli errori di ortografia nell'espressione, LUIS usa l'[API Contro
 
 L'endpoint richiede due parametri per il funzionamento delle correzioni ortografiche:
 
-|Param|valore|
+|Param|Valore|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Chiave endpoint [API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
@@ -69,16 +69,16 @@ Quando l'[API Controllo ortografico Bing V7](https://azure.microsoft.com/service
 
 * * *
 
-### <a name="list-of-allowed-words"></a>Elenco delle parole consentite
-L'API di controllo ortografico Bing usata in LUIS non supporta un elenco di parole da ignorare durante le modifiche del controllo ortografico. Se è necessario consentire un elenco di parole o acronimi, elaborare l'espressione nell'applicazione client prima di inviare l'espressione a LUIS per la stima delle finalità.
+### <a name="list-of-allowed-words"></a>Elenco di parole consentite
+L'API controllo ortografico Bing utilizzata in LUIS non supporta un elenco di parole da ignorare durante le modifiche del controllo ortografico. Se è necessario consentire un elenco di parole o acronimi, elaborare l'espressione nell'applicazione client prima di inviare l'espressione a LUIS per la stima degli intenti.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Cambiare il fuso orario dell'entità datetimeV2 predefinita
-Quando un'app LUIS usa l'entità [datetimeV2](luis-reference-prebuilt-datetimev2.md) predefinita, un valore datetime può essere restituito nella risposta di stima. Il fuso orario della richiesta viene utilizzato per determinare il valore datatime corretto da restituire. Se la richiesta proviene da un bot o da un'altra applicazione centralizzata prima di passare a LUIS, occorre correggere il fuso orario usato da LUIS.
+Quando un'app LUIS USA l'entità [datetimeV2](luis-reference-prebuilt-datetimev2.md) predefinita, nella risposta di stima può essere restituito un valore DateTime. Il fuso orario della richiesta viene utilizzato per determinare il valore datatime corretto da restituire. Se la richiesta proviene da un bot o da un'altra applicazione centralizzata prima di passare a LUIS, occorre correggere il fuso orario usato da LUIS.
 
 ### <a name="endpoint-querystring-parameter"></a>Parametro queryString dell'endpoint
 Per correggere il fuso orario aggiungere il fuso orario dell'utente all'[endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) mediante il parametro `timezoneOffset`. Il valore di `timezoneOffset` deve essere il numero positivo o negativo che, in minuti, modifica l'ora.
 
-|Param|valore|
+|Param|Valore|
 |--|--|
 |`timezoneOffset`|numero positivo o negativo, in minuti|
 

@@ -1,7 +1,7 @@
 ---
 title: Metodo Translate dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Comprendere i parametri, le intestazioni e i messaggi del corpo per il metodo API Translate del testo del traduttore di Azure con i servizi cognitivi per tradurre il testo.
+description: Informazioni sui parametri, le intestazioni e i messaggi del corpo per i servizi cognitivi di Azure API Traduzione testuale metodo Translate per tradurre il testo.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: swmachan
 ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80052404"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
@@ -55,7 +55,7 @@ I parametri della richiesta inviati a una stringa di query sono:
   <th>Descrizione</th>
   <tr>
     <td>da</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>È necessario <code>from</code> utilizzare il parametro anziché il rilevamento automatico quando si utilizza la funzionalità di <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico.</a></td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la <code>from</code> funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro anziché il rilevamento automatico.</td>
   </tr>  
   <tr>
     <td>textType</td>
@@ -63,7 +63,7 @@ I parametri della richiesta inviati a una stringa di query sono:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dai dettagli del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">progetto</a> Custom Translator a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dei <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">Dettagli del progetto</a> di conversione personalizzati a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -106,16 +106,16 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
-    <td>Intestazione autenticazione</td>
-    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
+    <td>Intestazione/e di autenticazione</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore <code>application/json; charset=UTF-8</code>accettato è .</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore accettato <code>application/json; charset=UTF-8</code>è.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Lunghezza del corpo della richiesta.</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Lunghezza del corpo della richiesta.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -123,7 +123,7 @@ Le intestazioni della richiesta includono:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Corpo della richiesta
+## <a name="request-body"></a>Testo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un oggetto JSON con una proprietà di stringa denominata `Text`, che rappresenta la stringa da tradurre.
 
@@ -363,7 +363,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Azione</th>
+  <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
@@ -382,8 +382,8 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
     <td><code>Marked</code></td>
     <td>Le parole volgari vengono sostituite da un indicatore nell'output. L'indicatore dipende dal parametro <code>ProfanityMarker</code>.<br/><br/>
 Per <code>ProfanityMarker=Asterisk</code>, le parole volgari vengono sostituite con <code>***</code>:<br/>
-    <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
-    <strong>Esempio di traduzione (inglese):</strong>È un \* \* \*file .<br/><br/>
+    <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>\* \*Esempio di \* 
+    <strong>traduzione (Inglese)</strong>: è.<br/><br/>
 Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
     <strong>Traduzione di esempio (italiano)</strong>: è un &lt;profanity&gt;cretino&lt;/profanity&gt;.
@@ -479,15 +479,15 @@ La risposta è:
 Le informazioni sull'allineamento iniziano con `0:2-0:1`, vale a dire che i primi tre caratteri nel testo di origine (`The`) sono associati ai primi due caratteri nel testo tradotto (`La`).
 
 #### <a name="limitations"></a>Limitazioni
-Ottenere informazioni di allineamento è una funzionalità sperimentale che abbiamo abilitato per la ricerca di prototipazione ed esperienze con potenziali mappature di frasi. Potremmo scegliere di smettere di sostenerlo in futuro. Ecco alcune delle restrizioni notevoli in cui gli allineamenti non sono supportati:
+Il recupero delle informazioni di allineamento è una funzionalità sperimentale che è stata abilitata per la ricerca e l'esperienza di prototipi con possibili mapping di frasi. In futuro, è possibile che si scelga di smettere di supportarlo. Di seguito sono riportate alcune delle restrizioni rilevanti in cui gli allineamenti non sono supportati:
 
-* L'allineamento non è disponibile per il testo in formato HTML, ad esempio textType
+* L'allineamento non è disponibile per il testo in formato HTML, ad esempio textType = HTML
 * L'allineamento viene restituito solo per un subset delle coppie di lingue:
   - dall'inglese verso qualsiasi altra lingua;
   - da qualsiasi altra lingua verso l'inglese, ad eccezione di cinese semplificato, cinese tradizionale e lettone verso l'inglese;
   - da giapponese e coreano o da coreano a giapponese.
 * Non si riceveranno informazioni sull'allineamento se la frase è una traduzione predefinita. Un esempio di traduzione predefinita è "Questo è un test", "Ti amo" e altre frasi usate frequentemente.
-* L'allineamento non è disponibile quando si applica uno degli approcci per impedire la traduzione come descritto [di seguito](../prevent-translation.md)
+* L'allineamento non è disponibile quando si applica uno degli approcci per impedire la traduzione come descritto [qui](../prevent-translation.md) .
 
 ### <a name="obtain-sentence-boundaries"></a>Ottenere delimitatori di frase
 

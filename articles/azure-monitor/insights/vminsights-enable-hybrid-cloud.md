@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
 ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480743"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Abilitare Monitoraggio di Azure per le macchine virtuali per un ambiente ibrido
@@ -79,7 +79,7 @@ Se Dependency Agent non si avvia, controllare i log per vedere le informazioni d
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 
-| File | Location |
+| File | Percorso |
 |:--|:--|
 | File core | /opt/microsoft/dependency-agent |
 | File di registro | /var/opt/microsoft/dependency-agent/log |

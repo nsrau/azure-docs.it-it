@@ -1,7 +1,7 @@
 ---
 title: Rilevamento di oggetti - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: "Informazioni sui concetti relativi alla funzionalità di rilevamento degli oggetti dell'API Visione artificiale: utilizzo e limiti."
+description: Informazioni sui concetti relativi alla funzionalità di rilevamento degli oggetti dei limiti di utilizzo e di API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,17 +12,17 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 3957e15a09bd7e7ecd814d169451af3241108b64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80131665"
 ---
-# <a name="detect-common-objects-in-images"></a>Rilevare gli oggetti comuni nelle immagini
+# <a name="detect-common-objects-in-images"></a>Rilevare oggetti comuni nelle immagini
 
 Il rilevamento di oggetti è simile all'[assegnazione di tag](concept-tagging-images.md), ma l'API restituisce le coordinate del rettangolo di selezione (in pixel) per ogni oggetto trovato. Se, ad esempio, un'immagine contiene un cane, gatto e una persona, l'operazione di rilevamento elencherà tali oggetti insieme alle relative coordinate nell'immagine. È possibile usare questa funzionalità per elaborare le relazioni tra gli oggetti in un'immagine. Consente inoltre di determinare se sono presenti più istanze dello stesso tag in un'immagine.
 
-L'API di rilevamento applica tag basati sugli oggetti o sugli esseri viventi identificati nell'immagine. Attualmente non esiste alcuna relazione formale tra la tassonomia dei tag e la tassonomia di rilevamento degli oggetti. A livello concettuale, l'API Detect trova solo oggetti e elementi viventi, mentre l'API Tag può anche includere termini contestuali come "indoor", che non possono essere localizzati con rettangoli di selezione.
+L'API di rilevamento applica tag basati sugli oggetti o sugli esseri viventi identificati nell'immagine. Attualmente non esiste alcuna relazione formale tra la tassonomia dei tag e la tassonomia del rilevamento degli oggetti. A livello concettuale, l'API di rilevamento trova solo gli oggetti e gli elementi di lavoro, mentre l'API tag può includere anche termini contestuali come "indoor", che non possono essere localizzati con i rettangoli di delimitazione.
 
 ## <a name="object-detection-example"></a>Esempio di rilevamento di oggetti
 
@@ -89,15 +89,15 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 
 ## <a name="limitations"></a>Limitazioni
 
-È importante notare le limitazioni del rilevamento degli oggetti in modo da poter evitare o attenuare gli effetti di falsi negativi (oggetti persi) e dettagli limitati.
+È importante prendere nota delle limitazioni del rilevamento degli oggetti, in modo da evitare o attenuare gli effetti di falsi negativi (oggetti mancanti) e dettagli limitati.
 
-* Gli oggetti non vengono generalmente rilevati se sono piccoli (meno del 5% dell'immagine).
-* Gli oggetti in genere non vengono rilevati se sono disposti strettamente insieme (ad esempio una pila di piastre).
+* In genere, gli oggetti non vengono rilevati se sono di dimensioni ridotte (meno del 5% dell'immagine).
+* In genere, gli oggetti non vengono rilevati se sono disposti in modo ravvicinato, ad esempio una pila di piatti.
 * Gli oggetti non vengono differenziati in base alla marca o ai nomi di prodotto (ad esempio, diversi tipi di bibite su uno scaffale di un supermercato). È tuttavia possibile ottenere informazioni sul marchio presente in un'immagine usando la funzionalità per il [rilevamento del marchio](concept-brand-detection.md).
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità per il rilevamento di oggetti fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Objects` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è `"objects"` sufficiente analizzare la stringa per il contenuto della sezione.
+La funzionalità per il rilevamento di oggetti fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Objects` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"objects"` sezione.
 
-* [Guida introduttiva: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Guida introduttiva: Analizzare un'immagine (API REST)Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+* [Guida introduttiva: Visione artificiale .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

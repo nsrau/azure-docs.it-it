@@ -1,7 +1,7 @@
 ---
 title: Rilevamento del marchio - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: In questo articolo viene illustrata una modalità specializzata di rilevamento di oggetti; rilevamento del marchio e/o del logo tramite l'API Visione artificiale.
+description: In questo articolo viene illustrata una modalità specializzata di rilevamento di oggetti; rilevamento del marchio e/o del logo tramite il API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
 ms.openlocfilehash: 50e4fe1e2573c8566bbdf5697bb81b025a00935c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80131730"
 ---
-# <a name="detect-popular-brands-in-images"></a>Rileva le marche più popolari nelle immagini
+# <a name="detect-popular-brands-in-images"></a>Rileva i marchi più diffusi nelle immagini
 
 Il rilevamento del marchio è una modalità specializzata del [rilevamento di oggetti](concept-object-detection.md) che sfrutta un database di migliaia di logo diffusi a livello mondiale per identificare marchi commerciali in immagini o video. È ad esempio possibile usare questa funzionalità per individuare i marchi più popolari sui social media o quelli più prevalenti nel posizionamento dei prodotti multimediali.
 
@@ -74,7 +74,7 @@ In alcuni casi, il rilevatore di marchi identificherà l'immagine del logo e il 
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità per il rilevamento del marchio fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Brands` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è `"brands"` sufficiente analizzare la stringa per il contenuto della sezione.
+La funzionalità per il rilevamento del marchio fa parte dell'API di [analisi delle immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Brands` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"brands"` sezione.
 
-* [Guida introduttiva: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Guida introduttiva: Analizzare un'immagine (API REST)Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+* [Guida introduttiva: Visione artificiale .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

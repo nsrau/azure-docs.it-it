@@ -1,5 +1,5 @@
 ---
-title: Rilevamento della combinazione di colori - Visione artificiale
+title: Rilevamento della combinazione di colori-Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi al rilevamento della combinazione di colori nelle immagini tramite l'API Visione artificiale.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80244733"
 ---
 # <a name="detect-color-schemes-in-images"></a>Rilevare le combinazioni di colori nelle immagini
@@ -30,7 +30,7 @@ Visione artificiale restituisce anche un valore booleano che indica se un'immagi
 
 L'esempio seguente illustra la risposta JSON restituita da Visione artificiale quando rileva la combinazione di colori dell'immagine di esempio. In questo caso, l'immagine di esempio non è in bianco e nero, ma i colori di primo piano e di sfondo dominanti sono il nero e i colori dominanti per l'immagine nel suo complesso sono il nero e il bianco.
 
-![Montagna all'aperto al tramonto, con la silhouette di una persona](./Images/mountain_vista.png)
+![Mountain outdoor al tramonto, con la silhouette di una persona](./Images/mountain_vista.png)
 
 ```json
 {
@@ -54,7 +54,7 @@ L'esempio seguente illustra la risposta JSON restituita da Visione artificiale q
 
 La tabella seguente mostra i colori di primo piano, di sfondo e dell'immagine restituiti per ogni immagine di esempio.
 
-| Immagine | Colori dominanti |
+| Image | Colori dominanti |
 |-------|-----------------|
 |![Fiore bianco su sfondo verde](./Images/flower.png)| Primo piano: nero<br/>Sfondo: bianco<br/>Colori: nero, bianco, verde|
 ![Treno che passa per una stazione](./Images/train_station.png) | Primo piano: nero<br/>Sfondo: nero<br/>Colori: nero |
@@ -63,7 +63,7 @@ La tabella seguente mostra i colori di primo piano, di sfondo e dell'immagine re
 
  La tabella seguente mostra il colore principale restituito come valore di colore HTML esadecimale per ogni immagine di esempio.
 
-| Immagine | Colore principale |
+| Image | Colore principale |
 |-------|--------------|
 |![Persona in piedi su una roccia al tramonto](./Images/mountain_vista.png) | #BB6D10 |
 |![Fiore bianco su sfondo verde](./Images/flower.png) | #C6A205 |
@@ -73,14 +73,14 @@ La tabella seguente mostra i colori di primo piano, di sfondo e dell'immagine re
 
 La tabella seguente mostra la valutazione in bianco e nero di Visione artificiale nelle immagini di esempio.
 
-| Immagine | Bianco e nero? |
+| Image | Bianco e nero? |
 |-------|----------------|
 |![Immagine in bianco e nero di edifici di Manhattan](./Images/bw_buildings.png) | true |
 |![Casa azzurra con giardino](./Images/house_yard.png) | false |
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità di rilevamento della combinazione di colori fa parte dell'API [Analizza immagine.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Color` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è `"color"` sufficiente analizzare la stringa per il contenuto della sezione.
+La funzionalità di rilevamento della combinazione di colori fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Color` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"color"` sezione.
 
-* [Guida introduttiva: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Guida introduttiva: Analizzare un'immagine (API REST)Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+* [Guida introduttiva: Visione artificiale .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

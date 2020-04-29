@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80234186"
 ---
 ### <a name="standard-and-neural-voices"></a>Voci standard e neurali
 
-Utilizzare questa tabella per determinare la disponibilità di voci standard e neurali per area/endpoint:Use this table to determine availability of standard and neural voices by region/endpoint:
+Usare questa tabella per determinare la disponibilità delle voci standard e neurali per area/endpoint:
 
 | Region | Endpoint | Voci standard | Voci neurali |
 |--------|----------|-----------------|---------------|
@@ -40,7 +40,7 @@ Utilizzare questa tabella per determinare la disponibilità di voci standard e n
 
 ### <a name="custom-voices"></a>Voci personalizzate
 
-Se è stato creato un tipo di carattere vocale personalizzato, usare l'endpoint creato. È inoltre possibile utilizzare gli endpoint elencati di seguito, sostituendo l'ID `{deploymentId}` di distribuzione per il modello vocale.
+Se è stato creato un tipo di carattere vocale personalizzato, usare l'endpoint creato. È anche possibile usare gli endpoint elencati di seguito, sostituendo `{deploymentId}` con l'ID distribuzione per il modello vocale.
 
 | Region | Endpoint |
 |--------|----------|

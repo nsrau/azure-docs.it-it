@@ -1,6 +1,6 @@
 ---
-title: Esempio di PowerShell - App proxy di applicazione senza certificato
-description: Esempio di PowerShell in cui sono elencate tutte le applicazioni proxy di applicazione di Azure Active Directory (Azure AD) che usano domini personalizzati ma che non dispongono di un certificato TLS/SSL valido caricato.
+title: Esempio di PowerShell-app proxy di applicazione senza certificato
+description: Esempio di PowerShell in cui sono elencate tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD) che utilizzano domini personalizzati ma non è stato caricato un certificato TLS/SSL valido.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc46a34e1bb5bb85dcb771a9720a19d356e6f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481212"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>Ottenere tutte le app dell'applicazione proxy di Azure AD pubblicate senza alcun certificato caricatoGet all Azure AD Proxy application apps published with no certificate uploaded
+# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>Ottenere tutte le app dell'applicazione proxy Azure AD pubblicate senza certificato caricato
 
-Questo esempio di script di PowerShell elenca tutte le app proxy di applicazione di Azure Active Directory (Azure AD) che usano domini personalizzati ma che non hanno un certificato TLS/SSL valido caricato.
+Questo esempio di script di PowerShell elenca tutte le app proxy di applicazione Azure Active Directory (Azure AD) che usano domini personalizzati, ma non è stato caricato un certificato TLS/SSL valido.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Questo esempio di script di PowerShell elenca tutte le app proxy di applicazione
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Questo esempio richiede il [modulo AzureAD V2 PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) o la versione di anteprima del modulo [AzureAD V2 PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Per questo esempio è necessario [AzureAD V2 PowerShell for Graph Module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) o [AzureAD V2 PowerShell for Graph Module preview version](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -45,6 +45,6 @@ Questo esempio richiede il [modulo AzureAD V2 PowerShell per Graph](https://docs
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure AD PowerShell, vedere Panoramica del modulo Azure AD PowerShell.For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview.](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)
+Per altre informazioni sul modulo Azure AD PowerShell, vedere [Cenni preliminari sui moduli Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Per altri esempi di PowerShell per il proxy di applicazione, vedere Esempi di [Azure AD PowerShell per](../application-proxy-powershell-samples.md)il proxy di applicazione di Azure AD.
+Per altri esempi di PowerShell per il proxy di applicazione, vedere [Azure ad esempi di PowerShell per Azure ad proxy di applicazione](../application-proxy-powershell-samples.md).

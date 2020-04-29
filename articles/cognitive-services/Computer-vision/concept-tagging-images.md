@@ -1,5 +1,5 @@
 ---
-title: Tag dei contenuti - Visione artificiale
+title: Tag di contenuto-Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui concetti relativi alla funzione di applicazione di tag alle immagini dell'API Visione artificiale.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80244512"
 ---
 # <a name="applying-content-tags-to-images"></a>Applicazione di tag di contenuto alle immagini
@@ -85,11 +85,11 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità di tagging fa parte dell'API [Analizza immagine.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Tags` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è `"tags"` sufficiente analizzare la stringa per il contenuto della sezione.
+La funzionalità di assegnazione di tag fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Tags` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"tags"` sezione.
 
-* [Guida introduttiva: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Guida introduttiva: Analizzare un'immagine (API REST)Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+* [Guida introduttiva: Visione artificiale .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri i concetti correlati di [categorizzazione](concept-categorizing-images.md) delle immagini e [descrizione delle immagini.](concept-describing-images.md)
+Informazioni sui concetti correlati per la [categorizzazione di immagini](concept-categorizing-images.md) e la [Descrizione di immagini](concept-describing-images.md).
