@@ -1,5 +1,5 @@
 ---
-title: Scenari aggiuntivi relativi alle licenze basate su gruppo - Azure AD Documenti Microsoft
+title: Scenari aggiuntivi relativi alle licenze basate sui gruppi-Azure AD | Microsoft Docs
 description: Altri scenari relativi alle licenze basate sui gruppi in Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266286"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
@@ -28,9 +28,9 @@ Usare le informazioni e gli esempi seguenti per comprendere le licenze basate su
 
 ## <a name="usage-location"></a>Località di utilizzo
 
-Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà **Località di utilizzo** per l'utente. Nel portale di [Azure](https://portal.azure.com)è possibile specificare il percorso di utilizzo in **Impostazioni** **profilo** &gt; **utente.** &gt;
+Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà **Località di utilizzo** per l'utente. Nella [portale di Azure](https://portal.azure.com)è possibile specificare la posizione di utilizzo nelle **Impostazioni**del **profilo** &gt; **utente** &gt; .
 
-Per l'assegnazione di licenze ai gruppi, eventuali utenti per cui non è specificata una località d'uso ereditano la località della directory. Se si dispone di utenti in più posizioni, assicurarsi di riflettere correttamente le risorse utente prima di aggiungere gli utenti ai gruppi con licenze.
+Per l'assegnazione di licenze ai gruppi, eventuali utenti per cui non è specificata una località d'uso ereditano la località della directory. Se gli utenti sono in più posizioni, assicurarsi di rifletterlo correttamente nelle risorse utente prima di aggiungere utenti ai gruppi con licenze.
 
 > [!NOTE]
 > L'assegnazione di licenze ai gruppi non modificherà mai un valore di località di utilizzo esistente per un utente. È consigliabile impostare sempre la località di utilizzo nell'ambito del flusso di creazione utente in Azure AD (ad esempio tramite la configurazione di AAD Connect). Si garantirà così che il risultato dell'assegnazione delle licenze sia sempre corretto e che gli utenti non ricevano i servizi in località che non sono consentite.
@@ -76,7 +76,7 @@ Un utente può essere membro di più gruppi con licenze. Di seguito sono illustr
 
   Di conseguenza, per l'utente sono abilitati 7 dei 12 servizi disponibili nel prodotto e viene usata una sola licenza.
 
-- La selezione della licenza *E3* mostra ulteriori dettagli, incluse le informazioni sui servizi abilitati per l'utente dall'assegnazione della licenza di gruppo.
+- Selezionando la licenza *E3* vengono visualizzati altri dettagli, incluse le informazioni sui servizi abilitati per l'utente dall'assegnazione della licenza di gruppo.
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>Le licenze dirette coesistono con le licenze di gruppo
 
@@ -86,11 +86,11 @@ Quando un utente eredita una licenza da un gruppo, non è possibile rimuovere o 
 
 Le licenze assegnate direttamente possono essere rimosse senza alterare le licenze ereditate. Si consideri l'utente che eredita una licenza Office 365 Enterprise E3 da un gruppo.
 
-Inizialmente, l'utente eredita la licenza solo dal gruppo di *servizi di base E3,* che abilita quattro piani di servizio.
+Inizialmente, l'utente eredita la licenza solo dal gruppo *E3 Basic Services* , che Abilita quattro piani di servizio.
 
-1. Selezionare **Assegna** per assegnare direttamente una licenza E3 all'utente. In questo caso, si disabilitano tutti i piani di servizio, ad eccezione di Yammer Enterprise.
+1. Selezionare **assegna** per assegnare direttamente una licenza E3 all'utente. In questo caso, si disabilitano tutti i piani di servizio, ad eccezione di Yammer Enterprise.
 
-    Di conseguenza, l'utente continua a usare una sola licenza del prodotto E3. Tuttavia, l'assegnazione diretta abilita al servizio Yammer Enterprise solo tale utente. È possibile visualizzare i servizi abilitati dall'appartenenza al gruppo rispetto all'assegnazione diretta.
+    Di conseguenza, l'utente continua a usare una sola licenza del prodotto E3. Tuttavia, l'assegnazione diretta abilita al servizio Yammer Enterprise solo tale utente. È possibile vedere quali servizi sono abilitati dall'appartenenza al gruppo rispetto all'assegnazione diretta.
 
 1. L'assegnazione diretta consente le operazioni seguenti:
 
@@ -100,7 +100,7 @@ Inizialmente, l'utente eredita la licenza solo dal gruppo di *servizi di base E3
 
 ## <a name="managing-new-services-added-to-products"></a>Gestione di nuovi servizi aggiunti ai prodotti
 
-Quando Microsoft aggiunge un nuovo servizio a un piano di licenza del prodotto, viene abilitato per impostazione predefinita in tutti i gruppi a cui è stata assegnata la licenza del prodotto. Gli utenti nel tenant che hanno sottoscritto le notifiche sulle modifiche apportate al prodotto riceveranno in anticipo messaggi di posta elettronica con informazioni sulle nuove aggiunte di servizi.
+Quando Microsoft aggiunge un nuovo servizio a un piano di licenze del prodotto, viene abilitato per impostazione predefinita in tutti i gruppi a cui è stata assegnata la licenza del prodotto. Gli utenti nel tenant che hanno sottoscritto le notifiche sulle modifiche apportate al prodotto riceveranno in anticipo messaggi di posta elettronica con informazioni sulle nuove aggiunte di servizi.
 
 Come amministratore, è possibile esaminare tutti i gruppi interessati dalla modifica e scegliere come agire, ad esempio disabilitando il nuovo servizio in ogni gruppo. Se ad esempio sono stati creati gruppi interessati solo ai servizi specifici per la distribuzione, è possibile rivedere tali gruppi e assicurarsi di disabilitare i servizi appena aggiunti.
 
@@ -112,7 +112,7 @@ Ecco un esempio di come potrebbe presentarsi questo processo:
 
 3. Passare al pannello [**Azure Active Directory > Licenze > Tutti i prodotti**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) e selezionare *Office 365 Enterprise E5*, quindi selezionare **Gruppi con licenza** per visualizzare un elenco di tutti i gruppi con quel prodotto.
 
-4. Fare clic sul gruppo che si desidera esaminare, in questo caso *O365 E5 - Exchange only* (O365 E5 - solo Exchange). Si aprirà la scheda **Licenze.**
+4. Fare clic sul gruppo che si desidera esaminare, in questo caso *O365 E5 - Exchange only* (O365 E5 - solo Exchange). Verrà visualizzata la scheda **licenze** . facendo clic sulla licenza E5 verrà aperto un pannello in cui sono elencati tutti i servizi abilitati.
    > [!NOTE]
    > Il servizio *Microsoft Stream* è stato aggiunto e abilitato automaticamente al gruppo, che già dispone del servizio *Exchange Online*:
 
@@ -153,7 +153,7 @@ Ecco un esempio di come potrebbe presentarsi questo processo:
    >[!TIP]
    > È anche possibile digitare il nome del gruppo nel filtro *Destinazione* per limitare l'ambito dei risultati.
 
-3. Selezionare un elemento nell'elenco per visualizzare i dettagli delle modifiche. In *Proprietà modificate* sono elencati i valori vecchi e nuovi dell'assegnazione delle licenze.
+3. Selezionare un elemento nell'elenco per visualizzare i dettagli di ciò che è stato modificato. In *Proprietà modificate* sono elencati i valori vecchi e nuovi dell'assegnazione delle licenze.
 
 Di seguito è riportato un esempio di modifiche recenti alle licenze di gruppo con i dettagli:
 
@@ -207,7 +207,7 @@ Se si usano le licenze basate sui gruppi, è consigliabile acquisire familiarit�
 
 - La funzionalità è utilizzabile solo con gruppi di sicurezza e gruppi di Office 365 con securityEnabled=TRUE.
 
-- L'interfaccia di amministrazione di [Microsoft 365](https://admin.microsoft.com) non supporta attualmente le licenze basate su gruppo. Se un utente eredita una licenza da un gruppo, la licenza viene visualizzata nel portale di amministrazione di Office come una normale licenza utente. Se si tenta di modificare la licenza o di rimuoverla, il portale restituisce un messaggio di errore. Le licenze di gruppo ereditate non possono essere modificate direttamente per un utente.
+- L'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com) attualmente non supporta le licenze basate sui gruppi. Se un utente eredita una licenza da un gruppo, la licenza viene visualizzata nel portale di amministrazione di Office come una normale licenza utente. Se si tenta di modificare la licenza o di rimuoverla, il portale restituisce un messaggio di errore. Le licenze di gruppo ereditate non possono essere modificate direttamente per un utente.
 
 - L'assegnazione o la modifica delle licenze di un gruppo di grandi dimensioni (ad esempio 100.000 utenti) potrebbe influire sulle prestazioni. In particolare, il volume delle modifiche generato tramite l'automazione di Azure AD potrebbe compromettere le prestazioni della sincronizzazione della directory tra Azure AD e i sistemi locali.
 

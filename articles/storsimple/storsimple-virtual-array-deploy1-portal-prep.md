@@ -1,5 +1,5 @@
 ---
-title: Preparazione del portale per StorSimple Virtual Array
+title: Preparazione del portale per l'array virtuale StorSimple
 description: La prima esercitazione per la distribuzione dell'array virtuale StorSimple include la preparazione del portale di Azure
 author: alkohli
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254534"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
@@ -58,10 +58,10 @@ Ecco i prerequisiti di configurazione per il servizio Gestione dispositivi StorS
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Per il servizio Gestione dispositivi StorSimple
 
-Prima di iniziare, verificare che:
+Prima di iniziare:
 
 * Si dispone dell'account Microsoft con credenziali di accesso.
-* Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
+* Verificare di avere un account di archiviazione di Microsoft Azure con credenziali di accesso.
 * La sottoscrizione di Microsoft Azure deve essere abilitata per il servizio Gestione dispositivi StorSimple.
 
 ### <a name="for-the-storsimple-virtual-array"></a>Per l'array virtuale StorSimple
@@ -78,7 +78,7 @@ Prima di distribuire un array virtuale, è necessario:
 
 ### <a name="for-the-datacenter-network"></a>Per la rete del data center
 
-Prima di iniziare, verificare che:
+Prima di iniziare:
 
 * La rete nel data center viene configurata in base ai requisiti di rete per il dispositivo StorSimple. Per ulteriori informazioni, vedere l'articolo relativo ai [requisiti di sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 * L'array virtuale StorSimple dispone di una larghezza di banda Internet dedicata a 5 Mbps (o superiore) sempre disponibile. La larghezza di banda non deve essere condivisa con altre applicazioni.
@@ -105,7 +105,7 @@ Una singola istanza del servizio Gestione dispositivi StorSimple può gestire pi
 
 Quando il servizio Gestione dispositivi StorSimple è attivo e in esecuzione, è necessario ottenere la chiave di registrazione. Questa chiave viene utilizzata per registrare e connettere il dispositivo StorSimple con il servizio.
 
-Eseguire i passaggi seguenti nel portale di [Azure](https://portal.azure.com/).
+Eseguire i passaggi seguenti nell' [portale di Azure](https://portal.azure.com/).
 
 [!INCLUDE [storsimple-virtual-array-get-service-registration-key](../../includes/storsimple-virtual-array-get-service-registration-key.md)]
 
@@ -123,11 +123,11 @@ Una volta in possesso della chiave di registrazione, è necessario scaricare l'i
 > 
 > 
 
-Eseguire i passaggi seguenti nel portale di [Azure](https://portal.azure.com/).
+Eseguire i passaggi seguenti nell' [portale di Azure](https://portal.azure.com/).
 
 #### <a name="to-get-the-virtual-array-image"></a>Per ottenere l'immagine dell'array virtuale
 
-1. Accedere al portale di [Azure](https://portal.azure.com/). 
+1. Accedi al [portale di Azure](https://portal.azure.com/). 
 2. Nel portale di Azure fare clic su **Sfoglia > Gestione dispositivi StorSimple**.
 3. Selezionare un servizio Gestione dispositivi StorSimple esistente. Nel pannello **Gestione dispositivi StorSimple** fare clic su **Avvio rapido**. 
 4. Fare clic sul collegamento corrispondente all'immagine che si desidera scaricare dall'Area download Microsoft. I file di immagine sono pari a circa 4,8 GB.

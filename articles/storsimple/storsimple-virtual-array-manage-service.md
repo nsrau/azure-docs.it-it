@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267456"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
@@ -70,7 +70,7 @@ Per eliminare un servizio, attenersi alla procedura seguente.
 
 #### <a name="to-delete-a-service"></a>Per eliminare un servizio
 
-1. Passare a **Tutte le risorse**. Ricercare il servizio Gestione dispositivi StorSimple. Selezionare il servizio da eliminare.
+1. Passare a **tutte le risorse**. Ricercare il servizio Gestione dispositivi StorSimple. Selezionare il servizio da eliminare.
    
     ![Selezionare il servizio da eliminare](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. Passare al dashboard del servizio per verificare che non siano presenti dispositivi connessi al servizio. Se non sono presenti dispositivi registrati con questo servizio, verrà visualizzato un messaggio di intestazione in proposito. Fare clic su **Elimina**.
@@ -123,6 +123,6 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
    Copiare la chiave e salvarla per registrare eventuali nuovi dispositivi con il servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni su come [iniziare](storsimple-virtual-array-deploy1-portal-prep.md) a usare un array virtuale StorSimple.
+* Informazioni su come iniziare a [usare](storsimple-virtual-array-deploy1-portal-prep.md) un array virtuale StorSimple.
 * Informazioni su come [amministrare il dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 

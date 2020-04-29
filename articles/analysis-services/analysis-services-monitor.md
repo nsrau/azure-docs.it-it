@@ -1,6 +1,6 @@
 ---
 title: Monitorare le metriche dei server di Azure Analysis Services | Microsoft Docs
-description: Informazioni su come Analysis ServicesAnalysis Services usa Azure Metrics Explorer, uno strumento gratuito nel portale, che consente di monitorare le prestazioni e l'integrità dei server.
+description: Informazioni su come Analysis Services usare Esplora metriche di Azure, uno strumento gratuito nel portale, che consente di monitorare le prestazioni e l'integrità dei server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,15 +8,15 @@ ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252805"
 ---
 # <a name="monitor-server-metrics"></a>Monitorare le metriche dei server
 
-Analysis ServicesAnalysis Services fornisce metriche in Azure Metrics Explorer, uno strumento gratuito nel portale, che consentono di monitorare le prestazioni e l'integrità dei server. È possibile, ad esempio, monitorare la memoria e l'utilizzo di CPU, il numero di connessioni client ed eseguire query sull'utilizzo di risorse. Analysis Services usa lo stesso framework di monitoraggio usato dalla maggior parte degli altri servizi Azure. Per altre informazioni, vedere [Introduzione a Azure Metrics Explorer.To](../azure-monitor/platform/metrics-getting-started.md)learn more, see Getting started with Azure Metrics Explorer.
+Analysis Services fornisce le metriche in Azure Esplora metriche, uno strumento gratuito nel portale, che consente di monitorare le prestazioni e l'integrità dei server. È possibile, ad esempio, monitorare la memoria e l'utilizzo di CPU, il numero di connessioni client ed eseguire query sull'utilizzo di risorse. Analysis Services usa lo stesso framework di monitoraggio usato dalla maggior parte degli altri servizi Azure. Per altre informazioni, vedere [Introduzione ad Azure Esplora metriche](../azure-monitor/platform/metrics-getting-started.md).
 
 Per eseguire una diagnostica più approfondita, tenere traccia delle prestazioni, identificare le tendenze in più risorse del servizio in un gruppo di risorse o una sottoscrizione, usare [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure può generare un servizio fatturabile.
 
@@ -27,7 +27,7 @@ Per eseguire una diagnostica più approfondita, tenere traccia delle prestazioni
 
     ![Monitoraggio nel portale di Azure](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. In **Metrica**selezionare le metriche da includere nel grafico. 
+2. In **metrica**selezionare le metriche da includere nel grafico. 
 
     ![Grafico di monitoraggio](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -54,10 +54,10 @@ Usare questa tabella per determinare le metriche più adatte allo scenario di mo
 |MemoryLimitLow|Memoria: limite memoria minimo|Byte|Media|Limite inferiore della memoria, dal file di configurazione.|
 |MemoryLimitVertiPaq|Memoria: limite memoria VertiPaq|Byte|Media|Limite in memoria dal file di configurazione.|
 |MemoryUsage|Memoria: utilizzo memoria|Byte|Media|Utilizzo della memoria del processo server utilizzato per il calcolo del prezzo di una memoria più pulita. Equivale al contatore Process\PrivateBytes più le dimensioni dei dati con mapping in memoria, ignorando la memoria con mapping o allocazione eseguita dal motore di analisi in memoria (VertiPaq) in eccesso rispetto al limite di memoria del motore.|
-|private_bytes_metric|Private Bytes |Byte|Media|Quantità totale di memoria allocata dai processi del motore di Analysis ServicesAnalysis Services e dai processi del contenitore Mashup, esclusa la memoria condivisa con altri processi.|
-|virtual_bytes_metric|Virtual Bytes |Byte|Media|Dimensioni correnti dello spazio di indirizzi virtuali utilizzato dai processi del motore di Analysis ServicesAnalysis Services e dal contenitore Mashup.|
-|mashup_engine_private_bytes_metric|Byte privati del motore MM Engine Private Bytes |Byte|Media|Quantità totale di memoria allocata dai processi del contenitore Mashup, esclusa la memoria condivisa con altri processi.|
-|mashup_engine_virtual_bytes_metric|Byte virtuali del motore MM Engine Virtual Bytes |Byte|Media|Viene utilizzato la dimensione corrente dello spazio di indirizzi virtuali da parte dei processi del contenitore Mashup.|
+|private_bytes_metric|Private Bytes |Byte|Media|Quantità totale di memoria allocata dal processo del motore Analysis Services e dai processi del contenitore mashup, esclusa la memoria condivisa con altri processi.|
+|virtual_bytes_metric|Virtual Bytes |Byte|Media|Dimensioni correnti dello spazio degli indirizzi virtuali usato dal processo del motore Analysis Services e dai processi del contenitore mashup.|
+|mashup_engine_private_bytes_metric|Byte privati motore M |Byte|Media|La quantità totale di processi del contenitore mashup di memoria è stata allocata, esclusa la memoria condivisa con altri processi.|
+|mashup_engine_virtual_bytes_metric|Byte virtuali del motore M |Byte|Media|Dimensioni correnti dello spazio degli indirizzi virtuali che i processi del contenitore mashup usano.|
 |Quota|Memoria: quota|Byte|Media|Quota di memoria corrente, in byte. Le quote di memoria sono note anche come concessioni di memoria o prenotazioni di memoria.|
 |QuotaBlocked|Memoria: Richieste di quota bloccate|Conteggio|Media|Numero corrente di richieste di quota bloccate fino a quando non vengono liberate altre quote di memoria.|
 |VertiPaqNonpaged|Memoria: VertiPaq non di paging|Byte|Media|Byte di memoria bloccata nel working set per l'uso da parte del motore in memoria.|
@@ -88,6 +88,6 @@ Usare questa tabella per determinare le metriche più adatte allo scenario di mo
 |TotalConnectionRequests|Numero totale di richieste di connessione|Conteggio|Media|Numero totale delle richieste di connessione |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Panoramica di Monitoraggio di AzureAzure Monitor overview](../azure-monitor/overview.md)      
-[Introduzione ad Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)      
+[Panoramica di monitoraggio di Azure](../azure-monitor/overview.md)      
+[Introduzione ad Azure Esplora metriche](../azure-monitor/platform/metrics-getting-started.md)      
 [Metriche nell'API REST di Monitoraggio di Azure](/rest/api/monitor/metrics)

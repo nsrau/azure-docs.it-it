@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274541"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
@@ -33,7 +33,7 @@ Con Gestione dei servizi IT è possibile:
 -  Creare elementi di lavoro nello strumento di Gestione dei servizi IT in base agli avvisi di Azure (avvisi relativi alle metriche, avvisi del log attività e avvisi di Log Analytics).
 -  Facoltativamente, è possibile sincronizzare i dati degli eventi imprevisti e delle richieste di modifica dallo strumento di Gestione dei servizi IT a un'area di lavoro Azure Log Analytics.
 
-Per saperne di più sui [termini legali e l'informativa sulla privacy](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
+Scopri di più sulle [condizioni legali e sull'informativa sulla privacy](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
 È possibile iniziare a usare Connettore di Gestione dei servizi IT seguendo questa procedura:
 
@@ -57,7 +57,7 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
 3. Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro Azure Log Analytics dove si vuole installare la soluzione.
    >[!NOTE]
    > * In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
-   > * Il connettore ITSM può essere installato solo nelle aree di lavoro di Log Analytics nelle seguenti aree geografiche: Stati Uniti orientali, Stati Uniti occidentali2, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Canada centrale, Europa occidentale, Sud-est, Sud-est asiatico, Giappone orientale, India centrale, India sudorientale.
+   > * Il connettore ITSM può essere installato solo nelle aree di lavoro Log Analytics nelle aree seguenti: Stati Uniti orientali, Uniti occidentali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Canada centrale, Europa occidentale, Regno Unito meridionale, Asia sudorientale, Giappone orientale, India centrale, Australia sudorientale.
 
 4. Nella sezione **Impostazioni dell'area di lavoro OMS** selezionare il gruppo di risorse in cui si vuole creare la risorsa soluzione.
 
@@ -65,9 +65,9 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
    >[!NOTE]
    >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
 
-5. Fare clic su **Crea**.
+5. Scegliere **Crea**.
 
-Quando la risorsa della soluzione viene distribuita, viene visualizzata una notifica nella parte superiore destra della finestra.
+Quando viene distribuita la risorsa della soluzione, viene visualizzata una notifica nella parte superiore destra della finestra.
 
 
 ## <a name="creating-an-itsm--connection"></a>Creazione di una connessione di Gestione dei servizi IT
@@ -76,7 +76,7 @@ Una volta installata la soluzione, è possibile creare una connessione.
 
 Per creare una connessione, è necessario preparare lo strumento di Gestione dei servizi IT per consentire la connessione dalla soluzione Connettore di Gestione dei servizi IT.  
 
-A seconda del prodotto ITSM a cui ci si connette, attenersi alla seguente procedura:
+A seconda del prodotto ITSM a cui ci si connette, attenersi alla procedura seguente:
 
 - [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -151,7 +151,7 @@ Il dashboard fornisce anche informazioni sullo stato del connettore, che è poss
 
 È anche possibile visualizzare gli eventi imprevisti sincronizzati in relazione ai computer interessati, all'interno della soluzione Mapping dei servizi.
 
-Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Scopri di più](../../azure-monitor/insights/service-map.md).
+Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../../azure-monitor/insights/service-map.md)
 
 Se si usa anche la soluzione Mapping dei servizi, è possibile visualizzare gli elementi del service desk creati nelle soluzioni di Gestione dei servizi IT, come illustrato nell'esempio seguente:
 
@@ -174,7 +174,7 @@ Le informazioni seguenti mostrano esempi di dati raccolti da Connettore di Gesti
 **Elemento di lavoro:** **Eventi imprevisti**  
 ServiceDeskWorkItemType_s="Incident"
 
-**Campi**
+**Fields**
 
 - ServiceDeskConnectionName
 - ID Service Desk
@@ -202,7 +202,7 @@ ServiceDeskWorkItemType_s="Incident"
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
-**Campi**
+**Fields**
 - ServiceDeskConnectionName
 - ID Service Desk
 - Created By (Creato da)
@@ -235,7 +235,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Campo Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Numero |
 | IncidentState_s | State |
 | Urgency_s |Urgenza |
 | Impact_s |Impatto|
@@ -257,12 +257,12 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Numero |
 | CreatedBy_s | Richiesto da |
 | ClosedBy_s | Chiuso da |
 | AssignedTo_s | Assegnato a  |
 | Title_s|  Breve descrizione |
-| Type_s|  Type |
+| Type_s|  Tipo |
 | Category_s|  Category |
 | CRState_s|  State|
 | Urgency_s|  Urgenza |
@@ -285,11 +285,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - assicurarsi di immettere correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
    - controllare se si hanno privilegi sufficienti nel prodotto ITSM corrispondente per stabilire la connessione.  
    - Per le connessioni Service Manager,  
-   - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione sia stata stabilita correttamente con il computer Service Manager locale, visitare l'URL dell'app Web come descritto nella documentazione relativa alla [connessione ibrida.](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)  
+   - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione sia stata stabilita correttamente con il computer locale Service Manager, visitare l'URL dell'app Web come descritto in dettaglio nella documentazione per la creazione della [connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2. Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
 3. Se vengono generati avvisi di Log Analytics, ma gli elementi di lavoro non vengono creati nel prodotto di Gestione dei servizi IT o gli elementi di configurazione non vengono creati o collegati a elementi di lavoro o per qualsiasi altra informazione generica, fare riferimento a quanto segue:
-   -  ITSMC: la soluzione mostra un riepilogo delle connessioni/elementi di lavoro/computer, ecc. Fare clic sul riquadro che mostra **lo stato del connettore**, che consente di accedere a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
+   -  CONNETTORE: la soluzione Mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro che mostra **lo stato del connettore**, che consente di eseguire la **ricerca nei log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
    - Pagina **Ricerca log**: consente di visualizzare gli errori o le informazioni correlate direttamente usando la query `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di distribuzione dell’app Web Service Manager
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="contact-us"></a>Contatti
 
-Per eventuali domande o commenti e suggerimenti su [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)IT Service Management Connector, contattarci all'indirizzo .
+Per eventuali query o commenti e suggerimenti su IT Service Management Connector, contattare Microsoft [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)all'indirizzo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Aggiungere prodotti o servizi ITSM a IT Service Management Connector](../../azure-monitor/platform/itsmc-connections.md).

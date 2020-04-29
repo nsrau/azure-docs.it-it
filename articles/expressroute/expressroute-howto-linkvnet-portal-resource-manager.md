@@ -1,6 +1,6 @@
 ---
-title: 'ExpressRoute: Collegare una rete virtuale a un circuito: Portale di AzureExpressRoute: Link a VNet to a circuit: Azure portal'
-description: Connettere una rete virtuale a un circuito di Azure ExpressRoute.Connect a VNet to an Azure ExpressRoute circuit. Procedure.
+title: 'ExpressRoute: collegare un VNet a un circuito: portale di Azure'
+description: Connettere una VNet a un circuito ExpressRoute di Azure. Procedure.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,18 +9,18 @@ ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272916"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connettere una rete virtuale a un circuito ExpressRoute usando il portale
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-linkvnet-arm.md)
-> * [Interfaccia della riga di comando di AzureAzure](howto-linkvnet-cli.md)
-> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
+> * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (versione classica)](expressroute-howto-linkvnet-classic.md)
 > 
 
@@ -32,7 +32,7 @@ Questo articolo consente di creare una connessione per collegare una rete virtua
 
 * È necessario avere un circuito ExpressRoute attivo.
   * Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e fare in modo che venga abilitato dal provider di connettività.
-  * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Vedere l'articolo Creare e modificare il [peering per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) per le istruzioni di peering e routing.
+  * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Vedere l'articolo [creare e modificare il peering per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) per istruzioni per il peering e il routing.
   * Per abilitare la connettività end-to-end, assicurarsi che sia configurato il peering privato di Azure e sia attivo il peering BGP tra la rete e Microsoft.
   * Assicurarsi di disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [creare un gateway di rete virtuale per ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Un gateway di rete virtuale per ExpressRoute usa 'ExpressRoute' come GatewayType, non VPN.
 
@@ -52,10 +52,10 @@ Questo articolo consente di creare una connessione per collegare una rete virtua
 
 ### <a name="to-create-a-connection"></a>Per creare una connessione
 
-1. Verificare che il circuito ExpressRoute e il peering privato di Azure siano configurati correttamente. Seguire le istruzioni in [Creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e Creare e modificare il [peering per un circuito ExpressRoute.](expressroute-howto-routing-arm.md) Il circuito ExpressRoute deve essere simile a quello della figura seguente:
+1. Verificare che il circuito ExpressRoute e il peering privato di Azure siano configurati correttamente. Seguire le istruzioni riportate in [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e [creare e modificare il peering per un circuito ExpressRoute](expressroute-howto-routing-arm.md). Il circuito ExpressRoute deve essere simile a quello della figura seguente:
 
    [![Schermata del circuito ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Visualizza circuito")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
-2. È ora possibile avviare il provisioning di una connessione per collegare il gateway della rete virtuale al circuito ExpressRoute. Fare clic su **Connessione** > **aggiungi** per aprire la pagina Aggiungi **connessione** e quindi configurare i valori.
+2. È ora possibile avviare il provisioning di una connessione per collegare il gateway della rete virtuale al circuito ExpressRoute. Fare clic su **connessione** > **Aggiungi** per aprire la pagina **Aggiungi connessione** , quindi configurare i valori.
 
    [![Aggiungere la schermata della connessione](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Schermata Aggiungi connessione")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. Al termine della configurazione, l'oggetto connessione visualizzerà le informazioni per la connessione.
@@ -122,7 +122,7 @@ L'utente del circuito deve richiedere l'ID risorsa e una chiave di autorizzazion
 
    ![Pagina Informazioni di base](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. Nella pagina **Impostazioni** selezionare **Gateway di rete virtuale** e selezionare la casella di controllo **Riscatta autorizzazione**.
-6. Immettere i valori nei campi **Authorization key** (Chiave di autorizzazione) e **Peer circuit URI** (URI circuito peer) e assegnare un nome di connessione. Fare clic su **OK**. L'URI del **circuito peer** è l'ID risorsa del circuito ExpressRoute (che è possibile trovare nel riquadro Impostazioni proprietà del circuito ExpressRoute).
+6. Immettere i valori nei campi **Authorization key** (Chiave di autorizzazione) e **Peer circuit URI** (URI circuito peer) e assegnare un nome di connessione. Fare clic su **OK**. L' **URI del circuito peer** è l'ID di risorsa del circuito ExpressRoute, che è possibile trovare nel riquadro delle impostazioni delle proprietà del circuito ExpressRoute.
 
    ![Pagina Impostazioni](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Verificare le informazioni nella pagina **Riepilogo** e fare clic su **OK**.

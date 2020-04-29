@@ -1,5 +1,5 @@
 ---
-title: Analizzare il report Pianificazione distribuzione Hyper-V in Azure Site RecoveryAnalyze the Hyper-V Deployment Planner report in Azure Site Recovery
+title: Analizzare il report Deployment Planner di Hyper-V in Azure Site Recovery
 description: Questo articolo descrive come analizzare un report generato da Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali Hyper-V in Azure.
 services: site-recovery
 author: mayurigupta13
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257901"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
@@ -23,7 +23,7 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 ![Riepilogo ambiente locale](media/hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
-**Data di inizio** e **Data di fine:** le date di inizio e di fine dei dati di profilatura considerati per la generazione del report. Per impostazione predefinita, la data di inizio è la data in cui inizia la profilatura e la data di fine è la data in cui termina. Può trattarsi dei valori di 'StartDate' ed 'EndDate' se il report viene generato con questi parametri.
+Data di **inizio** e data di **fine**: date di inizio e di fine dei dati di profilatura considerati per la generazione di report. Per impostazione predefinita, la data di inizio è la data in cui inizia la profilatura e la data di fine è la data in cui termina. Può trattarsi dei valori di 'StartDate' ed 'EndDate' se il report viene generato con questi parametri.
 
 **Total number of profiling days** (Numero totale di giorni di profilatura): numero totale di giorni di profilatura tra le date di inizio e fine per i quali viene generato il report.
 
@@ -35,13 +35,13 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Average disk size (GB)** (Dimensioni medie disco - GB): dimensioni medie dei dischi calcolate tra tutte le VM compatibili.
 
-**RPO desiderato (minuti):** l'obiettivo del punto di ripristino predefinito o il valore passato per il parametro "DesiredRPO" al momento della generazione del report per stimare la larghezza di banda necessaria.
+**RPO desiderato (minuti)**: l'obiettivo del punto di ripristino predefinito o il valore passato per il parametro "DesiredRPO" al momento della generazione del report per stimare la larghezza di banda richiesta.
 
 **Desired bandwidth (Mbps)** (Larghezza di banda desiderata - Mbps): valore passato per il parametro "Bandwidth" al momento della generazione di report per stimare il valore dell'obiettivo del punto di ripristino (RPO) ottenibile.
 
 **Observed typical data churn per day (GB)** (Varianza dei dati giornaliera tipica osservata - GB): varianza media dei dati osservata in tutti i giorni di profilatura.
 
-## <a name="recommendations"></a>Consigli 
+## <a name="recommendations"></a>Indicazioni 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da Hyper-V ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato selezionato:
 
 ![Raccomandazioni del report per lo scenario da Hyper-V ad Azure](media/hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)
@@ -51,7 +51,7 @@ Il foglio Recommendations (Raccomandazioni) del report per lo scenario da Hyper-
 
 **Profiled data period**(Periodo profilatura dati): periodo durante il quale la profilatura è stata in esecuzione. Per impostazione predefinita, lo strumento include nel calcolo tutti i dati profilati. Se nella generazione del report sono state usate le opzioni StartDate ed EndDate, viene generato il report per il periodo specifico. 
 
-**Numero di server Hyper-V profilati:** numero di server Hyper-V di cui viene generato il report delle macchine virtuali. Selezionare il numero per visualizzare il nome dei server Hyper-V. Verrà visualizzato il foglio On-premises Storage Requirement (Requisito di archiviazione locale) in cui sono elencati tutti i server con il relativo requisito di archiviazione. 
+**Numero di server Hyper-v profilati**: numero di server Hyper-v di cui viene generato il report delle macchine virtuali. Selezionare il numero per visualizzare il nome dei server Hyper-V. Verrà visualizzato il foglio On-premises Storage Requirement (Requisito di archiviazione locale) in cui sono elencati tutti i server con il relativo requisito di archiviazione. 
 
 **Desired RPO** (RPO desiderato): obiettivo del punto di ripristino per la distribuzione. Per impostazione predefinita, la larghezza di banda di rete viene calcolata per i valori RPO di 15, 30 e 60 minuti. A seconda della selezione, i valori interessati verranno aggiornati nel foglio. Se durante la generazione del report è stato usato il parametro DesiredRPOinMin, tale valore verrà visualizzato nel risultato di Desired RPO (RPO desiderato).
 
@@ -179,7 +179,7 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 
 **VM Name** (Nome macchina virtuale): nome della macchina virtuale usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (dischi rigidi virtuali) collegati alle macchine virtuali. I nomi includono i nomi host Hyper-V in cui si trovavano le macchine virtuali quando lo strumento le ha rilevate durante il periodo di profilatura.
 
-**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Sì** \* è per le istanze in cui la macchina virtuale è adatta per [gli SSD premium.](../virtual-machines/windows/disks-types.md) In questo caso, il disco profilato per valori elevati di operazioni di I/O al secondo o varianza rientra in una categoria di dimensioni del disco Premium più elevata rispetto a quella mappata al disco. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco: 
+**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Sì** \* è per le istanze in cui la macchina virtuale è adatta per le unità [SSD Premium](../virtual-machines/windows/disks-types.md). In questo caso, il disco profilato per valori elevati di operazioni di I/O al secondo o varianza rientra in una categoria di dimensioni del disco Premium più elevata rispetto a quella mappata al disco. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco: 
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 256 GB rientrano nella categoria P15.
 * Da 256 GB a 512 GB rientrano nella categoria P20.
@@ -187,7 +187,7 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 * Da 1.025 GB a 2.048 GB rientrano nella categoria P40.
 * Da 2.049 GB a 4.095 GB rientrano nella categoria P50.
 
-Ad esempio, se le caratteristiche del carico di lavoro di un disco lo inseriscono nella categoria P20 o P30, ma le dimensioni lo rimappano a un tipo di disco di archiviazione Premium inferiore, lo strumento contrassegna tale macchina virtuale come **Sì**\*. Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
+Ad esempio, se le caratteristiche del carico di lavoro di un disco lo inseriscono nella categoria P20 o P30, ma la dimensione ne esegue il mapping a un tipo di disco di archiviazione Premium inferiore, lo strumento contrassegna tale macchina virtuale come **Sì**\*. Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
 
 **Storage Type** (Tipo di archiviazione): Standard o Premium.
 
@@ -246,7 +246,7 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 
 * Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 80.000 operazioni per VM.
 
-* La varianza media dei dati della macchina virtuale di origine supera il limite di varianza dei dati di Site Recovery supportato di 20 MB/s per le dimensioni medie dei / o.
+* La varianza media dei dati della VM di origine supera il limite di varianza dei dati Site Recovery supportato di 20 MB/s per le dimensioni I/O medie.
 
 * Il numero medio di operazioni di I/O al secondo in scrittura effettive della VM di origine supera il limite supportato da Site Recovery di 840 operazioni.
 
@@ -258,7 +258,7 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 
 **Number of Disks** (Numero di dischi): numero totale di dischi rigidi virtuali nella macchina virtuale.
 
-**Dimensione disco (GB):** la dimensione totale di installazione di tutti i dischi della macchina virtuale. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
+**Dimensioni disco (GB)**: dimensioni totali dell'installazione di tutti i dischi della macchina virtuale. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
 
 **Cores** (Core): numero di core CPU nella VM.
 
@@ -271,11 +271,11 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 ## <a name="azure-site-recovery-limits"></a>Limiti di Azure Site Recovery
 La tabella seguente indica i limiti di Site Recovery. Questi limiti si basano su test, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. Per risultati ottimali, anche dopo la pianificazione della distribuzione eseguire test approfonditi delle applicazioni con un failover di test per ottenere il quadro reale delle prestazioni dell'applicazione.
  
-**Destinazione di archiviazione della replica** | **Dimensioni medie I/O della macchina virtuale di origineSource VM average I/O size** |**Variata media dei dati della macchina virtuale di origine** | **Varianza dati totale giornaliera VM di origine**
+**Destinazione archiviazione di replica** | **Dimensioni medie I/O VM di origine** |**Varianza dei dati media della VM di origine** | **Varianza dati totale giornaliera VM di origine**
 ---|---|---|---
 Archiviazione standard | 8 KB | 2 MB/s per VM | 168 GB per VM
 Archiviazione Premium | 8 KB  | 5 MB/s per VM | 421 GB per VM
-Archiviazione Premium | 16 KB o superiore| 20 MB/s per macchina virtuale | 1684 GB per macchina virtuale1684 GB per VM
+Archiviazione Premium | 16 KB o superiore| 20 MB/s per macchina virtuale | 1684 GB per macchina virtuale
 
 Questi limiti rappresentano valori medi presupponendo una sovrapposizione di I/O del 30%. Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro. I numeri precedenti presuppongono un backlog tipico di circa cinque minuti, ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.
 
@@ -323,19 +323,19 @@ Dopo aver seguito le raccomandazioni relative ai requisiti per lo spazio di arch
 ### <a name="each-batch-provides-the-following-information"></a>Ogni batch fornisce le informazioni seguenti 
 **Hyper-V host** (Host Hyper-V): host Hyper-V della macchina virtuale da proteggere.
 
-**Macchina virtuale:** la macchina virtuale da proteggere. 
+**Macchina virtuale**: la VM da proteggere. 
 
 **Comments** (Commenti): se sono necessarie azioni per un volume specifico di una macchina virtuale, i commenti vengono indicati in questa posizione. Se, ad esempio, non è disponibile spazio sufficiente in un volume, nel commento viene indicato di aggiungere spazio per proteggere la macchina virtuale.
 
-**Volume (percorso VHD):** il nome del volume in cui risiedono i dischi rigidi virtuali della macchina virtuale. 
+**Volume (percorso disco rigido virtuale)**: nome del volume in cui si trovano i dischi rigidi virtuali della macchina virtuale. 
 
-**Spazio libero disponibile nel volume (GB):** lo spazio libero disponibile sul disco disponibile nel volume per la macchina virtuale. Per il calcolo dello spazio disponibile nei volumi, viene considerato lo spazio su disco usato per la replica differenziale dalle macchine virtuali dei batch precedenti i cui dischi rigidi virtuali si trovano nello stesso volume. 
+**Spazio disponibile sul volume (GB)**: lo spazio libero su disco disponibile nel volume per la macchina virtuale. Per il calcolo dello spazio disponibile nei volumi, viene considerato lo spazio su disco usato per la replica differenziale dalle macchine virtuali dei batch precedenti i cui dischi rigidi virtuali si trovano nello stesso volume. 
 
 Si presupponga ad esempio che le macchine virtuali VM1, VM2 e VM3 si trovino nel volume E:\VHDpath. Prima della replica, lo spazio disponibile nel volume è di 500 GB. VM1 fa parte del batch 1, VM2 fa parte del batch 2 e VM3 fa parte del batch 3. Per VM1, lo spazio disponibile è 500 GB. Per VM2, lo spazio disponibile è 500 meno lo spazio su disco necessario per la replica differenziale per VM1. Se VM1 richiede 300 GB di spazio per la replica differenziale, lo spazio disponibile per VM2 è 500 GB - 300 GB = 200 GB. Analogamente, VM2 richiede 300 GB per la replica differenziale. Lo spazio disponibile per VM3 è 200 GB - 300 GB = -100 GB.
 
 **Storage required on the volume for initial replication (GB)** (Spazio di archiviazione necessario nel volume per la replica iniziale - GB): spazio di archiviazione disponibile necessario nel volume per la replica iniziale della macchina virtuale.
 
-**Spazio di archiviazione richiesto nel volume per la replica differenziale (GB):** spazio di archiviazione disponibile nel volume per la macchina virtuale per la replica differenziale.
+**Archiviazione necessaria nel volume per Delta Replication (GB)**: lo spazio di archiviazione disponibile nel volume per la macchina virtuale per la Delta Replication.
 
 **Additional storage required based on deficit to avoid replication failure (GB)** (Spazio di archiviazione aggiuntivo necessario in base al disavanzo per evitare errori di replica - GB): spazio di archiviazione aggiuntivo necessario nel volume per la macchina virtuale. Corrisponde al requisito massimo di spazio di archiviazione disponibile per la replica iniziale e la replica differenziale meno lo spazio disponibile nel volume.
 
@@ -352,7 +352,7 @@ La tabella di ogni batch fornisce un riepilogo dell'utilizzo di rete del batch.
 
 **Approximate bandwidth consumed for delta replication of batch** (Larghezza di banda approssimativa utilizzata per la replica differenziale del batch): larghezza di banda necessaria per la replica differenziale delle macchine virtuali del batch. 
 
-**Tempo di replica iniziale stimato per batch (HH:MM):** tempo di replica iniziale stimato in ore:minuti.
+**Tempo di replica iniziale stimato per batch (HH: mm)**: tempo stimato per la replica iniziale in ore: minuti.
 
 
 

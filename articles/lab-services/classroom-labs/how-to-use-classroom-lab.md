@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 03/17/2020
 ms.author: spelluru
 ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79501924"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Come accedere a un lab per le classi in Azure Lab Services
@@ -26,7 +26,7 @@ Questo articolo descrive come registrarsi a un lab per la classe, visualizzare t
 
 ## <a name="register-to-the-lab"></a>Registrarsi al lab
 
-1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Utilizzare invece l'URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
+1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Usare invece l'URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
 1. Accedere al servizio usando l'account dell'istituto di istruzione per completare la registrazione. 
 
     > [!NOTE]
@@ -80,7 +80,7 @@ L'indicatore di stato nel riquadro indica il numero di ore usate rispetto al num
 ## <a name="view-all-the-classroom-labs"></a>Visualizzare tutti i lab della classe
 Dopo la registrazione ai lab, è possibile visualizzare tutti i lab per le classi attenendosi alla procedura seguente: 
 
-1. Passare [https://labs.azure.com](https://labs.azure.com)a . Internet Explorer 11 non è ancora supportato. 
+1. Passare a [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
 2. Accedere al servizio con l'account utente usato per la registrazione al lab. 
 3. Verificare che siano visualizzati tutti i lab a cui si ha accesso. 
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282757"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Panoramica dell'importazione dati-Azure ricerca cognitiva
@@ -73,7 +73,7 @@ Il formato per POST è lo stesso, ma con solo la versione dell'API nei parametri
 Il modello pull effettua una ricerca per indicizzazione su un'origine dati supportata e carica automaticamente i dati nell'indice. In Azure ricerca cognitiva questa funzionalità viene implementata tramite gli *indicizzatori*, attualmente disponibili per queste piattaforme:
 
 + [Archiviazione BLOB](search-howto-indexing-azure-blob-storage.md)
-+ [Archiviazione tabelle](search-howto-indexing-azure-tables.md)
++ [Archiviazione - Tabelle](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Database SQL di Azure e SQL Server in macchine virtuali di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -93,7 +93,7 @@ Un modo rapido per eseguire un controllo preliminare sul caricamento del documen
 > [!TIP]
 > Numerosi [esempi di codice di ricerca cognitiva di Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) includono set di impostazioni disponibili o facilmente disponibili, che offrono un modo semplice per iniziare. Il portale offre anche un indicizzatore e un'origine dati di esempio, costituita da un piccolo set di dati immobiliari, denominato "realestate-us-sample". Quando si esegue l'indicizzatore preconfigurato nell'origine dati di esempio, viene creato un indice che viene caricato con i documenti su cui possono essere eseguite query in Esplora ricerche o tramite codice scritto dall'utente.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Procedura dettagliata per il portale: creare, caricare ed eseguire query su un indice](search-get-started-portal.md)

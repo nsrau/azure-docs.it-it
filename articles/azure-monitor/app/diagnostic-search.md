@@ -4,10 +4,10 @@ description: Ricercare e filtrare elementi di telemetria non elaborata inviata d
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275984"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
@@ -20,13 +20,13 @@ Per le query più complesse sui dati, utilizzare [Analytics](../../azure-monitor
 
 ### <a name="in-the-azure-portal"></a>Nel portale di Azure
 
-È possibile aprire la ricerca diagnostica dalla scheda Panoramica di Application Insights dell'applicazione (situata nella barra superiore) o in Esamina a sinistra.
+È possibile aprire la ricerca diagnostica dalla scheda Panoramica Application Insights dell'applicazione (che si trova nella barra superiore) o in analisi a sinistra.
 
 ![Scheda Search (Ricerca)](./media/diagnostic-search/view-custom-events.png)
 
-Passare al menu a discesa Tipi di evento per visualizzare un elenco di elementi di telemetria: richieste del server, visualizzazioni di pagina, eventi personalizzati codificati e così via. Nella parte superiore dell'elenco dei risultati, è riportato un grafico riepilogativo che mostra i conteggi degli eventi nel tempo.
+Passare al menu a discesa tipi di evento per visualizzare un elenco di elementi di telemetria: richieste server, visualizzazioni pagina, eventi personalizzati codificati e così via. Nella parte superiore dell'elenco dei risultati, è un grafico di riepilogo che mostra i conteggi degli eventi nel tempo.
 
-Fare clic su Fuori dal menu a discesa o su Aggiorna per ottenere nuovi eventi.
+Fare clic fuori dal menu a discesa o aggiornare per ottenere nuovi eventi.
 
 ### <a name="in-visual-studio"></a>In Visual Studio
 
@@ -52,21 +52,21 @@ Verrà avviata la visualizzazione dei dettagli delle transazioni end-to-end.
 
 ## <a name="filter-event-types"></a>I tipi di eventi sono i seguenti:
 
-Aprire il menu a discesa Tipi di evento e scegliere i tipi di evento che si desidera visualizzare. Se, in seguito, si desidera ripristinare i filtri, fare clic su Reimposta.
+Aprire il menu a discesa tipi di evento e scegliere i tipi di evento che si desidera visualizzare. Se, successivamente, si desidera ripristinare i filtri, fare clic su Reimposta.
 
 I tipi di eventi sono i seguenti:
 
-* **Registri** - [di diagnostica](../../azure-monitor/app/asp-net-trace-logs.md) di traccia, incluse le chiamate TrackTrace, log4Net, NLog e System.Diagnostic.Trace.
+* **Tracciare** - i[log di diagnostica](../../azure-monitor/app/asp-net-trace-logs.md) , incluse le chiamate a TrackTrace, log4Net, NLog e System. Diagnostic. Trace.
 * **Richiesta**: richieste HTTP ricevute dall'applicazione server, tra cui pagine, script, immagini, file di stile e dati. Questi eventi vengono usati per creare grafici di panoramica di richieste e risposte.
-* **Telemetria visualizzazione** - pagina[inviata dal client web](../../azure-monitor/app/javascript.md), utilizzato per creare report di visualizzazione pagina.
+* **Page View** - [Telemetria delle visualizzazioni pagina inviate dal client Web](../../azure-monitor/app/javascript.md), utilizzate per creare report di visualizzazione pagina.
 * **Evento personalizzato**: se sono state inserite chiamate in TrackEvent() per [tenere traccia dell'utilizzo](../../azure-monitor/app/api-custom-events-metrics.md), è possibile cercarle qui.
-* **Eccezione:** [eccezioni](../../azure-monitor/app/asp-net-exceptions.md)non rilevate nel server e quelle registrate tramite TrackException().
-* **Dependency** - Chiamate di dipendenza[dall'applicazione server](../../azure-monitor/app/asp-net-dependencies.md) ad altri servizi, ad esempio API REST o database, e chiamate AJAX dal [codice client.](../../azure-monitor/app/javascript.md)
+* **Eccezione** : eccezioni non rilevate [nel server](../../azure-monitor/app/asp-net-exceptions.md)e quelle che si registrano con trackexception ().
+* **Le chiamate alle dipendenze** - [dall'applicazione server](../../azure-monitor/app/asp-net-dependencies.md) ad altri servizi, ad esempio le API REST o i database, e le chiamate AJAX dal [codice client](../../azure-monitor/app/javascript.md).
 * **Disponibilità**: risultati dei [test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrare in base ai valori delle proprietà
 
-È possibile filtrare gli eventi in base ai valori delle relative proprietà. Le proprietà disponibili dipendono dai tipi di eventi selezionati. Fare clic sull'icona del filtro ![Icona Filtro](./media/diagnostic-search/filter-icon.png) iniziare.
+È possibile filtrare gli eventi in base ai valori delle relative proprietà. Le proprietà disponibili dipendono dai tipi di eventi selezionati. Fare clic sull'icona del filtro ![Icona Filtro](./media/diagnostic-search/filter-icon.png) per iniziare.
 
 La mancata scelta dei valori di una determinata proprietà ha lo stesso effetto della scelta di tutti i valori. Viene disattivata l'applicazione dei filtri per quella proprietà.
 
@@ -74,17 +74,17 @@ Si noti che il numero a destra dei valori di filtro mostra quante occorrenze son
 
 ## <a name="find-events-with-the-same-property"></a>Trovare gli eventi con la stessa proprietà
 
-Per trovare tutti gli elementi con lo stesso valore di proprietà, digitarlo nella barra di ricerca o fare clic sulla casella di controllo quando si cercano le proprietà nella scheda del filtro.
+Per trovare tutti gli elementi con lo stesso valore della proprietà, digitarli nella barra di ricerca oppure fare clic sulla casella di controllo quando si esaminano le proprietà nella scheda filtro.
 
-![Fare clic sulla casella di controllo di una proprietà nella scheda dei filtri](./media/diagnostic-search/filter-property.png)
+![Fare clic sulla casella di controllo di una proprietà nella scheda filtro](./media/diagnostic-search/filter-property.png)
 
 ## <a name="search-the-data"></a>Eseguire ricerche nei dati
 
 > [!NOTE]
-> Per scrivere query più complesse, aprire [**Registri (Analitica)**](../../azure-monitor/log-query/get-started-portal.md) nella parte superiore del pannello Ricerca.
+> Per scrivere query più complesse, aprire [**logs (Analytics)**](../../azure-monitor/log-query/get-started-portal.md) nella parte superiore del pannello Search (Cerca).
 >
 
-È possibile cercare i termini in uno dei valori delle proprietà. Ciò è utile se sono stati scritti [eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md) con valori di proprietà.
+È possibile cercare i termini in uno dei valori delle proprietà. Questa operazione è utile se sono stati scritti [eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md) con valori di proprietà.
 
 È possibile che si voglia impostare un intervallo di tempo, poiché le ricerche di un intervallo più breve sono più veloci.
 
@@ -92,7 +92,7 @@ Per trovare tutti gli elementi con lo stesso valore di proprietà, digitarlo nel
 
 Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiudere i caratteri speciali.
 
-| string | *Non* trovato | Trovato |
+| Stringa | *Non* trovato | Trovato |
 | --- | --- | --- |
 | ControllerHome.Info |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Stati Uniti|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -108,7 +108,7 @@ Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiu
 
 ## <a name="sampling"></a>campionamento
 
-Se l'app genera una grande quantità di dati di telemetria e si usa l'SDK di ASP.NET versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume inviato al portale inviando solo una frazione rappresentativa degli eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta vengono selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati.
+Se l'app genera una grande quantità di dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta vengono selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati.
 
 [Informazioni sul campionamento](../../azure-monitor/app/sampling.md).
 
@@ -122,7 +122,7 @@ Passare alla visualizzazione dettagli transazione end-to-end facendo clic su qua
 
 La prima volta che si esegue questa operazione viene chiesto di configurare un collegamento all'organizzazione e al progetto di Azure DevOps.
 
-È inoltre possibile configurare il collegamento nella scheda Elementi di lavoro.
+È anche possibile configurare il collegamento nella scheda elementi di lavoro.
 
 ## <a name="send-more-telemetry-to-application-insights"></a>Inviare altri dati di telemetria ad Application Insights
 

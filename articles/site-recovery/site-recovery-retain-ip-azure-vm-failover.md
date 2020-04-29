@@ -1,5 +1,5 @@
 ---
-title: Mantenere gli indirizzi IP dopo il failover della macchina virtuale di Azure con Azure Site RecoveryKeep IP addresses after Azure VM failover with Azure Site Recovery
+title: Mantieni gli indirizzi IP dopo il failover della macchina virtuale di Azure con Azure Site Recovery
 description: Viene descritto come mantenere gli indirizzi IP quando si effettua il failover di macchine virtuali di Azure per il ripristino di emergenza in un'area secondaria con Azure Site Recovery
 ms.service: site-recovery
 ms.date: 4/9/2019
@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257563"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Mantenere gli indirizzi IP durante il failover
@@ -37,7 +37,7 @@ La società A ha tutte le proprie app in esecuzione in Azure.
 Di seguito viene indicata l'architettura prima del failover.
 
 - La società ha identiche reti e subnet in aree di origine e di destinazione di Azure.
-- Per ridurre l'obiettivo del tempo di ripristino (RTO), società utilizza nodi di replica per SQL Server Always On, controller di dominio e così via. Questi nodi di replica si trovano in una rete virtuale diversa nell'area di destinazione, in modo che possano stabilire una connettività VPN da sito a sito tra le aree di origine e di destinazione. Ciò non è possibile se lo stesso spazio di indirizzi IP viene usato nell'origine e nella destinazione.  
+- Per ridurre l'obiettivo del tempo di ripristino (RTO), l'azienda usa nodi di replica per SQL Server Always On, controller di dominio e così via. Questi nodi di replica si trovano in un VNet diverso nell'area di destinazione, in modo che possano stabilire la connettività VPN da sito a sito tra le aree di origine e di destinazione. Ciò non è possibile se lo stesso spazio di indirizzi IP viene usato nell'origine e nella destinazione.  
 - Prima del failover, l'architettura di rete è la seguente:
     - L'area primaria è Asia orientale di Azure
         - Asia orientale dispone di una rete virtuale (**Rete virtuale di origine**) con spazio degli indirizzi 10.1.0.0/16.
@@ -92,7 +92,7 @@ Prima del failover, l'architettura è la seguente:
 - L'area secondaria (destinazione) è Asia sud-orientale di Azure - Asia sud-orientale di Azure dispone di reti virtuali di ripristino (**Rete virtuale di ripristino 1** e **Rete virtuale di Ripristino 2**) identiche a **Rete virtuale di origine 1** e **Rete virtuale di origine 2**.
         - La **rete virtuale di ripristino 1** e la **rete virtuale di ripristino 2** dispongono ognuna di due subnet che corrispondono alle subnet in **rete virtuale di origine 1** e **rete virtuale di origine 2**. Nell'area Asia sud-orientale è presente una rete orientale aggiuntiva (**Rete virtuale di Azure**) con spazio degli indirizzi 10.3.0.0/16.
         - La **rete virtuale di Azure** contiene una subnet (**Subnet 4**) con spazio degli indirizzi 10.3.4.0/24.
-        - I nodi di replica per SQL Server Always On, controller di dominio e così via si trovano nella **subnet 4**.
+        -I nodi di replica per SQL Server Always On, controller di dominio e così via si trovano nella **subnet 4**.
 - Sono presenti alcune connessioni VPN da sito a sito: 
     - **Rete virtuale di origine 1** e **rete virtuale di Azure**
     - **Rete virtuale di origine 2** e **rete virtuale di Azure**
@@ -132,10 +132,10 @@ Di seguito viene indicato l'aspetto dell'architettura di rete prima del failover
   - Nell'area Asia orientale i carichi di lavoro sono suddivisi tra tre subnet nella **rete virtuale di origine**:
     - **Subnet 1**: 10.1.1.0/24
     - **Subnet 2**: 10.1.2.0/24
-    - **Subnet 3**: 10.1.3.0/24, utilizzando una rete virtuale di Azure con spazio di indirizzi 10.1.0.0/16.Subnet 3 : 10.1.3.0/24, using an Azure virtual network with address space 10.1.0.0/16. Questa rete virtuale è denominata **Rete virtuale di origine**
+    - **Subnet 3**: 10.1.3.0/24, uso di una rete virtuale di Azure con spazio indirizzi 10.1.0.0/16. Questa rete virtuale è denominata **Rete virtuale di origine**
       - L'area secondaria (destinazione) è Asia sud-orientale di Azure:
   - Asia sud-orientale dispone di una rete virtuale di ripristino (**Rete virtuale di ripristino**) identica alla **Rete virtuale di origine**.
-- Le macchine virtuali nell'Asia orientale sono connesse a un data center locale con Azure ExpressRoute o VPN da sito a sito.
+- Le macchine virtuali in Asia orientale sono connesse a un Data Center locale con Azure ExpressRoute o VPN da sito a sito.
 - Per ridurre l'obiettivo del tempo di ripristino (RTO), la società B effettua il provisioning del gateway nella rete virtuale di ripristino nell'area Asia sud-orientale di Azure prima del failover.
 - La società B assegna/verifica gli indirizzi IP di destinazione per le macchine virtuali replicate. L'indirizzo IP di destinazione è lo stesso indirizzo IP di origine per ogni macchina virtuale.
 

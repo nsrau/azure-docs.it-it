@@ -4,10 +4,10 @@ description: Questo articolo illustra come preparare i backup di System Center D
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273462"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
@@ -34,7 +34,7 @@ Di seguito sono elencati i vantaggi aziendali derivanti dal backup dei server DP
 - Per DPM locale, Backup di Azure offre un'alternativa alla distribuzione a lungo termine su nastro.
 - Per DPM in esecuzione in una macchina virtuale di Azure, Backup di Azure consente l'offload dell'archiviazione dal disco di Azure. L'archiviazione dei dati meno recenti nell'insieme di credenziali di backup consente di aumentare le prestazioni dell'azienda archiviando i nuovi dati su disco.
 
-## <a name="prerequisites-and-limitations"></a>Prerequisiti e limitazioni
+## <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
 
 **Impostazione** | **Requisito**
 --- | ---
@@ -103,7 +103,7 @@ Scaricare le credenziali dell'insieme di credenziali in un computer locale come 
 
     ![Menu dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. In **Proprietà** > **Credenziali di backup** fare clic su **Scarica**. Il portale genera il file delle credenziali dell'insieme di credenziali usando una combinazione del nome dell'insieme di credenziali e della data corrente e lo rende disponibile per il download.
+4. In **Properties** > **backup Credentials**fare clic su **download**. Il portale genera il file delle credenziali dell'insieme di credenziali usando una combinazione del nome dell'insieme di credenziali e della data corrente e lo rende disponibile per il download.
 
     ![Download](./media/backup-azure-dpm-introduction/vault-credentials.png)
 

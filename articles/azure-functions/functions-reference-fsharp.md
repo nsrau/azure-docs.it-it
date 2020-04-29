@@ -1,5 +1,5 @@
 ---
-title: Guida di riferimento per sviluppatori di Azure Functions F
+title: 'Guida di riferimento per gli sviluppatori di funzioni di Azure F #'
 description: Informazioni su come sviluppare Funzioni di Azure usando lo script F#.
 author: sylvanc
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276764"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
@@ -18,7 +18,7 @@ ms.locfileid: "79276764"
 F# per Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. I dati vengono trasmessi alla funzione F# tramite argomenti della funzione. I nomi di argomento sono specificati in `function.json`e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento. 
 
 >[!IMPORTANT]
->Lo script F# (.fsx) è supportato solo dalla [versione 1.x](functions-versions.md#creating-1x-apps) del runtime di Funzioni di Azure. Se si desidera utilizzare F , con la versione 2.x e versioni successive del runtime, è necessario utilizzare un progetto di libreria di classi F , precompilato (.fs). Creare, gestire e pubblicare un progetto della libreria di classi F# con Visual Studio, come si farebbe con un [progetto della libreria di classi C#](functions-dotnet-class-library.md). Per altre informazioni sulle versioni di Funzioni, vedere [Panoramica delle versioni del runtime per Funzioni di Azure](functions-versions.md).
+>Lo script F# (.fsx) è supportato solo dalla [versione 1.x](functions-versions.md#creating-1x-apps) del runtime di Funzioni di Azure. Se si vuole usare F # con la versione 2. x e le versioni successive del runtime, è necessario usare un progetto di libreria di classi F # precompilato (. FS). Creare, gestire e pubblicare un progetto della libreria di classi F# con Visual Studio, come si farebbe con un [progetto della libreria di classi C#](functions-dotnet-class-library.md). Per altre informazioni sulle versioni di Funzioni, vedere [Panoramica delle versioni del runtime per Funzioni di Azure](functions-versions.md).
 
 Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
@@ -48,7 +48,7 @@ FunctionsProject
 
 È presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione fsx) e il file di configurazione delle associazioni (function.json).
 
-Le estensioni di associazione richieste nella [versione 2.x e nelle versioni successive](functions-versions.md) del runtime di Funzioni sono definite nel `extensions.csproj` file, con i file di libreria effettivi nella `bin` cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Le estensioni di binding richieste nella [versione 2. x e versioni successive](functions-versions.md) del runtime di funzioni sono definite nel `extensions.csproj` file, con i file di libreria effettivi `bin` nella cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
 Ogni associazione supporta set di argomenti, come descritto nei dettagli in [Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md). Ad esempio, una delle associazioni di argomento supportate da un trigger del BLOB è un oggetto POCO, che può essere espresso con un record F#. Ad esempio:
@@ -109,7 +109,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>Token di annullamento
-Se la funzione deve gestire l'arresto normalmente, è possibile assegnarle un [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) argomento. È possibile combinare questo argomento con `async`, ad esempio:
+Se la funzione deve gestire normalmente l'arresto, è possibile assegnargli un [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) argomento. È possibile combinare questo argomento con `async`, ad esempio:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -287,10 +287,10 @@ La direttiva `#load` funziona solo con i file `.fsx` (script F# ), non con i fil
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le seguenti risorse:
 
-* [Guida di F](/dotnet/articles/fsharp/index)
-* [Procedure consigliate per le funzioni di AzureBest Practices for Azure Functions](functions-best-practices.md)
+* [Guida a F #](/dotnet/articles/fsharp/index)
+* [Procedure consigliate per funzioni di Azure](functions-best-practices.md)
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
-* [Trigger e associazioni di Funzioni di AzureAzure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 * [Test di Funzioni di Azure](functions-test-a-function.md)
 * [Scalabilità di Funzioni di Azure](functions-scale.md)
 

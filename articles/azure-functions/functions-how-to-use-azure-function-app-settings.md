@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276946"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
@@ -136,7 +136,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 Usare il [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) comando per elencare le origini consentite correnti.
 
-### <a name="authentication"></a><a name="auth"></a>Authentication
+### <a name="authentication"></a><a name="auth"></a>Autenticazione
 
 ![Configurare l'autenticazione per un'app per le funzioni](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

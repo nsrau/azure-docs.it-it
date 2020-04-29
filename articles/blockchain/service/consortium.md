@@ -5,10 +5,10 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247618"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Azure blockchain Service Consortium
@@ -31,7 +31,7 @@ Con la gestione del Consorzio nel servizio blockchain di Azure, è possibile ges
 
 I partecipanti a un consorzio possono essere individui o organizzazioni e possono essere assegnati a un ruolo utente o a un ruolo di amministratore. Nella tabella seguente sono elencate le differenze di alto livello tra i due ruoli:
 
-| Azione | Ruolo utente | Ruolo amministratore
+| Action | Ruolo utente | Ruolo amministratore
 |--------|:----:|:------------:|
 | Crea nuovo membro | Sì | Sì |
 | Invita nuovi membri | No | Sì |

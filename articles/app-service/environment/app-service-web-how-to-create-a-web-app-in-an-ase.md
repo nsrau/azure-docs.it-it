@@ -1,6 +1,6 @@
 ---
-title: Creare un'app Web in ASE v1
-description: Informazioni su come creare app Web in un ambiente del servizio app v1. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
+title: Creare un'app Web nell'ambiente del servizio app V1
+description: Informazioni su come creare app Web in un ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: ccompy
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
 ms.topic: article
@@ -8,16 +8,16 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266195"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
 > [!NOTE]
-> Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni sulla nuova versione, iniziare con [l'introduzione all'ambiente del servizio app](intro.md).
+> Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per ulteriori informazioni sulla nuova versione, iniziare con l' [Introduzione al ambiente del servizio app](intro.md).
 > 
 
 ## <a name="overview"></a>Panoramica
@@ -40,10 +40,10 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
     Se sono presenti più sottoscrizioni, ricordare che per creare un'app nell'ambiente del servizio app è necessario usare la stessa sottoscrizione usata per la creazione dell'ambiente. 
 3. Selezionare o creare un gruppo di risorse.
    
-    *I gruppi* di risorse consentono di gestire le risorse di Azure correlate come unità e sono utili quando si stabiliscono regole di controllo degli *accessi in base* al ruolo per le app. Per altre informazioni, vedere [Panoramica][ResourceGroups]di Azure Resource Manager.For more information, see Azure Resource Manager overview . 
+    I *gruppi di risorse* consentono di gestire le risorse di Azure correlate come un'unità e sono utili per stabilire le regole di controllo degli *accessi in base al ruolo* (RBAC) per le app. Per ulteriori informazioni, vedere [Azure Resource Manager Overview][ResourceGroups]. 
 4. Selezionare o creare un piano di servizio app.
    
-    *piani di servizio app* sono costituiti da set gestiti di app Web.  Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app.  Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano.  Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale.  Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](../overview-hosting-plans.md)
+    *piani di servizio app* sono costituiti da set gestiti di app Web.  Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app.  Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano.  Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale.  Per ulteriori informazioni, vedere [app Azure Panoramica dei piani di servizio](../overview-hosting-plans.md)
    
     È possibile identificare i piani di servizio app nell'ambiente del servizio app osservando la località indicata sotto il nome del piano.  
    
@@ -57,8 +57,8 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
     Se l'ambiente del servizio app usa un indirizzo VIP interno, l'URL di un'app in tale ambiente del servizio app è: [*nomesito*].[*sottodominio specificato durante la creazione dell'ambiente del servizio app*]   
     Dopo la selezione di ASP durante la creazione dell'ambiente del servizio app, l'aggiornamento del sottodominio verrà visualizzato in **Nome**
 
-## <a name="create-an-app-service-plan"></a><a name="createplan"></a>Creare un piano di servizio appCreate an App Service plan
-Quando si crea un piano di servizio app in un ambiente del servizio app, le scelte relative al ruolo di lavoro sono diverse perché in un ambiente del servizio app non esistono ruoli di lavoro condivisi.  I lavoratori che è necessario utilizzare sono quelli che sono stati allocati all'ase dall'amministratore.  Ciò significa che per creare un nuovo piano, è necessario disporre di più lavoratori allocati al pool di lavoro dell'asE rispetto al numero totale di istanze in tutti i piani già presenti in tale pool di lavoro.  Se nell'ambiente del servizio app non sono presenti pool di lavoro sufficienti per creare il piano, è necessario chiedere all'amministratore dell'ambiente di aggiungerli.
+## <a name="create-an-app-service-plan"></a><a name="createplan"></a>Creare un piano di servizio app
+Quando si crea un piano di servizio app in un ambiente del servizio app, le scelte relative al ruolo di lavoro sono diverse perché in un ambiente del servizio app non esistono ruoli di lavoro condivisi.  I ruoli di lavoro da usare sono quelli che sono stati allocati all'ambiente del servizio app dall'amministratore.  Ciò significa che per creare un nuovo piano, è necessario disporre di più processi di lavoro allocati al pool di lavoro dell'ambiente del servizio app rispetto al numero totale di istanze in tutti i piani già presenti nel pool di lavoro.  Se nell'ambiente del servizio app non sono presenti pool di lavoro sufficienti per creare il piano, è necessario chiedere all'amministratore dell'ambiente di aggiungerli.
 
 Un'altra differenza dei piani di servizio app ospitati in un ambiente del servizio app è data dall'impossibilità di scegliere il prezzo.  Con un ambiente del servizio app si paga infatti per le risorse di calcolo usate dal sistema e non viene addebito nulla per i piani di servizio app presenti in tale ambiente.  In genere, quando si crea un piano di servizio app è necessario selezionare un piano tariffario che determina la fatturazione.  Un ambiente del servizio app è essenzialmente una posizione privata in cui è possibile creare contenuti.  Si paga per l'ambiente e non per ospitare il contenuto.
 

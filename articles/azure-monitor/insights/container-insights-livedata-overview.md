@@ -4,10 +4,10 @@ description: Questo articolo descrive la visualizzazione in tempo reale di log d
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79216556"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale
@@ -26,7 +26,7 @@ Per informazioni sulla configurazione o la risoluzione dei problemi relativi all
 
 ## <a name="live-data-preview-functionality-overview"></a>Panoramica della funzionalità dati in tempo reale (anteprima)
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 
 ![Esempio di filtro del riquadro della console dati in tempo reale](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 

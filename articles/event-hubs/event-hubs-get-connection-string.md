@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264934"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Ottenere una stringa di connessione ad Hub eventi
@@ -37,14 +37,14 @@ Un esempio di stringa di connessione può avere l'aspetto seguente `Endpoint=sb:
 Questo articolo illustra in dettaglio vari modi per ottenere la stringa di connessione.
 
 ## <a name="get-connection-string-from-the-portal"></a>Ottenere la stringa di connessione dal portale
-1. Accedere al portale di [Azure](https://portal.azure.com). 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Scegliere **Tutti i servizi** dal menu di spostamento a sinistra. 
 3. Nella sezione **Analytics** selezionare **Hub eventi**. 
 4. Selezionare l'hub eventi dal relativo elenco.
 6. Nella pagina **Spazio dei nomi di Hub eventi** selezionare **Criteri di accesso condivisi** nel menu a sinistra.
 
     ![Voce di menu Criteri di accesso condivisi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. Selezionare un **criterio di accesso condiviso** nell'elenco dei criteri. Il valore predefinito è denominato **RootManageSharedAccessPolicy**. È possibile aggiungere un criterio con le autorizzazioni appropriate (lettura, scrittura) e usare quel criterio. 
+7. Selezionare un **criterio di accesso condiviso** nell'elenco dei criteri. Quello predefinito è denominato: **RootManageSharedAccessPolicy**. È possibile aggiungere un criterio con le autorizzazioni appropriate (lettura, scrittura) e usare quel criterio. 
 
     ![Criteri di accesso condiviso di Hub eventi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. Selezionare il pulsante di **copia** accanto al campo **Chiave primaria della stringa di connessione**. 
@@ -55,7 +55,7 @@ Questo articolo illustra in dettaglio vari modi per ottenere la stringa di conne
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile usare Get-AzEventHubKey per ottenere la stringa di connessione per il nome specifico del criterio/regola, come illustrato di seguito:You can use the [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) to get the connection string for the specific policy/rule name as shown below:
+È possibile usare [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) per ottenere la stringa di connessione per il nome di criteri/regola specifico, come illustrato di seguito:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
@@ -68,7 +68,7 @@ Per ottenere la stringa di connessione per lo spazio dei nomi, è possibile usar
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-In alternativa, è possibile usare quanto segue per ottenere la stringa di connessione per un'entità EventHub:Or you can use the following to get the connection string for an EventHub entity:
+In alternativa, è possibile usare il comando seguente per ottenere la stringa di connessione per un'entità EventHub:
 
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
@@ -81,4 +81,4 @@ Per altre informazioni sui comandi dell'interfaccia della riga di comando di Azu
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Creare un hub eventiCreate an Event Hub](event-hubs-create.md)
+* [Creare un hub eventi](event-hubs-create.md)

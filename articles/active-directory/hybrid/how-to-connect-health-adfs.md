@@ -19,14 +19,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261567"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorare AD FS con Azure AD Connect Health
-La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio di Azure AD Connect (sincronizzazione) con Azure AD Connect Health, vedere Uso di [Azure AD Connect Health per la sincronizzazione.](how-to-connect-health-sync.md) Inoltre, per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere Uso di [Azure AD Connect Health con Servizi di dominio Active](how-to-connect-health-adds.md)Directory.
+La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio Azure AD Connect (sincronizzazione) con Azure AD Connect Health, vedere [uso di Azure ad Connect Health per la sincronizzazione](how-to-connect-health-sync.md). Per informazioni sul monitoraggio Active Directory Domain Services con Azure AD Connect Health, vedere [utilizzo di Azure ad Connect Health con servizi di dominio Active Directory](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Avvisi per AD FS
 La sezione degli avvisi di Azure AD Connect Health contiene l'elenco degli avvisi attivi. Ogni avviso include informazioni pertinenti, la procedura di risoluzione e collegamenti alla documentazione correlata.
@@ -106,7 +106,7 @@ Il grafico fornisce le informazioni seguenti:
 
 ![portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report3a.png)
 
-Il report fornisce le informazioni seguenti:
+Il rapporto fornisce le informazioni seguenti:
 
 | Elemento del report | Descrizione |
 | --- | --- |
@@ -118,8 +118,8 @@ Il report fornisce le informazioni seguenti:
 > [!NOTE]
 > Il report viene aggiornato automaticamente ogni 12 ore con le nuove informazioni raccolte. Di conseguenza, i tentativi di accesso nelle ultime 12 ore potrebbero non essere inclusi nel report.
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installazione dell'agente di Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Rapporto IP rischioso](how-to-connect-health-adfs-risky-ip.md)
+* [Report IP rischioso](how-to-connect-health-adfs-risky-ip.md)
 

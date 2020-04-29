@@ -8,16 +8,16 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255106"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
 
-Un *endpoint server* rappresenta un percorso specifico in un server *registrato,* ad esempio una cartella in un volume del server o la radice del volume. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio F:\sync1 e F:\sync2. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. Se si aggiunge a un gruppo di sincronizzazione un percorso del server con un set di file esistente come endpoint server, i file verranno uniti con qualsiasi altro file già presente in altri endpoint del gruppo di sincronizzazione.
+Un *endpoint server* rappresenta una posizione specifica in un *server registrato*, ad esempio una cartella in un volume del server o la radice del volume. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio F:\sync1 e F:\sync2. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. Se si aggiunge a un gruppo di sincronizzazione un percorso del server con un set di file esistente come endpoint server, i file verranno uniti con qualsiasi altro file già presente in altri endpoint del gruppo di sincronizzazione.
 
 Per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-end, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
@@ -25,7 +25,7 @@ Per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-en
 Per creare un endpoint server, è necessario prima verificare che siano soddisfatti i criteri seguenti: 
 - L'agente Sincronizzazione file di Azure è installato nel server e il server è stato registrato. Le istruzioni per l'installazione dell'agente Sincronizzazione file di Azure sono contenute nell'articolo [Registrare e annullare la registrazione di un server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md). 
 - Verificare che sia stato distribuito un servizio di sincronizzazione archiviazione. Per informazioni dettagliate sulla distribuzione di un servizio di sincronizzazione archiviazione, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md). 
-- Verificare che sia stato distribuito un gruppo di sincronizzazione. Informazioni su come creare un gruppo di [sincronizzazione.](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint)
+- Verificare che sia stato distribuito un gruppo di sincronizzazione. Informazioni su come [creare un gruppo di sincronizzazione](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Verificare che il server sia connesso a Internet e che Azure sia accessibile. Per tutte le comunicazioni tra il server e il servizio viene usata la porta 443.
 
 ## <a name="add-a-server-endpoint"></a>Aggiungere un endpoint server
@@ -36,9 +36,9 @@ Per aggiungere un endpoint server, passare al gruppo di sincronizzazione che int
 Inserire le informazioni seguenti in **Aggiungi endpoint server**:
 
 - **Server registrato**: il nome del server o del cluster in cui creare l'endpoint server.
-- **Percorso**: il percorso in Windows Server da sincronizzare come parte del gruppo di sincronizzazione.
+- **Path**: percorso del server Windows da sincronizzare come parte del gruppo di sincronizzazione.
 - **Suddivisione in livelli cloud**: l'opzione che abilita o disabilita la suddivisione in livelli cloud, Se la suddivisione in livelli cloud è abilitata, i file vengono *suddivisi in livelli* nelle condivisioni file di Azure. Ciò converte le condivisioni file locali in una cache, invece di una copia completa del set di dati, per aiutare a gestire l'efficienza dello spazio nel server.
-- **Spazio libero volume:** la quantità di spazio libero da riservare nel volume in cui risiede l'endpoint server. Ad esempio, se lo spazio disponibile nel volume è impostato su 50% per un volume con un singolo endpoint server, circa la metà dei dati verrà archiviata a livelli in File di Azure. A prescindere dall'abilitazione o meno della suddivisione in livelli nel cloud, per la condivisione file di Azure è sempre disponibile una copia completa dei dati nel gruppo di sincronizzazione.
+- **Spazio**disponibile nel volume: la quantità di spazio disponibile da riservare nel volume in cui si trova l'endpoint server. Ad esempio, se lo spazio disponibile nel volume è impostato su 50% per un volume con un singolo endpoint server, circa la metà dei dati verrà archiviata a livelli in File di Azure. A prescindere dall'abilitazione o meno della suddivisione in livelli nel cloud, per la condivisione file di Azure è sempre disponibile una copia completa dei dati nel gruppo di sincronizzazione.
 
 Selezionare **Crea** per aggiungere l'endpoint server. I file all'interno di uno spazio dei nomi di un gruppo di sincronizzazione ora rimangono sincronizzati. 
 
@@ -54,11 +54,11 @@ Per garantire che tutti i file suddivisi in livelli vengano richiamati prima di 
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
-Se `-Order CloudTieringPolicy` si specifica, verranno prima richiami i file modificati più di recente.
-Altri parametri facoltativi ma utili da considerare sono:Other optional but useful parameters to consider are:
+Se `-Order CloudTieringPolicy` si specifica, vengono richiamati prima i file modificati più di recente.
+Altri parametri facoltativi ma utili da considerare sono:
 * `-ThreadCount`determina il numero di file che possono essere richiamati in parallelo.
-* `-PerFileRetryCount`determina la frequenza con cui verrà effettuato il tentativo di un richiamo di un file attualmente bloccato.
-* `-PerFileRetryDelaySeconds`determina il tempo in secondi tra i tentativi di richiamo e deve essere sempre utilizzato in combinazione con il parametro precedente.
+* `-PerFileRetryCount`determina la frequenza con cui viene eseguito il tentativo di richiamo di un file attualmente bloccato.
+* `-PerFileRetryDelaySeconds`determina il tempo in secondi tra i tentativi per richiamare i tentativi e deve essere sempre utilizzato in combinazione con il parametro precedente.
 
 > [!Note]  
 > Se il volume locale che ospita il server non ha abbastanza spazio libero per richiamare tutti i dati archiviati a livelli, il cmdlet `Invoke-StorageSyncFileRecall` ha esito negativo.  
@@ -73,5 +73,5 @@ Per rimuovere l'endpoint server:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Registrare e annullare la registrazione di un server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md)
-- [Pianificazione di una distribuzione di Sincronizzazione file di AzurePlanning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
 - [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

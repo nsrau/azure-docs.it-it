@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: e386e5fc9c4d62266e0ca23869bf30ccaffeb91d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244446"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creare una connessione da sito a sito usando il portale di Azure (distribuzione classica)
@@ -182,7 +182,7 @@ Questo passaggio illustra come impostare la chiave condivisa e creare la conness
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
 
-### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Passaggio 2. Impostare la chiave condivisa e creare la connessione
+### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Passaggio 2: Impostare la chiave condivisa e creare la connessione
 
 Quando si crea una VNet classica nel portale (non usando PowerShell), Azure aggiunge il nome del gruppo di risorse al nome breve. Ad esempio, in base ad Azure, il nome del VNet creato per questo esercizio è "Group TestRG1 TestVNet1", non "TestVNet1". PowerShell richiede il nome completo della rete virtuale e non il nome breve visualizzato nel portale. Il nome lungo non è visibile nel portale. La procedura seguente consente di esportare il file di configurazione di rete per ottenere i valori esatti per il nome della rete virtuale. 
 
