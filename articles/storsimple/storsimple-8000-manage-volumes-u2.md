@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254768"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
@@ -112,7 +112,7 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
       
        Se nel dispositivo 8100 si effettua il provisioning di un volume aggiunto in locale di 8,5 TB, ovvero le dimensioni massime consentite, si esaurisce tutto lo spazio locale disponibile nel dispositivo. Non è possibile creare volumi a livelli da quel punto in poi, perché non è disponibile spazio locale sul dispositivo per ospitare il working set del volume a livelli. Anche i volumi a livelli esistenti influiscono sullo spazio disponibile. Ad esempio, se nel dispositivo 8100 sono già presenti volumi a livelli di circa 106 TB, saranno disponibili solo 4 TB di spazio per i volumi aggiunti in locale.
 
-    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server. Fare clic su **Crea**. Verrà creato un volume con le impostazioni specificate.
+    6. Nel campo **Host connessi** fare clic sulla freccia. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo. Se si sceglie un nuovo record, fornire un **nome** del record e l'**iSCSI Qualified Name** (IQN) dell'host Windows. Se non si dispone del nome qualificato iSCSI, andare a Ottenere il nome qualificato iSCSI di un host di Windows Server. Scegliere **Crea**. Verrà creato un volume con le impostazioni specificate.
 
         ![Fare clic su Crea](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
@@ -163,10 +163,10 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
 7. Se si sta espandendo un volume, completare i passaggi seguenti nel computer host Windows:
    
-   1. Passare a**Gestione disco**di **Gestione** ->computer .
+   1. Passare a **Computer Management** ->**gestione**computer Gestione disco.
    2. Fare clic con il pulsante destro del mouse su **Gestione disco** e selezionare **Rescan Disks** (Ripeti analisi dischi).
    3. Nell'elenco dei dischi, selezionare il volume che è stato aggiornato, fare clic con il pulsante destro del mouse e quindi selezionare **Estendi Volume**. Verrà avviata la procedura guidata Estendi volume. Fare clic su **Avanti**.
-   4. Completare la procedura guidata accettando i valori predefiniti. Dopo aver completato la procedura guidata, il volume dovrebbe mostrare l'aumento delle dimensioni.
+   4. Completa la procedura guidata accettando i valori predefiniti. Dopo aver completato la procedura guidata, il volume dovrebbe mostrare l'aumento delle dimensioni.
       
       > [!NOTE]
       > Se si espande un volume aggiunto in locale e quindi se ne espande un altro subito dopo, i processi di espansione dei volumi vengono eseguiti in sequenza. Il primo processo di espansione del volume deve terminare prima che possa iniziare quello successivo.

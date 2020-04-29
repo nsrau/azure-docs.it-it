@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250907"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
@@ -23,9 +23,9 @@ Gestione traffico di Azure supporta sei metodi di routing del traffico per deter
 
 In Gestione traffico sono disponibili i metodi di routing del traffico seguenti:
 
-* **[Priorità:](#priority-traffic-routing-method)** selezionare **Priorità** quando si desidera utilizzare un endpoint del servizio primario per tutto il traffico e fornire backup nel caso in cui gli endpoint primario o di backup non siano disponibili.
-* **[Ponderato](#weighted):** Selezionare **Ponderato** quando si desidera distribuire il traffico tra un set di endpoint, in modo uniforme o in base ai pesi definiti dall'utente.
-* **[Prestazioni:](#performance)** selezionare **Prestazioni** quando sono presenti endpoint in posizioni geografiche diverse e si desidera che gli utenti finali utilizzino l'endpoint "più vicino" in termini di latenza di rete più bassa.
+* **[Priorità](#priority-traffic-routing-method):** selezionare la **priorità** quando si vuole usare un endpoint di servizio primario per tutto il traffico e fornire backup nel caso in cui l'endpoint primario o di backup non sia disponibile.
+* **[Ponderato](#weighted):** Selezionare **ponderato** quando si vuole distribuire il traffico in un set di endpoint, in modo uniforme o in base ai pesi definiti.
+* **[Prestazioni](#performance):** Selezionare **prestazioni** quando gli endpoint si trovano in aree geografiche diverse e si vuole che gli utenti finali usino l'endpoint "più vicino" in termini di latenza di rete più bassa.
 * **[Geografico](#geographic):** selezionare **Geografico** in modo che gli utenti vengono indirizzati a endpoint specifici (Azure, Esterno o Annidato) in base alla posizione geografica da cui provengono le query DNS. Questo consente ai clienti di Gestione traffico di abilitare scenari in cui è importante conoscere l'area geografica dell'utente ed eseguirne il routing in base a questa. Ne sono esempi la presenza di determinati requisiti sui dati, la localizzazione del contenuto e dell'esperienza dell'utente e la misurazione del traffico da aree diverse.
 * **[Multivalore](#multivalue):** selezionare **Multivalore** per i profili di Gestione traffico che possono avere come endpoint solo indirizzi IPv4/IPv6. Quando viene ricevuta una query per profili di questo tipo, vengono restituiti tutti gli endpoint integri.
 * **[Subnet](#subnet):** selezionare il metodo di routing del traffico **Subnet** per eseguire il mapping di set di intervalli di indirizzi IP dell'utente finale a uno specifico endpoint all'interno di un profilo di Gestione traffico. Al ricevimento di una richiesta, verrà restituito l'endpoint mappato per l'indirizzo IP di origine della richiesta. 
@@ -109,7 +109,7 @@ Quando un'area o un gruppo di aree è assegnato a un endpoint, tutte le richiest
 
 ![Metodo geografico di routing del traffico di Gestione traffico di Azure](./media/traffic-manager-routing-methods/geographic.png)
 
-Gestione traffico legge l'indirizzo IP di origine della query DNS e decide da quale area geografica è stato originato. Verifica quindi se esiste un endpoint a cui è mappata questa area geografica. Questa ricerca inizia al livello di granularità più basso (Stato/Provincia in cui è supportata, altrimenti a livello di paese/area geografica) e passa fino al livello più alto, ovvero **World**. La prima corrispondenza trovata usando questo attraversamento viene indicata come endpoint da restituire nella risposta alla query. In caso di corrispondenza con un endpoint di tipo nidificato, viene restituito un endpoint all'interno di tale profilo figlio, in base al suo metodo di routing. I punti seguenti sono applicabili a questo comportamento:
+Gestione traffico legge l'indirizzo IP di origine della query DNS e decide da quale area geografica è stato originato. Verifica quindi se esiste un endpoint a cui è mappata questa area geografica. Questa ricerca inizia con il livello di granularità più basso (stato/provincia dove è supportato, altrimenti a livello di paese/area geografica) e arriva fino al livello più alto, ovvero il **mondo**. La prima corrispondenza trovata usando questo attraversamento viene indicata come endpoint da restituire nella risposta alla query. In caso di corrispondenza con un endpoint di tipo nidificato, viene restituito un endpoint all'interno di tale profilo figlio, in base al suo metodo di routing. I punti seguenti sono applicabili a questo comportamento:
 
 - Un'area geografica può essere mappata a un solo endpoint in un profilo di Gestione traffico quando il tipo di routing è quello geografico. Ciò garantisce che il routing degli utenti sia deterministico e i clienti possano abilitare scenari che richiedono limiti geografici non ambigui.
 - Se l'area geografica di un utente ricade entro il mapping geografico di due endpoint diversi, Gestione traffico seleziona l'endpoint con la granularità più bassa e non considera le richieste di routing di tale area all'altro endpoint. Ad esempio, si consideri un profilo con il tipo di routing geografico e con due endpoint: Endpoint1 ed Endpoint2. L'Endpoint1 è configurato per ricevere il traffico dall'Irlanda e l'Endpoint2 è configurato per ricevere il traffico dall'Europa. Se una richiesta proviene dall'Irlanda, viene sempre instradata all'Endpoint1.
@@ -146,7 +146,7 @@ Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manag
 * [Ci sono restrizioni sulla versione API che supporta questo tipo di routing?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Metodo di routing del traffico Multivalore
-Il metodo di routing del traffico **Multivalore** consente di ottenere più endpoint integri in un'unica risposta a una query DNS. Ciò consente al chiamante di eseguire tentativi sul lato client con altri endpoint nel caso in cui un endpoint restituito non venga risposto. Questo modello può aumentare la disponibilità di un servizio e ridurre la latenza associata a una nuova query DNS per ottenere un endpoint integro. Il metodo di routing Multivalore funziona solo se tutti gli endpoint di tipo Esterno sono specificati come indirizzi IPv4 o IPv6. Quando si riceve una query per profili di questo tipo, tutti gli endpoint integri vengono restituiti e sono soggetti a un numero massimo di restituzioni configurabili.
+Il metodo di routing del traffico **Multivalore** consente di ottenere più endpoint integri in un'unica risposta a una query DNS. Ciò consente al chiamante di eseguire tentativi sul lato client con altri endpoint nel caso in cui un endpoint restituito non risponda. Questo modello può aumentare la disponibilità di un servizio e ridurre la latenza associata a una nuova query DNS per ottenere un endpoint integro. Il metodo di routing Multivalore funziona solo se tutti gli endpoint di tipo Esterno sono specificati come indirizzi IPv4 o IPv6. Quando si riceve una query per profili di questo tipo, tutti gli endpoint integri vengono restituiti e sono soggetti a un numero massimo di restituzioni configurabili.
 
 ### <a name="faqs"></a>Domande frequenti
 
@@ -179,7 +179,7 @@ Se si definisce un endpoint senza intervallo di indirizzi, questo funziona come 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come sviluppare applicazioni a disponibilità elevata usando il [monitoraggio degli endpoint](traffic-manager-monitoring.md) di Gestione traffico
+Informazioni su come sviluppare applicazioni a disponibilità elevata tramite il [monitoraggio degli endpoint di gestione traffico](traffic-manager-monitoring.md)
 
 
 

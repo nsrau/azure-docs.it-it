@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252363"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aggiornare le configurazioni dell'insieme di credenziali di servizi di ripristino di Azure usando l'API
@@ -83,10 +83,10 @@ Per creare un corpo della richiesta vengono usate le seguenti definizioni comuni
 
 Per altri dettagli, vedere [la documentazione dell'API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
 
-|Nome  |Obbligatoria  |Type  |Descrizione  |
+|Name  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
-|eTag     |         |   string      |  eTag facoltativo       |
-|posizione     |  true       |string         |   Posizione risorsa      |
+|eTag     |         |   Stringa      |  eTag facoltativo       |
+|posizione     |  true       |Stringa         |   Posizione risorsa      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |tags     |         | Oggetto        |     Tag delle risorse    |
 

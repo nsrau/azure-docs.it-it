@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
 ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250231"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenzione per macchine virtuali in Azure
@@ -75,7 +75,7 @@ Per altre informazioni sulla gestione della manutenzione che richiede un riavvio
 
 Se si decide di attendere fino alla fase di manutenzione pianificata, è necessario prendere in considerazione alcune considerazioni per mantenere la disponibilità più elevata delle VM. 
 
-#### <a name="paired-regions"></a>Aree abbinate
+#### <a name="paired-regions"></a>Aree associate
 
 Ogni area di Azure è associata a un'altra area all'interno delle stesse vicinanze geografiche. Insieme, fanno una coppia di aree. Durante la fase di manutenzione pianificata, Azure aggiorna solo le macchine virtuali in una singola area di una coppia di aree. Ad esempio, durante l'aggiornamento della macchina virtuale negli Stati Uniti centro-settentrionali, Azure non aggiorna alcuna macchina virtuale negli Stati Uniti centro-meridionali nello stesso momento. Tuttavia, altre aree, ad esempio Europa settentrionale, possono essere sottoposte a manutenzione contemporaneamente a Stati Uniti orientali. Sapendo come funzionano le coppie di aree, è possibile distribuire meglio le VM tra le aree. Per altre informazioni, vedere [Coppie di aree di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 

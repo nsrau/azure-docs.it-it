@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254118"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protezione dell'istanza per le istanze del set di scalabilità di macchine virtuali di Azure
@@ -176,7 +176,7 @@ az vmss update \
   --protect-from-scale-set-actions true
 ```
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 ### <a name="no-protectionpolicy-on-scale-set-model"></a>Nessun protectionPolicy sul modello del set di scalabilità
 La protezione dell'istanza è applicabile solo alle istanze del set di scalabilità e non al modello del set di scalabilità.
 

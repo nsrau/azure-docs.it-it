@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250751"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notifica di interruzione per le istanze del set di scalabilità di macchine virtuali di Azure
@@ -186,7 +186,7 @@ Verificare che ogni macchina virtuale nel set di scalabilità approvi solo gli E
 -   Approva tutte le eliminazioni in sospeso: se è presente un'eliminazione in sospeso su VM_1 che non è approvata ed è stato approvato un altro evento di terminazione in VM_2, VM_2 non viene eliminato fino a quando non viene approvato l'evento di terminazione per VM_1 o il timeout è scaduto. Una volta approvata l'evento di terminazione per VM_1, verranno eliminati sia VM_1 che VM_2.
 -   Approva tutte le eliminazioni simultanee: estendendo l'esempio precedente, se VM_1 e VM_2 hanno lo stesso tempo di *NotBefore* , entrambi gli eventi terminano devono essere approvati o nessuna macchina virtuale viene eliminata prima della scadenza del timeout.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Errore di abilitazione di scheduledEventsProfile
 Se viene visualizzato un errore "richiesta non valida" con un messaggio di errore che indica che "non è stato possibile trovare il membro ' scheduledEventsProfile ' nell'oggetto di tipo ' VirtualMachineProfile '", controllare la versione dell'API usata per le operazioni del set di scalabilità. È richiesta l'API di calcolo versione **2019-03-01** o successiva. 
 

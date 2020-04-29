@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
 ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254443"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
@@ -109,7 +109,7 @@ L'uso di Azure Cosmos DB come output in analisi di flusso genera la richiesta se
 |-------------   | -------------|
 |Alias di output    | Alias che fa riferimento a questo output nella query di analisi di flusso.|
 |Subscription    | Sottoscrizione di Azure.|
-|Account ID      | Nome o URI endpoint dell'account Azure Cosmos DB.|
+|ID account      | Nome o URI endpoint dell'account Azure Cosmos DB.|
 |Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB.|
 |Database        | Nome del database Azure Cosmos DB.|
 |Nome contenitore | Nome del contenitore, ad esempio `MyContainer`. È necessario che `MyContainer` esista un contenitore denominato.  |

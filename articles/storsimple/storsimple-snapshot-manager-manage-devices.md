@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254690"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilizzo di Gestione snapshot StorSimple per connettere e gestire i dispositivi StorSimple
@@ -166,7 +166,7 @@ Utilizzare la procedura seguente per eliminare la configurazione di un singolo d
 
 #### <a name="to-change-the-expired-password"></a>Per modificare la password scaduta
 1. Nel portale di Azure classico, avviare il servizio StorSimple Manager.
-2. Fare clic su**Configurazione** **dispositivi** > per il dispositivo.
+2. Fare clic su **dispositivi** > **Configura** per il dispositivo.
 3. Scorrere verso il basso fino alla sezione Gestione snapshot StorSimple. Immettere una password composta da 14-15 caratteri. Assicurarsi che la password contenga una combinazione di lettere maiuscole, minuscole, numeri e caratteri speciali.
 4. Immettere nuovamente la password per confermarla.
 5. Fare clic su **Save** nella parte inferiore della pagina.

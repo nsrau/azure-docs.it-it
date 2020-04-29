@@ -4,10 +4,10 @@ description: Questo articolo riepiloga il supporto di backup di Azure quando si 
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247865"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
@@ -43,8 +43,8 @@ Quando si usa l'agente MARS per eseguire il backup dei dati, l'agente acquisisce
 
 **Cache** | **Dettagli**
 --- | ---
-Dimensione |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
-Location | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
+Dimensioni |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
+Percorso | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
 Cartella | La cartella della cache non deve essere crittografata in un volume deduplicato o in una cartella compressa, di tipo sparse o con un punto di analisi.
 Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di`net stop bengine`backup () e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
 
@@ -156,25 +156,25 @@ Windows 7| 1.700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipi di file supportati per il backup
 
-**Type** | **Supporto**
+**Type** | **Supporto tecnico**
 --- | ---
 Crittografati<sup>*</sup>| Supportato.
 Compresso | Supportato.
 Sparse | Supportato.
 Compresso e sparse |Supportato.
-Collegamenti reali| Non supportato. Operazione ignorata.
-Reparse point| Non supportato. Operazione ignorata.
-Crittografato e sparse |Non supportato. Operazione ignorata.
-Flusso compresso| Non supportato. Operazione ignorata.
-Flusso di tipo sparse| Non supportato. Operazione ignorata.
-OneDrive (i file sincronizzati sono flussi sparse)| Non supportato.
-Cartelle con Replica DFS abilitata | Non supportato.
+Collegamenti reali| Non supportata. Operazione ignorata.
+Reparse point| Non supportata. Operazione ignorata.
+Crittografato e sparse |Non supportata. Operazione ignorata.
+Flusso compresso| Non supportata. Operazione ignorata.
+Flusso di tipo sparse| Non supportata. Operazione ignorata.
+OneDrive (i file sincronizzati sono flussi sparse)| Non supportata.
+Cartelle con Replica DFS abilitata | Non supportata.
 
 \*Verificare che l'agente MARS abbia accesso ai certificati richiesti per accedere ai file crittografati. I file inaccessibili verranno ignorati.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unità o volumi supportati per il backup
 
-**Unità/volume** | **Supporto** | **Dettagli**
+**Unità/volume** | **Supporto tecnico** | **Dettagli**
 --- | --- | ---
 Volumi di sola lettura| Non supportato | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
 Volumi offline| Non supportato |VSS funziona solo se il volume è online.

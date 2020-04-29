@@ -4,17 +4,17 @@ description: Informazioni su come usare Registro Azure Container in modo efficac
 ms.topic: article
 ms.date: 09/27/2018
 ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247072"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per Registro Azure Container
 
 Seguendo queste procedure consigliate, è possibile contribuire a sfruttare al massimo le prestazioni e la convenienza del Registro contenitori privato Docker in Azure.
 
-Vedere anche [Consigli per l'assegnazione di tag e il controllo delle versioni](container-registry-image-tag-version.md) delle immagini del contenitore per le strategie per contrassegnare e utilizzare le immagini di versione nel Registro di sistema. 
+Vedere anche [Suggerimenti per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md) per strategie per le immagini tag e versione nel registro di sistema. 
 
 ## <a name="network-close-deployment"></a>Distribuzione in reti vicine
 
@@ -33,7 +33,7 @@ Per capire come usare la replica geografica, vedere il tutorial in tre parti [Pr
 
 Con l'uso di spazi dei nomi dell'archivio, è possibile consentire la condivisione di un singolo registro in più gruppi all'interno dell'organizzazione. I registri possono essere condivisi tra le distribuzioni e i team. Registro Azure Container supporta spazi dei nomi annidati, abilitando l'isolamento in gruppo.
 
-Si considerino ad esempio i tag delle immagini del contenitore seguenti: Le immagini utilizzate a livello `aspnetcore`aziendale, ad esempio , vengono inserite nello spazio dei nomi radice, mentre le immagini contenitore di proprietà dei gruppi Products e Marketing utilizzano ognuna i propri spazi dei nomi.
+Si considerino ad esempio i tag delle immagini del contenitore seguenti: Le immagini utilizzate a livello aziendale, ad esempio `aspnetcore`, vengono inserite nello spazio dei nomi radice, mentre le immagini del contenitore di proprietà dei prodotti e dei gruppi marketing utilizzano i propri spazi dei nomi.
 
 - *contoso.azurecr.io/aspnetcore:2.0*
 - *contoso.azurecr.io/products/widget/web:1*
@@ -46,13 +46,13 @@ Poiché i registri contenitori sono risorse usate in più host contenitori, un r
 
 Anche se è possibile provare con un tipo di host specifico, come le Istanze di Azure Container, probabilmente al termine si vorrà eliminare l'istanza del contenitore. Tuttavia, è anche possibile mantenere la raccolta di immagini inserita in Registro Azure Container. Posizionando il registro nel suo gruppo di risorse, si riduce al minimo il rischio di eliminare accidentalmente la raccolta di immagini nel registro quando si elimina il gruppo di risorse delle istanze del contenitore.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Quando si esegue l'autenticazione con Registro Azure Container, esistono due scenari principali: autenticazione singola e autenticazione di servizio (o "headless"). La tabella seguente fornisce una breve panoramica di questi scenari e il metodo di autenticazione consigliato per ognuno.
 
-| Type | Scenario di esempio | Metodo consigliato |
+| Tipo | Scenario di esempio | Metodo consigliato |
 |---|---|---|
-| Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
+| Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identità headless/del servizio | Pipeline di compilazione e distribuzione in cui l'utente non è direttamente coinvolto. | [Entità servizio](container-registry-authentication.md#service-principal) |
 
 Per informazioni dettagliate sull'autenticazione a Registro Azure Container, vedere [Eseguire l'autenticazione con un registro contenitori Docker privato](container-registry-authentication.md).

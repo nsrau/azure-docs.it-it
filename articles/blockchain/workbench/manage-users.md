@@ -1,14 +1,14 @@
 ---
-title: Gestire gli utenti in Azure Blockchain WorkbenchManage users in Azure Blockchain Workbench
+title: Gestire gli utenti in Azure blockchain Workbench
 description: Come gestire gli utenti in Azure Blockchain Workbench.
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 573ec477a3e75beb91f90da0545fb7d4c0f9bf39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252181"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gestire gli utenti in Azure Blockchain Workbench
@@ -25,7 +25,7 @@ Azure Blockchain Workbench usa Azure Active Directory (Azure AD) per autenticazi
 
 Gli utenti di Blockchain Workbench devono essere inclusi nel tenant di Azure AD prima di poterli assegnare ad applicazioni e ruoli. Per aggiungere utenti ad Azure AD, completare i passaggi seguenti:
 
-1.  Accedere al [portale](https://portal.azure.com)di Azure .
+1.  Accedere al [portale di Azure](https://portal.azure.com).
 2.  Selezionare l'account nell'angolo superiore destro e passare al tenant di Azure AD associato a Blockchain Workbench.
 3.  Selezionare **Azure Active Directory > Utenti**. Verrà visualizzato un elenco di utenti nella directory.
 4.  Per aggiungere utenti alla directory, selezionare **Nuovo utente**. Per gli utenti esterni, selezionare **Nuovo utente guest**.
@@ -42,9 +42,9 @@ Dopo aver aggiunto gli utenti alla directory, il passaggio successivo consiste n
 
 Per aggiungere utenti al gruppo **Administrator** nella directory di Azure AD:
 
-1.  Accedere al [portale](https://portal.azure.com)di Azure .
+1.  Accedere al [portale di Azure](https://portal.azure.com).
 2.  Verificare di trovarsi all'interno del tenant di Azure AD associato a Blockchain Workbench selezionando il proprio account nell'angolo superiore destro.
-3.  Selezionare **Applicazioni Azure Active Directory > Enterprise**.
+3.  Selezionare **Azure Active Directory > applicazioni aziendali**.
 4.  Selezionare l'applicazione client Azure AD per Blockchain Workbench
     
     ![Registrazioni di tutte le applicazioni aziendali](./media/manage-users/select-blockchain-client-app.png)
@@ -55,7 +55,7 @@ Per aggiungere utenti al gruppo **Administrator** nella directory di Azure AD:
     ![Aggiungere un'assegnazione](./media/manage-users/add-user-assignment.png)
 
 9.  Verificare che l'opzione **Ruolo** sia impostata su **Amministratore**
-10. Selezionare **Assegna**. Gli utenti aggiunti vengono visualizzati nell'elenco con il ruolo di amministratore assegnato.
+10. Selezionare **assegna**. Gli utenti aggiunti vengono visualizzati nell'elenco con il ruolo di amministratore assegnato.
 
     ![Utenti di app client Blockchain](./media/manage-users/blockchain-admin-list.png)
 
