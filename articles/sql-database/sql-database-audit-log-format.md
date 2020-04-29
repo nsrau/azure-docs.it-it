@@ -10,10 +10,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/03/2019
 ms.openlocfilehash: 13746b86eed75055ceb5203afafb2d27a78ce1d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722085"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del log di controllo del database SQL
@@ -45,49 +45,49 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 
 | Nome (BLOB) | Nome (hub eventi/Log Analytics) | Descrizione | Tipo BLOB | Tipo di hub eventi/Log Analytics |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
-| action_id | action_id_s | ID dell'azione. | varchar(4) | string |
-| action_name | action_name_s | Nome dell'azione | N/D | string |
-| additional_information | additional_information_s | Qualsiasi informazione aggiuntiva sull'evento, archiviata come XML | nvarchar(4000) | string |
+| action_id | action_id_s | ID dell'azione. | varchar(4) | stringa |
+| action_name | action_name_s | Nome dell'azione | N/D | stringa |
+| additional_information | additional_information_s | Qualsiasi informazione aggiuntiva sull'evento, archiviata come XML | nvarchar(4000) | stringa |
 | affected_rows | affected_rows_d | Numero di righe interessate dalla query | bigint | INT |
-| application_name | application_name_s| Nome dell'applicazione client | nvarchar(128) | string |
+| application_name | application_name_s| Nome dell'applicazione client | nvarchar(128) | stringa |
 | audit_schema_version | audit_schema_version_d | Sempre 1 | INT | INT |
-| class_type | class_type_s | Tipo di entità controllabile in cui si verifica il controllo | varchar(2) | string |
-| class_type_desc | class_type_description_s | Descrizione dell'entità controllabile in cui si verifica il controllo | N/D | string |
-| client_ip | client_ip_s | IP di origine dell'applicazione client | nvarchar(128) | string |
+| class_type | class_type_s | Tipo di entità controllabile in cui si verifica il controllo | varchar(2) | stringa |
+| class_type_desc | class_type_description_s | Descrizione dell'entità controllabile in cui si verifica il controllo | N/D | stringa |
+| client_ip | client_ip_s | IP di origine dell'applicazione client | nvarchar(128) | stringa |
 | connection_id | N/D | ID della connessione nel server | GUID | N/D |
-| data_sensitivity_information | data_sensitivity_information_s | Tipi di informazioni e etichette di riservatezza restituite dalla query controllata, basate sulle colonne classificate nel database. Altre informazioni sull' [individuazione e la classificazione dei dati del database SQL di Azure](sql-database-data-discovery-and-classification.md) | nvarchar(4000) | string |
-| database_name | database_name_s | Contesto del database in cui si è verificata l'azione | sysname | string |
+| data_sensitivity_information | data_sensitivity_information_s | Tipi di informazioni e etichette di riservatezza restituite dalla query controllata, basate sulle colonne classificate nel database. Altre informazioni sull' [individuazione e la classificazione dei dati del database SQL di Azure](sql-database-data-discovery-and-classification.md) | nvarchar(4000) | stringa |
+| database_name | database_name_s | Contesto del database in cui si è verificata l'azione | sysname | stringa |
 | database_principal_id | database_principal_id_d | ID del contesto utente del database in cui viene eseguita l'azione | INT | INT |
-| database_principal_name | database_principal_name_s | Nome del contesto utente del database in cui viene eseguita l'azione | sysname | string |
+| database_principal_name | database_principal_name_s | Nome del contesto utente del database in cui viene eseguita l'azione | sysname | stringa |
 | duration_milliseconds | duration_milliseconds_d | Durata esecuzione query in millisecondi | bigint | INT |
 | event_time | event_time_t | Data e ora in cui viene attivata l'azione controllabile | datetime2 | Datetime |
-| host_name | N/D | Nome host client | string | N/D |
-| is_column_permission | is_column_permission_s | Flag che indica se si tratta di un'autorizzazione a livello di colonna. 1 = true, 0 = false | bit | string |
-| N/D | is_server_level_audit_s | Flag che indica se il controllo è a livello di server | N/D | string |
+| host_name | N/D | Nome host client | stringa | N/D |
+| is_column_permission | is_column_permission_s | Flag che indica se si tratta di un'autorizzazione a livello di colonna. 1 = true, 0 = false | bit | stringa |
+| N/D | is_server_level_audit_s | Flag che indica se il controllo è a livello di server | N/D | stringa |
 | object_id | object_id_d | ID dell'entità in cui si è verificato il controllo. Sono inclusi gli oggetti server, i database, gli oggetti di database e gli oggetti dello schema. 0 se l'entità è il server stesso o se il controllo non viene eseguito a livello di oggetto | INT | INT |
-| object_name | object_name_s | Nome dell'entità in cui si è verificato il controllo. Sono inclusi gli oggetti server, i database, gli oggetti di database e gli oggetti dello schema. 0 se l'entità è il server stesso o se il controllo non viene eseguito a livello di oggetto | sysname | string |
-| permission_bitmask | permission_bitmask_s | Se applicabile, visualizza le autorizzazioni concesse, negate o revocate. | varbinary(16) | string |
+| object_name | object_name_s | Nome dell'entità in cui si è verificato il controllo. Sono inclusi gli oggetti server, i database, gli oggetti di database e gli oggetti dello schema. 0 se l'entità è il server stesso o se il controllo non viene eseguito a livello di oggetto | sysname | stringa |
+| permission_bitmask | permission_bitmask_s | Se applicabile, visualizza le autorizzazioni concesse, negate o revocate. | varbinary(16) | stringa |
 | response_rows | response_rows_d | Numero di righe restituite nel set di risultati | bigint | INT |
-| schema_name | schema_name_s | Contesto dello schema in cui si è verificata l'azione. NULL per i controlli che si verificano all'esterno di uno schema | sysname | string |
-| N/D | securable_class_type_s | Oggetto a protezione diretta mappato al class_type sottoposto a controllo | N/D | string |
+| schema_name | schema_name_s | Contesto dello schema in cui si è verificata l'azione. NULL per i controlli che si verificano all'esterno di uno schema | sysname | stringa |
+| N/D | securable_class_type_s | Oggetto a protezione diretta mappato al class_type sottoposto a controllo | N/D | stringa |
 | sequence_group_id | sequence_group_id_g | Identificatore univoco | varbinary | GUID |
 | sequence_number | sequence_number_d | Tiene traccia della sequenza di record all'interno di un singolo record di controllo troppo grande per il buffer di scrittura per i controlli | INT | INT |
-| server_instance_name | server_instance_name_s | Nome dell'istanza del server in cui si è verificato il controllo | sysname | string |
+| server_instance_name | server_instance_name_s | Nome dell'istanza del server in cui si è verificato il controllo | sysname | stringa |
 | server_principal_id | server_principal_id_d | ID del contesto di accesso in cui viene eseguita l'azione | INT | INT |
-| server_principal_name | server_principal_name_s | Account di accesso corrente | sysname | string |
-| server_principal_sid | server_principal_sid_s | SID di accesso corrente | varbinary | string |
+| server_principal_name | server_principal_name_s | Account di accesso corrente | sysname | stringa |
+| server_principal_sid | server_principal_sid_s | SID di accesso corrente | varbinary | stringa |
 | session_id | session_id_d | ID della sessione in cui si è verificato l'evento | SMALLINT | INT |
-| session_server_principal_name | session_server_principal_name_s | Entità server per la sessione | sysname | string |
-| istruzione | statement_s | Istruzione T-SQL eseguita (se presente) | nvarchar(4000) | string |
-| succeeded | succeeded_s | Indica se l'azione che ha generato l'evento è riuscita. Per gli eventi diversi da login e batch, questo indica solo se il controllo delle autorizzazioni ha avuto esito positivo o negativo, non l'operazione. 1 = esito positivo, 0 = esito negativo | bit | string |
+| session_server_principal_name | session_server_principal_name_s | Entità server per la sessione | sysname | stringa |
+| istruzione | statement_s | Istruzione T-SQL eseguita (se presente) | nvarchar(4000) | stringa |
+| succeeded | succeeded_s | Indica se l'azione che ha generato l'evento è riuscita. Per gli eventi diversi da login e batch, questo indica solo se il controllo delle autorizzazioni ha avuto esito positivo o negativo, non l'operazione. 1 = esito positivo, 0 = esito negativo | bit | stringa |
 | target_database_principal_id | target_database_principal_id_d | Entità database su cui viene eseguita un'operazione GRANT/DENY/REVOKE. 0 se non applicabile | INT | INT |
-| target_database_principal_name | target_database_principal_name_s | Utente di destinazione dell'azione. NULL se non applicabile | string | string |
+| target_database_principal_name | target_database_principal_name_s | Utente di destinazione dell'azione. NULL se non applicabile | stringa | stringa |
 | target_server_principal_id | target_server_principal_id_d | Entità server su cui viene eseguita un'operazione GRANT/DENY/REVOKE. Restituisce 0 se non applicabile | INT | INT |
-| target_server_principal_name | target_server_principal_name_s | Account di accesso di destinazione dell'azione. NULL se non applicabile | sysname | string |
-| target_server_principal_sid | target_server_principal_sid_s | SID dell'account di accesso di destinazione. NULL se non applicabile | varbinary | string |
+| target_server_principal_name | target_server_principal_name_s | Account di accesso di destinazione dell'azione. NULL se non applicabile | sysname | stringa |
+| target_server_principal_sid | target_server_principal_sid_s | SID dell'account di accesso di destinazione. NULL se non applicabile | varbinary | stringa |
 | transaction_id | transaction_id_d | Solo SQL Server (a partire da 2016)-0 per il database SQL di Azure | bigint | INT |
 | user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | SMALLINT | INT |
-| user_defined_information | user_defined_information_s | Informazioni definite dall'utente passate come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
+| user_defined_information | user_defined_information_s | Informazioni definite dall'utente passate come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | stringa |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

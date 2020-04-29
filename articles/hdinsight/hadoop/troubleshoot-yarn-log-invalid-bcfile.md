@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
 ms.openlocfilehash: f7861ae4980f13fbd87780ab2d26fa3376f33532
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76776196"
 ---
 # <a name="scenario-unable-to-read-apache-yarn-log-in-azure-hdinsight"></a>Scenario: non è possibile leggere il log di Apache yarn in Azure HDInsight
@@ -30,9 +30,9 @@ java.io.IOException: Not a valid BCFile.
 
 Il log di Apache Yarn viene aggregato `IndexFile` in formato, che non è supportato dal parser di file.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
+1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
 1. Dall'interfaccia utente di Ambariri passare a **Yarn** > **configs** > **Advanced** > Advanced**Yarn-sito**.
 

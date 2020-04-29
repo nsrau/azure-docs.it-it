@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76716771"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
@@ -224,7 +224,7 @@ L'esempio di codice seguente specifica il percorso dei dati di input da leggere 
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Output:**
+**Output**
 
 Tempo di esecuzione della cella: 8 secondi.
 
@@ -245,7 +245,7 @@ Successivamente, eseguire query sulla tabella per i dati relativi alle tariffe, 
     # SHOW ONLY THE TOP THREE ROWS
     sqlResultsDF.show(3)
 
-**Output:**
+**Output**
 
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
@@ -254,12 +254,12 @@ Successivamente, eseguire query sulla tabella per i dati relativi alle tariffe, 
 |        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualizzazione ed esplorazione dei dati
-Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione verranno esaminati i dati dei taxi tramite query SQL. Quindi, importare i risultati in un frame di dati per tracciare le variabili di destinazione e le caratteristiche potenziali per l'ispezione visiva utilizzando la funzionalità Jupyter di visualizzazione automatica.
+Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione verranno esaminati i dati dei taxi tramite query SQL. Importare quindi i risultati in un frame di dati per tracciare le variabili di destinazione e le funzionalità potenziali per l'ispezione visiva usando la funzionalità di visualizzazione automatica Jupyter.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Usare magic local e SQL per tracciare i dati
 Per impostazione predefinita, l'output di ogni frammento di codice eseguito da un'istanza di Jupyter Notebook è disponibile all'interno del contesto della sessione persistente nei nodi del ruolo di lavoro. Se si vuole salvare una corsa nei nodi del ruolo di lavoro per ogni calcolo e se tutti i dati necessari per il calcolo sono disponibili localmente nel nodo server Jupyter, ovvero il nodo head, è possibile usare il magic `%%local` per eseguire il frammento di codice nel server Jupyter.
 
-* **Magia** SQL`%%sql`( ). Il kernel HDInsight Spark supporta l'esecuzione di query HiveQL inline semplici su SQLContext. L'argomento (`-o VARIABLE_NAME`) rende persistente l'output della query SQL come un frame di dati Pandas nel server Jupyter. Questa impostazione indica che l'output sarà disponibile in modalità locale.
+* **Magic SQL** (`%%sql`). Il kernel HDInsight Spark supporta l'esecuzione di query HiveQL inline semplici su SQLContext. L'argomento (`-o VARIABLE_NAME`) rende persistente l'output della query SQL come un frame di dati Pandas nel server Jupyter. Questa impostazione indica che l'output sarà disponibile in modalità locale.
 * `%%local` **magic**. Il magic `%%local` esegue il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro `-o`. Il parametro `-o` rende persistente l'output della query SQL a livello locale e quindi il magic `%%local` attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
 
 ### <a name="query-the-data-by-using-sql"></a>Eseguire query sui dati tramite SQL
@@ -327,7 +327,7 @@ Di seguito è indicato il codice per tracciare i dati:
     plt.show()
 
 
-**Output:**
+**Output**
 
 ![Istogramma degli importi delle mance](./media/scala-walkthrough/plot-tip-amount-histogram.png)
 
@@ -409,7 +409,7 @@ Per l'indicizzazione usare la funzione `StringIndexer()` e per la codifica one-h
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Output:**
+**Output**
 
 Tempo di esecuzione della cella: 4 secondi.
 
@@ -448,7 +448,7 @@ Aggiungere un numero casuale compreso tra 0 e 1 per ogni riga di una colonna "ra
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Output:**
+**Output**
 
 Tempo di esecuzione della cella: 2 secondi.
 
@@ -491,7 +491,7 @@ In questo codice, specificare la variabile di destinazione (dipendente) e le fun
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Output:**
+**Output**
 
 Tempo di esecuzione della cella: 4 secondi.
 
@@ -594,7 +594,7 @@ Caricare, classificare e salvare i risultati.
     println("ROC on test data = " + ROC)
 
 
-**Output:**
+**Output**
 
 ROC sui dati di test = 0.9827381497557599
 
@@ -632,7 +632,7 @@ Usare Python nei frame di dati Pandas locali per tracciare la curva ROC.
     plt.show()
 
 
-**Output:**
+**Output**
 
 ![Curva ROC per mancia o non mancia](./media/scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
@@ -665,7 +665,7 @@ Successivamente, creare un modello di classificazione di foresta casuale con la 
     println("ROC on test data = " + ROC)
 
 
-**Output:**
+**Output**
 
 ROC sui dati di test = 0.9847103571552683
 
@@ -721,7 +721,7 @@ Successivamente, creare un modello GBT con la funzione `GradientBoostedTrees()` 
     println(s"Area under ROC curve: ${metrics.areaUnderROC}")
 
 
-**Output:**
+**Output**
 
 Area sotto la curva ROC = 0,9846895479241554
 
@@ -773,7 +773,7 @@ In questa sezione vengono creati due tipi di modelli di regressione per stimare 
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Output:**
+**Output**
 
 Tempo di esecuzione della cella: 13 secondi.
 
@@ -804,7 +804,7 @@ Tempo di esecuzione della cella: 13 secondi.
     println("R-sqr on test data = " + r2)
 
 
-**Output:**
+**Output**
 
 R-sqr sui dati di test = 0.5960320470835743
 
@@ -846,14 +846,14 @@ Creare tracciati usando matplotlib di Python.
     plt.axis([-1, 15, -1, 8])
     plt.show(ax)
 
-**Output:**
+**Output**
 
 ![Importo della mancia: effettivo rispetto a stimato](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Creare un modello di regressione con boosting a gradienti
 Creare un modello di regressione GBT con la funzione `GBTRegressor()` di Spark ML e valutare il modello sui dati di test.
 
-[Gli alberi con incrementi](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) di gradiente (GBTS) sono insiemi di alberi decisionali. GBTS addestra gli alberi delle decisioni in modo iterativo per ridurre al minimo una funzione di perdita. È possibile utilizzare GBTS per la regressione e la classificazione. Gli alberi GBT possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
+Gli [alberi con boosting a gradienti](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) sono insiemi di alberi delle decisioni. GBT addestra gli alberi delle decisioni in modo iterativo per ridurre al minimo una funzione di perdita. È possibile usare GBT per la regressione e la classificazione. Gli alberi GBT possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -879,7 +879,7 @@ Creare un modello di regressione GBT con la funzione `GBTRegressor()` di Spark M
     println("Test R-sqr is: " + Test_R2);
 
 
-**Output:**
+**Output**
 
 Il valore R-sqr del test è: 0.7655383534596654
 
@@ -936,7 +936,7 @@ Suddividere quindi i dati in set di training e convalida, usare lo sweep degli i
     println("Test R-sqr is: " + Test_R2);
 
 
-**Output:**
+**Output**
 
 Il valore R-sqr del test è: 0.6226484708501209
 
@@ -980,7 +980,7 @@ Questa sezione illustra come ottimizzare un modello di classificazione binaria u
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Output:**
+**Output**
 
 Tempo di esecuzione della cella: 33 secondi.
 
@@ -1095,7 +1095,7 @@ Ottimizzare quindi il modello con codice personalizzato e identificare i paramet
     val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 
 
-**Output:**
+**Output**
 
 Tempo di esecuzione della cella: 61 secondi.
 

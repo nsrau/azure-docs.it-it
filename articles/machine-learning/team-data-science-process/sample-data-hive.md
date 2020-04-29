@@ -12,14 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76719994"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dati di esempio nelle tabelle Hive di Azure HDInsight
-Questo articolo descrive come eseguire il sottocampionamento dei dati archiviati nelle tabelle Hive di Azure HDInsight usando query Hive per ridurli a una dimensione più facilmente gestibile a scopo di analisi. Esso copre tre metodi di campionamento comunemente utilizzati:
+Questo articolo descrive come eseguire il sottocampionamento dei dati archiviati nelle tabelle Hive di Azure HDInsight usando query Hive per ridurli a una dimensione più facilmente gestibile a scopo di analisi. Vengono illustrati tre metodi di campionamento usati comunemente:
 
 * Campionamento casuale uniforme
 * Campionamento casuale per gruppi
@@ -31,7 +31,7 @@ Se il set di dati da analizzare è grande, è in genere opportuno sottocampionar
 Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Come inviare query Hive
-Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop.  Accedere al nodo head del cluster Hadoop, aprire la console della riga di comando Hadoop e inviare le query Hive da lì. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](move-hive-tables.md#submit).
+Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop.  Accedere al nodo head del cluster Hadoop, aprire la console della riga di comando di Hadoop e inviare le query hive da questa posizione. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](move-hive-tables.md#submit).
 
 ## <a name="uniform-random-sampling"></a><a name="uniform"></a> Campionamento casuale uniforme
 Nel campionamento casuale uniforme tutte le righe del set di dati hanno la stessa possibilità di essere sottoposte a campionamento. Questo metodo può essere implementato aggiungendo un ulteriore campo casuale () al set di dati relativo alla query "select" interna e a quella "select" esterna che condizionano il campo casuale.

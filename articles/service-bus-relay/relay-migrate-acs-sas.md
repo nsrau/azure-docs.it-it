@@ -1,6 +1,6 @@
 ---
-title: Inoltro di Azure - Eseguire la migrazione all'autorizzazione Firma di accesso condivisoAzure Relay - Migrate to Shared Access Signature authorization
-description: Viene descritto come eseguire la migrazione delle applicazioni di inoltro di Azure dall'utilizzo del servizio di controllo di accesso di Azure Active Directory all'autorizzazione Firma di accesso condiviso.
+title: "Inoltro di Azure: eseguire la migrazione a un'autorizzazione di firma di accesso condiviso"
+description: Viene descritto come eseguire la migrazione delle applicazioni di inoltro di Azure usando Azure Active Directory servizio di controllo di accesso per l'autorizzazione della firma di accesso condiviso.
 services: service-bus-relay
 documentationcenter: ''
 author: clemensv
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 59b9e734526c56016e2ddf59c2afb5b8f7b4ad09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514902"
 ---
-# <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Inoltro di Azure - Eseguire la migrazione dal servizio di controllo di accesso di Azure Active Directory all'autorizzazione firma di accesso condivisoAzure Relay - Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization
+# <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Inoltro di Azure: eseguire la migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso
 
 Per le applicazioni di Inoltro di Azure è sempre stato possibile scegliere tra due diversi modelli di autorizzazione: il modello token con [firma di accesso condiviso (SAS)](../service-bus-messaging/service-bus-sas.md) fornito direttamente dal servizio di inoltro e un modello federato in cui la gestione delle regole di autorizzazione viene eseguita all'interno del Servizio di controllo di accesso di [Azure Active Directory](/azure/active-directory/); i token ottenuti dal Servizio di controllo di accesso vengono passati al servizio di inoltro per autorizzare l'accesso alle funzionalità desiderate.
 

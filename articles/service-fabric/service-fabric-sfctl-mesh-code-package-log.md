@@ -1,15 +1,15 @@
 ---
-title: Interfaccia DI rete di Azure Service Fabric- sfctl mesh code-package-log
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per ottenere i log per un pacchetto di codice specificato.
+title: INTERFACCIA della riga di comando di Azure Service Fabric-sfctl mesh code-package-log
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per ottenere i log per un pacchetto di codice specificato.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f8665e75e4c921a3305c9965601e2ee0825c8995
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906041"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
@@ -48,5 +48,5 @@ Ottiene i log per il contenitore del pacchetto di codice specificato per la repl
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
+- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
 - Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

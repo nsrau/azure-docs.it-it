@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76987023"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
@@ -73,7 +73,7 @@ Per aggiungere la libreria client al progetto Maven, aggiungere la dipendenza se
 ### <a name="prerequisites"></a>Prerequisiti
 
 * Visual Studio 2012 o versione successiva con C#. Scaricare una versione gratuita dalla pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* NuGet 2.7 o versione successiva. Per ottenere la versione più recente, vedere [Installazione di NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
+* NuGet 2.7 o versione successiva. Per ottenere la versione più recente, vedere [installazione di NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Scaricare ed eseguire l'app di esempio
 
@@ -81,7 +81,7 @@ Per installare la libreria, visitare [Microsoft.Azure.SqlDatabase.ElasticScale.C
 
 Per scaricare ed eseguire l'applicazione di esempio, seguire questa procedura: 
 
-1. Scaricare gli [strumenti di database elastico per SQL](https://github.com/Azure/elastic-db-tools)di Azure - Esempio introduttivo . Decomprimere l'esempio nel percorso desiderato.
+1. Scaricare l' [esempio di strumenti di database elastici per SQL di Azure-Introduzione](https://github.com/Azure/elastic-db-tools). Decomprimere l'esempio nel percorso desiderato.
 
 2. Per creare un progetto, aprire la soluzione *ElasticScaleStarterKit.sln* dalla directory *C#*.
 
@@ -120,7 +120,7 @@ La libreria di strumenti di database elastico è gratuita. L'uso di strumenti di
 
 Quindi, nel caso dei nuovi database creati dall'applicazione di esempio, il costo dipende dall'edizione del database SQL scelta e dall'uso di Azure da parte dell'applicazione.
 
-Per informazioni sui prezzi, vedere Dettagli sui [prezzi del database SQL.](https://azure.microsoft.com/pricing/details/sql-database/)
+Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

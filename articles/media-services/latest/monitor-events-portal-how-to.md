@@ -1,5 +1,5 @@
 ---
-title: Monitorare gli eventi di Servizi multimediali di Azure con Griglia di eventi con il portaleMonitor Azure Media Services events with Event Grid with portal
+title: Monitorare gli eventi di servizi multimediali di Azure con griglia di eventi con il portale
 description: Questo articolo illustra come eseguire la sottoscrizione a Griglia di eventi per monitorare gli eventi di Servizi multimediali di Azure.
 services: media-services
 documentationcenter: na
@@ -16,17 +16,17 @@ ms.workload: media
 ms.date: 01/21/2020
 ms.author: juliako
 ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76509224"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e il portale di Azure
 
-La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo servizio utilizza [le sottoscrizioni](../../event-grid/concepts.md#event-subscriptions) di eventi per instradare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media". Per altre informazioni, vedere [Schemi di eventi di Servizi multimediali](media-services-event-schemas.md).
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo servizio usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per indirizzare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media". Per altre informazioni, vedere [Schemi di eventi di Servizi multimediali](media-services-event-schemas.md).
 
-In questo articolo si userà il portale di Azure per sottoscrivere gli eventi per l'account di Servizi multimediali di Azure. Si attiveranno quindi gli eventi per visualizzare i risultati. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Nell'articolo vengono inviati eventi a un'app Web che raccoglie e visualizza i messaggi.
+In questo articolo si userà il portale di Azure per sottoscrivere gli eventi per l'account di Servizi multimediali di Azure. Si attiveranno quindi gli eventi per visualizzare i risultati. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. In questo articolo si inviano eventi a un'app Web che raccoglie e Visualizza i messaggi.
 
 Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
@@ -59,7 +59,7 @@ Si sottoscrive un argomento per indicare a Griglia di eventi gli eventi di cui s
    ![Selezionare il webhook](./media/monitor-events-portal/select-web-hook.png)
 
 1. La sottoscrizione dell'evento è precompilata con i valori dell'account di Servizi multimediali. 
-1. Selezionare 'Web Hook' per Tipo **di endpoint.**
+1. Selezionare ' Web Hook ' per il **tipo di endpoint**.
 1. In questo articolo si lascerà selezionata la casella di controllo **Esegui la sottoscrizione di tutti i tipi di eventi**. È tuttavia possibile deselezionarla e applicare un filtro per specifici tipi di evento. 
 1. Fare clic sul collegamento **Seleziona un endpoint**.
 

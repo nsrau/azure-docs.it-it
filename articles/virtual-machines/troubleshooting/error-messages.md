@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76543019"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Informazioni sui messaggi di errore comuni quando si gestiscono le macchine virtuali in Azure
@@ -62,11 +62,11 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  ArtifactVersionNotFound  |  Nel repository di elementi non sono state trovate versioni che soddisfano la versione richiesta '{0}'.  |
 |  ArtifactVersionNotFound  |  Nel repository di elementi non sono state trovate versioni che soddisfano la versione richiesta '{0}' per l'estensione della macchina virtuale con editore '{1}' e tipo '{2}'.  |
 |  AttachDiskWhileBeingDetached  |  Non è possibile collegare un disco dati '{0}' alla macchina virtuale '{1}' perché il disco è attualmente in fase di scollegamento. Attendere che il disco sia completamente scollegato, quindi riprovare.  |
-|  RichiestaNonValida  |  Il set di disponibilità di tipo 'Allineato' non sono ancora supportati in questa area.  |
-|  RichiestaNonValida  |  L'aggiunta di una macchina virtuale con dischi gestiti a un set di disponibilità non gestito o l'aggiunta di una macchina virtuale con dischi basati su BLOB a un set di disponibilità gestito non è supportata. Creare un set di disponibilità con lo SKU 'Allineato' per potervi aggiungere una macchina virtuale con dischi gestiti.  |
-|  RichiestaNonValida  |  Il servizio Managed Disks non è supportato in questa area.  |
-|  RichiestaNonValida  |  Per il tipo di sistema operativo '{0}' non sono supportate più estensioni della macchina virtuale per ciascun gestore. L'estensione della macchina virtuale '{1}' con gestore '{2}' è già stata aggiunta o specificata nell'input.  |
-|  RichiestaNonValida  |  L'operazione '{0}' non è supportata nella risorsa '{1}' con dischi gestiti.  |
+|  BadRequest  |  Il set di disponibilità di tipo 'Allineato' non sono ancora supportati in questa area.  |
+|  BadRequest  |  L'aggiunta di una macchina virtuale con dischi gestiti a un set di disponibilità non gestito o l'aggiunta di una macchina virtuale con dischi basati su BLOB a un set di disponibilità gestito non è supportata. Creare un set di disponibilità con lo SKU 'Allineato' per potervi aggiungere una macchina virtuale con dischi gestiti.  |
+|  BadRequest  |  Il servizio Managed Disks non è supportato in questa area.  |
+|  BadRequest  |  Per il tipo di sistema operativo '{0}' non sono supportate più estensioni della macchina virtuale per ciascun gestore. L'estensione della macchina virtuale '{1}' con gestore '{2}' è già stata aggiunta o specificata nell'input.  |
+|  BadRequest  |  L'operazione '{0}' non è supportata nella risorsa '{1}' con dischi gestiti.  |
 |  CertificateImproperlyFormatted  |  La rappresentazione JSON di un segreto recuperato da {0} ha un campo di dati che non è un file PFX formattato correttamente, o la password fornita non decodifica correttamente il file PFX.  |
 |  CertificateImproperlyFormatted  |  I dati recuperati da {0} non sono deserializzabili in JSON.  |
 |  Conflitto  |  Il ridimensionamento del disco è consentito solo quando viene creata o deallocata una macchina virtuale.  |
@@ -205,7 +205,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  VMExtensionManagementInternalError  |  Si sono verificati più errori durante la preparazione delle estensioni della macchina virtuale. Per informazioni, vedere la visualizzazione dell'istanza dell'estensione della macchina virtuale.  |
 |  VMExtensionProvisioningError  |  La macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione '{0}'. Messaggio di errore: "{1}".  |
 |  VMExtensionProvisioningError  |  Il provisioning di più estensioni della macchina virtuale non è riuscito nella macchina virtuale. Per informazioni, vedere la visualizzazione dell'istanza dell'estensione della macchina virtuale.  |
-|  VMExtensionProvisioningTimeout  |  Il provisioning dell'estensione VM '{0}' è scaduto. L'installazione dell'estensione potrebbe richiedere troppo tempo o non è stato possibile ottenere lo stato dell'estensione.  |
+|  VMExtensionProvisioningTimeout  |  Timeout del provisioning dell'estensione{0}della macchina virtuale ''. L'installazione dell'estensione potrebbe richiedere troppo tempo oppure non è stato possibile ottenere lo stato dell'estensione.  |
 |  VMMarketplaceInvalidInput  |  Per la creazione di una macchina virtuale da un'immagine non Marketplace non sono richieste informazioni sul piano. Rimuovere le informazioni sul piano nella richiesta. Il nome del disco del sistema operativo è {0}.  |
 |  VMMarketplaceInvalidInput  |  Le informazioni di acquisto non corrispondono. La distribuzione dall'immagine Marketplace non è riuscita. Il nome del disco del sistema operativo è {0}.  |
 |  VMMarketplaceInvalidInput  |  Per la creazione di una macchina virtuale da un'immagine Marketplace sono richieste informazioni sul piano nella richiesta. Il nome del disco del sistema operativo è {0}.  |
@@ -216,4 +216,4 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ricevere assistenza, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.
+Per ricevere assistenza, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.

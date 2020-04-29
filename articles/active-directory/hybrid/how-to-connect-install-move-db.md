@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 742bc307c90ad58b83b7d4c92f9546b87c163c3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77019282"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Spostare il database di Azure AD Connect da SQL Server Express a SQL Server 
@@ -25,24 +25,24 @@ Questo documento descrive come spostare il database di Azure AD Connect dal serv
 ## <a name="about-this-scenario"></a>Informazioni sullo scenario
 Di seguito sono riportate alcune brevi informazioni sullo scenario.  In questo scenario, Azure AD Connect versione 1.1.819.0 è installato in un singolo controller di dominio Windows Server 2016.  Usa la versione integrata SQL Server 2012 Express Edition per il database.  Il database verrà spostato in un server SQL Server 2017.
 
-![architettura degli scenari](media/how-to-connect-install-move-db/move1.png)
+![architettura dello scenario](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Spostare il database di Azure AD Connect
 Seguire questa procedura per spostare il database di Azure AD Connect in un'istanza remota di SQL Server.
 
 1. Nel server di Azure AD Connect passare a **Servizi** e arrestare il servizio **Microsoft Azure AD Sync**.
-2. Individuare la cartella **%ProgramFiles%, Microsoft Azure AD Sync,Data** e copiare i file **ADSync.mdf** e **ADSync_log.ldf** nell'SQL Server remoto.
+2. Individuare la cartella **%programfiles%\microsoft Azure ad Sync\Data** e copiare i file **AdSync. MDF** e **ADSync_log. ldf** nel SQL Server remoto.
 3. Riavviare il servizio **Microsoft Azure AD Sync** nel server di Azure AD Connect.
 4. Disinstallare Azure AD Connect passando a Pannello di controllo, Programmi, Programmi e funzionalità.  Selezionare Microsoft Azure AD Connect e fare clic su Disinstalla nella parte superiore.
 5. Nel server SQL remoto aprire SQL Server Management Studio.
 6. In Database fare clic con il pulsante destro del mouse e scegliere Connetti.
 7. Nella schermata **Collega database** fare clic su **Aggiungi** e selezionare il file ADSync.mdf.  Fare clic su **OK**.
-   ![collegare il database](media/how-to-connect-install-move-db/move2.png)
+   ![Connetti database](media/how-to-connect-install-move-db/move2.png)
 
 8. Una volta collegato il database, tornare al server di Azure AD Connect e installare Azure AD Connect.
 9. Al termine dell'installazione del file con estensione msi, viene avviata la procedura guidata per l'installazione di Azure AD Connect in modalità rapida. Chiudere la schermata facendo clic sull'icona di chiusura.
    ![Schermata iniziale](./media/how-to-connect-install-move-db/db1.png)
-10. Avviare un nuovo prompt dei comandi o una nuova sessione di PowerShell. Passare all'unità della cartella \<> file di programma di Microsoft Azure AD Connect. Eseguire il comando .\AzureADConnect.exe /useexistingdatabase per avviare la procedura guidata per l'installazione di Azure AD Connect con un database esistente.
+10. Avviare un nuovo prompt dei comandi o una nuova sessione di PowerShell. Passare a cartella \<unità> \Programmi\Microsoft Azure ad Connect. Eseguire il comando .\AzureADConnect.exe /useexistingdatabase per avviare la procedura guidata per l'installazione di Azure AD Connect con un database esistente.
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Viene visualizzata la schermata iniziale di Azure AD Connect. Accettare le condizioni di licenza e l'informativa sulla privacy e quindi fare clic su **Continua**.
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db3.png)
@@ -64,7 +64,7 @@ Seguire questa procedura per spostare il database di Azure AD Connect in un'ista
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db8.png)
  
  
-17. Nella schermata **Pronto per** la configurazione fare clic su **Installa**.
+17. Nella schermata **pronto per la configurazione** fare clic su **Installa**.
     ![Schermata iniziale](./media/how-to-connect-install-move-db/db9.png)
  
  

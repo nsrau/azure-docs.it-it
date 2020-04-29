@@ -1,15 +1,15 @@
 ---
-title: Interfaccia di rete di Azure Service Fabric - sfctl sa-clusterAzure Service Fabric CLI- sfctl sa-cluster
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per la gestione di cluster autonomi.
+title: INTERFACCIA della riga di comando di Azure Service Fabric-sfctl SA-cluster
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione di cluster autonomi.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 233148c04fb1a9c6cf1d6c7042c12c54eebd0205
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76904932"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
@@ -33,7 +33,7 @@ La configurazione del cluster contiene le proprietà del cluster che includono i
 |Argomento|Descrizione|
 | --- | --- |
 | --configuration-api-version [Obbligatorio] | Versione API della configurazione json del cluster autonomo. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -94,7 +94,7 @@ Ottiene i dettagli dello stato dell'aggiornamento della configurazione del clust
 
 |Argomento|Descrizione|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -108,5 +108,5 @@ Ottiene i dettagli dello stato dell'aggiornamento della configurazione del clust
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
+- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
 - Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

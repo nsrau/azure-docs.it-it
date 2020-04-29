@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720521"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase di accettazione del cliente del ciclo di vita del processo di data science per i team
@@ -34,7 +34,7 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 
 
 ## <a name="goal"></a>Obiettivo
-**Finalizzare i risultati finali**del progetto: verificare che la pipeline, il modello e la relativa distribuzione in un ambiente di produzione soddisfino gli obiettivi del cliente.
+**Finalizzare i risultati del progetto**: verificare che la pipeline, il modello e la relativa distribuzione in un ambiente di produzione soddisfino gli obiettivi del cliente.
 
 ## <a name="how-to-do-it"></a>Procedura
 Questa fase comprende due attività principali:

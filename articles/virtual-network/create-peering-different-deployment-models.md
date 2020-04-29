@@ -17,10 +17,10 @@ ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 61df13e78dc7115d4f4d45ab18b9ffdae107dc96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77023260"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione, stessa sottoscrizione
@@ -216,7 +216,7 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
 2. Nel pannello **myResourceGroup** fare clic sull'icona **Elimina** .
 3. Per confermare l'eliminazione, nella casella **digitare il nome del gruppo di risorse** immettere **myResourceGroup**e quindi fare clic su **Elimina**.
 
-### <a name="azure-cli"></a><a name="delete-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a><a name="delete-cli"></a>INTERFACCIA della riga di comando di Azure
 
 1. Usare l'interfaccia della riga di comando di Azure per eliminare la rete virtuale (Resource Manager) con il seguente comando:
 

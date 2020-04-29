@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: Creare un gateway basato su route: PowerShellAzure VPN-gateway: Create route-based gateway: PowerShell'
+title: 'Gateway VPN di Azure: creare un gateway basato su Route: PowerShell'
 description: Creare rapidamente un gateway VPN basato su route usando PowerShell
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8a4bb9d2ac7b8124fa9b1e00f3ecceda4f4a4cdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77152959"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Creare un gateway VPN basato su route usando PowerShell
@@ -28,13 +28,13 @@ Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subne
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse. Se si esegue PowerShell in locale, aprire la console di PowerShell `Connect-AzAccount` con privilegi elevati e connettersi ad Azure usando il comando.
+Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse. Se si esegue PowerShell in locale, aprire la console di PowerShell con privilegi elevati e connettersi ad Azure con `Connect-AzAccount` il comando.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS
 ```
 
-## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtualeCreate a virtual network
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtuale
 
 Creare una rete virtuale con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
 
@@ -201,7 +201,7 @@ Sku                      : {
 IpTags                   : {}
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando le risorse create non sono più necessarie, usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per eliminare il gruppo di risorse. Questa operazione eliminerà il gruppo di risorse e tutte le risorse in esso contenute.
 

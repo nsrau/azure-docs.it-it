@@ -1,6 +1,6 @@
 ---
 title: Autenticazione e autorizzazione di Inoltro di Azure | Documentazione Microsoft
-description: Questo articolo offre una panoramica dell'autenticazione della firma di accesso condiviso (SAS) con il servizio di inoltro di Azure.This article provides an overview of Shared Access Signature (SAS) authentication with the Azure Relay service.
+description: Questo articolo fornisce una panoramica dell'autenticazione con firma di accesso condiviso (SAS) con il servizio di inoltro di Azure.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: aac5c973a99b13d5918a0162feb7f1ede443463b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514579"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticazione e autorizzazione di Inoltro di Azure
@@ -29,7 +29,7 @@ Le applicazioni possono eseguire l'autenticazione a Inoltro di Azure usando l'au
 
 L'[autenticazione SAS](../service-bus-messaging/service-bus-sas.md) garantisce l'accesso dell'utente alle risorse del servizio Inoltro di Azure con diritti specifici. Nel bus di servizio l'autenticazione SAS implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa. I client possono quindi ottenere l'accesso a questa risorsa presentando un token di firma di accesso condiviso composto dall'URI della risorsa a cui si vuole accedere e da una scadenza firmata con la chiave configurata.
 
-È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi di Inoltro. A differenza della messaggistica del bus di servizio, le [connessioni ibride di inoltro](relay-hybrid-connections-protocol.md) supportano mittenti non autorizzati o anonimi. È possibile abilitare l'accesso anonimo per l'entità al momento della creazione, come illustrato nella schermata seguente dal portale:You can enable anonymous access for the entity when you create it, as shown in the following screenshot from the portal:
+È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi di Inoltro. A differenza della messaggistica del bus di servizio, le [connessioni ibride di inoltro](relay-hybrid-connections-protocol.md) supportano mittenti non autorizzati o anonimi. È possibile abilitare l'accesso anonimo per l'entità durante la creazione, come illustrato nella schermata seguente del portale:
 
 ![][0]
 

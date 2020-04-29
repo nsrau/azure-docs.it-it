@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi al gateway e alle connessioni della rete Virtuale di Azure - Interfaccia della riga di comando di AzureTroubleshoot Azure VNET Gateway and Connections - Azure CLI
+title: Risolvere i problemi relativi a gateway e connessioni di Azure VNET-CLI di Azure
 titleSuffix: Azure Network Watcher
 description: Questa pagina spiega come usare l'interfaccia della riga di comando di Azure per risolvere i problemi in Network Watcher di Azure
 services: network-watcher
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: dc0aa8e6099a7ec017aead2fe0f16e9712e17936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840724"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure tramite l'interfaccia della riga di comando di Azure in Network Watcher di Azure
 
 > [!div class="op_single_selector"]
 > - [Portale](diagnose-communication-problem-between-networks.md)
-> - [Powershell](network-watcher-troubleshoot-manage-powershell.md)
-> - [Interfaccia della riga di comando di AzureAzure](network-watcher-troubleshoot-manage-cli.md)
+> - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher offre numerose funzionalità che consentono di comprendere le risorse di rete in Azure. Una di queste funzionalità è la risoluzione dei problemi riscontrati con le risorse. La funzionalità può essere chiamata dal portale, da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando chiamata, Network Watcher controlla l'integrità di un gateway di rete virtuale o di una connessione e restituisce i risultati.

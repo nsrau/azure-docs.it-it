@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77191034"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concetti e composizione di competenze in Azure ricerca cognitiva
@@ -41,7 +41,7 @@ Per conoscere il modo in cui un insieme di competenze arricchisce progressivamen
 
 Quando un documento si trova nella pipeline di arricchimento, viene rappresentato come albero di contenuto e arricchimenti associati. Viene creata un'istanza di questo albero come output di cracking del documento. Il formato dell'albero di arricchimento consente alla pipeline di arricchimento di alleghi i metadati ai tipi di dati ancora primitivi, non è un oggetto JSON valido, ma può essere proiettato in un formato JSON valido. La tabella seguente illustra lo stato di un documento che entra nella pipeline di arricchimento:
 
-|Modalità Source\Parsing dati|Impostazione predefinita|JSON, righe JSON & CSV|
+|Modalità Source\Parsing dati|Predefinito|JSON, righe JSON & CSV|
 |---|---|---|
 |Archiviazione BLOB|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |

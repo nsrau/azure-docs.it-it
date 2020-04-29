@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897186"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
@@ -34,7 +34,7 @@ Per altre informazioni su Azure AD, vedere [Sincronizzazione delle identità e r
 
 ## <a name="problems"></a>I problemi
 ### <a name="a-common-scenario"></a>Scenario comune
-Quando si verificano gli errori di sincronizzazione **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, è frequente che si sia verificato un conflitto di **UserPrincipalName** o **Proxy Addresses** in Azure AD. È possibile risolvere gli errori di sincronizzazione aggiornando l'oggetto di origine in conflitto dal lato locale. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Ad esempio, questa immagine indica che due utenti hanno un conflitto del proprio **UserPrincipalName**. Entrambi sono **Joe.J\@contoso.com**. Gli oggetti in conflitto vengono messi in quarantena in Azure AD.
+Quando si verificano gli errori di sincronizzazione **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, è frequente che si sia verificato un conflitto di **UserPrincipalName** o **Proxy Addresses** in Azure AD. È possibile risolvere gli errori di sincronizzazione aggiornando l'oggetto di origine in conflitto dal lato locale. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Ad esempio, questa immagine indica che due utenti hanno un conflitto tra i **userPrincipalName**. Entrambi sono **Joe. J\@contoso.com**. Gli oggetti in conflitto vengono messi in quarantena in Azure AD.
 
 ![Diagnosi di uno scenario comune per un errore di sincronizzazione](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -129,10 +129,10 @@ In base alle risposte alle domande precedenti, verrà visualizzato il pulsante *
 > La modifica **Applica correzione** si applica solo ai casi con oggetto orfano.
 >
 
-Dopo i passaggi precedenti, l'utente può accedere alla risorsa originale, ovvero un collegamento a un oggetto esistente. Il valore **di stato Diagnostica** nella visualizzazione elenco viene aggiornato a **Sincronizzazione in sospeso**. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Connect Health non mostrerà più l'errore di sincronizzazione risolto nella visualizzazione elenco.
+Dopo i passaggi precedenti, l'utente può accedere alla risorsa originale, ovvero un collegamento a un oggetto esistente. Il valore di **stato di diagnosi** nella visualizzazione elenco viene aggiornato alla **sincronizzazione in sospeso**. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Connect Health non visualizzerà più l'errore di sincronizzazione risolto nella visualizzazione elenco.
 
 ## <a name="failures-and-error-messages"></a>Errori e messaggi di errore
-**L'utente con attributo in conflitto viene eliminato temporaneamente in Azure Active Directory.User with conflicting attribute is soft deleted in the Azure Active Directory. Assicurarsi che l'utente venga eliminato definitivamente prima di riprovare.**  
+**L'utente con attributo in conflitto viene eliminato temporaneamente nell'Azure Active Directory. Assicurarsi che l'utente sia stato eliminato definitivamente prima di riprovare.**  
 L'utente con attributo in conflitto in Azure AD deve essere rimosso prima di applicare la correzione. Vedere [come eliminare in modo permanente l'utente in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) prima di riprovare ad applicare la correzione. L'utente verrà anche eliminato automaticamente in modo permanente dopo 30 giorni in cui si trova nello stato di eliminazione temporanea. 
 
 **L'aggiornamento dell'ancoraggio di origine in un utente basato sul cloud nel tenant non è supportato.**  
@@ -140,20 +140,20 @@ L'utente basato su cloud in Azure AD non deve avere l'ancoraggio di origine. In 
 
 ## <a name="faq"></a>Domande frequenti
 **D.** Cosa accade se l'esecuzione di **Applica correzione** non riesce?  
-**A.** Se l'esecuzione non riesce, è possibile che in Azure AD Connect si stia verificando un errore di esportazione. Aggiornare la pagina del portale e riprovare dopo la sincronizzazione successiva. Il ciclo di sincronizzazione predefinito è 30 minuti. 
+**R.** Se l'esecuzione non riesce, è possibile che in Azure AD Connect si stia verificando un errore di esportazione. Aggiornare la pagina del portale e riprovare dopo la sincronizzazione successiva. Il ciclo di sincronizzazione predefinito è 30 minuti. 
 
 
 **D.** Cosa accade se l'**oggetto esistente** deve essere l'oggetto da eliminare?  
-**A.** Se l'**oggetto esistente** deve essere eliminato, il processo non comporta la modifica di **Ancoraggio di origine**. In genere, è possibile risolvere questo problema da Active Directory locale. 
+**R.** Se l'**oggetto esistente** deve essere eliminato, il processo non comporta la modifica di **Ancoraggio di origine**. In genere, è possibile risolvere questo problema da Active Directory locale. 
 
 
 **D.** Quale autorizzazione è necessaria per applicare la correzione?  
-**A.** **Amministratore globale** o **Collaboratore** nelle impostazioni di controllo degli accessi in base al ruolo hanno l'autorizzazione per accedere al processo di diagnostica e risoluzione dei problemi.
+**R.** **Amministratore globale** o **Collaboratore** nelle impostazioni di controllo degli accessi in base al ruolo hanno l'autorizzazione per accedere al processo di diagnostica e risoluzione dei problemi.
 
 
 **D.** È necessario configurare Azure AD Connect o aggiornare l'agente di Azure AD Connect Health per questa funzionalità?  
-**A.** No, il processo di diagnosi è completamente basato sul cloud.
+**R.** No, il processo di diagnosi è completamente basato sul cloud.
 
 
 **D.** Se l'oggetto esistente viene eliminato temporaneamente, il processo di diagnosi renderà di nuovo attivo l'oggetto?  
-**A.** No, la correzione non aggiornerà gli attributi dell'oggetto, se non **Ancoraggio di origine**.
+**R.** No, la correzione non aggiornerà gli attributi dell'oggetto, se non **Ancoraggio di origine**.

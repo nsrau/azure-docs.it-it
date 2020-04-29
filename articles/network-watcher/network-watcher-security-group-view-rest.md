@@ -1,5 +1,5 @@
 ---
-title: Analizzare la sicurezza di rete - Visualizzazione gruppo di sicurezza - API REST di AzureAnalyze network security - Security Group View - Azure REST API
+title: Analizzare la sicurezza di rete-visualizzazione del gruppo di sicurezza-API REST di Azure
 titleSuffix: Azure Network Watcher
 description: Questo articolo descrive come usare PowerShell per analizzare la protezione di macchine virtuali con la visualizzazione di un gruppo di sicurezza.
 services: network-watcher
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: c9c76e9c06d4c45a096cff79dac82bb80ebe25d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840741"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analizzare la protezione della macchina virtuale visualizzando un gruppo di sicurezza con l'API REST
 
 > [!div class="op_single_selector"]
-> - [Powershell](network-watcher-security-group-view-powershell.md)
-> - [Interfaccia della riga di comando di AzureAzure](network-watcher-security-group-view-cli.md)
+> - [PowerShell](network-watcher-security-group-view-powershell.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 La visualizzazione di un gruppo di sicurezza consente di recuperare le regole di sicurezza di rete configurate ed effettive applicate a una macchina virtuale. Questa funzionalità è utile per controllare e diagnosticare i gruppi di sicurezza di rete e le regole configurate in una macchina virtuale per verificare che il traffico viene consentito o negato in modo corretto. Questo articolo illustra come recuperare le regole di sicurezza effettive ed applicate a una macchina virtuale tramite l'API REST
@@ -33,7 +33,7 @@ La visualizzazione di un gruppo di sicurezza consente di recuperare le regole di
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-In questo scenario, si chiama l'API REST di Network Watcher per ottenere la visualizzazione del gruppo di sicurezza per una macchina virtuale. ARMclient viene usato per chiamare l'API REST con PowerShell. ARMClient si trova su chocolatey presso [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+In questo scenario, si chiama l'API REST di Network Watcher per ottenere la visualizzazione del gruppo di sicurezza per una macchina virtuale. ARMclient viene usato per chiamare l'API REST con PowerShell. ARMClient è disponibile su Chocolate in [ARMClient su Chocolate](https://chocolatey.org/packages/ARMClient)
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher. Lo scenario presuppone inoltre che esista e possa essere usato un gruppo di risorse con una macchina virtuale valida.
 
@@ -51,7 +51,7 @@ armclient login
 
 Eseguire lo script seguente per restituire una macchina virtuale Il codice seguente necessita delle variabili:
 
-- **subscriptionId** - L'ID sottoscrizione può essere recuperato anche con il cmdlet **Get-AzSubscription.**
+- **SubscriptionId** : l'ID sottoscrizione può essere recuperato anche con il cmdlet **Get-AzSubscription** .
 - **resourceGroupName**: il nome di un gruppo di risorse contenente le macchine virtuali.
 
 ```powershell

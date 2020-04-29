@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76710315"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
@@ -48,7 +48,7 @@ I dati sono locali o nel cloud? Le posizioni possibili includono:
 * Un indirizzo HTTP disponibile pubblicamente
 * Un percorso di file di rete o locale
 * Un database di SQL Server
-* un contenitore di Archiviazione di Azurean an Azure Storage container
+* un contenitore di archiviazione di Azure
 
 ### <a name="what-is-the-azure-destination"></a>Qual è la destinazione di Azure?
 
@@ -66,7 +66,7 @@ Dove devono trovarsi i dati per l'elaborazione o la modellazione?
 Per le procedure e le risorse disponibili per inserire o caricare i dati in vari ambienti di elaborazione e di archiviazione, vedere:
 
 * [Caricare i dati in ambienti di archiviazione per l'analisi](ingest-data.md)
-* [Importare i dati di training in Azure Machine Learning Studio (classico) da varie origini datiImport your training data into Azure Machine Learning Studio (classic) from various data sources](../studio/import-data.md)
+* [Importare i dati di training in Azure Machine Learning Studio (classico) da varie origini dati](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?
 
@@ -75,11 +75,11 @@ Per le procedure e le risorse disponibili per inserire o caricare i dati in vari
 * Uno scenario ibrido che include sia risorse locali che cloud
 * Uno scenario in cui i dati vengono sottoposti a transazioni, modificati o cambiati dalla logica di business durante la migrazione
 
-Per altre informazioni, vedere Spostare dati da un server SQL locale a SQL Azure con Azure Data Factory.For more information, see Move data [from an on-premises SQL server to SQL Azure with Azure Data Factory.](move-sql-azure-adf.md)
+Per altre informazioni, vedere [spostare dati da un'istanza di SQL Server locale a SQL Azure con Azure Data Factory](move-sql-azure-adf.md).
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Che quantità di dati è necessario spostare in Azure?
 
-Set di dati di grandi dimensioni possono superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la descrizione dei limiti di dimensione per Machine Learning Studio (classico) nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
+I set di impostazioni di grandi dimensioni possono superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione relativa ai limiti delle dimensioni per Machine Learning Studio (classico) nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Domande sulle caratteristiche dei dati: tipo, formato e dimensione
 
@@ -106,7 +106,7 @@ Queste domande sono fondamentali per la pianificazione degli ambienti di archivi
 * Medie: compresi tra 2 GB e 10 GB
 * Grandi: più di 10 GB
 
-Prendiamo ad esempio l'ambiente Di Azure Machine Learning Studio (classico):
+Prendere l'ambiente Azure Machine Learning Studio (classico), ad esempio:
 
 * Per un elenco dei formati e dei tipi di dati supportati da Azure Machine Learning Studio, vedere la sezione [Tipi di dati e formati di dati supportati](../studio/import-data.md#supported-data-formats-and-data-types) .
 * Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di analisi, vedere [Sottoscrizione ad Azure e limiti, quote e vincoli del servizio](../../azure-resource-manager/management/azure-subscription-service-limits.md).
@@ -145,14 +145,14 @@ Sono disponibili numerose opzioni relative a linguaggi, ambienti di sviluppo e s
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>Quali strumenti è necessario usare per l'analisi dei dati?
 
-* [Microsoft Azure Powershell:](/powershell/azure/overview) un linguaggio di script usato per amministrare le risorse di Azure in un linguaggio di scriptMicrosoft Azure Powershell - a script language used to administer your Azure resources in a script language
+* [Microsoft Azure PowerShell](/powershell/azure/overview) -un linguaggio di script usato per amministrare le risorse di Azure in un linguaggio di script
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools per Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
-* [Quaderni Jupyter](https://jupyter.org/)
-* [Microsoft Power BI](https://powerbi.microsoft.com)
+* [Notebook di Jupyter](https://jupyter.org/)
+* [Power BI Microsoft](https://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificare lo scenario di analisi avanzata
 

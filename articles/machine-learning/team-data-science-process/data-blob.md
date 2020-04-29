@@ -12,17 +12,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4c47dfb8b221b6cb4b6237669ecd17c1637107a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721099"
 ---
 # <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Elaborare i dati BLOB di Azure con l'analisi avanzata
 In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Caricare i dati in un intervallo di dati Pandas
-Per esplorare e modificare un set di dati, è necessario scaricarlo dall'origine BLOB in un file locale che può quindi essere caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
+Per esplorare e modificare un set di dati, è necessario scaricarlo dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
 
 1. Scaricare i dati dal BLOB di Azure con il codice Python di esempio seguente usando il servizio BLOB. Sostituire la variabile nel codice riportato di seguito con i valori specifici: 
    
@@ -131,7 +131,7 @@ Per creare funzionalità in contenitori, procedere come indicato di seguito:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
-Dopo aver esplorato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o featurizzati) in un BLOB di Azure e usarli in Azure Machine Learning usando la procedura seguente: È possibile creare funzionalità aggiuntive in Azure Machine Learning Studio (classico) pure. 
+Dopo aver esplorato i dati e creato le funzionalità necessarie, è possibile caricare i dati (sampled o trasformato) in un BLOB di Azure e usarli in Azure Machine Learning usando la procedura seguente: è possibile creare funzionalità aggiuntive anche nell'Azure Machine Learning Studio (classica). 
 
 1. Scrivere il frame di dati in file locali
    

@@ -12,23 +12,23 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4832762a88073f4d819925659bf9078e18f60c2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720283"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dati di esempio nell'archiviazione BLOB di AzureSample data in Azure blob storage
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Campionare i dati nell'archivio BLOB di Azure
 
 Questo articolo descrive i dati di campionamento che è possibile memorizzare nell'archivio BLOB di Azure scaricandoli a livello di programmazione ed eseguendo il successivo campionamento tramite routine scritte in Python.
 
 **Perché campionare i dati?**
-Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il campionamento facilita la comprensione, l'esplorazione e la progettazione delle funzionalità dei dati. Il suo ruolo nel Cortana Analytics Process consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli per l'apprendimento automatico.
+Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il campionamento semplifica la comprensione dei dati, l'esplorazione e la progettazione delle funzionalità. Il suo ruolo nel Cortana Analytics Process consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli per l'apprendimento automatico.
 
 Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Download e sotto-campionamento dei dati
-1. Scaricare i dati dall'archiviazione BLOB di Azure usando il servizio BLOB dal codice Python di esempio seguente:Download the data from Azure blob storage using the Blob service from the following sample Python code: 
+1. Scaricare i dati dall'archiviazione BLOB di Azure usando il servizio BLOB dal codice Python di esempio seguente: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -61,7 +61,7 @@ Questo campionamento è un passaggio del [Processo di analisi scientifica dei da
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Ora è possibile lavorare con il frame di dati sopra riportato con l'esempio one Percent per ulteriori esplorazioni e generazione di funzionalità.
+A questo punto è possibile usare il frame di dati sopra riportato con l'esempio di percentuale per l'esplorazione e la generazione di funzionalità.
 
 ## <a name="upload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Caricamento e lettura dei dati in Azure Machine Learning
 Per sottocampionare i dati e usarli direttamente in Azure Machine Learning, è possibile usare il codice di esempio seguente:

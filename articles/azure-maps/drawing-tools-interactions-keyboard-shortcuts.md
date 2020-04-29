@@ -1,6 +1,6 @@
 ---
-title: Tipi di interazione degli strumenti di disegno e scelte rapide da tastiera sulla mappa Mappe di Microsoft Azure
-description: Come disegnare e modificare forme utilizzando mouse, touch screen o tastiera in Microsoft Azure Maps Web SDK
+title: Tipi di interazione degli strumenti di disegno e tasti di scelta rapida nella mappa | Mappe Microsoft Azure
+description: Come creare e modificare forme usando un mouse, un touchscreen o una tastiera in Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -9,144 +9,144 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77198293"
 ---
-# <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipi di interazione e scelte rapide da tastiera nel modulo degli strumenti di disegno
+# <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipi di interazione e tasti di scelta rapida nel modulo strumenti di disegno
 
-Questo articolo descrive tutti i diversi modi per disegnare e modificare le forme utilizzando il mouse, il touchscreen o le scelte rapide da tastiera.
+In questo articolo vengono illustrati tutti i diversi modi per creare e modificare forme utilizzando un mouse, un touchscreen o scelte rapide da tastiera.
 
-Il gestore di disegni supporta tre diversi modi di interagire con la mappa, per disegnare forme.
+Il gestore del disegno supporta tre diverse modalità di interazione con la mappa, per disegnare forme.
 
-* `click`- Le coordinate vengono aggiunte quando si fa clic con il mouse o il tocco.
-* `freehand `- Le coordinate vengono aggiunte quando il mouse o il tocco viene trascinato sulla mappa.
-* `hybrid`- Le coordinate vengono aggiunte quando si fa clic o si trascina il mouse o il tocco.
+* `click`-Le coordinate vengono aggiunte quando si fa clic con il mouse o il tocco.
+* `freehand `-Le coordinate vengono aggiunte quando il mouse o il tocco viene trascinato sulla mappa.
+* `hybrid`-Le coordinate vengono aggiunte quando si fa clic o si trascina il mouse o il tocco.
 
-## <a name="how-to-draw-shapes"></a>Come disegnare forme
+## <a name="how-to-draw-shapes"></a>Come creare forme
 
- Prima di disegnare una forma, impostare l'opzione `drawingMode` del gestore di disegni su un'impostazione di disegno supportata. Questa impostazione può essere programmata o richiamata premendo uno dei pulsanti di disegno sulla barra degli strumenti. La modalità di disegno rimane abilitata, anche dopo che è stata disegnata una forma, semplificando il disegno di forme aggiuntive dello stesso tipo. Impostare a livello di codice la modalità di disegno su uno stato di inattività. In alternativa, passare a uno stato di inattività facendo clic sul pulsante delle modalità di disegno correnti sulla barra degli strumenti.
+ Prima di poter disegnare una forma, impostare l' `drawingMode` opzione di gestione del disegno su un'impostazione di disegno supportata. Questa impostazione può essere programmata o richiamata premendo uno dei pulsanti di disegno sulla barra degli strumenti. La modalità di disegno rimane abilitata, anche dopo che è stata disegnata una forma, semplificando il disegno di forme aggiuntive dello stesso tipo. Imposta a livello di codice la modalità di disegno su uno stato inattivo. In alternativa, passare a uno stato inattivo facendo clic sul pulsante modalità di disegno corrente sulla barra degli strumenti.
 
-Le sezioni successive illustrano tutti i diversi modi in cui le forme possono essere disegnate sulla mappa.
+Le sezioni successive delineano tutti i diversi modi in cui è possibile disegnare forme sulla mappa.
 
-### <a name="how-to-draw-a-point"></a>Come disegnare un punto
+### <a name="how-to-draw-a-point"></a>Come creare un punto
 
-Quando il gestore `draw-point` di disegno è in modalità di disegno, è possibile eseguire le seguenti azioni per disegnare punti sulla mappa. Questi metodi funzionano con tutte le modalità di interazione.
+Quando la gestione del disegno è `draw-point` in modalità di disegno, è possibile eseguire le operazioni seguenti per disegnare punti sulla mappa. Questi metodi funzionano con tutte le modalità di interazione.
 
-**Inizia a disegnare**
- - Fare clic con il pulsante sinistro del mouse o toccare la mappa per aggiungere un punto alla mappa. 
- - Se il mouse si trova `F` sopra la mappa, premere il tasto e verrà aggiunto un punto in corrispondenza della coordinata del puntatore del mouse. Questo metodo fornisce una maggiore precisione per l'aggiunta di un punto alla mappa. Ci sarà meno movimento sul mouse a causa del movimento di pressione del pulsante sinistro del mouse.
- - Continuare a fare clic, toccare o premere `F` per aggiungere altri punti alla mappa.
+**Avvia disegno**
+ - Fare clic sul pulsante sinistro del mouse oppure toccare la mappa per aggiungere un punto alla mappa. 
+ - Se il mouse si trova sulla mappa, premere il `F` tasto e verrà aggiunto un punto in corrispondenza della coordinata del puntatore del mouse. Questo metodo garantisce una maggiore precisione per l'aggiunta di un punto alla mappa. Lo spostamento sul mouse sarà inferiore a causa del movimento di pressione del pulsante sinistro del mouse.
+ - Continua a fare clic, toccare o `F` premere per aggiungere altri punti alla mappa.
  
-**Termina disegno**
- - Fare clic su un pulsante qualsiasi nella barra degli strumenti di disegno. 
- - Impostare a livello di codice la modalità di disegno. 
- - Premere `C` il tasto .
+**Fine disegno**
+ - Fare clic su qualsiasi pulsante sulla barra degli strumenti del disegno. 
+ - Impostare la modalità di disegno a livello di codice. 
+ - Premere il `C` tasto.
 
-**Annullare il disegno**
- - Premere `Escape` il tasto .
+**Annulla disegno**
+ - Premere il `Escape` tasto.
 
-### <a name="how-to-draw-a-line"></a>Come disegnare una linea
+### <a name="how-to-draw-a-line"></a>Come creare una linea
 
-Quando il gestore `draw-line` di disegno è in modalità, è possibile eseguire le seguenti azioni per disegnare punti sulla mappa, a seconda della modalità di interazione.
+Quando la gestione del disegno è `draw-line` in modalità, è possibile eseguire le operazioni seguenti per disegnare punti sulla mappa, a seconda della modalità di interazione.
 
-**Inizia a disegnare**
+**Avvia disegno**
  - Modalità clic
-   * Fare clic con il pulsante sinistro del mouse o toccare la mappa per aggiungere ogni punto di una linea sulla mappa. Una coordinata viene aggiunta alla linea per ogni clic o tocco. 
-   * Se il mouse si trova `F` sopra la mappa, premere il tasto e verrà aggiunto un punto in corrispondenza della coordinata del puntatore del mouse. Questo metodo fornisce una maggiore precisione per l'aggiunta di un punto alla mappa. Ci sarà meno movimento sul mouse a causa del movimento di pressione del pulsante sinistro del mouse.
-   * Continuare a fare clic fino a quando tutti i punti desiderati non sono stati aggiunti alla linea.
+   * Fare clic sul pulsante sinistro del mouse oppure toccare la mappa per aggiungere ogni punto di una linea sulla mappa. Viene aggiunta una coordinata alla riga per ogni clic o tocco. 
+   * Se il mouse si trova sulla mappa, premere il `F` tasto e verrà aggiunto un punto in corrispondenza della coordinata del puntatore del mouse. Questo metodo garantisce una maggiore precisione per l'aggiunta di un punto alla mappa. Lo spostamento sul mouse sarà inferiore a causa del movimento di pressione del pulsante sinistro del mouse.
+   * Continua a fare clic fino a quando tutti i punti desiderati non sono stati aggiunti alla riga.
  - Modalità a mano libera
-   * Premi il pulsante sinistro del mouse o tocca la mappa e trascina il mouse o tocca il punto. Le coordinate vengono aggiunte alla linea quando il mouse o il punto di tocco si sposta sulla mappa. Non appena viene attivato il mouse o l'evento di ritocco, il disegno viene completato. La frequenza con cui vengono aggiunte `freehandInterval` le coordinate è definita dall'opzione dei gestori di disegni.
+   * Premere il pulsante sinistro del mouse oppure toccare la mappa e trascinare il mouse oppure toccare il punto. Le coordinate vengono aggiunte alla riga quando il mouse o il punto di tocco si sposta intorno alla mappa. Non appena viene attivato il mouse o l'evento di tocco, il disegno viene completato. La frequenza con cui vengono aggiunte le coordinate viene definita dall'opzione di `freehandInterval` gestione del disegno.
  - Modalità ibrida
-   * Alternare i metodi click e freehand, come desiderato, mentre si disegna una singola linea. Ad esempio, fai clic su alcuni punti, quindi tieni premuto e trascina il mouse per aggiungere un gruppo di punti, quindi fai clic su alcuni altri. 
+   * Alternare i metodi click e Freehand, come desiderato, durante il disegno di una singola riga. Ad esempio, fare clic su alcuni punti, quindi tenendo premuto il mouse per aggiungere una serie di punti, quindi fare clic su altri. 
 
-**Termina disegno**
- - Modalità ibrida/clic
+**Fine disegno**
+ - Modalità ibrido/clic
    * Fare doppio clic sulla mappa nell'ultimo punto. 
-   * Fare clic su un pulsante qualsiasi nella barra degli strumenti di disegno. 
-   * Impostare a livello di codice la modalità di disegno. 
+   * Fare clic su qualsiasi pulsante sulla barra degli strumenti del disegno. 
+   * Impostare la modalità di disegno a livello di codice. 
  - Modalità a mano libera
    * Rilasciare il pulsante del mouse o il punto di tocco.
- - Premere `C` il tasto .
+ - Premere il `C` tasto.
 
-**Annullare il disegno**
- - Premere `Escape` il tasto .
+**Annulla disegno**
+ - Premere il `Escape` tasto.
 
-### <a name="how-to-draw-a-polygon"></a>Come disegnare un poligono
+### <a name="how-to-draw-a-polygon"></a>Come creare un poligono
 
-Quando il gestore `draw-polygon` di disegno è in modalità, è possibile eseguire le seguenti azioni per disegnare punti sulla mappa, a seconda della modalità di interazione.
+Quando la gestione del disegno è `draw-polygon` in modalità, è possibile eseguire le operazioni seguenti per disegnare punti sulla mappa, a seconda della modalità di interazione.
 
-**Inizia a disegnare**
+**Avvia disegno**
  - Modalità clic
-   * Fare clic con il pulsante sinistro del mouse o toccare la mappa per aggiungere ogni punto di un poligono sulla mappa. Una coordinata viene aggiunta al poligono per ogni clic o tocco. 
-   * Se il mouse si trova `F` sopra la mappa, premere il tasto e verrà aggiunto un punto in corrispondenza della coordinata del puntatore del mouse. Questo metodo fornisce una maggiore precisione per l'aggiunta di un punto alla mappa. Ci sarà meno movimento sul mouse a causa del movimento di pressione del pulsante sinistro del mouse.
-   * Continuare a fare clic fino a quando tutti i punti desiderati non sono stati aggiunti al poligono.
+   * Fare clic sul pulsante sinistro del mouse oppure toccare la mappa per aggiungere ogni punto di un poligono sulla mappa. Viene aggiunta una coordinata al poligono per ogni clic o tocco. 
+   * Se il mouse si trova sulla mappa, premere il `F` tasto e verrà aggiunto un punto in corrispondenza della coordinata del puntatore del mouse. Questo metodo garantisce una maggiore precisione per l'aggiunta di un punto alla mappa. Lo spostamento sul mouse sarà inferiore a causa del movimento di pressione del pulsante sinistro del mouse.
+   * Continua a fare clic fino a quando non sono stati aggiunti tutti i punti desiderati al poligono.
  - Modalità a mano libera
-   * Premi il pulsante sinistro del mouse o tocca la mappa e trascina il mouse o tocca il punto. Le coordinate vengono aggiunte al poligono quando il mouse o il punto di tocco si sposta sulla mappa. Non appena viene attivato il mouse o l'evento di ritocco, il disegno viene completato. La frequenza con cui vengono aggiunte `freehandInterval` le coordinate è definita dall'opzione dei gestori di disegni.
+   * Premere il pulsante sinistro del mouse oppure toccare la mappa e trascinare il mouse oppure toccare il punto. Le coordinate vengono aggiunte al poligono quando il mouse o il punto di tocco si sposta intorno alla mappa. Non appena viene attivato il mouse o l'evento di tocco, il disegno viene completato. La frequenza con cui vengono aggiunte le coordinate viene definita dall'opzione di `freehandInterval` gestione del disegno.
  - Modalità ibrida
-   * Alternare tra i metodi click e freehand, come desiderato, mentre si disegna un singolo poligono. Ad esempio, fai clic su alcuni punti, quindi tieni premuto e trascina il mouse per aggiungere un gruppo di punti, quindi fai clic su alcuni altri. 
+   * Alternare i metodi click e Freehand, come desiderato, durante il disegno di un singolo poligono. Ad esempio, fare clic su alcuni punti, quindi tenendo premuto il mouse per aggiungere una serie di punti, quindi fare clic su altri. 
 
-**Termina disegno**
- - Modalità ibrida/clic
+**Fine disegno**
+ - Modalità ibrido/clic
    * Fare doppio clic sulla mappa nell'ultimo punto. 
    * Fare clic sul primo punto del poligono.
-   * Fare clic su un pulsante qualsiasi nella barra degli strumenti di disegno. 
-   * Impostare a livello di codice la modalità di disegno. 
+   * Fare clic su qualsiasi pulsante sulla barra degli strumenti del disegno. 
+   * Impostare la modalità di disegno a livello di codice. 
  - Modalità a mano libera
    * Rilasciare il pulsante del mouse o il punto di tocco.
- - Premere `C` il tasto .
+ - Premere il `C` tasto.
 
-**Annullare il disegno**
- - Premere `Escape` il tasto .
+**Annulla disegno**
+ - Premere il `Escape` tasto.
 
 ### <a name="how-to-draw-a-rectangle"></a>Procedura di disegno di un rettangolo
 
-Quando il gestore `draw-rectangle` di disegno è in modalità, è possibile eseguire le seguenti azioni per disegnare punti sulla mappa, a seconda della modalità di interazione. La forma generata seguirà la [specifica GeoJSON estesa per i rettangoli.](extend-geojson.md#rectangle)
+Quando la gestione del disegno è `draw-rectangle` in modalità, è possibile eseguire le operazioni seguenti per disegnare punti sulla mappa, a seconda della modalità di interazione. La forma generata seguirà la [specifica GeoJSON estesa per i rettangoli](extend-geojson.md#rectangle).
 
-**Inizia a disegnare**
- - Premere il pulsante sinistro del mouse o toccare la mappa per aggiungere il primo angolo del rettangolo e trascinare per creare il rettangolo. 
+**Avvia disegno**
+ - Premere il pulsante sinistro del mouse oppure toccare la mappa per aggiungere il primo angolo del rettangolo e trascinare per creare il rettangolo. 
 
-**Termina disegno**
+**Fine disegno**
  - Rilasciare il pulsante del mouse o il punto di tocco.
- - Impostare a livello di codice la modalità di disegno. 
- - Premere `C` il tasto .
+ - Impostare la modalità di disegno a livello di codice. 
+ - Premere il `C` tasto.
 
-**Annullare il disegno**
- - Premere `Escape` il tasto .
+**Annulla disegno**
+ - Premere il `Escape` tasto.
 
-### <a name="how-to-draw-a-circle"></a>Come disegnare un cerchio
+### <a name="how-to-draw-a-circle"></a>Come creare un cerchio
 
-Quando il gestore `draw-circle` di disegno è in modalità, è possibile eseguire le seguenti azioni per disegnare punti sulla mappa, a seconda della modalità di interazione. La forma generata seguirà la [specifica GeoJSON estesa per i cerchi.](extend-geojson.md#circle)
+Quando la gestione del disegno è `draw-circle` in modalità, è possibile eseguire le operazioni seguenti per disegnare punti sulla mappa, a seconda della modalità di interazione. La forma generata seguirà la [specifica GeoJSON estesa per i cerchi](extend-geojson.md#circle).
 
-**Inizia a disegnare**
- - Premere il pulsante sinistro del mouse o toccare la mappa per aggiungere il centro del cerchio e trascinare con un raggio per i cerchi. 
+**Avvia disegno**
+ - Premere il pulsante sinistro del mouse oppure toccare la mappa per aggiungere il centro del cerchio e trascinare i cerchi in un raggio. 
 
-**Termina disegno**
+**Fine disegno**
  - Rilasciare il pulsante del mouse o il punto di tocco.
- - Impostare a livello di codice la modalità di disegno. 
- - Premere `C` il tasto .
+ - Impostare la modalità di disegno a livello di codice. 
+ - Premere il `C` tasto.
 
-**Annullare il disegno**
- - Premere `Escape` il tasto .
+**Annulla disegno**
+ - Premere il `Escape` tasto.
 
 ## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida
 
-Gli strumenti di disegno supportano le scelte rapide da tastiera. Questi tasti di scelta rapida sono funzionali quando la mappa è a fuoco.
+Gli strumenti di disegno supportano le scelte rapide da tastiera. Questi tasti di scelta rapida sono funzionali quando la mappa è attiva.
 
-| Chiave      | Azione                            |
+| Chiave      | Action                            |
 |----------|-----------------------------------|
-| `C` | Completa qualsiasi disegno in corso e imposta la modalità di disegno su inattiva. Lo stato attivo si sposterà sull'elemento della mappa di primo livello.  |
-| `Escape` | Annulla qualsiasi disegno in corso e imposta la modalità di disegno su inattiva. Lo stato attivo si sposterà sull'elemento della mappa di primo livello.  |
-| `F` | Aggiunge una coordinata a un punto, una linea o un poligono se il mouse si trova sulla mappa. Azione equivalente di fare clic sulla mappa in modalità clic o ibrida. Questa scorciatoia consente disegni più precisi e veloci. È possibile utilizzare una mano per posizionare il mouse e l'altra per premere il pulsante senza spostare il mouse dal gesto di pressione. |
+| `C` | Completa qualsiasi disegno in corso e imposta la modalità di disegno su inattivo. Lo stato attivo passa all'elemento della mappa di primo livello.  |
+| `Escape` | Annulla qualsiasi disegno in corso e imposta la modalità di disegno su inattivo. Lo stato attivo passa all'elemento della mappa di primo livello.  |
+| `F` | Aggiunge una coordinata a un punto, una linea o un poligono se il mouse si trova sulla mappa. Azione equivalente quando si fa clic sulla mappa quando si usa la modalità clic o ibrida. Questo collegamento consente un disegno più preciso e più rapido. È possibile utilizzare una sola mano per posizionare il mouse e altro per premere il pulsante senza lo spostamento del mouse dal movimento di stampa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sulle classi nel modulo degli strumenti di disegno:
+Per altre informazioni sulle classi, vedere il modulo strumenti di disegno:
 
 > [!div class="nextstepaction"]
-> [Gestione disegni](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
 
 > [!div class="nextstepaction"]
-> [Barra degli strumenti Disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra degli strumenti disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

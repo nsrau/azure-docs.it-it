@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721745"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creare funzionalità per i dati in SQL Server tramite SQL e Python
@@ -37,7 +37,7 @@ Questo articolo presuppone che l'utente abbia:
 ## <a name="feature-generation-with-sql"></a><a name="sql-featuregen"></a>Creazione di funzionalità con SQL
 In questa sezione viene descritto come creare funzionalità tramite SQL:  
 
-* [Generazione di feature basata sul conteggio](#sql-countfeature)
+* [Generazione di funzionalità basate sul conteggio](#sql-countfeature)
 * [Creazione di contenitori per la creazione di funzionalità](#sql-binningfeature)
 * [Implementazione delle funzionalità da una singola colonna](#sql-featurerollout)
 
@@ -47,7 +47,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 > 
 
 ### <a name="count-based-feature-generation"></a><a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
-In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Queste nuove funzionalità possono quindi essere unite alla tabella originale (utilizzando le colonne chiave primaria) per avere funzioni di conteggio insieme ai dati originali.
+In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Queste nuove funzionalità possono quindi essere unite alla tabella originale (usando colonne chiave primaria) per avere le funzionalità di conteggio insieme ai dati originali.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -68,15 +68,15 @@ Di seguito, viene riportata una breve introduzione sui dati di posizione relativ
 * Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est del globo.
 * Una cifra dell'ordine delle centinaia diversa da zero indica la longitudine, non la latitudine in uso.
 * Una cifra nell'ordine delle decine indica una posizione a circa 1.000 km. Offre informazioni utili sul continente o sull'oceano in cui si trova l'utente.
-* La cifra nell'ordine dell'unità (un grado decimale) indica posizioni fino a 111 km (60 miglia nautiche, circa 69 miglia standard). Indica, approssimativamente, in quale grande stato o paese/regione ci troviamo.
+* La cifra nell'ordine dell'unità (un grado decimale) indica posizioni fino a 111 km (60 miglia nautiche, circa 69 miglia standard). Indica approssimativamente lo stato o il paese di grandi dimensioni in cui ci troviamo.
 * La prima posizione decimale è caratterizzata da un valore massimo di 11,1 km: consente di rilevare la posizione di una grande città da una circostante.
 * La seconda posizione decimale è caratterizzata da un valore massimo di 1,1 km: consente di dividere un paese dall'altro.
 * La terza posizione decimale è caratterizzata da un valore massimo di 110 m: consente di identificare un campo agricolo o una sede istituzionale.
 * La quarta posizione decimale è caratterizzata da un valore massimo di 11 m: consente di identificare una porzione di terreno. La sua accuratezza è paragonabile a quella di un'unità GPS non corretta e senza interferenze.
 * La quinta posizione decimale è caratterizzata da un valore massimo di 1,1 m e consente di distinguere un albero da un altro. Un'accuratezza di questo tipo, con le unità GPS commerciali, può essere raggiunta soltanto con una correzione differenziale.
-* La sesta cifra decimale vale fino a 0,11 m: è possibile utilizzare questo livello per la disposizione delle strutture in dettaglio, per la progettazione di paesaggi, la costruzione di strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. Questo obiettivo può essere raggiunto prendendo misure scrupolose con GPS, come il GPS corretto in modo differenziale.
+* Il sesto numero decimale è un valore fino a 0,11 m: è possibile usare questo livello per definire in dettaglio le strutture, per progettare i paesaggi, costruire strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. Questo obiettivo può essere effettuato eseguendo misure accurate con il GPS, ad esempio il GPS con correzione differenziale.
 
-Le informazioni sulla posizione possono essere inserite nelle funzionalità separando le informazioni su regioni, posizioni e città. Una volta può anche chiamare un endpoint REST, ad esempio l'API Bing Maps (vedere `https://msdn.microsoft.com/library/ff701710.aspx` per ottenere le informazioni sulla regione/distretto).
+Le informazioni sulla posizione possono essere inserite nelle funzionalità separando le informazioni su regioni, posizioni e città. Una volta può anche chiamare un endpoint REST, ad esempio l'API di Bing `https://msdn.microsoft.com/library/ff701710.aspx` Maps (vedere per ottenere le informazioni sull'area/quartiere).
 
     select
         <location_columnname>
@@ -111,7 +111,7 @@ Il seguente formato della stringa di connessione può essere usato per connetter
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La [libreria Pandas](https://pandas.pydata.org/) in Python fornisce un ricco set di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati per la programmazione Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas:
+La [libreria Pandas](https://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati per la programmazione Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

@@ -1,5 +1,5 @@
 ---
-title: Creare funzionalità per i dati in un cluster Hadoop di Azure HDInsight - Team Data Science Process
+title: Creare funzionalità per i dati in un cluster Azure HDInsight Hadoop-processo di Data Science per i team
 description: Esempi di query Hive che generano funzionalità nei dati archiviati in un cluster HDInsight Hadoop di Azure.
 services: machine-learning
 author: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721779"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creare funzionalità per i dati in un cluster Hadoop con query Hive
@@ -31,18 +31,18 @@ Questa attività è un passaggio del [Processo di analisi scientifica dei dati p
 Questo articolo presuppone che l'utente abbia:
 
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md)
-* Eseguito il provisioning di un cluster Hadoop personalizzato con il servizio HDInsight.  Per istruzioni, vedere [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi avanzata.](customize-hadoop-cluster.md)
+* Eseguito il provisioning di un cluster Hadoop personalizzato con il servizio HDInsight.  Per istruzioni, vedere [personalizzare i cluster di Azure HDInsight Hadoop per l'analisi avanzata](customize-hadoop-cluster.md).
 * Caricato i dati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata eseguita, attenersi alle istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](move-hive-tables.md) per caricare prima i dati nelle tabelle Hive.
 * Abilitato l'accesso remoto al cluster. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](customize-hadoop-cluster.md).
 
 ## <a name="feature-generation"></a><a name="hive-featureengineering"></a>Creazione di funzionalità
 In questa sezione vengono descritti vari esempi dei modi in cui è possibile generare funzionalità mediante le query Hive. Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che quindi può essere unita alla tabella originale. Di seguito ci sono gli esempi presentati:
 
-1. [Generazione di funzionalità basate sulla frequenza](#hive-frequencyfeature)
-2. [Rischi delle variabili categoriche nella classificazione binaria](#hive-riskfeature)
+1. [Generazione di funzionalità basata sulla frequenza](#hive-frequencyfeature)
+2. [Rischi di variabili di categoria nella classificazione binaria](#hive-riskfeature)
 3. [Estrazione delle funzionalità dal campo Datetime](#hive-datefeatures)
 4. [Estrazione delle funzionalità dal campo Text](#hive-textfeatures)
-5. [Calcolare la distanza tra le coordinate GPS](#hive-gpsdistance)
+5. [Calcolo della distanza tra le coordinate GPS](#hive-gpsdistance)
 
 ### <a name="frequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Creazione di funzionalità basata sulla frequenza
 Spesso, può essere utile calcolare le frequenze relative ai livelli di una variabile di categoria o le frequenze di alcune combinazioni di livelli di più variabili di categoria. Per calcolare tali frequenze, gli utenti possono usare lo script seguente:
@@ -89,21 +89,21 @@ In Hive è disponibile un set di funzioni definite dall'utente per elaborare i c
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Questa query Hive presuppone che il * \<campo datetime>* è nel formato datetime predefinito.
+Questa query hive presuppone che il * \<campo DateTime>* sia nel formato DateTime predefinito.
 
 Se un campo data/ora non è nel formato predefinito, è necessario convertire innanzitutto il campo Datetime in indicatore data/ora Unix e convertire quest'ultimo in una stringa data/ora nel formato predefinito. Quando la stringa data/ora è nel formato predefinito, è possibile applicare le funzioni data/ora incorporate e definite dall'utente al fine di estrarre le funzionalità.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In questa query, se `'MM/dd/yyyy HH:mm:ss'`il * \<campo datetime>* ha il modello come *26/03/2015 12:04:39*, il * \<modello del campo datetime>'* dovrebbe essere . Per eseguire il test, gli utenti possono eseguire
+In questa query, se il * \<campo DateTime>* ha il modello come *03/26/2015 12:04:39*, il * \<modello del campo DateTime>'* deve essere. `'MM/dd/yyyy HH:mm:ss'` Per eseguire il test, gli utenti possono eseguire
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
 
 In questa query, *hivesampletable* presenta tutti i cluster Hadoop di Azure HDInsight per impostazione predefinita quando viene effettuato il provisioning dei cluster.
 
-### <a name="extract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Estrarre feature dai campi di testo
+### <a name="extract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Estrai funzionalità da campi di testo
 Quando la tabella Hive dispone di un campo di testo con una stringa di parole delimitate da spazi, la seguente query consente di estrarre la lunghezza della stringa e il numero di parole contenuto.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
@@ -130,7 +130,7 @@ I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si s
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>, creato da Peter Lapisu. In questo Javascript, `toRad()` la funzione è solo *lat_or_lon*pi/180, che converte i gradi in radianti. Qui *lat_or_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>, creato da Peter Lapisu. In questo JavaScript, la funzione `toRad()` è solo *lat_or_lon*pi/180, che converte i gradi in radianti. Qui *lat_or_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Creare un'area di lavoro](./media/create-features-hive/atan2new.png)
 
@@ -144,7 +144,7 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Questo parametro alloca 4 GB di memoria allo spazio dell'heap Java e rende anche l'ordinamento più efficiente allocando più memoria per esso. Si consiglia di regolare queste allocazioni se si verificano errori di processo relativi allo spazio dell'heap.
+    Questo parametro alloca memoria da 4 GB a spazio heap Java e rende più efficiente l'ordinamento allocando una maggiore quantità di memoria. Si consiglia di regolare queste allocazioni se si verificano errori di processo relativi allo spazio dell'heap.
 
 1. **Dimensione di blocco per DFS**: questo parametro consente di impostare la quantità minima relativa all'unità di dati che il file system è in grado di memorizzare. Ad esempio, se la dimensione del blocco DFS è 128 MB, tutti i dati con dimensioni minori o uguali a 128 MB vengono archiviati in un unico blocco. Ai dati con dimensioni maggiori di 128 MB vengono assegnati blocchi aggiuntivi. 
 2. Se si sceglie una dimensione di blocco limitata si causano sovraccarichi in Hadoop, dal momento che il nodo del nome deve elaborare molte più richieste al fine di rilevare il blocco che fa riferimento al file. Un'impostazione consigliata per dati con dimensioni in gigabyte (o più grandi) è:

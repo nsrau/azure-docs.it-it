@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76548935"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usare le funzionalità estese del server di cronologia Apache Spark per eseguire il debug e la diagnosi delle applicazioni Spark
@@ -294,7 +294,7 @@ Se si vuole eseguire l'aggiornamento con un hotfix, usare lo script seguente, ch
     fi
    ```
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 `upgrade_spark_enhancement.sh https://${jar_path}`
 
@@ -307,10 +307,10 @@ Se si vuole eseguire l'aggiornamento con un hotfix, usare lo script seguente, ch
 1. Avviare il [portale di Azure](https://ms.portal.azure.com)e quindi selezionare il cluster.
 2. Completare un' [azione script](../hdinsight-hadoop-customize-cluster-linux.md) con i seguenti parametri.
 
-    |Proprietà |Valore |
+    |Proprietà |valore |
     |---|---|
     |Tipo di script|- Personalizzato|
-    |Nome|UpgradeJar|
+    |Name|UpgradeJar|
     |URI script Bash|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
     |Tipo/i di nodo|Head, ruolo di lavoro|
     |Parametri|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|

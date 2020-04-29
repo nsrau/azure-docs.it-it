@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 77812a3765a027152c957f6dbb7c9b3811a2278f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77191186"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
@@ -49,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Creare un'istanza di Network Watcher nel portale
 
-Passare a **Tutti i servizi** > **di Network** > **Watcher**. È possibile selezionare tutte le sottoscrizioni per cui si vuole abilitare Network Watcher. Questa azione crea un'istanza di Network Watcher in ogni area in cui è disponibile.
+Passare a **tutti i servizi** > **Networking** > **Network Watcher**di rete. È possibile selezionare tutte le sottoscrizioni per cui si vuole abilitare Network Watcher. Questa azione crea un'istanza di Network Watcher in ogni area in cui è disponibile.
 
 ![Creare un'istanza di Network Watcher](./media/network-watcher-create/figure1.png)
 
@@ -103,15 +103,15 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Eliminare un Network Watcher nel portale
 
-Passare a **Tutti i servizi** > **di Network** > **Watcher**.
+Passare a **tutti i servizi** > **Networking** > **Network Watcher**di rete.
 
-Seleziona la scheda Panoramica, se non sei già presente. Utilizzare l'elenco a discesa per selezionare l'abbonamento in cui si vuole disabilitare il controllo di rete.
-Espandere l'elenco delle aree per l'abbonamento scelto facendo clic sulla freccia. Per qualsiasi dato, utilizzare i 3 punti a destra per accedere al menu contestuale.
-Fare clic su "Disabilita network watcher" per avviare la disabilitazione. Verrà chiesto di confermare questo passaggio. Fare clic su Sì per continuare.
-Nel portale, è necessario eseguire questa operazione singolarmente per ogni area in ogni sottoscrizione.
+Selezionare la scheda Panoramica, se non lo si è già fatto. Usare l'elenco a discesa per selezionare la sottoscrizione in cui si vuole disabilitare Network Watcher.
+Espandere l'elenco delle aree per la sottoscrizione scelta facendo clic sulla freccia. Per qualsiasi dato, usare i 3 puntini a destra per accedere al menu di scelta rapida.
+Fare clic su "Disabilita Network Watcher" per avviare la disabilitazione. Verrà richiesto di confermare questo passaggio. Fare clic su Sì per continuare.
+Nel portale sarà necessario eseguire questa operazione singolarmente per ogni area di ogni sottoscrizione.
 
 
-## <a name="delete-a-network-watcher-with-powershell"></a>Eliminare un Network Watcher con PowerShellDelete a Network Watcher with PowerShell
+## <a name="delete-a-network-watcher-with-powershell"></a>Eliminare un Network Watcher con PowerShell
 
 Per eliminare un'istanza di Network Watcher, eseguire l'esempio seguente:
 
@@ -129,6 +129,6 @@ Dopo aver creato un'istanza di Network Watcher, è possibile approfondire le fun
 * [Acquisizione pacchetti](network-watcher-packet-capture-overview.md)
 * [Verifica del flusso IP](network-watcher-ip-flow-verify-overview.md)
 * [Hop successivo](network-watcher-next-hop-overview.md)
-* [Visualizzazione del gruppo di sicurezza](network-watcher-security-group-view-overview.md)
+* [Visualizzazione gruppo di sicurezza](network-watcher-security-group-view-overview.md)
 * [Registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
 * [Risoluzione dei problemi del gateway di rete virtuale](network-watcher-troubleshoot-overview.md)

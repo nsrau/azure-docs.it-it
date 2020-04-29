@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 02f109f250fa9bcd4c77cecd0b1b3e4514ecd8bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721133"
 ---
 # <a name="feature-engineering-in-data-science"></a>Progettazione di funzionalità nell'analisi scientifica dei dati
@@ -48,7 +48,7 @@ Quando si inizia a usare Azure Machine Learning, è più facile afferrare questo
 * Un esempio di classificazione di data mining del testo tramite [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Esempio 1: Aggiunta di funzioni temporali per il modello di regressione
-Usiamo l'esperimento "Previsione della domanda di biciclette" in Azure Machine Learning Studio (classico) per dimostrare come progettare le funzionalità per un'attività di regressione. L'obiettivo di questo esperimento è stimare la domanda di biciclette, ovvero il numero di noleggi di biciclette nell'arco di un mese, un giorno o un'ora specifica. Come dati di input non elaborati si usa il set di dati "Bike Rental UCI dataset". Questo set di dati si basa su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC, negli Stati Uniti. Il set di dati rappresenta il numero di noleggi di biciclette in un'ora specifica del giorno negli anni 2011 e 2012 r include 17379 righe e 17 colonne. Il set di funzioni non elaborate include le condizioni meteorologiche (temperatura/umidità/velocità del vento) e il tipo di giorno (festività/giorno feriale). Il campo da prevedere è il conteggio "cnt", che rappresenta i noleggi di biciclette entro un'ora specifica e che varia da 1 a 977.
+Si userà l'esperimento "Demand Forecasting of Bikes" in Azure Machine Learning Studio (classico) per dimostrare come progettare le funzionalità per un'attività di regressione. L'obiettivo di questo esperimento è stimare la domanda di biciclette, ovvero il numero di noleggi di biciclette nell'arco di un mese, un giorno o un'ora specifica. Come dati di input non elaborati si usa il set di dati "Bike Rental UCI dataset". Questo set di dati si basa su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC, negli Stati Uniti. Il set di dati rappresenta il numero di noleggi di biciclette in un'ora specifica del giorno negli anni 2011 e 2012 r include 17379 righe e 17 colonne. Il set di funzioni non elaborate include le condizioni meteorologiche (temperatura/umidità/velocità del vento) e il tipo di giorno (festività/giorno feriale). Il campo da stimare è il conteggio ' CNT ', che rappresenta i noleggi di biciclette in un'ora specifica e che è compreso tra 1 e 977.
 
 Allo scopo di costruire funzioni efficaci nei dati di training, vengono compilati quattro modelli di regressione con lo stesso algoritmo, ma con quattro diversi set di dati di training. I quattro set di dati rappresentano gli stessi dati di input non elaborati, ma con un numero crescente di set di funzioni. Queste funzioni sono raggruppate in quattro categorie:
 
@@ -57,7 +57,7 @@ Allo scopo di costruire funzioni efficaci nei dati di training, vengono compilat
 3. C = numero di biciclette noleggiate in ognuno dei 12 giorni precedenti alla stessa ora.
 4. D = numero di biciclette noleggiate in ognuna delle 12 settimane precedenti nello stesso giorno e alla stessa ora.
 
-Oltre al set di funzioni A, che esiste già nei dati non elaborati originali, gli altri tre set di funzioni vengono creati tramite il processo di progettazione delle funzioni. Il set di funzionalità B acquisisce la domanda recente per le biciclette. Il set di funzioni C acquisisce la domanda di biciclette in un particolare orario. Il set di funzioni D acquisisce la domanda di biciclette in un particolare orario e giorno della settimana. Ognuno dei quattro set di dati di training include rispettivamente il set di funzioni A, A+B, A+B+C e A+B+C+D.
+Oltre al set di funzioni A, che esiste già nei dati non elaborati originali, gli altri tre set di funzioni vengono creati tramite il processo di progettazione delle funzioni. Il set di funzionalità B acquisisce la richiesta recente delle biciclette. Il set di funzioni C acquisisce la domanda di biciclette in un particolare orario. Il set di funzioni D acquisisce la domanda di biciclette in un particolare orario e giorno della settimana. Ognuno dei quattro set di dati di training include rispettivamente il set di funzioni A, A+B, A+B+C e A+B+C+D.
 
 Nell'esperimento di Azure Machine Learning questi quattro set di dati vengono creati dai quattro rami del set di dati di input pre-elaborati. A eccezione del ramo all'estrema sinistra, ognuno di questi rami contiene un modulo [Execute R Script](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) in cui un set di funzioni derivate (set B, C e D) viene rispettivamente costruito e aggiunto al set di dati importato. La figura seguente illustra lo script R usato per creare il set di funzioni B nel secondo ramo a sinistra.
 
@@ -67,14 +67,14 @@ Il confronto dei risultati delle prestazioni dei quattro modelli è riepilogato 
 
 ![confronto dei risultati](./media/create-features/result1.png)
 
-I risultati migliori vengono forniti dalle funzioni A+B+C. Il tasso di errore diminuisce quando nei dati di training sono inclusi set di funzionalità aggiuntivi. Verifica la stima secondo cui il set di funzioni B, C fornisce altre informazioni rilevanti per l'attività di regressione. L'aggiunta della funzioni D non sembra tuttavia fornire un'altra riduzione del tasso di errore.
+I risultati migliori vengono forniti dalle funzioni A+B+C. Il tasso di errore diminuisce quando si include un set di funzionalità aggiuntivo nei dati di training. Verifica la stima secondo cui il set di funzioni B, C fornisce altre informazioni rilevanti per l'attività di regressione. L'aggiunta della funzioni D non sembra tuttavia fornire un'altra riduzione del tasso di errore.
 
-## <a name="example-2-creating-features-in-text-mining"></a><a name="example2"></a>Esempio 2: Creazione di feature nel data mining del testoExample 2: Creating features in text mining
+## <a name="example-2-creating-features-in-text-mining"></a><a name="example2"></a>Esempio 2: creazione di funzionalità nel testo di data mining
 La progettazione di funzioni viene ampiamente applicata nelle attività correlate al data mining del testo, ad esempio la classificazione di documenti e l'analisi del sentiment. Ad esempio, quando si vogliono classificare documenti in diverse categorie, un tipico presupposto è il fatto che le parole o le frasi incluse in una categoria di documenti sono presenti con minore probabilità in un'altra categoria di documenti. In altre parole, la frequenza di distribuzione di parole/frasi è in grado di caratterizzare diverse categorie di documenti. Poiché in genere nelle applicazioni di data mining del testo singole parti del contenuto di testo vengono usate come dati di input, per creare le funzioni che comportano frequenze di parole/frasi è necessario usare il processo di progettazione delle funzioni.
 
 Per completare questa attività, si applica una tecnica definita **hashing di funzioni** per trasformare in modo efficiente le funzioni di testo arbitrarie in indici. Anziché associare ogni funzioni di testo (parole/frasi) a un indice particolare, questo metodo applica una funzione hash alle funzioni e usa direttamente i relativi valori hash come indici.
 
-In Azure Machine Learning è disponibile un modulo di [hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) delle funzionalità che crea funzionalità parola/frase in modo pratico. La figura seguente mostra un esempio dell'uso di questo modulo. Il set di dati di input contiene due colonne: la classificazione dei libri da 1 a 5 e il contenuto effettivo della recensione. L'obiettivo del modulo [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) è recuperare una serie di nuove funzioni che mostrino la frequenza di occorrenza delle parole/frasi corrispondenti nella recensione di un libro particolare. Per usare questo modulo, completare i passaggi seguenti:
+In Azure Machine Learning, è disponibile un modulo [feature hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) che consente di creare facilmente funzionalità di parole/frasi. La figura seguente mostra un esempio dell'uso di questo modulo. Il set di dati di input contiene due colonne: la classificazione dei libri da 1 a 5 e il contenuto effettivo della recensione. L'obiettivo del modulo [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) è recuperare una serie di nuove funzioni che mostrino la frequenza di occorrenza delle parole/frasi corrispondenti nella recensione di un libro particolare. Per usare questo modulo, completare i passaggi seguenti:
 
 * Selezionare innanzitutto la colonna che contiene il testo di input ("Col2" in questo esempio).
 * Impostare quindi "Hashing bitsize" su 8, che equivale alla creazione di 2^8=256 funzioni. Per le parole/frasi in tutto il testo verrà generato un hash per 256 indici. Il parametro "Hashing bitsize" è compreso nell'intervallo da 1 a 31. Con l'impostazione di un numero maggiore, è meno probabile che per le parole/frasi venga generato un hash nello stesso indice.

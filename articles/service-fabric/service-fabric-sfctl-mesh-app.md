@@ -1,15 +1,15 @@
 ---
-title: Interfaccia della riga di comando di Azure Service Fabric - app mesh sfctlAzure Service Fabric CLI - sfctl mesh app
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per la gestione delle risorse dell'applicazione mesh di Service Fabric.
+title: INTERFACCIA della riga di comando di Azure Service Fabric-app mesh sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione delle risorse dell'applicazione Service Fabric mesh.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906067"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
@@ -19,7 +19,7 @@ Consente di ottenere ed eliminare le risorse dell'applicazione.
 
 |Comando|Descrizione|
 | --- | --- |
-| delete | Elimina la risorsa dell'applicazione. |
+| Elimina | Elimina la risorsa dell'applicazione. |
 | list | Elenca tutte le risorse dell'applicazione. |
 | show | Ottiene la risorsa dell'applicazione con il nome specificato. |
 
@@ -82,5 +82,5 @@ Ottiene le informazioni sulla risorsa dell'applicazione con il nome specificato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
+- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
 - Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -1,6 +1,6 @@
 ---
-title: Panoramica della community di Servizi multimediali di Azure Azure
-description: Questa pagina della community di Servizi multimediali di Azure illustra diversi modi in cui è possibile porre domande, inviare commenti e suggerimenti e ottenere aggiornamenti su Servizi multimediali.
+title: Panoramica della community di servizi multimediali di Azure V3
+description: Questa pagina della community di servizi multimediali di Azure illustra i diversi modi in cui è possibile porre domande, fornire commenti e suggerimenti e ottenere aggiornamenti su servizi multimediali.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/22/2020
 ms.author: juliako
 ms.openlocfilehash: 70d366551dc3130d2a1bdac6108e3b3de95976d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76545926"
 ---
-# <a name="azure-media-services-v3-community"></a>Community di Servizi multimediali di Azure v3Azure Media Services v3 community  
+# <a name="azure-media-services-v3-community"></a>Community di servizi multimediali di Azure V3  
 
-Questa pagina della community di Servizi multimediali di Azure illustra diversi modi in cui è possibile porre domande, inviare commenti e suggerimenti e ottenere aggiornamenti su Servizi multimediali.
+Questa pagina della community di servizi multimediali di Azure illustra i diversi modi in cui è possibile porre domande, fornire commenti e suggerimenti e ottenere aggiornamenti su servizi multimediali.
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Inviare commenti e suggerimenti
 
@@ -32,7 +32,7 @@ Questa pagina della community di Servizi multimediali di Azure illustra diversi 
 
 ### <a name="twitter"></a>Twitter
 
-Puoi utilizzare [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) l'handle Twitter per contattarci o seguire gli aggiornamenti su Twitter. Usa [@AzureSupport](https://twitter.com/azuresupport) l'handle Twitter per richiedere supporto su Twitter.  
+È possibile usare l' [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) handle di Twitter per contattarci o seguire gli aggiornamenti su Twitter. Usare l' [@AzureSupport](https://twitter.com/azuresupport) handle di Twitter per richiedere supporto su Twitter.  
 
 ### <a name="online-forums"></a>Forum online
 
@@ -40,11 +40,11 @@ I forum seguenti possono essere usati per porre domande sui prodotti e sulle fun
 
 Attualmente MSDN è il forum principale della community del team di Servizi multimediali.
 
-[![Msdn](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 Il team monitora anche le domande contrassegnate su Stack Overflow con "azure-media-services".
 
-[![Stackoverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
+[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

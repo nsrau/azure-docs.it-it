@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024950"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Panoramica del cloud privato CloudSimple
@@ -35,9 +35,9 @@ CloudSimple è completamente compatibile con:
 
 Questa compatibilità consente ai team di gestire i carichi di lavoro nel cloud di Azure, senza compromettere i tipi di criteri seguenti:
 
-* Network
+* Rete
 * Sicurezza  
-* Protezione dei dati  
+* Protezione dati  
 * Audit
 
 CloudSimple gestisce l'infrastruttura e tutti i servizi di rete e gestione necessari. Il servizio CloudSimple consente al team di concentrarsi su:

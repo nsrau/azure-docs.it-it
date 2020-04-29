@@ -1,6 +1,6 @@
 ---
 title: Librerie di gestione del bus di servizio di Azure | Microsoft Docs
-description: Questo articolo illustra come usare le librerie di gestione del bus di servizio di Azure per eseguire il provisioning dinamico degli spazi dei nomi e delle entità del bus di servizio.
+description: Questo articolo illustra come usare le librerie di gestione del bus di servizio di Azure per eseguire il provisioning dinamico di spazi dei nomi e entità del bus di servizio
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76756267"
 ---
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
@@ -36,7 +36,7 @@ Le librerie di gestione del bus di servizio di Azure possono eseguire il provisi
 
 Per iniziare a usare le librerie di gestione del bus di servizio, è necessario eseguire l'autenticazione con il servizio Azure Active Directory (Azure AD). Azure AD richiede l'autenticazione come entità servizio, che fornisce l'accesso alle risorse di Azure in uso. Per informazioni su come creare un'entità servizio, vedere uno di questi articoli:  
 
-* [Usare il portale di Azure per creare applicazioni Active Directory e l'entità servizio in grado di accedere alle risorseUse the Azure portal to create Active Directory application and service principal that can access resources](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Usare il portale di Azure per creare Active Directory applicazione e un'entità servizio che possano accedere alle risorse](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
@@ -76,8 +76,8 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="complete-code-to-create-a-queue"></a>Codice completo per creare una coda
-Di seguito è riportato il codice completo per creare una coda del bus di servizio:Here is the complete code to create a Service Bus queue: 
+## <a name="complete-code-to-create-a-queue"></a>Completare il codice per creare una coda
+Ecco il codice completo per creare una coda del bus di servizio: 
 
 ```csharp
 using System;
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> Per un esempio completo, vedere l'esempio di [gestione .NET in GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
+> Per un esempio completo, vedere l'esempio di [gestione .NET su GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni di riferimento sull'API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 72c04cf5e3e5fbdeac2d267dfc7b2703bd37a1c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77122675"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurare un gruppo di disponibilità del gruppo di lavoro 
@@ -47,7 +47,7 @@ Per riferimento, in questo articolo vengono usati i parametri seguenti, ma è po
 
 ## <a name="set-dns-suffix"></a>Imposta suffisso DNS 
 
-In questo passaggio, configurare il suffisso DNS per entrambi i server. Ad esempio, `ag.wgcluster.example.com` In questo modo, è possibile utilizzare il nome dell'oggetto a cui si desidera connettersi come indirizzo completo all'interno della rete, ad esempio `AGNode1.ag.wgcluster.example.com`. 
+In questo passaggio, configurare il suffisso DNS per entrambi i server. Ad esempio: `ag.wgcluster.example.com`. In questo modo, è possibile utilizzare il nome dell'oggetto a cui si desidera connettersi come indirizzo completo all'interno della rete, ad esempio `AGNode1.ag.wgcluster.example.com`. 
 
 Per configurare il suffisso DNS, attenersi alla procedura seguente:
 

@@ -1,5 +1,5 @@
 ---
-title: Gerarchia paese/area geografica usata dal routing geografico - Gestione traffico di AzureCountry/Region hierarchy used by geographic routing - Azure Traffic Manager
+title: Gerarchia di paesi/aree geografiche usata dal routing geografico-gestione traffico di Azure
 description: In questo articolo viene riportata la gerarchia di paesi/aree geografiche usata nel tipo di routing Geografico di Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: rohink
 ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938636"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Gerarchia di paesi/aree geografiche usata da Gestione traffico di Azure per il metodo di routing del traffico Geografico
@@ -99,7 +99,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - ME (Montenegro)
 
-        - MK(Macedonia settentrionale)
+        - MK (Macedonia settentrionale)
 
         - MT (Malta)
 
@@ -128,7 +128,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
         - SM (San Marino)
 
         - UA (Ucraina)
-            - Regione della Crimea
+            - Regione di Crimea
 
         - VA (Città del Vaticano)
 
@@ -270,7 +270,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - TT (Trinidad e Tobago)
 
-        - UM (Isole Periferiche U.S.A.S.A.)
+        - UM (Isole statunitensi)
 
         - US (Stati Uniti)
 
@@ -380,7 +380,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - VG (Isole Vergini Britanniche)
 
-        - VI (Isole Vergini Americane)
+        - VI (Isole Vergini americane)
 
         - XE (Sint Eustatius)
 

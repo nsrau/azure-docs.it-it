@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76908163"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Spostare un'applicazione Service Fabric mesh in un'altra area di Azure
@@ -32,7 +32,7 @@ Questo articolo descrive come spostare l'applicazione Service Fabric mesh e le r
 
 3. Esaminare (e modificare, se necessario) il modello esportato per assicurarsi che i valori di proprietà esistenti siano quelli che si vuole usare nell'area di destinazione. La nuova `location` (area di Azure) è un parametro che verrà fornito durante la ridistribuzione.
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 1. Creare un nuovo gruppo di risorse (o utilizzarne uno esistente) nell'area di destinazione.
 

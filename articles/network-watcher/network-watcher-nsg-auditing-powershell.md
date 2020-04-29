@@ -1,5 +1,5 @@
 ---
-title: Automatizzare il controllo del gruppo di sicurezza di rete - Visualizzazione del gruppo di sicurezzaAutomate NSG auditing - Security group view
+title: Automatizzare il controllo del NSG-visualizzazione dei gruppi di sicurezza
 titleSuffix: Azure Network Watcher
 description: Questa pagina fornisce istruzioni sulle modalità di configurazione del controllo di un gruppo di sicurezza di rete
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 59c1b6e6c281a736a79d110bd7d943344bcd5130
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840979"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizzare il controllo del gruppo di sicurezza di rete con la visualizzazione del gruppo di sicurezza di rete di Network Watcher di Azure

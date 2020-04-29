@@ -1,6 +1,6 @@
 ---
-title: Categorie di ricerca Mappe di Microsoft Azure
-description: In this article, you will learn about supported search categories in Microsoft Azure Maps.
+title: Categorie di ricerca | Mappe Microsoft Azure
+description: In questo articolo vengono fornite informazioni sulle categorie di ricerca supportate nelle mappe Microsoft Azure.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 9dbcae6e3947576a7d2bc204c2a3a6fb2e95953d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988289"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorie supportate in Mappe di Azure
 
-Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) di punti di interesse, sono disponibili più di cento categorie supportate. Di seguito viene fornito l'elenco dei codici di categoria per i nomi di categoria supportati. I codici di categoria vengono generati per le categorie di primo livello. Tutte le sottocategorie condividono lo stesso codice di categoria. Questo elenco di categorie è soggetto a modifiche con i nuovi rilasci di dati.
+Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) di punti di interesse, sono disponibili più di cento categorie supportate. Di seguito viene fornito l'elenco dei codici di categoria per i nomi di categoria supportati. I codici categoria vengono generati per le categorie di primo livello. Tutte le sottocategorie condividono lo stesso codice di categoria. Questo elenco di categorie è soggetto a modifiche con nuove versioni dei dati.
 
 <br/>
 
@@ -45,7 +45,7 @@ Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api
 | COLLEGE\_UNIVERSITY | junior college/college statale, college/università, college, scuola preparatoria all'università, università |
 | COMMERCIAL\_BUILDING | edificio di uffici, sede del complesso di uffici, edificio commerciale |
 | COMMUNITY\_CENTER | community center |
-| COMPANY | elettronica, produzione, servizi di dati informatici, tecnologie sanitarie pubbliche, dati finanziari diversificati, rifugio per animali, compagnia aerea, noleggio attrezzature, servizio, posta / consegna di pacchi / merci, linee di autobus, riparazione di elettrodomestici, servizi di pulizia, oem, servizi fiscali, gas naturale di petrolio, servizi legali, costruzione, telecomunicazioni, trasporti, produzione automobilistica, prodotti chimici,, funebri mortuari, operazioni di ponte tunnel, automobile, ingegneria meccanica, servizi, consulenti, pubblicità/marketing, stoccaggio in movimento, istituto di risparmio, assicurazione, software informatico, farmaceutico, ristorazione, servizi di matrimonio, tecnologia agricola, immobiliare, taxi, servizio navetta limousine, noleggio di noleggio di autobus, miniera mineraria, tecnologie editoriali, telefono via cavo, distribuzione di importazione/ esportazione, società, asilo, miniere di carbone, proprietà), birrerie, miniere d'oro |
+| COMPANY | elettronica, produzione, servizi dati per computer, tecnologie per l'integrità pubblica, finanza diversificata, Shelter di animali, compagnie aeree, noleggio di attrezzature, servizio, posta elettronica/pacchetto/consegna del trasporto, linee del bus, riparazione di appliance domestiche, servizi di pulizia, OEM, servizi fiscali, gas naturale, servizi legali, costruzione, telecomunicazioni servizi, consulenti per gli investitori, pubblicità/marketing, spazio di archiviazione, risparmio di risorse, assicurazione, software per computer, farmaceutico, catering, servizi di matrimonio, tecnologia agricola, immobiliare, taxi, servizio navetta limousine, noleggio di charter di bus, data mining, tecnologie di pubblicazione, telefono via cavo, distribuzione di importazione/esportazione, società, Asylum, miniera/i di carbone, immobili, birrificio, miniera d'oro |
 | COURTHOUSE | courthouse |
 | CULTURAL\_CENTER | cultural center |
 | DENTIST | dentist |
@@ -105,7 +105,7 @@ Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api
 | REPAIR\_FACILITY | carrozzerie, gommisti, officine di riparazione, centri di sostituzione cristalli auto, riparazione auto generale, vendita e installazione di accessori auto, riparazione di motocicli, servizio di riparazione autocarri, struttura di riparazione |
 | RESEARCH\_FACILITY | research facility |
 | RESIDENTIAL\_ACCOMMODATION | casa di riposo, complesso residenziale pubblico, complesso di appartamenti, condominio, mercato immobiliare residenziale, alloggi residenziali |
-| RESTAURANT | tedesco, creolo-Cajun, olandese, sale banchetti, bistrot, israeliano, slovacco, giamaicano, vegetariano, frutti di mare, vietnamita, maltese, Sichuan, welsh, cinese, giapponese, algerino, californiano, fusione, Shandong, salad bar, Savoy an, spagnolo, etiope, taiwanese, ciambelle, iraniano, canadese, americano, norvegese, francese, hunan, polinesiano, afghano, stradale, asiatico, svizzero, erotico, crèperie, repubblicano, egiziano, ungherese, nepalese, barbecue, caldo, caldo, , Guangdong, asiatico (altro), buffet, sushi, mongolo, internazionale, cozze, tailandese, venezuelano, rumeno, pollo, zuppa, kosher, steak house, yogurt / juice bar, italiano, coreano, cipriota, bosniaco, boliviano, domenicano, belga, tunisino, scozzese, inglese, pakistano, ceco, hawaiano, Maghrib, tibetano, arabo, medio orientale, cileno, Shanghai, polacco, filippino, sudanese, armeno, birmano, brasiliano, scandinavo, bulgaro, anima, cibo colombiano, ebreo, pizza, siciliano, greco, basco, basco Uruguay, caffetterie, finlandese, africano, corso, Siriano, Caraibi, Dongbei, russo, grill, take away, fast food, australiano, irlandese, cibo da pub, fonduta, libanese, indonesiano, danese, provenzale, teppanyaki, indiano, mauriziano, continentale occidentale, peruviano, cambogiano, snack, svedese, macrobiotico, gelateria, slavo, turco, argentino, austriaco, esotico, portoghese, lussemburghese, marocchino, ristorante cubano |
+| RESTAURANT | Tedesco, Creolo-cajun, olandese, sale banchetti, Bistro, israeliano, slovacco, giamaicano, vegetariano, pesce, vietnamita, maltese, Sichuan, gallese, cinese, giapponese, algerino, californiano, Fusion, Shandong, salad bar, Savoy an, spagnolo, etiopico, taiwanese, ciambelle, iraniano, canadese, americano, norvegese, francese, Hunan, polinesiano, afgano, stradale, asiatico, svizzero, erotico, Crêperie, Surinamese, egiziano, ungherese, nepalese, barbecue, Hot Pot, hamburger, Mediterraneo, latino americano, tapas, britannico, messicano, Guangdong, Asia mongolo, International, cozze, thailandese, venezuelano, rumeno, pollo, minestra, Kosher, Steak House, yogurt/Juice Bar, italiano, coreano, cipriota, Bosniaco, boliviano, domenicano, belga, tunisino, Scottish, inglese, pakistano, ceco, hawaiano, Maghrib, tibetano, arabo, Middle Eastern, Chile, Shanghai, Polish, filippino, sudanesi, Armeno, birmano, brasiliano, scandinavo, bulgaro, Soul Food, colombiano, ebreo, Pizza, siciliano, organico, greco, basco, uruguaiano, caffetterie, finlandese, africano, Corsica, siriano, Caraibi, Dongbei, russo , Grill, Take away, fast food, Australian, Irish, pub food, fondute, libanese, Indonesiano, danese, provenzale, teppanyaki, Indian, Mauritius, Continental continentale, Peruvian, cambogiano, snack, svedese, macrobiotica, Ice Cream lounge, slavo, turco, argentino, austriaco, esotico, portoghese, lussemburghese, marocchino, sandwich, cubano, ristorante |
 | RESTAURANT\_AREA | restaurant area |
 | REST\_AREA | area di riposo, luogo di sosta |
 | SCENIC\_PANORAMIC\_VIEW | vista panoramica/scenografica, punto di osservazione |

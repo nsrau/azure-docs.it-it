@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77152925"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Ispezione dei pacchetti con Azure Network Watcher
@@ -51,7 +51,7 @@ Caricare il file con estensione **cap** dall'acquisizione di pacchetti. Questo f
 
 ### <a name="step-3"></a>Passaggio 3
 
-Per visualizzare il tempo di round trip iniziale nelle conversazioni TCP, verranno esaminati solo i primi due pacchetti coinvolti nell'handshake TCP. Nell'handshake a tre livelli verranno usati i primi due pacchetti, ovvero [SYN] e [SYN, ACK]. Il nome deriva dai flag impostati nell'intestazione TCP. L'ultimo pacchetto nell'handshake, il pacchetto [ACK], non verrà usato in questo scenario. Il pacchetto [SYN] viene inviato dal client. Una volta ricevuto, il server invia il pacchetto [ACK] come riconoscimento della ricezione del SYN dal client. Sfruttando il fatto che la risposta del server richiede un overhead molto basso, il tempo RTT viene calcolato sottraendo dall'ora in cui il pacchetto [SYN, ACK] è stato ricevuto dal client l'ora in cui il pacchetto [SYN] è stato inviato dal client.
+Per visualizzare il tempo di round trip iniziale nelle conversazioni TCP, verranno esaminati solo i primi due pacchetti coinvolti nell'handshake TCP. Nell'handshake a tre livelli verranno usati i primi due pacchetti, ovvero [SYN] e [SYN, ACK]. Il nome deriva dai flag impostati nell'intestazione TCP. L'ultimo pacchetto nell'handshake, il pacchetto [ACK], non verrà usato in questo scenario. Il pacchetto [SYN] viene inviato dal client. Una volta ricevuta, il server invia il pacchetto [ACK] come riconoscimento della ricezione del SYN dal client. Sfruttando il fatto che la risposta del server richiede un overhead molto basso, il tempo RTT viene calcolato sottraendo dall'ora in cui il pacchetto [SYN, ACK] è stato ricevuto dal client l'ora in cui il pacchetto [SYN] è stato inviato dal client.
 
 Usando WireShark questo valore viene calcolato automaticamente.
 
@@ -77,7 +77,7 @@ In questo esempio viene esaminata un'acquisizione di pacchetti già eseguita per
 
 ### <a name="step-1"></a>Passaggio 1
 
-Utilizzando la stessa acquisizione nello scenario precedente, fare clic su **Gerarchia** > **protocollo statistico**
+Utilizzando la stessa acquisizione nello scenario precedente, fare clic su**gerarchia protocollo** **statistiche** > 
 
 ![Menu Protocol Hierarchy (Gerarchia protocolli)][2]
 
@@ -93,7 +93,7 @@ Conoscere i tipi di traffico, gli endpoint e le porte attraverso cui avviene la 
 
 ### <a name="step-1"></a>Passaggio 1
 
-Utilizzando la stessa acquisizione nello scenario precedente, fare clic su **Statistiche** > **destinazioni statistiche** **E** > porte
+Usando la stessa acquisizione nello scenario precedente, fare clic su **Statistics** > **IPv4 Statistics** > **destinations and Ports**
 
 ![Finestra di acquisizione di pacchetti][4]
 

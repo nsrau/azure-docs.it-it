@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi a connessioni e gateway VNET - API REST di AzureTroubleshoot VNET Gateway and Connections - Azure REST API
+title: Risolvere i problemi relativi a gateway e connessioni VNET-API REST di Azure
 titleSuffix: Azure Network Watcher
 description: Questa pagina illustra come risolvere i problemi relativi al gateway di rete virtuale e alle connessioni con Network Watcher di Azure tramite REST
 services: network-watcher
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: ab9f7fd95d7081b66e05dfd3d6a5ef47eb3c4053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840673"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni tramite Network Watcher di Azure
 
 > [!div class="op_single_selector"]
 > - [Portale](diagnose-communication-problem-between-networks.md)
-> - [Powershell](network-watcher-troubleshoot-manage-powershell.md)
-> - [Interfaccia della riga di comando di AzureAzure](network-watcher-troubleshoot-manage-cli.md)
+> - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher offre numerose funzionalità che consentono di comprendere le risorse di rete in Azure. Una di queste funzionalità è la risoluzione dei problemi riscontrati con le risorse. La funzionalità può essere chiamata dal portale, da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando chiamata, Network Watcher controlla l'integrità di un gateway di rete virtuale o di una connessione e restituisce i risultati.
@@ -36,7 +36,7 @@ Questo articolo illustra le diverse attività di gestione attualmente disponibil
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-ARMclient viene usato per chiamare l'API REST con PowerShell. ARMClient si trova su chocolatey presso [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient viene usato per chiamare l'API REST con PowerShell. ARMClient è disponibile su Chocolate in [ARMClient su Chocolate](https://chocolatey.org/packages/ARMClient)
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher.
 
@@ -123,7 +123,7 @@ Mentre l'operazione è in corso, la risposta mostra **InProgress** come illustra
 }
 ```
 
-Al termine dell'operazione, lo stato diventa **Riuscito**.
+Al termine dell'operazione, lo stato diventa **succeeded**.
 
 ```json
 {

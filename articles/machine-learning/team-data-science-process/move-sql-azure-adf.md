@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722493"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Spostare i dati da SQL Server locale a SQL Azure con Azure Data Factory
@@ -78,7 +78,7 @@ I servizi collegati definiscono le informazioni necessarie affinché il servizio
 
 1. Server SQL locale
 2. Archiviazione BLOB di Azure
-3. Database SQL di Azure
+3. database SQL di Azure
 
 In [Creazione di servizi collegati](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)viene fornita la procedura dettagliata per la creazione di servizi collegati.
 

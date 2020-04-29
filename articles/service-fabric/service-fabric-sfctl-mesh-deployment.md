@@ -1,15 +1,15 @@
 ---
-title: Interfaccia di comando di Azure Service Fabric - distribuzione mesh sfctlAzure Service Fabric CLI- sfctl mesh deployment
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command-line interface. Include un elenco di comandi per la creazione di risorse mesh di Service Fabric.
+title: INTERFACCIA della riga di comando di Azure Service Fabric-distribuzione mesh sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la creazione di Service Fabric risorse mesh.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906034"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
@@ -28,8 +28,8 @@ Crea una distribuzione delle risorse di mesh Service Fabric.
 
 |Argomento|Descrizione|
 | --- | --- |
-| --input-yaml-files [Obbligatorio] | Percorsi di file relativi o assoluti delimitati da virgole di tutti i file yaml o il percorso relativo o assoluto della directory (ricorsivo) che contengono i file yaml. |
-| --parameters | Percorso relativo o assoluto di un file yaml o di un oggetto json contenente i parametri che devono essere sottoposti a override. |
+| --input-yaml-files [Obbligatorio] | Percorsi di file relativi o assoluti delimitati da virgole di tutti i file YAML o del percorso relativo o assoluto della directory (ricorsiva) che contengono file YAML. |
+| --parameters | Percorso relativo o assoluto di un file YAML o di un oggetto JSON che contiene i parametri di cui è necessario eseguire l'override. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -55,12 +55,12 @@ Consente di consolidare e di distribuire tutte le risorse in una directory nel c
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
-Consolida e distribuisce tutte le risorse di una directory per il cluster eseguendo l'override dei parametri passati direttamente come oggetto json
+Consolida e distribuisce tutte le risorse di una directory nel cluster eseguendo l'override dei parametri passati direttamente come oggetto JSON
 ``` 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :    
 {'value' : 'my_value'} }"   
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
+- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
 - Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

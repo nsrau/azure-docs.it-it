@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
 ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77186795"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Non è possibile creare il notebook di Jupyter in Azure HDInsight
@@ -30,7 +30,7 @@ Cannot convert notebook to v5 because that version doesn't exist
 
 Versione non corrispondente.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
 
@@ -52,7 +52,7 @@ Versione non corrispondente.
 
     Salvare le modifiche immettendo **CTRL + X**, **Y**, **invio**.
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`, dove `CLUSTERNAME` è il nome del cluster.
+1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER` dove `CLUSTERNAME` è il nome del cluster.
 
 1. Riavviare il servizio Jupyter.
 

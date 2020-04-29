@@ -1,6 +1,6 @@
 ---
 title: Quote e limiti - Hub eventi di Azure | Microsoft Docs
-description: Questo articolo offre limiti e quote per gli hub eventi di Azure.This article provides limits and quotas for Azure Event Hubs. Ad esempio, numero di spazi dei nomi per sottoscrizione, numero di hub eventi per spazio dei nomi.
+description: Questo articolo fornisce i limiti e le quote per hub eventi di Azure. Ad esempio, numero di spazi dei nomi per sottoscrizione, numero di hub eventi per ogni spazio dei nomi.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: bbe747228fa2f587bc1369c3cb1fbbc91d1817e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76309541"
 ---
 # <a name="azure-event-hubs-quotas-and-limits"></a>Quote e limiti di Hub eventi di Azure

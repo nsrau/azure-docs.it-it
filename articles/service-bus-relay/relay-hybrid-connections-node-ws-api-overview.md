@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle API Node di inoltro di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica dell'API Node.js per il servizio di inoltro di Azure.This article provides an overview of the Node.js API for the Azure Relay service. Viene inoltre illustrato come utilizzare il pacchetto hyco-ws Node.
+description: Questo articolo fornisce una panoramica dell'API Node. js per il servizio di inoltro di Azure. Viene inoltre illustrato come utilizzare il pacchetto del nodo Hyco-WS.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514511"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Panoramica dell'API del pacchetto Node per Connessioni ibride di inoltro
 
 ## <a name="overview"></a>Panoramica
 
-Il [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) pacchetto Node per le connessioni ibride di inoltro di Azure si basa su ed estende il pacchetto NPM ['ws'.](https://www.npmjs.com/package/ws) Questo pacchetto permette di esportare nuovamente tutte le esportazioni del pacchetto di base e aggiunge nuove esportazioni che consentono l'integrazione con la funzionalità connessioni ibride del servizio di inoltro di Azure. 
+Il [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) pacchetto node per il connessioni ibride di inoltro di Azure è compilato ed estende il pacchetto NPM [' ws '](https://www.npmjs.com/package/ws) . Questo pacchetto permette di esportare nuovamente tutte le esportazioni del pacchetto di base e aggiunge nuove esportazioni che consentono l'integrazione con la funzionalità connessioni ibride del servizio di inoltro di Azure. 
 
 Le applicazioni esistenti che usano `require('ws')` possono usare questo pacchetto con `require('hyco-ws')`, che consente scenari ibridi in cui un'applicazione può contemporaneamente restare in attesa di connessioni WebSocket in locale dall'interno del firewall e tramite connessioni ibride.
   
@@ -143,7 +143,7 @@ function(headers)
 
 L'evento `headers` viene generato immediatamente prima che venga accettata una connessione in ingresso, consentendo la modifica delle intestazioni da inviare al client. 
 
-##### <a name="connection"></a>connessione
+##### <a name="connection"></a>connection
 
 ```JavaScript
 function(socket)

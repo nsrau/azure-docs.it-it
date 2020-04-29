@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76544719"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Estensione macchina virtuale Chef per Linux e Windows
@@ -67,26 +67,26 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 ### <a name="core-property-values"></a>Valori delle proprietà principali
 
-| Nome | Valore/Esempio | Tipo di dati
+| Name | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
+| publisher | `Chef.Bootstrap.WindowsAzure` | stringa |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | stringa |
 | typeHandlerVersion | `1210.13` | string (double) |
 
 ### <a name="settings"></a>Impostazioni
 
-| Nome | Valore/Esempio | Tipo di dati | Obbligatorio?
+| Name | Valore/Esempio | Tipo di dati | Necessaria?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
-| settings/runlist | `recipe[mycookbook::default]` | string | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | stringa | S |
+| settings/runlist | `recipe[mycookbook::default]` | stringa | S |
 
 ### <a name="protected-settings"></a>Impostazioni protette
 
-| Nome | Esempio | Tipo di dati | Obbligatorio?
+| Name | Esempio | Tipo di dati | Necessaria?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | stringa | S |
 
 <!--
 ### Linux-specific settings

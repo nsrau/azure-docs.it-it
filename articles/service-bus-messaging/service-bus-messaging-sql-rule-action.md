@@ -1,6 +1,6 @@
 ---
-title: SQLRuleAction syntax reference in Azure Service Bus
-description: In questo articolo viene fornito un riferimento per la sintassi SQLRuleAction.This article provides a reference for SQLRuleAction syntax. Le azioni vengono scritte nella sintassi basata sul linguaggio SQL che viene eseguita su un messaggio brokerato.
+title: Guida di riferimento alla sintassi SQLRuleAction nel bus di servizio di Azure
+description: Questo articolo fornisce un riferimento per la sintassi di SQLRuleAction. Le azioni vengono scritte nella sintassi basata sul linguaggio SQL eseguita su un messaggio negoziato.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759629"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>SQLRuleAction syntax reference for Azure Service Bus
+# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Riferimento alla sintassi di SQLRuleAction per il bus di servizio di Azure
 
 *SqlRuleAction* è un'istanza della [classe SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e rappresenta un set di azioni scritto in una sintassi basata sul linguaggio SQL ed eseguito su una [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   

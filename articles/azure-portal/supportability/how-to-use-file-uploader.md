@@ -1,6 +1,6 @@
 ---
-title: Richiesta di supporto di Azure - linee guida per il caricamento di fileAzure support request - file upload guidelines
-description: Descrive le linee guida quando si usa l'opzione di caricamento dei file di richiesta di supporto di Microsoft AzureDescribes the guidelines when using Microsoft Azure support request file upload option
+title: Richiesta di supporto tecnico di Azure-linee guida di caricamento file
+description: Descrive le linee guida quando si usa l'opzione di caricamento file richiesta di supporto Microsoft Azure
 author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: genli
 ms.openlocfilehash: ac8dffe3b1200f3925478f968170498ee744bb79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76548969"
 ---
-# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Linee guida per l'utilità di caricamento dei file di richiesta di supporto di Microsoft Azure
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure nuove linee guida dell'utilità di caricamento file di richiesta di supporto
 
-Quando si [crea una richiesta](https://portal.azure.com/#create/Microsoft.Support)di supporto , l'opzione di caricamento dei file può aiutarti a caricare facilmente i file di diagnostica o qualsiasi altro file che ritieni rilevante per l'incidente.  
+Quando si [Crea una richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support), l'opzione di caricamento file consente di caricare facilmente i file di diagnostica o qualsiasi altro file ritenuto rilevante per l'evento imprevisto.  
 
 > [!NOTE]
 > Per proteggere la privacy degli utenti, non includere informazioni personali nel caricamento.
 >
 >
 
-Quando si utilizza l'opzione di caricamento dei file, attenersi alle seguenti linee guida:
+Quando si usa l'opzione di caricamento file, seguire queste linee guida:
 
-* Tutti i file devono avere un'estensione di file, ad esempio *docx* o *xlsx*. Vedere la tabella per le estensioni di file consentite.
+* Tutti i file devono avere un'estensione del nome file, ad esempio *docx* o *xlsx*. Vedere la tabella per le estensioni di file consentite.
 * Il nome del file non deve superare i 110 caratteri.
-* Non puoi caricare più di un file.
-* I file non possono avere dimensioni superiori a 4 MB.
+* Non è possibile caricare più di un file.
+* I file non possono essere superiori a 4 MB.
 
 ## <a name="table-of-the-allowed-file-name-extensions"></a>Tabella delle estensioni dei nomi di file consentite
 

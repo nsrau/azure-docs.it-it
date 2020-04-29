@@ -13,26 +13,26 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062643"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrare le informazioni sul metodo di verifica per reimpostare la password
 
-Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare tale password.
+Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare la password per un account aziendale o dell'istituto di istruzione.
 
 L'amministratore deve attivare questa funzionalità per poter registrare le informazioni e reimpostare la propria password. Se non viene visualizzata l'opzione **password dimenticata** , significa che l'amministratore non ha attivato la funzionalità per l'organizzazione. Se si ritiene che si tratti di un errore, contattare l'help desk per assistenza.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di usare l'iscrizione per la reimpostazione della password self-service. Ciò significa che sarà possibile reimpostare la password aziendale o dell'Istituto di istruzione, ad esempio alain@contoso.com, senza richiedere la guida dell'amministratore. Se si è un amministratore che cerca informazioni su come attivare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere la pagina relativa alla distribuzione di Azure AD per la reimpostazione della password self-service e altri articoli.
+>Questo articolo è destinato agli utenti che tentano di usare l'iscrizione per la reimpostazione della password self-service. Ciò significa che sarà possibile reimpostare la password aziendale o dell'Istituto di istruzione, ad esempio, alain@contoso.comsenza richiedere la guida dell'amministratore. Se si è un amministratore che cerca informazioni su come attivare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere la pagina relativa alla [distribuzione Azure ad la reimpostazione della password self-service e altri articoli](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Configurare il metodo di verifica della reimpostazione della password
 
 1. Aprire il Web browser nel dispositivo e passare alla pagina delle [informazioni di sicurezza](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 
-2. A seconda del modo in cui l'amministratore ha configurato l'organizzazione, saranno disponibili una o più delle opzioni seguenti per la configurazione come metodo di verifica della sicurezza. Se sono disponibili più opzioni, è consigliabile usarne più di una come metodo di verifica di sicurezza, nel caso in cui uno dei metodi diventi non disponibile.
+2. A seconda del modo in cui l'amministratore ha configurato l'organizzazione, saranno disponibili una o più delle opzioni seguenti per la configurazione come metodo di verifica della sicurezza. Se sono disponibili più opzioni, è consigliabile usare più di uno come metodo di verifica di sicurezza, nel caso in cui uno dei metodi diventi non disponibile.
 
     - **App di autenticazione.** Scegliere di usare l'app Microsoft Authenticator o un'altra app di autenticazione come metodo di verifica di sicurezza. Per altre informazioni sulla configurazione dell'app, vedere [configurare l'app Microsoft Authenticator come metodo di verifica](security-info-setup-auth-app.md).
 

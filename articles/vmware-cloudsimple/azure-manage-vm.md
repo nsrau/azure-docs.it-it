@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77014998"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gestire le macchine virtuali del cloud privato CloudSimple in Azure
@@ -26,12 +26,12 @@ I controlli seguenti sono disponibili nella pagina **Panoramica** relativa alla 
 | Controllo | Descrizione |
 | ------------ | ------------- |
 | Connessione | Connettersi alla macchina virtuale specificata.  |
-| Inizio | Avviare la macchina virtuale specificata.  |
-| Riavvio | Arrestare e quindi accendere la macchina virtuale specificata.  |
+| Inizia | Avviare la macchina virtuale specificata.  |
+| Riavvia | Arrestare e quindi accendere la macchina virtuale specificata.  |
 | Arresto | Arrestare la macchina virtuale specifica.  |
 | Acquisizione | Acquisire un'immagine della macchina virtuale specificata in modo che possa essere usata come immagine per creare altre macchine virtuali. Vedere [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/classic/capture-image.md).   |
-| Spostamento | Passare alla macchina virtuale specificata.  |
-| Delete | Rimuovere la macchina virtuale specificata.  |
+| Sposta | Passare alla macchina virtuale specificata.  |
+| Elimina | Rimuovere la macchina virtuale specificata.  |
 | Aggiorna | Aggiornare i dati nella visualizzazione.  |
 
 ### <a name="view-performance-information"></a>Visualizzare le informazioni sulle prestazioni
@@ -43,7 +43,7 @@ Vengono visualizzati i grafici seguenti.
 | Item | Descrizione |
 | ------------ | ------------- |
 | CPU (media) | Utilizzo medio della CPU in percentuale rispetto all'intervallo selezionato.   |
-| Network | Traffico all'interno e all'esterno della rete (MB) nell'intervallo selezionato.  |
+| Rete | Traffico all'interno e all'esterno della rete (MB) nell'intervallo selezionato.  |
 | Byte disco | Dati totali letti dal disco e scritti su disco (MB) nell'intervallo selezionato.  |
 | Operazioni su disco | Frequenza media delle operazioni su disco (operazioni al secondo) nell'intervallo selezionato. |
 
@@ -54,7 +54,7 @@ Per aggiungere un disco della macchina virtuale, aprire la pagina **dischi** per
    | Item | Descrizione |
    | ------------ | ------------- |
    | Nome | Immettere un nome per identificare il disco.  |
-   | Dimensione | Selezionare una delle dimensioni disponibili.  |
+   | Dimensioni | Selezionare una delle dimensioni disponibili.  |
    | Controller SCSI | Selezionare un controller SCSI. I controller disponibili variano per i diversi sistemi operativi supportati.  |
    | Mode | Determina la modalità di partecipazione del disco negli snapshot. Scegliere una delle opzioni seguenti: <br> -Permanente indipendente: tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente, non persistente: le modifiche scritte nel disco vengono eliminate quando si spegne o si reimposta la macchina virtuale.  Questa modalità consente di riavviare sempre la macchina virtuale nello stesso stato. Per altre informazioni, vedere la [documentazione di VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
@@ -77,7 +77,7 @@ Per aggiungere un'interfaccia, fare clic su **Aggiungi interfaccia di rete**. Co
    | Controllo | Descrizione |
    | ------------ | ------------- |
    | Nome | Immettere un nome per identificare l'interfaccia.  |
-   | Network | Selezionare dall'elenco di reti configurate nel cloud privato vSphere.  |
+   | Rete | Selezionare dall'elenco di reti configurate nel cloud privato vSphere.  |
    | Adattatore | Selezionare un adattatore vSphere dall'elenco dei tipi disponibili configurato per la macchina virtuale. Per ulteriori informazioni, vedere l'articolo della Knowledge Base VMware [scelta di una scheda di rete per la macchina virtuale](https://kb.vmware.com/s/article/1001805). |
    | Power on at Boot (Accendi all'avvio) | Scegliere se abilitare l'hardware NIC all'avvio della macchina virtuale. Il valore predefinito è **Abilita**. |
 

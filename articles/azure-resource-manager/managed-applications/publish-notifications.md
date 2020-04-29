@@ -6,17 +6,17 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76715679"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applicazioni gestite di Azure con notifiche
 
 Le notifiche delle applicazioni gestite di Azure consentono agli editori di automatizzare le azioni in base agli eventi del ciclo di vita delle istanze di applicazioni gestite. Gli editori possono specificare endpoint del webhook di notifica personalizzati per ricevere notifiche degli eventi sulle istanze di applicazioni gestite nuove ed esistenti. Gli editori possono impostare flussi di lavoro personalizzati al momento del provisioning, degli aggiornamenti e dell'eliminazione dell'applicazione.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 Per iniziare a ricevere le applicazioni gestite, creare un endpoint HTTPS pubblico e specificarlo quando si pubblica la definizione dell'applicazione del catalogo di servizi o l'offerta di Azure Marketplace.
 
 Ecco i passaggi consigliati per iniziare rapidamente:
@@ -70,9 +70,9 @@ Nella tabella seguente vengono descritte tutte le possibili combinazioni di Even
 EventType | ProvisioningState | Trigger per la notifica
 ---|---|---
 PUT | Accepted | Il gruppo di risorse gestite è stato creato e proiettato correttamente dopo l'inserimento dell'applicazione (prima che la distribuzione all'interno del gruppo di risorse gestite venga avviata).
-PUT | Operazione completata | Il provisioning completo dell'applicazione gestita è riuscito dopo un'operazione PUT.
+PUT | Operazione riuscita | Il provisioning completo dell'applicazione gestita è riuscito dopo un'operazione PUT.
 PUT | Operazione non riuscita | Errore di inserimento del provisioning dell'istanza dell'applicazione in qualsiasi momento.
-PATCH | Operazione completata | Dopo una PATCH corretta nell'istanza dell'applicazione gestita per aggiornare i tag, i criteri di accesso JIT o l'identità gestita.
+PATCH | Operazione riuscita | Dopo una PATCH corretta nell'istanza dell'applicazione gestita per aggiornare i tag, i criteri di accesso JIT o l'identità gestita.
 DELETE | Deleting | Non appena l'utente avvia un'eliminazione di un'istanza dell'app gestita.
 DELETE | Deleted | Dopo l'eliminazione completa e corretta dell'applicazione gestita.
 DELETE | Operazione non riuscita | Dopo qualsiasi errore durante il processo di deprovisioning che blocca l'eliminazione.

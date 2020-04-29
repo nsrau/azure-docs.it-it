@@ -1,6 +1,6 @@
 ---
-title: Controlli di sicurezza per l'inoltro del bus di servizio di AzureSecurity controls for Azure Service Bus Relay
-description: In questo articolo viene fornito un elenco di controllo dei controlli di sicurezza incorporati per la valutazione dell'inoltro del bus di servizio di Azure.This articles provides a checklist of built-in security controls for evaluating Azure Service Bus Relay.
+title: Controlli di sicurezza per l'inoltro del bus di servizio di Azure
+description: Questo articolo fornisce un elenco di controllo dei controlli di sicurezza predefiniti per la valutazione dell'inoltro del bus di servizio di Azure.
 services: service-bus-relay
 ms.service: service-bus-relay
 author: spelluru
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 28d3ba14aa7769ac4f3fc22bd2b5bd7acd30557c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514018"
 ---
-# <a name="security-controls-for-azure-service-bus-relay"></a>Controlli di sicurezza per l'inoltro del bus di servizio di AzureSecurity controls for Azure Service Bus Relay
+# <a name="security-controls-for-azure-service-bus-relay"></a>Controlli di sicurezza per l'inoltro del bus di servizio di Azure
 
-Questo articolo documenta i controlli di sicurezza integrati nell'inoltro del bus di servizio di Azure.This article documents the security controls built into Azure Service Bus Relay.
+Questo articolo descrive i controlli di sicurezza incorporati nell'inoltro del bus di servizio di Azure.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
@@ -24,33 +24,33 @@ Questo articolo documenta i controlli di sicurezza integrati nell'inoltro del bu
 
 | Controllo di sicurezza | Sì/No | Note | Documentazione |
 |---|---|--|--|
-| Supporto dell'endpoint di servizioService endpoint support| No |  |   |
-| Isolamento della rete e supporto firewall| No |  |   |
-| Supporto per il tunneling forzato| N/D | L'inoltro è il tunnel TLS  |   |
+| Supporto per endpoint di servizio| No |  |   |
+| Isolamento rete e supporto del firewall| No |  |   |
+| Supporto del tunneling forzato| N/D | L'inoltro è il tunnel TLS  |   |
 
-## <a name="monitoring--logging"></a>Monitoraggio della registrazione dei &
+## <a name="monitoring--logging"></a>Monitoraggio & registrazione
 
 | Controllo di sicurezza | Sì/No | Note| Documentazione |
 |---|---|--|--|
-| Supporto per il monitoraggio di Azure (analisi dei log, informazioni dettagliate sulle app e così via)Azure monitoring support (Log analytics, App insights, etc.)| Sì | |   |
-| Controllo e gestione del controllo e dell'audit degli aerei| Sì | Tramite [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
-| Registrazione e controllo dei piani dati| Sì | Connessione riuscita/errore ed errori e registrazione.  |   |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | |   |
+| Registrazione e controllo del piano di gestione e controllo| Sì | Tramite [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
+| Registrazione e controllo del piano dati| Sì | Connessione riuscita/non riuscita ed errori e registrato.  |   |
 
 ## <a name="identity"></a>Identità
 
 | Controllo di sicurezza | Sì/No | Note| Documentazione |
 |---|---|--|--|
-| Authentication| Sì | Tramite SAS. | [Autenticazione e autorizzazione di Inoltro di Azure](relay-authentication-and-authorization.md) |
+| Autenticazione| Sì | Tramite SAS. | [Autenticazione e autorizzazione di Inoltro di Azure](relay-authentication-and-authorization.md) |
 | Autorizzazione|  Sì | Tramite SAS. | [Autenticazione e autorizzazione di Inoltro di Azure](relay-authentication-and-authorization.md) |
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 | Controllo di sicurezza | Sì/No | Note | Documentazione |
 |---|---|--|--|
-| Crittografia lato server inattivi: chiavi gestite da MicrosoftServer-side encryption at rest: Microsoft-managed keys |  N/D | L'inoltro è un socket Web e non rende persistenti i dati. |   |
-| Crittografia lato server inattivi: chiavi gestite dal cliente (BYOK)Server-side encryption at rest: customer-managed keys (BYOK) | No | Utilizza solo i certificati Microsoft TLS.  |   |
-| Crittografia a livello di colonna (Azure Data Services)Column level encryption (Azure Data Services)| N/D | |   |
-| Crittografia in transito (ad esempio la crittografia ExpressRoute, nella crittografia della rete virtuale e crittografia VNet-VNet)Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Sì | Il servizio richiede TLS. |   |
+| Crittografia lato server: chiavi gestite da Microsoft |  N/D | L'inoltro è un socket Web e non rende persistenti i dati. |   |
+| Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | No | USA solo certificati TLS Microsoft.  |   |
+| Crittografia a livello di colonna (servizi dati di Azure)| N/D | |   |
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Il servizio richiede TLS. |   |
 | Chiamate API crittografate| Sì | HTTPS. |
 
 
@@ -62,4 +62,4 @@ Questo articolo documenta i controlli di sicurezza integrati nell'inoltro del bu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui controlli di sicurezza incorporati nei servizi di Azure.Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).
+- Altre informazioni sui [controlli di sicurezza incorporati nei servizi di Azure](../security/fundamentals/security-controls.md).

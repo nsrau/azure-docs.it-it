@@ -1,6 +1,6 @@
 ---
 title: Gestire le risorse del bus di servizio di Azure con PowerShell | Microsoft Docs
-description: Questo articolo illustra come usare il modulo di Azure PowerShell per creare e gestire le entità del bus di servizio (spazi dei nomi, code, argomenti, sottoscrizioni).
+description: Questo articolo illustra come usare Azure PowerShell modulo per creare e gestire entità del bus di servizio (spazi dei nomi, code, argomenti, sottoscrizioni).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: e333dfb109840538fd5dec8110e1c32adedce989
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759262"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Gestire le risorse del bus di servizio di Azure con PowerShell
@@ -43,7 +43,7 @@ Il primo passaggio consiste nell'usare PowerShell per accedere all'account Azure
 
 ## <a name="provision-a-service-bus-namespace"></a>Provisioning di uno spazio dei nomi del bus di servizio
 
-Quando si utilizzano gli spazi dei nomi del bus di servizio, è possibile utilizzare i cmdlet [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)e [Set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) .
+Quando si lavora con gli spazi dei nomi del bus di servizio, è possibile usare i cmdlet [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)e [set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) .
 
 Questo esempio crea alcune variabili locali nello script: `$Namespace` e `$Location`.
 
@@ -83,7 +83,7 @@ Questa parte dello script esegue le operazioni seguenti:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Crea una regola di autorizzazione dello spazio dei nomi
 
-Nell'esempio seguente viene illustrato come gestire le regole di autorizzazione dello spazio dei nomi utilizzando i cmdlet [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule)e [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) .
+Nell'esempio seguente viene illustrato come gestire le regole di autorizzazione dello spazio dei nomi utilizzando i cmdlet [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule)e [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) .
 
 ```powershell
 # Query to see if rule exists
@@ -147,7 +147,7 @@ else
 
 ### <a name="modify-queue-properties"></a>Modificare le proprietà della coda
 
-Dopo aver eseguito lo script nella sezione precedente, è possibile utilizzare il cmdlet [Set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) per aggiornare le proprietà di una coda, come nell'esempio seguente:
+Dopo aver eseguito lo script nella sezione precedente, è possibile usare il cmdlet [set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) per aggiornare le proprietà di una coda, come nell'esempio seguente:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True

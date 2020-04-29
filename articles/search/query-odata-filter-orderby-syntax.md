@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77153877"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Panoramica del linguaggio OData `$filter`per `$orderby`, e `$select` in Azure ricerca cognitiva
@@ -93,7 +93,7 @@ I percorsi dei campi vengono usati in molti parametri delle [API REST di Azure r
 
 | API | Nome parametro | Restrizioni |
 | --- | --- | --- |
-| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | nessuno |
+| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | Nessuno |
 | [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `scoringProfiles/text/weights` | Può fare riferimento solo a campi **ricercabili** |
 | [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `scoringProfiles/functions/fieldName` | Può fare riferimento solo a campi **filtrabili** |
 | [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`Quando `queryType` è`full` | Può fare riferimento solo a campi **ricercabili** |
@@ -237,7 +237,7 @@ I parametri **$Filter**, **$OrderBy**e **$Select** vengono esaminati in modo pi�
 - [Sintassi di $orderby OData in Azure ricerca cognitiva](search-query-odata-orderby.md)
 - [Sintassi di $select OData in Azure ricerca cognitiva](search-query-odata-select.md)
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 
 - [Esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md)
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)

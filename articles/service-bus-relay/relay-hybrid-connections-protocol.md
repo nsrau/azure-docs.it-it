@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: clemensv
 ms.openlocfilehash: 68668452152064584d1c419a3053ccb642b103f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514953"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 
-L'inoltro di Azure è una delle funzionalità chiave di base della piattaforma Bus di servizio di Azure. La nuova funzionalità _Connessioni ibride_ di inoltro è un'evoluzione sicura del protocollo aperto basata su HTTP e WebSocket. Sostituisce la precedente funzionalità dei _servizi BizTalk,_ ugualmente denominata, che è stata costruita su una base di protocollo proprietaria. L'integrazione di Connessioni ibride nei servizi app di Azure continuerà a funzionare così com'è.
+L'inoltro di Azure è una delle funzionalità chiave di base della piattaforma Bus di servizio di Azure. La nuova funzionalità _Connessioni ibride_ di inoltro è un'evoluzione sicura del protocollo aperto basata su HTTP e WebSocket. Sostituisce la caratteristica dei _Servizi BizTalk_ precedente, con lo stesso nome, compilata in base a un protocollo di proprietà. L'integrazione di Connessioni ibride nei servizi app di Azure continuerà a funzionare così com'è.
 
 Connessioni ibride permette di stabilire una comunicazione bidirezionale con flussi binari tra due applicazioni di rete, di cui una o entrambe le parti sono protette da NAT o firewall.
 
@@ -51,7 +51,7 @@ I messaggi di ascolto, accettazione e richiesta vengono ricevuti dal servizio. L
 
 Un listener, per indicare al servizio che è pronto ad accettare le connessioni, crea una connessione WebSocket in uscita. L'handshake della connessione trasporta il nome di una connessione ibrida configurata nello spazio dei nomi dell'inoltro e un token di sicurezza che conferisce il diritto di "ascoltare" a tale nome.
 
-Quando il WebSocket viene accettato dal servizio, la registrazione è completa e il WebSocket stabilito viene mantenuto attivo come "canale di controllo" per abilitare tutte le interazioni successive. Il servizio consente fino a 25 listener simultanei per una connessione ibrida. La quota per AppHooks deve essere stabilita.
+Quando il WebSocket viene accettato dal servizio, la registrazione è completa e il WebSocket stabilito viene mantenuto attivo come "canale di controllo" per abilitare tutte le interazioni successive. Il servizio consente un massimo di 25 listener simultanei per una connessione ibrida. La quota per AppHooks deve essere stabilita.
 
 Per Connessioni ibride, se sono presenti due o più listener attivi, le connessioni in ingresso sono bilanciate tra loro in ordine casuale e non viene garantita una distribuzione equa.
 
@@ -146,7 +146,7 @@ Le opzioni dei parametri della stringa di query sono le seguenti.
 
 | Parametro        | Obbligatoria | Descrizione
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Sì      | Per il ruolo del listener, il parametro deve essere **sb-hc-action**
+| `sb-hc-action`   | Sì      | Per il ruolo listener, il parametro deve essere **SB-HC-Action = Listen**
 | `{path}`         | Sì      | Percorso dello spazio dei nomi codificato con URL della connessione ibrida preconfigurata in cui registrare questo listener. Questa espressione viene aggiunta alla parte del percorso `$hc/` fissa.
 | `sb-hc-token`    | Sì\*    | Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Listen**.
 | `sb-hc-id`       | No       | Questo ID facoltativo fornito dal client consente la traccia diagnostica end-to-end.
@@ -402,7 +402,7 @@ In caso di errore il servizio può rispondere come segue:
 
 Quando il token del listener sta per scadere, può essere sostituito inviando un messaggio in una cornice di testo al servizio tramite il canale di controllo stabilito. Il messaggio contiene un oggetto JSON denominato `renewToken`, che definisce la proprietà attuale seguente:
 
-* **token:** un token di accesso condiviso del bus di servizio valido con codifica URL per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Ascolto.**
+* **token** : token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Listen** .
 
 ```json
 {
@@ -434,7 +434,7 @@ La richiesta può contenere intestazioni HTTP aggiuntive arbitrarie, incluse que
 
 Le opzioni dei parametri della stringa di query sono le seguenti:
 
-| Param          | Obbligatorio? | Descrizione
+| Param          | Necessaria? | Descrizione
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sì       | Per il ruolo mittente, il parametro deve essere `sb-hc-action=connect`.
 | `{path}`       | Sì       | (vedere il paragrafo seguente)
@@ -482,7 +482,7 @@ La richiesta può contenere intestazioni HTTP aggiuntive arbitrarie, incluse que
 
 Le opzioni dei parametri della stringa di query sono le seguenti:
 
-| Param          | Obbligatorio? | Descrizione
+| Param          | Necessaria? | Descrizione
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sì\*     | Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Send**.
 
@@ -510,6 +510,6 @@ In caso di errore il servizio può rispondere come indicato di seguito. Per dete
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Domande frequenti sul servizio di inoltro](relay-faq.md)
-* [Creare uno spazio dei nomiCreate a namespace](relay-create-namespace-portal.md)
+* [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)

@@ -1,6 +1,6 @@
 ---
-title: Report IP rischioso di Azure AD Connect con AD FS Documenti Microsoft
-description: Descrive il report IP rischioso di Azure AD Connect Health AD FS.
+title: Azure AD Connect Health con AD FS report sugli indirizzi IP rischiosi | Microsoft Docs
+description: Descrive il Azure AD Connect Health AD FS report di indirizzi IP rischiosi.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
@@ -17,13 +17,13 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: defdf8118f1b07f8d6ddc4d232cda0fc423ef9f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897267"
 ---
-# <a name="risky-ip-report-public-preview"></a>Rapporto IP rischioso (anteprima pubblica)
+# <a name="risky-ip-report-public-preview"></a>Report IP rischioso (anteprima pubblica)
 I clienti con AD FS possono esporre endpoint di autenticazione delle password in Internet per offrire servizi di autenticazione per l'accesso degli utenti finali ad applicazioni SaaS come Office 365. In questo caso, un attore malintenzionato potrebbe eseguire tentativi di accesso nel sistema AD FS per indovinare la password di un utente finale e ottenere l'accesso alle risorse dell'applicazione. A partire da AD FS in Windows Server 2012 R2, AD FS offre la funzionalità di blocco account Extranet per impedire questi tipi di attacchi. Se si usa una versione precedente, è consigliabile eseguire l'aggiornamento del sistema AD FS a Windows Server 2016. <br />
 
 È anche possibile che un singolo indirizzo IP esegua più tentativi di accesso per più utenti. In questi casi, il numero di tentativi per utente potrebbe essere al di sotto della soglia della protezione del blocco account in AD FS. Azure AD Connect Health offre ora un report sugli indirizzi IP rischiosi che rileva questa condizione e invia una notifica agli amministratori quando si verifica. Di seguito sono riportati i vantaggi principali di questo report: 
@@ -38,14 +38,14 @@ I clienti con AD FS possono esporre endpoint di autenticazione delle password in
 > Per accedere all'anteprima, è necessaria un'autorizzazione di amministratore globale o di [Ruolo con autorizzazioni di lettura per la sicurezza](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader).  
 > 
 
-## <a name="what-is-in-the-report"></a>Cosa c'è nella relazione?
-Gli indirizzi IP del client di accesso non riusciti vengono aggregati tramite i server proxy applicazione Web. Ogni elemento nel report sugli indirizzi IP rischiosi mostra informazioni aggregate sulle attività di accesso ad AD FS non riuscite che superano la soglia designata. Vengono riportate le informazioni seguenti: ![Portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+## <a name="what-is-in-the-report"></a>Informazioni sul report
+Gli indirizzi IP del client dell'attività di accesso non riusciti vengono aggregati tramite i server proxy applicazione Web. Ogni elemento nel report sugli indirizzi IP rischiosi mostra informazioni aggregate sulle attività di accesso ad AD FS non riuscite che superano la soglia designata. Vengono riportate le informazioni seguenti: ![Portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Elemento del report | Descrizione |
 | ------- | ----------- |
 | Timestamp | Mostra il timestamp corrispondente all'inizio dell'intervallo di tempo di rilevamento, in base all'ora locale del portale di Azure.<br /> Tutti gli eventi giornalieri vengono generati a mezzanotte nel fuso orario UTC. <br />Il timestamp degli eventi orari viene arrotondato all'inizio dell'ora. L'ora di inizio della prima attività è riportata in "firstAuditTimestamp" nel file esportato. |
 | Tipo di trigger | Mostra il tipo di intervallo di tempo di rilevamento. I tipi di trigger di aggregazione sono su base oraria o giornaliera. Questo è utile per il rilevamento rispetto a un attacco di forza bruta con frequenza elevata e rispetto a un attacco lento in cui il numero di tentativi è distribuito durante il giorno. |
-| Indirizzo IP | Il singolo indirizzo IP rischioso con attività di accesso con password errata o blocco Extranet. Può trattarsi di un indirizzo IPv4 o IPv6. |
+| Indirizzo IP | Il singolo indirizzo IP rischioso con attività di accesso con password errata o blocco Extranet. Potrebbe trattarsi di un indirizzo IPv4 o IPv6. |
 | Numero errori di password errata | Il numero di errori di password errata provenienti dall'indirizzo IP durante l'intervallo di tempo di rilevamento. Gli errori di password errata possono verificarsi più volte per determinati utenti. Si noti che non sono inclusi i tentativi non riusciti a causa di password scadute. |
 | Numero errori di blocco Extranet | Il numero di errori di blocco Extranet provenienti dall'indirizzo IP durante l'intervallo di tempo di rilevamento. Gli errori di blocco Extranet possono verificarsi più volte per determinati utenti. Questo verrà rilevato solo se il blocco Extranet è configurato in AD FS (versione 2012R2 o successiva). <b>Nota</b>: se si consentono accessi Extranet con password, è consigliabile attivare questa funzionalità. |
 | Tentativi con utenti univoci | Il numero di tentativi riguardanti utenti univoci provenienti dall'indirizzo IP durante l'intervallo di tempo di rilevamento. Questo offre un meccanismo per distinguere uno schema di attacco a utente singolo da uno schema di attacco multiutente.  |
@@ -65,7 +65,7 @@ L'elemento del report seguente, ad esempio, indica che nell'intervallo orario da
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Indirizzi IP del servizio di bilanciamento del carico nell'elenco
 Attività di accesso aggregate non riuscite del servizio di bilanciamento del carico, con raggiungimento della soglia di avviso. Se vengono visualizzati indirizzi IP del servizio di bilanciamento del carico, è molto probabile che il servizio di bilanciamento del carico esterno non invii l'indirizzo IP del client quando passa la richiesta al server proxy applicazione Web. Configurare il servizio di bilanciamento del carico correttamente in modo da passare l'indirizzo IP del client di inoltro. 
 
-## <a name="download-risky-ip-report"></a>Scarica il rapporto IP rischioso 
+## <a name="download-risky-ip-report"></a>Scarica report IP rischioso 
 Usando la funzionalità **Scarica** è possibile esportare l'intero elenco degli indirizzi IP rischiosi degli ultimi 30 giorni dal portale di Connect Health. Il risultato dell'esportazione includerà tutte le attività di accesso ad AD FS non riuscite in ogni intervallo di tempo di rilevamento, consentendo così di personalizzare i filtri dopo l'esportazione. Oltre alle aggregazioni evidenziate nel portale, il risultato dell'esportazione mostra anche altri dettagli sulle attività di accesso non riuscite in base all'indirizzo IP:
 
 |  Elemento del report  |  Descrizione  | 

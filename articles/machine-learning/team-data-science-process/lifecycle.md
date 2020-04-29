@@ -12,17 +12,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720453"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Ciclo di vita del processo di data science per i team
 
-Il processo di data science per i team (TDSP, Team Data Science Process) fornisce un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive i passaggi completi che seguono i progetti di successo. Se si usa un altro ciclo di vita di data science, ad esempio il CRISP-DM [(Cross Industry Standard Process for Data Mining)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), il KDD [(Knowledge Discovery in Databases)](https://wikipedia.org/wiki/Data_mining#Process), o il processo personalizzato dell'organizzazione, è comunque possibile usare il TDSP basato sulle attività. 
+Il processo di data science per i team (TDSP, Team Data Science Process) fornisce un ciclo di vita consigliato da usare per strutturare i progetti di data science. Il ciclo di vita descrive i passaggi completi seguiti dai progetti riusciti. Se si usa un altro ciclo di vita di data science, ad esempio il CRISP-DM [(Cross Industry Standard Process for Data Mining)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), il KDD [(Knowledge Discovery in Databases)](https://wikipedia.org/wiki/Data_mining#Process), o il processo personalizzato dell'organizzazione, è comunque possibile usare il TDSP basato sulle attività. 
 
-Questo ciclo di vita è stato messo a punto per i progetti di data science destinati a far parte di applicazioni intelligenti. Queste applicazioni distribuiscono modelli di Machine Learning o intelligenza artificiale per l'analisi predittiva. Anche i progetti esplorativi di data science e i progetti di analisi improvvisati possono trarre vantaggio dall'uso di questo processo. Tuttavia per tali progetti potrebbero non essere necessarie alcune delle procedure descritte di seguito. 
+Questo ciclo di vita è stato messo a punto per i progetti di data science destinati a far parte di applicazioni intelligenti. Queste applicazioni distribuiscono modelli di Machine Learning o intelligenza artificiale per l'analisi predittiva. Anche i progetti di Data Science esplorativi e i progetti di analisi improvati possono trarre vantaggio dall'uso di questo processo. Tuttavia per tali progetti potrebbero non essere necessarie alcune delle procedure descritte di seguito. 
 
 ## <a name="five-lifecycle-stages"></a>Cinque fasi del ciclo di vita
 

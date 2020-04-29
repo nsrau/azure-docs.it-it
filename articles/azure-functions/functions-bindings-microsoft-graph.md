@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: 770187693e5bac6e059dfd20455099fcc695b74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76715024"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
@@ -78,7 +78,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#auth-token---example)
 * [Attributi](#auth-token---attributes)
 * [Configurazione](#auth-token---configuration)
-* [Uso](#auth-token---usage)
+* [Utilizzo](#auth-token---usage)
 
 ### <a name="auth-token---example"></a>Token di autenticazione: esempio
 
@@ -236,7 +236,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#excel-input---example)
 * [Attributi](#excel-input---attributes)
 * [Configurazione](#excel-input---configuration)
-* [Uso](#excel-input---usage)
+* [Utilizzo](#excel-input---usage)
 
 ### <a name="excel-input---example"></a>Input di Excel: esempio
 
@@ -385,7 +385,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#excel-output---example)
 * [Attributi](#excel-output---attributes)
 * [Configurazione](#excel-output---configuration)
-* [Uso](#excel-output---usage)
+* [Utilizzo](#excel-output---usage)
 
 ### <a name="excel-output---example"></a>Output di Excel: esempio
 
@@ -544,7 +544,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#file-input---example)
 * [Attributi](#file-input---attributes)
 * [Configurazione](#file-input---configuration)
-* [Uso](#file-input---usage)
+* [Utilizzo](#file-input---usage)
 
 ### <a name="file-input---example"></a>Input di file: esempio
 
@@ -670,7 +670,7 @@ Questa associazione richiede le autorizzazioni Azure AD seguenti:
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - byte[]
 - STREAM
-- string
+- stringa
 - Microsoft.Graph.DriveItem
 
 
@@ -688,7 +688,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#file-output---example)
 * [Attributi](#file-output---attributes)
 * [Configurazione](#file-output---configuration)
-* [Uso](#file-output---usage)
+* [Utilizzo](#file-output---usage)
 
 ### <a name="file-output---example"></a>Output di file: esempio
 
@@ -818,7 +818,7 @@ Questa associazione richiede le autorizzazioni Azure AD seguenti:
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - byte[]
 - STREAM
-- string
+- stringa
 - Microsoft.Graph.DriveItem
 
 
@@ -835,7 +835,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#outlook-output---example)
 * [Attributi](#outlook-output---attributes)
 * [Configurazione](#outlook-output---configuration)
-* [Uso](#outlook-output---usage)
+* [Utilizzo](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Output di Outlook: esempio
 
@@ -968,7 +968,7 @@ Questa associazione richiede le autorizzazioni Azure AD seguenti:
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- string
+- stringa
 - i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
@@ -1000,7 +1000,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#webhook-trigger---example)
 * [Attributi](#webhook-trigger---attributes)
 * [Configurazione](#webhook-trigger---configuration)
-* [Uso](#webhook-trigger---usage)
+* [Utilizzo](#webhook-trigger---usage)
 
 ### <a name="webhook-trigger---example"></a>Trigger di webhook: esempio
 
@@ -1119,7 +1119,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#webhook-input---example)
 * [Attributi](#webhook-input---attributes)
 * [Configurazione](#webhook-input---configuration)
-* [Uso](#webhook-input---usage)
+* [Utilizzo](#webhook-input---usage)
 
 ### <a name="webhook-input---example"></a>Input di webhook: esempio
 
@@ -1270,7 +1270,7 @@ In questa sezione sono disponibili le procedure seguenti:
 * [Esempio](#webhook-output---example)
 * [Attributi](#webhook-output---attributes)
 * [Configurazione](#webhook-output---configuration)
-* [Uso](#webhook-output---usage)
+* [Utilizzo](#webhook-output---usage)
 
 ### <a name="webhook-output---example"></a>Output di webhook: esempio
 
@@ -1398,7 +1398,7 @@ La tabella seguente illustra le proprietà di configurazione dell'associazione i
 ### <a name="webhook-output---usage"></a>Output di webhook: utilizzo
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
-- string
+- stringa
 - Microsoft.Graph.Subscription
 
 

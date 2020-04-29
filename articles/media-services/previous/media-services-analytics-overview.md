@@ -16,18 +16,18 @@ ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
 ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77069626"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali 
 
-## <a name="retirement-plans"></a>Piani di pensionamento
+## <a name="retirement-plans"></a>Piani di ritiro
 
 > [!IMPORTANT]
-> Alcuni processori multimediali vengono ritirati. Per le date di pensionamento e ulteriori informazioni, vedere l'argomento relativo ai [componenti legacy.](legacy-components.md) 
+> Alcuni processori di contenuti multimediali sono in fase di ritiro. Per le date di ritiro e altre informazioni, vedere l'argomento [componenti legacy](legacy-components.md) . 
 
 ## <a name="overview"></a>Panoramica
 
@@ -46,7 +46,7 @@ I processori di contenuti multimediali di Analisi Servizi multimediali producono
 ## <a name="media-analytics-services"></a>Servizi di Analisi Servizi multimediali
 
 ### <a name="indexer"></a>Indexer
-Azure Media Indexer consente di rendere disponibili per la ricerca i contenuti, oltre a generare tracce per i sottotitoli codificati. Per informazioni dettagliate ed esempi, vedere [Indicizzazione di file multimediali con l'indicizzatore multimediale](media-services-index-content.md)di Azure.
+Azure Media Indexer consente di rendere disponibili per la ricerca i contenuti, oltre a generare tracce per i sottotitoli codificati. Per informazioni dettagliate ed esempi, vedere [indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md).
 
 ### <a name="motion-detector"></a>Motion Detector
 È possibile usare Motion Detector per rilevare i movimenti in un video con sfondi fissi. Questo rende possibile per verificare la presenza di falsi positivi in eventi di movimento rilevati da videocamere di sorveglianza. Per informazioni dettagliate ed esempi, vedere [Rilevamento dei movimenti per Analisi Servizi multimediali di Azure](media-services-motion-detection.md).
@@ -135,7 +135,7 @@ Risposta:
 ## <a name="demos"></a>Demo
 Vedere le [demo di Analisi Servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Articoli correlati
