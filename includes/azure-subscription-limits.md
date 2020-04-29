@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: billing
 author: rothja
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: f49d91a2dffbd02067efd82b88963b5cb6eaa8b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76021300"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
@@ -25,9 +25,9 @@ ms.locfileid: "76021300"
 | Server DNS per sottoscrizione |9 |100 |
 | IP riservati per sottoscrizione |20 |100 |
 | [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione |256 |256 |
-| Lunghezza del nome della sottoscrizione (caratteri) | 64 | 64 |
+| Lunghezza nome sottoscrizione (caratteri) | 64 | 64 |
 
-<sup>1 : il</sup> nome del Le istanze extra piccole vengono conteggiate come una vCPU verso il limite vCPU nonostante utilizzino un core CPU parziale.
+<sup>1</sup> Le istanze molto piccole vengono conteggiate come una vCPU verso il limite vCPU nonostante l'uso di un core CPU parziale.
 
 <sup>2</sup>Il limite dell'account di archiviazione include sia l'account di archiviazione Standard che l'account di archiviazione Premium. 
 

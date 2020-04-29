@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: cynthn
@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76020992"
 ---
 È importante comprendere dove e come funzionano le macchine virtuali (VM) in Azure, così come le possibilità di ottimizzare le prestazioni, la disponibilità e la ridondanza. Questo articolo offre una panoramica delle funzionalità di disponibilità e ridondanza di Azure.
@@ -29,7 +29,7 @@ Azure ha alcune aree speciali che è possibile usare durante la compilazione di 
 * **US Gov Virginia** e **US Gov Iowa**
   * Un'istanza logica e fisica di Azure isolata dalla rete per i partner e gli enti pubblici statunitensi, gestita da persone selezionate negli Stati Uniti. Include certificazioni di conformità aggiuntive, come [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) e [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Ulteriori informazioni su [Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/).
 * **Cina orientale** e **Cina settentrionale**
-  * Queste aree sono disponibili nel contesto di una partnership esclusiva tra Microsoft e 21Vianet, in virtù della quale i datacenter non sono gestiti direttamente da Microsoft. Ulteriori informazioni su [Azure China 21Vianet](https://www.windowsazure.cn/).
+  * Queste aree sono disponibili nel contesto di una partnership esclusiva tra Microsoft e 21Vianet, in virtù della quale i datacenter non sono gestiti direttamente da Microsoft. Scopri di più su [Azure Cina 21ViaNet](https://www.windowsazure.cn/).
 * **Germania centrale** e **Germania nord-orientale**
   * Queste aree sono disponibili tramite un modello di trustee dei dati. In base a tale modello i dati dei clienti rimangono in Germania sotto il controllo di T-Systems, una società Deutsche Telekom che funge da trustee dei dati tedesco.
 
@@ -56,7 +56,7 @@ Alcuni servizi o funzionalità delle VM sono disponibili solo in determinate are
 ## <a name="storage-availability"></a>Disponibilità dell'archiviazione
 Conoscere le aree geografiche di Azure diventa importante quando si considerano le opzioni disponibili per la replica dell'archiviazione. A seconda del tipo di archiviazione, sono disponibili opzioni di replica diverse.
 
-**Dischi gestiti di AzureAzure Managed Disks**
+**Managed Disks di Azure**
 * Archiviazione con ridondanza locale (LRS)
   * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
 
@@ -78,12 +78,12 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 | I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
-Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere Panoramica dei [dischi gestiti](../articles/virtual-machines/windows/managed-disks-overview.md)di Azure.For more information about managed disks, see Azure Managed Disks overview .
+Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni su Managed disks, vedere [Panoramica di Azure Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Costi di archiviazione
 I prezzi variano a seconda del tipo di archiviazione e della disponibilità selezionata.
 
-**Dischi gestiti di AzureAzure Managed Disks**
+**Managed Disks di Azure**
 * Managed Disks Premium si basa su unità SSD, Managed Disks Standard invece su normali dischi a rotazione. Per Managed Disks Premium e Standard l'addebito avviene in base alla capacità di cui è stato effettuato il provisioning per il disco.
 
 **Dischi non gestiti**

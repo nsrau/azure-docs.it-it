@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 01/20/2020
 ms.author: ilayr
 ms.openlocfilehash: d9e23e74cd980ecf44cd04ad2b6f89dc6a4cf868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76548211"
 ---
-Nella tabella seguente vengono descritti i limiti massimi per i cluster di Azure Data Explorer.The following table describes the maximum limits for Azure Data Explorer clusters.
+La tabella seguente descrive i limiti massimi per i cluster di Azure Esplora dati.
 
 | Risorsa | Limite |
 | --- | --- |
@@ -20,10 +20,10 @@ Nella tabella seguente vengono descritti i limiti massimi per i cluster di Azure
 | Numero di database in un cluster | 10,000 |
 | Numero di configurazioni di database collegate in un cluster | 70 |
 
-Nella tabella seguente vengono descritti i limiti delle operazioni di gestione eseguite nei cluster di Azure Data Explorer.The following table describes the limits on management operations performed on Azure Data Explorer clusters.
+La tabella seguente descrive i limiti delle operazioni di gestione eseguite sui cluster Esplora dati di Azure.
 
 | Scope | Operazione | Limite |
 | --- | --- | --- |
-| Cluster | leggere (ad esempio, ottenere un cluster) | 500 per 5 minuti |
-| Cluster | scrivere (ad esempio, creare un database) | 1000 all'ora |
+| Cluster | leggere (ad esempio, ottenere un cluster) | 500 ogni 5 minuti |
+| Cluster | scrittura (ad esempio, creazione di un database) | 1000 all'ora |
 
