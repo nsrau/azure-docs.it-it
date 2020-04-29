@@ -3,12 +3,12 @@ title: Come creare criteri di configurazione Guest per Windows
 description: Informazioni su come creare criteri di configurazione Guest di criteri di Azure per Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a75525b25945dd9548d7c293d5965cc67eb463dc
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024898"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509619"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di configurazione Guest per Windows
 
@@ -16,7 +16,7 @@ Prima di creare criteri personalizzati, è consigliabile leggere le informazioni
  
 Per informazioni sulla creazione di criteri di configurazione Guest per Linux, vedere la pagina [come creare criteri di configurazione Guest per Linux](./guest-configuration-create-linux.md)
 
-Quando si controlla Windows, la configurazione Guest usa un modulo di risorse DSC ( [desired state Configuration](/powershell/scripting/dsc/overview/overview) ) per e il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer.
+Quando si controlla Windows, la configurazione Guest usa un modulo di risorse DSC ( [desired state Configuration](/powershell/scripting/dsc/overview/overview) ) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer.
 Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto del criterio **auditIfNotExists** e il computer viene considerato **non conforme**.
 
 La [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md) può essere usata solo per controllare le impostazioni all'interno dei computer. La correzione delle impostazioni all'interno dei computer non è ancora disponibile.

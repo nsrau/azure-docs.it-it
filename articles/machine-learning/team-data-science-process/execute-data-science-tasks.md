@@ -11,26 +11,26 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e69a03cd142fdbcc5864ee38a4843e1c2e44a124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477154"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 
-Le tipiche attività di data science includono esplorazione, modellazione e distribuzione. Questo articolo illustra come usare le utilità **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** e **AMAR (Automated Modeling and Reporting)** per completare alcune attività comuni di data science, come l'esplorazione interattiva dei dati, l'analisi dei dati, la creazione di report e la creazione di modelli. Le opzioni per la distribuzione di un modello in un ambiente di produzione possono includere:Options for deploying a model into a production environment may include:
+Le tipiche attività di data science includono esplorazione, modellazione e distribuzione. Questo articolo illustra come usare le utilità **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** e **AMAR (Automated Modeling and Reporting)** per completare alcune attività comuni di data science, come l'esplorazione interattiva dei dati, l'analisi dei dati, la creazione di report e la creazione di modelli. Le opzioni per la distribuzione di un modello in un ambiente di produzione possono includere:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server con Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> Esplorazione 
+## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> esplorazione 
 
 Un data scientist può esplorare i dati e creare report in diversi modi, usando le librerie e i pacchetti disponibili per Python (ad esempio matplotlib) o con R (ad esempio ggplot o reticolo). I data scientist possono personalizzare il codice in base alle esigenze di esplorazione dei dati per scenari specifici. Le esigenze quando si gestiscono i dati strutturati sono diverse rispetto a quelle per i dati non strutturati, ad esempio testo o immagini. 
 
-Prodotti come Azure Machine Learning forniscono anche [una preparazione avanzata](../how-to-create-register-datasets.md) dei dati per il wrangling e l'esplorazione dei dati, inclusa la creazione di funzionalità. L'utente deve scegliere gli strumenti, le librerie e i pacchetti più adatti alle proprie esigenze. 
+I prodotti come Azure Machine Learning forniscono anche la [preparazione avanzata dei dati](../how-to-create-register-datasets.md) per data wrangling ed esplorazione, inclusa la creazione di funzionalità. L'utente deve scegliere gli strumenti, le librerie e i pacchetti più adatti alle proprie esigenze. 
 
 Il risultato finale alla fine di questa fase è un report di esplorazione dei dati. Il report deve fornire una vista abbastanza completa dei dati da usare per la modellazione e una valutazione del fatto che i dati siano o meno adatti per procedere con il passaggio di modellazione. L'utilità TDSP (Team Data Science Process) descritta nelle sezioni seguenti per l'esplorazione semi-automatica, la modellazione e la creazione di report offre anche esplorazione dei dati standard e report di modellazione. 
 
@@ -41,7 +41,7 @@ Questa utilità basata su R Markdown o su notebook Python fornisce uno strumento
 In questo momento, lo strumento funziona solo in frame di dati in memoria. È necessario un file YAML per specificare i parametri del set di dati da esplorare. Per altre informazioni, vedere [IDEAR in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils) (IDEAR nelle utilità di data science TDSP).
 
 
-## <a name="2--modeling"></a>2. <a name='ModelingUtility-2'></a> Modellazione
+## <a name="2--modeling"></a>2. <a name='ModelingUtility-2'></a> modellazione
 
 Ci sono numerosi toolkit e pacchetti per il training dei modelli in diversi linguaggi. I data scientist devono poter usare quelli che preferiscono, a condizione che vengano soddisfatte le considerazioni sulle prestazioni relative all'accuratezza e alla latenza per i casi d'uso aziendali e gli scenari di produzione pertinenti.
 
@@ -78,7 +78,7 @@ Dopo aver creato più modelli, è in genere necessario usare un sistema per regi
 3. [SQL Server come sistema di gestione dei modelli](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> Distribuzione
+## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> distribuzione
 
 La distribuzione nell'ambiente di produzione consente di usare attivamente un modello in un'azienda. Le stime effettuate da un modello distribuito possono essere usate per prendere decisioni aziendali.
 

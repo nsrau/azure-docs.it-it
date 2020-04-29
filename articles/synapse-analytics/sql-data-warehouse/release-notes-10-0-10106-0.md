@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: fce60a10818943a9c6d420044d97c0c5b803de32
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 813baba37684525c336bc34a49e496f54a19288d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133325"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509738"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Note sulla versione di Azure sinapsi Analytics
 
@@ -25,9 +25,10 @@ Questo articolo riepiloga le nuove funzionalità e i miglioramenti apportati all
 
 ## <a name="check-your-azure-synapse-version"></a>Verificare la versione di Azure sinapsi
 
-Quando vengono implementate nuove funzionalità in tutte le aree, controllare la versione distribuita nell'istanza e le note sulla versione più recenti per la disponibilità delle funzionalità. Per controllare la versione, connettersi al pool SQL tramite SQL Server Management Studio (SSMS) ed eseguire `SELECT @@VERSION;` per restituire la versione corrente.
+Quando vengono implementate nuove funzionalità in tutte le aree, controllare la versione distribuita nell'istanza e le note sulla versione più recenti per la disponibilità delle funzionalità. Per controllare la versione, connettersi al pool SQL tramite SQL Server Management Studio (SSMS) ed eseguire `SELECT @@VERSION;` per restituire la versione corrente. Usare questa versione per confermare quale versione è stata applicata al pool SQL. La data nell'output identifica il mese per la versione applicata al pool SQL. Questo vale solo per i miglioramenti a livello di servizio. 
 
-Usare la versione identificata per confermare quale versione è stata applicata al pool SQL. La data nell'output identifica il mese per la versione applicata al pool SQL.
+Per i miglioramenti apportati agli strumenti, verificare che nella nota di versione sia installata la versione corretta. 
+
 
 > [!NOTE]
 > Il nome prodotto restituito da SELECT @@VERSION cambierà da Microsoft Azure SQL data warehouse ad Azure sinapsi Analytics. Prima che venga apportata la modifica, verrà inviata una notifica avanzata. Questa modifica è pertinente per i clienti che analizzano il nome del prodotto dal@VERSION risultato di SELECT @ nel codice dell'applicazione. Per evitare modifiche al codice dell'applicazione dovute alla ripersonalizzazione del prodotto, usare questi comandi per eseguire una query su SERVERPROPERTY per il nome e la versione del prodotto del database: per restituire il numero di versione XX. X. XXXXX. X (senza nome prodotto) usare questo comando:
@@ -40,13 +41,20 @@ Usare la versione identificata per confermare quale versione è stata applicata 
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+
+
 ## <a name="april-2020"></a>Aprile 2020
 
 | Miglioramenti al servizio | Dettagli |
 | --- | --- |
 |**Livello di compatibilità del database (anteprima)**| Con questa versione, gli utenti possono ora impostare il livello di compatibilità del database per ottenere il linguaggio Transact-SQL e i comportamenti di elaborazione delle query di una versione specifica del motore SQL sinapsi. Per ulteriori informazioni, vedere [sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [ALTER database scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sp_describe_undeclared_parameters**| Consente agli utenti di visualizzare i metadati relativi a parametri non dichiarati in un batch Transact-SQL. Per ulteriori informazioni, vedere [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
-|**[Visual Studio 16,6 Preview 2](/visualstudio/releases/2019/release-notes-preview) -SQL Server Data Tools (SSDT)** | Questa versione include i miglioramenti e le correzioni seguenti per SSDT: </br> </br> -Risolto un problema per cui la modifica di una tabella a cui fa riferimento una vista materializzata (MV) causa la generazione di istruzioni ALTER VIEW che non sono supportate per MVs<br/><br/> -È stata implementata una modifica per assicurarsi che l'operazione di confronto dello schema non abbia esito negativo quando nel database o nel progetto sono presenti oggetti di sicurezza a livello di riga. Gli oggetti di sicurezza a livello di riga non sono attualmente supportati per SSDT.  <br/><br/> -Esplora oggetti di SQL Server soglia di timeout è stata aumentata per evitare i timeout quando si elenca un numero elevato di oggetti nel database<br/><br/> -Ottimizzazione del modo in cui Esplora oggetti di SQL Server recupera l'elenco di oggetti di database per ridurre l'instabilità e migliorare le prestazioni durante il popolamento di Esplora oggetti |
+
+## <a name="march-2020"></a>Marzo 2020
+
+| Miglioramenti degli strumenti                                         | Dettagli                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **[Visual Studio 16,6 Preview 2](/visualstudio/releases/2019/release-notes-preview) -SQL Server Data Tools (SSDT)** | Questa versione include i miglioramenti e le correzioni seguenti per SSDT: </br> </br> -Risolto un problema per cui la modifica di una tabella a cui fa riferimento una vista materializzata (MV) causa la generazione di istruzioni ALTER VIEW che non sono supportate per MVs<br/><br/> -È stata implementata una modifica per assicurarsi che l'operazione di confronto dello schema non abbia esito negativo quando nel database o nel progetto sono presenti oggetti di sicurezza a livello di riga. Gli oggetti di sicurezza a livello di riga non sono attualmente supportati per SSDT.  <br/><br/> -Esplora oggetti di SQL Server soglia di timeout è stata aumentata per evitare i timeout quando si elenca un numero elevato di oggetti nel database<br/><br/> -Ottimizzazione del modo in cui Esplora oggetti di SQL Server recupera l'elenco di oggetti di database per ridurre l'instabilità e migliorare le prestazioni durante il popolamento di Esplora oggetti |
 
 ## <a name="january-2020"></a>Gennaio 2020
 

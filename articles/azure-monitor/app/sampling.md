@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 82e42580f5d934af96b4fad57dde1573b9c30ef5
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: f4989f8dce32e2340357e30541548b3e7e9d8a44
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82098765"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508888"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -310,7 +310,7 @@ Per impostazione predefinita, nessun campionamento è abilitato nell'agente Java
 
 #### <a name="configuring-java-agent"></a>Configurazione dell'agente Java
 
-1. Scaricare [applicationinsights-Agent-3.0.0-Preview. 3. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
+1. Scaricare [applicationinsights-Agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
 
 1. Per abilitare il campionamento, aggiungere il `ApplicationInsights.json` codice seguente al file:
 

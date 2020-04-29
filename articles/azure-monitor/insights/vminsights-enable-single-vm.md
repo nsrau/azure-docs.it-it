@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 45bc8f16a547d4a95820f9dcd02132844b3be83c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480709"
 ---
 # <a name="enable-azure-monitor-for-vms-in-the-azure-portal"></a>Abilitare Monitoraggio di Azure per le macchine virtuali nell'portale di Azure

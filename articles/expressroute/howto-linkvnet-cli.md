@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Link a VNet to circuit: CLI'
+title: 'Azure ExpressRoute: collegare un VNet al circuito: interfaccia della riga di comando'
 description: Questo articolo mostra come collegare le reti virtuali ai circuiti di ExpressRoute usando il modello di distribuzione di Resource Manager e dell’interfaccia della riga di comando.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: fdd809bcba703dbd8f9ee1e7c18185fd20e4586f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476135"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Connettere una rete virtuale a un circuito ExpressRoute usando l'interfaccia della riga di comando
@@ -19,10 +19,10 @@ ms.locfileid: "79476135"
 Questo articolo illustra come collegare reti virtuali a circuiti ExpressRoute di Azure usando l'interfaccia della riga di comando. Per creare un collegamento tramite l'interfaccia della riga di comando di Azure, è necessario creare le reti virtuali con il modello di distribuzione Resource Manager. Le reti virtuali possono essere nella stessa sottoscrizione o appartenere a un'altra sottoscrizione. Se si vuole usare un metodo diverso per connettere la rete virtuale a un circuito ExpressRoute, è possibile scegliere uno degli articoli seguenti:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-linkvnet-arm.md)
-> * [Interfaccia della riga di comando di AzureAzure](howto-linkvnet-cli.md)
-> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
+> * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (versione classica)](expressroute-howto-linkvnet-classic.md)
 > 
 
@@ -153,7 +153,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 L'intervallo di *RoutingWeight* va da 0 a 32.000. Il valore predefinito è 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Configurare ExpressRoute FastPath 
-È possibile abilitare [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se il circuito ExpressRoute si trova in [ExpressRoute Direct](expressroute-erdirect-about.md) e il gateway newtork virtuale è Ultra Performance o ErGw3A. FastPath migliora la preformazione del percorso dati, ad esempio i pacchetti al secondo e le connessioni al secondo tra la rete locale e la rete virtuale. 
+È possibile abilitare [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se il circuito ExpressRoute si trova su [ExpressRoute Direct](expressroute-erdirect-about.md) e il Gateway rete virtuale è con prestazioni ultra o ErGw3AZ. FastPath migliora la conformità del percorso dati, ad esempio i pacchetti al secondo e le connessioni al secondo tra la rete locale e la rete virtuale. 
 
 **Configurare FastPath in una nuova connessione**
 
@@ -161,7 +161,7 @@ L'intervallo di *RoutingWeight* va da 0 a 32.000. Il valore predefinito è 0.
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
-**Aggiornamento di una connessione esistente per abilitare FastPathUpdating an existing connection to enable FastPath**
+**Aggiornamento di una connessione esistente per abilitare FastPath**
 
 ```azurecli
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1d39fdbca9484f47ce0c8537c82247b75b2e3db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 249b9bb282024431d0ecd38c62d8d780602e6709
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186812"
+ms.locfileid: "82229970"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
@@ -58,4 +58,8 @@ I seguenti casi d'uso sono abilitati usando queste proprietà:
 
     ![Impostazioni delle proprietà di comportamento della sessione nell'portale di Azure](./media/session-behavior/session-behavior.png)
 
-8. Fare clic su **Salva**.
+8. Fare clic su **Save**.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Altre informazioni su [Azure ad B2C sessione](session-overview.md).

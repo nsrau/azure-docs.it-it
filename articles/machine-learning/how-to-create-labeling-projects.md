@@ -6,13 +6,13 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/01/2020
-ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
-ms.translationtype: HT
+ms.date: 04/09/2020
+ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873889"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231221"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -22,9 +22,9 @@ L'etichettatura di un volume elevato di dati in progetti di Machine Learning è 
  
 [Azure Machine Learning](https://ml.azure.com/) offre una posizione centrale per creare, gestire e monitorare i progetti di etichettatura (anteprima pubblica). È possibile coordinare i dati, le etichette e i membri del team per gestire in modo efficiente le attività di etichettatura. Machine Learning supporta la classificazione di immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti tramite i riquadri di selezione.
 
-Machine Learning tiene traccia dello stato di avanzamento e mantiene la coda delle attività di etichettatura incomplete. Gli etichettatori non necessitano di un account Azure per partecipare. Una volta eseguita l'autenticazione con il proprio account Microsoft personale o con [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), possono eseguire il numero di attività di etichettatura desiderato, a seconda del tempo a disposizione.
+Azure Machine Learning tiene traccia dello stato di avanzamento e mantiene la coda delle attività di assegnazione di etichette incomplete.
 
-È possibile avviare e arrestare il progetto, aggiungere e rimuovere etichettatori e team e monitorare lo stato di avanzamento dell'etichettatura. È possibile esportare i dati etichettati in formato COCO o come set di dati di Azure Machine Learning.
+È possibile avviare e arrestare il progetto e monitorare lo stato di avanzamento delle etichette. È possibile esportare i dati etichettati in formato COCO o come set di dati di Azure Machine Learning.
 
 > [!Important]
 > Attualmente sono supportati solo i progetti etichettatura per la classificazione di immagini e l'identificazione degli oggetti. Le immagini dei dati devono inoltre essere disponibili in un archivio dati BLOB di Azure. Se non si dispone di un archivio dati esistente, è possibile caricare le immagini durante la creazione del progetto.
@@ -34,7 +34,6 @@ In questo articolo si apprenderà come:
 > [!div class="checklist"]
 > * Creare un progetto
 > * Specificare i dati e la struttura del progetto
-> * Gestire i team e le persone che collaborano al progetto
 > * Eseguire e monitorare il progetto
 > * Esportare le etichette
 
@@ -50,7 +49,7 @@ In questo articolo si apprenderà come:
 
 ## <a name="create-a-labeling-project"></a>Creare un progetto di etichettatura
 
-I progetti di etichettatura vengono amministrati da Azure Machine Learning. La pagina **Progetti di etichettatura** consente di gestire i progetti, i team e le persone. A un progetto sono assegnati uno o più team e a un team sono assegnati uno o più utenti.
+I progetti di etichettatura vengono amministrati da Azure Machine Learning. Per gestire i progetti, è possibile usare la pagina **progetti di assegnazione di etichette** .
 
 Se i dati si trovano già nell'archiviazione BLOB di Azure, è necessario renderli disponibili come archivio dati prima di creare il progetto di etichettatura. Per un esempio dell'uso di un archivio dati, vedere [Esercitazione: Creare il primo progetto di etichettatura per la classificazione delle immagini](tutorial-labeling.md).
 
@@ -168,23 +167,11 @@ Dopo avere eseguito il training di un modello di Machine Learning sui dati etich
 
 Dopo l'inizializzazione del progetto di etichettatura, alcuni aspetti non saranno modificabili. Non è possibile cambiare il tipo di attività o il set di dati. È invece *possibile* modificare le etichette e l'URL per la descrizione dell'attività. Esaminare attentamente le impostazioni prima di creare il progetto. Dopo aver inviato il progetto, si tornerà nella pagina iniziale **Etichettatura dei dati** in cui verrà mostrato il progetto con lo stato **Inizializzazione**. Questa pagina non viene aggiornata automaticamente. Quindi, dopo una pausa, aggiornare manualmente la pagina per visualizzare lo stato del progetto come **Creato**.
 
-## <a name="manage-teams-and-people"></a>Gestire team e persone
-
-Per impostazione predefinita, per ogni progetto di etichettatura che si crea si viene inseriti come membri di un nuovo team. Tuttavia, è anche possibile condividere i team tra progetti. Inoltre, ai progetti possono essere assegnati più team. Per creare un team, selezionare **Aggiungi team** nella pagina **Team**. 
-
-Le persone vengono invece gestite nella pagina **Etichettatori**. Aggiungere e rimuovere persone tramite l'indirizzo di posta elettronica. Ogni etichettatore dovrà eseguire l'autenticazione usando l'account Microsoft o Azure Active Directory, se disponibile.  
-
-Dopo aver aggiunto una persona, è possibile assegnarla a uno o più team: Passare alla pagina **Team**, selezionare il team e quindi selezionare **Assegna persone** o **Rimuovi persone**.
-
-Per inviare un messaggio di posta elettronica al team, selezionare il team per visualizzare la pagina **Dettagli del team**. In questa pagina selezionare **Invia messaggio di posta elettronica al team** per aprire una bozza di messaggio con gli indirizzi di tutti i membri del team.
-
 ## <a name="run-and-monitor-the-project"></a>Eseguire e monitorare il progetto
 
 Una volta inizializzato il progetto, Azure inizierà a eseguirlo. Selezionare il progetto nella pagina principale **Etichettatura dei dati** per passare a **Dettagli del progetto**. La scheda **Dashboard** indicherà lo stato di avanzamento dell'attività di etichettatura.
 
 Nella scheda **Dati** è possibile esaminare il set di dati e rivedere i dati etichettati. Se vengono individuati dati etichettati in modo errato, selezionarli e fare clic su **Rifiuta**. Le etichette verranno rimosse e i dati verranno inseriti nuovamente nella coda dei dati non etichettati.
-
-Usare la scheda **Team** per assegnare o annullare l'assegnazione di team a questo progetto.
 
 Per sospendere o riavviare il progetto, selezionare il pulsante **Sospendi**/**Avvia**. È possibile etichettare i dati solo quando il progetto è in esecuzione.
 

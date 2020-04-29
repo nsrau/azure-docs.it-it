@@ -1,20 +1,20 @@
 ---
-title: Monitor Java applications anywhere - Azure Monitor Application Insights
-description: Monitoraggio delle prestazioni delle applicazioni senza codice per le applicazioni Java in esecuzione in qualsiasi ambiente senza instrumentare l'app. Individuare la causa principale dei problemi d utilizzando la traccia distribuita e la mappa dell'applicazione.
+title: Monitora le applicazioni Java ovunque-monitoraggio di Azure Application Insights
+description: Application Performance Monitoring senza codice per applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Trovare la causa radice dei problemi d usando la traccia distribuita e la mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 5d930d349a2ab1efbd7a61904874bf6bdb411889
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641888"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509211"
 ---
-# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opzioni di configurazione - Agente autonomo Java per Azure Monitor Application InsightsConfiguration options - Java standalone agent for Azure Monitor Application Insights
+# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opzioni di configurazione-Application Insights agente autonomo Java per monitoraggio di Azure
 
 
 
-## <a name="connection-string-and-role-name"></a>Stringa di connessione e nome del ruoloConnection string and role name
+## <a name="connection-string-and-role-name"></a>Stringa di connessione e nome del ruolo
 
 ```json
 {
@@ -27,34 +27,34 @@ ms.locfileid: "81641888"
 }
 ```
 
-La stringa di connessione è obbligatoria e il nome del ruolo è importante ogni volta che si inviano dati da applicazioni diverse alla stessa risorsa di Application Insights.The connection string is required, and the role name is important any time you are sending data from different applications to the same Application Insights resource.
+La stringa di connessione è obbligatoria e il nome del ruolo è importante ogni volta che si inviano dati da applicazioni diverse alla stessa risorsa Application Insights.
 
-Troverete maggiori dettagli e ulteriori opzioni di configurazione qui sotto per maggiori dettagli.
+Per altri dettagli, vedere più dettagli e altre opzioni di configurazione.
 
 ## <a name="configuration-file-path"></a>Percorso del file di configurazione
 
-Per impostazione predefinita, Application Insights Java 3.0 `ApplicationInsights.json`Preview prevede che il file `applicationinsights-agent-3.0.0-PREVIEW.jar`di configurazione sia denominato e che si trovi nella stessa directory di .
+Per impostazione predefinita, Application Insights Java 3,0 Preview prevede che il file di configurazione sia `ApplicationInsights.json`denominato e che si trovi nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
 
-È possibile specificare il proprio percorso del file di configurazione
+È possibile specificare un percorso del file di configurazione personalizzato utilizzando
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`variabile di ambiente, o
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`variabile di ambiente o
 * `applicationinsights.configurationFile`Proprietà di sistema Java
 
-Se si specifica un percorso relativo, questo `applicationinsights-agent-3.0.0-PREVIEW.jar` verrà risolto in relazione alla directory in cui si trova.
+Se si specifica un percorso relativo, questo verrà risolto in relazione alla directory in cui `applicationinsights-agent-3.0.0-PREVIEW.4.jar` si trova.
 
 ## <a name="connection-string"></a>Stringa di connessione
 
-È un'operazione obbligatoria. È possibile trovare la stringa di connessione nella risorsa Application Insights:You can find your connection string in your Application Insights resource:
+È un'operazione obbligatoria. È possibile trovare la stringa di connessione nella risorsa Application Insights:
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Stringa di connessione Application Insights":::
 
-È inoltre possibile impostare la `APPLICATIONINSIGHTS_CONNECTION_STRING`stringa di connessione utilizzando la variabile di ambiente .
+È anche possibile impostare la stringa di connessione usando la variabile `APPLICATIONINSIGHTS_CONNECTION_STRING`di ambiente.
 
-## <a name="cloud-role-name"></a>Nome del ruolo cloud
+## <a name="cloud-role-name"></a>Nome del ruolo Cloud
 
 Il nome del ruolo cloud viene usato per etichettare il componente nella mappa dell'applicazione.
 
-Se si desidera impostare il nome del ruolo cloud:
+Se si desidera impostare il nome del ruolo Cloud:
 
 ```json
 {
@@ -66,15 +66,15 @@ Se si desidera impostare il nome del ruolo cloud:
 }
 ```
 
-Se il nome del ruolo cloud non è impostato, il nome della risorsa di Application Insights verrà usato per etichettare il componente nella mappa dell'applicazione.
+Se il nome del ruolo Cloud non è impostato, il nome della risorsa Application Insights verrà usato per etichettare il componente nella mappa dell'applicazione.
 
-È inoltre possibile impostare il nome `APPLICATIONINSIGHTS_ROLE_NAME`del ruolo cloud utilizzando la variabile di ambiente .
+È anche possibile impostare il nome del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_NAME`di ambiente.
 
 ## <a name="cloud-role-instance"></a>Istanza del ruolo del cloud
 
-L'istanza del ruolo cloud per impostazione predefinita è il nome del computer.
+Per impostazione predefinita, l'istanza del ruolo Cloud è il nome del computer.
 
-Se si desidera impostare l'istanza del ruolo cloud su un valore diverso anziché sul nome del computer:
+Se si desidera impostare l'istanza del ruolo Cloud su un valore diverso anziché il nome del computer:
 
 ```json
 {
@@ -86,15 +86,15 @@ Se si desidera impostare l'istanza del ruolo cloud su un valore diverso anziché
 }
 ```
 
-È anche possibile impostare l'istanza `APPLICATIONINSIGHTS_ROLE_INSTANCE`del ruolo cloud utilizzando la variabile di ambiente .
+È anche possibile impostare l'istanza del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_INSTANCE`di ambiente.
 
-## <a name="application-log-capture"></a>Acquisizione del log dell'applicazione
+## <a name="application-log-capture"></a>Acquisizione registro applicazioni
 
-Application Insights Java 3.0 Preview acquisisce automaticamente la registrazione dell'applicazione tramite Log4j, Logback e java.util.logging.
+Application Insights Java 3,0 Preview acquisisce automaticamente la registrazione delle applicazioni tramite log4j, Logback e Java. util. Logging.
 
-Per impostazione predefinita, verranno acquisite tutte le registrazioni eseguite al `WARN` livello o superiore.
+Per impostazione predefinita, acquisisce tutte le registrazioni `WARN` eseguite a livello o superiore.
 
-Per modificare questa soglia:
+Se si vuole modificare questa soglia:
 
 ```json
 {
@@ -110,14 +110,14 @@ Per modificare questa soglia:
 }
 ```
 
-Questi sono `threshold` i valori validi che `ApplicationInsights.json` è possibile specificare nel file e come corrispondono ai livelli di registrazione tra diversi framework di registrazione:
+Questi sono i valori `threshold` validi che è possibile specificare nel `ApplicationInsights.json` file e il modo in cui corrispondono ai livelli di registrazione tra diversi framework di registrazione:
 
-| `threshold`  | Log4j (informazioni in cui si logo)  | Logback | LUG     |
+| `threshold`  | Log4j  | Logback | LUG     |
 |--------------|--------|---------|---------|
 | OFF          | OFF    | OFF     | OFF     |
-| Fatale        | Fatale  | ERRORE   | SEVERE  |
+| IRREVERSIBILE        | IRREVERSIBILE  | ERRORE   | SEVERE  |
 | ERRORE/GRAVE | ERRORE  | ERRORE   | SEVERE  |
-| AVVISA/AVVISA | Avvertire   | Avvertire    | WARNING |
+| AVVISI/AVVISI | AVVERTIRE   | AVVERTIRE    | WARNING |
 | INFO         | INFO   | INFO    | INFO    |
 | CONFIG       | DEBUG  | DEBUG   | CONFIG  |
 | DEBUG/FINE   | DEBUG  | DEBUG   | FINE    |
@@ -127,7 +127,7 @@ Questi sono `threshold` i valori validi che `ApplicationInsights.json` è possib
 
 ## <a name="jmx-metrics"></a>Metriche JMX
 
-Se hai alcune metriche JMX che sei interessato a catturare:
+Se sono presenti alcune metriche JMX che si desidera acquisire:
 
 ```json
 {
@@ -150,11 +150,13 @@ Se hai alcune metriche JMX che sei interessato a catturare:
 }
 ```
 
-## <a name="micrometer"></a>Micrometer
+## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometro (incluse le metriche dell'attuatore Spring boot)
 
-Per impostazione predefinita, se l'applicazione usa [Micrometer](https://micrometer.io), Application Insights 3.0 (a partire da Preview.2) ora si aggiunge al Registro di sistema globale Micrometer e acquisisce le metriche Micrometer.
+Se l'applicazione usa il [micrometro](https://micrometer.io), Application Insights 3,0 (a partire dalla versione Preview. 2) acquisisce ora le metriche inviate al registro globale micrometrico.
 
-Se si desidera disattivare questa funzione:
+Se l'applicazione usa l' [attuatore Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), Application Insights 3,0 (a partire dalla versione Preview. 4) acquisisce ora le metriche configurate dall'attuatore Spring boot (che usa il micrometro, ma non usa il registro globale del micrometro).
+
+Se si desidera disabilitare queste funzionalità:
 
 ```json
 {
@@ -172,7 +174,7 @@ Se si desidera disattivare questa funzione:
 
 ## <a name="heartbeat"></a>Heartbeat
 
-Per impostazione predefinita, Application Insights Java 3.0 Preview invia una metrica heartbeat una volta ogni 15 minuti. Se si utilizza la metrica heartbeat per attivare gli avvisi, è possibile aumentare la frequenza di questo heartbeat:
+Per impostazione predefinita, Application Insights Java 3,0 Preview invia una metrica Heartbeat una volta ogni 15 minuti. Se si usa la metrica heartbeat per attivare gli avvisi, è possibile aumentare la frequenza di questo heartbeat:
 
 ```json
 {
@@ -187,16 +189,16 @@ Per impostazione predefinita, Application Insights Java 3.0 Preview invia una me
 ```
 
 > [!NOTE]
-> Non è possibile ridurre la frequenza di questo heartbeat, poiché i dati heartbeat vengono usati anche per tenere traccia dell'utilizzo di Application Insights.You cannot decrease the frequency of this heartbeat, as the heartbeat data is also used to track Application Insights usage.
+> Non è possibile ridurre la frequenza di questo heartbeat, perché i dati di heartbeat vengono usati anche per tenere traccia dell'utilizzo del Application Insights.
 
 ## <a name="sampling"></a>campionamento
 
 Il campionamento è utile se è necessario ridurre i costi.
-Il campionamento viene eseguito come funzione sull'ID operazione (noto anche come ID traccia), in modo che lo stesso ID operazione comporterà sempre la stessa decisione di campionamento. In questo modo non si otterranno parti di una transazione distribuita campionate mentre altre parti di essa vengono campionate.
+Il campionamento viene eseguito come funzione sull'ID operazione (noto anche come ID traccia), in modo che lo stesso ID operazione provochi sempre la stessa decisione di campionamento. In questo modo si garantisce che non si ottengono parti di una transazione distribuita campionate in mentre altre parti di esso vengono campionate.
 
-Ad esempio, se imposti il campionamento su 10%, vedrai solo il 10% delle tue transazioni, ma ognuna di queste 10% avrà dettagli completi delle transazioni end-to-end.
+Se, ad esempio, si imposta il campionamento sul 10%, si vedrà solo il 10% delle transazioni, ma ognuno di questi 10% avrà dettagli completi sulle transazioni end-to-end.
 
-Ecco un esempio di come impostare il campionamento al **10% di tutte le transazioni** - assicurati di impostare la frequenza di campionamento corretta per il tuo caso d'uso:
+Di seguito è riportato un esempio di come impostare il campionamento sul **10% di tutte le transazioni** . Assicurarsi di impostare la frequenza di campionamento corretta per il caso d'uso:
 
 ```json
 {
@@ -212,9 +214,9 @@ Ecco un esempio di come impostare il campionamento al **10% di tutte le transazi
 }
 ```
 
-## <a name="http-proxy"></a>HTTP Proxy
+## <a name="http-proxy"></a>Proxy HTTP
 
-Se l'applicazione è protetto da un firewall e non è in grado di connettersi direttamente ad Application Insights (vedere [Indirizzi IP usati da Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), è possibile configurare Application Insights Java 3.0 Preview per l'utilizzo di un proxy HTTP:
+Se l'applicazione è protetti da un firewall e non è in grado di connettersi direttamente a Application Insights (vedere [indirizzi IP usati da Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), è possibile configurare Application Insights Java 3,0 Preview per usare un proxy http:
 
 ```json
 {
@@ -229,13 +231,13 @@ Se l'applicazione è protetto da un firewall e non è in grado di connettersi di
 }
 ```
 
-## <a name="self-diagnostics"></a>Autodiagnostica
+## <a name="self-diagnostics"></a>Diagnostica automatica
 
-"Autodiagnostica" si riferisce alla registrazione interna da Application Insights Java 3.0 Preview.
+"Self-Diagnostics" si riferisce alla registrazione interna da Application Insights anteprima Java 3,0.
 
-Ciò può essere utile per individuare e diagnosticare i problemi con Application Insights stesso.
+Questo può essere utile per individuare e diagnosticare i problemi con Application Insights stesso.
 
-Per impostazione predefinita, viene `warn`eseguita dalla console con livello corrispondente a questa configurazione:
+Per impostazione predefinita, viene registrato nella console di `warn`con il livello corrispondente a questa configurazione:
 
 ```json
 {
@@ -250,9 +252,9 @@ Per impostazione predefinita, viene `warn`eseguita dalla console con livello cor
 }
 ```
 
-I livelli `OFF` `ERROR`validi `WARN` `INFO`sono `DEBUG`, `TRACE`, , , e .
+I livelli validi `OFF`sono `ERROR`, `WARN`, `INFO`, `DEBUG`, e `TRACE`.
 
-Se si desidera accedere a un file anziché registrare nella console:
+Se si desidera accedere a un file anziché registrarsi nella console:
 
 ```json
 {
@@ -269,4 +271,4 @@ Se si desidera accedere a un file anziché registrare nella console:
 }
 ```
 
-Quando si utilizza la registrazione `maxSizeMB`dei file, una volta che il file raggiunge , verrà eseguito il rollover, mantenendo solo il file di registro completato più di recente oltre al file di registro corrente.
+Quando si usa la funzionalità di registrazione file, `maxSizeMB`una volta raggiunto il file, verrà eseguito il rollover, mantenendo solo il file di log completato più di recente oltre al file di log corrente.

@@ -4,14 +4,14 @@ description: Informazioni su come configurare e modificare i criteri di indicizz
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80292077"
+ms.locfileid: "82232071"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 
@@ -97,6 +97,26 @@ Quando non è specificato, queste proprietà avranno i valori predefiniti seguen
 
 Per esempi di criteri di indicizzazione per l'inclusione e l'esclusione di percorsi, vedere [questa sezione](how-to-manage-indexing-policy.md#indexing-policy-examples) .
 
+## <a name="includeexclude-precedence"></a>Includi/Escludi precedenza
+
+Se i percorsi inclusi e i percorsi esclusi presentano un conflitto, il percorso più preciso avrà la precedenza.
+
+Ad esempio:
+
+**Percorso incluso**:`/food/ingredients/nutrition/*`
+
+**Percorso escluso**:`/food/ingredients/*`
+
+In questo caso, il percorso incluso avrà la precedenza sul percorso escluso perché è più preciso. In base a questi percorsi, tutti i dati `food/ingredients` nel percorso o annidati all'interno di verrebbero esclusi dall'indice. L'eccezione è costituita dai dati all'interno del `/food/ingredients/nutrition/*`percorso incluso:, che verrebbe indicizzato.
+
+Di seguito sono riportate alcune regole per la precedenza dei percorsi inclusi ed esclusi nei Azure Cosmos DB:
+
+- I percorsi più profondi sono più precisi dei percorsi più ristretti. ad esempio: `/a/b/?` è più preciso di `/a/?`.
+
+- `/?` È più preciso di `/*`. Ad esempio `/a/?` , è più preciso `/a/*` di `/a/?` quanto abbia la precedenza.
+
+- Il percorso `/*` deve essere un percorso incluso o un percorso escluso.
+
 ## <a name="spatial-indexes"></a>Indici spaziali
 
 Quando si definisce un percorso spaziale nei criteri di indicizzazione, è necessario definire quale ```type``` Indice applicare a tale percorso. I tipi possibili per gli indici spaziali includono:
@@ -114,6 +134,8 @@ Per impostazione predefinita, Azure Cosmos DB non creerà indici spaziali. Se si
 ## <a name="composite-indexes"></a>Indici compositi
 
 Per le query con `ORDER BY` una clausola con due o più proprietà è necessario un indice composto. È anche possibile definire un indice composito per migliorare le prestazioni di molte query di uguaglianza e di intervallo. Per impostazione predefinita, non sono definiti indici compositi, pertanto è necessario [aggiungere indici compositi](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) in base alle esigenze.
+
+A differenza dei percorsi inclusi o esclusi, non è possibile creare un percorso `/*` con il carattere jolly. Ogni percorso composito ha un `/?` implicito alla fine del percorso che non è necessario specificare. I percorsi compositi portano a un valore scalare ed è l'unico valore incluso nell'indice composto.
 
 Quando si definisce un indice composito, è necessario specificare:
 

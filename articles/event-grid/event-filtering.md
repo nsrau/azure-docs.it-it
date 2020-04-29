@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: ce1bb3760ae73a9eaeee3cde957cc94841ebdf29
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: ab5dd716253875e4a992b94a4e143cb3e806a4b0
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731946"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509653"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -43,7 +43,7 @@ Per applicare un filtro semplice in base all'oggetto, specificare un valore iniz
 
 Quando si pubblicano eventi per argomenti personalizzati, creare oggetti per gli eventi che facilitino i sottoscrittori a capire se sono interessati nell'evento. I sottoscrittori usano la proprietà subject per filtrare e instradare gli eventi. È consigliabile aggiungere il percorso in cui si è verificato l'evento, in modo che i sottoscrittori possano filtrare in base ai segmenti di tale percorso. Il percorso consente ai sottoscrittori di filtrare gli eventi a seconda della dimensione. Se ad esempio si specifica un percorso di tre segmenti, come `/A/B/C` nell'oggetto, i sottoscrittori possono filtrare in base al primo segmento `/A` per ottenere un ampio set di eventi. Tali sottoscrittori ricevono eventi con oggetti come `/A/B/C` o `/A/D/E`. Altri sottoscrittori possono filtrare in base a `/A/B` per ottenere un set di eventi più ristretto.
 
-La sintassi JSON per il filtro in base all'oggetto è:The JSON syntax for filtering by subject is:
+La sintassi JSON per il filtro in base al soggetto è:
 
 ```json
 "filter": {
@@ -59,9 +59,9 @@ Per filtrare i valori nei campi dati e specificare l'operatore di confronto, usa
 
 * operator type: il tipo di confronto.
 * key: il campo nei dati dell'evento che viene usato per il filtro. Può essere un numero, un valore booleano o una stringa.
-* values - Il valore o i valori da confrontare con la chiave.
+* values: valore o valori da confrontare con la chiave.
 
-Se si specifica un singolo filtro con più valori, viene eseguita un'operazione **OR,** pertanto il valore del campo chiave deve essere uno di questi valori. Esempio:
+Se si specifica un singolo filtro con più valori, viene eseguita un'operazione **o** , pertanto il valore del campo chiave deve essere uno di questi valori. Esempio:
 
 ```json
 "advancedFilters": [
@@ -76,7 +76,7 @@ Se si specifica un singolo filtro con più valori, viene eseguita un'operazione 
 ]
 ```
 
-Se si specificano più filtri diversi, viene eseguita un'operazione **AND,** pertanto ogni condizione di filtro deve essere soddisfatta. Esempio: 
+Se si specificano più filtri diversi, viene eseguita un'operazione and, quindi è necessario soddisfare ogni condizione **di** filtro. Esempio: 
 
 ```json
 "advancedFilters": [
@@ -97,9 +97,9 @@ Se si specificano più filtri diversi, viene eseguita un'operazione **AND,** per
 ]
 ```
 
-### <a name="operator"></a>Operatore
+### <a name="operators"></a>Operatori
 
-Gli operatori disponibili per i numeri sono:
+Gli operatori disponibili per i **numeri** sono:
 
 * NumberGreaterThan
 * NumberGreaterThanOrEquals
@@ -108,9 +108,10 @@ Gli operatori disponibili per i numeri sono:
 * NumberIn
 * NumberNotIn
 
-L'operatore disponibile per i valori booleani è: BoolEquals
+L'operatore disponibile per i **valori booleani** è: 
+- BoolEquals
 
-Gli operatori disponibili per le stringhe sono:
+Gli operatori disponibili per le **stringhe** sono:
 
 * StringContains
 * StringBeginsWith
@@ -118,7 +119,7 @@ Gli operatori disponibili per le stringhe sono:
 * StringIn
 * StringNotIn
 
-Per tutti i confronti tra stringhe non viene fatta distinzione tra maiuscole e minuscole.
+Tutti i confronti di stringhe **non** fanno distinzione tra maiuscole e minuscole
 
 ### <a name="key"></a>Chiave
 
@@ -146,7 +147,7 @@ Per uno schema di input personalizzato, usare i campi dati degli eventi (ad esem
 I valori possibili sono i seguenti.
 
 * d'acquisto
-* string
+* stringa
 * boolean
 * array
 
@@ -159,6 +160,155 @@ I filtri avanzati presentano le limitazioni seguenti:
 * Cinque valori per gli operatori **in** e **not in**
 
 È possibile usare l'elemento key in più filtri.
+
+### <a name="examples"></a>Esempi
+
+### <a name="stringcontains"></a>StringContains
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringContains",
+    "key": "data.key1",
+    "values": [
+        "microsoft", 
+        "azure"
+    ]
+}]
+```
+
+### <a name="stringbeginswith"></a>StringBeginsWith
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringBeginsWith",
+    "key": "data.key1",
+    "values": [
+        "event", 
+        "grid"
+    ]
+}]
+```
+
+### <a name="stringendswith"></a>StringEndsWith
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringEndsWith",
+    "key": "data.key1",
+    "values": [
+        "jpg", 
+        "jpeg", 
+        "png"
+    ]
+}]
+```
+
+### <a name="stringin"></a>StringIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringIn",
+    "key": "data.key1",
+    "values": [
+        "exact", 
+        "string", 
+        "matches"
+    ]
+}]
+```
+
+### <a name="stringnotin"></a>StringNotIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotIn",
+    "key": "data.key1",
+    "values": [
+        "aws", 
+        "bridge"
+    ]
+}]
+```
+
+### <a name="numberin"></a>NumberIn
+
+```json
+
+"advancedFilters": [{
+    "operatorType": "NumberIn",
+    "key": "data.counter",
+    "values": [
+        5,
+        1
+    ]
+}]
+
+```
+
+### <a name="numbernotin"></a>NumberNotIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberNotIn",
+    "key": "data.counter",
+    "values": [
+        41,
+        0,
+        0
+    ]
+}]
+```
+
+### <a name="numberlessthan"></a>NumberLessThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThan",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+### <a name="numbergreaterthan"></a>NumberGreaterThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThan",
+    "key": "data.counter",
+    "value": 20
+}]
+```
+
+### <a name="numberlessthanorequals"></a>NumberLessThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThanOrEquals",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+### <a name="numbergreaterthanorequals"></a>NumberGreaterThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThanOrEquals",
+    "key": "data.counter",
+    "value": 30
+}]
+```
+
+### <a name="boolequals"></a>BoolEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "BoolEquals",
+    "key": "data.isEnabled",
+    "value": true
+}]
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

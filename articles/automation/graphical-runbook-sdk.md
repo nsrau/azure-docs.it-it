@@ -1,24 +1,24 @@
 ---
-title: Usare l'SDK del runbook grafico di Automazione di AzureUse the Azure Automation graphical runbook SDK
-description: Questo articolo descrive come usare l'SDK del runbook grafico di Azure Automation.This article describes how to use the Azure Automation graphical runbook SDK.
+title: Usare Azure Automation Runbook Graphical SDK
+description: Questo articolo descrive come usare Azure Automation Graphical Runbook SDK.
 services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 21f6ff8078d5a1db88b2fde33c9063a56b3ee43a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 0058c0a0cedf2ea3f6c32f8f8368cca5b8dc6e3c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682912"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509007"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Usare l'SDK del runbook grafico di Automazione di AzureUse the Azure Automation graphical runbook SDK
+# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Usare Azure Automation Runbook Graphical SDK
 
-[I runbook grafici](automation-graphical-authoring-intro.md) consentono di gestire le complessità del codice del flusso di lavoro di Windows PowerShell o PowerShell sottostante. L'SDK di creazione grafica di Automazione di Microsoft Azure consente agli sviluppatori di creare e modificare runbook grafici da usare con L'automazione di Azure.The Microsoft Azure Automation graphical authoring SDK enables developers to create and edit graphical runbooks for use with Azure Automation. Questo articolo descrive i passaggi di base per la creazione di un runbook grafico dal codice.
+[Manuali operativi grafici](automation-graphical-authoring-intro.md) consentono di gestire le complessità del codice del flusso di lavoro di Windows PowerShell o PowerShell sottostante. Il Microsoft Azure SDK per la creazione grafica di automazione consente agli sviluppatori di creare e modificare manuali operativi grafici per l'uso con automazione di Azure. Questo articolo descrive i passaggi di base per la creazione di un Runbook grafico dal codice.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Importare `Microsoft.Azure.Automation.GraphicalRunbook.Model` il pacchetto nel progetto.
+Importare il `Microsoft.Azure.Management.Automation.GraphicalRunbook.Model` pacchetto nel progetto.
 
 ## <a name="create-a-runbook-object-instance"></a>Creare un'istanza di un oggetto runbook
 
@@ -89,9 +89,9 @@ var initializeRunbookVariable = runbook.AddActivity(
  });
 ```
 
-Le attività vengono implementate `Orchestrator.GraphRunbook.Model` dalle classi seguenti nello spazio dei nomi .
+Le attività vengono implementate dalle classi seguenti nello `Orchestrator.GraphRunbook.Model` spazio dei nomi.
 
-|Classe  |Attività  |
+|Class  |Attività  |
 |---------|---------|
 |CommandActivity     | Richiama un comando di PowerShell (cmdlet, funzioni e così via).        |
 |InvokeRunbookActivity     | Richiama un altro runbook inline.        |
@@ -99,9 +99,9 @@ Le attività vengono implementate `Orchestrator.GraphRunbook.Model` dalle classi
 |WorkflowScriptActivity     | Esegue un blocco di codice PowerShell o del flusso di lavoro di PowerShell (a seconda del tipo di runbook) nel contesto del runbook. Questo è uno strumento potente, ma è necessario non abusarne: l'interfaccia utente visualizzerà questo blocco di script come testo, il motore di esecuzione considererà il blocco specificato come una scatola nera e non farà alcun tentativo di analizzare il contenuto, ad eccezione di un controllo della sintassi di base. Se è necessario richiamare solo un singolo comando di PowerShell, preferire CommandActivity.        |
 
 > [!NOTE]
-> Non derivare le proprie attività dalle classi fornite. Automazione di Azure non può usare i runbook con i tipi di attività personalizzate.
+> Non derivare le proprie attività dalle classi fornite. Automazione di Azure non può usare manuali operativi con i tipi di attività personalizzati.
 
-È necessario `CommandActivity` `InvokeRunbookActivity` fornire e parametri come descrittori di valore, non come valori diretti. Descrittori di valore specificano come produrre i valori effettivi dei parametri. I descrittori di valore seguenti sono attualmente disponibili:
+È necessario specificare `CommandActivity` i `InvokeRunbookActivity` parametri e come descrittori di valore, non i valori diretti. I descrittori di valore specificano come produrre i valori di parametro effettivi. I descrittori di valore seguenti sono attualmente disponibili:
 
 
 |Descrittore  |Definizione  |
@@ -115,7 +115,7 @@ Le attività vengono implementate `Orchestrator.GraphRunbook.Model` dalle classi
 |PowerShellExpressionValueDescriptor     | Specifica un'espressione di PowerShell in formato libero che verrà valutata poco prima di richiamare l'attività.  <br/>Questo è uno strumento potente, ma è necessario non abusarne: l'interfaccia utente visualizzerà questa espressione come testo, il motore di esecuzione considererà il blocco specificato come una scatola nera e non farà alcun tentativo di analizzare il contenuto, ad eccezione di un controllo della sintassi di base. Quando possibile, preferire i descrittori di valore più specifici.      |
 
 > [!NOTE]
-> Non derivare i propri descrittori di valore dalle classi fornite. Automazione di Azure non può usare runbook con tipi di descrittori di valore personalizzati.
+> Non derivare i propri descrittori di valore dalle classi fornite. Automazione di Azure non può usare manuali operativi con tipi di descrittori di valore personalizzati.
 
 Creare un'istanza di collegamenti collegando le attività e aggiungerla al runbook:
 
@@ -136,9 +136,9 @@ Usare `Orchestrator.GraphRunbook.Model.Serialization.RunbookSerializer` per seri
 var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
-È possibile salvare questa stringa in un file con estensione **.graphrunbook.** Il runbook corrispondente può essere importato in Automazione di Azure.The corresponding runbook can be imported into Azure Automation.
-Il formato serializzato potrebbe cambiare `Orchestrator.GraphRunbook.Model.dll`nelle versioni future di . Si garantisce la compatibilità con le versioni precedenti: qualsiasi runbook serializzato con una versione precedente di `Orchestrator.GraphRunbook.Model.dll` può essere deserializzato da qualsiasi versione più recente. La compatibilità con le versioni future non è garantita: un runbook serializzato con una versione più recente potrebbe non essere deserializzabile dalle versioni precedenti.
+È possibile salvare questa stringa in un file con estensione **graphrunbook** . Il Runbook corrispondente può essere importato in automazione di Azure.
+Il formato serializzato potrebbe cambiare nelle versioni future di `Orchestrator.GraphRunbook.Model.dll`. Si garantisce la compatibilità con le versioni precedenti: qualsiasi runbook serializzato con una versione precedente di `Orchestrator.GraphRunbook.Model.dll` può essere deserializzato da qualsiasi versione più recente. La compatibilità con le versioni future non è garantita: un runbook serializzato con una versione più recente potrebbe non essere deserializzabile dalle versioni precedenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui runbook grafici in Automazione di Azure, vedere Introduzione alla [creazione grafica.](automation-graphical-authoring-intro.md)
+Per altre informazioni sui manuali operativi grafici in automazione di Azure, vedere [Introduzione alla creazione grafica](automation-graphical-authoring-intro.md).

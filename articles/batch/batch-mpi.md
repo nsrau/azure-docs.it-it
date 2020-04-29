@@ -4,12 +4,12 @@ description: Informazioni su come eseguire applicazioni MPI (Message Passing Int
 ms.topic: article
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aad2b649c92716a807d577bb4f112d47d447545e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 39c7aff0618daafc2c02efaea229de3741804c7a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115976"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231697"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
 
@@ -181,9 +181,7 @@ Le variabili di ambiente seguenti vengono create dal servizio Batch per l'uso da
 Per informazioni dettagliate su queste e altre variabili di ambiente dei nodi di calcolo, inclusi i contenuti e la visibilità, vedere l'argomento relativo alle [variabili di ambiente dei nodi di calcolo][msdn_env_var].
 
 > [!TIP]
-> L'esempio di codice MPI per Linux su Batch contiene un esempio d'uso di alcune di queste variabili di ambiente. Lo script Bash [coordination-cmd][coord_cmd_example] scarica l'applicazione comune e i file di input da Archiviazione di Azure, consente una condivisione Network File System (NFS) sul nodo master e configura gli altri nodi allocati all'attività a istanze multiple come client NFS.
->
->
+> L'esempio di codice MPI per Linux su Batch contiene un esempio d'uso di alcune di queste variabili di ambiente.
 
 ## <a name="resource-files"></a>File di risorse
 Sono disponibili due set di file di risorse da prendere in considerazione per le attività a istanze multiple: **file di risorse comuni**, scaricati da *tutte* le attività, sia da quella primaria che dalle sottoattività, e **file di risorse** specifici per la stessa attività a istanze multiple, scaricati *solo dall'attività primaria*.

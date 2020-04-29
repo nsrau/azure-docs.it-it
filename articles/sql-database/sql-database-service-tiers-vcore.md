@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
 ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481083"
 ---
 # <a name="vcore-model-overview"></a>Panoramica del modello vCore
@@ -36,7 +36,7 @@ Le opzioni del livello di servizio nel modello vCore includono per utilizzo gene
 |IOPS e velocità effettiva (approssimativa)|**Database singoli e pool elastici**: vedere limiti delle risorse per [database singoli](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [pool elastici](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Istanza gestita**: vedere [Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [pool elastici](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
 |Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 [repliche con scalabilità in lettura](sql-database-read-scale-out.md)|
 |Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
-|In memoria|Non supportate|Supportato|Non supportate|
+|In memoria|Non supportate|Supportato|Non supportato|
 |||
 
 

@@ -8,27 +8,29 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: c327440649300533c94c2a1956e3c45f433c9780
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409973"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231612"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo di classificazione in Azure ricerca cognitiva
 
 > [!IMPORTANT]
-> A partire dal 15 luglio 2020, i servizi di ricerca appena creati utilizzeranno la funzione di rango BM25, che è stata comprovata nella maggior parte dei casi per fornire la classificazione delle ricerche più adatta alle aspettative degli utenti rispetto alla classificazione predefinita corrente.  Oltre alla classificazione superiore, BM25 Abilita anche le opzioni di configurazione per l'ottimizzazione dei risultati in base a fattori quali le dimensioni del documento.  
+> A partire dal 15 luglio 2020, i servizi di ricerca appena creati utilizzeranno automaticamente la funzione di classificazione BM25, che si è dimostrata nella maggior parte dei casi per fornire classificazioni di ricerca che si allineano meglio con le aspettative dell'utente rispetto alla classificazione predefinita corrente. Oltre alla classificazione superiore, BM25 Abilita anche le opzioni di configurazione per l'ottimizzazione dei risultati in base a fattori quali le dimensioni del documento.  
 >
-> Con questa modifica, probabilmente si noterà un lieve cambiamento nell'ordinamento dei risultati della ricerca.   Per coloro che vogliono testare l'effetto di questa modifica, abbiamo reso disponibile nell'API 2019-05-06-Preview la possibilità di abilitare il Punteggio BM25 sui nuovi indici.  
+> Con questa modifica, probabilmente si noterà un lieve cambiamento nell'ordinamento dei risultati della ricerca. Per chi vuole testare l'effetto di questa modifica, l'algoritmo BM25 è disponibile in API-Version 2019-05-06-Preview.  
 
-Questo articolo descrive come è possibile aggiornare un servizio creato prima del 15 luglio 2020 per usare il nuovo algoritmo di classificazione di BM25.
+Questo articolo descrive come usare il nuovo algoritmo di classificazione BM25 nei servizi di ricerca esistenti per i nuovi indici creati e sottoposti a query usando l'API di anteprima.
 
-Azure ricerca cognitiva utilizzerà l'implementazione ufficiale di Lucene dell'algoritmo OKAPI BM25, *BM25Similarity*, che sostituisce l'implementazione di *ClassicSimilarity* usata in precedenza. Analogamente all'algoritmo ClassicSimilarity precedente, BM25Similarity è una funzione di recupero di tipo TF-IDF che usa la frequenza del termine (TF) e la frequenza del documento inverso (IDF) come variabili per calcolare i punteggi di pertinenza per ogni coppia di query documento, che viene quindi usata per la classificazione. Sebbene concettualmente simile all'algoritmo di somiglianza classico precedente, BM25 acquisisce la radice del recupero di informazioni probabilistiche per migliorarlo. BM25 offre anche opzioni di personalizzazione avanzate, ad esempio consentendo all'utente di decidere in che modo il Punteggio di pertinenza viene ridimensionato con il termine frequenza dei termini corrispondenti.
+Azure ricerca cognitiva è in corso di adozione dell'implementazione ufficiale di Lucene dell'algoritmo OKAPI BM25, *BM25Similarity*, che sostituisce l'implementazione di *ClassicSimilarity* usata in precedenza. Analogamente all'algoritmo ClassicSimilarity precedente, BM25Similarity è una funzione di recupero di tipo TF-IDF che usa la frequenza del termine (TF) e la frequenza del documento inverso (IDF) come variabili per calcolare i punteggi di pertinenza per ogni coppia di query documento, che viene quindi usata per la classificazione. 
+
+Sebbene concettualmente simile all'algoritmo di somiglianza classico precedente, BM25 acquisisce la radice del recupero di informazioni probabilistiche per migliorarlo. BM25 offre anche opzioni di personalizzazione avanzate, ad esempio consentendo all'utente di decidere in che modo il Punteggio di pertinenza viene ridimensionato con il termine frequenza dei termini corrispondenti.
 
 ## <a name="how-to-test-bm25-today"></a>Come testare BM25 oggi stesso
 
-Quando si crea un nuovo indice, è possibile impostare una proprietà "somiglianza". Sarà necessario usare la versione *2019-05-06-Preview* , come illustrato di seguito.
+Quando si crea un nuovo indice, è possibile impostare una proprietà di **somiglianza** per specificare l'algoritmo. Sarà necessario usare `api-version=2019-05-06-Preview`, come illustrato di seguito.
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
@@ -57,16 +59,19 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-Per i servizi creati prima del 15 luglio 2020: se la somiglianza viene omessa o impostata su null, l'indice utilizzerà l'algoritmo di somiglianza classico precedente.
+La proprietà di **somiglianza** è utile durante questo periodo di tempo, quando entrambi gli algoritmi sono disponibili, solo per i servizi esistenti. 
 
-Per i servizi creati dopo il 15 luglio 2020: se la somiglianza viene omessa o impostata su null, l'indice utilizzerà il nuovo algoritmo di somiglianza di BM25.
+| Proprietà | Descrizione |
+|----------|-------------|
+| somiglianza | Facoltativo. I valori validi includono *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*. <br/> Richiede `api-version=2019-05-06-Preview` o versione successiva in un servizio di ricerca creato prima del 15 luglio 2020. |
 
-È anche possibile impostare in modo esplicito il valore di somiglianza su uno dei due valori seguenti: *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*.
+Per i nuovi servizi creati dopo il 15 luglio 2020, BM25 viene usato automaticamente ed è l'unico algoritmo di somiglianza. Se si tenta di impostare la **somiglianza** `ClassicSimilarity` su in un nuovo servizio, verrà restituito un errore 400 poiché tale algoritmo non è supportato in un nuovo servizio.
 
+Per i servizi esistenti creati prima del 15 luglio 2020, la somiglianza classica rimane l'algoritmo predefinito. Se la proprietà di **somiglianza** viene omessa o impostata su null, l'indice utilizzerà l'algoritmo classico. Se si vuole usare il nuovo algoritmo, sarà necessario impostare la **somiglianza** come descritto in precedenza.
 
 ## <a name="bm25-similarity-parameters"></a>Parametri di somiglianza di BM25
 
-La somiglianza di BM25 aggiunge due parametri personalizzabili dall'utente per controllare il Punteggio di pertinenza calcolato:
+La somiglianza di BM25 aggiunge due parametri personalizzabili dall'utente per controllare il Punteggio di pertinenza calcolato.
 
 ### <a name="k1"></a>k1
 
@@ -98,10 +103,9 @@ L'algoritmo di somiglianza può essere impostato solo in fase di creazione dell'
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
+## <a name="see-also"></a>Vedere anche  
 
-## <a name="see-also"></a>Vedi anche  
-
- [Azure ricerca cognitiva REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Aggiungere profili di Punteggio all'indice](index-add-scoring-profiles.md)    
- [Creare l'indice &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-  [Azure ricerca cognitiva .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Aggiungere profili di Punteggio all'indice](index-add-scoring-profiles.md)    
++ [Create index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Azure ricerca cognitiva .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

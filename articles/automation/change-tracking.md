@@ -1,59 +1,65 @@
 ---
-title: Rilevare le modifiche con Automazione di Azure
-description: La soluzione Rilevamento modifiche consente di identificare le modifiche al software e al servizio Windows che si verificano nell'ambiente in uso.
+title: Panoramica di Rilevamento modifiche e inventario in automazione di Azure
+description: Rilevamento modifiche e l'inventario consentono di identificare le modifiche al software e al servizio Microsoft che si verificano nell'ambiente in uso.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: d84566c7680081561f60d4825f25a9ce19e02b24
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1208e08f7b85e893ba754bdbdf71a2da4f68c90a
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682983"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509067"
 ---
-# <a name="track-environment-changes-with-change-tracking"></a>Tenere traccia delle modifiche dell'ambiente con il rilevamento delle modificheTrack environment changes with Change Tracking
+# <a name="overview-of-change-tracking-and-inventory"></a>Panoramica di Rilevamento modifiche e inventario
 
-Questo articolo spiega come usare la soluzione Rilevamento modifiche per identificare facilmente le modifiche nell'ambiente. La soluzione tiene traccia delle seguenti modifiche di configurazione per individuare i problemi operativi:
+Questo articolo presenta Rilevamento modifiche e l'inventario in automazione di Azure. Questa funzionalità consente di tenere traccia delle modifiche apportate alle macchine virtuali e all'infrastruttura server che consentono di individuare i problemi operativi e ambientali del software gestito da Distribution Package Manager. Gli elementi che vengono rilevati da Rilevamento modifiche e dall'inventario includono: 
 
 - Software Windows
 - Software Linux (pacchetti)
-    >[!NOTE]
-    >Rilevamento modifiche tiene traccia solo del software gestito con il gestore dei pacchetti di distribuzione.
-
 - File Windows e Linux
-- Chiavi del Registro di sistema di Windows
-- Servizi Windows
+- Chiavi del registro di sistema di Windows
+- Servizi Microsoft
 - Daemon Linux
 
-Dopo aver abilitato la soluzione, è possibile visualizzare il riepilogo delle modifiche per i computer monitorati selezionando **Rilevamento modifiche** in **Gestione configurazione** nell'account di automazione.
+Rilevamento modifiche e l'inventario ottengono i dati dal servizio monitoraggio di Azure nel cloud. Azure invia le modifiche al software installato, ai servizi Microsoft, ai file e al registro di sistema di Windows e ai Daemon Linux nei server monitorati in monitoraggio di Azure per l'elaborazione. Il servizio cloud applica la logica ai dati ricevuti, li registra e li rende disponibili. 
 
 > [!NOTE]
-> Il rilevamento delle modifiche di Automazione di Azure tiene traccia delle modifiche nelle macchine virtuali. Per tenere traccia delle modifiche alle proprietà di Azure Resource Manager, vedere [Cronologia delle modifiche](../governance/resource-graph/how-to/get-resource-changes.md)di Azure Resource Graph.
+> Per tenere traccia delle modifiche apportate alle proprietà Azure Resource Manager, vedere [cronologia](../governance/resource-graph/how-to/get-resource-changes.md)delle modifiche di Azure Resource Graph.
 
-È possibile visualizzare le modifiche ai computer e quindi analizzare i dettagli per ogni evento. Nella parte superiore del grafico sono disponibili menu a discesa per limitare le informazioni dettagliate e relative al grafico in base al tipo di modifica e agli intervalli di tempo. È anche possibile fare clic sul grafico e trascinare la selezione per selezionare un intervallo di tempo personalizzato. **Cambia tipo** sarà uno dei seguenti valori **Eventi**, **Daemons**, **File**, **Registro di sistema**, **Software**, Servizi **di Windows**. Categoria mostra il tipo di modifica e può essere **aggiunto**, **Modificato**, o **Rimosso**.
+Rilevamento modifiche e l'inventario attualmente non supportano gli elementi seguenti:
 
-![image of Change Tracking dashboard](./media/change-tracking/change-tracking-dash01.png)
+* Ricorsione per Rilevamento del Registro di sistema di Windows
+* Filesystem di rete
+* Metodi di installazione diversi
+* *file **exe** per Windows
 
-Facendo clic su una modifica o su un evento vengono visualizzate informazioni dettagliate relative a tale modifica. Come si può notare nell'esempio, il tipo di avvio del servizio è stato modificato da Manuale ad Automatico.
+Altre limitazioni:
 
-![immagine dei dettagli del rilevamento delle modifiche](./media/change-tracking/change-tracking-details.png)
+* La colonna **Dimensioni massime file** e i valori non sono usati nell'implementazione corrente.
+* Se si raccolgono più di 2500 file in un ciclo di raccolta di 30 minuti, è possibile che le prestazioni della soluzione risultino ridotte.
+* Quando il traffico di rete è elevato, i record delle modifiche possono richiedere fino a sei ore per la visualizzazione.
+* Se si modifica una configurazione mentre un computer viene arrestato, il computer potrebbe registrare le modifiche appartenenti alla configurazione precedente.
 
-Le modifiche al software installato, ai servizi di Windows, al Registro di sistema e ai file di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Monitor di Azure nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+Attualmente Rilevamento modifiche e l'inventario si verificano i seguenti problemi:
+
+* Gli aggiornamenti rapidi non vengono raccolti nei computer Windows Server 2016 Core RS3.
+* I Daemon Linux potrebbero mostrare uno stato modificato anche se non si è verificata alcuna modifica. Questo problema si verifica a causa del modo in `SvcRunLevels` cui vengono acquisiti i dati nel log [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) di monitoraggio di Azure.
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
+Rilevamento modifiche e l'inventario e gli agenti Log Analytics di monitoraggio di Azure sono supportati nei sistemi operativi Windows e Linux.
+
 ### <a name="windows-operating-systems"></a>Sistemi operativi Windows
 
-Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:
-
-* Windows Server 2008 R2 o versione successiva
+La versione del sistema operativo Windows supportata ufficialmente è Windows Server 2008 R2 o versione successiva.
 
 ### <a name="linux-operating-systems"></a>Sistemi operativi Linux
 
-Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possibile che l'agente Linux sia eseguito in altre distribuzioni non elencate. Se non diversamente indicato, tutte le versioni minori sono supportate per ogni versione principale elencata.
+Le distribuzioni di Linux descritte di seguito sono ufficialmente supportate per l'agente Log Analytics per Linux. È tuttavia possibile che l'agente Linux sia eseguito in altre distribuzioni non elencate. Se non diversamente indicato, tutte le versioni minori sono supportate per ogni versione principale elencata.
 
-#### <a name="64-bit"></a>64 bit
+#### <a name="64-bit-linux-operating-systems"></a>sistemi operativi Linux a 64 bit
 
 * CentOS 6 e 7
 * Amazon Linux 2017.09
@@ -63,7 +69,7 @@ Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possi
 * Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
-#### <a name="32-bit"></a>32 bit
+#### <a name="32-bit-linux-operating-systems"></a>sistemi operativi Linux a 32 bit
 
 * CentOS 6
 * Oracle Linux 6
@@ -71,32 +77,9 @@ Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possi
 * Debian GNU/Linux 8 e 9
 * Ubuntu Linux 14.04 LTS e 16.04 LTS
 
-## <a name="limitations"></a>Limitazioni
-
-La soluzione Rilevamento modifiche non supporta attualmente gli elementi seguenti:
-
-* Ricorsione per Rilevamento del Registro di sistema di Windows
-* Filesystem di rete
-* Diversi metodi di installazione
-* ***File .exe** per Windows
-
-Altre limitazioni:
-
-* La colonna **Dimensioni massime file** e i valori non sono usati nell'implementazione corrente.
-* Se si raccolgono più di 2500 file in un ciclo di raccolta di 30 minuti, le prestazioni della soluzione potrebbero essere ridotte.
-* Quando il traffico di rete è elevato, la visualizzazione dei record delle modifiche può richiedere fino a sei ore.
-* Se si modifica la configurazione mentre un computer è spento, il computer potrebbe registrare le modifiche appartenenti alla configurazione precedente.
-
-## <a name="known-issues"></a>Problemi noti
-
-La soluzione Rilevamento modifiche sta riscontrando attualmente i problemi seguenti:
-
-* Gli aggiornamenti rapidi non vengono raccolti nei computer Windows Server 2016 Core RS3.
-* Linux Daemons può mostrare uno stato cambiato anche se non c'è stato alcun cambiamento. Ciò è dovuto `SvcRunLevels` al modo in cui il campo viene acquisito.
-
 ## <a name="network-requirements"></a>Requisiti di rete
 
-Il rilevamento delle modifiche richiede in modo specifico gli indirizzi seguenti. Le comunicazioni con questi indirizzi utilizzano la porta 443.
+Rilevamento modifiche e l'inventario richiedono specificamente gli indirizzi di rete elencati nella tabella seguente. Per le comunicazioni con questi indirizzi viene utilizzata la porta 443.
 
 |Azure Public  |Azure Government  |
 |---------|---------|
@@ -105,221 +88,134 @@ Il rilevamento delle modifiche richiede in modo specifico gli indirizzi seguenti
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-## <a name="wildcard-recursion-and-environment-settings"></a>Impostazioni con caratteri jolly, ricorsione e ambiente
+## <a name="change-tracking-and-inventory-user-interface"></a>Interfaccia utente di Rilevamento modifiche e inventario
 
-Ricorsione consente di specificare i caratteri jolly per semplificare il rilevamento tra le directory e le variabili di ambiente che consentono di tenere traccia dei file tra gli ambienti con nomi di unità multipli o dinamici. L'elenco seguente mostra le informazioni comuni che è necessario conoscere quando si configura la ricorsione:
+Utilizzare Rilevamento modifiche e inventario nel portale di Azure per visualizzare il riepilogo delle modifiche per i computer monitorati. La funzionalità è disponibile selezionando **rilevamento modifiche** in **Gestione configurazione** nell'account di automazione. 
+
+![Dashboard Rilevamento modifiche](./media/change-tracking/change-tracking-dash01.png)
+
+Gli elenchi a discesa sono disponibili nella parte superiore del dashboard per limitare il grafico del rilevamento delle modifiche e informazioni dettagliate in base al tipo di modifica e agli intervalli di tempo. È anche possibile fare clic sul grafico e trascinare la selezione per selezionare un intervallo di tempo personalizzato. 
+
+È possibile fare clic su una modifica o un evento per visualizzare i relativi dettagli. I tipi di modifica disponibili sono:
+
+* Eventi
+* DAEMON
+* File
+* Registro
+* Software
+* Servizi Microsoft
+
+È possibile aggiungere, modificare o rimuovere ogni modifica. Nell'esempio seguente, è possibile visualizzare una modifica nel tipo di avvio di un servizio da manuale a automatico.
+
+![Dettagli Rilevamento modifiche](./media/change-tracking/change-tracking-details.png)
+
+## <a name="tracking-of-file-changes"></a>Rilevamento delle modifiche ai file
+
+Per tenere traccia delle modifiche nei file in Windows e Linux, Rilevamento modifiche e l'inventario usano gli hash MD5 dei file. La funzionalità utilizza gli hash per rilevare se sono state apportate modifiche dall'ultimo inventario.
+
+## <a name="tracking-of-file-content-changes"></a>Rilevamento delle modifiche al contenuto del file
+
+Rilevamento modifiche e Inventory consente di visualizzare il contenuto di un file Windows o Linux prima e dopo una modifica di file. Per ogni modifica apportata a un file, Rilevamento modifiche e inventario archivia il contenuto del file in un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). Quando si esegue il rilevamento del file, è possibile visualizzarne il contenuto prima o dopo una modifica. È possibile visualizzare il contenuto inline o affiancato. 
+
+![Visualizzare le modifiche in un file](./media/change-tracking/view-file-changes.png)
+
+## <a name="tracking-of-registry-keys"></a>Rilevamento delle chiavi del registro di sistema
+
+Rilevamento modifiche e inventario consentono il monitoraggio delle modifiche apportate alle chiavi del registro di sistema. Il monitoraggio consente di individuare i punti di estendibilità in cui è possibile attivare codice e malware di terze parti. Nella tabella seguente sono elencate le chiavi del registro di sistema preconfigurate, ma non abilitate. Per tenere traccia di queste chiavi, è necessario abilitarle.
+
+> [!div class="mx-tdBreakAll"]
+> |Chiave del Registro | Scopo |
+> | --- | --- |
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora le voci di avvio automatico comuni che si collegano direttamente in Esplora risorse e che in genere vengono eseguite in-process con **Explorer. exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Monitora gli script eseguiti all'avvio.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitora gli script eseguiti all'arresto del sistema.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitora le chiavi che vengono caricate prima che l'utente acceda all'account di Windows. La chiave viene usata per le applicazioni a 32 bit in esecuzione su computer a 64 bit.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitora le modifiche apportate alle impostazioni dell'applicazione.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora le voci di avvio automatico comuni che si collegano direttamente in Esplora risorse e che in genere vengono eseguite in-process con **Explorer. exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora le voci di avvio automatico comuni che si collegano direttamente in Esplora risorse e che in genere vengono eseguite in-process con **Explorer. exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora la registrazione del gestore della sovrapposizione delle icone.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora la registrazione del gestore della sovrapposizione delle icone per le applicazioni a 32 bit in esecuzione su computer a 64 bit.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usato per accedere al Document Object Model (DOM) della pagina corrente e per controllare la navigazione per le applicazioni a 32 bit in esecuzione su computer a 64 bit.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitora le nuove estensioni di Internet Explorer, come i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzata.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitora le nuove estensioni di Internet Explorer, ad esempio i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzati per le applicazioni a 32 bit in esecuzione su computer a 64 bit.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati a wavemapper, wave1 e Wave2, msacm. imaadpcm,. msadpcm,. msgsm610 e vidc. Simile alla sezione [Drivers] nel file **System. ini** .
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati a wavemapper, wave1 e Wave2, msacm. imaadpcm,. msadpcm,. msgsm610 e vidc per applicazioni a 32 bit in esecuzione su computer a 64 bit. Simile alla sezione [Drivers] nel file **System. ini** .
+> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora l'elenco delle DLL di sistema note o comunemente usate. Questo sistema impedisce agli utenti di sfruttare le autorizzazioni vulnerabili delle directory applicative eliminando le versioni Trojan Horse delle DLL di sistema.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora l'elenco dei pacchetti che possono ricevere notifiche degli eventi da **Winlogon. exe**, il modello di supporto per l'accesso interattivo per Windows.
+
+## <a name="support-for-file-integrity-monitoring-in-azure-security-center"></a>Supporto per il monitoraggio dell'integrità dei file nel centro sicurezza di Azure
+
+Rilevamento modifiche e l'inventario usano il [monitoraggio dell'integrità dei file (FIM) del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Sebbene FIM monitori solo i file e i registri, la funzionalità Rilevamento modifiche e inventario completa include anche il monitoraggio per:
+
+- Modifiche software
+- Servizi Microsoft
+- Daemon Linux
+
+## <a name="recursion-support"></a>Supporto della ricorsione
+
+Rilevamento modifiche e Inventory supporta la ricorsione, che consente di specificare caratteri jolly per semplificare il rilevamento tra le directory. La ricorsione fornisce anche le variabili di ambiente che consentono di tenere traccia dei file in ambienti con più nomi di unità o dinamici. Nell'elenco seguente sono incluse le informazioni comuni che è necessario tenere presente durante la configurazione della ricorsione:
 
 * I caratteri jolly sono necessari per il rilevamento di più file.
-* I caratteri jolly possono essere utilizzati solo nell'ultimo segmento\\di un percorso, ad esempio, c: .
-* Se una variabile di ambiente ha un percorso non valido, la convalida ha esito positivo, ma tale percorso ha esito negativo durante l'esecuzione di Inventory.If an environment variable has an invalid path, validation succeeds, but that path fails when Inventory runs.
-* Evitare i percorsi generali quando si imposta il percorso, poiché questo tipo di impostazione può causare l'attraversamento di troppe cartelle.
+* I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso, ad esempio **file c:\cartella\\*** o **/etc/*. conf**.
+* Se una variabile di ambiente ha un percorso non valido, la convalida ha esito positivo, ma il percorso non riesce durante l'esecuzione.
+* Evitare i nomi di percorso generale quando si imposta il percorso, perché questo tipo di impostazione può causare l'attraversamento di un numero eccessivo di cartelle.
 
-## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Change Tracking
+## <a name="change-tracking-and-inventory-data-collection"></a>Raccolta dati di Rilevamento modifiche e inventario
 
-La tabella seguente mostra la frequenza di raccolta dati per i tipi di modifiche. Per ogni tipo lo snapshot dei dati dello stato corrente viene aggiornato almeno ogni 24 ore:
+La tabella seguente mostra la frequenza di raccolta dei dati per i tipi di modifiche supportate da Rilevamento modifiche e l'inventario. Per ogni tipo, anche lo snapshot dei dati dello stato corrente viene aggiornato almeno ogni 24 ore.
 
-| **Tipo di modifica** | **Frequenza** |
+| **Uso del comando Modifica tipo** | **Frequenza** |
 | --- | --- |
 | Registro di sistema di Windows | 50 minuti |
 | File Windows | 30 minuti |
 | File Linux | 15 minuti |
-| Servizi Windows | Da 10 secondi a 30 minuti</br> Impostazione predefinita: 30 minuti |
+| Servizi Microsoft | Da 10 secondi a 30 minuti</br> Impostazione predefinita: 30 minuti |
 | Daemon Linux | 5 minuti |
 | Software Windows | 30 minuti |
 | Software Linux | 5 minuti |
 
-La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macchina per il rilevamento modifiche.
+La tabella seguente illustra i limiti degli elementi rilevati per computer per Rilevamento modifiche e l'inventario.
 
-| **Risorsa** | **Limite**| **Note** |
+| **Risorsa** | **Limite** |
 |---|---|---|
-|File|500||
-|Registro|250||
-|Software Windows|250|Non include aggiornamenti rapidi software|
-|Pacchetti Linux|1250||
-|Servizi|250||
-|Daemon|250||
+|File|500|
+|Registro|250|
+|Software Windows (esclusi gli hotfix) |250|
+|Pacchetti Linux|1250|
+|Servizi|250|
+|DAEMON|250|
 
-L'utilizzo medio dei dati di Log Analytics per un computer che usa il rilevamento delle modifiche è di circa 40 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.
+L'utilizzo medio dei dati Log Analytics per un computer con Rilevamento modifiche e l'inventario è di circa 40 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.
 
-### <a name="windows-service-tracking"></a>Rilevamento dei servizi di Windows
+### <a name="microsoft-service-data"></a>Dati del servizio Microsoft
 
-La frequenza di raccolta predefinita per i servizi di Windows è 30 minuti. Per configurare la frequenza, passare a **Rilevamento modifiche**. In **Modifica impostazioni** nella scheda **Servizi Windows** è presente un dispositivo di scorrimento che consente di modificare la frequenza di raccolta per i servizi di Windows in un intervallo di tempo compreso tra 10 secondi e 30 minuti. Spostare la barra di scorrimento sulla frequenza desiderata e salvarla automaticamente.
+La frequenza di raccolta predefinita per i servizi Microsoft è 30 minuti. È possibile configurare la frequenza usando un dispositivo di scorrimento nella scheda **Servizi Microsoft** in **Modifica impostazioni**. 
 
-![Dispositivo di scorrimento dei servizi di Windows](./media/change-tracking/windowservices.png)
+![Dispositivo di scorrimento dei servizi Microsoft](./media/change-tracking/windowservices.png)
 
-L'agente rileva solo le modifiche e di conseguenza le prestazioni sono ottimizzate. L'impostazione di una soglia elevata può comportare la perdita di modifiche nel caso in cui il servizio ripristini lo stato originale. L'impostazione della frequenza su un valore inferiore consente di rilevare modifiche che potrebbero essere perse altrimenti.
-
-> [!NOTE]
-> Anche se l'agente può rilevare le modifiche in un intervallo di 10 secondi, i dati richiedono alcuni minuti per essere visualizzati nel portale. Le modifiche che si verificano durante il periodo di visualizzazione vengono comunque rilevate e registrate.
-
-### <a name="registry-key-change-tracking"></a>Rilevamento delle modifiche della chiave del Registro di Sistema
-
-Lo scopo del monitoraggio delle modifiche alle chiavi del Registro di sistema è di eseguire il pinpoint dei punti di estensibilità dove è possibile che vengano attivati codice di terze parti e malware. L'elenco seguente mostra le chiavi del Registro di sistema preconfigurate. Queste chiavi sono configurate, ma non abilitate. Per tenere traccia di queste chiavi del Registro di sistema, è necessario abilitarle una per una.
-
-> [!div class="mx-tdBreakAll"]
-> |Chiave del Registro | Scopo |
-> |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora le voci di avvio automatico che si collegano direttamente in Esplora risorse e che in genere funzionano in-process con Explorer.exe.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Monitora gli script eseguiti all'avvio.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitora gli script eseguiti all'arresto del sistema.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitora le chiavi che vengono caricate prima dell'accesso degli utenti nel proprio account di Windows. La chiave viene usata per i programmi a 32 bit in esecuzione nei computer a 64 bit.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitora le modifiche apportate alle impostazioni dell'applicazione.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora le voci di avvio automatico che si collegano direttamente in Esplora risorse e che in genere funzionano in-process con Explorer.exe.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora le voci di avvio automatico che si collegano direttamente in Esplora risorse e che in genere funzionano in-process con Explorer.exe.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora la registrazione del gestore della sovrapposizione delle icone.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora la registrazione del gestore della sovrapposizione delle icone per i programmi a 32 bit in esecuzione su computer a 64 bit.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione per i programmi a 32 bit in esecuzione su computer a 64 bit.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitora le nuove estensioni di Internet Explorer, come i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzata.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitora le nuove estensioni di Internet Explorer, come i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzata per i programmi a 32 bit in esecuzione su computer a 64 bit.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. È simile alla sezione [driver] nel file SYSTEM.INI.
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc per i programmi a 32 bit in esecuzione su computer a 64 bit. È simile alla sezione [driver] nel file SYSTEM.INI.
-> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora l'elenco delle DLL di sistema note o comunemente usate. Questo sistema impedisce alle persone di sfruttare autorizzazioni vulnerabili delle directory delle applicazioni rilasciando trojan nelle DLL di sistema.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora l'elenco dei pacchetti in grado di ricevere le notifiche degli eventi da Winlogon, il modello di supporto di accesso interattivo per il sistema operativo Windows.
-
-## <a name="enable-change-tracking"></a><a name="onboard"></a>Abilitare il rilevamento delle modificheEnable Change Tracking
-
-Per iniziare a tenere traccia delle modifiche, è necessario abilitare la soluzione Rilevamento modifiche. Ci sono molti modi per eseguire l'onboarding delle macchine per il rilevamento delle modifiche. Per eseguire l'onboarding della soluzione si consigliano i metodi supportati seguenti.
-
-* [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
-* [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
-* [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
-* [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
-
-## <a name="configure-change-tracking"></a>Configurare il rilevamento delle modifiche
-
-Per informazioni su come eseguire l'onboarding dei computer nella soluzione, vedere [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). Dopo aver eseguito l'onboarding di un computer con la soluzione rilevamento delle modifiche, è possibile configurare gli elementi di cui tenere traccia. Quando si abilita un nuovo file o una nuova chiave del Registro di sistema per tenere traccia, viene abilitata sia per il rilevamento delle modifiche.
-
-Per tenere traccia delle modifiche nei file sia di Windows che di Linux, vengono usati hash MD5 dei file. Questi hash vengono quindi usati per rilevare se dopo l'ultimo inventario sono state apportate modifiche.
-
-## <a name="enable-file-integrity-monitoring-in-azure-security-center"></a>Abilitare il monitoraggio dell'integrità dei file nel Centro sicurezza di AzureEnable File Integrity Monitoring in Azure Security Center
-
-Azure Security Center has added File Integrity Monitoring (FIM), which is built on Azure Change Tracking. Mentre FIM monitora solo file e registri, la soluzione completa di rilevamento delle modifiche include anche:
-
-- Modifiche software
-- servizi Windows
-- Linux Daemons
-
-Se FIM è già stato abilitato e si desidera provare la soluzione completa di rilevamento delle modifiche, è necessario eseguire la procedura seguente. Le impostazioni non vengono rimosse da questo processo.
+Per ottimizzare le prestazioni, l'agente di Log Analytics tiene traccia solo delle modifiche. L'impostazione di una soglia elevata potrebbe non essere modificata se il servizio viene ripristinato allo stato originale. Se si imposta la frequenza su un valore inferiore, è possibile rilevare le modifiche che potrebbero essere perse in caso contrario.
 
 > [!NOTE]
-> L'abilitazione della soluzione completa di rilevamento delle modifiche può causare costi aggiuntivi, per ulteriori informazioni, vedere [Prezzi di automazione](https://azure.microsoft.com/pricing/details/automation/).
+> Mentre l'agente è in grado di tenere traccia delle modifiche fino a un intervallo di 10 secondi, i dati richiedono ancora alcuni minuti per la visualizzazione nel portale di Azure. Le modifiche che si verificano nel tempo per la visualizzazione nel portale vengono comunque registrate e registrate.
 
-1. Rimuovere la soluzione di monitoraggio passando all'area di lavoro e individuandola [nell'elenco delle soluzioni di monitoraggio installate](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
-2. Fare clic sul nome della soluzione per aprire la relativa pagina di riepilogo e quindi fare clic su Elimina, come descritto in [Rimuovere una soluzione](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution)di monitoraggio .
-3. Riattivare la soluzione passando all'account di automazione e selezionando **Rilevamento modifiche** in **Gestione configurazione**.
-4. Confermare i dettagli dell'impostazione dell'area di lavoro e fare clic su **Abilita**.
+## <a name="support-for-alerts-on-configuration-state"></a>Supporto per gli avvisi sullo stato di configurazione
 
-## <a name="configure-file-content-change-tracking"></a>Configurare il rilevamento delle modifiche del contenuto dei file
-
-È possibile visualizzare il contenuto prima e dopo la modifica del file con il rilevamento delle modifiche del contenuto del file. Questa funzione è disponibile per i file Windows e Linux. Per ogni modifica apportata a un file, il contenuto del file viene archiviato in un account di archiviazione. Il file viene visualizzato prima e dopo la modifica, in linea o affiancata. Per altre informazioni, vedere [View the contents of a tracked file](change-tracking-file-contents.md) (Visualizzare il contenuto di un file con il rilevamento modifiche applicato).
-
-![visualizzare le modifiche in un file](./media/change-tracking-file-contents/view-file-changes.png)
-
-## <a name="configure-windows-registry-keys-to-track"></a>Configurare le chiavi del Registro di Sistema di Windows da rilevare
-
-Seguire questa procedura per configurare il rilevamento delle chiavi del Registro di sistema in computer Windows:
-
-1. Nell'account Di automazione selezionare **Rilevamento modifiche** in **Gestione configurazione**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
-2. Nella pagina Rilevamento modifiche selezionare **Registro di sistema di Windows** e quindi fare clic su **+ Aggiungi** per aggiungere una nuova chiave del Registro di sistema da rilevare.
-3. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**.
-
-|Proprietà  |Descrizione  |
-|---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata.        |
-|Nome elemento     | Nome descrittivo della chiave del Registro di sistema da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico delle chiavi del Registro di sistema.        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare la chiave del Registro di sistema. Ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
-
-## <a name="configure-file-tracking-on-windows"></a>Configurare il rilevamento dei file in Windows
-
-Attenersi alla seguente procedura per configurare il rilevamento dei file nei computer Windows:
-
-1. Nell'account Di automazione selezionare **Rilevamento modifiche** in **Gestione configurazione**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
-2. Nella pagina Rilevamento modifiche selezionare **File Windows** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
-3. In **Aggiungi file Windows per Rilevamento modifiche** immettere le informazioni per il file da rilevare e fare clic su **Salva**.
-
-|Proprietà  |Descrizione  |
-|---------|---------|
-|Attivato     | True se l'impostazione viene applicata e False in caso contrario.        |
-|Nome elemento     | Nome descrittivo del file da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Immettere il percorso     | Il percorso in cui verificare la presenza del file, ad esempio **c:\\\***<br>È inoltre possibile utilizzare variabili `%winDir%\System32\\\*.*`di ambiente, ad esempio .       |
-|Ricorsione     | True se la ricorsione viene utilizzata durante la ricerca dell'elemento da tenere traccia e False in caso contrario.        |
-|Caricare il contenuto del file per tutte le impostazioni| True per caricare il contenuto del file nelle revisioni e False in caso contrario.|
-
-## <a name="configure-file-tracking-on-linux"></a>Configurare il rilevamento dei file su LinuxConfigure file tracking on Linux
-
-Seguire questa procedura per configurare il rilevamento dei file in computer Linux:
-
-1. Nell'account Di automazione selezionare **Rilevamento modifiche** in **Gestione configurazione**. Fare clic su **Modifica impostazioni** (simbolo dell'ingranaggio).
-2. Nella pagina Rilevamento modifiche selezionare **File Linux** e quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
-3. In **Aggiungi file Linux per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**.
-
-|Proprietà  |Descrizione  |
-|---------|---------|
-|Attivato     | Determina se l'impostazione viene applicata.        |
-|Nome elemento     | Nome descrittivo del file da rilevare.        |
-|Gruppo     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "/etc/*.conf"       |
-|Tipo di percorso     | Tipo di elemento da rilevare, i valori possibili sono File e Directory.        |
-|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
-|Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
-|Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento.<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento.<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del contenuto restituito.     |
-|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
-
-> [!NOTE]
-> Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
-
-## <a name="search-logs"></a>Eseguire ricerche nei log
-
-È possibile eseguire varie ricerche nei registri per i record delle modifiche. Con la pagina Rilevamento modifiche aperta, fare clic su **Log Analytics**, verrà visualizzata la pagina Registri. La tabella seguente contiene esempi di ricerche log per i record di modifica raccolti da questa soluzione:
+Una funzionalità chiave di Rilevamento modifiche e inventario è costituita da avvisi sulle modifiche allo stato di configurazione dell'ambiente ibrido. Sono disponibili molte azioni utili da attivare in risposta ad avvisi, ad esempio azioni su funzioni di Azure, manuali operativi di automazione, webhook e così via. Gli avvisi relativi alle modifiche apportate al file **C:\windows\system32\drivers\etc\hosts** per un computer sono un'applicazione efficace di avvisi per i dati di rilevamento modifiche e di inventario. Sono disponibili anche molti altri scenari per gli avvisi, inclusi gli scenari di query definiti nella tabella seguente. 
 
 |Query  |Descrizione  |
 |---------|---------|
-|ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Mostra i record dell'inventario più recenti per i servizi Windows che sono stati impostati su Auto (Automatico) ma sono stati segnalati come Stopped (Interrotto)<br>I risultati sono limitati al record più recente per SoftwareName e Computer      |
-|ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Mostra i record di modifica per il software rimosso|
-
-## <a name="alert-on-changes"></a>Generare avvisi in base alle modifiche
-
-Una funzionalità chiave del rilevamento delle modifiche è l'avviso sullo stato della configurazione e le eventuali modifiche allo stato di configurazione dell'ambiente ibrido. Nell'esempio riportato di seguito viene illustrato che il file **C:.** Questo file è importante perché Windows lo utilizza per risolvere i nomi host in indirizzi IP. Questa operazione ha la precedenza sul DNS e potrebbe causare problemi di connettività o il reindirizzamento del traffico a siti Web dannosi o altrimenti pericolosi.
-
-![Grafico che mostra la modifica del file hosts](./media/change-tracking/changes.png)
-
-Per analizzare più a fondo questa modifica, passare alla funzionalità Ricerca log facendo clic su **Log Analytics**. In Ricerca log usare la query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` per cercare le modifiche al contenuto del file hosts. Questa query esegue la ricerca di modifiche apportate al contenuto di file il cui percorso completo contiene la parola "hosts". È anche possibile cercare un file specifico usando il formato completo del percorso anziché una sola parte (ad esempio, `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
-
-Dopo che la query restituisce i risultati desiderati, fare clic su **Nuova regola** di avviso nella ricerca log per aprire la pagina di creazione dell'avviso. È possibile accedere a questa interfaccia anche tramite **Monitoraggio di Azure** nel portale di Azure. 
-
-Controllare nuovamente la query e modificare la logica di avviso. In questo caso, si vuole che l'avviso venga attivato anche se viene rilevata una sola modifica in tutti i computer nell'ambiente.
-
-![Immagine che mostra la query per il rilevamento delle modifiche apportate al file hosts](./media/change-tracking/change-query.png)
-
-Dopo che è stata impostata la logica della condizione, assegnare gruppi di azioni in modo da eseguire azioni in risposta all'avviso attivato. In questo caso, è stato specificato di inviare messaggi di posta elettronica e di creare un ticket di Gestione dei servizi IT.  È possibile configurare l'esecuzione di molte altre azioni utili, ad esempio attivare una funzione di Azure, un runbook di automazione, un webhook o un'app per la logica.
-
-![Immagine della configurazione di un gruppo di azioni per avvisare della modifica](./media/change-tracking/action-groups.png)
-
-Dopo aver impostato tutti i parametri e la logica, è possibile applicare l'avviso all'ambiente.
-
-### <a name="alert-suggestions"></a>Suggerimenti sugli avvisi
-
-Mentre gli avvisi sulle modifiche al file hosts sono una buona applicazione di avvisi per il rilevamento delle modifiche o i dati di inventario, esistono molti altri scenari per gli avvisi, inclusi i casi definiti insieme alle relative query di esempio nella sezione seguente.
-
-|Query  |Descrizione  |
-|---------|---------|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Utile per tenere traccia delle modifiche ai file di sistema critici|
-|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Utile per tenere traccia delle modifiche ai file di configurazione importanti|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Utile per tenere traccia delle modifiche ai servizi di sistema critici|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Utile per tenere traccia delle modifiche ai servizi di sistema critici|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Utile per gli ambienti che richiedono il blocco delle configurazioni software|
-|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|Utile per visualizzare i computer in cui è installata una versione del software obsoleta o non conforme. Segnala l'ultimo stato di configurazione segnalato, non le modifiche.|
-|ConfigurationChange <br>&#124; in cui RegistryKey\\HKEY_LOCAL_MACHINE\\\\SOFTWARE\\Microsoft\\Windows CurrentVersion QualityCompat"| Utile per tenere traccia delle modifiche alle chiavi antivirus di importanza cruciale|
-|ConfigurationChange <br>&#124; in cui RegistryKey\\\\contiene il\\\\valore\\"HKEY_LOCAL_MACHINE SYSTEM CurrentControlSet Services SharedAccess Parameters\\FirewallPolicy"| Utile per tenere traccia delle modifiche alle impostazioni del firewall|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Utile per tenere traccia delle modifiche apportate ai file critici del sistema.|
+|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Utile per tenere traccia delle modifiche apportate ai file di configurazione delle chiavi.|
+|ConfigurationChange <br>&#124; where ConfigChangeType = = "Microsoft Services" e SvcName contiene "W3SVC" e SvcState = = "Stopped"|Utile per tenere traccia delle modifiche apportate ai servizi critici del sistema.|
+|ConfigurationChange <br>&#124; where ConfigChangeType = = "daemons" e SvcName contiene "SSH" e SvcState! = "Running"|Utile per tenere traccia delle modifiche apportate ai servizi critici del sistema.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Utile per gli ambienti che necessitano di configurazioni software bloccate.|
+|ConfigurationData <br>&#124; dove softwarename contiene "Monitoring Agent" e CurrentVersion! = "8.0.11081.0"|Utile per visualizzare i computer in cui è installata la versione software obsoleta o non conforme. Questa query segnala l'ultimo stato della configurazione segnalata, ma non segnala le modifiche.|
+|ConfigurationChange <br>&#124; where RegistryKey = = @ "HKEY_LOCAL_MACHINE\\software\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Utile per tenere traccia delle modifiche apportate alle chiavi antivirus cruciali.|
+|ConfigurationChange <br>&#124; dove RegistryKey contiene @ "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\firewallpolicy"| Utile per tenere traccia delle modifiche apportate alle impostazioni del firewall.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere l'esercitazione su Rilevamento modifiche per altre informazioni sull'uso della soluzione:
-
-> [!div class="nextstepaction"]
-> [Risolvere i problemi delle modifiche nell'ambiente](automation-tutorial-troubleshoot-changes.md)
-
-* Usare [Ricerche log nei log di Monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md) per visualizzare dati dettagliati sul rilevamento delle modifiche.
+* Per lavorare con Rilevamento modifiche e l'inventario nella manuali operativi, vedere [gestire rilevamento modifiche e inventario](change-tracking-file-contents.md).
+* Per risolvere gli errori relativi a Rilevamento modifiche e inventario, vedere [risolvere i problemi relativi rilevamento modifiche e inventario](automation-tutorial-troubleshoot-changes.md).
+* Usare le [ricerche log nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md) per visualizzare i dati dettagliati del rilevamento delle modifiche.

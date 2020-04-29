@@ -3,14 +3,14 @@ title: Distribuzione modelli simulazione (anteprima)
 description: Determinare quali modifiche si verificheranno nelle risorse prima di distribuire un modello di Azure Resource Manager.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 04/28/2020
 ms.author: jgao
-ms.openlocfilehash: b5b19bf9d630230fbdb8cec41cc77718bbbb4585
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192383"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509585"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operazione di simulazione della distribuzione del modello ARM (anteprima)
 
@@ -19,13 +19,11 @@ Prima di distribuire un modello di Azure Resource Manager (ARM), è possibile vi
 > [!NOTE]
 > L'operazione di simulazione è attualmente in anteprima. Come versione di anteprima, i risultati possono a volte indicare che una risorsa cambierà quando in realtà non si verifica alcuna modifica. Ci stiamo impegnando per ridurre questi problemi, ma è necessario aiutarti. Segnala questi problemi all'indirizzo [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-È possibile usare l'operazione di simulazione con i comandi di PowerShell o le operazioni dell'API REST.
+È possibile usare l'operazione di simulazione con Azure PowerShell, l'interfaccia della riga di comando di Azure o le operazioni dell'API REST.
 
 ## <a name="install-powershell-module"></a>Installare il modulo PowerShell
 
-Per usare simulazione in PowerShell, è necessario disporre di PowerShell Core (6. x o 7. x). Se si dispone di PowerShell 5. x o versioni precedenti, [aggiornare la versione di PowerShell](/powershell/scripting/install/installing-powershell).
-
-Dopo aver verificato la versione corretta di PowerShell, installare una versione di anteprima del modulo AZ. resources da PowerShell Gallery.
+Per usare simulazione in PowerShell, è necessario installare una versione di anteprima del modulo AZ. resources da PowerShell Gallery. Tuttavia, prima di installare il modulo, verificare di avere PowerShell Core (6. x o 7. x). Se si dispone di PowerShell 5. x o versioni precedenti, [aggiornare la versione di PowerShell](/powershell/scripting/install/installing-powershell). Non è possibile installare il modulo di anteprima in PowerShell 5. x o versioni precedenti.
 
 ### <a name="install-preview-version"></a>Installa versione di anteprima
 
@@ -60,9 +58,13 @@ Se in precedenza è stata installata una versione Alpha del modulo simulazione, 
 
 A questo punto si è pronti per usare simulazione.
 
+## <a name="install-azure-cli-module"></a>Installare il modulo CLI di Azure
+
+Per usare l'interfaccia della riga di comando di Azure, è necessario disporre dell'interfaccia della riga di comando di Azure 2.5.0 o versione successiva. Se necessario, [installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+
 ## <a name="see-results"></a>See results (Visualizza risultati)
 
-In PowerShell l'output include risultati codificati a colori che consentono di visualizzare i diversi tipi di modifiche.
+Quando si usa simulazione in PowerShell o nell'interfaccia della riga di comando di Azure, l'output include risultati codificati a colori che consentono di visualizzare i diversi tipi di modifiche.
 
 ![Gestione risorse l'operazione di simulazione della distribuzione del modello fullresourcepayload e i tipi di modifica](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
@@ -97,11 +99,9 @@ Resource changes: 1 to modify.
 
 ## <a name="what-if-commands"></a>Comandi di simulazione
 
-È possibile usare Azure PowerShell o l'API REST di Azure per l'operazione di simulazione.
-
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Per visualizzare un'anteprima delle modifiche prima di distribuire un modello, aggiungere il `-Whatif` parametro switch al comando Deployment.
+Per visualizzare in anteprima le modifiche prima di distribuire un `-Whatif` modello, aggiungere il parametro switch al comando Deployment.
 
 * `New-AzResourceGroupDeployment -Whatif`per le distribuzioni di gruppi di risorse
 * `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` per le distribuzioni a livello di sottoscrizione
@@ -115,6 +115,23 @@ I comandi precedenti restituiscono un riepilogo di testo che è possibile ispezi
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`per le distribuzioni di gruppi di risorse
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult`o `$results = Get-AzDeploymentWhatIfResult` per le distribuzioni a livello di sottoscrizione
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+Per visualizzare in anteprima le modifiche prima di distribuire `what-if` un modello, usare con il comando di distribuzione.
+
+* `az deployment group what-if`per le distribuzioni di gruppi di risorse
+* `az deployment sub what-if`per le distribuzioni a livello di sottoscrizione
+
+In alternativa, è possibile usare `--confirm-with-what-if` il parametro per visualizzare l'anteprima delle modifiche e ricevere la richiesta di continuare la distribuzione.
+
+* `az deployment group create --confirm-with-what-if`per le distribuzioni di gruppi di risorse
+* `az deployment sub create --confirm-with-what-if`per le distribuzioni a livello di sottoscrizione
+
+I comandi precedenti restituiscono un riepilogo di testo che è possibile ispezionare manualmente. Per ottenere un oggetto JSON che è possibile controllare a livello di codice delle modifiche, usare:
+
+* `az deployment group what-if --no-pretty-print`per le distribuzioni di gruppi di risorse
+* `az deployment sub what-if --no-pretty-print`per le distribuzioni a livello di sottoscrizione
 
 ### <a name="azure-rest-api"></a>API REST di Azure
 
@@ -141,10 +158,17 @@ L'operazione di simulazione elenca sei tipi diversi di modifiche:
 
 ## <a name="result-format"></a>Formato del risultato
 
-È possibile controllare il livello di dettaglio restituito sulle modifiche previste. Nei comandi di distribuzione (`New-Az*Deployment`) usare il parametro **-WhatIfResultFormat** . Nei comandi dell'oggetto programmatico`Get-Az*DeploymentWhatIf`(), usare il parametro **ResultFormat** .
+È possibile controllare il livello di dettaglio restituito sulle modifiche previste. Sono disponibili due opzioni:
 
-Impostare il parametro format su **FullResourcePayloads** per ottenere un elenco di risorse che cambieranno e dettagli sulle proprietà che cambieranno. Impostare il parametro format su **ResourceIdOnly** per ottenere un elenco di risorse che cambieranno. Il valore predefinito è **FullResourcePayloads**.  
+* **FullResourcePayloads** : restituisce un elenco di risorse che cambieranno e dettagli sulle proprietà che cambieranno
+* **ResourceIdOnly** : restituisce un elenco di risorse che cambieranno
 
+Il valore predefinito è **FullResourcePayloads**.
+
+Per i comandi di distribuzione di PowerShell `-WhatIfResultFormat` , usare il parametro. Nei comandi dell'oggetto a livello di codice `ResultFormat` , usare il parametro.
+
+Per l'interfaccia della riga di comando di Azure, usare il parametro `--result-format`.
+ 
 I risultati seguenti mostrano i due diversi formati di output:
 
 - Payload di risorse completi
@@ -197,6 +221,8 @@ I risultati seguenti mostrano i due diversi formati di output:
 
 Per verificarne il funzionamento, è possibile eseguire alcuni test. Per prima cosa, distribuire un modello per la [creazione di una rete virtuale](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Questa rete virtuale verrà usata per verificare il modo in cui vengono segnalate le modifiche da simulazione.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name ExampleGroup `
@@ -206,9 +232,24 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
 ```
 
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name ExampleGroup \
+  --location "Central US"
+az deployment group create \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
+```
+
+---
+
 ### <a name="test-modification"></a>Modifica test
 
 Al termine della distribuzione, si è pronti per testare l'operazione di simulazione. Questa volta si distribuisce un [modello che modifica la rete virtuale](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Mancano uno dei tag originali, una subnet è stata rimossa e il prefisso dell'indirizzo è stato modificato.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -216,6 +257,16 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group what-if \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
+```
+
+---
 
 L'output di simulazione appare simile al seguente:
 
@@ -260,6 +311,8 @@ Alcune delle proprietà elencate come eliminate non cambiano effettivamente. Le 
 
 A questo punto, è possibile valutare i risultati di simulazione a livello di codice impostando il comando su una variabile.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
@@ -275,19 +328,41 @@ foreach ($change in $results.Changes)
 }
 ```
 
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli
+results=$(az deployment group what-if --resource-group ExampleGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json" --no-pretty-print)
+```
+
+---
+
 ## <a name="confirm-deletion"></a>Confermare l'eliminazione
 
 L'operazione di simulazione supporta l'uso della [modalità di distribuzione](deployment-modes.md). Quando viene impostata la modalità completa, le risorse non presenti nel modello vengono eliminate. Nell'esempio seguente viene distribuito un [modello privo di risorse definite](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in modalità completa.
 
 Per visualizzare in anteprima le modifiche prima di distribuire un `-Confirm` modello, usare il parametro switch con il comando Deployment. Se le modifiche sono quelle previste, confermare che si desidera completare la distribuzione.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Confirm `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
-  -Mode Complete
+  -Mode Complete `
+  -Confirm `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
 ```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group ExampleGroup \
+  --mode Complete \
+  --confirm-with-what-if \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+```
+
+---
 
 Poiché nel modello non sono definite risorse e la modalità di distribuzione è impostata su completa, la rete virtuale verrà eliminata.
 
@@ -326,4 +401,5 @@ Vengono visualizzate le modifiche previste e è possibile confermare che si desi
 
 - Se si notano risultati non corretti dalla versione di anteprima di simulazione, segnalare i problemi all'indirizzo [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Per distribuire i modelli con Azure PowerShell, vedere [distribuire le risorse con i modelli e i Azure PowerShell ARM](deploy-powershell.md).
+- Per distribuire modelli con l'interfaccia della riga di comando di Azure, vedere [distribuire risorse con modelli ARM e l'interfaccia](deploy-cli.md)della riga di comando
 - Per distribuire i modelli con REST, vedere [distribuire le risorse con i modelli ARM e gestione risorse API REST](deploy-rest.md).

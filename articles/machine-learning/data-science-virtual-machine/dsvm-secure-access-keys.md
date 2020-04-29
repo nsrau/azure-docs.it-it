@@ -1,7 +1,7 @@
 ---
-title: Archiviare in modo sicuro le credenziali di accessoSecurely store access credentials
+title: Archivia in modo sicuro le credenziali di accesso
 titleSuffix: Azure Data Science Virtual Machine
-description: Informazioni su come archiviare le credenziali di accesso in modo sicuro nella Data Science Virtual Machine. Si apprenderà come usare le identità del servizio gestito e l'insieme di credenziali delle chiavi di Azure per archiviare le credenziali di accesso.
+description: Informazioni su come archiviare le credenziali di accesso in modo sicuro nella Data Science Virtual Machine. Si apprenderà come usare le identità del servizio gestito e Azure Key Vault per archiviare le credenziali di accesso.
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, analisi geospaziale, processo di data science del team
 services: machine-learning
 ms.service: machine-learning
@@ -11,21 +11,21 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 1cb0c5094d49eac5a1c8f63406a28d2927d8fa94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477324"
 ---
-# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Archiviare le credenziali di accesso in modo sicuro in una macchina virtuale di analisi scientifica dei dati di AzureStore access credentials securely on an Azure Data Science Virtual Machine
+# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Archiviare in modo sicuro le credenziali di accesso in un Data Science Virtual Machine di Azure
 
-È comune che il codice nelle applicazioni cloud contenga le credenziali per l'autenticazione ai servizi cloud. Come gestire e proteggere queste credenziali è una sfida ben nota nella creazione di applicazioni cloud. Idealmente, le credenziali non dovrebbero mai essere visualizzate nelle workstation degli sviluppatori o vengono archiviate nel controllo del codice sorgente.
+Il codice nelle applicazioni cloud contiene spesso le credenziali per l'autenticazione nei servizi cloud. La gestione e la protezione di queste credenziali è una sfida nota nella creazione di applicazioni cloud. Idealmente, le credenziali non dovrebbero mai essere visualizzate nelle workstation degli sviluppatori o essere archiviate nel controllo del codice sorgente.
 
-La funzionalità [delle identità gestite per le risorse](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) di Azure semplifica la risoluzione di questo problema offrendo ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.
+La funzionalità [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) semplifica la risoluzione di questo problema offrendo ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure ad). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.
 
-Un modo per proteggere le credenziali consiste nell'utilizzare Windows Installer (MSI) in combinazione con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), un servizio di Azure gestito per archiviare segreti e chiavi crittografiche in modo sicuro. È possibile accedere a un insieme di credenziali delle chiavi utilizzando l'identità gestita e quindi recuperare i segreti autorizzati e le chiavi crittografiche dall'insieme di credenziali delle chiavi.
+Un modo per proteggere le credenziali consiste nell'usare Windows Installer (MSI) in combinazione con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), un servizio gestito di Azure per archiviare in modo sicuro i segreti e le chiavi crittografiche. È possibile accedere a un insieme di credenziali delle chiavi usando l'identità gestita e quindi recuperare le chiavi di crittografia e i segreti autorizzati dall'insieme di credenziali delle chiavi.
 
-La documentazione sulle identità gestite per le risorse di Azure e l'insieme di credenziali delle chiavi comprende una risorsa completa per informazioni approfondite su questi servizi. La parte restante di questo articolo illustra l'uso di base dell'identità del servizio gestita e di Key Vault nella macchina virtuale di data science per accedere alle risorse di Azure. 
+La documentazione sulle identità gestite per le risorse di Azure e Key Vault è costituita da una risorsa completa per informazioni approfondite su questi servizi. La parte restante di questo articolo illustra l'uso di base dell'identità del servizio gestita e di Key Vault nella macchina virtuale di data science per accedere alle risorse di Azure. 
 
 ## <a name="create-a-managed-identity-on-the-dsvm"></a>Creare un'identità gestita nella macchina virtuale di data science
 
@@ -38,7 +38,7 @@ az vm assign-identity -g <Resource Group Name> -n <Name of the VM>
 az resource list -n <Name of the VM> --query [*].identity.principalId --out tsv
 ```
 
-## <a name="assign-key-vault-access-permissions-to-a-vm-principal"></a>Assegnare le autorizzazioni di accesso dell'insieme di credenziali delle chiavi a un'entità macchina virtualeAssign Key Vault access permissions to a VM principal
+## <a name="assign-key-vault-access-permissions-to-a-vm-principal"></a>Assegnare autorizzazioni di accesso Key Vault a un'entità VM
 
 ```azurecli-interactive
 # Prerequisite: You have already created an empty Key Vault resource on Azure by using the Azure portal or Azure CLI.
