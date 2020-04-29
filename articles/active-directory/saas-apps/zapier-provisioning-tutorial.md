@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: 4091e4fd544dbc6450bc14bd0e0731c4d3024592
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76992157"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Esercitazione: configurare Zapier per il provisioning utenti automatico
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Zapier](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-zapier-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Zapier per supportare il provisioning con Azure AD
+## <a name="step-2-configure-zapier-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Zapier per supportare il provisioning con Azure AD
 
 1. Accedere a [Zapier Admin Console](https://zapier.com/app/login/). Passare a **Impostazioni** sotto l'ID tenant.
 
@@ -111,22 +111,22 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a Zapier nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Zapier per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API Zapier supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-   |Variabile|Type|
+   |Variabile|Tipo|
    |---|---|
-   |userName|string|
+   |userName|Stringa|
    |active|Boolean|
-   |externalId|string|
-   |name.givenName|string|
-   |name.familyName|string|
-   |emails[type eq "work"].value|string|
+   |externalId|Stringa|
+   |name.givenName|Stringa|
+   |name.familyName|Stringa|
+   |emails[type eq "work"].value|Stringa|
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Zapier**.
 
 11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Zapier nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Zapier per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    |Variabile|Type|
+    |Variabile|Tipo|
     |---|---|
-    |displayName|string|
+    |displayName|Stringa|
     |Membri di|Informazioni di riferimento|
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

@@ -1,15 +1,15 @@
 ---
-title: Interfaccia di comando di Azure Service Fabric- sfctl
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per la gestione del caos.
+title: INTERFACCIA della riga di comando di Azure Service Fabric-Chaos sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione di Chaos.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 6668446363361fbc6d24afc3d11a36a0b786667d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906173"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
@@ -18,7 +18,7 @@ Consente di avviare, arrestare e creare report nel servizio di test chaos.
 ## <a name="subgroups"></a>Sottogruppi
 |Sottogruppo|Descrizione|
 | --- | --- |
-| [schedule](service-fabric-sfctl-chaos-schedule.md) | Ottiene e imposta la pianificazione di chaos. |
+| [pianificazione](service-fabric-sfctl-chaos-schedule.md) | Ottiene e imposta la pianificazione di chaos. |
 ## <a name="commands"></a>Comandi:
 
 |Comando|Descrizione|
@@ -41,7 +41,7 @@ Per ottenere il segmento successivo degli eventi di Chaos, è possibile specific
 | --end-time-utc | Ora di file di Windows che rappresenta l'ora di fine dell'intervallo di tempo per cui verrà generato un report di Chaos. Per informazioni dettagliate, vedere [Metodo DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
 | --max-results | Il numero massimo di risultati che devono essere restituiti come parte delle query di paging. Questo parametro definisce il limite massimo di risultati restituiti. Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, il numero dei risultati restituiti può essere inferiore al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito. |
 | --start-time-utc | Ora di file di Windows che rappresenta l'ora di inizio dell'intervallo di tempo per cui verrà generato un report di Chaos. Per informazioni dettagliate, vedere [Metodo DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -62,7 +62,7 @@ Ottiene lo stato di Chaos che indica se Chaos è in esecuzione o meno, i paramet
 
 |Argomento|Descrizione|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -77,7 +77,7 @@ Ottiene lo stato di Chaos che indica se Chaos è in esecuzione o meno, i paramet
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 Avvia Chaos nel cluster.
 
-Se Chaos non è già in esecuzione nel cluster, avvia Chaos con i parametri di Chaos passati. Se Chaos è già in esecuzione quando viene effettuata la chiamata, la chiamata ha esito negativo con codice di errore FABRIC_E_CHAOS_ALREADY_RUNNING. Per ulteriori informazioni, vedere l'articolo [Indurre control controlled Chaos in Service Fabric clusters](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) .
+Se Chaos non è già in esecuzione nel cluster, avvia Chaos con i parametri di Chaos passati. Se Chaos è già in esecuzione quando viene effettuata la chiamata, la chiamata ha esito negativo con codice di errore FABRIC_E_CHAOS_ALREADY_RUNNING. Per altri dettagli, vedere l'articolo [indurre Chaos controllato nei cluster Service Fabric](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) .
 
 ### <a name="arguments"></a>Argomenti
 
@@ -116,7 +116,7 @@ Impedisce a Chaos di eseguire nuovi errori. Gli errori in elaborazione continuer
 
 |Argomento|Descrizione|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 

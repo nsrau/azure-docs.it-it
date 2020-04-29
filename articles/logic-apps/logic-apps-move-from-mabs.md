@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione delle app dai servizi BizTalk alle app per la logica di AzureMigrate apps from BizTalk Services to Azure Logic Apps
-description: Come spostare le app e le soluzioni da Microsoft Azure BizTalk Services (MABS) ad Azure Logic Apps
+title: Eseguire la migrazione di app da servizi BizTalk ad app per la logica di Azure
+description: Come spostare le app e le soluzioni da Servizi BizTalk di Microsoft Azure (MAB) ad app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -9,13 +9,13 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905442"
 ---
-# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Eseguire la migrazione delle app e delle soluzioni dai servizi BizTalk alle app per la logica di AzureMigrate your apps and solutions from BizTalk Services to Azure Logic Apps
+# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Eseguire la migrazione di app e soluzioni da servizi BizTalk in app per la logica di Azure
 
 Servizi BizTalk di Microsoft Azure (MABS) verrà ritirato. Per spostare le soluzioni di integrazione di Servizi BizTalk di Microsoft Azure ad [App per la logica di Azure](../logic-apps/logic-apps-overview.md), seguire le linee guida contenute in questo articolo. 
 
@@ -51,7 +51,7 @@ Servizi BizTalk include diversi tipi di elementi.
 
 ## <a name="connectors"></a>Connettori
 
-I connettori di Servizi BizTalk permettono ai bridge di inviare e ricevere dati, inclusi i bridge bidirezionali che consentono interazioni di richiesta/risposta basate su HTTP. App per la logica usa la stessa terminologia e dispone di centinaia di connettori che servono allo stesso scopo connettendosi a una vasta gamma di tecnologie e servizi. Ad esempio, sono disponibili connettori per servizi SaaS e PaaS cloud, come OneDrive, Office 365, Dynamics CRM e altri ancora, nonché sistemi locali tramite il gateway dati locale, che sostituisce il servizio Adapter BizTalk per Servizi BizTalk. Le origini di Servizi BizTalk sono limitate a sottoscrizioni FTP, SFTP e coda o argomento del bus di servizio.
+I connettori di Servizi BizTalk permettono ai bridge di inviare e ricevere dati, inclusi i bridge bidirezionali che consentono interazioni di richiesta/risposta basate su HTTP. App per la logica usa la stessa terminologia e offre centinaia di connettori che svolgono la stessa funzione connettendosi a un'ampia gamma di tecnologie e servizi. Ad esempio, sono disponibili connettori per servizi SaaS e PaaS cloud, come OneDrive, Office 365, Dynamics CRM e altri ancora, nonché sistemi locali tramite il gateway dati locale, che sostituisce il servizio Adapter BizTalk per Servizi BizTalk. Le origini di Servizi BizTalk sono limitate a sottoscrizioni FTP, SFTP e coda o argomento del bus di servizio.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
@@ -125,7 +125,7 @@ A differenza di Servizi BizTalk, queste azioni sono separate dai protocolli di t
 
 ## <a name="manage-and-monitor"></a>Gestire e monitorare
 
-In Servizi BizTalk un portale dedicato offre funzionalità di rilevamento per monitorare e risolvere i problemi. App per la logica offre funzionalità di monitoraggio e monitoraggio più avanzate per [monitorare le app per la logica nel portale](../logic-apps/monitor-logic-apps.md)di Azure e include un'app per dispositivi mobili per tenere d'occhio gli elementi quando si è in movimento.
+In Servizi BizTalk un portale dedicato offre funzionalità di rilevamento per monitorare e risolvere i problemi. App per la logica offre funzionalità di monitoraggio e monitoraggio più complete per [monitorare le app per la logica nella portale di Azure](../logic-apps/monitor-logic-apps.md)e include un'app per dispositivi mobili per tenere d'occhio gli elementi quando si è in movimento.
 
 ## <a name="high-availability"></a>Disponibilità elevata
 
