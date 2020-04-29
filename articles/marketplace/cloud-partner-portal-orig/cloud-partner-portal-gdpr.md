@@ -1,5 +1,5 @@
 ---
-title: Conformità al GDPR Azure Marketplace
+title: Conformità GDPR | Azure Marketplace
 description: Portale Cloud Partner e GDPR.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: f09bc60a59ff2a6e21d0cdae1917a1faed072ea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280287"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformità al GDPR per il portale Cloud Partner
@@ -24,19 +24,19 @@ Il portale Cloud Partner offre informazioni dettagliate riguardanti l'elaborazio
 <a name="discover"></a>Scoprire
 --------
 
-Il portale per i partner cloud consente di accedere a tutti i dati nella scheda Utenti. Puoi identificare i tuoi dati personali. Per informazioni su come aggiungere/rimuovere utenti, vedere la [documentazione](./cloud-partner-portal-manage-users.md).
+Portale Cloud Partner consente di accedere a tutti i dati nella scheda utenti. È possibile identificare i dati personali. Per informazioni su come aggiungere/rimuovere utenti, vedere la [documentazione](./cloud-partner-portal-manage-users.md).
 
-<a name="manage"></a>Gestione
+<a name="manage"></a>Gestire
 ------
 
-Puoi gestire i tuoi dati personali premendo CANC sul tuo account utente nella scheda Utenti. Abbiamo ruoli di un **proprietario** e un **collaboratore** che possono essere assegnati a ogni utente specifico, ed entrambi possono essere assegnati/copiati/aggiornati/eliminati.
+È possibile gestire i dati personali premendo CANC nell'account utente nella scheda utenti. I ruoli di un **proprietario** e di un **collaboratore** possono essere assegnati a ogni utente specifico e possono essere assegnati/copiati/aggiornati/eliminati.
 
 <a name="consent"></a>Consenso
 -------
 
 Per gestire il consenso nel portale Cloud Partner, inizialmente viene sempre visualizzato un contratto per la pubblicazione che è necessario accettare per poter essere editori con Microsoft. Se non viene fornito il consenso al contratto per la pubblicazione, l'editore non sarà in grado effettuare operazioni di vendita tramite Microsoft.
 
-<a name="related-links"></a>Collegamenti correlati
+<a name="related-links"></a>Link correlati
 -------------
 
 -   [Come e dove Microsoft invia ai clienti\' dati, incluse le aree geografiche](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)

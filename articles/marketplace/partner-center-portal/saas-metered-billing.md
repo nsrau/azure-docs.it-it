@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 8e5a4813301cbab16d1cffabaaa60688f6e826ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80281324"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Fatturazione a consumo con il servizio di misurazione del Marketplace
@@ -73,12 +73,12 @@ Le dimensioni di fatturazione vengono condivise tra tutti i piani per un'offerta
 Gli attributi che definiscono la dimensione sono condivisi tra tutti i piani per un'offerta.  Prima di pubblicare l'offerta, una modifica apportata a questi attributi dal contesto di qualsiasi piano influirà sulla definizione della dimensione in tutti i piani.  Dopo la pubblicazione dell'offerta, questi attributi non saranno più modificabili.  Gli attributi sono:
 
 * Identificatore
-* Nome
+* Name
 * Unità di misura
 
 Gli altri attributi di una dimensione sono specifici di ogni piano e possono avere valori diversi dal piano al piano.  Prima di pubblicare il piano è possibile modificare questi valori e solo questo piano sarà interessato.  Una volta pubblicato il piano, questi attributi non saranno più modificabili.  Gli attributi sono:
 
-* Prezzo unitario
+* Prezzo per unità
 * Quantità inclusa per i clienti mensili 
 * Quantità inclusa per i clienti annuali 
 
@@ -103,12 +103,12 @@ Poiché una dimensione utilizzata con il servizio di misurazione del Marketplace
 Una volta pubblicata un'offerta con una dimensione, non è più possibile modificare i dettagli a livello di offerta per tale dimensione:
 
 * Identificatore
-* Nome
+* Name
 * Unità di misura
 
 Una volta pubblicato un piano, non è più possibile modificare i dettagli a livello di piano:
 
-* Prezzo unitario
+* Prezzo per unità
 * Quantità inclusa per il periodo mensile
 * Quantità inclusa per il termine annuale
 * Indica se la dimensione è abilitata per il piano

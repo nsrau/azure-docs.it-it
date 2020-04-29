@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Informazioni su come configurare il cluster di spazi di sviluppo per l'uso di Helm 3
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori
 ms.openlocfilehash: dbccb2618fd5a27805261d60e7891d920e0bc372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79454296"
 ---
 # <a name="configure-your-azure-dev-spaces-cluster-to-use-helm-3-preview"></a>Configurare il cluster di Azure Dev Spaces per l'uso di Helm 3 (anteprima)

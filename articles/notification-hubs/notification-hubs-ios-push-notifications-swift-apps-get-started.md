@@ -17,10 +17,10 @@ ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: a721c519c7a836e20455c6f1887bcfa7b52951f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80336629"
 ---
 # <a name="tutorial-send-push-notifications-to-swift-ios-apps-using-notification-hubs-rest-api"></a>Esercitazione: inviare notifiche push a app iOS Swift usando l'API REST di hub di notifica
@@ -93,10 +93,10 @@ In questa sezione verrà compilata l'app iOS che si connetterà all'hub di notif
 
    | Chiave                            | Type                     | valore                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | string                   | \<> hubKey                  |
-   | notificationHubKeyName         | string                   | \<> hubKeyName              |
-   | notificationHubName            | string                   | \<> hubName                 |
-   | notificationHubNamespace       | string                   | \<> hubNamespace            |
+   | notificationHubKey             | Stringa                   | \<> hubKey                  |
+   | notificationHubKeyName         | Stringa                   | \<> hubKeyName              |
+   | notificationHubName            | Stringa                   | \<> hubName                 |
+   | notificationHubNamespace       | Stringa                   | \<> hubNamespace            |
 
    È possibile trovare i valori necessari passando alla risorsa Hub di notifica nella portale di Azure. In particolare, i valori **notificationHubName** e **notificationHubNamespace** si trovano nell'angolo superiore destro del riepilogo di **Essentials** all'interno della pagina **Overview** .
 

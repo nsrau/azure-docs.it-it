@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 21d29cba85adfc147ec9deb6ab362a5da943bf10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335709"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticazione con Mappe di Azure
@@ -60,7 +60,7 @@ Per informazioni generali su come richiedere token da Azure AD, vedere [Informaz
 
 Dopo che Azure AD riceve un token, Azure Maps invia una richiesta con il seguente set di intestazioni di richiesta obbligatorie:
 
-| Intestazione della richiesta    |    Valore    |
+| Intestazione della richiesta    |    valore    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
 | Autorizzazione     | Bearer eyJ0e….HNIVN |

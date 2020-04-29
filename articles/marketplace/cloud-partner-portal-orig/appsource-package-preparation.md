@@ -1,5 +1,5 @@
 ---
-title: Preparazione del pacchetto AppSource Azure Marketplace
+title: Preparazione pacchetto AppSource | Azure Marketplace
 description: Questo articolo descrive come preparare e compilare pacchetti AppSource.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 76f8cbd6cb16b585a7dbda7b2ffa5eeeeb1b68d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280610"
 ---
 # <a name="appsource-package-preparation"></a>Preparazione di pacchetti AppSource
@@ -30,7 +30,7 @@ La procedura seguente facilita la creazione del pacchetto AppSource.
 
 Il pacchetto per Package Deployer è una parte del pacchetto AppSource.
 
-Per creare un pacchetto per Package Deployer, [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx)seguire le istruzioni seguenti: . Al termine dell'esercitazione, il pacchetto sarà costituito dagli asset seguenti:
+Per creare un pacchetto per il deployer del pacchetto, usare le istruzioni seguenti [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx):. Al termine dell'esercitazione, il pacchetto sarà costituito dagli asset seguenti:
 
 1. Cartella del pacchetto: contiene tutte le soluzioni, i dati di configurazione, i file flat e il contenuto del pacchetto. _Nota: nell'esempio seguente si presuppone che la cartella del pacchetto sia chiamata "PkgFolder"._
 2. Dll: l'assembly che contiene il codice personalizzato del pacchetto. _Nota: nell'esempio seguente si presuppone che il file sia chiamato "MicrosoftSample.dll"._
@@ -101,7 +101,7 @@ Di seguito è indicato il codice di esempio del file input.xml. Vedere le defini
         </Locales>
     </PvsPackageData>
  
-**Dove:**
+**In cui**
 
 |Campo|Dettagli|
 |---|---|
@@ -110,7 +110,7 @@ Di seguito è indicato il codice di esempio del file input.xml. Vedere le defini
 |SolutionAnchorName |Nome del file della soluzione con estensione zip in Package Deployer, che viene usato per il nome visualizzato e la descrizione degli asset della soluzione.|
 | StartDate| Data a partire dalla quale il pacchetto della soluzione è disponibile. Il formato è MM/GG/AAAA.|
 |EndDate|Data a partire dalla quale il pacchetto della soluzione non è più disponibile. Il formato è MM/GG/AAAA. |
-|SupportedCountries |Si tratta di un elenco delimitato da virgole di paesi/aree geografiche che devono visualizzare questo pacchetto. Contattare i servizi online per un elenco di tutti i codici paese correnti. Al momento della stesura del presente articolo, l'elenco è il seguente: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
+|SupportedCountries |Si tratta di un elenco delimitato da virgole di paesi/aree geografiche che dovrebbero visualizzare questo pacchetto. Contattare i servizi online per un elenco di tutti i codici paese correnti. Al momento della stesura del presente articolo, l'elenco è il seguente: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
 |LearnMoreLink | URL della pagina che contiene altre informazioni sul pacchetto. |
 |Locales|Un'istanza di questo nodo per ogni lingua dell'esperienza utente che si vuole supportare nell'esperienza utente della soluzione preferita. Questo nodo contiene elementi figlio che descrivono le impostazioni locali, il logo e i termini di ogni lingua.|
 |Locales: PackageLocale.Code|Identificatore delle impostazioni locali della lingua di questo nodo. Esempio: Inglese (Stati Uniti) corrisponde a 1033.|

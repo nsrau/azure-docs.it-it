@@ -1,5 +1,5 @@
 ---
-title: Gestione degli utenti nel portale per i partner cloud Azure Marketplace
+title: Gestione degli utenti nel portale cloud partner | Azure Marketplace
 description: Gestione degli utenti nel portale per Cloud Partner
 author: qianw211
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 441f466fcbeb05d06d565dbe1af237d01554d844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280219"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gestione degli utenti nel portale per Cloud Partner
@@ -26,7 +26,7 @@ Per **aggiungere utenti e assegnare ruoli** per la pubblicazione di offerte, seg
 
 ![Scheda Utenti](./media/cloud-partner-portal-how-to-manage-users/userstab.png)
 
-<a name="step-2-click-add-user"></a>Passaggio 2. Fare clic su Aggiungi utente.
+<a name="step-2-click-add-user"></a>Passaggio 2: Fare clic su Aggiungi utente.
 -----------------------
 
 ![Selezionare Aggiungi utente](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
@@ -53,7 +53,7 @@ Attualmente, solo i proprietari possono accedere alle schede Proventi di Azure e
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> I "nomi degli editori" per i quali il tuo messaggio di posta elettronica viene aggiunto come proprietario o collaboratore verranno visualizzati nell'elenco a discesa di Publisher per la selezione."
+> I "nomi degli autori" per i quali viene aggiunto un messaggio di posta elettronica come proprietario o collaboratore vengono visualizzati nell'elenco a discesa del server di pubblicazione per la selezione.
 
 ![Assegnazione ruolo - selezionare l'editore](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

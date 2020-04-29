@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcbeedddc65a916f869a778616779917a9571181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331971"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
@@ -32,11 +32,11 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 |:--- |:--- |
 | **Gestire AD FS** | |
 | [Ripristinare il trust](#repairthetrust) |Come ripristinare il trust federativo con Office 365. |
-| [Eseguire la federazione con Azure AD usando un ID di accesso alternativo](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
-| [Aggiungere un server ADFSAdd an AD FS server](#addadfsserver) |Come espandere una farm AD FS con un server AD FS aggiuntivo. |
+| [Federazione con Azure AD utilizzando un ID di accesso alternativo](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
+| [Aggiungere un server di AD FS](#addadfsserver) |Come espandere una farm AD FS con un server AD FS aggiuntivo. |
 | [Aggiungere un server proxy applicazione Web AD FS](#addwapserver) |Come espandere la farm AD FS con un server Proxy applicazione Web (WAP) aggiuntivo. |
 | [Aggiunta di un dominio federato](#addfeddomain) |Come aggiungere un dominio federato. |
-| [Aggiornare il certificato TLS/SSL](how-to-connect-fed-ssl-update.md)| Come aggiornare il certificato TLS/SSL per una farm ADFS. |
+| [Aggiornare il certificato TLS/SSL](how-to-connect-fed-ssl-update.md)| Come aggiornare il certificato TLS/SSL per una farm AD FS. |
 | **Personalizzare AD FS** | |
 | [Aggiungere un'illustrazione o il logo personalizzato della società](#customlogo) |Come personalizzare la pagina di accesso ad AD FS con un'illustrazione e il logo della società. |
 | [Aggiungere una descrizione di accesso](#addsignindescription) |Come aggiungere una descrizione della pagina di accesso. |
@@ -71,7 +71,7 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 > [!NOTE]
 > Azure AD Connect può solo ripristinare o eseguire azioni sui certificati autofirmati. I certificati di terze parti non possono essere ripristinati da Azure AD Connect.
 
-## <a name="federate-with-azure-ad-using-alternateid"></a><a name="alternateid"></a>Eseguire la federazione con Azure AD usando AlternateIDFederate with Azure AD using AlternateID 
+## <a name="federate-with-azure-ad-using-alternateid"></a><a name="alternateid"></a>Federazione con Azure AD tramite AlternateID 
 Il nome dell’entità utente locale e il nome dell'entità utente cloud devono essere preferibilmente uguali. Se il nome dell’entità utente locale usa un dominio non instradabile (ad esempio Contoso.local) o non può essere modificato a causa di dipendenze dell'applicazione locale, è consigliabile configurare l'ID di accesso alternativo. L’ID di accesso alternativo consente di configurare un'esperienza in cui gli utenti possono accedere con un attributo diverso dal relativo nome dell’entità locale, ad esempio mail. La scelta del nome dell’entità utente in Azure AD Connect ricade per impostazione predefinita sull’attributo userPrincipalName in Active Directory. Se si sceglie qualsiasi altro attributo per il nome dell'entità utente e si sta eseguendo la federazione con AD FS, Azure AD Connect configurerà AD FS per l’ID di accesso alternativo. Di seguito è riportato un esempio della scelta di un attributo diverso per il nome dell'entità utente:
 
 ![Selezione dell’attributo ID alternativo](./media/how-to-connect-fed-management/attributeselection.png)
@@ -87,7 +87,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 > [!NOTE]
 > Per altre informazioni su alternateID e i passaggi per eseguire la configurazione manuale, leggere [Configurazione di ID di accesso alternativo](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id).
 
-## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>Aggiungere un server ADFSAdd an AD FS server 
+## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>Aggiungere un server di AD FS 
 
 > [!NOTE]
 > Per aggiungere un server AD FS, Azure AD Connect richiede il file PFX del certificato. È quindi possibile eseguire questa operazione solo se la farm AD FS è stata configurata con Azure AD Connect.
@@ -120,7 +120,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 
     ![Installazione completata](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
-## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Aggiungere un server WAP di ADFSAdd an AD FS WAP server 
+## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Aggiungere un server AD FS WAP 
 
 > [!NOTE]
 > Per aggiungere un server WAP, Azure AD Connect richiede il file PFX del certificato. È quindi possibile eseguire questa operazione solo se la farm AD FS è stata configurata con Azure AD Connect.

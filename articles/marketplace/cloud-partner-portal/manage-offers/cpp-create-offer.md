@@ -1,5 +1,5 @@
 ---
-title: Creazione di offerte Marketplace Azure Marketplace
+title: Creare offerte del Marketplace | Azure Marketplace
 description: Creare offerte in Azure Marketplace e nel marketplace di AppSource usando il portale Cloud Partner
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: dsindona
 ms.openlocfilehash: d14940eff569a80759e9db0bfa2d6d1541a01377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286473"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Creare offerte di Azure Marketplace e AppSource
@@ -30,7 +30,7 @@ Quando si crea un'offerta, è necessario usare la scheda **Editor** per immetter
 
 Nella barra orizzontale sopra l'area di input dei dati vengono visualizzati i pulsanti seguenti:
 
-|   Pulsante    |   Scopo                                                          |
+|   Button    |   Scopo                                                          |
 |   ------    |  --------                                                          |
 | **Salva**    | Salva tutte le modifiche recenti apportate ai dati.  È necessario salvare manualmente le modifiche prima uscire dalla pagina, altrimenti andranno perse. | 
 | **Rimuovi** | Annulla le modifiche recenti apportate ai dati (dall'ultimo salvataggio).             |
@@ -48,9 +48,9 @@ Quando si crea un'offerta, è necessario specificare i dati obbligatori e facolt
 |      --------       |   -------                                                            |
 | **Impostazioni dell'offerta**  | Raccoglie le informazioni relative all'offerta e all'identità dell'editore.                    |
 | **SKU**            | Definisce le caratteristiche tecniche e aziendali di ogni versione SKU (Stock-Keeping Unit) dell'offerta. |
-| **Test Drive**      | Per i tipi di offerta che supportano questa funzionalità facoltativa, definisce una dimostrazione dell'offerta.  Per altre informazioni, vedere [Informazioni sul test drive](../test-drive/what-is-test-drive.md).  |
+| **Test drive**      | Per i tipi di offerta che supportano questa funzionalità facoltativa, definisce una dimostrazione dell'offerta.  Per altre informazioni, vedere [Informazioni sul test drive](../test-drive/what-is-test-drive.md).  |
 | **Marketplace** o **Vetrina** | Raccoglie le stringhe di testo, le immagini e i documenti usati per inserire l'offerta nel marketplace. |
-| **Supporto**         | Raccoglie le informazioni di contatto per l'assistenza clienti, il supporto tecnico e quello online.  |
+| **Supporto tecnico**         | Raccoglie le informazioni di contatto per l'assistenza clienti, il supporto tecnico e quello online.  |
 |  |  |
 
 Il contenuto delle schede con nome simile può differire in base ai diversi tipi di offerta.  I dettagli specifici di un'offerta di queste schede sono disponibili all'interno della sezione "Crea offerta" per ogni tipo di offerta.

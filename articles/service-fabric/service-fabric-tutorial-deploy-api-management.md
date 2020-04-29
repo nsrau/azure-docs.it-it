@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80292132"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
@@ -29,8 +29,8 @@ Questo articolo illustra come configurare il servizio [Gestione API di Azure](..
 
 Prima di iniziare:
 
-* Se non si dispone di una sottoscrizione di Azure, creare un [account gratuitoIf](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) you don't have an Azure subscription, create a free account
-* Installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) o l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli)
 * Creare un [cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) protetto in un gruppo di sicurezza di rete.
 * Se si distribuisce un cluster di Windows, configurare un ambiente di sviluppo di Windows. Installare [Visual Studio 2019](https://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
 
@@ -66,7 +66,7 @@ Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
  1. In Visual Studio selezionare File -> Nuovo progetto.
  2. Selezionare il modello Applicazione di Service Fabric nel Cloud e denominarlo **"ApiApplication"**.
  3. Selezionare il modello di servizio ASP.NET Core senza stato e denominare il progetto **"WebApiService"**.
- 4. Selezionare l'API Web ASP.NET modello di progetto Core 2.1.
+ 4. Selezionare il modello di progetto API Web ASP.NET Core 2,1.
  5. Una volta creato il progetto, aprire `PackageRoot\ServiceManifest.xml` e rimuovere l'attributo `Port` dalla configurazione delle risorse endpoint:
 
     ```xml
@@ -77,7 +77,7 @@ Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
     </Resources>
     ```
 
-    La rimozione della porta consente a Service Fabric di specificare una porta in modo dinamico dall'intervallo di porte dell'applicazione, aperta tramite il gruppo di sicurezza di rete nel modello Gestione risorse cluster, consentendo al traffico di fluire su di essa da Gestione API.
+    La rimozione della porta consente Service Fabric di specificare dinamicamente una porta dall'intervallo di porte dell'applicazione, aperta tramite il gruppo di sicurezza di rete nel cluster Gestione risorse modello, consentendo il flusso del traffico da gestione API.
 
  6. Premere F5 in Visual Studio per verificare che l'API Web sia disponibile in locale.
 
@@ -134,7 +134,7 @@ Immettere un valore descrittivo per **displayName** e **description** per il pro
 
 * **displayName** può essere un nome qualsiasi per l'API. Per questo articolo usare "Service Fabric App".
 * **name** consente di specificare un nome univoco e descrittivo per l'API, come "service-fabric-app", che viene visualizzato nel portale di pubblicazione e in quello per sviluppatori.
-* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad\/esempio "http: /servicefabric".
+* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio, "http\/:/servicefabric".
 * **path** viene aggiunto all'URL di base del servizio Gestione API. L'URL di base è comune a tutte le API ospitate da un'istanza del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.
 * **protocols** determina i protocolli da usare per l'accesso all'API, per questo articolo **http** e **https**.
 * **path** è un suffisso per l'API. Per questo articolo usare "myapp".
@@ -190,7 +190,7 @@ Specificare un valore per i seguenti parametri vuoti in *apim.parameters.json* p
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
+|apimSku|Sviluppatore|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -273,11 +273,11 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
     ["value1", "value2"]
     ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Un cluster è costituito da altre risorse di Azure oltre alla risorsa cluster stessa. Il modo più semplice per eliminare il cluster e tutte le risorse che utilizza consiste nell'eliminare il gruppo di risorse.
 
-Accedere ad Azure e selezionare l'ID della sottoscrizione da usare per rimuovere il cluster.  È possibile trovare l'ID sottoscrizione accedendo al portale di [Azure.](https://portal.azure.com) Eliminare il gruppo di risorse e tutte le risorse del cluster utilizzando il [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Accedere ad Azure e selezionare l'ID della sottoscrizione da usare per rimuovere il cluster.  È possibile trovare l'ID sottoscrizione accedendo al [portale di Azure](https://portal.azure.com). Eliminare il gruppo di risorse e tutte le risorse del cluster usando il [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
@@ -303,7 +303,7 @@ Altre informazioni sull'uso di [ Gestione API](/azure/api-management/import-and-
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-vice-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.jsonn
+Vice-Fabric-scripts-and-Templates/BLOB/Master/templates/Service-Integration/Network-APIM. Parameters. JSONn
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

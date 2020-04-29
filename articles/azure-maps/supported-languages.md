@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3b3733dfc32dae21ddcf4c5f73cddf9ad6b7fc59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334078"
 ---
 # <a name="localization-support-in-azure-maps"></a>Supporto della localizzazione nelle mappe di Azure
@@ -25,7 +25,7 @@ Azure Maps supporta diversi linguaggi e visualizzazioni in base al paese/area ge
 Le mappe di Azure sono state localizzate in diversi linguaggi tra i servizi. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
   
 
-| ID         | Nome                   |  Mappe | Ricerca | Routing | Weather | Eventi imprevisti del traffico | Controllo mappa JS |
+| ID         | Name                   |  Mappe | Cerca | Routing | Weather | Eventi imprevisti del traffico | Controllo mappa JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabo                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -147,7 +147,7 @@ Per impostazione predefinita, il parametro di visualizzazione è impostato su **
 
 Nella tabella seguente vengono fornite le visualizzazioni supportate.
 
-| Visualizzazione         | Descrizione                            |  Mappe | Ricerca | controllo mappa JS |
+| Visualizza         | Descrizione                            |  Mappe | Cerca | controllo mappa JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirati Arabi Uniti (visualizzazione araba)    |   ✓   |        |     ✓          |
 | AR           | Argentina (vista Argentina)           |   ✓   |    ✓   |     ✓          |

@@ -1,6 +1,6 @@
 ---
-title: Elenco di controllo per la creazione dell'offerta SaaS - Commercial Marketplace for Azure
-description: I dettagli che puoi fornire nel processo di creazione dell'offerta SaaS. - Mercato commerciale per Azure
+title: Elenco di controllo per la creazione di offerte SaaS-Marketplace commerciale per Azure
+description: I dettagli che è possibile fornire nel processo di creazione dell'offerta SaaS. -Marketplace commerciale per Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,157 +8,157 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80281341"
 ---
 # <a name="saas-offer-creation-checklist"></a>Elenco di controllo per la creazione di offerte SaaS
 
-Il processo di creazione dell'offerta SaaS ti porterà attraverso più pagine. Ecco i dettagli che puoi fornire in ogni pagina, con link per saperne di più su ogni elemento.
+Il processo di creazione dell'offerta SaaS consentirà di eseguire più pagine. Di seguito sono riportati i dettagli che è possibile fornire in ogni pagina, con collegamenti per ulteriori informazioni su ogni elemento.
 
-Gli elementi che è necessario fornire o specificare sono indicati di seguito. Alcune aree sono facoltative o dispongono di valori predefiniti, che è possibile modificare in base alle si desidera. Non è necessario lavorare su queste sezioni nell'ordine elencato di seguito.
+Gli elementi necessari per fornire o specificare sono indicati di seguito. Alcune aree sono facoltative o sono disponibili valori predefiniti, che è possibile modificare nel modo desiderato. Non è necessario lavorare a queste sezioni nell'ordine indicato.
 
-| **Elemento**    | **Scopo**  |
+| **Item**    | **Scopo**  |
 | :---------- | :-------------------|
-| [**Nuova offerta Modale**](#new-offer-modal) | Le raccolte offrono informazioni sull'identità.  |
-| [Pagina Impostazione offerta](#offer-setup-page) | Consente di scegliere di utilizzare le funzionalità principali e scegliere come vendere l'offerta tramite Microsoft.  |
-| [Pagina delle proprietà](#properties-page) | Definisci le categorie e i settori utilizzati per raggruppare la tua offerta sui marketplace, i contratti legali che supportano la tua offerta e la versione dell'app. |
-| [Pagina di inserzione dell'offerta](#offer-listing-page) | Definire i dettagli dell'offerta da visualizzare nel marketplace, incluse le descrizioni dell'offerta e le risorse di marketing. |
-| [Anteprima pagina](#preview-page) | Definisci un pubblico di anteprima limitato per il rilascio dell'offerta prima di pubblicare l'offerta in diretta ai segmenti di pubblico del marketplace più ampi. |
-| [Pagina di configurazione tecnica dell'offerta](#technical-configuration-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft. Definire i dettagli tecnici (percorso URL, webhook, ID tenant e ID app) usati per connettersi all'offerta. |
-| [**Nuovo piano Modale**](#plan-identity-modal) | Raccoglie informazioni sull'identità del piano.  |
-| [Pagina Disspagina di elenco del piano](#plan-listing-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft. Definire i dettagli utilizzati per elencare il piano nel marketplace.  |
-| [Pagina Pianificare la & dei prezzi](#plan-pricing--availability-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft.  Raccoglie le caratteristiche aziendali (modello di determinazione dei prezzi), il pubblico e la disponibilità di mercato per ogni piano (versione) dell'offerta.  |
-| [Pagina elenco unità di test](#test-drive-listing-page)  | Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire i dettagli utilizzati per elencare il test drive nel marketplace.  |
-| Pagina di configurazione tecnica del test Drive  | Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire i dettagli tecnici per la dimostrazione (o "test drive") che consentirà ai clienti di provare l'offerta prima di impegnarsi ad acquistarla.  |
-| [Pagina di revisione e pubblicazione](#review-and-publish-page)  | Selezionare le modifiche che si desidera pubblicare, visualizzare lo stato di ogni pagina e fornire note al team di certificazione.  |
+| [**Nuova offerta modale**](#new-offer-modal) | Raccoglie le informazioni sull'identità dell'offerta.  |
+| [Pagina installazione offerta](#offer-setup-page) | Consente di acconsentire esplicitamente a usare le funzionalità principali e scegliere come vendere l'offerta tramite Microsoft.  |
+| [Pagina delle proprietà](#properties-page) | Definire le categorie e i settori usati per raggruppare l'offerta nei Marketplace, i contratti legali che supportano l'offerta e la versione dell'app. |
+| [Pagina di inserzione dell'offerta](#offer-listing-page) | Definire i dettagli dell'offerta da visualizzare nel Marketplace, incluse le descrizioni dell'offerta e degli asset di marketing. |
+| [Pagina anteprima](#preview-page) | Definire un gruppo di destinatari di anteprima limitato per il rilascio dell'offerta prima di pubblicare l'offerta in un gruppo più ampio di destinatari del Marketplace. |
+| [Pagina di configurazione tecnica offerta](#technical-configuration-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft. Definire i dettagli tecnici (percorso URL, webhook, ID tenant e ID app) usati per connettersi all'offerta. |
+| [**Nuovo piano modale**](#plan-identity-modal) | Raccoglie le informazioni sull'identità del piano.  |
+| [Pagina di elenco del piano](#plan-listing-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft. Definire i dettagli usati per elencare il piano nel Marketplace.  |
+| [Pianificare i prezzi & pagina di disponibilità](#plan-pricing--availability-page)  | Disponibile solo se si sceglie di vendere l'offerta tramite Microsoft.  Raccoglie le caratteristiche di business (modello di determinazione dei prezzi), i destinatari e la disponibilità del mercato per ogni piano (versione) dell'offerta.  |
+| [Pagina di elenco di test drive](#test-drive-listing-page)  | Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire i dettagli usati per elencare i test drive nel Marketplace.  |
+| Pagina configurazione tecnica test drive  | Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire i dettagli tecnici per la dimostrazione (o "test drive") che consentirà ai clienti di provare l'offerta prima di eseguire il commit per acquistarla.  |
+| [Pagina Revisione e pubblicazione](#review-and-publish-page)  | Selezionare le modifiche che si desidera pubblicare, visualizzare lo stato di ogni pagina e fornire note al team di certificazione.  |
 
 
 ## <a name="new-offer-modal"></a>Nuova offerta modale 
 
-Le prime informazioni che ti verrà chiesto di fornire sono un ID e un alias per la tua offerta. 
+Le prime informazioni che verrà richiesto di fornire sono un ID e un alias per l'offerta. 
 
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 
-| Offer ID (ID offerta)  | Obbligatorio, non può essere modificato dopo la creazione. Massimo 50 caratteri e deve essere costituito solo da caratteri minuscoli, alfanumerici, trattini o caratteri di sottolineatura. |
-| Alias dell'offerta  | Obbligatorio. |
+| Offer ID (ID offerta)  | Obbligatorio, non può essere modificato dopo la creazione. Massimo 50 caratteri e devono essere costituiti solo da lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. |
+| Alias offerta  | Obbligatorio. |
 
-## <a name="offer-setup-page"></a>Pagina di configurazione dell'offerta
+## <a name="offer-setup-page"></a>Pagina installazione offerta
 
-La pagina di configurazione dell'offerta è dove è possibile optare per diversi canali e movimenti di vendita, così come dichiarare l'uso di funzionalità chiave, come test drive e lead dei clienti. 
+Nella pagina installazione offerta è possibile scegliere tra diversi canali e vendere i movimenti, nonché dichiarare l'utilizzo di funzionalità chiave, ad esempio test drive e lead clienti. 
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
-| Vuoi vendere tramite Microsoft?  | Obbligatorio. Valore predefinito: Sì |
-| Come vuoi che i potenziali clienti interagiscano con l'offerta? (Invito all'azione)  | Obbligatorio se non vendere tramite Microsoft. Impostazione predefinita: Versione di prova gratuita, Opzioni: "Ottieni ora", "Prova gratuita", "Contattami". |
-| URL della versione di valutazione  | Obbligatorio se è selezionata l'opzione "Prova gratuita", in quanto il modo in cui i clienti devono interagire con l'elenco delle offerte. |
-| URL offerta  | Obbligatorio se è selezionata l'opzione "Ottieni ora", in quanto il modo in cui i clienti devono interagire con l'offerta |
-| Canali  | Facoltativa. Impostazione predefinita: non ha attivato il canale CSP (rivenditore).  |
-| Test drive | Facoltativa. Impostazione predefinita: nessun test drive abilitato.  |
-| Type of Test Drive (Tipo di test drive) | Obbligatorio se abilitato un test drive. Impostazione predefinita: nessuno selezionato. Opzioni: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, App per la logica, Power BI.  |
-| Gestione lead - connettersi a un sistema CRM | Obbligatorio se si vende tramite Microsoft o se l'inserzione offre offerte come "Contattami". Impostazione predefinita: nessun sistema CRM connesso. Opzioni CRM: tabella di Azure, BLOB di Azure, Dynamics CRM online, endpoint HTTPs, Marketo, Salesforce  |
+| Si vuole vendere tramite Microsoft?  | Obbligatorio. Valore predefinito: Sì |
+| In che modo si desidera che i potenziali clienti interagiscano con l'elenco delle offerte? (Chiamata all'azione)  | Obbligatorio se non si vendono tramite Microsoft. Impostazione predefinita: versione di valutazione gratuita, opzioni: "Ottieni ora", "versione di valutazione gratuita", "contattami". |
+| URL della versione di valutazione  | Obbligatorio se è selezionata l'opzione "versione di valutazione gratuita", come il modo in cui i clienti devono interagire con l'elenco delle offerte. |
+| URL offerta  | Obbligatorio se è selezionata l'opzione "Ottieni ora", poiché il modo in cui i clienti devono interagire con l'elenco delle offerte |
+| Canali  | Facoltativo. Impostazione predefinita: non è stato scelto il canale CSP (Reseller).  |
+| Test drive | Facoltativo. Impostazione predefinita: nessuna test drive abilitata.  |
+| Type of Test Drive (Tipo di test drive) | Obbligatorio se è abilitato un test drive. Impostazione predefinita: nessuna selezione. Opzioni: Azure Resource Manager, Dynamics 365 for business Central, Dynamics 365 per Customer Engagement, Dynamics 365 per Operations, app per la logica, Power BI.  |
+| Gestione dei lead: connettersi a un sistema CRM | Obbligatorio se si vendono tramite Microsoft o se le offerte sono elencate come "Contattatemi". Impostazione predefinita: non è connesso alcun sistema CRM. Opzioni CRM: tabella di Azure, BLOB di Azure, Dynamics CRM Online, HTTPs ' endpoint, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Pagina Proprietà
 
-La pagina delle proprietà consente di definire le categorie e i settori utilizzati per raggruppare l'offerta nei marketplace, i contratti legali che supportano l'offerta e la versione dell'app. Assicurati di fornire dettagli completi e precisi sulla tua offerta in questa pagina, in modo che venga visualizzata in modo appropriato e offerta al giusto set di clienti. 
+La pagina delle proprietà consente di definire le categorie e i settori usati per raggruppare l'offerta nei Marketplace, i contratti legali che supportano l'offerta e la versione dell'app. Assicurarsi di fornire dettagli completi e precisi sull'offerta in questa pagina, in modo che vengano visualizzati in modo appropriato e offerti al set di clienti corretto. 
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
-| Categoria e sottocategoria | Richiesto 1 e massimo 3. Impostazione predefinita: nessuno selezionato. |
-| Industrie e sottoindustrie | Facoltativa. max 2 L1 Industries e max 2 sottoindustrie all'interno di ogni settore L1, Default: Nessuno selezionato |
-| Versione dell'app  | Facoltativa. Impostazione predefinita: Nessuna. |
-| Usa contratto standard  | Facoltativa. Impostazione predefinita: non selezionata.  | |
-| Condizioni per l'utilizzo  | Obbligatorio se Non è selezionato Contratto standard.  |
+| Categoria e sottocategoria | Obbligatorio 1 e max 3. Impostazione predefinita: nessuna selezione. |
+| Settori e sottosettori | Facoltativo. Max 2 industrie L1 e max 2 sottosettori in ogni settore L1, valore predefinito: nessuna selezione |
+| Versione dell'app  | Facoltativo. Impostazione predefinita: None. |
+| USA contratto standard  | Facoltativo. Impostazione predefinita: non selezionata.  | |
+| Condizioni per l'utilizzo  | Obbligatorio se il contratto standard non è selezionato.  |
 
-## <a name="offer-listing-page"></a>Pagina di presentazione dell'offerta
+## <a name="offer-listing-page"></a>Pagina di inserzione dell'offerta
 
-La pagina di presentazione è dove fornisci il testo e le immagini che i clienti vedono quando visualizzano la presentazione della tua offerta nel marketplace. 
+Nella pagina di presentazione viene fornito il testo e le immagini che i clienti visualizzano durante la visualizzazione dell'inserzione dell'offerta nel Marketplace. 
 
 | **Nome campo**    | **Note**   |
 | :---------------- | :-----------| 
-| Nome  | Obbligatorio, massimo 50 caratteri. |
+| Name  | Obbligatorio, massimo 50 caratteri. |
 | Riepilogo  | Obbligatorio, massimo 100 caratteri. | 
 | Descrizione  | Obbligatorio, massimo 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatorio, massimo 3000 caratteri. |
-| Search Keywords (Parole chiave di ricerca)  | Facoltativo, consigliato, massimo 3 parole chiave. |
-| URL dell'informativa sulla privacy  | Obbligatorio. |
-| URL dei materiali di marketing del programma CSP  | Facoltativa. |
-| Link utili Titolo - URL  | Facoltativa. |
-| Titolo documenti di supporto - File  | Obbligatorio, min 1 e max 3. Deve essere in formato PDF. |
-| Screenshots (Schermate)  | Obbligatorio, min 1 screenshot e max 5; quattro o più raccomandati. Deve essere 1280 X 720 in formato PNG. |
-| Loghi del negozio (Piccolo, Medio, Grande, Ampio, Eroe)  | Piccolo (48 X 48) e Grande (216 X 216) richiesto; altre dimensioni opzionali ma consigliate: Medio (90 x 90), Ampio (255 x 115), Eroe (815 x 290). Deve essere in formato PNG. |
-| Nome dei video , URL e miniatura  | Facoltativo, consigliato, max 4 video. La miniatura deve essere 1280 x 720 in formato PNG. Il video deve essere ospitato su YouTube o Vimeo. |
-| Contatti (Programma CSP, Ingegneria, Supporto)  | Necessità di contatto tecnico e di supporto (nome, e-mail e numero di telefono); CSP Programma contatto facoltativo ma consigliato. |
+| Search Keywords (Parole chiave di ricerca)  | Parole chiave facoltative, consigliate e max 3. |
+| URL informativa sulla privacy  | Obbligatorio. |
+| URL dei materiali di marketing del programma CSP  | Facoltativo. |
+| Titolo dei collegamenti utili + URL  | Facoltativo. |
+| Titolo e file di supporto per documenti  | Obbligatorio, minimo 1 e massimo 3. Deve essere un formato di file PDF. |
+| Screenshots (Schermate)  | Obbligatorio, minimo 1 screenshot e max 5; quattro o più consigliati. Deve essere 1280 X 720 in formato PNG. |
+| Logo dello Store (Small, medium, large, Wide, Hero)  | Small (48 X 48) e Large (216 X 216) obbligatorio; altre dimensioni facoltative ma consigliate: media (90 x 90), Wide (255 x 115), Hero (815 x 290). Deve essere in formato PNG. |
+| Nome video + URL + anteprima  | Video facoltativi, consigliati, massimo 4. L'anteprima deve essere 1280 x 720 in formato PNG. Il video deve essere ospitato in YouTube o Vimeo. |
+| Contatti (programma CSP, progettazione, supporto)  | È necessario un contatto tecnico e di supporto (nome, indirizzo di posta elettronica e numero di telefono); Il contatto del programma CSP è facoltativo ma consigliato. |
 | URL del supporto  | Obbligatorio. |
 
 ## <a name="preview-page"></a>Pagina Anteprima
 
-La pagina di anteprima è dove si specifica il pubblico di avere accesso all'anteprima dell'offerta, per verificare che l'offerta soddisfi tutte le vostre esigenze prima di andare in diretta. 
+La pagina di anteprima consente di specificare i destinatari per accedere all'anteprima dell'offerta, per verificare che l'offerta soddisfi tutti i requisiti prima che diventi disponibile. 
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
-| E-mail AAD/MSA - descrizione | Obbligatorio, min 1 e max 10 se immesso manualmente o fino a 20 se si carica un file CSV. |
+| Posta elettronica e descrizione di AAD/MSA | Obbligatorio, min 1 e Max 10 se immesso manualmente o fino a 20 se si carica un file CSV. |
 
-## <a name="technical-configuration-page"></a>Pagina di configurazione tecnica 
+## <a name="technical-configuration-page"></a>Pagina configurazione tecnica 
 
-La pagina di configurazione tecnica consente di specificare i dettagli tecnici utilizzati da Microsoft per connettersi all'offerta. Questa pagina non è visibile all'utente se si è deciso di non vendere tramite Microsoft.
-
-| **Nome campo**    | **Note**   |  
-| :---------------- | :-----------| 
-| Landing Page URL (URL della pagina di destinazione) | Obbligatorio se si vende tramite Microsoft. |
-| Collegamento webhook | Obbligatorio se si vende tramite Microsoft. |
-| ID del tenant di Azure AD | Obbligatorio se si vende tramite Microsoft. |
-| ID dell'app di Azure AD | Obbligatorio se si vende tramite Microsoft. |
-
-## <a name="plan-identity-modal"></a>Pianificare l'identità modalePlan identity modal
-
-Le prime informazioni che ti viene chiesto di fornire sono un nome e un ID per il tuo piano. Questa pagina non è visibile all'utente se si è deciso di non vendere tramite Microsoft.
+Nella pagina configurazione tecnica è possibile specificare i dettagli tecnici utilizzati da Microsoft per connettersi all'offerta. Questa pagina non è visibile se si è deciso di non vendere tramite Microsoft.
 
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 
-| ID piano  | Obbligatorio se si vende tramite Microsoft. Non può essere modificato dopo la creazione. Massimo 50 caratteri e deve essere costituito solo da caratteri minuscoli, alfanumerici, trattini o caratteri di sottolineatura. |
-| Plan Name  | Obbligatorio se si vende tramite Microsoft. Deve essere univoco in tutti i piani dell'offerta. Massimo 50 caratteri. |
+| Landing Page URL (URL della pagina di destinazione) | Obbligatorio se si vendono tramite Microsoft. |
+| Webhook di connessione | Obbligatorio se si vendono tramite Microsoft. |
+| ID del tenant di Azure AD | Obbligatorio se si vendono tramite Microsoft. |
+| ID dell'app di Azure AD | Obbligatorio se si vendono tramite Microsoft. |
 
-## <a name="plan-listing-page"></a>Pagina di pianificazione dell'elenco
+## <a name="plan-identity-modal"></a>Modalità di identità del piano
 
-La pagina di presentazione del piano consente di fornire il testo da visualizzare ai clienti quando visualizza il piano nel marketplace. Questa pagina non è visibile all'utente se si è deciso di non vendere tramite Microsoft.
+Le prime informazioni da fornire sono un nome e un ID per il piano. Questa pagina non è visibile se si è deciso di non vendere tramite Microsoft.
 
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 
-| Descrizione del piano   | Obbligatorio se si vende tramite Microsoft. Massimo 500 caratteri. | |
+| ID piano  | Obbligatorio se si vendono tramite Microsoft. Non può essere modificato dopo la creazione. Massimo 50 caratteri e devono essere costituiti solo da lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. |
+| Plan Name  | Obbligatorio se si vendono tramite Microsoft. Deve essere univoco in tutti i piani dell'offerta. Massimo 50 caratteri. |
 
-## <a name="plan-pricing--availability-page"></a>Pagina Pianificare la disponibilità del & dei prezzi
+## <a name="plan-listing-page"></a>Pagina di elenco del piano
 
-La pagina prezzi e disponibilità del piano consente di definire le caratteristiche aziendali, il pubblico e la disponibilità del mercato per ogni piano (versione) dell'offerta. Questa pagina non è visibile all'utente se si è deciso di non vendere tramite Microsoft.
+La pagina di presentazione del piano è la posizione in cui si fornisce il testo per i clienti da visualizzare quando si Visualizza il piano nel Marketplace. Questa pagina non è visibile se si è deciso di non vendere tramite Microsoft.
+
+| **Nome campo**    | **Note**   |  
+| :---------------- | :-----------| 
+| Descrizione del piano   | Obbligatorio se si vendono tramite Microsoft. Massimo 500 caratteri. | |
+
+## <a name="plan-pricing--availability-page"></a>Pianificare i prezzi & pagina di disponibilità
+
+Nella pagina piano prezzi e disponibilità è possibile definire le caratteristiche aziendali, i destinatari e la disponibilità del mercato per ogni piano (versione) dell'offerta. Questa pagina non è visibile se si è deciso di non vendere tramite Microsoft.
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
-| Disponibilità del mercato  | Obbligatorio, min 1 e max 141. |
-| Modello di prezzi  | Obbligatorio. Impostazione predefinita: Tariffa fissa. Opzioni: Tariffa fissa, per utente. |
-| Posti minimi e massimi  | Facoltativo, disponibile solo se è selezionato il modello di determinazione dei prezzi basato su postazioni. |
-| Termine di fatturazione  | Obbligatorio. Impostazione predefinita: Mensile. Opzioni: Mensile, Annuale. |
-| Price  | USD al mese richiesto, se è selezionata la durata della fatturazione mensile; o USD all'anno se viene selezionato il termine di fatturazione annuale. |
-| Pianificare il pubblico  | Facoltativa. Impostazione predefinita: piano pubblico. Opzioni: Pubblico, Privato per ID tenant |
-| Destinatari di piani con restrizioni (ID tenant e descrizione)  | Obbligatorio se il piano privato è selezionato. ID tenant min 1 e max 10 se immessi manualmente. Max 20000 se importazione di file CSV. |
+| Disponibilità del mercato  | Obbligatorio, minimo 1 e massimo 141. |
+| Modello di prezzi  | Obbligatorio. Impostazione predefinita: frequenza fissa. Opzioni: frequenza fissa, per utente. |
+| Numero minimo e massimo di postazioni  | Facoltativo, disponibile solo se è selezionato il modello di determinazione prezzi basato sul posto. |
+| Termine fatturazione  | Obbligatorio. Impostazione predefinita: mensile. Opzioni: mensile, annuale. |
+| Price  | USD necessari al mese, se è stato selezionato un termine di fatturazione mensile; o USD all'anno se è stato selezionato un termine di fatturazione annuale. |
+| Pianificare i destinatari  | Facoltativo. Impostazione predefinita: piano pubblico. Opzioni: pubblico, privato in base all'ID tenant |
+| Destinatari del piano limitato (ID tenant + Descrizione)  | Obbligatorio se è stato selezionato un piano privato. Min 1 e Max 10 ID tenant se immessi manualmente. Max 20000 se importazione file CSV. |
 
-## <a name="test-drive-listing-page"></a>Pagina di presentazione di Test Drive
+## <a name="test-drive-listing-page"></a>Pagina di elenco di test drive
 
-Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire i dettagli utilizzati per elencare il test drive nel marketplace.
+Disponibile solo se si sceglie di offrire un test drive per l'offerta. Definire i dettagli usati per elencare i test drive nel Marketplace.
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
 | Descrizione  | Obbligatorio. |
-| Nome manuale dell'utente : file  | Obbligatorio, max 1 doc. Deve essere in formato PDF. |
-| Nome del video, URL e miniatura  | Facoltativo, consigliato. La miniatura deve essere 533 x 324 in formato JPGP o PNG. Il video deve essere ospitato su YouTube o Vimeo. |
+| Nome manuale utente + file  | Obbligatorio, massimo 1 doc. deve essere in formato PDF. |
+| Nome del video, URL + anteprima  | Facoltativo, consigliato. L'anteprima deve essere 533 x 324 in formato JPGP o PNG. Il video deve essere ospitato in YouTube o Vimeo. |
 
-## <a name="review-and-publish-page"></a>Pagina di revisione e pubblicazione
+## <a name="review-and-publish-page"></a>Pagina Revisione e pubblicazione
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
-| Note per la certificazione  | Facoltativa. |
+| Note per la certificazione  | Facoltativo. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

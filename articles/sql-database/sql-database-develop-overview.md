@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 741906bbe9de68459b2e4a704a243fde4771b3a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067317"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
@@ -30,7 +30,7 @@ Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve t
 
 È possibile sfruttare strumenti open source come [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) e [Visual Studio Code](https://code.visualstudio.com/). Inoltre, il database SQL di Azure interagisce con gli strumenti Microsoft come [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). È anche possibile usare il portale di Azure, PowerShell e le API REST, per aumentare la produttività.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 L'accesso al database SQL di Azure è protetto con account di accesso e firewall. Il database SQL di Azure supporta utenti e account di accesso per l'autenticazione di SQL Server e [Azure Active Directory](sql-database-aad-authentication.md). Gli account di accesso di AAD sono disponibili solo nell'istanza gestita. 
 
@@ -50,13 +50,13 @@ Il database SQL di Azure è un servizio cloud in cui si possono prevedere errori
 
 Per altre informazioni sulle attività preliminari per gli eventi di manutenzione pianificata nel database SQL di Azure, vedere [Pianificazione di eventi di manutenzione di Azure nel database SQL di Azure](sql-database-planned-maintenance.md).
 
-## <a name="network-considerations"></a>Considerazioni sulla rete
+## <a name="network-considerations"></a>Considerazioni per la rete
 
 - Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.  Altre informazioni: [Configurazione del firewall di un database SQL di Azure](sql-database-configure-firewall-settings.md).
-- Se il programma client si connette al database SQL mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Ulteriori [informazioni:Porte oltre 1433 per ADO.NET 4.5 e Database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Se il programma client si connette al database SQL mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [porte superiori a 1433 per ADO.NET 4,5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Le connessioni client al database SQL di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. Per altre informazioni, vedere [Architettura della connettività del database SQL di Azure](sql-database-connectivity-architecture.md) e [Porte successive alla 1433 per ADO.NET 4.5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Per la configurazione di rete per un'istanza gestita, vedere configurazione di [rete per le istanze gestite](sql-database-howto-managed-instance.md#network-configuration).
+- Per la configurazione di rete per un'istanza gestita, vedere [configurazione di rete per le istanze gestite](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplora tutte le [funzionalità del database SQL](sql-database-technical-overview.md).
+Esplorare tutte le [funzionalità del database SQL](sql-database-technical-overview.md).

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: 8cb641f95e7327e80f42df86a56eba8c34e7e598
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79367024"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
@@ -17,12 +17,12 @@ ms.locfileid: "79367024"
 Un webhook consente a un servizio esterno di avviare un Runbook specifico in automazione di Azure tramite una singola richiesta HTTP. I servizi esterni includono Azure DevOps Services, GitHub, log di monitoraggio di Azure e applicazioni personalizzate. Un servizio di questo tipo può usare un webhook per avviare un Runbook senza implementare una soluzione completa usando l'API di automazione di Azure. È possibile confrontare i webhook con altri metodi di avvio di un Runbook nell' [avvio di un Runbook in automazione di Azure](automation-starting-a-runbook.md).
 
 > [!NOTE]
-> L'uso di un webhook per avviare un Runbook Python non è supportato.
+> L'uso di un webhook per avviare un runbook Python non è supportato.
 
 ![Panoramica dei webhook](media/automation-webhooks/webhook-overview-image.png)
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo AZ sul ruolo di lavoro ibrido per Runbook, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando [come aggiornare i moduli Azure PowerShell in automazione di Azure](automation-update-azure-modules.md).
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](automation-update-azure-modules.md).
 
 ## <a name="webhook-properties"></a>Proprietà webhook
 
@@ -33,7 +33,7 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 | Nome |Nome del webhook. È possibile specificare qualsiasi nome desiderato, perché non è esposto al client. Il nome viene usato solo per consentire all'utente di identificare il runbook in Automazione di Azure. Come procedura consigliata è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 | URL |URL del webhook. Si tratta dell'indirizzo univoco chiamato da un client con un HTTP POST per avviare il Runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente a un sistema di terze parti di richiamare Runbook senza ulteriore autenticazione. Per questo motivo, è consigliabile considerare l'URL come una password. Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure durante la creazione del webhook. Prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
 | Expiration date | Data di scadenza del webhook, dopo la quale non può più essere utilizzata. È possibile modificare la data di scadenza dopo la creazione del webhook, purché il webhook non sia scaduto. |
-| Enabled | Impostazione che indica se il webhook è abilitato per impostazione predefinita al momento della creazione. Se si imposta questa proprietà su disabled, nessun client può usare il webhook. È possibile impostare questa proprietà quando si crea il webhook o qualsiasi altro momento dopo la relativa creazione. |
+| Attivato | Impostazione che indica se il webhook è abilitato per impostazione predefinita al momento della creazione. Se si imposta questa proprietà su disabled, nessun client può usare il webhook. È possibile impostare questa proprietà quando si crea il webhook o qualsiasi altro momento dopo la relativa creazione. |
 
 ## <a name="parameters-used-when-the-webhook-starts-a-runbook"></a>Parametri usati quando il webhook avvia un Runbook
 
@@ -147,7 +147,7 @@ Quando viene creato un webhook, ha un periodo di validità di dieci anni, dopo i
 Il runbook di esempio seguente accetta i dati del webhook e avvia le macchine virtuali specificate nel corpo della richiesta. Per testare questo Runbook, fare clic su **Crea un Runbook**nell'account di automazione in **manuali operativi**. Se non si conosce la procedura di creazione di un runbook, vedere [Creare un runbook di Automazione di Azure](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Per manuali operativi di PowerShell non grafici, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile usare questi cmdlet oppure è possibile [aggiornare i moduli](automation-update-azure-modules.md) nell'account di automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli anche se è stato appena creato un nuovo account di automazione.
+> Per manuali operativi di PowerShell non grafici, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile usare questi cmdlet oppure è possibile [aggiornare i moduli](automation-update-azure-modules.md) nell'account di Automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli, anche se è stato appena creato un nuovo account di Automazione.
 
 ```powershell
 param

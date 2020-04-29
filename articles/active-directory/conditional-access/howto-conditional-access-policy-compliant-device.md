@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc6bd486c1e8338eaf875c7026764c80d49e2f05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295209"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Accesso condizionale: richiedere i dispositivi conformi
@@ -40,10 +40,10 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
 1. In **assegnazioni**selezionare **utenti e gruppi** .
    1. In **Includi**selezionare **tutti gli utenti**.
    1. In **Escludi**selezionare **utenti e gruppi** e scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass. 
-   1. Selezionare **Operazione completata**.
+   1. Seleziona **Chiudi**.
 1. In **app Cloud o azioni** > **Includi**selezionare **tutte le app Cloud**.
    1. Se è necessario escludere applicazioni specifiche dal criterio, è possibile selezionarle nella scheda **Escludi** in **Seleziona app Cloud escluse** e scegliere **Seleziona**.
-   1. Selezionare **Operazione completata**.
+   1. Seleziona **Chiudi**.
 1. In **condizioni** > **app client (anteprima)** impostare **Configura** su **Sì**e fare clic su **fine**.
 1. In **Access controls** > **concessione**controlli di accesso selezionare **Richiedi che il dispositivo sia contrassegnato come conforme**.
    1. Selezionare **Seleziona**.

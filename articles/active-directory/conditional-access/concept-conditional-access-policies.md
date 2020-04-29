@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295319"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
@@ -85,7 +85,7 @@ Il controllo Grant può attivare l'applicazione di uno o più controlli.
 - Richiedi autenticazione a più fattori (Multi-Factor Authentication di Azure)
 - Richiedi che il dispositivo sia contrassegnato come conforme (Intune)
 - Richiedi dispositivo aggiunto ad Azure AD ibrido
-- Richiedere app client approvata
+- Richiedi app client approvata
 - Richiedere criteri di protezione dell'app
 
 Gli amministratori possono scegliere di richiedere uno dei controlli precedenti o tutti i controlli selezionati usando le opzioni seguenti. Il valore predefinito per più controlli consiste nel richiedere all.

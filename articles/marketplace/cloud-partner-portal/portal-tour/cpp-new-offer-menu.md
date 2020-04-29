@@ -1,6 +1,6 @@
 ---
-title: Menu Nuova offerta per Azure Marketplace
-description: Panoramica del menu Nuova offerta nel portale Cloud Partner per Azure Marketplace.
+title: Menu nuovo offerta per Azure Marketplace
+description: Panoramica del menu nuova offerta in portale Cloud Partner per Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dsindona
 ms.openlocfilehash: 3e56fbbab144dd99d18f63a3dfc2318db0306acd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288921"
 ---
 # <a name="new-offer-menu"></a>Menu Nuova offerta
@@ -20,16 +20,16 @@ Il menu **Nuova offerta** consente ai partner di creare istanze dei tipi di offe
 
 |    **Voce del menu Nuova offerta**     |     **Sezione della documentazione corrispondente**                       |
 |    -----------------------     |     -----------------------------                       |
-| ![Voce del menu Applicazioni di Azure](./media/new-offer-menu1.png) |  [Offerta di applicazioni di AzureAzure application offer](../azure-applications/cpp-azure-app-offer.md) |
+| ![Voce del menu Applicazioni di Azure](./media/new-offer-menu1.png) |  [Offerta di un'applicazione Azure](../azure-applications/cpp-azure-app-offer.md) |
 | ![Voce di menu Servizi di consulenza](./media/new-offer-menu2.png) | [Offerta Servizi di consulenza](./../../cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md) |
-| ![Voce di menu Contenitori](./media/new-offer-menu3.png) | [I contenitori offrono](./../containers/cpp-containers-offer.md) |
+| ![Voce di menu Contenitori](./media/new-offer-menu3.png) | [Offerta di contenitori](./../containers/cpp-containers-offer.md) |
 | ![Voce di menu Dynamics 365 Business Central](./media/new-offer-menu4.png) | [Offerta Dynamics 365 Business Central](./../../cloud-partner-portal-orig/cpp-business-central-offer.md) |
 | ![Voce di menu Dynamics 365 for Customer Engagement](./media/new-offer-menu5.png) | [Offerta Dynamics 365 for Customer Engagement](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Voce di menu Dynamics 365 for Operations](./media/new-offer-menu6.png) | [Offerta Dynamics 365 for Operations](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
-| ![Voce di menu Moduli IoT Edge](./media/new-offer-menu7.png) | [Offerta del modulo IoT Edge](./../iot-edge-module/cpp-offer-process-parts.md) |
+| ![Voce di menu Moduli IoT Edge](./media/new-offer-menu7.png) | [Offerta di modulo IoT Edge](./../iot-edge-module/cpp-offer-process-parts.md) |
 | ![Voce di menu dell'app Power BI](./media/new-offer-pbi.png)   |  [Offerta per app Power BI](../power-bi/cpp-power-bi-offer.md)  |
 | ![ Voce di menu App SaaS](./media/new-offer-menu8.png) | [Offerta di applicazioni SaaS](../saas-app/cpp-saas-offer.md) |
-| ![ Voce di menu Macchine virtuali](./media/new-offer-menu9.png) | [Offerta per le macchine virtuali](./../virtual-machine/cpp-virtual-machine-offer.md) |
+| ![ Voce di menu Macchine virtuali](./media/new-offer-menu9.png) | [Offerta macchina virtuale](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |
 
 > [!NOTE]

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 1e7587c60e180fb35e1a2bed735b053b6b0c388a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294615"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Aggiungere un repository Git per archiviare elementi personalizzati e modelli di Resource Manager
@@ -30,7 +30,7 @@ ms.locfileid: "80294615"
 Quando si crea una macchina virtuale, è possibile salvare il modello di Resource Manager, personalizzarlo, se lo si desidera, e quindi usarlo successivamente per creare altre macchine virtuali. È necessario creare il proprio repository privato per archiviare i modelli di Resource Manager personalizzati.  
 
 * Per informazioni su come creare un archivio GitHub, vedere [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Per informazioni su come creare un progetto di Servizi DevOps di Azure con un repository Git, vedere Connettersi ai servizi DevOps di Azure.To learn how to create an Azure DevOps Services project that has a Git repository, see [Connect to Azure DevOps Services.](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)
+* Per informazioni su come creare un progetto di Azure DevOps Services con un repository git, vedere [connettersi a Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La figura seguente illustra un esempio di come potrebbe apparire un repository contenente elementi in GitHub:  
 
@@ -54,7 +54,7 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Ottenere l'URL clone di Azure Repos e il token di accesso personale
 
-1. Passare alla home page della raccolta di `https://contoso-web-team.visualstudio.com`team, ad esempio , e quindi selezionare il progetto.
+1. Passare al home page della raccolta del team (ad esempio, `https://contoso-web-team.visualstudio.com`) e quindi selezionare il progetto.
 2. Nella home page del progetto, selezionare **Codice**.
 3. Per visualizzare l'URL del clone, nella pagina **Codice** del progetto selezionare **Clone**.
 4. Salvare l'URL. L'URL verrà usato in seguito.
@@ -65,22 +65,22 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
    1. Immettere una **Descrizione** per il token.
    2. Nell'elenco **Scadenza tra** selezionare **180 giorni**.
    3. Nell'elenco **Account** selezionare **Tutti gli account accessibili**.
-   4. Selezionare l'opzione **Sola lettura.**
+   4. Selezionare l'opzione di sola **lettura** .
    5. Selezionare **Crea token**.
 9. Il nuovo token verrà visualizzato nell'elenco **Token di accesso personali**. Selezionare **Copia token**e quindi salvare il valore del token da usare in un momento successivo.
 10. Passare alla sezione [Connettere il lab al repository](#connect-your-lab-to-the-repository) .
 
 ## <a name="connect-your-lab-to-the-repository"></a>Connettere il lab al repository
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Altri servizi** e quindi **DevTest Labs** nell'elenco di servizi.
 3. Nell'elenco di lab selezionare il proprio lab. 
-4. Selezionare Repository **di configurazione e criteri** > **Repositories** > **- Aggiungi**.
+4. Selezionare > **Repositories**repository >  **e criteri di configurazione e****Aggiungi**.
 
     ![Pulsante di aggiunta repository](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Nel secondo pannello **Repository** specificare le seguenti informazioni:
    1. **Nome**. Immettere un nome per il repository.
    2. **URL clone GIT**. Immettere l'URL del clone HTTPS Git copiato in precedenza da GitHub o Azure DevOps Services.
-   3. **Filiale**. Per ottenere le definizioni, immettere il ramo.
+   3. **Ramo**. Per ottenere le definizioni, immettere il ramo.
    4. **Token di accesso personale**. Immettere il token di accesso personale ottenuto in precedenza da GitHub o Azure DevOps Services.
    5. **Percorsi cartella**. Immettere almeno un percorso di cartella relativo all'URL del clone che contiene le definizioni degli elementi o dei modelli di Resource Manager. Quando si specifica una sottodirectory, assicurarsi di includere la barra nel percorso della cartella.
 

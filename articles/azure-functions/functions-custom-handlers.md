@@ -6,10 +6,10 @@ ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
 ms.openlocfilehash: 5abc216e182d7becd9d6f42e0f566ee96d09c2a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79479254"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Gestori personalizzati di funzioni di Azure (anteprima)
@@ -183,7 +183,7 @@ Per convenzione, le risposte di funzione sono formattate come coppie chiave/valo
 | ------------- | --------- | ------------------------------------------------------------ |
 | `Outputs`     | JSON      | Include i valori di risposta definiti dalla `bindings` matrice del file *Function. JSON* .<br /><br />Ad esempio, se una funzione è configurata con un'associazione di output di archiviazione BLOB denominata " `Outputs` BLOB", contiene `blob`una chiave denominata, che è impostata sul valore del BLOB. |
 | `Logs`        | array     | I messaggi vengono visualizzati nei log di chiamata delle funzioni.<br /><br />Quando è in esecuzione in Azure, i messaggi vengono visualizzati in Application Insights. |
-| `ReturnValue` | string    | Usato per fornire una risposta quando un output viene configurato come `$return` nel file *Function. JSON* . |
+| `ReturnValue` | stringa    | Usato per fornire una risposta quando un output viene configurato come `$return` nel file *Function. JSON* . |
 
 Vedere l' [esempio relativo a un payload di esempio](#bindings-implementation).
 

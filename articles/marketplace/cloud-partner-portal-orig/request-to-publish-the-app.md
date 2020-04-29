@@ -1,6 +1,6 @@
 ---
 title: Richiesta di pubblicazione dell'applicazione
-description: Informazioni sulla pubblicazione di app nel marketplace del Centro per i partner.
+description: Informazioni sulla pubblicazione di app nel Marketplace del centro per i partner.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: bbe829314358b42b52db51d65b3e76d438eb1f87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80285419"
 ---
 # <a name="request-to-publish-the-app"></a>Richiedere di pubblicare l'app

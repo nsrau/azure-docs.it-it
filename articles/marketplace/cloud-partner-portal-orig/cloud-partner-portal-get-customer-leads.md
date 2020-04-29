@@ -1,5 +1,5 @@
 ---
-title: Configurare i lead dei clienti Azure Marketplace
+title: Configurare i lead dei clienti | Azure Marketplace
 description: Configurare i lead relativi ai clienti nel portale Cloud Partner.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
 ms.openlocfilehash: 56012fb2a907a6db6f87554660ee36b99a3dcbf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280321"
 ---
 <a name="get-customer-leads"></a>Ottenere lead
@@ -63,7 +63,7 @@ Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati
 
 ### <a name="lead-source"></a>Origine lead
 
-Il formato per una fonte di lead è **Source**-**Action** |  **Offer**
+Il formato di un'origine lead è l'**offerta** di**azione** |  di **origine**-
 
 **Origini**: "AzureMarketplace", "AzurePortal", "TestDrive" e "AppSource (SPZA)"
 
@@ -74,9 +74,9 @@ Il formato per una fonte di lead è **Source**-**Action** |  **Offer**
 - "Crea": questa azione si trova solo nel portale di Azure e si genera quando un cliente acquista l'offerta dal proprio account.
 - "StartTestDrive": questa azione riguarda solo i test drive e si genera quando un cliente avvia il test drive.
 
-**Offre**
+**Offerte**
 
-Gli esempi seguenti mostrano identificatori univoci assegnati a un editore e a un'offerta specifica: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress e docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+Negli esempi seguenti vengono illustrati gli identificatori univoci assegnati a un server di pubblicazione e un'offerta specifica: Checkpoint. Check-Point-R77-10sg-BYOL, Bitnami. openedxcypress e DocuSign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Informazioni sui clienti
@@ -115,4 +115,4 @@ Dopo la configurazione del provider di destinazione del lead e la pubblicazione 
 <a name="what-next"></a>Come procedere?
 ----------
 
-Una eseguita la configurazione tecnica, è necessario incorporare i lead nelle vendite attuali, nella strategia di marketing e nei processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dari sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Facci sapere se sei interessato a [fornire feedback](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti per consentire al tuo team di vendita di avere più successo con i lead di Marketplace.
+Una eseguita la configurazione tecnica, è necessario incorporare i lead nelle vendite attuali, nella strategia di marketing e nei processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dari sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Segnalaci se sei interessato a [inviare commenti](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti per consentire al tuo team di vendita di ottenere risultati più efficaci con i lead del Marketplace.

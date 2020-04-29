@@ -1,6 +1,6 @@
 ---
-title: Copertura del traffico Mappe di Microsoft Azure
-description: In this article, you will learn about traffic coverage in Microsoft Azure Maps.
+title: Copertura del traffico | Mappe Microsoft Azure
+description: In questo articolo vengono fornite informazioni sulla copertura del traffico in Microsoft Azure maps.
 author: philmea
 ms.author: philmea
 ms.date: 09/22/2018
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80333955"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
 
 Mappe di Azure offre informazioni avanzate sul traffico sotto forma di **flusso** del traffico e **incidenti** stradali. Questi dati possono essere visualizzati sulle mappe o usati per generare itinerari più intelligenti che tengano in considerazione le condizioni di guida reali.
 
-Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutti i paesi o aree geografiche. Nella tabella seguente vengono fornite informazioni sul tipo di informazioni sul traffico che è possibile richiedere a ogni paese o area geografica: 
+Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per tutti i paesi o le aree geografiche. La tabella seguente fornisce informazioni sul tipo di informazioni sul traffico che è possibile richiedere da ogni paese o area geografica: 
 
 ## <a name="americas"></a>Americhe
 
@@ -110,8 +110,8 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutti 
 |Ucraina     |✓         |✓         |
 |Regno Unito     |✓         |✓         |
 |+Gibilterra     |✓         |✓         |
-|Maglia & di Guernsey     |✓         |✓         |
-|Isola di Man     |✓         |✓         |
+|+ Guernsey & Jersey     |✓         |✓         |
+|+ Isle of Man     |✓         |✓         |
 |Città del Vaticano   |✓         |✓         |
 
 

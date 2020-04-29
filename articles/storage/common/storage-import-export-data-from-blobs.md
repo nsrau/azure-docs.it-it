@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: a5afa6439caa6b7c1572447e3b212f3357bf296a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282512"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
@@ -27,7 +27,7 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
 - Avere una sottoscrizione di Azure attiva che possa essere usata per il servizio Importazione/Esportazione.
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-account-create.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
-- Avere un account FedEx o DHL. Se si desidera utilizzare un vettore diverso da FedEx/DHL, contattare il team di Azure Data Box Operations all'indirizzo `adbops@microsoft.com`.
+- Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com`.
   - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
   - Generare un numero di tracciabilità per il processo di esportazione.
   - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati.
@@ -44,7 +44,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
     ![Passare a Processi di importazione/esportazione](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
 
-3. Fare clic su Crea processo di **importazione/esportazione**.
+3. Fare clic su **Crea processo di importazione/esportazione**.
 
     ![Fare clic su Processo di importazione/esportazione](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
@@ -83,8 +83,8 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
 6. In **Informazioni sul mittente della spedizione**:
 
-    - Selezionare il vettore nell'elenco a discesa. Se si desidera utilizzare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente dall'elenco a discesa. Contattare il team `adbops@microsoft.com` di Azure Data Box Operations con le informazioni relative all'operatore che si intende utilizzare.
-    - Immettere un numero di account di vettore valido creato con il vettore. Microsoft utilizza questo account per spedire le unità all'utente una volta completato il processo di esportazione.
+    - Selezionare il vettore nell'elenco a discesa. Se si vuole usare un vettore diverso da FedEx/DHL, scegliere un'opzione esistente nell'elenco a discesa. Contattare Azure Data Box team operativo in `adbops@microsoft.com` con le informazioni relative al vettore che si intende usare.
+    - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per inviare le unità al termine del processo di esportazione.
     - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
 
         > [!TIP]
@@ -117,7 +117,7 @@ In caso di dubbi sul numero di unità necessarie, passare a [Controllare il nume
 Quando il dashboard segnala che il processo è completo, i dischi vengono spediti all'utente e il numero di tracciabilità per la spedizione è disponibile nel portale.
 
 1. Dopo aver ricevuto le unità con i dati esportati, è necessario ottenere le chiavi BitLocker per sbloccare le unità. Passare al processo di esportazione nel portale di Azure. Fare clic sulla scheda **Importazione/Esportazione**.
-2. Selezionare e fare clic sul processo di esportazione nell'elenco. Passare a **Crittografia** e copiare le chiavi.
+2. Selezionare e fare clic sul processo di esportazione nell'elenco. Passare a **crittografia** e copiare le chiavi.
 
    ![Visualizzare le chiavi BitLocker per il processo di esportazione](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
 
@@ -125,15 +125,15 @@ Quando il dashboard segnala che il processo è completo, i dischi vengono spedit
 
 L'esportazione è stata completata.
 
-## <a name="step-5-unlock-the-disks"></a>Passaggio 5: Sbloccare i dischi
+## <a name="step-5-unlock-the-disks"></a>Passaggio 5: sbloccare i dischi
 
-Se si utilizza la versione 1.4.0.300 dello strumento WAImportExport, utilizzare il comando seguente per sbloccare l'unità:
+Se si usa la versione 1.4.0.300 dello strumento WAImportExport, usare il comando seguente per sbloccare l'unità:
 
     `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
 
 Se si utilizzano versioni precedenti dello strumento, utilizzare la finestra di dialogo BitLocker per sbloccare l'unità.
 
-A questo punto, è possibile eliminare il processo o lasciarlo. I lavori vengono eliminati automaticamente dopo 90 giorni.
+A questo punto, è possibile eliminare il processo o lasciarlo. I processi vengono eliminati automaticamente dopo 90 giorni.
 
 ## <a name="check-the-number-of-drives"></a>Controllare il numero di unità
 
@@ -153,9 +153,9 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
 
     |Parametro della riga di comando|Descrizione|  
     |--------------------------|-----------------|  
-    |**/logdir:**|Facoltativa. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
-    |**/sn:**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
-    |**/sk:**|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
+    |**/LogDir**|Facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
+    |**Ésn**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
+    |**/SK**|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
     |**/csas:**|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|  
     |**/ExportBlobListFile:**|Obbligatorio. Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Formato di file usato nell'elemento `BlobListBlobPath` nell'operazione [Put Job](/rest/api/storageimportexport/jobs) dell'API REST del servizio Importazione/Esportazione.|  
     |**/DriveSize:**|Obbligatorio. Dimensione delle unità da usare per un processo di esportazione, *ad esempio* 500 GB o 1,5 TB.|  

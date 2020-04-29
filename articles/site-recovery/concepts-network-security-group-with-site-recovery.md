@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: eb5ba99133f5726c44164b0ba45b7ab5d94e292f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80292367"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Gruppi di sicurezza di rete con Azure Site Recovery
@@ -24,7 +24,7 @@ Questo articolo descrive come usare i gruppi di sicurezza di rete con Azure Site
 
 ## <a name="using-network-security-groups"></a>Uso dei gruppi di sicurezza di rete
 
-A una singola subnet può essere associato uno o nessun gruppo di sicurezza di rete. Analogamente, a una singola interfaccia di rete può essere associato uno o nessun gruppo di sicurezza di rete. In questo modo, è possibile avere effettivamente una restrizione del traffico doppio per una macchina virtuale associando prima un gruppo di sicurezza di rete a una subnet e quindi un altro gruppo di sicurezza di rete all'interfaccia di rete della macchina virtuale. In questo caso, l'applicazione delle regole NSG dipende dalla direzione del traffico e dalla priorità delle regole di sicurezza applicate.
+A una singola subnet può essere associato uno o nessun gruppo di sicurezza di rete. Analogamente, a una singola interfaccia di rete può essere associato uno o nessun gruppo di sicurezza di rete. Pertanto, è possibile avere in effetti una limitazione del traffico doppio per una macchina virtuale associando un NSG prima a una subnet e quindi un altro NSG all'interfaccia di rete della VM. In questo caso, l'applicazione delle regole NSG dipende dalla direzione del traffico e dalla priorità delle regole di sicurezza applicate.
 
 Si consideri un semplice esempio con una macchina virtuale, come descritto di seguito:
 -    La macchina virtuale viene inserita all'interno della **Subnet Contoso**.
@@ -39,13 +39,13 @@ Questo consente l'applicazione granulare delle regole di sicurezza. Ad esempio, 
 
 Quando si impostano configurazioni di NSG di questo tipo, assicurarsi che alle [regole di sicurezza](../virtual-network/security-overview.md#security-rules) siano applicate le priorità corrette. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.
 
-È possibile che non sempre si conosca quando i gruppi di sicurezza di rete sono applicati sia a un'interfaccia di rete che a una subnet. Le regole di aggregazione applicate a un'interfaccia di rete possono essere verificate visualizzando le [regole di sicurezza effettive](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) per un'interfaccia di rete. È anche possibile usare la funzionalità di verifica del [flusso IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) in Watcher rete di [Azure](../network-watcher/network-watcher-monitoring-overview.md) per determinare se la comunicazione è consentita da o verso un'interfaccia di rete. Lo strumento indica se la comunicazione è consentita e quale regola di sicurezza di rete consente o impedisce il traffico.
+È possibile che non sempre si conosca quando i gruppi di sicurezza di rete sono applicati sia a un'interfaccia di rete che a una subnet. Le regole di aggregazione applicate a un'interfaccia di rete possono essere verificate visualizzando le [regole di sicurezza effettive](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) per un'interfaccia di rete. È anche possibile usare la funzionalità di [Verifica del flusso IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) in [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) per determinare se la comunicazione è consentita o da un'interfaccia di rete. Lo strumento indica se la comunicazione è consentita e quale regola di sicurezza di rete consente o impedisce il traffico.
 
 ## <a name="on-premises-to-azure-replication-with-nsg"></a>Replica da sito locale ad Azure con gruppi di sicurezza di rete
 
 Azure Site Recovery consente il ripristino di emergenza e la migrazione in Azure per [macchine virtuali Hyper-V](hyper-v-azure-architecture.md) locali, [macchine virtuali VMware](vmware-azure-architecture.md) e [server fisici](physical-azure-architecture.md). Per tutti gli scenari da ambiente locale ad Azure, i dati di replica vengono inviati e archiviati in un account di archiviazione di Azure. Durante la replica, non vengono addebitati i costi di macchine virtuali. Quando si esegue un failover in Azure, Site Recovery crea automaticamente le macchine virtuali IaaS di Azure.
 
-Dopo la creazione delle macchine virtuali a seguito del failover in Azure, è possibile usare i NSG per limitare il traffico di rete verso la rete virtuale e le macchine virtuali. Site Recovery non crea NSG come parte dell'operazione di failover. È consigliabile creare i gruppi di sicurezza di rete di Azure necessari prima di avviare il failover. È quindi possibile associare i gruppi di sicurezza di rete alle macchine virtuali di cui è stato eseguito automaticamente il failover durante il failover, utilizzando gli script di automazione con i potenti piani di [ripristino](site-recovery-create-recovery-plans.md)di Site Recovery.
+Dopo la creazione delle macchine virtuali a seguito del failover in Azure, è possibile usare i NSG per limitare il traffico di rete verso la rete virtuale e le macchine virtuali. Site Recovery non crea NSG come parte dell'operazione di failover. È consigliabile creare i gruppi di sicurezza di rete di Azure necessari prima di avviare il failover. È quindi possibile associare automaticamente gruppi alle VM di cui è stato eseguito il failover durante il failover, usando gli script di automazione con i [piani di ripristino](site-recovery-create-recovery-plans.md)avanzati di Site Recovery.
 
 Ad esempio, se la configurazione della macchina virtuale dopo il failover è simile allo [scenario di esempio](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) descritto in precedenza:
 -    È possibile creare la **VNet Contoso** e la **Subnet Contoso** come parte della pianificazione del ripristino di emergenza nell'area di Azure di destinazione.
@@ -61,7 +61,7 @@ Azure Site Recovery consente il ripristino di emergenza di [macchine virtuali di
 
 Per la replica di VM di Azure, assicurarsi che le regole NSG nell'area di Azure di origine consentano la [connettività in uscita](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) per il traffico di replica. È anche possibile testare e verificare queste regole necessarie tramite questa [configurazione NSG di esempio](azure-to-azure-about-networking.md#example-nsg-configuration).
 
-Site Recovery non crea né replica NSG come parte dell'operazione di failover. È consigliabile creare i gruppi di sicurezza di rete necessari nell'area di Azure di destinazione prima di avviare il failover. È quindi possibile associare i gruppi di sicurezza di rete alle macchine virtuali di cui è stato eseguito automaticamente il failover durante il failover, utilizzando gli script di automazione con i potenti piani di [ripristino](site-recovery-create-recovery-plans.md)di Site Recovery.
+Site Recovery non crea né replica NSG come parte dell'operazione di failover. È consigliabile creare i gruppi di sicurezza di rete necessari nell'area di Azure di destinazione prima di avviare il failover. È quindi possibile associare automaticamente gruppi alle VM di cui è stato eseguito il failover durante il failover, usando gli script di automazione con i [piani di ripristino](site-recovery-create-recovery-plans.md)avanzati di Site Recovery.
 
 Considerando lo [scenario di esempio](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) descritto in precedenza:
 -    Site Recovery può creare repliche della **VNet Contoso** e della **Subnet Contoso** nell'area di Azure di destinazione quando per la macchina virtuale è abilitata la replica.

@@ -15,16 +15,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
 ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295433"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali con REST
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si usa l'autenticazione di Azure AD con Servizi multimediali di Azure, è possibile eseguire l'autenticazione in uno di due modi:
 
@@ -73,9 +73,9 @@ Per accedere alle API di Servizi multimediali, è necessario raccogliere i punti
 
 Per ottenere le informazioni, seguire questa procedura:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Passare all'istanza di Servizi multimediali di Azure.
-3. Selezionare **Accesso API**.
+3. Selezionare **accesso all'API**.
 4. Fare clic su **Connettersi all'API Servizi multimediali di Azure con l'entità servizio**.
 
     ![Accesso all'API](./media/connect-with-rest/connect-with-rest01.png)
@@ -83,7 +83,7 @@ Per ottenere le informazioni, seguire questa procedura:
 5. Selezionare un'**applicazione Azure AD** esistente o crearne una nuova come indicato di seguito.
 
     > [!NOTE]
-    > Affinché la richiesta REST di Azure Media abbia esito positivo, l'utente chiamante deve disporre di un ruolo **Collaboratore** o **Proprietario** per l'account di Servizi multimediali a cui sta tentando di accedere. Se si verifica un'eccezione che indica "Errore del server remoto: (401) Non autorizzato", vedere il [controllo di accesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > Affinché la richiesta REST di servizi multimediali di Azure abbia esito positivo, l'utente chiamante deve avere un ruolo di **collaboratore** o **proprietario** per l'account di servizi multimediali a cui sta tentando di accedere. Se si verifica un'eccezione che indica "Errore del server remoto: (401) Non autorizzato", vedere il [controllo di accesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Se è necessario creare una nuova app AD, seguire questa procedura:
     

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
 ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294860"
 ---
 # <a name="how-traffic-manager-works"></a>Funzionamento di Gestione traffico
@@ -60,7 +60,7 @@ Per continuare l'esempio precedente, quando un client richiede la pagina `https:
 
     - Lo stato configurato di ogni endpoint (gli endpoint disabilitati non vengono restituiti)
     - L'integrità corrente di ogni endpoint, determinata dai controlli di integrità di Gestione traffico. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-    - Il metodo di routing del traffico scelto. Per ulteriori informazioni, vedere Metodi di [routing di Gestione traffico](traffic-manager-routing-methods.md).
+    - Il metodo di routing del traffico scelto. Per altre informazioni, vedere [metodi di routing di gestione traffico](traffic-manager-routing-methods.md).
 
 5. L'endpoint scelto viene restituito come un altro record DNS CNAME. In questo caso, si supponga che venga restituito contoso-us.cloudapp.net.
 6. Il servizio DNS ricorsivo cerca quindi i server dei nomi per il dominio "cloudapp.net". Il servizio contatta questi server dei nomi per richiedere il record DNS "contoso-us.cloudapp.net". Viene restituito un record DNS "A" contenente l'indirizzo IP dell'endpoint di servizio situato negli Stati Uniti.
@@ -75,7 +75,7 @@ Il servizio DNS ricorsivo memorizza nella cache le risposte DNS ricevute. Il res
 
 * [Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [Gestione traffico supporta sessioni "appiccicose"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [Gestione traffico supporta le sessioni "permanenti"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
 
 * [Quando si usa Gestione traffico, viene visualizzato un errore HTTP. Perché?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
@@ -83,7 +83,7 @@ Il servizio DNS ricorsivo memorizza nella cache le risposte DNS ricevute. Il res
 
 * [Quali protocolli di applicazione possono essere usati con Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [Posso usare Gestione traffico con un nome di dominio "nudo"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [È possibile usare gestione traffico con un nome di dominio "Naked"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
 
 * [Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 

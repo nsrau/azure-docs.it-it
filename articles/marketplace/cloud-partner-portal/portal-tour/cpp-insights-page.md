@@ -1,6 +1,6 @@
 ---
-title: Pagina Informazioni dettagliate per Azure Marketplace
-description: Panoramica della pagina Insights nel portale Cloud Partner per Azure Marketplace.
+title: Pagina Insights per Azure Marketplace
+description: Panoramica della pagina Insights in portale Cloud Partner per Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: dsindona
 ms.openlocfilehash: 8002d67ebd6dbeb70282bbbae84b115a778cffaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288870"
 ---
 # <a name="insights-page"></a>Pagina Informazioni dettagliate
@@ -27,7 +27,7 @@ La pagina [**Informazioni dettagliate**](https://cloudpartner.azure.com/#insight
 | **Cliente**      | Informazioni sul cliente, incluso il profilo di acquisto |
 | **Distribuzione**    | Informazioni sulle operazioni di distribuzione riuscite e non riuscite in formati grafici e a livello di evento |
 | **Download**     | Elenco delle richieste di download per gli ultimi 30 giorni |
-| **Analitica**     | Riepilogo dell'analisi Web e analisi delle prestazioni della campagna |
+| **Analisi**     | Riepilogo dell'analisi Web e analisi delle prestazioni della campagna |
 |  |  |
 
 

@@ -1,6 +1,6 @@
 ---
-title: Mostrare i dati sul traffico sulla mappa androide Mappe di Microsoft Azure
-description: In questo articolo si apprenderà come visualizzare i dati sul traffico su una mappa usando Microsoft Azure Maps Android SDK.
+title: Visualizzare i dati sul traffico nella mappa Android | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come visualizzare i dati sul traffico su una mappa usando il Microsoft Azure Maps Android SDK.
 author: philmea
 ms.author: philmea
 ms.date: 02/27/2020
@@ -9,29 +9,29 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335387"
 ---
-# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostrare i dati sul traffico sulla mappa usando Android SDK di Azure MapsShow traffic data on the map using Azure Maps Android SDK
+# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostra i dati sul traffico sulla mappa usando le mappe di Azure Android SDK
 
-I dati di flusso e i dati relativi agli eventi imprevisti sono i due tipi di dati sul traffico che possono essere visualizzati sulla mappa. Questa guida mostra come visualizzare entrambi i tipi di dati sul traffico. I dati sugli incidenti sono costituiti da dati basati su punti e linee per operazioni quali costruzioni, chiusure stradali e incidenti. I dati di flusso mostrano le metriche sul flusso di traffico sulla strada.
+I dati di flusso e gli eventi imprevisti sono i due tipi di dati di traffico che possono essere visualizzati sulla mappa. Questa guida illustra come visualizzare entrambi i tipi di dati di traffico. I dati degli eventi imprevisti sono costituiti da dati basati su punti e righe per operazioni quali costruzioni, chiusure stradali e incidenti. I dati di Flow mostrano le metriche relative al flusso di traffico in viaggio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter visualizzare il traffico sulla mappa, è necessario [creare un account Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)e ottenere una chiave di [sottoscrizione.](quick-demo-map-app.md#get-the-primary-key-for-your-account) Quindi, è necessario installare [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e caricare una mappa.
+Prima di poter visualizzare il traffico sulla mappa, è necessario [creare un account Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)e [ottenere una chiave di sottoscrizione](quick-demo-map-app.md#get-the-primary-key-for-your-account). Quindi, è necessario installare le [mappe di Azure Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e caricare una mappa.
 
-## <a name="incidents-traffic-data"></a>Dati sul traffico degli incidenti 
+## <a name="incidents-traffic-data"></a>Dati traffico eventi imprevisti 
 
-È necessario importare le seguenti librerie per chiamare `setTraffic` e: `incidents`
+Per chiamare `setTraffic` e `incidents`è necessario importare le librerie seguenti:
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- Il frammento di codice seguente illustra come visualizzare i dati sul traffico sulla mappa. Passiamo un valore `incidents` booleano al metodo `setTraffic` e lo passiamo al metodo. 
+ Il frammento di codice seguente illustra come visualizzare i dati sul traffico sulla mappa. Si passa un valore booleano al `incidents` metodo e lo `setTraffic` si passa al metodo. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +42,23 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## <a name="flow-traffic-data"></a>Dati sul traffico di flusso
+## <a name="flow-traffic-data"></a>Flussi di dati sul traffico
 
-È innanzitutto necessario importare le seguenti `setTraffic` `flow`librerie da chiamare e:
+Prima di tutto è necessario importare le librerie seguenti per chiamare `setTraffic` e `flow`:
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Usare il frammento di codice seguente per impostare i dati del flusso di traffico. Analogamente al codice nella sezione precedente, si `flow` passa `setTraffic` il valore restituito del metodo al metodo. Esistono quattro valori che possono `flow`essere passati `flow` a , e ogni valore verrà attivato per restituire il rispettivo valore. Il valore `flow` restituito di verrà quindi `setTraffic`passato come argomento a . Vedere la tabella seguente per questi quattro valori:See the table below for these four values:
+Usare il frammento di codice seguente per impostare i dati del flusso di traffico. Analogamente al codice della sezione precedente, il valore restituito del `flow` metodo viene passato al `setTraffic` metodo. Sono disponibili quattro valori che è possibile passare a `flow`e ogni valore attiverà `flow` per restituire il rispettivo valore. Il valore restituito di `flow` verrà quindi passato come argomento a `setTraffic`. Vedere la tabella seguente per questi quattro valori:
 
 | | |
 | :-- | :-- |
-| Flusso di traffico.NONE | Non visualizza i dati sul traffico sulla mappa |
-| Flusso di traffico.RELATIVE | Mostra i dati sul traffico relativi alla velocità di flusso libera della strada |
-| Flusso di traffico.RELATIVE_DELAY | Visualizza le aree più lente del ritardo medio previsto |
-| Flusso di traffico.ABSOLUTE | Mostra la velocità assoluta di tutti i veicoli sulla strada |
+| TrafficFlow. NONE | Non Visualizza i dati sul traffico sulla mappa |
+| TrafficFlow. relativa | Mostra i dati sul traffico relativi alla velocità del flusso libero della strada |
+| TrafficFlow. RELATIVE_DELAY | Visualizza le aree più lente rispetto al ritardo medio previsto |
+| TrafficFlow. ABSOLUTe | Mostra la velocità assoluta di tutti i veicoli in viaggio |
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +69,11 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Mostrare i dati sul traffico degli eventi imprevisti facendo clic su una funzionalità
+## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Mostra i dati sul traffico degli eventi imprevisti facendo clic su una funzionalità
 
-Per ottenere gli eventi imprevisti per una funzionalità specifica, è possibile utilizzare il codice seguente. Quando si fa clic su una funzionalità, la logica del codice verifica la presenza di eventi imprevisti e compila un messaggio sull'evento imprevisto. Nella parte inferiore dello schermo viene visualizzato un messaggio con i dettagli.
+Per ottenere gli eventi imprevisti per una funzionalità specifica, è possibile usare il codice seguente. Quando si fa clic su una funzionalità, la logica del codice verifica la presenza di eventi imprevisti e compila un messaggio sull'evento imprevisto. Viene visualizzato un messaggio nella parte inferiore della schermata con i dettagli.
 
-1. In primo luogo, è necessario modificare **il layout > res > activity_main.xml**, in modo che sia simile a quello riportato di seguito. È possibile `mapcontrol_centerLat`sostituire `mapcontrol_centerLng`il `mapcontrol_zoom` , , e con i valori desiderati. Ricordiamo che il livello di zoom è un valore compreso tra 0 e 22. Al livello di zoom 0, l'intero mondo si adatta a una singola tessera.
+1. In primo luogo, è necessario modificare il **layout res > > activity_main. XML**, in modo che appaia come quello riportato di seguito. È possibile sostituire `mapcontrol_centerLat`, `mapcontrol_centerLng`e `mapcontrol_zoom` con i valori desiderati. Si ricordi che il livello di zoom è un valore compreso tra 0 e 22. Al livello di zoom 0, l'intero mondo si adatta a un singolo riquadro.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -96,7 +96,7 @@ Per ottenere gli eventi imprevisti per una funzionalità specifica, è possibile
    </FrameLayout>
    ```
 
-2. Aggiungere il codice seguente al file **MainActivity.java.** Il pacchetto è incluso per impostazione predefinita, quindi assicurati di mantenere il pacchetto in alto.
+2. Aggiungere il codice seguente al file **MainActivity. Java** . Il pacchetto è incluso per impostazione predefinita, quindi assicurarsi di mantenerlo nella parte superiore.
 
    ```java
    package <yourpackagename>;
@@ -221,26 +221,26 @@ Per ottenere gli eventi imprevisti per una funzionalità specifica, è possibile
    }
    ```
 
-3. Dopo aver incorporato il codice precedente nell'applicazione, sarà possibile fare clic su una funzionalità e visualizzare i dettagli degli eventi imprevisti di traffico. A seconda della latitudine, della longitudine e dei valori del livello di zoom utilizzati nel file **activity_main.xml,** verranno visualizzati risultati simili all'immagine seguente:
+3. Una volta incorporato il codice precedente nell'applicazione, sarà possibile fare clic su una funzionalità e visualizzare i dettagli relativi agli eventi imprevisti del traffico. A seconda della latitudine, della longitudine e dei valori del livello di zoom usati nel file **activity_main. XML** , verranno visualizzati risultati simili all'immagine seguente:
 
    <center>
 
-   ![Incident-traffic-on-the-map](./media/how-to-show-traffic-android/android-traffic.png)
+   ![Evento imprevisto-traffico-mappa](./media/how-to-show-traffic-android/android-traffic.png)
 
    </center>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizza le guide seguenti per scoprire come aggiungere altri dati alla mappa:
+Per informazioni su come aggiungere altri dati alla mappa, vedere le guide seguenti:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello simbolo](how-to-add-symbol-to-android-map.md)
+> [Aggiungere un livello di simbolo](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello per i riquadri](how-to-add-tile-layer-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere forme alla mappa di Android](how-to-add-shapes-to-android-map.md)
+> [Aggiungere forme alla mappa Android](how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Visualizzare informazioni sulle funzionalità](display-feature-information-android.md)

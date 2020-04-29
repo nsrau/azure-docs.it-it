@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
 ms.openlocfilehash: c5ce6a1c2f231d372a2a8113eb9043a236090388
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061700"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Esercitazione: aggiungere un database singolo di database SQL di Azure a un gruppo di failover
@@ -320,7 +320,7 @@ Questa parte dell'esercitazione usa i cmdlet AZ CLI seguenti:
 
 ---
 
-## <a name="clean-up-resources"></a>Pulire le risorse 
+## <a name="clean-up-resources"></a>Pulizia delle risorse 
 Pulire le risorse eliminando il gruppo di risorse. 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)

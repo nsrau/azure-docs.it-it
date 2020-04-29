@@ -1,5 +1,5 @@
 ---
-title: Aggiunta di una barra degli strumenti di disegno a una mappa Mappe di Microsoft Azure
+title: Aggiungere una barra degli strumenti di disegno a una mappa | Mappe Microsoft Azure
 description: Come aggiungere una barra degli strumenti di disegno a una mappa usando Azure Maps Web SDK
 author: philmea
 ms.author: philmea
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334490"
 ---
-# <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Aggiungere una barra degli strumenti strumenti di disegno a una mappa
+# <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Aggiungere una barra degli strumenti di disegno a una mappa
 
-In questo articolo viene illustrato come utilizzare il modulo Strumenti di disegno e visualizzare la barra degli strumenti di disegno sulla mappa. Il controllo [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) aggiunge la barra degli strumenti di disegno sulla mappa. Si apprenderà come creare mappe con uno solo strumenti di disegno e come personalizzare il rendering delle forme di disegno nel gestore di disegni.
+Questo articolo illustra come usare il modulo strumenti di disegno e visualizzare la barra degli strumenti di disegno sulla mappa. Il controllo [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) aggiunge la barra degli strumenti di disegno sulla mappa. Si apprenderà come creare mappe con solo uno e tutti gli strumenti di disegno e come personalizzare il rendering delle forme di disegno nel gestore del disegno.
 
 ## <a name="add-drawing-toolbar"></a>Aggiungere la barra degli strumenti di disegno
 
-Il codice seguente crea un'istanza di Gestione disegni e visualizza la barra degli strumenti sulla mappa.
+Il codice seguente consente di creare un'istanza del gestore di disegno e di visualizzare la barra degli strumenti sulla mappa.
 
 ```javascript
 //Create an instance of the drawing manager and display the drawing toolbar.
@@ -33,18 +33,18 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-Di seguito è riportato l'esempio di codice in esecuzione completo delle funzionalità precedenti:
+Di seguito è riportato l'esempio di codice completo dell'esecuzione della funzionalità precedente:
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Aggiungere la barra degli strumenti di disegno" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere la barra degli strumenti<a href='https://codepen.io/azuremaps'>@azuremaps</a>di <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>disegno</a> Aggiunta penna da Mappe di Azure ( ) in <a href='https://codepen.io'>CodePen</a>.
+Vedere la <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>barra degli strumenti Aggiungi disegno</a> di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-## <a name="limit-displayed-toolbar-options"></a>Limitare le opzioni della barra degli strumenti visualizzate
+## <a name="limit-displayed-toolbar-options"></a>Limita le opzioni visualizzate della barra degli strumenti
 
-Il codice seguente crea un'istanza del gestore di disegni e visualizza la barra degli strumenti con solo uno strumento di disegno poligono sulla mappa. 
+Il codice seguente consente di creare un'istanza del gestore di disegno e di visualizzare la barra degli strumenti solo con uno strumento di disegno poligono sulla mappa. 
 
 ```javascript
 //Create an instance of the drawing manager and display the drawing toolbar with polygon drawing tool.
@@ -57,20 +57,20 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-Di seguito è riportato l'esempio di codice in esecuzione completo delle funzionalità precedenti:
+Di seguito è riportato l'esempio di codice completo dell'esecuzione della funzionalità precedente:
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Aggiungere uno strumento di disegno poligono" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere La pagina <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Per aggiungere un poligono a un poligono da</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere la penna <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>aggiungere uno strumento di disegno poligono</a> da mappe<a href='https://codepen.io/azuremaps'>@azuremaps</a>di Azure () in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="change-drawing-rendering-style"></a>Modificare lo stile di rendering del disegno
 
-Lo stile delle forme disegnate può essere personalizzato recuperando i layer sottostanti del gestore di disegni utilizzando la `drawingManager.getLayers()` funzione e quindi impostando le opzioni sui singoli layer. I quadratini di ridimensionamento visualizzati per le coordinate durante la modifica di una forma sono indicatori HTML. Lo stile delle maniglie di trascinamento può essere `dragHandleStyle` `secondaryDragHandleStyle` personalizzato passando le opzioni dei marcatori HTML nelle opzioni e del gestore del disegno.  
+Lo stile delle forme disegnate può essere personalizzato recuperando i livelli sottostanti del gestore di disegno utilizzando la `drawingManager.getLayers()` funzione e quindi impostando le opzioni sui singoli livelli. Gli handle di trascinamento visualizzati per le coordinate quando si modifica una forma sono marcatori HTML. Lo stile degli handle di trascinamento può essere personalizzato passando le opzioni del marcatore HTML nelle opzioni `dragHandleStyle` e `secondaryDragHandleStyle` del gestore del disegno.  
 
-Il codice seguente ottiene i layer di rendering dal gestore di disegni e modifica le relative opzioni per modificare lo stile di rendering per il disegno. In questo caso, i punti verranno renderizzati con un'icona a un indicatore blu. Le linee saranno rosse e larghe quattro pixel. I poligoni avranno un colore di riempimento verde e un contorno arancione. Cambia quindi gli stili delle maniglie di trascinamento in icone quadrate. 
+Il codice seguente ottiene i livelli di rendering dal gestore del disegno e modifica le opzioni per modificare lo stile di rendering per il disegno. In questo caso, verrà eseguito il rendering dei punti con un'icona del marcatore blu. Le linee saranno di colore rosso e di quattro pixel. I poligoni avranno un colore di riempimento verde e un contorno arancione. Modifica quindi gli stili dei quadratini di trascinamento in modo che siano icone quadrate. 
 
 ```javascript
 //Get rendering layers of drawing manager.
@@ -117,18 +117,18 @@ drawingManager.setOptions({
 });  
 ```
 
-Di seguito è riportato l'esempio di codice in esecuzione completo delle funzionalità precedenti:
+Di seguito è riportato l'esempio di codice completo dell'esecuzione della funzionalità precedente:
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Modificare lo stile di rendering del disegno" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere lo stile di <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>rendering</a> del<a href='https://codepen.io/azuremaps'>@azuremaps</a>disegno Pen Change di Azure Maps ( ) su <a href='https://codepen.io'>CodePen</a>.
+Vedere lo <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>stile di rendering del disegno di modifica</a> della penna<a href='https://codepen.io/azuremaps'>@azuremaps</a>di Azure Maps () in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come utilizzare le funzioni aggiuntive del modulo degli strumenti di disegno:
+Informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
 
 > [!div class="nextstepaction"]
 > [Ottenere i dati della forma](map-get-shape-data.md)
@@ -145,7 +145,7 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 > [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Barra degli strumenti Disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra degli strumenti disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
 
 > [!div class="nextstepaction"]
-> [Gestione disegni](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)

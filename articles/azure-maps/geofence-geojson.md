@@ -1,6 +1,6 @@
 ---
-title: Formato dati GeoJSON per la geofence Mappe di Microsoft Azure
-description: In questo articolo imparerai a preparare i dati geofence che possono essere usati nell'API GET e POST Geofence di Microsoft Azure Maps Maps.
+title: Formato dati GeoJSON per Geofence | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come preparare i dati di georecinzione che possono essere usati nell'API Microsoft Azure Maps GET e POST geofence.
 author: philmea
 ms.author: philmea
 ms.date: 02/14/2019
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335609"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing dei dati GeoJSON
@@ -34,12 +34,12 @@ I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'og
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | Data e ora di inizio del periodo di validità. |
 | endTime   | Datetime  | true |  Data e ora di fine del periodo di validità. |
-| recurrenceType | string | false |   Il tipo di ricorrenza del periodo. Il valore può essere `Daily`, `Weekly`, `Monthly` o `Yearly`. Il valore predefinito è `Daily`.|
+| recurrenceType | stringa | false |   Il tipo di ricorrenza del periodo. Il valore può essere `Daily`, `Weekly`, `Monthly` o `Yearly`. Il valore predefinito è `Daily`.|
 | businessDayOnly | Boolean | false |  Indica se i dati sono validi solo durante i giorni lavorativi. Il valore predefinito è `false`.|
 
 
-* Tutti i valori delle coordinate sono rappresentati come `WGS84`[longitudine, latitudine] definiti in .
-* Per ciascuna funzionalità, che contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, le proprietà vengono applicate a tutti gli elementi. ad esempio: tutti `MultiPoint` i punti in useranno lo stesso raggio per formare un geofence a cerchio multiplo.
+* Tutti i valori delle coordinate sono rappresentati come [Longitudine, latitudine `WGS84`] definito in.
+* Per ciascuna funzionalità, che contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, le proprietà vengono applicate a tutti gli elementi. ad esempio: tutti i punti in `MultiPoint` utilizzeranno lo stesso raggio per formare una georecinzione a più cerchi.
 * In uno scenario punto-cerchio, una geometria circolare può essere rappresentata usando un oggetto di geometria `Point` con proprietà elaborate nell'[Estensione delle geometrie GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 
 Di seguito è riportato un esempio del corpo della richiesta per un recinto virtuale rappresentato come una geometria circolare del recinto virtuale in `GeoJSON` usando un punto centrale e un raggio. Il periodo di validità dei dati del recinto virtuale inizia dalle ore 9 alle 17 del 22.10.2018, ripetuto ogni giorno, ad eccezione dei fine settimana. `expiredTime` indica che i dati del recinto virtuale verranno considerati scaduti, se `userTime` nella richiesta è successivo a `2019-01-01`.  

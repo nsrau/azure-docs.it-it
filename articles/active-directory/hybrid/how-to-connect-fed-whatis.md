@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0518c58abf156c718ee083ffadb0ef8e0a590252
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331532"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federazione
@@ -36,16 +36,16 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 | **Installare ADFS con Azure AD Connect** | |
 | [Prerequisiti](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Vedere i prerequisiti per una corretta installazione di ADFS con Azure AD Connect. |
 | [Configurare una farm ADFS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installare una nuova farm ADFS tramite Azure AD Connect. |
-| [Eseguire la federazione con Azure AD usando un ID di accesso alternativo](how-to-connect-fed-management.md#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
+| [Federazione con Azure AD utilizzando un ID di accesso alternativo](how-to-connect-fed-management.md#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
 | **Modifica della configurazione di ADFS** | |
 | [Ripristinare il trust](how-to-connect-fed-management.md#repairthetrust) |Ripristinare il trust corrente tra l'istanza di ADFS locale e Office 365/Azure. |
 | [Aggiungere un nuovo server ADFS](how-to-connect-fed-management.md#addadfsserver) |Espandere la farm ADFS con un server ADFS aggiuntivo dopo l'installazione iniziale. |
 | [Aggiungere un nuovo server WAP ADFS](how-to-connect-fed-management.md#addwapserver) |Espandere la farm ADFS con un server Web Application Proxy (WAP) aggiuntivo dopo l'installazione iniziale. |
 | [Aggiungere un nuovo dominio federato](how-to-connect-fed-management.md#addfeddomain) |Aggiungere un altro dominio per la federazione con Azure AD. |
-| [Aggiornare il certificato TLS/SSL](how-to-connect-fed-ssl-update.md)| Aggiornare il certificato TLS/SSL per una farm ADFS. |
+| [Aggiornare il certificato TLS/SSL](how-to-connect-fed-ssl-update.md)| Aggiornare il certificato TLS/SSL per una farm AD FS. |
 | [Rinnovare i certificati di federazione per Office 365 e Azure AD](how-to-connect-fed-o365-certs.md)|Rinnovare il certificato per Office 365 con Azure AD.|
 | **Configurazione aggiuntiva della federazione** | |
-| [Attuare la federazione di più istanze di Azure AD con un'unica istanza di AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md) | Eseguire la federazione di più istanze di Azure AD con una singola farm AD FS.| 
+| [Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md) | Eseguire la federazione di più istanze di Azure AD con una singola farm AD FS.| 
 | [Aggiungere l'illustrazione o il logo personalizzato della società](how-to-connect-fed-management.md#customlogo) |Come modificare l'esperienza di accesso specificando il logo personalizzato che viene visualizzato nella pagina di accesso di ADFS. |
 | [Aggiungere una descrizione di accesso](how-to-connect-fed-management.md#addsignindescription) |Modificare la descrizione di accesso nella pagina di accesso di ADFS. |
 | [Modificare le regole attestazioni per AD FS](how-to-connect-fed-management.md#modclaims) |Modificare o aggiungere le regole attestazioni ADFS corrispondenti alla configurazione della sincronizzazione di Azure AD Connect. |

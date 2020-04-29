@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80336098"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurare una regola di restrizione IP con un Web Application Firewall per lo sportello anteriore di Azure
@@ -31,16 +31,16 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 ### <a name="create-a-waf-policy"></a>Creare un criterio WAF
 
 1. Nella portale di Azure selezionare **Crea una risorsa**, digitare **Web Application Firewall** nella casella di ricerca e quindi selezionare **Web Application Firewall (WAF)**.
-2. Seleziona **Crea**.
+2. Selezionare **Crea**.
 3. Nella pagina **Crea un criterio WAF** usare i valori seguenti per completare la scheda **nozioni di base** :
    
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
    |Criteri per     |WAF globale (porta anteriore)|
    |Subscription     |Selezionare la propria sottoscrizione|
    |Resource group     |Selezionare il gruppo di risorse in cui si trova la porta anteriore.|
    |Nome criteri     |Digitare un nome per il criterio|
-   |Stato criteri     |Enabled|
+   |Stato criteri     |Attivato|
 
    Selezionare **Avanti: impostazioni dei criteri**
 
@@ -50,10 +50,10 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 4. Selezionare **Aggiungi regola personalizzata**.
 5. Nella pagina **Aggiungi regola personalizzata** usare i valori di test seguenti per creare una regola personalizzata:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
    |Nome regola personalizzata     |FdWafCustRule|
-   |Stato     |Enabled|
+   |Stato     |Attivato|
    |Tipo regola     |Corrispondenza|
    |Priorità    |100|
    |Tipo di corrispondenza     |Indirizzo IP|

@@ -1,6 +1,6 @@
 ---
-title: Copertura meteo Mappe di Microsoft Azure
-description: In this article, you will learn about Weather coverage in Microsoft Azure Maps.
+title: Copertura Meteo | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come coprire il meteo in Microsoft Azure maps.
 author: philmea
 ms.author: philmea
 ms.date: 11/20/2019
@@ -9,28 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80333577"
 ---
-# <a name="azure-maps-weather-coverage"></a>Copertura meteo di Azure Maps
+# <a name="azure-maps-weather-coverage"></a>Copertura Meteo di Azure Maps
 
-In questo articolo vengono fornite informazioni di copertura per i [servizi meteo](https://aka.ms/AzureMapsWeatherService)di Mappe di Azure. I servizi dati meteo di Azure Maps restituiscono dettagli quali riquadri radar, condizioni meteo correnti, previsioni meteo e meteo lungo un percorso.
+Questo articolo fornisce informazioni sulla copertura per i [Servizi Meteo](https://aka.ms/AzureMapsWeatherService)di Azure maps. Azure Maps Weather Data Services restituisce dettagli quali riquadri radar, condizioni meteo correnti, previsioni meteorologiche e il meteo lungo una route.
 
-Mappe di Azure non ha lo stesso livello di informazioni e precisione per tutti i paesi e le aree geografiche.
+Le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutti i paesi e le aree geografiche.
 
-Nella tabella seguente vengono fornite informazioni sul tipo di informazioni meteo che è possibile richiedere a ciascun paese.
+La tabella seguente fornisce informazioni sul tipo di informazioni meteorologiche che è possibile richiedere da ogni paese/area geografica.
 
 | Simbolo | Significato |
 |--------|---------|
-|*       |Copre il meteo lungo il percorso, le condizioni attuali, le previsioni orarie, le PREVISIONi trimestrali e le API di previsione giornaliera |
+|*       |Descrive il meteo lungo la route, le condizioni correnti, la previsione oraria, la previsione trimestrale e le API per previsioni giornaliere |
 
 
 ## <a name="americas"></a>Americhe
 
-| Paese/Area geografica              |  Piastrelle Satellitari | Previsione minuti, Piastrelle Radar | Altra cosa del mondo . | 
+| Paese/area geografica              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguilla                                 | ✓ |   |  ✓| 
 | Antartide                               | ✓ |   |  ✓|
@@ -57,12 +57,12 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Ecuador                                  | ✓ |   |  ✓| 
 | El Salvador                              | ✓ |   |  ✓| 
 | Isole Falkland                         | ✓ |   |  ✓| 
-| Guayana francese                            | ✓ |   |  ✓| 
+| Guayana Francese                            | ✓ |   |  ✓| 
 | Groenlandia                                | ✓ |   |  ✓| 
 | Grenada                                  | ✓ |   |  ✓| 
 | Guadalupa                               | ✓ |   |  ✓| 
 | Guatemala                                | ✓ |   |  ✓| 
-| Guiana                                   | ✓ |   |  ✓| 
+| Guyana                                   | ✓ |   |  ✓| 
 | Haiti                                    | ✓ |   |  ✓| 
 | Honduras                                 | ✓ |   |  ✓| 
 | Giamaica                                  | ✓ |   |  ✓| 
@@ -80,13 +80,13 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Saint Martin                             | ✓ |   |  ✓| 
 | Saint Pierre e Miquelon                | ✓ |   |  ✓| 
 | Saint Vincent e Grenadine         | ✓ |   |  ✓| 
-| Sint Eustatio                           | ✓ |   |  ✓|  
+| Sint Eustatius                           | ✓ |   |  ✓|  
 | Sint Maarten                             | ✓ |   |  ✓| 
-| Isole della Georgia del Sud e Sandwich del Sud | ✓ |   |  ✓| 
+| Georgia del Sud e Isole Sandwich Australi | ✓ |   |  ✓| 
 | Suriname                                 | ✓ |   |  ✓| 
 | Trinidad e Tobago                      | ✓ |   |  ✓| 
-| Isole Turks e Caicos                 | ✓ |   |  ✓| 
-| Altre isole americane del Pacifico                    | ✓ |   |  ✓| 
+| Turks e Caicos, Isole                 | ✓ |   |  ✓| 
+| Stati Uniti Altre isole americane del Pacifico                    | ✓ |   |  ✓| 
 | Isole Vergini Americane                      | ✓ |   |  ✓| 
 | Stati Uniti                            | ✓ | ✓ |  ✓| 
 | Uruguay                                  | ✓ |   |  ✓| 
@@ -95,7 +95,7 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
-| Paese/Area geografica              |  Piastrelle Satellitari | Previsione minuti, Piastrelle Radar | Altra cosa del mondo . | 
+| Paese/area geografica              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Algeria                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
@@ -107,14 +107,14 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Burundi                     | ✓               |                              |        ✓| 
 | Camerun                    | ✓               |                              |        ✓| 
 | Cabo Verde                  | ✓               |                              |        ✓| 
-| Repubblica centrafricana    | ✓               |                              |        ✓| 
-| Chad                        | ✓               |                              |        ✓| 
+| Repubblica Centrafricana    | ✓               |                              |        ✓| 
+| Ciad                        | ✓               |                              |        ✓| 
 | Comore                     | ✓               |                              |        ✓| 
-| Congo (RDC)                 | ✓               |                              |        ✓|
+| Repubblica democratica del Congo                 | ✓               |                              |        ✓|
 | Côte d'Ivoire (Costa d'Avorio)               | ✓               |                              |        ✓| 
 | Gibuti                    | ✓               |                              |        ✓| 
 | Egitto                       | ✓               |                              |        ✓| 
-| Guinea equatoriale           | ✓               |                              |        ✓| 
+| Guinea Equatoriale           | ✓               |                              |        ✓| 
 | Eritrea                     | ✓               |                              |        ✓| 
 | eSwatini                    | ✓               |                              |        ✓| 
 | Etiopia                    | ✓               |                              |        ✓| 
@@ -123,7 +123,7 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Gambia                      | ✓               |                              |        ✓| 
 | Ghana                       | ✓               |                              |        ✓| 
 | Guinea                      | ✓               |                              |        ✓| 
-| Bissau               | ✓               |                              |        ✓| 
+| Guinea-Bissau               | ✓               |                              |        ✓| 
 | Iran                        | ✓               |                              |        ✓| 
 | Iraq                        | ✓               |                              |        ✓| 
 | Israele                      | ✓               |                              |        ✓| 
@@ -158,7 +158,7 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Sierra Leone                | ✓               |                              |        ✓| 
 | Somalia                     | ✓               |                              |        ✓| 
 | Sud Africa                | ✓               |                              |        ✓| 
-| Sudan del Sud                 | ✓               |                              |        ✓| 
+| Sud Sudan                 | ✓               |                              |        ✓| 
 | Sudan                       | ✓               |                              |        ✓| 
 | Siria                       | ✓               |                              |        ✓| 
 | Tanzania                    | ✓               |                              |        ✓| 
@@ -174,14 +174,14 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 
 ## <a name="asia-pacific"></a>Asia Pacifico
 
-| Paese/Area geografica              |  Piastrelle Satellitari | Previsione minuti, Piastrelle Radar | Altra cosa del mondo . | 
+| Paese/area geografica              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afghanistan                       | ✓ |   |  ✓| 
-| Isole Samoa americane                    | ✓ |   |  ✓| 
+| Samoa Americane                    | ✓ |   |  ✓| 
 | Australia                         | ✓ | ✓ |  ✓| 
 | Bangladesh                        | ✓ |   |  ✓| 
 | Bhutan                            | ✓ |   |  ✓| 
-| Territorio britannico dell'oceano Indiano    | ✓ |   |  ✓| 
+| Territorio britannico dell'Oceano Indiano    | ✓ |   |  ✓| 
 | Brunei                            | ✓ |   |  ✓| 
 | Cambogia                          | ✓ |   |  ✓| 
 | Cina                             | ✓ | ✓ |  ✓| 
@@ -189,9 +189,9 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Isole Cocos (Keeling)           | ✓ |   |  ✓| 
 | Isole Cook                      | ✓ |   |  ✓| 
 | Figi                              | ✓ |   |  ✓| 
-| Polinesia francese                  | ✓ |   |  ✓| 
+| Polinesia Francese                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
-| Isole Heard e McDonald | ✓ |   |  ✓| 
+| Heard e McDonald | ✓ |   |  ✓| 
 | RAS di Hong Kong                     | ✓ |   |  ✓| 
 | India                             | ✓ |   |  ✓| 
 | Indonesia                         | ✓ |   |  ✓| 
@@ -204,7 +204,7 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | RAS di Macao                         | ✓ |   |  ✓| 
 | Malaysia                          | ✓ |   |  ✓| 
 | Maldive                          | ✓ |   |  ✓| 
-| Isole Marshall                  | ✓ |   |  ✓| 
+| Marshall                  | ✓ |   |  ✓| 
 | Micronesia                        | ✓ |   |  ✓| 
 | Mongolia                          | ✓ |   |  ✓| 
 | Myanmar                           | ✓ |   |  ✓| 
@@ -213,7 +213,7 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Nuova Caledonia                     | ✓ |   |  ✓| 
 | Nuova Zelanda                       | ✓ |   |  ✓| 
 | Niue                              | ✓ |   |  ✓| 
-| Isola di Norfolk                    | ✓ |   |  ✓| 
+| Norfolk                    | ✓ |   |  ✓| 
 | Corea del Nord                       | ✓ |   |  ✓| 
 | Marianne Settentrionali          | ✓ |   |  ✓| 
 | Pakistan                          | ✓ |   |  ✓| 
@@ -221,14 +221,14 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Papua Nuova Guinea                  | ✓ |   |  ✓| 
 | Filippine                       | ✓ |   |  ✓| 
 | Isole Pitcairn                  | ✓ |   |  ✓| 
-| Isole Samoa                              | ✓ |   |  ✓| 
+| Samoa                             | ✓ |   |  ✓| 
 | Singapore                         | ✓ |   |  ✓| 
 | Isole Salomone                   | ✓ |   |  ✓| 
 | Sri Lanka                         | ✓ |   |  ✓| 
 | Taiwan                            | ✓ |   |  ✓| 
 | Tagikistan                        | ✓ |   |  ✓| 
 | Thailandia                          | ✓ |   |  ✓| 
-| Timor Est                       | ✓ |   |  ✓| 
+| Timor-Leste                       | ✓ |   |  ✓| 
 | Tokelau                           | ✓ |   |  ✓| 
 | Tonga                             | ✓ |   |  ✓| 
 | Turkmenistan                      | ✓ |   |  ✓| 
@@ -241,7 +241,7 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 
 ## <a name="europe"></a>Europa
 
-| Paese/Area geografica              |  Piastrelle Satellitari | Previsione minuti, Piastrelle Radar | Altra cosa del mondo . | 
+| Paese/area geografica              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albania                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
@@ -264,7 +264,7 @@ Nella tabella seguente vengono fornite informazioni sul tipo di informazioni met
 | Germania                | ✓ | ✓ |  ✓| 
 | Gibilterra              | ✓ | ✓ |  ✓| 
 | Grecia                 | ✓ |   |  ✓| 
-| Isola di Guernsey               | ✓ |   |  ✓| 
+| Guernsey               | ✓ |   |  ✓| 
 | Ungheria                | ✓ | ✓ |  ✓| 
 | Islanda                | ✓ |   |  ✓| 
 | Irlanda                | ✓ | ✓ |  ✓| 

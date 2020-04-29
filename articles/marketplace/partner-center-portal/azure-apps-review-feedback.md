@@ -1,6 +1,6 @@
 ---
-title: Gestione dei commenti e suggerimenti sulle recensioni per l'offerta di app di Azure nel marketplace commercialeHandling review feedback for Azure Apps offer in the Commercial Marketplace
-description: Come gestire i commenti e suggerimenti di revisione per l'offerta di app di Azure per l'elenco o la vendita in Azure Marketplace, AppSource o tramite il programma Cloud Solution Provider (CSP) tramite il portale di Commercial Marketplace nel Centro per i partner Microsoft.
+title: Gestione del feedback di revisione per l'offerta app di Azure nel Marketplace commerciale
+description: Come gestire il feedback della revisione per le app di Azure per l'inserzione o la vendita in Azure Marketplace, AppSource o tramite il programma Cloud Solution Provider (CSP) usando il portale di Marketplace commerciale nel centro per i partner Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,27 +8,27 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.openlocfilehash: 3932f3fc71dc6427b6cdf93d3a7bc58534a9981c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80279794"
 ---
 # <a name="handling-review-feedback"></a>Gestione del feedback della revisione
 
 Questo articolo illustra come accedere all'ambiente Azure DevOps usato dal team di revisione di Microsoft Azure Marketplace. Se vengono rilevati problemi critici nell'offerta di applicazione Azure durante il passaggio di **revisione Microsoft**, è possibile accedere a questo sistema per visualizzare informazioni dettagliate su questi problemi (feedback della revisione). Dopo aver risolto tutti i problemi, è necessario inviare di nuovo l'offerta per continuare a pubblicarla in Azure Marketplace. Il diagramma seguente illustra come questo processo di commenti e suggerimenti è correlato a quello di pubblicazione.
 
-![Revisione del processo di feedback](./media/review-feedback-process.png)
+![Esaminare il processo di feedback](./media/review-feedback-process.png)
 
-I problemi di revisione vengono in genere chiamati richieste pull. Ogni richiesta pull è collegata a un elemento [Azure DevOps](https://azure.microsoft.com/services/devops/) (in precedenza detto Visual Studio Team Services o VSTS) online, che contiene i dettagli del problema. L'immagine seguente mostra un esempio dell'esperienza del Centro per i partner se vengono rilevati problemi durante le revisioni. 
+I problemi di revisione vengono in genere chiamati richieste pull. Ogni richiesta pull è collegata a un elemento [Azure DevOps](https://azure.microsoft.com/services/devops/) (in precedenza detto Visual Studio Team Services o VSTS) online, che contiene i dettagli del problema. Nell'immagine seguente viene visualizzato un esempio dell'esperienza del centro per i partner se vengono rilevati problemi durante le revisioni. 
 
 ![Stato di pubblicazione](./media/publishing-status.png)
 
-Il PR che contiene dettagli specifici sull'invio verrà indicato nel collegamento "Visualizza rapporto di certificazione". In caso di situazioni complesse, i team di revisione e supporto possono inviare un messaggio di posta elettronica.
+La richiesta pull che contiene dettagli specifici sull'invio verrà indicata nel collegamento "Visualizza report certificazione". In caso di situazioni complesse, i team di revisione e supporto possono inviare un messaggio di posta elettronica.
 
-## <a name="azure-devops-access"></a>Accesso a Azure DevOpsAzure DevOps access
+## <a name="azure-devops-access"></a>Accesso ad Azure DevOps
 
-Tutti gli utenti con accesso al ruolo "sviluppatore" nel Centro per i partner avranno accesso per visualizzare gli elementi PR a cui si fa riferimento nei commenti e suggerimenti di revisione.
+Tutti gli utenti con accesso al ruolo "sviluppatore" nel centro per i partner avranno accesso per visualizzare gli elementi della richiesta pull a cui si fa riferimento nel feedback di revisione.
 
 <!---
 To view the PR items referenced in review feedback, publishers must first be granted proper authorization. Otherwise, new publishers receive a 401 - Not Authorized response page when trying to view PRs. To request access to this Azure DevOps repository, perform the following steps:
@@ -52,15 +52,15 @@ If the incident creation was successful, a confirmation page is displayed. Save 
 
 Usare la procedura seguente per esaminare i problemi documentati nella richiesta pull.
 
-1. Nel modulo Passaggi di pubblicazione della **recensione Microsoft** fare clic su un collegamento PR per avviare il browser e passare alla pagina **Panoramica** (home) per questa richiesta PR. L'immagine seguente illustra un esempio della home page del problema critico per l'offerta dell'app di esempio Contoso. Questa pagina contiene utili informazioni di riepilogo relative ai problemi riscontrati nella revisione dell'app Azure.
+1. Nel modulo **Microsoft Review** of Publishing Steps fare clic su un collegamento PR per avviare il browser e passare alla pagina **Overview** (Home) per questa richiesta pull. Nell'immagine seguente viene illustrato un esempio del problema critico home page per l'offerta di app di esempio contoso. Questa pagina contiene utili informazioni di riepilogo relative ai problemi riscontrati nella revisione dell'app Azure.
 
-    [![Home page della richiesta pull](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
+    [![home page richiesta pull](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Fare clic sull'immagine per ingrandirla.*
 
-1. (Facoltativo) Sul lato destro della finestra, nella sezione **Criteri**, fare clic sul messaggio di problema (in questo esempio: **Convalida criteri non riuscita**) per analizzare i dettagli di basso livello del problema, inclusi i file di registro associati. Gli errori vengono in genere visualizzati nella parte inferiore dei file di log.
+1. Opzionale Sul lato destro della finestra, nella sezione **criteri**, fare clic sul messaggio di problema (in questo esempio: convalida dei **criteri non riuscita**) per esaminare i dettagli di basso livello del problema, inclusi i file di log associati. Gli errori vengono in genere visualizzati nella parte inferiore dei file di log.
 1. Nel menu sul lato sinistro della home page selezionare **Files** (File) per visualizzare i file dell'elenco che includono gli asset tecnici per l'offerta. I revisori Microsoft dovrebbero aver aggiunto commenti che descrivono i problemi critici individuati. Nell'esempio seguente sono stati individuati due problemi.
 
-    [![Home page della richiesta pull](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![home page richiesta pull](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Fare clic sull'immagine per ingrandirla.*
 
 1. Fare clic su ogni nodo di commento nell'albero a sinistra per passare al commento nel contesto del codice circostante. Correggere il codice sorgente nel progetto del team per risolvere il problema descritto nel commento.

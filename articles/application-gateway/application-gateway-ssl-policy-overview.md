@@ -1,6 +1,6 @@
 ---
-title: Panoramica dei criteri TLS per il gateway applicazione di Azure
-description: Informazioni su come configurare i criteri TLS per il gateway applicazione di Azure e ridurre l'overhead di crittografia e decrittografia da una server farm back-end.
+title: Panoramica dei criteri TLS per applicazione Azure gateway
+description: Informazioni su come configurare i criteri TLS per applicazione Azure gateway e ridurre il sovraccarico di crittografia e decrittografia da un server farm back-end.
 services: application gateway
 author: amsriva
 ms.service: application-gateway
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 871cb930e867002d8af1e7755de27d4873327543
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80257377"
 ---
-# <a name="application-gateway-tls-policy-overview"></a>Panoramica dei criteri TLS del gateway applicazioneApplication Gateway TLS policy overview
+# <a name="application-gateway-tls-policy-overview"></a>Panoramica dei criteri TLS del gateway applicazione
 
-È possibile usare Il gateway applicazione di Azure per centralizzare la gestione dei certificati TLS/SSL e ridurre il sovraccarico di crittografia e decrittografia da una server farm back-end. Questa gestione TLS centralizzata consente inoltre di specificare un criterio TLS centrale adatto ai requisiti di sicurezza dell'organizzazione. In questo modo, è possibile soddisfare i requisiti di conformità, nonché le linee guida e le procedure consigliate per la sicurezza.
+È possibile usare applicazione Azure gateway per centralizzare la gestione dei certificati TLS/SSL e ridurre il sovraccarico di crittografia e decrittografia da un server farm back-end. Questa gestione centralizzata di TLS consente inoltre di specificare un criterio TLS centrale adatto ai requisiti di sicurezza dell'organizzazione. In questo modo, è possibile soddisfare i requisiti di conformità, nonché le linee guida e le procedure consigliate per la sicurezza.
 
-Il criterio TLS include il controllo della versione del protocollo TLS, nonché dei pacchetti di crittografia e l'ordine in cui le crittografie vengono utilizzate durante un handshake TLS. Il gateway applicazione offre due meccanismi per il controllo dei criteri TLS. È possibile usare criteri predefiniti o personalizzati.
+I criteri TLS includono il controllo della versione del protocollo TLS, nonché i pacchetti di crittografia e l'ordine in cui vengono usate le crittografie durante un handshake TLS. Il gateway applicazione offre due meccanismi per il controllo dei criteri TLS. È possibile usare criteri predefiniti o personalizzati.
 
 ## <a name="predefined-tls-policy"></a>Criteri TLS predefiniti
 
-Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile configurare il gateway con uno qualsiasi di questi criteri per ottenere il livello di sicurezza appropriato. I nomi dei criteri sono contrassegnati con l'anno e il mese in cui sono stati configurati. Ogni criterio offre diverse versioni del protocollo TLS e suite di crittografia. Si consiglia di utilizzare i criteri TLS più recenti per garantire la migliore sicurezza TLS.
+Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile configurare il gateway con uno qualsiasi di questi criteri per ottenere il livello di sicurezza appropriato. I nomi dei criteri sono contrassegnati con l'anno e il mese in cui sono stati configurati. Ogni criterio offre diverse versioni del protocollo TLS e pacchetti di crittografia. Si consiglia di usare i criteri TLS più recenti per garantire la migliore sicurezza TLS.
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -53,17 +53,17 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
 
 ## <a name="custom-tls-policy"></a>Criteri TLS personalizzati
 
-Se è necessario configurare un criterio TLS predefinito in base alle proprie esigenze, è necessario definire criteri TLS personalizzati. Con un criterio TLS personalizzato, si ha il controllo completo sulla versione minima del protocollo TLS da supportare, nonché sulle suite di crittografia supportate e sul relativo ordine di priorità.
+Se è necessario configurare un criterio TLS predefinito per i propri requisiti, è necessario definire un criterio TLS personalizzato. Con un criterio TLS personalizzato, si ha il controllo completo sulla versione minima del protocollo TLS da supportare, nonché sui pacchetti di crittografia supportati e sul relativo ordine di priorità.
  
 ### <a name="tlsssl-protocol-versions"></a>Versioni del protocollo TLS/SSL
 
 * Per impostazione predefinita, i protocolli SSL 2.0 e 3.0 sono disabilitati per tutti i gateway applicazione. Queste versioni del protocollo non sono configurabili.
-* Un criterio TLS personalizzato consente di selezionare uno dei tre protocolli seguenti come versione minima del protocollo TLS per il gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
-* Se non è definito alcun criterio TLS, vengono abilitati tutti e tre i protocolli (TLSv1_0, TLSv1_1 e TLSv1_2).
+* I criteri TLS personalizzati offrono la possibilità di selezionare uno dei tre protocolli seguenti come versione minima del protocollo TLS per il gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
+* Se non è definito alcun criterio TLS, verranno abilitati tutti e tre i protocolli (TLSv1_0, TLSv1_1 e TLSv1_2).
 
 ### <a name="cipher-suites"></a>Pacchetti di crittografia
 
-Il gateway applicazione supporta i pacchetti di crittografia seguenti, tra i quali è possibile scegliere i criteri personalizzati. L'ordine dei pacchetti di crittografia determina l'ordine di priorità durante la negoziazione TLS.
+Il gateway applicazione supporta i pacchetti di crittografia seguenti, tra i quali è possibile scegliere i criteri personalizzati. L'ordinamento dei pacchetti di crittografia determina l'ordine di priorità durante la negoziazione TLS.
 
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -96,10 +96,10 @@ Il gateway applicazione supporta i pacchetti di crittografia seguenti, tra i qua
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 > [!NOTE]
-> Le suite di crittografia TLS utilizzate per la connessione si basano anche sul tipo di certificato utilizzato. Nelle connessioni da client a gateway applicazione, le suite di crittografia utilizzate sono basate sul tipo di certificati server nel listener del gateway applicazione. Nel gateway applicazione alle connessioni al pool back-end, i pacchetti di crittografia utilizzati si basano sul tipo di certificati server nei server del pool back-end.
+> I pacchetti di crittografia TLS usati per la connessione sono basati anche sul tipo di certificato usato. Nelle connessioni da client a gateway applicazione, i pacchetti di crittografia usati sono basati sul tipo di certificati del server nel listener del gateway applicazione. Nel gateway applicazione per le connessioni al pool back-end, i pacchetti di crittografia usati sono basati sul tipo di certificati del server nei server del pool back-end.
 
 ## <a name="known-issue"></a>Problema noto
-Il gateway applicazione v2 non supporta attualmente le seguenti crittografie:
+Il gateway applicazione V2 non supporta attualmente le crittografie seguenti:
 - DHE-RSA-AES128-GCM-SHA256
 - DHE-RSA-AES128-SHA
 - DHE-RSA-AES256-GCM-SHA384
@@ -111,4 +111,4 @@ Il gateway applicazione v2 non supporta attualmente le seguenti crittografie:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si desidera ottenere informazioni sulla configurazione di un criterio TLS, vedere [Configurare le versioni](application-gateway-configure-ssl-policy-powershell.md)dei criteri TLS e i pacchetti di crittografia nel gateway applicazione .
+Per informazioni su come configurare un criterio TLS, vedere [configurare le versioni dei criteri TLS e i pacchetti di crittografia nel gateway applicazione](application-gateway-configure-ssl-policy-powershell.md).

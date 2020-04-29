@@ -1,7 +1,7 @@
 ---
 title: Strumenti di sviluppo
 titleSuffix: Azure Data Science Virtual Machine
-description: Informazioni sugli strumenti e sugli ambienti di sviluppo integrati disponibili nella macchina virtuale di data science.
+description: Informazioni sugli strumenti e gli ambienti di sviluppo integrati disponibili nell'Data Science Virtual Machine.
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 ms.service: machine-learning
@@ -11,26 +11,26 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282682"
 ---
-# <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Strumenti di sviluppo nella macchina virtuale di analisi scientifica dei dati di AzureDevelopment tools on the Azure Data Science Virtual Machine
+# <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Strumenti di sviluppo nel Data Science Virtual Machine di Azure
 
-Data Science Virtual Machine (DSVM) include diversi strumenti popolari in un ambiente di sviluppo integrato (IDE) altamente produttivo. Ecco alcuni strumenti offerti dalla macchina virtuale per data science.
+Il Data Science Virtual Machine (DSVM) raggruppa diversi strumenti diffusi in un ambiente IDE (highly produttivi Integrated Development Environment). Ecco alcuni strumenti offerti dalla macchina virtuale per data science.
 
 ## <a name="visual-studio-community-edition"></a>Visual Studio Community Edition
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE generico      |
-| Versioni DSVM supportate      | Windows: Visual Studio 2017, Windows 2019 : Visual Studio 2019      |
-| Usi tipici      | Sviluppo software    |
+| Che cos'è?   | IDE per utilizzo generico      |
+| Versioni di DSVM supportate      | Windows: Visual Studio 2017, Windows 2019: Visual Studio 2019      |
+| Usi tipici      | Sviluppo di software    |
 | Come viene configurato e installato in DSVM?      | Carico di lavoro di data science (strumenti Python e R), carico di lavoro di Azure (Hadoop e Data Lake), Node.js, strumenti di SQL Server, [Azure Machine Learning per Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Come usarlo ed eseguirlo      | Collegamento sul`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`desktop ( ). Graficamente, aprire Visual Studio utilizzando l'icona del desktop o il menu **Start.** Cercare i programmi premendo il tasto WINDOWS + S e poi **Visual Studio**. È quindi possibile creare progetti in linguaggi come C#, Python, R e Node.js.   |
-| Strumenti correlati su DSVM      |     Visual Studio Code, RStudio, Juno  |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`(). Graficamente, aprire Visual Studio usando l'icona del desktop o il menu **Start** . Cercare i programmi premendo il tasto WINDOWS + S e poi **Visual Studio**. È quindi possibile creare progetti in linguaggi come C#, Python, R e Node.js.   |
+| Strumenti correlati in DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 > [!NOTE]
 > Potrebbe essere visualizzato un messaggio indicante che il periodo di valutazione è scaduto. Immettere le credenziali dell'account Microsoft oppure creare un nuovo account gratuito per poter accedere a Visual Studio Community.
@@ -39,49 +39,49 @@ Data Science Virtual Machine (DSVM) include diversi strumenti popolari in un amb
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE generico      |
-| Versioni DSVM supportate      | Windows, Linux     |
+| Che cos'è?   | IDE per utilizzo generico      |
+| Versioni di DSVM supportate      | Windows, Linux     |
 | Usi tipici      | Editor di codice e integrazione di Git   |
-| Come usarlo ed eseguirlo      | Collegamento sul`C:\Program Files (x86)\Microsoft VS Code\Code.exe`desktop ( ) in`code`Windows, collegamento sul desktop o terminale ( ) in Linux    |
-| Strumenti correlati su DSVM      |     Visual Studio, RStudio, Juno  |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\Program Files (x86)\Microsoft VS Code\Code.exe`() in Windows, collegamento al desktop o`code`terminale () in Linux    |
+| Strumenti correlati in DSVM      |     Visual Studio, RStudio, Juno  |
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE client per la lingua R   |
-| Versioni DSVM supportate      | Windows, Linux      |
+| Che cos'è?   | IDE client per il linguaggio R   |
+| Versioni di DSVM supportate      | Windows, Linux      |
 | Usi tipici      |  Sviluppo R     |
-| Come usarlo ed eseguirlo      | Collegamento sul`C:\Program Files\RStudio\bin\rstudio.exe`desktop ( )`/usr/bin/rstudio`su Windows, collegamento sul desktop ( ) su Linux      |
-| Strumenti correlati su DSVM      |   Visual Studio, Visual Studio Code, Juno      |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\Program Files\RStudio\bin\rstudio.exe`() in Windows, collegamento sul`/usr/bin/rstudio`desktop () in Linux      |
+| Strumenti correlati in DSVM      |   Visual Studio, Visual Studio Code, Juno      |
 
 ## <a name="rstudio-server"></a>RStudio Server
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | IDE client per la lingua R   |
+| Che cos'è?   | IDE client per il linguaggio R   |
 | Che cos'è?   | IDE basato sul Web per R    |
-| Versioni DSVM supportate      | Linux      |
+| Versioni di DSVM supportate      | Linux      |
 | Usi tipici      |  Sviluppo R     |
-| Come usarlo ed eseguirlo      | Abilitare il servizio con _systemctl enable rstudio-server_, quindi avviare il servizio con _systemctl start rstudio-server_. Accedere quindi a RStudio Server\/all'indirizzo http: /your-vm-ip:8787.       |
-| Strumenti correlati su DSVM      |   Visual Studio, Visual Studio Code, RStudio Desktop      |
+| Come usarlo ed eseguirlo      | Abilitare il servizio con _systemctl enable rstudio-server_, quindi avviare il servizio con _systemctl Start rstudio-server_. Quindi accedere a RStudio server all'indirizzo http:\//your-VM-IP: 8787.       |
+| Strumenti correlati in DSVM      |   Visual Studio, Visual Studio Code, desktop RStudio      |
 
 ## <a name="juno"></a>Juno 
 
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE client per il linguaggio Julia   |
-| Versioni DSVM supportate      | Windows, Linux      |
+| Versioni di DSVM supportate      | Windows, Linux      |
 | Usi tipici      |  Sviluppo di Julia     |
-| Come usarlo ed eseguirlo      | Collegamento sul`C:\JuliaPro-0.5.1.1\Juno.bat`desktop ( )`/opt/JuliaPro-VERSION/Juno`su Windows, collegamento sul desktop ( ) su Linux      |
-| Strumenti correlati su DSVM      |   Visual Studio, Visual Studio Code, RStudio      |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\JuliaPro-0.5.1.1\Juno.bat`() in Windows, collegamento sul`/opt/JuliaPro-VERSION/Juno`desktop () in Linux      |
+| Strumenti correlati in DSVM      |   Visual Studio, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE client per il linguaggio Python    |
-| Versioni DSVM supportate      | Windows 2019, Linux      |
+| Versioni di DSVM supportate      | Windows 2019, Linux      |
 | Usi tipici      |  Sviluppo Python     |
-| Come usarlo ed eseguirlo      | Collegamento sul`C:\Program Files\tk`desktop ( ) in Windows. Collegamento sul`/usr/bin/pycharm`desktop ( ) su Linux      |
-| Strumenti correlati su DSVM      |   Visual Studio, Visual Studio Code, RStudio      |
+| Come usarlo ed eseguirlo      | Collegamento sul desktop`C:\Program Files\tk`() in Windows. Collegamento sul desktop`/usr/bin/pycharm`() in Linux      |
+| Strumenti correlati in DSVM      |   Visual Studio, Visual Studio Code, RStudio      |

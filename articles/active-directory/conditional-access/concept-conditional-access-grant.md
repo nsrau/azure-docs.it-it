@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331851"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
@@ -37,7 +37,7 @@ Gli amministratori possono scegliere di applicare uno o più controlli durante l
 - [Richiedi autenticazione a più fattori (Multi-Factor Authentication di Azure)](../authentication/concept-mfa-howitworks.md)
 - [Richiedi che il dispositivo sia contrassegnato come conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Richiedi dispositivo ibrido Azure AD aggiunto](../devices/concept-azure-ad-join-hybrid.md)
-- [Richiedere app client approvata](app-based-conditional-access.md)
+- [Richiedi app client approvata](app-based-conditional-access.md)
 - [Richiedere criteri di protezione dell'app](app-protection-based-conditional-access.md)
 
 Quando gli amministratori scelgono di combinare queste opzioni, possono scegliere i metodi seguenti:
@@ -63,7 +63,7 @@ I dispositivi devono essere registrati in Azure AD prima che possano essere cont
 
 Le organizzazioni possono scegliere di usare l'identità del dispositivo come parte dei criteri di accesso condizionale. Le organizzazioni possono richiedere che i dispositivi siano ibridi Azure AD Uniti con questa casella di controllo. Per altre informazioni sulle identità dei dispositivi, vedere l'articolo [che cos'è un'identità del dispositivo?](../devices/overview.md).
 
-### <a name="require-approved-client-app"></a>Richiedere app client approvata
+### <a name="require-approved-client-app"></a>Richiedi app client approvata
 
 Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Queste app client approvate supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) in modo indipendente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 

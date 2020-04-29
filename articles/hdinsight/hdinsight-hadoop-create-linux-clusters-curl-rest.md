@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239926"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creare i cluster Apache Hadoop tramite l'API REST di Azure
@@ -28,9 +28,9 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
 
 ## <a name="create-a-template"></a>Creare un modello
 
-I modelli di Azure Resource Manager sono documenti JSON che descrivono un gruppo di **risorse** e tutte le risorse in esso in esso in esso (ad esempio HDInsight). Questo approccio basato su modelli consente di definire le risorse necessarie per HDInsight in un modello.
+Azure Resource Manager modelli sono documenti JSON che descrivono un **gruppo di risorse** e tutte le risorse al suo interno, ad esempio HDInsight. Questo approccio basato su modelli consente di definire le risorse necessarie per HDInsight in un unico modello.
 
-Il documento JSON seguente è una fusione [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)dei file di modello e parametri da , che crea un cluster basato su Linux utilizzando una password per proteggere l'account utente SSH.
+Il documento JSON seguente è una fusione dei file di modello e di parametri [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)di, che consente di creare un cluster basato su Linux usando una password per proteggere l'account utente SSH.
 
    ```json
    {
@@ -341,13 +341,13 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 Questo comando restituisce un documento JSON che contiene informazioni sull'operazione di distribuzione. L'elemento `"provisioningState"` contiene lo stato della distribuzione. Se questo elemento contiene un valore di `"Succeeded"`, la distribuzione è stata completata.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato correttamente un cluster HDInsight, usare quanto segue per informazioni su come usare il cluster.
+Ora che è stato creato un cluster HDInsight, usare il comando seguente per informazioni su come usare il cluster.
 
 ### <a name="apache-hadoop-clusters"></a>Cluster Apache Hadoop
 

@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: d07d1a706635a7f269a9a51769ae6f8bbf57df3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295414"
 ---
 # <a name="azcopy-login"></a>azcopy login
@@ -97,7 +97,7 @@ Assicurarsi di considerare/Path/to/My/CERT come percorso di un file PEM o PKCS12
 
 --Certificate-Path è obbligatorio quando si esegue l'autenticazione dell'entità servizio basata su certificati.
 
-## <a name="options"></a>Opzioni
+## <a name="options"></a>Options
 
 |Opzione|Descrizione|
 |--|--|
@@ -120,6 +120,6 @@ Questo flag non è necessario per identità del servizio gestita.|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [azcopy](storage-ref-azcopy.md)

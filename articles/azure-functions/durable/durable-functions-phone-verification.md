@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335755"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
 Questo esempio illustra come creare un'orchestrazione di [Funzioni permanenti](durable-functions-overview.md) che prevede interazione umana. Ogni volta che una persona reale è coinvolta in un processo automatizzato, il processo deve essere in grado di inviare notifiche alla persona e di ricevere risposte in modo asincrono. È inoltre necessario consentire la possibilità che la persona non sia disponibile. In questa parte i timeout diventano importanti.
 
-L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tipi di flussi vengono spesso usati quando si verifica il numero di telefono di un cliente o per l'autenticazione a più fattori. Si tratta di un esempio potente perché l'intera implementazione viene eseguita utilizzando un paio di piccole funzioni. Non è necessario alcun archivio dati esterno, ad esempio un database.
+L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tipi di flussi vengono spesso usati quando si verifica il numero di telefono di un cliente o per l'autenticazione a più fattori. Si tratta di un esempio potente, perché l'intera implementazione viene eseguita utilizzando due funzioni di piccole dimensioni. Non è necessario alcun archivio dati esterno, ad esempio un database.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -23,7 +23,7 @@ L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tip
 
 La verifica telefonica viene usata per assicurarsi che gli utenti finali dell'applicazione non siano spammer e che siano effettivamente chi affermano di essere. L'autenticazione a più fattori è un metodo di uso comune per proteggere gli account utente da pirati informatici. Il problema nell'implementazione di una verifica telefonica consiste nella necessità di un'**l'interazione con stato** con una persona fisica. A un utente finale viene in genere inviato un codice, ad esempio un numero di 4 cifre, e l'utente deve rispondere **in un intervallo di tempo ragionevole**.
 
-Funzioni di Azure è un servizio normalmente senza stato (come molti altri endpoint cloud su altre piattaforme), quindi questi tipi di interazioni comportano la gestione esplicita di uno stato esternamente, ad esempio in un database o in un altro archivio permanente. L'interazione deve essere anche suddivisa in più funzioni che possono essere coordinate tra loro. È necessario ad esempio disporre almeno di una funzione per la scelta di un codice, la permanenza in un punto e l'invio al telefono dell'utente. È necessaria anche almeno un'altra funzione per ricevere una risposta da parte dell'utente e associarla alla chiamata di funzione originale al fine di convalidare il codice. Un timeout è un aspetto importante per garantire la protezione. Può diventare abbastanza complesso rapidamente.
+Funzioni di Azure è un servizio normalmente senza stato (come molti altri endpoint cloud su altre piattaforme), quindi questi tipi di interazioni comportano la gestione esplicita di uno stato esternamente, ad esempio in un database o in un altro archivio permanente. L'interazione deve essere anche suddivisa in più funzioni che possono essere coordinate tra loro. È necessario ad esempio disporre almeno di una funzione per la scelta di un codice, la permanenza in un punto e l'invio al telefono dell'utente. È necessaria anche almeno un'altra funzione per ricevere una risposta da parte dell'utente e associarla alla chiamata di funzione originale al fine di convalidare il codice. Un timeout è un aspetto importante per garantire la protezione. Può diventare piuttosto complesso rapidamente.
 
 La complessità dello scenario viene notevolmente ridotta grazie all'uso di Funzioni permanenti. Come si vedrà in questo esempio, una funzione dell'agente di orchestrazione può gestire l'interazione con stato in modo semplice e senza coinvolgere alcun archivio dati esterno. Poiché le funzioni dell'agente di orchestrazione sono *permanenti*, questi flussi interattivi sono anche estremamente affidabili.
 
@@ -35,19 +35,19 @@ La complessità dello scenario viene notevolmente ridotta grazie all'uso di Funz
 
 L'articolo illustra le funzioni seguenti nell'app di esempio:
 
-* `E4_SmsPhoneVerification`: [funzione dell'agente](durable-functions-bindings.md#orchestration-trigger) di orchestrazione che esegue il processo di verifica del telefono, inclusa la gestione dei timeout e dei tentativi.
-* `E4_SendSmsChallenge`: [funzione](durable-functions-bindings.md#activity-trigger) di attività che invia un codice tramite SMS.
+* `E4_SmsPhoneVerification`: Funzione dell'agente di [orchestrazione](durable-functions-bindings.md#orchestration-trigger) che esegue il processo di verifica tramite telefono, inclusa la gestione di timeout e tentativi.
+* `E4_SendSmsChallenge`: [Funzione di attività](durable-functions-bindings.md#activity-trigger) che invia un codice tramite SMS.
 
-### <a name="e4_smsphoneverification-orchestrator-function"></a>E4_SmsPhoneVerification funzione dell'agente di orchestrazione
+### <a name="e4_smsphoneverification-orchestrator-function"></a>Funzione dell'agente di orchestrazione E4_SmsPhoneVerification
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministico `CurrentUtcDateTime` perché la proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore a ogni riproduzione a questo punto nel codice dell'agente di orchestrazione. Questo comportamento è importante per `winner` garantire che gli `Task.WhenAny`stessi risultati da ogni chiamata ripetuta a .
+> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché la `CurrentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta `Task.WhenAny`a.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 La funzione **E4_SmsPhoneVerification** usa il codice *function.json* standard per le funzioni dell'agente di orchestrazione.
 
@@ -58,7 +58,7 @@ Di seguito è riportato il codice che implementa la funzione:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministico `currentUtcDateTime` perché la proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore a ogni riproduzione a questo punto nel codice dell'agente di orchestrazione. Questo comportamento è importante per `winner` garantire che gli `context.df.Task.any`stessi risultati da ogni chiamata ripetuta a .
+> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché la `currentUtcDateTime` proprietà viene utilizzata per calcolare l'ora di scadenza del timer e restituisce lo stesso valore per ogni riproduzione in questo punto del codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che gli stessi `winner` risultati di ogni chiamata ripetuta `context.df.Task.any`a.
 
 ---
 
@@ -74,24 +74,24 @@ L'utente riceve un messaggio SMS con un codice di quattro cifre Hanno 90 secondi
 > [!WARNING]
 > È importante [annullare i timer](durable-functions-timers.md) se non è più necessario che scadano, come illustrato nell'esempio precedente, quando viene accettata una risposta alla richiesta.
 
-## <a name="e4_sendsmschallenge-activity-function"></a>Funzione di attività E4_SendSmsChallenge
+## <a name="e4_sendsmschallenge-activity-function"></a>Funzione E4_SendSmsChallenge Activity
 
-La funzione **E4_SendSmsChallenge** utilizza l'associazione Twilio per inviare il messaggio SMS con il codice a quattro cifre all'utente finale.
+La funzione **E4_SendSmsChallenge** usa l'associazione Twilio per inviare il messaggio SMS con il codice a quattro cifre all'utente finale.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
-> È necessario installare `Microsoft.Azure.WebJobs.Extensions.Twilio` il pacchetto Nuget per eseguire il codice di esempio.
+> Per eseguire il codice di esempio `Microsoft.Azure.WebJobs.Extensions.Twilio` , sarà necessario installare il pacchetto NuGet.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Il codice *function.json* viene definito come segue:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
 
-Ed ecco il codice che genera il codice di verifica a quattro cifre e invia il messaggio SMS:
+Ecco il codice che genera il codice di richiesta a quattro cifre e invia il messaggio SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -120,7 +120,7 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea
 
 La funzione dell'agente di orchestrazione riceve il numero di telefono indicato e invia immediatamente un messaggio SMS con un codice di verifica di 4 cifre generato casualmente &mdash; ad esempio *2168*. La funzione attende quindi 90 secondi per ricevere una risposta.
 
-Per rispondere con il codice, è possibile utilizzare `{eventName}` `SmsChallengeResponse` [ `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript)](durable-functions-instance-management.md) all'interno di un'altra funzione o richiamare il webhook HTTP POST **sendEventUrl** a cui si fa riferimento nella risposta 202 precedente, sostituendo con il nome dell'evento, :
+Per rispondere con il codice, è possibile usare [ `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript)](durable-functions-instance-management.md) all'interno di un'altra funzione o richiamare il webhook http post **sendEventUrl** a cui si fa riferimento nella `{eventName}` risposta 202 precedente, sostituendo con `SmsChallengeResponse`il nome dell'evento:
 
 ```
 POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -156,7 +156,7 @@ Content-Length: 145
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo esempio sono stati dimostrati alcuni `WaitForExternalEvent` delle `CreateTimer` funzionalità avanzate di funzioni durevoli, in particolare e API. È stato illustrato come queste funzionalità possono essere combinate con `Task.WaitAny` per implementare un sistema di timeout affidabile, spesso utile per l'interazione con utenti reali. Per altre informazioni su come usare Funzioni permanenti, fare riferimento alla serie di articoli in cui sono trattati in dettaglio argomenti specifici.
+In questo esempio sono state illustrate alcune delle funzionalità avanzate di Durable Functions, in `WaitForExternalEvent` particolare `CreateTimer` le API e. È stato illustrato come queste funzionalità possono essere combinate con `Task.WaitAny` per implementare un sistema di timeout affidabile, spesso utile per l'interazione con utenti reali. Per altre informazioni su come usare Funzioni permanenti, fare riferimento alla serie di articoli in cui sono trattati in dettaglio argomenti specifici.
 
 > [!div class="nextstepaction"]
 > [Passare al primo articolo della serie](durable-functions-bindings.md)
