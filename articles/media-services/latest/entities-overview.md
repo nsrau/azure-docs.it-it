@@ -1,7 +1,7 @@
 ---
-title: Filtraggio, ordinamento e paging delle entità di Servizi multimediali
+title: Filtraggio, ordinamento e paging delle entità di servizi multimediali
 titleSuffix: Azure Media Services
-description: Informazioni su filtri, ordinamento e paging delle entità di Servizi multimediali di Azure.Learn about filtering, ordering, and paging of Azure Media Services v3 entities.
+description: Informazioni su filtro, ordinamento e paging delle entità di servizi multimediali di Azure V3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,48 +14,48 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80584523"
 ---
-# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtraggio, ordinamento e paging delle entità di Servizi multimediali
+# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtraggio, ordinamento e paging delle entità di servizi multimediali
 
-Questo argomento illustra le opzioni di query OData e il supporto per l'impaginazione disponibili quando si elencano le entità di Servizi multimediali di Azure.This topic discusses the OData query options and pagination support available when you're listing Azure Media Services v3 entities.
+Questo argomento illustra le opzioni di query OData e il supporto per l'impaginazione disponibili quando si elencano le entità di servizi multimediali di Azure V3.
 
 ## <a name="considerations"></a>Considerazioni
 
-* Le proprietà delle entità `Datetime` di tipo sono sempre in formato UTC.
+* Le `Datetime` proprietà delle entità di tipo sono sempre in formato UTC.
 * Gli spazi vuoti nella stringa di query devono essere codificati in URL prima di inviare una richiesta.
 
 ## <a name="comparison-operators"></a>Operatori di confronto
 
-È possibile utilizzare gli operatori seguenti per confrontare un campo con un valore costante:
+Per confrontare un campo con un valore costante, è possibile usare gli operatori seguenti:
 
 Operatori di uguaglianza:
 
-- `eq`: verifica se un campo è *uguale a* un valore costante.
-- `ne`: verifica se un campo non è *uguale a* un valore costante.
+- `eq`: Verificare se un campo è *uguale a* un valore costante.
+- `ne`: Verificare se un campo *non è uguale a* un valore costante.
 
 Operatori di intervallo:
 
-- `gt`: verifica se un campo è *maggiore di* un valore costante.
-- `lt`: verifica se un campo è *minore di* un valore costante.
-- `ge`: verifica se un campo è *maggiore o uguale a* un valore costante.
-- `le`: verifica se un campo è *minore o uguale a* un valore costante.
+- `gt`: Verificare se un campo è *maggiore di* un valore costante.
+- `lt`: Verificare se un campo è *minore di* un valore costante.
+- `ge`: Verificare se un campo è *maggiore o uguale a* un valore costante.
+- `le`: Verificare se un campo è *minore o uguale a* un valore costante.
 
 ## <a name="filter"></a>Filtro
 
-Utilizzare `$filter` per fornire un parametro di filtro OData per trovare solo gli oggetti a cui si è interessati.
+Usare `$filter` per fornire un parametro di filtro OData per trovare solo gli oggetti a cui si è interessati.
 
-L'esempio REST seguente `alternateId` filtra il valore di un asset:
+Nell'esempio REST seguente viene filtrato `alternateId` il valore di un asset:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
 ```
 
-L'esempio seguente di C'è filtra in base alla data di creazione dell'asset:
+L'esempio C# seguente Filtra la data di creazione dell'asset:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
@@ -64,30 +64,30 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Ordina per
 
-Utilizzare `$orderby` per ordinare gli oggetti restituiti in base al parametro specificato. Ad esempio:  
+Consente `$orderby` di ordinare gli oggetti restituiti in base al parametro specificato. Ad esempio:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Per ordinare i risultati in ordine crescente `asc` o `desc` decrescente, aggiungere o al nome del campo, separati da uno spazio. Ad esempio `$orderby properties/created desc`.
+Per ordinare i risultati in ordine crescente o decrescente, aggiungere `asc` o `desc` al nome del campo, separati da uno spazio. Ad esempio: `$orderby properties/created desc`.
 
-## <a name="skip-token"></a>Salta token
+## <a name="skip-token"></a>Ignora token
 
-Se una risposta a una query `$skiptoken` contiene`@odata.nextLink`molti elementi, il servizio restituisce un valore ( ) utilizzato per ottenere la pagina successiva dei risultati. Utilizzarlo per scorrere l'intero set di risultati.
+Se una risposta alla query contiene molti elementi, il servizio restituisce `$skiptoken` un`@odata.nextLink`valore () usato per ottenere la pagina di risultati successiva. Utilizzarlo per eseguire il paging dell'intero set di risultati.
 
-In Servizi multimediali v3 non è possibile configurare le dimensioni della pagina. Le dimensioni della pagina variano in base al tipo di entità. Leggi le singole sezioni che seguono per i dettagli.
+In servizi multimediali V3 non è possibile configurare le dimensioni della pagina. Le dimensioni della pagina variano in base al tipo di entità. Leggere le singole sezioni che seguono per informazioni dettagliate.
 
 Se le entità vengono create o eliminate durante il paging della raccolta, le modifiche vengono riflesse nei risultati restituiti (se tali modifiche si trovano nella parte della raccolta che non è stata scaricata).
 
 > [!TIP]
-> Utilizzare `nextLink` sempre per enumerare la raccolta e non dipendono da una particolare dimensione di pagina.
+> Usare `nextLink` sempre per enumerare la raccolta e non dipendere da una particolare dimensione della pagina.
 >
 > Il `nextLink` valore sarà presente solo se è presente più di una pagina di entità.
 
-Si consideri l'esempio seguente di dove `$skiptoken` viene utilizzato. Assicurarsi di sostituire *amstestaccount* con il proprio nome dell'account e di impostare il valore *api-version* sulla versione più recente.
+Si consideri l'esempio `$skiptoken` seguente di Where is used. Assicurarsi di sostituire *amstestaccount* con il proprio nome dell'account e di impostare il valore *api-version* sulla versione più recente.
 
-Se richiedi un elenco di asset come questo:
+Se si richiede un elenco di asset come il seguente:
 
 ```
 GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
@@ -95,7 +95,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-Otterrai una risposta simile a questa:
+Verrà restituita una risposta simile alla seguente:
 
 ```
 HTTP/1.1 200 OK
@@ -123,7 +123,7 @@ Si può quindi richiedere la pagina successiva inviando una richiesta get per:
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
 ```
 
-Nell'esempio in C'è riportato di seguito viene illustrato come enumerare tutti i localizzatori di streaming nell'account.
+Nell'esempio C# riportato di seguito viene illustrato come enumerare tutti i localizzatori di streaming nell'account.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -135,26 +135,26 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-## <a name="using-logical-operators-to-combine-query-options"></a>Utilizzo di operatori logici per combinare le opzioni di queryUsing logical operators to combine query options
+## <a name="using-logical-operators-to-combine-query-options"></a>Utilizzo di operatori logici per combinare le opzioni di query
 
-Media Services v3 supporta gli operatori logici **OR** e **AND.** 
+Media Services V3 supporta gli operatori logici **or** e **e** . 
 
-L'esempio REST seguente controlla lo stato del processo:The following REST example checks the job's state:
+L'esempio REST seguente controlla lo stato del processo:
 
 ```
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/qbtest/providers/Microsoft.Media/mediaServices/qbtest/transforms/VideoAnalyzerTransform/jobs?$filter=properties/state%20eq%20Microsoft.Media.JobState'Scheduled'%20or%20properties/state%20eq%20Microsoft.Media.JobState'Processing'&api-version=2018-07-01
 ```
 
-Si costruisce la stessa query in C , in questo modo: 
+Si costruisce la stessa query in C# come la seguente: 
 
 ```csharp
 var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobState'Scheduled' or properties/state eq Microsoft.Media.JobState'Processing'");
 client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransformName, odataQuery);
 ```
 
-## <a name="filtering-and-ordering-options-of-entities"></a>Opzioni di filtro e ordinamento delle entità
+## <a name="filtering-and-ordering-options-of-entities"></a>Filtro e ordinamento delle opzioni delle entità
 
-Nella tabella seguente viene illustrato come applicare le opzioni di filtro e ordinamento a entità diverse:
+La tabella seguente illustra come applicare le opzioni di filtro e ordinamento a entità diverse:
 
 |Nome dell'entità|Nome proprietà|Filtro|JSON|
 |---|---|---|---|
@@ -162,7 +162,7 @@ Nella tabella seguente viene illustrato come applicare le opzioni di filtro e or
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` e `desc`|
-|[Norme sulle chiavi dei contenuti](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Criteri chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
@@ -182,10 +182,10 @@ Nella tabella seguente viene illustrato come applicare le opzioni di filtro e or
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Elenca risorse](https://docs.microsoft.com/rest/api/media/assets/list)
-* [Elencare i criteri della chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [Elenca processi](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [Elencare i criteri di streamingList Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [Elenca i localizzatori di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Elenca asset](https://docs.microsoft.com/rest/api/media/assets/list)
+* [Elenca criteri chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+* [Elencare i processi](https://docs.microsoft.com/rest/api/media/jobs/list)
+* [Elencare i criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+* [Elencare i localizzatori di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
 * [Quote e limiti](limits-quotas-constraints.md)

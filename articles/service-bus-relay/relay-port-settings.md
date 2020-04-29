@@ -1,6 +1,6 @@
 ---
 title: Impostazioni delle porte di Inoltro di Azure | Documentazione Microsoft
-description: Questo articolo include una tabella che descrive la configurazione necessaria per i valori di porta per l'inoltro di Azure.This article includes a table that describes the required configuration for port values for Azure Relay.
+description: Questo articolo include una tabella che descrive la configurazione necessaria per i valori di porta per il servizio di inoltro di Azure.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 532e3c297c42ea16b1f462a01699fc2fd71c6cce
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529122"
 ---
 # <a name="azure-relay-port-settings"></a>Impostazioni delle porte di inoltro di Azure
@@ -27,7 +27,7 @@ La tabella seguente descrive la configurazione necessaria per i valori della por
 
 ## <a name="hybrid-connections"></a>connessioni ibride
 
-Connessioni ibride utilizza WebSockets sulla porta 443 con TLS come meccanismo di trasporto sottostante, che utilizza solo **HTTPS.** 
+Connessioni ibride Usa WebSocket sulla porta 443 con TLS come meccanismo di trasporto sottostante, che usa solo **https** . 
 
 ## <a name="wcf-relays"></a>Inoltri WCF
   

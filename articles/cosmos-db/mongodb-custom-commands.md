@@ -1,38 +1,38 @@
 ---
-title: Comandi di estensione MongoDB per gestire i dati nell'API di Azure Cosmos DB per MongoDB
-description: Questo articolo descrive come usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API di Azure Cosmos DB per MongoDB.This article describes how to use MongoDB extension commands to manage data stored in Azure Cosmos DB's API for MongoDB.
+title: Comandi di estensione MongoDB per gestire i dati nell'API Azure Cosmos DB per MongoDB
+description: Questo articolo descrive come usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: f99c4d096bcbe1fbdc42cac80a491d6017266cb2
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80583576"
 ---
-# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API di Azure Cosmos DB per MongoDBUse MongoDB extension commands to manage data stored in Azure Cosmos DB's API for MongoDB 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB 
 
-Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API di Azure Cosmos DB per MongoDB utilizzando uno dei [driver client MongoDB](https://docs.mongodb.org/ecosystem/drivers)open source. L'API di Azure Cosmos DB per MongoDB consente l'utilizzo di driver client esistenti adere al [protocollo wire MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API Azure Cosmos DB per MongoDB usando uno dei [driver client MongoDB](https://docs.mongodb.org/ecosystem/drivers)open source. L'API Azure Cosmos DB per MongoDB consente l'uso di driver client esistenti aderendo al [protocollo wire di MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Usando l'API di Azure Cosmos DB per MongoDB, puoi usufruire dei vantaggi offerti da Cosmos DB, ad esempio distribuzione globale, partizionamento automatico, disponibilità elevata, garanzie di latenza, automatiche, crittografia a riposo, backup e molti altri, preservando gli investimenti nell'app MongoDB.
+Usando l'API Azure Cosmos DB per MongoDB, è possibile usufruire dei vantaggi Cosmos DB ad esempio la distribuzione globale, il partizionamento orizzontale automatico, la disponibilità elevata, le garanzie di latenza, la crittografia automatica, la crittografia dei servizi inattivi, i backup e molto altro ancora, conservando gli investimenti nell'app MongoDB.
 
 ## <a name="mongodb-protocol-support"></a>Supporto del protocollo MongoDB
 
-Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione 3.2 del server MongoDB, per ulteriori dettagli, vedere [Funzionalità e sintassi supportate.](mongodb-feature-support.md) Le funzionalità o gli operatori di query aggiunti in MongoDB versione 3.4 sono attualmente disponibili come anteprima nell'API di Azure Cosmos DB per MongoDB. The following extension commands support specific Azure Cosmos DB functionality when performing CRUD operations on the data stored in Azure Cosmos DB's API for MongoDB:
+Per impostazione predefinita, l'API Azure Cosmos DB per MongoDB è compatibile con il server MongoDB versione 3,2. per altre informazioni, vedere [funzionalità e sintassi supportate](mongodb-feature-support.md). Le funzionalità o gli operatori di query aggiunti in MongoDB versione 3,4 sono attualmente disponibili come anteprima nell'API Azure Cosmos DB per MongoDB. I comandi di estensione seguenti supportano funzionalità di Azure Cosmos DB specifiche durante l'esecuzione di operazioni CRUD sui dati archiviati nell'API Azure Cosmos DB per MongoDB:
 
 * [Crea database](#create-database)
 * [Aggiorna database](#update-database)
-* [Ottenere il databaseGet database](#get-database)
+* [Ottieni database](#get-database)
 * [Crea raccolta](#create-collection)
 * [Aggiorna raccolta](#update-collection)
 * [Ottieni raccolta](#get-collection)
 
 ## <a name="create-database"></a><a id="create-database"></a>Crea database
 
-Il comando create database extension crea un nuovo database MongoDB. Il nome del database viene utilizzato dal contesto dei database su cui viene eseguito il comando. Il formato del comando CreateDatabase è il seguente:
+Il comando create database Extension crea un nuovo database MongoDB. Il nome del database viene utilizzato dal contesto dei database in cui viene eseguito il comando. Il formato del comando CreateDatabase è il seguente:
 
 ```
 {
@@ -43,18 +43,18 @@ Il comando create database extension crea un nuovo database MongoDB. Il nome del
 
 Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
-|**Campo**|**Tipo** |**Descrizione** |
+|**Campo**|**Type** |**Descrizione** |
 |---------|---------|---------|
-| customAction   |  string  |   Nome del comando personalizzato, deve essere "CreateDatabase".      |
-| offertaVelocità effettiva | INT  | Velocità effettiva di cui è stato eseguito il provisioning nel database. Questo parametro è facoltativo e, |
+| customAction   |  stringa  |   Nome del comando personalizzato, deve essere "CreateDatabase".      |
+| offerThroughput | INT  | Velocità effettiva con provisioning impostata nel database. Questo parametro è facoltativo e, |
 
 ### <a name="output"></a>Output
 
-Restituisce una risposta di comando personalizzata predefinita. Vedere [l'output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
+Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
 ### <a name="examples"></a>Esempi
 
-**Creare un database**
+**Creazione di un database**
 
 Per creare un database denominato "test", utilizzare il comando seguente:
 
@@ -63,9 +63,9 @@ use test
 db.runCommand({customAction: "CreateDatabase"});
 ```
 
-**Creare un database con velocità effettivaCreate a database with throughput**
+**Creazione di un database con velocità effettiva**
 
-Per creare un database denominato "test" e la velocità effettiva di cui è stato eseguito il provisioning di 1000 RU, utilizzare il comando seguente:
+Per creare un database denominato "test" e una velocità effettiva con provisioning di 1000 ur, usare il comando seguente:
 
 ```shell
 use test
@@ -74,7 +74,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 ## <a name="update-database"></a><a id="update-database"></a>Aggiorna database
 
-Il comando Update database extension aggiorna le proprietà associate al database specificato. Attualmente, è possibile aggiornare solo la proprietà "offerThroughput".
+Il comando Update database Extension aggiorna le proprietà associate al database specificato. Attualmente, è possibile aggiornare solo la proprietà "offerThroughput".
 
 ```
 {
@@ -85,29 +85,29 @@ Il comando Update database extension aggiorna le proprietà associate al databas
 
 Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
-|**Campo**|**Tipo** |**Descrizione** |
+|**Campo**|**Type** |**Descrizione** |
 |---------|---------|---------|
-| customAction    |    string     |   Nome del comando personalizzato. Deve essere "UpdateDatabase".      |
-|  offertaVelocità effettiva   |  INT       |     Nuova velocità effettiva di cui è stato eseguito il provisioning che si desidera impostare nel database.    |
+| customAction    |    stringa     |   Nome del comando personalizzato. Deve essere "UpdateDatabase".      |
+|  offerThroughput   |  INT       |     Nuova velocità effettiva con provisioning che si desidera impostare nel database.    |
 
 ### <a name="output"></a>Output
 
-Restituisce una risposta di comando personalizzata predefinita. Vedere [l'output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
+Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
 ### <a name="examples"></a>Esempi
 
-**Aggiornare la velocità effettiva di cui è stato eseguito il provisioning associato a un databaseUpdate the provisioned throughput associated with a database**
+**Aggiornare la velocità effettiva con provisioning associata a un database**
 
-Per aggiornare la velocità effettiva di cui è stato eseguito il provisioning di un database con nome "test" a 1200 RU, utilizzare il comando seguente:
+Per aggiornare la velocità effettiva con provisioning di un database denominato "test" a 1200 ur, utilizzare il comando seguente:
 
 ```shell
 use test
 db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 ```
 
-## <a name="get-database"></a><a id="get-database"></a>Ottenere il databaseGet database
+## <a name="get-database"></a><a id="get-database"></a>Ottieni database
 
-Il comando get database extension restituisce l'oggetto di database. Il nome del database viene utilizzato dal contesto del database su cui viene eseguito il comando.
+Il comando Get database Extension restituisce l'oggetto di database. Il nome del database viene utilizzato dal contesto del database in cui viene eseguito il comando.
 
 ```
 {
@@ -118,25 +118,25 @@ Il comando get database extension restituisce l'oggetto di database. Il nome del
 Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 
-|**Campo**|**Tipo** |**Descrizione** |
+|**Campo**|**Type** |**Descrizione** |
 |---------|---------|---------|
-|  customAction   |   string      |   Nome del comando personalizzato. Deve essere "GetDatabase"|
+|  customAction   |   stringa      |   Nome del comando personalizzato. Deve essere "GetDatabase"|
         
 ### <a name="output"></a>Output
 
-Se il comando ha esito positivo, la risposta contiene un documento con i seguenti campi:
+Se il comando ha esito positivo, la risposta contiene un documento con i campi seguenti:
 
-|**Campo**|**Tipo** |**Descrizione** |
+|**Campo**|**Type** |**Descrizione** |
 |---------|---------|---------|
-|  `ok`   |   `int`     |   Stato della risposta. 1 e più successo. 0 : errore.      |
+|  `ok`   |   `int`     |   Stato della risposta. 1 = = operazione riuscita. 0 = = esito negativo.      |
 | `database`    |    `string`        |   Nome del database.      |
-|   `provisionedThroughput`  |    `int`      |    Velocità effettiva di provisioning impostata nel database. Si tratta di un parametro di risposta facoltativo.     |
+|   `provisionedThroughput`  |    `int`      |    Velocità effettiva con provisioning impostata nel database. Si tratta di un parametro di risposta facoltativo.     |
 
-Se il comando ha esito negativo, viene restituita una risposta al comando personalizzato predefinito. Vedere [l'output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
+Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
 ### <a name="examples"></a>Esempi
 
-**Ottenere il databaseGet the database**
+**Ottenere il database**
 
 Per ottenere l'oggetto di database per un database denominato "test", utilizzare il comando seguente:
 
@@ -147,7 +147,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 ## <a name="create-collection"></a><a id="create-collection"></a>Crea raccolta
 
-Il comando create collection extension crea una nuova raccolta MongoDB. Il nome del database viene utilizzato dal contesto dei database su cui viene eseguito il comando. Il formato del comando CreateCollection è il seguente:
+Il comando create Collection Extension crea una nuova raccolta MongoDB. Il nome del database viene utilizzato dal contesto dei database in cui viene eseguito il comando. Il formato del comando CreateCollection è il seguente:
 
 ```
 {
@@ -160,31 +160,31 @@ Il comando create collection extension crea una nuova raccolta MongoDB. Il nome 
 
 Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
-| **Campo** | **Tipo** | **Obbligatorio** | **Descrizione** |
+| **Campo** | **Type** | **Richiesto** | **Descrizione** |
 |---------|---------|---------|---------|
-| customAction | string | Obbligatoria | Nome del comando personalizzato. Deve essere "CreateCollection".|
-| collection | string | Obbligatoria | Nome della raccolta. Non sono consentiti caratteri speciali.|
-| offertaVelocità effettiva | INT | Facoltativo: | Velocità effettiva di provisioning per impostare il database. Se questo parametro non viene fornito, per impostazione predefinita verrà utilizzato il valore minimo, 400 RU/s. Per specificare la velocità effettiva oltre 10.000 RU/s, il `shardKey` parametro è obbligatorio.|
-| shardKey (chiave di partizione) | string | Facoltativo: | Percorso della chiave di frammento per la raccolta partizionata. Questo parametro è obbligatorio se si impostano più di `offerThroughput`10.000 RU/s in .  Se viene specificato, tutti i documenti inseriti richiederanno questo valore. |
+| customAction | stringa | Obbligatoria | Nome del comando personalizzato. Deve essere "CreateCollection".|
+| collection | stringa | Obbligatoria | Nome della raccolta. Non sono consentiti caratteri speciali.|
+| offerThroughput | INT | Opzionale | Velocità effettiva con provisioning da impostare nel database. Se questo parametro non viene specificato, il valore predefinito sarà minimo 400 ur/sec. * Per specificare una velocità effettiva superiore a 10.000 UR/ `shardKey` s, il parametro è obbligatorio.|
+| Chiave | stringa | Opzionale | Percorso della chiave di partizione per la raccolta partizionata. Questo parametro è obbligatorio se si impostano più di 10.000 UR/ `offerThroughput`sec in.  Se viene specificato, per tutti i documenti inseriti sarà necessario questo valore. |
 
 ### <a name="output"></a>Output
 
-Restituisce una risposta di comando personalizzata predefinita. Vedere [l'output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
+Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
 ### <a name="examples"></a>Esempi
 
-**Creare una raccolta senza problemiCreate a unsharded collection**
+**Creare una raccolta non partizionata**
 
-Per creare una raccolta senza disco con nome "testCollection" e la velocità effettiva di cui è stato eseguito il provisioning di 1000 RU, utilizzare il comando seguente: 
+Per creare una raccolta non partizionata con il nome "TestCollection" e la velocità effettiva con provisioning di 1000 ur, usare il comando seguente: 
 
 ```shell
 use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000});
 ``` 
 
-**Creare una raccolta partizionataCreate a sharded collection**
+**Creare una raccolta partizionata**
 
-Per creare una raccolta partizionata con nome "testCollection" e velocità effettiva di cui è stato eseguito il provisioning di 1000 RU e una proprietà shardkey "a.b", utilizzare il comando seguente:
+Per creare una raccolta partizionata con il nome "TestCollection" e la velocità effettiva con provisioning di 1000 ur e una proprietà chiave "a. b", usare il comando seguente:
 
 ```shell
 use test
@@ -193,7 +193,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 ## <a name="update-collection"></a><a id="update-collection"></a>Aggiorna raccolta
 
-Il comando di estensione della raccolta di aggiornamento aggiorna le proprietà associate alla raccolta specificata.
+Il comando Update Collection Extension aggiorna le proprietà associate alla raccolta specificata.
 
 ```
 {
@@ -205,21 +205,21 @@ Il comando di estensione della raccolta di aggiornamento aggiorna le proprietà 
 
 Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
-|**Campo**|**Tipo** |**Descrizione** |
+|**Campo**|**Type** |**Descrizione** |
 |---------|---------|---------|
-|  customAction   |   string      |   Nome del comando personalizzato. Deve essere "UpdateCollection".      |
-|  collection   |   string      |   Nome della raccolta.       |
-| offertaVelocità effettiva   |INT|   Velocità effettiva di provisioning per impostare nella raccolta.|
+|  customAction   |   stringa      |   Nome del comando personalizzato. Deve essere "Updatecollection".      |
+|  collection   |   stringa      |   Nome della raccolta.       |
+| offerThroughput   |INT|   Velocità effettiva con provisioning da impostare nella raccolta.|
 
 ## <a name="output"></a>Output
 
-Restituisce una risposta di comando personalizzata predefinita. Vedere [l'output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
+Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
 ### <a name="examples"></a>Esempi
 
-**Aggiornare la velocità effettiva di cui è stato eseguito il provisioning associato a una raccoltaUpdate the provisioned throughput associated with a collection**
+**Aggiornare la velocità effettiva con provisioning associata a una raccolta**
 
-Per aggiornare la velocità effettiva di cui è stato eseguito il provisioning di una raccolta con nome "testCollection" a 1200 RU, utilizzare il comando seguente:
+Per aggiornare la velocità effettiva con provisioning di una raccolta denominata "TestCollection" a 1200 ur, usare il comando seguente:
 
 ```shell
 use test
@@ -228,7 +228,7 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 
 ## <a name="get-collection"></a><a id="get-collection"></a>Ottieni raccolta
 
-Il comando personalizzato get collection restituisce l'oggetto raccolta.
+Il comando Get Collection Custom restituisce l'oggetto Collection.
 
 ```
 {
@@ -240,31 +240,31 @@ Il comando personalizzato get collection restituisce l'oggetto raccolta.
 Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 
-|**Campo**|**Tipo** |**Descrizione** |
+|**Campo**|**Type** |**Descrizione** |
 |---------|---------|---------|
-| customAction    |   string      |   Nome del comando personalizzato. Deve essere "GetCollection".      |
-| collection    |    string     |    Nome della raccolta.     |
+| customAction    |   stringa      |   Nome del comando personalizzato. Deve essere "GetCollection".      |
+| collection    |    stringa     |    Nome della raccolta.     |
 
 ### <a name="output"></a>Output
 
-Se il comando ha esito positivo, la risposta contiene un documento con i seguenti campi
+Se il comando ha esito positivo, la risposta contiene un documento con i campi seguenti
 
 
-|**Campo**|**Tipo** |**Descrizione** |
+|**Campo**|**Type** |**Descrizione** |
 |---------|---------|---------|
-|  `ok`   |    `int`     |   Stato della risposta. 1 e più successo. 0 : errore.      |
+|  `ok`   |    `int`     |   Stato della risposta. 1 = = operazione riuscita. 0 = = esito negativo.      |
 | `database`    |    `string`     |   Nome del database.      |
 | `collection`    |    `string`     |    Nome della raccolta.     |
-|  `shardKeyDefinition`   |   `document`      |  Documento di specifica dell'indice utilizzato come chiave di partizione. Si tratta di un parametro di risposta facoltativo.       |
-|  `provisionedThroughput`   |   `int`      |    Velocità effettiva di provisioning per impostare nella raccolta. Si tratta di un parametro di risposta facoltativo.     |
+|  `shardKeyDefinition`   |   `document`      |  Documento di specifica dell'indice usato come chiave di partizione. Si tratta di un parametro di risposta facoltativo.       |
+|  `provisionedThroughput`   |   `int`      |    Velocità effettiva con provisioning da impostare nella raccolta. Si tratta di un parametro di risposta facoltativo.     |
 
-Se il comando ha esito negativo, viene restituita una risposta al comando personalizzato predefinito. Vedere [l'output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
+Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
 ### <a name="examples"></a>Esempi
 
-**Ottieni la collezione**
+**Ottenere la raccolta**
 
-Per ottenere l'oggetto raccolta per una raccolta denominata "testCollection", utilizzare il comando seguente:
+Per ottenere l'oggetto raccolta per una raccolta denominata "TestCollection", usare il comando seguente:
 
 ```shell
 use test
@@ -273,17 +273,17 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 ## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a>Output predefinito di un comando personalizzato
 
-Se non specificato, una risposta personalizzata contiene un documento con i seguenti campi:
+Se non specificato, una risposta personalizzata contiene un documento con i campi seguenti:
 
-|**Campo**|**Tipo** |**Descrizione** |
+|**Campo**|**Type** |**Descrizione** |
 |---------|---------|---------|
-|  `ok`   |    `int`     |   Stato della risposta. 1 e più successo. 0 : errore.      |
-| `code`    |   `int`      |   Restituito solo quando il comando non è riuscito (ad es. ok ) . Contiene il codice di errore MongoDB. Si tratta di un parametro di risposta facoltativo.      |
-|  `errMsg`   |  `string`      |    Restituito solo quando il comando non è riuscito (ad es. ok ) . Contiene un messaggio di errore descrittivo. Si tratta di un parametro di risposta facoltativo.      |
+|  `ok`   |    `int`     |   Stato della risposta. 1 = = operazione riuscita. 0 = = esito negativo.      |
+| `code`    |   `int`      |   Restituito solo quando il comando ha esito negativo, ad esempio OK = = 0. Contiene il codice di errore MongoDB. Si tratta di un parametro di risposta facoltativo.      |
+|  `errMsg`   |  `string`      |    Restituito solo quando il comando ha esito negativo, ad esempio OK = = 0. Contiene un messaggio di errore descrittivo. Si tratta di un parametro di risposta facoltativo.      |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Successivamente è possibile procedere per apprendere i seguenti concetti di Azure Cosmos DB: 
+A questo punto è possibile procedere con i concetti seguenti Azure Cosmos DB: 
 
 * [Indicizzazione in Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Impostare la scadenza automatica dei dati in Azure Cosmos DB con la durata (TTL)](../cosmos-db/time-to-live.md)

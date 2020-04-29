@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
 ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80520727"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente Log Analytics
@@ -70,9 +70,9 @@ Se si usa System Center Operations Manager 2012 R2 o versione successiva:
 
 Sono disponibili diversi metodi per installare l'agente di Log Analytics e connettere il computer a monitoraggio di Azure in base alle esigenze. Nella tabella seguente illustra ogni metodo per determinare quello più adatto alla propria organizzazione.
 
-|Origine | Metodo | Descrizione|
+|Source (Sorgente) | Metodo | Descrizione|
 |-------|-------------|-------------|
-|Macchina virtuale di Azure| [Manualmente dalla portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Specificare le macchine virtuali da distribuire dall'area di lavoro Log Analytics. |
+|Macchina virtuale Azure| [Manualmente dalla portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Specificare le macchine virtuali da distribuire dall'area di lavoro Log Analytics. |
 | | Log Analytics estensione VM per [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) con l'interfaccia della riga di comando di Azure o con un modello di Azure Resource Manager | L'estensione installa l'agente di Log Analytics nelle macchine virtuali di Azure e le registra in un'area di lavoro di Log Analytics esistente. |
 | | [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md) | Quando si Abilita il monitoraggio con Monitoraggio di Azure per le macchine virtuali, vengono installate le estensioni Log Analytics e Agent. |
 | | [Provisioning automatico del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md) | Il Centro sicurezza di Azure può effettuare il provisioning dell'agente di Log Analytics in tutte le VM di Azure supportate e in quelle nuove che vengono create se si Abilita il monitoraggio di vulnerabilità e minacce alla sicurezza. Se abilitata, verrà eseguito il provisioning di qualsiasi macchina virtuale nuova o esistente senza un agente installato. |
@@ -195,7 +195,7 @@ Per l'agente di Linux, è possibile specificare il server proxy durante l'instal
 |proxyhost | Indirizzo o FQDN del server proxy/gateway Log Analytics |
 |port | Numero di porta facoltativo del server proxy/gateway Log Analytics |
 
-Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
+ad esempio `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Se si usano caratteri speciali, ad esempio\@"" nella password, viene visualizzato un errore di connessione del proxy perché il valore viene analizzato in modo errato.  Per aggirare il problema, codificare la password nell'URL usando uno strumento come [URLDecode](https://www.urldecoder.org/).  

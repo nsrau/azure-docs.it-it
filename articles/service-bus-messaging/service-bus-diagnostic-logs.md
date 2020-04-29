@@ -1,6 +1,6 @@
 ---
-title: Log di diagnostica del bus di servizio di Azure Documenti Microsoft
-description: Questo articolo offre una panoramica di tutti i log operativi e di diagnostica disponibili per il bus di servizio di Azure.This article provides an overview of all operational and diagnostics logs that are available for Azure Service Bus.
+title: Log di diagnostica del bus di servizio di Azure | Microsoft Docs
+description: Questo articolo fornisce una panoramica di tutti i log operativi e di diagnostica disponibili per il bus di servizio di Azure.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -16,37 +16,37 @@ ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618737"
 ---
-# <a name="enable-diagnostics-logs-for-service-bus"></a>Abilitare i log di diagnostica per il bus di servizioEnable diagnostics logs for Service Bus
+# <a name="enable-diagnostics-logs-for-service-bus"></a>Abilitare i log di diagnostica per il bus di servizio
 
-Quando si inizia a usare lo spazio dei nomi del bus di servizio di Azure, è possibile monitorare come e quando lo spazio dei nomi viene creato, eliminato o accessibile. In questo articolo viene fornita una panoramica di tutti i log operativi e di diagnostica disponibili.
+Quando si inizia a usare lo spazio dei nomi del bus di servizio di Azure, potrebbe essere necessario monitorare come e quando lo spazio dei nomi viene creato, eliminato o accessibile. Questo articolo fornisce una panoramica di tutti i log operativi e di diagnostica disponibili.
 
-Il bus di servizio di Azure supporta attualmente i log operativi e di attività, che acquisiscono le operazioni di gestione eseguite nello spazio dei nomi del bus di servizio di Azure.Azure Service Bus currently supports activity and operational logs, which capture *management operations* that are performed on the Azure Service Bus namespace. In particolare, questi log acquisiscono il tipo di operazione, tra cui la creazione delle code, le risorse usate e lo stato dell'operazione.
+Il bus di servizio di Azure supporta attualmente log attività e operativi, che acquisiscono *le operazioni di gestione* eseguite nello spazio dei nomi del bus di servizio di Azure. In particolare, questi log acquisiscono il tipo di operazione, tra cui la creazione delle code, le risorse usate e lo stato dell'operazione.
 
 ## <a name="operational-logs-schema"></a>Schema di log operativi
 
-Tutti i log vengono archiviati in formato JSON (JavaScript Object Notation) nelle due posizioni seguenti:
+Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON) nelle due posizioni seguenti:
 
-- **AzureActivity:** visualizza i log delle operazioni e delle azioni condotte sullo spazio dei nomi nel portale di Azure o tramite distribuzioni di modelli di Azure Resource Manager.AzureActivity : Displays logs from operations and actions that are conducted against your namespace in the Azure portal or through Azure Resource Manager template deployments.
-- **AzureDiagnostics:** visualizza i log delle operazioni e delle azioni condotte sullo spazio dei nomi tramite l'API o i client di gestione nell'SDK del linguaggio.
+- **AzureActivity**: Visualizza i log delle operazioni e delle azioni eseguite sullo spazio dei nomi nell'portale di Azure o tramite Azure Resource Manager distribuzioni di modelli.
+- **AzureDiagnostics**: Visualizza i log delle operazioni e delle azioni eseguite sullo spazio dei nomi tramite l'API o i client di gestione nell'SDK del linguaggio.
 
-Le stringhe JSON di log operative includono gli elementi elencati nella tabella seguente:Operational log JSON strings include the elements listed in the following table:
+Le stringhe JSON dei log operativi includono gli elementi elencati nella tabella seguente:
 
-| Nome | Descrizione |
+| Name | Descrizione |
 | ------- | ------- |
-| ActivityId | ID interno, utilizzato per identificare l'attività specificata |
+| ActivityId | ID interno, usato per identificare l'attività specificata |
 | EventName | Nome operazione |
 | ResourceId | ID della risorsa Azure Resource Manager |
 | SubscriptionId | ID sottoscrizione |
 | EventTimeString | Durata dell'operazione |
 | EventProperties | Proprietà dell'operazione |
 | Stato | Stato dell'operazione |
-| Chiamante | Chiamante dell'operazione (portale di Azure o client di gestione)Caller of operation (the Azure portal or management client) |
+| Chiamante | Chiamante dell'operazione (il portale di Azure o il client di gestione) |
 | Category | OperationalLogs |
 
 Di seguito è riportato un esempio di stringa JSON di log operativo:
@@ -67,57 +67,57 @@ Di seguito è riportato un esempio di stringa JSON di log operativo:
 
 ## <a name="events-and-operations-captured-in-operational-logs"></a>Eventi e operazioni acquisiti nei log operativi
 
-I log operativi acquisiscono tutte le operazioni di gestione eseguite nello spazio dei nomi del bus di servizio di Azure.Operational logs capture all management operations that are performed on the Azure Service Bus namespace. Data operations are not captured, because of the high volume of data operations that are conducted on Azure Service Bus.
+I log operativi acquisiscono tutte le operazioni di gestione eseguite nello spazio dei nomi del bus di servizio di Azure. Le operazioni sui dati non vengono acquisite a causa del volume elevato di operazioni dati eseguite nel bus di servizio di Azure.
 
 > [!NOTE]
-> Per migliorare il monitoraggio delle operazioni sui dati, è consigliabile usare la traccia lato client.
+> Per semplificare il monitoraggio delle operazioni sui dati, è consigliabile usare la traccia lato client.
 
-Le seguenti operazioni di gestione vengono acquisite nei log operativi:The following management operations are captured in operational logs: 
+Le operazioni di gestione seguenti vengono acquisite nei log operativi: 
 
 | Scope | Operazione|
 |-------| -------- |
-| Spazio dei nomi | <ul> <li> Creare lo spazio dei nomi</li> <li> Spazio dei nomi Update </li> <li> Elimina spazio dei nomi </li> <li> Aggiorna criterio SharedAccess dello spazio dei nomiUpdate Namespace SharedAccess Policy </li> </ul> | 
-| Coda | <ul> <li> Creare una coda</li> <li> Update Queue</li> <li> Eliminazione code </li> <li> AutoDelete Elimina coda </li> </ul> | 
-| Argomento | <ul> <li> Crea argomento </li> <li> Aggiornamento di un argomento </li> <li> Elimina argomento </li> <li> Elimina argomento automaticamente </li> </ul> |
-| Subscription | <ul> <li> Creazione di sottoscrizioni </li> <li> Aggiornamento di sottoscrizioni </li> <li> Eliminazione di sottoscrizioni </li> <li> AutoDelete Elimina sottoscrizione </li> </ul> |
+| Spazio dei nomi | <ul> <li> Creare lo spazio dei nomi</li> <li> Aggiorna spazio dei nomi </li> <li> Elimina spazio dei nomi </li> <li> Aggiornare i criteri SharedAccess dello spazio dei nomi </li> </ul> | 
+| Coda | <ul> <li> Creare una coda</li> <li> Update Queue</li> <li> Eliminazione code </li> <li> Elimina la coda di eliminazione </li> </ul> | 
+| Argomento | <ul> <li> Crea argomento </li> <li> Aggiornamento di un argomento </li> <li> Elimina argomento </li> <li> Elimina eliminazione dall'eliminazione dell'argomento </li> </ul> |
+| Subscription | <ul> <li> Creazione di sottoscrizioni </li> <li> Aggiornamento di sottoscrizioni </li> <li> Eliminazione di sottoscrizioni </li> <li> Eliminazione di una sottoscrizione Delete </li> </ul> |
 
 > [!NOTE]
-> Attualmente, le operazioni di *lettura* non vengono rilevate nei registri operativi.
+> Attualmente, le operazioni di *lettura* non vengono registrate nei log operativi.
 
-## <a name="enable-operational-logs"></a>Abilitare i registri operativi
+## <a name="enable-operational-logs"></a>Abilitare i log operativi
 
-I registri operativi sono disabilitati per impostazione predefinita. Per abilitare i log di diagnostica, eseguire le operazioni seguenti:To enable diagnostics logs, do the following:
+Per impostazione predefinita, i log operativi sono disabilitati. Per abilitare i log di diagnostica, eseguire le operazioni seguenti:
 
-1. Nel [portale di Azure](https://portal.azure.com)passare allo spazio dei nomi del bus di servizio di Azure e quindi, in **Monitoraggio,** selezionare **Impostazioni di diagnostica**.
+1. Nel [portale di Azure](https://portal.azure.com)passare allo spazio dei nomi del bus di servizio di Azure e quindi selezionare impostazioni di **diagnostica**in **monitoraggio**.
 
-   ![Il collegamento "Impostazioni di diagnostica"](./media/service-bus-diagnostic-logs/image1.png)
+   ![Collegamento "impostazioni di diagnostica"](./media/service-bus-diagnostic-logs/image1.png)
 
-1. Nel riquadro **Impostazioni di diagnostica** selezionare Aggiungi **impostazione diagnostica**.  
+1. Nel riquadro **impostazioni di diagnostica** selezionare **Aggiungi impostazione di diagnostica**.  
 
-   ![Il collegamento "Aggiungi impostazione diagnostica"](./media/service-bus-diagnostic-logs/image2.png)
+   ![Collegamento "Aggiungi impostazione di diagnostica"](./media/service-bus-diagnostic-logs/image2.png)
 
-1. Configurare le impostazioni di diagnostica eseguendo le operazioni seguenti:Configure the diagnostics settings by doing the following:
+1. Configurare le impostazioni di diagnostica eseguendo le operazioni seguenti:
 
-   a. Nella casella **Nome** immettere un nome per le impostazioni di diagnostica.  
+   a. Nella casella **nome** immettere un nome per le impostazioni di diagnostica.  
 
    b. Selezionare una delle tre destinazioni seguenti per i log di diagnostica:  
-   - Se si seleziona **Archivia in un account di archiviazione,** è necessario configurare l'account di archiviazione in cui verranno archiviati i log di diagnostica.  
-   - Se si seleziona **Flusso a un hub eventi**, è necessario configurare l'hub eventi a cui si desidera trasmettere i log di diagnostica.
-   - Se si seleziona **Invia a Log Analytics**, è necessario specificare a quale istanza di Log Analytics verrà inviata la diagnostica.  
+   - Se si seleziona **archivia in un account di archiviazione**, è necessario configurare l'account di archiviazione in cui verranno archiviati i log di diagnostica.  
+   - Se si seleziona **flusso in un hub eventi**, è necessario configurare l'hub eventi in cui si desidera trasmettere i log di diagnostica.
+   - Se si seleziona **Invia a log Analytics**, è necessario specificare l'istanza di log Analytics a cui verrà inviata la diagnostica.  
 
-   c. Selezionare la casella di controllo **OperationalLogs.**
+   c. Selezionare la casella di controllo **OperationalLogs** .
 
-    ![Il riquadro "Impostazioni di diagnostica"](./media/service-bus-diagnostic-logs/image3.png)
+    ![Riquadro "impostazioni di diagnostica"](./media/service-bus-diagnostic-logs/image3.png)
 
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 
-Le nuove impostazioni diventano effettive in circa 10 minuti. I log vengono visualizzati nella destinazione di archiviazione configurata nel riquadro **Log di diagnostica.**
+Le nuove impostazioni hanno effetto in circa 10 minuti. I log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **log di diagnostica** .
 
-Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere [Panoramica dei log di diagnostica di Azure.For](../azure-monitor/platform/diagnostic-logs-overview.md)more information about configuring diagnostics settings, see the overview of Azure diagnostics logs.
+Per altre informazioni sulla configurazione delle impostazioni di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul bus di servizio, vedere:To learn more about Service Bus, see:
+Per ulteriori informazioni sul bus di servizio, vedere:
 
 * [Introduzione al bus di servizio](service-bus-messaging-overview.md)
 * [Introduzione al bus di servizio](service-bus-dotnet-get-started-with-queues.md)

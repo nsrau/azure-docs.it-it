@@ -1,6 +1,6 @@
 ---
-title: Gestibilità e monitoraggio - Panoramica
-description: Panoramica del monitoraggio e della gestibilità per l'utilizzo delle risorse, l'attività di log e query, i consigli e la protezione dei dati (backup e ripristino) con il pool SQL Synapse.
+title: Gestione e monitoraggio-Panoramica
+description: Panoramica del monitoraggio e della gestibilità per l'utilizzo delle risorse, l'attività di log e query, le raccomandazioni e la protezione dei dati (backup e ripristino) con il pool di SQL sinapsi.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e41bf003af7d0926aab04ffed86bf6ec5031c4f7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80586425"
 ---
-# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Gestibilità e monitoraggio con il pool SQL Synapse
+# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Gestibilità e monitoraggio con il pool SQL sinapsi
 
-Synapse SQL consente di eseguire il provisioning di un data warehouse tramite il pool SQL. Gli articoli che seguono ti aiuteranno a gestire e monitorare il tuo data warehouse. Verranno inoltre disponibili informazioni sui modi per ottimizzare l'utilizzo e le prestazioni del data warehouse.
+Sinapsi SQL consente di effettuare il provisioning di un data warehouse tramite il pool SQL. Gli articoli seguenti consentiranno di gestire e monitorare i data warehouse. Verranno inoltre illustrati i modi per ottimizzare l'utilizzo e le prestazioni del data warehouse.
 
 ## <a name="overview"></a>Panoramica
 
@@ -33,4 +33,4 @@ Synapse SQL consente di eseguire il provisioning di un data warehouse tramite il
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per le guide alle procedure, vedere [Monitorare e ottimizzare il pool SQL.](sql-data-warehouse-manage-monitor.md)
+Per le guide alle procedure, vedere [monitorare e ottimizzare il pool SQL](sql-data-warehouse-manage-monitor.md).

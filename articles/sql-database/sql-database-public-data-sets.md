@@ -1,5 +1,5 @@
 ---
-title: Set di dati pubblici per l'analisi di AzurePublic data sets for Azure analytics
+title: Set di dati pubblici per analisi di Azure
 description: Informazioni sui set di dati pubblici che è possibile usare per prototipi e test di servizi e soluzioni di analisi di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,26 +12,26 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
 ms.openlocfilehash: 0fe20c90cf857ce09a83c6ac53e6fe77eb512153
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80528200"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Set di dati pubblici per test e prototipi
 
 In questo elenco di set di dati pubblici è possibile trovare dati da usare per prototipi e test di servizi e soluzioni di archiviazione e analisi.
 
-## <a name="us-government-and-agency-data"></a>Dati del governo e delle agenzie degli Stati Uniti
+## <a name="us-government-and-agency-data"></a>Dati governativi e agenzie statunitensi
 
 | Origine dati | Informazioni sui dati | Informazioni sui file |
 |---|---|---|
-| [Dati del US Gov](https://catalog.data.gov/dataset) | Oltre 250.000 set di dati che coprono l'agricoltura, il clima, i consumatori, gli ecosistemi, l'istruzione, l'energia, la finanza, la salute, il governo locale, la produzione, il settore marittimo, l'oceano, la sicurezza pubblica e la scienza e la ricerca negli Stati Uniti. | File di diverse dimensioni e vari formati, tra cui HTML, XML, CSV, JSON, Excel e molti altri. È possibile filtrare i set di dati disponibili in base al formato di file. |
+| [Dati del US Gov](https://catalog.data.gov/dataset) | Oltre 250.000 set di dati relativi a agricoltura, clima, consumer, ecosistemi, istruzione, energia, finanza, sanità, governo locale, produzione, marittimo, oceano, pubblica sicurezza e scienza e ricerca negli Stati Uniti | File di diverse dimensioni e vari formati, tra cui HTML, XML, CSV, JSON, Excel e molti altri. È possibile filtrare i set di dati disponibili in base al formato di file. |
 | [Dati di censimento degli Stati Uniti](https://www.census.gov/data.html) | Dati statistici sulla popolazione degli Stati Uniti. | I set di dati sono disponibili in vari formati. |
 | [Dati di scienze della Terra della NASA](https://earthdata.nasa.gov/) | Oltre 32.000 raccolte di dati riguardanti agricoltura, atmosfera, biosfera, clima, criosfera, dimensioni umane, idrosfera, superficie terrestre, oceani, interazioni Terra-Sole e altro ancora. | I set di dati sono disponibili in vari formati. |
-| [Ritardi nei voli e altri dati sui trasporti delle compagnie aeree](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "Il Bureau of Transportation Statistics (BTS) del Dipartimento dei Trasporti degli Stati Uniti (DOT) tiene traccia delle prestazioni puntuali dei voli nazionali operati da grandi vettori aerei. Informazioni di riepilogo sul numero di voli puntuali, in ritardo, annullati o deviati sono riportate... in tabelle di riepilogo pubblicate nel sito Web". | I file sono disponibili in formato CSV. |
+| [Ritardi nei voli e altri dati sui trasporti delle compagnie aeree](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "Il Bureau of Transportation Statistics (BTS) degli Stati Uniti Department of Transports (BTS) tiene traccia delle prestazioni in tempo dei voli nazionali usati da grandi carriere aeree. Informazioni di riepilogo sul numero di voli puntuali, in ritardo, annullati o deviati sono riportate... in tabelle di riepilogo pubblicate nel sito Web". | I file sono disponibili in formato CSV. |
 | [Incidenti stradali mortali: Fatality Analysis Reporting System (FARS) degli Stati Uniti](https://www.nhtsa.gov/FARS) | "FARS è un censimento a livello nazionale che fornisce a NHTSA, Congresso e pubblico americano dati annuali sugli incidenti stradali mortali nel traffico di veicoli a motore". | "È possibile creare online dati personalizzati sugli incidenti mortali usando il sistema di query FARS oppure scaricare tutti i dati FARS dal 1975 a oggi dal sito FTP". |
-| [Dati chimici tossici - Dati EPA Toxicity&trade;ForeCaster (ToxCast)](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "I dati high-throughput più aggiornati disponibili al pubblico dell'EPA sulla tossicità di migliaia di sostanze chimiche. Questi dati vengono generati tramite l'iniziativa di ricerca ToxCast dell'EPA". | I set di dati sono disponibili in vari formati, tra cui fogli di calcolo, pacchetti R e file di database MySQL. |
+| [Dati chimici tossici: dati di EPA tossicità ForeCaster&trade;(ToxCast)](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "I dati high-throughput più aggiornati disponibili al pubblico dell'EPA sulla tossicità di migliaia di sostanze chimiche. Questi dati vengono generati tramite l'iniziativa di ricerca ToxCast dell'EPA". | I set di dati sono disponibili in vari formati, tra cui fogli di calcolo, pacchetti R e file di database MySQL. |
 | [Dati su sostanze chimiche tossiche: NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | "La sfida Tox21 Data Challenge 2014 è stata progettata per consentire agli scienziati di comprendere il potenziale delle sostanze chimiche e dei composti sottoposti a test tramite l'iniziativa Toxicology in the 21st Century per interrompere i percorsi biologici in modi che potrebbero determinare effetti tossici". | I set di dati sono disponibili in formato SMILES e SDF. Includono "dati sulle attività di analisi e sulle strutture chimiche della raccolta di circa 10.000 composti (Tox21 10K) di Tox21". |
 | [Dati su biotecnologia e genomi del National Center for Biotechnology Information (NCBI)](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Più set di dati riguardanti geni, genomi e proteine. | I set di dati sono in formato di testo, XML, BLAST e di altro tipo. È disponibile un'app BLAST. |
 

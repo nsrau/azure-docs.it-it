@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 03/31/2020
 ms.author: radeltch
 ms.openlocfilehash: f1ae2c3c949e8bdbf30c8bef496177d56cd2dcbd
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521400"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux
@@ -129,7 +129,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool di indirizzi IP front-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool di indirizzi IP front-end (ad esempio, **hana-frontend**).
       1. Impostare l' **assegnazione** su **statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
       1. Dopo aver creato il nuovo pool di indirizzi IP front-end, annotare l'indirizzo IP del pool.
 
    1. Creare quindi un pool back-end:
@@ -146,7 +146,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Aprire il servizio di bilanciamento del carico, selezionare **Probe integrità** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo probe di integrità (ad esempio, **hana-hp**).
       1. Selezionare **TCP** come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
 
    1. Successivamente, creare le regole di bilanciamento del carico:
    
@@ -156,7 +156,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Selezionare **porte a disponibilità elevata**.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
 
    > [!Note]
    > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
@@ -167,7 +167,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool di indirizzi IP front-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool di indirizzi IP front-end (ad esempio, **hana-frontend**).
       1. Impostare l' **assegnazione** su **statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
       1. Dopo aver creato il nuovo pool di indirizzi IP front-end, annotare l'indirizzo IP del pool.
 
    1. Creare quindi un pool back-end:
@@ -177,14 +177,14 @@ Per distribuire il modello, seguire questi passaggi:
       1. Selezionare **Aggiungi una macchina virtuale**.
       1. Selezionare il set di disponibilità creato nel passaggio 3.
       1. Selezionare le macchine virtuali del cluster SAP HANA.
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
 
    1. Creare quindi un probe di integrità:
 
       1. Aprire il servizio di bilanciamento del carico, selezionare **Probe integrità** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo probe di integrità (ad esempio, **hana-hp**).
       1. Selezionare **TCP** come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
 
    1. Per SAP HANA 1.0, creare le regole di bilanciamento del carico:
 
@@ -194,7 +194,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**15.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
       1. Ripetere questi passaggi per la porta 3**03**17.
 
    1. Per SAP HANA 2.0, creare le regole di bilanciamento del carico per il database di sistema:
@@ -205,7 +205,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**13.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
       1. Ripetere questi passaggi per la porta 3**03**14.
 
    1. Per SAP HANA 2.0, creare prima le regole di bilanciamento del carico per il database tenant:
@@ -216,7 +216,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**40.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
-      1. Fare clic su **OK**.
+      1. Selezionare **OK**.
       1. Ripetere questi passaggi per le porte 3**03**41 e 3**03**42.
 
 Per altre informazioni sulle porte necessarie per SAP HANA, leggere il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connessioni a database tenant) della guida [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Database tenant SAP HANA) o la [nota SAP 2388694][2388694].

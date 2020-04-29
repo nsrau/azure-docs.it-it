@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: ARP tables - Troubleshooting'
+title: 'Azure ExpressRoute: tabelle ARP-risoluzione dei problemi'
 description: Questa pagina fornisce istruzioni su come ottenere tabelle ARP tabelle per un circuito ExpressRoute
 services: expressroute
 author: charwen
@@ -9,16 +9,16 @@ ms.date: 01/30/2017
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: b31e9eb852c69d5f02eb855e319d2a4901942994
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618532"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione Resource Manager
 > [!div class="op_single_selector"]
 > * [PowerShell - Gestione risorse](expressroute-troubleshooting-arp-resource-manager.md)
-> * [PowerShell - Classico](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell-classico](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -61,7 +61,7 @@ Prima di procedere, verificare che siano presenti gli elementi seguenti:
 * È necessario disporre del modulo PowerShell più recente per Azure (versione 1.50 o successiva).
 
 > [!NOTE]
-> Se il livello 3 viene fornito dal provider di servizi e le tabelle ARP sono vuote nel portale/output riportato di seguito, aggiornare la configurazione del circuito utilizzando il pulsante Aggiorna nel portale. Questa operazione applicherà la configurazione di routing corretta nel circuito. 
+> Se il provider di servizi fornisce il livello 3 e le tabelle ARP sono vuote nel portale o nell'output riportato di seguito, aggiornare la configurazione del circuito usando il pulsante Aggiorna del portale. Questa operazione applicherà la configurazione di routing corretta nel circuito. 
 >
 >
 
@@ -148,7 +148,7 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabella ARP quando il lato locale/provider di connettività presenta problemi
-Se si verificano problemi con il provider di connettività o locale, è possibile che nella tabella ARP venga visualizzata una sola voce o che l'indirizzo MAC locale venga visualizzato incompleto. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
+Se si verificano problemi con il provider locale o di connettività, è possibile che venga visualizzata una sola voce nella tabella ARP o che l'indirizzo MAC locale visualizzi incompleto. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549194"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e Async Java
@@ -88,7 +88,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
         Se si utilizza Azure Cosmos DB come database di riferimento (ovvero, il database viene utilizzato per molte operazioni di lettura dei punti e alcune operazioni di scrittura), potrebbe essere accettabile impostare *idleEndpointTimeout* su 0 (ovvero senza timeout).
 
 
-        | Opzione di configurazione       | Impostazione predefinita    |
+        | Opzione di configurazione       | Predefinito    |
         | :------------------:       | :-----:    |
         | bufferPageSize             | 8192       |
         | connectionTimeout          | "PT1M"     |

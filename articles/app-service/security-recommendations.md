@@ -8,10 +8,10 @@ ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 50e2666aa533a5111055a095c612b58bfe6f9db4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546708"
 ---
 # <a name="security-recommendations-for-app-service"></a>Raccomandazioni sulla sicurezza per il servizio app
@@ -33,7 +33,7 @@ Questo articolo contiene raccomandazioni sulla sicurezza per il servizio app Azu
 | Proteggere le risorse back-end con l'accesso autenticato | È possibile usare l'identità dell'utente o usare un'identità dell'applicazione per eseguire l'autenticazione a una risorsa back-end. Quando si sceglie di usare un'identità dell'applicazione, usare un' [identità gestita](overview-managed-identity.md).
 | Richiedi autenticazione del certificato client | L'autenticazione del certificato client migliora la sicurezza consentendo solo connessioni da client che possono eseguire l'autenticazione tramite certificati forniti dall'utente. |
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 | Recommendation | Commenti |
 |-|-|

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545945"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VM di Azure spot per i set di scalabilità di macchine virtuali 

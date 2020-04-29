@@ -1,5 +1,5 @@
 ---
-title: Gestire il server di configurazione per i server fisici in Azure Site RecoveryManage the configuration server for physical servers in Azure Site Recovery
+title: Gestire il server di configurazione per i server fisici in Azure Site Recovery
 description: Questo articolo descrive come gestire il server di configurazione di Azure Site Recovery per il ripristino di emergenza di server fisici in Azure.
 services: site-recovery
 author: mayurigupta13
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478973"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
@@ -35,8 +35,8 @@ La tabella riepiloga i prerequisiti per la distribuzione del computer server di 
 | Impostazioni locali del sistema operativo | Inglese (Stati Uniti)|
 | Versione di VMware vSphere PowerCLI | Facoltativo|
 | Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-| Criteri di gruppo| Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Scopri di più](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | - Nessun sito Web predefinito preesistente <br> - Abilitare [l'autenticazione anonima-](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) Enable Anonymous Authentication <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443<br>|
+| Criteri di gruppo| Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+| IIS | - Nessun sito Web predefinito preesistente <br> -Abilitare [l'autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443<br>|
 | Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware) |
 | Tipo di indirizzo IP | Statico |
 | Accesso a Internet | Il server deve poter accedere a questi URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (non necessario per i server di elaborazione scale-out) <br> - time.nist.gov <br> - time.windows.com |
@@ -47,7 +47,7 @@ La tabella riepiloga i prerequisiti per la distribuzione del computer server di 
 L'ultima versione del file di installazione del server di configurazione è disponibile nel portale di Site Recovery. Può essere inoltre scaricato direttamente dall'[Area download Microsoft](https://aka.ms/unifiedsetup).
 
 1. Accedere al portale di Azure e passare all'insieme di credenziali di Servizi di ripristino.
-2. Passare a Server di**configurazione** **dell'infrastruttura** > di Site Recovery (in Per VMware & computer fisici).
+2. Passare a **Site Recovery** > **server di configurazione** dell'infrastruttura (in per VMware & computer fisici).
 3. Fare clic sul pulsante **+Servers** (+Server).
 4. Nella pagina **Add Server** (Aggiungi server) fare clic sul pulsante Download (Scarica) per scaricare la chiave di registrazione. Questa chiave viene usata durante l'installazione del server di configurazione ai fini della registrazione con il servizio Azure Site Recovery.
 5. Fare clic sul collegamento **Download the Microsoft Azure Site Recovery Unified Setup** (Scarica l'installazione unificata di Microsoft Azure Site Recovery) per scaricare la versione più recente del server di configurazione.
@@ -69,7 +69,7 @@ L'ultima versione del file di installazione del server di configurazione è disp
     - Per fare in modo che il provider si connetta direttamente, selezionare **Connetti direttamente ad Azure Site Recovery senza server proxy**.
     - Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connect with custom proxy settings** (Connetti con le impostazioni proxy personalizzate) e specificare indirizzo, porta e credenziali.
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
-6. In **Controllo prerequisiti**, il programma di installazione esegue un controllo per assicurarsi che l'installazione può essere eseguita. Se viene visualizzato un avviso relativo al controllo di **sincronizzazione**dell'ora globale , verificare che l'ora dell'orologio di sistema (impostazioni**di data e** ora) sia uguale al fuso orario.
+6. In **controllo dei prerequisiti**, il programma di installazione esegue un controllo per assicurarsi che l'installazione possa essere eseguita. Se viene visualizzato un avviso relativo al **controllo sincronizzazione ora globale**, verificare che l'ora del clock di sistema (impostazioni di**data e ora** ) corrisponda al fuso orario.
 
     ![Prerequisiti](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. In **MySQL Configuration** (Configurazione MySQL) creare le credenziali per l'accesso all'istanza del server MySQL che viene installata.
@@ -87,7 +87,7 @@ L'ultima versione del file di installazione del server di configurazione è disp
 11. Esaminare le informazioni nella pagina **Riepilogo** e fare clic su **Installa**. Al termine dell'installazione verrà generata una passphrase. Sarà necessaria quando si abilita la replica, è quindi consigliabile copiarla e conservarla in un luogo sicuro.
 
 
-Al termine della registrazione, il server viene visualizzato nel pannello**Server** **impostazioni** > nel vault.
+Al termine della registrazione, il server viene visualizzato nel pannello **Impostazioni** > **server** nell'insieme di credenziali.
 
 
 ## <a name="install-from-the-command-line"></a>Eseguire l'installazione dalla riga di comando
@@ -237,12 +237,12 @@ Per aggiornare il server, seguire questa procedura:
 > [!WARNING]
 > Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione, assicurarsi di eseguire queste operazioni.
 > 1. [Disabilitare la protezione](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) per tutte le macchine virtuali in questo server di configurazione.
-> 2. [Annullare l'associazione](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) ed [eliminare](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) tutti i criteri di replica dal server di configurazione.
-> 3. [Eliminare](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) tutti i server vCenters/vSphere associati al server di configurazione.
+> 2. Annullare l' [associazione](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) ed [eliminare](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) tutti i criteri di replica dal server di configurazione.
+> 3. [Eliminare](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) tutti i server vCenter/host vSphere associati al server di configurazione.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Eliminare il server di configurazione dal portale di Azure
-1. Nel portale di Azure passare a Server di**configurazione** **dell'infrastruttura** > di Ripristino del sito dal menu Dell'insieme di credenziali.
+1. In portale di Azure individuare **Site Recovery** > **server di configurazione** dell'infrastruttura dal menu dell'insieme di credenziali.
 2. Fare clic sul server di configurazione per cui si vogliono rimuovere le autorizzazioni.
 3. Nella pagina dei dettagli del server di configurazione fare clic sul pulsante **Elimina**.
 4. Fare clic su **Sì** per confermare l'eliminazione del server.
@@ -288,10 +288,10 @@ Per aggiornare il server, seguire questa procedura:
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> L'opzione **-Force** in Remove-AzSiteRecoveryFabric può essere utilizzata per forzare la rimozione/eliminazione del server di configurazione.
+> L'opzione **-Force** in Remove-AzSiteRecoveryFabric può essere usata per forzare la rimozione o l'eliminazione del server di configurazione.
 
-## <a name="renew-tlsssl-certificates"></a>Rinnovare i certificati TLS/SSL
-Il server di configurazione include un server Web integrato che orchestra le attività del servizio Mobility, dei server di elaborazione e dei server di destinazione master connessi. Il server Web utilizza un certificato TLS/SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.
+## <a name="renew-tlsssl-certificates"></a>Rinnovo dei certificati TLS/SSL
+Il server di configurazione include un server Web integrato che orchestra le attività del servizio Mobility, dei server di elaborazione e dei server di destinazione master connessi. Il server Web usa un certificato TLS/SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.
 
 ### <a name="check-expiry"></a>Controllare la scadenza
 
@@ -303,8 +303,8 @@ Per le distribuzioni del server di configurazione precedenti maggio 2016, la sca
 
 ### <a name="renew-the-certificate"></a>Rinnovare il certificato
 
-1. Nell'insieme di credenziali aprire Server di**configurazione** **dell'infrastruttura** > di Site Recovery e fare clic sul server di configurazione richiesto.
-2. La data di scadenza viene visualizzata in **Integrità del server** di configurazione
+1. Nell'insieme di credenziali aprire **Site Recovery infrastruttura** > **server di configurazione**e fare clic sul server di configurazione richiesto.
+2. La data di scadenza viene visualizzata in **integrità server di configurazione**
 3. Fare clic su **Rinnova certificati**. 
 
 

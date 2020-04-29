@@ -1,6 +1,6 @@
 ---
 title: Autorizzare l'accesso a Hub eventi di Azure
-description: Questo articolo fornisce informazioni sulle diverse opzioni per autorizzare l'accesso alle risorse di Hub eventi di Azure.This article provides information about different options for authorizing access to Azure Event Hubs resources.
+description: Questo articolo fornisce informazioni sulle diverse opzioni per autorizzare l'accesso alle risorse di hub eventi di Azure.
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -9,46 +9,46 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
 ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521301"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorizzare l'accesso a Hub eventi di Azure
-Ogni volta che si pubblicano o si utilizzano eventi/dati da un hub eventi, il client tenta di accedere alle risorse di Hub eventi. Ogni richiesta a una risorsa protetta deve essere autorizzata in modo che il servizio possa garantire che il client disponga delle autorizzazioni necessarie per pubblicare/utilizzare i dati. 
+Ogni volta che si pubblicano o utilizzano eventi/dati da un hub eventi, il client sta provando ad accedere alle risorse di hub eventi. Ogni richiesta a una risorsa protetta deve essere autorizzata, in modo che il servizio possa garantire che il client disponga delle autorizzazioni necessarie per pubblicare/utilizzare i dati. 
 
-Hub eventi di Azure offre le opzioni seguenti per autorizzare l'accesso alle risorse protette:Azure Event Hubs offers the following options for authorizing access to secure resources:
+Hub eventi di Azure offre le opzioni seguenti per autorizzare l'accesso a risorse protette:
 
 - Azure Active Directory
 - Firma di accesso condiviso
 
 > [!NOTE]
-> Questo articolo si applica a entrambi gli scenari Hub eventi e [Apache Kafka.](event-hubs-for-kafka-ecosystem-overview.md) 
+> Questo articolo si applica sia a hub eventi che a scenari di [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) . 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-L'integrazione di Azure Active Directory (Azure AD) per le risorse di Hub eventi fornisce il controllo degli accessi in base al ruolo per un controllo granulare sull'accesso di un client alle risorse. È possibile utilizzare il controllo degli accessi in base al ruolo per concedere autorizzazioni all'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2.0.The security principal is authenticated by Azure AD to return an OAuth 2.0 token. Il token può essere utilizzato per autorizzare una richiesta di accesso a una risorsa Hub eventi.
+L'integrazione di Azure Active Directory (Azure AD) per le risorse di hub eventi fornisce il controllo degli accessi in base al ruolo (RBAC) per un controllo con granularità fine sull'accesso di un client alle risorse. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni all'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa di hub eventi.
 
-Per altre informazioni sull'autenticazione con Azure AD, vedere gli articoli seguenti:For more information about authenticating with Azure AD, see the following articles:
+Per ulteriori informazioni sull'autenticazione con Azure AD, vedere gli articoli seguenti:
 
-- [Autenticare le richieste agli hub eventi di Azure usando Azure Active DirectoryAuthenticate requests to Azure Event Hubs using Azure Active Directory](authenticate-application.md)
-- [Autorizzare l'accesso alle risorse di Hub eventi usando Azure Active Directory.](authorize-access-azure-active-directory.md)
+- [Autenticare le richieste a hub eventi di Azure usando Azure Active Directory](authenticate-application.md)
+- [Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory](authorize-access-azure-active-directory.md).
 
 ## <a name="shared-access-signatures"></a>Firme di accesso condiviso 
-Le firme di accesso condiviso per le risorse di Hub eventi forniscono un accesso delegato limitato alle risorse di Hub eventi. L'aggiunta di vincoli sull'intervallo di tempo per il quale la firma è valida o per le autorizzazioni concesse offre flessibilità nella gestione delle risorse. Per altre informazioni, vedere [Eseguire l'autenticazione tramite firme](authenticate-shared-access-signature.md)di accesso condiviso. 
+Le firme di accesso condiviso (SAS) per le risorse di hub eventi forniscono un accesso delegato limitato alle risorse di hub eventi. L'aggiunta di vincoli all'intervallo di tempo per cui la firma è valida o per le autorizzazioni concesse garantisce flessibilità nella gestione delle risorse. Per altre informazioni, vedere [eseguire l'autenticazione con firme di accesso condiviso (SAS)](authenticate-shared-access-signature.md). 
 
-L'autorizzazione di utenti o applicazioni tramite un token OAuth 2.0 restituito da Azure AD offre una sicurezza e un utilizzo superiori rispetto alle firme di accesso condiviso. Con Azure AD non è necessario archiviare i token di accesso con il codice e rischiare potenziali vulnerabilità della sicurezza. Sebbene sia possibile continuare a usare le firme di accesso condiviso per concedere un accesso granulare alle risorse di Hub eventi, Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o preoccuparsi di revocare una firma di accesso condiviso compromessa. 
+L'autorizzazione di utenti o applicazioni tramite un token OAuth 2,0 restituito da Azure AD garantisce una sicurezza e una facilità di utilizzo superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare i token di accesso con il codice e rischiare potenziali vulnerabilità della sicurezza. Sebbene sia possibile continuare a usare le firme di accesso condiviso (SAS) per concedere l'accesso con granularità fine alle risorse di hub eventi, Azure AD offre funzionalità simili senza dover gestire i token SAS o preoccuparsi di revocare una firma di accesso condiviso compromessa. 
 
-Per impostazione predefinita, tutte le risorse di Hub eventi sono protette e sono disponibili solo per il proprietario dell'account. Sebbene sia possibile utilizzare una delle strategie di autorizzazione descritte in precedenza per concedere ai client l'accesso alle risorse dell'Hub eventi. Microsoft consiglia di usare Azure AD quando possibile per garantire la massima sicurezza e facilità d'uso.
+Per impostazione predefinita, tutte le risorse di hub eventi sono protette e sono disponibili solo per il proprietario dell'account. Sebbene sia possibile usare una delle strategie di autorizzazione descritte in precedenza per concedere ai client l'accesso alle risorse dell'hub eventi. Microsoft consiglia di utilizzare Azure AD quando possibile per la massima sicurezza e semplicità d'uso.
 
-Per altre informazioni sull'autorizzazione tramite sAS, vedere [Autorizzazione dell'accesso alle risorse di Hub eventi tramite firme](authorize-access-shared-access-signature.md)di accesso condiviso .
+Per altre informazioni sull'autorizzazione con SAS, vedere [autorizzazione dell'accesso alle risorse di hub eventi tramite firme di accesso condiviso](authorize-access-shared-access-signature.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Esaminare [gli esempi di controllo degli accessi in base](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) al ruolo pubblicati nel repository GitHub.Review RBAC samples published in our GitHub repository. 
+- Esaminare gli [esempi RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) pubblicati nel repository GitHub. 
 - Vedere gli articoli seguenti:
-    - [Autenticare le richieste agli hub eventi di Azure da un'applicazione tramite Azure Active DirectoryAuthenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
-    - [Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse degli hub eventiAuthenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
-    - [Autenticare le richieste agli hub eventi di Azure usando le firme di accesso condivisoAuthenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
-    - [Autorizzare l'accesso alle risorse di Hub eventi usando Azure Active DirectoryAuthorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
-    - [Autorizzare l'accesso alle risorse degli hub eventi usando le firme di accesso condivisoAuthorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
+    - [Autenticare le richieste a hub eventi di Azure da un'applicazione usando Azure Active Directory](authenticate-application.md)
+    - [Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi](authenticate-managed-identity.md)
+    - [Autenticare le richieste a hub eventi di Azure usando le firme di accesso condiviso](authenticate-shared-access-signature.md)
+    - [Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory](authorize-access-azure-active-directory.md)
+    - [Autorizzare l'accesso alle risorse di hub eventi usando le firme di accesso condiviso](authorize-access-shared-access-signature.md)
 

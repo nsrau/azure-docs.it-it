@@ -1,41 +1,41 @@
 ---
 title: Sincronizzare il repository GitHub con la configurazione dell'app
-description: Usare le azioni GitHub per aggiornare automaticamente l'istanza di configurazione dell'app quando si aggiorna il repository GitHub.Use GitHub Actions to automatically update your App Configuration instance when you update your GitHub repository.
+description: Usare le azioni di GitHub per aggiornare automaticamente l'istanza di configurazione dell'app quando si aggiorna il repository GitHub.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585488"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizzare il repository GitHub con la configurazione dell'app
 
-I team che desiderano continuare a usare le procedure di controllo del codice sorgente esistenti possono usare le azioni GitHub per sincronizzare automaticamente il repository GitHub con l'archivio di configurazione delle app. In questo modo è possibile apportare modifiche ai file di configurazione come si farebbe normalmente, ottenendo i vantaggi di configurazione dell'app come: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;- Configurazione centralizzata al di fuori del codice <br>
-&nbsp;&nbsp;&nbsp;&nbsp;Aggiornamento della configurazione senza ridistribuire l'intera app <br>
-&nbsp;&nbsp;&nbsp;&nbsp;Integrazione con servizi come Il servizio app di Azure e funzioni. 
+I team che vogliono continuare a usare le procedure di controllo del codice sorgente esistenti possono usare le azioni di GitHub per sincronizzare automaticamente il repository GitHub con l'archivio di configurazione dell'app. In questo modo è possibile apportare modifiche ai file di configurazione come si farebbe normalmente, ottenendo al tempo stesso vantaggi per la configurazione delle app, ad esempio: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Configurazione centralizzata all'esterno del codice <br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Aggiornamento della configurazione senza ridistribuzione dell'intera app <br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Integrazione con servizi come app Azure servizio e funzioni. 
 
-Un flusso [di lavoro](https://help.github.com/articles/about-github-actions#workflow) Azioni GitHub definisce un processo automatizzato in un repository GitHub.A GitHub Actions workflow defines an automated process in a GitHub repository. L'azione di *sincronizzazione* della configurazione dell'app di Azure attiva gli aggiornamenti a un'istanza di Configurazione app quando vengono apportate modifiche al repository di origine. Utilizza un file YAML (.yml) `/.github/workflows/` trovato nel percorso del repository per definire i passaggi e i parametri. Puoi attivare gli aggiornamenti della configurazione durante il push, la revisione o la diramazione dei file di configurazione dell'app come con il codice dell'app.
+Un flusso di [lavoro](https://help.github.com/articles/about-github-actions#workflow) di azioni di GitHub definisce un processo automatizzato in un repository GitHub. L'azione di *sincronizzazione della configurazione app Azure* attiva gli aggiornamenti a un'istanza di configurazione dell'app quando vengono apportate modifiche al repository di origine. Usa un file YAML (. yml) trovato nel `/.github/workflows/` percorso del repository per definire i passaggi e i parametri. È possibile attivare gli aggiornamenti della configurazione quando si effettua il push, si esaminano o si diramano i file di configurazione delle app esattamente come avviene con il codice dell'app.
 
-La [documentazione](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) di GitHub fornisce una visione approfondita dei flussi di lavoro e delle azioni di GitHub.The GitHub documentation provides a-depth view of GitHub workflows and actions. 
+La [documentazione](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) di GitHub fornisce una panoramica approfondita dei flussi di lavoro e delle azioni di GitHub. 
 
-## <a name="enable-github-actions-in-your-repository"></a>Abilitare le azioni GitHub nel repositoryEnable GitHub Actions in your repository
-Per iniziare a utilizzare questa azione GitHub, accedere al repository e selezionare la scheda **Azioni.** Fare clic su **Nuovo flusso di lavoro**, quindi **impostare un flusso di lavoro manualmente**. Infine, cercare "Azure App Configuration Sync" nel marketplace.
+## <a name="enable-github-actions-in-your-repository"></a>Abilitare le azioni di GitHub nel repository
+Per iniziare a usare questa azione GitHub, passare al repository e selezionare la scheda **azioni** . fare clic su **nuovo flusso di lavoro**, quindi **configurare un flusso di lavoro manualmente**. Infine, cercare "app Azure Sync Configuration Sync" nel Marketplace.
 > [!div class="mx-imgBorder"]
-> ![Selezionare la scheda Azione](media/find-github-action.png)
+> ![Selezionare la scheda azione](media/find-github-action.png)
 
 > [!div class="mx-imgBorder"]
 > ![Selezionare l'azione di sincronizzazione della configurazione dell'app](media/app-configuration-sync-action.png)
 
-## <a name="sync-configuration-files-after-a-push"></a>Sincronizzare i file di configurazione dopo un push
-Questa azione consente di sincronizzare i file `appsettings.json`di configurazione delle app di Azure quando viene inserita una modifica in . Quando uno sviluppatore invia `appsettings.json`una modifica a , l'azione Sincronizzazione configurazione app aggiorna l'istanza di configurazione dell'app con i nuovi valori.
+## <a name="sync-configuration-files-after-a-push"></a>Sincronizza i file di configurazione dopo un push
+Questa azione esegue la sincronizzazione dei file di configurazione app Azure quando viene effettuato `appsettings.json`il push di una modifica a. Quando uno sviluppatore effettua il push di una `appsettings.json`modifica a, l'azione di sincronizzazione della configurazione dell'app Aggiorna l'istanza di configurazione dell'app con i nuovi valori.
 
-La prima sezione di questo flusso di lavoro specifica `appsettings.json` che l'azione viene attivata *su* un *push* contenente al ramo *master.* Nella seconda sezione sono elencati i processi eseguiti dopo l'attivazione dell'azione. L'azione estrae i file pertinenti e aggiorna l'istanza di Configurazione app usando la stringa di connessione archiviata come segreto nel repository.  Per altre informazioni sull'uso di segreti in GitHub, vedere l'articolo di GitHub sulla creazione e [l'uso](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) di segreti crittografati.
+La prima sezione di questo flusso di lavoro specifica che l'azione *attiva un* *push* contenente `appsettings.json` nel ramo *Master* . Nella seconda sezione vengono elencati i processi eseguiti dopo l'attivazione dell'azione. L'azione estrae i file rilevanti e aggiorna l'istanza di configurazione dell'app usando la stringa di connessione archiviata come segreto nel repository.  Per altre informazioni sull'uso dei segreti in GitHub, vedere [l'articolo di GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sulla creazione e l'uso di segreti crittografati.
 
 ```json
 on: 
@@ -61,10 +61,10 @@ jobs:
           separator: ':' 
 ```
 
-## <a name="use-a-dynamic-label-on-sync"></a>Usare un'etichetta dinamica durante la sincronizzazioneUse a dynamic label on sync
-L'azione precedente aggiorna l'istanza di Configurazione app ogni volta che `appsettings.json` viene aggiornata. Questa azione inserisce un'etichetta dinamica in ogni sincronizzazione, assicurando che ogni sincronizzazione possa essere identificata in modo univoco e consentendo il mapping delle modifiche al codice alle modifiche di configurazione.
+## <a name="use-a-dynamic-label-on-sync"></a>Usa un'etichetta dinamica durante la sincronizzazione
+L'azione precedente aggiorna l'istanza di configurazione dell' `appsettings.json` app ogni volta che viene aggiornato. Questa azione inserisce un'etichetta dinamica a ogni sincronizzazione, assicurando che ogni sincronizzazione possa essere identificata in modo univoco e consentire il mapping delle modifiche del codice alle modifiche di configurazione.
 
-La prima sezione di questo flusso di lavoro specifica `appsettings.json` che l'azione viene attivata *su* un *push* contenente al ramo *master.* Nella seconda sezione viene eseguito un processo che crea un'etichetta univoca per l'aggiornamento della configurazione in base all'hash di commit. Il processo aggiorna quindi l'istanza di configurazione app con i nuovi valori e l'etichetta univoca per questo aggiornamento.
+La prima sezione di questo flusso di lavoro specifica che l'azione *attiva un* *push* contenente `appsettings.json` nel ramo *Master* . La seconda sezione esegue un processo che crea un'etichetta univoca per l'aggiornamento di configurazione in base all'hash di commit. Il processo aggiorna quindi l'istanza di configurazione dell'app con i nuovi valori e l'etichetta univoca per l'aggiornamento.
 
 ```json
 on: 
@@ -95,10 +95,10 @@ jobs:
           label: ${{ steps.determine_label.outputs.LABEL }} 
 ```
 
-## <a name="use-strict-sync"></a>Utilizzare la sincronizzazione rigorosa
-Quando è attivata la modalità rigorosa, la sincronizzazione garantisce che l'istanza di configurazione app corrisponda esattamente al file di configurazione per il prefisso e l'etichetta indicati. Le coppie chiave-valore con lo stesso prefisso ed etichetta non presenti nel file di configurazione vengono eliminate. 
+## <a name="use-strict-sync"></a>Usare la sincronizzazione Strict
+Quando è abilitata la modalità Strict, la sincronizzazione garantisce che l'istanza di configurazione dell'app corrisponda esattamente al file di configurazione per il prefisso e l'etichetta specificati. Le coppie chiave-valore con lo stesso prefisso e l'etichetta che non sono presenti nel file di configurazione vengono eliminate. 
  
-Se la modalità rigorosa non è abilitata, la sincronizzazione imposterà solo le coppie chiave-valore dal file di configurazione. Non verrà eliminata alcuna coppia chiave-valore. 
+Se la modalità Strict non è abilitata, la sincronizzazione imposterà solo i valori chiave dal file di configurazione. Non verranno eliminate coppie chiave-valore. 
 
 ```json
 on: 
@@ -127,12 +127,12 @@ jobs:
           strict: true 
 ```
 
-## <a name="use-max-depth-to-limit-github-action"></a>Usare la profondità massima per limitare l'azione GitHubUse max depth to limit GitHub Action
-Il comportamento predefinito per gli attributi JSON annidati consiste nell'appiattire l'intero oggetto.  Il codice JSON seguente definisce questa coppia chiave-valore:The JSON below defines this key-value pair:
+## <a name="use-max-depth-to-limit-github-action"></a>Usare la profondità massima per limitare l'azione di GitHub
+Il comportamento predefinito per gli attributi JSON annidati consiste nel rendere flat l'intero oggetto.  Il codice JSON seguente definisce questa coppia chiave-valore:
 
 | Chiave | valore |
 | --- | --- |
-| Oggetto:Inner:InnerKey | InnerValue (Valore interno) |
+| Oggetto: interno: InnerKey | InnerValue |
 
 ```json
 { "Object": 
@@ -144,7 +144,7 @@ Il comportamento predefinito per gli attributi JSON annidati consiste nell'appia
 }
 ```
 
-Se l'oggetto annidato deve essere il valore inserito nell'istanza Configuration, è possibile utilizzare il valore di *profondità* per interrompere la conversione alla profondità appropriata. 
+Se l'oggetto annidato è destinato a essere il valore inserito nell'istanza di configurazione, è possibile utilizzare il valore *Depth* per arrestare la bidimensionale alla profondità appropriata. 
 
 ```json
 on: 
@@ -171,31 +171,31 @@ jobs:
           depth: 2 
 ```
 
-Data una profondità pari a 2, l'esempio precedente ora restituisce la seguente coppia chiave-valore:
+Data una profondità di 2, l'esempio precedente restituisce ora la coppia chiave-valore seguente:
 
 | Chiave | valore |
 | --- | --- |
-| Oggetto:Interno | "InnerKey": "InnerValue" |
+| Oggetto: interno | {"InnerKey": "InnerValue"} |
 
-## <a name="understand-action-inputs"></a>Comprendere gli input delle azioni
-I parametri di input specificano i dati utilizzati dall'azione durante il runtime.  La tabella seguente contiene i parametri di input accettati dalla sincronizzazione della configurazione dell'app e i valori previsti per ognuno di essi.  Per ulteriori informazioni sugli input di azione per le azioni GitHub, vedere la [documentazione](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)di GitHub .
+## <a name="understand-action-inputs"></a>Informazioni sugli input azione
+I parametri di input specificano i dati usati dall'azione durante il Runtime.  La tabella seguente contiene i parametri di input accettati dalla sincronizzazione della configurazione dell'app e i valori previsti per ognuno di essi.  Per ulteriori informazioni sugli input azione per le azioni di GitHub, vedere la [documentazione](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs)di GitHub.
 
 > [!Note]
-> Gli ID di input non fanno distinzione tra maiuscole e minuscole.
+> ID di input senza distinzione tra maiuscole e minuscole.
 
 
-| Nome input | Obbligatorio? | valore |
+| Nome input | Necessaria? | valore |
 |----|----|----|
 | configurationFile | Sì | Percorso relativo del file di configurazione nel repository.  I modelli Glob sono supportati e possono includere più file. |
-| format | Sì | Formato di file del file di configurazione.  I formati validi sono: JSON, YAML, properties. |
-| connectionString | Sì | Stringa di connessione per l'istanza di Configurazione app. La stringa di connessione deve essere archiviata come segreto nel repository GitHub e nel flusso di lavoro deve essere usato solo il nome del segreto. |
-| separator | Sì | Separatore utilizzato quando si appiattisce il file di configurazione in coppie chiave-valore.  I valori validi sono: . , ; : - _ __ / |
+| format | Sì | Formato di file del file di configurazione.  I formati validi sono: JSON, YAML, Properties. |
+| connectionString | Sì | Stringa di connessione per l'istanza di configurazione dell'app. La stringa di connessione deve essere archiviata come segreto nel repository GitHub e il flusso di lavoro deve essere usato solo per il nome del segreto. |
+| separator | Sì | Separatore utilizzato quando si rende flat il file di configurazione a coppie chiave-valore.  I valori validi sono:. , ; : - _ __ / |
 | prefix | No | Prefisso da aggiungere all'inizio delle chiavi. |
-| label | No | Etichetta utilizzata durante l'impostazione di coppie chiave-valore. Se non specificato, viene utilizzata un'etichetta null. |
-| strict | No | Valore booleano che determina se è abilitata la modalità rigorosa. Il valore predefinito è false. |
-| Profondità | No | Profondità massima per la conversione del file di configurazione.  La profondità deve essere un numero positivo.  L'impostazione predefinita non avrà una profondità massima. |
-| tags | No | Specifica il tag impostato sulle coppie chiave-valore.  Il formato previsto è una forma stringaficata di un oggetto JSON della forma seguente: :[nomeproprietà: stringa]: stringa; Ogni nome-valore della proprietà diventa un tag. |
+| label | No | Etichetta utilizzata per l'impostazione di coppie chiave-valore. Se non è specificato, viene utilizzata un'etichetta null. |
+| strict | No | Valore booleano che determina se è abilitata la modalità Strict. Il valore predefinito è false. |
+| profondità | No | Profondità massima per rendere flat il file di configurazione.  La profondità deve essere un numero positivo.  Il valore predefinito non avrà profondità massima. |
+| tags | No | Specifica il tag impostato sulle coppie chiave-valore.  Il formato previsto è un form file di un oggetto JSON con la forma seguente: {[propertyName: String]: String;} Ogni proprietà nome-valore diventa un tag. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo, hai appreso l'azione GitHub di sincronizzazione della configurazione dell'app e come può essere usata per automatizzare gli aggiornamenti all'istanza di configurazione dell'app. Per informazioni su come Azure App Configuration reagisce alle modifiche nelle coppie chiave-valore, passare [all'articolo](./concept-app-configuration-event.md)successivo.
+In questo articolo si è appreso come usare l'azione GitHub di sincronizzazione della configurazione dell'app e come può essere usata per automatizzare gli aggiornamenti all'istanza di configurazione dell'app. Per informazioni sul modo in cui app Azure configurazione reagisce alle modifiche nelle coppie chiave-valore, continuare con l' [articolo](./concept-app-configuration-event.md)successivo.

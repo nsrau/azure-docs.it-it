@@ -1,16 +1,16 @@
 ---
-title: Soluzione di gestione nelle procedure consigliate di AzureManagement solution in Azure best practices
-description: In questo articolo vengono forniti suggerimenti per la creazione di un file di soluzione di gestione. Informazioni su come usare origini dati, runbook, visualizzazioni e avvisi.
+title: Soluzione di gestione in procedure consigliate di Azure
+description: In questo articolo vengono fornite informazioni sui suggerimenti per la creazione di un file di soluzione di gestione. Vedere come usare origini dati, manuali operativi, visualizzazioni e avvisi.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
 ms.openlocfilehash: 7cb300297336edcce4294b800520ad570b12bcde
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548172"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Procedure consigliate per la creazione di soluzioni di gestione in Azure (anteprima)
@@ -31,7 +31,7 @@ Questo articolo riporta le procedure consigliate per la [creazione di una soluzi
 - Includere nella soluzione il [modulo IngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) che dovrà essere usato da runbook per la scrittura dei dati nel repository di Log Analytics.  Configurare la soluzione in modo che [faccia riferimento](solutions-solution-file.md#solution-resource) a questa risorsa affinché rimanga se la soluzione viene rimossa.  In questo modo più soluzioni possono condividere il modulo.
 - Utilizzare le [variabili di automazione](../../automation/automation-schedules.md) per fornire valori alla soluzione che gli utenti potranno modificare in seguito.  Anche se la soluzione è configurata per contenere la variabile, il suo valore può comunque essere modificato.
 
-## <a name="views"></a>Viste
+## <a name="views"></a>Visualizzazioni
 - Tutte le soluzioni devono includere una singola vista che viene mostrata nel portale dell'utente.  Questa vista può contenere più [parti della visualizzazione](../../azure-monitor/platform/view-designer-parts.md) per illustrare i diversi set di dati.
 - Aggiungere un messaggio di [verifica del flusso di dati](../../azure-monitor/platform/view-designer-tiles.md) alle viste della soluzione per indicare all'utente le origini dati che devono essere configurate per la raccolta dei dati richiesti.
 - Configurare la soluzione in modo che [contenga](solutions-solution-file.md#solution-resource) la vista, affinché venga rimossa se la soluzione viene rimossa.

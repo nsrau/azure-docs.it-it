@@ -1,6 +1,6 @@
 ---
 title: Script di esempio per la crittografia dischi di Azure
-description: Questo articolo è l'appendice per Crittografia disco di Microsoft Azure per macchine virtuali Linux.This article is the appendix for Microsoft Azure Disk Encryption for Linux VMs.
+description: Questo articolo è l'appendice per la crittografia del disco Microsoft Azure per le macchine virtuali Linux.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -9,15 +9,15 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585967"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Script di esempio per la crittografia dischi di Azure 
 
-In questo articolo vengono forniti script di esempio per la preparazione di dischi rigidi virtuali pre-crittografati e altre attività.
+Questo articolo fornisce script di esempio per la preparazione dei dischi rigidi virtuali pre-crittografati e di altre attività.
 
  
 
@@ -56,13 +56,13 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Crittografare o decrittografare le macchine virtuali senza un'app Azure AD
 
-- [Abilitare la crittografia del disco in una macchina virtuale Linux esistente o in esecuzioneEnable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+- [Abilitare la crittografia del disco in una VM Linux esistente o in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
 - [Disabilitare la crittografia su macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - È possibile disabilitare la crittografia solo nei volumi di dati per macchine virtuali Linux.  
 
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Crittografare o decrittografare le macchine virtuali senza un'app Azure AD (versione precedente) 
  
-- [Abilitare la crittografia del disco in una macchina virtuale Linux esistente o in esecuzioneEnable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
+- [Abilitare la crittografia del disco in una VM Linux esistente o in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 
 -  [Disabilitare la crittografia su macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
@@ -80,7 +80,7 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Prerequisiti per la crittografia del disco del sistema operativo
 
-* La macchina virtuale deve usare una distribuzione compatibile con la crittografia del disco del sistema operativo elencata nei sistemi operativi supportati da Crittografia disco di [AzureThe](disk-encryption-overview.md#supported-vms) VM must be using a distribution compatible with OS disk encryption as listed in the Azure Disk Encryption supported operating systems 
+* La macchina virtuale deve usare una distribuzione compatibile con la crittografia del disco del sistema operativo come elencato nei [sistemi operativi supportati da crittografia dischi di Azure](disk-encryption-overview.md#supported-vms) 
 * La macchina virtuale deve essere creata dall'immagine del Marketplace in Azure Resource Manager.
 * VM di Azure con almeno 4 GB di RAM (7 GB consigliati).
 * (Per RHEL e CentOS) Disabilitare SELinux. Per disabilitare SELinux, vedere "4.4.2. Disabling SELinux" (4.4.2. Disabilitazione di SELinux) in [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Manuale dell'utente e dell'amministratore di SELinux) nella VM.
@@ -108,7 +108,7 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 
 5. Monitorare periodicamente lo stato della crittografia tramite le istruzioni indicate nella [sezione successiva](#monitoring-os-encryption-progress).
 
-6. Dopo che Get-AzVmDiskEncryptionStatus mostra "VMRestartPending", riavviare la macchina virtuale accedendo ad essa o utilizzando il portale, PowerShell o l'interfaccia della riga di comando.
+6. Dopo che Get-AzVmDiskEncryptionStatus Mostra "VMRestartPending", riavviare la macchina virtuale eseguendo l'accesso o usando il portale, PowerShell o l'interfaccia della riga di comando.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -294,7 +294,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
    ```bash
     if [ 1 ]; then
    ```
-4. Modificare /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aggiungerlo al dispositivo LUKS aperto":
+4. Modificare/usr/lib/Dracut/modules.d/90crypt/cryptroot-Ask.sh e aggiungerlo a "# Open LUKS Device":
 
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -320,7 +320,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
 
 6. È ora possibile effettuare il deprovisioning della macchina virtuale e caricare il disco rigido virtuale in Azure.
 
-### <a name="centos-7-and-rhel-81"></a>CentOS 7 e RHEL 8.1
+### <a name="centos-7-and-rhel-81"></a>CentOS 7 e RHEL 8,1
 
 Per configurare la crittografia durante l'installazione della distribuzione, eseguire i passaggi seguenti:
 1. Selezionare **Encrypt my data** (Crittografa dati personali) durante il partizionamento dei dischi.
@@ -375,7 +375,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
    ```bash
     if [ 1 ]; then
    ```
-4. Modificare /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aggiungere quanto segue dopo il dispositivo LUKS aperto:Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append the following after the ""Open LUKS device":
+4. Modificare/usr/lib/Dracut/modules.d/90crypt/cryptroot-Ask.sh e aggiungere quanto segue dopo "# Open LUKS Device":
     ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -396,12 +396,12 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
     fi
     done
     ```    
-5. Eseguire "/usr/sbin/dracut -f -v" per aggiornare l'initrd.
+5. Eseguire "/usr/sbin/Dracut-f-v" per aggiornare initrd.
 
     ![Configurazione di CentOS 7 - run /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Caricare il VHD crittografato in un account di archiviazione di Azure
-Dopo aver abilitato la crittografia DM-Crypt, il disco rigido virtuale crittografato locale deve essere caricato nell'account di archiviazione.
+Dopo l'abilitazione della crittografia DM-Crypt, il disco rigido virtuale crittografato locale dovrà essere caricato nell'account di archiviazione.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
@@ -419,7 +419,7 @@ Quando si esegue la crittografia usando un'app Azure AD, il segreto di crittogra
 ``` 
 
 ### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Segreto di crittografia del disco non crittografato con una chiave di crittografia della chiave
-Per impostare il segreto nell'insieme di credenziali delle chiavi, utilizzare [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). La passphrase viene codificata come stringa base64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
+Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). La passphrase viene codificata come stringa Base64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
 
 ```powershell
 
@@ -439,7 +439,7 @@ Per impostare il segreto nell'insieme di credenziali delle chiavi, utilizzare [S
 Usare `$secretUrl` nel passaggio successivo per [collegare il disco del sistema operativo senza usare una chiave di crittografia della chiave](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segreto di crittografia del disco crittografato con una chiave di crittografia della chiave
-Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione di wrapping è una stringa con codifica URL [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) base64, che è quindi possibile caricare come segreto utilizzando il cmdlet.
+Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione Wrap è una stringa codificata con URL Base64, che può quindi essere caricata come segreto usando il [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

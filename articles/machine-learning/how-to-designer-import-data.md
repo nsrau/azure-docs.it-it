@@ -10,10 +10,10 @@ author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.openlocfilehash: 1ad7677607d625f673546a6ea29ea58b80a8d1b5
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546745"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importare i dati in Azure Machine Learning Designer (anteprima)
@@ -77,7 +77,7 @@ La finestra di progettazione supporta i set di impostazioni tabulari creati dall
 
 La finestra di progettazione riconosce internamente i tipi di dati seguenti:
 
-* string
+* Stringa
 * Integer
 * Decimal
 * Boolean

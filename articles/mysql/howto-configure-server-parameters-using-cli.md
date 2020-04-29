@@ -1,5 +1,5 @@
 ---
-title: Configurare i parametri del server - interfaccia della riga di comando di Azure - Database di Azure per MySQLConfigure server parameters - Azure CLI - Azure Database for MySQL
+title: Configurare parametri del server-interfaccia della riga di comando di Azure-database di Azure per MySQL
 description: Questo articolo descrive come configurare i parametri del servizio in Database di Azure per MySQL usando l'utilità dell'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 4/1/2020
 ms.openlocfilehash: ca5f80e57f90e4dd26ac2e4a175998ff3de2c102
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546429"
 ---
-# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalizzare i parametri del server usando l'interfaccia della riga di comando di AzureCustomize server parameters by using Azure CLI
+# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalizzare i parametri del server usando l'interfaccia della riga di comando
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un'istanza di Database di Azure per il server MySQL usando l'utility dell'interfaccia della riga di comando di Azure. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato. 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -65,7 +65,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l'interfaccia della riga di [comando.](howto-restart-server-cli.md)
+> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l' [interfaccia](howto-restart-server-cli.md)della riga di comando.
 
 Per visualizzare i valori di fuso orario disponibili, eseguire questo comando:
 

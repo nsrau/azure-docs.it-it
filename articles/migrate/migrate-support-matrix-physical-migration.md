@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 01/07/2020
 ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80520277"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matrice di supporto per la migrazione di server fisici
@@ -36,7 +36,7 @@ Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la mi
 
 Nella tabella viene riepilogato il supporto per i server fisici di cui si desidera eseguire la migrazione mediante la migrazione basata su agenti.
 
-**Supporto** | **Dettagli**
+**Supporto tecnico** | **Dettagli**
 --- | ---
 **Carico di lavoro del computer** | Azure Migrate supporta la migrazione di qualsiasi carico di lavoro (ad indicare Active Directory, SQL Server e così via) in esecuzione in un computer supportato.
 **Sistemi operativi** | Per informazioni aggiornate, vedere il [supporto del sistema operativo](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) per Site Recovery. Azure Migrate offre un supporto identico per il sistema operativo.
@@ -49,15 +49,15 @@ Nella tabella viene riepilogato il supporto per i server fisici di cui si deside
 **Dimensioni disco** | disco del sistema operativo da 2 TB; 8 TB per i dischi dati.
 **Limiti del disco** |  Fino a 63 dischi per computer.
 **Dischi/volumi crittografati** |  I computer con volumi o dischi crittografati non sono supportati per la migrazione.
-**Cluster di dischi condivisi** | Non supportato.
+**Cluster di dischi condivisi** | Non supportata.
 **Dischi indipendenti** | Supportato.
 **Dischi pass-through** | Supportato.
 **NFS** | I volumi NFS montati come volumi nei computer non verranno replicati.
 **destinazioni iSCSI** | I computer con destinazioni iSCSI non sono supportati per la migrazione senza agenti.
-**I/o a percorsi multipli** | Non supportato.
+**I/o a percorsi multipli** | Non supportata.
 **Storage vMotion** | Supportato
-**NIC raggruppate** | Non supportato.
-**IPv6** | Non supportato.
+**NIC raggruppate** | Non supportata.
+**IPv6** | Non supportata.
 
 
 
@@ -73,7 +73,7 @@ Se si configura manualmente l'appliance di replica in un server fisico, assicura
 
 Tutte le macchine virtuali locali replicate in Azure devono soddisfare i requisiti della macchina virtuale di Azure riepilogati in questa tabella. Quando Site Recovery esegue un controllo dei prerequisiti per la replica, il controllo ha esito negativo se alcuni dei requisiti non vengono soddisfatti.
 
-**Componente** | **Requisiti** | **Dettagli**
+**Componente** | **Requirements** | **Dettagli**
 --- | --- | ---
 Sistema operativo guest | Verifica i sistemi operativi supportati.<br/> È possibile eseguire la migrazione di qualsiasi carico di lavoro in esecuzione in un sistema operativo supportato. | Il controllo ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 64 bit. | Il controllo ha esito negativo se non supportato.
@@ -82,9 +82,9 @@ Conteggio dischi del sistema operativo | 1 | Il controllo ha esito negativo se n
 Conteggio dischi dati | 64 o un numero inferiore. | Il controllo ha esito negativo se non supportato.
 Dimensioni del disco dati | Fino a 4.095 GB | Il controllo ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede. |
-VHD condiviso | Non supportato. | Il controllo ha esito negativo se non supportato.
-Disco FC | Non supportato. | Il controllo ha esito negativo se non supportato.
-BitLocker | Non supportato. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
+VHD condiviso | Non supportata. | Il controllo ha esito negativo se non supportato.
+Disco FC | Non supportata. | Il controllo ha esito negativo se non supportato.
+BitLocker | Non supportata. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
 Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **app consentite**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md) |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  

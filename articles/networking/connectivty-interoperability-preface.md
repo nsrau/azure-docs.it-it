@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilità in Azure : Configurazione dei test Documenti Microsoft'
+title: 'Interoperabilità in Azure: installazione del test | Microsoft Docs'
 description: Questo articolo illustra un'installazione test che è possibile usare per analizzare l'interoperabilità tra ExpressRoute, una VPN da sito a sito e il peering reti virtuali in Azure.
 documentationcenter: na
 services: networking
@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 3aec41a145d2c94a45a453393831902069b9c41b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80518199"
 ---
-# <a name="interoperability-in-azure--test-setup"></a>Interoperabilità in Azure: configurazione dei test
+# <a name="interoperability-in-azure--test-setup"></a>Interoperabilità in Azure: installazione di test
 
 Questo articolo descrive un'installazione test che è possibile usare per analizzare l'interoperabilità dei servizi di rete di Azure a livello di piano di controllo e a livello di piano dati. Verranno ora esaminati brevemente i componenti di rete di Azure:
 

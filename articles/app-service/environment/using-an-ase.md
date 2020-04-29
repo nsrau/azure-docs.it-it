@@ -1,6 +1,6 @@
 ---
-title: Usare e gestire un ambiente del servizio appUse and manage an App Service Environment
-description: Informazioni su come creare, pubblicare e ridimensionare le app in un ambiente del servizio app. Trova tutte le attività comuni in questo articolo.
+title: Usare e gestire un ambiente del servizio app
+description: Informazioni su come creare, pubblicare e ridimensionare le app in un ambiente del servizio app. Trovare tutte le attività comuni in questo articolo.
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
@@ -8,37 +8,37 @@ ms.date: 3/26/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80586125"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app
 
-Un ambiente del servizio app (AS) è una distribuzione del servizio app di Azure in una subnet nell'istanza di Rete virtuale di Azure di un cliente. Un'ase è costituita da:
+Un ambiente del servizio app (ASE) è una distribuzione di app Azure servizio in una subnet nell'istanza di rete virtuale di Azure di un cliente. Un ambiente del servizio app è costituito da:
 
-- **Front-end**: dove HTTP o HTTPS termina in un ambiente del servizio app
-- **Lavoratori:** le risorse che ospitano le app
-- **Database**: contiene informazioni che definiscono l'ambiente
-- **Archiviazione**: Utilizzata per ospitare le app pubblicate dal cliente
+- **Front-end**: dove http o HTTPS termina in un ambiente del servizio app
+- **Worker**: risorse che ospitano le app
+- **Database**: include le informazioni che definiscono l'ambiente
+- **Archiviazione**: usata per ospitare le app pubblicate dal cliente
 
-È possibile distribuire un ambiente del servizio app con un indirizzo IP virtuale esterno o interno (VIP) per l'accesso alle app. Una distribuzione con un indirizzo VIP esterno viene comunemente definita *ascora esterno*. Una distribuzione con un indirizzo VIP interno viene definita servizio del servizio *app ILB* perché usa un servizio di bilanciamento del carico interno. Per altre informazioni sull'ambiente del servizio app con bilanciamento del carico interno, vedere [Creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE].
+È possibile distribuire un ambiente del servizio app con un indirizzo IP virtuale esterno o interno (VIP) per l'accesso all'app. Una distribuzione con un indirizzo VIP esterno è comunemente denominata ambiente del servizio app *esterno*. Una distribuzione con un indirizzo VIP interno viene chiamata ambiente del servizio app *ILB* perché usa un servizio di bilanciamento del carico interno (ILB). Per altre informazioni sull'ambiente del servizio app con bilanciamento del carico interno, vedere [Creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE].
 
 ## <a name="create-an-app-in-an-ase"></a>Creare un'app in un ambiente del servizio app
 
-Per creare un'app in un'app, puoi usare lo stesso processo di quando crei normalmente un'app, ma con alcune piccole differenze. Quando si crea un nuovo piano di servizio app:
+Per creare un'app in un ambiente del servizio app, è possibile usare lo stesso processo quando si crea in genere un'app, ma con alcune piccole differenze. Quando si crea un nuovo piano di servizio app:
 
 - Invece di selezionare una località geografica per distribuire l'app, selezionare un ambiente del servizio app come posizione.
-- Tutti i piani del servizio app creati in un ambiente del servizio app possono essere solo in un piano tariffario isolato.
+- Tutti i piani di servizio app creati in un ambiente del servizio app possono trovarsi solo in un piano tariffario isolato.
 
-Se non si dispone di un ambiente del servizio app, è possibile crearne uno seguendo le istruzioni in Creare un ambiente del [servizio app.][MakeExternalASE]
+Se non si dispone di un ambiente del servizio app, è possibile crearne uno seguendo le istruzioni riportate in [creare un ambiente del servizio app][MakeExternalASE].
 
 Per creare un'app in un ambiente del servizio app:
 
-1. Selezionare **Crea una risorsa** > **Web - App** > **Web**mobile .
+1. Selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **app Web**.
 
-1. Immettere un nome per l'app. Se hai già selezionato un piano di servizio app in un'app per l'app, il nome di dominio per l'app rifletterà il nome di dominio dell'app:
+1. Immettere un nome per l'app. Se è già stato selezionato un piano di servizio app in un ambiente del servizio app, il nome di dominio per l'app riflette il nome di dominio dell'ambiente del servizio app:
 
     ![Selezione del nome per l'app][1]
 
@@ -50,7 +50,7 @@ Per creare un'app in un ambiente del servizio app:
 
 1. Selezionare un piano di servizio app esistente nell'ambiente del servizio app o crearne uno nuovo con la procedura seguente:
 
-    a. Nel menu a sinistra del portale di Azure selezionare **Crea una risorsa > Web App.**
+    a. Dal menu portale di Azure lato sinistro selezionare **Crea una risorsa > app Web**.
 
     b. Selezionare la sottoscrizione.
 
@@ -58,73 +58,73 @@ Per creare un'app in un ambiente del servizio app:
 
     d. Immettere il nome dell'app Web.
 
-    e. Selezionare **Code** o **DockerContainer**.
+    e. Selezionare il **codice** o **DockerContainer**.
 
-    f. Selezionare uno stack di runtime.
+    f. Selezionare uno stack di Runtime.
 
     g. Selezionare **Linux** o **Windows**. 
 
-    h. Selezionare l'ase nell'elenco a discesa **Regione.** 
+    h. Selezionare l'ambiente del servizio app nell'elenco a discesa **Region (area** ). 
 
-    i. Selezionare o creare un nuovo piano di servizio app. Se si crea un nuovo piano di servizio app, selezionare la dimensione sKU **isolata** appropriata.
+    i. Selezionare o creare un nuovo piano di servizio app. Se si crea un nuovo piano di servizio app, selezionare le dimensioni dello SKU **isolato** appropriato.
 
     ![Piani tariffari isolati][2]
 
     > [!NOTE]
-    > Le app Linux e Windows non possono essere nello stesso piano di servizio app, ma possono trovarsi nello stesso ambiente del servizio app.
+    > Le app Linux e le app di Windows non possono trovarsi nello stesso piano di servizio app, ma possono trovarsi nello stesso ambiente del servizio app.
     >
 
-1. Selezionare **Revisione e crea**, assicurarsi che le informazioni siano corrette e quindi selezionare **Crea**.
+1. Selezionare **Verifica + crea**, verificare che le informazioni siano corrette e quindi selezionare **Crea**.
 
 ## <a name="how-scale-works"></a>Come funziona il ridimensionamento
 
-Ogni app del servizio app viene eseguita in un piano di servizio app. Gli ambienti del servizio app di Azure contengono piani del servizio app, che a loro volta contengono app. Quando si ridimensiona un'app, si ridimensiona anche il piano di servizio app e tutte le app nello stesso piano.
+Ogni app del servizio app viene eseguita in un piano di servizio app. Gli ambienti del servizio app di Azure contengono piani del servizio app, che a loro volta contengono app. Quando si ridimensiona un'app, è anche possibile ridimensionare il piano di servizio app e tutte le app nello stesso piano.
 
-Quando si ridimensiona un piano di servizio app, l'infrastruttura necessaria viene aggiunta automaticamente. Si è verificato un ritardo nella scalabilità delle operazioni durante l'aggiunta dell'infrastruttura. Se si eseguono diverse operazioni di scalabilità in sequenza, viene eseguita la prima richiesta di scalabilità dell'infrastruttura e le altre vengono accodate. Al termine della prima operazione di scalabilità, le altre richieste di infrastruttura interagiscono tutte. E quando viene aggiunta l'infrastruttura, i piani di servizio app vengono assegnati in base alle esigenze. La creazione di un nuovo piano di servizio app è a sua volta un'operazione di scalabilità perché richiede hardware aggiuntivo.
+Quando si ridimensiona un piano di servizio app, l'infrastruttura necessaria viene aggiunta automaticamente. Si verifica un ritardo di tempo per la scalabilità delle operazioni durante l'aggiunta dell'infrastruttura. Se si eseguono diverse operazioni di ridimensionamento in sequenza, viene eseguita la prima richiesta di scalabilità dell'infrastruttura e le altre vengono accodate. Al termine della prima operazione di ridimensionamento, le altre richieste di infrastruttura interagiscono. Quando viene aggiunta l'infrastruttura, i piani di servizio app vengono assegnati nel modo appropriato. La creazione di un nuovo piano di servizio app è a sua volta un'operazione di ridimensionamento, perché richiede hardware aggiuntivo.
 
-Nel servizio app multi-tenant, la scalabilità è immediata perché un pool di risorse è prontamente disponibile per supportarlo. In un'app, non esiste tale buffer e le risorse vengono allocate in base alle esigenze.
+Nel servizio app multi-tenant il ridimensionamento è immediato perché un pool di risorse è immediatamente disponibile per supportarlo. In un ambiente del servizio app, non esiste un buffer di questo tipo e le risorse vengono allocate in base alle esigenze.
 
-In un'app, è possibile ridimensionare un piano di servizio app fino a 100 istanze. Un servizio app può avere fino a 201 istanze totali in tutti i piani del servizio app in tale app.
+In un ambiente del servizio app è possibile ridimensionare un piano di servizio app fino a 100 istanze. Un ambiente del servizio app può avere fino a 201 istanze totali in tutti i piani di servizio app nell'ambiente del servizio app.
 
 ## <a name="ip-addresses"></a>Indirizzi IP
 
-Il servizio app può allocare un indirizzo IP dedicato a un'app. Questa funzionalità è disponibile dopo aver configurato SSL basato su IP, come descritto in [Bind an existing custom TLS/SSL certificate to Azure App Service][ConfigureSSL]. In un'associazione del lavoro in un'associazione all'altro, non è possibile aggiungere altri indirizzi IP da utilizzare per SSL basato su IP.
+Il servizio app può allocare un indirizzo IP dedicato a un'app. Questa funzionalità è disponibile dopo la configurazione di SSL basato su IP, come descritto in [associare un certificato TLS/SSL personalizzato esistente al servizio app Azure][ConfigureSSL]. In un ambiente del servizio app ILB non è possibile aggiungere altri indirizzi IP da usare per SSL basato su IP.
 
-Con un ambiente del servizio app esterno, puoi configurare SSL basato su IP per la tua app nello stesso modo del servizio app multi-tenant. C'è sempre un indirizzo di riserva nell'asino, fino a 30 indirizzi IP. Ogni volta che ne usi uno, un altro viene aggiunto in modo che un indirizzo sia sempre prontamente disponibile. È necessario un ritardo per allocare un altro indirizzo IP. Questo ritardo impedisce l'aggiunta di indirizzi IP in rapida successione.
+Con un ambiente del servizio app esterno, è possibile configurare il protocollo SSL basato su IP per l'app nello stesso modo in cui si utilizza il servizio app multi-tenant. C'è sempre un indirizzo di riserva nell'ambiente del servizio app, fino a 30 indirizzi IP. Ogni volta che ne viene usato uno, ne viene aggiunto un altro in modo che un indirizzo sia sempre immediatamente disponibile. Per allocare un altro indirizzo IP è necessario un ritardo di tempo. Questo ritardo impedisce l'aggiunta di indirizzi IP in rapida successione.
 
 ## <a name="front-end-scaling"></a>Scalabilità front-end
 
-Quando si aumentano le scalabilità orizzontale dei piani del servizio app, i ruoli di lavoro vengono aggiunti automaticamente per supportarli. Ogni ambiente del servizio app viene creato con due front-end. I front-end vengono ridimensionati automaticamente a una velocità di un front-end per ogni set di 15 istanze del piano di servizio app. Ad esempio, se si dispone di tre piani di servizio app con cinque istanze ciascuno, si avrebbe un totale di 15 istanze e tre front-end. Se si scala a un totale di 30 istanze, si hanno quattro front-end. Questo modello continua durante la scalabilità orizzontale.
+Quando si scalano i piani di servizio app, i thread di lavoro vengono aggiunti automaticamente per supportarli. Ogni ambiente del servizio app viene creato con due front-end. Il front-end viene automaticamente scalato in orizzontale a una frequenza di un front-end per ogni set di 15 istanze del piano di servizio app. Se, ad esempio, si dispone di tre piani di servizio app con cinque istanze ciascuno, si avranno un totale di 15 istanze e tre front-end. Se si passa a un totale di 30 istanze, si avranno quattro front-end. Questo modello continua con la scalabilità orizzontale.
 
-Il numero di front-end allocati per impostazione predefinita è valido per un carico moderato. È possibile ridurre il rapporto a un minimo di un front-end per ogni cinque istanze. È inoltre possibile modificare le dimensioni dei front-end. Per impostazione predefinita, sono single core. Nel portale di Azure è invece possibile modificarne le dimensioni in due o quattro core.
+Il numero di front-end allocati per impostazione predefinita è adatto per un carico moderato. È possibile ridurre il rapporto a un minimo di un front-end per ogni cinque istanze. È anche possibile modificare le dimensioni dei front-end. Per impostazione predefinita, si tratta di un core singolo. Nel portale di Azure è possibile modificare le dimensioni in due o quattro core.
 
-C'è un costo per cambiare il rapporto o le dimensioni del front-end. Per altre informazioni, vedere [Prezzi del Servizio app di Azure][Pricing]. Se si desidera migliorare la capacità di carico dell'ambiente del servizio di analisi, si otterrà un maggiore miglioramento con il ridimensionamento ai front-end a due core prima di regolare il rapporto di scala. La modifica delle dimensioni di base del front-end causerà un aggiornamento dell'ase e dovrebbe essere eseguita al di fuori del normale orario di ufficio.
+Per modificare il rapporto o le dimensioni del front-end è previsto un addebito. Per altre informazioni, vedere [Prezzi del Servizio app di Azure][Pricing]. Se si vuole migliorare la capacità di carico dell'ambiente del servizio app, è possibile ottenere maggiori miglioramenti eseguendo il primo ridimensionamento dei front-end a due core prima di modificare il rapporto di scala. La modifica della dimensione principale dei front-end comporta un aggiornamento dell'ambiente del servizio app e deve essere eseguita al di fuori dei normali orari di ufficio.
 
-Le risorse front-end sono gli endpoint HTTP/HTTPS per l'ambiente del servizio app. Con la configurazione front-end predefinita, l'uso della memoria per ogni front-end è di circa il 60%. Il motivo principale per ridimensionare i front-end è l'utilizzo della CPU, che è principalmente guidato dal traffico HTTPS.
+Le risorse front-end sono gli endpoint HTTP/HTTPS per l'ambiente del servizio app. Con la configurazione front-end predefinita, l'uso della memoria per ogni front-end è di circa il 60%. Il motivo principale per la scalabilità dei front-end è l'utilizzo della CPU, che è principalmente basato sul traffico HTTPS.
 
 ## <a name="app-access"></a>Accesso all'app
 
-In un'app esterna, il suffisso di dominio usato per la creazione dell'app è *.&lt; asename&gt;.p.azurewebsites.net*. Se l'ase è denominato external-ase e si ospita un'app denominata contoso in tale app, è possibile contattarla in corrispondenza degli URL seguenti:If your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at these URLs:
+In un ambiente del servizio app esterno, il suffisso di dominio usato per la creazione dell'app è *.&lt; asename&gt;. p.azurewebsites.NET*. Se l'ambiente del servizio app è denominato _External-ASE_ e si ospita un'app denominata _Contoso_ in tale ambiente del servizio app, è possibile accedervi con questi URL:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-Per informazioni su come creare un ambiente del servizio app esterno, vedere Creare un ambiente del [servizio app.][MakeExternalASE]
+Per informazioni su come creare un ambiente del servizio app esterno, vedere [creare un ambiente del servizio app][MakeExternalASE].
 
-In un servizio app ILB, il suffisso di dominio utilizzato per la creazione dell'app è *.&lt; asename&gt;.appserviceenvironment.net*. Se l'app ase è denominata _ilb-ase_ e si ospita un'app denominata _contoso_ in tale app, è possibile contattarla in questi URL:
+In un ambiente del servizio app ILB, il suffisso di dominio usato per la creazione dell'app è *.&lt; asename&gt;. appserviceenvironment.NET*. Se l'ambiente del servizio app è denominato _ILB-ASE_ e si ospita un'app denominata _Contoso_ in tale ambiente del servizio app, è possibile accedervi con questi URL:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
 
-Per informazioni su come creare un'impostazione del gruppo di controllo del gruppo del linguaggio intermedio, vedere [Creare e utilizzare un'impostazione del][MakeILBASE]gruppo del gruppo del gruppo del linguaggio scope .
+Per informazioni su come creare un ambiente del servizio app ILB, vedere [creare e usare un][MakeILBASE]ambiente del servizio app ILB.
 
-L'URL di Gestione controllo servizi viene usato per accedere alla console Kudu o per pubblicare l'app tramite Distribuzione Web. Per informazioni sulla console Kudu, vedere [Kudu console for Azure App Service][Kudu] (Console Kudu per il servizio app di Azure). La console Kudu offre un'interfaccia utente Web per il debug, il caricamento di file, la modifica di file e altro ancora.
+L'URL SCM viene usato per accedere alla console Kudu o per pubblicare l'app usando Distribuzione Web. Per informazioni sulla console Kudu, vedere [Kudu console for Azure App Service][Kudu] (Console Kudu per il servizio app di Azure). La console Kudu offre un'interfaccia utente Web per il debug, il caricamento di file, la modifica di file e altro ancora.
 
 ### <a name="dns-configuration"></a>Configurazione del DNS 
 
-Quando si usa un'app esterna, le app create nell'insieme di app vengono registrate con il DNS di Azure.When you use an External ASE, apps made in your ASE are registered with Azure DNS. Con un'ase ILB, è necessario gestire il proprio DNS. 
+Quando si usa un ambiente del servizio app esterno, le app eseguite nell'ambiente del servizio app vengono registrate con DNS di Azure. Con un ambiente del servizio app ILB è necessario gestire il proprio DNS. 
 
-Per configurare il DNS con l'ASE ILB:
+Per configurare DNS con l'ambiente del servizio app ILB:
 
     create a zone for <ASE name>.appserviceenvironment.net
     create an A record in that zone that points * to the ILB IP address
@@ -132,13 +132,13 @@ Per configurare il DNS con l'ASE ILB:
     create a zone in <ASE name>.appserviceenvironment.net named scm
     create an A record in the scm zone that points * to the ILB IP address
 
-Le impostazioni DNS per il suffisso di dominio predefinito dell'app non limitano l'accesso delle app solo da tali nomi. Puoi impostare un nome di dominio personalizzato senza alcuna convalida per le app in un servizio app ILB. Se si desidera creare una zona denominata *contoso.net*, è possibile farlo e puntare all'indirizzo IP DELB. Il nome di dominio personalizzato funziona per le richieste di app, ma non per il sito scm. Il sito scm è disponibile solo in * &lt;appname&gt;.scm.&lt; asename&gt;.appserviceenvironment.net*. 
+Le impostazioni DNS per il suffisso di dominio predefinito dell'ambiente del servizio app non limitano l'accesso delle app a tali nomi. È possibile impostare un nome di dominio personalizzato senza alcuna convalida per le app in un ambiente del servizio app ILB. Se quindi si vuole creare una zona denominata *contoso.NET*, è possibile fare in modo che punti all'indirizzo IP di ILB. Il nome di dominio personalizzato funziona per le richieste dell'app, ma non per il sito SCM. Il sito SCM è disponibile solo in * &lt;AppName&gt;. SCM.&lt; asename&gt;. appserviceenvironment.NET*. 
 
-La zona denominata *.&lt; asename&gt;.appserviceenvironment.net* è univoco a livello globale. Prima di maggio 2019, i clienti erano in grado di specificare il suffisso di dominio dell'ASE ILB. Se si desidera utilizzare *.contoso.com* per il suffisso di dominio, è stato possibile farlo e che includerebbe il sito scm. Ci sono state sfide con quel modello tra cui; gestione del certificato SSL predefinito, mancanza di Single Sign-On con il sito scm e il requisito di utilizzare un certificato con caratteri jolly. Anche il processo di aggiornamento dei certificati predefinito di ILB ASE è stato dannoso e ha causato il riavvio dell'applicazione. Per risolvere questi problemi, il comportamento di ilB ASE è stato modificato per utilizzare un suffisso di dominio basato sul nome dell'app e con un suffisso di proprietà di Microsoft. La modifica al comportamento dell'ambiente del gusto dell'ambiente del gusto ilB influisce solo sugli ase ILB apportati dopo maggio 2019. Gli ambiente del servizio app ILB preesistente devono comunque gestire il certificato predefinito dell'ambiente del servizio app e la relativa configurazione DNS.
+Area denominata *.&lt; asename&gt;. appserviceenvironment.NET* è univoco a livello globale. Prima del 2019 maggio, i clienti potevano specificare il suffisso del dominio dell'ambiente del servizio app ILB. Se si desidera utilizzare *. contoso.com* per il suffisso di dominio, è possibile eseguire questa operazione e includere il sito SCM. Si sono verificati problemi con questo modello, tra cui; gestione del certificato SSL predefinito, mancanza di Single Sign-On con il sito SCM e requisiti per l'utilizzo di un certificato con caratteri jolly. Il processo di aggiornamento del certificato predefinito dell'ambiente del servizio app ILB è stato anche di disturbo e ha causato il riavvio dell'applicazione. Per risolvere questi problemi, il comportamento dell'ambiente del servizio app ILB è stato modificato in modo da usare un suffisso di dominio basato sul nome dell'ambiente del servizio app e con un suffisso di proprietà di Microsoft. La modifica al comportamento dell'ambiente del servizio app ILB influiscono solo su ILB gli ambienti effettuati dopo il 2019 maggio. Gli ambienti ILB preesistenti devono comunque gestire il certificato predefinito dell'ambiente del servizio app e la relativa configurazione DNS.
 
 ## <a name="publishing"></a>Pubblicazione
 
-In un ambiente del servizio app, come con il servizio app multi-tenant, è possibile pubblicare con questi metodi:In an ASE, as with the multitenant App Service, you can publish by these methods:
+In un ambiente del servizio app, come per il servizio app multi-tenant, è possibile pubblicare con questi metodi:
 
 - Distribuzione Web
 - FTP
@@ -146,90 +146,90 @@ In un ambiente del servizio app, come con il servizio app multi-tenant, è possi
 - Trascinamento della selezione nella console Kudu
 - Un IDE, ad esempio Visual Studio, Eclipse o IntelliJ IDEA
 
-Con un'app esterna, queste opzioni di pubblicazione funzionano tutte allo stesso modo. Per altre informazioni, vedere [Distribuzione nel servizio app di Azure][AppDeploy].
+Con un ambiente del servizio app esterno, queste opzioni di pubblicazione funzionano allo stesso modo. Per altre informazioni, vedere [Distribuzione nel servizio app di Azure][AppDeploy].
 
-Con un servizio app ILB, gli endpoint di pubblicazione sono disponibili solo tramite ILB. Il servizio di bilanciamento del carico interno è in un IP privato nella subnet dell'ambiente del servizio app nella rete virtuale. Se non si dispone dell'accesso di rete al bilanciamento del servizio app, non è possibile pubblicare app in tale app. Come indicato in Creare e usare un servizio app [ILB][MakeILBASE], è necessario configurare DNS per le app nel sistema. Tale requisito include l'endpoint di Gestione controllo servizi. Se gli endpoint non sono definiti correttamente, non è possibile pubblicarli. Gli IDE devono inoltre disporre dell'accesso di rete al bilanciamento del servizio ilB per pubblicarlo direttamente.
+Con un ambiente del servizio app ILB, gli endpoint di pubblicazione sono disponibili solo tramite ILB. Il servizio di bilanciamento del carico interno è in un IP privato nella subnet dell'ambiente del servizio app nella rete virtuale. Se non si ha accesso alla rete ILB, non è possibile pubblicare app in tale ambiente del servizio app. Come indicato nella pagina relativa alla [creazione e all'uso di un][MakeILBASE]ambiente del servizio app ILB, è necessario configurare DNS per le app nel sistema. Tale requisito include l'endpoint SCM. Se gli endpoint non sono definiti correttamente, non è possibile pubblicarli. Gli IDE devono anche avere accesso di rete al ILB per pubblicarli direttamente.
 
-Senza ulteriori modifiche, i sistemi di integrità basati su Internet come GitHub e DevOps di Azure non funzionano con un ambiente del servizio app ILB perché l'endpoint di pubblicazione non è accessibile a Internet.Senza additional changes, internet-based CI systems like GitHub and Azure DevOps don't work with an ILB ASE because the publishing endpoint isn't internet accessible. È possibile abilitare la pubblicazione in un ambiente del servizio app ILB da Azure DevOps installando un agente di rilascio self-hosted nella rete virtuale che contiene l'ambiente del servizio app ILB. In alternativa, puoi anche utilizzare un sistema CI che usa un modello pull, ad esempio Dropbox.
+Senza modifiche aggiuntive, i sistemi CI basati su Internet come GitHub e Azure DevOps non funzionano con un ambiente del servizio app ILB perché l'endpoint di pubblicazione non è accessibile da Internet. È possibile abilitare la pubblicazione in un ambiente del servizio app ILB da Azure DevOps installando un agente di rilascio self-hosted nella rete virtuale che contiene l'ambiente del servizio app ILB. In alternativa, è anche possibile usare un sistema CI che usa un modello pull, ad esempio Dropbox.
 
-Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, È possibile visualizzarlo nel profilo di pubblicazione dell'app e nel riquadro del portale dell'app (in **Informazioni di essentiali e** > **Essentials** anche in **Proprietà).**
+Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, È possibile visualizzarlo nel profilo di pubblicazione dell'app e nel riquadro del portale dell'app (in **Panoramica** > **Essentials** e anche in **Proprietà**).
 
 ## <a name="storage"></a>Archiviazione
 
-Un servizio app dispone di 1 TB di spazio di archiviazione per tutte le app nell'app. Un piano di servizio app nello SKU di prezzi isolato ha un limite di 250 GB per impostazione predefinita. Se si dispone di cinque o più piani del servizio app, fare attenzione a non superare il limite di 1 TB dell'app. Se è necessario un limite superiore a 250 GB in un piano di servizio app, contattare il supporto tecnico per modificare il limite del piano di servizio app a un massimo di 1 TB. Quando il limite del piano viene modificato, è ancora previsto un limite di 1 TB in tutti i piani del servizio app nell'app.
+Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app nell'ambiente del servizio app. Per impostazione predefinita, un piano di servizio app nello SKU dei prezzi isolati ha un limite di 250 GB. Se si hanno cinque o più piani di servizio app, prestare attenzione a non superare il limite di 1 TB dell'ambiente del servizio app. Se è necessario più del limite di 250 GB in un piano di servizio app, contattare il supporto tecnico per modificare il limite del piano di servizio app fino a un massimo di 1 TB. Quando il limite del piano viene regolato, esiste comunque un limite di 1 TB in tutti i piani di servizio app nell'ambiente del servizio app.
 
 ## <a name="logging"></a>Registrazione
 
-È possibile integrare l'ambiente del servizio app con Monitoraggio di Azure per inviare log sull'ambiente del servizio app ad Archiviazione di Azure, Hub eventi di Azure o Log Analytics.You can integrate your ASE with Azure Monitor to send logs about the ASE to Azure Storage, Azure Event Hubs, or Log Analytics. Questi elementi vengono registrati oggi:
+È possibile integrare l'ambiente del servizio app con monitoraggio di Azure per inviare i log relativi all'ambiente del servizio app ad archiviazione di Azure, Hub eventi di Azure o Log Analytics. Questi elementi vengono registrati oggi:
 
-| Situazione | Message |
+| Situazione | Messaggio |
 |---------|----------|
-| AsE non è integro | L'ambiente del servizio del servizio ambiente del database ambiente specificato non è integro a causa di una configurazione di rete virtuale non valida. L'ambiente del servizio del servizio del servizio del servizio del servizio del qui verrà sospeso se lo stato non integro continua. Assicurarsi che le linee https://docs.microsoft.com/azure/app-service/environment/network-infoguida qui definite siano seguite: . |
-| La subnet dell'asE è quasi esaurita nello spazio | L'app specificato si trova in una subnet che è quasi esaurita nello spazio. Ci {0} sono indirizzi rimanenti. Una volta esauriti questi indirizzi, l'insieme di interoperabilità orizzontale non sarà in grado di scalare.  |
-| AsE si sta avvicinando al limite totale dell'istanza | L'ase specificato si sta avvicinando al limite di istanza totale dell'app. Attualmente contiene {0} istanze del piano di servizio app di un massimo di 201 istanze. |
-| L'asE non è in grado di raggiungere una dipendenza | L'ase specificato non {0}è in grado di raggiungere .  Assicurarsi che le linee https://docs.microsoft.com/azure/app-service/environment/network-infoguida qui definite siano seguite: . |
-| L'asE è sospeso | L'asino specificato è sospeso. La sospensione dell'ambiente del servizio del servizio utente può essere dovuta a una carenza di account o a una configurazione di rete virtuale non valida. Risolvere la causa principale e riprendere l'ambiente del servizio del servizio del dominio del lavoro per continuare a gestire il traffico. |
-| L'aggiornamento dell'ase è stato avviato | È stato avviato un aggiornamento della piattaforma all'ase specificato. Prevedere ritardi nelle operazioni di ridimensionamento. |
-| L'aggiornamento dell'ase è stato completato | Un aggiornamento della piattaforma all'ase specificato è stato completato. |
-| Le operazioni di scala sono state avviate | Un piano di{0}servizio app ( ) ha iniziato il ridimensionamento. Stato {1} desiderato:{2} I worker.
-| Le operazioni di scala sono state completate | Un piano di{0}servizio app ( ) ha terminato il ridimensionamento. Stato {1} attuale:{2} I lavoratori. |
-| Le operazioni di scala non sono riuscite | Un piano di{0}servizio app ( ) non è stato ridimensionato. Stato {1} attuale:{2} I lavoratori. |
+| Ambiente del servizio app non integro | L'ambiente del servizio app specificato non è integro a causa di una configurazione di rete virtuale non valida. L'ambiente del servizio app verrà sospeso se lo stato non integro continua. Verificare che siano seguite le linee guida definite https://docs.microsoft.com/azure/app-service/environment/network-infoin questo articolo:. |
+| La subnet dell'ambiente del servizio app è quasi esaurita | L'ambiente del servizio app specificato si trova in una subnet quasi esaurita. Sono {0} presenti indirizzi rimanenti. Una volta esauriti questi indirizzi, l'ambiente del servizio app non sarà in grado di eseguire la scalabilità.  |
+| L'ambiente del servizio app si avvicina al limite totale di istanze | L'ambiente del servizio app specificato si avvicina al limite totale di istanze dell'ambiente del servizio app. Attualmente contiene {0} le istanze del piano di servizio app di un massimo di 201 istanze. |
+| L'ambiente del servizio app non riesce a raggiungere una dipendenza | L'ambiente del servizio app specificato non è {0}in grado di raggiungere.  Verificare che siano seguite le linee guida definite https://docs.microsoft.com/azure/app-service/environment/network-infoin questo articolo:. |
+| Ambiente del servizio app sospeso | L'ambiente del servizio app specificato è sospeso. La sospensione dell'ambiente del servizio app potrebbe essere dovuta a un deficit dell'account o a una configurazione di rete virtuale non valida. Risolvere la causa principale e riprendere l'ambiente del servizio app per continuare a servire il traffico. |
+| Aggiornamento dell'ambiente del servizio app avviato | È stato avviato un aggiornamento della piattaforma all'ambiente del servizio app specificato. Si prevede un ritardo nelle operazioni di ridimensionamento. |
+| Aggiornamento dell'ambiente del servizio app completato | Aggiornamento della piattaforma all'ambiente del servizio app specificato completato. |
+| Operazioni di ridimensionamento avviate | È iniziato il ridimensionamento{0}di un piano di servizio app (). Stato desiderato: {1} I{2} Worker.
+| Operazioni di ridimensionamento completate | Il ridimensionamento di un{0}piano di servizio app () è terminato. Stato corrente: {1} I{2} Worker. |
+| Operazioni di ridimensionamento non riuscite | Non è stato possibile ridimensionare un piano di servizio app ({0}). Stato corrente: {1} I{2} Worker. |
 
-Per abilitare la registrazione nell'app:
+Per abilitare la registrazione nell'ambiente del servizio app:
 
-1. Nel portale passare a **Impostazioni di diagnostica**.
-1. Selezionare **Aggiungi impostazione diagnostica**.
-1. Specificare un nome per l'integrazione del log.
-1. Selezionare e configurare le destinazioni di log desiderate.
+1. Nel portale passare a impostazioni di **diagnostica**.
+1. Selezionare **Aggiungi impostazioni di diagnostica**.
+1. Consente di specificare un nome per l'integrazione dei log.
+1. Selezionare e configurare le destinazioni dei log desiderate.
 1. Selezionare **AppServiceEnvironmentPlatformLogs**.
 
-![Impostazioni del log di diagnostica di AsE][4]
+![Impostazioni del log di diagnostica ASE][4]
 
-Se si esegue l'integrazione con Log Analytics, è possibile visualizzare i log selezionando **Log** dal portale dell'ambiente del servizio app e creando una query su **AppServiceEnvironmentPlatformLogs**. I log vengono generati solo quando l'asina del servizio del servizio all'utente dispone di un evento che lo attiverà. Se l'ASE non dispone di un evento di questo tipo, non saranno presenti log. Per visualizzare rapidamente un esempio di log nell'area di lavoro di Log Analytics, eseguire un'operazione di scalabilità con uno dei piani del servizio app nell'ambiente del servizio app. È quindi possibile eseguire una query su **AppServiceEnvironmentPlatformLogs** per visualizzare tali log. 
+Se si integra con Log Analytics, è possibile visualizzare i log selezionando **log** dal portale dell'ambiente del servizio app e creando una query su **AppServiceEnvironmentPlatformLogs**. I log vengono generati solo quando l'ambiente del servizio app ha un evento che lo attiverà. Se l'ambiente del servizio app non ha un evento di questo tipo, non saranno presenti log. Per visualizzare rapidamente un esempio di log nell'area di lavoro Log Analytics, eseguire un'operazione di ridimensionamento con uno dei piani di servizio app nell'ambiente del servizio app. È quindi possibile eseguire una query su **AppServiceEnvironmentPlatformLogs** per visualizzare i log. 
 
 **Creazione di un avviso**
 
-Per creare un avviso per i log, seguire le istruzioni in [Creare, visualizzare e gestire gli avvisi di log tramite Monitoraggio di Azure.][logalerts] In breve:
+Per creare un avviso nei log, seguire le istruzioni riportate in [creare, visualizzare e gestire gli avvisi di log con monitoraggio di Azure][logalerts]. In breve:
 
-* Aprire la pagina Avvisi nel portale dell'asino del server del database
-* Selezionare **Nuova regola di avviso**
-* Selezionare la risorsa come area di lavoro di Log AnalyticsSelect your Resource to be your Log Analytics workspace
-* Impostare la condizione con una ricerca log personalizzata per utilizzare una query, ad esempio, "AppServiceEnvironmentPlatformLogs dove ResultDescription contiene "ha iniziato il ridimensionamento" o quello che vuoi. Impostare la soglia in base alle esigenze. 
-* Aggiungere o creare un gruppo di azioni come desiderato. Il gruppo di azioni consente di definire la risposta all'avviso, ad esempio l'invio di un messaggio di posta elettronica o di un messaggio SMS
-* Assegna un nome all'avviso e salvalo.
+* Aprire la pagina degli avvisi nel portale dell'ambiente del servizio app
+* Seleziona **nuova regola di avviso**
+* Selezionare la risorsa da Log Analytics area di lavoro
+* Impostare la condizione con una ricerca nei log personalizzata per usare una query come "AppServiceEnvironmentPlatformLogs | dove ResultDescription contiene "ha iniziato la scalabilità" o quello che preferisci. Impostare la soglia nel modo appropriato. 
+* Aggiungere o creare un gruppo di azioni nel modo desiderato. Il gruppo di azioni è il punto in cui si definisce la risposta all'avviso, ad esempio l'invio di un messaggio di posta elettronica o un SMS
+* Assegnare un nome all'avviso e salvarlo.
 
 ## <a name="upgrade-preference"></a>Preferenza di aggiornamento
 
-Se si dispone di più del tutto l'utente, è possibile aggiornare alcuni server del tutto il testo prima di altri. All'interno dell'oggetto **Gestione risorse HostingEnvironment,** è possibile impostare un valore per **upgradePreference**. L'impostazione **upgradePreference** può essere configurata utilizzando https://resources.azure.comun modello, ARMClient o . I tre valori possibili sono:
+Se si dispone di più gli ambienti, potrebbe essere necessario aggiornare alcuni gli ambienti prima di altre. All'interno dell'oggetto **HostingEnvironment gestione risorse** dell'ambiente del servizio app, è possibile impostare un valore per **upgradePreference**. L'impostazione **upgradePreference** può essere configurata usando un modello, ARMClient o https://resources.azure.com. I tre valori possibili sono:
 
-- **Nessuno:** Azure aggiornerà l'ambiente del servizio app in nessun batch specifico. Questo è il valore predefinito.
-- **Presto**: l'app verrà aggiornato nella prima metà degli aggiornamenti del servizio app.
-- **In ritardo:** l'app verrà aggiornato nella seconda metà degli aggiornamenti del servizio app.
+- **None**: Azure aggiornerà l'ambiente del servizio app in nessun batch specifico. Questo è il valore predefinito.
+- **Anticipatamente**: l'ambiente del servizio app verrà aggiornato nella prima metà degli aggiornamenti del servizio app.
+- **Tardi**: l'ambiente del servizio app verrà aggiornato nella seconda metà degli aggiornamenti del servizio app.
 
-Se si utilizza https://resources.azure.com, attenersi alla seguente procedura per impostare il valore **upgradePreferences:**
+Se si usa https://resources.azure.com, attenersi alla procedura seguente per impostare il valore di **upgradePreferences** :
 
-1. Passare a resources.azure.com e accedere con l'account Azure.Go to create and sign in with your Azure account.
-1. Passare attraverso le\/\[risorse\]\/per\/\[le sottoscrizioni\]\/\/nome sottoscrizione\/resourceGroups nome gruppo di risorse provider di nomi Microsoft.Web hostingEnvironments\/\[nome\]dell'ambiente del database dell'ambiente del database ambiente del database ambiente.
-1. Selezionare **Lettura/Scrittura** nella parte superiore.
+1. Passare a resources.azure.com e accedere con l'account Azure.
+1. Passare attraverso le risorse al nome\/\[\]\/sottoscrizione sottoscrizioni\/\[resourceGroups nome gruppo\]\/di\/risorse provider Microsoft\/.\/\[Web hostingEnvironments\]ASE nome.
+1. Selezionare **lettura/scrittura** nella parte superiore.
 1. Selezionare **Modifica**.
 1. Impostare **upgradePreference** su uno dei tre valori desiderati.
-1. Selezionare **Patch**.
+1. Selezionare **patch**.
 
-![risorse azure com visualizzare][5]
+![risorse-visualizzazione di Azure com][5]
 
-La funzionalità **upgradePreferences** ha più senso quando si dispone di più del posto di tutto il mondo del lavoro perché gli ase "Early" verranno aggiornati prima degli ase "Late". Quando si dispone di più ambienti del tutto l'ambiente del lavoro, è necessario impostare lo sviluppo e testare gli ambienti del gruppo di controllo dell'ambiente del lavoro su "Early" e gli ambienti del gruppo di ambiente di produzione come "Late".
+La funzionalità **upgradePreferences** è più sensata quando si dispone di più gli ambienti perché la gli ambienti "Early" verrà aggiornata prima del gli ambienti "tardivo". Quando si dispone di più gli ambienti, è necessario impostare il gli ambienti di sviluppo e test su "Early" e la gli ambienti di produzione su "late".
 
 ## <a name="pricing"></a>Prezzi
 
-Lo SKU dei prezzi denominato *Isolato* è utilizzabile solo con gli ambiente del servizio ilcom a serve. Tutti i piani del servizio app ospitati nell'ambiente del servizio app si trovano nello SKU dei prezzi isolato. Le tariffe isolate per i piani del servizio app possono variare in base all'area geografica.
+Lo SKU dei prezzi denominato *isolated* è da usare solo con gli ambienti. Tutti i piani di servizio app ospitati nell'ambiente del servizio app si trovano nello SKU dei prezzi isolati. Le tariffe isolate per i piani di servizio app possono variare in base all'area.
 
-Oltre al prezzo dei piani del servizio app, è disponibile una tariffa fissa per l'app stessa. La tariffa forfettaria non cambia con le dimensioni dell'app. Paga l'infrastruttura dell'app a una velocità di scalabilità predefinita di un front-end aggiuntivo per ogni 15 istanze del piano di servizio app.
+Oltre al prezzo dei piani di servizio app, è prevista una tariffa fissa per l'ambiente del servizio app. La tariffa flat non cambia con le dimensioni dell'ambiente del servizio app. Paga per l'infrastruttura dell'ambiente del servizio app a una velocità di scala predefinita di un front-end aggiuntivo per ogni 15 istanze del piano di servizio app.
 
-Se la frequenza di scalabilità predefinita di un front-end ogni 15 istanze del piano di servizio app non è sufficientemente veloce, è possibile regolare il rapporto con cui vengono aggiunti i front-end o le dimensioni dei front-end. Quando si modificano il rapporto o le dimensioni, si paga per i core front-end che non verrebbero aggiunti per impostazione predefinita.
+Se il tasso di ridimensionamento predefinito di un front-end per ogni 15 istanze del piano di servizio app non è sufficientemente veloce, è possibile regolare il rapporto in base al quale vengono aggiunti i front-end o le dimensioni dei front-end. Quando si modificano il rapporto o le dimensioni, si paga per i core front-end che non verrebbero aggiunti per impostazione predefinita.
 
 Se ad esempio si imposta la proporzione di ridimensionamento su 10, verrà aggiunto un front-end ogni 10 istanze nei piani di servizio app. La tariffa fissa copre una proporzione di ridimensionamento pari a un front-end ogni 15 istanze. Con una proporzione di ridimensionamento di 10, il costo verrà addebitato al terzo front-end aggiunto per le 10 istanze del piano di servizio app. Non è necessario pagare quando si raggiungono le 15 istanze, perché il front-end è stato aggiunto automaticamente.
 
-Se si regola la dimensione dei front-end a due core ma non si regola il rapporto, si paga per i core aggiuntivi. Un servizio del servizio interno viene creato con due front-end, quindi anche al di sotto della soglia di ridimensionamento automatico si pagherebbe per due core aggiuntivi se si aumentasse la dimensione a due core front-end.
+Se si modificano le dimensioni dei front-end in due core, ma non si regola il rapporto, si pagano i core aggiuntivi. Un ambiente del servizio app viene creato con due front-end, quindi, anche al di sotto della soglia di scalabilità automatica, si paga per due core aggiuntivi se si aumentano le dimensioni ai front-end a due core.
 
 Per altre informazioni, vedere [Prezzi del Servizio app di Azure][Pricing].
 
@@ -237,9 +237,9 @@ Per altre informazioni, vedere [Prezzi del Servizio app di Azure][Pricing].
 
 Per eliminare un ambiente del servizio app:
 
-1. Selezionare **Elimina** nella parte superiore del riquadro **Ambiente del servizio app.**
+1. Selezionare **Elimina** nella parte superiore del riquadro **ambiente del servizio app** .
 
-1. Immettere il nome dell'ambiente del servizio app per confermare l'eliminazione. Quando elimini un'area del database dell'entità del bene del database, elimini anche tutto il contenuto al suo interno.
+1. Immettere il nome dell'ambiente del servizio app per confermare l'eliminazione. Quando si elimina un ambiente del servizio app, viene eliminato anche tutto il contenuto al suo interno.
 
     ![Eliminazione dell'ambiente del servizio app][3]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilità in Azure: analisi dei piani dati'
+title: 'Interoperabilità in Azure: analisi del piano dati'
 description: Questo articolo illustra l'analisi del piano dati dell'installazione test che è possibile usare per analizzare l'interoperabilità tra ExpressRoute, una VPN da sito a sito e il peering reti virtuali in Azure.
 documentationcenter: na
 services: networking
@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80518255"
 ---
-# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilità in Azure: analisi dei piani dati
+# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilità in Azure: analisi del piano dati
 
 Questo articolo illustra l'analisi del piano dati dell'[installazione test][Setup]. È anche possibile esaminare la [configurazione dell'installazione test][Configuration] e l'[analisi del piano di controllo][Control-Analysis] dell'installazione test.
 
@@ -115,7 +115,7 @@ Di seguito è indicato l'output traceroute da una rete virtuale dell'hub a una m
 
     Trace complete.
 
-In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute a MSEE. Il secondo hop è l'IP gateway della rete virtuale remota. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub. Il terzo hop è la macchina virtuale nella rete virtuale remota.
+In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute a MSEE. Il secondo hop è l'IP del gateway di VNet remoto. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub. Il terzo hop è la macchina virtuale nella rete virtuale remota.
 
 ## <a name="data-path-from-the-spoke-vnet"></a>Percorso dei dati dalla rete virtuale spoke
 
@@ -164,7 +164,7 @@ Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macch
 
     Trace complete.
 
-In questa traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet a un MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 1. Questi indirizzi IP non sono annunciati nella rete virtuale dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 1.
+In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet per un MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 1. Questi indirizzi IP non sono annunciati nella rete virtuale dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 1.
 
 ### <a name="path-to-on-premises-location-2"></a>Percorso della rete locale Location 2
 
@@ -182,7 +182,7 @@ Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macch
 
     Trace complete.
 
-In questa traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet a un MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 2. Questi indirizzi IP non sono annunciati nelle reti virtuali dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 2.
+In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet per un MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 2. Questi indirizzi IP non sono annunciati nelle reti virtuali dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 2.
 
 ### <a name="path-to-the-remote-vnet"></a>Percorso della rete virtuale remota
 
@@ -198,7 +198,7 @@ Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macch
 
     Trace complete.
 
-In questa traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet a un MSEE. Il secondo hop è l'IP gateway della rete virtuale remota. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub/spoke. Il terzo hop è la macchina virtuale nella rete virtuale remota.
+In questo traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet per un MSEE. Il secondo hop è l'IP del gateway di VNet remoto. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub/spoke. Il terzo hop è la macchina virtuale nella rete virtuale remota.
 
 ## <a name="data-path-from-the-branch-vnet"></a>Percorso dei dati dalla rete virtuale del ramo
 
@@ -304,7 +304,7 @@ L'immagine seguente è la visualizzazione della topologia della connettività da
 
 ![4][4]
 
-Come indicato in precedenza, l'installazione test usa una VPN da sito a sito come connettività di backup per ExpressRoute tra la rete locale Location 1 e la rete virtuale dell'hub. Per testare il percorso dei dati di backup, è possibile indurre un errore di collegamento ExpressRoute tra il router CE primario Location 1 locale e il mSEE corrispondente. arrestando l'interfaccia perimetrale del cliente rivolta verso il router MSEE:
+Come indicato in precedenza, l'installazione test usa una VPN da sito a sito come connettività di backup per ExpressRoute tra la rete locale Location 1 e la rete virtuale dell'hub. Per testare il percorso dei dati di backup, è possibile che si verifichi un errore di collegamento ExpressRoute tra il percorso locale 1 router CE primario e il MSEE corrispondente. arrestando l'interfaccia perimetrale del cliente rivolta verso il router MSEE:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -510,11 +510,11 @@ Vedere le [domande frequenti su ExpressRoute][ExR-FAQ] per:
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Visualizzazione di Network Watcher della connettività da una rete virtuale hub a una rete virtuale spoke"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Visualizzazione di Network Watcher della connettività da una rete virtuale hub a una rete virtuale di succursale"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Visualizzazione griglia di Network Watcher della connettività da una rete virtuale hub a una rete virtuale di succursale"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Visualizzazione di Monitoraggio prestazioni rete della connettività dalla macchina virtuale Posizione 1 alla rete virtuale dell'hub tramite ExpressRoute 1Network Performance Monitor view of connectivity from the Location 1 VM to the hub VNet via ExpressRoute 1"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Visualizzazione di Monitoraggio prestazioni rete della connettività dalla macchina virtuale Posizione 1 alla rete virtuale hub tramite una VPN da sito a sito"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Visualizzazione Network Watcher della connettività da un hub VNet a una VNet spoke"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Visualizzazione Network Watcher della connettività da un hub VNet a un ramo VNet"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Visualizzazione griglia Network Watcher della connettività da un hub VNet a un ramo VNet"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Visualizzazione Monitoraggio prestazioni rete della connettività dalla macchina virtuale location 1 all'hub VNet tramite ExpressRoute 1"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Visualizzazione Monitoraggio prestazioni rete della connettività dalla macchina virtuale location 1 alla VNet Hub tramite una VPN da sito a sito"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

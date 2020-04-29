@@ -1,39 +1,39 @@
 ---
-title: Decodifica logica - Database di Azure per PostgreSQL - Server singolo
-description: Descrive la decodifica logica e wal2json per l'acquisizione dei dati delle modifiche nel database di Azure per PostgreSQL - Server singoloDescribes logical decoding and wal2json for change data capture in Azure Database for PostgreSQL - Single Server
+title: Decodifica logica-database di Azure per PostgreSQL-server singolo
+description: Descrive la decodifica logica e wal2json per Change Data Capture nel database di Azure per PostgreSQL-server singolo
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 1213b38f2b67e8fed179cfda4308943808893e1b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80522147"
 ---
 # <a name="logical-decoding"></a>Decodifica logica
  
-[La decodifica logica in PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) consente di trasmettere le modifiche dei dati a consumer esterni. La decodifica logica viene comunemente utilizzata per lo streaming di eventi e gli scenari di acquisizione dei dati di modifica.
+La [decodifica logica in PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) consente di trasmettere le modifiche ai dati a utenti esterni. La decodifica logica viene utilizzata comunemente per gli scenari di flusso di eventi e Change Data Capture.
 
-La decodifica logica utilizza un plug-in di output per convertire il log write ahead (WAL) di Postgres in un formato leggibile. Il database di Azure per PostgreSQL offre due plug-in di output: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) e [wal2json](https://github.com/eulerto/wal2json).
+La decodifica logica usa un plug-in di output per convertire il log write-ahead di Postgres (WAL) in un formato leggibile. Database di Azure per PostgreSQL offre due plug-in di output: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) e [wal2json](https://github.com/eulerto/wal2json).
  
 
 > [!NOTE]
-> La decodifica logica è in anteprima pubblica nel database di Azure per PostgreSQL - Server singolo.
+> La decodifica logica è in anteprima pubblica nel database di Azure per PostgreSQL: singolo server.
 
 
 ## <a name="set-up-your-server"></a>Configurare il server
-Per iniziare a utilizzare la decodifica logica, abilitare il server per salvare e trasmettere il WAL. 
+Per iniziare a usare la decodifica logica, abilitare il server per salvare e trasmettere in streaming il WAL. 
 
-1. Impostare azure.replication_support su usando l'interfaccia della riga di comando di Azure.Set azure.replication_support to `logical` using the Azure CLI. 
+1. Impostare Azure. replication_support sull' `logical` uso dell'interfaccia della riga di comando di Azure. 
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ```
 
    > [!NOTE]
-   > Se si usano repliche di lettura, `logical` azure.replication_support impostato per consentire anche l'esecuzione delle repliche. Se si interrompe l'utilizzo della decodifica `replica`logica, modificare l'impostazione su . 
+   > Se si usano le repliche di lettura, Azure. replication_support `logical` impostato su consente anche l'esecuzione delle repliche. Se si interrompe l'utilizzo della decodifica logica, modificare l'impostazione di `replica`nuovo in. 
 
 
 2. Riavviare il server per rendere effettive le modifiche.
@@ -41,20 +41,20 @@ Per iniziare a utilizzare la decodifica logica, abilitare il server per salvare 
    az postgres server restart --resource-group mygroup --name myserver
    ```
 
-## <a name="start-logical-decoding"></a>Avviare la decodifica logica
+## <a name="start-logical-decoding"></a>Avvia decodifica logica
 
-La decodifica logica può essere utilizzata tramite il protocollo di streaming o l'interfaccia SQL. Entrambi i metodi utilizzano [gli slot di replica](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS). Uno slot rappresenta un flusso di modifiche da un singolo database.
+La decodifica logica può essere utilizzata tramite il protocollo di streaming o l'interfaccia SQL. Entrambi i metodi usano gli [slot di replica](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS). Uno slot rappresenta un flusso di modifiche da un singolo database.
 
-L'utilizzo di uno slot di replica richiede i privilegi di replica di Postgres. Al momento, il privilegio di replica è disponibile solo per l'utente amministratore del server. 
+L'uso di uno slot di replica richiede i privilegi di replica di postgres. A questo punto, il privilegio di replica è disponibile solo per l'utente amministratore del server. 
 
 ### <a name="streaming-protocol"></a>Protocollo di streaming
-L'utilizzo delle modifiche tramite il protocollo di streaming è spesso preferibile. È possibile creare il proprio consumer / connettore, o utilizzare uno strumento come [Debezium](https://debezium.io/). 
+Spesso è preferibile usare le modifiche che usano il protocollo di streaming. È possibile creare un consumer o un connettore personalizzato o usare uno strumento come [Debezium](https://debezium.io/). 
 
-Visita la documentazione wal2json per [un esempio utilizzando il protocollo di streaming con pg_recvlogical](https://github.com/eulerto/wal2json#pg_recvlogical).
+Visitare la documentazione di wal2json per [un esempio di utilizzo del protocollo di streaming con pg_recvlogical](https://github.com/eulerto/wal2json#pg_recvlogical).
 
 
 ### <a name="sql-interface"></a>Interfaccia SQL
-Nell'esempio seguente, usiamo l'interfaccia SQL con il plugin wal2json.
+Nell'esempio seguente viene usata l'interfaccia SQL con il plug-in wal2json.
  
 1. Creare uno slot.
    ```SQL
@@ -73,7 +73,7 @@ Nell'esempio seguente, usiamo l'interfaccia SQL con il plugin wal2json.
    DELETE FROM a_table WHERE id='id1';
    ```
 
-3. Consumare le modifiche.
+3. Utilizzare le modifiche.
    ```SQL
    SELECT data FROM pg_logical_slot_get_changes('test_slot', NULL, NULL, 'pretty-print', '1');
    ```
@@ -112,7 +112,7 @@ Nell'esempio seguente, usiamo l'interfaccia SQL con il plugin wal2json.
    }
    ```
 
-4. Rilasciare lo slot una volta che hai finito di usarlo.
+4. Rilasciare lo slot una volta terminato di usarlo.
    ```SQL
    SELECT pg_drop_replication_slot('test_slot'); 
    ```
@@ -120,33 +120,33 @@ Nell'esempio seguente, usiamo l'interfaccia SQL con il plugin wal2json.
 
 ## <a name="monitoring-slots"></a>Monitoraggio degli slot
 
-È necessario monitorare la decodifica logica. Qualsiasi slot di replica inutilizzato deve essere eliminato. Gli slot si aggrappano ai log Postgres WAL e ai cataloghi di sistema pertinenti fino a quando le modifiche non sono state lette da un consumatore. Se il consumer non riesce o non è stato configurato correttamente, i registri non utilizzati si accumulano e riempiono lo spazio di archiviazione. Inoltre, i log non utilizzati aumentano il rischio di wraparound dell'ID transazione. Entrambe le situazioni possono rendere il server non disponibile. Pertanto, è fondamentale che gli slot di replica logici vengano utilizzati continuamente. Se non viene più utilizzato uno slot di replica logica, eliminarlo immediatamente.
+È necessario monitorare la decodifica logica. Tutti gli slot di replica non usati devono essere eliminati. Gli slot vengono mantenuti nei log Postgres WAL e nei cataloghi di sistema pertinenti fino a quando le modifiche non sono state lette da un consumer. Se il consumer ha esito negativo o non è stato configurato correttamente, i log non utilizzati si accumuleranno e riempiranno l'archiviazione. Inoltre, i log non utilizzati aumentano il rischio di utilizzo dell'ID di transazione. In entrambe le situazioni il server potrebbe non essere più disponibile. Pertanto, è fondamentale che gli slot di replica logica vengano utilizzati in modo continuo. Se uno slot di replica logica non viene più utilizzato, rilasciarlo immediatamente.
 
-La colonna "attiva" nella vista pg_replication_slots indicherà se è presente un consumer connesso a uno slot.
+La colonna ' Active ' nella visualizzazione pg_replication_slots indicherà se un consumer è connesso a uno slot.
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
 
-[Impostare avvisi](howto-alert-on-metric.md) *sull'archiviazione usata* e *Ritardo massimo tra le* metriche delle repliche per notificare quando i valori aumentano le soglie normali. 
+[Impostare gli avvisi](howto-alert-on-metric.md) sulle metriche di *archiviazione usate* e il *ritardo massimo tra le repliche* per ricevere una notifica quando i valori aumentano le soglie normali. 
 
 > [!IMPORTANT]
-> È necessario eliminare gli slot di replica inutilizzati. In caso contrario, si può causare l'indisponibilità del server.
+> È necessario eliminare gli slot di replica non utilizzati. In caso contrario, può causare la mancata disponibilità del server.
 
 ## <a name="how-to-drop-a-slot"></a>Come eliminare uno slot
-Se non si utilizza attivamente uno slot di replica, è necessario eliminarlo.
+Se non si utilizza attivamente uno slot di replica, è consigliabile eliminarlo.
 
-Per eliminare uno `test_slot` slot di replica chiamato tramite SQL:To drop a replication slot called using SQL:
+Per eliminare uno slot di replica `test_slot` denominato con SQL:
 ```SQL
 SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Se si interrompe l'utilizzo della decodifica `replica` logica, modificare azure.replication_support in o `off`. I dettagli WAL `logical` conservati da sono più dettagliati e devono essere disabilitati quando la decodifica logica non è in uso. 
+> Se si interrompe l'uso della decodifica logica, modificare Azure. replication_support di `replica` nuovo `off`in o. I dettagli di WAL conservati `logical` da sono più dettagliati e devono essere disabilitati quando la decodifica logica non è in uso. 
 
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visita la documentazione di Postgres per [ulteriori informazioni sulla decodifica logica](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html).
-* Contatta [il nostro team](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) se hai domande sulla decodifica logica.
-* Ulteriori informazioni sulle repliche di [lettura](concepts-read-replicas.md).
+* Per [ulteriori informazioni sulla decodifica logica](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html), vedere la documentazione di postgres.
+* Rivolgersi al [Team](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) in caso di domande sulla decodifica logica.
+* Altre informazioni sulle [repliche di lettura](concepts-read-replicas.md).
 

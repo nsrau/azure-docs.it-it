@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: ed8e5eaa0ff9b58f80473b052aacfb9f01d45055
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529213"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Connettersi al database SQL tramite C e C++
@@ -77,7 +77,7 @@ In alternativa, è possibile creare un file DSN mediante la procedura guidata av
 Congratulazioni! È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>Passaggio 5: Connessione da un'applicazione C/C++ per Linux
-Nel caso in cui non avete ancora sentito la notizia, Visual Studio ora consente di sviluppare l'applicazione Linux C . Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non ne è disponibile uno, è possibile configurarne uno rapidamente usando [macchine virtuali di Azure Linux.](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Se non hai ancora ascoltato le notizie, Visual Studio ora ti permette di sviluppare anche un'applicazione C++ per Linux. Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non è disponibile, è possibile configurarne rapidamente l'uso usando [macchine virtuali Linux di Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Per questa esercitazione, si supponga di avere configurata una distribuzione di Linux Ubuntu 16.04. I passaggi qui di seguito si applicano anche a Ubuntu 15.10, Red Hat 6 e Red Hat 7.
 
@@ -128,10 +128,10 @@ La soluzione GetStarted contenente tutti gli esempi riportati in questo articolo
 * [Esempio di ODBC di C++ per Linux](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29), scaricare l'esempio di ODBC di C++ per Linux per connettersi ad Azure SQL
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Esaminare la [panoramica sullo sviluppo di database SQLReview](sql-database-develop-overview.md) the SQL Database Development Overview
+* Esaminare la [Panoramica sullo sviluppo di database SQL](sql-database-develop-overview.md)
 * Per altre informazioni, vedere le [informazioni di riferimento sulle API ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Modelli di progettazione per applicazioni SaaS multi-tenant con il database SQL di AzureDesign Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Modelli di progettazione per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
 

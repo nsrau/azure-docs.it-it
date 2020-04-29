@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: 1aa3537679ee37cbc6085344d2f31ae4043d32bb
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80520667"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione tabelle di Azure per Funzioni di Azure
@@ -991,7 +991,7 @@ Sono disponibili due opzioni per l'output di una riga di archiviazione tabelle d
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Informazioni di riferimento |
+| Associazione | Riferimento |
 |---|---|
 | Tabella | [Codici di errore del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Blob, Table, Queue | [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

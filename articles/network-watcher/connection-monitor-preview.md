@@ -16,10 +16,10 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: d926a9f686f0f4c39203b8a217a7c608cfad926e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548110"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività di rete con monitoraggio connessione (anteprima)
@@ -462,7 +462,7 @@ Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un grup
 * Configurazioni di test: 2 (config 1, config 2)
 * Totale test creati: 12
 
-| Numero di test | Origine | Destination | Configurazione di test |
+| Numero di test | Source (Sorgente) | Destination | Configurazione di test |
 | --- | --- | --- | --- |
 | 1 | Una | D | Configurazione 1 |
 | 2 | Una | D | Configurazione 2 |

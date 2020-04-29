@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 0971b542065972a8f150083245e4ed31e42e2c67
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521618"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
@@ -47,7 +47,7 @@ Questa tabella viene aggiornata quando sono presenti aggiornamenti del servizio 
 Per provare il Servizio metadati dell'istanza, creare una macchina virtuale da [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o dal [portale di Azure](https://portal.azure.com) nelle aree di cui sopra e seguire gli esempi riportati di seguito.
 Altri esempi di come eseguire una query su IMDS sono disponibili in [esempi di metadati dell'istanza di Azure](https://github.com/microsoft/azureimds)
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ### <a name="versioning"></a>Controllo delle versioni
 
@@ -103,7 +103,7 @@ La tabella seguente costituisce un riferimento per gli altri formati di dati che
 
 API | Formato dati predefinito | Altri formati
 --------|---------------------|--------------
-/instance | json | testo
+/instance | json | text
 /scheduledevents | json | none
 /attested | json | none
 
@@ -351,7 +351,7 @@ storageProfile | Vedere [profilo di archiviazione](#storage-profile) | 01/06/201
 subscriptionId | Sottoscrizione di Azure per la macchina virtuale | 2017-08-01
 tags | [Tag](../../azure-resource-manager/management/tag-resources.md) per la macchina virtuale  | 2017-08-01
 Tag | Tag formattati come matrice JSON per un'analisi più semplice a livello di codice  | 2019-06-04
-version | Versione dell'immagine della macchina virtuale | 2017-04-02
+Versione | Versione dell'immagine della macchina virtuale | 2017-04-02
 vmId | [Identificatore univoco](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) della macchina virtuale | 2017-04-02
 vmScaleSetName | Nome del set di scalabilità di [macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) del set di scalabilità di macchine virtuali | 2017-12-01
 vmSize | [Dimensioni macchina virtuale](sizes.md) | 2017-04-02
@@ -713,7 +713,7 @@ id      | ID risorsa
 offer   | Offerta dell'immagine della piattaforma o del Marketplace
 publisher | Editore immagine
 sku     | SKU immagine
-version | Versione dell'immagine della piattaforma o del Marketplace
+Versione | Versione dell'immagine della piattaforma o del Marketplace
 
 L'oggetto disco del sistema operativo contiene le informazioni seguenti sul disco del sistema operativo usato dalla macchina virtuale:
 

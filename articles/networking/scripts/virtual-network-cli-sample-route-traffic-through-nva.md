@@ -1,5 +1,5 @@
 ---
-title: "Esempio di script dell'interfaccia della riga di comando di Azure: instradare il traffico tramite un'appliance virtuale di reteAzure CLI script sample - Route traffic through a network virtual appliance"
+title: Esempio di script dell'interfaccia della riga di comando di Azure-instrada il traffico attraverso un'appliance virtuale
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Instradare il traffico attraverso un'appliance virtuale di rete.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 05581114ce54ed8e92c6457c95f73b20304e419e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521520"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Instradare il traffico attraverso un'appliance virtuale di rete
@@ -64,4 +64,4 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Ulteriori esempi di script CLI di rete sono disponibili nella documentazione relativa alla panoramica della rete di [AzureAdditional](../cli-samples.md) networking CLI script samples can be found in the Azure Networking Overview documentation
+Altri esempi di script dell'interfaccia della riga di comando di rete sono disponibili nella [documentazione di panoramica sulle reti di Azure](../cli-samples.md)

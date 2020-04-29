@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: b54905e201ee7a6dbf4c6837960a6e0b63057ea9
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549047"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
@@ -59,7 +59,7 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici e al
 
 <sup>1</sup> i servizi di base creati prima del 2017 dicembre hanno limiti inferiori (5 anziché 15) sugli indici. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
 
-<sup>2</sup> la presenza di un numero molto elevato di elementi in raccolte complesse per documento causa attualmente un elevato utilizzo dello spazio di archiviazione. Questo è un problema noto Nel frattempo, un limite di 3000 è un limite superiore sicuro per tutti i livelli di servizio. Questo limite viene applicato solo per le operazioni di indicizzazione che usano la versione dell'API disponibile a livello generale (GA) più recente che supporta i`2019-05-06`campi di tipo complesso () e versioni successive. Per non interrompere i client che potrebbero usare versioni dell'API di anteprima precedenti (che supportano campi di tipo complesso), non verrà applicato questo limite per le operazioni di indicizzazione che usano queste versioni dell'API di anteprima. Si noti che le versioni dell'API di anteprima non sono destinate all'uso per gli scenari di produzione e si consiglia vivamente ai clienti di passare alla versione più recente dell'API GA.
+<sup>2</sup> la presenza di un numero molto elevato di elementi in raccolte complesse per documento causa attualmente un elevato utilizzo dello spazio di archiviazione. Si tratta di un problema noto. Nel frattempo, un limite di 3000 è un limite superiore sicuro per tutti i livelli di servizio. Questo limite viene applicato solo per le operazioni di indicizzazione che usano la versione dell'API disponibile a livello generale (GA) più recente che supporta i`2019-05-06`campi di tipo complesso () e versioni successive. Per non interrompere i client che potrebbero usare versioni dell'API di anteprima precedenti (che supportano campi di tipo complesso), non verrà applicato questo limite per le operazioni di indicizzazione che usano queste versioni dell'API di anteprima. Si noti che le versioni dell'API di anteprima non sono destinate all'uso per gli scenari di produzione e si consiglia vivamente ai clienti di passare alla versione più recente dell'API GA.
 
 > [!NOTE]
 > Anche se la capacità massima di un singolo indice è in genere limitata dall'archiviazione disponibile, sono presenti limiti superiori massimi per il numero totale di documenti che possono essere archiviati in un singolo indice. Questo limite è pari a circa 24 miliardi di documenti per indice per i servizi di ricerca Basic, S1, S2 e S3 e 2 miliardi documenti per ogni indice per i servizi di ricerca S3HD. Ogni elemento di una raccolta complessa viene conteggiato come documenti distinti ai fini di questi limiti.

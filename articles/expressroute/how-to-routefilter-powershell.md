@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute: Route filters- Microsoft peering:Azure PowerShell'
+title: 'ExpressRoute: filtri di route-peering Microsoft: Azure PowerShell'
 description: Questo articolo descrive come configurare i filtri di route per il peering Microsoft con PowerShell.
 services: expressroute
 author: charwen
@@ -9,26 +9,26 @@ ms.date: 02/25/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 3fa53258321b22e1683122edca1816f6d4c291b5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618609"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurare i filtri di route per il peering Microsoft: PowerShell
 > [!div class="op_single_selector"]
-> * [Portale di AzureAzure Portal](how-to-routefilter-portal.md)
+> * [Portale di Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Interfaccia della riga di comando di Azure](how-to-routefilter-cli.md)
 > 
 
 I filtri di route rappresentano un modo per usare un subset di servizi supportati tramite il peering Microsoft. I passaggi descritti in questo articolo consentono di configurare e gestire i filtri di route per i circuiti ExpressRoute.
 
-I servizi di Office 365 come Exchange Online, SharePoint Online e Skype for Business e i servizi pubblici di Azure, ad esempio archiviazione e database SQL sono accessibili tramite peering Microsoft. È possibile scegliere i servizi pubblici di Azure in base all'area geografica, ma non è possibile definirli in base al servizio pubblico.
+I servizi di Office 365, ad esempio Exchange Online, SharePoint Online e Skype for business, e i servizi pubblici di Azure, ad esempio l'archiviazione e il database SQL, sono accessibili tramite il peering Microsoft. È possibile scegliere i servizi pubblici di Azure in base all'area geografica, ma non è possibile definirli in base al servizio pubblico.
 
 Quando si configura il peering Microsoft in un circuito ExpressRoute e si collega un filtro route, tutti i prefissi selezionati per questi servizi vengono annunciati tramite le sessioni BGP stabilite. A ogni prefisso viene associato un valore di community BGP per identificare il servizio offerto tramite il prefisso. Per un elenco dei valori di community BGP e i servizi a cui sono associati, vedere [community BGP](expressroute-routing.md#bgp).
 
-Se è necessaria la connettività a tutti i servizi, tramite BGP viene annunciato un numero elevato di prefissi. Ciò aumenta notevolmente le dimensioni delle tabelle di route gestite dai router all'interno della rete. Se si prevede di usare solo un subset dei servizi offerti tramite il peering Microsoft, è possibile ridurre le dimensioni delle tabelle di route in due modi. È possibile:
+Se è necessaria la connettività a tutti i servizi, tramite BGP viene annunciato un numero elevato di prefissi. Ciò aumenta notevolmente le dimensioni delle tabelle di route gestite dai router all'interno della rete. Se si prevede di usare solo un subset dei servizi offerti tramite il peering Microsoft, è possibile ridurre le dimensioni delle tabelle di route in due modi. È possibile scegliere:
 
 - Escludere i prefissi indesiderati applicando filtri di route alle community BGP. Si tratta di una procedura di rete standard usata comunemente in molte reti.
 
@@ -36,9 +36,9 @@ Se è necessaria la connettività a tutti i servizi, tramite BGP viene annunciat
 
 ### <a name="about-route-filters"></a><a name="about"></a>Informazioni sui filtri di route
 
-Quando il peering Microsoft è configurato nel circuito ExpressRoute, i router perimetrali di rete Microsoft stabiliscono una coppia di sessioni BGP con i router perimetrali (il proprio o il provider di connettività). Non viene annunciata alcuna route per la rete. Per abilitare gli annunci delle ruote per la rete, è necessario associare un filtro di route.
+Quando si configura il peering Microsoft nel circuito ExpressRoute, i router perimetrali di Microsoft Network stabiliscono una coppia di sessioni BGP con i router perimetrali (your o provider di connettività). Non viene annunciata alcuna route per la rete. Per abilitare gli annunci delle ruote per la rete, è necessario associare un filtro di route.
 
-Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. Si tratta essenzialmente di un elenco consentito di tutti i valori della comunità BGP. Dopo aver definito una risorsa filtro di route e averla associata a un circuito ExpressRoute, tutti i prefissi corrispondenti ai valori di community BGP vengono annunciati per la rete.
+Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. Si tratta essenzialmente di un elenco di tutti i valori di community BGP consentiti. Dopo aver definito una risorsa filtro di route e averla associata a un circuito ExpressRoute, tutti i prefissi corrispondenti ai valori di community BGP vengono annunciati per la rete.
 
 Per poter associare i filtri di route ai servizi Office 365, è necessario essere autorizzati all'uso dei servizi Office 365 tramite ExpressRoute. Se non si è autorizzati a usare i servizi Office 365 tramite ExpressRoute, l'operazione di associazione dei filtri di route non riesce. Per altre informazioni sul processo di autorizzazione, vedere [Azure ExpressRoute per Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
 
@@ -47,7 +47,7 @@ Per poter associare i filtri di route ai servizi Office 365, è necessario esser
 > 
 > 
 
-### <a name="workflow"></a><a name="workflow"></a>Workflow
+### <a name="workflow"></a><a name="workflow"></a>Flusso di lavoro
 
 Per riuscire a connettersi correttamente ai servizi tramite il peering Microsoft, è necessario completare i passaggi di configurazione seguenti:
 
@@ -68,7 +68,7 @@ Prima di iniziare la configurazione, assicurarsi che siano soddisfatti i criteri
 
  - Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
 
- - È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che il circuito venga abilitato dal provider di connettività prima di procedere. È necessario che sia stato effettuato il provisioning del circuito ExpressRoute e che il circuito sia in stato abilitato.
+ - È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che il circuito sia abilitato dal provider di connettività prima di procedere. È necessario che sia stato effettuato il provisioning del circuito ExpressRoute e che il circuito sia in stato abilitato.
 
  - È necessario disporre di un peering Microsoft attivo. Seguire le istruzioni riportate nell'articolo [Creare e modificare la configurazione del peering](expressroute-circuit-peerings.md).
 
@@ -103,14 +103,14 @@ Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
 ## <a name="step-1-get-a-list-of-prefixes-and-bgp-community-values"></a><a name="prefixes"></a>Passaggio 1: Ottenere un elenco di prefissi e di valori di community BGP
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Ottenere un elenco dei valori della comunità BGP
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. ottenere un elenco di valori di community BGP
 
 Usare il cmdlet seguente per ottenere l'elenco dei valori di community BGP associati ai servizi accessibili tramite il peering Microsoft e l'elenco dei prefissi associati:
 
 ```azurepowershell-interactive
 Get-AzBgpServiceCommunity
 ```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Creare un elenco dei valori che si desidera utilizzare
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. creare un elenco dei valori che si desidera utilizzare
 
 Creare un elenco dei valori di community BGP che si vuole usare nel filtro di route.
 
@@ -118,15 +118,15 @@ Creare un elenco dei valori di community BGP che si vuole usare nel filtro di ro
 
 Un filtro di route può includere una sola regola di tipo 'Consenti'. A questa regola può essere associato un elenco di valori di community BGP.
 
-### <a name="1-create-a-route-filter"></a>1. Creare un filtro di route
+### <a name="1-create-a-route-filter"></a>1. creare un filtro di route
 
-Creare prima di tutto il filtro di route. Il comando 'New-AzRouteFilter' crea solo una risorsa filtro di route. Dopo aver creato la risorsa, è necessario creare una regola e associarla all'oggetto filtro di route. Eseguire il comando seguente per creare una risorsa filtro di route:
+Creare prima di tutto il filtro di route. Il comando ' New-AzRouteFilter ' crea solo una risorsa filtro di route. Dopo aver creato la risorsa, è necessario creare una regola e associarla all'oggetto filtro di route. Eseguire il comando seguente per creare una risorsa filtro di route:
 
 ```azurepowershell-interactive
 New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
 ```
 
-### <a name="2-create-a-filter-rule"></a>2. Creare una regola di filtro
+### <a name="2-create-a-filter-rule"></a>2. creare una regola di filtro
 
 È possibile specificare un set di community BGP come elenco delimitato da virgole, come illustrato nell'esempio. Eseguire il comando seguente per creare una nuova regola:
  
@@ -134,7 +134,7 @@ New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Lo
 $rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList 12076:5010,12076:5040
 ```
 
-### <a name="3-add-the-rule-to-the-route-filter"></a>3. Aggiungere la regola al filtro di route
+### <a name="3-add-the-rule-to-the-route-filter"></a>3. aggiungere la regola al filtro di route
 
 Eseguire il comando seguente per aggiungere la regola di filtro al filtro di route:
  

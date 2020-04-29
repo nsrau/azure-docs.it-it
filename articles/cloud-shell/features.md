@@ -1,6 +1,6 @@
 ---
 title: Funzionalità di Azure Cloud Shell | Microsoft Docs
-description: Panoramica delle funzionalità in Azure Cloud ShellOverview of features in Azure Cloud Shell
+description: Panoramica delle funzionalità di Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521020"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funzionalità e strumenti per Azure Cloud Shell
@@ -27,7 +27,7 @@ ms.locfileid: "80521020"
 
 Azure Cloud Shell viene eseguito su `Ubuntu 16.04 LTS`.
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>Caratteristiche
 
 ### <a name="secure-automatic-authentication"></a>Autenticazione automatica sicura
 
@@ -44,7 +44,7 @@ I file all'esterno di `$HOME` e lo stato della macchina non sono persistenti tra
 
 ### <a name="azure-drive-azure"></a>Unità Azure (Azure:)
 
-PowerShell in Cloud Shell fornisce`Azure:`l'unità di Azure ( ). È possibile passare all'unità di Azure `cd Azure:` con `cd  ~`e tornare alla home directory con .
+PowerShell in Cloud Shell fornisce l'unità Azure (`Azure:`). È possibile passare all'unità Azure con `cd Azure:` e tornare alla Home directory con. `cd  ~`
 L'unità Azure consente una facile individuazione e la navigazione tra le risorse di Azure, ad es. calcolo, rete, archiviazione ecc. analogamente alla navigazione di file system.
 È possibile continuare a utilizzare i consueti [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure) per gestire queste risorse indipendentemente dall'unità in cui ci si trova.
 Tutte le modifiche apportate alle risorse di Azure, sia se eseguite direttamente nel portale di Azure che tramite i cmdlet di Azure PowerShell, vengono applicate anche all'unità Azure.  È possibile eseguire `dir -Force` per aggiornare le risorse.
@@ -53,13 +53,13 @@ Tutte le modifiche apportate alle risorse di Azure, sia se eseguite direttamente
 
 ### <a name="manage-exchange-online"></a>Gestire Exchange Online
 
-PowerShell in Cloud Shell contiene una build privata del modulo Exchange Online.  Eseguire `Connect-EXOPSSession` per ottenere i cmdlet di Exchange.
+PowerShell in Cloud Shell contiene una compilazione privata del modulo Exchange Online.  Eseguire `Connect-EXOPSSession` per ottenere i cmdlet di Exchange.
 
 ![](media/features-powershell/exchangeonline.png)
 
  Eseguire `Get-Command -Module tmp_*`
 > [!NOTE]
-> Il nome del `tmp_`modulo deve iniziare con , se sono stati installati moduli con lo stesso prefisso, verranno visualizzati anche i relativi cmdlet. 
+> Il nome del modulo dovrebbe iniziare `tmp_`con, se sono stati installati moduli con lo stesso prefisso, verranno visualizzati anche i relativi cmdlet. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -69,18 +69,18 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 
 ## <a name="tools"></a>Strumenti
 
-|Category   |Nome   |
+|Category   |Name   |
 |---|---|
 |Strumenti di Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Strumenti di Azure            |[Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) e [interfaccia della riga di comando classica di Azure](https://github.com/Azure/azure-xplat-cli)<br> [Copia Azzurra](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Interfaccia della riga di comando di Funzioni di Azure](https://github.com/Azure/azure-functions-core-tools)<br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Strumenti di Azure            |[Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) e [interfaccia della riga di comando classica di Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Interfaccia della riga di comando di Funzioni di Azure](https://github.com/Azure/azure-functions-core-tools)<br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editor di testo           |codice (editor di Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Controllo del codice sorgente         |git                    |
 |Strumenti di compilazione            |make<br> maven<br> npm<br> pip         |
-|Contenitori             |[Computer Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Timone](https://github.com/kubernetes/helm)<br> [Interfaccia della riga di comando DC/OS](https://github.com/dcos/dcos-cli)         |
+|Contenitori             |[Computer Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [Interfaccia della riga di comando DC/OS](https://github.com/dcos/dcos-cli)         |
 |Database              |Client MySQL<br> Client PostgreSql<br> [Utilità sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Altri                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bullone Marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
+|Altri                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
-## <a name="language-support"></a>Lingue supportate
+## <a name="language-support"></a>Supporto delle lingue
 
 |Linguaggio   |Versione   |
 |---|---|
@@ -92,7 +92,7 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 |Python     |2.7 e 3.5 (impostazione predefinita)|
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Guida introduttiva di Bash in Cloud Shell](quickstart.md) <br>
-[Guida introduttiva di PowerShell in Cloud Shell](quickstart-powershell.md) <br>
+[Avvio rapido di bash in Cloud Shell](quickstart.md) <br>
+[Guida introduttiva a PowerShell in Cloud Shell](quickstart-powershell.md) <br>
 [Informazioni sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Informazioni su Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

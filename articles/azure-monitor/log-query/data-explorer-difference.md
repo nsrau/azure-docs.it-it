@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
 ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585707"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Differenze nel linguaggio di query di log di Monitoraggio di Azure
@@ -29,18 +29,18 @@ Le sezioni seguenti descrivono gli elementi del linguaggio di query Kusto che no
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funzioni non supportate in Monitoraggio di Azure
 
-* [cluster()](/azure/kusto/query/clusterfunction)
+* [cluster ()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [database()](/azure/kusto/query/databasefunction)
+* [database ()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
 ### <a name="operators-not-supported-in-azure-monitor"></a>Operatori non supportati in Monitoraggio di Azure
 
-* [Aggiunta a più cluster](/azure/kusto/query/joincrosscluster)
+* [Join tra cluster](/azure/kusto/query/joincrosscluster)
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Plug-in non supportati in Monitoraggio di Azure
 
@@ -51,8 +51,8 @@ Le sezioni seguenti descrivono gli elementi del linguaggio di query Kusto che no
 ## <a name="additional-operators-in-azure-monitor"></a>Operatori aggiuntivi in Monitoraggio di Azure
 Gli operatori seguenti supportano specifiche funzionalità di Monitoraggio di Azure e non sono disponibili all'esterno di Monitoraggio di Azure.
 
-* [app()](app-expression.md)
-* [workspace()](workspace-expression.md)
+* [app ()](app-expression.md)
+* [area di lavoro ()](workspace-expression.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

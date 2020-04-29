@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80528409"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure
@@ -48,10 +48,10 @@ La procedura seguente illustra come creare una nuova subnet nella rete virtuale 
    | ---------------- | ----------------- | ----------- |
    | **Nome** | Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming).|
    | **Intervallo di indirizzi (blocco CIDR)** | Un intervallo valido | Il valore predefinito è appropriato per questa guida introduttiva.|
-   | **Gruppo di sicurezza di rete** | nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
-   | **Tabella di route** | nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
+   | **Gruppo di sicurezza di rete** | Nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
+   | **Tabella di route** | Nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
    | **Endpoint di servizio** | 0 selezionato | Il valore predefinito è appropriato per questa guida introduttiva.|
-   | **Delegazione subnet** | nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
+   | **Delegazione subnet** | Nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
 
    ![Nuova subnet dell'istanza gestita per la macchina virtuale client](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 

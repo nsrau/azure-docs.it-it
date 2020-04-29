@@ -1,13 +1,13 @@
 ---
-title: Distribuire un eseguibile esistente in Azure Service FabricDeploy an existing executable to Azure Service Fabric
+title: Distribuire un eseguibile esistente in Azure Service Fabric
 description: Informazioni su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80520493"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric
@@ -22,9 +22,9 @@ Quando si crea il pacchetto di un eseguibile esistente come [eseguibile guest](s
 
 Visual Studio include un modello di servizio di Service Fabric che consente di distribuire un eseguibile guest in un cluster di Service Fabric.
 
-1. Scegliere **File** > **nuovo progetto**e creare un'applicazione Di Fabric.
+1. Scegliere **file** > **nuovo progetto**e creare un'applicazione Service Fabric.
 2. Scegliere **Eseguibile guest** come modello di servizio.
-3. Fare clic su **Sfoglia** per selezionare la cartella con il file eseguibile e compilare gli altri parametri per creare il servizio.
+3. Fare clic su **Sfoglia** per selezionare la cartella con il file eseguibile e compilare i restanti parametri per creare il servizio.
    * *Comportamento del pacchetto di codice*. È possibile impostare questa opzione per copiare tutto il contenuto della cartella nel progetto di Visual Studio. Questa scelta si rivela utile se il file eseguibile non viene modificato. Se si prevede che il file eseguibile venga modificato e si vuole avere la possibilità di selezionare nuove build in modo dinamico, si può scegliere invece di collegarsi alla cartella. Se si crea il progetto di applicazione in Visual Studio è possibile usare cartelle collegate. In questo modo si stabilisce il collegamento al percorso di origine dall'interno del progetto, rendendo possibile l'aggiornamento dell'eseguibile guest nella destinazione di origine. Gli aggiornamenti diventano parte del pacchetto dell'applicazione in fase di compilazione.
    * *Programma*: specifica l'eseguibile da eseguire per avviare il servizio.
    * *Argomenti*: specifica gli argomenti da passare all'eseguibile. Può essere un elenco di parametri con argomenti.
@@ -33,15 +33,15 @@ Visual Studio include un modello di servizio di Service Fabric che consente di d
      * `CodePackage` specifica che la directory di lavoro verrà impostata sulla radice del pacchetto dell'applicazione (`GuestService1Pkg` nella struttura di file precedente).
      * `Work` specifica che i file vengono inseriti in una sottodirectory denominata work.
 4. Assegnare un nome al servizio e fare clic su **OK**.
-5. Se il servizio richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. Ad esempio `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Se il servizio richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. Ad esempio: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. È ora possibile usare l'azione di creazione del pacchetto e di pubblicazione sul cluster locale eseguendo il debug della soluzione in Visual Studio. Quando si è pronti, pubblicare l'applicazione in un cluster remoto o archiviare la soluzione nel controllo del codice sorgente.
 7. Per informazioni su come visualizzare il servizio dell'eseguibile guest in esecuzione in Service Fabric Explorer, leggere [Verificare l'applicazione in esecuzione](#check-your-running-application).
 
 Per una procedura dettagliata di esempio, vedere [Creare la prima applicazione eseguibile guest con Visual Studio](quickstart-guest-app.md).
 
-### <a name="packaging-multiple-executables-with-visual-studio"></a>Creazione di pacchetti di più file eseguibili con Visual StudioPackaging multiple executables with Visual Studio
+### <a name="packaging-multiple-executables-with-visual-studio"></a>Creazione di pacchetti di più file eseguibili con Visual Studio
 
-È possibile utilizzare Visual Studio per produrre un pacchetto dell'applicazione che contiene più file eseguibili guest. Dopo aver aggiunto il primo eseguibile guest, fare clic con il pulsante destro del mouse sul progetto dell'applicazione e selezionare il **servizio Add->New Service Fabric** per aggiungere il secondo progetto eseguibile guest alla soluzione.
+È possibile utilizzare Visual Studio per produrre un pacchetto di applicazione che contiene più eseguibili Guest. Dopo aver aggiunto il primo eseguibile Guest, fare clic con il pulsante destro del mouse sul progetto dell'applicazione e selezionare il **servizio aggiungi >nuovo Service Fabric** per aggiungere il secondo progetto eseguibile Guest alla soluzione.
 
 > [!NOTE]
 > Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine.
@@ -56,7 +56,7 @@ La procedura per la creazione e distribuzione di un eseguibile guest in Linux è
 
 Yeoman crea un pacchetto dell'applicazione con i file manifesto e dell'applicazione appropriati e con gli script di installazione e di disinstallazione.
 
-### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>Creazione di pacchetti di più file eseguibili tramite Yeoman su LinuxPackaging multiple executables using Yeoman on Linux
+### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>Creazione di pacchetti di più file eseguibili con l'attendente in Linux
 
 Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, seguire questa procedura:
 
@@ -76,7 +76,7 @@ Il processo per la creazione manuale del pacchetto di un eseguibile guest si bas
 
 ### <a name="create-the-package-directory-structure"></a>Creare la struttura di directory del pacchetto
 
-È possibile iniziare creando la struttura di directory, come descritto in [Creare un pacchetto di un'app](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)di Azure Service Fabric.
+È possibile iniziare creando la struttura di directory, come descritto in creare [un pacchetto di un'App Service fabric di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Aggiungere i file di codice e di configurazione dell'applicazione
 

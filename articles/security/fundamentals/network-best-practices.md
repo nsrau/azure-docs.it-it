@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
 ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548311"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedure consigliate di Azure per la sicurezza di rete
@@ -133,7 +133,7 @@ In uno scenario IT ibrido, in genere è presente un tipo di connettività cross-
 * [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Si tratta di una tecnologia attendibile, affidabile e stabilita, ma la connessione avviene tramite Internet. La larghezza di banda è vincolata a un massimo di circa 1,25 Gbps. La VPN da sito a sito è un'opzione auspicabile in alcuni scenari.
 * **ExpressRoute di Azure**. per la connettività cross-premise, [ExpressRoute](../../expressroute/expressroute-introduction.md) è la scelta consigliata. ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Azure, Office 365 e Dynamics 365. ExpressRoute è un collegamento WAN dedicato tra il percorso locale o un provider di hosting di Microsoft Exchange. Poiché si tratta di una connessione Telco, i dati non passano via Internet, quindi non vengono esposti ai rischi potenziali delle comunicazioni Internet.
 
-Il percorso della connessione ExpressRoute può influire sulla capacità del firewall, la scalabilità, l'affidabilità e la visibilità del traffico di rete. È necessario identificare la posizione in cui terminare ExpressRoute in reti esistenti (locali). È possibile:
+Il percorso della connessione ExpressRoute può influire sulla capacità del firewall, la scalabilità, l'affidabilità e la visibilità del traffico di rete. È necessario identificare la posizione in cui terminare ExpressRoute in reti esistenti (locali). È possibile scegliere:
 
 - Terminare all'esterno del firewall (il paradigma della rete perimetrale) se è necessaria visibilità sul traffico, se è necessario continuare una procedura esistente di isolamento dei data center o se si stanno inserendo solo risorse Extranet in Azure.
 - Terminare all'interno del firewall (il paradigma dell'estensione di rete). Si tratta dell'indicazione predefinita. In tutti gli altri casi, è consigliabile considerare Azure come un ennesimo Data Center.
