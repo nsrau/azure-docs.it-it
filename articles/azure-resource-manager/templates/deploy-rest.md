@@ -4,10 +4,10 @@ description: Usare Azure Resource Manager e Gestione risorse API REST per distri
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.openlocfilehash: 9cdb7b668e5170917b41ef49639bd9a17e538766
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153234"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Distribuire le risorse con i modelli ARM e Gestione risorse API REST

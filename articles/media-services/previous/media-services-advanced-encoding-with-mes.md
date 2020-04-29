@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 5f7611fd9df207df51fa0e51218d8a234583b1f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529784"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard 
@@ -30,7 +30,7 @@ Questo argomento descrive come personalizzare i set d impostazioni di Media Enco
 Se si usa un set di impostazioni XML, assicurarsi di mantenere l'ordine degli elementi, come illustrato negli esempi XML seguenti (KeyFrameInterval, ad esempio, deve precedere SceneChangeDetection).
 
 > [!NOTE] 
-> Molte delle funzionalità avanzate di Servizi multimediali v2 di Media Encoder Standard non sono attualmente disponibili nella v3. Per ulteriori informazioni, consultate [Spazi delle funzioni.](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis)
+> Molte delle funzionalità avanzate di Media Services V2 del Media Encoder Standard non sono attualmente disponibili in V3. Per altre informazioni, vedere [gap delle funzionalità](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Supporto per le dimensioni relative
 
@@ -49,7 +49,7 @@ Quando si generano anteprime, non è sempre necessario specificare la larghezza 
 Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile usare uno dei set di impostazioni per Media Encoder Standard documentati in [questa](media-services-mes-presets-overview.md) sezione e aggiungere il codice che genera le anteprime.  
 
 > [!NOTE]
-> L'impostazione **SceneChangeDetection** nella seguente preimpostazione può essere impostata su true solo se si esegue la codifica in un singolo video in bitrate. In caso di codifica in video a bitrate multipli e impostazione di **SceneChangeDetection** su true, il codificatore restituisce un errore.  
+> L'impostazione **SceneChangeDetection** nel set di impostazioni seguente può essere impostata su true solo se si esegue la codifica in un video a bitrate singolo. In caso di codifica in video a bitrate multipli e impostazione di **SceneChangeDetection** su true, il codificatore restituisce un errore.  
 >
 >
 
@@ -57,7 +57,7 @@ Per informazioni sullo schema, vedere [questo](media-services-mes-schema.md) arg
 
 Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>Predefinito JSON
+### <a name="json-preset"></a><a id="json"></a>Set di impostazioni JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -157,7 +157,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
     }
 
 
-### <a name="xml-preset"></a><a id="xml"></a>Predefinito XML
+### <a name="xml-preset"></a><a id="xml"></a>Set di impostazioni XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -243,7 +243,7 @@ Si applicano le considerazioni seguenti:
 
     È possibile combinare e associare le notazioni a piacimento.
 
-    Inoltre, Start supporta anche una speciale Macro: "Best" che tenta di determinare il primo frame "interessante" del contenuto NOTA: (Passaggio e intervallo vengono ignorati quando Start è impostato su "Best")
+    Inoltre, Start supporta anche una macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della nota sul contenuto: (passaggio e intervallo vengono ignorati quando Start è impostato su {Best})
   * Impostazioni predefinite: Start: {Best}
 * Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collega JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
@@ -252,7 +252,7 @@ Questa sezione descrive la modifica di set di impostazioni del codificatore per 
 
 Per tagliare i video, è possibile eseguire uno dei set di impostazioni di Media Encoder Standard documentati in [questa](media-services-mes-presets-overview.md) sezione e modificare l'elemento **Sources** (come illustrato di seguito). Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato all'inizio del set di impostazioni.
 
-### <a name="json-preset"></a><a id="json"></a>Predefinito JSON
+### <a name="json-preset"></a><a id="json"></a>Set di impostazioni JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -495,7 +495,7 @@ Il Media Encoder Standard consente di sovrapporre un'immagine a un video esisten
 
 Oltre a definire un file del set di impostazioni, è anche necessario indicare a Servizi multimediali quale file dell'asset corrisponde all'immagine da sovrapporre e quale file contiene il video di origine sul quale sovrapporre l'immagine. Il file video deve essere il file **primario** .
 
-Se si usa .NET, aggiungere le due funzioni seguenti all'esempio .NET definito in [questo](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) argomento. La funzione **UploadMediaFilesFromFolder** carica i file da una cartella (ad esempio, BigBuckBunny.mp4 e Image001.png) e imposta il file mp4 come file primario nell'asset. La funzione **EncodeWithOverlay** usa il file di set di impostazioni personalizzato passato alla funzione stessa, ad esempio il set di impostazioni seguente, per creare l'attività di codifica.
+Se si usa .NET, aggiungere le due funzioni seguenti all'esempio .NET definito in [questo](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) argomento. La funzione **UploadMediaFilesFromFolder** carica i file da una cartella (ad esempio, file bigbuckbunny. mp4 e file image001. png) e imposta il file MP4 come file primario nell'asset. La funzione **EncodeWithOverlay** usa il file di set di impostazioni personalizzato passato alla funzione stessa, ad esempio il set di impostazioni seguente, per creare l'attività di codifica.
 
 
     static public IAsset UploadMediaFilesFromFolder(string folderPath)
@@ -720,7 +720,7 @@ Per forzare la generazione di un asset contenente una traccia audio silenziosa d
     </AACAudio>
 
 ## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Disabilitare il deinterlacciamento automatico
-I clienti non hanno bisogno di fare nulla se vogliono che i contenuti interlacciati vengano automaticamente delciati. Quando il deinterlacciamento automatico è attivato (impostazione predefinita) il MES rileva automaticamente i fotogrammi interlacciati e deinterlaccia solo i fotogrammi contrassegnati come interlacciati.
+I clienti non devono eseguire alcuna operazione se desiderano che il contenuto interlacciato venga automaticamente deinterlacciato. Quando il deinterlacciamento automatico è attivato (impostazione predefinita) il MES rileva automaticamente i fotogrammi interlacciati e deinterlaccia solo i fotogrammi contrassegnati come interlacciati.
 
 È possibile disattivare il deinterlacciamento automatico. Questa opzione non è consigliata.
 
@@ -917,7 +917,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Inserimento di video alla sola velocità in bit più bassa
 
-Si supponga di utilizzare un predefinito di codifica a bitrate multiplo, ad esempio ["H264 Multiple Bitrate 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica solo alla velocità in bit più bassa, anziché inserire il video a tutte le velocità in bit. A tale scopo è necessario usare il flag **InsertBlackIfNoVideoBottomLayerOnly**.
+Si supponga di usare un set di impostazioni di codifica a bitrate multipli, ad esempio ["H264 a bitrate multipli 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file di solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica solo alla velocità in bit più bassa, anziché inserire il video a tutte le velocità in bit. A tale scopo è necessario usare il flag **InsertBlackIfNoVideoBottomLayerOnly**.
 
 È possibile usare uno dei set di impostazioni di Media Encoder Standard documentati in [questa](media-services-mes-presets-overview.md) sezione e apportare la modifica seguente:
 
@@ -1034,7 +1034,7 @@ Per altre informazioni sul modo in cui il codificatore interpreta le impostazion
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

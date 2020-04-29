@@ -14,10 +14,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: bcc44f61ccb7b4a19e7df39ab979669c5aa37da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154900"
 ---
 # <a name="federation-metadata"></a>Metadati della federazione
@@ -43,7 +43,7 @@ Per gli **endpoint specifici del tenant**, `TenantDomainName` può essere uno de
 
 Per gli **endpoint indipendenti dal tenant**, `TenantDomainName` è `common`. Questo documento elenca solo gli elementi dei metadati della federazione che sono comuni a tutti i tenant di Azure AD ospitati in login.microsoftonline.com.
 
-Un endpoint specifico del tenant può essere ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. L'endpoint indipendente [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)dal tenant è . È possibile visualizzare il documento di metadati della federazione digitando questo URL in un browser.
+Un endpoint specifico del tenant può essere ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. L'endpoint indipendente dal tenant è [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). È possibile visualizzare il documento di metadati della federazione digitando questo URL in un browser.
 
 ## <a name="contents-of-federation-metadata"></a>Contenuto dei metadati della federazione
 Nella sezione seguente vengono fornite le informazioni necessarie per i servizi che utilizzano token emessi da Azure AD.
@@ -71,7 +71,7 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>Certificati per la firma di token
-Quando un servizio riceve un token rilasciato da un tenant di Azure AD, la firma del token deve essere convalidata con una chiave di firma pubblicata nel documento dei metadati federativi. I metadati di federazione includono la parte pubblica dei certificati utilizzati dai tenant per la firma dei token. I byte non elaborati del certificato vengono visualizzati nell'elemento `KeyDescriptor` . Il certificato per la firma di token è valido per la firma solo quando il valore dell'attributo `use` è `signing`.
+Quando un servizio riceve un token emesso da un tenant di Azure AD, è necessario convalidare la firma del token con una chiave di firma pubblicata nel documento di metadati della Federazione. I metadati di federazione includono la parte pubblica dei certificati utilizzati dai tenant per la firma dei token. I byte non elaborati del certificato vengono visualizzati nell'elemento `KeyDescriptor` . Il certificato per la firma di token è valido per la firma solo quando il valore dell'attributo `use` è `signing`.
 
 Un documento di metadati della federazione pubblicato da Azure AD può avere più chiavi per la firma, ad esempio quando Azure AD sta per aggiornare il certificato di firma. Quando un documento di metadati di federazione include certificati, un servizio che convalida i token deve supportare tutti i certificati nel documento.
 

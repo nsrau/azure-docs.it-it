@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154951"
 ---
 # <a name="application-types-in-v10"></a>Tipi di applicazioni nella versione 1.0
@@ -33,10 +33,10 @@ Il diagramma seguente illustra questi scenari e tipi di applicazioni, oltre che 
 Azure AD supporta i cinque scenari di applicazione principali descritti di seguito:
 
 - **[Applicazione a pagina singola](single-page-application.md)**: un'utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
-- **[Da Web browser all'applicazione Web:](web-app.md)** un utente deve accedere a un'applicazione Web protetta da Azure AD.
-- **[Applicazione nativa per l'API Web:](native-app.md)** un'applicazione nativa eseguita in un telefono, un tablet o un PC deve autenticare un utente per ottenere risorse da un'API Web protetta da Azure AD.
-- **[Applicazione Web per l'API Web:](web-api.md)** un'applicazione Web deve ottenere risorse da un'API Web protetta da Azure AD.
-- **[Daemon o applicazione server per api Web:](service-to-service.md)** un'applicazione daemon o un'applicazione server senza interfaccia utente Web deve ottenere risorse da un'API Web protetta da Azure AD.
+- **[Web browser all'applicazione Web](web-app.md)**: un utente deve accedere a un'applicazione Web protetta da Azure ad.
+- Da **[applicazione nativa ad API Web](native-app.md)**: un'applicazione nativa in esecuzione su un telefono, tablet o PC deve autenticare un utente per ottenere risorse da un'API Web protetta da Azure ad.
+- Da **[applicazione Web ad API Web](web-api.md)**: un'applicazione Web deve ottenere risorse da un'API Web protetta da Azure ad.
+- Da **[applicazione daemon o server ad API Web](service-to-service.md)**: un'applicazione daemon o un'applicazione server senza interfaccia utente Web deve ottenere risorse da un'API Web protetta da Azure ad.
 
 Fare clic sui collegamenti per ottenere altre informazioni su ogni tipo di app e comprendere gli scenari generali prima di iniziare a usare il codice. È possibile ottenere anche informazioni sulle differenze che è necessario conoscere quando si scrive un'app specifica che funziona con l'endpoint v1.0 o v2.0.
 
@@ -51,7 +51,7 @@ Inoltre, se l'applicazione necessita di una parte o di un segmento specifico di 
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registrazione di un'app che usa l'endpoint v1.0 di Azure AD
 
-Le applicazioni che usano l'outsourcing per l'autenticazione ad Azure AD devono essere registrate in una directory. Questo passaggio implica l'indizione di Azure AD dell'applicazione, incluso l'URL in cui si trova, l'URL per inviare le risposte dopo l'autenticazione, l'URI per identificare l'applicazione e altro ancora. Queste informazioni sono necessarie per alcune ragioni fondamentali:
+Le applicazioni che usano l'outsourcing per l'autenticazione ad Azure AD devono essere registrate in una directory. Questo passaggio implica l'inserimento di Azure AD sull'applicazione, tra cui l'URL in cui si trova, l'URL per l'invio di risposte dopo l'autenticazione, l'URI per identificare l'applicazione e così via. Queste informazioni sono necessarie per alcune ragioni fondamentali:
 
 * Azure AD deve comunicare con l'applicazione durante la gestione dell'accesso o lo scambio di token. Le informazioni passate tra Azure AD e l'applicazione includono quanto segue:
   
@@ -72,11 +72,11 @@ Per comprendere meglio il provisioning, è utile chiarire che esistono due categ
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerazioni aggiuntive quando si sviluppano app multi-tenant o con un singolo tenant
 
-Quando si sviluppa un'applicazione multi-tenant invece di un'applicazione con un singolo tenant, occorre considerare qualche altro aspetto. Ad esempio, se si rende l'applicazione disponibile agli utenti in più directory, è necessario un meccanismo per determinare in quale tenant si trovano. Un'applicazione con un singolo tenant deve solo cercare un utente nella propria directory, mentre un'applicazione multi-tenant deve identificare un utente specifico in tutte le directory in Azure AD. A questo scopo, Azure AD fornisce un endpoint di autenticazione comune in cui qualsiasi applicazione multi-tenant può indirizzare le richieste di accesso, invece di un endpoint specifico di un tenant. Questo endpoint è `https://login.microsoftonline.com/common` per tutte le directory in Azure AD, mentre un endpoint specifico del tenant può essere `https://login.microsoftonline.com/contoso.onmicrosoft.com`. L'endpoint comune è particolarmente importante da considerare quando si sviluppa l'applicazione perché è necessaria la logica necessaria per gestire più tenant durante l'accesso, la disconnessione e la convalida del token.
+Quando si sviluppa un'applicazione multi-tenant invece di un'applicazione con un singolo tenant, occorre considerare qualche altro aspetto. Se ad esempio si rende disponibile l'applicazione agli utenti in più directory, è necessario un meccanismo per determinare il tenant in cui si trovano. Un'applicazione con un singolo tenant deve solo cercare un utente nella propria directory, mentre un'applicazione multi-tenant deve identificare un utente specifico in tutte le directory in Azure AD. A questo scopo, Azure AD fornisce un endpoint di autenticazione comune in cui qualsiasi applicazione multi-tenant può indirizzare le richieste di accesso, invece di un endpoint specifico di un tenant. Questo endpoint è `https://login.microsoftonline.com/common` per tutte le directory in Azure AD, mentre un endpoint specifico del tenant può essere `https://login.microsoftonline.com/contoso.onmicrosoft.com`. L'endpoint comune è particolarmente importante da considerare quando si sviluppa l'applicazione perché è necessaria la logica necessaria per gestire più tenant durante l'accesso, la disconnessione e la convalida dei token.
 
 Se si sviluppa un'applicazione con un singolo tenant, ma si intende metterla a disposizione di molte organizzazioni, è possibile modificare facilmente l'applicazione e la relativa configurazione in Azure AD per fare in modo che supporti più tenant. Azure AD usa inoltre la stessa chiave di firma per tutti i token in tutte le directory, a prescindere dal fatto che si fornisca l'autenticazione in un'applicazione con un singolo tenant o multi-tenant.
 
-Ogni scenario indicato in questo documento include una sottosezione in cui sono descritti i relativi requisiti di provisioning. Per informazioni più approfondite sul provisioning di un'applicazione in Azure AD e sulle differenze tra applicazioni singole e multi-tenant, vedere [Integrazione di applicazioni con Azure Active Directory](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) per altre informazioni. Di seguito sono illustrati gli scenari di applicazione più comuni in Azure AD.
+Ogni scenario indicato in questo documento include una sottosezione in cui sono descritti i relativi requisiti di provisioning. Per informazioni più dettagliate sul provisioning di un'applicazione in Azure AD e sulle differenze tra applicazioni single e multi-tenant, vedere [integrazione di applicazioni con Azure Active Directory](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) per altre informazioni. Di seguito sono illustrati gli scenari di applicazione più comuni in Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

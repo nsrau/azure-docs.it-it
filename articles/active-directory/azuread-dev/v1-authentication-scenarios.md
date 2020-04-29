@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154730"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
@@ -132,7 +132,7 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | Issued At | Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
 | Issuer | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
 | Cognome | Fornisce il cognome dell'utente come è impostato in Azure AD. |
-| Nome | Fornisce un valore leggibile che identifica l'oggetto del token. |
+| Name | Fornisce un valore leggibile che identifica l'oggetto del token. |
 | ID dell'oggetto. | Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
 | Ruoli | Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
 | Scope | Indica le autorizzazioni concesse all'applicazione client. |
@@ -140,7 +140,7 @@ La tabella seguente fornisce una breve descrizione dei tipi di attestazione gene
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
 | Nome entità utente | Contiene il nome dell'entità utente dell'oggetto. |
-| Version | Contiene il numero di versione del token. |
+| Versione | Contiene il numero di versione del token. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,10 +8,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529108"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Come creare una condivisione file di Azure Premium
@@ -52,7 +52,7 @@ Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. 
     ![Come creare un account di archiviazione per una condivisione file Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
-1. Seleziona **Crea**.
+1. Selezionare **Crea**.
 
 Una volta creata la risorsa dell'account di archiviazione, passare a essa.
 
@@ -67,7 +67,7 @@ Una volta creata la risorsa dell'account di archiviazione, passare a essa.
 
    ![Creare una condivisione file premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
-### <a name="clean-up-resources"></a>Pulire le risorse
+### <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Per pulire le risorse create in questo articolo, è possibile eliminare semplicemente il gruppo di risorse. L'eliminazione del gruppo di risorse Elimina anche l'account di archiviazione associato e tutte le altre risorse associate al gruppo di risorse.
 
@@ -132,7 +132,7 @@ New-AzStorageShare `
    -Context $storageAcct.Context
 ```
 
-### <a name="clean-up-resources"></a>Pulire le risorse
+### <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Per rimuovere il gruppo di risorse e tutte le risorse correlate, incluso il nuovo account di archiviazione, usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
 
@@ -198,7 +198,7 @@ az storage share create \
     --name "myshare" 
 ```
 
-### <a name="clean-up-resources"></a>Pulire le risorse
+### <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Per rimuovere il gruppo di risorse e tutte le risorse correlate, incluso il nuovo account di archiviazione, usare il comando [az group delete](/cli/azure/group).
 

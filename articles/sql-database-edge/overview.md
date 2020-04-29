@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 03/24/2020
 ms.openlocfilehash: d5c48b6036065f6182912c21c144cab80fc3cfbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246705"
 ---
 # <a name="what-is-azure-sql-database-edge-preview"></a>Che cos'è l'anteprima di Edge del database SQL di Azure?

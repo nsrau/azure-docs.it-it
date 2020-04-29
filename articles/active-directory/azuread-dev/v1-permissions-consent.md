@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154475"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
@@ -27,14 +27,14 @@ ms.locfileid: "80154475"
 
 Azure Active Directory (Azure AD) fa ampio uso delle autorizzazioni per i flussi OAuth e OpenID Connect (OIDC). Quando l'app riceve un token di accesso da Azure AD, il token di accesso include le attestazioni che descrivono le autorizzazioni dell'app in relazione a una particolare risorsa.
 
-*Le autorizzazioni,* note anche come *ambiti, semplificano*l'autorizzazione per la risorsa perché la risorsa deve solo verificare che il token contenga l'autorizzazione appropriata per qualsiasi APP chiamata dall'app.
+Le *autorizzazioni*, note anche come *ambiti*, semplificano l'autorizzazione per la risorsa perché la risorsa deve solo controllare che il token contenga l'autorizzazione appropriata per qualsiasi API chiamata dall'app.
 
 ## <a name="types-of-permissions"></a>Tipi di autorizzazioni
 
 Azure AD definisce due tipi di autorizzazioni:
 
-* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di acconsentire direttamente all'API e [richiederebbe invece a un amministratore di fornire "consenso amministrativo".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
-* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere [concesse solo dagli amministratori](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati oltre i limiti dell'utente o ai dati che altrimenti sarebbero limitati agli amministratori. Gli utenti definiti come proprietari dell'applicazione per le risorse (ovvero l'API che pubblica le autorizzazioni) sono inoltre autorizzati a concedere le autorizzazioni dell'applicazione per le API di cui sono proprietari.
+* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di acconsentire direttamente all'API e [richiederebbe invece a un amministratore di fornire il consenso dell'amministratore](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere [consentite solo dagli amministratori](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati attraverso i limiti utente o ai dati che altrimenti sarebbero limitati agli amministratori. Gli utenti definiti come proprietari dell'applicazione della risorsa (ad esempio, l'API che pubblica le autorizzazioni) possono concedere anche le autorizzazioni dell'applicazione per le API di loro proprietà.
 
 Le autorizzazioni valide sono le autorizzazioni che l'app avrà quando effettuerà le richieste a un'API. 
 

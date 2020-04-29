@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246518"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
@@ -119,7 +119,7 @@ Per prima cosa, limitare i dati segnalati a un livello che funziona per l'utente
 
 - Operazione completata
 
-- Operazioni non riuscite
+- Errore
 
 - Interrotto
 
@@ -146,7 +146,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 ![Filtro app client](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Nome|Autenticazione moderna|Descrizione|
+|Name|Autenticazione moderna|Descrizione|
 |---|:-:|---|
 |SMTP autenticato| |Usato dai client POP e IMAP per inviare messaggi di posta elettronica.|
 |Individuazione automatica| |Usato dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.|
@@ -236,7 +236,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - ID applicazione
 - Applicazione
 - Client
-- Location
+- Percorso
 - Indirizzo IP
 - Data
 - Autenticazione a più fattori obbligatoria

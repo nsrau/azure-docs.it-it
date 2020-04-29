@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79478799"
 ---
 # <a name="create-a-media-services-account"></a>Creare un account di Servizi multimediali
@@ -51,7 +51,7 @@ Questo articolo illustra come creare un account di Servizi multimediali usando i
 1. Fare**Media** > clic su **+ Crea una risorsa** > **servizi multimediali**.
 1. Nella sezione **creare un account di servizi multimediali** immettere i valori necessari.
     
-    | Nome | Descrizione |
+    | Name | Descrizione |
     | ---|---|
     |**Nome account**|Immettere il nome del nuovo account di servizi multimediali. Un nome di account di Servizi multimediali deve essere composto solo da lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.|
     |**Sottoscrizione**|Se si hanno più sottoscrizioni, selezionarne una dall'elenco delle sottoscrizioni di Azure a cui si ha accesso.|
@@ -114,7 +114,7 @@ az ams account create --name amsaccount \
    -l westus2 
 ```
 
-### <a name="see-also"></a>Vedi anche
+### <a name="see-also"></a>Vedere anche
 
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [Alleghi una risorsa di archiviazione secondaria a un account di servizi multimediali](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)

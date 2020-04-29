@@ -1,6 +1,6 @@
 ---
-title: Generare un token di sicurezza per accedere al repository IoT Plug and Play Preview . Documenti Microsoft
-description: Generare un token di firma di accesso condiviso da utilizzare quando si accede a un repository di modelli IoT Plug and Play Preview a livello di codice.
+title: Generare un token di sicurezza per accedere al repository Plug and Play Preview | Microsoft Docs
+description: Generare un token di firma di accesso condiviso da usare quando si accede a un archivio del modello Plug and Play di anteprima a livello di codice.
 author: Philmea
 ms.author: philmea
 ms.date: 12/27/2019
@@ -9,19 +9,19 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: f008627317588467d731ccc03aec7738f58e46e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80159201"
 ---
 # <a name="generate-sas-token"></a>Generare il token di firma di accesso condiviso
 
-Questa guida alle procedure illustra come generare a livello di codice un token sAS (Shared Access Signature) da usare con le API del repository del modello Plug and Play Preview IoT.
+Questa guida illustra come generare un token di firma di accesso condiviso a livello di codice da usare con le API del repository del modello Plug and Play di anteprima.
 
 ## <a name="python"></a>Python
 
-Il frammento di codice seguente illustra come generare un token di firma di accesso condiviso usando Python:The following snippet shows you how to generate a SAS token using Python:
+Il frammento di codice seguente illustra come generare un token SAS con Python:
 
 ```python
 from base64 import b64decode, b64encode
@@ -46,7 +46,7 @@ def calculate_sas_token(hostname, repo_id, key_name, key, expiry_in_second):
 
 ## <a name="c"></a>C\#
 
-Il frammento di codice seguente illustra come\#generare un token di firma di accesso condiviso usando C:The following snippet shows you how to generate a SAS token using C:
+Il frammento di codice seguente illustra come generare un token SAS usando\#C:
 
 ```csharp
 public static string generateSasToken(string hostName, string repoId, string key, string keyName, int expiryInSeconds = 3600)
@@ -72,7 +72,7 @@ public static string generateSasToken(string hostName, string repoId, string key
 }
 ```
 
-## <a name="use-the-sas-token"></a>Usare il token di firma di accesso condivisoUse the SAS token
+## <a name="use-the-sas-token"></a>Usare il token SAS
 
 Dopo aver generato un token di firma di accesso condiviso, è possibile usarlo per effettuare una richiesta HTTP POST. Ad esempio:
 
@@ -80,8 +80,8 @@ Dopo aver generato un token di firma di accesso condiviso, è possibile usarlo p
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview
 ```
 
-Se si fornisce a un client un token di firma di accesso condiviso, il client non dispone della chiave primaria della risorsa e non può invertire l'hash per ottenerlo. Un token di firma di accesso condiviso consente di controllare gli elementi a cui il client può accedere e per quanto tempo. Quando si modifica la chiave primaria nei criteri, tutti i token di firma di accesso condiviso creati da esso vengono invalidati.
+Se si assegna a un client un token SAS, il client non ha la chiave primaria della risorsa e non può invertire l'hash per ottenerlo. Un token di firma di accesso condiviso consente di controllare ciò che il client può accedere e per quanto tempo. Quando si modifica la chiave primaria nel criterio, eventuali token di firma di accesso condiviso creati da esso vengono invalidati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che hai imparato a generare token di sicurezza da utilizzare per accedere ai repository del modello IoT Plug and Play Preview, un passaggio successivo consigliato è quello di saperne di più nella Guida per gli sviluppatori di [modellazione di IoT Plug and Play Preview](concepts-developer-guide.md).
+Ora che si è appreso come generare i token di sicurezza da usare per accedere ai repository del modello Plug and Play di anteprima, un passaggio successivo suggerito consiste nell'acquisire altre informazioni nella Guida per gli [sviluppatori di modeling plug and Play Preview](concepts-developer-guide.md).

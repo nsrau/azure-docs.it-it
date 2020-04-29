@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: 688183bc07aa14d5e5df182d7de0897cec93f0b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066240"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connettere un gateway VPN (gateway di rete virtuale) alla rete WAN virtuale
@@ -31,7 +31,7 @@ Rete WAN virtuale di Azure
 
 Rete virtuale di Azure
 
-* Creare una rete virtuale senza gateway di rete virtuale. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nel portale di Azure, vedere l'[Avvio rapido](../virtual-network/quick-create-portal.md).
+* Creare una rete virtuale senza gateway di rete virtuale. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nella portale di Azure, vedere la [Guida introduttiva](../virtual-network/quick-create-portal.md).
 
 ## <a name="1-create-an-azure-virtual-network-gateway"></a><a name="vnetgw"></a>1. creare un gateway di rete virtuale di Azure
 

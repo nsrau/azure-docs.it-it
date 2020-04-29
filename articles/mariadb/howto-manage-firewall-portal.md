@@ -1,5 +1,5 @@
 ---
-title: Gestire le regole del firewall - Portale di Azure - Database di Azure per MariaDBManage firewall rules - Azure portal - Azure Database for MariaDB
+title: Gestire le regole del firewall-portale di Azure-database di Azure per MariaDB
 description: Creare e gestire le regole del firewall di Database di Azure per MariaDB con il portale di Azure
 author: ajlam
 ms.author: andrela
@@ -7,16 +7,16 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 8be8e948595cfb93049c0d6c93f421e4902e771d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530666"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Creare e gestire le regole del firewall di Database di Azure per MariaDB con il portale di Azure
-Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per MariaDB Server da un indirizzo IP specificato o da un intervallo di indirizzi IP.
+Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per il server MariaDB da un indirizzo IP specificato o da un intervallo di indirizzi IP.
 
-Le regole di rete virtuale (VNet) possono essere utilizzate anche per proteggere l'accesso al server. Altre informazioni sulla creazione e la gestione di endpoint e regole del servizio di rete virtuale tramite il portale di Azure.Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-portal.md).
+Le regole della rete virtuale (VNet) possono essere usate anche per proteggere l'accesso al server. Altre informazioni sulla [creazione e la gestione di endpoint e regole del servizio rete virtuale usando il portale di Azure](howto-manage-vnet-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creare una regola del firewall a livello di server nel portale di Azure
 
@@ -55,5 +55,5 @@ Ripetere i passaggi per gestire le regole del firewall.
 * Per eliminare una regola esistente, fare clic sui puntini di sospensione (…) e quindi su **Elimina**. Fare clic su **Salva** per salvare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
- - Analogamente, è possibile creare e gestire lo script per creare e gestire le regole del firewall del database di [Azure per MariaDB usando l'interfaccia della riga di comando](howto-manage-firewall-cli.md)di Azure.
- - Proteggere ulteriormente l'accesso al server [creando e gestendo gli endpoint e le regole](howto-manage-vnet-portal.md)del servizio Rete virtuale tramite il portale di Azure.
+ - Analogamente, è possibile creare uno script per [creare e gestire regole del firewall di database di Azure per MariaDB usando l'interfaccia della riga](howto-manage-firewall-cli.md)di comando
+ - Proteggere ulteriormente l'accesso al server [creando e gestendo gli endpoint e le regole del servizio rete virtuale usando il portale di Azure](howto-manage-vnet-portal.md).

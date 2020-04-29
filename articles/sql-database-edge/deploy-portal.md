@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 9da922de38d820864b3f83de80fe64eb3ac792e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246722"
 ---
 # <a name="deploy-azure-sql-database-edge-preview"></a>Distribuire l'anteprima perimetrale del database SQL di Azure
@@ -58,7 +58,7 @@ Azure Marketplace è un marketplace online di servizi e applicazioni dove è pos
 
    |**Parametro**  |**Descrizione**|
    |---------|---------|
-   | Nome | Nome del modulo. |
+   | Name | Nome del modulo. |
    |SA_PASSWORD  | Specificare una password complessa per l'account amministratore perimetrale del database SQL. |
    |MSSQL_LCID   | Imposta l'ID della lingua da usare per SQL Server. Ad esempio, 1036 è francese. |
    |MSSQL_COLLATION | Imposta le regole di confronto per SQL Server. Questa impostazione esegue l'override del mapping predefinito dell'ID lingua (LCID) alle regole di confronto. |

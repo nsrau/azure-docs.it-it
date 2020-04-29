@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Informazioni su come eseguire Azure Dev Spaces in un cluster esistente con i contenitori di Windows
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, contenitori di Windows
 ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240492"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagire con i contenitori di Windows usando Azure Dev Spaces
@@ -161,7 +161,7 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-È possibile visualizzare il servizio in esecuzione aprendo l'URL pubblico, che viene visualizzato nell'output del comando azds up. In questo esempio l'URL pubblico è `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Passare al servizio in un browser e fare clic su *About (informazioni* ) nella parte superiore. Verificare che venga visualizzato un messaggio dal servizio *mywebapi* contenente la versione di Windows usata dal contenitore.
+È possibile visualizzare il servizio in esecuzione aprendo l'URL pubblico, che viene visualizzato nell'output del comando azds up. In questo esempio l'URL pubblico è `http://dev.webfrontend.abcdef0123.eus.azds.io/` . Passare al servizio in un browser e fare clic su *About (informazioni* ) nella parte superiore. Verificare che venga visualizzato un messaggio dal servizio *mywebapi* contenente la versione di Windows usata dal contenitore.
 
 ![App di esempio che mostra la versione di Windows da mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 

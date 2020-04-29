@@ -1,26 +1,26 @@
 ---
-title: Distribuire più istanze di risorseDeploy multiple instances of resources
-description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager per distribuire il tipo di risorsa più volte.
+title: Distribuire più istanze di risorse
+description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager per distribuire il tipo di risorsa molte volte.
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153319"
 ---
-# <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARMResource iteration in ARM templates
+# <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARM
 
-Questo articolo illustra come creare più di un'istanza di una risorsa nel modello azure Resource Manager (ARM). Aggiungendo l'elemento **copy** alla sezione resources del modello, è possibile impostare dinamicamente il numero di risorse da distribuire. Si evita inoltre di dover ripetere la sintassi del modello.
+Questo articolo illustra come creare più di un'istanza di una risorsa nel modello di Azure Resource Manager (ARM). Aggiungendo l'elemento **Copy** alla sezione Resources del modello, è possibile impostare dinamicamente il numero di risorse da distribuire. È anche possibile evitare di ripetere la sintassi del modello.
 
-È inoltre possibile utilizzare copy con [proprietà,](copy-properties.md) [variabili](copy-variables.md) e [output](copy-outputs.md).
+È anche possibile usare copia con [Proprietà](copy-properties.md), [variabili](copy-variables.md) e [output](copy-outputs.md).
 
 Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](conditional-resource-deployment.md).
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
 
-L'elemento copy ha il seguente formato generale:
+Il formato generale dell'elemento Copy è il seguente:
 
 ```json
 "copy": {
@@ -31,11 +31,11 @@ L'elemento copy ha il seguente formato generale:
 }
 ```
 
-La proprietà **name** è qualsiasi valore che identifica il ciclo. La proprietà **count** specifica il numero di iterazioni desiderato per il tipo di risorsa.
+La proprietà **Name** è qualsiasi valore che identifica il ciclo. La proprietà **count** specifica il numero di iterazioni desiderate per il tipo di risorsa.
 
-Utilizzare le proprietà **mode** e **batchSize** per specificare se le risorse vengono distribuite in parallelo o in sequenza. Queste proprietà sono descritte in [Serial e Parallel](#serial-or-parallel).
+Usare le proprietà **mode** e **BatchSize** per specificare se le risorse vengono distribuite in parallelo o in sequenza. Queste proprietà sono descritte in [serie o in parallelo](#serial-or-parallel).
 
-Nell'esempio seguente viene creato il numero di account di archiviazione specificati nel parametro **storageCount.**
+Nell'esempio seguente viene creato il numero di account di archiviazione specificato nel parametro **storageCount** .
 
 ```json
 {
@@ -80,7 +80,7 @@ Crea questi nomi:
 * storage1
 * storage2
 
-Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Il numero di iterazioni è ancora specificato nell'elemento copy, ma il valore di copyIndex è compensato dal valore specificato. Quindi l'esempio seguente:
+Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione copyIndex(). Il numero di iterazioni è ancora specificato nell'elemento Copy, ma il valore di copyIndex è offset in base al valore specificato. Quindi l'esempio seguente:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -94,7 +94,7 @@ Crea questi nomi:
 
 L'operazione di copia è utile quando si lavora con le matrici in quanto è possibile iterare ogni elemento della matrice. Usare la funzione `length` nella matrice per specificare il conteggio per le iterazioni e `copyIndex` per recuperare l'indice corrente nella matrice.
 
-L'esempio seguente crea un account di archiviazione per ogni nome fornito nel parametro.
+Nell'esempio seguente viene creato un account di archiviazione per ogni nome specificato nel parametro.
 
 ```json
 {
@@ -131,11 +131,11 @@ L'esempio seguente crea un account di archiviazione per ogni nome fornito nel pa
 }
 ```
 
-Se si desidera restituire valori dalle risorse distribuite, è possibile utilizzare [copy nella sezione outputs](copy-outputs.md).
+Se si desidera restituire valori dalle risorse distribuite, è possibile usare [Copy nella sezione Outputs](copy-outputs.md).
 
-## <a name="serial-or-parallel"></a>Seriale o parallelo
+## <a name="serial-or-parallel"></a>Seriale o parallela
 
-Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. Non applica alcun limite al numero di risorse distribuite in parallelo, ad esempio il limite totale di 800 risorse nel modello. L'ordine di creazione non è garantito.
+Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. Non viene applicato alcun limite al numero di risorse distribuite in parallelo, oltre al limite totale di 800 risorse nel modello. L'ordine di creazione non è garantito.
 
 Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento. Per distribuire in modo seriale più istanze di una risorsa, impostare `mode` su **serial** e `batchSize` sul numero di istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
 
@@ -172,7 +172,7 @@ La proprietà mode accetta anche **parallel**, che è il valore predefinito.
 
 ## <a name="depend-on-resources-in-a-loop"></a>In base alle risorse in un ciclo
 
-L'elemento `dependsOn` consente di specificare che una risorsa sia distribuita dopo un'altra. Per distribuire una risorsa che dipende dalla raccolta di risorse in un ciclo, usare il nome del ciclo di copia nell'elemento dependsOn. Nell'esempio seguente viene illustrato come distribuire tre account di archiviazione prima di distribuire la macchina virtuale. La definizione completa della macchina virtuale non viene visualizzata. Si noti che l'elemento copy ha name impostato su `storagecopy` e `storagecopy`l'elemento dependsOn per la macchina virtuale è impostato anche su .
+L'elemento `dependsOn` consente di specificare che una risorsa sia distribuita dopo un'altra. Per distribuire una risorsa che dipende dalla raccolta di risorse in un ciclo, usare il nome del ciclo di copia nell'elemento dependsOn. Nell'esempio seguente viene illustrato come distribuire tre account di archiviazione prima di distribuire la macchina virtuale. La definizione completa della macchina virtuale non viene visualizzata. Si noti che il nome dell'elemento Copy è `storagecopy` impostato su e anche l'elemento dependsOn per la macchina virtuale è `storagecopy`impostato su.
 
 ```json
 {
@@ -260,11 +260,11 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 ## <a name="copy-limits"></a>Limiti di copia
 
-Il conteggio non può superare 800.
+Il conteggio non può essere maggiore di 800.
 
-Il conteggio non può essere un numero negativo. Se si distribuisce un modello con Azure PowerShell 2.6 o versione successiva, l'interfaccia della riga di comando di Azure 2.0.74 o successiva o la versione dell'API REST **2019-05-10** o successiva, è possibile impostare count su zero. Le versioni precedenti di PowerShell, CLI e l'API REST non supportano zero per count.
+Il conteggio non può essere un numero negativo. Se si distribuisce un modello con Azure PowerShell 2,6 o versioni successive, l'interfaccia della riga di comando di Azure 2.0.74 o versione successiva o l'API REST versione **2019-05-10** o successiva, è possibile impostare Count su zero. Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
 
-Prestare attenzione a utilizzare la [distribuzione in modalità completa](deployment-modes.md) con copia. Se si ridistribuisce con la modalità completa in un gruppo di risorse, tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia vengono eliminate.
+Prestare attenzione quando si usa la [distribuzione in modalità completa](deployment-modes.md) con Copy. Se si esegue la ridistribuzione con la modalità completa in un gruppo di risorse, tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
 
 ## <a name="example-templates"></a>Modelli di esempio
 
@@ -280,12 +280,12 @@ Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più ista
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione, vedere [Esercitazione: creare più istanze](template-tutorial-create-multiple-instances.md)di risorse utilizzando i modelli ARM .
-* Per altri utilizzi dell'elemento copy, vedere:
-  * [Iterazione delle proprietà nei modelli ARMProperty iteration in ARM templates](copy-properties.md)
-  * [Iterazione variabile nei modelli ARMVariable iteration in ARM templates](copy-variables.md)
-  * [Iterazione di output nei modelli ARMOutput iteration in ARM templates](copy-outputs.md)
-* Per informazioni sull'utilizzo della copia con i modelli nidificati, consultate [Utilizzo della copia.](linked-templates.md#using-copy)
-* Per informazioni sulle sezioni di un modello, vedere Creazione di [modelli ARM](template-syntax.md).
-* Per informazioni su come distribuire il modello, vedere [Distribuire un'applicazione con il modello ARM.](deploy-powershell.md)
+* Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse usando i modelli ARM](template-tutorial-create-multiple-instances.md).
+* Per altri usi dell'elemento Copy, vedere:
+  * [Iterazione delle proprietà nei modelli ARM](copy-properties.md)
+  * [Iterazione delle variabili nei modelli ARM](copy-variables.md)
+  * [Iterazione di output nei modelli ARM](copy-outputs.md)
+* Per informazioni sull'uso di Copy con i modelli annidati, vedere [uso di Copy](linked-templates.md#using-copy).
+* Per informazioni sulle sezioni di un modello, vedere [creazione di modelli ARM](template-syntax.md).
+* Per informazioni su come distribuire il modello, vedere [distribuire un'applicazione con il modello ARM](deploy-powershell.md).
 

@@ -4,10 +4,10 @@ description: Quando si usa la gestione delle risorse delegata di Azure, è impor
 ms.date: 03/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246909"
 ---
 # <a name="recommended-security-practices"></a>Procedure di sicurezza consigliate
@@ -31,7 +31,7 @@ Quando si crea la struttura di autorizzazioni, assicurarsi di seguire il princip
 
 È ad esempio possibile usare una struttura simile alla seguente:
 
-|Nome gruppo  |Type  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
+|Nome gruppo  |Tipo  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
 |---------|---------|---------|---------|---------|
 |Architetti     |Gruppo utenti         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Valutazione     |Gruppo utenti         |\<principalId\>         |Lettore         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

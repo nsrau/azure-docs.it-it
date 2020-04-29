@@ -1,5 +1,5 @@
 ---
-title: Supporto per il portale per i partner cloud Azure Marketplace
+title: Supporto per portale Cloud Partner | Azure Marketplace
 description: Richiedere assistenza nel portale Cloud Partner.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dsindona
 ms.openlocfilehash: d27482fbec91700f24e5d0f25d4796ab24f1a9e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80276173"
 ---
 # <a name="get-support-for-cloud-partner-portal"></a>Supporto per il portale Cloud Partner
@@ -19,13 +19,13 @@ ms.locfileid: "80276173"
 Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi.
 Assicurarsi che la query rilevi il team di supporto corretto è importante per garantire una risposta appropriata e tempestiva. Considerare gli scenari seguenti, che possono essere utili per indirizzare la propria richiesta al team appropriato:
 
--   Se sei un editore e hai una domanda di un cliente, chiedi al cliente di richiedere supporto usando i collegamenti di supporto nel portale di [Azure](https://portal.azure.com/)
+-   Se si è un editore e si ha una domanda da parte di un cliente, chiedere al cliente di richiedere supporto tramite i collegamenti di supporto nel [portale di Azure](https://portal.azure.com/)
 
 -   Se l'utente è un editore e deve porre una domanda in relazione all'app o al servizio in uso, può esaminare i passaggi seguenti per aprire un ticket di supporto.
 
 ## <a name="to-open-a-support-ticket"></a>Per aprire un ticket di supporto
 
-1. Vai al [portale Cloud Partner](https://cloudpartner.azure.com/) e accedi con il tuo account aziendale o dell'istituto di istruzione.
+1. Passare a [portale cloud partner](https://cloudpartner.azure.com/) e accedere con l'account aziendale o dell'Istituto di istruzione.
 
 2. Nel menu in alto a destra nella pagina selezionare l'icona della **Guida** e quindi selezionare **Supporto tecnico**.
 

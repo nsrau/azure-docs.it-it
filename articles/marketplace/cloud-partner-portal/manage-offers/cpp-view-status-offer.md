@@ -1,5 +1,5 @@
 ---
-title: Visualizza lo stato delle offerte del marketplace Azure Marketplace
+title: Visualizzare lo stato delle offerte del Marketplace | Azure Marketplace
 description: Visualizzare lo stato delle offerte in Azure Marketplace e nel marketplace di AppSource usando il portale Cloud Partner
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: dsindona
 ms.openlocfilehash: 0cbe6a45ba205f32a764bdadb021dc0dcf5bf0cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275969"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Visualizzare lo stato di pubblicazione delle offerte di Azure Marketplace e AppSource
@@ -39,7 +39,7 @@ La scheda **Stato** dell'esempio successivo relativa a un servizio di consulenza
 
 ![Scheda Stato relativa a un servizio di consulenza contenente un errore](./media/consulting-service-error.png)
 
-La scheda Stato dell'esempio finale relativo a un'applicazione di Azure mostra un problema di revisione Microsoft critico.  Contiene un collegamento a caldo all'elemento DevOps di Azure che contiene informazioni dettagliate su questo problema di revisione.  Per altre informazioni, vedere [Pubblicare un'offerta di applicazione di Azure](cpp-publish-offer.md).
+La scheda Stato dell'esempio finale relativo a un'applicazione di Azure mostra un problema di revisione Microsoft critico.  Contiene un collegamento attivo all'elemento DevOps di Azure che contiene informazioni dettagliate su questo problema di revisione.  Per altre informazioni, vedere [Pubblicare un'offerta di applicazione di Azure](cpp-publish-offer.md).
 
 ![Scheda Stato relativa a un'app di Azure contenente un problema di revisione](../azure-applications/media/status-tab-ms-review.png)
 

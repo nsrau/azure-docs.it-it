@@ -5,25 +5,25 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239369"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
-Questo articolo descrive come Azure Resource Manager limita le richieste. Viene illustrato come tenere traccia del numero di richieste rimanenti prima di raggiungere il limite e come rispondere quando è stato raggiunto il limite.
+Questo articolo descrive come Azure Resource Manager limita le richieste. Mostra come tenere traccia del numero di richieste rimanenti prima di raggiungere il limite e come rispondere quando è stato raggiunto il limite.
 
-La limitazione delle richieste avviene a due livelli. Azure Resource Manager limita le richieste per la sottoscrizione e il tenant. Se la richiesta è inferiore ai limiti di limitazione per la sottoscrizione e il tenant, Resource Manager instrada la richiesta al provider di risorse. Il provider di risorse applica limiti di limitazione personalizzati alle operazioni. L'immagine seguente mostra come viene applicata la limitazione delle richieste quando una richiesta passa dall'utente a Azure Resource Manager e al provider di risorse.
+La limitazione avviene a due livelli. Azure Resource Manager limita le richieste per la sottoscrizione e il tenant. Se la richiesta è limitata ai limiti di limitazione per la sottoscrizione e il tenant, Gestione risorse instrada la richiesta al provider di risorse. Il provider di risorse applica limiti di limitazione delle richieste personalizzati per le relative operazioni. Nell'immagine seguente viene illustrato come viene applicata la limitazione delle richieste da parte dell'utente a Azure Resource Manager e al provider di risorse.
 
-![Limitazione delle richiesteRequest throttling](./media/request-limits-and-throttling/request-throttling.svg)
+![Limitazione richieste](./media/request-limits-and-throttling/request-throttling.svg)
 
-## <a name="subscription-and-tenant-limits"></a>Limiti di sottoscrizione e tenantSubscription and tenant limits
+## <a name="subscription-and-tenant-limits"></a>Limiti di sottoscrizione e tenant
 
-Ogni operazione a livello di sottoscrizione e a livello di tenant è soggetta a limiti di limitazione. Le richieste di sottoscrizione sono quelle che implicano il passaggio dell'ID sottoscrizione, ad esempio il recupero dei gruppi di risorse nella sottoscrizione. Le richieste relative al tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
+Ogni operazione a livello di sottoscrizione e di tenant è soggetta a limiti di limitazione. Le richieste di sottoscrizione sono quelle che coinvolgono il passaggio dell'ID sottoscrizione, ad esempio il recupero dei gruppi di risorse nella sottoscrizione. Le richieste relative al tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
 
-I limiti di limitazione di limitazione predefiniti all'ora sono illustrati nella tabella seguente.
+La tabella seguente illustra i limiti di limitazione predefiniti per ora.
 
 | Scope | Operazioni | Limite |
 | ----- | ---------- | ------- |
@@ -35,13 +35,13 @@ I limiti di limitazione di limitazione predefiniti all'ora sono illustrati nella
 
 L'ambito di questi limiti è l'entità di sicurezza (utente o applicazione) che effettua le richieste e l'ID sottoscrizione o l'ID tenant. Se le richieste provengono da più di un'entità di sicurezza, il limite per la sottoscrizione o il tenant è superiore a 12.000 e 1.200 richieste per ora.
 
-Questi limiti si applicano a ogni istanza di Azure Resource Manager. Sono presenti più istanze in ogni area di Azure e Azure Resource Manager viene distribuito a tutte le aree di Azure,  Quindi, in pratica, i limiti sono superiori a questi limiti. Le richieste di un utente vengono in genere gestite da istanze diverse di Azure Resource Manager.The requests from a user are usually handled by different instances of Azure Resource Manager.
+Questi limiti si applicano a ogni istanza di Azure Resource Manager. Sono presenti più istanze in ogni area di Azure e Azure Resource Manager viene distribuito a tutte le aree di Azure,  Quindi, in pratica, i limiti sono superiori a questi limiti. Le richieste provenienti da un utente vengono in genere gestite da istanze diverse di Azure Resource Manager.
 
 ## <a name="resource-provider-limits"></a>Limiti del provider di risorse
 
-I provider di risorse applicano i propri limiti di limitazione. Poiché Resource Manager limita in base all'ID entità e all'istanza di Resource Manager, il provider di risorse potrebbe ricevere più richieste rispetto ai limiti predefiniti nella sezione precedente.
+I provider di risorse applicano limiti di limitazione. Poiché Gestione risorse limitazione in base all'ID entità e all'istanza di Gestione risorse, il provider di risorse potrebbe ricevere più richieste rispetto ai limiti predefiniti nella sezione precedente.
 
-In questa sezione vengono illustrati i limiti di limitazione di alcuni provider di risorse ampiamente utilizzati.
+Questa sezione illustra i limiti di limitazione di alcuni provider di risorse ampiamente usati.
 
 ### <a name="storage-throttling"></a>Limitazione del servizio di archiviazione
 
@@ -49,32 +49,32 @@ In questa sezione vengono illustrati i limiti di limitazione di alcuni provider 
 
 ### <a name="network-throttling"></a>Limitazione della larghezza di banda della rete
 
-Il provider di risorse Microsoft.Network applica i limiti di limitazione seguenti:The Microsoft.Network resource provider applies the following throttle limits:
+Il provider di risorse Microsoft. Network applica i limiti di limitazione seguenti:
 
 | Operazione | Limite |
 | --------- | ----- |
-| scrivere/eliminare (PUT) | 1000 per 5 minuti |
-| lettura (GET) | 10000 per 5 minuti |
+| scrittura/eliminazione (PUT) | 1000 ogni 5 minuti |
+| lettura (GET) | 10000 ogni 5 minuti |
 
-### <a name="compute-throttling"></a>Limitazione del calcolo
+### <a name="compute-throttling"></a>Limitazione delle richieste di calcolo
 
-Per informazioni sui limiti di limitazione per le operazioni di calcolo, vedere Risoluzione degli errori di [limitazione delle API - Calcolo](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+Per informazioni sui limiti di limitazione delle operazioni di calcolo, vedere [risoluzione degli errori di limitazione API-calcolo](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
 
-Per controllare le istanze di macchine virtuali all'interno di un set di scalabilità di macchine virtuali, utilizzare le operazioni Set di [scalabilità](/rest/api/compute/virtualmachinescalesetvms)di macchine virtuali . Ad esempio, usare le macchine virtuali del set di [scalabilità](/rest/api/compute/virtualmachinescalesetvms/list) delle macchine virtuali - Elenco con parametri per controllare lo stato di alimentazione delle istanze della macchina virtuale. Questa API riduce il numero di richieste.
+Per controllare le istanze di macchine virtuali in un set di scalabilità di macchine virtuali, usare le [operazioni dei set di scalabilità di macchine virtuali](/rest/api/compute/virtualmachinescalesetvms). Ad esempio, usare il [set di scalabilità di macchine virtuali VM-list](/rest/api/compute/virtualmachinescalesetvms/list) con i parametri per verificare lo stato di alimentazione delle istanze di macchine virtuali. Questa API riduce il numero di richieste.
 
-### <a name="azure-resource-graph-throttling"></a>Limitazione di Azure Resource GraphAzure Resource Graph throttling
+### <a name="azure-resource-graph-throttling"></a>Limitazione del grafico delle risorse di Azure
 
-[Azure Resource Graph](../../governance/resource-graph/overview.md) limita il numero di richieste alle relative operazioni. I passaggi descritti in questo articolo per determinare le richieste rimanenti e come rispondere quando viene raggiunto il limite si applicano anche a Resource Graph. Tuttavia, Diagramma risorse imposta il proprio limite e la frequenza di reimpostazione. Per ulteriori informazioni, vedere [Intestazioni di limitazione di Resource Graph](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
+Il [grafico delle risorse di Azure](../../governance/resource-graph/overview.md) limita il numero di richieste alle relative operazioni. La procedura descritta in questo articolo per determinare le richieste rimanenti e la modalità di risposta quando viene raggiunto il limite si applica anche al grafico delle risorse. Tuttavia, il grafico risorse imposta il proprio limite e la velocità di reimpostazione. Per ulteriori informazioni, vedere [intestazioni di limitazione delle richieste del grafico delle risorse](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
 
-## <a name="error-code"></a>Codice di errore
+## <a name="error-code"></a>Codice errore
 
-Quando si raggiunge il limite, viene visualizzato il codice di stato HTTP **429 Too many requests** (429 Troppe richieste). La risposta include un valore **Retry-After,** che specifica il numero di secondi di attesa o sospensione dell'applicazione prima di inviare la richiesta successiva. Se si invia una richiesta prima che sia trascorso il valore per la ripetizione del tentativo, la richiesta non viene elaborata e viene restituito un nuovo valore per la ripetizione del tentativo.
+Quando si raggiunge il limite, viene visualizzato il codice di stato HTTP **429 Too many requests** (429 Troppe richieste). La risposta include un valore **Retry-After** , che specifica il numero di secondi di attesa dell'applicazione (o di sospensione) prima di inviare la richiesta successiva. Se si invia una richiesta prima che sia trascorso il valore per la ripetizione del tentativo, la richiesta non viene elaborata e viene restituito un nuovo valore per la ripetizione del tentativo.
 
-Dopo aver attendito il tempo specificato, è anche possibile chiudere e riaprire la connessione ad Azure.After waiting for specified time, you can also close and reopen your connection to Azure. Reimpostando la connessione, è possibile connettersi a un'istanza diversa di Azure Resource Manager.By resetting the connection, you may connect to a different instance of Azure Resource Manager.
+Dopo aver atteso il tempo specificato, è anche possibile chiudere e riaprire la connessione ad Azure. Reimpostando la connessione, è possibile connettersi a un'altra istanza di Azure Resource Manager.
 
-Se si usa Azure SDK, l'SDK potrebbe avere una configurazione di ripetizione dei tentativi automatica. Per altre informazioni, vedere Indicazioni sui tentativi per i servizi di Azure.For more information, see [Retry guidance for Azure services](/azure/architecture/best-practices/retry-service-specific).
+Se si usa Azure SDK, è possibile che l'SDK disponga di una configurazione di ripetizione automatica dei tentativi. Per altre informazioni, vedere [linee guida per i tentativi per i servizi di Azure](/azure/architecture/best-practices/retry-service-specific).
 
-Alcuni provider di risorse restituiscono 429 per segnalare un problema temporaneo. Il problema potrebbe essere una condizione di overload che non è direttamente causata dalla richiesta. In alternativa, potrebbe rappresentare un errore temporaneo sullo stato della risorsa di destinazione o della risorsa dipendente. Ad esempio, il provider di risorse di rete restituisce 429 con il codice di errore **RetryableErrorDueToAnotherOperation** quando la risorsa di destinazione è bloccata da un'altra operazione. Per determinare se l'errore proviene dalla limitazione o da una condizione temporanea, visualizzare i dettagli dell'errore nella risposta.
+Alcuni provider di risorse restituiscono 429 per segnalare un problema temporaneo. Il problema potrebbe essere una condizione di overload che non è causata direttamente dalla richiesta. In alternativa, potrebbe rappresentare un errore temporaneo sullo stato della risorsa di destinazione o della risorsa dipendente. Il provider di risorse di rete, ad esempio, restituisce 429 con il codice di errore **RetryableErrorDueToAnotherOperation** quando la risorsa di destinazione è bloccata da un'altra operazione. Per determinare se l'errore deriva dalla limitazione o da una condizione temporanea, visualizzare i dettagli dell'errore nella risposta.
 
 ## <a name="remaining-requests"></a>Richieste rimanenti
 
@@ -91,7 +91,7 @@ Alcuni provider di risorse restituiscono 429 per segnalare un problema temporane
 | x-ms-ratelimit-remaining-tenant-resource-requests |Richieste di tipo di risorsa rimanenti nell'ambito del tenant.<br /><br />Questa intestazione viene aggiunta solo per le richieste a livello di tenant e solo se un sevizio ha superato il limite predefinito. Resource Manager aggiunge questo valore invece delle richieste di lettura o scrittura per il tenant. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Richieste di raccolta di tipo di risorsa rimanenti nell'ambito del tenant.<br /><br />Questa intestazione viene aggiunta solo per le richieste a livello di tenant e solo se un sevizio ha superato il limite predefinito. |
 
-Il provider di risorse può anche restituire intestazioni di risposta con informazioni sulle richieste rimanenti. Per informazioni sulle intestazioni di risposta restituite dal provider di risorse Compute, vedere Intestazioni di [risposta informative sulla frequenza delle](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers)chiamate .
+Il provider di risorse può anche restituire intestazioni di risposta con informazioni sulle richieste rimanenti. Per informazioni sulle intestazioni di risposta restituite dal provider di risorse di calcolo, vedere [intestazioni della risposta informativa sulla frequenza delle chiamate](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
 
 ## <a name="retrieving-the-header-values"></a>Recupero dei valori di intestazione
 

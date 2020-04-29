@@ -1,6 +1,6 @@
 ---
-title: Connettersi a Windows Virtual Desktop Windows 10 o 7 - AzureConnect to Windows Virtual Desktop Windows 10 or 7 - Azure
-description: Come connettersi a Windows Virtual Desktop utilizzando il client desktop di Windows.
+title: Connettersi a desktop virtuale Windows 10 o 7-Azure
+description: Come connettersi al desktop virtuale di Windows tramite il client desktop di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,25 +9,25 @@ ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b6436059cc8b3637edfc2a146d0aab3e2beae6a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154339"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Connettersi con il client desktop di Windows
 
-> Si applica a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
+> Si applica a: Windows 7, Windows 10 e Windows 10 le aziende
 
-Puoi accedere alle risorse di Windows Virtual Desktop nei dispositivi con Windows 7, Windows 10 e Windows 10 IoT Enterprise usando il client Windows Desktop.
-
-> [!IMPORTANT]
-> Windows Virtual Desktop non supporta il client RemoteApp and Desktop Connections (RADC) o il client di connessione Desktop remoto (MSTSC).
+È possibile accedere alle risorse del desktop virtuale di Windows nei dispositivi con Windows 7, Windows 10 e Windows 10, Enterprise usando il client desktop di Windows.
 
 > [!IMPORTANT]
-> Windows Virtual Desktop attualmente non supporta il client Desktop remoto da Windows Store. Il supporto per questo client verrà aggiunto in una versione futura.
+> Desktop virtuale Windows non supporta il client RADC (RemoteApp and Desktop Connections) o il client Connessione Desktop remoto.
 
-## <a name="install-the-windows-desktop-client"></a>Installare il client Windows Desktop
+> [!IMPORTANT]
+> Desktop virtuale Windows non supporta attualmente il client Desktop remoto di Windows Store. Il supporto per questo client verrà aggiunto in una versione futura.
+
+## <a name="install-the-windows-desktop-client"></a>Installare il client desktop di Windows
 
 Scegli il client che corrisponde alla tua versione di Windows:
 
@@ -41,24 +41,24 @@ Dopo l'installazione, il client può essere avviato dal menu Start cercando **De
 
 ## <a name="subscribe-to-a-feed"></a>Effettuare la sottoscrizione a un feed
 
-Ottenere l'elenco delle risorse gestite disponibili sottoscrivendo il feed fornito dall'amministratore. La sottoscrizione rende le risorse disponibili nel PC locale.
+Ottenere l'elenco di risorse gestite disponibili sottoscrivendo il feed fornito dall'amministratore. La sottoscrizione rende disponibili le risorse nel computer locale.
 
-Per abbonarsi a un feed:
+Per sottoscrivere un feed:
 
-1. Aprire il client Windows Desktop.
-2. Selezionare **Sottoscrivi** nella pagina principale per connettersi al servizio e recuperare le risorse.
+1. Aprire il client desktop di Windows.
+2. Selezionare **sottoscrizione** nella pagina principale per connettersi al servizio e recuperare le risorse.
 3. Accedi con l'account utente quando richiesto.
 
-Dopo aver eseguito correttamente l'accesso, dovrebbe essere visualizzato un elenco delle risorse a cui è possibile accedere.
+Una volta eseguito correttamente l'accesso, verrà visualizzato un elenco delle risorse a cui è possibile accedere.
 
-È possibile avviare le risorse in uno dei due modi seguenti.
+È possibile avviare le risorse in base a uno dei due metodi.
 
-- Dalla pagina principale del client, fare doppio clic su una risorsa per avviarla.
+- Dalla pagina principale del client fare doppio clic su una risorsa per avviarla.
 - Avviare una risorsa come si farebbe normalmente con altre app dal menu Start.
-  - Puoi anche cercare le app nella barra di ricerca.
+  - È anche possibile cercare le app nella barra di ricerca.
 
-Una volta sottoscritto un feed, il contenuto del feed viene aggiornato automaticamente su base regolare. Le risorse possono essere aggiunte, modificate o rimosse in base alle modifiche apportate dall'amministratore.
+Una volta effettuata la sottoscrizione a un feed, il contenuto del feed viene aggiornato automaticamente regolarmente. Le risorse possono essere aggiunte, modificate o rimosse in base alle modifiche apportate dall'amministratore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su come utilizzare il client Windows Desktop, vedere [Introduzione al client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).
+Per ulteriori informazioni sull'utilizzo del client desktop di Windows, vedere [Introduzione al client desktop di Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).

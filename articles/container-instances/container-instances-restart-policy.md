@@ -1,13 +1,13 @@
 ---
-title: Riavviare i criteri per le attività run-once
+title: Criteri di riavvio per le attività Esegui una sola volta
 description: Informazioni su come usare Istanze di Azure Container per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80131501"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Eseguire attività in contenitori con criteri di riavvio
@@ -42,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Eseguire l'esempio di completamento
 
-Per visualizzare i criteri di riavvio in azione, creare un'istanza del `OnFailure` contenitore dall'immagine Microsoft [aci-wordcount][aci-wordcount-image] e specificare il criterio di riavvio. Questo contenitore di esempio esegue uno script di Python che, per impostazione predefinita, analizza il testo [Amleto](http://shakespeare.mit.edu/hamlet/full.html) di Shakespeare, scrive le 10 parole più comuni in STDOUT ed esce.
+Per visualizzare i criteri di riavvio in azione, creare un'istanza di contenitore dall'immagine Microsoft [ACI-WordCount][aci-wordcount-image] e specificare il `OnFailure` criterio di riavvio. Questo contenitore di esempio esegue uno script di Python che, per impostazione predefinita, analizza il testo [Amleto](http://shakespeare.mit.edu/hamlet/full.html) di Shakespeare, scrive le 10 parole più comuni in STDOUT ed esce.
 
 Eseguire il contenitore di esempio con il comando seguente [az container create][az-container-create]:
 
@@ -94,7 +94,7 @@ Questo esempio mostra l'output che lo script ha inviato a STDOUT. Le attività n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono sfruttare [le variabili](container-instances-environment-variables.md) di ambiente personalizzate o le righe di [comando](container-instances-start-command.md) in fase di esecuzione.
+Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono sfruttare le [variabili di ambiente](container-instances-environment-variables.md) o le [righe di comando](container-instances-start-command.md) personalizzate in fase di esecuzione.
 
 Per informazioni dettagliate su come mantenere l'output dei contenitori che vengono eseguiti fino al completamento, vedere [Montaggio di una condivisione file di Azure con Istanze di Azure Container](container-instances-mounting-azure-files-volume.md).
 

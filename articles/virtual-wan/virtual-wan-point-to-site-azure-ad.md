@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: alzam
 ms.openlocfilehash: 703b832d58f2374eac131cfd380ba27f2c890618
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80059496"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurare l'autenticazione Azure Active Directory per la VPN utente
@@ -38,7 +38,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti:
 
-* Si ha una rete virtuale a cui ci si vuole connettere. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nel portale di Azure, vedere l'[Avvio rapido](../virtual-network/quick-create-portal.md).
+* Si ha una rete virtuale a cui ci si vuole connettere. Verificare che nessuna delle subnet della rete locale possa sovrapporsi alle reti virtuali a cui ci si vuole connettere. Per creare una rete virtuale nella portale di Azure, vedere la [Guida introduttiva](../virtual-network/quick-create-portal.md).
 
 * La rete virtuale non presenta alcun gateway di rete virtuale. Se la rete virtuale presenta un gateway (VPN o ExpressRoute) è necessario rimuovere tutti i gateway. Questa configurazione richiede che le reti virtuali siano invece connesse al gateway dell'hub della rete WAN virtuale.
 
@@ -57,7 +57,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
    ![Rete WAN virtuale](./media/virtual-wan-point-to-site-azure-ad/vwan.png)
 
    * **Sottoscrizione** - Selezionare la sottoscrizione che si vuole usare.
-   * **Gruppo di risorse** : Crea nuovo o Usa esistente.
+   * **Gruppo di risorse** - Creare un nuovo gruppo o usarne uno esistente.
    * **Posizione gruppo di risorse** - Scegliere una posizione per le risorse nell'elenco a discesa. Una rete WAN è una risorsa globale e non si trova in un'area specifica. Tuttavia, è necessario selezionare un'area per poter gestire e individuare più facilmente la risorsa WAN creata.
    * **Nome** - Digitare il nome che si vuole usare per la rete WAN.
    * **Tipo:** Standard. Con la creazione di una rete WAN di base è possibile creare solo un hub di base. Gli hub di base possono supportare solo la connettività VPN da sito a sito.
@@ -66,7 +66,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
 
 ## <a name="create-an-empty-virtual-hub"></a><a name="site"></a>Creare un hub virtuale vuoto
 
-1. Nella rete WAN virtuale selezionare Hub e fare clic su **+Nuovo hub**.
+1. Nella rete WAN virtuale selezionare Hub e fare clic su **+ nuovo hub**.
 
    ![nuovo sito](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
 2. Nella pagina Crea hub virtuale completare i campi seguenti.
@@ -79,7 +79,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
 
    ![nuovo sito](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
 3. Fare clic su **Rivedi e crea**.
-4. Nella pagina **Convalida superata** fare clic su **Crea**.
+4. Nella pagina **convalida superata** fare clic su **Crea**.
 
 ## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>Creare una nuova configurazione da punto a sito
 

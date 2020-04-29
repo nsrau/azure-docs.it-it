@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235085"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrare il traffico di rete con un gruppo di sicurezza di rete usando l'interfaccia della riga di comando di Azure
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
@@ -119,7 +119,7 @@ In questo articolo SSH (porta 22) è esposto a Internet per la VM *myAsgMgmtServ
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata *myVirtualNetwork*:
+Creare una rete virtuale con [AZ Network VNET create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata *myVirtualNetwork*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -143,7 +143,7 @@ az network vnet subnet create \
 
 Creare due VM nella rete virtuale per convalidare il filtro del traffico in un passaggio successivo. 
 
-Creare una macchina virtuale con [az vm create](/cli/azure/vm). L'esempio seguente crea una VM che fungerà da server Web. L'opzione `--asgs myAsgWebServers` fa sì che Azure renda l'interfaccia di rete creata per la VM un membro del gruppo di sicurezza delle applicazioni *myAsgWebServers*.
+Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una VM che fungerà da server Web. L'opzione `--asgs myAsgWebServers` fa sì che Azure renda l'interfaccia di rete creata per la VM un membro del gruppo di sicurezza delle applicazioni *myAsgWebServers*.
 
 L'opzione `--nsg ""` è specificata per impedire ad Azure di creare un gruppo di sicurezza di rete predefinito per l'interfaccia di rete creata da Azure al momento della creazione della VM. Per semplificare questo articolo, viene usata una password. Le chiavi in genere vengono usate per le distribuzioni di produzione. Se si usano chiavi, occorre configurare anche l'inoltro dell'agente SSH per i passaggi rimanenti. Per altre informazioni, vedere la documentazione del client SSH. Sostituire `<replace-with-your-password>` nel comando seguente con una password a scelta.
 
@@ -230,9 +230,9 @@ Nella VM *myVmWeb* è consentito il traffico in uscita a Internet per recuperare
 curl myVmWeb
 ```
 
-Disconnettersi dalla VM *myVmMgmt*. Per verificare di poter accedere al server Web *myVmWeb* dall'esterno di Azure, digitare `curl <publicIpAddress>` dal proprio computer. La connessione ha esito positivo, poiché la porta 80 è consentita in ingresso da Internet al gruppo di sicurezza dell'applicazione *myAsgWebServers* in cui si trova l'interfaccia di rete collegata alla macchina virtuale *myVmWeb.*
+Disconnettersi dalla VM *myVmMgmt*. Per verificare di poter accedere al server Web *myVmWeb* dall'esterno di Azure, digitare `curl <publicIpAddress>` dal proprio computer. La connessione ha esito positivo, perché la porta 80 è consentita in ingresso da Internet al gruppo di sicurezza delle applicazioni *myAsgWebServers* in cui si trova l'interfaccia di rete collegata alla VM *myVmWeb* .
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group) per rimuoverli.
 

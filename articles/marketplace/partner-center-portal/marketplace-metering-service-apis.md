@@ -1,5 +1,5 @@
 ---
-title: API del servizio di misurazione del Marketplace Azure Marketplace
+title: API del servizio di misurazione del Marketplace | Azure Marketplace
 description: Evento di utilizzo per le offerte SaaS in Azure Marketplace.
 author: dsindona
 ms.author: dsindona
@@ -8,35 +8,35 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275748"
 ---
 # <a name="marketplace-metering-service-apis"></a>API del servizio di misurazione di Marketplace
 
-L'API degli eventi di uso consente di generare eventi di uso per una specifica entità acquistata. La richiesta di evento di uso fa riferimento alla dimensione dei servizi di misurazione definita dall'autore durante la pubblicazione dell'offerta.
+L'API dell'evento Usage consente di generare eventi di utilizzo per un'entità acquistata specifica. La richiesta di evento Usage fa riferimento alla dimensione servizi di misurazione definita dal server di pubblicazione durante la pubblicazione dell'offerta.
 
 ## <a name="usage-event"></a>Evento di utilizzo
 
-**POST**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Post**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
 |            |          |
 | ---------- | ---------------------- |
-| `ApiVersion` | La versione dell'operazione da usare per questa richiesta. Ultima versione API è 2018-08-31. |
+| `ApiVersion` | La versione dell'operazione da usare per questa richiesta. La versione più recente dell'API è 2018-08-31. |
 
-*Intestazioni richiesta:*
+*Intestazioni della richiesta:*
 
 | Tipo di contenuto       | `application/json`    |
 | ------------------ | ---------------------------- |
-| `x-ms-requestid`     | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
-| `x-ms-correlationid` | Valore stringa univoco per l'operazione sul client. Questo parametro correla tutti gli eventi dal funzionamento client con gli eventi sul lato server. Se questo valore non viene fornito, ne verrà generato uno e fornito nelle intestazioni di risposta. |
-| `authorization`   | [Ottenere il token di connessione JSON Web (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: quando si effettua `Bearer` la richiesta HTTP, prefisso al token ottenuto dal collegamento di riferimento. |
+| `x-ms-requestid`     | Valore stringa univoco per il rilevamento della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
+| `x-ms-correlationid` | Valore stringa univoco per l'operazione nel client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
+| `authorization`   | [Ottenere il token Web JSON (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: quando si effettua la richiesta HTTP, `Bearer` anteporre al token ottenuto dal collegamento a cui si fa riferimento. |
 
-*Richiesta:*
+*Richiesta*
 
 ```json
 {
@@ -95,7 +95,7 @@ Richiesta non valida, dati mancanti o non validi forniti o scaduti
 ```
 
 Codice: 409<br>
-Conflitto, quando si riceve la chiamata di utilizzo per l'ID risorsa di utilizzo e l'utilizzo effettivo, che esiste già. La risposta `additionalInfo` conterrà il campo che contiene informazioni sul messaggio accettato.
+Conflitto, quando si riceve la chiamata di utilizzo per l'ID della risorsa di utilizzo e l'utilizzo effettivo, che esiste già. La risposta conterrà `additionalInfo` il campo che contiene informazioni sul messaggio accettato.
 
 ```json
 {
@@ -113,30 +113,30 @@ Conflitto, quando si riceve la chiamata di utilizzo per l'ID risorsa di utilizzo
 }
 ```
 
-## <a name="batch-usage-event"></a>Evento di utilizzo batch
+## <a name="batch-usage-event"></a>Evento utilizzo batch
 
-L'API degli eventi di uso batch consente di generare eventi di uso per più di un'entità acquistata contemporaneamente. La richiesta di evento di utilizzo batch fa riferimento alla dimensione dei servizi di misurazione definita dall'autore durante la pubblicazione dell'offerta.
+L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per più di un'entità acquistata in una sola volta. La richiesta di evento di utilizzo batch fa riferimento alla dimensione servizi di misurazione definita dal server di pubblicazione durante la pubblicazione dell'offerta.
 
 >[!Note]
->È possibile registrare più offerte SaaS nel marketplace commerciale di Microsoft. Ogni offerta SaaS registrata ha un'applicazione Azure AD univoca registrata per scopi di autenticazione e autorizzazione. Gli eventi generati in batch devono appartenere a offerte con la stessa applicazione Azure AD al momento della registrazione dell'offerta.
+>È possibile registrare più offerte SaaS nel Marketplace commerciale di Microsoft. Ogni offerta SaaS registrata ha un'applicazione Azure AD univoca registrata a scopo di autenticazione e autorizzazione. Gli eventi generati in batch devono appartenere a offerte con la stessa applicazione Azure AD al momento della registrazione dell'offerta.
 
-**POST:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**Post:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
 |            |     |
 | ---------- | -------------------- |
-| `ApiVersion` | La versione dell'operazione da usare per questa richiesta. Ultima versione API è 2018-08-31. |
+| `ApiVersion` | La versione dell'operazione da usare per questa richiesta. La versione più recente dell'API è 2018-08-31. |
 
-*Intestazioni richiesta:*
+*Intestazioni della richiesta:*
 
 | Tipo di contenuto       | `application/json`       |
 | ------------------ | ------ |
-| `x-ms-requestid`     | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non viene fornito, ne verrà generato uno e fornito nelle intestazioni di risposta. |
-| `x-ms-correlationid` | Valore stringa univoco per l'operazione sul client. Questo parametro correla tutti gli eventi dal funzionamento client con gli eventi sul lato server. Se questo valore non viene fornito, ne verrà generato uno e fornito nelle intestazioni di risposta. |
-| `authorization`      | [Ottenere il token di connessione JSON Web (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: quando si effettua `Bearer` la richiesta HTTP, prefisso al token ottenuto dal collegamento di riferimento.  |
+| `x-ms-requestid`     | Valore stringa univoco per il rilevamento della richiesta dal client, preferibilmente un GUID. Se questo valore non viene specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
+| `x-ms-correlationid` | Valore stringa univoco per l'operazione nel client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non viene specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
+| `authorization`      | [Ottenere il token Web JSON (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: quando si effettua la richiesta HTTP, `Bearer` anteporre al token ottenuto dal collegamento a cui si fa riferimento.  |
 
-*Richiesta:*
+*Richiesta*
 ```json
 {
   "request": [
@@ -192,22 +192,22 @@ OK
 }
 ```
 
-Descrizione del codice di `BatchUsageEvent` stato a cui viene fatto riferimento nella risposta dell'API:Description of status code referenced in API response:
+Descrizione del codice di stato a cui `BatchUsageEvent` si fa riferimento nella risposta API:
 
 | Codice di stato  | Descrizione |
 | ---------- | -------------------- |
 | `Accepted` | Codice accettato. |
 | `Expired` | Utilizzo scaduto. |
-| `Duplicate` | Utilizzo duplicato fornito. |
+| `Duplicate` | Uso duplicato fornito. |
 | `Error` | Codice di errore. |
-| `ResourceNotFound` | La risorsa di utilizzo fornita non è valida. |
-| `ResourceNotAuthorized` | Non si è autorizzati a fornire l'utilizzo per questa risorsa. |
-| `InvalidDimension` | La dimensione per la quale viene passato l'utilizzo non è valida per questa offerta/piano. |
+| `ResourceNotFound` | La risorsa di utilizzo specificata non è valida. |
+| `ResourceNotAuthorized` | Non si dispone delle autorizzazioni necessarie per fornire l'utilizzo di questa risorsa. |
+| `InvalidDimension` | La dimensione per cui viene passato l'utilizzo non è valida per questa offerta/piano. |
 | `InvalidQuantity` | La quantità passata è < 0. |
-| `BadArgument` | L'input è mancante o in formato non corretto. |
+| `BadArgument` | Input mancante o non valido. |
 
 Codice: 400<br>
-Richiesta non valida, dati mancanti o non validi forniti o Scaduti
+Richiesta non valida, dati mancanti o non validi forniti o scaduti
 
 ```json
 {
@@ -235,4 +235,4 @@ L'utente non è autorizzato a effettuare questa chiamata
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere [Fatturazione a consumo SaaS](./saas-metered-billing.md).
+Per altre informazioni, vedere [fatturazione a consumo Saas](./saas-metered-billing.md).

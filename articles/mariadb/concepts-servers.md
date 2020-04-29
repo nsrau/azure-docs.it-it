@@ -1,5 +1,5 @@
 ---
-title: Server - Database di Azure per MariaDBServers - Azure Database for MariaDB
+title: Server-database di Azure per MariaDB
 description: Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MariaDB.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 444d7f1574cf1517b01250bcb9d810731030182d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527793"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Concetti relativi ai server nel database di Azure per MariaDB
@@ -43,13 +43,13 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da MySQL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, le regole del firewall impediscono qualsiasi accesso al server del database finché non si specificano i computer autorizzati. Vedere [Regole firewall per il server Database di Azure per MariaDB](./concepts-firewall-rules.md). |
-| **Ssl** | Il servizio supporta l'attivazione di connessioni SSL tra le applicazioni e il server del database. Consultare [Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MariaDB](./howto-configure-ssl.md). |
+| **SSL** | Il servizio supporta l'attivazione di connessioni SSL tra le applicazioni e il server del database. Consultare [Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MariaDB](./howto-configure-ssl.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Gestione di un server
 È possibile gestire il database di Azure per i server MariaDB mediante il portale o l'interfaccia della riga di comando di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per una panoramica del servizio, consultare le [informazioni generali su Database di Azure per MariaDB](./overview.md)
-- Per informazioni su quote e limitazioni specifiche delle risorse in base al livello di **servizio,** vedere Livelli di servizioFor information about specific resource quotas and limitations based on your service tier , see [Service tiers](./concepts-pricing-tiers.md)
+- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio**, vedere livelli di [servizio](./concepts-pricing-tiers.md)
 
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

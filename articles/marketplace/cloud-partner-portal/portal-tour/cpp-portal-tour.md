@@ -1,5 +1,5 @@
 ---
-title: Presentazione del portale per i partner cloud di Azure Azure Marketplace
+title: Panoramica di Azure portale Cloud Partner | Azure Marketplace
 description: Panoramica dell'esperienza utente del portale Cloud Partner per Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dsindona
 ms.openlocfilehash: 53378be9b72792b320699341e4b6b16b20217687
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278315"
 ---
 # <a name="cloud-partner-portal-tour"></a>Presentazione del portale Cloud Partner
 
 Questo articolo fornisce un'introduzione al [portale Cloud Partner](https://cloudpartner.azure.com): i contenuti, i meccanismi di spostamento e le funzionalità.   Questo portale consente ai partner registrati di creare nuove offerte e di gestire le offerte esistenti per [Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource Marketplace](https://azuremarketplace.microsoft.com).  Il portale Cloud Partner è accessibile solo per i partner registrati. Per altre informazioni, vedere [Diventare un editore del Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
-[![Pagina Profilo del portale per i partner cloud che visualizza la pagina del profilo](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
+[![Pagina di visualizzazione del profilo portale Cloud Partner](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
 <br/>   *Fare clic sull'immagine per ingrandirla.*
 
 

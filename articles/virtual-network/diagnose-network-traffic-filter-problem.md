@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240770"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
@@ -79,9 +79,9 @@ Anche se le regole di sicurezza valide sono state visualizzate tramite la macchi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo di Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
-Ottenere le regole di sicurezza valide per un'interfaccia di rete con [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
+Ottenere le regole di sicurezza effettive per un'interfaccia di rete con [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -113,9 +113,9 @@ Nell'output precedente il nome dell'interfaccia di rete è *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnosi tramite l'interfaccia della riga di comando di Azure
 
-Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.32 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario eseguire anche `az login` e accedere ad Azure con un account dotato delle [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.32 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario eseguire anche `az login` e accedere ad Azure con un account dotato delle [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
-Ottenere le regole di sicurezza valide per un'interfaccia di rete con [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata myVMVMNic che si trova in un gruppo di risorse denominato *myResourceGroup:The*following example gets the effective security rules for a network interface named *myVMVMNic* that is in a resource group named myResourceGroup :
+Ottenere le regole di sicurezza valide per un'interfaccia di rete con [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). Nell'esempio seguente vengono recuperate le regole di sicurezza effettive per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -177,13 +177,13 @@ Indipendentemente dall'uso del [portale di Azure](#diagnose-using-azure-portal),
 | Protocollo                | TCP                                                                                |
 | Azione                  | Allow                                                                              |
 | Priorità                | 100                                                                                |
-| Nome                    | Allow-HTTP-All                                                                     |
+| Name                    | Allow-HTTP-All                                                                     |
 
 Dopo aver creato la regola, la porta 80 può ricevere comunicazioni in ingresso da Internet, perché la priorità della regola è superiore rispetto alla regola di sicurezza predefinita denominata *DenyAllInBound*, che impedisce il traffico. Informazioni su come [creare una regola di sicurezza](manage-network-security-group.md#create-a-security-rule). Se più NSG sono associati sia all'interfaccia di rete che alla subnet, è necessario creare la stessa regola in tutti gli NSG.
 
 Quando Azure elabora il traffico in ingresso, elabora le regole nel gruppo di sicurezza di rete associato alla subnet, se presente, e quindi elabora le regole nel gruppo di sicurezza di rete associato all'interfaccia di rete. Se esiste un NSG associato all'interfaccia di rete e alla subnet, perché il traffico possa raggiungere la VM, la porta deve essere aperta in entrambi gli NSG. Per semplificare la soluzione dei problemi di gestione e comunicazione, è consigliabile associare un NSG a una subnet, anziché a interfacce di rete singole. Se le macchine virtuali all'interno di una subnet necessitano di regole di sicurezza diverse, è possibile rendere le interfacce di rete membri di un gruppo di sicurezza dell'applicazione e specificare un gruppo di sicurezza dell'applicazione come origine e destinazione di una regola di sicurezza. Per altre informazioni, vedere [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
 
-Se i problemi di comunicazione persistono, vedere [Considerazioni](#considerations) e diagnosi aggiuntive.
+Se si verificano ancora problemi di comunicazione, vedere [considerazioni](#considerations) e diagnosi aggiuntive.
 
 ## <a name="considerations"></a>Considerazioni
 

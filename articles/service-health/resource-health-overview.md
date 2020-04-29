@@ -4,10 +4,10 @@ description: Panoramica su Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80159252"
 ---
 # <a name="resource-health-overview"></a>Panoramica di Integrità risorse
@@ -50,7 +50,7 @@ Gli eventi non di piattaforma vengono attivati dalle azioni dell'utente. Gli ese
 
 ![Stato "non disponibile" per una macchina virtuale a causa di un evento non piattaforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>Unknown
+### <a name="unknown"></a>Sconosciuto
 
 *Unknown* significa che integrità risorse non ha ricevuto informazioni sulla risorsa per più di 10 minuti. Sebbene questo stato non sia un'indicazione definitiva dello stato della risorsa, è un punto dati importante per la risoluzione dei problemi.
 

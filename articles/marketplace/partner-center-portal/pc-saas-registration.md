@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
 ms.openlocfilehash: 9c20fe34e108de95a34aabea56390e8a6f0d858f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275714"
 ---
 # <a name="register-a-saas-application"></a>Registrare un'applicazione SaaS
@@ -76,7 +76,7 @@ Metodo HTTP
 
 *Parametro URI*
 
-|  **Nome parametro**  | **Obbligatorio**  | **Descrizione**                               |
+|  **Nome parametro**  | **Richiesto**  | **Descrizione**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
 | TenantId             | True          | ID tenant dell'applicazione AAD registrata   |
 |  |  |  |
@@ -84,7 +84,7 @@ Metodo HTTP
 
 *Intestazione della richiesta*
 
-|  **Nome dell'intestazione**  | **Obbligatorio** |  **Descrizione**                                   |
+|  **Nome dell'intestazione**  | **Richiesto** |  **Descrizione**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
 |  Content-Type     | True         | Tipo di contenuto associato alla richiesta. Il valore predefinito è `application/x-www-form-urlencoded`.  |
 |  |  |  |
@@ -92,7 +92,7 @@ Metodo HTTP
 
 *Corpo della richiesta*
 
-| **Nome proprietà**   | **Obbligatorio** |  **Descrizione**                                                          |
+| **Nome proprietà**   | **Richiesto** |  **Descrizione**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
 |  Grant_type         | True         | Tipo di concessione. Il valore predefinito è `client_credentials`.                    |
 |  Client_id          | True         |  Identificatore del client/app associato all'app di Azure AD.                  |

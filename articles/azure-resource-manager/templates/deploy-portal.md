@@ -4,10 +4,10 @@ description: Usare portale di Azure e gestione risorse di Azure per distribuire 
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: ea2faf810b3a5d1b8fa46575201022a501cc7d58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153438"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Distribuire le risorse con i modelli ARM e portale di Azure
@@ -82,7 +82,7 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 
    ![Cercare la distribuzione del modello](./media/deploy-portal/search-template.png)
 
-1. Seleziona **Crea**.
+1. Selezionare **Crea**.
 1. Vengono visualizzate diverse opzioni per la creazione di un modello:
 
     - **Compilare un modello personalizzato nell'editor**: creare un modello usando l'Editor modelli del portale.  L'editor è in grado di aggiungere uno schema del modello di risorsa.

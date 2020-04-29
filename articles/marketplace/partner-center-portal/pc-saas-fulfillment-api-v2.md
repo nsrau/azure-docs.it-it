@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
 ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275765"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API di evasione SaaS, versione 2 
@@ -70,7 +70,7 @@ Questo stato indica che non è stato ricevuto alcun pagamento da parte del clien
 Le sottoscrizioni raggiungono questo stato in risposta a una richiesta esplicita del cliente o al mancato pagamento delle quote. L'aspettativa del partner è che i dati del cliente vengono conservati per il ripristino su richiesta per un determinato numero di giorni e quindi eliminati. 
 
 
-## <a name="api-reference"></a>Informazioni di riferimento sulle API
+## <a name="api-reference"></a>API (riferimento)
 
 Questa sezione illustra l'API di *sottoscrizione* SaaS e l' *API per le operazioni*.  Il valore del parametro `api-version` per le API della versione 2 `2018-08-31`è.  
 
@@ -592,7 +592,7 @@ Errore interno del server.
 
 Annulla la sottoscrizione ed elimina la sottoscrizione specificata.
 
-##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Elimina<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parametri di query:*
 

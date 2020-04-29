@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.openlocfilehash: 63dd1b4d9396d340dd17a7afb92ff9c38a2b38b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80132667"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Guida introduttiva: creare un'area di lavoro Azure Databricks nella propria rete virtuale
@@ -43,7 +43,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
     |-------|---------------|-----------|
     |Subscription|\<Sottoscrizione in uso\>|Selezionare la sottoscrizione di Azure da usare.|
     |Resource group|databricks-avvio rapido|Selezionare **Crea nuovo** e immettere un nuovo nome per il gruppo di risorse per l'account.|
-    |Nome|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
+    |Name|databricks-avvio rapido|Selezionare un nome per la rete virtuale.|
     |Region|\<Selezionare l'area più vicina agli utenti\>|Selezionare una posizione geografica in cui è possibile ospitare la rete virtuale. Usare la località più vicina agli utenti.|
 
     ![Nozioni di base per una rete virtuale su portale di Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
@@ -75,7 +75,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
     |Nome dell'area di lavoro|databricks-avvio rapido|Selezionare un nome per l'area di lavoro Azure Databricks.|
     |Subscription|\<Sottoscrizione in uso\>|Selezionare la sottoscrizione di Azure da usare.|
     |Resource group|databricks-avvio rapido|Selezionare lo stesso gruppo di risorse usato per la rete virtuale.|
-    |Location|\<Selezionare l'area più vicina agli utenti\>|Scegliere lo stesso percorso della rete virtuale.|
+    |Percorso|\<Selezionare l'area più vicina agli utenti\>|Scegliere lo stesso percorso della rete virtuale.|
     |Piano tariffario|Scegliere tra Standard e Premium.|Per altre informazioni sui piani tariffari, vedere la [pagina dei prezzi di databricks](https://azure.microsoft.com/pricing/details/databricks/).|
 
     ![Creare una Azure Databricks di base dell'area di lavoro](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)

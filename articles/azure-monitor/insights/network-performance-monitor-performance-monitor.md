@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055682"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
@@ -94,7 +94,7 @@ Per scegliere il protocollo, prendere in considerazione le informazioni seguenti
 
 Se si sceglie di usare ICMP durante la distribuzione, è possibile passare a TCP in qualsiasi momento modificando la regola di monitoraggio predefinita.
 
-1. Passare a Monitoraggio **prestazioni rete** > **Monitor** > **Configurare** > **Monitoraggio**. Selezionare quindi  **Default rule** (Regola predefinita). 
+1. Passare a **monitoraggio** >> **Configure** **Network Performance** prestazioni rete Configura> **monitoraggio**. Selezionare quindi  **Default rule** (Regola predefinita). 
 2. Scorrere fino alla sezione **Protocollo** e selezionare il protocollo che si vuole usare. 
 3. Selezionare **Salva** per applicare l'impostazione. 
 

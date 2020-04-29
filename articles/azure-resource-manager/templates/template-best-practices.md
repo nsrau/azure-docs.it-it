@@ -4,23 +4,23 @@ description: Descrive gli approcci consigliati per la creazione di modelli di Az
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156413"
 ---
-# <a name="arm-template-best-practices"></a>Procedure consigliate per i modelli ARM
+# <a name="arm-template-best-practices"></a>Procedure consigliate per il modello ARM
 
-Questo articolo fornisce suggerimenti su come creare il modello di Azure Resource Manager (ARM). Questi consigli consentono di evitare problemi comuni quando si usa un modello ARM per distribuire una soluzione.
+Questo articolo fornisce indicazioni su come creare il modello di Azure Resource Manager (ARM). Questi consigli consentono di evitare problemi comuni quando si usa un modello ARM per distribuire una soluzione.
 
-Per suggerimenti su come gestire le sottoscrizioni di Azure, vedere [scaffolding aziendale di Azure: governance delle sottoscrizioni prescrittive.](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+Per consigli su come gestire le sottoscrizioni di Azure, vedere la pagina relativa alla [governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)delle sottoscrizioni di Azure Enterprise.
 
 Per indicazioni su come compilare modelli funzionanti in tutti gli ambienti cloud di Azure, vedere [Sviluppare modelli di Azure Resource Manager per la coerenza del cloud](templates-cloud-consistency.md).
 
 ## <a name="template-limits"></a>Limiti del modello
 
-Limitare la dimensione del modello a 4 MB e ogni file di parametri a 64 KB. Il limite di 4 MB si applica allo stato finale del modello dopo che è stato espanso con definizioni di risorse iterative e valori per variabili e parametri. 
+Limitare le dimensioni del modello a 4 MB e ogni file di parametri a 64 KB. Il limite di 4 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni di risorse iterative e i valori per variabili e parametri. 
 
 Esistono anche i limiti seguenti:
 
@@ -34,7 +34,7 @@ Esistono anche i limiti seguenti:
 
 ## <a name="resource-group"></a>Resource group
 
-Quando si distribuiscono risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nel percorso del gruppo di risorse.
+Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nella posizione del gruppo di risorse.
 
 Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per ridurre il rischio, collocare il gruppo di risorse e le risorse nella stessa area.
 
@@ -93,7 +93,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Non usare un parametro per la versione dell'API per un tipo di risorsa. I valori e le proprietà delle risorse possono variare in base al numero di versione. Quando la versione dell'API è impostata su un parametro, IntelliSense negli editor di codice non può determinare lo schema corretto. Impostare invece la versione dell'API come hardcoded nel modello.
 
-* Usare `allowedValues` solo in casi limitati. Usarlo solo quando è necessario assicurarsi che alcuni valori non vengano inclusi nelle opzioni consentite. Se si `allowedValues` utilizza troppo in generale, è possibile bloccare le distribuzioni valide non mantenendo aggiornato l'elenco.
+* Usare `allowedValues` solo in casi limitati. Usarlo solo quando è necessario assicurarsi che alcuni valori non vengano inclusi nelle opzioni consentite. Se si usa `allowedValues` troppo ampio, è possibile bloccare le distribuzioni valide non mantenendo aggiornato l'elenco.
 
 * Quando il nome di un parametro nel modello corrisponde a un parametro nel comando di distribuzione di PowerShell, Resource Manager risolve questo conflitto di denominazione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se, ad esempio, si include un parametro denominato **ResourceGroupName** nel modello, si crea un conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**.
 
@@ -140,11 +140,11 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Per le risorse che non sono disponibili in tutte le posizioni, usare un parametro distinto oppure specificare un valore letterale per location.
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 
 Le informazioni seguenti possono essere utili quando si usano le [variabili](template-variables.md):
 
-* Utilizzare la combinazione di maiuscole/minuscole camel per i nomi delle variabili.
+* Usare il caso Camel per i nomi delle variabili.
 
 * Usare le variabili per i valori da usare più volte in un modello. Se un valore viene usato una sola volta, un valore hardcoded facilita la lettura del modello.
 
@@ -162,7 +162,7 @@ Le informazioni seguenti possono essere utili quando si usano le [variabili](tem
 
 ## <a name="resource-dependencies"></a>Dipendenze delle risorse
 
-Quando si decide quali dipendenze impostare, utilizzare le linee guida seguenti:When deciding what [dependencies](define-resource-dependency.md) to set, use the following guidelines:
+Quando si definiscono le [dipendenze](define-resource-dependency.md) da impostare, attenersi alle linee guida seguenti:
 
 * Usare la funzione **reference** passando il nome della risorsa per impostare una dipendenza implicita tra risorse che devono condividere una proprietà. Non aggiungere un elemento `dependsOn` esplicito quando è già stata definita una dipendenza implicita. Questo approccio riduce il rischio di creare dipendenze non necessarie.
 
@@ -279,5 +279,5 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](templ
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla struttura del file modello, vedere Informazioni sulla struttura e la [sintassi dei modelli ARM](template-syntax.md).
-* Per suggerimenti su come creare modelli che funzionano in tutti gli ambienti cloud di Azure, vedere [Sviluppare modelli ARM per la coerenza cloud.](templates-cloud-consistency.md)
+* Per informazioni sulla struttura del file di modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
+* Per consigli su come compilare modelli che funzionano in tutti gli ambienti cloud di Azure, vedere [sviluppare modelli ARM per la coerenza del cloud](templates-cloud-consistency.md).

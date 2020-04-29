@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80157943"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
@@ -51,7 +51,7 @@ Per aggiungere un dispositivo all'applicazione Azure IoT Central:
 
 1. Attivare **o** **disattivare**l'interruttore **simulato** . Un dispositivo reale indica un dispositivo fisico che si connette a un'applicazione Azure IoT Central. Un dispositivo simulato contiene dati di esempio generati automaticamente da Azure IoT Central.
 
-1. Fare clic su **Crea**.
+1. Scegliere **Crea**.
 
 1. Questo dispositivo viene ora visualizzato nell'elenco dei dispositivi per questo modello. Selezionare il dispositivo per visualizzare la pagina dei dettagli del dispositivo che contiene tutte le visualizzazioni del dispositivo.
 
@@ -124,7 +124,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
 1. Selezionare i dispositivi che si desidera esportare, quindi selezionare l'azione **Esporta** .
 
-    ![Esportazione](./media/howto-manage-devices/export1a.png)
+    ![Export](./media/howto-manage-devices/export1a.png)
 
 
 1. Verrà avviato il processo di esportazione. È possibile tenere traccia dello stato usando il pannello operazioni del dispositivo.
