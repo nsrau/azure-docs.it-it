@@ -1,5 +1,5 @@
 ---
-title: Fare riferimento a un'immagine personalizzata in un modello di set di scalabilità di AzureReference a custom image in an Azure scale set template
+title: Fare riferimento a un'immagine personalizzata in un modello di set di scalabilità di Azure
 description: Informazioni su come aggiungere un'immagine personalizzata in un modello di set di scalabilità di macchine virtuali di Azure esistente
 author: mimckitt
 tags: azure-resource-manager
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: mimckitt
 ms.openlocfilehash: 3965090239949b5e1116ceebe427728e49ffafe4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273699"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Aggiungere un'immagine personalizzata in un modello di set di scalabilità di Azure
 
-Questo articolo illustra come modificare il modello di set di [scalabilità](virtual-machine-scale-sets-mvss-start.md) di base per la distribuzione da un'immagine personalizzata.
+Questo articolo illustra come modificare il [modello di set di scalabilità di base](virtual-machine-scale-sets-mvss-start.md) per la distribuzione da un'immagine personalizzata.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
-In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) avevamo creato un modello di set di scalabilità di base. Ora useremo quel modello precedente e lo modificheremo per creare un modello che distribuisce un set di scalabilità da un'immagine personalizzata.  
+In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) è stato creato un modello di set di scalabilità di base. A questo punto si userà il modello precedente e lo si modificherà per creare un modello che distribuisce un set di scalabilità da un'immagine personalizzata.  
 
 ### <a name="creating-a-managed-disk-image"></a>Creazione dell'immagine di un disco gestito
 

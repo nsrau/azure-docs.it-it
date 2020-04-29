@@ -5,15 +5,15 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392731"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
-Per interagire con le API di Azure, un cluster AKS richiede [un'entità servizio di Azure Active Directory (AD)][aad-service-principal] o un'identità [gestita.](use-managed-identity.md) Un'entità servizio o un'identità gestita è necessaria per creare e gestire dinamicamente altre risorse di Azure, ad esempio un servizio di bilanciamento del carico di Azure o un registro del contenitore (ACR).
+Per interagire con le API di Azure, un cluster AKS richiede un' [entità servizio Azure Active Directory (ad)][aad-service-principal] o un' [identità gestita](use-managed-identity.md). Un'entità servizio o un'identità gestita è necessaria per creare e gestire in modo dinamico altre risorse di Azure, ad esempio un servizio di bilanciamento del carico o un registro contenitori di Azure.
 
 Questo articolo illustra come creare e usare un'entità servizio per i cluster servizio Azure Kubernetes.
 
@@ -21,9 +21,9 @@ Questo articolo illustra come creare e usare un'entità servizio per i cluster s
 
 Per creare un'entità servizio di Azure AD, sono necessarie le autorizzazioni per registrare un'applicazione con il tenant di Azure AD e per assegnare l'applicazione a un ruolo nella sottoscrizione. In mancanza di queste autorizzazioni, potrebbe essere necessario chiedere all'amministratore di Azure AD o della sottoscrizione di assegnarle oppure creare in anticipo un'entità servizio da usare con il cluster servizio Azure Kubernetes.
 
-Se si usa un'entità servizio da un tenant di Azure AD diverso, esistono considerazioni aggiuntive sulle autorizzazioni disponibili quando si distribuisce il cluster. È possibile che non si disponga delle autorizzazioni appropriate per leggere e scrivere informazioni sulla directory. Per altre informazioni, vedere [Quali sono le autorizzazioni utente predefinite in Azure Active Directory?][azure-ad-permissions]
+Se si usa un'entità servizio da un tenant di Azure AD diverso, esistono ulteriori considerazioni sulle autorizzazioni disponibili quando si distribuisce il cluster. È possibile che non si disponga delle autorizzazioni appropriate per leggere e scrivere le informazioni sulla directory. Per ulteriori informazioni, vedere [quali sono le autorizzazioni utente predefinite in Azure Active Directory?][azure-ad-permissions]
 
-È inoltre necessaria l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Creare e usare un'entità servizio automaticamente
 
@@ -68,7 +68,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> Se si usa un'entità servizio esistente con segreto personalizzato, assicurarsi che il segreto non sia più lungo di 190 byte.
+> Se si usa un'entità servizio esistente con un segreto personalizzato, assicurarsi che il segreto non sia più lungo di 190 byte.
 
 Se si distribuisce un cluster servizio Azure Kubernetes mediante il portale di Azure, nella pagina *Authentication* (Autenticazione) della finestra di dialogo **Create Kubernetes cluster** (Crea cluster Kubernetes) scegliere **Configure service principal** (Configura entità servizio). Selezionare **Use existing** (Usa esistente) e specificare i valori seguenti:
 
@@ -79,9 +79,9 @@ Se si distribuisce un cluster servizio Azure Kubernetes mediante il portale di A
 
 ## <a name="delegate-access-to-other-azure-resources"></a>Delegare l'accesso ad altre risorse di Azure
 
-È possibile usare l'entità servizio per il cluster servizio Azure Kubernetes per accedere ad altre risorse. Ad esempio, se si vuole distribuire il cluster AKS in una subnet di rete virtuale di Azure esistente o connettersi al Registro di sistema del contenitore di Azure, è necessario delegare l'accesso a tali risorse all'entità servizio.
+È possibile usare l'entità servizio per il cluster servizio Azure Kubernetes per accedere ad altre risorse. Ad esempio, se si vuole distribuire il cluster AKS in una subnet di rete virtuale di Azure esistente o connettersi ad Azure Container Registry (ACR), è necessario delegare l'accesso a tali risorse all'entità servizio.
 
-Per delegare le autorizzazioni, creare un'assegnazione di ruolo utilizzando il comando [az role assignment create.][az-role-assignment-create] Assegnare `appId` l'oggetto a un ambito specifico, ad esempio un gruppo di risorse o una risorsa di rete virtuale. Un ruolo definisce quindi le autorizzazioni che l'entità servizio possiede nella risorsa, come illustrato nell'esempio seguente:
+Per delegare le autorizzazioni, creare un'assegnazione di ruolo usando il comando [AZ Role Assignment create][az-role-assignment-create] . Assegnare `appId` a un ambito specifico, ad esempio un gruppo di risorse o una risorsa di rete virtuale. Un ruolo definisce quindi le autorizzazioni che l'entità servizio possiede nella risorsa, come illustrato nell'esempio seguente:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -93,7 +93,7 @@ Le sezioni seguenti illustrano le deleghe comuni che potrebbe essere necessario 
 
 ### <a name="azure-container-registry"></a>Registro Azure Container
 
-Se si usa Azure Container Registry (ACR) come archivio immagini del contenitore, è necessario concedere autorizzazioni all'entità servizio per il cluster AKS per leggere ed eseguire il pull delle immagini. Attualmente, la configurazione consigliata consiste nell'utilizzare il comando [az aks create][az-aks-create] o [az aks update][az-aks-update] per l'integrazione con un Registro di sistema e assegnare il ruolo appropriato per l'entità servizio. Per la procedura dettagliata, vedere [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-to-acr].
+Se si usa Azure Container Registry (ACR) come archivio immagini del contenitore, è necessario concedere le autorizzazioni all'entità servizio per il cluster AKS per leggere ed eseguire il pull delle immagini. Attualmente, la configurazione consigliata prevede l'uso del comando [AZ AKS create][az-aks-create] o [AZ AKS Update][az-aks-update] per l'integrazione con un registro e l'assegnazione del ruolo appropriato per l'entità servizio. Per i passaggi dettagliati, vedere [eseguire l'autenticazione con container Registry di Azure dal servizio Azure Kubernetes][aks-to-acr].
 
 ### <a name="networking"></a>Rete
 
@@ -127,12 +127,12 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
 
 - L'entità servizio per Kubernetes fa parte della configurazione del cluster. Non usare tuttavia l'identità per distribuire il cluster.
 - Per impostazione predefinita, le credenziali dell'entità servizio sono valide per un anno. È possibile [aggiornare o ruotare le credenziali dell'entità servizio][update-credentials] in qualsiasi momento.
-- Ogni entità servizio è associata a un'applicazione Azure AD. L'entità servizio per un cluster Kubernetes può essere associata *https://www.contoso.org/example*a qualsiasi nome di applicazione Azure AD valido, ad esempio: L'URL per l'applicazione non deve essere necessariamente un endpoint reale.
+- Ogni entità servizio è associata a un'applicazione Azure AD. L'entità servizio per un cluster Kubernetes può essere associata a qualsiasi nome di applicazione Azure AD valido (ad esempio *https://www.contoso.org/example*,). L'URL per l'applicazione non deve essere necessariamente un endpoint reale.
 - Quando si specifica l'**ID client** dell'entità servizio, usare il valore di `appId`.
-- Nelle macchine virtuali del nodo agente nel cluster Kubernetes, le credenziali dell'entità servizio vengono archiviate nel file`/etc/kubernetes/azure.json`
+- Nelle VM del nodo agente nel cluster Kubernetes le credenziali dell'entità servizio vengono archiviate nel file`/etc/kubernetes/azure.json`
 - Quando si usa il comando [az servizio Azure Kubernetes create][az-aks-create] per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file `~/.azure/aksServicePrincipal.json` nel computer utilizzato per eseguire il comando.
-- Se non si passa in modo specifico un'entità servizio in `~/.azure/aksServicePrincipal.json` comandi dell'interfaccia della riga di comando AKS aggiuntivi, viene usata l'entità servizio predefinita in cui si trova.  
-- Facoltativamente, è anche possibile rimuovere il file aksServicePrincipal.json e AKS creerà una nuova entità servizio.
+- Se non si passa in modo specifico un'entità servizio nei comandi aggiuntivi dell'interfaccia della riga di comando di AKS `~/.azure/aksServicePrincipal.json` , viene usata l'entità servizio predefinita presente in.  
+- Facoltativamente, è anche possibile rimuovere il file aksServicePrincipal. JSON e AKS creerà una nuova entità servizio.
 - Quando si elimina un cluster servizio Azure Kubernetes creato da [az servizio Azure Kubernetes create][az-aks-create], l'entità servizio creata automaticamente non viene eliminata.
     - Per eliminare l'entità servizio, eseguire una query per il cluster *servicePrincipalProfile.clientId* e quindi eliminare con [az ad app delete][az-ad-app-delete]. Sostituire il gruppo di risorse e i nomi di cluster seguenti con i propri valori:
 
@@ -142,7 +142,7 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-The service principal credentials for an AKS cluster are cached by the Azure CLI. Se queste credenziali sono scadute, si verificano errori durante la distribuzione dei cluster AKS. Il seguente messaggio di errore quando si esegue [az aks creare][az-aks-create] può indicare un problema con le credenziali dell'entità servizio memorizzati nella cache:
+Le credenziali dell'entità servizio per un cluster AKS vengono memorizzate nella cache dall'interfaccia della riga di comando di Azure. Se queste credenziali sono scadute, si verificano errori durante la distribuzione dei cluster AKS. Il messaggio di errore seguente quando si esegue [AZ AKS create][az-aks-create] può indicare un problema con le credenziali dell'entità servizio memorizzata nella cache:
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -150,19 +150,19 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 (Details: adal: Refresh request failed. Status Code = '401'.
 ```
 
-Controllare l'età del file delle credenziali utilizzando il comando seguente:
+Verificare la validità del file delle credenziali usando il comando seguente:
 
 ```console
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-L'ora di scadenza predefinita per le credenziali dell'entità servizio è di un anno. Se il file *aksServicePrincipal.json* è più vecchio di un anno, eliminare il file e provare a distribuire nuovamente un cluster AKS.
+L'ora di scadenza predefinita per le credenziali dell'entità servizio è di un anno. Se il file *aksServicePrincipal. JSON* è antecedente a un anno, eliminare il file e provare a distribuire di nuovo un cluster AKS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle entità servizio di Azure Active Directory, vedere [Oggetti applicazione e entità servizio.][service-principal]
+Per ulteriori informazioni su Azure Active Directory entità servizio, vedere [oggetti applicazione e oggetti entità servizio][service-principal].
 
-Per informazioni su come aggiornare le credenziali, vedere [Aggiornare o ruotare le credenziali per un'entità servizio in AKS][update-credentials].
+Per informazioni su come aggiornare le credenziali, vedere [aggiornare o ruotare le credenziali per un'entità servizio in AKS][update-credentials].
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md

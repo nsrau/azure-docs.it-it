@@ -1,5 +1,5 @@
 ---
-title: HTTP to HTTPS redirection in portal - Azure Application Gateway
+title: Reindirizzamento da HTTP a HTTPS nel portale applicazione Azure gateway
 description: Informazioni su come creare un gateway applicazione con traffico reindirizzato da HTTP a HTTPS usando il portale di Azure.
 services: application-gateway
 author: vhorne
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312086"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
 
-È possibile usare il portale di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione TLS. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
+È possibile usare la portale di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione TLS. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questa esercitazione richiede che il modulo di Azure PowerShell versione 1.0.0 o successiva crei un certificato e installi IIS. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questa esercitazione, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
+Per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0.0 o successiva per creare un certificato e installare IIS. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questa esercitazione, è anche necessario eseguire `Login-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
@@ -67,7 +67,7 @@ Export-PfxCertificate `
 
 Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end. È possibile creare una rete virtuale durante la creazione del gateway applicazione.
 
-1. Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 3. Selezionare **Rete** e quindi **Gateway applicazione** nell'elenco In primo piano.
 4. Immettere i valori seguenti per il gateway applicazione:
@@ -80,7 +80,7 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 5. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
 6. Fare clic su **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
 
-   - *myVNet* - come nome della rete virtuale.
+   - *myVNet* come nome della rete virtuale.
    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
    - *myAGSubnet* come nome della subnet.
    - *10.0.0.0/24* come spazio indirizzi della subnet.
@@ -118,14 +118,14 @@ In primo luogo, aggiungere il listener denominato *myListener* per la porta 80.
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Aggiungere una regola di routing con una configurazione di reindirizzamento
 
-1. In **myAppGateway**, selezionare **Regole** e quindi selezionare Regola di **routing richiesta**.
-2. Per **Nome regola**digitare *Rule2*.
+1. In **myAppGateway**selezionare **regole** e quindi selezionare **+ regola di routing richiesta**.
+2. Per il **nome della regola**, digitare *Rule2*.
 3. Assicurarsi che come listener sia selezionato **MyListener**.
-4. Fare clic sulla scheda **Destinazioni back-end** e selezionare **Tipo di destinazione** come *Reindirizzamento*.
+4. Fare clic sulla scheda **destinazioni backend** e selezionare il **tipo di destinazione** come *Reindirizzamento*.
 5. Per **Tipo di reindirizzamento**, selezionare **Permanente**.
 6. Per **Destinazione di reindirizzamento**, selezionare **Listener**.
 7. Verificare che il **Listener di destinazione**sia impostato su **appGatewayHttpListener**.
-8. Per Includi stringa di **query** e **Includi percorso** selezionare *Sì*.
+8. Per la **stringa di query include** e il **percorso di inclusione** Selezionare *Sì*.
 9. Selezionare **Aggiungi**.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Creare un set di scalabilità di macchine virtuali
@@ -133,7 +133,7 @@ In primo luogo, aggiungere il listener denominato *myListener* per la porta 80.
 In questo esempio viene creato un set di scalabilità di macchine virtuali per fornire i server per il pool back-end nel gateway applicazione.
 
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale.
-2. Selezionare **Calcola**.
+2. Selezionare **calcolo**.
 3. Nella casella di ricerca digitare *set di scalabilità* e premere INVIO.
 4. Selezionare **Set di scalabilità di macchine virtuali**, quindi selezionare **Crea**.
 5. Per **Nome del set di scalabilità di macchine virtuali** digitare *myvmss*.
@@ -146,7 +146,7 @@ In questo esempio viene creato un set di scalabilità di macchine virtuali per f
 12. In **Rete** assicurarsi che **Scegliere le opzioni di bilanciamento del carico** sia impostato su **Gateway applicazione**.
 13. Assicurarsi che **Gateway applicazione** sia impostato su **myAppGateway**.
 14. Assicurarsi che **Subnet** sia impostato su **myBackendSubnet**.
-15. Selezionare **Create** (Crea).
+15. Selezionare **Crea**.
 
 ### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Associare il set di scalabilità al pool back-end appropriato
 
@@ -219,7 +219,7 @@ Dopo aver modificato le istanze con IIS, è necessario aggiornare di nuovo il se
 
    ![Avviso di sicurezza](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 
-4. Per accettare l'avviso di sicurezza se si è usato un certificato autofirmato, selezionare **Dettagli** e quindi **Continua per la pagina Web**. Il sito Web IIS protetto viene quindi visualizzato come illustrato nell'esempio seguente:
+4. Per accettare l'avviso di sicurezza se è stato usato un certificato autofirmato, selezionare **Dettagli** e quindi **passare alla pagina Web**. Il sito Web IIS protetto viene quindi visualizzato come illustrato nell'esempio seguente:
 
    ![Testare l'URL di base nel gateway applicazione](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 

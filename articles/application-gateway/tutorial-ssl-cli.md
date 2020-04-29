@@ -1,6 +1,6 @@
 ---
-title: TLS termination using CLI - Azure Application Gateway
-description: Informazioni su come creare un gateway applicazione e aggiungere un certificato per la terminazione TLS usando l'interfaccia della riga di comando di Azure.Learn how to create an application gateway and add a certificate for TLS termination using the Azure CLI.
+title: Terminazione TLS con l'interfaccia della riga di comando-applicazione Azure gateway
+description: Informazioni su come creare un gateway applicazione e aggiungere un certificato per la terminazione TLS usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,15 +9,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311968"
 ---
-# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Creare un gateway applicazione con terminazione TLS usando l'interfaccia della riga di comando di AzureCreate an application gateway with TLS termination using the Azure CLI
+# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Creare un gateway applicazione con terminazione TLS usando l'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per creare un [gateway applicazione](overview.md) con un certificato per la [terminazione TLS.](ssl-overview.md) Per i server back-end, è possibile utilizzare un set di [scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
+È possibile usare l'interfaccia della riga di comando di Azure per creare un [gateway applicazione](overview.md) con un certificato per la [terminazione TLS](ssl-overview.md). Per i server back-end, è possibile usare un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -169,11 +169,11 @@ Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi 
 
 ![Avviso di sicurezza](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
-Per accettare l'avviso di sicurezza se si è usato un certificato autofirmato, selezionare **Dettagli** e quindi **Continua per la pagina Web**. Il sito NGINX protetto viene quindi visualizzato come illustrato nell'esempio seguente:
+Per accettare l'avviso di sicurezza se è stato usato un certificato autofirmato, selezionare **Dettagli** e quindi **passare alla pagina Web**. Il sito NGINX protetto viene quindi visualizzato come illustrato nell'esempio seguente:
 
 ![Testare l'URL di base nel gateway applicazione](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando non sono più necessari, rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392378"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
@@ -17,7 +17,7 @@ ms.locfileid: "81392378"
 È possibile usare [Monitoraggio di Azure](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) per monitorare metriche e log di livello base per la maggior parte dei servizi in Azure. È possibile chiamare i runbook di Automazione di Azure tramite [gruppi di azioni](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) o avvisi classici per automatizzare le attività in base agli avvisi. Questo articolo illustra come configurare ed eseguire un runbook usando gli avvisi.
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per istruzioni sull'installazione del modulo Az nel ruolo di lavoro ibrido per runbook, vedere [Installare il modulo di Azure PowerShell.For](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)Az module installation instructions on your Hybrid Runbook Worker, see Install the Azure PowerShell Module . Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.](automation-update-azure-modules.md)
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](automation-update-azure-modules.md).
 
 ## <a name="alert-types"></a>Tipi di avviso
 
@@ -28,15 +28,15 @@ ms.locfileid: "81392378"
 * Avvisi delle metriche quasi in tempo reale
 
 > [!NOTE]
-> Lo schema di avviso comune standardizza l'esperienza di consumo per le notifiche di avviso in Azure oggi stesso. Storicamente, i tre tipi di avviso in Azure oggi (metrica, log e log attività) hanno i propri modelli di messaggio di posta elettronica, schemi webhook e così via. Per altre informazioni, vedere Schema di [avviso comuneTo](../azure-monitor/platform/alerts-common-schema.md) learn more, see Common alert schema
+> Lo schema di avviso comune standardizza l'esperienza di utilizzo per le notifiche di avviso attualmente in Azure. Storicamente, i tre tipi di avviso attualmente disponibili in Azure (metrica, log e log attività) hanno modelli di posta elettronica, schemi webhook e così via. Per altre informazioni, vedere [schema di avviso comune](../azure-monitor/platform/alerts-common-schema.md)
 
 Quando un avviso chiama un runbook, la chiamata effettiva è una richiesta HTTP POST al webhook. Il corpo della richiesta POST contiene un oggetto in formato JSON con proprietà utili relative all'avviso. La tabella seguente elenca i collegamenti allo schema del payload per ogni tipo di avviso:
 
 |Avviso  |Descrizione|Schema del payload  |
 |---------|---------|---------|
-|[Avviso comune](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Lo schema di avviso comune che standardizza l'esperienza di consumo per le notifiche di avviso in Azure oggi.|Schema comune del payload degli avvisiCommon alert payload schema|
+|[Avviso comune](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Lo schema di avviso comune che standardizza l'esperienza di utilizzo per le notifiche di avviso in Azure oggi stesso.|Schema del payload di avviso comune|
 |[Avviso del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica quando qualsiasi nuovo evento nel log attività di Azure soddisfa condizioni specifiche. Ad esempio, quando si verifica un'operazione `Delete VM` in **myProductionResourceGroup** o quando viene visualizzato un nuovo evento di integrità dei servizi di Azure con uno stato Attivo.| [Schema payload avviso log attività](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Avvisi delle metriche quasi in tempo reale](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica più velocemente rispetto agli avvisi delle metriche quando una o più metriche a livello di piattaforma soddisfano le condizioni specificate. Ad esempio, quando il valore per **la cpu %** in una macchina virtuale è maggiore di 90 e il valore per Rete **in** è maggiore di 500 MB per gli ultimi 5 minuti.| [Schema payload avvisi metriche quasi in tempo reale](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Avvisi delle metriche quasi in tempo reale](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Invia una notifica più velocemente rispetto agli avvisi delle metriche quando una o più metriche a livello di piattaforma soddisfano le condizioni specificate. Ad esempio, quando il valore per **% CPU** in una macchina virtuale è maggiore di 90 e il valore per **rete in** è maggiore di 500 MB per gli ultimi 5 minuti.| [Schema payload avvisi metriche quasi in tempo reale](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Poiché i dati forniti da ogni tipo di avviso sono diversi, ogni tipo di avviso deve essere gestito in modo diverso. Nella sezione seguente viene illustrato come creare un runbook per gestire i diversi tipi di avvisi.
 
@@ -44,18 +44,18 @@ Poiché i dati forniti da ogni tipo di avviso sono diversi, ogni tipo di avviso 
 
 Per usare l'Automazione di Azure con gli avvisi, è necessario un runbook con la logica per gestire il payload JSON dell'avviso passato al runbook. Il seguente runbook di esempio deve essere chiamato da un avviso di Azure.
 
-Come descritto nella sezione precedente, ogni tipo di avviso ha uno schema diverso. Lo script accetta i dati webhook `WebhookData` da un avviso nel parametro di input del runbook. Quindi, lo script valuta il payload JSON per determinare quale tipo di avviso viene usato.
+Come descritto nella sezione precedente, ogni tipo di avviso ha uno schema diverso. Lo script accetta i dati del webhook da un avviso nel `WebhookData` parametro di input Runbook. Quindi, lo script valuta il payload JSON per determinare il tipo di avviso usato.
 
-Questo esempio usa un avviso generato da una macchina virtuale. Recupera i dati della macchina virtuale dal payload e usa le informazioni per arrestare la macchina virtuale. La connessione deve essere configurata nell'account di Automazione in cui è eseguito il runbook. Quando si usano gli avvisi per attivare i runbook, è importante controllare lo stato degli avvisi nel runbook attivato. Il runbook viene attivato ogni volta che l'avviso cambia stato. Gli avvisi hanno più stati, con i due più comuni attivati e risolti. Verificare lo stato nella logica del runbook per assicurarsi che il runbook non venga eseguito più di una volta. Nell'esempio riportato in questo articolo viene illustrato come cercare gli avvisi con stato Attivato solo.
+Questo esempio usa un avviso generato da una macchina virtuale. Recupera i dati della macchina virtuale dal payload e usa le informazioni per arrestare la macchina virtuale. La connessione deve essere configurata nell'account di Automazione in cui è eseguito il runbook. Quando si usano gli avvisi per attivare manuali operativi, è importante controllare lo stato dell'avviso in Runbook attivato. Il Runbook viene attivato ogni volta che viene modificato lo stato dell'avviso. Gli avvisi hanno più Stati, con i due più comuni attivati e risolti. Verificare lo stato nella logica Runbook per verificare che il Runbook non venga eseguito più di una volta. Nell'esempio riportato in questo articolo viene illustrato come cercare avvisi con stato solo attivato.
 
-Il runbook usa `AzureRunAsConnection` [l'account RunAs](automation-create-runas-account.md) dell'asset di connessione per eseguire l'autenticazione con Azure per eseguire l'azione di gestione sulla macchina virtuale.
+Runbook usa l' `AzureRunAsConnection` [account RunAs](automation-create-runas-account.md) dell'asset di connessione per l'autenticazione con Azure per eseguire l'azione di gestione sulla macchina virtuale.
 
 Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponsetoVMAlert**. È possibile modificare lo script di PowerShell e usarlo con molte risorse diverse.
 
 1. Accedere all'account di Automazione di Azure.
 2. In **Automazione processi** selezionare **Runbook**.
 3. Nella parte superiore dell'elenco di runbook, selezionare **+ Crea un runbook**.
-4. Nella pagina **Aggiungi runbook** immettere **Stop-AzureVmInResponsetoVMAlert** come nome del runbook. Per il tipo di runbook selezionare **PowerShell**. Selezionare quindi **Crea**.  
+4. Nella pagina **Aggiungi Runbook** immettere **Stop-AzureVmInResponsetoVMAlert** per il nome Runbook. Per il tipo di runbook selezionare **PowerShell**. Scegliere quindi **Create** (Crea).  
 5. Copiare l'esempio di PowerShell seguente nella pagina **Modifica**.
 
     ```powershell-interactive
@@ -169,34 +169,34 @@ Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponseto
 
 6. Selezionare **Pubblica** per salvare e pubblicare il runbook.
 
-## <a name="create-the-alert"></a>Creare l'avvisoCreate the alert
+## <a name="create-the-alert"></a>Creare l'avviso
 
-Gli avvisi usano gruppi di azioni, ovvero raccolte di azioni attivate dall'avviso. I runbook sono solo una delle molte azioni disponibili con i gruppi di azioni.
+Gli avvisi usano i gruppi di azioni, ovvero raccolte di azioni attivate dall'avviso. I runbook sono solo una delle molte azioni disponibili con i gruppi di azioni.
 
-1. Nell'account Di automazione selezionare **Avvisi** in **Monitoraggio**.
+1. Nell'account di automazione selezionare **avvisi** in **monitoraggio**.
 1. Selezionare **+ Nuova regola di avviso**.
-1. Fare clic su **Seleziona** in **Risorsa**. Nella pagina **Selezionare una risorsa** selezionare la macchina virtuale di cui eseguire l'avviso e fare clic su **Fine**.
-1. Fare clic su **Aggiungi condizione** in **Condizione**. Selezionare il segnale che si desidera utilizzare, ad esempio **Percentuale CPU,** e fare clic su **Fine**.
-1. Nella pagina **Configura logica del segnale** immettere il valore **Soglia** in Logica **di avviso**e fare clic su **Fine**.
-1. In **Gruppi di azioni**selezionare Crea **nuovo**.
-1. Nella pagina **Aggiungi gruppo di** azioni assegnare un nome al gruppo di azioni e un nome breve.
-1. Assegnare un nome all'azione. Per il tipo di azione, selezionare **Automation Runbook**.
+1. Fare clic su **Seleziona** in **risorsa**. Nella pagina **selezionare una risorsa** selezionare la VM di cui inviare un avviso e fare clic su **fine**.
+1. Fare clic su **Aggiungi condizione** in **condizione**. Selezionare il segnale da usare, ad esempio **percentuale CPU** e fare clic su **fine**.
+1. Nella pagina **Configura logica** per i segnali immettere il **valore di soglia** in **logica avvisi**e fare clic su **fine**.
+1. Da **Gruppi di azioni**, selezionare **Crea nuovo**.
+1. Nella pagina **Aggiungi gruppo di azione** assegnare un nome al gruppo di azioni e un nome breve.
+1. Assegnare un nome all'azione. Per tipo di azione selezionare **Runbook di automazione**.
 1. Selezionare **Modifica dettagli**. Alla pagina **Configura runbook** selezionare **Utente** in **Origine runbook**.  
 1. Selezionare la **sottoscrizione** e l'**account di Automazione**, poi il runbook **Stop-AzureVmInResponsetoVMAlert**.  
-1. Selezionare **Sì** in **Abilita lo schema**di avviso comune .
+1. Selezionare **Sì** per **abilitare lo schema di avviso comune**.
 1. Per creare il gruppo di azione, selezionare **OK**.
 
     ![Pagina Aggiungi gruppo di azioni](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
     È possibile usare questo gruppo di azione negli [avvisi dei log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) e negli [avvisi quasi in tempo reale](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) che vengono creati.
 
-1. In **Dettagli avviso**aggiungere un nome e una descrizione di una regola di avviso e fare clic su Crea regola di **avviso**.
+1. In **Dettagli avviso**aggiungere un nome e una descrizione della regola di avviso e fare clic su **Crea regola di avviso**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sull'avvio di runbook di Automazione con un webhook, vedere [Avviare un runbook da un webhook](automation-webhooks.md).
 * Per informazioni dettagliate sulle diverse modalità di avvio dei runbook, vedere [Avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md).
-* Per informazioni su come creare un avviso del log attività, vedere [Creare avvisi del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
+* Per informazioni su come creare un avviso del log attività, vedere [creare avvisi del log attività](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Per informazioni su come creare un avviso quasi in tempo reale, vedere [Creare una regola di avviso con il portale di Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
 * Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

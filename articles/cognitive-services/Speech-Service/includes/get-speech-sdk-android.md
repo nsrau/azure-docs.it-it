@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 3d9718d7c1b3182d1f7bc16cd81b38635c051a85
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399986"
 ---
 :::row:::
     :::column span="3":::
-        Durante lo sviluppo per Android, sono disponibili due SDK di riconoscimento vocale. Java Speech SDK è disponibile in modo nativo come pacchetto Android oppure .NET Speech SDK potrebbe essere utilizzato con **Xamarin.Android** perché implementa .NET Standard 2.0.
+        Quando si sviluppa per Android, sono disponibili due SDK di riconoscimento vocale. Java Speech SDK è disponibile in modalità nativa come pacchetto Android oppure è possibile usare .NET Speech SDK con **Novell. Android** in quanto implementa .NET standard 2,0.
     :::column-end:::
     :::column:::
         <br>
@@ -31,7 +31,7 @@ ms.locfileid: "81399986"
 
 :::row:::
     :::column span="3":::
-        Xamarin.Android espone la versione completa di Android SDK per gli sviluppatori .NET. Creare app Android completamente native con C# o F# in Visual Studio. Per altre informazioni, vedere <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin.AndroidFor <span class="docon docon-navigate-external x-hidden-focus"></span> </a> more information, see Xamarin.Android
+        Xamarin.Android espone la versione completa di Android SDK per gli sviluppatori .NET. Creare app Android completamente native con C# o F# in Visual Studio. Per altre informazioni, vedere <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Novell. Android <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
     :::column-end:::
     :::column:::
         <br>

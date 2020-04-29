@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentazione di Riconoscimento finalità
-summary: Il riconoscimento delle finalità con i servizi di riconoscimento vocale e della lingua (LUIS, Speech and Language Understanding) consente la trascrizione in tempo reale dei flussi audio nel testo, identificando al contempo le finalità e le entità.
+summary: Il riconoscimento preventivo con i servizi di riconoscimento vocale e di Language Understanding (LUIS) consente la trascrizione in tempo reale dei flussi audio in testo, identificando allo stesso tempo entità e finalità.
 metadata:
-  title: Documentazione sul riconoscimento delle finalità - Esercitazioni, Riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
+  title: Documentazione sul riconoscimento preventivo-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,19 +12,19 @@ metadata:
   ms.date: 03/10/2020
   ms.author: trbye
   ms.openlocfilehash: 65b3f2322c4683eedef8cdfbc328664d4597df58
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401499"
 landingContent:
-- title: Informazioni sul riconoscimento delle finalità
+- title: Informazioni sul riconoscimento preventivo
   linkLists:
   - linkListType: quickstart
     links:
     - text: Riconoscere la voce, le finalità e le entità
       url: quickstarts/intent-recognition.md
-- title: Sviluppa con il riconoscimento delle finalitàDevelop with intent recognition
+- title: Sviluppare con il riconoscimento preventivo
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -40,5 +40,5 @@ landingContent:
       url: ../luis/developer-reference-resource.md
     - text: Lingue supportate
       url: ../luis/luis-language-support.md#languages-supported
-    - text: Prezzi del riconoscimento delle finalità
+    - text: Prezzi per il riconoscimento preventivo
       url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services

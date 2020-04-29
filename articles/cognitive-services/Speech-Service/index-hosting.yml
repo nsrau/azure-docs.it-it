@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentazione dell'hosting
-summary: I contenitori del servizio di riconoscimento vocale sono disponibili per gli scenari di sintesi vocale e sintesi vocale, che comprendono modelli standard o personalizzati.
+summary: I contenitori di servizi vocali sono disponibili per gli scenari di sintesi vocale e sintesi vocale, che comprendono modelli standard o personalizzati.
 metadata:
-  title: Documentazione di hosting - Esercitazioni, riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
+  title: Documentazione di hosting-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,10 +12,10 @@ metadata:
   ms.date: 03/23/2020
   ms.author: trbye
   ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401505"
 landingContent:
 - title: Informazioni sull'hosting
@@ -28,11 +28,11 @@ landingContent:
       url: speech-container-howto-on-premises.md
     - text: Contenitori Voce in istanze di contenitori di Azure
       url: deploy-speech-on-container-instances.md
-- title: Creare e configurare
+- title: Creazione e configurazione
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Creare una risorsa di riconoscimento vocale di AzureCreate an Azure Speech resource
+    - text: Creare una risorsa Voce di Azure
       url: get-started.md#new-resource
     - text: Configurare i contenitori Voce
       url: speech-container-configuration.md

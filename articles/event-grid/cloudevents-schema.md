@@ -1,6 +1,6 @@
 ---
 title: Usare Griglia di eventi di Azure con gli eventi nello schema CloudEvents
-description: Viene descritto come usare lo schema CloudEvents per gli eventi in Griglia di eventi di Azure.Describes how to use the CloudEvents schema for events in Azure Event Grid. Il servizio supporta gli eventi nell'implementazione JSON degli eventi cloud.
+description: Viene descritto come usare lo schema CloudEvents per gli eventi in griglia di eventi di Azure. Il servizio supporta gli eventi nell'implementazione JSON degli eventi cloud.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 404052984cb99e37f7404a47f3ac374088d32d6c
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393482"
 ---
-# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v1.0 con Griglia di eventiUse CloudEvents v1.0 schema with Event Grid
-Oltre allo schema di [eventi predefinito,](event-schema.md)Griglia di eventi di Azure supporta in modo nativo gli eventi nell'implementazione [JSON di CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [dell'associazione](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)del protocollo HTTP. [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v 1.0 con griglia di eventi
+Oltre allo schema di [eventi predefinito](event-schema.md), griglia di eventi di Azure supporta in modo nativo gli eventi nell' [implementazione JSON di CloudEvents v 1.0 e del binding del](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) [protocollo http](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
 
 CloudEvents semplifica l'interoperabilità fornendo uno schema di eventi comune per la pubblicazione e l'utilizzo degli eventi basati sul cloud. Questo schema consente strumenti uniformi, modi standard per il routing e la gestione degli eventi e modi universali per la deserializzazione dello schema di eventi esterni. Con uno schema comune, è possibile integrare più facilmente il lavoro tra le piattaforme.
 
-CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Computing Foundation](https://www.cncf.io/). È attualmente disponibile come versione 1.0.
+CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Computing Foundation](https://www.cncf.io/). È attualmente disponibile come versione 1,0.
 
 Questo articolo descrive come usare lo schema CloudEvents con Griglia di eventi.
 
@@ -59,7 +59,7 @@ Di seguito è riportato un esempio di un evento di archiviazione BLOB di Azure n
 }
 ```
 
-Una descrizione dettagliata dei campi disponibili, dei relativi tipi e definizioni in CloudEvents v1.0 è [disponibile qui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Una descrizione dettagliata dei campi, dei tipi e delle definizioni disponibili in CloudEvents v 1.0 è [disponibile qui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e nello schema Griglia di eventi sono gli stessi, ad eccezione di `content-type`. Per lo schema CloudEvents, tale valore intestazione è `"content-type":"application/cloudevents+json; charset=utf-8"`. Per lo schema Griglia di eventi, tale valore intestazione è `"content-type":"application/json; charset=utf-8"`.
 
@@ -135,17 +135,17 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventSchemaV1_0
 ```
 
- Attualmente non è possibile usare un trigger di Griglia di eventi per un'app di Funzioni di Azure quando l'evento viene recapitato nello schema CloudEvents. Usare un trigger HTTP. Per esempi di implementazione di un trigger HTTP che riceve eventi nello schema CloudEvents, vedere Uso di CloudEvents con Funzioni di Azure.For examples of implementing an HTTP trigger that receives events in the CloudEvents schema, see [Using CloudEvents with Azure Functions.](#azure-functions)
+ Attualmente non è possibile usare un trigger di Griglia di eventi per un'app di Funzioni di Azure quando l'evento viene recapitato nello schema CloudEvents. Usare un trigger HTTP. Per esempi di implementazione di un trigger HTTP che riceve eventi nello schema CloudEvents, vedere [uso di CloudEvents con funzioni di Azure](#azure-functions).
 
- ## <a name="endpoint-validation-with-cloudevents-v10"></a>Convalida dell'endpoint con CloudEvents v1.0Endpoint Validation with CloudEvents v1.0
+ ## <a name="endpoint-validation-with-cloudevents-v10"></a>Convalida degli endpoint con CloudEvents v 1.0
 
-Se si ha già familiarità con Griglia di eventi, è possibile che si sia a conoscenza dell'handshake di convalida dell'endpoint di Griglia di eventi per evitare abusi. CloudEvents v1.0 implementa la propria semantica di [protezione dell'abuso](security-authentication.md#webhook-event-delivery) usando il metodo HTTP OPTIONS. Si può leggere di più su di esso [qui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando si usa lo schema CloudEvents per l'output, Griglia di eventi viene utilizzata con la protezione dall'abuso di CloudEvents v1.0 al posto del meccanismo degli eventi di convalida della griglia di eventi.
+Se si ha già familiarità con griglia di eventi, è possibile che l'handshake di convalida degli endpoint della griglia di eventi non venga usato per impedire abusi. CloudEvents v 1.0 implementa la propria [semantica di protezione da abusi](security-authentication.md#webhook-event-delivery) usando il metodo delle opzioni http. Per altre informazioni, vedere [qui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando si usa lo schema CloudEvents per l'output, griglia di eventi USA con la protezione dagli abusi di CloudEvents v 1.0 al posto del meccanismo di convalida degli eventi di griglia di eventi.
 
 <a name="azure-functions"></a>
 
-## <a name="use-with-azure-functions"></a>Usare con funzioni di AzureUse with Azure Functions
+## <a name="use-with-azure-functions"></a>Usare con funzioni di Azure
 
-[L'associazione Griglia di](../azure-functions/functions-bindings-event-grid.md) eventi di Funzioni di Azure non supporta in modo nativo CloudEvents, pertanto le funzioni attivate da HTTP vengono usate per leggere i messaggi CloudEvents.The Azure Functions Event Grid binding does not natively support CloudEvents, so HTTP-triggered functions are used to read CloudEvents messages. Quando si usa un trigger HTTP per leggere CloudEvents, è necessario scrivere automaticamente il codice per le operazioni eseguite dal trigger Griglia di eventi:When using an HTTP trigger to read CloudEvents, you have to write code for what the Event Grid trigger does automatically:
+Il [binding di griglia di eventi di funzioni di Azure](../azure-functions/functions-bindings-event-grid.md) non supporta in modo nativo CloudEvents, quindi le funzioni attivate da http vengono usate per leggere i messaggi CloudEvents. Quando si usa un trigger HTTP per leggere CloudEvents, è necessario scrivere il codice per il trigger della griglia di eventi automaticamente:
 
 * Invia una risposta di convalida a una [richiesta di convalida della sottoscrizione](../event-grid/security-authentication.md#webhook-event-delivery).
 * Richiama la funzione per ogni elemento della matrice di eventi contenuta nel corpo della richiesta.

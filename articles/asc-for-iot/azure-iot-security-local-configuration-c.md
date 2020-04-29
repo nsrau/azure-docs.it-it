@@ -1,6 +1,6 @@
 ---
-title: Configurazione locale dell'agente di sicurezza (C)Security agent local configuration (C)
-description: Informazioni sul Centro sicurezza di Azure per le configurazioni locali degli agenti per C.Learn about Azure Security Center for agent local configurations for C.
+title: Configurazione locale dell'agente di sicurezza (C)
+description: Informazioni sul centro sicurezza di Azure per le configurazioni locali dell'agente per C.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,44 +16,44 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311699"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Informazioni sul file LocalConfiguration.json - Agente C
 
-Il Security Agent di Azure Security Center per IoT usa le configurazioni di un file di configurazione locale.
-L'agente di sicurezza legge la configurazione una sola volta, all'avvio dell'agente.
-La configurazione trovata nel file di configurazione locale contiene la configurazione di autenticazione e altre configurazioni correlate all'agente.
-Il file contiene le configurazioni in coppie "Chiave-Valore" in notazione JSON e le configurazioni vengono popolate quando viene installato l'agente.
+Il Centro sicurezza di Azure per l'agente sicurezza Internet usa le configurazioni di un file di configurazione locale.
+L'agente di sicurezza legge la configurazione una volta, all'avvio dell'agente.
+La configurazione trovata nel file di configurazione locale contiene la configurazione dell'autenticazione e altre configurazioni correlate agli agenti.
+Il file contiene le configurazioni nelle coppie chiave-valore nella notazione JSON e le configurazioni vengono popolate quando l'agente è installato.
 
-Per impostazione predefinita, il file si trova in: /var/ASCIoTAgent/LocalConfiguration.json
+Per impostazione predefinita, il file si trova in:/var/ASCIoTAgent/LocalConfiguration.json
 
-Le modifiche apportate al file di configurazione vengono apportate al riavvio dell'agente.
+Le modifiche apportate al file di configurazione vengono applicate quando l'agente viene riavviato.
 
-## <a name="security-agent-configurations-for-c"></a>Configurazioni degli agent di sicurezza per CSecurity agent configurations for C
+## <a name="security-agent-configurations-for-c"></a>Configurazioni degli agenti di sicurezza per C
 
 | Nome della configurazione | Valori possibili | Dettagli |
 |:-----------|:---------------|:--------|
 | AgentId | GUID | Identificatore univoco dell'agente |
-| TriggerdEventsIntervalTriggerdEventsInterval | Stringa ISO8601 | Intervallo dell'utilità di pianificazione per la raccolta di eventi attivati |
-| ConnectionTimeout | Stringa ISO8601 | Periodo di tempo prima che la connessione a IoThub venga stentata |
-| Authentication | Jsonobject | Configurazione dell'autenticazione. Questo oggetto contiene tutte le informazioni necessarie per l'autenticazione con IoTHub |
-| Identità | "DPS", "SecurityModule", "Dispositivo" | Identità di autenticazione - DPS se l'autenticazione viene eseguita tramite DPS, SecurityModule se l'autenticazione viene eseguita tramite le credenziali del modulo di sicurezza o il dispositivo se l'autenticazione viene eseguita con le credenziali del dispositivo |
-| AuthenticationMethod (Metodo Authentication) | "SasToken", "SelfSignedCertificate" | il segreto utente per l'autenticazione - Scegliere SasToken se il segreto di utilizzo è una chiave simmetrica, scegliere il certificato autofirmato se il segreto è un certificato autofirmato  |
+| TriggerdEventsInterval | Stringa ISO8601 | Intervallo di utilità di pianificazione per la raccolta di eventi attivati |
+| ConnectionTimeout | Stringa ISO8601 | Si è verificato il timeout del periodo di tempo prima della connessione a IoThub |
+| Autenticazione | JsonObject | Configurazione dell'autenticazione. Questo oggetto contiene tutte le informazioni necessarie per l'autenticazione in IoTHub |
+| Identità | "DPS", "SecurityModule", "Device" | Identità di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, SecurityModule se l'autenticazione viene eseguita tramite il dispositivo o le credenziali del modulo di sicurezza se viene eseguita l'autenticazione con le credenziali del dispositivo |
+| AuthenticationMethod | "SasToken", "SelfSignedCertificate" | il segreto utente per l'autenticazione: scegliere SasToken se il segreto di utilizzo è una chiave simmetrica, scegliere certificato autofirmato se il segreto è un certificato autofirmato  |
 | FilePath | Percorso del file (stringa) | Percorso del file che contiene il segreto di autenticazione |
-| HostName | string | Nome host dell'hub iot di Azure. di solito <my-hub>.azure-devices.net |
-| deviceId | string | The ID of the device (as registered in Azure IoT Hub) |
-| DPS | Jsonobject | Configurazioni correlate a DPS |
-| IDScope (Ambito IDScope) | string | Ambito ID di DPS |
-| ID registrazione | string  | ID di registrazione del dispositivo DPS |
-| Registrazione | Jsonobject | Configurazioni correlate al logger dell'agenteAgent logger related configurations |
-| SystemLoggerMinimumSeverity (Gravità minima di SystemLogger) | 0 <numero < | messaggi di log uguali e superiori a questa gravità verranno registrati in /var/log/syslog (0 è il livello di gravità più basso) |
-| DiagnosticEventMinimumSeverity (Severitità di DiagnosticaEventMinimum | 0 <numero < | messaggi di log uguali e superiori a questa gravità verranno inviati come eventi di diagnostica (0 è il livello più basso) |
+| HostName | stringa | Nome host dell'hub Azure. in genere <My-Hub>. azure-devices.net |
+| DeviceId | stringa | ID del dispositivo, come registrato nell'hub Azure. |
+| DPS | JsonObject | Configurazioni correlate a DPS |
+| IDScope | stringa | Ambito ID di DPS |
+| ID registrazione | stringa  | ID registrazione dispositivo DPS |
+| Registrazione | JsonObject | Configurazioni correlate al logger agente |
+| SystemLoggerMinimumSeverity | 0 <= numero <= 4 | i messaggi di log uguali e superiori a questa gravità verranno registrati in/var/log/syslog (0 è la gravità minima) |
+| DiagnosticEventMinimumSeverity | 0 <= numero <= 4 | i messaggi di log uguali e superiori a questa gravità verranno inviati come eventi di diagnostica (0 è la gravità minima) |
 
-## <a name="security-agent-configurations-code-example"></a>Esempio di codice di configurazione dell'agente di sicurezza
+## <a name="security-agent-configurations-code-example"></a>Esempio di codice delle configurazioni degli agenti di sicurezza
 
 ```JSON
 {
@@ -82,10 +82,10 @@ Le modifiche apportate al file di configurazione vengono apportate al riavvio de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggi la [panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoT
-- Altre informazioni sul Centro sicurezza di Azure per l'architettura IoTLearn more about Azure Security Center for IoT [Architecture](architecture.md)
-- Abilitare il Centro sicurezza di Azure per il servizio IoTEnable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)
-- Leggere le [domande frequenti](resources-frequently-asked-questions.md) sul Centro sicurezza di Azure per il servizio IoTRead the Azure Security Center for IoT service FAQ
+- Leggi il Centro sicurezza di Azure per [informazioni generali](overview.md) sul servizio Internet
+- Scopri di più sul centro sicurezza di Azure per l' [architettura dell'it](architecture.md)
+- Abilitare il Centro sicurezza di Azure per il [servizio](quickstart-onboard-iot-hub.md) Internet delle cose
+- Leggi le [domande frequenti](resources-frequently-asked-questions.md) sul servizio del Centro sicurezza di Azure per le cose
 - Informazioni su come accedere a [dati non elaborati sulla sicurezza](how-to-security-data-access.md)
 - Informazioni sulle [raccomandazioni](concept-recommendations.md)
-- Comprendere gli avvisi di sicurezzaUnderstand security [alerts](concept-security-alerts.md)
+- Informazioni sugli [avvisi](concept-security-alerts.md) di sicurezza

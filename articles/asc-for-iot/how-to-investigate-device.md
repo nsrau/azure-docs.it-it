@@ -1,6 +1,6 @@
 ---
-title: Indagare su un dispositivo sospetto
-description: In questa guida viene illustrato come usare il Centro sicurezza di Azure per l'IoT per analizzare un dispositivo IoT sospetto usando Log Analytics.This how to guide explains how to use Azure Security Center for IoT to investigate a suspicious IoT device using Log Analytics.
+title: Esaminare un dispositivo sospetto
+description: Questa guida illustra come usare il Centro sicurezza di Azure per l'analisi di un dispositivo per le cose sospette usando Log Analytics.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,44 +16,44 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311041"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
 
-Gli avvisi del servizio IoT del Centro sicurezza di Azure forniscono indicazioni chiare quando i dispositivi IoT sono sospettati di coinvolgimento in attività sospette o quando esistono indicazioni che indicano che un dispositivo è compromesso.
+Il Centro sicurezza di Azure per gli avvisi del servizio Internet fornisce indicazioni chiare quando si sospetta che i dispositivi Internet siano coinvolti in attività sospette o quando sono presenti indicazioni per la compromissione di un dispositivo.
 
-In questa guida, utilizzare i suggerimenti di indagine forniti per determinare i potenziali rischi per l'organizzazione, decidere come correggere e scoprire i modi migliori per prevenire attacchi simili in futuro.
+In questa guida, usare i suggerimenti per l'analisi forniti per determinare i potenziali rischi per l'organizzazione, decidere come correggere e individuare i modi migliori per evitare attacchi simili in futuro.
 
 > [!div class="checklist"]
 > * Trovare i dati del dispositivo
 > * Analizzare usando le query kql
 
-## <a name="how-can-i-access-my-data"></a>Come posso accedere ai miei dati?
+## <a name="how-can-i-access-my-data"></a>Come è possibile accedere ai dati?
 
-Per impostazione predefinita, il Centro sicurezza di Azure per IoT archivia gli avvisi e i suggerimenti di sicurezza nell'area di lavoro di Log Analytics.By default, Azure Security Center for IoT stores your security alerts and recommendations in your Log Analytics workspace. È anche possibile scegliere di archiviare i dati di sicurezza non elaborati.
+Per impostazione predefinita, il Centro sicurezza di Azure per le cose archivia gli avvisi di sicurezza e le raccomandazioni nell'area di lavoro Log Analytics. È anche possibile scegliere di archiviare i dati di sicurezza non elaborati.
 
-Per individuare l'area di lavoro di Log Analytics per l'archiviazione dei dati:
+Per individuare l'area di lavoro Log Analytics per l'archiviazione dei dati:
 
 1. Aprire l'hub IoT.
-1. In **Sicurezza**fare clic su **Panoramica**e quindi selezionare **Impostazioni**.
+1. In **sicurezza**fare clic su **Panoramica**e quindi selezionare **Impostazioni**.
 1. Modificare i dettagli di configurazione dell'area di lavoro Log Analytics.
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 In seguito alla configurazione, eseguire le operazioni seguenti per accedere ai dati archiviati nell'area di lavoro Log Analytics:
 
-1. Selezionare e fare clic su un avviso del Centro sicurezza di Azure per IoT nell'hub IoT.Select and click on an Azure Security Center for IoT alert in your IoT Hub.
+1. Selezionare e fare clic su un centro sicurezza di Azure per gli avvisi relativi all'intero hub.
 1. Fare clic su **Further investigation** (Ulteriori indagini).
 1. Selezionare **To see which devices have this alert click here and view the DeviceId column** (Per vedere quali dispositivi hanno questo avviso fare clic qui e visualizzare la colonna DeviceId).
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Procedure di indagine per dispositivi IoT sospetti
 
-Per visualizzare le informazioni dettagliate e i dati non elaborati relativi ai dispositivi IoT, passare all'area di lavoro di Log Analytics [per accedere ai dati.](#how-can-i-access-my-data)
+Per visualizzare informazioni dettagliate e dati non elaborati sui dispositivi Internet, passare all'area di lavoro Log Analytics [per accedere ai dati](#how-can-i-access-my-data).
 
-Vedere le query kql di esempio riportate di seguito per iniziare a esaminare gli avvisi e le attività nel dispositivo.
+Vedere le query KQL di esempio seguenti per iniziare a esaminare gli avvisi e le attività nel dispositivo.
 
 ### <a name="related-alerts"></a>Avvisi correlati
 
@@ -87,11 +87,11 @@ Per scoprire quali utenti hanno accesso a questo dispositivo, usare la query kql
 Usare questi dati per scoprire:
 
 - Quali utenti hanno accesso al dispositivo
-- Gli utenti con accesso dispongono dei livelli di autorizzazione previsti?
+- Gli utenti con accesso hanno i livelli di autorizzazione previsti?
 
 ### <a name="open-ports"></a>Aprire le porte
 
-Per scoprire quali porte del dispositivo sono attualmente in uso o sono state utilizzate, utilizzare la seguente query kql:
+Per individuare le porte del dispositivo attualmente in uso o usate, usare la query KQL seguente:
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -114,12 +114,12 @@ Per scoprire quali porte del dispositivo sono attualmente in uso o sono state ut
 Usare questi dati per scoprire:
 
 - Quali socket di ascolto sono attualmente attivi sul dispositivo
-- I socket di ascolto attualmente attivi devono essere consentiti?
-- Ci sono indirizzi remoti sospetti collegati al dispositivo?
+- Devono essere consentiti i socket in ascolto attualmente attivi?
+- Sono presenti indirizzi remoti sospetti connessi al dispositivo?
 
 ### <a name="user-logins"></a>Account di accesso utente
 
-Per trovare gli utenti che hanno effettuato l'accesso al dispositivo, utilizzare la seguente query kql:
+Per trovare gli utenti che hanno eseguito l'accesso al dispositivo, usare la query KQL seguente:
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -146,12 +146,12 @@ Per trovare gli utenti che hanno effettuato l'accesso al dispositivo, utilizzare
 Usare i risultati della query per scoprire:
 
 - Quali utenti hanno eseguito l'accesso al dispositivo
-- Gli utenti che hanno effettuato l'accesso, dovrebbero effettuare l'accesso?
+- Gli utenti che hanno eseguito l'accesso dovrebbero accedere?
 - Se gli utenti che hanno eseguito l'accesso si connettono da indirizzi IP previsti o imprevisti
 
 ### <a name="process-list"></a>Elenco processi
 
-Per scoprire se l'elenco dei processi è quello previsto, utilizzare la seguente query kql:
+Per sapere se l'elenco dei processi è quello previsto, usare la query KQL seguente:
 
  ```
   let device = "YOUR_DEVICE_ID";

@@ -1,7 +1,7 @@
 ---
-title: Nozioni di base sulla traduzione vocale - Servizio vocale
+title: Nozioni fondamentali sulla traduzione vocale-servizio vocale
 titleSuffix: Azure Cognitive Services
-description: Scopri come usare l'SDK di riconoscimento vocale per tradurre il riconoscimento vocale. In questo articolo imparerai a conoscere la costruzione di oggetti, i formati di input audio supportati e le opzioni di configurazione per la traduzione vocale.
+description: Informazioni su come usare l'SDK di riconoscimento vocale per tradurre la voce. Questo articolo illustra la creazione di oggetti, i formati di input audio supportati e le opzioni di configurazione per la traduzione vocale.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,18 +12,18 @@ ms.date: 04/13/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399660"
 ---
-# <a name="learn-the-basics-of-speech-translation"></a>Apprendere le nozioni di base della traduzione vocale
+# <a name="learn-the-basics-of-speech-translation"></a>Informazioni sulle nozioni di base della traduzione vocale
 
-Una delle caratteristiche principali del servizio di riconoscimento vocale è la capacità di riconoscere il parlato umano e tradurlo in altre lingue. In questo articolo imparerai a usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità.
+Una delle funzionalità principali del servizio di riconoscimento vocale è la possibilità di riconoscere la voce umana e tradurla in altre lingue. Questo articolo illustra come usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità.
 
 > [!TIP]
-> Se non hai avuto la possibilità di completare una delle nostre guide introduttive, ti invitiamo a prendere a calci le gomme e provare la traduzione vocale di persona.
+> Se non hai avuto la possibilità di completare una delle nostre guide introduttive, ti invitiamo a lanciare i pneumatici e a provare la traduzione vocale.
 > * [Tradurre la voce in testo](quickstarts/translate-speech-to-text.md)
 > * [Tradurre la voce in più lingue](quickstarts/translate-speech-to-text-multiple-languages.md)
 > * [Conversione della voce in voce](quickstarts/translate-speech-to-speech.md)
@@ -50,4 +50,4 @@ Una delle caratteristiche principali del servizio di riconoscimento vocale è la
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Utilizzare formati audio compressi codec](how-to-use-codec-compressed-audio-input-streams.md)
+* [Usare formati audio compressi di codec](how-to-use-codec-compressed-audio-input-streams.md)

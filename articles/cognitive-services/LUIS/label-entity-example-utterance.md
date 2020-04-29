@@ -4,10 +4,10 @@ description: Informazioni su come etichettare un'entità basata su apprendimento
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382410"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etichettare un'entità basata su apprendimento automatico in un'espressione di esempio
@@ -81,9 +81,9 @@ I ruoli entità vengono etichettati usando il pannello di entità.
 1. Passare a **Entity Inspector** (Controllo entità) e selezionare un ruolo esistente o crearne uno nuovo.
 1. Nel testo dell'espressione di esempio, etichettare il testo con il ruolo dell'entità.
 
-## <a name="labeling-for-punctuation"></a>Etichettatura per la punteggiatura
+## <a name="labeling-for-punctuation"></a>Assegnazione di etichette per la punteggiatura
 
-Non è necessario etichettare per la punteggiatura. Usare [le impostazioni dell'applicazione](luis-reference-application-settings.md) per controllare se la punteggiatura influisce sulle stime delle espressioni.
+Non è necessario etichettare per la punteggiatura. Usare [le impostazioni dell'applicazione](luis-reference-application-settings.md) per controllare se la punteggiatura influisca sulle stime dell'espressione.
 
 ## <a name="unlabel-entities"></a>Rimuovere l'etichettatura delle entità
 

@@ -1,7 +1,7 @@
 ---
-title: Migliorare la sintesi con Custom Voice - Servizio di riconoscimento vocale
+title: Migliorare la sintesi con il servizio di riconoscimento vocale personalizzato
 titleSuffix: Azure Cognitive Services
-description: Custom Voice è un insieme di strumenti online che ti permettono di creare una voce riconoscibile e unica per il tuo marchio. Tutto ciò che serve per iniziare sono una manciata di file audio e le trascrizioni associate. Seguire i collegamenti seguenti per iniziare a creare un'esperienza di sintesi vocale personalizzata.
+description: Custom Voice è un set di strumenti online che ti permettono di creare una voce unica e riconoscibile per il tuo marchio. Per iniziare sono disponibili solo alcuni file audio e le trascrizioni associate. Per iniziare a creare un'esperienza di riconoscimento vocale personalizzata, seguire i collegamenti seguenti.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,64 +11,64 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
 ms.openlocfilehash: 2aacf8881a57f0677177cd341a0ddc63224b26b6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402045"
 ---
 # <a name="get-started-with-custom-voice"></a>Introduzione a Voce personalizzata
 
-[Custom Voice](https://aka.ms/customvoice) è un insieme di strumenti online che ti permettono di creare una voce riconoscibile e unica per il tuo marchio. Tutto ciò che serve per iniziare sono una manciata di file audio e le trascrizioni associate. Seguire i collegamenti seguenti per iniziare a creare un'esperienza di sintesi vocale personalizzata.
+[Custom Voice](https://aka.ms/customvoice) è un set di strumenti online che ti permettono di creare una voce unica e riconoscibile per il tuo marchio. Per iniziare sono disponibili solo alcuni file audio e le trascrizioni associate. Per iniziare a creare un'esperienza di sintesi vocale personalizzata, seguire i collegamenti seguenti.
 
-## <a name="whats-in-custom-voice"></a>Cosa c'è in Custom Voice?
+## <a name="whats-in-custom-voice"></a>Che cos'è la voce personalizzata?
 
-Prima di iniziare con Voice personalizzato, sono necessari un account Azure e una sottoscrizione al servizio di riconoscimento vocale. Dopo aver creato un account, è possibile preparare i dati, eseguire il training e testare i modelli, valutare la qualità vocale e infine distribuire il modello vocale personalizzato.
+Prima di iniziare con la voce personalizzata, sono necessari un account Azure e una sottoscrizione al servizio vocale. Dopo aver creato un account, è possibile preparare i dati, eseguire il training e testare i modelli, valutare la qualità vocale e infine distribuire il modello Voice personalizzato.
 
-Nel diagramma seguente vengono illustrati i passaggi per creare un modello vocale personalizzato utilizzando il [portale vocale personalizzato](https://aka.ms/customvoice). Usa i link per saperne di più.
+Il diagramma seguente illustra i passaggi per creare un modello Voice personalizzato usando il [portale vocale personalizzato](https://aka.ms/customvoice). Usare i collegamenti per altre informazioni.
 
-![Diagramma dell'architettura di Custom Voice](media/custom-voice/custom-voice-diagram.png)
+![Diagramma dell'architettura vocale personalizzata](media/custom-voice/custom-voice-diagram.png)
 
-1. [Sottoscrivere e creare un progetto:](#set-up-your-azure-account) creare un account Azure e creare una sottoscrizione al servizio di riconoscimento vocale. Questo abbonamento unificato consente di accedere alla sintesi vocale, alla sintesi vocale, alla traduzione vocale e al portale Custom Voice. Quindi, usando la sottoscrizione al servizio di riconoscimento vocale, crea il primo progetto Custom Voice.
+1. [Sottoscrivere e creare un progetto](#set-up-your-azure-account) : creare un account Azure e creare una sottoscrizione al servizio di riconoscimento vocale. Questa sottoscrizione unificata consente di accedere a sintesi vocale, sintesi vocale, traduzione vocale e il portale vocale personalizzato. Quindi, usando la sottoscrizione al servizio vocale, creare il primo progetto vocale personalizzato.
 
-2. [Caricare dati](how-to-custom-voice-create-voice.md#upload-your-datasets) - Caricare dati (audio e testo) utilizzando il portale vocale personalizzato o l'API Custom Voice. Dal portale, è possibile esaminare e valutare i punteggi di pronuncia e i rapporti segnale-rumore. Per ulteriori informazioni, vedere [Come preparare i dati per Custom Voice](how-to-custom-voice-prepare-data.md).
+2. [Caricare dati](how-to-custom-voice-create-voice.md#upload-your-datasets) : caricare dati (audio e testo) usando il portale vocale personalizzato o l'API Voice personalizzata. Dal portale è possibile esaminare e valutare i punteggi di pronuncia e i rapporti tra segnali e rumori. Per ulteriori informazioni, vedere [come preparare i dati per la voce personalizzata](how-to-custom-voice-prepare-data.md).
 
-3. [Eseguire il training del modello:](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) usare i dati per creare un modello vocale di sintesi vocale personalizzato. È possibile eseguire il training di un modello in lingue diverse. Dopo il training, testare il modello e, se si è soddisfatti del risultato, è possibile distribuire il modello.
+3. Eseguire il [training del modello](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) : usare i dati per creare un modello vocale personalizzato per la sintesi vocale. È possibile eseguire il training di un modello in lingue diverse. Dopo il training, testare il modello e, se si è soddisfatti del risultato, è possibile distribuire il modello.
 
-4. [Distribuire il modello:](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) creare un endpoint personalizzato per il modello vocale di sintesi vocale e utilizzarlo per la sintesi vocale in prodotti, strumenti e applicazioni.
+4. [Distribuire il modello](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) : creare un endpoint personalizzato per il modello vocale da testo a riconoscimento vocale e usarlo per la sintesi vocale in prodotti, strumenti e applicazioni.
 
 ## <a name="custom-neural-voices"></a>Voci neurali personalizzate
 
-La funzionalità di personalizzazione della voce neurale è attualmente in anteprima pubblica, limitata a clienti selezionati. Compila questo [modulo di richiesta](https://go.microsoft.com/fwlink/?linkid=2108737) per iniziare.
+La funzionalità di personalizzazione della voce neurale è attualmente disponibile in anteprima pubblica, limitata ai clienti selezionati. Compilare questo [modulo dell'applicazione](https://go.microsoft.com/fwlink/?linkid=2108737) per iniziare.
 
 > [!NOTE]
-> Nell'ambito dell'impegno di Microsoft nella progettazione di immediati responsabile, il nostro intento è proteggere i diritti degli individui e della società e promuovere interazioni uomo-computer trasparenti. Per questo motivo, Custom Neural Voice non è generalmente disponibile per tutti i clienti. Puoi accedere alla tecnologia solo dopo che le tue applicazioni sono state esaminate e ti sei impegnato a utilizzarla in linea con i nostri principi etici. Ulteriori informazioni sul nostro processo di [gating delle applicazioni](https://aka.ms/custom-neural-gating-overview).
+> Nell'ambito dell'impegno di Microsoft nella progettazione di intelligenza artificiale, il nostro scopo è quello di proteggere i diritti di singoli utenti e società, oltre a promuovere interazioni transparenti con i computer umani. Per questo motivo, la voce neurale personalizzata non è disponibile a livello generale per tutti i clienti. Il licenziatario potrà accedere alla tecnologia solo dopo che le applicazioni sono state riesaminate e si è impegnato a utilizzarlo in linea con i principi etici. Altre informazioni sul processo di controllo delle [applicazioni](https://aka.ms/custom-neural-gating-overview).
 
-## <a name="set-up-your-azure-account"></a>Configurare l'account AzureSet up your Azure account
+## <a name="set-up-your-azure-account"></a>Configurare l'account Azure
 
-È necessaria una sottoscrizione al servizio di riconoscimento vocale prima di poter usare il portale di riconoscimento vocale personalizzato per creare un modello personalizzato. Seguire queste istruzioni per creare una sottoscrizione al servizio di riconoscimento vocale in Azure.Follow these instructions to create a Speech service subscription in Azure. Se non si dispone di un account Azure, è possibile iscriversi per crearne uno nuovo.  
+Prima di poter usare il portale di Riconoscimento vocale personalizzato per creare un modello personalizzato, è necessaria una sottoscrizione al servizio di riconoscimento vocale. Seguire queste istruzioni per creare una sottoscrizione del servizio vocale in Azure. Se non si dispone di un account Azure, è possibile iscriversi per un nuovo account.  
 
-Dopo aver creato un account Azure e una sottoscrizione al servizio di riconoscimento vocale, è necessario accedere al portale vocale personalizzato e connettere la sottoscrizione.
+Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, sarà necessario accedere al portale vocale personalizzato e connettere la sottoscrizione.
 
-1. Ottenere la chiave di sottoscrizione del servizio di riconoscimento vocale dal portale di Azure.Get your Speech service subscription key from the Azure portal.
-2. Accedere al [portale Voce personalizzata](https://aka.ms/custom-voice).
-3. Selezionare la sottoscrizione e creare un progetto di riconoscimento vocale.
-4. Se si vuole passare a un altro abbonamento a Speech, usare l'icona a forma di ingranaggio nella barra di spostamento superiore.
+1. Ottenere la chiave di sottoscrizione del servizio vocale dalla portale di Azure.
+2. Accedere al [portale vocale personalizzato](https://aka.ms/custom-voice).
+3. Selezionare la sottoscrizione e creare un progetto vocale.
+4. Se si vuole passare a un'altra sottoscrizione vocale, usare l'icona a cremagliera che si trova nella parte superiore dello spostamento.
 
 > [!NOTE]
-> Il servizio Custom Voice NON supporta la chiave di prova gratuita di 30 giorni. È necessario disporre di una chiave F0 o S0 creata in Azure prima di poter usare il servizio.
+> Il servizio Voice personalizzato non supporta la chiave di valutazione gratuita di 30 giorni. Prima di poter usare il servizio, è necessario disporre di una chiave F0 o S0 creata in Azure.
 
 ## <a name="how-to-create-a-project"></a>Come creare un progetto
 
-Contenuti come dati, modelli, test ed endpoint sono organizzati in **progetti** nel portale Custom Voice. Ogni progetto è specifico per un paese / lingua e il sesso della voce che si desidera creare. Ad esempio, è possibile creare un progetto per una voce femminile per i chat bot del servizio clienti che utilizzano l'inglese negli Stati Uniti (en-US).
+Contenuto come dati, modelli, test ed endpoint sono organizzati in **progetti** nel portale vocale personalizzato. Ogni progetto è specifico per un paese/lingua e il sesso della voce che si vuole creare. Ad esempio, è possibile creare un progetto per una voce femminile per i bot della chat del Call Center che usano la lingua inglese nella Stati Uniti (en-US).
 
-Per creare il primo progetto, selezionare la scheda **Sintesi vocale/Voce personalizzata,** quindi fare clic su **Nuovo progetto**. Seguire le istruzioni fornite dalla procedura guidata per creare il progetto. Dopo aver creato un progetto, verranno visualizzate quattro schede: **Dati**, **Formazione**, **Testing**e **Distribuzione**. Utilizzare i collegamenti forniti in [Passaggi successivi](#next-steps) per informazioni su come utilizzare ogni scheda.
+Per creare il primo progetto, selezionare la scheda **voce vocale/voce personalizzata** , quindi fare clic su **nuovo progetto**. Seguire le istruzioni fornite dalla procedura guidata per creare il progetto. Dopo aver creato un progetto, vengono visualizzate quattro schede: **dati**, **Training**, **testing**e **distribuzione**. Usare i collegamenti forniti nei [passaggi successivi](#next-steps) per informazioni su come usare ogni scheda.
 
 > [!IMPORTANT]
-> Il [portale Custom Voice](https://aka.ms/custom-voice) è stato aggiornato di recente! Se sono stati creati dati, modelli, test ed endpoint pubblicati precedenti nel portale CRIS.ai o con le API, è necessario creare un nuovo progetto nel nuovo portale per connettersi a queste entità precedenti.
+> Il [portale Voice personalizzato](https://aka.ms/custom-voice) è stato aggiornato di recente. Se sono stati creati dati, modelli, test e endpoint pubblicati in precedenza nel portale di CRIS.ai o con le API, è necessario creare un nuovo progetto nel nuovo portale per connettersi a queste entità obsolete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Preparare i dati vocali personalizzati](how-to-custom-voice-prepare-data.md)
 - [Creare una voce personalizzata](how-to-custom-voice-create-voice.md)
-- [Guida: Registrare i campioni vocali](record-custom-voice-samples.md)
+- [Guida: registrare gli esempi di voce](record-custom-voice-samples.md)

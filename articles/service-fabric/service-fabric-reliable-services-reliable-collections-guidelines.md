@@ -1,13 +1,13 @@
 ---
-title: Linee guida per le raccolte affidabili
-description: Linee guida e consigli per l'uso di raccolte Reliable Collection di Service Fabric in un'applicazione di Azure Service Fabric.Guidelines and Recommendations for using Service Fabric Reliable Collections in an Azure Service Fabric application.
+title: Linee guida per Reliable Collections
+description: Linee guida e consigli per l'uso di Service Fabric Reliable Collections in un'applicazione Service Fabric di Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398532"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
@@ -20,8 +20,8 @@ Le linee guida sono organizzate come semplici consigli*su cosa fare* , *prendere
 * Non usare `TimeSpan.MaxValue` per i timeout. I timeout devono essere usati per rilevare i deadlock.
 * Non usare una transazione dopo che ne è stato eseguito il commit, è stata interrotta o eliminata.
 * Non usare un'enumerazione all'esterno dell'ambito di transazione nella quale è stata creata.
-* Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione perché può causare deadlock.
-* Non creare uno `IReliableStateManager.GetOrAddAsync` stato affidabile con e utilizzare lo stato reliable nella stessa transazione. Ciò comporta un InvalidOperationException.This results in an InvalidOperationException.
+* Non creare una transazione all'interno dell'istruzione di `using` un'altra transazione perché può causare deadlock.
+* Non creare lo stato affidabile con `IReliableStateManager.GetOrAddAsync` e utilizzare lo stato affidabile nella stessa transazione. Viene restituito un valore InvalidOperationException.
 * Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze su `IComparable<TKey>` per l'unione di checkpoint e righe.
 * Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
 * Si consiglia di mantenere un numero di raccolte Reliable Collections per partizione inferiore a 1000. Preferire le raccolte Reliable Collections con più elementi.
@@ -42,16 +42,16 @@ Occorre tenere presente i concetti seguenti:
 * La sicurezza e la privacy dei dati resi persistenti tramite l'applicazione in una raccolta affidabile sono decisioni dell'utente e sono soggette a misure di protezione fornite dalla gestione dell'archiviazione, ad esempio la crittografia del disco del sistema operativo potrebbe essere usata per proteggere i dati inattivi.  
 
 ## <a name="volatile-reliable-collections"></a>Raccolte affidabili volatili
-Quando si decide di utilizzare raccolte affidabili volatili, considerare quanto segue:
+Quando si decide di usare le raccolte affidabili volatili, tenere presente quanto segue:
 
-* ```ReliableDictionary```ha supporto volatile
-* ```ReliableQueue```ha supporto volatile
-* ```ReliableConcurrentQueue```NON ha supporto volatile
-* I servizi persistenti NON possono essere resi volatili. La ```HasPersistedState``` modifica ```false``` del flag in richiede la ricreazione dell'intero servizio da zero
-* I servizi volatili NON POSSONO essere resi persistenti. La ```HasPersistedState``` modifica ```true``` del flag in richiede la ricreazione dell'intero servizio da zero
-* ```HasPersistedState```è una configurazione a livello di servizio. Ciò significa che **TUTTE le** raccolte verranno rese persistenti o volatili. Non è possibile combinare raccolte volatili e persistenti
-* La perdita del quorum di una partizione volatile comporta una perdita completa dei datiQuorum loss of a volatile partition results in complete data loss
-* Backup e ripristino NON sono disponibili per i servizi volatili
+* ```ReliableDictionary```dispone del supporto volatile
+* ```ReliableQueue```dispone del supporto volatile
+* ```ReliableConcurrentQueue```non dispone del supporto volatile
+* I servizi salvati in permanenza non possono essere resi volatili. La modifica ```HasPersistedState``` del flag ```false``` in richiede la ricreazione dell'intero servizio da zero
+* Non è possibile rendere permanente i servizi volatili. La modifica ```HasPersistedState``` del flag ```true``` in richiede la ricreazione dell'intero servizio da zero
+* ```HasPersistedState```è una configurazione a livello di servizio. Ciò significa che **tutte le** raccolte saranno rese permanente o volatili. Non è possibile combinare raccolte volatili e rese permanente
+* La perdita di quorum di una partizione volatile comporta una perdita di dati completa
+* Il backup e il ripristino non sono disponibili per i servizi volatili
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Lavorare con le raccolte Reliable Collections](service-fabric-work-with-reliable-collections.md)

@@ -1,6 +1,6 @@
 ---
-title: Gestione dell'agente Azure Arc per server (anteprima)Managing the Azure Arc for servers (preview) agent
-description: Questo articolo descrive le diverse attività di gestione che verranno in genere eseguite durante il ciclo di vita dell'agente computer connesso ad Azure Arc per server.
+title: Gestione dell'agente Azure Arc for Servers (anteprima)
+description: Questo articolo descrive le diverse attività di gestione che in genere vengono eseguite durante il ciclo di vita di Azure Arc per l'agente computer connesso ai server.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -9,50 +9,50 @@ ms.author: magoedte
 ms.date: 04/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5ad2127b4cb9da3ca83aa04bd1885908a88dba62
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81308964"
 ---
-# <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente di macchine connesse
+# <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente del computer connesso
 
-Dopo la distribuzione iniziale dell'agente di Azure Arc for servers (anteprima) Connected Machine agent for Windows o Linux, potrebbe essere necessario riconfigurare l'agente, aggiornarlo o rimuoverlo dal computer se ha raggiunto la fase di ritiro nel ciclo di vita. È possibile gestire facilmente queste attività di manutenzione di routine manualmente o tramite l'automazione, che riduce sia gli errori operativi che le spese.
+Dopo la distribuzione iniziale di Azure Arc for Servers (anteprima) Connected Machine Agent per Windows o Linux, potrebbe essere necessario riconfigurare l'agente, aggiornarlo o rimuoverlo dal computer se ha raggiunto la fase di ritiro nel ciclo di vita. È possibile gestire facilmente queste attività di manutenzione di routine manualmente o tramite l'automazione, che riduce sia gli errori operativi che le spese.
 
-## <a name="upgrading-agent"></a>Agente di aggiornamento
+## <a name="upgrading-agent"></a>Aggiornamento dell'agente
 
-L'agente del computer connesso di Azure per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente a seconda delle esigenze. Nella tabella seguente vengono descritti i metodi supportati per eseguire l'aggiornamento dell'agente.
+L'agente Azure Connected Machine per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente in base alle esigenze. Nella tabella seguente vengono descritti i metodi supportati per eseguire l'aggiornamento dell'agente.
 
 | Sistema operativo | Metodo di aggiornamento |
 |------------------|----------------|
 | Windows | Manualmente<br> Windows Update |
-| Ubuntu | [Appartamento](https://help.ubuntu.com/lts/serverguide/apt.html) |
-| SuSE Linux Enterprise Server | [Zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| RedHat Enterprise, Amazon, CentOS Linux | [Yum](https://wiki.centos.org/PackageManagement/Yum) | 
+| Ubuntu | [APT](https://help.ubuntu.com/lts/serverguide/apt.html) |
+| SuSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
+| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
 
 ### <a name="windows-agent"></a>Agente Windows
 
-Per aggiornare l'agente in un computer Windows alla versione più recente, l'agente è disponibile da Microsoft Update e può essere distribuito utilizzando il processo di gestione degli aggiornamenti software esistente. Può anche essere eseguito manualmente dal prompt dei comandi, da uno script o `AzureConnectedMachine.msi`da un'altra soluzione di automazione o dalla procedura guidata dell'interfaccia utente eseguendo . 
+Per aggiornare l'agente in un computer Windows alla versione più recente, l'agente è disponibile da Microsoft Update e può essere distribuito con il processo di gestione degli aggiornamenti software esistente. Può anche essere eseguito manualmente dal prompt dei comandi, da uno script o da un'altra soluzione di automazione o dalla procedura guidata dell'interfaccia utente `AzureConnectedMachine.msi`eseguendo. 
 
 > [!NOTE]
-> * Per aggiornare l'agente, è necessario disporre delle autorizzazioni *di amministratore.*
-> * Per eseguire l'aggiornamento manuale, è innanzitutto necessario scaricare e copiare il pacchetto installer in una cartella sul server di destinazione o da una cartella di rete condivisa. 
+> * Per aggiornare l'agente, è necessario disporre delle autorizzazioni di *amministratore* .
+> * Per eseguire l'aggiornamento manualmente, è prima necessario scaricare e copiare il pacchetto di installazione in una cartella nel server di destinazione o da una cartella di rete condivisa. 
 
-Se non si ha familiarità con le opzioni della riga di comando per i pacchetti di Windows Installer, vedere Opzioni della riga di comando standard di [Msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) e [Opzioni della riga di comando Msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Se non si ha familiarità con le opzioni della riga di comando per i pacchetti Windows Installer, vedere le opzioni della riga di [comando msiexec standard](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) e le [Opzioni della riga di comando msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
-#### <a name="to-upgrade-using-the-setup-wizard"></a>Per eseguire l'aggiornamento mediante l'Installazione guidata
+#### <a name="to-upgrade-using-the-setup-wizard"></a>Per eseguire l'aggiornamento utilizzando l'installazione guidata
 
 1. Accedere al computer con un account con diritti amministrativi.
 
-2. Eseguire **AzureConnectedMachineAgent.msi** per avviare l'installazione guidata.
+2. Eseguire **AzureConnectedMachineAgent. msi** per avviare l'installazione guidata.
 
-L'Installazione guidata rileva se esiste una versione precedente, quindi esegue automaticamente un aggiornamento dell'agente. Al termine dell'aggiornamento, l'Installazione guidata viene chiusa automaticamente.
+L'installazione guidata rileva se esiste una versione precedente e quindi esegue automaticamente un aggiornamento dell'agente. Al termine dell'aggiornamento, l'installazione guidata viene chiusa automaticamente.
 
 #### <a name="to-upgrade-from-the-command-line"></a>Per eseguire l'aggiornamento dalla riga di comando
 
 1. Accedere al computer con un account con diritti amministrativi.
 
-2. Per aggiornare l'agente in modo invisibile all'utente e creare un file di registro dell'installazione nella `C:\Support\Logs` cartella, eseguire il comando seguente.
+2. Per aggiornare l'agente in modo invisibile all'utente e creare un file di `C:\Support\Logs` log del programma di installazione nella cartella, eseguire il comando seguente.
 
     ```dos
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentupgradesetup.log"
@@ -60,12 +60,12 @@ L'Installazione guidata rileva se esiste una versione precedente, quindi esegue 
 
 ### <a name="linux-agent"></a>Agente Linux
 
-Per aggiornare l'agente in un computer Linux alla versione più recente, è necessario due comandi. Un comando per aggiornare l'indice del pacchetto locale con l'elenco dei pacchetti più recenti disponibili dai repository e un comando per aggiornare il pacchetto locale. 
+Per aggiornare l'agente in un computer Linux alla versione più recente, sono necessari due comandi. Un comando per aggiornare l'indice del pacchetto locale con l'elenco dei pacchetti più recenti disponibili nei repository e un comando per aggiornare il pacchetto locale. 
 
 > [!NOTE]
-> Per aggiornare l'agente, è necessario disporre delle autorizzazioni di accesso *radice* o con un account con diritti elevati tramite Sudo.
+> Per aggiornare l'agente, è necessario disporre delle autorizzazioni di accesso alla *radice* o con un account con diritti elevati usando sudo.
 
-#### <a name="upgrade-ubuntu"></a>Potenzia Ubuntu
+#### <a name="upgrade-ubuntu"></a>Aggiornare Ubuntu
 
 1. Per aggiornare l'indice del pacchetto locale con le modifiche più recenti apportate nei repository, eseguire il comando seguente:
 
@@ -79,9 +79,9 @@ Per aggiornare l'agente in un computer Linux alla versione più recente, è nece
     apt upgrade
     ```
 
-Le azioni del comando [apt,](https://help.ubuntu.com/lts/serverguide/apt.html) ad esempio l'installazione `/var/log/dpkg.log` e la rimozione dei pacchetti, vengono registrate nel file di registro.
+Le azioni del comando [apt](https://help.ubuntu.com/lts/serverguide/apt.html) , ad esempio l' `/var/log/dpkg.log` installazione e la rimozione di pacchetti, vengono registrate nel file di log.
 
-#### <a name="upgrade-red-hatcentosamazon-linux"></a>Aggiornamento Red Hat/CentOS/Amazon Linux
+#### <a name="upgrade-red-hatcentosamazon-linux"></a>Aggiornare Red Hat/CentOS/Amazon Linux
 
 1. Per aggiornare l'indice del pacchetto locale con le modifiche più recenti apportate nei repository, eseguire il comando seguente:
 
@@ -95,9 +95,9 @@ Le azioni del comando [apt,](https://help.ubuntu.com/lts/serverguide/apt.html) a
     yum update
     ```
 
-Le azioni del comando [yum,](https://access.redhat.com/articles/yum-cheat-sheet) ad esempio l'installazione `/var/log/yum.log` e la rimozione dei pacchetti, vengono registrate nel file di registro. 
+Le `/var/log/yum.log` azioni del comando [yum](https://access.redhat.com/articles/yum-cheat-sheet) , ad esempio l'installazione e la rimozione di pacchetti, vengono registrate nel file di log. 
 
-#### <a name="upgrade-suse-linux-enterprise"></a>Aggiornamento di SUSE Linux Enterprise
+#### <a name="upgrade-suse-linux-enterprise"></a>Aggiornare SUSE Linux Enterprise
 
 1. Per aggiornare l'indice del pacchetto locale con le modifiche più recenti apportate nei repository, eseguire il comando seguente:
 
@@ -111,87 +111,87 @@ Le azioni del comando [yum,](https://access.redhat.com/articles/yum-cheat-sheet)
     zypper update
     ```
 
-Le azioni del comando [zypper,](https://en.opensuse.org/Portal:Zypper) ad esempio l'installazione `/var/log/zypper.log` e la rimozione dei pacchetti, vengono registrate nel file di registro. 
+Le azioni del comando [zypper](https://en.opensuse.org/Portal:Zypper) , ad esempio l' `/var/log/zypper.log` installazione e la rimozione di pacchetti, vengono registrate nel file di log. 
 
 ## <a name="about-the-azcmagent-tool"></a>Informazioni sullo strumento Azcmagent
 
-Lo strumento Azcmagent (Azcmagent.exe) viene usato per configurare L'agente computer connesso di Azure Arc per i server (anteprima) durante l'installazione o per modificare la configurazione iniziale dell'agente dopo l'installazione. Azcmagent.exe fornisce parametri della riga di comando per personalizzare l'agente e visualizzarne lo stato:
+Lo strumento Azcmagent (Azcmagent. exe) viene usato per configurare l'agente del computer connesso di Azure Arc per i server (anteprima) durante l'installazione o per modificare la configurazione iniziale dell'agente dopo l'installazione. Azcmagent. exe fornisce parametri della riga di comando per personalizzare l'agente e visualizzarne lo stato:
 
-* **Connetti** - Per connettere il computer ad Azure Arc
+* **Connetti** : per connettere il computer ad Azure Arc
 
-* **Disconnetti** - Per disconnettere la macchina da Azure Arc
+* **Disconnetti** : per disconnettere il computer da Azure Arc
 
-* **Riconnetti** - Per riconnettere un computer disconnesso ad Azure ArcReconnect - To reconnect a disconnected machine to Azure Arc
+* **Riconnettersi** : per riconnettere un computer disconnesso ad Azure Arc
 
-* **Mostra:** consente di visualizzare lo stato dell'agente e le relative proprietà di configurazione (nome del gruppo di risorse, ID sottoscrizione, versione e così via), che consentono di risolvere un problema con l'agente.
+* **Mostra-Visualizza** lo stato dell'agente e le relative proprietà di configurazione (nome del gruppo di risorse, ID sottoscrizione, versione e così via), che può essere utile per la risoluzione di un problema con l'agente.
 
-* **-h o --help** - Mostra i parametri disponibili della riga di comando
+* **-h o--help** -Mostra i parametri della riga di comando disponibili
 
-    Ad esempio, per visualizzare informazioni dettagliate sul `azcmagent reconnect -h`parametro **Reconnect,** digitare . 
+    Per visualizzare ad esempio la guida dettagliata per il parametro **Riconnetti** , digitare `azcmagent reconnect -h`. 
 
-* **-v o --verbose** - Abilita registrazione dettagliata
+* **-v o--verbose** -Abilita registrazione dettagliata
 
-È possibile eseguire un'operazione **Connect**, **Disconnect**e **Reconnect** manualmente durante l'accesso interattivo oppure automatizzare l'utilizzo della stessa entità servizio utilizzata per l'onboarding di più agenti o con un token di [accesso](../../active-directory/develop/access-tokens.md)alla piattaforma di identità Microsoft. Se non è stata usata un'entità servizio per registrare la macchina con Azure Arc per i server (anteprima), vedere [l'articolo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) seguente per creare un'entità servizio.
+È possibile eseguire manualmente la **connessione**, la **disconnessione**e la **riconnessione** durante l'accesso interattivo oppure automatizzare l'uso della stessa entità servizio usata per caricare più agenti o con un [token di accesso](../../active-directory/develop/access-tokens.md)della piattaforma Microsoft Identity. Se non è stata usata un'entità servizio per registrare il computer con Azure Arc for Servers (anteprima), vedere l' [articolo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) seguente per creare un'entità servizio.
 
 ### <a name="connect"></a>Connessione
 
-Questo parametro specifica una risorsa in Azure Resource Manager che rappresenta la creazione del computer in Azure.This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. La risorsa si trova nella sottoscrizione e nel gruppo di risorse specificato e `--location` i dati relativi al computer vengono archiviati nell'area di Azure specificata dall'impostazione. Il nome della risorsa predefinita è il nome host del computer, se non specificato.
+Questo parametro specifica una risorsa in Azure Resource Manager che rappresenta il computer creato in Azure. La risorsa si trova nella sottoscrizione e nel gruppo di risorse specificati e i dati relativi al computer vengono archiviati nell'area di Azure specificata `--location` dall'impostazione. Se non è specificato, il nome predefinito della risorsa è il nome host del computer.
 
-Un certificato corrispondente all'identità assegnata dal sistema del computer viene quindi scaricato e archiviato in locale. Al termine di questo passaggio, il servizio metadati computer connesso di Azure e l'agente di configurazione guest iniziano la sincronizzazione con Azure Arc per i server (anteprima).
+Un certificato corrispondente all'identità assegnata dal sistema del computer viene quindi scaricato e archiviato localmente. Una volta completato questo passaggio, il servizio metadati del computer connesso di Azure e l'agente di configurazione Guest iniziano la sincronizzazione con Azure Arc per i server (anteprima).
 
-Per connettersi usando un'entità servizio, eseguire il comando seguente:To connect using a service principal, run the following command:
+Per connettersi usando un'entità servizio, eseguire il comando seguente:
 
 `azcmagent connect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
-Per connettersi utilizzando un token di accesso, eseguire il comando seguente:To connect using an access token, run the following command:
+Per connettersi usando un token di accesso, eseguire il comando seguente:
 
 `azcmagent connect --access-token <> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
-Per connettersi con le credenziali con privilegi elevati di accesso (interattivo), eseguire il comando seguente:
+Per connettersi con le credenziali di accesso con privilegi elevati (interattivo), eseguire il comando seguente:
 
 `azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
 ### <a name="disconnect"></a>Disconnetti
 
-Questo parametro specifica una risorsa in Azure Resource Manager che rappresenta l'eliminazione del computer in Azure.This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. Non elimina l'agente dalla macchina, questa operazione deve essere eseguita come passaggio separato. Dopo la disconnessione del computer, se si vuole registrarlo nuovamente `azcmagent connect` con Azure Arc per i server (anteprima), usare pertanto viene creata una nuova risorsa in Azure.After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use so a new resource is created for it in Azure.
+Questo parametro specifica una risorsa in Azure Resource Manager che rappresenta il computer eliminato in Azure. Non elimina l'agente dal computer. questa operazione deve essere eseguita come passaggio separato. Dopo la disconnessione del computer, se si vuole registrarlo di nuovo con Azure Arc per i server (anteprima), `azcmagent connect` usare per creare una nuova risorsa in Azure.
 
-Per disconnettersi usando un'entità servizio, eseguire il comando seguente:To disconnect using a service principal, run the following command:
+Per disconnettersi usando un'entità servizio, eseguire il comando seguente:
 
 `azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
 
-Per disconnettersi utilizzando un token di accesso, eseguire il comando seguente:To disconnect using an access token, run the following command:
+Per disconnettersi usando un token di accesso, eseguire il comando seguente:
 
 `azcmagent disconnect --access-token <accessToken>`
 
-Per disconnettersi con le credenziali con privilegi elevati connessi (interattivo), eseguire il comando seguente:
+Per disconnettersi con le credenziali di accesso con privilegi elevati (interattivo), eseguire il comando seguente:
 
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>Riconnetti
 
-Questo parametro riconnette il computer già registrato o connesso con Azure Arc per i server (anteprima). Ciò può essere necessario se la macchina è stata spenta, almeno 45 giorni, affinché il suo certificato scada. Questo parametro usa le opzioni di autenticazione fornite per recuperare le nuove credenziali corrispondenti alla risorsa di Azure Resource Manager che rappresenta il computer.
+Questo parametro riconnette il computer già registrato o connesso con Azure Arc per i server (anteprima). Questa operazione può essere necessaria se il computer è stato disattivato, almeno 45 giorni, per la scadenza del certificato. Questo parametro usa le opzioni di autenticazione fornite per recuperare le nuove credenziali corrispondenti alla risorsa Azure Resource Manager che rappresenta il computer.
 
-Questo comando richiede privilegi più elevati rispetto al ruolo [di onboarding del computer connesso](overview.md#required-permissions) ad Azure.This command requires higher privileges than the Azure Connected Machine Onboarding role.
+Questo comando richiede privilegi più elevati rispetto al ruolo di [onboarding del computer connesso di Azure](overview.md#required-permissions) .
 
-Per riconnettersi usando un'entità servizio, eseguire il comando seguente:To reconnect using a service principal, run the following command:
+Per riconnettersi usando un'entità servizio, eseguire il comando seguente:
 
 `azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
 
-Per riconnettersi utilizzando un token di accesso, eseguire il comando seguente:To reconnect using an access token, run the following command:
+Per riconnettersi usando un token di accesso, eseguire il comando seguente:
 
 `azcmagent reconnect --access-token <accessToken>`
 
-Per riconnettersi con le credenziali con accesso con privilegi elevati (interattivo), eseguire il comando seguente:
+Per riconnettersi con le credenziali di accesso con privilegi elevati (interattivo), eseguire il comando seguente:
 
 `azcmagent reconnect --tenant-id <tenantID>`
 
 ## <a name="remove-the-agent"></a>Rimuovere l'agente
 
-Eseguire uno dei seguenti metodi per disinstallare l'agente Windows o Linux Connected Machine dalla macchina. La rimozione dell'agente non annulla la registrazione della macchina con Arc per i server (anteprima), si tratta di un processo separato che viene eseguito quando non è più necessario gestire il computer in Azure.Removing the agent does not unregister the machine with Arc for servers (preview), this is a separate process you perform when you no longer need to manage the machine in Azure.
+Eseguire uno dei metodi seguenti per disinstallare l'agente computer connesso Windows o Linux dal computer. La rimozione dell'agente non consente di annullare la registrazione del computer con Arc per i server (anteprima). si tratta di un processo separato eseguito quando non è più necessario gestire il computer in Azure.
 
 ### <a name="windows-agent"></a>Agente Windows
 
-Entrambi i metodi seguenti rimuovono l'agente, ma non rimuovono la cartella *C:.*
+Entrambi i metodi seguenti consentono di rimuovere l'agente, ma non di rimuovere la cartella *C:\Program Files\AzureConnectedMachineAgent* nel computer.
 
 #### <a name="uninstall-from-control-panel"></a>Eseguire la disinstallazione dal Pannello di controllo
 
@@ -206,21 +206,21 @@ Entrambi i metodi seguenti rimuovono l'agente, ma non rimuovono la cartella *C:.
 
 #### <a name="uninstall-from-the-command-line"></a>Eseguire la disinstallazione dalla riga di comando
 
-Per disinstallare manualmente l'agente dal prompt dei comandi o per utilizzare un metodo automatizzato, ad esempio uno script, è possibile utilizzare l'esempio seguente. In primo luogo è necessario recuperare il codice del prodotto, che è un GUID che è l'identificatore principale del pacchetto dell'applicazione, dal sistema operativo. La disinstallazione viene eseguita utilizzando la `msiexec /x {Product Code}`riga di comando Msiexec.exe - .
+Per disinstallare manualmente l'agente dal prompt dei comandi o per usare un metodo automatizzato, ad esempio uno script, è possibile usare l'esempio seguente. Per prima cosa è necessario recuperare il codice prodotto, ovvero un GUID che rappresenta l'identificatore principale del pacchetto dell'applicazione, dal sistema operativo. La disinstallazione viene eseguita utilizzando la riga di comando msiexec. exe `msiexec /x {Product Code}`-.
     
 1. Aprire l'editor del Registro di sistema.
 
 2. Nella chiave del registro di sistema `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` cercare e copiare il GUID del codice prodotto.
 
-3. È quindi possibile disinstallare l'agente utilizzando Msiexec utilizzando i seguenti esempi:
+3. È quindi possibile disinstallare l'agente usando msiexec usando gli esempi seguenti:
 
-   * Dalla riga di comando digitare:
+   * Dal tipo di riga di comando:
 
        ```dos
        msiexec.exe /x {product code GUID} /qn
        ```
 
-   * È possibile eseguire la stessa procedura usando PowerShell:You can perform the same steps using PowerShell:
+   * È possibile eseguire gli stessi passaggi usando PowerShell:
 
        ```powershell
        Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
@@ -232,9 +232,9 @@ Per disinstallare manualmente l'agente dal prompt dei comandi o per utilizzare u
 ### <a name="linux-agent"></a>Agente Linux
 
 > [!NOTE]
-> Per disinstallare l'agente, è necessario disporre delle autorizzazioni di accesso *root* o con un account con diritti elevati tramite Sudo.
+> Per disinstallare l'agente, è necessario disporre delle autorizzazioni di accesso alla *radice* o con un account con diritti elevati usando sudo.
 
-Per disinstallare l'agente Linux, il comando da utilizzare dipende dal sistema operativo Linux.
+Per disinstallare l'agente Linux, il comando da usare dipende dal sistema operativo Linux.
 
 - Per Ubuntu, eseguire il comando seguente:
 
@@ -254,9 +254,9 @@ Per disinstallare l'agente Linux, il comando da utilizzare dipende dal sistema o
     sudo zypper remove azcmagent
     ```
 
-## <a name="unregister-machine"></a>Annulla registrazione macchina
+## <a name="unregister-machine"></a>Annulla registrazione computer
 
-Se si prevede di interrompere la gestione della macchina con i servizi di supporto in Azure, eseguire la procedura seguente per annullare la registrazione del computer con Arc per i server (anteprima). È possibile eseguire questi passaggi prima o dopo aver rimosso l'agente computer connesso dalla macchina.
+Se si prevede di arrestare la gestione del computer con servizi di supporto in Azure, seguire questa procedura per annullare la registrazione del computer con Arc for Servers (anteprima). È possibile eseguire questi passaggi prima o dopo la rimozione dell'agente del computer connesso dal computer.
 
 1. Aprire Azure Arc per server (anteprima) passando al [portale di Azure](https://aka.ms/hybridmachineportal).
 

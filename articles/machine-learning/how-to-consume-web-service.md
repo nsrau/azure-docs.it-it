@@ -1,7 +1,7 @@
 ---
-title: Creare client per il modello distribuito come servizio WebCreate client for model deployed as web service
+title: Creazione di un client per il modello distribuito come servizio Web
 titleSuffix: Azure Machine Learning
-description: Informazioni su come chiamare un endpoint del servizio Web generato quando un modello è stato distribuito da Azure Machine Learning.Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. L'endpoint espone un'API REST, che è possibile chiamare per eseguire l'inferenza con il modello. Creare client per questa API usando il linguaggio di programmazione preferito.
+description: Informazioni su come chiamare un endpoint del servizio Web generato durante la distribuzione di un modello da Azure Machine Learning. L'endpoint espone un'API REST, che è possibile chiamare per eseguire l'inferenza con il modello. Creare client per questa API usando il linguaggio di programmazione preferito.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,18 +12,18 @@ ms.reviewer: larryfr
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383386"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-La distribuzione di un modello di Azure Machine Learning come servizio Web crea un endpoint dell'API REST. È possibile inviare dati a questo endpoint e ricevere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
+La distribuzione di un modello di Azure Machine Learning come servizio Web crea un endpoint API REST. È possibile inviare dati a questo endpoint e ricevere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
-Si crea un servizio Web quando si distribuisce un modello nell'ambiente locale, le istanze del contenitore di Azure, il servizio Azure Kubernetes o gli array gate programmabili di campo (FPGA). Recuperare l'URI utilizzato per accedere al servizio Web utilizzando [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se l'autenticazione è abilitata, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione o i token.
+Si crea un servizio Web quando si distribuisce un modello nell'ambiente locale, istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA (Field-Programmable Gate Array). Per recuperare l'URI utilizzato per accedere al servizio Web, è possibile utilizzare il [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se l'autenticazione è abilitata, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione o i token.
 
 Il flusso di lavoro generale per creare un client che usa un servizio Web di Machine Learning è il seguente:
 
@@ -32,7 +32,7 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 1. Creare un'applicazione che chiama il servizio Web.
 
 > [!TIP]
-> Gli esempi in questo documento vengono creati manualmente senza l'utilizzo delle specifiche OpenAPI (Swagger). Se è stata abilitata una specifica OpenAPI per la distribuzione, è possibile usare strumenti come [swagger-codegen](https://github.com/swagger-api/swagger-codegen) per creare librerie client per il servizio.
+> Gli esempi in questo documento vengono creati manualmente senza usare le specifiche OpenAPI (spavalderia). Se è stata abilitata una specifica OpenAPI per la distribuzione, è possibile usare strumenti come [spavalderia-codegen](https://github.com/swagger-api/swagger-codegen) per creare librerie client per il servizio.
 
 ## <a name="connection-information"></a>Informazioni di connessione
 
@@ -41,10 +41,10 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 
 La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
 
-* `auth_enabled`- Se l'autenticazione con chiave è abilitata, `True`; in `False`caso contrario, .
-* `token_auth_enabled`- Se l'autenticazione token è abilitata, `True`; in `False`caso contrario, .
+* `auth_enabled`-Se è abilitata l'autenticazione `True`della chiave,; in caso `False`contrario,.
+* `token_auth_enabled`-Se è abilitata l'autenticazione `True`del token; in caso `False`contrario,.
 * `scoring_uri` - L'indirizzo dell'API REST.
-* `swagger_uri`- L'indirizzo della specifica OpenAPI. Questo URI è disponibile se è stata abilitata la generazione automatica dello schema. Per altre informazioni, vedere Distribuire modelli con Azure Machine Learning.For more information, see [Deploy models with Azure Machine Learning.](how-to-deploy-and-where.md)
+* `swagger_uri`: Indirizzo della specifica OpenAPI. Questo URI è disponibile se è stata abilitata la generazione automatica dello schema. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 Sono disponibili tre modi per recuperare queste informazioni per servizi Web distribuiti:
 
@@ -75,23 +75,23 @@ Sono disponibili tre modi per recuperare queste informazioni per servizi Web dis
 
 ### <a name="secured-web-service"></a>Servizio Web protetto
 
-Se il servizio Web distribuito è stato protetto utilizzando un certificato TLS/SSL, è possibile usare [HTTPS](https://en.wikipedia.org/wiki/HTTPS) per connettersi al servizio usando il punteggio o l'URI swagger. HTTPS consente di proteggere le comunicazioni tra un client e un servizio Web crittografando le comunicazioni tra i due. La crittografia utilizza [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS è a volte ancora indicato come *Secure Sockets Layer* (SSL), che era il predecessore di TLS.
+Se il servizio Web distribuito è stato protetto usando un certificato TLS/SSL, è possibile usare [https](https://en.wikipedia.org/wiki/HTTPS) per connettersi al servizio usando l'URI di assegnazione dei punteggi o della spavalderia. HTTPS consente di proteggere le comunicazioni tra un client e un servizio Web mediante la crittografia delle comunicazioni tra i due. La crittografia USA [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS è talvolta ancora indicato come *Secure Sockets Layer* (SSL), che era il predecessore di TLS.
 
 > [!IMPORTANT]
-> I servizi Web distribuiti da Azure Machine Learning supportano solo TLS versione 1.2.Web services deployed by Azure Machine Learning only support TLS version 1.2. Quando si crea un'applicazione client, assicurarsi che supporti questa versione.
+> I servizi Web distribuiti da Azure Machine Learning supportano solo TLS versione 1,2. Quando si crea un'applicazione client, assicurarsi che supporti questa versione.
 
-Per altre informazioni, vedere [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning.For](how-to-secure-web-service.md)more information, see Use TLS to secure a web service through Azure Machine Learning .
+Per altre informazioni, vedere [usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md).
 
 ### <a name="authentication-for-services"></a>Autenticazione per i servizi
 
 Azure Machine Learning offre due modi per controllare l'accesso ai servizi Web.
 
-|Metodo di autenticazione|Aci|Servizio Azure Kubernetes|
+|Metodo di autenticazione|ACI|Servizio Azure Kubernetes|
 |---|---|---|
 |Chiave|Disattivata per impostazione predefinita| Abilitato per impostazione predefinita|
-|token| Non disponibile| Disattivata per impostazione predefinita |
+|Token| Non disponibile| Disattivata per impostazione predefinita |
 
-Quando si invia una richiesta a un servizio protetto con una chiave o un token, usare l'intestazione __Authorization__ per passare la chiave o il token. La chiave o il token `Bearer <key-or-token>`deve `<key-or-token>` essere formattato come , dove è il valore della chiave o del token.
+Quando si invia una richiesta a un servizio protetto con una chiave o un token, usare l'intestazione __authorization__ per passare la chiave o il token. La chiave o il token deve essere formattato `Bearer <key-or-token>`come `<key-or-token>` , dove è il valore della chiave o del token.
 
 #### <a name="authentication-with-keys"></a>Autenticazione con chiavi
 
@@ -110,18 +110,18 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se è necessario rigenerare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)una chiave, utilizzare .
+> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 #### <a name="authentication-with-tokens"></a>Autenticazione con token
 
-Quando si abilita l'autenticazione token per un servizio Web, un utente deve fornire un token JWT di Azure Machine Learning al servizio Web per accedervi. 
+Quando si Abilita l'autenticazione basata su token per un servizio Web, è necessario che un utente fornisca al servizio Web un token di Azure Machine Learning JWT per accedervi. 
 
-* L'autenticazione basata su token è disabilitata per impostazione predefinita quando si esegue la distribuzione nel servizio Azure Kubernetes.Token authentication is disabled by default when you deploying to Azure Kubernetes Service.
-* L'autenticazione basata su token non è supportata quando si esegue la distribuzione in istanze del contenitore di Azure.Token authentication is not supported when you deploying to Azure Container Instances.
+* Per impostazione predefinita, l'autenticazione del token è disabilitata quando si esegue la distribuzione nel servizio Azure Kubernetes.
+* L'autenticazione basata su token non è supportata quando si esegue la distribuzione in istanze di contenitore di Azure.
 
-Per controllare l'autenticazione del token, utilizzare il `token_auth_enabled` parametro durante la creazione o l'aggiornamento di una distribuzione.
+Per controllare l'autenticazione del token, `token_auth_enabled` usare il parametro durante la creazione o l'aggiornamento di una distribuzione.
 
-Se l'autenticazione token è `get_token` abilitata, è possibile usare il metodo per recuperare un token di connessione e che i token hanno l'ora di scadenza:If token authentication is enabled, you can use the method to retrieve a bearer token and that tokens expiration time:
+Se l'autenticazione basata su token è abilitata, `get_token` è possibile usare il metodo per recuperare una Bearer token e l'ora di scadenza dei token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -129,7 +129,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Sarà necessario richiedere un nuovo token dopo `refresh_by` l'ora del token. 
+> Sarà necessario richiedere un nuovo token dopo l' `refresh_by` ora del token. 
 
 ## <a name="request-data"></a>Dati richiesta
 
@@ -173,10 +173,10 @@ Il servizio Web può accettare più set di dati in un'unica richiesta. Restituis
 
 ### <a name="binary-data"></a>Dati binari
 
-Per informazioni su come abilitare il supporto per i dati binari nel servizio, vedere [Dati binari](how-to-deploy-and-where.md#binary).
+Per informazioni su come abilitare il supporto per i dati binari nel servizio, vedere [dati binari](how-to-deploy-and-where.md#binary).
 
 > [!TIP]
-> L'abilitazione del supporto per i dati binari avviene nel file score.py utilizzato dal modello distribuito. Dal client, utilizzare la funzionalità HTTP del linguaggio di programmazione. Ad esempio, il frammento di codice seguente invia il contenuto di un file JPG a un servizio Web:
+> L'abilitazione del supporto per i dati binari si verifica nel file score.py utilizzato dal modello distribuito. Dal client, usare la funzionalità HTTP del linguaggio di programmazione. Ad esempio, il frammento di codice seguente invia il contenuto di un file JPG a un servizio Web:
 >
 > ```python
 > import requests
@@ -186,9 +186,9 @@ Per informazioni su come abilitare il supporto per i dati binari nel servizio, v
 > res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
 > ```
 
-### <a name="cross-origin-resource-sharing-cors"></a>Condivisione delle risorse tra origini (CORS)
+### <a name="cross-origin-resource-sharing-cors"></a>Condivisione di risorse tra le origini (CORS)
 
-Per informazioni sull'abilitazione del supporto CORS nel servizio, consultate [Condivisione di risorse tra origini](how-to-deploy-and-where.md#cors).
+Per informazioni sull'abilitazione del supporto CORS nel servizio, vedere [condivisione di risorse tra le origini](how-to-deploy-and-where.md#cors).
 
 ## <a name="call-the-service-c"></a>Chiamare il servizio (C#)
 
@@ -513,12 +513,12 @@ I risultati restituiti sono simili al seguente documento JSON:
 
 ## <a name="consume-the-service-from-power-bi"></a>Usare il servizio da Power BI
 
-Power BI supporta l'utilizzo di servizi Web di Azure Machine Learning per arricchire i dati in Power BI con stime. 
+Power BI supporta l'utilizzo di servizi Web Azure Machine Learning per arricchire i dati in Power BI con le stime. 
 
-Per generare un servizio Web supportato per l'utilizzo in Power BI, lo schema deve supportare il formato richiesto da Power BI. [Informazioni su come creare uno schema supportato da Power BI.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script)
+Per generare un servizio Web supportato per l'utilizzo in Power BI, lo schema deve supportare il formato richiesto da Power BI. [Informazioni su come creare uno schema supportato da Power bi](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
 
-Una volta distribuito, il servizio Web viene utilizzato dai flussi di dati di Power BI. [Informazioni su come usare un servizio Web di Azure Machine Learning da Power BI.](https://docs.microsoft.com/power-bi/service-machine-learning-integration)
+Una volta distribuito, il servizio Web può essere utilizzato dai flussi di Power BI. [Informazioni su come utilizzare un servizio web Azure Machine Learning da Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per visualizzare un'architettura di riferimento per il punteggio in tempo reale dei modelli Python e di deep learning, visitare il centro architettura di [Azure.](/azure/architecture/reference-architectures/ai/realtime-scoring-python)
+Per visualizzare un'architettura di riferimento per il punteggio in tempo reale di Python e modelli di apprendimento avanzato, visitare il [centro architetture di Azure](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

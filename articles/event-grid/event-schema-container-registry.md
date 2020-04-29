@@ -1,6 +1,6 @@
 ---
-title: Registro di sistema del contenitore di Azure come origine griglia di eventiAzure Container Registry as Event Grid source
-description: Descrive le proprietà fornite per gli eventi del Registro di sistema del contenitore con Griglia di eventi di AzureDescribes the properties that are provided for Container Registry events with Azure Event Grid
+title: Azure Container Registry come origine griglia di eventi
+description: Descrive le proprietà fornite per Container Registry eventi con griglia di eventi di Azure
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393354"
 ---
-# <a name="azure-container-registry-as-an-event-grid-source"></a>Registro di sistema del contenitore di Azure come origine griglia di eventiAzure Container Registry as an Event Grid source
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry come origine griglia di eventi
 
 Questo articolo illustra le proprietà e lo schema per gli eventi del Registro contenitori.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
@@ -23,14 +23,14 @@ Questo articolo illustra le proprietà e lo schema per gli eventi del Registro c
 
 ### <a name="available-event-types"></a>Tipi di evento disponibili
 
-Azure Container Registry genera i tipi di evento seguenti:Azure Container Registry emits the following event types:
+Azure Container Registry emette i tipi di evento seguenti:
 
 | Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Generato quando viene eseguito il push di un'immagine. |
 | Microsoft.ContainerRegistry.ImagePushed | Generato quando un'immagine viene eliminata. |
-| Microsoft.ContainerRegistry.ChartPushed | Generato quando viene inserito un grafico Helm. |
-| Microsoft.ContainerRegistry.ChartDeleted | Generato quando un grafico Helm viene eliminato. |
+| Microsoft. ContainerRegistry. ChartPushed | Generato quando viene eseguito il push di un grafico Helm. |
+| Microsoft. ContainerRegistry. ChartDeleted | Generato quando un grafico Helm viene eliminato. |
 
 ### <a name="example-event"></a>Evento di esempio
 
@@ -97,7 +97,7 @@ Lo schema per l'eliminazione di un'immagine è simile:
 }]
 ```
 
-Lo schema per un evento inserito nel grafico è simile allo schema per un evento inserito di immagine, ma non include un oggetto richiesta:The schema for a chart pushed event is similar to the schema for an imaged pushed event, but it doesn't include a request object:
+Lo schema di un evento di push del grafico è simile allo schema per un evento push con immagine, ma non include un oggetto richiesta:
 
 ```json
 [{
@@ -125,7 +125,7 @@ Lo schema per un evento inserito nel grafico è simile allo schema per un evento
 }]
 ```
 
-Lo schema per un evento grafico eliminato è simile allo schema per un evento eliminato con immagine, ma non include un oggetto richiesta:The schema for a chart deleted event is similar to the schema for an imaged deleted event, but it doesn't include a request object:
+Lo schema per un evento eliminato del grafico è simile allo schema per un evento eliminato con immagine, ma non include un oggetto richiesta:
 
 ```json
 [{
@@ -159,49 +159,49 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
-| data | object | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Identificatore univoco dell'evento. |
+| data | oggetto | Dati relativi all'evento di archiviazione BLOB. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| id | string | L'ID evento. |
-|  timestamp | string | L'ora in cui si è verificato l'evento. |
-| action | string | L'azione che comprende l'evento specificato. |
-| target | object | L'URL di destinazione dell'evento. |
-| richiesta | object | La richiesta che ha generato l'evento. |
+| id | stringa | L'ID evento. |
+| timestamp | stringa | L'ora in cui si è verificato l'evento. |
+| action | stringa | L'azione che comprende l'evento specificato. |
+| target | oggetto | L'URL di destinazione dell'evento. |
+| richiesta | oggetto | La richiesta che ha generato l'evento. |
 
 Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| mediaType | string | Tipo MIME dell'oggetto di riferimento. |
+| mediaType | stringa | Tipo MIME dell'oggetto di riferimento. |
 | size | integer | Numero di byte del contenuto. Uguale al campo Length. |
-| digest | string | Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2. |
+| digest | stringa | Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2. |
 | length | integer | Numero di byte del contenuto. Uguale al campo Size. |
-| repository | string | Nome del repository. |
-| tag | string | Nome tag. |
-| name | string | Nome del grafico. |
-| version | string | Versione del grafico. |
+| repository | stringa | Nome del repository. |
+| tag | stringa | Nome tag. |
+| name | stringa | Nome del grafico. |
+| Versione | stringa | Versione del grafico. |
 
 Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| id | string | ID della richiesta che ha avviato l'evento. |
-| indirizzo | string | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
-| host | string | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
-| method | string | Metodo di richiesta che ha generato l'evento. |
-| userAgent | string | Intestazione agente utente della richiesta. |
+| id | stringa | ID della richiesta che ha avviato l'evento. |
+| indirizzo | stringa | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |
+| host | stringa | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
+| method | stringa | Metodo di richiesta che ha generato l'evento. |
+| userAgent | stringa | Intestazione agente utente della richiesta. |
 
-## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 |Titolo |Descrizione  |
 |---------|---------|
 | [Guida introduttiva: inviare eventi del registro contenitori](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare gli eventi di Registro Azure Container. |

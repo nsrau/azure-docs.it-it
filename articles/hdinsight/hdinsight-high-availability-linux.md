@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381404"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
@@ -33,7 +33,7 @@ I nodi in un cluster HDInsight vengono implementati con macchine virtuali di Azu
 
 Per garantire un'alta disponibilità dei servizi Hadoop, HDInsight fornisce due nodi head. Entrambi i nodi head sono contemporaneamente attivi e in esecuzione all'interno del cluster HDInsight. Alcuni servizi, ad esempio Apache HDFS o Apache Hadoop YARN, sono "attivi" in qualsiasi momento soltanto in un nodo head. Altri servizi come HiveServer2 o Hive Metastore sono attivi su entrambi i nodi head allo tesso tempo.
 
-Per ottenere i nomi host per diversi tipi di nodo nel cluster, utilizzare [l'API REST di Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
+Per ottenere i nomi host per diversi tipi di nodi nel cluster, usare l' [API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Non associare il valore numerico con il fatto che un nodo sia primario o secondario. Il valore numerico serve solo per specificare un nome univoco per ogni nodo.
@@ -44,15 +44,15 @@ I nodi nimbus sono disponibili con i cluster Apache Storm. I nodi Nimbus fornisc
 
 ### <a name="apache-zookeeper-nodes"></a>Nodi di Apache ZooKeeper
 
-I nodi [ZooKeeper](https://zookeeper.apache.org/) vengono usati per la designazione di leader dei servizi master nei nodi head. Vengono inoltre utilizzati per assicurare che i servizi, i nodi dati (lavoratore) e i gateway sappiano in quale nodo principale è attivo un servizio principale. Per impostazione predefinita, HDInsight specifica tre nodi ZooKeeper.
+I nodi [ZooKeeper](https://zookeeper.apache.org/) vengono usati per la designazione di leader dei servizi master nei nodi head. Sono inoltre usati per garantire che i servizi, i nodi di dati (ruolo di lavoro) e i gateway sappiano quale nodo Head è attivo un servizio master. Per impostazione predefinita, HDInsight specifica tre nodi ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nodi di lavoro
 
 I nodi di lavoro eseguono l'analisi dei dati effettivi quando un processo viene inviato al cluster. In caso di errore di un nodo del ruolo di lavoro, l'attività che il nodo stava eseguendo viene inviata a un altro nodo del ruolo di lavoro. Per impostazione predefinita, HDInsight crea quattro nodi del ruolo di lavoro. È possibile modificare questo numero in base alle proprie esigenze, durante e dopo la creazione del cluster.
 
-### <a name="edge-node"></a>nodo bordo
+### <a name="edge-node"></a>nodo perimetrale
 
-Un nodo perimetrale non partecipa attivamente all'analisi dei dati all'interno del cluster. Viene utilizzato da sviluppatori o data scientist quando si lavora con Hadoop. Il nodo perimetrale si trova nella stessa rete virtuale di Azure come gli altri nodi del cluster e può accedere direttamente a tutti gli altri nodi. Il nodo perimetrale può essere usato senza sottrarre risorse ai servizi critici di Hadoop o ai processi di analisi.
+Un nodo perimetrale non partecipa attivamente all'analisi dei dati all'interno del cluster. Viene usato dagli sviluppatori o dai data scientist quando si lavora con Hadoop. Il nodo perimetrale si trova nella stessa rete virtuale di Azure come gli altri nodi del cluster e può accedere direttamente a tutti gli altri nodi. Il nodo perimetrale può essere usato senza sottrarre risorse ai servizi critici di Hadoop o ai processi di analisi.
 
 Attualmente, ML Services in HDInsight è l'unico tipo di cluster che fornisce un nodo perimetrale per impostazione predefinita. Per ML Services in HDInsight, il nodo perimetrale viene usato per testare il codice R in locale nel nodo prima dell'invio al cluster per l'elaborazione distribuita.
 
@@ -60,15 +60,15 @@ Per informazioni sull'uso di un nodo perimetrale con tipi di cluster diversi, ve
 
 ## <a name="accessing-the-nodes"></a>Accesso ai nodi head
 
-L'accesso al cluster tramite Internet avviene mediante un gateway pubblico. L'accesso è limitato alla connessione ai nodi head e, se presente, al nodo perimetrale. L'accesso ai servizi in esecuzione sui nodi head non è influenzato dalla presenza di più nodi head. Il gateway pubblico instrada le richieste al nodo head che ospita il servizio richiesto. Ad esempio, se Apache Ambari è attualmente ospitato nel nodo head secondario, il gateway instrada le richieste in ingresso per Ambari a quel nodo.
+L'accesso al cluster tramite Internet avviene mediante un gateway pubblico. L'accesso è limitato alla connessione ai nodi head e, se ne esiste uno, al nodo perimetrale. L'accesso ai servizi in esecuzione nei nodi head non è influenzato dalla presenza di più nodi head. Il gateway pubblico instrada le richieste al nodo head che ospita il servizio richiesto. Ad esempio, se Apache Ambari è attualmente ospitato nel nodo head secondario, il gateway instrada le richieste in ingresso per Ambari a quel nodo.
 
 L'accesso tramite il gateway pubblico è limitato alle porte 443 (HTTPS), 22 e 23.
 
 |Porta |Descrizione |
 |---|---|
-|443|Utilizzato per accedere ad Ambari e ad altre API Web o REST ospitate nei nodi head.|
-|22|Utilizzato per accedere al nodo head o edge primario con SSH.|
-|23|Utilizzato per accedere al nodo head secondario con SSH. Ad esempio, `ssh username@mycluster-ssh.azurehdinsight.net` si connette al nodo head primario del cluster denominato **mycluster**.|
+|443|Usato per accedere a Ambari e ad altre interfacce utente Web o API REST ospitate nei nodi head.|
+|22|Usato per accedere al nodo head primario o al nodo perimetrale con SSH.|
+|23|Usato per accedere al nodo head secondario con SSH. Ad esempio, `ssh username@mycluster-ssh.azurehdinsight.net` si connette al nodo head primario del cluster denominato **mycluster**.|
 
 Per altre informazioni sull'uso di SSH, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -85,7 +85,7 @@ export clusterName="CLUSTERNAME"
 curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 ```
 
-Questo comando restituisce un valore simile al seguente, che `oozie` contiene l'URL interno da utilizzare con il comando:
+Questo comando restituisce un valore simile al seguente, che contiene l'URL interno da usare con il `oozie` comando:
 
 ```output
 "oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
@@ -95,13 +95,13 @@ Per altre informazioni sull'uso dell'API REST Ambari, vedere [Gestire i cluster 
 
 ### <a name="accessing-other-node-types"></a>Accesso ad altri tipi di nodo
 
-È possibile connettersi a nodi che non sono direttamente accessibili tramite Internet utilizzando i metodi seguenti:
+È possibile connettersi a nodi che non sono direttamente accessibili tramite Internet usando i metodi seguenti:
 
 |Metodo |Descrizione |
 |---|---|
 |SSH|Dopo avere stabilito la connessione a un nodo head usando SSH, è possibile usare SSH dal nodo head per connettersi ad altri nodi del cluster. Per altre informazioni, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
-|SSH Tunnel|Se è necessario accedere a un servizio Web ospitato in uno dei nodi non esposti a Internet, è necessario utilizzare un tunnel SSH. Per altre informazioni, vedere il documento [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).|
-|Rete virtuale di Azure|Se il cluster HDInsight fa parte di una rete virtuale di Azure, tutte le risorse della stessa rete virtuale possono accedere direttamente a tutti i nodi del cluster. Per altre informazioni, vedere il documento [Pianificare una rete virtuale per HDInsight.For](hdinsight-plan-virtual-network-deployment.md) more information, see the Plan a virtual network for HDInsight document.|
+|Tunnel SSH|Se è necessario accedere a un servizio Web ospitato in uno dei nodi non esposti a Internet, è necessario usare un tunnel SSH. Per altre informazioni, vedere il documento [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).|
+|Rete virtuale di Azure|Se il cluster HDInsight fa parte di una rete virtuale di Azure, tutte le risorse della stessa rete virtuale possono accedere direttamente a tutti i nodi del cluster. Per ulteriori informazioni, vedere il documento [pianificare una rete virtuale per HDInsight](hdinsight-plan-virtual-network-deployment.md) .|
 
 ## <a name="how-to-check-on-a-service-status"></a>Come controllare lo stato di un servizio
 
@@ -109,60 +109,60 @@ Per controllare lo stato dei servizi in esecuzione nei nodi head, usare l'interf
 
 ### <a name="ambari-web-ui"></a>Interfaccia utente Web Ambari
 
-L'interfaccia Web utente di Ambari può essere visualizzata all'indirizzo `https://CLUSTERNAME.azurehdinsight.net`. Sostituire **CLUSTERNAME** con il nome del cluster. Se richiesto, immettere le credenziali dell’utente HTTP del cluster. Il nome utente HTTP predefinito è **admin** e la password è la password inserita durante la creazione del cluster.
+L'interfaccia Web utente di Ambari può essere visualizzata all'indirizzo `https://CLUSTERNAME.azurehdinsight.net`. Sostituire **clustername** con il nome del cluster. Se richiesto, immettere le credenziali dell’utente HTTP del cluster. Il nome utente HTTP predefinito è **admin** e la password è la password inserita durante la creazione del cluster.
 
 Nella pagina di Ambari i servizi installati sono elencati a sinistra.
 
-![Apache Ambari installato servizi](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
+![Servizi installati di Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 Esistono molte icone che possono essere visualizzate accanto a un servizio per indicare lo stato. È possibile visualizzare eventuali avvisi relativi a un servizio utilizzando il collegamento **Avvisi** nella parte superiore della pagina.  Ambari offre diversi avvisi predefiniti.
 
-Gli avvisi seguenti consentono di monitorare la disponibilità di un cluster:The following alerts help monitor the availability of a cluster:
+Gli avvisi seguenti consentono di monitorare la disponibilità di un cluster:
 
 | Nome avviso                               | Descrizione                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Stato monitoraggio metriche                    | Questo avviso indica lo stato del processo di Monitoraggio metriche come determinato dallo script di stato del monitoraggio.                                                                                   |
-| Battito cardiaco dell'agente Ambari                   | Questo avviso viene attivato se il server ha perso il contatto con un agente.                                                                                                                        |
-| Processo del server zooKeeper                 | L'avviso a livello di host viene attivato se non è possibile determinare se non è possibile determinare se non è possibile determinare se non è possibile determinare se il processo del server di  non è in attivo e in ascolto sulla rete.                                                               |
-| Stato del server metadati IOCache           | Questo avviso a livello di host viene attivato se non è possibile determinare che il server dei metadati IOCache sia in su e risponda alle richieste client                                                            |
-| Interfaccia utente Web JournalNode                       | Questo avviso a livello di host viene attivato se l'interfaccia utente Web JournalNode non è raggiungibile.                                                                                                                 |
-| Spark2 Thrift Server                     | Questo avviso a livello di host viene attivato se spark2 Thrift Server non può essere determinato come a terra.                                                                                                |
-| Processo server di cronologia                   | Questo avviso a livello di host viene attivato se non è possibile stabilire che il processo del server di cronologia sia attivo e in ascolto sulla rete.                                                                |
+| Stato monitoraggio metrica                    | Questo avviso indica lo stato del processo di monitoraggio delle metriche in base a quanto determinato dallo script di stato del monitoraggio.                                                                                   |
+| Heartbeat agente Ambari                   | Questo avviso viene generato se il server ha perso il contatto con un agente.                                                                                                                        |
+| Processo del server ZooKeeper                 | Questo avviso a livello di host viene attivato se il processo del server ZooKeeper non può essere determinato come attivo e in ascolto sulla rete.                                                               |
+| Stato server metadati IOCache           | Questo avviso a livello di host viene attivato se non è possibile determinare il server di metadati IOCache e rispondere alle richieste client                                                            |
+| Interfaccia utente Web di JournalNoderi                       | Questo avviso a livello di host viene attivato se l'interfaccia utente Web di JournalNode non è raggiungibile.                                                                                                                 |
+| Server Spark2 Thrifty                     | Questo avviso a livello di host viene attivato se non è possibile determinare il server di risparmio Spark2.                                                                                                |
+| Processo server cronologia                   | Questo avviso a livello di host viene attivato se non è possibile stabilire il processo del server di cronologia in modo che sia attivo e in ascolto sulla rete.                                                                |
 | Interfaccia utente Web del server di cronologia                    | Questo avviso a livello di host viene attivato se l'interfaccia utente Web del server di cronologia non è raggiungibile.                                                                                                              |
-| `ResourceManager`Interfaccia utente Web                   | Questo avviso a livello di `ResourceManager` host viene attivato se l'interfaccia utente Web non è raggiungibile.                                                                                                             |
-| Riepilogo dell'integrità di NodeManager               | Questo avviso a livello di servizio viene attivato se sono presenti NodeManager non integri                                                                                                                    |
-| Interfaccia utente Web della sequenza temporale dell'app                      | Questo avviso a livello di host viene attivato se l'interfaccia utente Web di App Timeline Server non è raggiungibile.                                                                                                         |
-| Riepilogo dell'integrità di DataNode                  | Questo avviso a livello di servizio viene attivato se sono presenti DataNode non integri                                                                                                                       |
-| Interfaccia utente Web NameNode                          | Questo avviso a livello di host viene attivato se l'interfaccia utente Web NameNode non è raggiungibile.                                                                                                                    |
-| Processo del controller di failover zooKeeper    | Questo avviso a livello di host viene attivato se non è possibile confermare che il processo del controller di failover di  non sia in attivo e in ascolto sulla rete.                                                   |
-| Interfaccia utente Web di Oozie Server                      | Questo avviso a livello di host viene attivato se l'interfaccia utente Web del server Oozie non è raggiungibile.                                                                                                                |
-| Stato del server Oozie                      | Questo avviso a livello di host viene attivato se non è possibile determinare se il server Oozie non è in grado di essere in su e di rispondere alle richieste dei client.                                                                      |
-| Processo Hive Metastore                   | Questo avviso a livello di host viene attivato se non è possibile determinare che il processo Hive Metastore sia attivo e in ascolto sulla rete.                                                                 |
-| Processo HiveServer2                      | Questo avviso a livello di host viene attivato se non è possibile determinare che HiveServer è inattiva e risponde alle richieste dei client.                                                                        |
-| Stato del server WebHCat                    | Questo avviso a livello di `templeton` host viene attivato se lo stato del server non è integro.                                                                                                            |
-| Percentuale di server zooKeeper disponibili      | Questo avviso viene attivato se il numero di server in basso nel cluster è maggiore della soglia critica configurata. I risultati dei controlli dei processi di  .     |
-| Spark2 Livy Server                       | Questo avviso a livello di host viene attivato se il server Livy2 non può essere determinato come a terra.                                                                                                        |
-| Server cronologia Spark2                    | Questo avviso a livello di host viene attivato se non è possibile determinare se il server della cronologia di Spark2 non è in attiva.                                                                                               |
-| Processo di raccolta metriche                | Questo avviso viene attivato se non è possibile confermare che l'agente di raccolta metriche sia attivo e in ascolto sulla porta configurata per un numero di secondi uguale alla soglia.                                 |
-| Raccolta metriche - Processo principale HBaseMetrics Collector - HBase Master Process | Questo avviso viene attivato se i processi master HBase di Metrics Collector non possono essere confermati per essere attivi e in ascolto sulla rete per la soglia critica configurata, specificata in secondi. |
-| Monitoraggio percentuale metriche disponibili       | Questo avviso viene attivato se una percentuale di processi di Monitoraggio metriche non è attiva e in ascolto sulla rete per l'avviso configurato e le soglie critiche.                             |
-| Percentuale NodeManagers disponibile           | Questo avviso viene attivato se il numero di NodeManager inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo NodeManager.        |
-| Integrità NodeManager                       | Questo avviso a livello di host controlla la proprietà di integrità del nodo disponibile dal componente NodeManager.This host-level alert checks the node health property available from the NodeManager component.                                                                                              |
-| Interfaccia utente Web di NodeManager                       | Questo avviso a livello di host viene attivato se l'interfaccia utente Web NodeManager non è raggiungibile.                                                                                                                 |
-| Integrità disponibilità elevata NameNodeNameNode High Availability Health        | Questo avviso a livello di servizio viene attivato se Active NameNode o Standby NameNode non sono in esecuzione.                                                                                     |
-| Processo DataNode                         | Questo avviso a livello di host viene attivato se i singoli processi DataNode non possono essere stabiliti per essere attivi e in ascolto sulla rete.                                                         |
-| Interfaccia utente Web DataNode                          | Questo avviso a livello di host viene attivato se l'interfaccia utente Web DataNode non è raggiungibile.                                                                                                                    |
-| Percentuale JournalNodes Disponibile           | Questo avviso viene attivato se il numero di JournalNodes inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo JournalNode.        |
-| Percent DataNodes disponibili              | Questo avviso viene attivato se il numero di DataNodes inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo DataNode.              |
-| Stato del server zeppelin                   | Questo avviso a livello di host viene attivato se non è possibile determinare se non è possibile determinare se non è possibile determinare se non è possibile determinare se il server .eppelin non è in grado di rispondere alle richieste dei client.                                                                   |
-| HiveServer2 Processo interattivo          | Questo avviso a livello di host viene attivato se HiveServerInteractive non può essere determinato per essere su e rispondere alle richieste client.                                                             |
-| Applicazione LLAP                         | Questo avviso viene attivato se non è possibile determinare se l'applicazione LLAP non è attiva e risponde alle richieste.                                                                                    |
+| `ResourceManager`Interfaccia utente Web                   | Questo avviso a livello di host viene attivato se l' `ResourceManager` interfaccia utente Web non è raggiungibile.                                                                                                             |
+| Riepilogo integrità NodeManager               | Questo avviso a livello di servizio viene attivato in caso di NodeManagers non integro                                                                                                                    |
+| Interfaccia utente Web della sequenza temporale dell'app                      | Questo avviso a livello di host viene attivato se l'interfaccia utente Web del server della sequenza temporale dell'app non è raggiungibile.                                                                                                         |
+| Riepilogo integrità dataNode                  | Questo avviso a livello di servizio viene attivato se sono presenti nodi di tipo non integro                                                                                                                       |
+| Interfaccia utente Web di NameNoderi                          | Questo avviso a livello di host viene attivato se l'interfaccia utente Web di NameNode non è raggiungibile.                                                                                                                    |
+| Processo del controller di failover ZooKeeper    | Questo avviso a livello di host viene attivato se il processo del controller di failover di ZooKeeper non può essere confermato come attivo e in ascolto sulla rete.                                                   |
+| Interfaccia utente Web del server OOZIE                      | Questo avviso a livello di host viene attivato se l'interfaccia utente Web del server oozie non è raggiungibile.                                                                                                                |
+| Stato del server OOZIE                      | Questo avviso a livello di host viene attivato se non è possibile determinare il server oozie e rispondere alle richieste client.                                                                      |
+| Processo del Metastore hive                   | Questo avviso a livello di host viene attivato se il processo del Metastore hive non può essere determinato come attivo e in ascolto sulla rete.                                                                 |
+| Processo HiveServer2                      | Questo avviso a livello di host viene attivato se non è possibile determinare il del e rispondere alle richieste client.                                                                        |
+| Stato del server WebHCat                    | Questo avviso a livello di host viene attivato se lo `templeton` stato del server non è integro.                                                                                                            |
+| Percentuale di server ZooKeeper disponibili      | Questo avviso viene generato se il numero di server ZooKeeper inattivi nel cluster è superiore alla soglia critica configurata. Aggrega i risultati dei controlli del processo ZooKeeper.     |
+| Server Spark2 Livio                       | Questo avviso a livello di host viene attivato se non è possibile determinare il server Livy2.                                                                                                        |
+| Server della cronologia Spark2                    | Questo avviso a livello di host viene attivato se non è possibile determinare il server della cronologia Spark2.                                                                                               |
+| Processo di raccolta metriche                | Questo avviso viene generato se l'agente di raccolta delle metriche non può essere confermato come attivo e in ascolto sulla porta configurata per il numero di secondi uguale alla soglia.                                 |
+| Agente di raccolta metriche-processo HBase Master | Questo avviso viene generato se i processi master HBase dell'agente di raccolta metriche non possono essere confermati per essere in ascolto sulla rete per la soglia critica configurata, espresso in secondi. |
+| Percentuale di monitoraggi metriche disponibili       | Questo avviso viene generato se una percentuale di metriche di monitoraggio dei processi non è in ascolto sulla rete per le soglie di avviso e critici configurate.                             |
+| Percentuale di NodeManagers disponibili           | Questo avviso viene generato se il numero di NodeManagers inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo NodeManager.        |
+| Stato NodeManager                       | Questo avviso a livello di host controlla la proprietà integrità nodo disponibile dal componente NodeManager.                                                                                              |
+| Interfaccia utente Web di NodeManagerri                       | Questo avviso a livello di host viene attivato se l'interfaccia utente Web di NodeManager non è raggiungibile.                                                                                                                 |
+| Stato disponibilità elevata NameNode        | Questo avviso a livello di servizio viene attivato se il NameNode attivo NameNode o standby non è in esecuzione.                                                                                     |
+| Processo dataNode                         | Questo avviso a livello di host viene attivato se i singoli processi dataNode non possono essere stabiliti per essere in ascolto sulla rete.                                                         |
+| Interfaccia utente Web di dataNode                          | Questo avviso a livello di host viene attivato se l'interfaccia utente Web di dataNode non è raggiungibile.                                                                                                                    |
+| Percentuale di JournalNodes disponibili           | Questo avviso viene generato se il numero di JournalNodes inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo JournalNode.        |
+| Percentuale di dataNode disponibili              | Questo avviso viene generato se il numero di nodi inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo dataNode.              |
+| Stato server Zeppelin                   | Questo avviso a livello di host viene attivato se non è possibile determinare se il server Zeppelin è attivo e risponde alle richieste dei client.                                                                   |
+| Processo interattivo HiveServer2          | Questo avviso a livello di host viene attivato se non è possibile determinare il HiveServerInteractive e rispondere alle richieste client.                                                             |
+| Applicazione LLAP                         | Questo avviso viene generato se non è possibile determinare l'applicazione LLAP e rispondere alle richieste.                                                                                    |
 
 È possibile selezionare ogni servizio per visualizzare ulteriori informazioni su di esso.
 
-Sebbene la pagina del servizio fornisca informazioni sullo stato e sulla configurazione di ogni servizio, non fornisce informazioni sul nodo principale in cui è in esecuzione il servizio. Per visualizzare questa informazione,  utilizzare il collegamento **Host** nella parte superiore della pagina. La pagina visualizza gli host del cluster, inclusi i nodi head.
+Mentre nella pagina del servizio vengono fornite informazioni sullo stato e sulla configurazione di ogni servizio, non vengono fornite informazioni sul nodo head in cui è in esecuzione il servizio. Per visualizzare questa informazione,  utilizzare il collegamento **Host** nella parte superiore della pagina. La pagina visualizza gli host del cluster, inclusi i nodi head.
 
-![Lista degli host headnode di Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
+![Elenco degli host nodo head di Apache Ambari](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Quando si seleziona il collegamento per uno dei nodi head, vengono visualizzati i servizi e i componenti in esecuzione su tale nodo.
 
@@ -180,8 +180,8 @@ L'API REST Ambari è disponibile su Internet. Il gateway pubblico HDInsight gest
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 ```
 
-* Sostituire **PASSWORD** con la password dell'account HTTP utente (amministratore).
-* Sostituire **CLUSTERNAME** con il nome del cluster.
+* Sostituire **password** con la password dell'account utente http (amministratore).
+* Sostituire **clustername** con il nome del cluster.
 * Sostituire **SERVICENAME** con il nome del servizio di cui controllare lo stato.
 
 Ad esempio, per controllare lo stato del servizio **HDFS** in un cluster denominato **mycluster**, con la password **password**, è necessario usare il comando seguente:
@@ -203,11 +203,11 @@ La risposta restituita è simile al codice JSON seguente:
 }
 ```
 
-L'URL indica che il servizio è attualmente in esecuzione su un nodo head denominato **mycluster.wutj3h4ic1zejluqhxzvckxqg**.
+L'URL indica che il servizio è attualmente in esecuzione in un nodo head denominato **cluster. wutj3h4ic1zejluqhxzvckxq0g**.
 
 Lo stato indica che il servizio è in esecuzione, o **AVVIATO**.
 
-Se non si conoscono i servizi installati nel cluster, è possibile utilizzare il comando seguente per recuperare un elenco:
+Se non si conoscono i servizi installati nel cluster, è possibile usare il comando seguente per recuperare un elenco:
 
 ```bash
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
@@ -223,7 +223,7 @@ I servizi possono includere componenti di cui si desidera controllare lo stato s
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 ```
 
-Se non si conoscono i componenti forniti da un servizio, è possibile utilizzare il comando seguente per recuperare un elenco:If you don't know what components are provided by a service, you can use the following command to retrieve a list:
+Se non si conoscono i componenti forniti da un servizio, è possibile usare il comando seguente per recuperare un elenco:
 
 ```bash
 curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
@@ -243,7 +243,7 @@ Ogni nodo head può avere voci di log univoche, perciò è consigliabile control
 
 In modo analogo all'uso di un client SSH, quando si stabilisce la connessione al cluster è necessario specificare il nome dell'account utente SSH e l'indirizzo SSH del cluster. Ad esempio: `sftp username@mycluster-ssh.azurehdinsight.net`. Specificare la password per l'account quando richiesto oppure specificare una chiave pubblica tramite il parametro `-i`.
 
-Una volta connesso, viene `sftp>` visualizzato un prompt. Da questo prompt è possibile modificare le directory nonché caricare e scaricare i file. Ad esempio, i comandi seguenti consentono di passare alla directory **/var/log/hadoop/hdfs** directory e quindi scaricare tutti i file nella directory.
+Una volta stabilita la connessione, viene `sftp>` visualizzato un messaggio di richiesta. Da questo prompt è possibile modificare le directory nonché caricare e scaricare i file. Ad esempio, i comandi seguenti consentono di passare alla directory **/var/log/hadoop/hdfs** directory e quindi scaricare tutti i file nella directory.
 
     cd /var/log/hadoop/hdfs
     get *
@@ -266,22 +266,22 @@ Dall'interfaccia utente Web di Ambari, selezionare il servizio di cui si voglion
 
 È possibile selezionare le dimensioni di un nodo solo durante la creazione del cluster. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight sulla [pagina dei prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Le informazioni seguenti forniscono indicazioni su come specificare le dimensioni usando il portale di [Azure,](https://portal.azure.com/)il [modulo di Azure PowerShell Az](/powershell/azureps-cmdlets-docs)e l'interfaccia della riga di comando di [Azure:](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Le informazioni seguenti forniscono indicazioni su come specificare le dimensioni usando il [portale di Azure](https://portal.azure.com/), il [modulo di Azure PowerShell AZ](/powershell/azureps-cmdlets-docs)e l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)della riga di comando di Azure:
 
 * **Portale di Azure**: quando si crea un cluster, è possibile impostare le dimensioni dei nodi usati dal cluster:
 
     ![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-* **Interfaccia**di comando [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) di Azure: quando si usa il comando, è possibile `--headnode-size`impostare le dimensioni dei nodi head, worker e zooKeeper utilizzando i parametri , `--workernode-size`e `--zookeepernode-size` .
+* **Interfaccia**della riga di comando di [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) Azure: quando si usa il comando, è possibile impostare le dimensioni dei nodi head, Worker `--headnode-size`e `--workernode-size`ZooKeeper usando `--zookeepernode-size` i parametri, e.
 
-* **Azure PowerShell:** quando si usa il cmdlet [New-AzHDInsightCluster,](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) è possibile impostare le `-HeadNodeSize`dimensioni `-WorkerNodeSize`dei `-ZookeeperNodeSize` nodi head, worker e zooKeeper utilizzando i parametri , e .
+* **Azure PowerShell**: quando si usa il cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , è possibile impostare le dimensioni dei nodi head, Worker e ZooKeeper usando i `-HeadNodeSize`parametri, `-WorkerNodeSize`e. `-ZookeeperNodeSize`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sugli elementi illustrati in questo articolo, vedere:To learn more about the items discussed in this article, see:
+Per ulteriori informazioni sugli elementi trattati in questo articolo, vedere:
 
 * [Riferimento REST Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Installare e configurare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Installare e configurare il modulo di Azure PowerShell AzInstall and configure Azure PowerShell module Az](/powershell/azure/overview)
+* [Installare e configurare Azure PowerShell modulo AZ](/powershell/azure/overview)
 * [Gestire HDInsight tramite Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
 ms.openlocfilehash: 4c0c0ab84e60335f58ac075459b95cfabb9135ac
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311953"
 ---
 # <a name="renew-application-gateway-certificates"></a>Rinnovare i certificati del gateway applicazione
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare la ripartizione TLS con il gateway applicazione di Azure, vedere [Configurare l'offload TLSTo](application-gateway-ssl-portal.md) learn how to configure TLS Offloading with Azure Application Gateway, see Configure TLS Offload
+Per informazioni su come configurare l'offload TLS con applicazione Azure gateway, vedere [configurare l'OFFLOAD TLS](application-gateway-ssl-portal.md)

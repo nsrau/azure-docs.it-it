@@ -10,38 +10,38 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
 ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399711"
 ---
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-Il servizio di riconoscimento vocale fornisce due SDK. Il primo SDK è [l'SDK di riconoscimento vocale](../speech-sdk.md) principale e fornisce la maggior parte delle funzionalità necessarie per interagire con il servizio di riconoscimento vocale. Il secondo SDK è specifico per i dispositivi, denominato in modo appropriato [Speech Devices SDK](../speech-devices-sdk.md). Entrambi gli SDK sono disponibili in molte lingue.
+Il servizio di riconoscimento vocale fornisce due SDK. Il primo SDK è l' [SDK di sintesi vocale](../speech-sdk.md) principale e fornisce la maggior parte delle funzionalità necessarie per interagire con il servizio di riconoscimento vocale. Il secondo SDK è specifico per i dispositivi, denominati in modo appropriato SDK per i [dispositivi vocali](../speech-devices-sdk.md). Entrambi gli SDK sono disponibili in molte lingue.
 
-### <a name="speech-sdk-reference-docs"></a>Documenti di riferimento su Speech SDK
+### <a name="speech-sdk-reference-docs"></a>Documentazione di riferimento per l'SDK vocale
 
-Utilizzare l'elenco seguente per trovare i documenti di riferimento appropriati di Speech SDK:
+Usare l'elenco seguente per trovare la documentazione di riferimento dell'SDK vocale appropriata:
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">SDK di C<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">SDK di C<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">SDK PER C#<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">SDK PER C++<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">SDK Java<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Objective-C SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 > [!TIP]
-> L'SDK del servizio di riconoscimento vocale è attivamente mantenuto e aggiornato. Per tenere traccia di modifiche, aggiornamenti e aggiunte di funzionalità, fare riferimento alle [note sulla versione di Speech SDK.](../releasenotes.md)
+> L'SDK del servizio di riconoscimento vocale viene attivamente gestito e aggiornato. Per tenere traccia delle modifiche, gli aggiornamenti e le aggiunte delle funzionalità fanno riferimento alle [Note sulla versione dell'SDK di riconoscimento vocale](../releasenotes.md).
 
-### <a name="speech-devices-sdk-reference-docs"></a>Documenti di riferimento su Speech Devices SDK
+### <a name="speech-devices-sdk-reference-docs"></a>Documentazione di riferimento per i dispositivi vocali SDK
 
-Speech [Devices SDK](../speech-devices-sdk.md) è un superset di Speech SDK, con funzionalità estese per dispositivi specifici. Per scaricare l'SDK dei dispositivi di riconoscimento vocale, è innanzitutto necessario scegliere un kit di [sviluppo.](../get-speech-devices-sdk.md#choose-a-development-kit)
+[Speech Devices SDK](../speech-devices-sdk.md) è un superset dell'SDK di riconoscimento vocale, con funzionalità estese per dispositivi specifici. Per scaricare l'SDK per i dispositivi vocali, è necessario innanzitutto [scegliere un kit di sviluppo](../get-speech-devices-sdk.md#choose-a-development-kit).
 
 ### <a name="rest-api-references"></a>Riferimenti all'API REST
 
-Per i riferimenti di varie API REST del servizio di riconoscimento vocale, vedere l'elenco seguente:For references of various Speech service REST APIs, refer to the listing below:
+Per i riferimenti a diverse API REST del servizio vocale, vedere l'elenco seguente:
 
 - [API REST: Riconoscimento vocale](../rest-speech-to-text.md)
 - [API REST: Sintesi vocale](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">API REST: trascrizione e personalizzazione batch<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">API REST: trascrizione e personalizzazione di batch<span class="docon docon-navigate-external x-hidden-focus"></span></a>

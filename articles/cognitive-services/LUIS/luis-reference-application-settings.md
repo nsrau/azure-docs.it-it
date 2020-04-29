@@ -1,29 +1,29 @@
 ---
-title: Impostazioni dell'applicazione - LUIS
-description: Le impostazioni delle applicazioni per le app per la comprensione della lingua di Servizi cognitivi di Azure vengono archiviate nell'app e nel portale.
+title: Impostazioni dell'applicazione-LUIS
+description: Le impostazioni delle applicazioni per i servizi cognitivi di Azure informazioni sulle app vengono archiviate nell'app e nel portale.
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382194"
 ---
 # <a name="application-settings"></a>Impostazioni dell'applicazione
 
-Queste impostazioni dell'applicazione vengono archiviate nell'app [esportata](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e [aggiornate](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con le API REST. La modifica delle impostazioni della versione dell'app reimposta lo stato di formazione dell'app su non addestrato.
+Queste impostazioni dell'applicazione vengono archiviate nell'app [esportata](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e [aggiornate](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con le API REST. Modificando le impostazioni della versione dell'app si reimposta lo stato di training dell'app su non sottoposto a training.
 
-Scopri [i concetti](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) di segni diacritici e punteggiatura.
+Informazioni sui [concetti](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) di segni diacritici e punteggiatura.
 
 |Impostazione|Valore predefinito|Note|
 |--|--|--|
-|NormalizeUnctuation (NormalizePctuazione)|True|Rimuove la punteggiatura.|
+|NormalizePunctuation|True|Rimuove la punteggiatura.|
 |NormalizeDiacritics|True|Rimuove i segni diacritici.|
 
-## <a name="diacritics-normalization"></a>Normalizzazione dei segni diacritici
+## <a name="diacritics-normalization"></a>Normalizzazione segni diacritici
 
-Attivare la normalizzazione delle espressioni per i segni diacritici nel file dell'app `settings` JSON LUIS nel parametro.
+Attivare la normalizzazione dell'espressione per i segni diacritici nel file dell' `settings` app Luis JSON nel parametro.
 
 ```JSON
 "settings": [
@@ -31,16 +31,16 @@ Attivare la normalizzazione delle espressioni per i segni diacritici nel file de
 ]
 ```
 
-Le espressioni seguenti mostrano l'impatto della normalizzazione dei diacritici sulle espressioni:The following utterances show how diacritics normalization impacts utterances:
+Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei segni diacritici influisca sulle espressioni:
 
 |Con segni diacritici impostati su false|Con segni diacritici impostati su true|
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
 
-### <a name="language-support-for-diacritics"></a>Supporto linguistico per i segni diacritici
+### <a name="language-support-for-diacritics"></a>Supporto della lingua per i segni diacritici
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Segni `pt-br` diacritici portoghesi brasiliani
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Segni diacritici `pt-br` del Portoghese brasiliano
 
 |Segni diacritici impostati su false|Segni diacritici impostati su true|
 |-|-|
@@ -77,7 +77,7 @@ Le espressioni seguenti mostrano l'impatto della normalizzazione dei diacritici 
 
 #### <a name="french-fr--diacritics"></a>Segni `fr-` diacritici francesi
 
-Questo include sia le sottoculture francesi che canadesi.
+Sono incluse sia le impostazioni cultura di lingua francese sia quelle canadesi.
 
 |Segni diacritici impostati su false|Segni diacritici impostati su true|
 |--|--|
@@ -119,9 +119,9 @@ Questo include sia le sottoculture francesi che canadesi.
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Segni `es-` diacritici spagnoli
+#### <a name="spanish-es--diacritics"></a>Segni `es-` diacritici in spagnolo
 
-Questo include sia spagnolo e messicano canadese.
+Sono inclusi sia spagnolo che messicano.
 
 |Segni diacritici impostati su false|Segni diacritici impostati su true|
 |-|-|
@@ -134,9 +134,9 @@ Questo include sia spagnolo e messicano canadese.
 |`ñ`|`u`|
 
 
-## <a name="punctuation-normalization"></a>Normalizzazione della punteggiatura
+## <a name="punctuation-normalization"></a>Normalizzazione punteggiatura
 
-Attivare la normalizzazione dell'espressione per la punteggiatura al `settings` file dell'app JSON LUIS nel parametro.
+Attivare la `settings` normalizzazione dell'espressione per la punteggiatura al file dell'app Luis JSON nel parametro.
 
 ```JSON
 "settings": [
@@ -144,16 +144,16 @@ Attivare la normalizzazione dell'espressione per la punteggiatura al `settings` 
 ]
 ```
 
-Le espressioni seguenti mostrano l'impatto della punteggiatura sulle espressioni:The following utterances show how punctuation impacts utterances:
+Negli enunciati seguenti viene illustrato il modo in cui la punteggiatura influisca sulle espressioni:
 
-|Con la punteggiatura impostata su False|Con la punteggiatura impostata su True|
+|Con la punteggiatura impostata su false|Con la punteggiatura impostata su true|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
-### <a name="punctuation-removed"></a>Punteggiatura rimossa
+### <a name="punctuation-removed"></a>Segni di punteggiatura rimossi
 
-La punteggiatura seguente viene `NormalizePunctuation` rimossa con è impostata su true.
+La punteggiatura seguente viene rimossa `NormalizePunctuation` con la è impostata su true.
 
 |Punteggiatura|
 |--|
@@ -180,4 +180,4 @@ La punteggiatura seguente viene `NormalizePunctuation` rimossa con è impostata 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri [i concetti](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) di segni diacritici e punteggiatura.
+* Informazioni sui [concetti](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) di segni diacritici e punteggiatura.

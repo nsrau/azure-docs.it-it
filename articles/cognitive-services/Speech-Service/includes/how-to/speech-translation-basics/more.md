@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/06/2020
 ms.author: trbye
 ms.openlocfilehash: 6c0ba0fc067d548bdfd02397100b759c56895956
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399651"
 ---
 ## <a name="additional-language-and-platform-support"></a>Supporto per piattaforme e linguaggi aggiuntivi
 
-Se si è fatto clic su questa scheda, è probabile che non sia stato visualizzato un articolo di nozioni di base nel linguaggio di programmazione preferito. In GitHub sono comunque disponibili esempi di codice. Usare la tabella per trovare l'esempio appropriato per il proprio linguaggio di programmazione e la combinazione di piattaforma/sistema operativo.
+Se si è fatto clic su questa scheda, è probabile che non sia stato visualizzato un articolo Nozioni di base nel linguaggio di programmazione preferito. Sono disponibili esempi di codice aggiuntivi su GitHub. Usare la tabella per trovare l'esempio appropriato per il proprio linguaggio di programmazione e la combinazione di piattaforma/sistema operativo.
 
 | Linguaggio    | Esempi di codice                                                                                                                            |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------|

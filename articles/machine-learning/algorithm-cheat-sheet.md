@@ -1,7 +1,7 @@
 ---
-title: Machine Learning Algorithm Cheat Sheet - Designer
+title: Foglio informativo sugli algoritmi di Machine Learning-finestra di progettazione
 titleSuffix: Azure Machine Learning
-description: Un foglio di trucco dell'algoritmo di Machine Learning stampabile consente di scegliere l'algoritmo giusto per il modello predittivo in Progettazione Azure Machine Learning.A printable Machine Learning Algorithm Cheat Sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning designer.
+description: Un foglio informativo sull'algoritmo di Machine Learning stampabile consente di scegliere l'algoritmo appropriato per il modello predittivo in Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,37 +10,37 @@ author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
 ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399073"
 ---
-# <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Foglio trucco algoritmo di Machine Learning per la finestra di progettazione di Azure Machine LearningMachine Learning Algorithm Cheat Sheet for Azure Machine Learning designer
+# <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Foglio informativo sugli algoritmi di Machine Learning per Azure Machine Learning Designer
 
-Azure **Machine Learning Algorithm Cheat Sheet** ti aiuta a scegliere l'algoritmo giusto dalla finestra di progettazione per un modello di analisi predittiva.
+Il **foglio** informativo sugli algoritmi di Azure Machine Learning consente di scegliere l'algoritmo appropriato dalla finestra di progettazione per un modello di analisi predittiva.
 
-Azure Machine Learning dispone di un'ampia libreria di algoritmi delle famiglie ***di classificazione,*** ***sistemi di raccomandazione,*** ***clustering,*** ***rilevamento anomalie,*** ***regressione***e ***analisi del testo.*** Ognuno è progettato per risolvere un tipo diverso di problema di Machine Learning.
+Azure Machine Learning dispone di una grande libreria di algoritmi di ***classificazione***, ***sistemi di raccomandazione***, ***clustering***, ***rilevamento di anomalie***, ***regressione***e famiglie di ***analisi del testo*** . Ognuno è progettato per risolvere un tipo diverso di problema di Machine Learning.
 
-Per altre indicazioni, vedere [Come selezionare gli algoritmiFor](how-to-select-algorithms.md) additional guidance, see How to select algorithms
+Per altre istruzioni, vedere [come selezionare gli algoritmi](how-to-select-algorithms.md)
 
-## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Scarica: Machine Learning Algorithm Cheat Sheet
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Download: foglio informativo sugli algoritmi Machine Learning
 
 **Download del foglio informativo: [Foglio informativo sugli algoritmi di Machine Learning (27,9 x 43,2 cm)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**.
 
-![Machine Learning Algorithm Cheat Sheet: scopri come scegliere un algoritmo di Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
+![Foglio informativo sugli algoritmi di Machine Learning: informazioni su come scegliere un algoritmo di Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
 
 Scaricare e stampare il foglio informativo sugli algoritmi di Machine Learning in formato tabloid per averlo sempre a disposizione quando è necessario scegliere un algoritmo.
 
-## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Come utilizzare il foglio trucco algoritmo di Machine Learning
+## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Come usare il foglio informativo sugli algoritmi di Machine Learning
 
-I consigli offerti in questo foglio informativo sugli algoritmi sono regole empiriche puramente indicative. Alcuni possono essere modificati, altri totalmente ignorati. Questo foglio trucco ha lo scopo di suggerire un punto di partenza. È anche possibile provare a eseguire un confronto in parallelo tra diversi algoritmi sui dati. Semplicemente non c'è alcun sostituto per comprendere i principi di ogni algoritmo e il sistema che ha generato i dati.
+I consigli offerti in questo foglio informativo sugli algoritmi sono regole empiriche puramente indicative. Alcuni possono essere modificati, altri totalmente ignorati. Questo foglio informativo è concepito per indicare un punto di partenza. È anche possibile provare a eseguire un confronto in parallelo tra diversi algoritmi sui dati. Non esiste semplicemente alcun sostituto per comprendere i principi di ogni algoritmo e il sistema che ha generato i dati.
 
-Ogni algoritmo di apprendimento automatico ha il proprio stile o bias induttivo. Per un problema specifico, diversi algoritmi possono essere appropriati e un algoritmo può essere più adatto di altri. Non è sempre possibile, tuttavia, conoscere in anticipo la soluzione ottimale. In casi simili, nel foglio informativo sono elencati insieme diversi algoritmi. Una strategia appropriata può essere quella di provare un algoritmo e quindi provarne altri se i risultati del primo non sono soddisfacenti. 
+Ogni algoritmo di apprendimento automatico ha il proprio stile o bias induttivo. Per un problema specifico, è possibile che diversi algoritmi siano appropriati e che un algoritmo possa essere un adattamento migliore rispetto ad altri. Non è sempre possibile, tuttavia, conoscere in anticipo la soluzione ottimale. In casi simili, nel foglio informativo sono elencati insieme diversi algoritmi. Una strategia appropriata può essere quella di provare un algoritmo e quindi provarne altri se i risultati del primo non sono soddisfacenti. 
 
-Per altre informazioni sugli algoritmi nella finestra di progettazione di Azure Machine Learning, vedere Informazioni di riferimento [sull'algoritmo e](algorithm-module-reference/module-reference.md)sui moduli .
+Per ulteriori informazioni sugli algoritmi in Azure Machine Learning Designer, vedere l' [algoritmo e il riferimento al modulo](algorithm-module-reference/module-reference.md).
 
-## <a name="kinds-of-machine-learning"></a>Tipi di apprendimento automatico
+## <a name="kinds-of-machine-learning"></a>Tipi di Machine Learning
 
 L'apprendimento automatico si divide in tre categorie principali: *apprendimento supervisionato*, *apprendimento non supervisionato* e *apprendimento per rinforzo*.
 
@@ -48,20 +48,20 @@ L'apprendimento automatico si divide in tre categorie principali: *apprendimento
 
 Nell'apprendimento supervisionato ogni punto dati è etichettato con o associato a una categoria o un valore di interesse. Un esempio di un'etichetta di categoria è l'assegnazione di un'immagine come "gatto" o "cane". Un esempio di un'etichetta di valore è il prezzo di vendita associato a un'auto usata. L'obiettivo di apprendimento controllato consiste nello studio di molti esempi etichettati come questi e quindi di essere in grado di eseguire stime sui futuri punti dati, ad esempio l'identificazione di nuove foto con l'animale corretto o l'assegnazione di prezzi di vendita precisi ad altre auto usate. Questo tipo di Machine Learning è utile e diffuso.
 
-### <a name="unsupervised-learning"></a>Apprendimento senza supervisione
+### <a name="unsupervised-learning"></a>Apprendimento non supervisionato
 
-Nell'apprendimento non supervisionato, ai punti dati non sono associate etichette. L'obiettivo di un algoritmo di apprendimento non supervisionato è invece l'organizzazione dei dati in un certo modo o la descrizione della loro struttura. L'apprendimento non supervisionato raggruppa i dati in cluster, come fa K-means, o trova diversi modi di esaminare dati complessi in modo che appaiano più semplici.
+Nell'apprendimento non supervisionato, ai punti dati non sono associate etichette. L'obiettivo di un algoritmo di apprendimento non supervisionato è invece l'organizzazione dei dati in un certo modo o la descrizione della loro struttura. Apprendimento non supervisionato consente di raggruppare i dati in cluster, in K-means, o di trovare diversi modi per esaminare i dati complessi, in modo che risultino più semplici.
 
 ### <a name="reinforcement-learning"></a>Apprendimento per rinforzo
 
-Nell'apprendimento per rinforzo l'algoritmo arriva a scegliere un'azione in risposta a ogni punto dati. Si tratta di un approccio comune in robotica, in cui il set di letture del sensore in un certo momento è un punto dati e l'algoritmo deve scegliere l'azione successiva del robot. Questo approccio è ideale anche per applicazioni "Internet delle cose" (Internet of Things, IoT). L'algoritmo di apprendimento riceve anche un segnale di ricompensa poco dopo, a indicare il livello di correttezza della decisione presa. Sulla base di questo segnale, l'algoritmo modifica la sua strategia al fine di ottenere la ricompensa più alta. 
+Nell'apprendimento per rinforzo l'algoritmo arriva a scegliere un'azione in risposta a ogni punto dati. Si tratta di un approccio comune in robotica, in cui il set di letture del sensore in un certo momento è un punto dati e l'algoritmo deve scegliere l'azione successiva del robot. Questo approccio è ideale anche per applicazioni "Internet delle cose" (Internet of Things, IoT). L'algoritmo di apprendimento riceve anche un segnale di ricompensa poco dopo, a indicare il livello di correttezza della decisione presa. In base a questo segnale, l'algoritmo modifica la strategia per ottenere la ricompensa più elevata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere ulteriori indicazioni su [come selezionare gli algoritmiSee](how-to-select-algorithms.md) additional guidance on How to select algorithms
+* Vedere informazioni aggiuntive su [come selezionare gli algoritmi](how-to-select-algorithms.md)
 
-* [Informazioni sullo studio in Azure Machine Learning e nel portale](overview-what-is-azure-ml.md)di Azure.
+* Informazioni [su Studio in Azure Machine Learning e portale di Azure](overview-what-is-azure-ml.md).
 
-* Esercitazione: Creare un modello di stima nella finestra di progettazione di [Azure Machine Learning.Tutorial: Build](tutorial-designer-automobile-price-train-score.md)a prediction model in Azure Machine Learning designer .
+* [Esercitazione: creare un modello di stima in Azure machine learning designer](tutorial-designer-automobile-price-train-score.md).
 
-* [Informazioni sul deep learning e sull'apprendimento automatico](concept-deep-learning-vs-machine-learning.md).
+* [Scopri di più su apprendimento avanzato e Machine Learning](concept-deep-learning-vs-machine-learning.md).

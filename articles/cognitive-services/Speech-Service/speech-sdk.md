@@ -1,7 +1,7 @@
 ---
-title: Informazioni su Speech SDK - Servizio di riconoscimento vocale
+title: Informazioni sul servizio riconoscimento vocale (Speech SDK)
 titleSuffix: Azure Cognitive Services
-description: Il Kit di sviluppo software di riconoscimento vocale (SDK) espone molte delle funzionalità del servizio di riconoscimento vocale, semplificando lo sviluppo di applicazioni abilitate per il riconoscimento vocale.
+description: Il Software Development Kit vocale (SDK) espone molte delle funzionalità del servizio vocale, semplificando lo sviluppo di applicazioni abilitate per la sintesi vocale.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,81 +11,81 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: f663c9af8c352d0170c633fe76b3fbc5268aad1e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400006"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
-Il Kit di sviluppo software di riconoscimento vocale (SDK) espone molte delle funzionalità del servizio di riconoscimento vocale, per consentire lo sviluppo di applicazioni abilitate per il riconoscimento vocale. Speech SDK è disponibile in molti linguaggi di programmazione e in tutte le piattaforme.
+Il Software Development Kit vocale (SDK) espone molte delle funzionalità del servizio vocale, per consentire lo sviluppo di applicazioni abilitate per la sintesi vocale. Speech SDK è disponibile in molti linguaggi di programmazione e in tutte le piattaforme.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## <a name="scenario-capabilities"></a>Funzionalità dello scenario
 
-Speech SDK espone molte funzionalità del servizio di riconoscimento vocale, ma non tutte. Le funzionalità di Speech SDK sono spesso associate agli scenari. Speech SDK è ideale per scenari in tempo reale e non in tempo reale, usando dispositivi locali, file, archiviazione BLOB di Azure e persino flussi di input e output. Quando uno scenario non è realizzabile con Speech SDK, cercare un'alternativa all'API REST.
+Speech SDK espone numerose funzionalità del servizio di riconoscimento vocale, ma non tutte. Le funzionalità dell'SDK per i dialoghi sono spesso associate agli scenari. Speech SDK è ideale per scenari in tempo reale e non in tempo reale, usando dispositivi locali, file, archiviazione BLOB di Azure e anche flussi di input e output. Quando uno scenario non è realizzabile con l'SDK di riconoscimento vocale, cercare un'API REST alternativa.
 
 ### <a name="speech-to-text"></a>Riconoscimento vocale
 
-[La sintesi vocale](speech-to-text.md) (noto anche come *riconoscimento vocale*) trascrive i flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare o visualizzare. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](../luis/index.yml) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. Usa [la traduzione vocale](speech-translation.md) per tradurre l'input vocale in una lingua diversa con una singola chiamata. Per ulteriori informazioni, consultate Nozioni di base sulla [sintesi](speech-to-text-basics.md)vocale.
+Il riconoscimento [vocale (noto](speech-to-text.md) anche come *riconoscimento vocale*) consente di trascrivere flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare o visualizzare. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](../luis/index.yml) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. Usare la [traduzione vocale](speech-translation.md) per tradurre l'input vocale in una lingua diversa con una singola chiamata. Per altre informazioni, vedere [nozioni di base su sintesi vocale](speech-to-text-basics.md).
 
 ### <a name="text-to-speech"></a>Sintesi vocale
 
-[La sintesi vocale](text-to-speech.md) (nota anche come *sintesi vocale*) converte il testo in un discorso sintetizzato simile a quello umano. Il testo di input è valori letterali stringa o tramite [il linguaggio SSML (Speech Synthesis Markup Language).](speech-synthesis-markup.md) Per ulteriori informazioni sulle voci standard o neurali, vedere Supporto vocale e lingua [di sintesi vocale](language-support.md#text-to-speech).
+Il testo [da](text-to-speech.md) sintesi vocale (anche noto come *sintesi vocale*) converte il testo in un riconoscimento vocale sintetizzato da uomo. Il testo di input è costituito da valori letterali stringa o mediante [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). Per ulteriori informazioni sulle voci standard o neurali, vedere [linguaggio di sintesi vocale e supporto vocale](language-support.md#text-to-speech).
 
 ### <a name="voice-assistants"></a>Assistenti vocali
 
-Gli assistenti vocali che utilizzano l'SDK di riconoscimento vocale consentono agli sviluppatori di creare interfacce conversazionali naturali e simili a utenti per le loro applicazioni ed esperienze. Il servizio di assistente vocale fornisce un'interazione veloce e affidabile tra un dispositivo e un assistente. L'implementazione usa il canale Direct Line Speech di Bot Framework o il servizio integrato di comandi personalizzati (anteprima) per il completamento delle attività. Inoltre, è possibile creare assistenti vocali utilizzando il [portale vocale personalizzato](https://aka.ms/customvoice) per creare un'esperienza vocale unica.
+Gli assistenti vocali che usano l'SDK di riconoscimento vocale consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per le proprie applicazioni ed esperienze. Il servizio Voice Assistant fornisce un'interazione rapida e affidabile tra un dispositivo e un assistente. L'implementazione usa il canale di sintesi vocale diretta di bot Framework o il servizio integrato di comandi personalizzati (anteprima) per il completamento delle attività. Inoltre, è possibile creare assistenti vocali usando il [portale vocale personalizzato](https://aka.ms/customvoice) per creare un'esperienza vocale univoca.
 
-#### <a name="keyword-spotting"></a>Avvio delle parole chiave
+#### <a name="keyword-spotting"></a>Individuazione di parole chiave
 
-Il concetto di [spotting con parole chiave](speech-devices-sdk-create-kws.md) è supportato in Speech SDK. L'individuazione delle parole chiave è l'atto di identificare una parola chiave nel discorso, seguita da un'azione dopo aver ascoltato la parola chiave. Ad esempio, "Ehi Cortana" attiverà l'assistente Cortana.
+Il concetto di [individuazione delle parole chiave](speech-devices-sdk-create-kws.md) è supportato nell'SDK di riconoscimento vocale. L'individuazione di parole chiave è l'azione di identificazione di una parola chiave in sintesi vocale, seguita da un'azione dopo aver ascoltato la parola chiave. Ad esempio, "Hey Cortana" attiverà Cortana Assistant.
 
 ### <a name="meeting-scenarios"></a>Scenari di riunione
 
-Speech SDK è perfetto per la trascrizione di scenari di riunione, sia da un singolo dispositivo che da una conversazione multi-dispositivo.
+Speech SDK è perfetto per la trascrizione di scenari di riunioni, sia da un singolo dispositivo che da una conversazione su più dispositivi.
 
 #### <a name="conversation-transcription"></a>Trascrizione conversazione
 
-[La trascrizione delle conversazioni](conversation-transcription.md) consente il riconoscimento vocale in tempo reale (e asincrono), l'identificazione dell'altoparlante e l'attribuzione della frase a ciascun oratore (nota anche come *diarizzazione).* È ideale per la trascrizione di riunioni dal vivo grazie alla capacità di distinguere i parlanti.
+La [trascrizione delle conversazioni](conversation-transcription.md) consente il riconoscimento vocale in tempo reale (e asincrono), l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come " *diare*"). È ideale per la trascrizione di riunioni dal vivo grazie alla capacità di distinguere i parlanti.
 
 #### <a name="multi-device-conversation"></a>Conversazione per più dispositivi
 
-Con [Multi-device Conversation](multi-device-conversation.md), collegare più dispositivi o client in una conversazione per inviare messaggi basati sul riconoscimento vocale o testuale, con un facile supporto per la trascrizione e la traduzione.
+Con la conversazione per più [dispositivi](multi-device-conversation.md), Connetti più dispositivi o client in una conversazione per inviare messaggi basati su sintesi vocale o basati su testo, con supporto semplificato per la trascrizione e la traduzione.
 
-### <a name="custom--agent-scenarios"></a>Scenari personalizzati/agente
+### <a name="custom--agent-scenarios"></a>Scenari Custom/Agent
 
-Speech SDK può essere utilizzato per la trascrizione di scenari di call center, in cui vengono generati dati di telefonia.
+Speech SDK può essere usato per la trascrizione di scenari di Call Center, in cui vengono generati i dati di telefonia.
 
 #### <a name="call-center-transcription"></a>Trascrizioni di call center
 
-[La trascrizione](call-center-transcription.md) del Call Center è uno scenario comune per la sintesi vocale per la trascrizione di grandi volumi di dati di telefonia che possono provenire da vari sistemi, ad esempio Interactive Voice Response (IVR). Gli ultimi modelli di riconoscimento vocale del servizio di riconoscimento vocale eccellono nel trascrivere questi dati di telefonia, anche nei casi in cui i dati sono difficili da comprendere per un essere umano.
+La [trascrizione del Call Center](call-center-transcription.md) è uno scenario comune per la traduzione vocale per la trascrizione di grandi volumi di dati di telefonia che possono provenire da diversi sistemi, ad esempio IVR (Interactive Voice Response). I modelli di riconoscimento vocale più recenti del servizio di riconoscimento vocale sono in fase di trascrizione di questi dati di telefonia, anche nei casi in cui i dati sono difficili da comprendere per un uomo.
 
-### <a name="codec-compressed-audio-input"></a>Ingresso audio compresso codec
+### <a name="codec-compressed-audio-input"></a>Input audio compresso codec
 
-Molti dei linguaggi di programmazione di Speech SDK supportano flussi di input audio compressi di codec. Per ulteriori informazioni, consultate <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Utilizzare <span class="docon docon-navigate-external x-hidden-focus"> </span>formati </a>di input audio compressi.
+Molti dei linguaggi di programmazione dell'SDK vocale supportano i flussi di input audio compressi di codec. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usare formati <span class="docon docon-navigate-external x-hidden-focus"> </span>di input audio compressi </a>.
 
 ## <a name="rest-api"></a>API REST
 
-Mentre l'SDK vocale copre molte funzionalità del servizio di riconoscimento vocale, per alcuni scenari è possibile usare l'API REST.
+Mentre l'SDK per la sintesi vocale copre molte funzionalità del servizio di riconoscimento vocale, per alcuni scenari potrebbe essere necessario usare l'API REST.
 
 ### <a name="batch-transcription"></a>Trascrizione Batch
 
-[La trascrizione batch](batch-transcription.md) consente la trascrizione asincrona vocale/sintesi testo di grandi volumi di dati. La trascrizione batch è possibile solo dall'API REST. Oltre a convertire l'audio vocale in testo, la sintesi vocale batch consente anche la diarizzazione e l'analisi del sentiment.
+La [trascrizione batch](batch-transcription.md) consente la trascrizione asincrona di sintesi vocale di grandi volumi di dati. La trascrizione batch è possibile solo dall'API REST. Oltre a convertire l'audio vocale in testo, batch speech-to-text consente anche di eseguire l'analisi e i sentimenti.
 
 ## <a name="customization"></a>Personalizzazione
 
-Il servizio di riconoscimento vocale offre grandi funzionalità con i modelli predefiniti per la sintesi vocale, la sintesi vocale e la traduzione vocale. A volte potresti voler aumentare le prestazioni di base per lavorare ancora meglio con il tuo caso d'uso unico. Il servizio di riconoscimento vocale dispone di una varietà di strumenti di personalizzazione senza codice che semplificano la gestione e consentono di creare un vantaggio competitivo con modelli personalizzati basati sui propri dati. Questi modelli saranno disponibili solo per te e la tua organizzazione.
+Il servizio di riconoscimento vocale fornisce funzionalità eccezionali con i modelli predefiniti, tra sintesi vocale, sintesi vocale e traduzione vocale. In alcuni casi potrebbe essere necessario aumentare le prestazioni di base per lavorare ancora meglio con il caso d'uso univoco. Il servizio di riconoscimento vocale offre un'ampia gamma di strumenti di personalizzazione senza codice che semplificano e consentono di creare un vantaggio competitivo con modelli personalizzati basati sui propri dati. Questi modelli saranno disponibili solo per l'utente e l'organizzazione.
 
-### <a name="custom-speech-to-text"></a>Sintesi vocale personalizzata
+### <a name="custom-speech-to-text"></a>Da Riconoscimento vocale personalizzato a testo
 
-Quando si usa la sintesi vocale per il riconoscimento e la trascrizione in un ambiente unico, è possibile creare e addestrare modelli acustici, linguistici e di pronuncia personalizzati per risolvere il rumore ambientale o il vocabolario specifico del settore. La creazione e la gestione di modelli di riconoscimento vocale personalizzato senza codice sono disponibili tramite il [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech). Una volta pubblicato, il modello di riconoscimento vocale personalizzato può essere utilizzato dall'SDK di riconoscimento vocale.
+Quando si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, lingua e pronuncia personalizzati per risolvere il rumore di ambiente o il vocabolario specifico del settore. La creazione e la gestione di modelli di Riconoscimento vocale personalizzato senza codice sono disponibili tramite il [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech). Una volta pubblicato, il modello di Riconoscimento vocale personalizzato può essere usato dall'SDK di riconoscimento vocale.
 
 ### <a name="custom-text-to-speech"></a>Sintesi vocale personalizzata
 
-La sintesi vocale personalizzata, nota anche come Custom Voice, è un insieme di strumenti online che ti consentono di creare una voce riconoscibile e unica nel suo genere per il tuo marchio. La creazione e la gestione di modelli vocali personalizzati senza codice sono disponibili tramite il [portale vocale personalizzato](https://aka.ms/customvoice). Una volta pubblicato, il modello Di voce personalizzata può essere utilizzato da Speech SDK.
+Una sintesi vocale personalizzata, nota anche come personalizzata, è costituita da un set di strumenti online che ti permettono di creare una voce unica e riconoscibile per il tuo marchio. La creazione e la gestione di modelli vocali personalizzati senza codice sono disponibili tramite il [portale vocale personalizzato](https://aka.ms/customvoice). Una volta pubblicato, il modello Voice personalizzato può essere usato dall'SDK di riconoscimento vocale.
 
 ## <a name="get-the-speech-sdk"></a>Ottenere Speech SDK
 

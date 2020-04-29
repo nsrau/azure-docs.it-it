@@ -1,7 +1,7 @@
 ---
-title: Come utilizzare il rilevamento automatico della lingua per la sintesi vocale
+title: Come usare il rilevamento automatico della lingua per il riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Speech SDK supporta il rilevamento automatico della lingua per la sintesi vocale. Quando si utilizza questa funzionalità, l'audio fornito viene confrontato con un elenco fornito di lingue e viene determinata la corrispondenza più probabile. Il valore restituito può quindi essere utilizzato per selezionare il modello di linguaggio utilizzato per la sintesi vocale.
+description: Speech SDK supporta il rilevamento automatico della lingua per il riconoscimento vocale. Quando si usa questa funzionalità, l'audio fornito viene confrontato con un elenco di lingue specificato e viene determinata la corrispondenza più probabile. Il valore restituito può quindi essere usato per selezionare il modello di lingua usato per la sintesi vocale.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,29 +12,29 @@ ms.date: 03/16/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402200"
 ---
-# <a name="automatic-language-detection-for-speech-to-text"></a>Rilevamento automatico della lingua per la sintesi vocale
+# <a name="automatic-language-detection-for-speech-to-text"></a>Rilevamento automatico della lingua per il riconoscimento vocale
 
-Il rilevamento automatico della lingua viene utilizzato per determinare la corrispondenza più probabile per l'audio passato all'SDK di riconoscimento vocale rispetto a un elenco di lingue fornite. Il valore restituito dal rilevamento automatico della lingua viene quindi utilizzato per selezionare il modello linguistico per la sintesi vocale, fornendo una trascrizione più accurata. Per sapere quali lingue sono disponibili, vedere [Supporto della lingua](language-support.md).
+Il rilevamento automatico della lingua viene usato per determinare la corrispondenza più probabile per l'audio passato all'SDK di riconoscimento vocale rispetto a un elenco di lingue fornite. Il valore restituito dal rilevamento automatico della lingua viene quindi usato per selezionare il modello di lingua per la sintesi vocale, offrendo una trascrizione più accurata. Per visualizzare le lingue disponibili, vedere [supporto](language-support.md)per le lingue.
 
-In questo articolo verrà illustrato come `AutoDetectSourceLanguageConfig` utilizzare `SpeechRecognizer` per costruire un oggetto e recuperare la lingua rilevata.
+In questo articolo si apprenderà come usare `AutoDetectSourceLanguageConfig` per costruire un `SpeechRecognizer` oggetto e recuperare il linguaggio rilevato.
 
 > [!IMPORTANT]
-> Questa funzionalità è disponibile solo per l'SDK di riconoscimento vocale per C, C, Java e Python.
+> Questa funzionalità è disponibile solo per l'SDK di riconoscimento vocale per C#, C++, Java e Python.
 
-## <a name="automatic-language-detection-with-the-speech-sdk"></a>Rilevamento automatico della lingua con Speech SDK
+## <a name="automatic-language-detection-with-the-speech-sdk"></a>Rilevamento automatico della lingua con l'SDK di riconoscimento vocale
 
-Il rilevamento automatico della lingua ha attualmente un limite lato servizi di due lingue per rilevamento. Tenere presente questa limitazione `AudoDetectSourceLanguageConfig` durante la costruzione dell'oggetto. Negli esempi riportati di seguito `AutoDetectSourceLanguageConfig`verrà creato un `SpeechRecognizer`oggetto , quindi verrà utilizzato per costruire un file .
+Il rilevamento automatico della lingua dispone attualmente di un limite lato servizi di due lingue per rilevamento. Tenere presente questa limitazione quando si costruisce `AudoDetectSourceLanguageConfig` l'oggetto. Negli esempi seguenti verrà creato un oggetto `AutoDetectSourceLanguageConfig`, che verrà quindi usato per costruire un oggetto `SpeechRecognizer`.
 
 > [!TIP]
-> È inoltre possibile specificare un modello personalizzato da utilizzare quando si esegue la sintesi vocale. Per ulteriori informazioni, consultate Usare un modello personalizzato per il [rilevamento automatico della lingua.](#use-a-custom-model-for-automatic-language-detection)
+> È anche possibile specificare un modello personalizzato da usare quando si esegue il riconoscimento vocale in un testo. Per altre informazioni, vedere [usare un modello personalizzato per il rilevamento automatico della lingua](#use-a-custom-model-for-automatic-language-detection).
 
-I frammenti di codice seguenti illustrano come usare il rilevamento automatico della lingua nelle app:The following snippets illustrate how to use automatic language detection in your apps:
+I frammenti di codice seguenti illustrano come usare il rilevamento automatico della lingua nelle app:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -118,11 +118,11 @@ detected_language = auto_detect_source_language_result.language
 
 ::: zone-end
 
-## <a name="use-a-custom-model-for-automatic-language-detection"></a>Usare un modello personalizzato per il rilevamento automatico della linguaUse a custom model for automatic language detection
+## <a name="use-a-custom-model-for-automatic-language-detection"></a>Usare un modello personalizzato per il rilevamento automatico della lingua
 
-Oltre al rilevamento della lingua tramite i modelli del servizio di riconoscimento vocale, è possibile specificare un modello personalizzato per il riconoscimento avanzato. Se non viene fornito un modello personalizzato, il servizio utilizzerà il modello di linguaggio predefinito.
+Oltre al rilevamento del linguaggio con i modelli di servizio vocale, è possibile specificare un modello personalizzato per il riconoscimento migliorato. Se non viene fornito un modello personalizzato, il servizio utilizzerà il modello di lingua predefinito.
 
-I frammenti seguenti illustrano come specificare un modello personalizzato nella chiamata al servizio di riconoscimento vocale. Se la lingua `en-US`rilevata è , viene utilizzato il modello predefinito. Se la lingua `fr-FR`rilevata è , viene utilizzato l'endpoint per il modello personalizzato:
+Nei frammenti di codice riportati di seguito viene illustrato come specificare un modello personalizzato nella chiamata al servizio di riconoscimento vocale. Se il linguaggio rilevato è `en-US`, viene utilizzato il modello predefinito. Se il linguaggio rilevato è `fr-FR`, viene utilizzato l'endpoint per il modello personalizzato:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -184,4 +184,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Documentazione di riferimento di Speech SDK](speech-sdk.md)
+- [Documentazione di riferimento per l'SDK vocale](speech-sdk.md)

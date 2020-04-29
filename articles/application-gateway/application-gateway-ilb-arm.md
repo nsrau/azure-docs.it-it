@@ -1,5 +1,5 @@
 ---
-title: Usare con il bilanciamento del carico interno - Gateway applicazione di AzureUse with Internal Load Balancer - Azure Application Gateway
+title: Usare con il gateway interno di Load Balancer applicazione Azure
 description: Questa pagina fornisce istruzioni per la creazione, la configurazione, l'avvio e l'eliminazione di un gateway applicazione di Azure con un dispositivo di bilanciamento del carico interno (ILB) per Gestione risorse di Azure
 services: application-gateway
 author: vhorne
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 406dcdb419dba2e8044a173f4c05028abbaba3da
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312413"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creare un gateway applicazione con un servizio di bilanciamento del carico interno
 
-Un gateway applicazione di Azure può essere configurato con un indirizzo VIP con connessione Internet o con un endpoint interno non esposto a Internet, detto anche endpoint del dispositivo di bilanciamento del carico interno (ILB). Configurare il gateway con un ILB è utile per le applicazioni line-of-business interne non esposte a Internet. È utile anche per i servizi e i livelli all'interno di un'applicazione multilivello che si trova in un limite di sicurezza che non è esposto a Internet ma che richiede comunque la distribuzione del carico round robin, la persistenza della sessione o la protezione TLS (Transport Layer Security), precedentemente nota come Secure Sockets Layer (SSL), terminazione.
+Un gateway applicazione di Azure può essere configurato con un indirizzo VIP con connessione Internet o con un endpoint interno non esposto a Internet, detto anche endpoint del dispositivo di bilanciamento del carico interno (ILB). Configurare il gateway con un ILB è utile per le applicazioni line-of-business interne non esposte a Internet. È utile anche per i servizi e i livelli all'interno di un'applicazione multilivello che si trovano in un limite di sicurezza non esposto a Internet, ma che richiedono comunque la distribuzione del carico Round Robin, la viscosità della sessione o la Transport Layer Security (TLS), precedentemente nota come Secure Sockets Layer (SSL), terminazione.
 
 In questo articolo verrà illustrata la procedura per configurare un gateway applicazione con un ILB.
 
@@ -24,17 +24,17 @@ In questo articolo verrà illustrata la procedura per configurare un gateway app
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Installare la versione più recente del modulo Di Azure PowerShell seguendo le istruzioni di [installazione.](/powershell/azure/install-az-ps)
+1. Installare la versione più recente del modulo Azure PowerShell seguendo le [istruzioni di installazione](/powershell/azure/install-az-ps).
 2. Creare una rete virtuale e una subnet per il gateway applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. È necessario che i server configurati per l'uso del gateway applicazione esistano oppure che i relativi endpoint siano stati creati nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Elementi necessari per creare un gateway applicazione
 
 * **Pool di server back-end:** Elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla rete virtuale, ma devono trovarsi in una subnet diversa per il gateway applicazione, o devono essere un indirizzo IP/VIP pubblico.
-* **Impostazioni pool di server back-end:** Ogni pool dispone di impostazioni come porta, protocollo e affinità basata su cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+* **Impostazioni del pool di server back-end:** Ogni pool ha impostazioni come porta, protocollo e affinità basata su cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 * **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 * **Listener** : ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
-* **Regola:** La regola associa il listener e il pool di server back-end e definisce a quale pool di server back-end deve essere indirizzato il traffico quando colpisce un determinato listener. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
+* **Regola:** La regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
@@ -50,7 +50,7 @@ Per creare un gateway applicazione, seguire questa procedura:
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creare un gruppo di risorse per Gestione risorse
 
-Assicurarsi di passare alla modalità PowerShell per usare i cmdlet di Gestione risorse di Azure. Ulteriori informazioni sono disponibili in [Utilizzo di Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
+Assicurarsi di passare alla modalità PowerShell per usare i cmdlet di Gestione risorse di Azure. Altre informazioni sono disponibili in [uso di Windows PowerShell con gestione risorse](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -262,6 +262,6 @@ Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
-* [Servizio di bilanciamento del carico di AzureAzure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

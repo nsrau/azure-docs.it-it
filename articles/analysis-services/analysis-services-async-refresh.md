@@ -8,17 +8,17 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81406278"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 
-Usando qualsiasi linguaggio di programmazione che supporta le chiamate REST, è possibile eseguire operazioni asincrone di aggiornamento dei dati nei modelli tabulari di Azure Analysis Services.By using any programming language that supports REST calls, you can perform asynchronous data-refresh operations on your Azure Analysis Services tabular models. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
+Utilizzando qualsiasi linguaggio di programmazione che supporta chiamate REST, è possibile eseguire operazioni asincrone di aggiornamento dei dati nei modelli tabulari Azure Analysis Services. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
 
-Le operazioni di aggiornamento dei dati possono richiedere del tempo a seconda di una serie di fattori, tra cui il volume di dati, il livello di ottimizzazione tramite partizioni e così via. Queste operazioni sono state tradizionalmente richiamate con metodi esistenti, ad esempio l'utilizzo di [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
+Le operazioni di aggiornamento dei dati possono richiedere del tempo a seconda di diversi fattori, tra cui il volume dei dati, il livello di ottimizzazione mediante le partizioni e così via. Queste operazioni sono state tradizionalmente richiamate con i metodi esistenti, ad esempio l'uso di [Tom](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), i cmdlet di [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) o [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). Tuttavia questi metodi possono richiedere spesso connessioni HTTP non affidabili e con esecuzione prolungata.
 
 L'API REST per Azure Analysis Services consente di eseguire le operazioni di aggiornamento dei dati in modo asincrono. Se si usa l'API REST non sono necessarie connessioni HTTP con esecuzione prolungata dalle applicazioni client. Ci sono anche altre funzionalità integrate che garantiscono l'affidabilità, ad esempio i tentativi automatici e il commit in batch.
 
@@ -30,7 +30,7 @@ L'URL di base presenta questo formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Si consideri, ad esempio, un `myserver`modello denominato AdventureWorks in un server denominato , situato nell'area di Azure stati Uniti occidentali. Il nome del server è:
+Si consideri ad esempio un modello denominato AdventureWorks in un `myserver`server denominato, che si trova nell'area di Azure Stati Uniti occidentali. Il nome del server è:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -56,7 +56,7 @@ Ad esempio, è possibile usare il verbo POST sulla raccolta Refreshes per esegui
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido nell'intestazione di autorizzazione e devono soddisfare i requisiti seguenti:
 
@@ -123,7 +123,7 @@ CommitMode equivale a partialBatch. Viene usato quando si esegue un caricamento 
 
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-Per controllare lo stato di un'operazione di aggiornamento, usare il verbo GET sull'ID aggiornamento. Ecco un esempio del corpo della risposta. Se l'operazione è `inProgress` in corso, viene restituito lo stato.
+Per controllare lo stato di un'operazione di aggiornamento, usare il verbo GET sull'ID aggiornamento. Ecco un esempio del corpo della risposta. Se l'operazione è in corso, `inProgress` viene restituito nello stato.
 
 ```
 {
@@ -177,7 +177,7 @@ Per annullare un'operazione di aggiornamento in corso, usare il verbo DELETE sul
 
 ## <a name="post-sync"></a>POST /sync
 
-Dopo aver eseguito le operazioni di aggiornamento, potrebbe essere necessario sincronizzare i nuovi dati con le repliche per la scalabilità orizzontale delle query. Per eseguire un'operazione di sincronizzazione per un modello, utilizzare il verbo POST nella funzione /sync. L'intestazione Location nella risposta include l'ID dell'operazione di aggiornamento.
+Dopo aver eseguito le operazioni di aggiornamento, potrebbe essere necessario sincronizzare i nuovi dati con le repliche per la scalabilità orizzontale delle query. Per eseguire un'operazione di sincronizzazione per un modello, usare il verbo POST sulla funzione/Sync. L'intestazione Location nella risposta include l'ID dell'operazione di aggiornamento.
 
 ## <a name="get-sync-status"></a>GET /sync status
 
@@ -211,13 +211,13 @@ Ecco un esempio di codice C# adatto per iniziare, [RestApiSample su GitHub](http
 1.    Clonare o scaricare il repository. Aprire la soluzione RestApiSample.
 2.    Trovare la riga **client.BaseAddress = …** e inserire l'[URL di base](#base-url).
 
-L'esempio di codice usa l'autenticazione [dell'entità servizio.](#service-principal)
+Nell'esempio di codice viene usata l'autenticazione basata su [entità servizio](#service-principal) .
 
 ### <a name="service-principal"></a>Entità servizio
 
 Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md) per altre informazioni su come configurare un'entità servizio e assegnare le autorizzazioni necessarie in Azure Analysis Services. Dopo aver completato i passaggi, eseguire i passaggi aggiuntivi seguenti:
 
-1.    Nell'esempio di codice, trovare **string authority - ...**, sostituire **common** con l'ID tenant dell'organizzazione.
+1.    Nell'esempio di codice trovare **stringa Authority =...**, sostituire **Common** con l'ID tenant dell'organizzazione.
 2.    Aggiungere o rimuovere il commento in modo che la classe ClientCredential venga usata per creare un'istanza dell'oggetto cred. Assicurarsi che l'accesso ai valori \<App ID> e \<App Key> sia eseguito in modo sicuro o usare l'autenticazione basata su certificato per le entità servizio.
 3.    Eseguire l'esempio.
 
@@ -225,6 +225,6 @@ Vedere [Creare un'entità servizio - Portale di Azure](../active-directory/devel
 ## <a name="see-also"></a>Vedere anche
 
 [Campioni](analysis-services-samples.md)   
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

@@ -1,5 +1,5 @@
 ---
-title: Usare la scalabilità automatica di Azure con le metriche guest in un modello di set di scalabilità LinuxUse Azure autoscale with guest metrics in a Linux scale set template
+title: Usare la scalabilità automatica di Azure con le metriche Guest in un modello di set di scalabilità Linux
 description: Informazioni su come eseguire la scalabilità automatica usando metriche guest in un modello di set di scalabilità di macchine virtuali Linux
 author: mimckitt
 tags: azure-resource-manager
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimckitt
 ms.openlocfilehash: 8021b7b8feb6dc06fb2e48bc4e825200a1baad33
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273648"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Eseguire la scalabilità automatica usando metriche guest in un modello di set di scalabilità Linux
 
-Esistono due tipi generali di metriche in Azure raccolte dalle macchine virtuali e dai set di scalabilità: metriche host e metriche Guest.There are two broad types of metrics in Azure that are gathered from VMs and scale sets: Host metrics and Guest metrics. A livello generale, se si desidera utilizzare le metriche standard di CPU, disco e rete, le metriche host sono adatte. Se, tuttavia, è necessaria una selezione più ampia di metriche, è necessario esaminare le metriche guest.
+In Azure sono disponibili due tipi generali di metriche che vengono raccolte da VM e set di scalabilità: metriche host e metriche Guest. A un livello elevato, se si vuole usare la metrica standard della CPU, del disco e della rete, le metriche host sono adatte. Se, tuttavia, è necessaria una selezione più ampia di metriche, le metriche Guest devono essere esaminate.
 
-Le metriche host non richiedono un'installazione aggiuntiva perché vengono raccolte dalla macchina virtuale host, mentre le metriche guest richiedono l'installazione [dell'estensione Diagnostica](../virtual-machines/windows/extensions-diagnostics-template.md) di Windows Azure o [dell'estensione Diagnostica](../virtual-machines/linux/diagnostic-extension.md) di Azure Linux nella macchina virtuale guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../azure-monitor/platform/metrics-supported.md), mentre le metriche guest usate comunemente sono elencate [qui](../azure-monitor/platform/autoscale-common-metrics.md). Questo articolo illustra come modificare il modello di set di [scalabilità praticabile di base](virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche guest per i set di scalabilità Linux.This article shows how to modify the basic able scale set template to use autoscale rules based on guest metrics for Linux scale sets.
+Le metriche host non richiedono una configurazione aggiuntiva perché vengono raccolte dalla macchina virtuale host, mentre le metriche Guest richiedono l'installazione dell' [estensione diagnostica di Azure Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o dell' [estensione Linux diagnostica di Azure](../virtual-machines/linux/diagnostic-extension.md) nella VM guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../azure-monitor/platform/metrics-supported.md), mentre le metriche guest usate comunemente sono elencate [qui](../azure-monitor/platform/autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità di base valido](virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche Guest per i set di scalabilità Linux.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
 
-In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) avevamo creato un modello di set di scalabilità di base. Ora useremo quel modello precedente e lo modificheremo per creare un modello che distribuisce un set di scalabilità Linux con scalabilità automatica basata sulla metrica guest.
+In un [articolo precedente](virtual-machine-scale-sets-mvss-start.md) è stato creato un modello di set di scalabilità di base. A questo punto si userà il modello precedente e lo si modificherà per creare un modello che distribuisce un set di scalabilità Linux con scalabilità automatica basata sulle metriche Guest.
 
 Per prima cosa, aggiungere i parametri per `storageAccountName` e `storageAccountSasToken`. L'agente di diagnostica archivia i dati di metrica in una [tabella](../cosmos-db/table-storage-how-to-use-dotnet.md) in questo account di archiviazione. A partire dalla versione 3.0 dell'agente di diagnostica Linux, non è più supportato l'uso di una chiave di accesso di archiviazione. Usare invece un [token di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

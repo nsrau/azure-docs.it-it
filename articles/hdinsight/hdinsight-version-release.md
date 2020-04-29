@@ -8,37 +8,37 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: d0fd9999abc4a67ded0f66977e1a3ba5310c87be
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383039"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Panoramica di HDInsight 4.0
 
-Azure HDInsight è uno dei servizi più popolari tra i clienti aziendali per Apache Hadoop e Apache Spark. HDInsight 4.0 è una distribuzione cloud dei componenti Apache Hadoop. Questo articolo include informazioni sulla versione più recente di Azure HDInsight e su come eseguire l'aggiornamento.
+Azure HDInsight è uno dei servizi più diffusi tra i clienti aziendali per Apache Hadoop e Apache Spark. HDInsight 4,0 è una distribuzione cloud di componenti Apache Hadoop. Questo articolo include informazioni sulla versione più recente di Azure HDInsight e su come eseguire l'aggiornamento.
 
 ## <a name="whats-new-in-hdinsight-40"></a>Novità di HDInsight 4.0
 
-### <a name="apache-hive-30-and-low-latency-analytical-processing"></a>Elaborazione analitica Apache Hive 3.0 e elaborazione analitica a bassa latenza
+### <a name="apache-hive-30-and-low-latency-analytical-processing"></a>Apache Hive 3,0 e elaborazione analitica a bassa latenza
 
-Apache Hive a bassa latenza (LLAP) utilizza server di query persistenti e la memorizzazione nella cache in memoria. Questo processo fornisce risultati rapidi delle query SQL sui dati nell'archiviazione cloud remota. Hive LLAP utilizza un set di daemon persistenti che eseguono frammenti di query Hive. L'esecuzione di query in LLAP è simile ad Hive senza LLAP, con attività di lavoro in esecuzione all'interno di daemon LLAP anziché di contenitori.
+Apache Hive elaborazione analitica a bassa latenza (LLAP) utilizza server di query persistenti e la memorizzazione nella cache in memoria. Questo processo consente di ottenere risultati di query SQL rapidi sui dati nell'archiviazione cloud remota. Hive LLAP usa un set di daemon permanenti che eseguono frammenti di query hive. L'esecuzione di query in LLAP è simile ad Hive senza LLAP, con attività di lavoro in esecuzione all'interno di daemon LLAP anziché di contenitori.
 
 Tra i vantaggi di LLAP di Hive sono inclusi i seguenti:
 
-* Possibilità di eseguire analisi SQL approfondite senza sacrificare le prestazioni e l'adattabilità. Ad esempio join complessi, sottoquery, funzioni di windowing, ordinamento, funzioni definite dall'utente e aggregazioni complesse.
+* Possibilità di eseguire analisi approfondite di SQL senza sacrificare le prestazioni e l'adattabilità. Quali join complessi, sottoquery, funzioni finestra, ordinamento, funzioni definite dall'utente e aggregazioni complesse.
 
 * Query interattive sui dati nella stessa risorsa di archiviazione in cui vengono preparati i dati, eliminando la necessità di spostare dati dall'archiviazione a un altro motore per l'elaborazione analitica.
 
-* La memorizzazione nella cache dei risultati delle query consente di riutilizzare i risultati delle query calcolati in precedenza. Questa cache consente di risparmiare tempo e risorse impiegate per eseguire le attività del cluster necessarie per la query.
+* La memorizzazione nella cache dei risultati delle query consente di riutilizzare i risultati delle query calcolati in precedenza. Questa cache consente di risparmiare tempo e risorse per l'esecuzione delle attività del cluster necessarie per la query.
 
 ### <a name="hive-dynamic-materialized-views"></a>Viste materializzate dinamiche di Hive
 
-Hive ora supporta viste materializzate dinamiche o pre-calcolo dei riepiloghi pertinenti. Le viste accelerano l'elaborazione delle query nei data warehouse. Le viste materializzate possono essere archiviate in modo nativo in Hive e possono usare l'accelerazione LLAP in tutta semplicità.
+Hive supporta ora viste materializzate dinamiche o il pre-calcolo dei riepiloghi pertinenti. Le visualizzazioni accelerano l'elaborazione delle query nei data warehouse. Le viste materializzate possono essere archiviate in modo nativo in Hive e possono usare l'accelerazione LLAP in tutta semplicità.
 
 ### <a name="hive-transactional-tables"></a>Tabelle transazionali di Hive
 
-HDI 4.0 include Apache Hive 3. Hive 3 richiede la conformità all'atomicità, alla coerenza, all'isolamento e alla durabilità per le tabelle transazionali che risiedono nel magazzino Hive. Hive accede alle tabelle e ai dati di tabella conformi ad ACID e li gestisce. I dati nelle tabelle di creazione, recupero, aggiornamento ed eliminazione (CRUD) devono essere nel formato di file OrC (Optimized Row Column). Le tabelle solo insert supportano tutti i formati di file.
+HDI 4,0 include Apache Hive 3. Hive 3 richiede la conformità di atomicità, coerenza, isolamento e durabilità per le tabelle transazionali che risiedono nel warehouse hive. Hive accede alle tabelle e ai dati di tabella conformi ad ACID e li gestisce. I dati nelle tabelle di creazione, recupero, aggiornamento ed eliminazione (CRUD) devono essere nel formato di file ORC (Optimized Row Column). Le tabelle di solo inserimento supportano tutti i formati di file.
 
 * ACID v2 include miglioramenti per le prestazioni riguardo sia al formato di archiviazione sia al motore di esecuzione.
 
@@ -56,7 +56,7 @@ Per altre informazioni, vedere [Apache Hive 3](https://docs.hortonworks.com/HDPD
 
 ### <a name="apache-spark"></a>Apache Spark
 
-Apache Spark ottiene tabelle aggiornabili e transazioni ACID con il connettore Warehouse di Hive. Questo connettore di Hive permette di registrare tabelle transazionali di Hive come tabelle esterne in Spark per accedere alla funzionalità transazionale completa. Le versioni precedenti supportano solo la modifica delle partizioni di tabella. Hive Warehouse Connector supporta anche i frame di dati di streaming.  Questo processo esegue le operazioni di lettura e scrittura in tabelle Hive transazionali e in streaming da Spark.This process streams reads and writes into transactional and streaming Hive tables from Spark.
+Apache Spark ottiene tabelle aggiornabili e transazioni ACID con il connettore Warehouse di Hive. Questo connettore di Hive permette di registrare tabelle transazionali di Hive come tabelle esterne in Spark per accedere alla funzionalità transazionale completa. Le versioni precedenti supportano solo la modifica delle partizioni di tabella. Il connettore di data warehouse di hive supporta anche i dataframe di streaming.  Questo processo trasmette letture e scritture in tabelle hive transazionali e di streaming da Spark.
 
 Gli executor Spark possono connettersi direttamente al daemon LLAP di Hive per recuperare e aggiornare dati in modo transazionale, permettendo ad Hive di mantenere il controllo dei dati.
 
@@ -67,7 +67,7 @@ Apache Spark in HDInsight 4.0 supporta gli scenari seguenti:
 * Esecuzione di un processo di streaming di Spark nel feed di modifiche da una tabella di streaming di Hive.
 * Creazione di file ORC direttamente da un processo di streaming strutturato di Spark.
 
-Non dovrai più preoccuparti di provare accidentalmente ad accedere alle tabelle transazionali di Hive direttamente da Spark. Risultati incoerenti, duplicazione dei dati o danneggiamento dei dati. In HDInsight 4.0 le tabelle di Spark e di Hive vengono mantenute in metastore separati. Usare il connettore Data Warehouse di Hive per registrare in modo esplicito tabelle transazionali di Hive come tabelle esterne di Spark.
+Non è più necessario preoccuparsi di provare accidentalmente ad accedere alle tabelle transazionali hive direttamente da Spark. Risultato di risultati incoerenti, dati duplicati o danneggiamento dei dati. In HDInsight 4.0 le tabelle di Spark e di Hive vengono mantenute in metastore separati. Usare il connettore Data Warehouse di Hive per registrare in modo esplicito tabelle transazionali di Hive come tabelle esterne di Spark.
 
 Per altre informazioni, vedere [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
@@ -83,20 +83,20 @@ Per altre informazioni, vedere [Apache Oozie](https://docs.hortonworks.com/HDPDo
 
 ## <a name="how-to-upgrade-to-hdinsight-40"></a>Come eseguire l'aggiornamento a HDInsight 4.0
 
-Testare accuratamente i componenti prima di implementare la versione più recente in un ambiente di produzione. HDInsight 4.0 è disponibile per iniziare il processo di aggiornamento. HDInsight 3.6 è l'opzione predefinita per evitare incidenti accidentali.
+Testare accuratamente i componenti prima di implementare la versione più recente in un ambiente di produzione. HDInsight 4,0 è disponibile per iniziare il processo di aggiornamento. HDInsight 3,6 è l'opzione predefinita per evitare incidenti accidentali.
 
-Non esiste alcun percorso di aggiornamento supportato dalle versioni precedenti di HDInsight a HDInsight 4.0.There's no supported upgrade path from previous versions of HDInsight to HDInsight 4.0. Poiché i formati dei dati Metastore e BLOB sono stati modificati, la 4.0 non è compatibile con le versioni precedenti. È importante mantenere il nuovo ambiente HDInsight 4.0 separato dall'ambiente di produzione corrente. Se si distribuisce HDInsight 4.0 nell'ambiente corrente, il Metastore verrà aggiornato in modo permanente.  
+Non esiste alcun percorso di aggiornamento supportato da versioni precedenti di HDInsight a HDInsight 4,0. Poiché i formati di dati Metastore e BLOB sono stati modificati, 4,0 non è compatibile con le versioni precedenti. È importante lasciare il nuovo ambiente HDInsight 4,0 separato dall'ambiente di produzione corrente. Se si distribuisce HDInsight 4,0 nell'ambiente corrente, il Metastore verrà aggiornato in modo permanente.  
 
 ## <a name="limitations"></a>Limitazioni
 
-* HDInsight 4.0 non supporta MapReduce per Apache Hive. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
-* HDInsight 4.0 non supporta Apache Storm.
+* HDInsight 4,0 non supporta MapReduce per Apache Hive. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
+* HDInsight 4,0 non supporta Apache Storm.
 * La vista Hive non è più disponibile in HDInsight 4.0.
-* L'interprete della shell in Apache non è supportato nei cluster Spark e Interactive Query.
+* L'interprete della shell in Apache Zeppelin non è supportato nei cluster Spark e Interactive query.
 * Non è possibile *disabilitare* LLAP in un cluster Spark-LLAP. È possibile disattivare solo LLAP.
-* Azure Data Lake Storage Gen2 non può salvare i blocchi appunti di Jupyter in un cluster Spark.Azure Data Lake Storage Gen2 can't save Jupyter notebooks in a Spark cluster.
+* Azure Data Lake Storage Gen2 non può salvare Jupyter notebook in un cluster Spark.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Azure HDInsight Documentation](index.yml)
+* [Documentazione di Azure HDInsight](index.yml)
 * [Note sulla versione](hdinsight-release-notes.md)

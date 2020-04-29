@@ -1,6 +1,6 @@
 ---
 title: Usare Griglia di eventi di Azure con gli eventi nello schema CloudEvents
-description: Viene descritto come usare lo schema CloudEvents per gli eventi in Griglia di eventi di Azure.Describes how to use the CloudEvents schema for events in Azure Event Grid. Il servizio supporta gli eventi nell'implementazione JSON degli eventi cloud.
+description: Viene descritto come usare lo schema CloudEvents per gli eventi in griglia di eventi di Azure. Il servizio supporta gli eventi nell'implementazione JSON degli eventi cloud.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 127095bef2c67a93097bf90bea54ca1b44b16c58
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81394384"
 ---
-# <a name="cloudevents-v10-schema-with-event-grid"></a>Schema CloudEvents v1.0 con griglia di eventi
+# <a name="cloudevents-v10-schema-with-event-grid"></a>Schema CloudEvents v 1.0 con griglia di eventi
 
-Oltre allo schema di [eventi predefinito,](event-schema.md)Griglia di eventi di Azure supporta in modo nativo gli eventi nell'implementazione [JSON di CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [dell'associazione](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)del protocollo HTTP. [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
+Oltre allo schema di [eventi predefinito](event-schema.md), griglia di eventi di Azure supporta in modo nativo gli eventi nell' [implementazione JSON di CloudEvents v 1.0 e del binding del](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) [protocollo http](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
 
 CloudEvents semplifica l'interoperabilità fornendo uno schema di eventi comune per la pubblicazione e l'utilizzo degli eventi basati sul cloud. Questo schema consente strumenti uniformi, modi standard per il routing e la gestione degli eventi e modi universali per la deserializzazione dello schema di eventi esterni. Con uno schema comune, è possibile integrare più facilmente il lavoro tra le piattaforme.
 
-CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Computing Foundation](https://www.cncf.io/). È attualmente disponibile come versione 1.0.
+CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Computing Foundation](https://www.cncf.io/). È attualmente disponibile come versione 1,0.
 
-Questo articolo descrive lo schema CloudEvents con Griglia di eventi.
+Questo articolo descrive lo schema CloudEvents con griglia di eventi.
 
-## <a name="sample-event-using-cloudevents-schema"></a>Evento di esempio con lo schema CloudEventsSample event using CloudEvents schema
+## <a name="sample-event-using-cloudevents-schema"></a>Evento di esempio con schema CloudEvents
 
 Di seguito è riportato un esempio di un evento di archiviazione BLOB di Azure nel formato CloudEvents:
 
@@ -54,7 +54,7 @@ Di seguito è riportato un esempio di un evento di archiviazione BLOB di Azure n
 }
 ```
 
-Una descrizione dettagliata dei campi disponibili, dei relativi tipi e definizioni in CloudEvents v1.0 è [disponibile qui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Una descrizione dettagliata dei campi, dei tipi e delle definizioni disponibili in CloudEvents v 1.0 è [disponibile qui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e nello schema Griglia di eventi sono gli stessi, ad eccezione di `content-type`. Per lo schema CloudEvents, tale valore intestazione è `"content-type":"application/cloudevents+json; charset=utf-8"`. Per lo schema Griglia di eventi, tale valore intestazione è `"content-type":"application/json; charset=utf-8"`.
 
@@ -72,4 +72,4 @@ I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e
 Per tutti gli schemi di eventi, Griglia di eventi richiede la convalida quando si esegue la pubblicazione in un argomento di Griglia di eventi e quando si crea una sottoscrizione di eventi. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Come utilizzare lo schema CloudEvents v1.0 con Griglia di eventi](cloudevents-schema.md).  
+Vedere [come usare lo schema CloudEvents v 1.0 con griglia di eventi](cloudevents-schema.md).  

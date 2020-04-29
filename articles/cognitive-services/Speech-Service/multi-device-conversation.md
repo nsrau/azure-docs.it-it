@@ -1,5 +1,5 @@
 ---
-title: Conversazione multi-dispositivo (anteprima) - Servizio di riconoscimento vocale
+title: Conversazione per più dispositivi (anteprima)-servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -11,119 +11,119 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81401054"
 ---
-# <a name="what-is-multi-device-conversation-preview"></a>Che cos'è Conversazione multidispositivo (anteprima)?
+# <a name="what-is-multi-device-conversation-preview"></a>Che cos'è la conversazione per più dispositivi (anteprima)?
 
-**La conversazione multidispositivo** semplifica la creazione di una conversazione vocale o di testo tra più client e il coordinamento dei messaggi inviati tra di essi.
+La **conversazione multi-dispositivo** semplifica la creazione di una conversazione vocale o di testo tra più client e coordina i messaggi inviati tra di essi.
 
-Con **la conversazione multi-dispositivo,** è possibile:
+Con la conversazione per più **dispositivi**, è possibile:
 
-- Connetti più client alla stessa conversazione e gestisci l'invio e la ricezione di messaggi tra di loro.
-- Trascrivi facilmente l'audio da ogni cliente e invia la trascrizione agli altri, con traduzione opzionale.
-- Invia facilmente messaggi di testo tra i clienti, con traduzione opzionale.
+- Connettere più client alla stessa conversazione e gestire l'invio e la ricezione di messaggi tra di essi.
+- Puoi facilmente trascrivere l'audio da ogni client e inviare la trascrizione agli altri, con una traduzione facoltativa.
+- Invio semplice di messaggi di testo tra i client, con traduzione facoltativa.
 
-È possibile creare una funzionalità o una soluzione che funziona in una matrice di dispositivi. Ogni dispositivo può inviare messaggi in modo indipendente (trascrizioni di messaggi audio o istantanei) a tutti gli altri dispositivi.
+È possibile compilare una funzionalità o una soluzione che funziona in una matrice di dispositivi. Ogni dispositivo può inviare in modo indipendente messaggi (trascrizioni di audio o messaggi istantanei) a tutti gli altri dispositivi.
 
-Mentre [**la trascrizione**](conversation-transcription.md) della conversazione funziona su un singolo dispositivo con un array di microfoni multicanale, la **conversazione multidispositivo** è adatta per scenari con più dispositivi, ognuno con un singolo microfono.
+Mentre la [**trascrizione delle conversazioni**](conversation-transcription.md) funziona su un singolo dispositivo con un array microfonico multicanale, la **conversazione multi-dispositivo** è adatta per gli scenari con più dispositivi, ognuno con un unico microfono.
 
 >[!IMPORTANT]
-> La conversazione multidispositivo **non** supporta l'invio di file audio tra client: solo la trascrizione e/o la traduzione.
+> La conversazione su più dispositivi **non supporta l'** invio di file audio tra i client: solo la trascrizione e/o la traduzione.
 
 ## <a name="key-features"></a>Funzionalità principali
 
-- **Trascrizione** in tempo reale: tutti riceveranno una trascrizione della conversazione, in modo da poter seguire il testo in tempo reale o salvarlo per un secondo momento.
-- **Traduzione in tempo reale** – Con più di 60 [lingue supportate](language-support.md#text-languages) per la traduzione di testo, gli utenti possono tradurre la conversazione nella loro lingua preferita.
-- **Trascrizioni leggibili** – La trascrizione e la traduzione sono facili da seguire, con punteggiatura e interruzioni di frase.
-- **Input vocale o di testo:** ogni utente può parlare o digitare sul proprio dispositivo, a seconda delle funzionalità di supporto linguistico abilitate per la lingua scelta dal partecipante. Fare riferimento a [Supporto lingue](language-support.md#speech-to-text).
-- **Inoltro dei messaggi** - Il servizio di conversazione multi-dispositivo distribuirà i messaggi inviati da un client a tutti gli altri, nelle lingue di loro scelta.
-- **Identificazione del messaggio:** ogni messaggio che gli utenti ricevono nella conversazione verrà contrassegnato con il nickname dell'utente che lo ha inviato.
+- **Trascrizione in tempo reale** : tutti gli utenti riceveranno una trascrizione della conversazione, in modo da poter seguire il testo in tempo reale o salvarlo per un momento successivo.
+- **Traduzione in tempo reale** : con più di 60 [lingue supportate](language-support.md#text-languages) per la traduzione di testo, gli utenti possono tradurre la conversazione nelle lingue preferite.
+- **Trascrizioni leggibili** : la trascrizione e la traduzione sono facili da seguire, con punteggiatura e interruzioni di frase.
+- **Input vocale o di testo** : ogni utente può parlare o digitare il proprio dispositivo, a seconda delle funzionalità di supporto del linguaggio abilitate per la lingua scelta dal partecipante. Vedere il supporto per le [lingue](language-support.md#speech-to-text).
+- **Inoltro messaggi** : il servizio di conversazione per più dispositivi distribuirà i messaggi inviati da un client a tutti gli altri, nelle lingue di propria scelta.
+- **Identificazione del messaggio** : ogni messaggio ricevuto dagli utenti nella conversazione verrà contrassegnato con il nome alternativo dell'utente che lo ha inviato.
 
 ## <a name="use-cases"></a>Casi d'uso
 
 ### <a name="lightweight-conversations"></a>Conversazioni leggere
 
-Creare e partecipare a una conversazione è facile. Un utente fungerà da 'host' e creerà una conversazione, che genera un codice di conversazione casuale di cinque lettere e un codice QR. Tutti gli altri utenti possono partecipare alla conversazione digitando il codice della conversazione o scansionando il codice QR. 
+Creare e partecipare a una conversazione è facile. Un utente fungerà da "host" e creerà una conversazione, che genera un codice di conversazione casuale di cinque lettere e un codice a matrice. Tutti gli altri utenti possono partecipare alla conversazione digitando il codice di conversazione o eseguendo la scansione del codice a matrice. 
 
-Poiché gli utenti si uniscono tramite il codice della conversazione e non sono tenuti a condividere le informazioni di contatto, è facile creare conversazioni rapide e in loco.
+Poiché gli utenti si uniscono tramite il codice di conversazione e non sono obbligati a condividere le informazioni di contatto, è facile creare conversazioni rapide e veloci.
 
-### <a name="inclusive-meetings"></a>Riunioni inclusive
+### <a name="inclusive-meetings"></a>Riunioni Inclusive
 
-La trascrizione e la traduzione in tempo reale possono aiutare a rendere le conversazioni accessibili a persone che parlano lingue diverse e/o sono sorde o con problemi di udito. Ogni persona può anche partecipare attivamente alla conversazione, parlando la lingua preferita o inviando messaggi istantanei.
+La trascrizione e la traduzione in tempo reale consentono di rendere le conversazioni accessibili per le persone che parlano lingue diverse e/o sono sorde o difficili da sentire. Ogni persona può anche partecipare attivamente alla conversazione, pronunciando la lingua preferita o inviando messaggi istantanei.
 
 ### <a name="presentations"></a>Presentazioni
 
-Puoi anche fornire didascalie per presentazioni e lezioni sia sullo schermo che sui dispositivi dei membri del pubblico. Dopo che il pubblico si unisce al codice della conversazione, può vedere la trascrizione nella lingua preferita, sul proprio dispositivo.
+È anche possibile fornire didascalie per presentazioni e lezioni sia sullo schermo che sui dispositivi personali dei membri del pubblico. Dopo che i destinatari hanno partecipato al codice di conversazione, possono visualizzare la trascrizione nella propria lingua preferita, nel proprio dispositivo.
 
 > [!NOTE]
-> Per un esempio, vedere [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), un componente aggiuntivo di PowerPoint che utilizza il servizio di conversazione multidispositivo. È possibile scaricarlo [qui](https://www.microsoft.com/download/details.aspx?id=55024).
+> Per un esempio, vedere Translator di [presentazione](https://www.microsoft.com/translator/apps/presentation-translator/), un componente aggiuntivo di PowerPoint che usa il servizio di conversazione per più dispositivi. È possibile scaricarlo [qui](https://www.microsoft.com/download/details.aspx?id=55024).
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
-Tutti i client utilizzeranno Speech SDK per creare o partecipare a una conversazione. Speech SDK interagisce con il servizio di conversazione multi-dispositivo, che gestisce la durata di una conversazione, incluso l'elenco dei partecipanti, le lingue scelte da ogni client e i messaggi inviati.  
+Tutti i client utilizzeranno l'SDK vocale per creare o partecipare a una conversazione. L'SDK di riconoscimento vocale interagisce con il servizio di conversazione per più dispositivi, che gestisce la durata di una conversazione, incluso l'elenco dei partecipanti, le lingue selezionate di ogni client e i messaggi inviati.  
 
-Ogni client può inviare messaggi audio o istantanei. Il servizio utilizzerà il riconoscimento vocale per convertire l'audio in testo e invierà messaggi istantanei così come sono. Se i client scelgono lingue diverse, il servizio tradurrà tutti i messaggi nelle lingue specificate di ogni client.
+Ogni client può inviare messaggi audio o istantanei. Il servizio userà il riconoscimento vocale per convertire l'audio in testo e inviare messaggi istantanei così come sono. Se i client scelgono diverse lingue, il servizio tradurrà tutti i messaggi nelle lingue specificate di ogni client.
 
-![Diagramma di panoramica della conversazione multidispositivo](media/scenarios/multi-device-conversation.png)
+![Diagramma di panoramica della conversazione per più dispositivi](media/scenarios/multi-device-conversation.png)
 
-## <a name="overview-of-conversation-host-and-participant"></a>Panoramica di Conversazione, Ospitante e Partecipante
+## <a name="overview-of-conversation-host-and-participant"></a>Panoramica di conversazioni, host e partecipanti
 
-Una **conversazione** è una sessione a cui un utente avvia la partecipazione degli altri utenti partecipanti. Tutti i client si connettono alla conversazione utilizzando il codice di **conversazione**di cinque lettere .
+Una **conversazione** è una sessione avviata da un utente per l'aggiunta degli altri utenti partecipanti. Tutti i client si connettono alla conversazione usando il **codice di conversazione**di cinque lettere.
 
-Ogni conversazione crea metadati che includono:Each conversation creates metadata that includes:
--    Timestamp di quando la conversazione è iniziata e terminata
--    Elenco di tutti i partecipanti alla conversazione, che include il soprannome scelto dall'utente e la lingua principale per il riconoscimento vocale o di testo.
+Ogni conversazione crea metadati che includono:
+-    Timestamp del momento in cui la conversazione è iniziata e terminata
+-    Elenco di tutti i partecipanti alla conversazione, che include il nome alternativo e la lingua primaria scelti da ogni utente per l'input vocale o di testo.
 
 
-Ci sono due tipi di utenti in una conversazione: **host** e **partecipante**.
+Esistono due tipi di utenti in una conversazione: **host** e **partecipante**.
 
-**L'host** è l'utente che avvia una conversazione e che funge da amministratore di tale conversazione.
+L' **host** è l'utente che avvia una conversazione e che funge da amministratore della conversazione.
 - Ogni conversazione può avere un solo host
-- L'host deve essere connesso alla conversazione per tutta la durata della conversazione. Se l'host lascia la conversazione, la conversazione terminerà per tutti gli altri partecipanti.
-- L'host ha alcuni controlli aggiuntivi per gestire la conversazione: 
-    - Bloccare la conversazione - impedire ad altri partecipanti di partecipare
-    - Disattivare l'audio di tutti i partecipanti - impedire ad altri partecipanti di inviare messaggi alla conversazione, sia che siano trascritti da messaggi vocali o istantanei
-    - Disattivare l'audio dei singoli partecipanti
-    - Riattivare l'audio di tutti i partecipanti
-    - Riattivare l'audio dei singoli partecipanti
+- L'host deve essere connesso alla conversazione per la durata della conversazione. Se l'host lascia la conversazione, la conversazione terminerà per tutti gli altri partecipanti.
+- L'host dispone di alcuni controlli aggiuntivi per gestire la conversazione: 
+    - Bloccare la conversazione: impedire l'aggiunta di partecipanti aggiuntivi
+    - Disattiva tutti i partecipanti: impedisce ad altri partecipanti di inviare messaggi alla conversazione, indipendentemente dal fatto che vengano trascritti da messaggi vocali o istantanei
+    - Disattiva singoli partecipanti
+    - Disattiva tutti i partecipanti
+    - Riattivazione di singoli partecipanti
 
 Un **partecipante** è un utente che partecipa a una conversazione.
-- Un partecipante può lasciare e partecipare nuovamente alla stessa conversazione in qualsiasi momento, senza terminare la conversazione per gli altri partecipanti.
-- I partecipanti non possono bloccare la conversazione o attivare/disattivare/riattivare l'audio di altri utenti
+- Un partecipante può uscire e riunirsi alla stessa conversazione in qualsiasi momento, senza terminare la conversazione per altri partecipanti.
+- I partecipanti non possono bloccare la conversazione o disattivare/disattivare altri utenti
 
 > [!NOTE]
-> Ogni conversazione può avere fino a 100 partecipanti, di cui 10 possono parlare contemporaneamente in qualsiasi momento.
+> Ogni conversazione può avere fino a 100 partecipanti, di cui 10 possono essere pronunciate contemporaneamente in un determinato momento.
 
 ## <a name="language-support"></a>Lingue supportate
 
-Quando si crea o si unisce a una conversazione, ogni utente deve scegliere una **lingua principale:** la lingua in cui parlerà e invierà messaggi istantanei, nonché la lingua in cui vedranno i messaggi degli altri utenti.
+Quando si crea o si aggiunge una conversazione, ogni utente deve scegliere una **lingua primaria**: la lingua in cui verranno pronunciate e invierà messaggi istantanei e anche la lingua in cui verranno visualizzati i messaggi di altri utenti.
 
-Esistono due tipi di lingue: **sintesi vocale** e **solo testo**:
-- Se l'utente sceglie una lingua **di sintesi vocale** come lingua principale, sarà in grado di utilizzare sia il riconoscimento vocale che l'input di testo nella conversazione.
+Esistono due tipi di linguaggi: **sintesi vocale** e **testo**:
+- Se l'utente sceglie una lingua **vocale** come lingua principale, sarà in grado di usare sia l'input vocale che quello di testo nella conversazione.
 
-- Se l'utente sceglie una lingua **di solo testo,** sarà in grado di utilizzare solo l'input di testo e inviare messaggi istantanei nella conversazione. Le lingue solo testo sono le lingue supportate per la traduzione del testo, ma non la sintesi vocale. È possibile visualizzare le lingue disponibili nella pagina [del supporto linguistico.](supported-languages.md)
+- Se l'utente sceglie una lingua di **solo testo** , sarà in grado di utilizzare solo l'input di testo e di inviare messaggi istantanei nella conversazione. I linguaggi di solo testo sono le lingue supportate per la traduzione del testo, ma non quelle di sintesi vocale. È possibile visualizzare le lingue disponibili nella pagina supporto per la [lingua](supported-languages.md) .
 
-Oltre alla lingua principale, ogni partecipante può anche specificare altre lingue per tradurre la conversazione.
+Oltre alla lingua primaria, ogni partecipante può anche specificare altre lingue per la traduzione della conversazione.
 
-Di seguito è riportato un riepilogo di ciò che l'utente sarà in grado di fare in una conversazione multi-dispositivo, in base alla lingua principale scelta.
+Di seguito è riportato un riepilogo delle operazioni che l'utente sarà in grado di eseguire in una conversazione a più dispositivi, in base alla lingua primaria scelta.
 
 
-| Operazioni che l'utente può eseguire nella conversazione | Riconoscimento vocale | Solo testo |
+| Cosa può fare l'utente nella conversazione | Riconoscimento vocale | Solo testo |
 |-----------------------------------|----------------|------|
-| Usare l'input vocale | ✔️ | ❌ |
-| Inviare messaggi istantanei | ✔️ | ✔️ |
+| Usa input vocale | ✔️ | ❌ |
+| Invia messaggi istantanei | ✔️ | ✔️ |
 | Tradurre la conversazione | ✔️ | ✔️ |
 
 > [!NOTE]
-> Per un elenco delle lingue di sintesi vocale e di traduzione di testo disponibili, vedere [Lingue supportate.](supported-languages.md)
+> Per gli elenchi di lingue di traduzione vocale e testo disponibili, vedere [linguaggi supportati](supported-languages.md).
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Tradurre conversazioni in tempo reale](quickstarts/multi-device-conversation.md)
+> [Traduci conversazioni in tempo reale](quickstarts/multi-device-conversation.md)

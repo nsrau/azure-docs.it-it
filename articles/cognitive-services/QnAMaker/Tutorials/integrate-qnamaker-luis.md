@@ -1,7 +1,7 @@
 ---
-title: LUIS e QnAMaker - integrazione bot
+title: Integrazione di LUIS e QnAMaker-bot
 titleSuffix: Azure Cognitive Services
-description: Man mano che la tua base di conoscenze QnA Maker cresce, diventa difficile mantenerla come un singolo set monolitico. Suddividere la Knowledge Base in blocchi logici più piccoli.
+description: Man mano che la QnA Maker Knowledge base aumenta, diventa difficile mantenerla come un unico set monolitico. Suddividere la Knowledge base in blocchi logici più piccoli.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,56 +12,56 @@ ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: b0d28c77966668f919cdf1265f8cc63b4931d5fd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402710"
 ---
-# <a name="use-a-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usare un bot con QnA Maker e LUIS per distribuire la Knowledge Base
-Man mano che la tua base di conoscenze QnA Maker cresce, diventa difficile mantenerla come un singolo set monolitico. Suddividere la Knowledge Base in blocchi logici più piccoli.
+# <a name="use-a-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usare un bot con QnA Maker e LUIS per distribuire la Knowledge base
+Man mano che la QnA Maker Knowledge base aumenta, diventa difficile mantenerla come un unico set monolitico. Suddividere la Knowledge base in blocchi logici più piccoli.
 
-Anche se è semplice creare più knowledge base in QnA Maker, sarà necessaria una logica per instradare la domanda in ingresso alla Knowledge Base appropriata. A tale scopo è possibile usare LUIS.
+Sebbene sia semplice creare più Knowledge base in QnA Maker, sarà necessaria una logica per indirizzare la domanda in arrivo alla Knowledge base appropriata. A tale scopo è possibile usare LUIS.
 
-In questo articolo viene utilizzato bot Framework v3 SDK. Se si desidera la versione SDK di Bot Framework v4 di queste informazioni, vedere [Utilizzare più modelli LUIS e QnA](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp).
+Questo articolo usa bot Framework V3 SDK. Se si è interessati alla versione di questa informazione di bot Framework v4 SDK, vedere [usare più modelli Luis e QnA](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp).
 
 ## <a name="architecture"></a>Architecture
 
-![Immagine dell'architettura di QnA Maker con La comprensione del linguaggio](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Grafico che mostra l'architettura di QnA Maker con Language Understanding](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
-Il grafico precedente mostra che QnA Maker ottiene prima l'intento della domanda in arrivo da un modello LUIS. Quindi, QnA Maker usa tale intento per indirizzare la domanda alla knowledge base QnA Maker corretta.
+Il grafico precedente mostra che QnA Maker prima ottiene lo scopo della domanda in arrivo da un modello LUIS. Quindi, QnA Maker utilizza tale finalità per indirizzare la domanda alla Knowledge base QnA Maker corretta.
 
 ## <a name="create-a-luis-app"></a>Creare un'app LUIS
 
-1. Accedere al portale [LUIS.](https://www.luis.ai/)
+1. Accedere al portale [Luis](https://www.luis.ai/) .
 1. [Creare un'app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Aggiungere una finalità](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) per ogni knowledge base di QnA Maker. Le espressioni di esempio devono corrispondere a domande delle knowledge base di QnA Maker.
-1. [Eseguire il training dell'app LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [pubblicare l'app LUIS.](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp)
-1. Nella sezione **Gestisci** prendere nota dell'ID app LUIS, della chiave dell'endpoint LUIS e del nome di [dominio personalizzato.](../../cognitive-services-custom-subdomains.md) Questi valori saranno necessari più avanti.
+1. Eseguire [il training dell'app Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [pubblicare l'app Luis](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp).
+1. Nella sezione **Gestisci** prendere nota dell'ID dell'app Luis, della chiave dell'endpoint Luis e del [nome di dominio personalizzato](../../cognitive-services-custom-subdomains.md). Questi valori saranno necessari più avanti.
 
 ## <a name="create-qna-maker-knowledge-bases"></a>Creare knowledge base di QnA Maker
 
 1. Accedere a [QnA Maker](https://qnamaker.ai).
-1. [Creare](https://www.qnamaker.ai/Create) una Knowledge Base per ogni finalità nell'app LUIS.
-1. Testare e pubblicare le Knowledge Base. Quando si pubblica ognuno di essi, prendere nota dell'ID, del nome della risorsa (il sottodominio personalizzato prima _di .azurewebsites.net/qnamaker_) e della chiave dell'endpoint di autorizzazione. Questi valori saranno necessari più avanti.
+1. [Creare](https://www.qnamaker.ai/Create) una Knowledge base per ogni finalità nell'app Luis.
+1. Testare e pubblicare le Knowledge Base. Quando si pubblicano ciascuna di esse, prendere nota dell'ID, il nome della risorsa (il sottodominio personalizzato prima di _. azurewebsites.NET/qnamaker_) e la chiave dell'endpoint di autorizzazione. Questi valori saranno necessari più avanti.
 
-    In questo articolo si presuppone che le basi della conoscenza siano tutte create nella stessa sottoscrizione di Azure QnA Maker.This article assumes the knowledge bases are all created in the same Azure QnA Maker subscription.
+    Questo articolo presuppone che le Knowledge base siano tutte create nella stessa sottoscrizione di Azure QnA Maker.
 
-    ![Screenshot della richiesta HTTP di QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
+    ![Screenshot della richiesta HTTP QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
 ## <a name="web-app-bot"></a>Bot app Web
 
-1. [Creare un bot "Basic" con il servizio Bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0)di Azure , che include automaticamente un'app LUIS. Selezionare il linguaggio di programmazione C.
+1. [Creare un bot di base con il servizio Azure bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0), che include automaticamente un'app Luis. Selezionare il linguaggio di programmazione C#.
 
-1. Dopo aver creato il bot dell'app Web, nel portale di Azure selezionare il bot dell'app Web.After you create the web app bot, in the Azure portal, select the web app bot.
-1. Nella struttura di spostamento del servizio bot dell'app Web selezionare **Impostazioni applicazione**. Quindi scorri verso il basso fino alla sezione **Impostazioni applicazione** delle impostazioni disponibili.
-1. Modificare **LuisAppId** per il valore dell'app LUIS creata nella sezione precedente. Quindi selezionare **Salva**.
+1. Dopo aver creato il bot dell'app Web, nella portale di Azure selezionare il bot dell'app Web.
+1. Nello spostamento del servizio bot app Web selezionare **Impostazioni applicazione**. Scorrere quindi verso il basso fino alla sezione **Impostazioni applicazione** delle impostazioni disponibili.
+1. Modificare il valore di **LuisAppId** con il valore dell'app Luis creata nella sezione precedente. Selezionare quindi **Salva**.
 
 
-## <a name="change-the-code-in-the-basicluisdialogcs-file"></a>Modificare il codice nel file di BasicLuisDialog.cs
+## <a name="change-the-code-in-the-basicluisdialogcs-file"></a>Modificare il codice nel file BasicLuisDialog.cs
 1. Nella sezione **Bot Management** (Gestione bot) del menu di spostamento del bot per app Web nel portale di Azure selezionare **Compila**.
 2. Selezionare **Open online code editor** (Apri editor di codice online). Viene aperta una nuova scheda del browser con l'ambiente di modifica online.
-3. Nella sezione **WWWROOT** selezionare la directory **Dialogs,** quindi aprire **BasicLuisDialog.cs**.
+3. Nella sezione **wwwroot** selezionare la directory **Dialogs** e quindi aprire **BasicLuisDialog.cs**.
 4. Aggiungere le dipendenze all'inizio del file **BasicLuisDialog.cs**:
 
     ```csharp
@@ -76,7 +76,7 @@ Il grafico precedente mostra che QnA Maker ottiene prima l'intento della domanda
     using System.Text;
     ```
 
-5. Aggiungere le classi seguenti per deserializzare la risposta QnA Maker:Add the following classes to deserialize the QnA Maker response:
+5. Aggiungere le classi seguenti per deserializzare la risposta QnA Maker:
 
     ```csharp
     public class Metadata
@@ -103,7 +103,7 @@ Il grafico precedente mostra che QnA Maker ottiene prima l'intento della domanda
     ```
 
 
-6. Aggiungere la classe seguente per eseguire una richiesta HTTP al servizio QnA Maker. Si noti che il valore dell'intestazione **Authorization** include la parola , `EndpointKey`, con uno spazio dopo la parola. Il risultato JSON viene deserializzato nelle classi precedenti e viene restituita la prima risposta.
+6. Aggiungere la classe seguente per eseguire una richiesta HTTP al servizio QnA Maker. Si noti che il valore dell'intestazione di **autorizzazione** include la `EndpointKey`parola,, con uno spazio che segue la parola. Il risultato JSON viene deserializzato nelle classi precedenti e viene restituita la prima risposta.
 
     ```csharp
     [Serializable]
@@ -155,7 +155,7 @@ Il grafico precedente mostra che QnA Maker ottiene prima l'intento della domanda
     ```
 
 
-7. Modificare `BasicLuisDialog` la classe. Ogni finalità LUIS deve avere un metodo con un effetto dato da **LuisIntent**. Il parametro per l'effetto è il nome della finalità LUIS. Il nome del metodo decorato _deve_ essere il nome della finalità LUIS per leggibilità e manutenibilità, ma non deve essere lo stesso in fase di progettazione o di esecuzione.
+7. Modificare la `BasicLuisDialog` classe. Ogni finalità LUIS deve avere un metodo con un effetto dato da **LuisIntent**. Il parametro per l'effetto è il nome della finalità LUIS. Il nome del metodo decorato _dovrebbe_ essere il nome della finalità Luis per migliorare la leggibilità e la gestibilità, ma non deve essere lo stesso in fase di progettazione o di esecuzione.
 
     ```csharp
     [Serializable]
@@ -224,20 +224,20 @@ Il grafico precedente mostra che QnA Maker ottiene prima l'intento della domanda
 
 
 ## <a name="build-the-bot"></a>Compilare il bot
-1. Nell'editor di codice fare clic con il pulsante destro del mouse su **build.cmd**e **scegliere Esegui dalla console**.
+1. Nell'editor di codice fare clic con il pulsante destro del mouse su **Build. cmd**e scegliere **Esegui da console**.
 
-    ![Screenshot dell'opzione Esegui dalla console nell'editor di codice](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
+    ![Screenshot dell'opzione Esegui da console nell'editor di codice](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 
-2. La visualizzazione del codice viene sostituita con una finestra del terminale che mostra lo stato di avanzamento e i risultati della compilazione.
+2. La visualizzazione codice viene sostituita da una finestra terminale che mostra lo stato di avanzamento e i risultati della compilazione.
 
-    ![Screenshot della build della console](../media/qnamaker-tutorials-qna-luis/console-build.png)
+    ![Screenshot della compilazione della console](../media/qnamaker-tutorials-qna-luis/console-build.png)
 
 ## <a name="test-the-bot"></a>Testare il bot
 Nel portale di Azure selezionare **Test in Web Chat** (Testa nella chat Web) per testare il bot. Digitare i messaggi da diverse finalità per ottenere la risposta dalla Knowledge Base corrispondente.
 
-![Screenshot del test della chat Web](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
+![Screenshot del test Web Chat](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Integra la tua knowledge base con un agente in Power Virtual Agents](integrate-with-power-virtual-assistant-fallback-topic.md)
+> [Integrare la Knowledge base con un agente in Power Virtual Agent](integrate-with-power-virtual-assistant-fallback-topic.md)

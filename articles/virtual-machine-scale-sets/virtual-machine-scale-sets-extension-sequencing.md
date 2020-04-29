@@ -1,5 +1,5 @@
 ---
-title: Usare la sequenza di estensioni con i set di scalabilità delle macchine virtuali di AzureUse extension sequencing with Azure virtual machine scale sets
+title: Usare la sequenziazione delle estensioni con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come eseguire la sequenziazione del provisioning delle estensioni durante la distribuzione di più estensioni in set di scalabilità di macchine virtuali.
 author: mimckitt
 tags: azure-resource-manager
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mimckitt
 ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273750"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Eseguire la sequenziazione del provisioning delle estensioni in set scalabilità di macchine virtuali
@@ -23,7 +23,7 @@ Questo articolo illustra in dettaglio come è possibile eseguire la sequenziazio
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che l'utente abbia familiarità con gli argomento seguenti:
--   [Estensioni](../virtual-machines/extensions/overview.md) delle macchine virtuali di AzureAzure virtual machine extensions
+-   [Estensioni](../virtual-machines/extensions/overview.md) della macchina virtuale di Azure
 -   [Modifica](virtual-machine-scale-sets-upgrade-scale-set.md) dei set di scalabilità di macchine virtuali
 
 ## <a name="when-to-use-extension-sequencing"></a>Quando usare la sequenziazione delle estensioni
@@ -241,7 +241,7 @@ az vmss extension set \
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Non è possibile aggiungere un'estensione con dipendenze?
 1. Verificare che le estensioni specificate in provisionAfterExtensions siano definite nel modello del set di scalabilità.
-2. Assicurarsi che non siano state introdotte dipendenze circolari. Ad esempio, la sequenza seguente non è consentita: ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
+2. Assicurarsi che non siano state introdotte dipendenze circolari. La sequenza seguente, ad esempio, non è consentita: Extensiona-> ExtensionB-> ExtensionC-> Extensiona
 3. Assicurarsi che tutte le estensioni con dipendenze abbiano una proprietà "settings" in "properties". Ad esempio, se è necessario eseguire il provisioning di EstensioneB dopo EstensioneA, per EstensioneA deve essere disponibile il campo "settings" in "properties" di EstensioneA. È possibile specificare una proprietà "settings" vuota se l'estensione non richiede impostazioni obbligatorie.
 
 ### <a name="not-able-to-remove-extensions"></a>Non è possibile rimuovere le estensioni?

@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sulla soluzione Connected Factory - Azure | Microsoft Docs
-description: Questo articolo risponde alle domande frequenti sull'acceleratore di soluzioni Connected Factory. Include collegamenti al repository GitHub.
+description: Questo articolo risponde alle domande frequenti relative all'acceleratore della soluzione di Connected Factory. Include i collegamenti al repository GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313598"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Domande frequenti sull'acceleratore di soluzioni di connected factory
@@ -148,7 +148,7 @@ Quando si esegue la distribuzione usando lo script `build.ps1` disponibile nel r
 
 È anche possibile aggiungere una chiave dell'account Mappe di Azure all'acceleratore di soluzione dopo la distribuzione. Passare al portale di Azure e accedere alla risorsa Servizio app nella distribuzione della soluzione Connected Factory. Passare a **Impostazioni dell'applicazione**, in cui si trova una sezione **Impostazioni applicazione**. Impostare **MapApiQueryKey** sulla [chiave dell'account Mappe di Azure](../azure-maps/how-to-manage-account-keys.md). Salvare le impostazioni e quindi passare a **Panoramica** e riavviare il servizio app.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Come si crea un account di Azure Maps?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Ricerca per categorie creare un account Azure Maps?
 
 Vedere [Come gestire l'account e le chiavi di Mappe di Azure](../azure-maps/how-to-manage-account-keys.md).
 

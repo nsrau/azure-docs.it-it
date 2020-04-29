@@ -1,7 +1,7 @@
 ---
 title: Moderazione testo - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Utilizzare la moderazione del testo per il testo indesiderato, i dati personali e gli elenchi personalizzati dei termini.
+description: Usare la moderazione del testo per il testo indesiderato, i dati personali e gli elenchi di termini personalizzati.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81274011"
 ---
 # <a name="learn-text-moderation-concepts"></a>Informazioni sui concetti di moderazione del testo
 
-Usa la moderazione del testo assistita dal computer di Content Moderator e le funzionalità di [revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) per moderare il contenuto di testo.
+Usare la moderazione del testo assistito da computer di Content Moderator e le funzionalità di [revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) per moderare il contenuto di testo.
 
 Bloccare, approvare o revisionare il contenuto in base ai propri criteri e alle proprie soglie. Usarlo per estendere la moderazione umana degli ambienti in cui partner, dipendenti e consumer generano contenuto di testo. Tra questi vi sono chat room, forum di discussione, chatbot, cataloghi e-commerce e documenti. 
 
@@ -51,7 +51,7 @@ Se l'API rileva eventuali termini volgari in una qualsiasi delle [lingue support
 
 ## <a name="classification"></a>Classificazione
 
-La funzione di **classificazione** del testo assistita dal computer di Content Moderator supporta solo l'inglese e consente di rilevare contenuti potenzialmente indesiderati. **English only** Il contenuto contrassegnato può essere valutato inappropriato in base al contesto. Indica la probabilità di ogni categoria e potrebbe consigliare una revisione umana. La funzione usa un modello impostato per identificare un eventuale linguaggio offensivo, dispregiativo o discriminatorio. Sono inclusi termini gergali, parole abbreviate, parole offensive e parole intenzionalmente errate per la revisione. 
+La funzionalità di classificazione del **testo** assistita da computer content moderator supporta **solo l'inglese**e consente di rilevare contenuto potenzialmente indesiderato. Il contenuto contrassegnato può essere valutato inappropriato in base al contesto. Indica la probabilità di ogni categoria e potrebbe consigliare una revisione umana. La funzione usa un modello impostato per identificare un eventuale linguaggio offensivo, dispregiativo o discriminatorio. Sono inclusi termini gergali, parole abbreviate, parole offensive e parole intenzionalmente errate per la revisione. 
 
 L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 
@@ -78,10 +78,10 @@ L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 
 ## <a name="personal-data"></a>Dati personali
 
-La funzione dati personali rileva la potenziale presenza di queste informazioni:
+La funzionalità dati personali rileva la potenziale presenza di queste informazioni:
 
 - Indirizzo di posta elettronica
-- Indirizzo postale USA
+- Indirizzo postale US
 - Indirizzo IP
 - Numero di telefono degli Stati Uniti
 
@@ -125,7 +125,7 @@ L'esempio seguente riporta una risposta di esempio:
 
 ## <a name="auto-correction"></a>Correzione automatica
 
-Supponiamo che il testo di input sia ('lzay' e 'f0x' sono intenzionali):
+Si supponga che il testo di input sia (' lzay ' è f0x ' siano intenzionali):
 
     The qu!ck brown f0x jumps over the lzay dog.
 
@@ -155,4 +155,4 @@ Content Moderator fornisce un'[API per elenchi di termini](https://westus.dev.co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire il test drive della [Console dell'API Moderazione testo](try-text-api.md) e usare gli esempi di codice API REST. Estrarre anche la sezione moderazione del testo della guida introduttiva di [.NET SDK](dotnet-sdk-quickstart.md) se si ha familiarità con Visual Studio e C.
+Eseguire il test drive della [Console dell'API Moderazione testo](try-text-api.md) e usare gli esempi di codice API REST. Se si ha familiarità con Visual Studio e C#, vedere anche la sezione relativa alla moderazione del testo della [Guida introduttiva a .NET SDK](dotnet-sdk-quickstart.md) .

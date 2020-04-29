@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla configurazione dello stato di automazione di AzureGet started with Azure Automation State Configuration
+title: Introduzione alla configurazione dello stato di automazione di Azure
 description: Descrizione ed esempi delle attività più comuni in Configurazione stato (DSC) di Automazione di Azure
 services: automation
 ms.service: automation
@@ -10,13 +10,13 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 43268d5b48b44fffefa222f566c40151c85a5895
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392162"
 ---
-# <a name="get-started-with-azure-automation-state-configuration"></a>Introduzione alla configurazione dello stato di automazione di AzureGet started with Azure Automation State Configuration
+# <a name="get-started-with-azure-automation-state-configuration"></a>Introduzione alla configurazione dello stato di automazione di Azure
 
 Questo articolo descrive come eseguire le attività più comuni in Configurazione stato di Automazione di Azure, come la creazione, l'importazione e la compilazione di configurazioni, l'onboarding di computer da gestire e la visualizzazione di report. Per una panoramica di Configurazione stato di Automazione di Azure, vedere [Panoramica di Configurazione stato di Automazione di Azure](automation-dsc-overview.md). Per la documentazione di DSC (Desired State Configuration, Configurazione dello stato desiderato), vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview).
 
@@ -27,7 +27,7 @@ Questo articolo offre una guida dettagliata all'uso di Configurazione stato di A
 Per completare gli esempi di questo articolo, è necessario quanto segue:
 
 - Un account di automazione di Azure. Per istruzioni sulla creazione di un account RunAs di Automazione di Azure, vedere [Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
-- Una macchina virtuale di Azure Resource Manager (non classica) che esegue un [sistema operativo supportato.](automation-dsc-overview.md#operating-system-requirements) Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Una macchina virtuale Azure Resource Manager (non classica) che esegue un [sistema operativo supportato](automation-dsc-overview.md#operating-system-requirements). Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>Creazione di una configurazione DSC
 
@@ -59,9 +59,9 @@ Verrà creata una [configurazione DSC](/powershell/scripting/dsc/configurations/
         }
     }
     ```
-1. Salvare il file con il nome **TestConfig.ps1**.
+1. Salvare il file come **TestConfig. ps1**.
 
-Questa configurazione chiama una risorsa in ogni blocco di nodi, la [risorsa WindowsFeature](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource). Questa risorsa garantisce la presenza o l'assenza della funzionalità **Server Web.**
+Questa configurazione chiama una risorsa in ogni blocco di nodo, ovvero la [risorsa WindowsFeature](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource). Questa risorsa garantisce la presenza o l'assenza della funzionalità **server Web** .
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Importazione di una configurazione in Automazione di Azure
 
@@ -70,8 +70,8 @@ Successivamente, la configurazione verrà importata nell'account di automazione.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina Account di automazione selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
-1. Nella pagina Configurazione stato (DSC) fare clic sulla scheda **Configurazioni,** quindi su **Aggiungi**.
-1. Nel riquadro Importa configurazione `TestConfig.ps1` individuare il file nel computer.
+1. Nella pagina configurazione stato (DSC) fare clic sulla scheda **configurazioni** , quindi su **Aggiungi**.
+1. Nel riquadro Importa configurazione selezionare il `TestConfig.ps1` file nel computer.
 
    ![Screenshot del pannello **Importa configurazione**](./media/automation-dsc-getting-started/AddConfig.png)
 
@@ -83,13 +83,13 @@ Dopo aver importato una configurazione, è possibile visualizzarla nel portale d
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
-1. Nella pagina Account di automazione selezionare **Configurazione stato (DSC)** in **Gestione configurazione**.
-1. Nella pagina Configurazione stato (DSC) fare clic sulla scheda **Configurazioni,** quindi su **TestConfig**. Questo è il nome della configurazione importata nella procedura precedente.
-1. Nel riquadro Configurazione TestConfig fare clic su **Visualizza origine configurazione**.
+1. Nella pagina account di automazione selezionare **configurazione stato (DSC)** in **Gestione configurazione**.
+1. Nella pagina configurazione stato (DSC) fare clic sulla scheda **configurazioni** , quindi fare clic su **TestConfig**. Si tratta del nome della configurazione importata nella procedura precedente.
+1. Nel riquadro Configurazione di TestConfig fare clic su **Visualizza origine configurazione**.
 
    ![Screenshot del pannello Configurazione TestConfig](./media/automation-dsc-getting-started/ViewConfigSource.png)
 
-   Viene visualizzato il riquadro di origine TestConfig Configuration, in cui è visualizzato il codice di PowerShell per la configurazione.
+   Viene visualizzato un riquadro origine configurazione TestConfig, che Visualizza il codice PowerShell per la configurazione.
 
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Compilazione di una configurazione in Automazione di Azure
 
@@ -99,31 +99,31 @@ Per altre informazioni sulla compilazione di configurazioni, vedere [Configurazi
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina Account di automazione selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
-1. Nella pagina Configurazione stato (DSC) fare clic sulla scheda **Configurazioni,** quindi su **TestConfig**. Questo è il nome della configurazione importata in precedenza.
-1. Nel riquadro Configurazione TestConfig fare clic su **Compila**e quindi su **Sì**. Verrà avviato un processo di compilazione.
+1. Nella pagina configurazione stato (DSC) fare clic sulla scheda **configurazioni** , quindi fare clic su **TestConfig**. Si tratta del nome della configurazione importata in precedenza.
+1. Nel riquadro Configurazione di TestConfig fare clic su **Compila**e quindi su **Sì**. Verrà avviato un processo di compilazione.
 
    ![Screenshot della pagina Configurazione TestConfig con pulsante Compila evidenziato](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
-> Quando si compila una configurazione in Automazione di Azure, vengono distribuiti automaticamente tutti i file MOF di configurazione del nodo creati nel server di pull.
+> Quando si compila una configurazione in automazione di Azure, vengono distribuiti automaticamente i file MOF di configurazione dei nodi creati nel server di pull.
 
 ## <a name="viewing-a-compilation-job"></a>Visualizzazione di un processo di compilazione
 
-Dopo aver avviato una compilazione, è possibile visualizzarla nel riquadro Processi di **compilazione** nella pagina Configurazione.After you start a **compilation,** you can view it in the Compilation Jobs tile on the Configuration page. Nel riquadro **Processi di compilazione** vengono visualizzati i processi attualmente in esecuzione, completati e non riusciti. Quando si apre un riquadro dei processi di compilazione, vengono visualizzate informazioni su tale processo, inclusi eventuali errori o avvisi rilevati, parametri di input utilizzati nella configurazione e log di compilazione.
+Dopo avere avviato una compilazione, è possibile visualizzarla nel riquadro **processi di compilazione** della pagina **configurazione** . Nel riquadro **Processi di compilazione** vengono visualizzati i processi attualmente in esecuzione, completati e non riusciti. Quando si apre un riquadro del processo di compilazione, vengono visualizzate le informazioni sul processo, inclusi eventuali errori o avvisi rilevati, i parametri di input utilizzati nella configurazione e i log di compilazione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina Account di automazione selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
-1. Nella pagina Configurazione stato (DSC) fare clic sulla scheda **Configurazioni,** quindi su **TestConfig**. Questo è il nome della configurazione importata in precedenza.
-1. In **Processi di compilazione**selezionare il processo di compilazione da visualizzare. Viene aperto un riquadro Processo di compilazione, contrassegnato con la data di inizio del processo di compilazione.
+1. Nella pagina configurazione stato (DSC) fare clic sulla scheda **configurazioni** , quindi fare clic su **TestConfig**. Si tratta del nome della configurazione importata in precedenza.
+1. In **processi di compilazione**selezionare il processo di compilazione da visualizzare. Viene aperto un riquadro del processo di compilazione con l'etichetta della data di avvio del processo di compilazione.
 
    ![Screenshot della pagina Processo di compilazione](./media/automation-dsc-getting-started/CompilationJob.png)
 
-1. Fare clic su qualsiasi riquadro nel riquadro Processo di compilazione per visualizzare ulteriori dettagli sul processo.
+1. Fare clic su qualsiasi riquadro nel riquadro del processo di compilazione per visualizzare altri dettagli sul processo.
 
 ## <a name="viewing-node-configurations"></a>Visualizzazione delle configurazioni di nodo
 
-Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni dei nodi nell'account di automazione nella pagina Configurazione stato (DSC). Una configurazione di nodo ha `ConfigurationName.NodeName`un nome con il modulo .
+Con il completamento di un processo di compilazione vengono create una o più configurazioni di nodo. Una configurazione di nodo è un documento MOF che viene distribuito nel server di pull ed è disponibile per il pull e l'applicazione da parte di uno o più nodi. È possibile visualizzare le configurazioni del nodo nell'account di automazione nella pagina configurazione stato (DSC). Una configurazione di nodo ha un nome con il `ConfigurationName.NodeName`formato.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
@@ -134,30 +134,30 @@ Con il completamento di un processo di compilazione vengono create una o più co
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration"></a>Onboarding di una macchina virtuale di Azure per la gestione con Configurazione stato di Automazione di Azure
 
-È possibile usare La configurazione dello stato di automazione di Azure per gestire le macchine virtuali di Azure (sia classica che Gestione risorse), le macchine virtuali locali, le macchine Linux, le macchine virtuali AWS e le macchine fisiche locali. In questo articolo viene descritto il caricamento solo delle macchine virtuali di Azure Resource Manager. Per informazioni sull'onboarding di altri tipi di computer, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md).
+È possibile usare la configurazione dello stato di automazione di Azure per gestire le macchine virtuali di Azure (classiche e Gestione risorse), VM locali, computer Linux, VM AWS e computer fisici locali. In questo articolo viene descritto il caricamento solo delle macchine virtuali di Azure Resource Manager. Per informazioni sull'onboarding di altri tipi di computer, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md).
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Per caricare una macchina virtuale Azure Resource Manager per la gestione con Configurazione stato di Automazione di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina Account di automazione selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
-1. Nella pagina Configurazione stato (DSC) selezionare la scheda **Nodi,** quindi fare clic su **Aggiungi**.
+1. Nella pagina configurazione stato (DSC) selezionare la scheda **nodi** , quindi fare clic su **+ Aggiungi**.
 
    ![Screenshot della pagina Nodi DSC con il pulsante Aggiungi macchina virtuale di Azure evidenziato](./media/automation-dsc-getting-started/OnboardVM.png)
 
-1. Nel riquadro Macchine virtuali selezionare la macchina virtuale.
-1. Nel riquadro dei dettagli della macchina virtuale fare clic su **Connetti**.
+1. Nel riquadro macchine virtuali selezionare la macchina virtuale.
+1. Nel riquadro dei dettagli della macchina virtuale fare clic su **+ Connetti**.
 
    > [!IMPORTANT]
-   > La macchina virtuale deve essere una macchina virtuale di Azure Resource Manager che esegue un [sistema operativo supportato.](automation-dsc-overview.md#operating-system-requirements)
+   > La macchina virtuale deve essere una macchina virtuale Azure Resource Manager che esegue un [sistema operativo supportato](automation-dsc-overview.md#operating-system-requirements).
 
-2. Nella pagina Registrazione selezionare il nome della configurazione del nodo da applicare alla macchina virtuale nel campo **Nome configurazione nodo.** Specificare un nome in questo passaggio è facoltativo. È possibile modificare la configurazione di nodo assegnata dopo il caricamento del nodo.
+2. Nella pagina registrazione selezionare il nome della configurazione del nodo da applicare alla macchina virtuale nel campo **Nome configurazione nodo** . Specificare un nome in questo passaggio è facoltativo. È possibile modificare la configurazione di nodo assegnata dopo il caricamento del nodo.
 
 3. Selezionare **Riavvia il nodo se necessario** e quindi fare clic su **OK**.
 
    ![Screenshot del pannello Registrazione](./media/automation-dsc-getting-started/RegisterVM.png)
 
-   La configurazione del nodo specificata viene applicata alla macchina virtuale a intervalli specificati dal valore fornito per **Frequenza modalità**di configurazione . La macchina virtuale verifica la disponibilità di aggiornamenti per la configurazione del nodo a intervalli specificati dal valore **Frequenza di aggiornamento.** Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig)(Configurazione di Gestione configurazione locale).
+   La configurazione del nodo specificata viene applicata alla macchina virtuale a intervalli specificati dal valore fornito per la **frequenza della modalità di configurazione**. La macchina virtuale controlla la presenza di aggiornamenti alla configurazione del nodo a intervalli specificati dal valore della **frequenza di aggiornamento** . Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig)(Configurazione di Gestione configurazione locale).
 
 Azure avvierà il processo di caricamento della macchina virtuale. Al termine, la macchina virtuale viene visualizzata nella scheda **Nodi** della pagina Configurazione stato (DSC) nell'account di Automazione.
 
@@ -177,7 +177,7 @@ Ogni volta che Configurazione stato di Automazione di Azure esegue una verifica 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra fare clic su **Tutte le risorse** e quindi fare clic sul nome dell'account di Automazione.
 1. Nella pagina Account di automazione selezionare **Configurazione stato (DSC)** in **Gestione della configurazione**.
-1. Nella pagina Configurazione stato (DSC) fare clic sulla scheda **Nodi.** Qui è possibile visualizzare la panoramica dello stato di configurazione e i dettagli per ogni nodo.
+1. Nella pagina configurazione stato (DSC) fare clic sulla scheda **nodi** . Qui è possibile visualizzare la panoramica dello stato della configurazione e i dettagli per ogni nodo.
 
    ![Screenshot della pagina Nodi](./media/automation-dsc-getting-started/NodesTab.png)
 
@@ -189,13 +189,13 @@ Nel pannello per un singolo report è possibile visualizzare per la verifica di 
 
 - Stato del report. I valori possibili sono:
     * Conforme: il nodo è conforme al controllo.
-   * Non riuscito - la configurazione non ha superato il controllo.
-   * Non conforme: il `ApplyandMonitor` nodo è in modalità e la macchina non è nello stato desiderato.
+   * Operazione non riuscita: la configurazione non ha superato il controllo.
+   * Non conforme: il nodo è in `ApplyandMonitor` modalità e lo stato del computer non è quello desiderato.
 - Ora di inizio della verifica di coerenza.
 - Runtime totale della verifica di coerenza.
 - Tipo di verifica di coerenza.
 - Eventuali errori, con codice e messaggio di errore.
-- Tutte le risorse DSC utilizzate nella configurazione e lo stato di ogni risorsa (se il nodo si trova nello stato desiderato per tale risorsa). È possibile fare clic su ogni risorsa per ottenere informazioni più dettagliate per tale risorsa.
+- Tutte le risorse DSC usate nella configurazione e lo stato di ogni risorsa (se il nodo si trova nello stato desiderato per la risorsa). È possibile fare clic su ogni risorsa per ottenere informazioni più dettagliate per tale risorsa.
 - Nome, indirizzo IP e modalità di configurazione del nodo.
 
 È anche possibile fare clic su **Visualizza report non elaborato** per visualizzare i dati effettivi inviati dal nodo al server.

@@ -1,5 +1,5 @@
 ---
-title: Usare l'estensione dell'integrità dell'applicazione con i set di scalabilità delle macchine virtuali di AzureUse Application Health extension with Azure virtual machine scale sets
+title: Usare l'estensione integrità dell'applicazione con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come usare l'estensione Integrità applicazione per monitorare l'integrità delle applicazioni distribuite nei set di scalabilità di macchine virtuali.
 author: mimckitt
 tags: azure-resource-manager
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mimckitt
 ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273733"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
@@ -21,7 +21,7 @@ In questo articolo viene descritto come usare l'estensione Integrità applicazio
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che l'utente abbia familiarità con:
--   [Estensioni](../virtual-machines/extensions/overview.md) delle macchine virtuali di AzureAzure virtual machine extensions
+-   [Estensioni](../virtual-machines/extensions/overview.md) della macchina virtuale di Azure
 -   [Modifica](virtual-machine-scale-sets-upgrade-scale-set.md) dei set di scalabilità di macchine virtuali
 
 ## <a name="when-to-use-the-application-health-extension"></a>Quando usare l'estensione Integrità applicazione
@@ -55,20 +55,20 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati
+| Name | Valore/Esempio | Tipo di dati
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | Data |
-| publisher | `Microsoft.ManagedServices` | string |
-| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
+| publisher | `Microsoft.ManagedServices` | stringa |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | stringa |
 | typeHandlerVersion | `1.0` | INT |
 
 ### <a name="settings"></a>Impostazioni
 
-| Nome | Valore/Esempio | Tipo di dati
+| Name | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
-| protocol | `http` o `tcp` | string |
+| protocol | `http` o `tcp` | stringa |
 | port | Facoltativo se il protocollo è `http`, obbligatorio se il protocollo è `tcp` | INT |
-| requestPath | Obbligatorio se il protocollo è `http`, non consentito se il protocollo è `tcp` | string |
+| requestPath | Obbligatorio se il protocollo è `http`, non consentito se il protocollo è `tcp` | stringa |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuire l'estensione Integrità applicazione
 Esistono diversi modi per distribuire l'estensione Integrità applicazione nei set di scalabilità, come descritto in dettaglio negli esempi seguenti.
@@ -141,7 +141,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 Usare [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) per aggiungere l'estensione Integrità applicazione alla definizione del modello del set di scalabilità.
 
-L'esempio seguente aggiunge l'estensione dell'integrità dell'applicazione al modello di set di scalabilità di un set di scalabilità basato su Linux.The following example adds the Application Health extension to the scale set model of a Linux-based scale set.
+Nell'esempio seguente viene aggiunta l'estensione dell'integrità dell'applicazione al modello del set di scalabilità di un set di scalabilità basato su Linux.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -152,7 +152,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-Contenuto del file extension.json.
+Contenuto del file Extension. JSON.
 
 ```json
 {

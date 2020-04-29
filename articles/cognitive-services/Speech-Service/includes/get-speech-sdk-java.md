@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 47cb20f3a23caf586777523e56902af20b747ea1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399911"
 ---
 :::row:::
     :::column span="3":::
-        Java SDK per Android è incluso in <a href="https://developer.android.com/studio/projects/android-library" target="_blank">un <span class="docon docon-navigate-external x-hidden-focus"> </span>AAR (libreria Android) </a>, che include le librerie necessarie e le autorizzazioni Android necessarie. È ospitato in un repository Maven in `https://csspeechstorage.blob.core.windows.net/maven/` come pacchetto `com.microsoft.cognitiveservices.speech:client-sdk:1.11.0`.
+        Java SDK per Android è incluso in un pacchetto <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (libreria Android) <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>, che include le librerie necessarie e le autorizzazioni necessarie per Android. È ospitato in un repository Maven in `https://csspeechstorage.blob.core.windows.net/maven/` come pacchetto `com.microsoft.cognitiveservices.speech:client-sdk:1.11.0`.
     :::column-end:::
     :::column:::
         <br>
@@ -25,12 +25,12 @@ ms.locfileid: "81399911"
 
 Per usare il pacchetto dal progetto Android Studio apportare le modifiche seguenti:
 
-1. Nel file *build.gradle* a livello di progetto, aggiungere quanto segue alla `repository` sezione:
+1. Nel file *Build. Gradle* a livello di progetto aggiungere quanto segue alla `repository` sezione:
   ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
 
-2. Nel file *build.gradle* a livello di modulo, aggiungere quanto segue alla `dependencies` sezione:
+2. Nel file *Build. Gradle* a livello di modulo aggiungere quanto segue alla `dependencies` sezione:
   ```gradle
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.11.0'
   ```
@@ -39,5 +39,5 @@ Java SDK fa inoltre parte di [Speech Devices SDK](../speech-devices-sdk.md).
 
 #### <a name="additional-resources"></a>Risorse aggiuntive
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android" target="_blank">Codice sorgente dell'avvio rapido Java specifico per Android<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre" target="_blank">Codice sorgente dell'avvio rapido Java Runtime (JRE)<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android" target="_blank">Codice sorgente di avvio rapido Java specifico per Android<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre" target="_blank">Codice sorgente avvio rapido Java Runtime (JRE)<span class="docon docon-navigate-external x-hidden-focus"></span></a>

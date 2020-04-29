@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: e5966f142ece32f148c56edb5b0ef5dfd88603aa
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81380069"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
-I database distribuiti che si basano sulla replica per garantire disponibilità elevata, bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiede agli sviluppatori di scegliere tra i due modelli di coerenza estrema: *forte* coerenza ed *eventuale* coerenza. La linearità del modello di forte coerenza è il gold standard della programmabilità dei dati. Ma aggiunge un prezzo di maggiore latenza di scrittura (in stato stabile) e disponibilità ridotta (durante gli errori). D'altra parte, la coerenza finale offre una maggiore disponibilità e prestazioni migliori, ma rende difficile programmare le applicazioni.
+I database distribuiti che si basano sulla replica per garantire disponibilità elevata, bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiede agli sviluppatori di scegliere tra i due modelli di coerenza *estremi: coerenza assoluta e coerenza* *finale* . Il della linearità del modello di coerenza forte è lo standard Gold di programmabilità dei dati. Ma aggiunge un prezzo di latenza di scrittura superiore (in stato stabile) e una disponibilità ridotta (durante gli errori). D'altra parte, la coerenza finale offre una maggiore disponibilità e prestazioni migliori, ma rende difficile programmare le applicazioni.
 
-Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte che si collocano tra i due estremi. Gli sviluppatori possono usare queste opzioni per effettuare scelte precise e compromessi granulari per quanto riguarda la disponibilità elevata e le prestazioni.
+Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte che si collocano tra i due estremi. Gli sviluppatori possono usare queste opzioni per eseguire scelte precise e compromessi granulari rispetto alla disponibilità e alle prestazioni elevate.
 
-Con Azure Cosmos DB, gli sviluppatori possono scegliere tra cinque livelli di coerenza ben definiti nello spettro di coerenza. Questi livelli includono una *stantiezza* *forte,* delimitata, *una sessione,* *un prefisso coerente*e *un'eventuale* coerenza. I livelli sono ben definiti e intuitivi e possono essere utilizzati per scenari reali specifici. Ogni livello offre compromessi di [disponibilità e prestazioni](consistency-levels-tradeoffs.md) e sono supportati da contratti di servizio. L'immagine seguente mostra i diversi livelli di coerenza come spettro.
+Con Azure Cosmos DB, gli sviluppatori possono scegliere tra cinque livelli di coerenza ben definiti nello spettro di coerenza. Questi livelli includono forte, *bounded staleness*decadimento *ristretto*, *sessione*, *prefisso coerente*e coerenza *finale* . I livelli sono ben definiti e intuitivi e possono essere usati per scenari reali specifici. Ogni livello offre [compromessi in merito a disponibilità e prestazioni](consistency-levels-tradeoffs.md) e supportato da contratti di contratto. Nell'immagine seguente vengono illustrati i diversi livelli di coerenza come uno spettro.
 
 ![La coerenza come spettro](./media/consistency-levels/five-consistency-levels.png)
 
-I livelli di coerenza sono indipendenti dall'area e sono garantiti per tutte le operazioni indipendentemente dall'area da cui vengono servite le operazioni di lettura e scrittura, il numero di aree associate all'account Cosmos di Azure o se l'account è configurato con una o più aree di scrittura.
+I livelli di coerenza sono indipendenti dall'area e sono garantiti per tutte le operazioni, indipendentemente dall'area da cui vengono gestite le operazioni di lettura e scrittura, dal numero di aree associate all'account Azure Cosmos o dal fatto che l'account sia configurato con una o più aree di scrittura.
 
 ## <a name="scope-of-the-read-consistency"></a>Ambito della coerenza di lettura
 
@@ -31,68 +31,68 @@ La coerenza di lettura si applica a una singola operazione di lettura con ambito
 
 ## <a name="configure-the-default-consistency-level"></a>Configurare il livello di coerenza predefinito
 
-È possibile configurare il livello di coerenza predefinito nell'account Azure Cosmos in qualsiasi momento. Il livello di coerenza predefinito configurato nell'account si applica a tutti i database e i contenitori di Azure Cosmos con tale account. Per impostazione predefinita, tutte le operazioni di lettura e le query eseguite su un contenitore o un database usano il livello di coerenza specificato. Per altre informazioni, vedere come [configurare il livello di coerenza predefinito](how-to-manage-consistency.md#configure-the-default-consistency-level).
+È possibile configurare il livello di coerenza predefinito nell'account Azure Cosmos in qualsiasi momento. Il livello di coerenza predefinito configurato per l'account si applica a tutti i database e contenitori di Azure Cosmos con tale account. Per impostazione predefinita, tutte le operazioni di lettura e le query eseguite su un contenitore o un database usano il livello di coerenza specificato. Per altre informazioni, vedere come [configurare il livello di coerenza predefinito](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garanzie associate ai livelli di coerenza
 
-I contratti di servizio completi offerti da Azure Cosmos DB garantiscono che il 100% delle richieste di lettura soddisfano la garanzia di coerenza per qualsiasi livello di coerenza scelto. Una richiesta soddisfa il contratto di servizio per la coerenza se sono soddisfatte tutte le garanzie associate al livello di coerenza. Le definizioni precise dei cinque livelli di coerenza in Azure Cosmos DB usando il linguaggio di specifica TLA sono fornite nel repository [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub.
+I contratti di servizio completi offerti da Azure Cosmos DB garantiscono che il 100% delle richieste di lettura soddisfano la garanzia di coerenza per qualsiasi livello di coerenza scelto. Una richiesta soddisfa il contratto di servizio per la coerenza se sono soddisfatte tutte le garanzie associate al livello di coerenza. Le definizioni esatte dei cinque livelli di coerenza in Azure Cosmos DB usando il linguaggio di specifica di TLA + sono disponibili nel repository [Azure-Cosmos-TLA](https://github.com/Azure/azure-cosmos-tla) github.
 
 La semantica dei cinque livelli di coerenza è descritta qui:
 
-- **Forte**: Forte consistenza offre una garanzia di linearità. Linearizzabilità si riferisce alla gestione simultanea delle richieste. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
+- **Forte**: la coerenza assoluta offre una garanzia della linearità. Della linearità si riferisce alle richieste di servizio simultaneamente. È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
 
-  Il grafico seguente illustra la forte coerenza con le note musicali. Dopo che i dati vengono scritti nell'area "Stati Uniti occidentali 2", quando si leggono i dati da altre aree, si ottiene il valore più recente:
+  Il grafico seguente illustra la coerenza assoluta con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", quando si leggono i dati da altre aree, si ottiene il valore più recente:
 
   ![video](media/consistency-levels/strong-consistency.gif)
 
-- **Bounded staleness**: Le letture sono garantite per rispettare la garanzia coerente-prefisso. Le letture potrebbero essere in ritardo rispetto alle scritture al massimo delle versioni *"K"* (ovvero "aggiornamenti") di un elemento o per l'intervallo di tempo *"T".* In altre parole, quando si sceglie lo stantio delimitato, la "stantità" può essere configurata in due modi:
+- Decadimento **delimitato**: le letture sono garantite per rispettare la garanzia di prefisso coerente. È possibile che le letture ritardino dietro le Scritture al massimo *"K"* versioni (ovvero "aggiornamenti") di un elemento o di un intervallo di tempo *"T"* . In altre parole, quando si sceglie il decadimento ristretto, il "obsolescenza" può essere configurato in due modi:
 
-- Il numero di versioni (*K*) dell'elemento
-- L'intervallo di tempo (*T*) in base al quale le letture potrebbero rimanere in ritardo rispetto alle scritture
+- Numero di versioni (*K*) dell'elemento
+- Intervallo di tempo (*T*) in base al quale le letture potrebbero ritardare le Scritture
 
-La stantiezza delimitata offre un ordine globale totale al di fuori della "finestra di stantio". Quando un client esegue operazioni di lettura all'interno di un'area che accetta scritture, le garanzie fornite dalla coerenza di stantio delimitata sono identiche a tali garanzie in base alla coerenza forte.
+L'obsolescenza associata offre un ordine globale totale esterno alla "finestra di obsolescenza". Quando un client esegue le operazioni di lettura all'interno di un'area che accetta Scritture, le garanzie fornite dalla coerenza con decadimento ristretto sono identiche a quelle garantite dalla coerenza assoluta.
 
-All'interno della finestra di stantio, Bounded Staleness fornisce le seguenti garanzie di coerenza:
+All'interno della finestra di obsolescenza, il decadimento associato fornisce le garanzie di coerenza seguenti:
 
-- Coerenza per i client nella stessa area per un singolo account master:
-- Coerenza per i client in aree diverse per un singolo account master : prefisso coerente
-- Coerenza per i client che scrivono in una singola area per un account multimaster: prefisso coerente
-- Coerenza per i client che scrivono in aree diverse per un account multi-master - Eventuale
+- Coerenza per i client nella stessa area per un account master singolo = Strong
+- Coerenza per i client in aree diverse per un account master singolo = prefisso coerente
+- Coerenza dei client che scrivono in una singola area per un account multimaster = prefisso coerente
+- Coerenza dei client che scrivono in aree diverse per un account multimaster = eventuale
 
-  La stantiezza delimitata viene spesso scelta da applicazioni distribuite a livello globale che prevedono latenze di scrittura basse ma richiedono una garanzia di ordine globale totale. Lo stantio delimitato è ottimo per le applicazioni con la collaborazione e la condivisione di gruppo, stock ticker, publish-subscribe/queueing ecc. Il grafico seguente illustra la coerenza dello stantio delimitato con le note musicali. Dopo che i dati vengono scritti nella regione "Stati Uniti occidentali 2", le regioni "East US 2" e "Australia orientale" leggono il valore scritto in base al tempo di ritardo massimo configurato o alle operazioni massime:
+  Il decadimento ristretto viene spesso scelto da applicazioni distribuite a livello globale che prevedono latenze di scrittura ridotte, ma che richiedono la garanzia totale degli ordini globali Il decadimento ristretto è ideale per le applicazioni che includono la collaborazione e la condivisione di gruppi, il titolo di borsa, la pubblicazione-sottoscrizione/Accodamento e così via. Il grafico seguente illustra la coerenza con decadimento ristretto con le note musicali. Dopo che i dati sono stati scritti nell'area "Stati Uniti occidentali 2", le aree "Stati Uniti orientali 2" e "Australia orientale" leggono il valore scritto in base al tempo massimo di ritardo configurato o al numero massimo di operazioni:
 
   ![video](media/consistency-levels/bounded-staleness-consistency.gif)
 
-- **Sessione**: All'interno di una singola sessione client le letture della sessione sono garantite per rispettare il prefisso coerente, le letture monotoniche, le scritture monotoniche, le garanzie di lettura-scrittura e write-follows-reads. Si presuppone che una singola sessione "writer" o la condivisione del token di sessione per più writer.
+- **Sessione**: all'interno di una singola sessione client le letture sono garantite per rispettare il prefisso coerente, le letture monotone, le Scritture monotone, la lettura delle Scritture e le garanzie Write-follows. Si presuppone una singola sessione "writer" o si condivide il token di sessione per più writer.
 
-I client al di fuori della sessione che eseguono le scritture vedranno le seguenti garanzie:
+I client al di fuori della sessione che esegue le Scritture vedranno le garanzie seguenti:
 
-- Coerenza per i client nella stessa area per un singolo account master: prefisso coerente
-- Coerenza per i client in aree diverse per un singolo account master : prefisso coerente
-- Coerenza per i client che scrivono in una singola area per un account multimaster: prefisso coerente
-- Coerenza per i client che scrivono in più aree geografiche per un account multimaster - Eventuale
+- Coerenza per i client nella stessa area per un account master singolo = prefisso coerente
+- Coerenza per i client in aree diverse per un account master singolo = prefisso coerente
+- Coerenza dei client che scrivono in una singola area per un account multimaster = prefisso coerente
+- Coerenza per la scrittura dei client in più aree per un account multi-master = eventuale
 
-  La coerenza della sessione è il livello di coerenza ampiamente utilizzato sia per le applicazioni in un'area singola che per le applicazioni distribuite a livello globale. Fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle di eventuale coerenza, ma fornisce anche le garanzie di coerenza che soddisfano le esigenze delle applicazioni scritte per operare nel contesto di un utente. Il grafico seguente illustra la coerenza della sessione con le note musicali. Il "Autore di West US 2" e il "lettore West US 2" utilizzano la stessa sessione (Sessione A) in modo che entrambi leggono gli stessi dati allo stesso tempo. Mentre l'area "Australia est" utilizza "Sessione B", quindi riceve i dati in un secondo momento, ma nello stesso ordine delle scritture.
+  La coerenza di sessione è il livello di coerenza ampiamente utilizzato sia per l'area singola sia per le applicazioni distribuite a livello globale. Fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di coerenza in base alle esigenze delle applicazioni scritte per funzionare nel contesto di un utente. Il grafico seguente illustra la coerenza della sessione con le note musicali. "West US 2 Writer" e "West US 2 Reader" usano la stessa sessione (Session A) in modo che entrambi leggano gli stessi dati nello stesso momento. Mentre l'area "Australia orientale" utilizza "sessione B", riceve i dati in un secondo momento, ma nello stesso ordine delle Scritture.
 
   ![video](media/consistency-levels/session-consistency.gif)
 
-- **Prefisso coerente**: Gli aggiornamenti restituiti contengono alcuni prefissi di tutti gli aggiornamenti, senza spazi vuoti. Il livello di coerenza del prefisso coerente garantisce che la lettura non visualizzi mai scritture non in ordine.
+- **Prefisso coerente**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza gap. Il livello di coerenza del prefisso coerente garantisce che le Scritture non vengano mai visualizzate in modo corretto.
 
-Se queste sono state eseguite nell'ordine `A, B, C`, il client vede `A`, `A,B` o `A,B,C`, ma mai il fuori sequenza ad esempio `A,C` o `B,A,C`. Prefisso coerente fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle di coerenza finale, ma fornisce anche le garanzie di ordine che si adattano alle esigenze degli scenari in cui l'ordine è importante. 
+Se queste sono state eseguite nell'ordine `A, B, C`, il client vede `A`, `A,B` o `A,B,C`, ma mai il fuori sequenza ad esempio `A,C` o `B,A,C`. Il prefisso coerente fornisce latenze di scrittura, disponibilità e velocità effettiva di lettura paragonabili a quelle della coerenza finale, ma fornisce anche le garanzie di ordine che soddisfano le esigenze degli scenari in cui l'ordine è importante. 
 
 Di seguito sono riportate le garanzie di coerenza per il prefisso coerente:
 
-- Coerenza per i client nella stessa area per un singolo account master: prefisso coerente
-- Coerenza per i client in aree diverse per un singolo account master : prefisso coerente
-- Coerenza per i client che scrivono in una singola area per un account multimaster: prefisso coerente
-- Coerenza per i client che scrivono in più aree geografiche per un account multimaster - Eventuale
+- Coerenza per i client nella stessa area per un account master singolo = prefisso coerente
+- Coerenza per i client in aree diverse per un account master singolo = prefisso coerente
+- Coerenza dei client che scrivono in una singola area per un account multimaster = prefisso coerente
+- Coerenza per la scrittura dei client in più aree per un account multi-master = eventuale
 
-Il grafico seguente illustra la coerenza del prefisso di coerenza con le note musicali. In tutte le regioni, le letture non vedono mai le scritture in ordine:
+Il grafico seguente illustra la coerenza del prefisso di coerenza con le note musicali. In tutte le aree, le letture non visualizzano mai le Scritture non in ordine:
 
   ![video](media/consistency-levels/consistent-prefix.gif)
 
-- **Eventuale**: Non c'è alcuna garanzia di ordinazione per le letture. In assenza di altre scritture, le repliche finiscono per convergere.  
-La coerenza finale è la forma più debole di coerenza perché un client può leggere i valori che sono più vecchi di quelli che aveva letto prima. La coerenza finale è ideale quando l'applicazione non richiede alcuna garanzia di ordinazione. Gli esempi includono il conteggio di Retweet, Mi piace o commenti non a thread. Il grafico seguente illustra l'eventuale coerenza con le note musicali.
+- **Eventuale**: non esiste alcuna garanzia di ordinamento per le letture. In assenza di altre scritture, le repliche finiscono per convergere.  
+La coerenza finale è la forma di coerenza più debole, perché un client può leggere i valori più vecchi di quelli precedentemente letti. La coerenza finale è ideale in cui l'applicazione non richiede alcuna garanzia di ordinamento. Gli esempi includono il numero di Retweet, mi piace o commenti non thread. Il grafico seguente illustra la coerenza finale con le note musicali.
 
   ![video](media/consistency-levels/eventual-consistency.gif)
 
@@ -101,8 +101,8 @@ La coerenza finale è la forma più debole di coerenza perché un client può le
 Per altre informazioni sui concetti di coerenza, vedere gli articoli seguenti:
 
 - [High-level TLA+ specifications for the five consistency levels offered by Azure Cosmos DB](https://github.com/Azure/azure-cosmos-tla) (Specifiche TLA+ di alto livello per i cinque livelli di coerenza offerti da Azure Cosmo DB)
-- [Coerenza dei dati replicati spiegata attraverso il baseball (video) di Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
-- [Coerenza dei dati replicati spiegata attraverso il baseball (whitepaper) di Doug Terry](https://www.microsoft.com/research/publication/replicated-data-consistency-explained-through-baseball/)
+- [Coerenza dei dati replicati illustrata attraverso il baseball (video) di Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
+- [Coerenza dei dati replicati illustrata attraverso il baseball (white paper) di Doug Terry](https://www.microsoft.com/research/publication/replicated-data-consistency-explained-through-baseball/)
 - [Session Guarantees for weakly consistent replicated data](https://dl.acm.org/citation.cfm?id=383631) (Garanzie di sessione per i dati replicati con coerenza debole)
 - [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compromessi sulla coerenza nella progettazione di sistemi di database distribuiti moderni: CAP è solo una parte della storia)
 - [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (Decadimento ristretto probabilistico per quorum parziali pratici)

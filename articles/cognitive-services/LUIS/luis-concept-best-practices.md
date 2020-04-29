@@ -1,27 +1,27 @@
 ---
 title: Procedure consigliate per la creazione dell'app LUIS
-description: Scopri le best practice per ottenere i migliori risultati dal modello dell'app LUIS.
+description: Informazioni sulle procedure consigliate per ottenere risultati ottimali dal modello dell'app LUIS.
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: diberry
 ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382380"
 ---
-# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedure consigliate per la creazione di un'app per la comprensione della lingua (LUIS)Best practices for building a language understanding (LUIS) app
-Usare il processo di creazione dell'app per compilare l'app LUIS:Use the app authoring process to build your LUIS app:
+# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedure consigliate per la creazione di un'app LUIS (Language Understanding)
+Usare il processo di creazione di app per compilare l'app LUIS:
 
-* Creare modelli di linguaggio (finalità ed entità)
-* Aggiungere alcune espressioni di esempio di training (15-30 per finalità)Add a few training example utterances (15-30 per intent)
-* Pubblica nell'endpoint
+* Modelli di linguaggio di compilazione (Intent ed entità)
+* Aggiungere alcune espressioni di esempio di training (15-30 per finalità)
+* Pubblica in endpoint
 * Test dall'endpoint
 
-Dopo aver [pubblicato](luis-how-to-publish-app.md)l'app, usa il ciclo di vita dello sviluppo per aggiungere funzionalità, pubblicare e testare dall'endpoint. Non iniziare il ciclo di creazione successivo aggiungendo altre espressioni di esempio perché ciò non consente a LUIS di apprendere il modello con espressioni utente reali.
+Dopo la [pubblicazione](luis-how-to-publish-app.md)dell'app, usa il ciclo di vita di sviluppo per aggiungere funzionalità, pubblicare e testare dall'endpoint. Non iniziare il ciclo di creazione successivo aggiungendo più espressioni di esempio perché questo non consente a LUIS di apprendere il modello con espressioni utente reali.
 
-Non espandere le espressioni fino a quando il set corrente di espressioni di esempio ed endpoint restituisce punteggi di stima elevati e sicuri. Migliorare i punteggi utilizzando [l'apprendimento attivo](luis-concept-review-endpoint-utterances.md).
+Non espandere gli enunciati fino a quando il set corrente di espressioni di esempio e di endpoint non restituiscono punteggi di stima elevati e sicuri. Migliorare i punteggi usando l' [apprendimento attivo](luis-concept-review-endpoint-utterances.md).
 
 
 
@@ -31,13 +31,13 @@ L'elenco seguente include le procedure consigliate per le app LUIS:
 
 |Cosa fare|Cosa non fare|
 |--|--|
-|[Definire le finalità distinte](#do-define-distinct-intents)<br>[Aggiungere descrittori alle finalità](#do-add-descriptors-to-intents) |[Aggiungere molte espressioni di esempio alle finalità](#dont-add-many-example-utterances-to-intents)<br>[Usare poche o semplici entità](#dont-use-few-or-simple-entities) |
+|[Definire le finalità distinte](#do-define-distinct-intents)<br>[Aggiungi descrittori a Intent](#do-add-descriptors-to-intents) |[Aggiungere molte espressioni di esempio alle finalità](#dont-add-many-example-utterances-to-intents)<br>[Usare poche o entità semplici](#dont-use-few-or-simple-entities) |
 |[Trovare un compromesso tra troppo generico e troppo specifico per ogni finalità](#do-find-sweet-spot-for-intents)|[Usare LUIS come piattaforma di training](#dont-use-luis-as-a-training-platform)|
-|[Crea la tua app in modo iterativo con le versioni](#do-build-your-app-iteratively-with-versions)<br>[Creare entità per la scomposizione del modelloBuild entities for model decomposition](#do-build-for-model-decomposition)|[Aggiungere molte espressioni di esempio dello stesso formato, ignorando gli altri](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[Aggiungere modelli nelle iterazioni successiveAdd patterns in later iterations](#do-add-patterns-in-later-iterations)|[Combinare la definizione di finalità ed entità](#dont-mix-the-definition-of-intents-and-entities)|
+|[Compilare l'app in modo iterativo con le versioni](#do-build-your-app-iteratively-with-versions)<br>[Entità di compilazione per la scomposizione dei modelli](#do-build-for-model-decomposition)|[Aggiungere molte espressioni di esempio dello stesso formato, ignorando gli altri](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Aggiungere modelli nelle iterazioni successive](#do-add-patterns-in-later-iterations)|[Combinare la definizione di finalità ed entità](#dont-mix-the-definition-of-intents-and-entities)|
 |[Bilanciare le espressioni tra tutte le finalità](#balance-your-utterances-across-all-intents) ad eccezione della finalità None (Nessuna).<br>[Aggiungere espressioni di esempio alla finalità None (Nessuna)](#do-add-example-utterances-to-none-intent)|[Creare descrittori con tutti i valori possibili](#dont-create-descriptors-with-all-the-possible-values)|
 |[Usare la funzionalità suggerimento per l'apprendimento attivo](#do-leverage-the-suggest-feature-for-active-learning)|[Aggiungere troppi criteri](#dont-add-many-patterns)|
-|[Monitora le prestazioni della tua app con il test in batch](#do-monitor-the-performance-of-your-app)|[Eseguire il training e pubblicare con ogni singola espressione di esempio aggiunta](#dont-train-and-publish-with-every-single-example-utterance)|
+|[Monitorare le prestazioni dell'app con test batch](#do-monitor-the-performance-of-your-app)|[Eseguire il training e pubblicare con ogni singola espressione di esempio aggiunta](#dont-train-and-publish-with-every-single-example-utterance)|
 
 ## <a name="do-define-distinct-intents"></a>Definire finalità distinte
 Assicurarsi che il vocabolario per ogni finalità sia specifico di quella finalità e che non si sovrapponga a un'altra. Ad esempio, se si vuole realizzare un'app per gestire i viaggi, ad esempio i voli aerei e gli hotel, è possibile scegliere di definire queste aree di interesse come finalità separate o una sola finalità con entità per dati specifici all'interno dell'espressione.
@@ -51,53 +51,53 @@ Considerare le espressioni di esempio seguenti:
 |Prenota un volo|
 |Prenota un hotel|
 
-`Book a flight`e `Book a hotel` utilizzare lo stesso `book a `vocabolario di . Questo formato è lo stesso, quindi dovrebbe essere `flight` lo `hotel` stesso intento con le diverse parole di e come entità estratte.
+`Book a flight`e `Book a hotel` usano lo stesso vocabolario `book a `di. Questo formato è lo stesso, quindi deve essere lo stesso scopo con le diverse parole di `flight` e `hotel` come entità estratte.
 
-## <a name="do-add-descriptors-to-intents"></a>Aggiungere descrittori alle finalità
+## <a name="do-add-descriptors-to-intents"></a>Aggiungi descrittori a Intent
 
-I descrittori consentono di descrivere le funzionalità per una finalità. Un descrittore può essere un elenco di frasi di parole significative per tale finalità o un'entità significativa per tale finalità.
+I descrittori consentono di descrivere le funzionalità per finalità. Un descrittore può essere un elenco di parole che sono significative per tale finalità o un'entità che è significativa per tale finalità.
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Trovare un compromesso per le finalità
 Usare i dati di stima LUIS per determinare se le finalità si sovrappongono. Le finalità sovrapposte confondono LUIS. Il risultato è che la finalità con il punteggio più alto è troppo vicina a un'altra finalità. Poiché LUIS non usa ogni volta lo stesso percorso esatto attraverso i dati per il training, una finalità sovrapposta ha la possibilità di essere la prima o la seconda nel training. Si vuole che il punteggio dell'espressione per ogni finalità sia più distante affinché questo non si verifichi. La distinzione ottimale tra le finalità dovrebbe produrre ogni volta la finalità principale prevista.
 
 <a name="#do-build-the-app-iteratively"></a>
 
-## <a name="do-build-your-app-iteratively-with-versions"></a>Crea la tua app in modo iterativo con le versioni
+## <a name="do-build-your-app-iteratively-with-versions"></a>Compilare l'app in modo iterativo con le versioni
 
 Ogni ciclo di creazione deve essere all'interno di una nuova [versione](luis-concept-version.md), clonato da una versione esistente.
 
-## <a name="do-build-for-model-decomposition"></a>Eseguire la compilazione per la decomposizione del modelloDo build for model decomposition
+## <a name="do-build-for-model-decomposition"></a>Eseguire la compilazione per la scomposizione dei modelli
 
-La decomposizione del modello ha un tipico processo di:
+La scomposizione dei modelli ha un processo tipico:
 
-* creare **un intento** basato sulle intenzioni dell'utente dell'app client
-* aggiungere 15-30 espressioni di esempio basate sull'input dell'utente realeAdd 15-30 example utterances based on real-world user input
-* etichetta di primo livello dei dati nell'espressione di esempioLabel top-level data concept in example utterance
-* rompere il concetto di dati in sottocomponenti
-* aggiungere descrittori (funzioni) ai sottocomponenti
-* aggiungere descrittori (caratteristiche) alle finalità
+* Crea **finalità** basate sulle intenzioni dell'utente dell'app client
+* aggiungere espressioni di esempio 15-30 in base all'input utente reale
+* etichettare il concetto di dati di primo livello nell'espressione di esempio
+* suddividere il concetto di dati in sottocomponenti
+* aggiungere descrittori (funzionalità) a sottocomponenti
+* Aggiungi descrittori (funzionalità) a finalità
 
-Dopo aver creato la finalità e aggiunto le espressioni di esempio, nell'esempio seguente viene descritta la scomposizione dell'entità.
+Dopo aver creato la finalità e aggiunto le espressioni di esempio, nell'esempio seguente viene descritta la scomposizione delle entità.
 
-Iniziare identificando i concetti di dati completi che si desidera estrarre in un'espressione. Questa è la tua entità appresa dalla macchina. Poi scomporre la frase nelle sue parti. Ciò include l'identificazione dei sottocomponenti (come entità), insieme a descrittori e vincoli.
+Per iniziare, è necessario identificare i concetti di dati completi da estrarre in un enunciato. Si tratta dell'entità appresa dal computer. Quindi scomporre la frase nelle relative parti. Ciò include l'identificazione dei sottocomponenti (entità), nonché i descrittori e i vincoli.
 
-Ad esempio, se si desidera estrarre un indirizzo, l'entità appresa dal computer superiore potrebbe essere chiamata `Address`. Durante la creazione dell'indirizzo, identificare alcuni dei suoi sottocomponenti, ad esempio l'indirizzo, la città, lo stato e il codice postale.
+Se, ad esempio, si desidera estrarre un indirizzo, è possibile chiamare `Address`l'entità Machine-learned top. Durante la creazione dell'indirizzo, identificare alcuni dei relativi sottocomponenti, ad esempio via indirizzo, città, stato e codice postale.
 
-Continuare a scomporre tali elementi **vincolando** il codice postale a un'espressione regolare. Scomporre l'indirizzo in parti di un numero civico (utilizzando un numero predefinito), un nome di via e un tipo di via. Il tipo di strada può essere descritto con un elenco **di descrittori** come viale, cerchio, strada e corsia.
+Continuare a scomporre tali elementi **vincolando** il codice postale a un'espressione regolare. Scomporre la strada in parti di un numero civico (usando un numero predefinito), un nome via e un tipo di strada. Il tipo di strada può essere descritto con un elenco di **descrittori** , ad esempio Avenue, Circle, Road e Lane.
 
-L'API di creazione V3 consente la scomposizione del modello.
+L'API di creazione di V3 consente la scomposizione dei modelli.
 
-## <a name="do-add-patterns-in-later-iterations"></a>Aggiungere modelli nelle iterazioni successiveDo add patterns in later iterations
+## <a name="do-add-patterns-in-later-iterations"></a>Aggiungere modelli nelle iterazioni successive
 
-È necessario comprendere il funzionamento dell'app prima di aggiungere [modelli](luis-concept-patterns.md) perché i modelli hanno un peso maggiore rispetto alle espressioni di esempio e l'asimmetria di sicurezza.
+È necessario comprendere il comportamento dell'app prima di aggiungere i [modelli](luis-concept-patterns.md) , perché i modelli sono ponderati in modo più significativo rispetto alle espressioni di esempio e presentano un'asimmetria di confidenza.
 
-Dopo aver compreso il funzionamento dell'app, aggiungi i modelli che si applicano alla tua app. Non è necessario aggiungerli a ogni [iterazione](luis-concept-app-iteration.md).
+Quando si comprende il comportamento dell'app, aggiungere i modelli che si applicano all'app. Non è necessario aggiungerli a ogni [iterazione](luis-concept-app-iteration.md).
 
-Non c'è alcun danno ad aggiungerli all'inizio della progettazione del modello, ma è più facile vedere come ogni modello cambia il modello dopo che il modello viene testato con espressioni.
+Non vi sono problemi ad aggiungerli all'inizio della progettazione del modello, ma è più semplice vedere in che modo ogni modello cambia il modello dopo che il modello è stato testato con espressioni.
 
 <a name="balance-your-utterances-across-all-intents"></a>
 
-## <a name="do-balance-your-utterances-across-all-intents"></a>Bilanciare le espressioni in tutte le finalità
+## <a name="do-balance-your-utterances-across-all-intents"></a>Bilanciare le espressioni in tutti gli Intent
 
 Affinché LUIS possa produrre stime precise, la quantità di espressioni di esempio in ogni finalità (ad eccezione della finalità None), deve essere relativamente equivalente.
 
@@ -105,7 +105,7 @@ In presenza di una finalità con 100 espressioni di esempio e una finalità con 
 
 ## <a name="do-add-example-utterances-to-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna)
 
-Questa finalità è la finalità di fallback, che indica tutti gli elementi esterni all'applicazione. Aggiungere un'espressione di esempio alla finalità None (Nessuna) ogni 10 espressioni di esempio nel resto dell'app LUIS.
+Questa finalità è la finalità del fallback, che indica tutti gli elementi all'esterno dell'applicazione. Aggiungere un'espressione di esempio alla finalità None (Nessuna) ogni 10 espressioni di esempio nel resto dell'app LUIS.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Usare la funzionalità suggerimento per l'apprendimento attivo
 
@@ -115,15 +115,15 @@ Usare regolarmente [Review endpoint utterances](luis-how-to-review-endpoint-utte
 
 Monitorare la precisione della stima usando un set di [test batch](luis-concept-batch-test.md).
 
-Mantenere un set separato di espressioni che non vengono usate come espressioni di [esempio](luis-concept-utterance.md) o espressioni endpoint. Continuare a migliorare l'app per il set di test. Adattare il set di test per riflettere espressioni utente reali. Usare questo set di test per valutare ogni iterazione o versione dell'app.
+Mantieni un set separato di espressioni che non vengono usate come [espressioni di esempio](luis-concept-utterance.md) o espressioni di endpoint. Continuare a migliorare l'app per il set di test. Adattare il set di test per riflettere espressioni utente reali. Usare questo set di test per valutare ogni iterazione o versione dell'app.
 
 ## <a name="dont-add-many-example-utterances-to-intents"></a>Non aggiungere molte espressioni di esempio alle finalità
 
-Dopo la pubblicazione dell'app, aggiungere solo le espressioni dell'apprendimento attivo nel processo del ciclo di vita dello sviluppo. Se le espressioni sono troppo simili, aggiungere un criterio.
+Dopo la pubblicazione dell'app, aggiungere solo espressioni di apprendimento attivo nel processo del ciclo di vita di sviluppo. Se le espressioni sono troppo simili, aggiungere un criterio.
 
-## <a name="dont-use-few-or-simple-entities"></a>Non usare poche o semplici entità
+## <a name="dont-use-few-or-simple-entities"></a>Non usare poche o entità semplici
 
-Le entità vengono create per l'estrazione e la stima dei dati. È importante che ogni finalità disponga di entità apprese dal computer che descrivono i dati nella finalità. Ciò consente a LUIS di prevedere l'intento, anche se l'applicazione client non deve usare l'entità estratta.
+Le entità sono compilate per l'estrazione e la stima dei dati. È importante che ogni finalità disponga di entità apprese dal computer che descrivono i dati nella finalità. Questo consente a LUIS di prevedere lo scopo, anche se l'applicazione client non deve usare l'entità estratta.
 
 ## <a name="dont-use-luis-as-a-training-platform"></a>Non usare LUIS come piattaforma di training
 
@@ -143,11 +143,11 @@ La seconda colonna usa verbi diversi (acquista, prenota, riserva), quantità div
 
 Creare una finalità per qualsiasi azione che eseguirà il bot. Usare le entità come parametri che rendono possibile tale azione.
 
-Per un bot che prenoterà i voli aerei, crea un intento **BookFlight.** Non creare una finalità per ogni compagnia aerea o per ogni destinazione. Usare questi dati come [entità](luis-concept-entity-types.md) e contrassegnarle nelle espressioni di esempio.
+Per un bot che scriverà i voli Airline, creare una finalità **BookFlight** . Non creare una finalità per ogni compagnia aerea o per ogni destinazione. Usare questi dati come [entità](luis-concept-entity-types.md) e contrassegnarle nelle espressioni di esempio.
 
 ## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Non creare descrittori con tutti i valori possibili
 
-Fornire alcuni esempi negli elenchi di [frasi](luis-concept-feature.md) descrittori, ma non in tutte le parole. LUIS generalizza e tiene conto del contesto.
+Fornire alcuni esempi negli [elenchi di frasi](luis-concept-feature.md) del descrittore, ma non in tutte le parole. LUIS generalizza e tiene conto del contesto.
 
 ## <a name="dont-add-many-patterns"></a>Non aggiungere molti criteri
 

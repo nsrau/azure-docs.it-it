@@ -1,7 +1,7 @@
 ---
-title: Elenchi di frasi - Servizio di riconoscimento vocale
+title: Elenchi di frasi-servizio vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come fornire al servizio di `PhraseListGrammar` riconoscimento vocale un elenco di frasi utilizzando l'oggetto per migliorare i risultati del riconoscimento vocale-testo.
+description: Informazioni su come fornire al servizio riconoscimento vocale un elenco di frasi utilizzando `PhraseListGrammar` l'oggetto per migliorare i risultati del riconoscimento vocale-testo.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,26 +12,26 @@ ms.date: 02/04/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 5a21358edae4c61f35993770c22634da9ac83633
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81401960"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Elenchi di frasi per la sintesi vocale
 
-Fornendo al servizio di riconoscimento vocale un elenco di frasi, è possibile migliorare l'accuratezza del riconoscimento vocale. Gli elenchi di frasi vengono utilizzati per identificare frasi note nei dati audio, ad esempio il nome di una persona o una posizione specifica.
+Fornendo al servizio di riconoscimento vocale un elenco di frasi, è possibile migliorare l'accuratezza del riconoscimento vocale. Gli elenchi di frasi vengono usati per identificare frasi note nei dati audio, ad esempio il nome di una persona o una specifica località.
 
-Ad esempio, se hai un comando "Sposta in" e una possibile destinazione di "Ward" che può essere pronunciata, puoi aggiungere una voce di "Sposta in rione". L'aggiunta di una frase aumenterà la probabilità che quando l'audio viene riconosciuto che "Sposta in rione" verrà riconosciuto invece di "Sposta verso".
+Ad esempio, se si dispone di un comando "Move to" e di una possibile destinazione "Ward" che potrebbe essere pronunciata, è possibile aggiungere una voce "Move to Ward". L'aggiunta di una frase aumenterà la probabilità che, quando viene rilevata l'audio, verrà riconosciuto "sposta in Ward" anziché "sposta verso".
 
-È possibile aggiungere singole parole o frasi complete a un elenco di frasi. Durante il riconoscimento, una voce in un elenco di frasi viene utilizzata se una corrispondenza esatta per l'intera frase viene inclusa nell'audio come frase separata. Se non viene trovata una corrispondenza esatta con la frase, il riconoscimento non viene assistito.
+All'elenco di frasi è possibile aggiungere singole parole o frasi complete. Durante il riconoscimento, una voce in un elenco di frasi viene usata se una corrispondenza esatta per l'intera frase viene inclusa nell'audio come frase separata. Se non si trova una corrispondenza esatta, il riconoscimento non è assistito.
 
 >[!Note]
-> Attualmente, elenchi di frasi supporta solo l'inglese per la sintesi vocale.
+> Attualmente, gli elenchi di frasi supportano solo l'inglese per la sintesi vocale.
 
-## <a name="how-to-use-phrase-lists"></a>Come utilizzare gli elenchi di frasi
+## <a name="how-to-use-phrase-lists"></a>Come usare gli elenchi di frasi
 
-Negli esempi riportati di seguito viene `PhraseListGrammar` illustrato come creare un elenco di frasi usando l'oggetto.
+Negli esempi seguenti viene illustrato come compilare un elenco di frasi utilizzando l' `PhraseListGrammar` oggetto.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -89,9 +89,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ::: zone-end
 
 >[!Note]
-> Il numero massimo di elenchi di frasi che il servizio di riconoscimento vocale utilizzerà per trovare una corrispondenza con il riconoscimento vocale è 1024 frasi.
+> Il numero massimo di elenchi di frasi che il servizio di riconoscimento vocale utilizzerà per la corrispondenza del riconoscimento vocale è di 1024 frasi.
 
-È inoltre possibile cancellare le `PhraseListGrammar` frasi associate a il chiamando clear().
+È anche possibile cancellare le frasi associate a `PhraseListGrammar` chiamando Clear ().
 
 ::: zone pivot="programming-language-csharp"
 
@@ -134,8 +134,8 @@ phraseListGrammar.clear();
 ::: zone-end
 
 > [!NOTE]
-> Le modifiche `PhraseListGrammar` apportate a un oggetto hanno effetto sul riconoscimento successivo o su una riconnessione al servizio di riconoscimento vocale.
+> Le modifiche apportate a un `PhraseListGrammar` oggetto diventano effettive al successivo riconoscimento o dopo una riconnessione al servizio di riconoscimento vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Documentazione di riferimento di Speech SDK](speech-sdk.md)
+* [Documentazione di riferimento per l'SDK vocale](speech-sdk.md)

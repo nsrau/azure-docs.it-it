@@ -1,5 +1,5 @@
 ---
-title: Data Sync Agent for SQL Data Sync
+title: Agente di sincronizzazione dati per sincronizzazione dati SQL
 description: Informazioni su come installare ed eseguire l'agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure per sincronizzare i dati con i database SQL Server in locale
 services: sql-database
 ms.service: sql-database
@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: 39471ebded6280e7d394ee69c2d732b779c9ea50
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81380902"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente di sincronizzazione dei dati per la sincronizzazione dati SQL Azure
 
-Sync data with on-premises SQL Server databases by installing and configuring the Data Sync Agent for Azure SQL Data Sync. Per altre info sulla sincronizzazione dati SQL, vedere Sincronizzare i [dati tra più database cloud e locali con la sincronizzazione dati SQL.](sql-database-sync-data.md)
+Sincronizzare i dati con i database SQL Server locali installando e configurando l'agente di sincronizzazione dati per sincronizzazione dati SQL di Azure. Per altre informazioni sui sincronizzazione dati SQL, vedere [sincronizzare i dati tra più database cloud e locali con sincronizzazione dati SQL](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> La sincronizzazione dati SQL di Azure **non** supporta l'istanza gestita del database SQL di Azure in questo momento.
+> Il sincronizzazione dati SQL di Azure **non supporta istanza gestita di database SQL di Azure** al momento.
 
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -87,17 +87,17 @@ Se si vuole eseguire l'agente locale da un computer diverso da quello corrente, 
 
 - [Il database non è presente nell'elenco dell'agente](#agent-list)
 
-- [L'agente client non si avvia (errore 1069)](#agent-start)
+- [Impossibile avviare l'agente client (errore 1069)](#agent-start)
 
 - [Non è possibile inviare la chiave dell'agente](#agent-key)
 
-- [L'agente client non può essere eliminato dal portale se il database locale associato non è raggiungibile](#agent-delete)
+- [Non è possibile eliminare l'agente client dal portale se il database locale associato non è raggiungibile](#agent-delete)
 
 - [L'app dell'agente di sincronizzazione locale non riesce a connettersi al servizio di sincronizzazione locale](#agent-connect)
 
-### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>L'installazione, la disinstallazione o il ripristino dell'agente client non riesce
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>L'installazione, la disinstallazione o la riparazione dell'agente client non riesce
 
-- **Causa**. Molti scenari potrebbero causare questo errore. Per determinare la causa specifica di questo errore, analizzare i log.
+- **Motivo**. Molti scenari potrebbero causare questo errore. Per determinare la causa specifica di questo errore, analizzare i log.
 
 - **Risoluzione**. Per trovare la causa specifica dell'errore, generare ed esaminare i log di Windows Installer. È possibile attivare la registrazione al prompt dei comandi. Ad esempio, se il file di installazione scaricato è `SQLDataSyncAgent-2.0-x86-ENU.msi`, generare e analizzare i file di log usando le righe di comando seguenti:
 
@@ -110,7 +110,7 @@ Se si vuole eseguire l'agente locale da un computer diverso da quello corrente, 
 
 L'agente client non funziona, anche dopo che è stata annullata la disinstallazione.
 
-- **Causa**. Questo problema si verifica perché l'agente client di sincronizzazione dati SQL non archivia le credenziali.
+- **Motivo**. Questo problema si verifica perché l'agente client di sincronizzazione dati SQL non archivia le credenziali.
 
 - **Risoluzione**. È possibile provare queste due soluzioni:
 
@@ -123,14 +123,14 @@ Quando si prova ad aggiungere un database di SQL Server a un gruppo di sincroniz
 
 Molti scenari potrebbero causare questo errore.
 
-- **Causa**. L'agente client e il gruppo di sincronizzazione si trovano in data center diversi.
+- **Motivo**. L'agente client e il gruppo di sincronizzazione si trovano in data center diversi.
 
 - **Risoluzione**. L'agente client e il gruppo di sincronizzazione devono trovarsi nello stesso data center. A tale scopo sono disponibili due opzioni:
 
     -   Creare un nuovo agente nel data center in cui si trova il gruppo di sincronizzazione. Registrare quindi il database con tale agente.
     -   Eliminare il gruppo di sincronizzazione corrente. Ricreare quindi il gruppo di sincronizzazione nel data center in cui si trova l'agente.
 
-- **Causa**. L'elenco di database dell'agente client non è aggiornato.
+- **Motivo**. L'elenco di database dell'agente client non è aggiornato.
 
 - **Risoluzione**. Arrestare e quindi riavviare il servizio agente client.
 
@@ -142,7 +142,7 @@ Si scopre che l'agente è in esecuzione in un computer che ospita SQL Server. Qu
 
 ![Finestra di dialogo dell'errore 1069 di sincronizzazione dei dati](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
-- **Causa**. Una probabile causa di questo errore è che la password nel server locale è stata modificata dopo la creazione dell'agente e della password dell'agente.
+- **Motivo**. Una probabile causa di questo errore è che la password nel server locale è stata modificata dopo la creazione dell'agente e della password dell'agente.
 
 - **Risoluzione**. Aggiornare la password dell'agente alla password del server corrente:
 
@@ -176,7 +176,7 @@ Dopo avere creato o ricreato una chiave per un agente, si prova a inviarla trami
 
   - L'indirizzo IP locale viene aggiunto alla regola del firewall del server o del database per il database dei metadati di sincronizzazione.
 
-- **Causa**. La chiave dell'agente identifica in modo univoco ogni agente locale. La chiave deve soddisfare due condizioni:
+- **Motivo**. La chiave dell'agente identifica in modo univoco ogni agente locale. La chiave deve soddisfare due condizioni:
 
   -   La chiave dell'agente client nel server di sincronizzazione dati SQL e nel computer locale deve essere identica.
   -   La chiave dell'agente client può essere usata una sola volta.
@@ -200,14 +200,14 @@ Dopo avere creato o ricreato una chiave per un agente, si prova a inviarla trami
 
 Se un endpoint locale, ovvero un database, registrato con un agente client di sincronizzazione dati SQL non è raggiungibile, l'agente client non può essere eliminato.
 
-- **Causa**. L'agente locale non può essere eliminato perché il database non raggiungibile è ancora registrato con l'agente. Quando si prova a eliminare l'agente, il processo di eliminazione prova a raggiungere il database, ma non riesce.
+- **Motivo**. L'agente locale non può essere eliminato perché il database non raggiungibile è ancora registrato con l'agente. Quando si prova a eliminare l'agente, il processo di eliminazione prova a raggiungere il database, ma non riesce.
 
 - **Risoluzione**. Usare l'eliminazione forzata per eliminare il database non raggiungibile.
 
 > [!NOTE]
 > Se dopo una eliminazione forzata le tabelle di metadati di sincronizzazione sono ancora presenti, usare `deprovisioningutil.exe` per pulirle.
 
-### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>L'app Agente di sincronizzazione locale non riesce a connettersi al servizio di sincronizzazione locale
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>L'app dell'agente di sincronizzazione locale non è in grado di connettersi al servizio di sincronizzazione locale
 
 - **Risoluzione**. Attenersi alla procedura seguente:
 
@@ -216,7 +216,7 @@ Se un endpoint locale, ovvero un database, registrato con un agente client di si
     a. Nella casella di ricerca della barra delle applicazioni immettere **services.msc**.  
     b. Fare doppio clic su **Servizi** nei risultati della ricerca.  
   1. Arrestare il servizio di **sincronizzazione dati SQL**.
-  1. Riavviare il servizio **di sincronizzazione dati SQL.**  
+  1. Riavviare il servizio **sincronizzazione dati SQL** .  
   1. Riaprire l'app.
 
 ## <a name="run-the-data-sync-agent-from-the-command-prompt"></a>Eseguire l'agente di sincronizzazione dei dati dal prompt dei comandi
@@ -225,7 +225,7 @@ Se un endpoint locale, ovvero un database, registrato con un agente client di si
 
 ### <a name="ping-the-service"></a>Eseguire il ping del servizio
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action pingsyncservice
@@ -239,7 +239,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 
 ### <a name="display-registered-databases"></a>Visualizzare i database registrati
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
@@ -253,7 +253,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 
 ### <a name="submit-the-agent-key"></a>Inviare la chiave dell'agente
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
@@ -267,7 +267,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>Registrare un database
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
@@ -286,7 +286,7 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 Quando si usa questo comando per annullare la registrazione di un database, si effettua il deprovisioning completo del database. Se il database fa parte di altri gruppi di sincronizzazione, questa operazione li interrompe.
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
@@ -300,7 +300,7 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 
 ### <a name="update-credentials"></a>Aggiornare le credenziali
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]

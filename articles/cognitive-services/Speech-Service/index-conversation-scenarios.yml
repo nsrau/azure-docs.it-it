@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentazione degli scenari di conversazione
-summary: Esplora i vari scenari di conversazione. Informazioni su come usare la trascrizione di conversazione o la conversazione multidispositivo in scenari di riunione e la trascrizione in scenari di Call Center.
+summary: Esplorare i vari scenari di conversazione. Informazioni su come usare la trascrizione delle conversazioni o la conversazione su più dispositivi negli scenari di riunione e la trascrizione negli scenari del Call Center.
 metadata:
-  title: Documentazione relativa agli scenari di conversazione - Esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure Documenti Microsoft
+  title: Documentazione sugli scenari di conversazione-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,10 +12,10 @@ metadata:
   ms.date: 03/16/2020
   ms.author: trbye
   ms.openlocfilehash: 1766174d053b480674da26ef3e915bcf3fdf280a
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401467"
 landingContent:
 - title: Informazioni sulla trascrizione delle conversazioni (scenario di riunione)
@@ -26,21 +26,21 @@ landingContent:
       url: conversation-transcription.md
   - linkListType: how-to-guide
     links:
-    - text: Trascrizione delle conversazioni in tempo reale
+    - text: Trascrizione di conversazioni in tempo reale
       url: how-to-use-conversation-transcription.md
     - text: Trascrizione conversazione asincrona
       url: how-to-async-conversation-transcription.md
-- title: Informazioni sulla conversazione multidispositivo (scenario di riunione)
+- title: Informazioni su conversazione per più dispositivi (scenario di riunione)
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è La conversazione multidispositivo?
+    - text: Che cos'è la conversazione su più dispositivi?
       url: multi-device-conversation.md
   - linkListType: quickstart
     links:
     - text: Avviare a una conversazione e parteciparvi
       url: quickstarts/multi-device-conversation.md
-- title: Trascrizione Call Center (scenario personalizzato/agente)
+- title: Trascrizione del Call Center (scenario personalizzato/dell'agente)
   linkLists:
   - linkListType: overview
     links:
@@ -50,9 +50,9 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Supporto per il linguaggio di trascrizione delle conversazioni
+    - text: Supporto del linguaggio di trascrizione delle conversazioni
       url: conversation-transcription.md#language-support
-    - text: Supporto della lingua di conversazione multi-dispositivo
+    - text: Supporto del linguaggio di conversazione per più dispositivi
       url: multi-device-conversation.md#language-support
     - text: Prezzi della trascrizione vocale
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

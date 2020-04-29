@@ -1,5 +1,5 @@
 ---
-title: Hub eventi di Azure come origine griglia di eventiAzure Event Hubs as Event Grid source
+title: Hub eventi di Azure come origine di griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi degli hub eventi con Griglia di eventi di Azure
 services: event-grid
 author: spelluru
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393347"
 ---
-# <a name="azure-event-hubs-as-an-event-grid-source"></a>Hub eventi di Azure come origine griglia di eventiAzure Event Hubs as an Event Grid source
+# <a name="azure-event-hubs-as-an-event-grid-source"></a>Hub eventi di Azure come origine di griglia di eventi
 
 Questo articolo illustra le proprietà e lo schema per gli eventi degli hub eventi.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
@@ -57,32 +57,32 @@ Questo evento di esempio mostra lo schema di un evento di hub eventi generato qu
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
-| data | object | Dati dell'evento dell'hub eventi. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Identificatore univoco dell'evento. |
+| data | oggetto | Dati dell'evento dell'hub eventi. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| fileUrl | string | Percorso del file di acquisizione. |
-| fileType | string | Tipo di file del file di acquisizione. |
-| partitionId | string | ID della partizione. |
+| fileUrl | stringa | Percorso del file di acquisizione. |
+| fileType | stringa | Tipo di file del file di acquisizione. |
+| partitionId | stringa | ID della partizione. |
 | sizeInBytes | integer | Dimensioni del file. |
 | eventCount | integer | Numero di eventi nel file. |
 | firstSequenceNumber | integer | Numero di sequenza minore nella coda. |
 | lastSequenceNumber | integer | Ultimo numero di sequenza nella coda. |
-| firstEnqueueTime | string | Primo orario nella coda. |
-| lastEnqueueTime | string | Ultimo orario nella coda. |
+| firstEnqueueTime | stringa | Primo orario nella coda. |
+| lastEnqueueTime | stringa | Ultimo orario nella coda. |
 
-## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 
 |Titolo  |Descrizione  |
 |---------|---------|

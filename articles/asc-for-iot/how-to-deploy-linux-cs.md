@@ -1,6 +1,6 @@
 ---
-title: Installare & distribuire l'agente Linux C
-description: Informazioni su come installare il Centro sicurezza di Azure per l'agente IoT sia in Linux a 32 bit che a 64 bit.
+title: Installare & distribuire l'agente Linux C#
+description: Informazioni su come installare il Centro sicurezza di Azure per l'agente Internet in Linux a 32 bit e a 64 bit.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311140"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire un agente di sicurezza per Linux basato su C# del Centro sicurezza di Azure per IoT
 
-Questa guida illustra come installare e distribuire il Centro sicurezza di Azure per l'agente di sicurezza basato su IoT C, in Linux.This guide explains how to install and deploy the Azure Security Center for IoT C's-based security agent on Linux.
+Questa guida illustra come installare e distribuire il Centro sicurezza di Azure per l'agente di sicurezza basato su C# in Linux.
 
 Questa guida illustra come eseguire queste operazioni:
 
@@ -36,7 +36,7 @@ Questa guida illustra come eseguire queste operazioni:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per altre piattaforme e ruoli di agente, vedere [Scegliere l'agente](how-to-deploy-agent.md)di sicurezza corretto.
+Per altre piattaforme e versioni degli agenti, vedere [scegliere l'agente di sicurezza appropriato](how-to-deploy-agent.md).
 
 1. Per distribuire l'agente di sicurezza, sono necessari i diritti di amministratore locale nel computer di installazione.
 
@@ -44,21 +44,21 @@ Per altre piattaforme e ruoli di agente, vedere [Scegliere l'agente](how-to-depl
 
 ## <a name="installation"></a>Installazione
 
-Per distribuire l'agente di sicurezza, attenersi alla seguente procedura:
+Per distribuire l'agente sicurezza, attenersi alla procedura seguente:
 
 1. Scaricare la versione più recente nel computer da [GitHub](https://aka.ms/iot-security-github-cs).
 
-1. Estrarre il contenuto del pacchetto e passare alla cartella _/Install._
+1. Estrarre il contenuto del pacchetto e passare alla cartella _/Install_
 
 1. Aggiungere le autorizzazioni di esecuzione dello script **InstallSecurityAgent** eseguendo `chmod +x InstallSecurityAgent.sh`
 
-1. Successivamente, eseguire il comando seguente con **privilegi di root:**
+1. Eseguire quindi il comando seguente con **privilegi radice**:
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
 
-   Per ulteriori informazioni sui parametri di autenticazione, vedere [Come configurare l'autenticazione](concept-security-agent-authentication-methods.md).
+   Per ulteriori informazioni sui parametri di autenticazione, vedere [How to Configure Authentication](concept-security-agent-authentication-methods.md).
 
 Lo script esegue le azioni seguenti:
 
@@ -66,9 +66,9 @@ Lo script esegue le azioni seguenti:
 
 - Aggiunge un utente del servizio (con accesso interattivo disabilitato).
 
-- Installa l'agente come **daemon:** presuppone che il dispositivo utilizzi **systemd** per il modello di distribuzione classica.
+- Installa l'agente come **daemon** : presuppone che il dispositivo usi **systemd** per il modello di distribuzione classica.
 
-- Configura i **sudoer** per consentire all'agente di eseguire determinate attività come root.
+- Configura **sudoers** per consentire all'agente di eseguire determinate attività come radice.
 
 - Configurazione dell'agente con i parametri di autenticazione forniti.
 
@@ -122,8 +122,8 @@ Per disinstallare l'agente, eseguire lo script con il parametro –u: `./Install
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggi la [panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoT
-- Altre informazioni sul Centro sicurezza di Azure per l'architettura IoTLearn more about Azure Security Center for IoT [Architecture](architecture.md)
+- Leggi il Centro sicurezza di Azure per [informazioni generali](overview.md) sul servizio Internet
+- Scopri di più sul centro sicurezza di Azure per l' [architettura dell'it](architecture.md)
 - Abilitare il [servizio](quickstart-onboard-iot-hub.md)
 - Leggere le [Domande frequenti](resources-frequently-asked-questions.md)
 - Informazioni sugli [avvisi](concept-security-alerts.md)

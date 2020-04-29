@@ -1,5 +1,5 @@
 ---
-title: Creare un probe personalizzato usando PowerShellCreate a custom probe using PowerShell
+title: Creare un probe personalizzato con PowerShell
 titleSuffix: Azure Application Gateway
 description: Informazioni su come creare un probe personalizzato per il gateway applicazione con PowerShell in Gestione risorse
 services: application-gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312595"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager
@@ -20,7 +20,7 @@ ms.locfileid: "81312595"
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
-> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+> * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
 Questo articolo illustra come aggiungere un probe personalizzato a un gateway applicazione esistente con PowerShell. I probe personalizzati sono utili per le applicazioni che dispongono di una pagina di controllo dell'integrità specifica o per quelle che non rispondono in modo corretto all'applicazione Web predefinita.
 
@@ -77,7 +77,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
 
-Creare una risorsa IP pubblica **publicIP01** nel gruppo di risorse **appgw-rg** per l'area Stati Uniti occidentali. Questo esempio usa un indirizzo IP pubblico per l'indirizzo IP front-end del gateway applicazione.  Per il gateway applicazione è necessario che l'indirizzo IP pubblico disponga di un nome DNS creato dinamicamente e di conseguenza l'elemento `-DomainNameLabel` non può essere specificato durante la creazione dell'indirizzo IP pubblico.
+Creare una risorsa IP pubblica **publicIP01** nel gruppo di risorse **appgw-RG** per l'area Stati Uniti occidentali. Questo esempio usa un indirizzo IP pubblico per l'indirizzo IP front-end del gateway applicazione.  Per il gateway applicazione è necessario che l'indirizzo IP pubblico disponga di un nome DNS creato dinamicamente e di conseguenza l'elemento `-DomainNameLabel` non può essere specificato durante la creazione dell'indirizzo IP pubblico.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come configurare la ripartizione del carico di lavoro TLS visitando: [Configurare l'offload TLS](application-gateway-ssl-arm.md)
+Informazioni su come configurare l'offload TLS visitando: [configurare l'OFFLOAD TLS](application-gateway-ssl-arm.md)
 

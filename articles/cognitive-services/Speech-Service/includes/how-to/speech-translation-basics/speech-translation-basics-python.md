@@ -5,32 +5,32 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: 17d8c0157fcd478d01452167d240fb67daeeda5b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399653"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che si disponga di un account azure e di una sottoscrizione al servizio di riconoscimento vocale. Se non si dispone di un account e di un abbonamento, [provare il servizio di riconoscimento vocale gratuitamente](../../../get-started.md).
+Questo articolo presuppone che si abbia un account Azure e una sottoscrizione del servizio Voce. Se l'account e la sottoscrizione non sono disponibili, [provare il servizio Voce gratuitamente](../../../get-started.md).
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Prima di eseguire qualsiasi operazione, è necessario installare Speech SDK. A seconda della piattaforma, seguire le istruzioni nella sezione <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Ottenere l'SDK <span class="docon docon-navigate-external x-hidden-focus"></span> di riconoscimento vocale</a> dell'articolo Speech SDK.
+Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SDK. A seconda della piattaforma, seguire le istruzioni <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">riportate nella sezione ottenere l' <span class="docon docon-navigate-external x-hidden-focus"></span> SDK di riconoscimento vocale</a> nell'articolo relativo all'SDK di riconoscimento vocale.
 
 ## <a name="import-dependencies"></a>Importare le dipendenze
 
-Per eseguire gli esempi in questo `import` articolo, includere le istruzioni seguenti all'inizio del file di codice python.
+Per eseguire gli esempi in questo articolo, includere le istruzioni `import` seguenti all'inizio del file di codice Python.
 
 ```python
 import os
 import azure.cognitiveservices.speech as speechsdk
 ```
 
-## <a name="sensitive-data-and-environment-variables"></a>Dati sensibili e variabili di ambienteSensitive data and environment variables
+## <a name="sensitive-data-and-environment-variables"></a>Variabili di ambiente e dati sensibili
 
-Il codice sorgente di esempio in questo articolo dipende dalle variabili di ambiente per l'archiviazione di dati sensibili, ad esempio la chiave e l'area di sottoscrizione della risorsa di riconoscimento vocale. Il file di codice python contiene due valori assegnati `SPEECH__SUBSCRIPTION__KEY` dalle `SPEECH__SERVICE__REGION`variabili di ambiente dei computer host, ovvero e . Entrambe queste variabili si trovano nell'ambito globale, rendendole accessibili all'interno della definizione della funzione del file di codice. Per ulteriori informazioni sulle variabili di ambiente, vedere [Variabili di ambiente e configurazione dell'applicazione](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+Il codice sorgente di esempio in questo articolo dipende dalle variabili di ambiente per l'archiviazione di dati sensibili, ad esempio la chiave di sottoscrizione della risorsa vocale e l'area. Il file di codice Python contiene due valori assegnati dalle variabili di ambiente dei computer host, ovvero `SPEECH__SUBSCRIPTION__KEY` e. `SPEECH__SERVICE__REGION` Entrambe queste variabili si trovano nell'ambito globale, rendendole accessibili entro la definizione di funzione del file di codice. Per altre informazioni sulle variabili di ambiente, vedere [variabili di ambiente e configurazione dell'applicazione](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```python
 speech_key, service_region = os.environ['SPEECH__SUBSCRIPTION__KEY'], os.environ['SPEECH__SERVICE__REGION']
@@ -38,19 +38,19 @@ speech_key, service_region = os.environ['SPEECH__SUBSCRIPTION__KEY'], os.environ
 
 ## <a name="create-a-speech-translation-configuration"></a>Creare una configurazione di traduzione vocale
 
-Per chiamare il servizio di riconoscimento vocale [`SpeechTranslationConfig`][config]utilizzando l'SDK di riconoscimento vocale, è necessario creare un file . Questa classe include informazioni sulla sottoscrizione, ad esempio la chiave e l'area geografica associata, l'endpoint, l'host o il token di autorizzazione.
+Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechTranslationConfig`][config]. Questa classe include informazioni sulla sottoscrizione, ad esempio la chiave e l'area associata, l'endpoint, l'host o il token di autorizzazione.
 
 > [!TIP]
-> Indipendentemente dal fatto che si stia eseguendo il riconoscimento vocale, la sintesi vocale, la traduzione o il riconoscimento delle finalità, si creerà sempre una configurazione.
+> Sia che si esegua il riconoscimento vocale, la sintesi vocale, la traduzione o il riconoscimento finalità, sarà sempre necessario creare una configurazione.
 
-Esistono alcuni modi per inizializzare [`SpeechTranslationConfig`][config]un file :
+Esistono diversi modi per inizializzare [`SpeechTranslationConfig`][config]:
 
 * Con una sottoscrizione: passare una chiave e l'area associata.
-* Con un endpoint: passare un endpoint del servizio di riconoscimento vocale. Una chiave o un token di autorizzazione è facoltativo.
-* Con un host: passare un indirizzo host. Una chiave o un token di autorizzazione è facoltativo.
-* Con un token di autorizzazione: passa un token di autorizzazione e l'area associata.
+* Con un endpoint: passare un endpoint del servizio Voce. La chiave e il token di autorizzazione sono facoltativi.
+* Con un host: passare l'indirizzo di un host. La chiave e il token di autorizzazione sono facoltativi.
+* Con un token di autorizzazione: passare un token di autorizzazione e l'area associata.
 
-Diamo un'occhiata a come [`SpeechTranslationConfig`][config] viene creato un oggetto usando una chiave e un'area. Vedere la pagina di [supporto dell'area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) geografica per trovare l'identificatore dell'area geografica.
+Vediamo come viene creata una classe [`SpeechTranslationConfig`][config] usando una chiave e un'area. Per trovare l'identificatore di area, vedere la pagina del [supporto a livello di area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk).
 
 ```python
 from_language, to_language = 'en-US', 'de'
@@ -60,9 +60,9 @@ def translate_speech_to_text():
             subscription=speech_key, region=service_region)
 ```
 
-## <a name="change-source-language"></a>Modificare la lingua di origine
+## <a name="change-source-language"></a>Cambiare la lingua di origine
 
-Un'attività comune di traduzione vocale è specificare la lingua di input (o origine). Diamo un'occhiata a come si sarebbe cambiare la lingua di input in italiano. Nel codice, interagire [`SpeechTranslationConfig`][config] con l'istanza, `speech_recognition_language` assegnando alla proprietà.
+Una delle attività comuni della traduzione vocale è la specifica della lingua di input (o di origine). Vediamo come cambiare la lingua di input in italiano. Nel codice interagire con l' [`SpeechTranslationConfig`][config] istanza, assegnando alla `speech_recognition_language` proprietà.
 
 ```python
 def translate_speech_to_text():
@@ -73,11 +73,11 @@ def translate_speech_to_text():
     translation_config.speech_recognition_language = from_language
 ```
 
-La [`speech_recognition_language`][recognitionlang] proprietà prevede una stringa di formato delle impostazioni locali della lingua. È possibile fornire qualsiasi valore nella colonna **Impostazioni locali** nell'elenco delle [impostazioni locali/lingue](../../../language-support.md)supportate.
+La proprietà [`speech_recognition_language`][recognitionlang] si aspetta una stringa in formato è prevista una stringa di formato lingua-impostazioni locali. È possibile specificare qualsiasi valore nella colonna **Locale** nell'elenco di [impostazioni locali/lingue supportate](../../../language-support.md).
 
-## <a name="add-translation-language"></a>Aggiungere la lingua di traduzione
+## <a name="add-translation-language"></a>Aggiungi lingua di traduzione
 
-Un altro compito comune di traduzione vocale è quello di specificare le lingue di traduzione di destinazione, almeno uno è obbligatorio, ma sono supportati i multipli. Nel frammento di codice seguente, sia il francese che il tedesco come destinazioni della lingua di traduzione.
+Un'altra attività comune di traduzione vocale è quella di specificare i linguaggi di traduzione di destinazione, almeno uno è obbligatorio ma sono supportati più multipli. Nel frammento di codice seguente, sia francese che tedesco come destinazione del linguaggio di traduzione.
 
 ```python
 def translate_speech_to_text():
@@ -91,13 +91,13 @@ def translate_speech_to_text():
     translation_config.add_target_language("de")
 ```
 
-Con ogni [`add_target_language`][addlang]chiamata a , viene specificata una nuova lingua di traduzione di destinazione. In altre parole, quando il riconoscimento vocale viene riconosciuto dalla lingua di origine, ogni traduzione di destinazione è disponibile come parte dell'operazione di traduzione risultante.
+Con ogni chiamata a [`add_target_language`][addlang], viene specificato un nuovo linguaggio di conversione di destinazione. In altre parole, quando la voce vocale viene riconosciuta dalla lingua di origine, ogni conversione di destinazione è disponibile come parte dell'operazione di conversione risultante.
 
-## <a name="initialize-a-translation-recognizer"></a>Inizializzare un sistema di riconoscimento delle traduzioni
+## <a name="initialize-a-translation-recognizer"></a>Inizializzare un riconoscimento di traduzione
 
-Dopo aver creato [`SpeechTranslationConfig`][config]un oggetto , il [`TranslationRecognizer`][recognizer]passaggio successivo consiste nell'inizializzare un file . Quando si [`TranslationRecognizer`][recognizer]inizializza un , è necessario `translation_config`passarlo il file . L'oggetto di configurazione fornisce le credenziali richieste dal servizio di riconoscimento vocale per convalidare la richiesta.
+Dopo aver creato una classe [`SpeechTranslationConfig`][config], il passaggio successivo consiste nell'inizializzare [`TranslationRecognizer`][recognizer]. Quando si Inizializza [`TranslationRecognizer`][recognizer], sarà necessario passare `translation_config`. L'oggetto di configurazione fornisce le credenziali richieste dal servizio di riconoscimento vocale per convalidare la richiesta.
 
-Se riconosci il riconoscimento vocale utilizzando il microfono predefinito [`TranslationRecognizer`][recognizer] del dispositivo, ecco come dovrebbe apparire:
+Se si esegue il riconoscimento vocale usando il microfono predefinito del dispositivo, [`TranslationRecognizer`][recognizer] avrà questo aspetto:
 
 ```python
 def translate_speech_to_text():
@@ -111,12 +111,12 @@ def translate_speech_to_text():
             translation_config=translation_config)
 ```
 
-Se si desidera specificare il dispositivo di input audio, è necessario creare un [`AudioConfig`][audioconfig] e fornire il `audio_config` parametro durante l'inizializzazione del [`TranslationRecognizer`][recognizer]file .
+Se si vuole specificare il dispositivo di input audio, è necessario creare [`AudioConfig`][audioconfig] e specificare il parametro `audio_config` quando si inizializza [`TranslationRecognizer`][recognizer].
 
 > [!TIP]
-> [Scopri come ottenere l'ID del dispositivo di input audio.](../../../how-to-select-audio-input-devices.md)
+> [Informazioni su come ottenere l'ID del dispositivo di input audio](../../../how-to-select-audio-input-devices.md).
 
-In primo luogo, `AudioConfig` si farà riferimento all'oggetto come segue:
+In primo luogo, si farà `AudioConfig` riferimento all'oggetto come segue:
 
 ```python
 def translate_speech_to_text():
@@ -132,7 +132,7 @@ def translate_speech_to_text():
             translation_config=translation_config, audio_config=audio_config)
 ```
 
-Se si desidera fornire un file audio invece di utilizzare un `audioConfig`microfono, è comunque necessario fornire un file . Tuttavia, quando [`AudioConfig`][audioconfig]si crea un `use_default_microphone=True`oggetto , anziché chiamare con , verrà chiamato con `filename="path-to-file.wav"` e fornire il `filename` parametro .
+Se si vuole specificare un file audio invece di usare un microfono, è comunque necessario fornire `audioConfig`. Tuttavia, quando si crea un [`AudioConfig`][audioconfig]oggetto, invece di chiamare `use_default_microphone=True`con, si chiamerà con `filename="path-to-file.wav"` e si fornirà il `filename` parametro.
 
 ```python
 def translate_speech_to_text():
@@ -150,7 +150,7 @@ def translate_speech_to_text():
 
 ## <a name="translate-speech"></a>Traduzione vocale
 
-Per tradurre il riconoscimento vocale, Speech SDK si basa su un microfono o un input di file audio. Il riconoscimento vocale si verifica prima della traduzione vocale. Dopo che tutti gli oggetti sono stati inizializzati, chiamare la funzione recognize-once e ottenere il risultato.
+Per tradurre la voce, l'SDK di riconoscimento vocale si basa su un microfono o un input di file audio. Il riconoscimento vocale si verifica prima della traduzione vocale. Dopo l'inizializzazione di tutti gli oggetti, chiamare la funzione Recognize-once e ottenere il risultato.
 
 ```python
 import os
@@ -187,18 +187,18 @@ def get_result_text(reason, result):
 translate_speech_to_text()
 ```
 
-Per ulteriori informazioni sulla sintesi vocale, vedere [le nozioni di base del riconoscimento vocale.](../../../speech-to-text-basics.md)
+Per ulteriori informazioni sulla sintesi vocale, vedere [le nozioni di base del riconoscimento vocale](../../../speech-to-text-basics.md).
 
-## <a name="synthesize-translations"></a>Sintetizzare le traduzioni
+## <a name="synthesize-translations"></a>Sintetizza le traduzioni
 
-Dopo un riconoscimento vocale e una traduzione di successo, il risultato contiene tutte le traduzioni in un dizionario. La [`translations`][translations] chiave del dizionario è la lingua di traduzione di destinazione e il valore è il testo tradotto. Il discorso riconosciuto può essere tradotto, quindi sintetizzato in una lingua diversa (speech-to-speech).
+Dopo un riconoscimento vocale e una traduzione con esito positivo, il risultato contiene tutte le traduzioni in un dizionario. La [`translations`][translations] chiave del dizionario è il linguaggio di conversione di destinazione e il valore è il testo tradotto. Il riconoscimento vocale riconosciuto può essere convertito, quindi sintetizzato in un linguaggio diverso (sintesi vocale).
 
 ### <a name="event-based-synthesis"></a>Sintesi basata su eventi
 
-L'oggetto `TranslationRecognizer` espone `Synthesizing` un evento. L'evento viene generato più volte e fornisce un meccanismo per recuperare l'audio sintetizzato dal risultato del riconoscimento della traduzione. Se si sta traducendo in più lingue, vedere [sintesi manuale](#manual-synthesis). Specificare la voce di [`voice_name`][voicename] sintesi assegnando `Synthesizing` un e fornire un gestore eventi per l'evento, ottenere l'audio. L'esempio seguente salva l'audio tradotto come file *wav.*
+L' `TranslationRecognizer` oggetto espone un `Synthesizing` evento. L'evento viene generato più volte e fornisce un meccanismo per recuperare l'audio sintetizzato dal risultato del riconoscimento della traduzione. Se si esegue la conversione in più lingue, vedere [sintesi manuale](#manual-synthesis). Specificare la voce di sintesi assegnando un [`voice_name`][voicename] oggetto e fornire un gestore eventi per `Synthesizing` l'evento, ottenere l'audio. Nell'esempio seguente viene salvato l'audio tradotto come file *WAV* .
 
 > [!IMPORTANT]
-> La sintesi basata su eventi funziona solo con una singola traduzione, **non** aggiungere più lingue di traduzione di destinazione. Inoltre, il [`voice_name`][voicename] dovrebbe essere la stessa lingua della lingua di traduzione di destinazione, ad esempio; `"de"` potrebbe eseguire `"de-DE-Hedda"`il mapping a .
+> La sintesi basata su eventi funziona solo con una singola traduzione. **non** aggiungere più lingue di traduzione di destinazione. Inoltre, [`voice_name`][voicename] deve essere la stessa lingua del linguaggio di traduzione di destinazione, ad esempio. `"de"` è possibile eseguire `"de-DE-Hedda"`il mapping a.
 
 ```python
 import os
@@ -252,7 +252,7 @@ translate_speech_to_text()
 
 ### <a name="manual-synthesis"></a>Sintesi manuale
 
-Il [`translations`][translations] dizionario può essere utilizzato per sintetizzare l'audio dal testo di traduzione. Scorrere ogni traduzione e sintetizzare la traduzione. Quando si `SpeechSynthesizer` crea `SpeechConfig` un'istanza, [`speech_synthesis_voice_name`][speechsynthesisvoicename] la proprietà dell'oggetto deve essere impostata sulla voce desiderata. L'esempio seguente traduce in cinque lingue e ogni traduzione viene quindi sintetizzata in un file audio nella lingua neurale corrispondente.
+Il [`translations`][translations] dizionario può essere usato per sintetizzare l'audio dal testo di traduzione. Scorrere ogni traduzione e sintetizzare la traduzione. Quando si crea `SpeechSynthesizer` un'istanza, `SpeechConfig` l'oggetto deve avere la [`speech_synthesis_voice_name`][speechsynthesisvoicename] proprietà impostata sulla voce desiderata. Nell'esempio seguente viene convertito in cinque lingue e ogni conversione viene quindi sintetizzata in un file audio nel linguaggio neurale corrispondente.
 
 ```python
 import os
@@ -300,7 +300,7 @@ def synthesize_translations(result):
 translate_speech_to_text()
 ```
 
-Per ulteriori informazioni sulla sintesi vocale, vedere [le nozioni di base della sintesi vocale](../../../text-to-speech-basics.md).
+Per ulteriori informazioni sulla sintesi vocale, vedere [le nozioni di base sulla sintesi vocale](../../../text-to-speech-basics.md).
 
 [config]: https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.translation.speechtranslationconfig?view=azure-python
 [audioconfig]: https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python

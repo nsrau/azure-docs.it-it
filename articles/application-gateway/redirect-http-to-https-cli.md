@@ -1,7 +1,7 @@
 ---
-title: Reindirizzamento da HTTP a HTTPS tramite CLI
+title: Reindirizzamento da HTTP a HTTPS tramite l'interfaccia della riga di comando
 titleSuffix: Azure Application Gateway
-description: Informazioni su come creare un gateway applicazione e aggiungere un certificato per la terminazione TLS usando l'interfaccia della riga di comando di Azure.Learn how to create an application gateway and add a certificate for TLS termination using the Azure CLI.
+description: Informazioni su come creare un gateway applicazione e aggiungere un certificato per la terminazione TLS usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312149"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite l'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per creare un gateway applicazione con un certificato per la terminazione TLS/SSL.You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
+È possibile usare l'interfaccia della riga di comando di Azure per creare un [gateway applicazione](overview.md) con un certificato per la terminazione TLS/SSL. Viene usata una regola di routing per reindirizzare il traffico HTTP verso la porta HTTPS nel gateway applicazione. In questo esempio viene creato anche un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per il pool back-end del gateway applicazione che contiene due istanze di macchine virtuali.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -218,7 +218,7 @@ az network public-ip show \
 
 ![Avviso di sicurezza](./media/redirect-http-to-https-cli/application-gateway-secure.png)
 
-Per accettare l'avviso di sicurezza se si è usato un certificato autofirmato, selezionare **Dettagli** e quindi **Continua per la pagina Web**. Il sito NGINX protetto viene quindi visualizzato come illustrato nell'esempio seguente:
+Per accettare l'avviso di sicurezza se è stato usato un certificato autofirmato, selezionare **Dettagli** e quindi **passare alla pagina Web**. Il sito NGINX protetto viene quindi visualizzato come illustrato nell'esempio seguente:
 
 ![Testare l'URL di base nel gateway applicazione](./media/redirect-http-to-https-cli/application-gateway-nginxtest.png)
 

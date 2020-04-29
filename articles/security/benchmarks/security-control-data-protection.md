@@ -1,6 +1,6 @@
 ---
-title: Azure Security Control - Data Protection
-description: Protezione dei dati del controllo di sicurezza di AzureAzure Security Control Data Protection
+title: Controllo di sicurezza di Azure-protezione dei dati
+description: Protezione dei dati del controllo di sicurezza di Azure
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -8,127 +8,127 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 035894c80e619851264aae91daa2d7852d156964
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408552"
 ---
-# <a name="security-control-data-protection"></a>Controllo di sicurezza: Protezione dei dati
+# <a name="security-control-data-protection"></a>Controllo di sicurezza: protezione dei dati
 
-Le raccomandazioni sulla protezione dei dati si concentrano sulla risoluzione dei problemi relativi alla crittografia, agli elenchi di controllo di accesso, al controllo degli accessi basato sull'identità e alla registrazione di controllo per l'accesso ai dati.
+I suggerimenti sulla protezione dei dati sono incentrati sulla risoluzione dei problemi correlati alla crittografia, agli elenchi di controllo di accesso, al controllo di accesso basato sull'identità e alla registrazione di controllo per l'accesso
 
-## <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenere un inventario di informazioni sensibili
+## <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: gestire un inventario delle informazioni riservate
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
 | 4.1 | 13.1 | Customer |
 
-Usare i tag per tenere traccia delle risorse di Azure che archiviano o elaborano informazioni riservate.
+Usare i tag per semplificare il monitoraggio delle risorse di Azure che archiviano o elaborano informazioni riservate.
 
-- [Come creare e utilizzare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolare i sistemi che memorizzano o elaborano informazioni sensibili
+## <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.2 | 13.2, 2.10 | Customer |
+| 4.2 | 13,2, 2,10 | Customer |
 
-Implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione separati per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di riservatezza dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure Active Directory.You can control access to Azure resources via Azure Active Directory role-based access control. 
+Implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite Azure Active Directory il controllo degli accessi in base al ruolo. 
 
-- [Come creare sottoscrizioni di Azure aggiuntiveHow to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
-- [Come creare gruppi di gestioneHow to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Come creare Gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-- [Come creare e utilizzare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: Monitorare e bloccare il trasferimento non autorizzato di informazioni sensibili
+## <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.3 | 13.3 | Condiviso |
+| 4.3 | 13,3 | Shared |
 
-Sfrutta una soluzione di terze parti di Azure Marketplace sui perimetri di rete che monitora il trasferimento non autorizzato di informazioni riservate e blocca tali trasferimenti mentre avvisa i professionisti della sicurezza delle informazioni.
+Sfrutta una soluzione di terze parti da Azure Marketplace sui perimetri di rete che monitora il trasferimento non autorizzato di informazioni riservate e blocca tali trasferimenti mentre invia avvisi ai professionisti della sicurezza delle informazioni.
 
-Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e protegge dalla perdita e dall'esposizione dei dati dei clienti. Per garantire la sicurezza dei dati dei clienti in Azure, Microsoft ha implementato e gestisce una suite di potenti controlli e funzionalità di protezione dei dati.
+Per la piattaforma sottostante gestita da Microsoft, tutti i contenuti dei clienti vengono considerati sensibili e protetti dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e mantiene una suite di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Comprendere la protezione dei dati dei clienti in AzureUnderstand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Crittografare tutte le informazioni sensibili in transito
+## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: crittografare tutte le informazioni riservate in transito
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.4 | 14.4 | Condiviso |
+| 4.4 | 14,4 | Shared |
 
-Crittografare tutte le informazioni riservate in transito. Verificare che tutti i client che si connettono alle risorse di Azure siano in grado di negoziare TLS 1.2 o versione successiva.
+Crittografare tutte le informazioni riservate in transito. Assicurarsi che tutti i client che si connettono alle risorse di Azure siano in grado di negoziare TLS 1,2 o versione successiva.
 
-Seguire i consigli del Centro sicurezza di Azure per la crittografia inattivi e la crittografia in transito, se applicabile.
+Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei dati inattivi e la crittografia in transito, ove applicabile.
 
-- [Comprendere la crittografia in transito con AzureUnderstand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Informazioni sulla crittografia in transito con Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
-## <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilizzare uno strumento di individuazione attivo per identificare i dati sensibili
+## <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.5 | 14.5 | Condiviso |
+| 4.5 | 14,5 | Shared |
 
-Quando non è disponibile alcuna funzionalità per il servizio specifico in Azure, usare uno strumento di individuazione attivo di terze parti per identificare tutte le informazioni riservate archiviate, elaborate o trasmesse dai sistemi tecnologici dell'organizzazione, inclusi quelli in loco o presso un provider di servizi remoto, e aggiornare l'inventario delle informazioni riservate dell'organizzazione.
+Quando non è disponibile alcuna funzionalità per il servizio specifico in Azure, usare uno strumento di individuazione attiva di terze parti per identificare tutte le informazioni riservate archiviate, elaborate o trasmesse dai sistemi tecnologici dell'organizzazione, incluse quelle situate in loco o a un provider di servizi remoti, e aggiornare l'inventario delle informazioni riservate dell'organizzazione.
 
-Usare Azure Information Protection per identificare le informazioni riservate all'interno dei documenti di Office 365.Use Azure Information Protection for identifying sensitive information within Office 365 documents.
+Usare Azure Information Protection per identificare le informazioni riservate nei documenti di Office 365.
 
-Usare Azure SQL Information Protection per facilitare la classificazione e l'etichettatura delle informazioni archiviate nei database SQL di Azure.Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.
+Usare Information Protection SQL di Azure per semplificare la classificazione e l'assegnazione di etichette alle informazioni archiviate nei database SQL di Azure.
 
-- [Come implementare l'individuazione dei dati SQL di AzureHow to implement Azure SQL Data Discovery](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Come implementare l'individuazione dati SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 
 - [Come implementare Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)
 
-- [Comprendere la protezione dei dati dei clienti in AzureUnderstand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizzare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.6 | 14.6 | Customer |
+| 4.6 | 14,6 | Customer |
 
-Usare il controllo degli accessi in base al ruolo di Azure AD per controllare l'accesso a dati e risorse, altrimenti usare metodi di controllo di accesso specifici del servizio.
+Usare Azure AD controllo degli accessi in base al ruolo per controllare l'accesso ai dati e alle risorse; in caso contrario, usare metodi di controllo
 
-- [Come configurare il controllo degli accessi in base al ruolo in AzureHow to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Come configurare RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Utilizzare la prevenzione della perdita di dati basata su host per applicare il controllo degli accessi
+## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.7 | 14.7 | Condiviso |
+| 4.7 | 14,7 | Shared |
 
-Se necessario per la conformità alle risorse di calcolo, implementare uno strumento di terze parti, ad esempio una soluzione automatizzata di Prevenzione della perdita di dati basata su host, per applicare i controlli di accesso ai dati anche quando i dati vengono copiati da un sistema.
+Se necessario per la conformità alle risorse di calcolo, implementare uno strumento di terze parti, ad esempio una soluzione di prevenzione della perdita dei dati basata su host automatizzata, per applicare i controlli di accesso ai dati anche quando i dati vengono copiati fuori da un sistema.
 
-Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e fa di tutto per proteggersi dalla perdita e dall'esposizione dei dati dei clienti. Per garantire la sicurezza dei dati dei clienti in Azure, Microsoft ha implementato e gestisce una suite di potenti controlli e funzionalità di protezione dei dati.
+Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e passa a grandi lunghezze per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e mantiene una suite di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Comprendere la protezione dei dati dei clienti in AzureUnderstand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Crittografare le informazioni sensibili inattivi
+## <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: crittografare le informazioni riservate inattive
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
 | 4.8 | 14.8 | Customer |
 
-Usare la crittografia inattivi in tutte le risorse di Azure.Use encryption at rest on all Azure resources. Microsoft consiglia di consentire ad Azure di gestire le chiavi di crittografia, tuttavia è possibile gestire le proprie chiavi in alcuni casi. 
+Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia di consentire ad Azure di gestire le chiavi di crittografia. Tuttavia, è possibile gestire le proprie chiavi in alcune istanze. 
 
-- [Comprendere la crittografia inattivi in AzureUnderstand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Informazioni sulla crittografia inattiva in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 
 - [Come configurare le chiavi di crittografia gestite dal cliente](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
 
-## <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registrare e avvisare le modifiche alle risorse critiche di Azure4.9: Log and alert on changes to critical Azure resources
+## <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: registrare e segnalare le modifiche apportate alle risorse di Azure critiche
 
-| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
+| ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.9 | 14.9 | Customer |
+| 4,9 | 14,9 | Customer |
 
-Usare Monitoraggio di Azure con il log attività di Azure per creare avvisi per quando vengono apportate modifiche alle risorse di Azure critiche.
+Usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle risorse di Azure critiche.
 
-- [Come creare avvisi per gli eventi del log attività di AzureHow to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il prossimo controllo di sicurezza: [gestione delle vulnerabilità](security-control-vulnerability-management.md)
+- Vedere il controllo di sicurezza successivo: [gestione delle vulnerabilità](security-control-vulnerability-management.md)

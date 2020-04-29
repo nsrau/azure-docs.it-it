@@ -1,7 +1,7 @@
 ---
 title: Moderazione immagine - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Usa la moderazione delle immagini assistita dal computer di Content Moderator e lo strumento di revisione umano nel ciclo per moderare le immagini per i contenuti per adulti e per adulti.
+description: Usa la moderazione delle immagini assistita da computer di Content Moderator e lo strumento di revisione umana in loop per moderare le immagini per contenuti per adulti e per gli utenti.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81404256"
 ---
 # <a name="learn-image-moderation-concepts"></a>Informazioni sui concetti di moderazione delle immagini
 
-Usa la moderazione delle immagini assistita dal computer di Content Moderator e [lo strumento di revisione umano nel ciclo](Review-Tool-User-Guide/human-in-the-loop.md) per moderare le immagini per i contenuti per adulti e per adulti. Analizzare le immagini per trovare i contenuti di testo, estrarre il testo e rilevare i caratteri tipografici. È possibile abbinare le immagini agli elenchi personalizzati e intraprendere altre azioni.
+Usa la moderazione delle immagini assistita da computer di Content Moderator e [lo strumento di revisione umana in loop](Review-Tool-User-Guide/human-in-the-loop.md) per moderare le immagini per contenuti per adulti e per gli utenti. Analizzare le immagini per trovare i contenuti di testo, estrarre il testo e rilevare i caratteri tipografici. È possibile abbinare le immagini agli elenchi personalizzati e intraprendere altre azioni.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Valutazione dei contenuti spinti e per adulti
 
@@ -66,7 +66,7 @@ Esempio di estratto:
 
 ## <a name="detecting-faces"></a>Rilevamento dei visi
 
-Il rilevamento dei volti consente di rilevare i dati personali, ad esempio i volti nelle immagini. Vengono rilevati i potenziali visi e il numero dei possibili visi presenti in ogni immagine.
+Il rilevamento dei visi consente di rilevare i dati personali, ad esempio i visi nelle immagini. Vengono rilevati i potenziali visi e il numero dei possibili visi presenti in ogni immagine.
 
 Una risposta contiene queste informazioni:
 
@@ -141,10 +141,10 @@ Esempio di estratto:
 
 ## <a name="review-tool"></a>Strumento di revisione
 
-Per casi più sfumati, usa [lo strumento](Review-Tool-User-Guide/human-in-the-loop.md) Content Moderator Review e la relativa API per visualizzare i risultati della moderazione e il contenuto nella revisione per i moderatori umani. Revisionano i tag assegnati automaticamente e confermano le loro decisioni finali.
+Per i casi più sfumati, usare lo [strumento di revisione](Review-Tool-User-Guide/human-in-the-loop.md) content moderator e la relativa API per visualizzare i risultati della moderazione e il contenuto nella revisione per i moderatori umani. Revisionano i tag assegnati automaticamente e confermano le loro decisioni finali.
 
 ![Revisione di immagini per moderatori umani](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire il test drive della [Console dell'API Moderazione immagini](try-image-api.md) e usare gli esempi di codice API REST. Estrarre anche la sezione moderazione dell'immagine della Guida introduttiva di [.NET SDK](dotnet-sdk-quickstart.md) se si ha familiarità con Visual Studio e C.
+Eseguire il test drive della [Console dell'API Moderazione immagini](try-image-api.md) e usare gli esempi di codice API REST. Se si ha familiarità con Visual Studio e C#, vedere anche la sezione relativa alla moderazione delle immagini della [Guida introduttiva a .NET SDK](dotnet-sdk-quickstart.md) .
