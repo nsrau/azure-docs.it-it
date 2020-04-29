@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: aac2641913331095550c0e19cc587257a996fcce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537024"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Sicurezza in Database di Azure per MySQL
@@ -45,7 +45,7 @@ Collegamento privato consente di connettersi al database di Azure per MySQL in A
 Quando si crea il database di Azure per il server MySQL, si forniscono le credenziali per un utente amministratore. Questo amministratore può essere usato per creare altri utenti di MySQL.
 
 
-## <a name="threat-protection"></a>Protezione dalle minacce
+## <a name="threat-protection"></a>Threat Protection
 
 È possibile optare per [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) che rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei server.
 

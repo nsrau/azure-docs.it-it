@@ -1,6 +1,6 @@
 ---
-title: Aggiunta di un popup a un punto su una mappa Mappe di Microsoft Azure
-description: In questo articolo verrà illustrato come aggiungere un popup a un punto usando Microsoft Azure Maps Web SDK.
+title: Aggiungere un popup a un punto su una mappa | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come aggiungere un popup a un punto usando il Microsoft Azure Maps Web SDK.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 02/27/2020
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: cf6424d2a6cbcfb7c5052201b5a9190c81fddaff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055957"
 ---
 # <a name="add-a-popup-to-the-map"></a>Aggiungere un popup alla mappa
@@ -22,7 +22,7 @@ Questo articolo illustra come aggiungere un pop a un punto in una mappa.
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
-Il codice seguente aggiunge una `name` feature `description` punto, che ha e proprietà, alla mappa utilizzando un layer di simboli. Un'istanza della [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) viene creata ma non visualizzata. Gli eventi del mouse vengono aggiunti al livello simbolo per attivare l'apertura e la chiusura del popup. Quando il simbolo del marcatore è `position` al passaggio del mouse, `content` la proprietà del popup viene `name` aggiornata con la posizione del marcatore e l'opzione viene aggiornata con alcuni HTML che mandaa a capo le proprietà e `description` della feature punto al passaggio del mouse. Il popup viene quindi visualizzato sulla `open` mappa utilizzando la sua funzione.
+Il codice seguente aggiunge alla mappa una funzionalità punto, `name` con `description` proprietà e, usando un livello di simboli. Viene creata un'istanza della [classe popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) che non viene visualizzata. Gli eventi del mouse vengono aggiunti al livello del simbolo per attivare l'apertura e la chiusura del popup. Quando il simbolo del marcatore viene spostato, `position` la proprietà del popup viene aggiornata con la posizione del marcatore e `content` l'opzione viene aggiornata con un codice HTML che esegue `name` il `description` wrapping delle proprietà e della funzionalità punto al passaggio del mouse. Il popup viene quindi visualizzato sulla mappa usando la relativa `open` funzione.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -76,7 +76,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 });
 ```
 
-Di seguito è riportato l'esempio di codice in esecuzione completo della funzionalità precedente.
+Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
 
 <br/>
 
@@ -85,7 +85,7 @@ Di seguito è riportato l'esempio di codice in esecuzione completo della funzion
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>Riutilizzare un popup con più punti
 
-Ci sono casi in cui l'approccio migliore consiste nel creare un popup e riutilizzarlo. Ad esempio, è possibile avere un numero elevato di punti e si desidera visualizzare un solo popup alla volta. Riutilizzando il popup, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, che può fornire prestazioni migliori. Nell'esempio seguente vengono create feature a 3 punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
+Esistono casi in cui l'approccio migliore consiste nel creare un popup e riutilizzarlo. Ad esempio, è possibile avere un numero elevato di punti e si desidera visualizzare solo un popup alla volta. Riutilizzando il popup, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, che può offrire prestazioni migliori. Nell'esempio seguente vengono create funzionalità a tre punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
 
 <br/>
 
@@ -94,34 +94,34 @@ Ci sono casi in cui l'approccio migliore consiste nel creare un popup e riutiliz
 
 ## <a name="customizing-a-popup"></a>Personalizzazione di un popup
 
-Per impostazione predefinita, il popup ha uno sfondo bianco, una freccia del puntatore in basso e un pulsante di chiusura nell'angolo in alto a destra. L'esempio seguente cambia il colore `fillColor` di sfondo in nero utilizzando l'opzione del popup. Il pulsante chiudi viene `CloseButton` rimosso impostando l'opzione su false. Il contenuto HTML del popup utilizza riempito di 10 pixel dai bordi del popup. Il testo è reso bianco, quindi si presenta bene sullo sfondo nero.  
+Per impostazione predefinita, il popup presenta uno sfondo bianco, una freccia del puntatore nella parte inferiore e un pulsante Chiudi nell'angolo superiore destro. Nell'esempio seguente il colore di sfondo viene modificato in nero `fillColor` utilizzando l'opzione del popup. Il pulsante Chiudi viene rimosso impostando l' `CloseButton` opzione su false. Il contenuto HTML del popup utilizza un riempimento di 10 pixel dai bordi del popup. Il testo viene reso bianco, quindi viene visualizzato perfettamente sullo sfondo nero.  
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Popup personalizzato" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>popup personalizzato</a> penna<a href='https://codepen.io/azuremaps'>@azuremaps</a>da Azure Maps ( ) su <a href='https://codepen.io'>CodePen</a>.
+Vedere il <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>popup personalizzato</a> della penna di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="add-popup-templates-to-the-map"></a>Aggiungere modelli popup alla mappa
 
-I modelli popup semplificano la creazione di layout basati sui dati per i popup. Nelle sezioni seguenti viene illustrato l'utilizzo di vari modelli popup per generare contenuto formattato utilizzando le proprietà delle feature.
+I modelli popup semplificano la creazione di layout basati sui dati per i popup. Le sezioni seguenti illustrano l'uso di diversi modelli popup per generare contenuto formattato usando le proprietà delle funzionalità.
 
 > [!NOTE]
-> Per impostazione predefinita, tutto il contenuto di cui è stato eseguito il rendering utilizza il modello popup verrà in modalità sandbox all'interno di un iframe come funzionalità di sicurezza. Tuttavia, esistono limitazioni:However, there are limitations:
+> Per impostazione predefinita, tutti i contenuti di cui viene eseguito il rendering usano il modello popup in un iframe come funzionalità di sicurezza. Esistono tuttavia alcune limitazioni:
 >
-> - Tutti gli script, i moduli, il blocco del puntatore e la funzionalità di navigazione superiore sono disabilitati. Quando si fa clic su si fa clic, è possibile che i collegamenti si aprano in una nuova scheda. 
-> - I browser meno recenti che `srcdoc` non supportano il parametro negli iframe saranno limitati al rendering di una piccola quantità di contenuto.
+> - Tutti gli script, i moduli, il blocco del puntatore e la funzionalità di navigazione superiore sono disabilitati. Quando si fa clic sui collegamenti, è possibile aprirli in una nuova scheda. 
+> - I browser meno recenti che non `srcdoc` supportano il parametro sugli iframe saranno limitati al rendering di una piccola quantità di contenuto.
 > 
-> Se si considerano attendibili i dati caricati nei popup e potenzialmente si desidera che questi script caricati `sandboxContent` in popup siano in grado di accedere all'applicazione, è possibile disabilitarlo impostando l'opzione dei modelli popup su false. 
+> Se si considera attendibili i dati caricati nei popup e potenzialmente si vuole che questi script caricati nei popup siano in grado di accedere all'applicazione, è possibile disabilitare questa impostazione impostando l' `sandboxContent` opzione Popup templates su false. 
 
-### <a name="string-template"></a>Modello di stringa
+### <a name="string-template"></a>Modello stringa
 
-Il modello Stringa sostituisce i segnaposto con i valori delle proprietà della feature. Alle proprietà della funzionalità non è necessario assegnare un valore di tipo String. Ad esempio, `value1` contiene un numero intero. Questi valori vengono quindi passati `popupTemplate`alla proprietà content dell'oggetto . 
+Il modello di stringa sostituisce i segnaposto con i valori delle proprietà della funzionalità. Alle proprietà della funzionalità non è necessario assegnare un valore di tipo String. Ad esempio, `value1` include un numero intero. Questi valori vengono quindi passati alla proprietà Content dell'oggetto `popupTemplate`. 
 
-L'opzione `numberFormat` specifica il formato del numero da visualizzare. Se `numberFormat` l'oggetto non è specificato, il codice utilizzerà il formato data dei modelli popup. L'opzione `numberFormat` formatta i numeri utilizzando la funzione [Number.toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) . Per formattare numeri grandi, `numberFormat` è consigliabile utilizzare l'opzione con le funzioni [di NumberFormat.format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). Ad esempio, il frammento di codice riportato di seguito viene utilizzato `maximumFractionDigits` per limitare il numero di cifre frazionarie a due.
+L' `numberFormat` opzione specifica il formato del numero da visualizzare. Se `numberFormat` non è specificato, il codice userà il formato data dei modelli popup. L' `numberFormat` opzione Formatta i numeri usando la funzione [Number. toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) . Per formattare numeri elevati, provare a usare `numberFormat` l'opzione con funzioni di [NumberFormat. Format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). Ad esempio, il frammento di codice `maximumFractionDigits` seguente usa per limitare il numero di cifre frazionarie a due.
 
 > [!Note]
-> C'è solo un modo in cui il modello String può eseguire il rendering delle immagini. In primo luogo, il modello String deve avere un tag di immagine in esso. Il valore passato al tag image deve essere un URL di un'immagine. Quindi, il modello String `isImage` deve avere `HyperLinkFormatOptions`impostato su true nel file . L'opzione `isImage` specifica che il collegamento ipertestuale è per un'immagine e il collegamento ipertestuale verrà caricato in un tag immagine. Quando si fa clic sul collegamento ipertestuale, l'immagine si aprirà.
+> Esiste solo un modo in cui il modello di stringa può eseguire il rendering delle immagini. Per prima cosa, il modello di stringa deve avere un tag di immagine. Il valore passato al tag image deve essere un URL di un'immagine. Quindi, il modello di stringa deve avere `isImage` impostato su true in `HyperLinkFormatOptions`. L' `isImage` opzione specifica che il collegamento ipertestuale è per un'immagine e il collegamento ipertestuale verrà caricato in un tag di immagine. Quando si fa clic sul collegamento ipertestuale, viene visualizzata l'immagine.
 
 ```javascript
 var templateOptions = {
@@ -148,9 +148,9 @@ var popup = new atlas.Popup({
 
 ### <a name="propertyinfo-template"></a>Modello PropertyInfo
 
-Il modello PropertyInfo visualizza le proprietà disponibili della funzionalità. L'opzione `label` specifica il testo da visualizzare all'utente. Se `label` non viene specificato, verrà visualizzato il collegamento ipertestuale. E, se il collegamento ipertestuale è un'immagine, verrà visualizzato il valore assegnato al tag "alt". Specifica `dateFormat` il formato della data e, se il formato della data non è specificato, il rendering della data verrà eseguito come stringa. L'opzione `hyperlinkFormat` esegue il rendering dei `email` collegamenti selezionabili, in modo analogo, l'opzione può essere utilizzata per eseguire il rendering degli indirizzi e-mail selezionabili.
+Il modello PropertyInfo Visualizza le proprietà disponibili della funzionalità. L' `label` opzione specifica il testo da visualizzare all'utente. Se `label` non è specificato, verrà visualizzato il collegamento ipertestuale. Se il collegamento ipertestuale è un'immagine, verrà visualizzato il valore assegnato al tag "Alt". `dateFormat` Specifica il formato della data e, se il formato della data non è specificato, il rendering della data verrà eseguito sotto forma di stringa. L' `hyperlinkFormat` opzione esegue il rendering dei collegamenti selezionabili, in `email` modo analogo, è possibile usare l'opzione per eseguire il rendering degli indirizzi di posta elettronica selezionabili.
 
-Prima che il PropertyInfo modello visualizzare le proprietà per l'utente finale, controlla in modo ricorsivo che le proprietà sono effettivamente definite per tale funzionalità. Ignora inoltre la visualizzazione delle proprietà di stile e titolo. Ad esempio, `color`non visualizzerà `size` `anchor`, `strokeOpacity`, `visibility`, , e . Pertanto, una volta completato il controllo del percorso della proprietà nel back-end, il modello PropertyInfo mostra il contenuto in un formato di tabella.
+Prima che il modello PropertyInfo visualizzi le proprietà dell'utente finale, verifica in modo ricorsivo che le proprietà siano effettivamente definite per tale funzionalità. Ignora inoltre la visualizzazione delle proprietà di stile e titolo. Ad esempio, non verranno visualizzati `color`, `size`, `anchor` `strokeOpacity`, e `visibility`. Quindi, una volta completato il controllo del percorso della proprietà nel back-end, il modello PropertyInfo Visualizza il contenuto in un formato di tabella.
 
 ```javascript
 var templateOptions = {
@@ -208,7 +208,7 @@ var popup = new atlas.Popup({
 
 ### <a name="multiple-content-templates"></a>Più modelli di contenuto
 
-Una funzionalità può anche visualizzare il contenuto utilizzando una combinazione di String modello e il PropertyInfo modello. In questo caso, il modello String esegue il rendering dei valori dei segnaposto su uno sfondo bianco.  E, il PropertyInfo modello esegue il rendering di un'immagine a larghezza intera all'interno di una tabella. Le proprietà in questo esempio sono simili a quelle illustrate negli esempi precedenti.
+Una funzionalità può inoltre visualizzare contenuto utilizzando una combinazione del modello stringa e del modello PropertyInfo. In questo caso, il modello di stringa esegue il rendering dei valori segnaposto su uno sfondo bianco.  Il modello PropertyInfo esegue il rendering di un'immagine a larghezza intera all'interno di una tabella. Le proprietà in questo esempio sono simili alle proprietà illustrate negli esempi precedenti.
 
 ```javascript
 var templateOptions = {
@@ -246,32 +246,32 @@ var popup = new atlas.Popup({
 
 ### <a name="points-without-a-defined-template"></a>Punti senza un modello definito
 
-Quando il modello Popup non è definito come un modello String, un modello PropertyInfo o una combinazione di entrambi, vengono utilizzate le impostazioni predefinite. Quando `title` l'oggetto e `description` sono le uniche proprietà assegnate, il modello popup mostra uno sfondo bianco, un pulsante di chiusura nell'angolo in alto a destra. E, su schermi piccoli e medi, mostra una freccia in basso. Le impostazioni predefinite vengono visualizzate all'interno `title` di `description`una tabella per tutte le proprietà diverse da e . Anche quando si esegue il fallback alle impostazioni predefinite, il modello popup può comunque essere modificato a livello di codice. Ad esempio, gli utenti possono disattivare il rilevamento dei collegamenti ipertestuali e le impostazioni predefinite verranno comunque applicate ad altre proprietà.
+Quando il modello popup non è definito come un modello stringa, un modello PropertyInfo o una combinazione di entrambi, USA le impostazioni predefinite. Quando `title` e `description` sono le uniche proprietà assegnate, il modello popup mostra uno sfondo bianco, un pulsante Chiudi nell'angolo superiore destro. Nelle schermate piccole e medie viene visualizzata una freccia in basso. Le impostazioni predefinite vengono visualizzate all'interno di una tabella per tutte le `title` proprietà diverse `description`da e. Anche quando si esegue il fallback delle impostazioni predefinite, il modello popup può comunque essere modificato a livello di codice. Ad esempio, gli utenti possono disabilitare il rilevamento dei collegamenti ipertestuali e le impostazioni predefinite verranno comunque applicate ad altre proprietà.
 
-Fare clic sui punti sulla mappa nella CodePen. È presente un punto sulla mappa per ognuno dei modelli popup seguenti: modello stringa, modello PropertyInfo e modello di contenuto multiplo. Ci sono anche tre punti per mostrare come i modelli eseguono il rendering utilizzando le impostazioni predefinite.
+Fare clic sui punti della mappa nella CodePen. È presente un punto sulla mappa per ognuno dei modelli popup seguenti: modello di stringa, modello PropertyInfo e modello di contenuto multiplo. Sono inoltre disponibili tre punti per illustrare il rendering dei modelli utilizzando le impostazioni predefinite.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='PopupModelli' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere Pen <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> di<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) su <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere Pen <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="reuse-popup-template"></a>Riutilizza modello popup
 
-Analogamente al riutilizzo popup, è possibile riutilizzare i modelli popup. Questo approccio è utile quando si desidera visualizzare solo un modello popup alla volta, per più punti. Riutilizzando il modello popup, viene ridotto il numero di elementi DOM creati dall'applicazione, che migliora quindi le prestazioni dell'applicazione. L'esempio seguente usa lo stesso modello popup per tre punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
+Analogamente al riutilizzo di popup, è possibile riutilizzare i modelli popup. Questo approccio è utile quando si desidera visualizzare solo un modello popup alla volta per più punti. Riutilizzando il modello popup, viene ridotto il numero di elementi DOM creati dall'applicazione, che consente di migliorare le prestazioni dell'applicazione. Nell'esempio seguente viene usato lo stesso modello popup per tre punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplate</a> di<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) su <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplate</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="popup-events"></a>Eventi Popup
+## <a name="popup-events"></a>Eventi popup
 
-I popup possono essere aperti, chiusi e trascinati. La classe popup fornisce eventi che consentono agli sviluppatori di reagire a questi eventi. Nell'esempio seguente vengono evidenziati gli eventi che vengono attivati quando l'utente apre, chiude o trascina il popup. 
+I popup possono essere aperti, chiusi e trascinati. La classe popup fornisce eventi per aiutare gli sviluppatori a rispondere a questi eventi. Nell'esempio seguente vengono evidenziati gli eventi generati quando l'utente apre, chiude o trascina il popup. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Eventi Popup" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere gli <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>eventi Popup</a> penna<a href='https://codepen.io/azuremaps'>@azuremaps</a>di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Eventi popup" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere gli <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>eventi popup</a> della penna di Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -285,12 +285,12 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 > [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
 
 > [!div class="nextstepaction"]
-> [PopupTemplate (modello popup)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
+> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 Vedere gli articoli seguenti che contengono esempi efficaci di codice completo:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello simbolo](./map-add-pin.md)
+> [Aggiungere un livello di simbolo](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un indicatore HTML](./map-add-custom-html.md)

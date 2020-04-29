@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: e975e1757b77b4aab52a59d1f0709ef9cadae94e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066874"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Crittografia dischi di Azure per Windows (Microsoft.Azure.Security.AzureDiskEncryption)
@@ -139,23 +139,23 @@ Utilizzo di `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati |
+| Name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | Data |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryption | string |
-| typeHandlerVersion | 2,2, 1,1 | string |
+| publisher | Microsoft.Azure.Security | stringa |
+| type | AzureDiskEncryption | stringa |
+| typeHandlerVersion | 2,2, 1,1 | stringa |
 | (schema 1,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 1,1) AADClientSecret | password | string |
-| (schema 1,1) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
-| KeyVaultURL | url | string |
-| KeyVaultResourceId | url | string |
-| opzionale KeyEncryptionKeyURL | url | string |
-| opzionale KekVaultResourceId | url | string |
-| opzionale SequenceVersion | UNIQUEIDENTIFIER | string |
-| VolumeType | Sistema operativo, dati, tutti | string |
+| (schema 1,1) AADClientSecret | password | stringa |
+| (schema 1,1) AADClientCertificate | thumbprint | stringa |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | stringa | 
+| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | stringa |
+| KeyVaultURL | url | stringa |
+| KeyVaultResourceId | url | stringa |
+| opzionale KeyEncryptionKeyURL | url | stringa |
+| opzionale KekVaultResourceId | url | stringa |
+| opzionale SequenceVersion | UNIQUEIDENTIFIER | stringa |
+| VolumeType | Sistema operativo, dati, tutti | stringa |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -168,7 +168,7 @@ Per un esempio di distribuzione dei modelli basata sullo schema v 1.1, vedere il
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 Per la risoluzione di problemi, consultare la [guida alla risoluzione dei problemi di Crittografia dischi di Azure](../windows/disk-encryption-troubleshooting.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Usare le identità gestite in una macchina virtuale per acquisire il token di accesso - Azure ADUse managed identities on a virtual machine to acquire access token - Azure AD
+title: Usare identità gestite in una macchina virtuale per acquisire il token di accesso-Azure AD
 description: Istruzioni dettagliate ed esempi per l'utilizzo di identità gestite per risorse di Azure in una macchina virtuale per acquisire un token di accesso OAuth.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a58103bad3914bd0c0c6e70f8e3d2882271e1070
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80049204"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso 
@@ -79,7 +79,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Un campo di intestazione della richiesta HTTP, richiesto dalle identità gestite per risorse di Azure come mitigazione degli attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole. |
 | `object_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore object_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 | `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
-| `mi_res_id` | (Facoltativo) Parametro della stringa di query che indica il mi_res_id (ID risorsa di Azure) dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente. |
+| `mi_res_id` | Opzionale Parametro della stringa di query, che indica il mi_res_id (ID risorsa di Azure) dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente. |
 
 Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale delle identità gestite per risorse di Azure *(la cui deprecazione è pianificata per il gennaio 2019)*:
 
@@ -373,15 +373,15 @@ Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 
 
 | Codice di stato | Errore | Descrizione dell'errore | Soluzione |
 | ----------- | ----- | ----------------- | -------- |
-| 400 - Richiesta non valida | invalid_resource | AADSTS50001: l'applicazione denominata * \<URI\> * non è stata trovata nel tenant denominato * \<TENANT-ID\>*. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che la richiesta di autenticazione sia stata inviata al tenant sbagliato.\ | (Solo Linux) |
+| 400 - Richiesta non valida | invalid_resource | AADSTS50001: l'applicazione denominata * \<URI\> * non è stata trovata nel tenant denominato * \<Tenant-ID\>*. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che la richiesta di autenticazione sia stata inviata al tenant sbagliato.\ | (Solo Linux) |
 | 400 - Richiesta non valida | bad_request_102 | L'intestazione dei metadati richiesta non è stata specificata. | Il campo di intestazione della richiesta `Metadata` non è presente nella richiesta oppure non è formattato correttamente. Il valore deve essere specificato come `true`, usando tutte lettere minuscole. Per un esempio, vedere "Richiesta di esempio" nella sezione REST precedente.|
-| 401 - Non autorizzato | unknown_source | URI di origine * \<sconosciuto\>* | Verificare che l'URI della richiesta HTTP GET sia formattato correttamente. La parte `scheme:host/resource-path` deve essere specificata come `http://localhost:50342/oauth2/token`. Per un esempio, vedere "Richiesta di esempio" nella sezione REST precedente.|
+| 401 - Non autorizzato | unknown_source | URI di origine sconosciuto * \<\>* | Verificare che l'URI della richiesta HTTP GET sia formattato correttamente. La parte `scheme:host/resource-path` deve essere specificata come `http://localhost:50342/oauth2/token`. Per un esempio, vedere "Richiesta di esempio" nella sezione REST precedente.|
 |           | invalid_request | Nella richiesta manca un parametro obbligatorio oppure la richiesta include un valore di parametro non valido, contiene uno stesso parametro più volte o non è formata in modo corretto. |  |
-|           | unauthorized_client | Il client non è autorizzato a richiedere un token di accesso con questo metodo. | Causato da una richiesta che non ha usato il loopback locale per chiamare l'estensione o in una macchina virtuale che non dispone di identità gestite per le risorse di Azure configurate correttamente. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md). |
+|           | unauthorized_client | Il client non è autorizzato a richiedere un token di accesso con questo metodo. | Causata da una richiesta che non ha usato il loopback locale per chiamare l'estensione o in una macchina virtuale che non ha identità gestite per le risorse di Azure configurate correttamente. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md). |
 |           | access_denied | Il proprietario della risorsa o il server di autorizzazione ha rifiutato la richiesta. |  |
 |           | unsupported_response_type | Il server di autorizzazione non supporta l'acquisizione di un token di accesso con questo metodo. |  |
 |           | invalid_scope | L'ambito richiesto non è valido, è sconosciuto o ha un formato non valido. |  |
-| 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere i log nel percorso del fileFor details see logs in * \<file path\>* | Verificare che le identità gestite per le risorse di Azure è stata abilitata nella macchina virtuale. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md).<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere Richiesta di esempio nella sezione REST precedente per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md) per un elenco di servizi con i relativi ID di risorsa.
+| 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere log nel * \<percorso del file\>* | Verificare che le identità gestite per le risorse di Azure è stata abilitata nella macchina virtuale. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md).<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere Richiesta di esempio nella sezione REST precedente per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md) per un elenco di servizi con i relativi ID di risorsa.
 
 ## <a name="retry-guidance"></a>Materiale sussidiario sulla ripetizione di tentativi 
 

@@ -1,6 +1,6 @@
 ---
-title: Funzionalità del Centro sicurezza di Azure per le risorse di Azure PaaS supportate.
-description: Questa pagina mostra la disponibilità delle funzionalità del Centro sicurezza di Azure per le risorse di Azure PaaS supportate.
+title: Funzionalità del Centro sicurezza di Azure per le risorse PaaS di Azure supportate.
+description: Questa pagina mostra la disponibilità delle funzionalità del Centro sicurezza di Azure per le risorse PaaS di Azure supportate.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
 ms.openlocfilehash: 85460724071347a768a924f34290a75d2383b4c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78209363"
 ---
-# <a name="feature-coverage-for-azure-paas-services"></a>Copertura delle funzionalità per i servizi di Azure PaaSFeature coverage for Azure PaaS services<a name="paas-services"></a>
+# <a name="feature-coverage-for-azure-paas-services"></a>Copertura delle funzionalità per i servizi PaaS di Azure<a name="paas-services"></a>
 
-La tabella seguente mostra la disponibilità delle funzionalità del Centro sicurezza di Azure per le risorse di Azure PaaS supportate.
+La tabella seguente illustra la disponibilità delle funzionalità del Centro sicurezza di Azure per le risorse PaaS di Azure supportate.
 
-|Service|Raccomandazioni (gratuito)|Avvisi di sicurezza (Standard)|Valutazione delle vulnerabilità (standard)|
+|Servizio|Raccomandazioni (gratuito)|Avvisi di sicurezza (standard)|Valutazione della vulnerabilità (standard)|
 |:----|:----:|:----:|:----:|
 |Servizio app di Azure|✔|✔|-|
 |Account di automazione di Azure|✔|-|-|
@@ -37,22 +37,22 @@ La tabella seguente mostra la disponibilità delle funzionalità del Centro sicu
 |Azure Cosmos DB*|-|✔|-|
 |Azure Data Lake Analytics.|✔|-|-|
 |Azure Data Lake Storage|✔|-|-|
-|Database di Azure per MySQL|✔|✔|-|
-|Database di Azure per PostgreSQL|✔|✔|-|
-|Spazio dei nomi Hub eventi di AzureAzure Event Hubs namespace|✔|-|-|
+|Database di Azure per MySQL *|✔|✔|-|
+|Database di Azure per PostgreSQL *|✔|✔|-|
+|Spazio dei nomi di hub eventi di Azure|✔|-|-|
 |App Funzioni di Azure|✔|-|-|
 |Insieme di credenziali chiave di Azure|✔|✔ *|-|
 |Servizio Azure Kubernetes|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |App per la logica di Azure|✔|-|-|
-|Database SQL di AzureAzure SQL Databases|✔|✔|✔|
-|Spazio dei nomi del bus di servizio di AzureAzure Service Bus namespace|✔|-|-|
-|Account di Azure Service FabricAzure Service Fabric account|✔|-|-|
+|Database SQL di Azure|✔|✔|✔|
+|Spazio dei nomi del bus di servizio di Azure|✔|-|-|
+|Account Service Fabric di Azure|✔|-|-|
 |Account di archiviazione di Azure|✔|-|-|
 |Analisi di flusso di Azure|✔|-|-|
 |Sottoscrizione di Azure|✔ **|✔|-|
-|Rete virtuale di Azure</br> (inclusi subnet, schede di interfaccia di rete e gruppi di sicurezza di rete)|✔|-|-|
+|Rete virtuale di Azure</br> (incl. subnet, nic e gruppi di sicurezza di rete)|✔|-|-|
 
 \*Queste funzionalità sono attualmente supportate in anteprima.
 
-\*\*I consigli di Azure Active Directory (Azure AD) sono disponibili solo per le sottoscrizioni Standard.Azure Active Directory (Azure AD) recommendations are available only for Standard subscriptions.
+\*\*Le raccomandazioni Azure Active Directory (Azure AD) sono disponibili solo per le sottoscrizioni standard.

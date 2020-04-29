@@ -8,10 +8,10 @@ ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0aaa32c46d915eafffcfac9d95cfdd3a24d4086d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123430"
 ---
 # <a name="how-to-verify-encryption-status-for-linux"></a>Come verificare lo stato della crittografia per Linux 
@@ -19,7 +19,7 @@ ms.locfileid: "80123430"
 **Questo scenario si applica per le estensioni ADE dual-pass e single-pass.**  
 Questo ambito del documento consiste nel convalidare lo stato di crittografia di una macchina virtuale usando metodi diversi.
 
-### <a name="environment"></a>Environment
+### <a name="environment"></a>Ambiente
 
 - Distribuzioni di Linux
 
@@ -69,7 +69,7 @@ Un altro modo per convalidare lo stato della crittografia è osservare la sezion
 >[!NOTE] 
 > Questo stato indica che le impostazioni di crittografia dei dischi sono state contrassegnate ma non che sono state effettivamente crittografate a livello di sistema operativo. Per impostazione predefinita, i dischi vengono contrassegnati per primi e crittografati in un secondo momento. Se il processo di crittografia ha esito negativo, i dischi potrebbero finire con timbri ma non crittografati. Per verificare se i dischi sono effettivamente crittografati, è possibile verificare la crittografia di ogni disco a livello di sistema operativo.
 
-## <a name="using-powershell"></a>Mediante PowerShell
+## <a name="using-powershell"></a>Utilizzo di PowerShell
 
 È possibile convalidare lo stato **generale** della crittografia di una VM crittografata usando i comandi di PowerShell seguenti:
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671864"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contesto dei dati di telemetria: modello di dati di Application Insights
@@ -85,14 +85,14 @@ Lunghezza massima: 128
 
 ## <a name="authenticated-user-id"></a>ID utente autenticato
 
-ID utente autenticato. L'opposto dell'ID utente anonimo, questo campo rappresenta l'utente con un nome descrittivo. Le sue informazioni personali non vengono infatti raccolte per impostazione predefinita dalla maggior parte degli SDK.
+ID utente autenticato. Il valore opposto all'ID utente anonimo, questo campo rappresenta l'utente con un nome descrittivo. Le sue informazioni personali non vengono infatti raccolte per impostazione predefinita dalla maggior parte degli SDK.
 
 Lunghezza massima: 1024
 
 
 ## <a name="account-id"></a>ID account
 
-In applicazioni multi-tenant, rappresenta l'ID o il nome dell'account con cui l'utente opera. Esempi possono essere l'ID sottoscrizione per il portale di Azure o il nome del blog per una piattaforma di blogging.
+In applicazioni multi-tenant, rappresenta l'ID o il nome dell'account con cui l'utente opera. Esempi possono essere ID sottoscrizione per portale di Azure o il nome del Blog per una piattaforma di Blog.
 
 Lunghezza massima: 1024
 
@@ -113,7 +113,7 @@ Lunghezza massima: 256
 
 ## <a name="internal-sdk-version"></a>Informazione interna: versione dell'SDK
 
-La versione dell'SDK. Vedere [questo articolo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) per informazioni.
+La versione dell'SDK. Per informazioni, vedere [questo articolo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) .
 
 Lunghezza massima: 64
 

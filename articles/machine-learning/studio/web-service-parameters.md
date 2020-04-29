@@ -1,5 +1,5 @@
 ---
-title: Parametri del servizio Web - Azure Machine Learning Studio (classico) Documenti Microsoft
+title: Parametri del servizio Web-Azure Machine Learning Studio (versione classica) | Microsoft Docs
 description: Come usare i parametri del servizio Web di Azure Machine Learning per modificare il comportamento del modello quando si accede al servizio Web.
 services: machine-learning
 author: xiaoharper
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.openlocfilehash: d6ddd9603f22bd3820d18be020b9c620cf06aa42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204410"
 ---
-# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usare i parametri del servizio Web di Azure Machine Learning Studio (classico)Use Azure Machine Learning Studio (classic) web service parameters
+# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usare i parametri del servizio Web Azure Machine Learning Studio (classico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -41,14 +41,14 @@ Dopo aver definito un parametro del servizio Web, questo parametro sarà disponi
 La documentazione dell'API per il servizio Web include informazioni per l'utente del servizio Web su come specificare il parametro del servizio Web a livello di codice quando accede al servizio.
 
 > [!NOTE]
-> La documentazione API per un servizio Web classico viene fornita tramite il collegamento alla pagina di **guida dell'API** nel servizio Web **DASHBOARD** in Machine Learning Studio (classico). La documentazione dell'API per un nuovo servizio Web è disponibile tramite il portale dei [servizi Web di Azure Machine Learning](https://services.azureml.net/Quickstart) o nelle pagine **Consume** (Uso) e **Swagger API** (API Swagger) per il servizio Web.
+> La documentazione dell'API per un servizio Web classico viene fornita tramite il collegamento alla **pagina della Guida dell'API** nel **Dashboard** del servizio Web in Machine Learning Studio (classico). La documentazione dell'API per un nuovo servizio Web è disponibile tramite il portale dei [servizi Web di Azure Machine Learning](https://services.azureml.net/Quickstart) o nelle pagine **Consume** (Uso) e **Swagger API** (API Swagger) per il servizio Web.
 > 
 > 
 
 ## <a name="example"></a>Esempio
 Si supponga ad esempio di disporre di un esperimento con un modulo [Export Data][writer] che invia informazioni all'archiviazione BLOB di Azure. Verrà definito un parametro del servizio Web denominato "percorso BLOB" che consente all'utente del servizio Web di modificare il percorso dell'archiviazione BLOB quando si accede al servizio.
 
-1. In Machine Learning Studio (classico) fare clic sul modulo [Esporta dati][writer] per selezionarlo. Le relative proprietà verranno visualizzate nel riquadro delle proprietà a destra dell'area di disegno dell'esperimento.
+1. In Machine Learning Studio (versione classica) fare clic sul modulo [Export Data (Esporta dati][writer] ) per selezionarlo. Le relative proprietà verranno visualizzate nel riquadro delle proprietà a destra dell'area di disegno dell'esperimento.
 2. Specificare il tipo di archiviazione:
    
    * In **Please specify data destination**(Specificare la destinazione dei dati) selezionare "Azure Blob Storage" (Archivio BLOB di Azure).
@@ -70,11 +70,11 @@ Si supponga ad esempio di disporre di un esperimento con un modulo [Export Data]
 7. Fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) per distribuire il servizio Web.
 
 > [!NOTE] 
-> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web tramite il portale dei servizi Web](manage-new-webservice.md)di Azure Machine Learning. 
+> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [gestire un servizio Web usando il portale dei servizi web Azure Machine Learning](manage-new-webservice.md). 
 
 È ora possibile specificare una nuova destinazione per il modulo [Export Data][writer] quando si accede al servizio Web.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 Per un esempio più dettagliato, vedere la voce relativa ai [parametri del servizio Web](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) nel [blog di Machine Learning](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 Per altre informazioni sull'accesso a un servizio Web di Machine Learning, vedere [Come usare un servizio Web di Azure Machine Learning ](consume-web-services.md).

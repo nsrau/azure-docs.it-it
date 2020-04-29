@@ -1,16 +1,16 @@
 ---
-title: Risolvere i problemi sulle prestazioni delle query - Database di Azure per MySQLTroubleshoot query performance - Azure Database for MySQL
-description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MySQL.Learn how to use EXPLAIN to troubleshoot query performance in Azure Database for MySQL.
+title: Risolvere i problemi relativi alle prestazioni delle query-database di Azure per MySQL
+description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query in database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 6b27e47339b80cc46290065c4d17150a301f2534
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067831"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MySQL
@@ -163,7 +163,7 @@ L'istruzione EXPLAIN mostra ora che MySQL è in grado di usare l'indice combinat
  
 ## <a name="conclusion"></a>Conclusioni
  
-L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. Avere un indice sulla tabella non significa necessariamente che MySQL sarebbe in grado di utilizzarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
+L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. La presenza di un indice nella tabella non significa necessariamente che MySQL sia in grado di usarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

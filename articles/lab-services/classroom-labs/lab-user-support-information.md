@@ -1,44 +1,44 @@
 ---
-title: Servizi lab di Azure - visualizzare le informazioni di supporto (utente lab)Azure Lab Services - view support information (lab user)
-description: Questo articolo spiega come un utente del laboratorio o un istruttore può visualizzare le informazioni di supporto che può usare per ottenere assistenza.
+title: Visualizzazione Azure Lab Services informazioni di supporto (utente Lab)
+description: Questo articolo illustra in che modo un utente del Lab o un insegnante può visualizzare le informazioni di supporto che può usare per ottenere assistenza.
 author: spelluru
 ms.author: spelluru
 ms.date: 02/14/2020
 ms.topic: how-to
 ms.service: lab-services
 ms.openlocfilehash: bd92d53e09774183edadff0f949820f8feec6180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80109251"
 ---
-# <a name="view-support-information-lab-user-in-azure-lab-services"></a>Visualizzare le informazioni di supporto (utente lab in Azure Lab Services)View support information (lab user in Azure Lab Services)
-In questo articolo viene illustrato come è possibile visualizzare le informazioni di supporto seguenti (come utente del lab):
+# <a name="view-support-information-lab-user-in-azure-lab-services"></a>Visualizzare le informazioni di supporto (utente del Lab in Azure Lab Services)
+Questo articolo illustra come un utente del Lab può visualizzare le informazioni di supporto seguenti:
 
 - URL
-- Email
+- Posta elettronica
 - Telefono
 - Istruzioni aggiuntive
 
-È possibile utilizzare queste informazioni per ottenere assistenza quando si verificano problemi tecnici durante l'utilizzo di un lab in un account lab.
+È possibile usare queste informazioni per ottenere assistenza quando si verificano problemi tecnici quando si usa un Lab in un account Lab.
 
  
 ## <a name="view-support-information"></a>Visualizzare le informazioni di supporto
-1. Accedere al portale di [Servizi di laboratorio](https://labs.azure.com)di Azure.
-2. Selezionare il lab o la **macchina virtuale** per cui si ha bisogno di aiuto e selezionare **?** nell'angolo in alto a destra della pagina. 
-3. Verificare che vengano visualizzati i collegamenti al sito Web di supporto per la **visualizzazione,** al **supporto e-mail**e al numero di **telefono del supporto.**
+1. Accedere al [portale di Azure Lab Services](https://labs.azure.com).
+2. Selezionare il **Lab o la macchina virtuale** per cui è necessaria assistenza e selezionare **?** nell'angolo superiore destro della pagina. 
+3. Verificare che siano visualizzati i collegamenti al **sito Web del supporto tecnico**, al **supporto di posta elettronica**e al **numero di telefono del supporto**.
 
     ![Visualizzare le informazioni di supporto](../media/lab-user-support-information/support-information.png)
-4. È possibile visualizzare le informazioni di contatto del supporto per un altro lab passando a tale lab nell'elenco a discesa. 
+4. È possibile visualizzare le informazioni di contatto del supporto per un altro Lab passando a tale Lab nell'elenco a discesa. 
 
-    ![Passare a un altro lab](../media/lab-user-support-information/switch-another-lab.png)
-5. A questo punto, vengono visualizzate le informazioni di contatto del supporto tecnico per l'altro lab. 
+    ![Passa a un altro Lab](../media/lab-user-support-information/switch-another-lab.png)
+5. A questo punto, vengono visualizzate le informazioni di contatto del supporto per l'altro Lab. 
 
-    ![Informazioni di supporto di altri laboratori](../media/lab-user-support-information/second-lab-support-information.png)
+    ![Altre informazioni di supporto del Lab](../media/lab-user-support-information/second-lab-support-information.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su come un utente del lab visualizza le informazioni di contatto del supporto, vedere l'articolo seguente:
+Vedere l'articolo seguente per informazioni sul modo in cui un utente del Lab Visualizza le informazioni di contatto per il supporto:
 
-- [Come il proprietario di un account lab può impostare le informazioni di contatto del supporto](lab-account-owner-support-information.md)
-- [Come un creatore di laboratorio può visualizzare le informazioni di contatto del supporto](lab-creator-support-information.md)
+- [Come un proprietario dell'account Lab può impostare le informazioni di contatto per il supporto](lab-account-owner-support-information.md)
+- [Come un creatore del Lab può visualizzare le informazioni di contatto per il supporto](lab-creator-support-information.md)

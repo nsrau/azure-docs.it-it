@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062197"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'API REST
@@ -61,7 +61,7 @@ Per elencare i ruoli personalizzati in un ambito, usare l'API REST per l' [elenc
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -88,7 +88,7 @@ Per ottenere informazioni su un ruolo personalizzato in base al nome visualizzat
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -117,7 +117,7 @@ Per ottenere informazioni su un ruolo personalizzato in base al relativo identif
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -171,7 +171,7 @@ Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -240,7 +240,7 @@ Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Cre
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -330,7 +330,7 @@ Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Dele
 1. All'interno dell'URI sostituire *{scope}* con l'ambito in cui si vuole eliminare il ruolo personalizzato.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |

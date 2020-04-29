@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: eab7dfe79aa5cdf234c8bc9472387214f7df3563
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164526"
 ---
 # <a name="nc-series"></a>Serie NC
@@ -26,7 +26,7 @@ Live Migration: non supportato
 
 Aggiornamenti con mantenimento della memoria: non supportato
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |
+| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|
 | Standard_NC6    | 6  | 56  | 340  | 1 | 12 | 24 | 1 |
 | Standard_NC12   | 12 | 112 | 680  | 2 | 24 | 48 | 2 |

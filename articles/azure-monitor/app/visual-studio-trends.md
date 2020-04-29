@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670866"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisi delle tendenze in Visual Studio
@@ -56,7 +56,7 @@ Usare i controlli nella parte superiore della finestra per modificare i tipi di 
 * **Intervallo di tempo** : qualsiasi intervallo dagli ultimi 30 minuti agli ultimi 3 giorni
 * **Raggruppa per** : tipo di eccezione, ID problema, paese/area geografica e altro ancora
 
-Quindi, fare clic su **Analizza telemetria** per eseguire la query.
+Fare quindi clic su **analizza telemetria** per eseguire la query.
 
 Per esplorare le bolle nella visualizzazione:
 
@@ -70,7 +70,7 @@ Per esplorare le bolle nella visualizzazione:
 > 
 
 ## <a name="filter"></a>Filtro
-I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio Tipo di eccezione, i filtri in altre dimensioni rimangono selezionabili anche se appaiono in grigio. Per annullare l'applicazione di un filtro, fare di nuovo clic su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
+I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio tipo di eccezione, i filtri nelle altre dimensioni rimangono selezionabili anche se visualizzati in grigio. Per annullare l'applicazione di un filtro, fare di nuovo clic su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
 
 ![Filtri delle tendenze](./media/visual-studio-trends/TrendsFiltering-750.png)
 

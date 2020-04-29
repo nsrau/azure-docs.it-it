@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di distribuzione della macchina virtuale Linux in Azure | Microsoft Docs
-description: Risolvere i problemi relativi alla distribuzione di macchine virtuali Linux nel modello di distribuzione di Azure Resource Manager.Troubleshoot deploying Linux virtual machine issues in the Azure Resource Manager deployment model.
+description: Risolvere i problemi di distribuzione della macchina virtuale Linux nel modello di distribuzione Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,23 +15,23 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 5a8a58a3935b7cd5efb8565f7e3278ccaae4f4de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77921437"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Linux in Azure
 
 Per risolvere i problemi relativi alla distribuzione della macchina virtuale (VM) in Azure, esaminare i [problemi principali](#top-issues) per errori e risoluzioni comuni.
 
-Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.
+Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
 
 ## <a name="top-issues"></a>Problemi principali
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Il cluster non supporta le dimensioni della VM richieste
-\<proprietà supportTopicIds "123456789" resourceTags "windows" productPesIds "1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Ripetere la richiesta usando una VM di dimensioni inferiori.
 - Se le dimensioni della VM richieste non possono essere modificate:
     - Arrestare tutte le VM nel set di disponibilità. Fare clic su **Gruppi di risorse** > il proprio gruppo di risorse > **Risorse** > il proprio set di disponibilità > **Macchine virtuali** > la propria macchina virtuale > **Arresta**.
@@ -40,7 +40,7 @@ Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli es
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Il cluster non ha risorse disponibili
-\<proprietà supportTopicIds "123456789" resourceTags "windows" productPesIds "1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Ripetere la richiesta più tardi.
 - Se la nuova VM può far parte di un set di disponibilità diverso
     - Creare una VM in un altro set di disponibilità nella stessa area.
@@ -91,4 +91,4 @@ Sì. È possibile aggiungere una VM classica esistente a un set di disponibilit�
 ## <a name="next-steps"></a>Passaggi successivi
 Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/).
 
-In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.
+In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.

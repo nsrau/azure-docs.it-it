@@ -1,5 +1,5 @@
 ---
-title: Server concepts - Azure Database for MySQL
+title: Concetti relativi ai server-database di Azure per MySQL
 description: Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 300470b2e8fb10fda7cfc59517cef00c07bf0632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537007"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concetti relativi ai server nel database di Azure per MySQL
@@ -44,7 +44,7 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da MySQL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, le regole del firewall impediscono qualsiasi accesso al server del database finché non si specificano i computer autorizzati. Vedere [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md) (Database di Azure per le regole firewall del server MySQL). |
-| **Ssl** | Il servizio supporta l'attivazione di connessioni SSL tra le applicazioni e il server del database.  Vedere [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Configurare la connettività SSL nell'applicazione per connettersi in modo sicuro al database di Azure per MySQL). |
+| **SSL** | Il servizio supporta l'attivazione di connessioni SSL tra le applicazioni e il server del database.  Vedere [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Configurare la connettività SSL nell'applicazione per connettersi in modo sicuro al database di Azure per MySQL). |
 
 ## <a name="how-do-i-manage-a-server"></a>Gestione di un server
 
@@ -53,5 +53,5 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica del servizio, vedere [Azure Database for MySQL Overview](./overview.md) (Database di Azure per una panoramica di MySQL)
-- Per informazioni su quote e limitazioni specifiche delle risorse in base al livello di **servizio,** vedere Livelli di servizioFor information about specific resource quotas and limitations based on your service tier , see [Service tiers](./concepts-service-tiers.md)
+- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio**, vedere livelli di [servizio](./concepts-service-tiers.md)
 - Per informazioni sulla connessione al servizio, vedere [Raccolte connessioni per il database di Azure per MySQL](./concepts-connection-libraries.md).

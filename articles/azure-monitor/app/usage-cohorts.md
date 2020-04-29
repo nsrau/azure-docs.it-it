@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671087"
 ---
 # <a name="application-insights-cohorts"></a>Coorti di Application Insights
@@ -34,16 +34,16 @@ In base alla definizione elaborata dal team, un utente attivo è chi usa l'app c
 
 1. Aprire lo strumento Coorti.
 
-2. Selezionare la scheda **Raccolta modelli.** Viene visualizzata una raccolta di modelli per varie coorti.
+2. Selezionare la scheda **raccolta modelli** . Viene visualizzata una raccolta di modelli per varie coorti.
 
 3. Selezionare **Engaged Users -- by Days Used** (Utenti attivi - Per giorni di utilizzo).
 
     Sono disponibili tre parametri per questa coorte:
     * **Activities**, dove si scelgono gli eventi e le visualizzazioni pagina da considerare come "utilizzo".
     * **Period**, la definizione di un mese.
-    * **UsedAtLeastCustom**, il numero di volte in cui gli utenti devono utilizzare un elemento all'interno di un periodo per essere conteggiati.
+    * **UsedAtLeastCustom**, il numero di volte in cui gli utenti devono usare qualcosa in un periodo di tempo per conteggiare come occupato.
 
-4. Impostare **UsedAtLeastCustom** su **5 giorni**e lasciare **Periodo** per il valore predefinito di 28 giorni.
+4. Modificare il valore di **UsedAtLeastCustom** in **5 + giorni**e lasciare il **periodo** sul valore predefinito di 28 giorni.
 
     ![Utenti attivi](./media/usage-cohorts/003.png)
 
@@ -69,7 +69,7 @@ Alcuni aspetti importanti da notare:
 * Non è possibile creare questo set con i normali filtri. La logica della data è più avanzata.
 * È possibile filtrare ulteriormente questa coorte usando i normali filtri nello strumento Utenti, quindi, anche se la coorte è definita in una finestra di 28 giorni, è tuttavia possibile impostare l'intervallo di tempo nello strumento Utenti su 30, 60 o 90 giorni.
 
-Questi filtri supportano domande più sofisticate, impossibili da esprimere con il generatore di query. Un esempio sono _le persone che sono state impegnate negli ultimi 28 giorni. Come si sono comportate quelle stesse persone negli ultimi 60 giorni?_
+Questi filtri supportano domande più sofisticate, impossibili da esprimere con il generatore di query. Un esempio è _quello degli utenti coinvolti negli ultimi 28 giorni. In che modo le stesse persone si comportano negli ultimi 60 giorni?_
 
 ## <a name="example-events-cohort"></a>Esempio: coorte di eventi
 
@@ -77,7 +77,7 @@ Questi filtri supportano domande più sofisticate, impossibili da esprimere con 
 
 1. Aprire lo strumento Coorti.
 
-2. Selezionare la scheda **Raccolta modelli.** Vedrai una raccolta di modelli per varie coorti.
+2. Selezionare la scheda **raccolta modelli** . Verrà visualizzata una raccolta di modelli per varie coorti.
 
 3. Selezionare **Events Picker** (Selezione eventi).
 
@@ -116,13 +116,13 @@ Le due coorti precedenti sono state definite usando caselle di riepilogo a disce
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Selezionare **Esegui query**. Se gli ID utente non vengono visualizzati nella tabella, passare a un paese o un'area geografica in cui l'applicazione dispone di utenti.
+3. Selezionare **Esegui query**. Se nella tabella non vengono visualizzati gli ID utente, passare a un paese/area geografica in cui l'applicazione dispone di utenti.
 
 4. Salvare la coorte e assegnarle un nome.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-_Ho definito una coorte di utenti di un determinato paese/regione. Quando confronto questa coorte nello strumento Utenti per impostare semplicemente un filtro su quel paese/area geografica, vedo risultati diversi. Perché?_
+_Ho definito una coorte di utenti di un determinato paese/area geografica. Quando si confronta questa coorte nello strumento utenti per impostare semplicemente un filtro su tale paese/area geografica, vengono visualizzati risultati diversi. Perché?_
 
 Le coorti e i filtri sono diversi. Si supponga di avere una coorte di utenti del Regno Unito (definita come l'esempio precedente) e di confrontarne i risultati con l'impostazione del filtro "Country or region = United Kingdom" (Paese o area geografica = Regno Unito).
 

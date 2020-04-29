@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 15543f7f761c707e8eff8e0cc0a0e4532475ddf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671002"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
@@ -19,7 +19,7 @@ Le cartelle di lavoro combinano testo,  [query di Analytics](https://docs.micr
 
 Le cartelle di lavoro sono utili per scenari simili ai seguenti:
 
-* Esplorazione dell'utilizzo della tua app quando non conosci in anticipo le metriche di interesse: numero di utenti, tassi di conservazione, tassi di conversione e così via. A differenza di altri strumenti di analisi dell'utilizzo, le cartelle di lavoro consentono di combinare più tipi di visualizzazioni e analisi, rendendole ideali per questo tipo di esplorazione in formato libero.
+* Esplorazione dell'utilizzo dell'applicazione quando non si conoscono le metriche di interesse in anticipo: numero di utenti, tassi di conservazione, tassi di conversione e così via. A differenza di altri strumenti di analisi dell'utilizzo, le cartelle di lavoro consentono di combinare più tipi di visualizzazioni e analisi, rendendoli eccezionali per questo tipo di esplorazione in formato libero.
 * Descrizione al proprio team delle prestazioni di una nuova funzionalità rilasciata visualizzando i conteggi degli utenti per le interazioni chiave e altre metriche.
 * Condivisione dei risultati di un esperimento A/B nell'app con altri membri del team. È possibile descrivere gli obiettivi dell'esperimento usando testo e visualizzare ogni metrica di utilizzo e query di Analisi usate per valutare l'esperimento con callout chiari che indicano se la singola metrica è al di sopra o al di sotto del target.
 * Segnalazione dell'impatto di un'interruzione nell'utilizzo dell'app, combinazione dei dati, spiegazione del testo e descrizione dei passaggi successivi per impedire interruzioni future.
@@ -152,7 +152,7 @@ Attualmente sono supportati quattro tipi diversi di parametri:
 
   |         |          |
    | ---------------- |:-----|
-   | **Testo**    | L'utente potrà modificare una casella di testo. Facoltativamente, è possibile specificare una query per inserire il valore predefinito. |
+   | **Text**    | L'utente potrà modificare una casella di testo. Facoltativamente, è possibile specificare una query per inserire il valore predefinito. |
    | **Elenco a discesa** | L'utente potrà scegliere da un set di valori. |
    | **Selezione dell'intervallo di tempo**| L'utente potrà scegliere da un set predefinito di valori di intervallo di tempo o selezionare un intervallo di tempo personalizzato.|
    | **Selezione risorse** | L'utente potrà scegliere tra le risorse selezionate per la cartella di lavoro.|
@@ -199,7 +199,7 @@ Genera il risultato:
 
 ![Controlli di modifica delle sezioni delle cartelle di controllo di Application Insights](./media/usage-workbooks/011-data-table.png)
 
-Un esempio più applicabile consiste nell'utilizzare un elenco a discesa per scegliere da un insieme di paesi/aree geografiche per nome:A more applicable example is using a dropdown to pick from a set of countries/regions by name:
+Un esempio più applicabile consiste nell'usare un elenco a discesa per selezionare un set di paesi/aree geografiche per nome:
 
 ```
 customEvents
@@ -255,6 +255,6 @@ Se si è creato un modello di cartella di lavoro utile ed efficiente e lo si vuo
 - Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
     - [Utenti, sessioni ed eventi](../../azure-monitor/app/usage-segmentation.md)
     - [Grafici a imbuto](../../azure-monitor/app/usage-funnels.md)
-    - [detenzione](../../azure-monitor/app/usage-retention.md)
+    - [Conservazione](../../azure-monitor/app/usage-retention.md)
     - [Flussi degli utenti](../../azure-monitor/app/usage-flows.md)
     - [Aggiungere il contesto utente](../../azure-monitor/app/usage-send-user-context.md)

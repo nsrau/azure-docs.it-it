@@ -7,15 +7,15 @@ ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
 ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671053"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Informazioni sulle modalità d'uso dell'applicazione da parte dei clienti attraverso gli imbuti di Application Insights
 
-Per un'azienda è di primaria importanza comprendere l'esperienza dei clienti. Se l'applicazione implica più fasi, è necessario sapere se la maggior parte dei clienti prosegue lungo l'intero processo o se lo termina in un determinato punto. La progressione attraverso una serie di passaggi in un'applicazione web è nota come *imbuto*. È possibile usare lo strumento Imbuti di Azure Application Insights per ottenere informazioni approfondite sugli utenti e per monitorare i tassi di conversione a ogni passaggio. 
+Per un'azienda è di primaria importanza comprendere l'esperienza dei clienti. Se l'applicazione implica più fasi, è necessario sapere se la maggior parte dei clienti prosegue lungo l'intero processo o se lo termina in un determinato punto. L'avanzamento attraverso una serie di passaggi in un'applicazione Web è noto come *imbuto*. È possibile usare lo strumento Imbuti di Azure Application Insights per ottenere informazioni approfondite sugli utenti e per monitorare i tassi di conversione a ogni passaggio. 
 
 ## <a name="create-your-funnel"></a>Creare il proprio imbuto
 Prima di creare il proprio imbuto, decidere a quale domanda si intende rispondere. È possibile, ad esempio, che si voglia sapere quanti utenti stanno visitando la home page, quanti stanno visualizzando un profilo cliente e quanti stanno creando un ticket. In questo esempio, i proprietari della società Fabrikam Fiber vogliono conoscere la percentuale di clienti che ha creato correttamente un ticket.
@@ -45,8 +45,8 @@ Lo screenshot precedente include cinque aree evidenziate. Queste sono funzionali
 ## <a name="next-steps"></a>Passaggi successivi
   * [Panoramica sull'uso](usage-overview.md)
   * [Utenti, Sessioni ed Eventi](usage-segmentation.md)
-  * [detenzione](usage-retention.md)
-  * [Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)
+  * [Conservazione](usage-retention.md)
+  * [Workbooks](../../azure-monitor/app/usage-workbooks.md)
   * [Aggiungere il contesto utente](usage-send-user-context.md)
   * [Esportare in Power BI](../../azure-monitor/app/export-power-bi.md )
 

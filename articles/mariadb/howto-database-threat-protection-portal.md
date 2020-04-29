@@ -1,5 +1,5 @@
 ---
-title: Advanced Threat Protection - Azure portal - Azure Database for MariaDB
+title: Advanced Threat Protection-portale di Azure-database di Azure per MariaDB
 description: La Protezione dalle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database.
 author: ajlam
 ms.author: andrela
@@ -7,17 +7,17 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530139"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection for Azure Database for MariaDB
+# <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection per database di Azure per MariaDB
 
-Advanced Threat Protection for Azure Database for MariaDB rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
+Advanced Threat Protection per database di Azure per MariaDB rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
 
-Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurezza dei dati avanzata), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. È possibile accedere e gestire Advanced Threat Protection tramite il portale di [Azure.](https://portal.azure.com)
+Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurezza dei dati avanzata), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. È possibile accedere e gestire Advanced Threat Protection tramite il [portale di Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
 > Advanced Threat Protection è in anteprima pubblica. Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per MariaDB viene distribuito nei server per utilizzo generico e ottimizzati per la memoria.
@@ -26,8 +26,8 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 > La funzionalità Advanced Threat Protection **non** è disponibile nelle aree geografiche cloud sovrani di Azure: US Gov Texas, US Gov Arizona, US Gov Iowa, Stati Uniti, Gov Virginia, US DoD (area orientale), US DoD (area centrale), Germania centrale, Germania settentrionale, Cina orientale, Cina orientale 2. Visitare [i prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) per verificare la disponibilità generale del prodotto.
 
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
-1. Avviare il [https://portal.azure.com](https://portal.azure.com)portale di Azure all'indirizzo .
-2. Passare alla pagina di configurazione del server Database di Azure per MariaDB da proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
+1. Avviare il portale di Azure all' [https://portal.azure.com](https://portal.azure.com)indirizzo.
+2. Passare alla pagina di configurazione del database di Azure per il server MariaDB che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
 3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)**:
 
    - Abilita Advanced Threat Protection nel server.
@@ -62,5 +62,5 @@ Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sul Centro sicurezza di [AzureLearn](https://docs.microsoft.com/azure/security-center/security-center-intro) more about Azure Security Center
-* Per altre informazioni sui prezzi, vedere la pagina Prezzi del [database di Azure per MariaDBFor](https://azure.microsoft.com/pricing/details/mariadb/) more information on pricing, see the Azure Database for MariaDB Pricing page  
+* Scopri di più sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Per altre informazioni sui prezzi, vedere la [pagina dei prezzi di database di Azure per MariaDB](https://azure.microsoft.com/pricing/details/mariadb/)  

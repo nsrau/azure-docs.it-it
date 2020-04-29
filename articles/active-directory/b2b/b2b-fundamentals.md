@@ -13,10 +13,10 @@ ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050857"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Procedure consigliate per Azure Active Directory B2B

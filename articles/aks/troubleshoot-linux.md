@@ -9,58 +9,58 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
 ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77925605"
 ---
-# <a name="linux-performance-troubleshooting"></a>Risoluzione dei problemi relativi alle prestazioni di LinuxLinux Performance
+# <a name="linux-performance-troubleshooting"></a>Risoluzione dei problemi relativi alle prestazioni di Linux
 
-L'esaurimento delle risorse sulle macchine Linux è un problema comune e può manifestarsi attraverso un'ampia varietà di sintomi. Questo documento fornisce una panoramica generale degli strumenti disponibili per diagnosticare tali problemi.
+L'esaurimento delle risorse nei computer Linux è un problema comune che può manifestarsi attraverso un'ampia gamma di sintomi. In questo documento viene fornita una panoramica di alto livello degli strumenti disponibili per la diagnosi di tali problemi.
 
-Molti di questi strumenti accettano un intervallo in base al quale produrre la produzione in sequenza. Questo formato di output in genere semplifica molto l'avvistamento dei modelli. Se accettata, la chiamata `[interval]`di esempio includerà .
+Molti di questi strumenti accettano un intervallo in cui produrre output in sequenza. Questo formato di output rende in genere più semplice l'individuazione di modelli. Laddove accettata, la chiamata di esempio includerà `[interval]`.
 
-Molti di questi strumenti hanno una vasta storia e un'ampia gamma di opzioni di configurazione. Questa pagina fornisce solo un semplice sottoinsieme di chiamate per evidenziare i problemi comuni. La fonte canonica di informazioni è sempre la documentazione di riferimento per ogni particolare strumento. Tale documentazione sarà molto più approfondita di quanto qui fornito.
+Molti di questi strumenti hanno una cronologia estesa e un ampio set di opzioni di configurazione. Questa pagina fornisce solo un subset semplice di chiamate per evidenziare i problemi comuni. L'origine di informazioni canoniche è sempre la documentazione di riferimento per ogni particolare strumento. La documentazione sarà molto più approfondita rispetto a quanto specificato qui.
 
-## <a name="guidance"></a>Materiale sussidiario
+## <a name="guidance"></a>Indicazioni
 
-Sii sistematico nel tuo approccio all'analisi dei problemi di prestazioni. Due approcci comuni sono USE (utilizzo, saturazione, errori) e RED (tasso, errori, durata). RED viene in genere utilizzato nel contesto dei servizi per il monitoraggio basato su richiesta. USE viene in genere utilizzato per il monitoraggio delle risorse: per ogni risorsa in un computer, monitorare l'utilizzo, la saturazione e gli errori. I quattro tipi principali di risorse su qualsiasi computer sono cpu, memoria, disco e rete. L'utilizzo elevato, la saturazione o i tassi di errore per una di queste risorse indicano un possibile problema con il sistema. Quando si verifica un problema, esaminare la causa principale: perché la latenza di I/O del disco è elevata? I dischi o lo SKU della macchina virtuale vengono limitati? Quali processi stanno scrivendo sui dispositivi e su quali file?
+Essere sistematici nell'approccio per analizzare i problemi di prestazioni. Vengono usati due approcci comuni (utilizzo, saturazione, errori) e rosso (frequenza, errori, durata). Il rosso viene in genere usato nel contesto dei servizi per il monitoraggio basato su richiesta. L'uso viene in genere usato per il monitoraggio delle risorse: per ogni risorsa in un computer, monitora l'utilizzo, la saturazione e gli errori. I quattro tipi principali di risorse in qualsiasi computer sono CPU, memoria, disco e rete. Un utilizzo elevato, saturazione o frequenza degli errori per una di queste risorse indica un possibile problema con il sistema. Quando esiste un problema, esaminare la causa principale: perché la latenza di i/o del disco è elevata? Lo SKU di dischi o macchine virtuali è limitato? Quali processi scrivono nei dispositivi e in quali file?
 
-Alcuni esempi di problemi comuni e indicatori per diagnosticarli:
-- Limitazione delle operazioni di I/O al secondo: usare iostat per misurare le operazioni di I/O al secondo per dispositivo. Verificare che nessun singolo disco sia superiore al limite e che la somma per tutti i dischi sia inferiore al limite per la macchina virtuale.
-- Limitazione larghezza di banda: usare iostat come per le operazioni di I/O al secondo, ma misurare la velocità effettiva di lettura/scrittura. Verificare che la velocità effettiva per dispositivo e aggregata sia inferiore ai limiti di larghezza di banda.
-- Esaurimento SNAT: può manifestarsi come connessioni attive elevate (in uscita) in SAR. 
-- Perdita di pacchetti: può essere misurata tramite proxy tramite il conteggio delle ritrasmissioni TCP rispetto al conteggio inviato/ricevuto. Entrambi `sar` `netstat` e possono mostrare queste informazioni.
+Di seguito sono riportati alcuni esempi di problemi e indicatori comuni per la relativa diagnosi:
+- Limitazione IOPS: usare iostat per misurare IOPS per dispositivo. Assicurarsi che non vi sia un singolo disco superiore al limite e che la somma di tutti i dischi sia inferiore al limite della macchina virtuale.
+- Limitazione della larghezza di banda: usare iostat come per IOPS, ma misurare la velocità effettiva di lettura/scrittura. Assicurarsi che sia la velocità effettiva per ogni dispositivo che quella aggregata siano inferiori ai limiti della larghezza di banda.
+- Esaurimento SNAT: può essere manifesto come connessioni attive (in uscita) elevate in SAR. 
+- Perdita di pacchetti: può essere misurata dal proxy tramite il numero di ritrasmissioni TCP rispetto al conteggio inviato/ricevuto. Sia `sar` che `netstat` possono visualizzare queste informazioni.
 
 ## <a name="general"></a>Generale
 
-Questi strumenti sono di uso generale e coprono le informazioni di base del sistema. Sono un buon punto di partenza per ulteriori indagini.
+Questi strumenti sono a scopo generale e comprendono informazioni di base sul sistema. Si tratta di un valido punto di partenza per un'analisi più approfondita.
 
-### <a name="uptime"></a>Uptime
+### <a name="uptime"></a>tempo
 
 ```
 $ uptime
  19:32:33 up 17 days, 12:36,  0 users,  load average: 0.21, 0.77, 0.69
 ```
 
-il tempo di attività fornisce tempi di attività del sistema e medie di carico di 1, 5 e 15 minuti. Queste medie di carico corrispondono approssimativamente ai thread che eseguono il lavoro o in attesa del completamento del lavoro non interrompebile. In assoluto questi numeri possono essere difficili da interpretare, ma misurati nel tempo possono dirci informazioni utili:
+il tempo di esecuzione garantisce tempi di esecuzione del sistema e medie di carico di 1, 5 e 15 minuti. Queste medie di carico corrispondono approssimativamente ai thread che operano o attendono il completamento del lavoro di continuità. In assoluto questi numeri possono essere difficili da interpretare, ma misurati nel tempo possono indicare informazioni utili:
 
-- Media di 1 minuto > media di 5 minuti significa che il carico è in aumento.
-- Media di 1 minuto < media di 5 minuti significa che il carico sta diminuendo.
+- media di 1 minuto > media di 5 minuti indica un aumento del carico.
+- media di 1 minuto < media di 5 minuti significa che il carico diminuisce.
 
-tempo di attività può anche illuminare il motivo per cui le informazioni non sono disponibili: il problema potrebbe essere stato risolto da solo o da un riavvio prima che l'utente possa accedere alla macchina.
+il tempo di indisponibilità può anche illuminare il motivo per cui le informazioni non sono disponibili: il problema può essere risolto autonomamente o mediante un riavvio prima che l'utente possa accedere al computer.
 
-Le medie di carico superiori al numero di thread della CPU disponibili possono indicare un problema di prestazioni con un determinato carico di lavoro.
+Le medie di carico superiori al numero di thread CPU disponibili possono indicare un problema di prestazioni con un determinato carico di lavoro.
 
-### <a name="dmesg"></a>Dmesg
+### <a name="dmesg"></a>dmesg
 
 ```
 $ dmesg | tail 
 $ dmesg --level=err | tail
 ```
 
-dmesg scarica il buffer del kernel. Eventi come OOMKill aggiungono una voce al buffer del kernel. Trovare un OOMKill o altri messaggi di esaurimento delle risorse nei log dmesg è un forte indicatore di un problema.
+dmesg Scarica il buffer del kernel. Gli eventi come OOMKill aggiungono una voce al buffer del kernel. Trovare un OOMKill o altri messaggi di esaurimento delle risorse nei log di dmesg è un indicatore forte di un problema.
 
 ### <a name="top"></a>top
 
@@ -78,17 +78,17 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
      ...
 ```
 
-`top`fornisce un'ampia panoramica dello stato corrente del sistema. Le intestazioni forniscono alcune utili informazioni di aggregazione:The headers provide some useful aggregate information:
+`top`fornisce una panoramica generale dello stato del sistema corrente. Le intestazioni forniscono alcune utili informazioni di aggregazione:
 
-- stato delle attività: in esecuzione, in stato di sospensione, arresto.
-- Utilizzo della CPU, in questo caso per lo più mostrando il tempo di inattività.
-- memoria di sistema totale, libera e utilizzata.
+- stato delle attività: in esecuzione, in sospensione, arrestato.
+- Utilizzo della CPU, in questo caso la maggior parte del tempo di inattività.
+- memoria di sistema totale, gratuita e utilizzata.
 
-`top`può mancare processi di breve durata; alternative come `htop` `atop` e fornire interfacce simili, mentre la correzione di alcune di queste carenze.
+`top`potrebbero mancare processi di breve durata; alternative come `htop` e `atop` forniscono interfacce analoghe durante la correzione di alcune di queste limitazioni.
 
 ## <a name="cpu"></a>CPU
 
-Questi strumenti forniscono informazioni sull'utilizzo della CPU. Ciò è particolarmente utile con l'output di laminazione, in cui i modelli diventano facili da individuare.
+Questi strumenti forniscono informazioni sull'utilizzo della CPU. Questa operazione è particolarmente utile con l'output in sequenza, in cui i modelli diventano facilmente individuabili.
 
 ### <a name="mpstat"></a>mpstat
 
@@ -108,9 +108,9 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-`mpstat`stampa informazioni della CPU simili all'inizio, ma suddivise per thread della CPU. Vedere tutti i core contemporaneamente può essere utile per rilevare l'utilizzo della CPU altamente sbilanciato, ad esempio quando una singola applicazione a thread utilizza un core al 100% di utilizzo. Questo problema può essere più difficile da individuare se aggregato su tutte le CPU del sistema.
+`mpstat`stampa le informazioni di CPU simili nella parte superiore, ma suddivise in base al thread della CPU. La visualizzazione di tutti i core in una sola volta può essere utile per rilevare l'utilizzo della CPU altamente sbilanciata, ad esempio quando un'applicazione a thread singolo usa un core al 100% di utilizzo. Questo problema può essere più difficile da individuare quando viene aggregato su tutte le CPU del sistema.
 
-### <a name="vmstat"></a>Vmstat
+### <a name="vmstat"></a>vmstat
 
 ```
 $ vmstat [interval]
@@ -119,11 +119,11 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`fornisce informazioni `mpstat` `top`simili e , enumerando il numero di processi in attesa sulla CPU (colonna r), le statistiche di memoria e la percentuale di tempo della CPU trascorso in ogni stato di lavoro.
+`vmstat`fornisce informazioni `mpstat` simili e `top`, enumerando il numero di processi in attesa di CPU (colonna r), statistiche della memoria e percentuale del tempo di CPU impiegato in ogni stato di lavoro.
 
 ## <a name="memory"></a>Memoria
 
-La memoria è una risorsa molto importante, e fortunatamente facile da monitorare. Alcuni strumenti possono segnalare sia `vmstat`la CPU che la memoria, come . Ma strumenti `free` come possono ancora essere utili per il debug rapido.
+La memoria è una risorsa molto importante e fortunatamente facile da tenere traccia. Alcuni strumenti possono segnalare CPU e memoria, ad esempio `vmstat`. Tuttavia, gli `free` strumenti come possono essere ancora utili per il debug rapido.
 
 ### <a name="free"></a>libero
 
@@ -134,11 +134,11 @@ Mem:          64403        2338       42485           1       19579       61223
 Swap:             0           0           0
 ```
 
-`free`presenta informazioni di base sulla memoria totale, nonché sulla memoria utilizzata e libera. `vmstat`può essere più utile anche per l'analisi della memoria di base a causa della sua capacità di fornire l'output in sequenza.
+`free`vengono fornite informazioni di base sulla memoria totale, oltre che sulla memoria libera e utilizzata. `vmstat`può essere più utile anche per l'analisi della memoria di base grazie alla possibilità di fornire output in sequenza.
 
 ## <a name="disk"></a>Disco
 
-Questi strumenti misurano le operazioni di I/O al secondo del disco, le code di attesa e la velocità effettiva totale. 
+Questi strumenti misurano IOPS del disco, le code di attesa e la velocità effettiva totale. 
 
 ### <a name="iostat"></a>iostat
 
@@ -157,31 +157,31 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`fornisce informazioni approfondite sull'utilizzo del disco. Questa chiamata `-x` passa per `-y` le statistiche estese, per ignorare le `1 1` medie del sistema di stampa di output iniziale dall'avvio e per specificare si desidera un intervallo di 1 secondo, che termina dopo un blocco di output. 
+`iostat`fornisce informazioni approfondite sull'utilizzo dei dischi. Questa chiamata passa `-x` per le statistiche estese `-y` , per ignorare le medie iniziali del sistema di stampa dell'output dall' `1 1` avvio e per specificare che si desidera un intervallo di 1 secondo, che termina dopo un blocco di output. 
 
 `iostat`espone molte statistiche utili:
 
 - `r/s`e `w/s` sono letture al secondo e scritture al secondo. La somma di questi valori è IOPS.
-- `rkB/s`e `wkB/s` sono kilobyte letti/scritti al secondo. La somma di questi valori è velocità effettiva.
-- `await`è il tempo medio di iowait in millisecondi per le richieste in coda.
-- `avgqu-sz`è la dimensione media della coda nell'intervallo fornito.
+- `rkB/s`e `wkB/s` sono kilobyte letti/scritti al secondo. La somma di questi valori è la velocità effettiva.
+- `await`tempo medio di iowait in millisecondi per le richieste in coda.
+- `avgqu-sz`dimensioni medie della coda nell'intervallo specificato.
 
-In una macchina virtuale di Azure:On an Azure VM:
+In una macchina virtuale di Azure:
 
-- la somma `r/s` `w/s` di e per un singolo dispositivo a blocchi non può superare i limiti SKU di tale disco.
-- la somma `rkB/s` `wkB/s` di e per un singolo dispositivo a blocchi non può superare i limiti SKU di tale disco
-- la somma `r/s` `w/s` di e per tutti i dispositivi a blocchi non può superare i limiti per lo SKU della macchina virtuale.
-- la somma `rkB/s` di e 'wkB/s per tutti i dispositivi a blocchi non può superare i limiti per lo SKU VM.
+- la somma di `r/s` e `w/s` per un singolo dispositivo a blocchi non può superare i limiti dello SKU del disco.
+- la somma di `rkB/s` e `wkB/s` per un singolo dispositivo a blocchi non può superare i limiti dello SKU del disco
+- la somma di `r/s` e `w/s` per tutti i dispositivi a blocchi non può superare i limiti per lo SKU della macchina virtuale.
+- la somma di `rkB/s` è wkB/s per tutti i dispositivi a blocchi non può superare i limiti per lo SKU della macchina virtuale.
 
-Si noti che il disco del sistema operativo viene conteggiato come disco gestito dello SKU più piccolo corrispondente alla relativa capacità. Ad esempio, un disco operativo da 1024 GB corrisponde a un disco P30. I dischi ememeri e i dischi temporanei non hanno limiti di schiono singoli; sono limitati solo dai limiti completi della macchina virtuale.
+Si noti che il disco del sistema operativo viene conteggiato come un disco gestito dello SKU più piccolo corrispondente alla capacità. Ad esempio, un disco del sistema operativo 1024GB corrisponde a un disco P30. I dischi temporanei del sistema operativo e i dischi temporanei non hanno limiti di singoli dischi. sono limitati solo dai limiti completi della macchina virtuale.
 
-Valori diversi da zero di await o avgqu-sz sono anche buoni indicatori di contesa I/O.
+Anche i valori diversi da zero di await o avgqu-SZ sono indicatori validi per la contesa di i/o.
 
 ## <a name="network"></a>Rete
 
-Questi strumenti misurano le statistiche di rete come la velocità effettiva, gli errori di trasmissione e l'utilizzo. Un'analisi più approfondita può esporre statistiche TCP specifiche sulla congestione e sui pacchetti eliminati.
+Questi strumenti misurano le statistiche di rete, ad esempio velocità effettiva, errori di trasmissione e utilizzo. Un'analisi più approfondita può esporre statistiche TCP con granularità fine sulla congestione e sui pacchetti eliminati.
 
-### <a name="sar"></a>Sar
+### <a name="sar"></a>-r.a.s.
 
 ```
 $ sar -n DEV [interval]
@@ -199,10 +199,10 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`è uno strumento potente per una vasta gamma di analisi. Mentre questo esempio utilizza la sua capacità di misurare le statistiche di rete, è altrettanto potente per misurare il consumo di CPU e memoria. Questo esempio `sar` richiama `-n` con flag `DEV` per specificare la parola chiave (dispositivo di rete), che visualizza la velocità effettiva di rete in base al dispositivo.
+`sar`è uno strumento potente per un'ampia gamma di analisi. Sebbene in questo esempio venga utilizzata la capacità di misurare le statistiche di rete, è ugualmente potente per misurare l'utilizzo della CPU e della memoria. Questo esempio richiama `sar` con `-n` flag per specificare la parola `DEV` chiave (dispositivo di rete), visualizzando la velocità effettiva della rete per dispositivo.
 
-- La somma `rxKb/s` `txKb/s` di ed è la velocità effettiva totale per un determinato dispositivo. Quando questo valore supera il limite per la scheda di rete di Azure di cui è stato eseguito il provisioning, i carichi di lavoro nel computer subiranno una latenza di rete maggiore.
-- `%ifutil`misura l'utilizzo di un determinato dispositivo. Man mano che questo valore si avvicina al 100%, i carichi di lavoro subiranno una latenza di rete maggiore.
+- La somma di `rxKb/s` e `txKb/s` è la velocità effettiva totale per un determinato dispositivo. Quando questo valore supera il limite per la scheda di interfaccia di rete di Azure di cui è stato effettuato il provisioning, i carichi di lavoro nel computer aumenteranno la latenza
+- `%ifutil`misura l'utilizzo per un determinato dispositivo. Poiché questo valore si avvicina al 100%, i carichi di lavoro riscontrano una maggiore latenza di rete.
 
 ```
 $ sar -n TCP,ETCP [interval]
@@ -221,9 +221,9 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-Questa chiamata `sar` di `TCP,ETCP` utilizza le parole chiave per esaminare le connessioni TCP. La terza colonna dell'ultima riga, "retrans", è il numero di ritrasmissioni TCP al secondo. Valori elevati per questo campo indicano una connessione di rete inaffidabile. Nella prima e nella terza riga, "attivo" significa una connessione originata dal dispositivo locale, mentre "remoto" indica una connessione in ingresso.  Un problema comune in Azure è l'esaurimento delle porte SNAT, che `sar` consente di rilevare. L'esaurimento delle porte SNAT riporrebbe valori "attivi" elevati, poiché il problema è dovuto a un'elevata frequenza di connessioni TCP in uscita avviate localmente.
+Questa chiamata di `sar` usa le parole `TCP,ETCP` chiave per esaminare le connessioni TCP. La terza colonna dell'ultima riga, "retrans", è il numero di ritrasmissioni TCP al secondo. Valori elevati per questo campo indicano una connessione di rete non affidabile. Nella prima e terza riga "Active" indica che la connessione è stata originata dal dispositivo locale, mentre "Remote" indica una connessione in ingresso.  Un problema comune in Azure è l'esaurimento delle porte SNAT `sar` , che può essere utile per il rilevamento. L'esaurimento delle porte SNAT si manifesterà come valori "attivi" elevati, perché il problema è dovuto a una frequenza elevata di connessioni TCP avviate localmente e in uscita.
 
-Poiché `sar` accetta un intervallo, stampa l'output in sequenza e quindi stampa le righe finali dell'output contenenti i risultati medi della chiamata.
+Come `sar` accetta un intervallo, stampa l'output in sequenza e quindi stampa le righe finali di output contenenti i risultati medi della chiamata.
 
 ### <a name="netstat"></a>netstat
 
@@ -323,4 +323,4 @@ IpExt:
     InECT0Pkts: 14
 ```
 
-`netstat`può introspezione una vasta gamma di statistiche di rete, qui invocato con output di riepilogo. Ci sono molti campi utili qui a seconda del problema. Un campo utile nella sezione TCP è "tentativi di connessione non riusciti". Questo può essere un'indicazione di esaurimento della porta SNAT o altri problemi che effettuano connessioni in uscita. Una frequenza elevata di segmenti ritrasmessi (anche nella sezione TCP) può indicare problemi con il recapito dei pacchetti. 
+`netstat`può analizzare un'ampia gamma di statistiche di rete, richiamate con l'output di riepilogo. Sono disponibili molti campi utili a seconda del problema. Un campo utile nella sezione TCP è "tentativi di connessione non riusciti". Potrebbe trattarsi di un'indicazione dell'esaurimento delle porte SNAT o di altri problemi che rendono le connessioni in uscita. Una frequenza elevata di segmenti ritrasmessi (anche nella sezione TCP) può indicare problemi di recapito dei pacchetti. 

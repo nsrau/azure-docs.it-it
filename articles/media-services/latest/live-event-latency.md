@@ -1,6 +1,6 @@
 ---
-title: Impostazioni liveEvent a bassa latenza in Servizi multimediali di Azure . Documenti Microsoft
-description: In questo argomento viene fornita una panoramica delle impostazioni di bassa latenza LiveEvent e viene illustrato come impostare la latenza bassa.
+title: Impostazioni Live a bassa latenza in servizi multimediali di Azure | Microsoft Docs
+description: Questo argomento offre una panoramica delle impostazioni di Live bassa latenza e Mostra come impostare una bassa latenza.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,20 +14,20 @@ ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
 ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78199649"
 ---
-# <a name="live-event-low-latency-settings"></a>Impostazioni di bassa latenza degli eventi live
+# <a name="live-event-low-latency-settings"></a>Impostazioni di bassa latenza eventi Live
 
 Questo articolo illustra come impostare una bassa latenza in un [evento live](https://docs.microsoft.com/rest/api/media/liveevents). Esamina anche alcuni risultati tipici visualizzati quando si usano le impostazioni di bassa latenza in diversi lettori. I risultati variano a seconda della rete CDN e della latenza di rete.
 
-Per usare la nuova funzionalità **LowLatency** impostare il flag **StreamOptionsFlag** su **LowLatency** nel **LiveEvent**. Quando si crea [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) per la riproduzione HLS, impostare [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) su 1. Dopo aver avviato e in esecuzione il flusso, è possibile usare [Azure Media Player](https://ampdemo.azureedge.net/) (pagina demo AMP) e impostare le opzioni di riproduzione per l'uso del profilo euristico a bassa latenza.
+Per usare la nuova funzionalità **LowLatency** impostare il flag **StreamOptionsFlag** su **LowLatency** nel **LiveEvent**. Quando si crea [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) per la riproduzione HLS, impostare [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) su 1. Quando il flusso è in esecuzione, è possibile usare la [Azure Media Player](https://ampdemo.azureedge.net/) (pagina demo amp) e impostare le opzioni di riproduzione per usare il "profilo euristica a bassa latenza".
 
 > [!NOTE]
-> Attualmente, lowLatency HeuristicProfile in Azure Media Player è progettato per la riproduzione di flussi in protocollo `format=mdp-time-csf` MPEG-DASH, con formato CSF o CMAF (ad esempio, o `format=mdp-time-cmaf`). 
+> Attualmente, il LowLatency HeuristicProfile in Azure Media Player è progettato per la riproduzione di flussi nel protocollo MPEG-DASH, con formato CSF o CMAF (ad esempio, `format=mdp-time-csf` o `format=mdp-time-cmaf`). 
 
 L'esempio di .NET seguente mostra come impostare **LowLatency** nel **LiveEvent**:
 

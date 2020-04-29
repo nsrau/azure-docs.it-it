@@ -1,6 +1,6 @@
 ---
-title: Studio di Servizi Cloud di Azure Def. Documenti Microsoft
-description: Il customer defined LoadBalancerProbe è un probe di integrità degli endpoint nelle istanze del ruolo. Viene combinato con i ruoli Web o di lavoro in un file di definizione del servizio.
+title: Schema def. LoadBalancerProbe di servizi cloud di Azure | Microsoft Docs
+description: Il LoadBalancerProbe definito dal cliente è un probe di integrità degli endpoint nelle istanze del ruolo. Combina i ruoli Web o di lavoro in un file di definizione del servizio.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -10,10 +10,10 @@ caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
 ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537347"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di Servizi cloud di Azure
@@ -60,9 +60,9 @@ La tabella seguente descrive gli attributi dell'elemento `LoadBalancerProbe`:
 | `name`              | `string` | Obbligatorio. Nome del probe di bilanciamento del carico. Il nome deve essere univoco.|
 | `protocol`          | `string` | Obbligatorio. Specifica il protocollo dell'endpoint. I possibili valori sono `http` o `tcp`. Se viene specificato `tcp`, è necessario ricevere una risposta ACK per completare il probe. Se viene specificato `http`, è necessario ricevere una risposta 200 OK dall'URI specificato per completare il probe.|
 | `path`              | `string` | URI usato per richiedere lo stato di integrità alla macchina virtuale. `path` è obbligatorio se `protocol` impostato su `http`. In caso contrario, non è consentito.<br /><br /> Non esistono valori predefiniti.|
-| `port`              | `integer` | Facoltativa. Porta per la comunicazione del probe. È facoltativo per qualsiasi endpoint, perché verrà usata la stessa porta per il probe. È anche possibile configurare una porta diversa per il probe. L'intervallo di valori possibili è compresa tra 1 e 65535 inclusi.<br /><br /> Il valore predefinito viene impostato dall'endpoint.|
-| `intervalInSeconds` | `integer` | Facoltativa. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
-| `timeoutInSeconds`  | `integer` | Facoltativa. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
+| `port`              | `integer` | Facoltativo. Porta per la comunicazione del probe. È facoltativo per qualsiasi endpoint, perché verrà usata la stessa porta per il probe. È anche possibile configurare una porta diversa per il probe. L'intervallo di valori possibili è compresa tra 1 e 65535 inclusi.<br /><br /> Il valore predefinito viene impostato dall'endpoint.|
+| `intervalInSeconds` | `integer` | Facoltativo. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
+| `timeoutInSeconds`  | `integer` | Facoltativo. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
 
 ## <a name="see-also"></a>Vedere anche
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Schema di definizione di Servizi cloud - Versione classica)

@@ -12,10 +12,10 @@ ms.date: 02/19/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188118"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Microsoft usando criteri personalizzati in Azure Active Directory B2C
@@ -70,10 +70,10 @@ Ora che l'applicazione è stata creata nel tenant di Azure AD, è necessario arc
 1. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
 1. Per **Opzioni** scegliere `Manual`.
-1. Immettere un **nome** per la chiave dei criteri. Ad esempio, `MSASecret` Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
+1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `MSASecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 1. In **Secret (segreto**) immettere il segreto client registrato nella sezione precedente.
 1. In **Uso chiave** selezionare `Signature`.
-1. Fare clic su **Crea**.
+1. Scegliere **Crea**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
@@ -151,7 +151,7 @@ A questo punto, il provider di identità è stato configurato, ma non è ancora 
 1. Trovare e copiare l'intero contenuto dell'elemento **UserJourney** che include `Id="SignUpOrSignIn"`.
 1. Aprire *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
 1. Incollare l'intero contenuto dell'elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
-1. Rinominare l'ID del percorso utente. Ad esempio, `SignUpSignInMSA`
+1. Rinominare l'ID del percorso utente. Ad esempio: `SignUpSignInMSA`.
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
 
@@ -175,7 +175,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
 
-    Aggiornare il valore di **TechnicalProfileReferenceId** in modo che corrisponda `Id` a quello del valore nell'elemento **TechnicalProfile** del provider di attestazioni aggiunto in precedenza. Ad esempio, `MSA-OIDC`
+    Aggiornare il valore di **TechnicalProfileReferenceId** in modo che corrisponda `Id` a quello del valore nell'elemento **TechnicalProfile** del provider di attestazioni aggiunto in precedenza. Ad esempio: `MSA-OIDC`.
 
 1. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
@@ -190,7 +190,7 @@ La comunicazione con Azure AD B2C avviene tramite un'applicazione registrata nel
 Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
 
 1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, assegnare il nome *SignUpSignInMSA.xml*.
-1. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio, `SignUpSignInMSA`
+1. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio: `SignUpSignInMSA`.
 1. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_msa`
 1. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del percorso utente creato in precedenza (SignUpSignInMSA).
 1. Salvare le modifiche, caricare il file e quindi selezionare i nuovi criteri nell'elenco.

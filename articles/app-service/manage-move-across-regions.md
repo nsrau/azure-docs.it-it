@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77925709"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Spostare un'app del servizio app in un'altra area
@@ -41,7 +41,7 @@ Identificare tutte le risorse del servizio app attualmente in uso. Ad esempio:
 
 Alcune risorse, ad esempio i certificati importati o le connessioni ibride, contengono l'integrazione con altri servizi di Azure. Per informazioni su come spostare tali risorse tra le aree, vedere la documentazione relativa ai rispettivi servizi.
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 1. [Creare un backup dell'app di origine](manage-backup.md).
 1. [Creare un'app in un nuovo piano di servizio app nell'area di destinazione](app-service-plan-manage.md#create-an-app-service-plan).

@@ -9,10 +9,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: ae14a9fd8fc8479eac596fb694e12e3e0a9027f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067305"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Esecuzione di query su più partizioni tramite strumenti di database elastici
@@ -63,6 +63,6 @@ Un'attuale limitazione delle query su più partizioni è la mancanza di convalid
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Query su più partizioni e operazioni di suddivisione e unione
 
-Le query su più partizioni non verificano se gli shardlet presenti nel database interrogato sono oggetto di operazioni di divisione/unione in corso. Consultate [Scalare utilizzando lo strumento di suddivisione del database elastico.](sql-database-elastic-scale-overview-split-and-merge.md) Ciò può causare incoerenze in cui le righe dello stesso partizione vengono visualizzate per più database nella stessa query a più partizioni. Tenere presente queste limitazioni e completare le operazioni di suddivisione-unione in corso e le modifiche alla mappa partizioni prima dell'esecuzione di query su più partizioni.
+Le query su più partizioni non verificano se gli shardlet presenti nel database interrogato sono oggetto di operazioni di divisione/unione in corso. (Vedere [ridimensionamento con lo strumento di suddivisione-unione dei database elastici](sql-database-elastic-scale-overview-split-and-merge.md)). Questo può causare incoerenze laddove le righe dello stesso shardlet vengono visualizzate per più database nella stessa query su più partizioni. Tenere presente queste limitazioni e completare le operazioni di suddivisione-unione in corso e le modifiche alla mappa partizioni prima dell'esecuzione di query su più partizioni.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: Gestire i vincoli del contesto di sicurezza in Azure Red Hat OpenShift Documenti Microsoft
-description: Vincoli del contesto di sicurezza per gli amministratori del cluster Azure Red Hat OpenShiftSecurity context constraints for Azure Red Hat OpenShift cluster administrators
+title: Gestire i vincoli del contesto di sicurezza in Azure Red Hat OpenShift | Microsoft Docs
+description: Vincoli del contesto di sicurezza per gli amministratori del cluster OpenShift di Azure Red Hat
 services: container-service
 author: troy0820
 ms.author: b-trconn
@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063184"
 ---
-# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gestire i vincoli del contesto di sicurezza in Azure Red Hat OpenShiftManage security context constraints in Azure Red Hat OpenShift 
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gestire i vincoli del contesto di sicurezza in Azure Red Hat OpenShift 
 
-I vincoli del contesto di sicurezza (SCC) consentono agli amministratori del cluster di controllare le autorizzazioni per i pod. Per ulteriori informazioni su questo tipo di API, vedere la [documentazione sull'architettura per SCC](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). È possibile gestire gli SCC nell'istanza come normali oggetti API usando l'interfaccia della riga di comando.
+I vincoli del contesto di sicurezza (SCCs) consentono agli amministratori del cluster di controllare le autorizzazioni per i pod. Per ulteriori informazioni su questo tipo di API, vedere la [documentazione dell'architettura per SCCS](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). È possibile gestire SCCs nell'istanza come oggetti API normali usando l'interfaccia della riga di comando.
 
-## <a name="list-security-context-constraints"></a>Elencare i vincoli del contesto di sicurezzaList security context constraints
+## <a name="list-security-context-constraints"></a>Elencare i vincoli del contesto di sicurezza
 
-Per ottenere un elenco corrente di SCC, utilizzare questo comando: 
+Per ottenere un elenco corrente di SCCs, usare questo comando: 
 
 ```bash
 $ oc get scc
@@ -35,9 +35,9 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## <a name="examine-an-object-for-security-context-constraints"></a>Esaminare un oggetto per i vincoli del contesto di sicurezzaExamine an object for security context constraints
+## <a name="examine-an-object-for-security-context-constraints"></a>Esaminare un oggetto per i vincoli del contesto di sicurezza
 
-Per esaminare un determinato `oc get` `oc describe`SCC, utilizzare , , o `oc edit`.  Ad esempio, per esaminare il **ccg con restrizioni,** utilizzare questo comando:
+Per esaminare un particolare SCC, utilizzare `oc get`, `oc describe`o `oc edit`.  Per esaminare, ad esempio, il cluster SCC **limitato** , utilizzare questo comando:
 ```bash
 $ oc describe scc restricted
 Name:                    restricted
@@ -73,4 +73,4 @@ Settings:
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Creare un cluster di Azure Red Hat OpenShift](tutorial-create-cluster.md) 
+> [Creare un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) 

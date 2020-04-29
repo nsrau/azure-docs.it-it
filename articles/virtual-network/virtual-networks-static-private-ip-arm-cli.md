@@ -1,5 +1,5 @@
 ---
-title: Configurare gli indirizzi IP privati per le macchine virtuali - Interfaccia della riga di comando di AzureConfigure private IP addresses for VMs - Azure CLI
+title: Configurare indirizzi IP privati per le VM-interfaccia della riga di comando di Azure
 description: Informazioni su come configurare indirizzi IP privati per le macchine virtuali usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
 ms.openlocfilehash: f4643aae0b28861f4ddb99d8dace749e62f930b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78199479"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurare indirizzi IP privati per una macchina virtuale usando l'interfaccia della riga di comando di Azure
@@ -30,7 +30,7 @@ ms.locfileid: "78199479"
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> I comandi di esempio dell'interfaccia della riga di comando di Azure riportati di seguito prevedono un ambiente semplice esistente. Se si desidera eseguire i comandi così come vengono visualizzati in questo documento, compilare innanzitutto l'ambiente di test descritto in [create a vnet](quick-create-cli.md).
+> I comandi di esempio dell'interfaccia della riga di comando di Azure riportati di seguito prevedono un ambiente semplice esistente. Se si desidera eseguire i comandi così come sono visualizzati in questo documento, compilare innanzitutto l'ambiente di test descritto in [creare un VNET](quick-create-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Specificare un indirizzo IP statico privato durante la creazione di una macchina virtuale
 

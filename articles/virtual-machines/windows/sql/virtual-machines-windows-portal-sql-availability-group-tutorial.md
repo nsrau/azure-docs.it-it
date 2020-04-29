@@ -16,10 +16,10 @@ ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060187"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Esercitazione: configurare manualmente il gruppo di disponibilità in Azure SQL Server VM
@@ -355,7 +355,7 @@ Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load 
 
    ![Gruppo di disponibilità in Gestione cluster di failover](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1. Fare clic su **Crea**.
+1. Scegliere **Crea**.
 1. Configurare i parametri seguenti per il servizio di bilanciamento del carico.
 
    | Impostazione | Campo |
@@ -428,7 +428,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Enabled |
+   | **IP mobile (Direct Server Return)** | |Attivato |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.
@@ -469,7 +469,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
    | **Probe** |Il nome specificato per il probe | WSFCEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Enabled |
+   | **IP mobile (Direct Server Return)** | |Attivato |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.

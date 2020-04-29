@@ -8,10 +8,10 @@ ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78247986"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
@@ -30,7 +30,7 @@ Indipendentemente dal numero di repliche di query presenti in un pool di query, 
 
 Quando si aumenta la scalabilità orizzontale, possono essere necessari fino a cinque minuti per aggiungere le nuove repliche di query al pool di query. Quando tutte le nuove repliche di query sono in esecuzione, le nuove connessioni client vengono sottoposte a bilanciamento del carico tra le risorse nel pool di query. Le connessioni client esistenti non vengono modificate dalla risorsa alla quale sono attualmente connesse. Durante il ridimensionamento verticale, tutte le connessioni client esistenti a una risorsa del pool di query che viene rimossa dal pool di query vengono terminate. I client possono riconnettersi a una risorsa del pool di query rimanente.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Quando si configura la scalabilità orizzontale per la prima volta, i database modello nel server primario vengono sincronizzati *automaticamente* con le nuove repliche in un nuovo pool di query. La sincronizzazione automatica viene eseguita una sola volta. Durante la sincronizzazione automatica, i file di dati del server primario (crittografati inattivi nell'archivio BLOB) vengono copiati in una seconda posizione, crittografati anche inattivi nell'archivio BLOB. Le repliche nel pool di query vengono quindi *idratate* con i dati del secondo set di file. 
 
@@ -44,9 +44,9 @@ Quando si esegue un'operazione di scalabilità orizzontale successiva, ad esempi
 
 * La sincronizzazione è consentita anche quando non sono presenti repliche nel pool di query. Se si esegue la scalabilità orizzontale da zero a una o più repliche con nuovi dati da un'operazione di elaborazione sul server primario, eseguire prima la sincronizzazione senza repliche nel pool di query e quindi eseguire la scalabilità orizzontale. La sincronizzazione prima della scalabilità orizzontale evita l'idratazione ridondante delle repliche appena aggiunte.
 
-* Quando si elimina un database modello dal server primario, quest'ultima non viene automaticamente eliminata dalle repliche nel pool di query. È necessario eseguire un'operazione di sincronizzazione usando il comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) di PowerShell che rimuove il file o i file per quel database dal percorso di archiviazione BLOB condiviso della replica e quindi Elimina il database modello nelle repliche nel pool di query. Per determinare se un database modello esiste nelle repliche nel pool di query, ma non nel server primario, assicurarsi che l'impostazione **separa il server di elaborazione dal pool di query** sia impostata su **Sì**. Utilizzare quindi SSMS per connettersi al server primario utilizzando il qualificatore `:rw` per verificare se il database esiste. Connettersi quindi alle repliche nel pool di query connettendosi senza il qualificatore `:rw` per verificare se esiste anche lo stesso database. Se il database è presente nelle repliche nel pool di query ma non nel server primario, eseguire un'operazione di sincronizzazione.   
+* Quando si elimina un database modello dal server primario, quest'ultima non viene automaticamente eliminata dalle repliche nel pool di query. È necessario eseguire un'operazione di sincronizzazione usando il comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) di PowerShell che rimuove il file o i file per quel database dal percorso di archiviazione BLOB condiviso della replica e quindi Elimina il database modello nelle repliche nel pool di query. Per determinare se un database modello esiste nelle repliche nel pool di query, ma non nel server primario, assicurarsi che l'impostazione **separa il server di elaborazione dal pool di query** sia impostata su **Sì**. Utilizzare quindi SSMS per connettersi al server primario utilizzando il `:rw` qualificatore per verificare se il database esiste. Connettersi quindi alle repliche nel pool di query connettendosi senza il `:rw` qualificatore per verificare se esiste anche lo stesso database. Se il database è presente nelle repliche nel pool di query ma non nel server primario, eseguire un'operazione di sincronizzazione.   
 
-* Quando si rinomina un database nel server primario, è necessario eseguire un passaggio aggiuntivo per verificare che il database sia correttamente sincronizzato con tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione usando il comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) specificando il parametro `-Database` con il nome del database precedente. Questa sincronizzazione rimuove il database e i file con il nome precedente dalle repliche. Quindi eseguire un'altra sincronizzazione specificando il parametro `-Database` con il nuovo nome del database. La seconda sincronizzazione copia il database appena denominato nel secondo set di file e idrata tutte le repliche. Queste sincronizzazioni non possono essere eseguite usando il comando Sincronizza modello nel portale.
+* Quando si rinomina un database nel server primario, è necessario eseguire un passaggio aggiuntivo per verificare che il database sia correttamente sincronizzato con tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione usando il comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) specificando `-Database` il parametro con il nome del database precedente. Questa sincronizzazione rimuove il database e i file con il nome precedente dalle repliche. Quindi eseguire un'altra sincronizzazione specificando il `-Database` parametro con il nuovo nome del database. La seconda sincronizzazione copia il database appena denominato nel secondo set di file e idrata tutte le repliche. Queste sincronizzazioni non possono essere eseguite usando il comando Sincronizza modello nel portale.
 
 ### <a name="synchronization-mode"></a>Modalità di sincronizzazione
 
@@ -61,8 +61,8 @@ Per impostazione predefinita, le repliche di query vengono reidratate in modo co
 
 Usare SSMS per impostare ReplicaSyncMode in proprietà avanzate. I valori possibili sono: 
 
-- `1` (impostazione predefinita): reidratazione completa del database di replica in fasi (incrementale). 
-- `2`: sincronizzazione ottimizzata in parallelo. 
+- `1`(impostazione predefinita): reidratazione completa del database di replica nelle fasi (incrementale). 
+- `2`: Sincronizzazione ottimizzata in parallelo. 
 
 ![Impostazione RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
 
@@ -98,7 +98,7 @@ Usare i log di monitoraggio di Azure per una diagnostica più dettagliata delle 
 
 1. Nel portale fare clic su **scale-out**. Usare il dispositivo di scorrimento per selezionare il numero di server di replica di query. Il numero di repliche scelto viene aggiunto al server esistente.  
 
-2. In **Separare il server di elaborazione dal pool di query** selezionare Sì per escludere il server di elaborazione dal server di query. Le [connessioni](#connections) client che utilizzano la stringa di connessione predefinita (senza `:rw`) vengono reindirizzate alle repliche nel pool di query. 
+2. In **Separare il server di elaborazione dal pool di query** selezionare Sì per escludere il server di elaborazione dal server di query. Le [connessioni](#connections) client che utilizzano la stringa di connessione `:rw`predefinita (senza) vengono reindirizzate alle repliche nel pool di query. 
 
    ![Dispositivo di scorrimento di ridimensionamento orizzontale](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -106,7 +106,7 @@ Usare i log di monitoraggio di Azure per una diagnostica più dettagliata delle 
 
 Quando si configura per la prima volta la scalabilità orizzontale per un server, i modelli nel server primario vengono sincronizzati automaticamente con le repliche nel pool di query. La sincronizzazione automatica si verifica solo una volta, quando si configura per la prima volta la scalabilità orizzontale in una o più repliche. Le successive modifiche al numero di repliche sullo stesso server *non attiverà un'altra sincronizzazione automatica*. La sincronizzazione automatica non verrà rieseguita anche se si imposta il server su zero repliche e quindi si aumenta di nuovo la scalabilità orizzontale a un numero qualsiasi di repliche. 
 
-## <a name="synchronize"></a>Sincronizzare 
+## <a name="synchronize"></a>Sincronizza 
 
 Le operazioni di sincronizzazione devono essere eseguite manualmente o tramite l'API REST.
 
@@ -136,7 +136,7 @@ Codici di stato restituiti:
 |-1     |  Non valido       |
 |0     | Replicating        |
 |1     |  Reidratanti       |
-|2     |   Operazione completata       |
+|2     |   Completi       |
 |3     |   Operazione non riuscita      |
 |4     |    Finalizzazione     |
 |||
@@ -152,7 +152,7 @@ Per eseguire la sincronizzazione, usare [Sync-AzAnalysisServicesInstance](https:
 
 Per impostare il numero di repliche di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare il parametro facoltativo `-ReadonlyReplicaCount`.
 
-Per separare il server di elaborazione dal pool di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Consente di specificare il parametro `-DefaultConnectionMode` facoltativo da utilizzare `Readonly`.
+Per separare il server di elaborazione dal pool di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Consente di specificare `-DefaultConnectionMode` il parametro facoltativo `Readonly`da utilizzare.
 
 Per altre informazioni, vedere [uso di un'entità servizio con il modulo AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -160,7 +160,7 @@ Per altre informazioni, vedere [uso di un'entità servizio con il modulo AZ. Ana
 
 Nella pagina Panoramica del server sono presenti due nomi di server. Se il ridimensionamento orizzontale non è stato ancora configurato per un server, entrambi i nomi di server funzionano allo stesso modo. Dopo che per un server è stato configurato il ridimensionamento orizzontale, è necessario specificare il nome del server appropriato a seconda del tipo di connessione. 
 
-Per le connessioni client destinate agli utenti finali, ad esempio Power BI Desktop, Excel e le applicazioni personalizzate, usare il **nome del server**. 
+Per le connessioni client dell'utente finale come Power BI Desktop, Excel e app personalizzate, usare il **nome del server**. 
 
 Per SSMS, Visual Studio e le stringhe di connessione in PowerShell, app per le funzioni di Azure e AMO, usare il **nome del server di gestione**. Il nome del server di gestione include un qualificatore (lettura e scrittura) `:rw` speciale. Tutte le operazioni di elaborazione vengono eseguite nel server di gestione (primario).
 
@@ -170,15 +170,15 @@ Per SSMS, Visual Studio e le stringhe di connessione in PowerShell, app per le f
 
 È possibile modificare il piano tariffario in un server con più repliche. Lo stesso piano tariffario si applica a tutte le repliche. Un'operazione di ridimensionamento arresterà prima tutte le repliche in una sola volta e quindi mostrerà tutte le repliche nel nuovo piano tariffario.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 **Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
 
-**Soluzione:** Quando si seleziona l'opzione **separa il server di elaborazione dal pool di query** , le connessioni client che usano la stringa di connessione predefinita (senza `:rw`) vengono reindirizzate alle repliche del pool di query. Se le repliche nel pool di query non sono ancora online perché la sincronizzazione non è stata ancora completata, le connessioni client reindirizzate possono avere esito negativo. Quando si esegue una sincronizzazione, per evitare errori di connessione, nel pool di query devono essere presenti almeno due server. Ogni server viene sincronizzato singolarmente, mentre gli altri rimangono online. Se si sceglie di non tenere il server di elaborazione all'interno del pool di query durante l'elaborazione, è possibile rimuoverlo dal pool per l'elaborazione e quindi riaggiungerlo al termine di questa, ma prima della sincronizzazione. Usare le metriche di memoria e di QPU per monitorare lo stato della sincronizzazione.
+**Soluzione:** Quando si seleziona l'opzione **separa il server di elaborazione dal pool di query** , le connessioni client che usano la stringa di `:rw`connessione predefinita (senza) vengono reindirizzate alle repliche del pool di query. Se le repliche nel pool di query non sono ancora online perché la sincronizzazione non è stata ancora completata, le connessioni client reindirizzate possono avere esito negativo. Quando si esegue una sincronizzazione, per evitare errori di connessione, nel pool di query devono essere presenti almeno due server. Ogni server viene sincronizzato singolarmente, mentre gli altri rimangono online. Se si sceglie di non tenere il server di elaborazione all'interno del pool di query durante l'elaborazione, è possibile rimuoverlo dal pool per l'elaborazione e quindi riaggiungerlo al termine di questa, ma prima della sincronizzazione. Usare le metriche di memoria e di QPU per monitorare lo stato della sincronizzazione.
 
 
 
 ## <a name="related-information"></a>Informazioni correlate
 
-[Monitorare le metriche dei server](analysis-services-monitor.md)   
+[Monitorare le metriche del server](analysis-services-monitor.md)   
 [Gestire Azure Analysis Services](analysis-services-manage.md) 

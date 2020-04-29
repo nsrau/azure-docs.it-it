@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web per Service Management Connector
+title: Creare un'app Web per il connettore di gestione dei servizi
 description: Creare un'app Web di Service Manager usando uno script automatizzato per eseguire la connessione con Connettore di Gestione dei servizi IT in Azure e monitorare e gestire in modo centralizzato gli elementi di lavoro ITSM.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
 ms.openlocfilehash: decb674c2b55b93a81169c540ee04713bdf2799e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80054849"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creare un'app Web di Service Manager con lo script automatizzato
@@ -21,7 +21,7 @@ Eseguire lo script, fornendo i dettagli richiesti seguenti:
 
 - Dettagli della sottoscrizione di Azure
 - Nome del gruppo di risorse
-- Location
+- Percorso
 - Dettagli del server di Service Manager (nome del server, dominio, nome utente e password)
 - Prefisso del nome del sito per l'app Web
 - Spazio dei nomi ServiceBus.

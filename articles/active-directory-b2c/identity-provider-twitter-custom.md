@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso con un account Twitter utilizzando criteri personalizzati
+title: Configurare l'accesso con un account Twitter usando criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un account Twitter usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,17 +12,17 @@ ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5804ded875ef03d7ade4414eb8f08885634748dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80051604"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Twitter usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come abilitare l'accesso per gli utenti di un account Twitter usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
+Questo articolo illustra come abilitare l'accesso per gli utenti di un account Twitter usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,8 +46,8 @@ Per usare Twitter come provider di identità in Azure AD B2C, è necessario crea
 
 È necessario archiviare la chiave privata registrata in precedenza nel tenant di Azure AD B2C.
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
-2. Assicurarsi di usare la directory che contiene il tenant B2C di Azure AD. Nel menu superiore, selezionare il filtro **Directory e sottoscrizione** e scegliere la directory che contiene il tenant.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 5. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
@@ -55,7 +55,7 @@ Per usare Twitter come provider di identità in Azure AD B2C, è necessario crea
 7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `TwitterSecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 8. In **Segreto** immettere il segreto client registrato in precedenza.
 9. In **Uso chiave** selezionare `Encryption`.
-10. Fare clic su **Crea**.
+10. Scegliere **Crea**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
@@ -111,7 +111,7 @@ Per consentire agli utenti di accedere con un account Twitter, è necessario def
 
 ### <a name="upload-the-extension-file-for-verification"></a>Caricare il file di estensione per la verifica
 
-A questo punto, i criteri sono stati configurati in modo che Azure AD B2C sappia come comunicare con l'account Twitter. Provare a caricare il file di estensione dei criteri per verificare che non siano presenti problemi.
+A questo punto, i criteri sono stati configurati in modo che Azure AD B2C sappiano come comunicare con l'account Twitter. Provare a caricare il file di estensione dei criteri per verificare che non siano presenti problemi.
 
 1. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
 2. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
@@ -149,13 +149,13 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
 
-    Aggiornare il valore di **TechnicalProfileReferenceId** all'ID del profilo tecnico creato in precedenza. Ad esempio: `Twitter-OAUTH1`.
+    Aggiornare il valore di **TechnicalProfileReferenceId** con l'ID del profilo tecnico creato in precedenza. Ad esempio: `Twitter-OAUTH1`.
 
 3. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creare un'applicazione Azure AD B2C
 
-La comunicazione con Azure AD B2C avviene tramite un'applicazione che viene eseguita nella registrazione nel tenant B2C. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
+La comunicazione con Azure AD B2C avviene tramite un'applicazione registrata nel tenant B2C. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

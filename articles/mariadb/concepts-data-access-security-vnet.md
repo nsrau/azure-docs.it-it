@@ -1,5 +1,5 @@
 ---
-title: Endpoint del servizio VNet - Database di Azure per MariaDB
+title: Endpoint del servizio VNet-database di Azure per MariaDB
 description: Questo articolo descrive il funzionamento degli endpoint di servizio di rete virtuale per il server di Database di Azure per MariaDB.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 54379c65850fa210e5523b53a64fe89705ed1f15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79532111"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usare gli endpoint servizio e le regole di rete virtuale per Database di Azure per MariaDB
@@ -50,7 +50,7 @@ Una regola di rete virtuale indica al server di Database di Azure per MariaDB di
 
 Finché non si interviene, le macchine virtuali nelle subnet non possono comunicare con il server di Database di Azure per MariaDB. Un'azione che stabilisce la comunicazione è la creazione di una regola di rete virtuale. La base logica per la scelta dell'approccio delle regole di rete virtuale richiede una discussione di confronto riguardo le opzioni di sicurezza concorrenti offerte dal firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>R. Possibilità di accedere ai servizi di Azure
+### <a name="a-allow-access-to-azure-services"></a>A. Possibilità di accedere ai servizi di Azure
 
 Il riquadro Sicurezza connessione contiene un pulsante **ON/OFF** con l'etichetta **Consenti l'accesso a Servizi di Azure**. L'impostazione **ON** consente le comunicazioni da tutti gli indirizzi IP di Azure e tutte le subnet di Azure. Questi indirizzi IP o subnet di Azure potrebbero non essere di proprietà dell'utente. Questa impostazione **ON** è probabilmente più aperta rispetto al livello desiderato per l'istanza di Database di Azure per MariaDB. La funzione delle regole di rete virtuale offre un controllo molto più granulare.
 
@@ -95,13 +95,13 @@ I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio 
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole di rete virtuale. È necessario solo un subset delle relative funzionalità.
 
-È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)][rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato che contiene solo il subset necessario di funzionalità. Il ruolo personalizzato può essere utilizzato invece di coinvolgere l'amministratore di rete o l'amministratore del database. L'area di superficie dell'esposizione alla sicurezza è inferiore se si aggiunge un utente a un ruolo personalizzato, rispetto all'aggiunta dell'utente agli altri due ruoli di amministratore principali.
+È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)][rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato che contiene solo il subset necessario di funzionalità. Il ruolo personalizzato può essere utilizzato invece di coinvolgere l'amministratore di rete o l'amministratore del database. La superficie di attacco dell'esposizione alla sicurezza è inferiore se si aggiunge un utente a un ruolo personalizzato, anziché aggiungere l'utente agli altri due ruoli di amministratore principali.
 
 > [!NOTE]
 > In alcuni casi, Database di Azure per MariaDB e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
 > - Entrambe le sottoscrizioni devono essere nello stesso tenant di Azure Active Directory.
 > - L'utente ha le autorizzazioni necessarie per avviare le operazioni, ad esempio abilitare gli endpoint di servizio e aggiungere una subnet della rete virtuale al server specificato.
-> - Assicurarsi che sia la sottoscrizione con il provider di risorse **Microsoft.Sql** registrato. Per ulteriori informazioni fare riferimento [alla registrazione di resource-manager][resource-manager-portal]
+> - Assicurarsi che la sottoscrizione disponga del provider di risorse **Microsoft. SQL** registrato. Per altre informazioni, vedere [Resource-Manager-Registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -136,7 +136,7 @@ La semplice impostazione di una regola del firewall non consente di proteggere i
 È possibile impostare il flag **IgnoreMissingServiceEndpoint** usando l'interfaccia della riga di comando di Azure o il portale di Azure.
 
 ## <a name="related-articles"></a>Articoli correlati
-- [Reti virtuali di AzureAzure virtual networks][vm-virtual-network-overview]
+- [Reti virtuali di Azure][vm-virtual-network-overview]
 - [Endpoint servizio di rete virtuale di Azure][vm-virtual-network-service-endpoints-overview-649d]
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: ID del contesto utente per tenere traccia dell'attività - Azure Application InsightsUser context IDs to track activity - Azure Application Insights
+title: ID del contesto utente per tenere traccia dell'attività applicazione Azure informazioni dettagliate
 description: Tenere traccia delle azioni degli utenti nel servizio assegnando a ognuno una stringa ID univoca persistente in Application Insights.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670934"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
@@ -22,7 +22,7 @@ Application Insights consente di monitorare e tenere traccia degli utenti tramit
 - [Utenti, sessioni ed eventi](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [Grafici a imbuto](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 - Coorte [Conservazione](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
-- [Cartelle di lavoro](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
 Per tenere traccia delle operazioni eseguite da un utente nel corso del tempo, Application Insights deve usare un ID per ogni utente o sessione. Includere gli ID seguenti in ogni evento o visualizzazione pagina personalizzati.
 
@@ -133,5 +133,5 @@ namespace MvcWebRole.Telemetry
     - [Panoramica sull'uso](usage-overview.md)
     - [Utenti, Sessioni ed Eventi](usage-segmentation.md)
     - [Grafici a imbuto](usage-funnels.md)
-    - [detenzione](usage-retention.md)
-    - [Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)
+    - [Conservazione](usage-retention.md)
+    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)

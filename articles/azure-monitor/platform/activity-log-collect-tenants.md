@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
 ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055731"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Raccogliere i log attività di Azure in monitoraggio di Azure tra Azure Active Directory tenant (legacy)
@@ -129,11 +129,11 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
    | Nome           | Nome univoco per l'app per la logica. |
    | Subscription   | Selezionare la sottoscrizione di Azure che conterrà l'app per la logica. |
    | Gruppo di risorse | Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo per l'app per la logica. |
-   | Location       | Selezionare l'area del data center per la distribuzione dell'app per la logica. |
+   | Percorso       | Selezionare l'area del data center per la distribuzione dell'app per la logica. |
    | Log Analytics  | Selezionare se si vuole registrare lo stato di ogni esecuzione dell'app per la logica in un'area di lavoro Log Analytics.  |
 
     
-3. Seleziona **Crea**. Quando viene visualizzata la notifica **Distribuzione riuscita**, fare clic su **Vai alla risorsa** per aprire l'app per la logica.
+3. Selezionare **Crea**. Quando viene visualizzata la notifica **Distribuzione riuscita**, fare clic su **Vai alla risorsa** per aprire l'app per la logica.
 
 4. In **Modelli** scegliere **App per la logica vuota**. 
 
@@ -147,7 +147,7 @@ In Progettazione app per la logica vengono ora mostrati i connettori disponibili
 
    ![immagine dell'aggiunta del trigger dell'hub eventi nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
-2. Quando viene richiesto di immettere le credenziali, connettersi allo spazio dei nomi dell'hub eventi. Immettere un nome per la connessione e quindi la stringa di connessione copiata.  Seleziona **Crea**.
+2. Quando viene richiesto di immettere le credenziali, connettersi allo spazio dei nomi dell'hub eventi. Immettere un nome per la connessione e quindi la stringa di connessione copiata.  Selezionare **Crea**.
 
    ![immagine dell'aggiunta della connessione dell'hub eventi nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-connection.png)
 
@@ -291,7 +291,7 @@ L'azione dell' [agente di raccolta dati di Azure log Analytics](https://docs.mic
 
    ![Aggiunta dell'azione di invio dati di Log Analytics nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
-3. Immettere un nome per la connessione e incollare **ID area di lavoro** e **Chiave dell'area di lavoro** dell'area di lavoro Log Analytics.  Fare clic su **Crea**.
+3. Immettere un nome per la connessione e incollare **ID area di lavoro** e **Chiave dell'area di lavoro** dell'area di lavoro Log Analytics.  Scegliere **Crea**.
 
    ![Aggiunta della connessione di Log Analytics alle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
 
@@ -299,7 +299,7 @@ L'azione dell' [agente di raccolta dati di Azure log Analytics](https://docs.mic
 
     ![Azione di configurazione dell'invio dei dati](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Impostazione        | Valore           | Descrizione  |
+   |Impostazione        | valore           | Descrizione  |
    |---------------|---------------------------|--------------|
    |JSON Request body (Corpo della richiesta JSON)  | **Output** dell'azione **Componi** | Recupera i record dal corpo dell'azione Componi. |
    | Nome log personalizzato | AzureActivity | Nome della tabella di log personalizzata da creare nell'area di lavoro Log Analytics per conservare i dati importati. |

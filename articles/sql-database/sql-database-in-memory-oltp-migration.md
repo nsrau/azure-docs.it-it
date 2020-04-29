@@ -1,5 +1,5 @@
 ---
-title: OLTP in memoria migliora SQL txn perf
+title: OLTP in memoria migliora le prestazioni transazione SQL
 description: Adottare OLTP in memoria per migliorare le prestazioni transazionali in un database SQL esistente.
 services: sql-database
 ms.service: sql-database
@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: 653ed75341d5d56ecbe06cb59f0efafa1e68aa0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067278"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Uso di OLTP in memoria per migliorare le prestazioni delle applicazioni nel database SQL
@@ -21,7 +21,7 @@ ms.locfileid: "80067278"
 [OLTP in memoria](sql-database-in-memory.md) può essere usato per migliorare le prestazioni di elaborazione delle transazioni, l'inserimento dei dati e gli scenari di dati temporanei, nei database di [livello Premium e Business Critical](sql-database-service-tiers-vcore.md), senza aumentare il piano tariffario. 
 
 > [!NOTE] 
-> Informazioni su come il quorum raddoppia il carico di lavoro del database delle chiavi riducendo il carico di lavoro del [70% con](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) il database SQL
+> Informazioni su come il [quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con il database SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 
 Seguire i passaggi seguenti per adottare OLTP in memoria nel database esistente.
@@ -44,7 +44,7 @@ SSMS include un report **Panoramica analisi delle prestazioni per le transazioni
 In SSMS, per generare il report:
 
 * In **Esplora oggetti**fare clic con il pulsante destro del mouse sul nodo del database.
-* Fare clic su **Report** > **standard report** > **Panoramica analisi delle prestazioni delle transazioni**.
+* Fare clic su **report** > **standard report** > **analisi delle prestazioni delle transazioni Panoramica**.
 
 Per altre informazioni, vedere [Determinare se una tabella o una stored procedure deve essere trasferita a OLTP in memoria](https://msdn.microsoft.com/library/dn205133.aspx).
 
@@ -77,10 +77,10 @@ Per usare questa opzione di migrazione:
 2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sulla tabella e quindi fare clic su **Ottimizzazione guidata per la memoria**.
    
    * Verrà visualizzata l' **Ottimizzazione guidata per la memoria della tabella** .
-3. Nella procedura guidata fare clic su **Convalida della migrazione** o sul pulsante **Avanti** per verificare se la tabella include eventuali funzionalità non supportate nelle tabelle ottimizzate per la memoria. Per altre informazioni, vedere:
+3. Nella procedura guidata fare clic su **Convalida della migrazione** o sul pulsante **Avanti** per verificare se la tabella include eventuali funzionalità non supportate nelle tabelle ottimizzate per la memoria. Per altre informazioni, vedi:
    
    * *Elenco di controllo relativo all'ottimizzazione per la memoria* in [Ottimizzazione guidata per la memoria](https://msdn.microsoft.com/library/dn284308.aspx).
-   * [Costrutti Transact-SQLTransact-SQL non supportati da OLTP in memoria](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [Costrutti Transact-SQL non supportati da OLTP in memoria](https://msdn.microsoft.com/library/dn246937.aspx).
    * [Migrazione a OLTP in memoria](https://msdn.microsoft.com/library/dn247639.aspx).
 4. Se la tabella non include funzionalità non supportate, la procedura guidata può eseguire automaticamente la migrazione effettiva dello schema e dei dati.
 
@@ -91,7 +91,7 @@ Per usare questa opzione di migrazione:
 2. Ottenere lo script T-SQL completo per la tabella e i relativi indici.
    
    * In SSMS fare clic con il pulsante destro del mouse sul nodo della tabella.
-   * Fare clic su **Crea come tabella come** > **CREAZIONE in** > **nuova finestra query**.
+   * Fare clic su **script tabella come** > **Crea in** > **nuova finestra query**.
 3. Nella finestra dello script aggiungere WITH (MEMORY_OPTIMIZED = ON) all'istruzione CREATE TABLE.
 4. Se esiste un indice CLUSTERED, modificarlo in NONCLUSTERED.
 5. Rinominare la tabella esistente in SP_RENAME.
@@ -166,8 +166,8 @@ Tenere sotto controllo gli effetti sulle prestazioni delle implementazioni in me
 * [Monitorare l'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md).
 * [Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica](sql-database-monitoring-with-dmvs.md)
 
-## <a name="related-links"></a>Collegamenti correlati
-* [OLTP in memoria (ottimizzazione in memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
+## <a name="related-links"></a>Link correlati
+* [OLTP in memoria (ottimizzazione per la memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
 * [Stored procedure compilate in modo nativo](https://msdn.microsoft.com/library/dn133184.aspx)
 * [Ottimizzazione guidata per la memoria](https://msdn.microsoft.com/library/dn284308.aspx)
 

@@ -1,6 +1,6 @@
 ---
 title: Schema di definizione di Servizi cloud di Azure (file con estensione cscfg) | Microsoft Docs
-description: Un file di configurazione del servizio (con estensione cscfg) specifica il numero di istanze del ruolo da distribuire per ogni ruolo, valori di configurazione e identificazioni utente del certificato per un ruolo.
+description: Un file di configurazione del servizio (con estensione cscfg) specifica il numero di istanze del ruolo da distribuire per ogni ruolo, i valori di configurazione e le identificazioni personali del certificato per un ruolo.
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
@@ -10,10 +10,10 @@ caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534746"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schema di configurazione di Servizi cloud di Azure (file con estensione cscfg)
@@ -59,8 +59,8 @@ La tabella seguente descrive gli attributi dell'elemento `ServiceConfiguration`.
 | Attributo | Descrizione |
 | --------- | ----------- |
 |serviceName|Obbligatorio. Nome del servizio cloud. Il nome assegnato qui deve corrispondere al nome specificato nel file di definizione del servizio.|
-|osFamily|Facoltativa. Specifica il sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per informazioni sulle versioni del sistema operativo guest supportate, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Se non si include un valore `osFamily` e non si è impostato l'attributo `osVersion` su una versione specifica del sistema operativo guest, viene usato il valore predefinito 1.|
-|osVersion|Facoltativa. Specifica la versione del sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per altre informazioni sulle versioni del sistema operativo guest, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> È possibile specificare che il sistema operativo guest deve essere automaticamente aggiornato alla versione più recente. A questo scopo, impostare il valore dell'attributo `osVersion` su `*`. Quando viene impostato su `*`, le istanze del ruolo vengono distribuite usando la versione più recente del sistema operativo guest per la famiglia di sistemi operativi specificata e verranno automaticamente aggiornate quando verranno rilasciate nuove versioni del sistema operativo guest.<br /><br /> Per specificare manualmente una determinata versione, usare `Configuration String` della tabella della sezione **Versioni future, correnti e di transizione del sistema operativo guest** di [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Il valore predefinito per l'attributo `osVersion` è `*`.|
-|schemaVersion|Facoltativa. Specifica la versione dello schema di configurazione del servizio. La versione dello schema consente a Visual Studio di selezionare gli strumenti SDK corretti da usare per la convalida dello schema se più di una versione dell'SDK è installata side-by-side. Per altre informazioni sullo schema e sulla compatibilità delle versioni, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md)|
+|osFamily|Facoltativo. Specifica il sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per informazioni sulle versioni del sistema operativo guest supportate, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Se non si include un valore `osFamily` e non si è impostato l'attributo `osVersion` su una versione specifica del sistema operativo guest, viene usato il valore predefinito 1.|
+|osVersion|Facoltativo. Specifica la versione del sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per altre informazioni sulle versioni del sistema operativo guest, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> È possibile specificare che il sistema operativo guest deve essere automaticamente aggiornato alla versione più recente. A questo scopo, impostare il valore dell'attributo `osVersion` su `*`. Quando viene impostato su `*`, le istanze del ruolo vengono distribuite usando la versione più recente del sistema operativo guest per la famiglia di sistemi operativi specificata e verranno automaticamente aggiornate quando verranno rilasciate nuove versioni del sistema operativo guest.<br /><br /> Per specificare manualmente una determinata versione, usare `Configuration String` della tabella della sezione **Versioni future, correnti e di transizione del sistema operativo guest** di [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Il valore predefinito per l'attributo `osVersion` è `*`.|
+|schemaVersion|Facoltativo. Specifica la versione dello schema di configurazione del servizio. La versione dello schema consente a Visual Studio di selezionare gli strumenti SDK corretti da usare per la convalida dello schema se più di una versione dell'SDK è installata side-by-side. Per altre informazioni sullo schema e sulla compatibilità delle versioni, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md)|
 
 Il file di configurazione del servizio deve contenere un elemento `ServiceConfiguration`. L'elemento `ServiceConfiguration` può includere un numero qualsiasi di elementi `Role` e zero o 1 elemento `NetworkConfiguration`.

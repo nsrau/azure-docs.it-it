@@ -6,10 +6,10 @@ ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
 ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78199717"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
@@ -74,19 +74,19 @@ Di seguito sono riportate le descrizioni delle proprietà:
 
 | **Nome** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-| name | string | Nome univoco per l'estensione |
+| name | stringa | Nome univoco per l'estensione |
 | type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | Identifica Service Fabric del sistema operativo per il bootstrap |
 | autoUpgradeMinorVersion | true o false | Abilita l'aggiornamento automatico delle versioni secondarie di runtime SF |
 | publisher | Microsoft. Azure. ServiceFabric | Nome del server di pubblicazione dell'estensione Service Fabric |
-| clusterEndpont | string | URI: porta per l'endpoint di gestione |
-| nodeTypeRef | string | Nome di nodeType |
+| clusterEndpont | stringa | URI: porta per l'endpoint di gestione |
+| nodeTypeRef | stringa | Nome di nodeType |
 | Durabilità | bronzo, argento, oro, platino | Tempo consentito per sospendere un'infrastruttura di Azure non modificabile |
 | enableParallelJobs | true o false | Abilitare ParallelJobs di calcolo, ad esempio rimuovere una macchina virtuale e riavviare la macchina virtuale nello stesso set di scalabilità in parallelo |
-| nicPrefixOverride | string | Prefisso della subnet, ad esempio "10.0.0.0/24" |
+| nicPrefixOverride | stringa | Prefisso della subnet, ad esempio "10.0.0.0/24" |
 | commonNames | string[] | Nomi comuni dei certificati del cluster installati |
-| x509StoreName | string | Nome dell'archivio in cui si trova il certificato del cluster installato |
+| x509StoreName | stringa | Nome dell'archivio in cui si trova il certificato del cluster installato |
 | typeHandlerVersion | 1.1 | Versione dell'estensione. 1,0 versione classica dell'estensione consigliata per l'aggiornamento a 1,1 |
-| Percorso dati | string | Percorso dell'unità utilizzata per salvare lo stato per Service Fabric i servizi di sistema e i dati dell'applicazione.
+| Percorso dati | stringa | Percorso dell'unità utilizzata per salvare lo stato per Service Fabric i servizi di sistema e i dati dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

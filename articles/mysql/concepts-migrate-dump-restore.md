@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione usando dump e ripristino - Database di Azure per MySQLMigrate using dump and restore - Azure Database for MySQL
+title: Eseguire la migrazione tramite dump e Restore-database di Azure per MySQL
 description: Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL usando strumenti come mysqldump, MySQL Workbench e PHPMyAdmin.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: b15da2aa83231bfdc8732995888349b06ab56d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78163778"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
@@ -21,11 +21,11 @@ Questo articolo illustra due modi comuni per eseguire il backup e il ripristino 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per proseguire con questa guida è necessario:
 - [Creare un server Database di Azure per MySQL - Portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Utilità della riga di comando [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) installata in un computer.
-- MySQL Workbench [MySQL Workbench Scarica](https://dev.mysql.com/downloads/workbench/) o un altro strumento MySQL di terze parti per eseguire comandi di dump e ripristino.
+- utilità della riga di comando [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) installata in un computer.
+- MySQL Workbench [MySQL Workbench download](https://dev.mysql.com/downloads/workbench/) o un altro strumento MySQL di terze parti per eseguire i comandi dump e Restore.
 
 ## <a name="use-common-tools"></a>Usare strumenti comuni
-Usare utilità e strumenti comuni come MySQL Workbench o mysqldump per connettere e ripristinare in remoto i dati nel database di Azure per MySQL.Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and restore data into Azure Database for MySQL. Usare tali strumenti sul computer client con una connessione internet per connettersi al database di Azure per MySQL. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate. Vedere anche [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md) (Configurare la connettività SSL nel database di Azure per MySQL). Durante la migrazione al database di Azure per MySQL non è necessario spostare i file di dump in alcun percorso cloud speciale. 
+Usare utilità e strumenti comuni, come MySQL Workbench o mysqldump, per connettersi in modalità remota e ripristinare i dati nel database di Azure per MySQL. Usare tali strumenti sul computer client con una connessione internet per connettersi al database di Azure per MySQL. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate. Vedere anche [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md) (Configurare la connettività SSL nel database di Azure per MySQL). Durante la migrazione al database di Azure per MySQL non è necessario spostare i file di dump in alcun percorso cloud speciale. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Usi comuni per il dump e ripristino
 È possibile usare le utilità di MySQL come mysqldump e mysqlpump per il dump e il caricamento di database in un database MySQL di Azure in diversi scenari comuni. In altri scenari è invece possibile usare l'approccio di [importazione ed esportazione](concepts-migrate-import-export.md).
@@ -49,7 +49,7 @@ Per ottimizzare le prestazioni, tenere presenti le considerazioni seguenti duran
 -   Usare le tabelle partizionate quando appropriato.
 -   Caricare i dati in parallelo. Evitare un eccessivo parallelismo che comporterebbe il raggiungimento del limite di risorse e monitorare le risorse con le metriche offerta nel portale di Azure. 
 -   Usare l'opzione `defer-table-indexes` in mysqlpump durante il dump dei database, in modo che la creazione dell'indice venga eseguita dopo il caricamento dei dati delle tabelle.
--   Utilizzare `skip-definer` l'opzione in mysqlpump per omettere il definitore e le clausole SQL SECURITY dalle istruzioni create per viste e stored procedure.  Quando si ricarica il file dump, vengono creati oggetti che utilizzano i valori predefiniti DEFINER e SQL SECURITY.
+-   Utilizzare l' `skip-definer` opzione in mysqlpump per omettere le clausole definitive e di sicurezza SQL dalle istruzioni create per le viste e le stored procedure.  Quando si ricarica il file di dump, vengono creati oggetti che utilizzano i valori predefiniti di sicurezza di SQL e del delimitatore.
 -   Copiare i file di backup in un archivio/BLOB di Azure ed eseguire il ripristino da tale posizione. In questo modo, l'operazione dovrebbe essere eseguita in modo molto più veloce rispetto al ripristino attraverso Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Creare un file di backup dalla riga di comando tramite mysqldump
@@ -80,7 +80,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Creare un database sul database di Azure per il server MySQL di destinazione
-Creare un database vuoto nel database di Azure per il server MySQL di destinazione in cui si vuole eseguire la migrazione dei dati. Utilizzare uno strumento come MySQL Workbench per creare il database. Il database può avere lo stesso nome del database che contiene i dati di dump; in alternativa, è possibile creare un database con un nome diverso.
+Creare un database vuoto nel database di Azure per il server MySQL di destinazione in cui si vuole eseguire la migrazione dei dati. Usare uno strumento come MySQL Workbench per creare il database. Il database può avere lo stesso nome del database che contiene i dati di dump; in alternativa, è possibile creare un database con un nome diverso.
 
 Per la connessione, individuare le informazioni di connessione nella pagina **Panoramica** del database di Azure per MySQL.
 
@@ -105,7 +105,7 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 Per l'esportazione è possibile usare lo strumento comune phpMyAdmin, che potrebbe essere già installato in locale nel proprio ambiente. Per esportare il database MySQL mediante PHPMyAdmin:
 1. Aprire phpMyAdmin.
 2. Selezionare il database. Fare clic sul nome del database nell'elenco a sinistra. 
-3. Fare clic sul collegamento **Esporta.** Viene visualizzata una nuova pagina per eseguire il dump del database.
+3. Fare clic sul collegamento **Esporta** . Viene visualizzata una nuova pagina per eseguire il dump del database.
 4. Nell'area Export (Esporta) fare clic sul collegamento **Select All** (Seleziona tutto) per scegliere le tabelle nel database. 
 5. Nell'area delle opzioni SQL, fare clic sulle opzioni appropriate. 
 6. Fare clic sull'opzione **Save as file** (Salva come file) e sull'opzione di compressione corrispondente e quindi fare clic sul pulsante **Go** (Vai). Verrà visualizzata una finestra di dialogo che richiede di salvare il file in locale.

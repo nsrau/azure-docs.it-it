@@ -1,5 +1,5 @@
 ---
-title: Codice del buffer circolare XEventXEvent Ring Buffer code
+title: Codice del buffer circolare XEvent
 description: Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l'uso della destinazione del buffer circolare nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79213975"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL
@@ -42,7 +42,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un account e una sottoscrizione di Azure. Puoi iscriverti per una [prova gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un account e una sottoscrizione di Azure. È possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.
   
   * Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](sql-database-get-started.md) in pochi minuti.
@@ -222,7 +222,7 @@ Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazio
 
 Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML**. Tramite questo clic del mouse è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
 
-L'output è illustrato nella sezione seguente. Sembra lungo, ma è ** \<** solo due>elementi.
+L'output è illustrato nella sezione seguente. Sembra lungo, ma si tratta solo di due ** \<elementi>eventi** .
 
 &nbsp;
 
@@ -339,7 +339,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 ```
 
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 L'argomento principale per gli eventi estesi in un database SQL di Azure è:
 

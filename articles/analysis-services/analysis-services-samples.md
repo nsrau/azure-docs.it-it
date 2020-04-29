@@ -1,6 +1,6 @@
 ---
 title: Esempi di codice, progetto e database di Azure Analysis Services | Microsoft Docs
-description: Questo articolo descrive le risorse per informazioni sugli esempi di codice, progetto e database per Azure Analysis Services.This article describes resources to learn about code, project, and database samples for Azure Analysis Services.
+description: Questo articolo descrive le risorse per ottenere informazioni sugli esempi di codice, progetto e database per Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78247830"
 ---
 # <a name="azure-analysis-services-samples"></a>Esempi di Azure Analysis Services
@@ -26,9 +26,9 @@ Il repository di [Analysis Services](https://github.com/Microsoft/Analysis-Servi
 
 [Adventure Works per Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) su GitHub è il progetto di modello tabulare di esempio più comunemente usato. È possibile scaricare un progetto di Visual Studio o un database modello tabulare di esempio completo.
 
-## <a name="sample-database-on-azure"></a>Database di esempio in AzureSample database on Azure
+## <a name="sample-database-on-azure"></a>Database di esempio in Azure
 
-Azure Synapse Analytics (SQL Data Warehouse) fornisce un database AdventureWorksDW di esempio che può essere incluso in una risorsa di cui è stato eseguito il provisioning. Per altre informazioni, vedere [Guida introduttiva: Creare ed eseguire query su un pool SQL di Azure Synapse Analytics.](/azure/sql-data-warehouse/create-data-warehouse-portal)
+Azure sinapsi Analytics (SQL Data Warehouse) fornisce un database AdventureWorksDW di esempio che può essere incluso in una risorsa di cui è stato effettuato il provisioning. Per altre informazioni, vedere [Guida introduttiva: creare ed eseguire query in un pool SQL di Azure sinapsi Analytics](/azure/sql-data-warehouse/create-data-warehouse-portal).
 
 ## <a name="sample-databases-on-github"></a>Database di esempio su GitHub
 

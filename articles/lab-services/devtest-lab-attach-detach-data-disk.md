@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2020
 ms.author: spelluru
 ms.openlocfilehash: 3f18425408e6526904db85eae1c3a4db41d11a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78198810"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Collegare o scollegare un disco dati a/da una macchina virtuale in Azure DevTest Labs
@@ -29,13 +29,13 @@ Questa funzionalità è utile per la gestione delle risorse di archiviazione o s
 ## <a name="attach-a-data-disk"></a>Collegamento di un disco dati
 Prima di collegare un disco dati a una macchina virtuale, esaminare i suggerimenti seguenti:
 
-- La dimensione della macchina virtuale determina il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni per le macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+- La dimensione della macchina virtuale determina il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [dimensioni delle macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - È solo possibile collegare un disco dati a una macchina virtuale in esecuzione. Verificare che la macchina virtuale sia in esecuzione prima di provare a collegare un disco dati.
 
 ### <a name="attach-a-new-disk"></a>Collegare un nuovo disco
 Eseguire la procedura seguente per creare e collegare un nuovo disco dati gestito a una macchina virtuale in Azure DevTest Labs.
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 1. Nell'elenco dei lab selezionare il lab desiderato. 
 1. Nell'elenco **Macchine virtuali personali** selezionare una macchina virtuale in esecuzione.
@@ -48,7 +48,7 @@ Eseguire la procedura seguente per creare e collegare un nuovo disco dati gestit
     ![Completare il modulo "Collega un nuovo disco"](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new-form.png)
 1. Selezionare **OK**.
 
-Dopo alcuni istanti, il nuovo disco dati viene creato e collegato alla macchina virtuale e viene visualizzato nell'elenco **Dischi dati** per tale macchina virtuale.
+Dopo alcuni istanti, il nuovo disco dati viene creato e collegato alla macchina virtuale e viene visualizzato nell'elenco dei **dischi dati** per tale macchina virtuale.
 
 ### <a name="attach-an-existing-disk"></a>Collegare un disco esistente
 Eseguire la procedura seguente per ricollegare un disco dati disponibile esistente a una macchina virtuale in esecuzione. 
@@ -63,7 +63,7 @@ Eseguire la procedura seguente per ricollegare un disco dati disponibile esisten
 
     ![Collegare un disco dati esistente a una macchina virtuale](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
 
-Dopo alcuni istanti, il disco dati viene collegato alla macchina virtuale e viene visualizzato nell'elenco di **dischi dati** per tale macchina virtuale.
+Dopo alcuni istanti, il disco dati viene collegato alla macchina virtuale e viene visualizzato nell'elenco dei **dischi dati** per tale macchina virtuale.
 
 ## <a name="detach-a-data-disk"></a>Scollegare un disco dati
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Lo scollegamento rimuove il disco dalla macchina virtuale, ma lo conserva in memoria per un uso successivo.
@@ -73,7 +73,7 @@ Se si vogliono riusare i dati presenti nel disco, è possibile ricollegare il di
 ### <a name="detach-from-the-vms-management-pane"></a>Scollegare un disco dati dal riquadro di gestione della macchina virtuale
 1. Dall'elenco di macchine virtuali selezionare una macchina virtuale a cui è collegato un disco dati.
 1. Scegliere **Dischi** dal menu a sinistra.
-1. Nell'elenco **Dischi dati**selezionare il disco dati che si desidera scollegare.
+1. Dall'elenco dei **dischi dati**selezionare il disco dati che si desidera scollegare.
 
     ![Selezionare i dischi dati per una macchina virtuale](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png) 
 1. Selezionare **collega** nella parte superiore del riquadro dei dettagli del disco.
@@ -84,7 +84,7 @@ Se si vogliono riusare i dati presenti nel disco, è possibile ricollegare il di
 Il disco viene scollegato e risulta quindi disponibile per poter essere collegato a un'altra macchina virtuale. 
 ### <a name="detach-from-the-labs-main-pane"></a>Scollegare un disco dati dal riquadro principale del lab
 1. Nel riquadro principale dell'ambiente di test selezionare **Dischi dati personali**.
-1. Fare clic con il pulsante destro del mouse sul disco dati da scollegare oppure selezionarne i lipsiani (**...**) e scegliere **Scollega**.
+1. Fare clic con il pulsante destro del mouse sul disco dati che si desidera scollegare, oppure selezionare i puntini di sospensione (**...**), quindi scegliere **Scollega**.
 
     ![Scollegare un disco dati](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png)
 1. Selezionare **Sì** per confermare che si desidera scollegare il disco dati.

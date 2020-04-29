@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
-description: Questo articolo illustra ExpressRoute Direct usando l'interfaccia della riga di comando di AzureThis article helps you configure ExpressRoute Direct by using the Azure CLI
+title: 'Azure ExpressRoute: configurare ExpressRoute Direct: interfaccia della riga di comando'
+description: Questo articolo consente di configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: dcca1417aec52fb4bf99d5c480d81995154a68b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481977"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct tramite l'interfaccia della riga di comando di AzureConfigure ExpressRoute Direct by using the Azure CLI
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
 
 ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località di peering distribuite in modo strategico in tutto il mondo. Per altre informazioni, vedere [Informazioni su ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
@@ -38,7 +38,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    az account set --subscription "<subscription ID>"
    ```
 
-2. Registrare nuovamente la sottoscrizione a Microsoft.Network per accedere alle API expressrouteportslocation e expressrouteport
+2. Registrare nuovamente la sottoscrizione a Microsoft. Network per accedere alle API expressrouteportslocation e expressrouteport
 
    ```azurecli
    az provider register --namespace Microsoft.Network
@@ -284,9 +284,9 @@ Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscri
 
 È possibile usare altre larghezze di banda del circuito in ExpressRoute Direct solo per supportare gli scenari descritti in questo articolo. Le larghezze di banda sono 40 Gbps e 100 Gbps.
 
-**SkuTier** può essere Locale, Standard o Premium.
+**SkuTier** può essere locale, standard o Premium.
 
-**SkuFamily** deve essere MeteredData solo se unlimited non è supportato in ExpressRoute Direct.
+**SkuFamily** deve essere MeteredData solo se illimitato non è supportato in ExpressRoute Direct.
 Creare un circuito nella risorsa di ExpressRoute Direct:
 
   ```azurecli

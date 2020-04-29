@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
 ms.openlocfilehash: 57123abfe7f343a75d264d43afb88f9de1409e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78207745"
 ---
 # <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Risparmiare sui costi con un'istanza riservata di host dedicati di Azure
@@ -109,7 +109,7 @@ Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, diretta
 
 - Quantità
 
-- Durata
+- Duration
 
 Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
 
@@ -127,7 +127,7 @@ Per informazioni su come gestire una prenotazione, vedere [gestire le prenotazi
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Informazioni sulle prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Che cosa sono le prenotazioni di Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
 
 - [Uso di host dedicati di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
 

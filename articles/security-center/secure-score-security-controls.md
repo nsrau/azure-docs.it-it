@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/10/2020
 ms.author: memildin
 ms.openlocfilehash: d7eea9cd83e72b6ffeaae319a8e87c065015e6b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79415800"
 ---
 # <a name="enhanced-secure-score-preview-in-azure-security-center"></a>Punteggio sicuro migliorato (anteprima) nel centro sicurezza di Azure
@@ -91,7 +91,7 @@ La tabella seguente elenca i controlli di sicurezza nel centro sicurezza di Azur
 > [!TIP]
 > Se si desidera filtrare o ordinare questo elenco in modo diverso, copiarlo e incollarlo in Excel.
 
-|Controllo di sicurezza|Numero massimo di punti di Punteggio sicuro|Consigli|
+|Controllo di sicurezza|Numero massimo di punti di Punteggio sicuro|Indicazioni|
 |----------------|:-------------------:|---------------|
 |**Abilitare MFA**|10|-L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni proprietario per la sottoscrizione<br>-L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni di lettura per la sottoscrizione<br>-L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni di scrittura sulla sottoscrizione|
 |**Porte di gestione sicure**|8|-Il controllo di accesso di rete just-in-time deve essere applicato alle macchine virtuali<br>-Le macchine virtuali devono essere associate a un gruppo di sicurezza di rete<br>-Le porte di gestione devono essere chiuse nelle macchine virtuali|

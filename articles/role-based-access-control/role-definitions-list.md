@@ -15,10 +15,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062996"
 ---
 # <a name="list-role-definitions-in-azure-rbac"></a>Elencare le definizioni dei ruoli in RBAC di Azure
@@ -327,7 +327,7 @@ Per elencare le definizioni dei ruoli, usare l'API REST per l' [elenco delle def
 1. All'interno dell'URI, sostituire *{scope}* con l'ambito per il quale si desidera visualizzare l'elenco delle definizioni di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -363,7 +363,7 @@ Per elencare i dettagli di un ruolo specifico, usare l'API REST per le [definizi
 1. Nell'URI sostituire *{scope}* con l'ambito per il quale si desidera elencare la definizione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Type |
+    > | Scope | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |

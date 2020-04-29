@@ -1,5 +1,5 @@
 ---
-title: Apache Hive policies in Apache Ranger - Azure HDInsight
+title: Criteri di Apache Hive in Apache Ranger-Azure HDInsight
 description: Informazioni su come configurare i criteri di Apache Ranger per Hive in un servizio HDInsight di Azure con Enterprise Security Package.
 author: omidm1
 ms.author: omidm
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78196927"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
 
-Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In questo articolo vengono creati due criteri di Ranger per limitare l'accesso a hivesampletable. La tabella hivesampletable è disponibile con i cluster HDInsight. Dopo aver configurato i criteri, utilizzare Excel e driver ODBC per connettersi alle tabelle Hive in HDInsight.After you've configured the policies, you use Excel and ODBC driver to connect to Hive tables in HDInsight.
+Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In questo articolo vengono creati due criteri di Ranger per limitare l'accesso a hivesampletable. La tabella hivesampletable è disponibile con i cluster HDInsight. Dopo aver configurato i criteri, è possibile usare Excel e il driver ODBC per connettersi alle tabelle hive in HDInsight.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,7 +27,7 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Connettersi all'interfaccia utente di amministrazione di Apache Ranger
 **Per connettersi all'interfaccia utente di amministrazione di Ranger**
 
-1. Da un browser passare all'interfaccia `https://CLUSTERNAME.azurehdinsight.net/Ranger/` utente di amministrazione dei ranger in cui CLUSTERNAME è il nome del cluster.
+1. Da un browser, passare all'interfaccia utente di amministrazione di `https://CLUSTERNAME.azurehdinsight.net/Ranger/` Ranger in dove clustername è il nome del cluster.
 
    > [!NOTE]  
    > Ranger usa credenziali diverse da quelle del cluster Apache Hadoop. Per evitare che i browser usino credenziali memorizzate nella cache di Hadoop, connettersi all'interfaccia utente di amministrazione di Ranger da una nuova finestra del browser InPrivate.
@@ -40,7 +40,7 @@ Informazioni su come configurare i criteri di Apache Ranger per Apache Hive. In 
 
 ## <a name="create-domain-users"></a>Creazione di utenti del dominio
 
-Per informazioni su come creare hiveruser1 e hiveuser2, vedere [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). Utilizzare i due account utente in questo articolo.
+Per informazioni su come creare hiveruser1 e hiveuser2, vedere [Creare un cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). In questo articolo vengono usati i due account utente.
 
 ## <a name="create-ranger-policies"></a>Creazione dei criteri di Ranger
 
@@ -49,19 +49,19 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 **Per creare criteri di Ranger**
 
 1. Aprire l'interfaccia utente di amministrazione di Ranger. Consultare la sezione Connettersi all'interfaccia utente di amministrazione di Apache Ranger.
-2. Selezionare **CLUSTERNAME_Hive**, in **Hive**. Verranno visualizzati due criteri preconfigurati.
+2. Selezionare **CLUSTERNAME_Hive**, in **hive**. Verranno visualizzati due criteri preconfigurati.
 3. Selezionare **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
 
     |Proprietà |valore |
     |---|---|
-    |Nome criterio|read-hivesampletable-all|
-    |Hive Database|default|
+    |Nome criterio|Read-hivesampletable-all|
+    |Database hive|default|
     |tabella|hivesampletable|
-    |Colonna Hive|*|
+    |Colonna hive|*|
     |Seleziona utente|hiveuser1|
     |Autorizzazioni|Proprietà|
 
-    ![Configurazione dei criteri hdInsight ESP Ranger Hive](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    ![Configurazione di HDInsight ESP Ranger hive Policy](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
     > [!NOTE]  
     > Se l'utente di un dominio non compare in Seleziona utente, attendere alcuni istanti per la sincronizzazione di Ranger con AAD.
@@ -72,10 +72,10 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 
     |Proprietà |valore |
     |---|---|
-    |Nome criterio|read-hivesampletable-devicemake|
-    |Hive Database|default|
+    |Nome criterio|Read-hivesampletable-devicemake|
+    |Database hive|default|
     |tabella|hivesampletable|
-    |Colonna Hive|cliente, devicemake|
+    |Colonna hive|ClientID, devicemake|
     |Seleziona utente|hiveuser2|
     |Autorizzazioni|Proprietà|
 
@@ -88,11 +88,11 @@ Le istruzioni sono disponibili in [Creare un'origine dati Hive ODBC](../hadoop/a
  | Data Source Name | Assegnare un nome all'origine dati |
  | Host | Immettere CLUSTERNAME.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net |
  | Porta | Utilizzare **443**. Questa porta è passata da 563 a 443. |
- | Database | Usa **predefinito**. |
+ | Database | Usare il **valore predefinito**. |
  | Hive Server Type | Selezionare **Hive Server 2** |
  | Mechanism | Selezionare **Azure HDInsight Service** |
  | HTTP Path | Lasciare vuoto. |
- | Nome utente | Immettere hiveuser1@contoso158.onmicrosoft.com. Aggiornare il nome di dominio, se diverso. |
+ | Nome utente | Immettere hiveuser1@contoso158.onmicrosoft.com. Se è diverso, aggiornare il nome di dominio. |
  | Password | Immettere la password per hiveuser1. |
 
 Assicurarsi di fare clic su **Test** prima di salvare l'origine dati.
@@ -107,29 +107,29 @@ Nell'ultima sezione sono stati configurati due criteri.  hiveuser1 dispone dell'
 
     ![Aprire la Connessione guidata dati](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. Nell'elenco a discesa selezionare il nome dell'origine dati creata nell'ultima sezione e quindi scegliere **OK**.
+1. Nell'elenco a discesa selezionare il nome dell'origine dati creato nell'ultima sezione e quindi fare clic su **OK**.
 
-1. Per il primo utilizzo, si aprirà una finestra di dialogo **del driver ODBC.** Seleziona **Finestre** dal menu a sinistra. Quindi selezionare **Connetti** per aprire la finestra **Navigatore.**
+1. Per il primo utilizzo, viene visualizzata una finestra di dialogo del **driver ODBC** . Selezionare **Windows** dal menu a sinistra. Selezionare quindi **Connetti** per aprire la finestra **strumento di navigazione** .
 
 1. Attendere l'apertura della finestra di dialogo **Seleziona database e tabella** . Questa operazione potrebbe richiedere alcuni secondi.
 
-1. Selezionare **hivesampletable**, quindi **scegliere Avanti**.
+1. Selezionare **hivesampletable**e quindi fare clic su **Avanti**.
 
-1. Fare clic su **Fine**.
+1. Selezionare **Fine**.
 
 1. Nella finestra di dialogo **Importa dati** è possibile modificare o specificare la query. A tale scopo, selezionare **Proprietà**. Questa operazione potrebbe richiedere alcuni secondi.
 
-1. Selezionare la scheda **Definizione.** Il testo del comando è:
+1. Selezionare la scheda **definizione** . Il testo del comando è:
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
-   In base ai criteri di Ranger che sono stati definiti, hiveuser1 dispone dell'autorizzazione di selezione su tutte le colonne.  Quindi questa query funziona con le credenziali di hiveuser1, ma questa query non funziona con le credenziali di hiveuser2.
+   In base ai criteri di Ranger che sono stati definiti, hiveuser1 dispone dell'autorizzazione di selezione su tutte le colonne.  Quindi, questa query funziona con le credenziali di hiveuser1, ma questa query non funziona con le credenziali di quelle.
 
 1. Selezionare **OK** per chiudere la finestra di dialogo Proprietà connessione.
 
-1. Selezionare **OK** per chiudere la finestra di dialogo **Importa dati.**  
+1. Selezionare **OK** per chiudere la finestra di dialogo **Importa dati** .  
 
-1. Reimmettere la password per hiveuser1, quindi fare clic su **OK**. L'importazione dei dati in Excel potrebbe richiedere alcuni secondi. Quando è fatto, vedrete 11 colonne di dati.
+1. Reimmettere la password per hiveuser1, quindi fare clic su **OK**. L'importazione dei dati in Excel potrebbe richiedere alcuni secondi. Al termine, verranno visualizzate 11 colonne di dati.
 
 Per il test del secondo criterio (read-hivesampletable-devicemake) creato nell'ultima sezione
 

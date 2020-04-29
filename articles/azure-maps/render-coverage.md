@@ -1,6 +1,6 @@
 ---
-title: Copertura del rendering Mappe di Microsoft Azure
-description: In questo articolo vengono fornite informazioni sulle aree con la copertura di rendering di Microsoft Azure Maps insieme al relativo livello di dettagli di cui è stato eseguito il rendering.
+title: Copertura rendering | Mappe Microsoft Azure
+description: In questo articolo vengono fornite informazioni sulle aree con Microsoft Azure mapping di rendering con mapping insieme al relativo livello di dettagli di rendering.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536752"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 
-Mappe di Azure usa sia i riquadri raster che i riquadri vettoriali per creare le mappe. Alla risoluzione più bassa, il mondo intero si inserisce in un'unica tessera. Alla risoluzione più alta, una singola piastrella rappresenta 38 metri quadrati. Vedrai maggiori dettagli su continenti, regioni, città e singole strade mentre ingrandisci la mappa. Per ulteriori informazioni sui riquadri, consultate [Livelli di zoom e griglia dei riquadri.](zoom-levels-and-tile-grid.md)
+Mappe di Azure usa sia i riquadri raster che i riquadri vettoriali per creare le mappe. Con la risoluzione più bassa, l'intero mondo si integra in un unico riquadro. Con la risoluzione più elevata, un singolo riquadro rappresenta 38 metri quadrati. Verranno visualizzati altri dettagli su continenti, aree, città e strade singole mentre si esegue lo zoom avanti sulla mappa. Per ulteriori informazioni sui riquadri, vedere [livelli di zoom e griglia affiancata](zoom-levels-and-tile-grid.md).
 
-Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte le regioni. Nelle tabelle seguenti viene descritto in dettaglio il livello di informazioni di cui è possibile eseguire il rendering per ogni area.
+Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per tutte le aree. Le tabelle seguenti illustrano in dettaglio il livello di informazioni di cui è possibile eseguire il rendering per ogni area.
 
 ## <a name="legend"></a>Legenda
 
@@ -42,21 +42,21 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte 
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
 | Camerun                         | ✓ | ✓ |
-| Repubblica centrafricana         | ✓ | Ø |
-| Chad                             | ✓ | Ø |
+| Repubblica Centrafricana         | ✓ | Ø |
+| Ciad                             | ✓ | Ø |
 | Comore                          | ✓ | Ø |
 | Congo, Repubblica democratica | ✓ | ✓ |
 | Côte d’Ivoire (Costa d'Avorio)                    | ✓ | Ø |
 | Gibuti                         | ✓ | Ø |
 | Egitto                            | ✓ | ✓ |
-| Guinea equatoriale                | ✓ | Ø |
+| Guinea Equatoriale                | ✓ | Ø |
 | Eritrea                          | ✓ | Ø |
 | Etiopia                         | ✓ | Ø |
 | Gabon                            | ✓ | ✓ |
 | Gambia                           | ✓ | Ø |
 | Ghana                            | ✓ | ✓ |
 | Guinea                           | ✓ | Ø |
-| Bissau                    | ✓ | Ø |
+| Guinea-Bissau                    | ✓ | Ø |
 | Kenya                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
 | Liberia                          | ✓ | Ø |
@@ -80,7 +80,7 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte 
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
 | Sud Africa                     | ✓ | ✓ |
-| Sudan del Sud                      | ✓ | ✓ |
+| Sud Sudan                      | ✓ | ✓ |
 | Sudan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
 | Repubblica unita di Tanzania      | ✓ | ✓ |
@@ -116,12 +116,12 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte 
 | Repubblica dominicana        | ✓ | ✓ |
 | Ecuador                   | ✓ | ✓ |
 | Isole Falkland | ✓ | ✓ |
-| Guayana francese             | ✓ | ✓ |
+| Guayana Francese             | ✓ | ✓ |
 | Groenlandia                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadalupa                | ✓ | ✓ |
 | Guatemala                 | ✓ | ✓ |
-| Guiana                    | ✓ | ✓ |
+| Guyana                    | ✓ | ✓ |
 | Haiti                     | ✓ | ✓ |
 | Honduras                  | ✓ | ✓ |
 | Giamaica                   | ✓ | ✓ |
@@ -145,7 +145,7 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte 
 | Georgia del Sud e Sandwich Australi | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
-| Isole Turks e Caicos  | ✓ | ✓ |
+| Turks e Caicos, Isole  | ✓ | ✓ |
 | Stati Uniti             | ✓ | ✓ |
 | Uruguay                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
@@ -160,7 +160,7 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte 
 | Bahrain                   | ✓ | ✓ |
 | Bangladesh                |   | Ø |
 | Bhutan                    |   | Ø |
-| Territorio britannico dell'oceano Indiano |   | Ø |
+| Territorio britannico dell'Oceano Indiano |   | Ø |
 | Brunei                    | ✓ | ✓ |
 | Cambogia                  |   | Ø |
 | Cina                     |   | Ø |
@@ -198,7 +198,7 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte 
 | Taiwan                    | ✓ | ✓ |
 | Tagikistan                |   | Ø |
 | Thailandia                  | ✓ | ✓ |
-| Timor Est               |   | Ø |
+| Timor-Leste               |   | Ø |
 | Turkmenistan              |   | Ø |
 | Emirati Arabi Uniti      | ✓ | ✓ |
 | Altre isole minori degli Stati Uniti |   | Ø |
@@ -210,24 +210,24 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte 
 
 | Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
-| Isole Samoa americane            |   | ✓ |
+| Samoa Americane            |   | ✓ |
 | Australia                 | ✓ | ✓ |
 | Isole Cook              |   | Ø |
 | Figi                      |   | Ø |
-| Polinesia francese          |   | Ø |
+| Polinesia Francese          |   | Ø |
 | Guam                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
-| Isole Marshall          |   | Ø |
+| Marshall          |   | Ø |
 | Micronesia                |   | Ø |
 | Nauru                     |   | Ø |
 | Nuova Caledonia             |   | Ø |
 | Nuova Zelanda               | ✓ | ✓ |
 | Niue                      |   | Ø |
-| Isola di Norfolk            |   | Ø |
+| Norfolk            |   | Ø |
 | Palau                     |   | Ø |
 | Papua Nuova Guinea          |   | Ø |
 | Pitcairn                  |   | Ø |
-| Isole Samoa                      |   | Ø |
+| Samoa                     |   | Ø |
 | Isole Salomone           |   | Ø|
 | Tokelau                   |   | Ø |
 | Tonga                     |   | Ø |
@@ -261,7 +261,7 @@ Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte 
 | Germania                   | ✓ | ✓ |
 | Gibilterra                 | ✓ | ✓ |
 | Grecia                    | ✓ | ✓ |
-| Isola di Guernsey                  | ✓ | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Ungheria                   | ✓ | ✓ |
 | Islanda                   | ✓ | ✓ |
 | Irlanda                   | ✓ | ✓ |

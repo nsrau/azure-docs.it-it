@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 43024b63a355646f607adbb6623cc6c349374ea8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535596"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrazione di Azure Data Lake Storage Gen1 con altri servizi di Azure
@@ -68,5 +68,5 @@ Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, AdlCopy, ch
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introduzione a Data Lake Storage Gen1 con il portale](data-lake-store-get-started-portal.md)
-* [Introduzione a Data Lake Storage Gen1 con PowerShellGet started with Data Lake Storage Gen1 using PowerShell](data-lake-store-get-started-powershell.md)  
+* [Introduzione all'uso di Data Lake Storage Gen1 con PowerShell](data-lake-store-get-started-powershell.md)  
 

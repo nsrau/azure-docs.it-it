@@ -1,5 +1,5 @@
 ---
-title: Eseguire script personalizzati nelle macchine virtuali Linux in AzureRun custom scripts on Linux VMs in Azure
+title: Eseguire script personalizzati nelle macchine virtuali Linux in Azure
 description: Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione per script personalizzati v1
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: a3eae08510e57227b91deeeb7a7a608a6652cb4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535409"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 1 con macchine virtuali Linux
@@ -69,11 +69,11 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * Verificare che gli script non richiedano l'input dell'utente durante l'esecuzione.
 * Il tempo massimo consentito per l'esecuzione dello script è pari a 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
 * Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione e, dopo il riavvio, l'estensione non riprenderà a funzionare. 
-* Se si dispone di uno script che causerà un riavvio, quindi installare le applicazioni ed eseguire gli script, ecc. È consigliabile pianificare il riavvio utilizzando un processo Cron o utilizzando strumenti quali DSC o le estensioni Chef.
+* Se si dispone di uno script che determinerà un riavvio, installare le applicazioni ed eseguire gli script e così via. È necessario pianificare il riavvio usando un processo cron o usando strumenti come DSC o chef, estensioni Puppet.
 * L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](../linux/using-cloud-init.md) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile usare lo script per creare un'unità di servizio Systemd.
 * Se si vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un processo Cron.
 * Durante l'esecuzione dello script, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, è necessario creare una soluzione personalizzata.
-* L'estensione Script personalizzato non supporta in modo nativo i server proxy, tuttavia è possibile utilizzare uno strumento di trasferimento file che supporta i server proxy all'interno dello script, ad esempio *Curl*.
+* L'estensione dello script personalizzata non supporta i server proxy in modo nativo, tuttavia è possibile usare uno strumento di trasferimento di file che supporta i server proxy all'interno dello script, ad esempio *curl*.
 * Tenere presenti gli eventuali percorsi di directory non predefiniti usati dagli script o dai comandi e includere la logica necessaria per gestirli.
 
 ## <a name="extension-schema"></a>Schema dell'estensione
@@ -118,17 +118,17 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati |
+| Name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | Data |
-| publisher | Microsoft.OSTCExtensions | string |
-| type | CustomScriptForLinux | string |
+| publisher | Microsoft.OSTCExtensions | stringa |
+| type | CustomScriptForLinux | stringa |
 | typeHandlerVersion | 1.5 | INT |
 | fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (es.) | python MyPythonScript.py \<my-param1\> | string |
+| commandToExecute (es.) | python MyPythonScript.py \<my-param1\> | stringa |
 | enableInternalDNSCheck | true | boolean |
-| storageAccountName (es.) | examplestorageacct | string |
-| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| storageAccountName (es.) | examplestorageacct | stringa |
+| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | stringa |
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
 
@@ -295,7 +295,7 @@ Alcuni punti da notare:
 
 1. Enable indica il momento in cui il comando inizia l'esecuzione.
 1. Download è relativo al download del pacchetto di estensioni CustomScript da Azure e non ai file di script specificati in fileUris.
-1. Puoi anche vedere quale file di registro sta scrivendo per`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. È anche possibile visualizzare il file di log in cui si sta scrivendo`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 Il passaggio successivo consiste nel controllare il file di log, nel formato:
 
@@ -303,7 +303,7 @@ Il passaggio successivo consiste nel controllare il file di log, nel formato:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Si dovrebbe cercare l'esecuzione individuale, sarà qualcosa di simile:
+È necessario cercare la singola esecuzione, che avrà un aspetto simile al seguente:
 
 ```output
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

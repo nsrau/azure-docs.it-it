@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Resource Health per monitorare l'integrità del databaseUse Azure Resource Health to monitor database health
+title: Utilizzare Integrità risorse di Azure per monitorare l'integrità del database
 description: Usare Integrità risorse di Azure per monitorare l'integrità dei database SQL, diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse e ottenere il supporto necessario.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
 ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79208879"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Usare Integrità risorse di Azure per risolvere i problemi di connettività del database SQL di Azure
@@ -40,7 +40,7 @@ Lo stato **Disponibile** indica che Integrità risorse non ha rilevato problemi 
 
 ### <a name="degraded"></a>Degraded
 
-Uno stato **Degraded** indica che Integrità risorse ha rilevato la maggior parte degli accessi riusciti, ma anche alcuni errori. Si tratta con ogni probabilità di errori di accesso temporanei. Per ridurre l'impatto dei problemi di connessione causati dagli errori di accesso temporanei, implementare la [logica di ripetizione dei tentativi](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) nel codice.
+Uno stato ridotto **indica che** integrità risorse ha rilevato la maggior parte degli accessi riusciti, ma anche alcuni errori. Si tratta con ogni probabilità di errori di accesso temporanei. Per ridurre l'impatto dei problemi di connessione causati dagli errori di accesso temporanei, implementare la [logica di ripetizione dei tentativi](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) nel codice.
 
 ![Degraded](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
@@ -50,11 +50,11 @@ Lo stato **Non disponibile** indica che Integrità risorse ha rilevato errori di
 
 ![Non disponibile](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>Unknown
+### <a name="unknown"></a>Sconosciuto
 
 Lo stato **Sconosciuto** indica che Integrità risorse non ha ricevuto informazioni sulla risorsa per più di 10 minuti. Sebbene questo stato non sia un'indicazione definitiva dello stato della risorsa, è un punto dati importante nel processo di risoluzione dei problemi. Se la risorsa viene eseguita come previsto, il suo stato viene aggiornato in Disponibile dopo alcuni minuti. Se si verificano problemi con la risorsa, lo stato di integrità Sconosciuto può indicare che la risorsa è stata interessata da un evento nella piattaforma.
 
-![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
+![Sconosciuto](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Informazioni cronologiche
 

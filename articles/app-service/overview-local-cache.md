@@ -1,22 +1,22 @@
 ---
 title: Cache locale
-description: Informazioni sul funzionamento della cache locale nel servizio app di Azure e su come abilitare, ridimensionare ed eseguire query sullo stato della cache locale dell'app.
+description: Informazioni sul funzionamento della cache locale nel servizio app Azure e su come abilitare, ridimensionare ed eseguire query sullo stato della cache locale dell'app.
 tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78227887"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
 > [!NOTE]
-> La cache locale non è supportata nelle app per le funzioni o nelle app del servizio app in contenitori, ad esempio nei [contenitori](app-service-web-get-started-windows-container.md) di Windows o nel [servizio app in Linux.](containers/app-service-linux-intro.md)
+> La cache locale non è supportata nelle app per le funzioni o nelle app del servizio app in contenitori, ad esempio nei [contenitori di Windows](app-service-web-get-started-windows-container.md) o nel [servizio app in Linux](containers/app-service-linux-intro.md).
 
 
 Il contenuto del Servizio app di Azure viene memorizzato in Archiviazione di Azure e presentato in modo permanente come condivisione del contenuto. Questa progettazione è concepita per consentire l'interazione con un'ampia gamma di app e ha gli attributi seguenti:  
@@ -24,7 +24,7 @@ Il contenuto del Servizio app di Azure viene memorizzato in Archiviazione di Azu
 * Il contenuto è condiviso tra più istanze di macchina virtuale (VM) dell'app.
 * Il contenuto è permanente e può essere modificato dalle app in esecuzione.
 * I file di log e file dei dati di diagnostica sono disponibili nella stessa cartella del contenuto condivisa.
-* La pubblicazione di nuovo contenuto aggiorna direttamente la cartella del contenuto. È possibile visualizzare immediatamente lo stesso contenuto tramite il sito Web Di CMS e l'app in esecuzione (in genere alcune tecnologie, ad esempio ASP.NET avviare il riavvio di un'app su alcune modifiche ai file per ottenere il contenuto più recente).
+* La pubblicazione di nuovo contenuto aggiorna direttamente la cartella del contenuto. È possibile visualizzare immediatamente lo stesso contenuto tramite il sito Web SCM e l'app in esecuzione, in genere alcune tecnologie, ad esempio ASP.NET, avviano il riavvio di un'app in alcune modifiche dei file per ottenere il contenuto più recente.
 
 Mentre molte app usano una o tutte queste funzionalità, alcune richiedono solo un archivio del contenuto di sola lettura ad alte prestazioni da cui poterle eseguire con disponibilità elevata. Queste applicazioni possono trarre vantaggio da un'istanza di VM di una cache locale specifica.
 
@@ -36,7 +36,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Modalità di modifica del comportamento del servizio app da parte della cache locale
 * _D:\home_ punta alla cache locale, creata nell'istanza della macchina virtuale all'avvio dell'app. _D:\local_ continua a puntare all'archivio temporaneo specifico della macchina virtuale.
-* La cache locale contiene una copia eseguita una sola volta delle cartelle _/site_ e _/siteextensions_ dell'archivio del contenuto condiviso rispettivamente in _D:\home\site_ e _D:\home\ siteextensions_. I file vengono copiati nella cache locale all'avvio dell'app. La dimensione delle due cartelle per ogni app è limitata a 300 MB per impostazione predefinita, ma può essere aumentata fino a 2 GB. Se i file copiati superano le dimensioni della cache locale, il servizio app ignora automaticamente la cache locale e legge dalla condivisione file remota.
+* La cache locale contiene una copia eseguita una sola volta delle cartelle _/site_ e _/siteextensions_ dell'archivio del contenuto condiviso rispettivamente in _D:\home\site_ e _D:\home\ siteextensions_. I file vengono copiati nella cache locale all'avvio dell'app. La dimensione delle due cartelle per ogni app è limitata a 300 MB per impostazione predefinita, ma può essere aumentata fino a 2 GB. Se i file copiati superano le dimensioni della cache locale, il servizio app ignora automaticamente la cache locale e la legge dalla condivisione file remota.
 * La cache locale è di lettura/scrittura. Le eventuali modifiche vengono tuttavia rimosse quando l'app sposta le macchine virtuali o viene riavviata. Non usare la cache locale per le app che archiviano dati mission-critical nell'archivio del contenuto.
 * _D:\home\LogFiles_ e _D:\home\Data_ contengono i file di log e i dati delle app. Le due sottocartelle vengono archiviate in locale nell'istanza della macchina virtuale e vengono copiate periodicamente nell'archivio del contenuto condiviso. Le app possono salvare in modo permanente i dati e i file di log, scrivendoli in queste cartelle. Tuttavia, la copia nell'archivio del contenuto condiviso è di tipo massimo sforzo e quindi i dati e i file di log potrebbero andare persi a seguito di un arresto anomalo improvviso del sistema dell'istanza di una macchina virtuale.
 * La copia di tipo massimo sforzo influisce sul [flusso di registrazione](troubleshoot-diagnostic-logs.md#stream-logs). Si può verificare un ritardo massimo di un minuto per i log inviati nel flusso.
@@ -48,7 +48,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 ## <a name="enable-local-cache-in-app-service"></a>Abilitare la cache locale nel servizio app
 La cache locale viene configurata mediante una combinazione di impostazioni delle app riservate. Queste impostazioni delle app possono essere configurate usando i metodi seguenti:
 
-* [Portale di Azure](#Configure-Local-Cache-Portal)
+* [Azure portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurare la cache locale tramite il portale di Azure

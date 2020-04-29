@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672124"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Usare Apache Pig con Apache Hadoop in HDInsight
@@ -30,11 +30,11 @@ Pig consente di definire l'elaborazione come una serie di trasformazioni a cui v
 
 Il linguaggio Pig Latin consente di descrivere il flusso dati dall'input non elaborato fino all'output desiderato, attraverso una o più trasformazioni. I programmi in Pig Latin seguono questo modello generale:
 
-* **Carica**: Leggere i dati da manipolare dal file system.
+* **Load**: legge i dati da modificare dal file System.
 
-* **Trasforma**: Manipolare i dati.
+* **Transform**: modificare i dati.
 
-* **Dump o store**: Output dei dati sullo schermo o archiviazione per l'elaborazione.
+* **Dump o Store**: consente di visualizzare i dati sullo schermo o di archiviarli per l'elaborazione.
 
 ### <a name="user-defined-functions"></a>Funzioni definite dall'utente
 
@@ -81,7 +81,7 @@ HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabe
 
 È possibile usare SQL Server Integration Services (SSIS) per eseguire un processo Pig. Il Feature Pack di Azure per SSIS fornisce i seguenti componenti che funzionano con i processi Pig in HDInsight.
 
-* [Attività di Pig di Azure HDInsight][pigtask]
+* [Attività Pig di Azure HDInsight][pigtask]
 
 * [Gestione connessione della sottoscrizione di Azure][connectionmanager]
 
@@ -91,7 +91,7 @@ Altre informazioni sul Feature Pack di Azure per SSIS sono disponibili [qui][ssi
 
 Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti per scoprire altri modi di usare Azure HDInsight.
 
-* [Caricare i dati in HDInsightUpload data to HDInsight](hdinsight-upload-data.md)
+* [Caricare i dati in HDInsight](hdinsight-upload-data.md)
 * [Usare Apache Hive con HDInsight](./hadoop/hdinsight-use-hive.md)
 * [Usare Apache Sqoop con HDInsight](hdinsight-use-sqoop.md)
 * [Usare processi MapReduce con HDInsight](./hadoop/hdinsight-use-mapreduce.md)

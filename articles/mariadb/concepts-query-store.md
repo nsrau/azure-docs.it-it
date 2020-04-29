@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: a502638744009fc34a7f0a27f8034b89d2c8fa26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527810"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorare le prestazioni del database di Azure per MariaDB con Query Store
@@ -87,7 +87,7 @@ Quando è abilitato, Query Store salva i dati in intervalli di aggregazione di 1
 
 Per la configurazione dei parametri di Query Store sono disponibili le opzioni seguenti.
 
-| **Parametro** | **Descrizione** | **Impostazione predefinita** | **Intervallo** |
+| **Parametro** | **Descrizione** | **Predefinito** | **Intervallo** |
 |---|---|---|---|
 | query_store_capture_mode | Attivare o disattivare la funzionalità archivio query in base al valore. Nota: se performance_schema è disattivato, l'attivazione di query_store_capture_mode attiverà performance_schema e un subset di strumenti dello schema di prestazioni necessari per questa funzionalità. | ALL | NESSUNO, TUTTI |
 | query_store_capture_interval | Intervallo di acquisizione di query Store in minuti. Consente di specificare l'intervallo in cui vengono aggregate le metriche della query | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ Per la configurazione dei parametri di Query Store sono disponibili le opzioni s
 
 Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 
-| **Parametro** | **Descrizione** | **Impostazione predefinita** | **Intervallo** |
+| **Parametro** | **Descrizione** | **Predefinito** | **Intervallo** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Consente di attivare/disattivare le statistiche di attesa. | NONE | NESSUNO, TUTTI |
 | query_store_wait_sampling_frequency | Modifica la frequenza del campionamento di attesa in secondi. da 5 a 300 secondi. | 30 | 5-300 |

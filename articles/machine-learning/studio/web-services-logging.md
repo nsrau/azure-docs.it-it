@@ -1,6 +1,6 @@
 ---
-title: Registrazione del servizio Web - Azure Machine Learning Studio (classico) Documenti Microsoft
-description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning Studio (classici). La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
+title: Registrazione del servizio Web-Azure Machine Learning Studio (versione classica) | Microsoft Docs
+description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
 services: machine-learning
 author: xiaoharper
 ms.custom: seodec18
@@ -12,23 +12,23 @@ ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79217854"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio (classico)Enable logging for Azure Machine Learning Studio (classic) web services
+# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio (classico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Questo documento fornisce informazioni sulla funzionalità di registrazione dei servizi Web di Machine Learning Studio (classici). La registrazione fornisce informazioni aggiuntive, oltre a un numero di errore e un messaggio, che consentono di risolvere i problemi relativi alle chiamate alle API di Machine Learning Studio (classica).  
+In questo documento vengono fornite informazioni sulla funzionalità di registrazione dei servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive, oltre a un numero di errore e un messaggio, che consentono di risolvere i problemi relativi alle chiamate alle API Machine Learning Studio (classiche).  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Come abilitare la registrazione per un servizio Web
 
-Abilitare la registrazione dal portale dei servizi Web di [Azure Machine Learning Studio (classico).](https://services.azureml.net) 
+È possibile abilitare la registrazione dal portale dei [servizi Web Azure Machine Learning Studio (classico)](https://services.azureml.net) . 
 
-1. Accedere al portale dei servizi Web di Azure [https://services.azureml.net](https://services.azureml.net)Machine Learning Studio (classico) all'indirizzo . Per un servizio Web classico, è anche possibile accedere al portale facendo clic su **Nuova esperienza dei servizi Web** nella pagina Servizi Web di Machine Learning Studio (classico) in Studio (classico).
+1. Accedere al portale dei servizi Web di Azure Machine Learning Studio (classico) all' [https://services.azureml.net](https://services.azureml.net)indirizzo. Per un servizio Web classico, è anche possibile raggiungere il portale facendo clic su **nuova esperienza servizi Web** nella pagina dei servizi Web Machine Learning Studio (classica) in studio (versione classica).
 
    ![Collegamento New Web Services Experience](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -44,7 +44,7 @@ Abilitare la registrazione dal portale dei servizi Web di [Azure Machine Learnin
 
    ![Selezione del livello di registrazione](./media/web-services-logging/enable-logging.png)
 
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 7. Per i servizi Web classici, creare il contenitore **ml-diagnostics**.
 
@@ -56,15 +56,15 @@ Abilitare la registrazione dal portale dei servizi Web di [Azure Machine Learnin
 
    3. Se il contenitore **ml-diagnostics** non esiste, fare clic su **+ Contenitore**, assegnare al contenitore il nome "ml-diagnostics" e selezionare il **Tipo di accesso** "BLOB". Fare clic su **OK**.
 
-      ![Creare un nuovo contenitore per archiviare i log di diagnosticaCreate a new container to store your diagnostic logs](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Creare un nuovo contenitore per archiviare i log di diagnostica](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >
-> Per un servizio Web classico, il Dashboard di servizi Web in Machine Learning Studio (classico) include anche un'opzione per abilitare la registrazione. Tuttavia, poiché la registrazione ora è gestita tramite il portale dei servizi Web, è necessario abilitarla tramite il portale come descritto in questo articolo. Se è già stata abilitata la registrazione in Studio (classica), nel portale dei servizi Web disabilitare la registrazione e abilitarla di nuovo.
+> Per un servizio Web classico, il dashboard dei servizi Web in Machine Learning Studio (classico) dispone inoltre di un'opzione per abilitare la registrazione. Tuttavia, poiché la registrazione ora è gestita tramite il portale dei servizi Web, è necessario abilitarla tramite il portale come descritto in questo articolo. Se è già stata abilitata la registrazione in studio (versione classica), nel portale dei servizi Web disabilitare la registrazione e abilitarla di nuovo.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Effetti dell'abilitazione della registrazione
-Quando la registrazione è abilitata, la diagnostica e gli errori dall'endpoint del servizio Web vengono registrati nel contenitore BLOB **ml-diagnostics** nell'account di archiviazione di Azure collegato all'area di lavoro dell'utente. Tale contenitore contiene tutte le informazioni di diagnostica per tutti gli endpoint del servizio Web di tutte le aree di lavoro associate all'account di archiviazione.
+Quando è abilitata la registrazione, la diagnostica e gli errori dall'endpoint del servizio Web vengono registrati nel contenitore BLOB **ml-Diagnostics** nell'account di archiviazione di Azure collegato all'area di lavoro dell'utente. Tale contenitore contiene tutte le informazioni di diagnostica per tutti gli endpoint del servizio Web di tutte le aree di lavoro associate all'account di archiviazione.
 
 I log possono essere visualizzati tramite uno dei diversi strumenti disponibili per l'esplorazione degli account di archiviazione di Azure. Il modo più semplice per visualizzarli è passare all'account di archiviazione nel portale di Azure e fare clic su **Contenitori** e quindi sul contenitore **ml-diagnostics**.  
 

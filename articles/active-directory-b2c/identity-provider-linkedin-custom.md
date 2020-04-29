@@ -12,10 +12,10 @@ ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 80bd1b65d04ea49fc742033e1850d95a85021c9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188172"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account LinkedIn usando criteri personalizzati in Azure Active Directory B2C
@@ -66,10 +66,10 @@ Per usare LinkedIn come provider di identità in Azure AD B2C, è necessario cre
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 5. Selezionare **chiavi dei criteri** e quindi selezionare **Aggiungi**.
 6. Per **Opzioni** scegliere `Manual`.
-7. Immettere un **nome** per la chiave dei criteri. Ad esempio, `LinkedInSecret` Il prefisso *B2C_1A_* viene aggiunto automaticamente al nome della chiave.
+7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `LinkedInSecret`. Il prefisso *B2C_1A_* viene aggiunto automaticamente al nome della chiave.
 8. In **Secret (segreto**) immettere il segreto client registrato in precedenza.
 9. In **Uso chiave** selezionare `Signature`.
-10. Fare clic su **Crea**.
+10. Scegliere **Crea**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
@@ -188,7 +188,7 @@ A questo punto, il provider di identità è stato configurato, ma non è disponi
 2. Trovare e copiare l'intero contenuto dell'elemento **UserJourney** che include `Id="SignUpOrSignIn"`.
 3. Aprire *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
 4. Incollare l'intero contenuto dell'elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
-5. Rinominare l'ID del percorso utente. Ad esempio, `SignUpSignInLinkedIn`
+5. Rinominare l'ID del percorso utente. Ad esempio: `SignUpSignInLinkedIn`.
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
 
@@ -212,7 +212,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
 
-    Aggiornare il valore di **TechnicalProfileReferenceId** con l'ID del profilo tecnico creato in precedenza. Ad esempio, `LinkedIn-OAUTH`
+    Aggiornare il valore di **TechnicalProfileReferenceId** con l'ID del profilo tecnico creato in precedenza. Ad esempio: `LinkedIn-OAUTH`.
 
 3. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
@@ -227,7 +227,7 @@ La comunicazione con Azure AD B2C avviene tramite un'applicazione registrata nel
 Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
 
 1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, assegnare il nome *SignUpSignInLinkedIn.xml*.
-2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio, `SignUpSignInLinkedIn`
+2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio: `SignUpSignInLinkedIn`.
 3. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del nuovo percorso utente che è stato creato (SignUpSignLinkedIn).
 5. Salvare le modifiche, caricare il file e quindi selezionare i nuovi criteri nell'elenco.

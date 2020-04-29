@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
 ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252591"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure
@@ -31,7 +31,7 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
 In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
 
-| Parametro                   | Valore                |
+| Parametro                   | valore                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup|
 | **\<virtual-network-name>** | myVirtualNetwork         |
@@ -48,7 +48,7 @@ In questa sezione è necessario sostituire i parametri seguenti delle procedure 
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
@@ -157,7 +157,7 @@ In questa sezione si effettuerà la connessione privata all'account Azure Cosmos
 
 1. Chiudere la connessione Desktop remoto a *myVM*.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, l'account Azure Cosmos e la macchina virtuale: 
 

@@ -1,6 +1,6 @@
 ---
-title: Partner e posizioni della rete WAN virtuale di Azure Documenti Microsoft
-description: Questo articolo contiene un elenco di partner WAN virtuali di Azure e posizioni hub.
+title: Partner e località WAN virtuali di Azure | Microsoft Docs
+description: Questo articolo contiene un elenco di partner WAN virtuali di Azure e località dell'hub.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,17 +9,17 @@ ms.date: 02/12/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
 ms.openlocfilehash: 3976f4114df6222d34f19e2bb44fd05d53057321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123280"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Posizioni dei partner e degli hub virtuali della rete WAN virtuale di Azure
 
-In questo articolo vengono fornite informazioni sulle aree e sui partner supportati dalla rete WAN virtuale per la connettività all'hub virtuale.
+Questo articolo fornisce informazioni sulle aree e i partner supportati da WAN virtuali per la connettività all'hub virtuale.
 
-La rete WAN virtuale di Azure è un servizio di rete che offre connettività tra succursali ottimizzata e automatizzata tramite Azure. La rete WAN virtuale consente di connettere e configurare i dispositivi delle succursali per la comunicazione con Azure. Questa operazione può essere eseguita manualmente o utilizzando i dispositivi provider tramite un partner WAN virtuale. L'utilizzo di dispositivi partner consente di semplificare l'utilizzo, semplificazione della connettività e gestione della configurazione.
+La rete WAN virtuale di Azure è un servizio di rete che offre connettività tra succursali ottimizzata e automatizzata tramite Azure. La rete WAN virtuale consente di connettere e configurare i dispositivi delle succursali per la comunicazione con Azure. Questa operazione può essere eseguita manualmente o usando i dispositivi del provider tramite un partner WAN virtuale. L'uso di dispositivi partner consente di semplificare l'uso, la semplificazione della connettività e la gestione della configurazione.
 
 La connettività dal dispositivo locale viene stabilita in modo automatico per l'hub virtuale. Un hub virtuale è una rete virtuale gestita da Microsoft. L'hub contiene vari endpoint di servizio per abilitare la connettività dalla rete locale (vpnsite). È possibile avere solo un hub per area.
 
@@ -34,15 +34,15 @@ L'automazione di alto livello seguente è impostata nella console del dispositiv
 * Download automatico di informazioni relative alla connettività di Azure
 * Configurazione del dispositivo della succursale locale 
 
-Alcuni partner di connettività possono estendere l'automazione in modo da includere la creazione della rete virtuale dell'hub virtuale di Azure e di un Gateway VPN. Per ulteriori informazioni sull'automazione, vedere [Linee guida sull'automazione per i partner della rete WAN virtuale.](virtual-wan-configure-automation-providers.md)
+Alcuni partner di connettività possono estendere l'automazione in modo da includere la creazione della rete virtuale dell'hub virtuale di Azure e di un Gateway VPN. Per altre informazioni sull'automazione, vedere [linee guida di automazione per i partner WAN virtuali](virtual-wan-configure-automation-providers.md).
 
-## <a name="connectivity-through-partners"></a><a name="partners"></a>Connettività attraverso i partner
+## <a name="connectivity-through-partners"></a><a name="partners"></a>Connettività tramite partner
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-I seguenti partner sono previsti per il prossimo futuro: 128 Technologies, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink e VMWare Velocloud.
+I partner seguenti sono disponibili sulla nostra roadmap per il prossimo futuro: tecnologie 128, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink e VMWare Velocloud.
 
-## <a name="locations"></a><a name="locations"></a>Percorsi
+## <a name="locations"></a><a name="locations"></a>Località
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
@@ -50,4 +50,4 @@ I seguenti partner sono previsti per il prossimo futuro: 128 Technologies, Arist
 
 * Per altre informazioni sulla rete WAN virtuale, vedere le [domande frequenti sulla rete WAN virtuale](virtual-wan-faq.md).
 
-* Per altre informazioni su come automatizzare la connettività alla rete WAN virtuale di Azure, vedere Linee guida per [l'automazione per](virtual-wan-configure-automation-providers.md)i partner della rete WAN virtuale.
+* Per altre informazioni su come automatizzare la connettività alla rete WAN virtuale di Azure, vedere [linee guida di automazione per i partner WAN virtuali](virtual-wan-configure-automation-providers.md).

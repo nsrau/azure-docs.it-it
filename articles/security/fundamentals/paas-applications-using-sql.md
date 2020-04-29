@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
 ms.openlocfilehash: c73f585e3102618cea378716491f9354810a6db8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80125001"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedure consigliate per la protezione di database PaaS in Azure
@@ -79,7 +79,7 @@ Azure SQL gestisce i principali problemi correlati per TDE. Come con TDE, è nec
 
 Azure SQL fornisce la crittografia per le colonne tramite [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Questa crittografia consente solo alle applicazioni autorizzate l'accesso alle colonne sensibili. L'uso di questo tipo di crittografia limita le query SQL per le colonne crittografate a valori basati sull'uguaglianza.
 
-La crittografia a livello di applicazione deve essere usata anche per dati selettivi. I problemi di sovranità dei dati possono talvolta essere attenuati crittografando i dati con una chiave che viene mantenuta nel paese corretto. In questo modo si impedisce anche che un trasferimento accidentale dei dati possa rappresentare un problema, perché è comunque impossibile decrittografarli senza la chiave, presupponendo che venga usato un algoritmo avanzato come AES 256.
+La crittografia a livello di applicazione deve essere usata anche per dati selettivi. Le preoccupazioni sulla sovranità dei dati possono essere talvolta mitigate mediante la crittografia dei dati con una chiave mantenuta nel paese/area geografica corretti. In questo modo si impedisce anche che un trasferimento accidentale dei dati possa rappresentare un problema, perché è comunque impossibile decrittografarli senza la chiave, presupponendo che venga usato un algoritmo avanzato come AES 256.
 
 È possibile usare diverse precauzioni per proteggere il database, ad esempio la progettazione di un sistema sicuro, la crittografia di risorse riservate e la creazione di un firewall che protegga i server di database.
 

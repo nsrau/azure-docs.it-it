@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671036"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
@@ -56,7 +56,7 @@ Lo strumento Impatto supporta proprietà e misure sia standard che personalizzat
 2. Scegliere "Country or region" (Paese o area geografica) nell'elenco a discesa **analyze how its** (analizza come l'elemento).
 3. Nell'elenco a discesa **impacts the usage of** (influisce sull'utilizzo di) selezionare un evento personalizzato corrispondente a un elemento dell'interfaccia utente nella visualizzazione pagina scelta nel passaggio 1.
 
-In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Ordina per **utilizzo** per visualizzare la variazione della conversione all'evento personalizzato in base al paese.
+In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Ordina in base all' **utilizzo** per visualizzare la variazione della conversione in un evento personalizzato in base al paese o all'area geografica.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Come vengono calcolati questi tassi di conversione dallo strumento Impatto?
@@ -83,7 +83,7 @@ Il calcolo finale dell'impatto varia a seconda che l'analisi venga eseguita in b
 - Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [visualizzazioni pagina](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
     - [Grafici a imbuto](usage-funnels.md)
-    - [detenzione](usage-retention.md)
+    - [Conservazione](usage-retention.md)
     - [Flussi degli utenti](usage-flows.md)
-    - [Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)

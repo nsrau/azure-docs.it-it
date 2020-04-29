@@ -1,43 +1,43 @@
 ---
-title: Utilizzare la configurazione per ambienteUse per-environment configuration
+title: Usa configurazione per ambiente
 titleSuffix: Azure App Configuration
-description: Usare le etichette per fornire valori di configurazione per ambienteUse labels to provide per-environment configuration values
+description: Usare etichette per fornire valori di configurazione per ambiente
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
 ms.openlocfilehash: d1a3323154fc73b453e041a064cfcd36299b8a08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80056808"
 ---
-# <a name="use-labels-to-enable-different-configurations-for-different-environments"></a>Usare le etichette per abilitare configurazioni diverse per ambienti diversiUse labels to enable different configurations for different environments
+# <a name="use-labels-to-enable-different-configurations-for-different-environments"></a>Usare le etichette per abilitare configurazioni diverse per ambienti diversi
 
-Molte applicazioni devono utilizzare configurazioni diverse per ambienti diversi. Si supponga che un'applicazione disponga di un valore di configurazione che definisce la stringa di connessione da utilizzare per il relativo database back-end. Gli sviluppatori dell'applicazione utilizzano un database diverso da quello utilizzato nell'ambiente di produzione. La stringa di connessione al database utilizzata dall'applicazione deve essere modificata quando l'applicazione passa dallo sviluppo alla produzione.
+Molte applicazioni devono usare configurazioni diverse per ambienti diversi. Si supponga che un'applicazione disponga di un valore di configurazione che definisce la stringa di connessione da utilizzare per il database back-end. Gli sviluppatori dell'applicazione usano un database diverso da quello usato nell'ambiente di produzione. La stringa di connessione del database usata dall'applicazione deve cambiare quando l'applicazione passa dallo sviluppo alla produzione.
 
-In Configurazione app di Azure è possibile usare *le etichette* per definire valori diversi per la stessa chiave. Ad esempio, è possibile definire una singola chiave con valori diversi per *Sviluppo* e *Produzione*. È possibile specificare le etichette da caricare quando ci si connette a Configurazione app.
+In app Azure configurazione è possibile usare le *etichette* per definire valori diversi per la stessa chiave. Ad esempio, è possibile definire una singola chiave con valori diversi per *lo sviluppo* e la *produzione*. È possibile specificare le etichette da caricare durante la connessione alla configurazione dell'app.
 
-Per dimostrare questa funzionalità, modificheremo l'app Web creata in [Guida introduttiva: Creare un'app ASP.NET Core con Configurazione app](./quickstart-aspnet-core-app.md) di Azure per usare impostazioni di configurazione diverse per lo sviluppo e l'ambiente di produzione. Completare l'avvio rapido prima di procedere.
+Per illustrare questa funzionalità, si modificherà l'app Web creata nella [Guida introduttiva: creare un'app ASP.NET Core con app Azure configurazione](./quickstart-aspnet-core-app.md) per usare impostazioni di configurazione diverse per lo sviluppo e la produzione. Prima di continuare, completare la Guida introduttiva.
 
-## <a name="specify-a-label-when-adding-a-configuration-value"></a>Specificare un'etichetta quando si aggiunge un valore di configurazioneSpecify a label when adding a configuration value
+## <a name="specify-a-label-when-adding-a-configuration-value"></a>Specificare un'etichetta quando si aggiunge un valore di configurazione
 
-Nel portale di Azure passare a **Esplora configurazione** e individuare la chiave *TestApp:Settings:FontColor* creata nella guida introduttiva. Selezionare il relativo menu di scelta rapida e quindi fare clic su **Aggiungi valore**.
+Nel portale di Azure passare a **Configuration Explorer** e individuare la chiave *TestApp: Settings: fontcolor* creata nella Guida introduttiva. Selezionare il menu di scelta rapida e quindi fare clic su **Aggiungi valore**.
 
 > [!div class="mx-imgBorder"]
-> ![Aggiungi voce di menu Valore](media/labels-add-value.png)
+> ![Voce di menu Aggiungi valore](media/labels-add-value.png)
 
-Nella schermata **Aggiungi valore** immettere un **valore** **di rosso** e **un'etichetta** di **sviluppo**. Lasciare vuoto **Tipo di contenuto.** Selezionare **Applica**.
+Nella schermata **Aggiungi valore** immettere un **valore** di **rosso** e un' **etichetta** dello **sviluppo**. Lasciare vuoto il **tipo di contenuto** . Selezionare **Applica**.
 
 ## <a name="loading-configuration-values-with-a-specified-label"></a>Caricamento dei valori di configurazione con un'etichetta specificata
 
-Per impostazione predefinita, La configurazione delle app di Azure carica solo i valori di configurazione senza etichetta. Se sono stati definiti etichette per i valori di configurazione, è consigliabile specificare le etichette da utilizzare per la connessione a Configurazione app.
+Per impostazione predefinita, app Azure configurazione carica solo i valori di configurazione senza etichetta. Se sono state definite etichette per i valori di configurazione, è necessario specificare le etichette da usare per la connessione alla configurazione dell'app.
 
-Nell'ultima sezione è stato creato un valore di configurazione diverso per l'ambiente *di sviluppo.* La variabile `HostingEnvironment.EnvironmentName` viene usata in modo dinamico per determinare in modo dinamico in quale ambiente l'app è attualmente in esecuzione. Per altre informazioni, vedere [Usare più ambienti in ASP.NET Core](/aspnet/core/fundamentals/environments).
+Nella sezione precedente è stato creato un valore di configurazione diverso per l'ambiente di *sviluppo* . Usare la `HostingEnvironment.EnvironmentName` variabile per determinare in modo dinamico l'ambiente in cui è attualmente in esecuzione l'app. Per altre informazioni, vedere [usare più ambienti in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
-Caricare i valori di configurazione con l'etichetta corrispondente `Select` all'ambiente corrente passando il nome dell'ambiente nel metodo:
+Caricare i valori di configurazione con l'etichetta corrispondente all'ambiente corrente passando il nome dell'ambiente nel `Select` metodo:
 
 ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -59,13 +59,13 @@ Caricare i valori di configurazione con l'etichetta corrispondente `Select` all'
 ```
 
 > [!IMPORTANT]
-> Il frammento di codice precedente carica la `AppConfigConnectionString`stringa di connessione di configurazione dell'app da una variabile di ambiente denominata . Assicurarsi che questa variabile di ambiente sia impostata correttamente.
+> Il frammento di codice precedente carica la stringa di connessione di configurazione dell'app `AppConfigConnectionString`da una variabile di ambiente denominata. Assicurarsi che la variabile di ambiente sia impostata correttamente.
 
-Il metodo `Select` viene chiamato due volte. La prima volta, carica i valori di configurazione senza etichetta. Quindi, carica i valori di configurazione con l'etichetta corrispondente all'ambiente corrente. Questi valori specifici dell'ambiente sostituiscono i valori corrispondenti senza etichetta. Non è necessario definire valori specifici dell'ambiente per ogni chiave. Se una chiave non ha un valore con un'etichetta corrispondente all'ambiente corrente, viene utilizzato il valore senza etichetta.
+Il metodo `Select` viene chiamato due volte. La prima volta, carica i valori di configurazione senza etichetta. Quindi carica i valori di configurazione con l'etichetta corrispondente all'ambiente corrente. Questi valori specifici dell'ambiente eseguono l'override di qualsiasi valore corrispondente senza etichetta. Non è necessario definire valori specifici dell'ambiente per ogni chiave. Se una chiave non ha un valore con un'etichetta corrispondente all'ambiente corrente, viene usato il valore senza etichetta.
 
 ## <a name="testing-in-different-environments"></a>Test in ambienti diversi
 
-Per verificare i diversi `launchSettings.json` valori di `Properties` configurazione, aprire il file nella directory. Individuare `config` la `profiles`voce in . Nella `environmentVariables` sezione impostare `ASPNETCORE_ENVIRONMENT` la `Production`variabile su .
+Per testare i diversi valori di configurazione, aprire `launchSettings.json` il file nella `Properties` directory. Individuare la `config` voce sotto `profiles`. Nella `environmentVariables` sezione impostare la `ASPNETCORE_ENVIRONMENT` variabile su. `Production`
 
 Con i nuovi valori impostati, compilare ed eseguire l'applicazione.
 
@@ -74,11 +74,11 @@ dotnet build
 dotnet run
 ```
 
-Utilizzare un browser Web `http://localhost:5000`per passare a . Si noterà che il colore del carattere è nero.
+Usare un Web browser per passare a `http://localhost:5000`. Si noterà che il colore del carattere è nero.
 
 ![Applicazione Web in esecuzione con la configurazione di produzione](media/labels-website-prod.png)
 
-Ora `launchSettings.json` aggiornare `ASPNETCORE_ENVIRONMENT` per `Development`impostare la variabile su . Eseguire di nuovo `dotnet run`. Si noterà che il colore del carattere è ora rosso. Questo perché l'applicazione ora `TestApp:Settings:FontColor` utilizza il `Development` valore di che ha l'etichetta. Tutti gli altri valori di configurazione rimangono gli stessi dei relativi valori di produzione.
+A questo `launchSettings.json` punto, aggiornare `ASPNETCORE_ENVIRONMENT` per impostare `Development`la variabile su. Eseguire di nuovo `dotnet run`. Si noterà che il colore del carattere è ora rosso. Questo perché l'applicazione usa ora il valore di `TestApp:Settings:FontColor` con l' `Development` etichetta. Tutti gli altri valori di configurazione rimangono uguali ai valori di produzione.
 
 ![Applicazione Web in esecuzione con configurazione di sviluppo](media/labels-website-dev.png)
 

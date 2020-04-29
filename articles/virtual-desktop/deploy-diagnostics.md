@@ -9,10 +9,10 @@ ms.date: 03/20/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 4eb63fe4bd8f8a8b0961aa6a7fccb8de9b7c2f16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123399"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
@@ -196,7 +196,7 @@ Per impostare l'URI di reindirizzamento:
 
 8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello era `contosoapp45`, l'URL associato è. <https://contosoapp45.azurewebsites.net>
 9. Accedere usando l'account utente appropriato di Azure Active Directory.
-10.   Selezionare **Accetto**.
+10.   Selezionare **Accetta**.
 
 ## <a name="distribute-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 

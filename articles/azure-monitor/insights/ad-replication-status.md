@@ -1,5 +1,5 @@
 ---
-title: Monitorare lo stato di replica di Active DirectoryMonitor Active Directory replication status
+title: Monitorare lo stato della replica Active Directory
 description: Il pacchetto della soluzione Stato replica di Active Directory controlla periodicamente l'ambiente Active Directory per rilevare eventuali errori di replica.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055908"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
@@ -19,7 +19,7 @@ ms.locfileid: "80055908"
 
 Active Directory è un componente chiave di un ambiente IT aziendale. Per garantire disponibilità e prestazioni elevate, ogni controller di dominio ha la propria copia del database di Active Directory. I controller di dominio si replicano tra loro per propagare le modifiche all'interno dell'azienda. Gli errori in questo processo di replica possono causare una serie di problemi all'interno dell'azienda.
 
-La soluzione Stato replica di Active Directory monitora regolarmente l'ambiente Active Directory per verificare la ricerca di eventuali errori di replica.
+La soluzione Stato replica di AD monitora regolarmente l'ambiente Active Directory per eventuali errori di replica.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
@@ -28,7 +28,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* La soluzione Stato replica di Active Directory richiede una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato l'agente di Log Analytics per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016 - Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
+* Per la soluzione Stato replica di AD è necessaria una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato Log Analytics Agent per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016-Operations Manager, Operations Manager 2012 R2 e monitoraggio di Azure.
 * La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità Active Directory da Azure Marketplace al portale di Azure. Non è necessaria alcuna configurazione aggiuntiva.
 
@@ -44,7 +44,7 @@ Se non si intende connettere i controller di dominio direttamente a Monitoraggio
 3. Nel computer impostare la chiave del Registro di sistema seguente:<br>Chiave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valore: **IsTarget**<br>Dati valore: **true**
 
    > [!NOTE]
-   > Queste modifiche diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
+   > Queste modifiche diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService. exe).
    > ### <a name="install-solution"></a>Installare soluzione
    > Seguire il processo descritto in [Installare una soluzione di monitoraggio](solutions.md#install-a-monitoring-solution) per aggiungere la soluzione **Stato replica di Active Directory** all'area di lavoro Log Analytics. Non è richiesta alcuna ulteriore configurazione.
 
@@ -54,7 +54,7 @@ La tabella seguente descrive i metodi di raccolta dati e altri dettagli sul modo
 
 | Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
-| WINDOWS |&#8226; |&#8226; |  |  |&#8226; |ogni cinque giorni |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |ogni cinque giorni |
 
 
 
@@ -128,7 +128,7 @@ R: le informazioni vengono aggiornate ogni cinque giorni.
 **D: è necessario aggiungere tutti i controller di dominio all'area di lavoro Log Analytics per visualizzare lo stato della replica?**
  R: no, è necessario aggiungere un solo controller di dominio. Se nell'area di lavoro Log Analytics sono presenti più controller di dominio, i dati di tutti i controller verranno inviati a Monitoraggio di Azure.
 
-**D: Non voglio aggiungere controller di dominio all'area di lavoro di Log Analytics. È comunque possibile usare la soluzione Stato replica di Active Directory?**
+**D: non si desidera aggiungere controller di dominio all'area di lavoro Log Analytics. È ancora possibile usare la soluzione Stato replica di AD?**
 
 A: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Abilitare controller non di dominio](#enable-non-domain-controller).
 

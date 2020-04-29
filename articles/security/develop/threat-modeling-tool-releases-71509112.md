@@ -1,5 +1,5 @@
 ---
-title: Microsoft Threat Modeling Tool versione 12/09/2018
+title: Microsoft Threat Modeling Tool versione 9/12/2018
 titleSuffix: Azure
 description: Documentazione delle note sulla versione per lo strumento di modellazione delle minacce
 author: jegeib
@@ -9,15 +9,15 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78269906"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA versione 7.1.50911.2 - 12/09/2018
 
-Siamo lieti di annunciare che Microsoft Threat Modeling Tool è ora disponibile per il download come versione supportata disponibile a livello generale. Questa versione contiene aggiornamenti importanti per la privacy e la sicurezza, oltre a correzioni di bug, aggiornamenti delle funzionalità e miglioramenti per la stabilità. Agli utenti esistenti della versione di anteprima 2017 verrà richiesto di eseguire l'aggiornamento alla versione più recente tramite la tecnologia ClickOnce all'apertura del client. Per i nuovi utenti dello strumento, è possibile [scaricare il client](https://aka.ms/threatmodelingtool).
+Siamo lieti di annunciare che Microsoft Threat Modeling Tool è ora disponibile per il download come versione supportata disponibile a livello generale. Questa versione contiene aggiornamenti importanti per la privacy e la sicurezza, oltre a correzioni di bug, aggiornamenti delle funzionalità e miglioramenti per la stabilità. Agli utenti esistenti della versione di anteprima 2017 verrà richiesto di eseguire l'aggiornamento alla versione più recente tramite la tecnologia ClickOnce all'apertura del client. Per i nuovi utenti dello strumento, è possibile [scaricare il client](https://aka.ms/threatmodelingtool)di.
 
 Con questa versione, termina il supporto della versione di anteprima 2017 e si consiglia di tutti gli utenti di questa versione di eseguire l'aggiornamento alla versione disponibile a livello generale. A partire dal 15 ottobre 2018 verrà definita la versione minima di ClickOnce richiesta per Threat Modeling Tool e verrà richiesto a tutti i clienti che usano l'anteprima di eseguire l'aggiornamento.
 
@@ -75,7 +75,7 @@ Gli utenti di OneDrive sono invitati a usare il client Microsoft [OneDrive per W
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>L'organizzazione usa la versione 2016 dello strumento, è possibile usare il set di stencil di Azure?
 
-Sì. Il set di stencil di [Azure è disponibile in GitHub](https://github.com/Microsoft/threat-modeling-templates/)e può essere caricato nella versione 2016 dello strumento. Per creare un nuovo modello con il set di stencil di Azure, usare la finestra di dialogo "Template For New Models" (Modello per nuovi modelli) nella schermata del menu principale. Threat Modeling Tool 2016 non esegue il rendering dei collegamenti disponibili nei campi "Possible Mitigations" (Mitigazioni possibili) del set di stencil di Azure, pertanto i collegamenti potrebbero essere visualizzati come tag HTML.
+Sì. Il [set di stencil di Azure è disponibile in GitHub](https://github.com/Microsoft/threat-modeling-templates/)e può essere caricato nella versione 2016 dello strumento. Per creare un nuovo modello con il set di stencil di Azure, usare la finestra di dialogo "Template For New Models" (Modello per nuovi modelli) nella schermata del menu principale. Threat Modeling Tool 2016 non esegue il rendering dei collegamenti disponibili nei campi "Possible Mitigations" (Mitigazioni possibili) del set di stencil di Azure, pertanto i collegamenti potrebbero essere visualizzati come tag HTML.
 
 ![Aggiornamenti degli stencil di Azure nella versione 2016 del client](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
@@ -84,7 +84,7 @@ Sì. Il set di stencil di [Azure è disponibile in GitHub](https://github.com/Mi
 - Sistemi operativi supportati
   - Microsoft Windows 10
 - Versione .NET richiesta
-  - File .NET 3.5.2
+  - 3.5.2 .NET
 - Requisiti aggiuntivi
   - Per ricevere aggiornamenti dello strumento e dei modelli, è necessaria una connessione Internet.
 

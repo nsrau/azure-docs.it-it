@@ -1,6 +1,6 @@
 ---
-title: Studio Def. NetworkTrafficRules per i servizi cloud di Azure Documenti Microsoft
-description: Informazioni su NetworkTrafficRules, che limita i ruoli che possono accedere agli endpoint interni di un ruolo. Viene combinato con i ruoli in un file di definizione del servizio.
+title: Schema def. NetworkTrafficRules di servizi cloud di Azure | Microsoft Docs
+description: Informazioni su NetworkTrafficRules, che limita i ruoli che possono accedere agli endpoint interni di un ruolo. Combina i ruoli in un file di definizione del servizio.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -14,10 +14,10 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534729"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schema NetworkTrafficRules di definizione di Servizi cloud di Azure
@@ -52,7 +52,7 @@ Il nodo `NetworkTrafficRules` del file di definizione del servizio include gli e
 
 [Elemento NetworkTrafficRules](#NetworkTrafficRules)
 
-[OnlyAllowTrafficTo Elemento](#OnlyAllowTrafficTo)
+[Elemento OnlyAllowTrafficTo](#OnlyAllowTrafficTo)
 
 [Elemento Destinations](#Destinations)
 

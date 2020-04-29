@@ -1,13 +1,13 @@
 ---
-title: Rilevare perdite di memoria - Rilevamento intelligente di Azure Application InsightsDetect memory leak - Azure Application Insights Smart Detection
+title: Rilevare le perdite di memoria-rilevamento intelligente applicazione Azure Insights
 description: Monitorare le applicazioni con Azure Application Insights per rilevare potenziali perdite di memoria.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671699"
 ---
 # <a name="memory-leak-detection-preview"></a>Rilevamento della perdita di memoria (anteprima)
@@ -24,6 +24,6 @@ Una notifica non significa che l'app ha sicuramente un problema. Anche se i mode
 
 ## <a name="how-do-i-fix-it"></a>Risoluzione
 Le notifiche includono informazioni di diagnostica a supporto del processo di analisi diagnostica:
-1. **Triage.** La notifica indica la quantità di aumento di memoria (in GB) e l'intervallo di tempo in cui la memoria è aumentata. Ciò consente di assegnare una priorità al problema.
+1. **Valutazione.** La notifica indica la quantità di aumento di memoria (in GB) e l'intervallo di tempo in cui la memoria è aumentata. Ciò consente di assegnare una priorità al problema.
 2. **Ambito.** Quanti computer presentano il modello di perdita di memoria? Quante eccezioni sono state generate durante la potenziale perdita di memoria? Queste informazioni si possono ricavare dalla notifica.
 3. **Diagnosticare.** Il rilevamento contiene il modello di perdita di memoria, che mostra il consumo di memoria del processo nel tempo. È anche possibile usare gli elementi e i report correlati che rimandano a informazioni di supporto, per diagnosticare meglio il problema.

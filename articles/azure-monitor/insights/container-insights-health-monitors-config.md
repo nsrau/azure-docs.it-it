@@ -4,10 +4,10 @@ description: Questo articolo fornisce contenuto che descrive la configurazione d
 ms.topic: conceptual
 ms.date: 12/01/2019
 ms.openlocfilehash: 99ea6e96f5a8a486784cb3d633a6e031b60eaad7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055712"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guida alla configurazione di monitoraggio integrità dei contenitori di monitoraggio di Azure
@@ -26,7 +26,7 @@ L'integrità generale di un determinato oggetto è determinata dall'integrità d
 
 ## <a name="types-of-monitors"></a>Tipi di monitoraggi
 
-|Monitorare | Descrizione | 
+|Monitoraggio | Descrizione | 
 |--------|-------------|
 | Monitoraggio unità |Un monitoraggio unità misura alcuni aspetti di una risorsa o di un'applicazione. Questo potrebbe controllare un contatore delle prestazioni per determinare le prestazioni della risorsa o la relativa disponibilità. |
 |Monitoraggio aggregato | I monitoraggi aggregati raggruppano più monitoraggi per fornire un unico stato di integrità aggregato. I monitoraggi unità vengono in genere configurati in un determinato monitoraggio aggregato. Un monitoraggio aggregato dei nodi, ad esempio, esegue il rollup dello stato del nodo utilizzo CPU, utilizzo memoria e stato nodo.

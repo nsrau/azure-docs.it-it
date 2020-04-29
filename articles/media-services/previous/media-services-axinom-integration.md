@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78197165"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure 
@@ -56,7 +56,7 @@ Per informazioni sui motivi per cui non è possibile usare Azure Active Director
 
 ### <a name="considerations"></a>Considerazioni
 1. È necessario usare il seme chiave specificato da Axinom (8888000000000000000000000000000000000000) e l'ID chiave generato o selezionato per generare la chiave simmetrica per la configurazione del servizio di distribuzione delle chiavi. Il server licenze Axinom emetterà tutte le licenze contenenti chiavi simmetriche basate sullo stesso seme chiave, valido per il test e la produzione.
-2. URL di acquisizione della [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)licenza Widevine per il test: . Sono consentiti sia HTTP che HTTS.
+2. URL di acquisizione della licenza Widevine per il [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)test:. Sono consentiti sia HTTP che HTTS.
 
 ## <a name="azure-media-player-preparation"></a>Preparazione di Azure Media Player
 Azure Media Player v1.4.0 supporta la riproduzione di contenuto AMS incluso dinamicamente in pacchetti con PlayReady e Widevine DRM.
@@ -191,7 +191,7 @@ I parametri seguenti sono necessari nella soluzione minima che sfrutta il server
 | --- | --- |
 | ID chiave di comunicazione |Deve essere incluso come valore di attestazione "com_key_id" nel token JWT. Vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione. |
 | Chiave di comunicazione |Deve essere utilizzato come chiave di firma di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). |
-| Seme chiave |Deve essere utilizzato per generare la chiave simmetrica con qualsiasi ID chiave simmetrica specificato (vedere [questa](media-services-axinom-integration.md#content-protection) sezione). |
+| Seme chiave |Deve essere usato per generare la chiave simmetrica con qualsiasi ID della chiave simmetrica (vedere [questa](media-services-axinom-integration.md#content-protection) sezione). |
 | L'URL di acquisizione della licenza Widevine. |È necessario usare la configurazione dei criteri di recapito asset per il flusso DASH. Vedere [questa](media-services-axinom-integration.md#content-protection) sezione. |
 | ID della chiave del contenuto |Deve essere incluso come parte del valore del reclamo del messaggio di attestazione del diritto di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). |
 
@@ -202,7 +202,7 @@ I parametri seguenti sono necessari nella soluzione minima che sfrutta il server
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Ringraziamenti

@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76962200"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Distribuire un processo di analisi di flusso di Azure tramite CI/CD NPM Package 
@@ -147,13 +147,13 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
 
 2. Selezionare il **+** accanto a **processo di Agent** e cercare *distribuzione gruppo di risorse di Azure*. Immettere i parametri seguenti:
 
-   |Impostazione|Valore|
+   |Impostazione|valore|
    |-|-|
    |Nome visualizzato| *Distribuire myASAJob*|
    |Sottoscrizione di Azure| Scegliere la propria sottoscrizione.|
-   |Azione| *Creare o aggiornare un gruppo di risorse*|
+   |Action| *Creare o aggiornare un gruppo di risorse*|
    |Resource group| Scegliere un nome per il gruppo di risorse di test che conterrà il processo di analisi di flusso.|
-   |Location|Scegliere il percorso del gruppo di risorse di test.|
+   |Percorso|Scegliere il percorso del gruppo di risorse di test.|
    |Percorso del modello| *Artefatto collegato*|
    |Modello| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
    |Parametri di modelli|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
@@ -164,13 +164,13 @@ Aprire un Web browser e passare al progetto di analisi di flusso di Azure Visual
 
 4. Selezionare il **+** accanto a **processo di Agent** e cercare *distribuzione gruppo di risorse di Azure*. Immettere i parametri seguenti:
 
-   |Impostazione|Valore|
+   |Impostazione|valore|
    |-|-|
    |Nome visualizzato| *Distribuire myASAJob*|
    |Sottoscrizione di Azure| Scegliere la propria sottoscrizione.|
-   |Azione| *Creare o aggiornare un gruppo di risorse*|
+   |Action| *Creare o aggiornare un gruppo di risorse*|
    |Resource group| Scegliere un nome per il gruppo di risorse di produzione che conterrà il processo di analisi di flusso.|
-   |Location|Scegliere il percorso del gruppo di risorse di produzione.|
+   |Percorso|Scegliere il percorso del gruppo di risorse di produzione.|
    |Percorso del modello| *Artefatto collegato*|
    |Modello| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
    |Parametri di modelli|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|

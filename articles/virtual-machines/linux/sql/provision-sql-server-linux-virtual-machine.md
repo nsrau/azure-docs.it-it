@@ -12,10 +12,10 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 43ba4eed4dcfd6d8e86c21f1ee5214108c44a8c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060239"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Linux di SQL Server nel portale di Azure
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="create-a-linux-vm-with-sql-server-installed"></a><a id="create"></a> Creare una VM Linux con SQL Server installato
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Nel riquadro a sinistra selezionare **Crea risorsa**.
 
@@ -49,13 +49,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
    ![Visualizzare tutte le immagini di VM](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. Nella casella di ricerca digitare **SQL Server 2019**e selezionare **INVIO** per avviare la ricerca.
+1. Nella casella di ricerca digitare **SQL Server 2019**e premere **invio** per avviare la ricerca.
 
-1. Limitare i risultati della ricerca selezionando Sistema **operativo** > **Redhat**.
+1. Limitare i risultati della ricerca selezionando **sistema** > operativo**RedHat**.
 
-    ![Filtro di ricerca per le immagini delle macchine virtuali di SQL Server 2019Search filter for SQL Server 2019 VM images](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
+    ![Filtro di ricerca per le immagini di macchina virtuale SQL Server 2019](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. Selezionare un'immagine Linux di SQL Server 2019 dai risultati della ricerca. In questa esercitazione viene utilizzato **SQL Server 2019 in RHEL74**.
+1. Selezionare un'immagine di SQL Server 2019 Linux nei risultati della ricerca. Questa esercitazione USA **SQL Server 2019 in RHEL74**.
 
    > [!TIP]
    > L'edizione Developer consente di testare o sviluppare con le funzionalità dell'edizione Enterprise, ma senza i costi di licenza per SQL Server. Si paga solo il costo dell'esecuzione della VM Linux.
@@ -71,34 +71,34 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. In **Nome macchina virtuale** immettere un nome per la nuova macchina virtuale Linux.
 1. Digitare o selezionare quindi i valori seguenti:
-   * **Area:** selezionare l'area di Azure più a punsi'.
-   * Opzioni di **disponibilità:** scegliere l'opzione di disponibilità e ridondanza più adatta alle app e ai dati.
-   * **Modifica dimensione**: Selezionare questa opzione per selezionare le dimensioni della macchina e, al termine, scegliere **Seleziona**. Per altre informazioni sulle dimensioni di VM, vedere [Dimensioni delle macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Area**: selezionare l'area di Azure più adatta alle proprie proprie.
+   * **Opzioni di disponibilità**: scegliere l'opzione disponibilità e ridondanza più adatta per le app e i dati.
+   * **Modifica dimensioni**: selezionare questa opzione per scegliere le dimensioni del computer e, al termine, scegliere **Seleziona**. Per altre informazioni sulle dimensioni di VM, vedere [Dimensioni delle macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
      ![Scegliere le dimensioni per la macchina virtuale](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > Per lo sviluppo e i test funzionali, usare la dimensione di macchina virtuale **DS2** o superiore. Per test delle prestazioni, usare **DS13** o una dimensione superiore.
 
-   * **Tipo di autenticazione**: selezionare **la chiave pubblica SSH**.
+   * **Tipo di autenticazione**: selezionare **chiave pubblica SSH**.
 
      > [!Note]
      > Per l'autenticazione, si può scegliere di usare una chiave pubblica SSH o una password. L'opzione più sicura è SSH. Per istruzioni su come generare una chiave SSH, vedere l'articolo su come [creare chiavi SSH in Linux e Mac per le VM Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-   * **Nome utente**: Immettere il nome dell'amministratore per la macchina virtuale.
-   * **Chiave pubblica SSH**: Immettere la chiave pubblica RSA.
-   * **Porte pubbliche in ingresso**: scegliere **Consenti porte selezionate** e selezionare la porta **SSH (22)** nell'elenco **Seleziona porte pubbliche in ingresso.** In questo argomento di avvio rapido questo passaggio è necessario per connettersi e completare la configurazione di SQL Server. Se si desidera connettersi in remoto a SQL Server, è necessario consentire manualmente il traffico alla porta predefinita (1433) utilizzata da Microsoft SQL Server per le connessioni tramite Internet dopo la creazione della macchina virtuale.
+   * Nome **utente**: immettere il nome dell'amministratore per la macchina virtuale.
+   * **Chiave pubblica SSH**: immettere la chiave pubblica RSA.
+   * **Porte in ingresso pubbliche**: scegliere **Consenti porte selezionate** e selezionare la porta **SSH (22)** nell'elenco **selezionare le porte in ingresso pubbliche** . In questo argomento di avvio rapido questo passaggio è necessario per connettersi e completare la configurazione di SQL Server. Se si desidera connettersi in remoto a SQL Server, è necessario consentire manualmente il traffico alla porta predefinita (1433) utilizzata da Microsoft SQL Server per le connessioni su Internet dopo la creazione della macchina virtuale.
 
      ![Porte in ingresso](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
 1. Apportare le modifiche desiderate alle impostazioni nelle schede aggiuntive seguenti o mantenere le impostazioni predefinite.
     * **Dischi**
-    * **Rete**
-    * **dispositivi mobili**
+    * **Funzionalità di rete**
+    * **Gestione**
     * **Configurazione guest**
     * **Tag**
 
-1. Selezionare **Revisione e creazione**.
+1. Selezionare **Rivedi e crea**.
 1. Nel riquadro **Rivedi e crea** selezionare **Crea**.
 
 ## <a name="connect-to-the-linux-vm"></a><a id="connect"></a> Connettersi alla VM Linux
@@ -128,7 +128,7 @@ Per altre informazioni sulla connessione alle VM Linux, vedere l'articolo su com
 > [!Note]
 > Se viene visualizzato un avviso di sicurezza PuTTY relativo alla mancata memorizzazione nella cache della chiave host del server, scegliere tra le opzioni seguenti. Se si considera attendibile l'host, selezionare **Sì** per aggiungere la chiave nella cache di PuTTy e continuare a la procedura di connessione. Se si vuole eseguire la connessione una sola volta, senza aggiungere la chiave nella cache, selezionare **No**. Se non si considera attendibile l'host, selezionare **Annulla** per abbandonare la connessione.
 
-## <a name="change-the-sa-password"></a><a id="password"></a>Modificare la password SA
+## <a name="change-the-sa-password"></a><a id="password"></a>Modificare la password dell'account SA
 
 La nuova macchina virtuale installa SQL Server con una password dell'amministratore di sistema casuale. Prima di connettersi a SQL Server con l'account di accesso dell'amministratore di sistema, reimpostare questa password.
 
@@ -153,7 +153,7 @@ La nuova macchina virtuale installa SQL Server con una password dell'amministrat
 
 Per impostazione predefinita vengono installati diversi [pacchetti](sql-server-linux-virtual-machines-overview.md#packages) di SQL Server, incluso il pacchetto degli strumenti da riga di comando di SQL Server. Questo pacchetto contiene gli strumenti **sqlcmd** e **bcp**. Per praticità, si può facoltativamente aggiungere il percorso degli strumenti, `/opt/mssql-tools/bin/`, alla variabile di ambiente **PATH**.
 
-1. Eseguire i comandi seguenti per modificare il **percorso** sia per le sessioni di accesso che per le sessioni interattive/non di accesso:
+1. Eseguire i comandi seguenti per modificare la variabile **PATH** sia per le sessioni di accesso che per le sessioni interattive/non di accesso:
 
    ```bash
    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile

@@ -1,16 +1,16 @@
 ---
-title: Risolvere i problemi relativi alle prestazioni delle query - Database di Azure per MariaDBTroubleshoot query performance - Azure Database for MariaDB
-description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MariaDB.Learn how to use EXPLAIN to troubleshoot query performance in Azure Database for MariaDB.
+title: Risolvere i problemi relativi alle prestazioni delle query-database di Azure per MariaDB
+description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530054"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MariaDB
@@ -163,7 +163,7 @@ L'istruzione EXPLAIN mostra ora che MariaDB è in grado di usare l'indice combin
  
 ## <a name="conclusion"></a>Conclusioni
  
-L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. Avere un indice nella tabella non significa necessariamente che MariaDB sarebbe in grado di utilizzarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
+L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. La presenza di un indice nella tabella non implica necessariamente che MariaDB possa utilizzarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per trovare risposte dai colleghi alle domande più pressanti o per pubblicare una nuova domanda o risposta, visitare il [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

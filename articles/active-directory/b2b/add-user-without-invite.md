@@ -1,5 +1,5 @@
 ---
-title: Aggiungere guest B2B senza un collegamento di invito o un messaggio di posta elettronica - Azure ADAdd B2B guests without an invitation link or email - Azure AD
+title: Aggiungere Guest B2B senza un collegamento di invito o un messaggio di posta elettronica-Azure AD
 description: È possibile consentire a un utente guest di aggiungere altri utenti guest ad Azure Active Directory senza riscattare un invito in Collaborazione B2B di Azure Active Directory.
 documentationcenter: ''
 services: active-directory
@@ -13,13 +13,13 @@ manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050898"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Aggiungere utenti guest di Collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Aggiungere utenti guest di collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica
 
 È adesso possibile invitare un utente guest inviando un collegamento diretto a un'app condivisa. Tramite questo metodo, gli utenti guest non necessitano più del messaggio di posta elettronica di invito, se non in alcuni casi speciali. Un utente guest fa clic sul collegamento app, esamina e accetta le condizioni sulla privacy e quindi accede con facilità all'app. Per altre informazioni, vedere [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md).   
 
@@ -35,7 +35,7 @@ Se si invita un utente nella directory, l'utente guest deve accedere direttament
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è la collaborazione B2B di Azure AD?](what-is-b2b.md)
+- [Che cos'è Azure AD collaborazione B2B?](what-is-b2b.md)
 - [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md)
 - [Delegare gli inviti per Collaborazione B2B di Azure Active Directory](delegate-invitations.md)
 - [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](add-users-information-worker.md)

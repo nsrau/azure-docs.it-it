@@ -1,6 +1,6 @@
 ---
-title: ST_DISTANCE nel linguaggio di query del database Cosmos di Azure
-description: Informazioni sulla funzione del sistema SQL ST_DISTANCE in Azure Cosmos DB.
+title: ST_DISTANCE nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL ST_DISTANCE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 03/12/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 02844569137a46ea030b2189191b84a9db24ed22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537296"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
- Restituisce la distanza tra le due espressioni GeoJSON Point, Polygon, MultiPolygon o LineString. Per altre informazioni, vedere l'articolo dati sulla [posizione Geospaziale e GeoJSON.To](sql-query-geospatial-intro.md) learn more, see the Geospatial and GeoJSON location data article.
+ Restituisce la distanza tra le due espressioni punto GeoJSON, poligono, multipoligono o LineString. Per altre informazioni, vedere l'articolo relativo ai [dati sulla posizione geospaziale e GeoJSON](sql-query-geospatial-intro.md) .
   
 ## <a name="syntax"></a>Sintassi
   
@@ -34,7 +34,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene illustrato come restituire tutti i documenti della `ST_DISTANCE` famiglia che si trovano entro 30 km dalla posizione specificata utilizzando la funzione incorporata. .  
+  Nell'esempio seguente viene illustrato come restituire tutti i documenti della famiglia che rientrano in 30 km del percorso `ST_DISTANCE` specificato utilizzando la funzione incorporata. .  
   
 ```sql
 SELECT f.id
@@ -52,7 +52,7 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema beneficerà di un [indice geospaziale.](index-policy.md#spatial-indexes)
+Questa funzione di sistema trarrà vantaggio da un [Indice geospaziale](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78270036"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connettere un archivio conoscenze con Power BI
@@ -24,7 +24,7 @@ Questo articolo illustra come connettere ed esplorare un archivio conoscenze usa
 
 + Per creare l'esempio di archivio conoscenze usato in questa procedura dettagliata, seguire le procedure descritte in [Creare un archivio conoscenze nel portale di Azure](knowledge-store-create-portal.md) o [Creare un archivio conoscenze di Ricerca cognitiva di Azure con REST](knowledge-store-create-rest.md). Servirà anche il nome dell'account di archiviazione di Azure usato per creare l'archivio conoscenze, insieme alla relativa chiave di accesso dal portale di Azure.
 
-+ [Installare Power BI Desktop](https://powerbi.microsoft.com/downloads/)
++ [Installa Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Modello di Power BI di esempio - Solo portale di Azure
 
@@ -62,11 +62,11 @@ Fare clic su **Scarica modello di Power BI** nella pagina **Aggiungi competenze 
    ![Aprire Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Aprire Power Query")
 
 1. Selezionare *hotelReviewsSsDocument* e quindi rimuovere le colonne *PartitionKey*, *RowKey* e *Timestamp*. 
-   ![Modificare le tabelle](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Modificare le tabelle")
+   ![Modifica tabelle](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Modificare le tabelle")
 
 1. Fare clic sull'icona con le frecce opposte sul lato superiore destro della tabella per espandere *Contenuto*. Quando viene visualizzato l'elenco delle colonne, selezionare tutte le colonne e quindi deselezionare le colonne che iniziano con "metadata". Fare clic su **OK** per visualizzare le colonne selezionate.
 
-   ![Modificare le tabelle](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Espandere il contenuto")
+   ![Modifica tabelle](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Espandere il contenuto")
 
 1. Cambiare il tipo di dati delle colonne seguenti facendo clic sull'icona ABC-123 nell'angolo superiore sinistro della colonna.
 

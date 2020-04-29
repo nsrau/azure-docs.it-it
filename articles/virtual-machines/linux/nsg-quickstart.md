@@ -1,6 +1,6 @@
 ---
-title: Aprire le porte a una macchina virtuale con l'interfaccia della riga di comando di AzureOpen ports to a VM with Azure CLI
-description: Informazioni su come aprire una porta o creare un endpoint nella macchina virtuale usando l'interfaccia della riga di comando di Azure.Learn how to open a port/ create an endpoint to your VM using the Azure CLI.
+title: Aprire porte a una VM con l'interfaccia della riga di comando di Azure
+description: Informazioni su come aprire una porta o creare un endpoint per la macchina virtuale usando l'interfaccia della riga di comando di Azure.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -10,13 +10,13 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066620"
 ---
-# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Aprire porte ed endpoint in una macchina virtuale con l'interfaccia della riga di comando di AzureOpen ports and endpoints to a VM with the Azure CLI
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una macchina virtuale con l'interfaccia della riga di comando di Azure
 
 Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta per una VM con l'interfaccia della riga di comando di Azure. 
 
@@ -37,7 +37,7 @@ Per un maggiore controllo sulle regole, ad esempio per definire un intervallo di
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>Creare un gruppo di sicurezza di rete e le regole corrispondenti
-Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato myNetworkSecurityGroup nel percorso *eastus:The* following example creates a network security group named *myNetworkSecurityGroup* in the eastus location:
+Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup* nella località *eastus* :
 
 ```azurecli
 az network nsg create \
@@ -87,5 +87,5 @@ Per le applicazioni Web a disponibilità elevata, è consigliabile inserire le m
 ## <a name="next-steps"></a>Passaggi successivi
 In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
 
-* [Panoramica di Azure Resource ManagerAzure Resource Manager overview](../../azure-resource-manager/management/overview.md)
+* [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [Che cos'è un gruppo di sicurezza di rete](../../virtual-network/security-overview.md)

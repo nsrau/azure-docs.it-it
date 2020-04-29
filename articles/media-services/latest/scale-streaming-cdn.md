@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128059"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Flusso di contenuto con l'integrazione della rete CDN
@@ -82,7 +82,7 @@ I vantaggi della funzionalità di *prelettura della rete CDN Origin-Assist* incl
 > [!NOTE]
 > Questa funzionalità non è ancora applicabile alla rete CDN Akamai integrata con l'endpoint di streaming di servizi multimediali. Tuttavia, è disponibile per i clienti di servizi multimediali che hanno un contratto Akamai preesistente e richiedono l'integrazione personalizzata tra la rete CDN Akamai e l'origine di servizi multimediali.
 
-### <a name="how-it-works"></a>Funzionamento
+### <a name="how-it-works"></a>Come funziona
 
 Il supporto della rete `Origin-Assist CDN-Prefetch` CDN per le intestazioni (per lo streaming live e video su richiesta) è disponibile per i clienti che hanno un contratto diretto con la rete CDN Akamai. La funzionalità prevede gli scambi di intestazioni HTTP seguenti tra la rete CDN Akamai e l'origine di servizi multimediali:
 

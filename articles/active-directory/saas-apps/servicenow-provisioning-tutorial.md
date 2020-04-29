@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78205104"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Esercitazione: configurare ServiceNow per il provisioning utenti automatico
@@ -50,7 +50,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e ServiceNow](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-servicenow-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare ServiceNow per supportare il provisioning con Azure AD
+## <a name="step-2-configure-servicenow-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare ServiceNow per supportare il provisioning con Azure AD
 
 1. Identificare il nome dell'istanza di ServiceNow. È possibile trovare il nome dell'istanza nell'URL usato per accedere a ServiceNow. Nell'esempio seguente il nome dell'istanza è dev35214.
 

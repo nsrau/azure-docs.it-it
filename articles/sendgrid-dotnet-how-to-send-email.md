@@ -1,6 +1,6 @@
 ---
 title: Come usare il servizio e-mail SendGrid (.NET) | Microsoft Docs
-description: Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid in Azure.Learn how to send email with the SendGrid email service on Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET.
+description: Informazioni su come inviare messaggi di posta elettronica con il servizio di posta elettronica SendGrid in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET.
 services: ''
 documentationcenter: .net
 author: georgewallace
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.openlocfilehash: 33df6b5c8c5c16a6eb896944de05068affc2b407
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062211"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Come inviare messaggi di posta elettronica usando SendGrid con Azure
@@ -26,7 +26,7 @@ ms.locfileid: "80062211"
 Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in C\# e supportano .NET Standard 1.3. Gli scenari presentati includono la creazione e l'invio di messaggi di posta elettronica, l'aggiunta di allegati e l'abilitazione di diverse impostazioni di posta elettronica e rilevamento. Per altre informazioni su SendGrid e sull'invio di email vedere la sezione [Passaggi successivi][Next steps].
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Informazioni sul servizio di posta elettronica SendGrid
-SendGrid è un servizio di [posta elettronica basato su cloud] che fornisce la distribuzione [transazionale]affidabile della posta elettronica, la scalabilità e l'analisi in tempo reale insieme a API flessibili che semplificano l'integrazione personalizzata. I casi d'uso comuni di SendGrid includono:
+SendGrid è un [servizio di posta elettronica basato sul cloud] che offre funzionalità affidabili per il [recapito tramite posta elettronica transazionale], la scalabilità e l'analisi in tempo reale, oltre ad API flessibili che semplificano l'integrazione personalizzata. I casi d'uso comuni di SendGrid includono:
 
 * Invio automatico di ricevute o conferme di acquisto ai clienti.
 * Amministrazione di liste di distribuzione per inviare mensilmente volantini e promozioni ai clienti.
@@ -34,7 +34,7 @@ SendGrid è un servizio di [posta elettronica basato su cloud] che fornisce la d
 * Inoltro di richieste dei clienti.
 * Elaborazione di messaggi di posta elettronica in arrivo.
 
-Per altre informazioni, visitare o la libreria GitHub della libreria di SendGrid.For more information, visit [https://sendgrid.com](https://sendgrid.com) or SendGrid's [C's library][sendgrid-csharp] GitHub repo.
+Per ulteriori informazioni, visitare [https://sendgrid.com](https://sendgrid.com) il repository GitHub della [libreria C#][sendgrid-csharp] di SendGrid.
 
 ## <a name="create-a-sendgrid-account"></a>Creazione di un account SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -43,7 +43,7 @@ Per altre informazioni, visitare o la libreria GitHub della libreria di SendGrid
 Il [pacchetto NuGet di SendGrid](https://www.nuget.org/packages/Sendgrid) è il modo più semplice per recuperare l'API SendGrid e configurare l'applicazione con tutte le dipendenze. NuGet è un'estensione di Visual Studio inclusa in Microsoft Visual Studio 2015 e versioni successive che semplifica l'installazione e l'aggiornamento di librerie e strumenti.
 
 > [!NOTE]
-> Per installare NuGet se si esegue una versione di Visual Studio [https://www.nuget.org](https://www.nuget.org)precedente a Visual Studio 2015, visitare e fare clic sul pulsante **Installa NuGet.**
+> Per installare NuGet se si esegue una versione di Visual Studio precedente a Visual Studio 2015, visitare [https://www.nuget.org](https://www.nuget.org), quindi fare clic sul pulsante **Installa NuGet** .
 >
 >
 
@@ -100,7 +100,7 @@ Dopo aver creato un'email, è possibile inviarla tramite l'API di SendGrid. In a
 
 Per inviare email, è necessario specificare la chiave API di SendGrid. Per informazioni dettagliate su come configurare le chiavi API, consultare la [documentazione][documentation] sulle chiavi API di SendGrid.
 
-È possibile archiviare queste credenziali tramite il portale di Azure facendo clic su Impostazioni applicazione e aggiungendo le coppie chiave/valore in Impostazioni app.
+È possibile archiviare queste credenziali tramite il portale di Azure facendo clic su Impostazioni applicazione e aggiungendo le coppie chiave/valore in impostazioni app.
 
  ![Impostazioni app di Azure][azure_app_settings]
 

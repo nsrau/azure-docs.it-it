@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
 ms.openlocfilehash: 1933db624dfef2ffa747ecb043be6730b6b884b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78206555"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Usare il modello di apprendimento approfondito Microsoft Cognitive Toolkit con un cluster Azure HDInsight Spark
@@ -58,13 +58,13 @@ In questo articolo il toolkit verrà installato dal portale, dopo la creazione d
 
 Per istruzioni su come usare il portale di Azure per eseguire l'azione script, vedere [personalizzare cluster HDInsight mediante azione script](../hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation). Assicurarsi di specificare i dati seguenti per installare Microsoft Cognitive Toolkit. Usare i valori seguenti per l'azione script:
 
-|Proprietà |Valore |
+|Proprietà |valore |
 |---|---|
 |Tipo di script|- Personalizzato|
-|Nome| Installare MCT|
+|Name| Installare MCT|
 |URI script Bash|`https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`|
 |Tipi di nodo:|Head, ruolo di lavoro|
-|Parametri|nessuno|
+|Parametri|Nessuno|
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Caricare il notebook di Jupyter nel cluster Azure HDInsight Spark
 
@@ -72,7 +72,7 @@ Per usare Microsoft Cognitive Toolkit con il cluster Azure HDInsight Spark, è n
 
 1. Scaricare e decomprimere [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/jupyter`, dove `CLUSTERNAME` è il nome del cluster.
+1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/jupyter` dove `CLUSTERNAME` è il nome del cluster.
 
 1. Dal notebook di Jupyter selezionare **carica** nell'angolo in alto a destra, quindi passare al download e selezionare file `CNTK_model_scoring_on_Spark_walkthrough.ipynb`.
 
@@ -82,7 +82,7 @@ Per usare Microsoft Cognitive Toolkit con il cluster Azure HDInsight Spark, è n
 
 1. Dopo aver caricato il notebook, fare clic sul nome del notebook e quindi seguire le istruzioni nel notebook stesso per caricare il set di dati ed eseguire l'articolo.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
 

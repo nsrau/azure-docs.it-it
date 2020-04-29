@@ -1,13 +1,13 @@
 ---
-title: Rapporto di gravità della riduzione della traccia - Azure Application Insights
-description: Monitorare le tracce dell'applicazione con Azure Application Insights per modelli insoliti nei dati di telemetria di traccia con rilevamento intelligente .
+title: Riduzione delle prestazioni nel rapporto gravità della traccia-applicazione Azure Insights
+description: Monitora le tracce dell'applicazione con applicazione Azure Insights per modelli insoliti nella telemetria delle tracce con rilevamento intelligente.
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: 30bdd30ac9c49bb79a3c48bae8149ec761756dd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671682"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradazione del rapporto tra i livelli di gravità delle tracce (anteprima)
@@ -17,14 +17,14 @@ Le tracce vengono usate di frequente nelle applicazioni, perché permettono di c
 Questa funzionalità non richiede una configurazione speciale, oltre a quella della registrazione delle tracce per la propria app (vedere come configurare un listener di log di traccia per [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) o [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). È attiva quando l'app genera un numero sufficiente di dati di telemetria per le eccezioni.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando si riceve questo tipo di notifica di rilevamento intelligente?
-Questo tipo di notifica potrebbe essere visualizzato se il rapporto tra tracce "buone" (tracce registrate con un livello di *Info* o *Verbose)* e tracce "cattive" (tracce registrate con un livello di *avviso*, *Errore*o *Fatal*) si degrada in un giorno specifico, rispetto a una linea di base calcolata nei sette giorni precedenti.
+Questo tipo di notifica può essere visualizzato se il rapporto tra le tracce "valide" (tracce registrate con un livello di *informazioni* o *dettagliato*) e le tracce "negative" (tracce registrate con un livello di *avviso*, *errore*o *irreversibile*) viene degradato in un giorno specifico, rispetto a una baseline calcolata nei sette giorni precedenti.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Verifica di eventuali problemi dell'app
 Una notifica non significa che l'app ha sicuramente un problema. Sebbene un deterioramento del rapporto tra le tracce "positive" e "negative" può indicare una problema a livello applicativo, questa modifica nel rapporto potrebbe essere benigna. Ad esempio, l'aumento potrebbe essere dovuto a un nuovo flusso nell'applicazione che emette più tracce "negative" rispetto ai flussi esistenti.
 
 ## <a name="how-do-i-fix-it"></a>Risoluzione
 Le notifiche includono informazioni di diagnostica a supporto del processo di diagnostica:
-1. **Triage.** La notifica mostra il numero di operazioni interessate. Ciò consente di assegnare una priorità al problema.
+1. **Valutazione.** La notifica mostra il numero di operazioni interessate. Ciò consente di assegnare una priorità al problema.
 2. **Ambito.** Il problema interessa solo alcune operazioni o tutto il traffico? Queste informazioni si possono ricavare dalla notifica.
 3. **Diagnosticare.** È possibile usare gli elementi e i report correlati che rimandano a informazioni di supporto, per diagnosticare meglio il problema.
 

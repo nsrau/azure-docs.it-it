@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/19/2020
 ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063822"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Log di controllo nel database di Azure per MariaDB
@@ -32,7 +32,7 @@ Altri parametri che è possibile modificare includono:
 > `audit_log_include_users`ha una priorità maggiore `audit_log_exclude_users`rispetto a. `audit_log_include_users`  =  Se `demouser` , ad esempio, `audit_log_exclude_users`  =  `demouser`e, l'utente verrà incluso nei log di controllo perché `audit_log_include_users` ha una priorità più elevata.
 - `audit_log_exclude_users`: MariaDB gli utenti da escludere dalla registrazione. Consente al massimo quattro utenti. La lunghezza massima del parametro è di 256 caratteri.
 
-| **Evento** | **Descrizione** |
+| **Event** | **Descrizione** |
 |---|---|
 | `CONNECTION` | -Avvio della connessione (esito positivo o negativo) <br> -Riautenticazione utente con diversi utenti/password durante la sessione <br> -Terminazione connessione |
 | `DML_SELECT`| Query SELECT |

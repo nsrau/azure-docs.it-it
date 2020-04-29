@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: c93a2e2f3162891e72cf6d57f3df6c3ceaf0c7fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064983"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box-edge-and-azure-data-box-gateway"></a>Aprire un ticket di supporto per Azure Data Box Edge e Azure Data Box Gateway
@@ -57,7 +57,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
         ![Problema](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. Nella scheda **Verifica e crea** esaminare le informazioni relative al ticket di supporto. Seleziona **Crea**. 
+4. Nella scheda **Verifica e crea** esaminare le informazioni relative al ticket di supporto. Selezionare **Crea**. 
 
     ![Problema](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Inviare dati di Diagnostica di Azure a Application InsightsSend Azure Diagnostics data to Application Insights
+title: Inviare dati di Diagnostica di Azure al Application Insights
 description: Aggiornare la configurazione pubblica di Diagnostica di Azure per inviare dati ad Application Insights
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
 ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672328"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights
@@ -210,7 +210,7 @@ Nella configurazione precedente, le righe riportate di seguito hanno i significa
 
 - **Unico tipo di log Channels e non per i contatori delle prestazioni.** Se si specifica un canale con un elemento contatore delle prestazioni, verrà ignorato.
 - **Il livello di log per un canale non può superare il livello di log relativo a quanto raccolto da Diagnostica di Azure.** Ad esempio, non è possibile raccogliere errori di log applicazioni nell'elemento Los e provare a inviare log Verbose al sink di Application Insight. L'attributo *scheduledTransferLogLevelFilter* deve sempre raccogliere un numero di log pari o superiore al numero di log che si sta tentando di inviare a un sink.
-- **Non è possibile inviare ad Application Insights dati BLOB raccolti dall'estensione Diagnostica di Azure.** Ad esempio, qualsiasi elemento specificato nel nodo *Directory.* Per i dump di arresto anomalo, il dump effettivo di arresto anomalo viene inviato all'archiviazione BLOB e ad Application Insights viene inviata solo una notifica che attesta la creazione del dump di arresto anomalo.
+- **Non è possibile inviare ad Application Insights dati BLOB raccolti dall'estensione Diagnostica di Azure.** Ad esempio, qualsiasi elemento specificato nel nodo *Directories* . Per i dump di arresto anomalo, il dump effettivo di arresto anomalo viene inviato all'archiviazione BLOB e ad Application Insights viene inviata solo una notifica che attesta la creazione del dump di arresto anomalo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [visualizzare le informazioni di diagnostica di Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) in Application Insights.

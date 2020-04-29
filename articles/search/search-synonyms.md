@@ -1,7 +1,7 @@
 ---
-title: Sinonimi per l'espansione delle query su un indice di ricerca
+title: Sinonimi per l'espansione di query su un indice di ricerca
 titleSuffix: Azure Cognitive Search
-description: Creare una mappa dei sinonimi per espandere l'ambito di una query di ricerca in un indice di Ricerca cognitiva di Azure.Create a synonym map to expand the scope of a search query on an Azure Cognitive Search index. L'ambito viene ampliato in modo da includere termini equivalenti forniti in un elenco.
+description: Creare una mappa di sinonimi per espandere l'ambito di una query di ricerca in un indice ricerca cognitiva di Azure. L'ambito viene ampliato in modo da includere termini equivalenti forniti in un elenco.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -9,27 +9,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78194343"
 ---
-# <a name="synonyms-in-azure-cognitive-search"></a>Sinonimi in Ricerca cognitiva di AzureSnonyms in Azure Cognitive Search
+# <a name="synonyms-in-azure-cognitive-search"></a>Sinonimi in Azure ricerca cognitiva
 
 La funzionalità relativa ai sinonimi nei motori di ricerca associa termini equivalenti, che espandono in modo implicito l'ambito di una query, senza che l'utente debba fornire effettivamente il termine. Ad esempio, dato il termine "cane" e le associazioni sinonimiche "canino" e "cucciolo", tutti i documenti contenenti "cane", "canino" o "cucciolo" saranno inclusi nella query.
 
-In Ricerca cognitiva di Azure l'espansione dei sinonimi viene eseguita in fase di query. È possibile aggiungere mappe sinonimiche a un servizio senza compromettere le operazioni esistenti. La proprietà **synonymMaps** può essere aggiunta alla definizione di un campo senza dover ricompilare l'indice.
+In Azure ricerca cognitiva l'espansione del sinonimo viene eseguita in fase di query. È possibile aggiungere mappe sinonimiche a un servizio senza compromettere le operazioni esistenti. La proprietà **synonymMaps** può essere aggiunta alla definizione di un campo senza dover ricompilare l'indice.
 
 ## <a name="create-synonyms"></a>Creare sinonimi
 
-Non è disponibile alcun supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, ti consigliamo di [usare Postman](search-get-started-postman.md) e la formulazione delle richieste usando questa API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per gli sviluppatori di C, è possibile iniziare a usare [Aggiungi sinonimi nella ricerca cognitiva di Azure usando C..](search-synonyms-tutorial-sdk.md)
+Non è disponibile il supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usare il post](search-get-started-postman.md) e la formulazione delle richieste usando questa API: [create sinonime Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per gli sviluppatori C#, è possibile iniziare a [aggiungere sinonimi in ricerca cognitiva di Azure con C#](search-synonyms-tutorial-sdk.md).
 
-Facoltativamente, se si utilizzano [chiavi gestite dal cliente](search-security-manage-encryption-keys.md) per la crittografia sul lato servizio inattivi, è possibile applicare tale protezione al contenuto della mappa dei sinonimi.
+Facoltativamente, se si usano [chiavi gestite dal cliente](search-security-manage-encryption-keys.md) per la crittografia sul lato servizio, è possibile applicare tale protezione al contenuto della mappa di sinonimi.
 
 ## <a name="use-synonyms"></a>Usare sinonimi
 
-In Ricerca cognitiva di Azure il supporto dei sinonimi si basa sulle mappe dei sinonimi definite e caricate nel servizio. Queste mappe costituiscono una risorsa indipendente (ad esempio indici o origini dati) e possono essere utilizzate da qualsiasi campo ricercabile in qualsiasi indice nel servizio di ricerca.
+In ricerca cognitiva di Azure, il supporto dei sinonimi è basato sulle mappe sinonimo definite e caricate nel servizio. Queste mappe costituiscono una risorsa indipendente (ad esempio indici o origini dati) e possono essere utilizzate da qualsiasi campo ricercabile in qualsiasi indice nel servizio di ricerca.
 
 Le mappe sinonimiche e gli indici vengono mantenuti in modo indipendente. Dopo aver definito una mappa sinonimica e averla caricata nel servizio, è possibile abilitare la funzionalità relativa ai sinonimi per un campo tramite l'aggiunta della nuova proprietà **synonymMaps** nella definizione del campo. La creazione, l'aggiornamento e l'eliminazione di una mappa sinonimica è sempre un'operazione che riguarda l'intero documento, perciò non è possibile creare, aggiornare o eliminare parti della mappa sinonimica in modo incrementale. Se si aggiorna anche una singola voce è necessario ripetere il caricamento.
 
@@ -45,7 +45,7 @@ L'aggiunta di sinonimi in un'applicazione di ricerca è una procedura in due pas
 
 #### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>Aggiungere o aggiornare una mappa sinonimica nel servizio tramite POST o PUT.
 
-Le mappe sinonimiche vengono caricate nel servizio tramite POST o PUT. Ogni regola deve essere delimitata dal carattere nuova riga ('\n'). È possibile definire fino a 5.000 regole per mappa di sinonimi in un servizio gratuito e 20.000 regole per mappa in tutti gli altri SKU. Ogni regola può avere fino a 20 espansioni.
+Le mappe sinonimiche vengono caricate nel servizio tramite POST o PUT. Ogni regola deve essere delimitata dal carattere nuova riga ('\n'). È possibile definire fino a 5.000 regole per mapping sinonimo in un servizio gratuito e 20.000 regole per mappa in tutti gli altri SKU. Ogni regola può avere fino a 20 espansioni.
 
 Le mappe sinonimiche devono essere nel formato Apache Solr descritto di seguito. Se si ha un dizionario di sinonimi in un formato diverso e si desidera usarlo direttamente, segnalarlo mediante [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
@@ -76,14 +76,14 @@ In alternativa è possibile usare PUT e specificare il nome della mappa sinonimi
 
 ##### <a name="apache-solr-synonym-format"></a>Formato dei sinonimi Apache Solr
 
-Il formato Solr supporta il mapping sinonimico equivalente ed esplicito. Le regole di mapping aderiscono alla specifica del filtro dei sinonimi open source di Apache Solr, descritta in questo documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Di seguito è riportata una regola di esempio per sinonimi equivalenti.
+Il formato Solr supporta il mapping sinonimico equivalente ed esplicito. Le regole di mapping sono conformi alla specifica del filtro di sinonimi open source di Apache Solr, descritta in questo documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Di seguito è riportata una regola di esempio per sinonimi equivalenti.
 ```
 USA, United States, United States of America
 ```
 
 Con la regola precedente, la query di ricerca "USA" si espanderà in "USA" OR "Stati Uniti" OR "Stati Uniti d'America".
 
-Il mapping esplicito è indicato da una freccia "=>". Se specificato, una sequenza di termini di una query di ricerca che corrisponde al lato sinistro del> di sverrà verrà sostituita con le alternative sul lato destro. Data la regola seguente, le query di ricerca "Washington", "Wash." o "WA" saranno riscritte tutte come "WA". Il mapping esplicito si applica solo nella direzione specificata e, in questo caso, non riscrivere la query "WA" come "Washington".
+Il mapping esplicito è indicato da una freccia "=>". Quando specificato, una sequenza di termini di una query di ricerca che corrisponde al lato sinistro di "=>" verrà sostituita con le alternative sul lato destro. Data la regola seguente, le query di ricerca "Washington", "Wash." o "WA" saranno riscritte tutte come "WA". Il mapping esplicito si applica solo nella direzione specificata e, in questo caso, non riscrivere la query "WA" come "Washington".
 ```
 Washington, Wash., WA => WA
 ```
@@ -159,4 +159,4 @@ Se si ha un indice esistente in un ambiente di sviluppo (non di produzione), pro
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare una mappa dei sinonimi](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Creare una mappa di sinonimi](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

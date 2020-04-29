@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918336"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usare Analisi Servizi multimediali di Azure per convertire il contenuto di testo dei file video in testo digitale  
 
 > [!NOTE]
-> Il processore **multimediale OCR multimediale** di Azure verrà ritirato. Per la data di pensionamento, vedere l'argomento relativo ai [componenti legacy.](legacy-components.md)
+> Il processore di contenuti multimediali di **Azure Media OCR** verrà ritirato. Per la data di ritiro, vedere l'argomento [componenti legacy](legacy-components.md) .
 
 ## <a name="overview"></a>Panoramica
 Se è necessario estrarre il contenuto di testo da file video e generare un testo digitale modificabile e in cui sia possibile eseguire ricerche, usare il riconoscimento ottico dei caratteri (OCR) di Analisi servizi multimediali di Azure. Questo processore di contenuti multimediali di Azure rileva il contenuto di testo nei file video e genera file di testo pronti per l'uso. OCR consente di automatizzare l'estrazione di metadati importanti dal segnale video del contenuto multimediale.
@@ -39,7 +39,7 @@ Questo articolo contiene informazioni dettagliate su **Azure Media OCR** e illus
 File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
 
 ## <a name="task-configuration"></a>Configurazione delle attività
-Configurazione delle attività (set di impostazioni). Quando si crea un'attività con **l'OCR multimediale**di Azure, è necessario specificare un predefinito di configurazione usando JSON o XML. 
+Configurazione delle attività (set di impostazioni). Quando si crea un'attività con **Azure Media OCR**, è necessario specificare un set di impostazioni di configurazione tramite JSON o XML. 
 
 >[!NOTE]
 >Il motore OCR accetta solo un'area dell'immagine con un minimo di 40 pixel e un massimo di 32.000 pixel come input valido sia in altezza che in larghezza.
@@ -48,7 +48,7 @@ Configurazione delle attività (set di impostazioni). Quando si crea un'attivit�
 ### <a name="attribute-descriptions"></a>Descrizioni degli attributi
 | Nome attributo | Descrizione |
 | --- | --- |
-|AdvancedOutput| Se si imposta AdvancedOutput su true, l'output JSON conterrà dati posizionali per ogni singola parola (oltre alle aree e le frasi). Se non si intende visualizzare i dettagli, impostare il flag su false. Il valore predefinito è false. Per ulteriori informazioni, consultate [questo blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+|AdvancedOutput| Se si imposta AdvancedOutput su true, l'output JSON conterrà dati posizionali per ogni singola parola (oltre alle aree e le frasi). Se non si intende visualizzare i dettagli, impostare il flag su false. Il valore predefinito è false. Per ulteriori informazioni, vedere [questo Blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Linguaggio |(Facoltativo) Descrive la lingua del testo da cercare. Uno dei seguenti: AutoDetect (default), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
 | TextOrientation |(Facoltativo) Descrive l'orientamento del testo da cercare.  "Left" significa che la parte superiore di tutte le lettere è rivolta verso sinistra.  Il testo predefinito (simile a quello di un libro) può essere orientato come "Up".  Uno dei seguenti: AutoDetect (default), Up, Right, Down, Left. |
 | TimeInterval |(Facoltativo) Descrive la frequenza di campionamento.  Il valore predefinito è ogni 1/2 secondo.<br/>Formato JSON: HH:mm:ss.SSS (impostazione predefinita 00:00:00.500)<br/>Formato XML – durata primitivi W3C XSD (predefinito PT0.5) |
@@ -193,7 +193,7 @@ Il programma seguente illustra come:
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio
 
@@ -369,9 +369,9 @@ namespace OCR
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 

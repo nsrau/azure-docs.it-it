@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: db20388b5277e000ffe7055e9840742d6af7788e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062594"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Crittografia dei dati in Azure Cosmos DB 
@@ -46,7 +46,7 @@ R: Le chiavi vengono gestite da Microsoft.
 R: Microsoft ha un set di linee guida interne per la rotazione della chiave di crittografia che segue Cosmos DB. Le linee guida specifiche non vengono pubblicate. Microsoft pubblica il [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), che viene considerato un subset di linee guida interne e include procedure consigliate utili per gli sviluppatori.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>D: È possibile usare le proprie chiavi di crittografia?
-R: Sì, questa funzione è disponibile per i nuovi conti cosmo e questo dovrebbe essere fatto al momento della creazione dell'account. Per ulteriori informazioni, consulta il documento [Customer managed Keys.](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk)
+R: Sì ora questa funzionalità è disponibile per i nuovi account Cosmos e questa operazione deve essere eseguita al momento della creazione dell'account. Per ulteriori informazioni, consultare il documento relativo alle [chiavi gestite dal cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) .
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>D: In quali aree è attiva la crittografia?
 R: La crittografia è attiva in tutte le aree di Azure Cosmos DB per tutti i dati utente.
@@ -59,5 +59,5 @@ R: L'emulatore è uno strumento di sviluppo e test autonomo e non usa i servizi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una panoramica della sicurezza di Cosmos DB e dei miglioramenti più recenti, vedere Sicurezza del [database Di Azure Cosmos](database-security.md).
+Per una panoramica della sicurezza Cosmos DB e dei miglioramenti più recenti, vedere [sicurezza di Azure Cosmos database](database-security.md).
 Per altre informazioni sulle certificazioni Microsoft, vedere il [Centro protezione di Azure](https://azure.microsoft.com/support/trust-center/).

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
 ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282575"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificati e sicurezza nei cluster Linux
@@ -17,7 +17,7 @@ Questo articolo fornisce informazioni sulla configurazione dei certificati X.509
 
 ## <a name="location-and-format-of-x509-certificates-on-linux-nodes"></a>Percorso e formato dei certificati X.509 nei nodi Linux
 
-Service Fabric prevede, in genere, che i certificati X.509 si trovino nella directory */var/lib/sfcerts* dei nodi del cluster Linux. Ciò vale per i certificati del cluster, i certificati client e così via. In alcuni casi, è possibile specificare un percorso diverso dalla cartella *var/lib/sfcerts* per i certificati. Con i servizi Reliable Services creati usando Service Fabric Java SDK, ad esempio, è possibile specificare un percorso diverso tramite il pacchetto di configurazione (Settings.xml) per alcuni certificati specifici dell'applicazione. Per altre informazioni, vedere [Certificati a cui fa riferimento il pacchetto di configurazione (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
+Service Fabric prevede, in genere, che i certificati X.509 si trovino nella directory */var/lib/sfcerts* dei nodi del cluster Linux. Questo vale per i certificati del cluster, i certificati client e così via. In alcuni casi, è possibile specificare un percorso diverso dalla cartella *var/lib/sfcerts* per i certificati. Con i servizi Reliable Services creati usando Service Fabric Java SDK, ad esempio, è possibile specificare un percorso diverso tramite il pacchetto di configurazione (Settings.xml) per alcuni certificati specifici dell'applicazione. Per altre informazioni, vedere [Certificati a cui fa riferimento il pacchetto di configurazione (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
 
 Per i cluster Linux, Service Fabric prevede che i certificati siano presenti come un file con estensione pem contenente il certificato e la chiave privata oppure come un file con estensione crt contenente il certificato e un file con estensione key contenente la chiave privata. Tutti i file devono essere in formato PEM. 
 
@@ -33,7 +33,7 @@ Per alcuni servizi, è possibile configurare i certificati X.509 in [ConfigPacka
 
 ### <a name="using-x509-securitycredentialstype"></a>Uso di X509 per SecurityCredentialsType
 
-Con .NET SDK o Java SDK, è possibile specificare **X509** per **SecurityCredentialsType**. Corrisponde al `X509Credentials` tipo ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/ `SecurityCredentials` [Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) di ( Java[.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[).](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)
+Con .NET SDK o Java SDK, è possibile specificare **X509** per **SecurityCredentialsType**. `X509Credentials` Corrisponde al tipo ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) di `SecurityCredentials` [(](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/.NET[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
 
 Il riferimento **X509** identifica la posizione del certificato in un archivio certificati. Il codice XML seguente illustra i parametri usati per specificare il percorso del certificato:
 
@@ -43,7 +43,7 @@ Il riferimento **X509** identifica la posizione del certificato in un archivio c
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-Per un servizio in esecuzione su Linux, **LocalMachine**/**My** punta al percorso predefinito per i certificati, la directory */var/lib/sfcerts.* Per Linux, tutte le altre combinazioni di **CertificateStoreLocation** e **CertificateStoreName** non sono definite. 
+Per un servizio in esecuzione in Linux, **LocalMachine**/**fa riferimento** al percorso predefinito per i certificati, ovvero la directory */var/lib/sfcerts* . Per Linux, tutte le altre combinazioni di **CertificateStoreLocation** e **CertificateStoreName** non sono definite. 
 
 Specificare sempre **LocalMachine** per il parametro **CertificateStoreLocation**. Non è necessario specificare il parametro **CertificateStoreName** perché il valore predefinito è "My". Con un riferimento **X509**, i file di certificato devono trovarsi nella directory */var/lib/sfcerts* nel nodo del cluster.  
 
@@ -73,7 +73,7 @@ Con un riferimento **X509_2**, si specifica un parametro di percorso, in modo da
      <Parameter Name="CertificatePath" Value="/path/to/cert/BD1C71E248B8C6834C151174DECDBDC02DE1D954.crt" />
 ```
 
-Il codice XML seguente mostra una sezione **TransportSettings** basata su questo stile.
+Nel codice XML seguente viene illustrata una sezione **TransportSettings** basata su questo stile.
 
 ```xml
 <!--Section name should always end with "TransportSettings".-->

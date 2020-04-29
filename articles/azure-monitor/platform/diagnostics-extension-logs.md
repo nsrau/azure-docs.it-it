@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672396"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Raccogliere i dati dall'estensione diagnostica di Azure ai log di monitoraggio di Azure
@@ -22,7 +22,7 @@ L'estensione diagnostica di Azure è un [agente di monitoraggio di Azure](agents
 ## <a name="supported-data-types"></a>Tipi di dati supportati
 L'estensione diagnostica di Azure archivia i dati in un account di archiviazione di Azure. Per raccogliere questi dati, i log di monitoraggio di Azure devono trovarsi nei percorsi seguenti:
 
-| Tipo di log | Tipo di risorsa | Location |
+| Tipo di log | Tipo di risorsa | Percorso |
 | --- | --- | --- |
 | Log di IIS |Macchine virtuali <br> Ruoli Web <br> Ruoli di lavoro |wad-iis-logfiles (archivio BLOB) |
 | syslog |Macchine virtuali |LinuxsyslogVer2v0 (archivio tabelle) |

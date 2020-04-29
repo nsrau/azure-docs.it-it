@@ -1,5 +1,5 @@
 ---
-title: Profilare le app di produzione in Azure con Application Insights ProfilerProfile production apps in Azure with Application Insights Profiler
+title: Profilare le app di produzione in Azure con Application Insights Profiler
 description: Identificare il percorso ricorrente nel codice del server web con un profiler con footprint ridotto.
 ms.topic: conceptual
 author: cweining
@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671648"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
@@ -21,10 +21,10 @@ Azure Application Insights Profiler offre analisi delle prestazioni per le appli
 Profiler funziona con le applicazioni .NET distribuite nei servizi di Azure seguenti. I collegamenti seguenti consentono di passare alle istruzioni specifiche per abilitare Profiler per ogni tipo di servizio.
 
 * [Servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Servizi cloud di AzureAzure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**ANTEPRIMA** ASP.NET principali applicazioni Web Linux di Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [**Anteprima** ASP.NET Core app Web Linux di Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Guida alla risoluzione dei problemi.](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
@@ -65,7 +65,7 @@ Se l'esecuzione di **clr!ThePreStub** per una richiesta richiede molto tempo, la
 
 ### <a name="lock-contention-clrjitutil_moncontention-or-clrjitutil_monenterworker"></a><a id="lockcontention"></a>Conflitto di blocchi (clr!JITutil\_MonContention o clr!JITutil\_MonEnterWorker)
 
-**clr!JITutil\_MonContention** o **clr!JITutil\_MonEnterWorker** indica che il thread corrente è in attesa di un blocco da rilasciare. Questo testo viene spesso visualizzato durante l'esecuzione di un'istruzione C# **LOCK** o quando viene chiamato il metodo **Monitor.Enter** o un metodo con l'attributo **MethodImplOptions.Synchronized**. La contesa di blocco si verifica in genere quando il thread _A_ acquisisce un blocco e il thread _B_ tenta di acquisire lo stesso blocco prima che il thread _A_ lo rilasci.
+**clr!JITutil\_MonContention** o **clr!JITutil\_MonEnterWorker** indica che il thread corrente è in attesa di un blocco da rilasciare. Questo testo viene spesso visualizzato durante l'esecuzione di un'istruzione C# **LOCK** o quando viene chiamato il metodo **Monitor.Enter** o un metodo con l'attributo **MethodImplOptions.Synchronized**. Il conflitto di blocchi si verifica in genere quando il thread _a_ acquisisce un blocco e il thread _B_ tenta di acquisire lo stesso blocco prima che il thread _a_ lo rilasci.
 
 ### <a name="loading-code-cold"></a><a id="ngencold"></a>Caricamento di codice ([COLD])
 
@@ -89,9 +89,9 @@ Metodi come **SqlCommand.Execute** indicano che il codice è in attesa del compl
 
 **BLOCKED_TIME** indica che il codice è in attesa di un'altra risorsa disponibile. Ad esempio, potrebbe essere in attesa di un oggetto di sincronizzazione, di un thread o del completamento di una richiesta.
 
-### <a name="unmanaged-async"></a>Asincrono non gestitoUnmanaged Async
+### <a name="unmanaged-async"></a>Asincrono non gestito
 
-.NET framework genera eventi ETW e passa gli ID di attività tra i thread in modo che le chiamate asincrone possano essere rilevate tra i thread. Il codice non gestito (codice nativo) e alcuni stili meno recenti di codice asincrono mancano di questi eventi e ID di attività, pertanto il profiler non è in grado di stabilire quale thread e quali funzioni sono in esecuzione nel thread. Viene etichettato come 'Unmanaged Async' nello stack di chiamate. Se si scarica il file ETW, è possibile utilizzare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) per ottenere maggiori informazioni su ciò che sta accadendo.
+.NET Framework genera eventi ETW e passa gli ID attività tra i thread in modo che sia possibile tenere traccia delle chiamate asincrone tra i thread. Nel codice non gestito (codice nativo) e in alcuni stili precedenti del codice asincrono mancano questi eventi e ID attività, quindi il profiler non è in grado di stabilire quale thread e quali funzioni sono in esecuzione sul thread. Questa operazione è denominata "asincrono non gestito" nello stack di chiamate. Se si Scarica il file ETW, è possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) per ottenere informazioni più approfondite su ciò che accade.
 
 ### <a name="cpu-time"></a><a id="cpu"></a>Tempo CPU
 
@@ -122,7 +122,7 @@ Profiler viene eseguito in modo casuale per due minuti ogni ora in ogni macchina
 ## <a name="next-steps"></a>Passaggi successivi
 Abilitare Application Insights Profiler per l'applicazione Azure. Vedere anche:
 * [Servizi app](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Servizi cloud di AzureAzure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

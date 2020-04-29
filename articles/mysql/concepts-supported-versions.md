@@ -1,16 +1,16 @@
 ---
-title: Versioni supportate - Database di Azure per MySQLSupported versions - Azure Database for MySQL
-description: Informazioni sulle versioni del server MySQL supportate nel servizio Database di Azure per MySQL.Learn which versions of the MySQL server are supported in the Azure Database for MySQL service.
+title: 'Versioni supportate: database di Azure per MySQL'
+description: Informazioni sulle versioni di MySQL Server supportate nel database di Azure per il servizio MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 197b3100190711a51cfe125fe1214a59c18e1491
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536973"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
@@ -26,21 +26,21 @@ Al momento il Database di Azure per MySQL supporta le versioni indicate di segui
 
 ## <a name="mysql-version-56"></a>MySQL versione 5.6
 
-Rilascio della correzione di bug: 5.6.45
+Versione correzione bug: 5.6.45
 
-Fare riferimento alle note sulla [versione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) di MySQL per ulteriori informazioni sui miglioramenti e le correzioni in questa versione.
+Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) di MySQL.
 
 ## <a name="mysql-version-57"></a>MySQL versione 5.7
 
-Rilascio della correzione di bug: 5.7.27
+Versione correzione bug: 5.7.27
 
-Fare riferimento alle note sulla [versione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) di MySQL per ulteriori informazioni sui miglioramenti e le correzioni in questa versione.
+Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) di MySQL.
 
-## <a name="mysql-version-80"></a>MySQL versione 8.0
+## <a name="mysql-version-80"></a>MySQL versione 8,0
 
-Rilascio della correzione di bug: 8.0.15
+Versione correzione bug: 8.0.15
 
-Fare riferimento alle note sulla [versione](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) di MySQL per ulteriori informazioni sui miglioramenti e le correzioni in questa versione.
+Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versione, vedere le [Note sulla versione](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) di MySQL.
 
 ## <a name="managing-updates-and-upgrades"></a>Gestire gli aggiornamenti
 Il servizio gestisce automaticamente l'applicazione di patch per gli aggiornamenti delle versioni di correzione dei bug. Ad esempio, da 5.7.20 a 5.7.21.  
@@ -49,4 +49,4 @@ Attualmente, gli aggiornamenti di versioni principali e secondarie non sono supp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su quote e limitazioni specifiche delle risorse in base al livello di **servizio,** vedere Livelli di servizioFor information about specific resource quotas and limitations based on your service tier , see [Service tiers](./concepts-pricing-tiers.md)
+Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio**, vedere livelli di [servizio](./concepts-pricing-tiers.md)

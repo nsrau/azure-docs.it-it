@@ -7,10 +7,10 @@ ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6ef0675e3ae3f7a5da38138177f3033051723411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537109"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurare monitoraggio di Azure per l'applicazione Python
@@ -36,13 +36,13 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 1. Viene visualizzata una finestra di configurazione. Usare la tabella seguente per compilare i campi di input.
 
-   | Impostazione        | Valore           | Descrizione  |
+   | Impostazione        | valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco globale | Nome che identifica l'app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per ospitare i dati Application Insights |
    | **Posizione** | Stati Uniti orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
 
-1. Seleziona **Crea**.
+1. Selezionare **Crea**.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentare con OpenCensus Python SDK per monitoraggio di Azure
 

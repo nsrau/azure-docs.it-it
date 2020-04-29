@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6d1185e13397b3e466bd1e8d609a46f2f68bf390
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063944"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team
@@ -28,12 +28,12 @@ Gli articoli seguenti descrivono come configurare i diversi ambienti di data sci
 
 * [Azure storage-account](../../storage/common/storage-account-create.md) (Account di archiviazione di Azure)
 * [HDInsight (Hadoop) cluster](customize-hadoop-cluster.md) (Cluster HDInsight (Hadoop))
-* [Area di lavoro di Azure Machine Learning Studio (classica)Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md)
+* [Area di lavoro Azure Machine Learning Studio (classica)](../studio/create-workspace.md)
 
 La **macchina virtuale per l'analisi scientifica dei dati di Microsoft** è disponibile anche come immagine di macchina virtuale di (VM) Azure. Questa macchina virtuale è pre-installata e configurata con diversi strumenti diffusi, usati comunemente per l'analisi dei dati e l'apprendimento automatico. La macchina virtuale per l'analisi scientifica dei dati è disponibile in Windows e Linux. Per altre informazioni, vedere [Introduzione alla Data Science Virtual Machine basata su cloud per Linux e Windows](../data-science-virtual-machine/overview.md).
 
 Scopri come creare:
 
-- [DSVM di Windows](../data-science-virtual-machine/provision-vm.md)
+- [DSVM Windows](../data-science-virtual-machine/provision-vm.md)
 - [Data Science Virtual Machine di Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
 - [Data Science Virtual Machine di CentOS](../data-science-virtual-machine/linux-dsvm-intro.md)
