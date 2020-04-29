@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: 652d42d6e2d9e909c3a03bd82a3a36f91bc73807
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80419577"
 ---
 La funzionalità è facile da configurare, ma ciò non significa che la tua esperienza sarà priva di problemi. Se si verificano problemi durante l'accesso all'endpoint desiderato, sono disponibili alcune utilità che è possibile usare per testare la connettività dalla console app. Le console disponibili sono due: Uno è la console Kudu e l'altro è la console nella portale di Azure. Per accedere alla console Kudu dall'app, passare a **strumenti** > **Kudu**. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Al termine del caricamento del sito Web, passare alla scheda **debug console** . Per accedere alla console ospitata da portale di Azure dall'app, passare a **strumenti** > **console**.

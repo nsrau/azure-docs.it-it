@@ -1,6 +1,6 @@
 ---
-title: Porta anteriore di Azure - memorizzazione nella cache Documenti Microsoft
-description: Questo articolo illustra in che modo Azure Front Door monitora l'integrità dei back-end
+title: Sportello anteriore di Azure-Caching | Microsoft Docs
+description: Questo articolo consente di comprendere come il front-end di Azure monitora l'integrità dei backend
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471745"
 ---
-# <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di AzureCaching with Azure Front Door
-Il documento seguente specifica il comportamento di Frontdoor di Azure con regole di routing che hanno abilitato la memorizzazione nella cache. Front Door è una moderna rete per la distribuzione di contenuti (CDN) e quindi, oltre all'accelerazione dinamica del sito e al bilanciamento del carico, supporta anche i comportamenti di memorizzazione nella cache come qualsiasi altra rete CDN.
+# <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di Azure
+Il documento seguente specifica il comportamento di Frontdoor di Azure con regole di routing che hanno abilitato la memorizzazione nella cache. La porta anteriore è una rete per la distribuzione di contenuti (CDN) moderna e, insieme a bilanciamento del carico e accelerazione sito dinamico, supporta anche i comportamenti di memorizzazione nella cache come qualsiasi altra rete CDN.
 
 ## <a name="delivery-of-large-files"></a>Recapito di file di grandi dimensioni
-Azure Front Door offre file di grandi dimensioni senza un limite alle dimensioni dei file. Frontdoor di Azure usa una tecnica chiamata suddivisione degli oggetti in blocchi. Quando viene richiesto un file di grandi dimensioni, Frontdoor recupera piccole parti del file dal back-end. Dopo aver ricevuto una richiesta di file completo o intervallo di byte, un ambiente Frontdoor richiede il file dal back-end in blocchi da 8 MB.
+Il front-end di Azure recapita file di grandi dimensioni senza copertura per le dimensioni dei file. Frontdoor di Azure usa una tecnica chiamata suddivisione degli oggetti in blocchi. Quando viene richiesto un file di grandi dimensioni, Frontdoor recupera piccole parti del file dal back-end. Dopo aver ricevuto una richiesta di file completo o intervallo di byte, un ambiente Frontdoor richiede il file dal back-end in blocchi da 8 MB.
 
 </br>Quando il blocco arriva all'ambiente Frontdoor, viene memorizzato nella cache e reso immediatamente disponibile all'utente. Frontdoor esegue la prelettura del blocco successivo in parallelo. Questa prelettura fa sì che il contenuto resti in anticipo di un blocco rispetto all'utente, riducendo la latenza. Questo processo continua finché non viene scaricato l'intero file (se richiesto), non sono disponibili tutti gli intervalli di byte (se richiesto) o il client non termina la connessione.
 
@@ -75,7 +75,7 @@ Frontdoor comprime in modo dinamico il contenuto sull'edge, offrendo così una r
 Inoltre, la dimensione del file deve essere compresa tra 1 KB e 8 MB.
 
 Questi profili supportano le codifiche di compressione seguenti:
-- [Gzip (zip GNU)](https://en.wikipedia.org/wiki/Gzip)
+- [Gzip (GNU zip)](https://en.wikipedia.org/wiki/Gzip)
 - [Brotli](https://en.wikipedia.org/wiki/Brotli)
 
 Se una richiesta supporta la compressione gzip e la compressione Brotli, la compressione Brotli ha la precedenza.</br>
@@ -92,19 +92,19 @@ Frontdoor memorizzerà nella cache gli asset fino alla scadenza della durata TTL
 </br>La procedura consigliata per assicurarsi che gli utenti ottengano sempre la copia più recente degli asset consiste nel versioning di questi ultimi per ogni aggiornamento e nella relativa pubblicazione come nuovi URL. Frontdoor recupera immediatamente i nuovi asset per le richieste client successive. A volte si desidera ripulire il contenuto memorizzato nella cache da tutti i nodi periodici e forzare il recupero dei nuovi asset aggiornati. Ciò potrebbe essere dovuto agli aggiornamenti all'applicazione Web o a un aggiornamento rapido di asset che contengono informazioni non corrette.
 
 </br>Selezionare gli asset che si desidera ripulire dai nodi periferici. Se si desidera ripulire tutti gli asset, fare clic sulla casella di controllo Elimina tutto. In alternativa digitare il percorso di ogni asset che si vuole ripulire nella casella di testo Percorso. I formati seguenti sono supportati nel percorso.
-1. **Eliminazione di**un singolo percorso : Elimina singoli asset specificando il percorso completo dell'asset (senza il protocollo e il dominio), con l'estensione del file, ad esempio /pictures/strasbourg.png;
-2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Eliminare tutte le cartelle, le sottocartelle\* e i file in un endpoint con / nel percorso o\*eliminare tutte le sottocartelle e i file in una cartella specifica specificando la cartella seguita da / , ad esempio /pictures/\*.
+1. **Ripulitura percorso singolo**: Ripulisci singoli asset specificando il percorso completo dell'asset (senza il protocollo e il dominio), con l'estensione di file, ad esempio,/Pictures/Strasbourg.png;
+2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Eliminare tutte le cartelle, le sottocartelle e i file in un endpoint con/\* nel percorso o eliminare tutte le sottocartelle e i file in una cartella specifica specificando la cartella seguita da/\*, ad esempio/Pictures/.\*
 3. **Root domain purge**: (Eliminazione del dominio radice) consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
 
 Le pulizie della cache su Frontdoor non fanno distinzione tra maiuscole e minuscole. Inoltre, risultano indipendenti dalla stringa di query, vale a dire che l'eliminazione di un indirizzo Web eliminerà tutte le variazioni delle stringhe di query. 
 
 ## <a name="cache-expiration"></a>Ora di scadenza della cache
 L'ordine delle intestazioni seguente viene usato per determinare quanto tempo un elemento rimane memorizzato nella cache:</br>
-1. Cache-Control: s-maxage\<secondi>
-2. Cache-Control:\<secondi di validità massima>
-3. Scadenza: \<> di data http
+1. Cache-Control: s-maxage =\<secondi>
+2. Cache-Control: Max-Age =\<secondi>
+3. Scadenza: \<data http>
 
-Cache-Control intestazioni di risposta che indicano che la risposta non verrà memorizzata nella cache, ad esempio Cache-Control: private, Cache-Control: no-cache e Cache-Control: no-store vengono rispettati. Tuttavia, se sono presenti più richieste in elaborazione in un POP per lo stesso indirizzo Web, esse possono condividere la risposta. Se non è presente alcun cache-Control, il comportamento predefinito è che AFD memorizzerà nella cache la risorsa per X periodo di tempo in cui X viene scelto casualmente tra 1 e 3 giorni.
+Intestazioni di risposta Cache-Control che indicano che la risposta non verrà memorizzata nella cache, ad esempio cache-Control: private, cache-Control: No-cache e cache-Control: No-Store viene rispettato. Tuttavia, se sono presenti più richieste in elaborazione in un POP per lo stesso indirizzo Web, esse possono condividere la risposta. Se non è presente alcun controllo cache, il comportamento predefinito è che AFD memorizza nella cache la risorsa per l'intervallo di tempo X, dove X viene selezionato in modo casuale da 1 a 3 giorni.
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 

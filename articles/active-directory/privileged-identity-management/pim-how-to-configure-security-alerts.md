@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86dbcdc24c90ba8b161b041af96cbdd0665ad827
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253312"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurare gli avvisi di sicurezza per i ruoli di Azure AD in Privileged Identity Management
@@ -52,7 +52,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | Se sono presenti utenti a cui sono stati assegnati ruoli con privilegi non necessari, le probabilità di un attacco aumentano. Inoltre, gli utenti malintenzionati possono passare più facilmente inosservati in account che non sono attivamente in uso. |
 | **Come risolvere il problema?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi che non sono necessari. |
 | **Prevenzione della** | Assegnare ruoli con privilegi solo agli utenti che dispongono di una giustificazione aziendale. </br>Pianificare [verifiche di accesso](pim-how-to-start-security-review.md) regolari per determinare se gli utenti hanno ancora bisogno dell'accesso. |
@@ -64,7 +64,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | Senza l'autenticazione a più fattori, gli utenti compromessi possono attivare ruoli con privilegi. |
 | **Come risolvere il problema?** | Esaminare l'elenco dei ruoli e [richiedere l'autenticazione](pim-how-to-change-default-settings.md) a più fattori per ogni ruolo. |
 | **Prevenzione della** | [Richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per ogni ruolo.  |
@@ -74,7 +74,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'organizzazione Azure AD corrente non ha Azure AD Premium P2. |
 | **Come risolvere il problema?** | Esaminare le informazioni sulle [edizioni di Azure AD](../fundamentals/active-directory-whatis.md). Eseguire l'aggiornamento ad Azure AD Premium P2. |
 
@@ -103,7 +103,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'amministratore globale è il ruolo con privilegi più elevati. Se un amministratore globale è compromesso, l'autore dell'attacco ottiene l'accesso a tutte le relative autorizzazioni, in modo da mettere a rischio l'intero sistema. |
 | **Come risolvere il problema?** | Esaminare gli utenti nell'elenco e rimuovere quelli che non richiedono assolutamente il ruolo di amministratore globale. </br>Assegnare invece ruoli con privilegi più bassi a questi utenti. |
 | **Prevenzione della** | Assegnare agli utenti il ruolo con privilegi minimo di cui hanno bisogno. |
@@ -116,7 +116,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'attivazione ripetuta dello stesso ruolo con privilegi da parte dello stesso utente è indicativa di un attacco. |
 | **Come risolvere il problema?** | Esaminare gli utenti nell'elenco e verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività. |
 | **Prevenzione della** | Verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività.</br>[Richiedere l'autenticazione](pim-how-to-change-default-settings.md) a più fattori per i ruoli con privilegi che dispongono di account condivisi da più amministratori. |
@@ -151,7 +151,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | Se sono presenti utenti a cui sono stati assegnati ruoli con privilegi non necessari, le probabilità di un attacco aumentano. Inoltre, gli utenti malintenzionati possono passare più facilmente inosservati in account che non sono attivamente in uso. |
 | **Come risolvere il problema?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi che non sono necessari. |
 | **Prevenzione della** | Assegnare ruoli con privilegi solo agli utenti che dispongono di una giustificazione aziendale. </br>Pianificare [verifiche di accesso](pim-how-to-start-security-review.md) regolari per determinare se gli utenti hanno ancora bisogno dell'accesso. |
@@ -163,7 +163,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | Senza l'autenticazione a più fattori, gli utenti compromessi possono attivare ruoli con privilegi. |
 | **Come risolvere il problema?** | Esaminare l'elenco dei ruoli e [richiedere l'autenticazione](pim-how-to-change-default-settings.md) a più fattori per ogni ruolo. |
 | **Prevenzione della** | [Richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per ogni ruolo.  |
@@ -173,7 +173,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'organizzazione Azure AD corrente non ha Azure AD Premium P2. |
 | **Come risolvere il problema?** | Esaminare le informazioni sulle [edizioni di Azure AD](../fundamentals/active-directory-whatis.md). Eseguire l'aggiornamento ad Azure AD Premium P2. |
 
@@ -202,7 +202,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'amministratore globale è il ruolo con privilegi più elevati. Se un amministratore globale è compromesso, l'autore dell'attacco ottiene l'accesso a tutte le relative autorizzazioni, in modo da mettere a rischio l'intero sistema. |
 | **Come risolvere il problema?** | Esaminare gli utenti nell'elenco e rimuovere quelli che non richiedono assolutamente il ruolo di amministratore globale. </br>Assegnare invece ruoli con privilegi più bassi a questi utenti. |
 | **Prevenzione della** | Assegnare agli utenti il ruolo con privilegi minimo di cui hanno bisogno. |
@@ -215,7 +215,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Gravità** | Bassa |
+| **Gravità** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'attivazione ripetuta dello stesso ruolo con privilegi da parte dello stesso utente è indicativa di un attacco. |
 | **Come risolvere il problema?** | Esaminare gli utenti nell'elenco e verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività. |
 | **Prevenzione della** | Verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività.</br>[Richiedere l'autenticazione](pim-how-to-change-default-settings.md) a più fattori per i ruoli con privilegi che dispongono di account condivisi da più amministratori. |

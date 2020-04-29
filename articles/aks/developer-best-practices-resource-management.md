@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
 ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80803484"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedure consigliate per gli sviluppatori di applicazioni per la gestione delle risorse nel servizio Azure Kubernetes (AKS)
@@ -31,19 +31,19 @@ Questo articolo sulle procedure consigliate è incentrato su come eseguire il cl
 
 Uno dei modi principali per gestire le risorse di calcolo all'interno di un cluster servizio Azure Kubernetes consiste nell'usare le richieste e i limiti del pod. Le richieste e i limiti comunicano all'utilità di pianificazione di Kubernetes le risorse di calcolo da assegnare a un pod.
 
-* **Le richieste CPU/memoria pod** definiscono una quantità impostata di CPU e memoria di cui il pod ha bisogno a intervalli regolari.
-    * Quando l'utilità di pianificazione Kubernetes tenta di posizionare un pod su un nodo, le richieste del pod vengono utilizzate per determinare quale nodo dispone di risorse sufficienti per la pianificazione.
-    * Se non si imposta una richiesta di pod, questa verrà predefinita al limite definito.
-    * È molto importante monitorare le prestazioni dell'applicazione per regolare queste richieste. Se vengono effettuate richieste insufficienti, le prestazioni dell'applicazione potrebbero ricevere un peggioramento delle prestazioni a causa della pianificazione di un nodo. Se le richieste vengono sopravvalutate, l'applicazione potrebbe avere maggiori difficoltà a pianificare.
-* I limiti di **CPU/memoria del pod** sono la quantità massima di CPU e memoria utilizzabile da un pod. Questi limiti aiutano a definire quali pod devono essere uccisi in caso di instabilità del nodo a causa di risorse insufficienti. Senza limiti adeguati i pod impostati saranno uccisi fino a quando la pressione delle risorse non sarà sollevata.
-    * I limiti del contenitore consentono di definire quando un contenitore ha perso il controllo del consumo di risorse. Quando viene superato un limite, al contenitore viene assegnata una priorità per l'uccisione per mantenere l'integrità del nodo e ridurre al minimo l'impatto sui pod che condividono il nodo.
-    * Se non si imposta un limite di pod, questo viene impostato sul valore più alto disponibile in un determinato nodo.
+* **Le richieste CPU/memoria Pod** definiscono una quantità di CPU e memoria che il Pod necessita a intervalli regolari.
+    * Quando l'utilità di pianificazione Kubernetes tenta di inserire un pod in un nodo, le richieste Pod vengono usate per determinare quale nodo dispone di risorse sufficienti per la pianificazione.
+    * Per impostazione predefinita, la richiesta Pod verrà impostata sul limite definito.
+    * È molto importante monitorare le prestazioni dell'applicazione per modificare tali richieste. Se vengono effettuate richieste insufficienti, è possibile che l'applicazione riceva una riduzione delle prestazioni a causa della pianificazione di un nodo. Se le richieste vengono sovrastimate, è possibile che l'applicazione abbia una maggiore difficoltà a essere pianificata.
+* I **limiti di CPU/memoria Pod** sono la quantità massima di CPU e memoria che può essere usata da un pod. Questi limiti consentono di definire quali Pod devono essere terminati in caso di instabilità del nodo a causa di risorse insufficienti. Senza i limiti appropriati, i pod impostati verranno terminati fino a quando non si solleva la pressione delle risorse.
+    * I limiti Pod consentono di definire quando un pod ha perso il controllo dell'utilizzo delle risorse. Quando viene superato un limite, al Pod viene assegnata la priorità per la gestione dell'integrità dei nodi e per ridurre al minimo l'effetto sui pod che condividono il nodo.
+    * Se non si imposta un limite Pod, il valore predefinito è il valore massimo disponibile in un determinato nodo.
     * Non impostare un limite del pod superiore a quello che i nodi sono in grado di supportare. Ogni nodo servizio Azure Kubernetes riserva una determinata quantità di CPU e memoria per i componenti principali di Kubernetes. L'applicazione potrebbe tentare di consumare troppe risorse del nodo impedendo la corretta esecuzione di altri pod.
-    * Anche in questo caso, è molto importante monitorare le prestazioni dell'applicazione in momenti diversi durante il giorno o la settimana. Determinare quando la domanda di picco è e allineare i limiti del pod alle risorse necessarie per soddisfare le esigenze massime dell'applicazione.
+    * Anche in questo caso, è molto importante monitorare le prestazioni dell'applicazione in momenti diversi durante il giorno o la settimana. Determinare quando la richiesta di picco è e allineare i limiti del Pod alle risorse necessarie per soddisfare le esigenze massime dell'applicazione.
 
-Nelle specifiche del pod, è **consigliabile e** molto importante definire queste richieste e limiti in base alle informazioni di cui sopra. Se non si includono questi valori, l'utilità di pianificazione Kubernetes non può prendere in considerazione le risorse richieste dalle applicazioni per facilitare la pianificazione delle decisioni.
+Nelle specifiche del Pod **è consigliabile definire** queste richieste e limiti in base alle informazioni sopra riportate. Se non si includono questi valori, l'utilità di pianificazione Kubernetes non può prendere in considerazione le risorse richieste dalle applicazioni per facilitare la pianificazione delle decisioni.
 
-Se l'utilità di pianificazione inserisce un pod in un nodo con risorse insufficienti, le prestazioni dell'applicazione verranno ridotte. È consigliabile che gli amministratori del cluster impostino *le quote* delle risorse in uno spazio dei nomi che richiede l'impostazione di limiti e richieste di risorse. Per altre informazioni, vedere le informazioni sulle [quote di risorse nei cluster servizio Azure Kubernetes][resource-quotas].
+Se l'utilità di pianificazione inserisce un pod in un nodo con risorse insufficienti, le prestazioni dell'applicazione saranno ridotte. È consigliabile che gli amministratori del cluster impostino le *quote delle risorse* in uno spazio dei nomi che richiede l'impostazione di richieste e limiti di risorse. Per altre informazioni, vedere le informazioni sulle [quote di risorse nei cluster servizio Azure Kubernetes][resource-quotas].
 
 Quando si definisce una richiesta o un limite per la CPU, il valore viene misurato in unità di CPU. 
 * *1.0* CPU corrisponde a un core CPU virtuale sottostante sul nodo. 
@@ -82,7 +82,7 @@ Con Azure Dev Spaces, le applicazioni vengono sviluppate e sottoposte a debug e 
 
 Questo processo di sviluppo e test integrato con Dev Spaces riduce la necessità di ambienti di test locali, come [minikube][minikube]. In alternativa, è possibile sviluppare e testare un'applicazione in un cluster servizio Azure Kubernetes. Questo cluster può essere protetto e isolato come indicato nella sezione precedente sull'uso degli spazi dei nomi per isolare un cluster in modo logico. Quando le app sono pronte per la distribuzione nell'ambiente di produzione, è possibile distribuirle in tutta sicurezza perché l'intera fase di sviluppo è già stata eseguita in un cluster servizio Azure Kubernetes reale.
 
-Spazi di sviluppo di Azure è destinato all'uso con applicazioni eseguite su pod e nodi Linux.Azure Dev Spaces is intended for use with applications that run on Linux pods and nodess.
+Azure Dev Spaces è progettato per l'uso con applicazioni eseguite su Pod e nodi Linux.
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Usare l'estensione di Visual Studio Code per Kubernetes
 
@@ -94,11 +94,11 @@ L'[estensione di Visual Studio Code per Kubernetes][vscode-kubernetes] consente 
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Verificare regolarmente la presenza di problemi dell'applicazione con kube-advisor
 
-**Indicazioni sulle procedure consigliate:** eseguire `kube-advisor` regolarmente la versione più recente dello strumento open source per rilevare i problemi nel cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
+**Indicazioni sulle procedure consigliate** : eseguire regolarmente la versione `kube-advisor` più recente dello strumento open source per rilevare i problemi del cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
 
-Lo strumento [kube-advisor][kube-advisor] è un progetto open source AKS associato che esegue la scansione di un cluster Kubernetes e segnala i problemi rilevati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
+Lo strumento [Kube-Advisor][kube-advisor] è un progetto open source AKS associato che analizza un cluster Kubernetes e segnala i problemi riscontrati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
 
-Lo strumento kube-advisor può segnalare la richiesta di risorse e limita i limiti mancanti in PodSpecs per le applicazioni Windows e per le applicazioni Linux, ma lo strumento kube-advisor stesso deve essere pianificato su un pod Linux. È possibile pianificare l'esecuzione di un pod in un pool di nodi con un sistema operativo specifico utilizzando un selettore di [nodi][k8s-node-selector] nella configurazione del pod.
+Lo strumento Kube-Advisor può creare report sulle richieste di risorse e sui limiti mancanti in PodSpecs per le applicazioni Windows e sulle applicazioni Linux, ma lo strumento Kube-Advisor stesso deve essere pianificato in un pod Linux. È possibile pianificare l'esecuzione di un pod in un pool di nodi con un sistema operativo specifico usando un [selettore di nodo][k8s-node-selector] nella configurazione del Pod.
 
 In un cluster servizio Azure Kubernetes che ospita molti team di sviluppo e applicazioni può essere difficile tenere traccia dei pod senza questi limiti e richieste di risorse impostati. Come procedura consigliata, eseguire regolarmente `kube-advisor` nei cluster servizio Azure Kubernetes.
 

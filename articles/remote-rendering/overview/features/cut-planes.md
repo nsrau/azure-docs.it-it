@@ -1,37 +1,37 @@
 ---
-title: Piani di taglio
-description: Spiega cosa sono i piani di taglio e come usarli
+title: Tagliare i piani
+description: Spiega quali sono i piani tagliati e come usarli
 author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 8075d9cd4530bafb12a338830baf0fe22eb03bce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681025"
 ---
-# <a name="cut-planes"></a>Piani di taglio
+# <a name="cut-planes"></a>Tagliare i piani
 
-Un piano di *taglio* è una funzione visiva che ritaglia i pixel su un lato di un piano virtuale, rivelando l'interno delle file [di stampa.](../../concepts/meshes.md)
-L'immagine seguente mostra l'effetto. La sinistra mostra la mesh originale, a destra si può guardare all'interno della mesh:
+Un *piano taglia* è una funzionalità visiva che consente di ritagliare i pixel su un lato di un piano virtuale, rivelando l'interno di [mesh](../../concepts/meshes.md).
+L'immagine seguente illustra l'effetto. A sinistra viene visualizzata la mesh originale, a destra che può apparire all'interno della rete:
 
-![Piano di taglio](./media/cutplane-1.png)
+![Taglia piano](./media/cutplane-1.png)
 
 ## <a name="limitations"></a>Limitazioni
 
-* Per il momento, il rendering remoto di Azure supporta un **massimo di otto piani di taglio attivi.** È possibile creare più componenti del piano di taglio, ma se si tenta di abilitare più contemporaneamente, l'attivazione verrà ignorata. Disattivare prima gli altri piani se si desidera cambiare il componente che deve influire sulla scena.
-* Ogni piano di taglio influisce su tutti gli oggetti sottoposti a rendering remoto. Attualmente non è possibile escludere oggetti o parti di mesh specifici.
-* I piani di taglio sono puramente una caratteristica visiva, non influiscono sul risultato delle [query spaziali.](spatial-queries.md) Se si desidera proiettare il raggio gettato in una mesh taglia aperta, è possibile regolare il punto iniziale del raggio in modo che sia sul piano di taglio. In questo modo il raggio può colpire solo le parti visibili.
+* Per il momento, il rendering remoto di Azure supporta un **massimo di otto piani di taglio attivi**. È possibile creare più componenti del piano tagliati, ma se si tenta di abilitare più simultaneamente, l'attivazione verrà ignorata. Disabilitare prima altri piani se si desidera cambiare il componente che influisce sulla scena.
+* Ogni piano tagliato influiscono su tutti gli oggetti sottoposti a rendering remoto. Attualmente non è possibile escludere oggetti specifici o parti mesh.
+* I piani tagliati sono puramente una funzionalità visiva e non influiscono sul risultato delle [query spaziali](spatial-queries.md). Se si desidera eseguire il cast a una mesh tagliata aperta, è possibile modificare il punto iniziale del raggio affinché si trovi sul piano tagliato. In questo modo, il raggio può raggiungere solo parti visibili.
 
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Ogni piano di taglio attivo comporta un piccolo costo durante il rendering. Disattivare o eliminare i piani di taglio quando non sono necessari.
+Ogni piano di taglio attivo comporta un piccolo costo durante il rendering. Disabilitare o eliminare i piani tagliati quando non sono necessari.
 
 ## <a name="cutplanecomponent"></a>CutPlaneComponent
 
-È possibile aggiungere un piano di taglio alla scena creando un *oggetto CutPlaneComponent*. La posizione e l'orientamento del piano sono determinati [dall'entità proprietaria](../../concepts/entities.md)del componente.
+Per aggiungere un piano tagliato alla scena, creare un *CutPlaneComponent*. La posizione e l'orientamento del piano sono determinati dall' [entità](../../concepts/entities.md)del proprietario del componente.
 
 ```cs
 void CreateCutPlane(AzureSession session, Entity ownerEntity)
@@ -43,17 +43,17 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 }
 ```
 
-### <a name="cutplanecomponent-properties"></a>Proprietà CutPlaneComponent
+### <a name="cutplanecomponent-properties"></a>Proprietà di CutPlaneComponent
 
-Le seguenti proprietà vengono esposte su un componente del piano di taglio:
+Le proprietà seguenti sono esposte in un componente del piano di taglio:
 
-* **Abilitato:** È possibile disattivare temporaneamente i piani tagliati disattivando il componente. I piani di taglio disabilitati non comportano un sovraccarico di rendering e inoltre non vengono conteggiati rispetto al limite globale del piano di taglio.
+* **Abilitato:** È possibile disattivare temporaneamente i piani taglia disabilitando il componente. I piani tagliati disabilitati non comportano un sovraccarico di rendering e non vengono conteggiati al limite globale del piano di taglio.
 
-* **Normale:** Consente di specificare la direzione utilizzata come normale al piano, ovvero X,-X,Y,-Y, z, z. Questa direzione è relativa all'orientamento dell'entità proprietario. Spostare e ruotare l'entità proprietario per il posizionamento esatto.
+* **Normale:** Specifica la direzione (+ X,-X, + Y,-Y, + Z,-Z) utilizzata come normale del piano. Questa direzione è relativa all'orientamento dell'entità proprietario. Spostare e ruotare l'entità Owner per la posizione esatta.
 
 * **FadeColor** e **FadeLength:**
 
-  Se il valore alfa di *FadeColor* è diverso da zero, i pixel vicini al piano di taglio si dissolveranno verso la parte RGB di FadeColor. L'intensità del canale alfa determina se si dissolverà completamente verso il colore di dissolvenza o solo parzialmente. *FadeLength* definisce su quale distanza avrà luogo questa dissolvenza.
+  Se il valore alfa di *FadeColor* è diverso da zero, i pixel vicini al piano tagliato si dissolveranno verso la parte RGB di FadeColor. Il livello di attendibilità del canale alfa determina se si dissolverà completamente verso il colore di dissolvenza o solo parzialmente. *FadeLength* definisce la distanza in base alla quale verrà eseguita questa dissolvenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

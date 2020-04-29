@@ -1,15 +1,15 @@
 ---
-title: Creare funzioni di definizione dell'interfaccia utenteCreate UI definition functions
+title: Creare funzioni di definizione dell'interfaccia utente
 description: Illustra le funzioni da usare durante la creazione di definizioni dell'interfaccia utente per le applicazioni gestite di Azure
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248450"
 ---
 # <a name="createuidefinition-functions"></a>Funzioni di CreateUiDefinition
@@ -518,7 +518,7 @@ L'esempio seguente restituisce `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>string
+### <a name="string"></a>stringa
 Converte il parametro in una stringa. Questa funzione supporta parametri di tutti i tipi di dati JSON.
 
 L'esempio seguente restituisce `"1"`:

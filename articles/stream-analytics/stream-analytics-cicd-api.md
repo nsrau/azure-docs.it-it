@@ -1,5 +1,5 @@
 ---
-title: Usare le API REST per eseguire CI/CD per Azure Stream Analytics in IoT EdgeUse REST APIs to do CI/CD for Azure Stream Analytics on IoT Edge
+title: Usare le API REST per eseguire CI/CD per Analisi di flusso di Azure in IoT Edge
 description: Informazioni su come implementare una pipeline di integrazione e distribuzione continua per Analisi di flusso di Azure usando le API REST.
 author: mamccrea
 ms.author: mamccrea
@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80292011"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementare CI/CD per Analisi di flusso in IoT Edge usando le API
@@ -34,7 +34,7 @@ curl -u { <username:password> }  -H "Content-Type: application/json" -X { <metho
 wget -q -O- --{ <method> } -data="<request body>" --header=Content-Type:application/json --auth-no-challenge --http-user="<Admin>" --http-password="<password>" <url>
 ```
  
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 Per Windows usare Powershell: 
 

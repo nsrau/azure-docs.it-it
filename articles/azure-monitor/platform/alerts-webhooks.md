@@ -1,5 +1,5 @@
 ---
-title: Chiamare un webhook con un avviso di metrica classica in Monitoraggio di AzureCall a webhook with a classic metric alert in Azure Monitor
+title: Chiamare un webhook con un avviso di metrica classico in monitoraggio di Azure
 description: Informazioni su come reindirizzare gli avvisi delle metriche di Azure ad altri sistemi non Azure.
 author: harelbr
 ms.author: harelbr
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248983"
 ---
-# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chiamare un webhook con un avviso di metrica classica in Monitoraggio di AzureCall a webhook with a classic metric alert in Azure Monitor
+# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chiamare un webhook con un avviso di metrica classico in monitoraggio di Azure
 
 È possibile usare i webhook per instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite chat o servizi di messaggistica oppure per varie altre azioni. 
 
@@ -29,7 +29,7 @@ Per aggiungere o aggiornare l'URI del webhook, nel [portale di Azure](https://po
 È anche possibile configurare un avviso da inserire nell'URI di un webhook usando i [cmdlet di Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), l'[interfaccia della riga di comando multipiattaforma](../../azure-monitor/platform/cli-samples.md#work-with-alerts) o l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Autenticazione del webhook
-È possibile autenticare il webhook usando l'autorizzazione basata su token. L'URI del webhook viene salvato con un ID token. Ad esempio: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+È possibile autenticare il webhook usando l'autorizzazione basata su token. L'URI del webhook viene salvato con un ID token. ad esempio `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Schema del payload
 L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli avvisi basati su metriche:
@@ -72,7 +72,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 |:--- |:--- |:--- |:--- |
 | status |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
 | contesto |S | |Contesto dell'avviso. |
-|  timestamp |S | |Ora in cui è stato attivato l'avviso. |
+| timestamp |S | |Ora in cui è stato attivato l'avviso. |
 | id |S | |Ogni regola di avviso ha un ID univoco. |
 | name |S | |Nome dell'avviso. |
 | description |S | |Descrizione dell'avviso. |
@@ -100,7 +100,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sugli avvisi e i webhook di Azure, vedere il video Integrare gli avvisi di [Azure con PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
+* Scopri di più sugli avvisi di Azure e sui webhook nel video [integrare gli avvisi di Azure con PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
 * Informazioni su come [eseguire gli script di Automazione di Azure (runbook) sugli avvisi di Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * Informazioni su come [usare un'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Informazioni su come [usare un'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).

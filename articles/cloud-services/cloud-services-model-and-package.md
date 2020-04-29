@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247488"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
@@ -24,7 +24,7 @@ Una volta che il servizio cloud è in esecuzione in Azure, è possibile riconfig
 * Si hanno già informazioni in proposito, ma sono necessari [alcuni esempi](#next-steps) sugli elementi configurabili.
 * Si vuole crea [ServicePackage.cspkg](#cspkg).
 * Si sta usando Visual Studio e si vuole...
-  * [Creare un servizio cloudCreate a cloud service][vs_create]
+  * [Creare un servizio cloud][vs_create]
   * [Riconfigurare un servizio cloud esistente][vs_reconfigure]
   * [Distribuire un progetto di servizio cloud][vs_deploy]
   * [Desktop remoto in un'istanza del servizio cloud][remotedesktop]
@@ -103,10 +103,10 @@ Il file **ServiceDefinition.csdef** specifica le impostazioni usate da Azure per
 **LocalResources**  
  Contiene le definizioni per le risorse di archiviazione locale. Una risorsa di archiviazione locale è una directory riservata nel file system della macchina virtuale in cui è in esecuzione un'istanza di un ruolo.
 
-**Imports**  
+**Importazioni**  
  Contiene le definizioni per i moduli importati. L'esempio di codice precedente mostra i moduli per la connessione Desktop remoto e Azure Connect.
 
-**Startup**  
+**Avvio**  
  Contiene le attività eseguite all'avvio del ruolo. Le attività vengono definite in un file eseguibile o con estensione cmd.
 
 <a name="cscfg"></a>
@@ -217,7 +217,7 @@ La [libreria di runtime di Azure](/previous-versions/azure/reference/mt419365(v=
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
 > [!NOTE]
-> La dimensione massima del pacchetto che può essere distribuita è 600 MB
+> La dimensione massima del pacchetto che può essere distribuita è 600MB
 
 Per distribuire un'applicazione come servizio cloud in Azure, è necessario prima creare un pacchetto dell'applicazione nel formato appropriato. È possibile usare lo strumento da riga di comando **CSPack** (installato con [Azure SDK](https://azure.microsoft.com/downloads/)) per creare il file del pacchetto come alternativa a Visual Studio.
 

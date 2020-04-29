@@ -1,5 +1,5 @@
 ---
-title: Configurare RAID software in una macchina virtuale LinuxConfigure software RAID on a Linux VM
+title: Configurare RAID software in una macchina virtuale Linux
 description: Informazioni su come usare mdadm per configurare RAID in Linux in Azure.
 author: rickstercdn
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 122abda51b907491b322908c3c2c689bc1723e87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250257"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurare RAID software in Linux
@@ -21,7 +21,7 @@ I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per 
 Per configurare un dispositivo RAID sono necessari due o più dischi dati vuoti.  Il dispositivo RAID viene creato principalmente per migliorare le prestazioni dell'I/O su disco.  In base alle esigenze di I/O, è possibile scegliere di collegare dischi che sono archiviati nell'archiviazione Standard con un massimo di 500 IO/ps per ogni disco o nell'archiviazione Premium con un massimo di 5.000 IO/ps per ogni disco. In questo articolo non verrà illustrato in dettaglio come eseguire il provisioning e collegare dischi dati a una macchina virtuale Linux.  Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Microsoft Azure relativo al [collegamento di dischi](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!IMPORTANT]
->Non mescolare dischi di dimensioni diverse, in questo modo si tradurrà in prestazioni del raidset per essere limitato a quello del disco più lento. 
+>Non combinare dischi di dimensioni diverse, in modo che le prestazioni del raidset siano limitate a quelle del disco più lento. 
 
 ## <a name="install-the-mdadm-utility"></a>Installazione dell'utility mdadm
 * **Ubuntu**

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239867"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Cenni preliminari sulle immagini Red Hat Enterprise Linux
@@ -71,7 +71,7 @@ Il confronto tra le versioni dell'immagine viene eseguito confrontando i valori 
 
 Per le immagini RHEL 6. x, i tipi di immagine sono riportati nella tabella seguente.
 
-|Editore | Offerta | Valore SKU | Version | Dettagli
+|Editore | Offerta | Valore SKU | Versione | Dettagli
 |----------|-------|-----------|---------|--------
 |RedHat | RHEL | Versione secondaria (ad esempio, 6,9) | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 6.9.2018010506) | Tutte le immagini RHEL 6. x standard seguono questa convenzione.
 |RedHat | RHEL-BYOS | RHEL-raw69 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 6.9.20181023) | Questa immagine è un'immagine RHEL 6,9 BYOS.
@@ -85,7 +85,7 @@ Per le immagini RHEL 7. x, sono disponibili diversi tipi di immagine. La tabella
 >[!NOTE]
 > Se non diversamente specificato, tutte le immagini sono partizionate in LVM e si connettono a repository RHEL regolari. Ovvero, i repository non sono il supporto per gli aggiornamenti estesi (EUS) e non sono Update Services for SAP (E4S). In futuro, stiamo passando alla pubblicazione solo di immagini con partizionamento LVM, ma siamo aperti a commenti e suggerimenti su questa decisione. Per altre informazioni sul supporto degli aggiornamenti estesi e sui servizi di aggiornamento per SAP, vedere [Red Hat Enterprise Linux ciclo di vita](https://access.redhat.com/support/policy/updates/errata).
 
-|Editore | Offerta | Valore SKU | Version | Dettagli
+|Editore | Offerta | Valore SKU | Versione | Dettagli
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | Versione secondaria (ad esempio, 7,6) | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019102813) | Le immagini pubblicate prima del 2019 aprile sono collegate ai repository RHEL standard. Le immagini pubblicate dopo il 2019 aprile vengono collegate ai repository EUS di Red Hat per consentire il blocco della versione di una specifica versione secondaria. I clienti che desiderano repository regolari devono usare le immagini che contengono 7-LVM o 7-RAW nel valore SKU (i dettagli seguono). RHEL 7,7 e le immagini successive sono partizionate in LVM. Tutte le altre immagini in questa categoria sono partizionate non elaborate.
 |RedHat | RHEL | 7-RAW | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 7.6.2019102813) | Queste immagini sono partizionate non elaborate, ad esempio non è stato aggiunto alcun volume logico.
@@ -102,7 +102,7 @@ Per le immagini RHEL 7. x, sono disponibili diversi tipi di immagine. La tabella
 
 Di seguito sono riportati i dettagli relativi ai tipi di immagine RHEL 8.
 
-|Editore | Offerta | Valore SKU | Version | Dettagli
+|Editore | Offerta | Valore SKU | Versione | Dettagli
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 8.0.20191023) | Queste immagini sono immagini con partizionamento in RHEL 8, connesse ai repository standard di Red Hat.
 |RedHat | RHEL | 8-Gen2 | Valori concatenati della versione secondaria RHEL e della data di pubblicazione (ad esempio, 8.0.20191024) | Queste immagini sono immagini partizionate di Hyper-V di seconda generazione (LVM), che sono connesse ai repository standard di Red Hat. Per altre informazioni sulle macchine virtuali di seconda generazione in Azure, vedere [supporto per le macchine virtuali di seconda generazione in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).

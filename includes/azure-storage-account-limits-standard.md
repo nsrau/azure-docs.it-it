@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 03/13/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 6cd883289513091ff1a57a130b12e25e012c1160
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334958"
 ---
 La tabella seguente descrive i limiti predefiniti per Azure per utilizzo generico V1, V2, archiviazione BLOB, archiviazione BLOB in blocchi e account di archiviazione Data Lake Storage Gen2 abilitati. Il limite di *ingresso* si riferisce a tutti i dati inviati a un account di archiviazione. Il limite di *uscita* si riferisce a tutti i dati ricevuti da un account di archiviazione.

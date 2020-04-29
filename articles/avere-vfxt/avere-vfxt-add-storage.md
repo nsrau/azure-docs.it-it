@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252610"
 ---
 # <a name="configure-storage"></a>Configurare l'archiviazione
@@ -49,7 +49,7 @@ Attenersi alla seguente procedura per aggiungere un filer Core NAS:
 
 1. Fare clic su **Core filer** > **Gestisci file di base** sulla sinistra.
 
-1. Fare clic su **Crea**.
+1. Scegliere **Crea**.
 
    ![Screenshot della pagina per l'aggiunta di un nuovo core filer con il puntatore sul pulsante Create (Crea)](media/avere-vfxt-add-core-filer-start.png)
 
@@ -125,7 +125,7 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
 
 1. Specificare le informazioni seguenti per creare le credenziali per il core filer cloud:
 
-   | Campo | Valore |
+   | Campo | valore |
    | --- | --- |
    | Credential name (Nome credenziali) | qualsiasi nome descrittivo |
    | Tipo di servizio | (selezionare la chiave di accesso di archiviazione di Azure) |

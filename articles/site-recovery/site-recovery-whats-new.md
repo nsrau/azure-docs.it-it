@@ -4,10 +4,10 @@ description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamen
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: abb1592bcacf025e9a052d7a9222f6fb3d2b72d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257433"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
@@ -109,7 +109,7 @@ Per il ripristino di emergenza di macchine virtuali di Azure in un'area secondar
 - Installare l'aggiornamento e SHA-2 in base alla KB collegata. SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto.
 - Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
 
-**Sistema operativo** | **Macchina virtuale di Azure** | **VM VMware/computer fisico**
+**Sistema operativo** | **Macchina virtuale Azure** | **VM VMware/computer fisico**
 --- | --- | ---
 **Windows 2008 R2 SP1** | [Aggiornamento dello stack di manutenzione](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Aggiornamento dello stack di manutenzione](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
 **Windows 2008 SP2** | [Aggiornamento dello stack di manutenzione](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Aggiornamento dello stack di manutenzione](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
@@ -403,7 +403,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 **Supporto di Linux** |  È stato aggiunto il supporto per Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 con il kernel compatibile con Red Hat e per il kernel Enterprise Unbreakable (UEK) versione 5.
 **LVM** | Aggiunto il supporto per i volumi LVM e LVM2.<br/><br/> La directory/boot in una partizione disco e nei volumi LVM è ora supportata.
 **Directory** | È stato aggiunto il supporto per queste directory configurate come partizioni separate o file System che non si trovano sullo stesso disco di sistema:<br/><br/> /(root),/boot,/usr,/usr/local,/var, ecc
-**Windows Server 2008** | Aggiunto il supporto per i dischi dinamici.
+**Windows Server 2008** | Aggiunto il supporto per i dischi dinamici.
 **Failover** | Miglioramento del tempo di failover per le macchine virtuali VMware in cui storvsc e vsbus non sono driver di avvio.
 **Supporto UEFI** | Le macchine virtuali di Azure non supportano il tipo di avvio UEFI. È ora possibile eseguire la migrazione di server fisici locali con UEFI ad Azure con Site Recovery. Site Recovery esegue la migrazione del server convertendo il tipo di avvio in BIOS prima della migrazione. Site Recovery supportata in precedenza questa conversione solo per le macchine virtuali. Il supporto è disponibile per i server fisici che eseguono Windows Server 2012 o versioni successive.
 
@@ -497,7 +497,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 --- | ---
 **Supporto di Linux** | È stato aggiunto il supporto per RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Sono ora supportate le macchine virtuali basate su Linux che usano lo stile di partizione GPT (tabella di partizione GUID) in modalità di compatibilità BIOS legacy. Per ulteriori informazioni, vedere le [domande frequenti sulle VM di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) .
 **Ripristino di emergenza per le VM dopo la migrazione** | Supporto per l'abilitazione del ripristino di emergenza in un'area secondaria per una VM VMware locale migrata in Azure, senza la necessità di disinstallare il servizio Mobility nella macchina virtuale prima di abilitare la replica.
-**Windows Server 2008** | Supporto per la migrazione di computer che eseguono Windows Server 2008 R2/2008 a 64 bit e 32 bit.<br/><br/> Solo migrazione (replica e failover). Il failback non è supportato.
+**Windows Server 2008** | Supporto per la migrazione di computer che eseguono Windows Server 2008 R2/2008 a 64 bit e 32 bit.<br/><br/> Solo migrazione (replica e failover). Il failback non è supportato.
 
 ## <a name="updates-july-2018"></a>Aggiornamenti (2018 luglio)
 

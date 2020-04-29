@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254729"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array
@@ -40,7 +40,7 @@ Una chiave DEK del servizio viene generata quando si registra il primo dispositi
 Se la chiave DEK del servizio è stata smarrita ed è necessario recuperarla, eseguire i passaggi seguenti nell'interfaccia utente Web locale del dispositivo registrato con il servizio.
 
 #### <a name="to-get-the-service-data-encryption-key"></a>Per ottenere la chiave DEK del servizio
-1. Connettersi all'interfaccia utente Web locale. Vai a Impostazioni**cloud** **di configurazione** > .
+1. Connettersi all'interfaccia utente Web locale. Passare a **configurazione** > **Impostazioni cloud**.
 2. Nella parte inferiore della pagina fare clic su **Ottieni chiave DEK del servizio**. Viene visualizzata una chiave. Copiare e salvare questa chiave.
    
     ![ottenere la chiave DEK del servizio 1](./media/storsimple-ova-web-ui-admin/image27.png)
@@ -49,7 +49,7 @@ Se la chiave DEK del servizio è stata smarrita ed è necessario recuperarla, es
 In alcuni casi, quando si configura il dispositivo tramite l'interfaccia utente Web locale, è possibile riscontrare alcuni errori. Per diagnosticare e risolvere questi errori, è possibile eseguire i test di diagnostica.
 
 #### <a name="to-run-the-diagnostic-tests"></a>Per eseguire i test di diagnostica
-1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi** > relativi**ai test di diagnostica**.
+1. Nell'interfaccia utente Web locale passare a **risoluzione dei problemi** > **test diagnostici**.
    
     ![eseguire diagnostica 1](./media/storsimple-ova-web-ui-admin/image29.png)
 2. Nella parte inferiore della pagina fare clic su **Esegui test diagnostici**. Si avviano così i test per diagnosticare eventuali problemi con la rete, il dispositivo, il proxy Web, l'ora o le impostazioni cloud. Si riceve una notifica in cui si comunica che il dispositivo sta eseguendo dei test.
@@ -61,7 +61,7 @@ In alcuni casi, quando si configura il dispositivo tramite l'interfaccia utente 
 Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tecnico Microsoft nella risoluzione dei problemi del dispositivo. In questa versione, un pacchetto di log può essere generato tramite l'interfaccia utente Web locale.
 
 #### <a name="to-generate-the-log-package"></a>Per generare il pacchetto di log
-1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi relativi** > **ai registri di sistema**.
+1. Nell'interfaccia utente Web locale passare a **risoluzione dei problemi** > **log di sistema**.
    
     ![generare pacchetto di log 1](./media/storsimple-ova-web-ui-admin/image31.png)
 2. Nella parte inferiore della pagina fare clic su **Crea pacchetto di log**. Viene creato un pacchetto di log del sistema. L'operazione richiede alcuni minuti.
@@ -80,7 +80,7 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 È possibile arrestare o riavviare il dispositivo virtuale tramite l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline i volumi o le condivisioni sull'host e quindi sul dispositivo. Questa operazione consente di eliminare qualsiasi  rischio di danneggiamento dei dati. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Per arrestare il dispositivo virtuale
-1. Nell'interfaccia utente Web locale passare a**Impostazioni risparmio energia**di **manutenzione** > .
+1. Nell'interfaccia utente Web locale passare a **manutenzione** > **Impostazioni risparmio energia**.
 2. Nella parte inferiore della pagina fare clic su **Arresta**.
    
     ![arresto del dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
@@ -95,7 +95,7 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
     Il dispositivo viene ora arrestato. Se si desidera avviare il dispositivo, è necessario farlo tramite la console di gestione Hyper-V.
 
 #### <a name="to-restart-your-virtual-device"></a>Per riavviare il dispositivo virtuale
-1. Nell'interfaccia utente Web locale passare a**Impostazioni risparmio energia**di **manutenzione** > .
+1. Nell'interfaccia utente Web locale passare a **manutenzione** > **Impostazioni risparmio energia**.
 2. Nella parte inferiore della pagina fare clic su **Riavvia**.
    
     ![riavvio del dispositivo](./media/storsimple-ova-web-ui-admin/image36.png)

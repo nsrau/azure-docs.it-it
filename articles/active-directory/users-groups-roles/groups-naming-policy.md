@@ -1,5 +1,5 @@
 ---
-title: Applicare i criteri di denominazione dei gruppi in Azure Active Directory Documenti Microsoft
+title: Applicare i criteri di denominazione dei gruppi in Azure Active Directory | Microsoft Docs
 description: Come configurare i criteri di denominazione per i gruppi di Office 365 in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -15,26 +15,26 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79497888"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Applicare criteri di denominazione ai gruppi di Office 365 in Azure Active DirectoryEnforce a naming policy on Office 365 groups in Azure Active Directory
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione nei gruppi di Office 365 in Azure Active Directory
 
 Per applicare convenzioni di denominazione coerenti per i gruppi di Office 365 creati o modificati dagli utenti, configurare criteri di denominazione dei gruppi per i tenant in Azure Active Directory (Azure AD). Ad esempio, è possibile usare i criteri di denominazione per comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo. È anche possibile utilizzare i criteri di denominazione per agevolare la categorizzazione dei gruppi nella Rubrica. È possibile utilizzare i criteri per bloccare l'uso di parole specifiche nei nomi dei gruppi e negli alias.
 
 > [!IMPORTANT]
-> L'uso dei criteri di denominazione di Azure AD per i gruppi di Office 365 richiede che si possieda ma non si assegni necessariamente una licenza di Azure Active Directory Premium P1 o una licenza EDU di base di Azure AD per ogni utente univoco membro di uno o più gruppi di Office 365.
+> Per usare Azure AD i criteri di denominazione per i gruppi di Office 365 è necessario disporre di una licenza di Azure Active Directory Premium P1 o Azure AD Basic licenza EDU per ogni utente univoco membro di uno o più gruppi di Office 365.
 
-I criteri di denominazione sono applicati per creare o modificare i gruppi creati per più carichi di lavoro (ad esempio Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Vengono applicati al nome e all'alias del gruppo. Se si impostano i criteri di denominazione in Azure AD e si dispone di un criterio di denominazione dei gruppi di Exchange esistente, i criteri di denominazione di Azure AD vengono applicati nell'organizzazione.
+I criteri di denominazione sono applicati per creare o modificare i gruppi creati per più carichi di lavoro (ad esempio Outlook, Microsoft Teams, SharePoint, Exchange o Planner). Vengono applicati al nome e all'alias del gruppo. Se si configurano i criteri di denominazione in Azure AD e si dispone di un criterio di denominazione dei gruppi di Exchange, i criteri di denominazione del Azure AD vengono applicati nell'organizzazione.
 
-Quando vengono configurati i criteri di denominazione dei gruppi, il criterio verrà applicato ai nuovi gruppi di Office 365 creati dagli utenti finali. I criteri di denominazione non si applicano a determinati ruoli di directory, ad esempio Amministratore globale o Amministratore utente (vedere di seguito per l'elenco completo dei ruoli esenti dai criteri di denominazione dei gruppi). Per i gruppi di Office 365 esistenti, il criterio non verrà applicato immediatamente al momento della configurazione. Una volta modificato dal proprietario del gruppo il nome del gruppo per questi gruppi, verranno applicati i criteri di denominazione.
+Quando vengono configurati i criteri di denominazione dei gruppi, i criteri verranno applicati ai nuovi gruppi di Office 365 creati dagli utenti finali. I criteri di denominazione non si applicano a determinati ruoli della directory, ad esempio amministratore globale o Amministratore utenti. per l'elenco completo dei ruoli esentati dai criteri di denominazione dei gruppi, vedere di seguito. Per i gruppi di Office 365 esistenti, i criteri non verranno applicati immediatamente al momento della configurazione. Quando il proprietario del gruppo modifica il nome del gruppo per questi gruppi, verranno applicati i criteri di denominazione.
 
 ## <a name="naming-policy-features"></a>Funzionalità dei criteri di denominazione
 
-È possibile applicare i criteri di denominazione per i gruppi in due modi diversi:You can enforce naming policy for groups in two different ways:
+È possibile applicare i criteri di denominazione per i gruppi in due modi diversi:
 
 - **Criteri di denominazione prefisso-suffisso** È possibile definire prefissi o suffissi che vengono aggiunti automaticamente per applicare una convenzione di denominazione ai gruppi (ad esempio nel nome del gruppo "GRP\_GIAPPONE\_Gruppo\_Ingegneria", GRP\_GIAPPONE\_ è il prefisso e \_Ingegneria è il suffisso). 
 
@@ -69,34 +69,34 @@ Regole dell'elenco di parole bloccate:
 
 ### <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
 
-Per configurare i criteri di denominazione, è necessario uno dei ruoli di folowing:
+Per configurare i criteri di denominazione, è necessario uno dei ruoli folowing:
 - Amministratore globale
 - Amministratore del gruppo
-- Amministratore utenti
+- Amministratore degli utenti
 
 Alcuni amministratori possono essere esentati da questi criteri, in tutti i carichi di lavoro di gruppo e gli endpoint, per permettere loro di creare gruppi utilizzando le parole bloccate e convenzioni di denominazione personalizzate. Di seguito è riportato l'elenco dei ruoli di amministratore esentati dai criteri di denominazione dei gruppi.
 
 - Amministratore globale
 - Supporto di livello 1 partner
 - Supporto di livello 2 partner
-- Amministratore utenti
+- Amministratore degli utenti
 - Writer di directory
 
-## <a name="configure-naming-policy-in-azure-portal"></a>Configurare i criteri di denominazione nel portale di AzureConfigure naming policy in Azure portal
+## <a name="configure-naming-policy-in-azure-portal"></a>Configurare i criteri di denominazione in portale di Azure
 
-1. Accedere all'interfaccia di amministrazione di [Azure AD](https://aad.portal.azure.com) con un account di amministratore di gruppo.
+1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account amministratore di gruppo.
 1. Selezionare **Gruppi** e quindi **Criteri di denominazione** per visualizzare la pagina corrispondente.
 
     ![aprire la pagina Criteri di denominazione nell'interfaccia di amministrazione](./media/groups-naming-policy/policy.png)
 
-### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualizzare o modificare i criteri di denominazione prefisso-suffisso
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualizzare o modificare i criteri di denominazione dei suffissi di prefisso
 
 1. Nella pagina **Criteri di denominazione** fare clic su **Criteri di denominazione del gruppo**.
 1. È possibile visualizzare o modificare singolarmente i criteri di denominazione correnti per il prefisso o il suffisso selezionando gli attributi o le stringhe da applicare come parte dei criteri di denominazione.
 1. Per rimuovere un prefisso o un suffisso dall'elenco, selezionare il prefisso o il suffisso desiderato e quindi fare clic su **Elimina**. È possibile eliminare più elementi contemporaneamente.
-1. Salvare le modifiche per rendere effettive le modifiche apportate al nuovo criterio selezionando **Salva**.
+1. Salvare le modifiche per applicare il nuovo criterio selezionando **Salva**.
 
-### <a name="edit-custom-blocked-words"></a>Modificare parole bloccate personalizzate
+### <a name="edit-custom-blocked-words"></a>Modifica parole bloccate personalizzate
 
 1. Nella pagina **Criteri di denominazione** fare clic su **Parole bloccate**.
 
@@ -104,7 +104,7 @@ Alcuni amministratori possono essere esentati da questi criteri, in tutti i cari
 
 1. Visualizzare o modificare l'elenco corrente di parole bloccate personalizzate facendo clic su **Scarica**.
 1. Caricare il nuovo elenco di parole bloccate personalizzate facendo clic sull'icona del file.
-1. Salvare le modifiche per rendere effettive le modifiche apportate al nuovo criterio selezionando **Salva**.
+1. Salvare le modifiche per applicare il nuovo criterio selezionando **Salva**.
 
 ## <a name="install-powershell-cmdlets"></a>Installare i cmdlet di PowerShell
 
@@ -125,7 +125,7 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
 
    Se viene richiesto di accedere a un repository non attendibile, immettere **Y**. L'installazione del nuovo modulo potrebbe richiedere alcuni minuti.
 
-## <a name="configure-naming-policy-in-powershell"></a>Configurare i criteri di denominazione in PowerShellConfigure naming policy in PowerShell
+## <a name="configure-naming-policy-in-powershell"></a>Configurare i criteri di denominazione in PowerShell
 
 1. Aprire una finestra di Windows PowerShell nel computer in uso. È possibile aprirla senza privilegi elevati.
 
@@ -168,7 +168,7 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
-1. Salvare le impostazioni per il nuovo criterio per l'applicazione, ad esempio nell'esempio seguente.
+1. Salvare le impostazioni per il nuovo criterio per attivarle, ad esempio nell'esempio seguente.
   
    ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
@@ -178,7 +178,7 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
 
 ## <a name="export-or-import-custom-blocked-words"></a>Esportare o importare parole bloccate personalizzate
 
-Per altre informazioni, vedere l'articolo Cmdlet di [Azure Active Directory per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md).
+Per ulteriori informazioni, vedere l'articolo [Azure Active Directory cmdlet per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md).
 
 Di seguito è riportato un esempio di script di PowerShell per esportare più parole bloccate:
 
@@ -209,7 +209,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 1. Nella pagina **Criteri di denominazione** fare clic su **Elimina criteri**.
 1. Dopo la conferma dell'eliminazione, i criteri di denominazione vengono rimossi, inclusi tutti i criteri di denominazione prefisso-suffisso e le eventuali parole bloccate personalizzate.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Rimuovere i criteri di denominazione usando Azure AD PowerShellRemove the naming policy using Azure AD PowerShell
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Rimuovere i criteri di denominazione usando Azure AD PowerShell
 
 1. Rimuovere prefissi e suffissi dei nomi di gruppo in Azure AD PowerShell.
   
@@ -229,7 +229,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Esperienza tra le app di Office 365
+## <a name="experience-across-office-365-apps"></a>Esperienza nelle app di Office 365
 
 Dopo aver impostato criteri di denominazione dei gruppi in Azure AD, quando un utente crea un gruppo in un'app di Office 365, viene visualizzato quanto segue:
 
@@ -257,7 +257,7 @@ StaffHub  | I team StaffHub non seguono i criteri di denominazione, a differenza
 PowerShell per Exchange | I cmdlet di PowerShell per Exchange sono conformi ai criteri di denominazione. Gli utenti ricevono messaggi di errore appropriati con prefissi e suffissi suggeriti e relativi alle parole bloccate personalizzate se non seguono i criteri di denominazione nel nome e nell'alias del gruppo (mailNickname).
 Cmdlet di PowerShell per Azure Active Directory | I cmdlet di PowerShell per Azure Active Directory sono conformi ai criteri di denominazione. Gli utenti ricevono messaggi di errore appropriati con prefissi e suffissi suggeriti e relativi alle parole bloccate personalizzate se non seguono la convenzione di denominazione nei nomi e negli alias del gruppo.
 Interfaccia di amministrazione di Exchange | L'interfaccia di amministrazione di Exchange è conforme ai criteri di denominazione. Gli utenti ricevono messaggi di errore appropriati con prefissi e suffissi suggeriti e relativi alle parole bloccate personalizzate se non seguono la convenzione di denominazione nel nome e nell'alias del gruppo.
-Interfaccia di amministrazione di Microsoft 365 | L'interfaccia di amministrazione di Microsoft 365 è conforme ai criteri di denominazione. Quando un utente crea o modifica i nomi dei gruppi, i criteri di denominazione vengono applicati automaticamente e gli utenti ricevono messaggi di errore appropriati quando immettono parole bloccate personalizzate. L'interfaccia di amministrazione di Microsoft 365 non mostra ancora un'anteprima dei criteri di denominazione e non restituisce errori di parole bloccate personalizzate quando l'utente immette il nome del gruppo.
+Interfaccia di amministrazione di Microsoft 365 | Microsoft 365 interfaccia di amministrazione è conforme ai criteri di denominazione. Quando un utente crea o modifica i nomi dei gruppi, i criteri di denominazione vengono applicati automaticamente e gli utenti ricevono messaggi di errore appropriati quando immettono parole bloccate personalizzate. L'interfaccia di amministrazione di Microsoft 365 non visualizza ancora un'anteprima dei criteri di denominazione e non restituisce errori di parole bloccate personalizzate quando l'utente immette il nome del gruppo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

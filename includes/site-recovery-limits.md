@@ -14,13 +14,13 @@ ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
 ms.openlocfilehash: 7a241d3144b6220d0084b61de2dde7c36a68c257
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334719"
 ---
-I limiti seguenti si applicano a Azure Site Recovery.The following limits apply to Azure Site Recovery.
+Ai Azure Site Recovery si applicano i limiti seguenti.
 
 | Identificatore limite | Limite |
 | --- | --- |

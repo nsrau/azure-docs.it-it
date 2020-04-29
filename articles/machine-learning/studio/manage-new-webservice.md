@@ -1,7 +1,7 @@
 ---
 title: Gestire i servizi Web
 titleSuffix: ML Studio (classic) - Azure
-description: Gestire i servizi Web nuovi e classici di Machine Learning usando il portale dei servizi Web di Microsoft Azure Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
+description: Gestisci i tuoi Machine Learning i servizi Web nuovi e classici usando il portale dei servizi Web di Microsoft Azure Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: 2277aa3de5955efe5a3e4cb938fa557352f89006
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79217966"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gestire un servizio Web tramite il portale dei servizi Web di Azure Machine Learning Studio (classico)Manage a web service using the Azure Machine Learning Studio (classic) Web Services portal
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning Studio (classico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -32,7 +32,7 @@ Nel portale dei servizi Web di Azure Machine Learning è possibile:
 * Aggiungere ed eliminare gli endpoint (solo servizi classici)
 
 >[!NOTE]
->È anche possibile gestire i servizi Web classici in [Machine Learning Studio (classico)](https://studio.azureml.net) nella scheda **Servizi Web.**
+>È anche possibile gestire i servizi Web classici in [Machine Learning Studio (classico)](https://studio.azureml.net) nella scheda **servizi Web** .
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorizzazioni per gestire i nuovi servizi Web basati su Resource Manager
 
@@ -40,9 +40,9 @@ I nuovi servizi Web vengono distribuiti come risorse di Azure. Di conseguenza, �
 
 Se l'utente non dispone delle autorizzazioni corrette per accedere alle risorse nel portale dei servizi Web di Azure Machine Learning, riceverà l'errore seguente quando cercherà di distribuire un servizio Web:
 
-*Distribuzione del servizio Web non riuscita. Questo account non dispone di accesso sufficiente alla sottoscrizione di Azure che contiene l'area di lavoro. Per distribuire un servizio Web in Azure, lo stesso account deve essere invitato nell'area di lavoro e avere accesso alla sottoscrizione di Azure che contiene l'area di lavoro.*
+*Distribuzione del servizio Web non riuscita. Questo account non dispone di diritti di accesso sufficienti per la sottoscrizione di Azure che contiene l'area di lavoro. Per distribuire un servizio Web in Azure, è necessario che lo stesso account sia invitato all'area di lavoro e che venga concesso l'accesso alla sottoscrizione di Azure che contiene l'area di lavoro.*
 
-Per altre informazioni sulla creazione di un'area di lavoro, vedere Creare e condividere un'area di lavoro di [Azure Machine Learning Studio (classica).](create-workspace.md)
+Per ulteriori informazioni sulla creazione di un'area di lavoro, vedere [creare e condividere un'area di lavoro Azure Machine Learning Studio (classica)](create-workspace.md).
 
 Per altre informazioni sull'impostazione delle autorizzazioni di accesso, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -64,7 +64,7 @@ Per gestire un servizio Web, fare clic su Web Services (Servizi Web). Nella pagi
 
 Quando si fa clic su un servizio Web, viene visualizzata la pagina di avvio rapido del servizio Web. Questa pagina contiene due opzioni di menu che consentono di gestire il servizio Web:
 
-* **DASHBOARD** - Consente di visualizzare l'utilizzo del servizio Web.
+* **Dashboard** : consente di visualizzare l'utilizzo del servizio Web.
 * **CONFIGURE** (CONFIGURA): consente di aggiungere testo descrittivo, aggiornare la chiave dell'account di archiviazione associato al servizio Web e abilitare o disabilitare i dati di esempio.
 
 ### <a name="monitoring-how-the-web-service-is-being-used"></a>Monitoraggio della modalità d'uso del servizio Web
@@ -88,8 +88,8 @@ Fare clic sull'opzione di menu **CONFIGURA** .
 * **Description** (Descrizione) consente di immettere una descrizione per il servizio Web.
 * **Titolo** consente di immettere un titolo per il servizio Web
 * **Chiavi** consente di ruotare le chiavi API primarie e secondarie.
-* **La chiave dell'account** di archiviazione consente di aggiornare la chiave per l'account di archiviazione associato alle modifiche apportate al servizio Web. 
-* **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio (classico), i dati di esempio vengono ricavati dai dati usati per eseguire il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
+* La **chiave dell'account di archiviazione** consente di aggiornare la chiave per l'account di archiviazione associato alle modifiche del servizio Web. 
+* **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio (versione classica), i dati di esempio vengono ricavati dai dati usati per il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
 
 ### <a name="managing-billing-plans"></a>Gestione dei piani di fatturazione
 Fare clic sull'opzione di menu **Piani** della pagina Avvio rapido dei servizi Web. È anche possibile fare clic sul piano associato al servizio Web specifico per gestire tale piano.
@@ -105,13 +105,13 @@ Il dashboard del piano contiene le informazioni seguenti:
 
 * **Descrizione piano** visualizza le informazioni sui costi e le capacità associate al piano.
 * **Plan Usage** (Uso piano) visualizza il numero di transazioni e di ore di calcolo addebitate in base al piano.
-* **Servizi Web** visualizza il numero di servizi Web che utilizzano questo piano.
+* **Servizi Web** Visualizza il numero di servizi Web che utilizzano questo piano.
 * **Top Web Service By Calls** (Primi servizi Web per chiamate) visualizza i primi quattro servizi Web che stanno effettuando chiamate per cui viene applicato un addebito in base al piano.
 * **Top Web Services by Compute Hrs** (Primi servizi Web per ore di calcolo) visualizza i primi quattro servizi Web che stanno usando le risorse di calcolo per cui viene applicato un addebito in base al piano.
 
 ## <a name="manage-classic-web-services"></a>Gestire i servizi Web classici
 > [!NOTE]
-> Le procedure di questa sezione si riferiscono alla gestione dei servizi Web classici nel portale dei servizi Web di Azure Machine Learning. Per informazioni sulla gestione dei servizi Web classici tramite Machine Learning Studio (classico) e il portale di Azure, vedere Gestire un'area di lavoro di [Azure Machine Learning Studio (classica).](manage-workspace.md)
+> Le procedure di questa sezione si riferiscono alla gestione dei servizi Web classici nel portale dei servizi Web di Azure Machine Learning. Per informazioni sulla gestione dei servizi Web classici tramite il Machine Learning Studio (classico) e il portale di Azure, vedere [gestire un'area di lavoro di Azure Machine Learning Studio (classica)](manage-workspace.md).
 > 
 > 
 
@@ -131,8 +131,8 @@ Nella pagina relativa agli endpoint dei servizi Web classici è possibile aggiun
 
 Fare clic su uno degli endpoint per aprire la pagina di avvio rapido del servizio Web. Questa pagina contiene due opzioni di menu che consentono di gestire il servizio Web:
 
-* **DASHBOARD** - Consente di visualizzare l'utilizzo del servizio Web.
-* **CONFIGURA-** Consente di aggiungere testo descrittivo, attivare e disattivare la registrazione degli errori, aggiornare la chiave per l'account di archiviazione associato al servizio Web e abilitare e disabilitare i dati di esempio.
+* **Dashboard** : consente di visualizzare l'utilizzo del servizio Web.
+* **Configura** : consente di aggiungere testo descrittivo, attivare e disattivare la registrazione degli errori, aggiornare la chiave per l'account di archiviazione associato al servizio Web e abilitare e disabilitare i dati di esempio.
 
 ### <a name="monitoring-how-the-web-service-is-being-used"></a>Monitoraggio della modalità d'uso del servizio Web
 Fare clic sulla scheda **DASHBOARD** .
@@ -153,7 +153,7 @@ Fare clic sull'opzione di menu **CONFIGURA** .
 È possibile aggiornare le proprietà seguenti:
 
 * **Description** (Descrizione) consente di immettere una descrizione per il servizio Web. La descrizione è un campo obbligatorio.
-* **Logging** (Registrazione) consente di abilitare o disabilitare la registrazione nell'endpoint. Per altre informazioni sulla registrazione, vedere Abilitare la registrazione per i [servizi Web di Machine Learning](web-services-logging.md).
-* **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio (classico), i dati di esempio vengono ricavati dai dati usati per eseguire il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
+* **Logging** (Registrazione) consente di abilitare o disabilitare la registrazione nell'endpoint. Per altre informazioni sulla registrazione, vedere abilitare [la registrazione per i servizi web Machine Learning](web-services-logging.md).
+* **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio (versione classica), i dati di esempio vengono ricavati dai dati usati per il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
 
 

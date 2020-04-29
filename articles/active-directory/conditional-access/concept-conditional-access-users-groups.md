@@ -1,6 +1,6 @@
 ---
-title: Utenti e gruppi nei criteri di accesso condizionale - Azure Active DirectoryUsers and groups in Conditional Access policy - Azure Active Directory
-description: Utenti e gruppi in un criterio di accesso condizionale di Azure ADWho are users and groups in an Azure AD Conditional Access policy
+title: Utenti e gruppi nei criteri di accesso condizionale-Azure Active Directory
+description: Utenti e gruppi in un Azure AD criteri di accesso condizionale
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,64 +12,64 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755274"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
 Un criterio di accesso condizionale deve includere un'assegnazione utente come uno dei segnali nel processo decisionale. Gli utenti possono essere inclusi o esclusi dai criteri di accesso condizionale. 
 
-![L'utente come segnale nelle decisioni prese dall'accesso condizionale](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
+![Utente come segnale nelle decisioni prese dall'accesso condizionale](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
 ## <a name="include-users"></a>Includi utenti
 
-Questo elenco di utenti include in genere tutti gli utenti di destinazione dell'organizzazione in un criterio di accesso condizionale. 
+Questo elenco di utenti include in genere tutti gli utenti a cui è destinata un'organizzazione in un criterio di accesso condizionale. 
 
-Quando si crea criteri di accesso condizionale, sono disponibili le opzioni seguenti.
+Quando si creano criteri di accesso condizionale, è possibile includere le opzioni seguenti.
 
-- nessuno
+- Nessuno
    - Nessun utente selezionato
 - tutti gli utenti
    - Tutti gli utenti presenti nella directory, inclusi i guest B2B.
 - Selezionare Utenti e gruppi
    - Tutti gli utenti guest ed esterni
-      - Questa selezione include tutti gli ospiti B2B `user type` e gli `guest`utenti esterni, incluso qualsiasi utente con l'attributo impostato su . Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio Cloud Solution Provider (CSP). 
+      - Questa selezione include tutti i guest B2B e gli utenti esterni, incluso qualsiasi `user type` utente con l' `guest`attributo impostato su. Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio un provider di soluzioni cloud (CSP). 
    - Ruoli della directory
-      - Consente agli amministratori di selezionare ruoli di directory di Azure AD specifici usati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
+      - Consente agli amministratori di selezionare ruoli di directory Azure AD specifici utilizzati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
    - Utenti e gruppi
-      - Consente il targeting di set specifici di utenti. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando un'app HR viene selezionata come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
+      - Consente la destinazione di set di utenti specifici. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando si seleziona un'app per le risorse umane come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
 
 ## <a name="exclude-users"></a>Escludi utenti
 
-Quando le organizzazioni includono ed escludono un utente o un gruppo, l'utente o il gruppo viene escluso dal criterio, poiché un'azione di esclusione esegue l'override di un'inclusione nei criteri. Le esclusioni sono comunemente utilizzate per l'accesso di emergenza o i conti break-glass. Ulteriori informazioni sugli account di accesso di emergenza e perché sono importanti sono disponibili nei seguenti articoli: 
+Quando le organizzazioni includono ed escludono un utente o un gruppo, l'utente o il gruppo viene escluso dal criterio, in quanto un'azione di esclusione esegue l'override di un criterio Includi nei criteri. Le esclusioni vengono comunemente usate per gli account di accesso di emergenza o break-Glass. Altre informazioni sugli account di accesso di emergenza e sul motivo per cui sono importanti sono disponibili negli articoli seguenti: 
 
 * [Gestire gli account di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
 * [Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory](../authentication/concept-resilient-controls.md)
 
-Quando si crea criteri di accesso condizionale, sono disponibili le opzioni seguenti.
+Quando si creano criteri di accesso condizionale, è possibile escludere le opzioni seguenti.
 
 - Tutti gli utenti guest ed esterni
-   - Questa selezione include tutti gli ospiti B2B `user type` e gli `guest`utenti esterni, incluso qualsiasi utente con l'attributo impostato su . Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio Cloud Solution Provider (CSP). 
+   - Questa selezione include tutti i guest B2B e gli utenti esterni, incluso qualsiasi `user type` utente con l' `guest`attributo impostato su. Questa selezione si applica anche a qualsiasi utente esterno connesso da un'organizzazione diversa, ad esempio un provider di soluzioni cloud (CSP). 
 - Ruoli della directory
-   - Consente agli amministratori di selezionare ruoli di directory di Azure AD specifici usati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
+   - Consente agli amministratori di selezionare ruoli di directory Azure AD specifici utilizzati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
 - Utenti e gruppi
-   - Consente il targeting di set specifici di utenti. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando un'app HR viene selezionata come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
+   - Consente la destinazione di set di utenti specifici. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando si seleziona un'app per le risorse umane come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
 
-### <a name="preventing-administrator-lockout"></a>Impedire il blocco dell'amministratore
+### <a name="preventing-administrator-lockout"></a>Prevenzione del blocco amministratore
 
-Per impedire a un amministratore di bloccarsi dalla propria directory durante la creazione di un criterio applicato a **Tutti gli utenti** e Tutte le **app,** verrà visualizzato il seguente avviso.
+Per impedire a un amministratore di bloccarsi dalla propria directory quando si crea un criterio applicato a **tutti gli utenti** e a **tutte le app**, verrà visualizzato il seguente avviso.
 
-> Non chiuderti fuori! È consigliabile applicare prima un criterio a un piccolo set di utenti per verificare che si comporti come previsto. Si consiglia inoltre di escludere almeno un amministratore da questo criterio. In questo modo si garantisce che l'accesso sia ancora disponibile e di poter aggiornare un criterio se è necessaria una modifica. Si prega di esaminare gli utenti interessati e le applicazioni.
+> Non bloccarsi. Si consiglia di applicare un criterio a un piccolo set di utenti prima di verificare che si comportano come previsto. È inoltre consigliabile escludere almeno un amministratore da questo criterio. In questo modo si garantisce che sia ancora possibile accedere a un criterio e aggiornarlo se è necessaria una modifica. Verificare gli utenti e le app interessati.
 
-Per impostazione predefinita, il criterio fornisce un'opzione per escludere l'utente corrente dal criterio, ma questa impostazione predefinita può essere sostituita dall'amministratore, come illustrato nell'immagine seguente. 
+Per impostazione predefinita, il criterio fornirà un'opzione per escludere l'utente corrente dal criterio, ma questa impostazione predefinita può essere sostituita dall'amministratore, come illustrato nella figura seguente. 
 
-![Attenzione, non chiudetevi fuori!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+![Avviso: non bloccarsi.](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Accesso condizionale: app o azioni cloudConditional Access: Cloud apps or actions](concept-conditional-access-cloud-apps.md)
+- [Accesso condizionale: app Cloud o azioni](concept-conditional-access-cloud-apps.md)
 
-- [Criteri comuni di Accesso condizionaleConditional Access common policies](concept-conditional-access-policy-common.md)
+- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)

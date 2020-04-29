@@ -1,5 +1,5 @@
 ---
-title: Standard Encoder formats and codecs - Azure
+title: Formati e codec standard del codificatore-Azure
 description: Questo articolo contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251362"
 ---
-# <a name="standard-encoder-formats-and-codecs"></a>Formati e codec standard encoder
+# <a name="standard-encoder-formats-and-codecs"></a>Formati e codec standard del codificatore
 
 Questo articolo contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Per informazioni su come creare set di impostazioni personalizzati usando **StandardEncoderPreset**, vedere [Creare una trasformazione con un set di impostazioni personalizzato](customize-encoder-presets-how-to.md).
 
@@ -43,7 +43,7 @@ Questo articolo contiene un elenco dei formati di file di importazione ed esport
 
 ### <a name="audio-formats-in-input-containers"></a>Formati audio nei contenitori di input
 
-Supporti standard per supporti che trasportano i seguenti formati audio nei contenitori di input:
+Il codificatore standard supporta il trasporto dei seguenti formati audio nei contenitori di input:
 
 * file MXF, GXF e QuickTime che dispongono di tracce audio con esempi di stereo interleaved o 5.1
 
@@ -82,7 +82,7 @@ o
 | MP3 (MPEG-1 Audio Layer 3) |Sì |
 | Windows Media Audio |Sì |
 | WAV/PCM |Sì |
-| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sì |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sì |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sì |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sì |
 | AMR (velocità multipla adattiva) |Sì |

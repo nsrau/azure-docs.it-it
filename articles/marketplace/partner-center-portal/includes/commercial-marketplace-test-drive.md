@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: Includere file
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
 ms.service: marketplace
@@ -10,10 +10,10 @@ ms.date: 08/13/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: f2446a924ceed37c51779efc9d9e94c0252a2067
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80321833"
 ---
 La scheda **test drive** consente di configurare una dimostrazione (o "test drive") che consentirà ai clienti di provare l'offerta prima di eseguire il commit per acquistarla. Per altre informazioni, vedere l'articolo relativo a [test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Se non si desidera più fornire un test drive per l'offerta, tornare alla pagina di **installazione dell'offerta** e deselezionare **Abilita Test Drive**.

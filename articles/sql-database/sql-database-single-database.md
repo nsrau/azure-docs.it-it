@@ -1,5 +1,5 @@
 ---
-title: Che cos'è un singolo database
+title: Che cos'è un database singolo
 description: Informazioni sull'opzione database singolo del database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
 ms.openlocfilehash: fc63de4057def632d3ac1980e8cb3eaedbff2175
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79500751"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Informazioni sull'opzione database singolo del database SQL di Azure
@@ -29,7 +29,7 @@ L'opzione di distribuzione database singolo crea un database nel database SQL di
 
 ## <a name="dynamic-scalability"></a>Scalabilità dinamica
 
-È possibile compilare la prima app in un database singolo di piccole dimensioni a basso costo nel livello di calcolo senza server o in una dimensione di calcolo di piccole dimensioni nel livello di elaborazione di cui è stato eseguito il provisioning. Modificare il [calcolo o il livello](sql-database-single-database-scale.md) di servizio manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+Puoi creare la tua prima app in un database di piccole dimensioni, a basso costo nel livello di calcolo senza server o in una piccola dimensione di calcolo nel livello di calcolo di cui è stato effettuato il provisioning. È possibile modificare il [livello di calcolo o di servizio](sql-database-single-database-scale.md) manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 ## <a name="single-databases-and-elastic-pools"></a>Database singoli e pool elastici
 
@@ -37,11 +37,11 @@ Un database singolo può essere spostato all'interno o all'esterno di un [pool e
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 
-Gli strumenti di [monitoraggio](sql-database-performance-guidance.md) e [avviso](sql-database-insights-alerts-portal.md)delle prestazioni incorporati vengono utilizzati, combinati con le classificazioni delle prestazioni. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Inoltre, il database SQL può [generare metriche e log delle risorse](sql-database-metrics-diag-logging.md) per un monitoraggio più semplice.
+Usare gli strumenti di [monitoraggio delle prestazioni](sql-database-performance-guidance.md) e di [avviso](sql-database-insights-alerts-portal.md)predefiniti, combinati con le valutazioni delle prestazioni. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Inoltre, il database SQL può [emettere metriche e log delle risorse](sql-database-metrics-diag-logging.md) per semplificare il monitoraggio.
 
 ## <a name="availability-capabilities"></a>Funzionalità per la disponibilità
 
-I singoli database, i pool elastici e le istanze gestite offrono tutte molte caratteristiche di disponibilità. Per informazioni, vedere [Caratteristiche di disponibilità](sql-database-technical-overview.md#availability-capabilities).
+Tutti i database singoli, i pool elastici e le istanze gestite offrono molte caratteristiche di disponibilità. Per informazioni, vedere [Caratteristiche di disponibilità](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Differenze di Transact-SQL
 
@@ -50,15 +50,15 @@ Inoltre, alcune funzionalità e sintassi non sono affatto supportate, perché il
 
 Per altre informazioni, vedere [Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL](sql-database-transact-sql-information.md).
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](sql-database-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
 
 > [!IMPORTANT]
-> Il database SQL di Azure (tutte le opzioni di distribuzione) è stato certificato in base a una serie di standard di conformità. Per altre informazioni, vedere il [Centro protezione di Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
+> Il database SQL di Azure (tutte le opzioni di distribuzione) è stato certificato rispetto a una serie di standard di conformità. Per ulteriori informazioni, vedere la [Microsoft Azure Centro protezione](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare rapidamente a utilizzare un singolo database, iniziare con la Guida introduttiva a [database singolo.](sql-database-single-database-quickstart-guide.md)
+- Per iniziare rapidamente a usare un singolo database, iniziare con la [Guida introduttiva a database singolo](sql-database-single-database-quickstart-guide.md).
 - Per altre informazioni sulla migrazione di un database SQL Server in Azure, vedere [Migrazione al database SQL di Azure](sql-database-single-database-migrate.md).
-- Per informazioni sulle funzionalità supportate, vedere [Funzionalità](sql-database-features.md).
+- Per informazioni sulle funzionalità supportate, vedere [funzionalità](sql-database-features.md).

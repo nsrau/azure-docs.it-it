@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 812cd0293f9627b7438e9870d8985e71dae1d147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256861"
 ---
 # <a name="troubleshoot-the-process-server"></a>Risolvere i problemi del server di elaborazione
@@ -34,7 +34,7 @@ Per prestazioni ottimali dei server di elaborazione, abbiamo riepilogato alcune 
 
 **Procedura consigliata** | **Dettagli**
 --- |---
-**Uso** | Verificare che il server di configurazione/server di elaborazione autonomo vengano utilizzati solo per lo scopo designato. Non eseguire altre operazioni nel computer.
+**Utilizzo** | Verificare che il server di configurazione/server di elaborazione autonomo vengano utilizzati solo per lo scopo designato. Non eseguire altre operazioni nel computer.
 **Indirizzo IP** | Verificare che il server di elaborazione disponga di un indirizzo IPv4 statico e che non sia stato configurato NAT.
 **Controllare l'utilizzo della memoria/CPU** |Mantieni l'utilizzo della CPU e della memoria inferiore al 70%.
 **Verificare lo spazio disponibile** | Lo spazio disponibile si riferisce allo spazio su disco della cache nel server di elaborazione. I dati di replica vengono archiviati nella cache prima che vengano caricati in Azure.<br/><br/> Conserva lo spazio disponibile oltre il 25%. Se scende al di sotto del 20%, la replica viene limitata per i computer replicati associati al server di elaborazione.
@@ -49,9 +49,9 @@ Il primo passaggio nella risoluzione dei problemi consiste nel controllare l'int
 
 Il server di elaborazione genera un certo numero di avvisi sull'integrità. Questi avvisi e le azioni consigliate sono riepilogati nella tabella seguente.
 
-**Tipo di avviso** | **Error (Errore) (Error (Errore)e)** | **Risolvere i problemi**
+**Tipo di avviso** | **Erroree** | **Risolvere i problemi**
 --- | --- | --- 
-![Healthy][green] | nessuno  | Il server di elaborazione è connesso e integro.
+![Healthy][green] | Nessuno  | Il server di elaborazione è connesso e integro.
 ![Avviso][yellow] | I servizi specificati non sono in esecuzione. | 1. Verificare che i servizi siano in esecuzione.<br/> 2. se i servizi vengono eseguiti come previsto, seguire le istruzioni riportate di seguito per [risolvere i problemi di connettività e di replica](#check-connectivity-and-replication).
 ![Avviso][yellow]  | L'utilizzo della CPU > 80% per gli ultimi 15 minuti. | 1. non aggiungere nuovi computer.<br/>2. Verificare che il numero di macchine virtuali che usano il server di elaborazione sia allineato ai [limiti definiti](site-recovery-plan-capacity-vmware.md#capacity-considerations)e considerare la possibilità di configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>3. seguire le istruzioni riportate di seguito per [risolvere i problemi di connettività e di replica](#check-connectivity-and-replication).
 ![Critico][red] |  L'utilizzo della CPU > 95% per gli ultimi 15 minuti. | 1. non aggiungere nuovi computer.<br/>2. Verificare che il numero di macchine virtuali che usano il server di elaborazione sia allineato ai [limiti definiti](site-recovery-plan-capacity-vmware.md#capacity-considerations)e considerare la possibilità di configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>3. seguire le istruzioni riportate di seguito per [risolvere i problemi di connettività e di replica](#check-connectivity-and-replication).<br/> 4. se il problema persiste, eseguire il [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) per la replica di VMware/server fisici.

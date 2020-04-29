@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477171"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guida tecnica per il modello di soluzione per la manutenzione predittiva nel settore aerospaziale
@@ -64,7 +64,7 @@ Eseguire gli script [hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/
 Eseguire stime sulla vita utile rimanente di un determinato motore di aereo in base agli input ricevuti mediante il servizio [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orchestrato da Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Pubblicazione dei dati
-### <a name="azure-sql-database"></a>Database SQL di Azure
+### <a name="azure-sql-database"></a>database SQL di Azure
 Usare il [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) per archiviare le stime ricevute dal Azure Machine Learning, che vengono quindi utilizzate nel dashboard [Power bi](https://powerbi.microsoft.com) .
 
 ## <a name="data-consumption"></a>Utilizzo dei dati

@@ -1,76 +1,76 @@
 ---
-title: Schema di avviso comune per gli avvisi di monitoraggio di AzureCommon alert schema for Azure monitor alerts
-description: Comprendere lo schema di avviso comune, perché è consigliabile utilizzarlo e come abilitarloUnderstanding the common alert schema, why you should use it and how to enable it
+title: Schema di avviso comune per gli avvisi di monitoraggio di Azure
+description: Informazioni sullo schema di avviso comune, perché è consigliabile usarlo e come abilitarlo
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249048"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
-In questo articolo viene descritto lo schema di avviso comune, i vantaggi dell'utilizzo e come abilitarlo.
+Questo articolo descrive lo schema di avviso comune, i vantaggi derivanti dall'uso e come abilitarlo.
 
-## <a name="what-is-the-common-alert-schema"></a>Qual è lo schema di avviso comune?
+## <a name="what-is-the-common-alert-schema"></a>Che cos'è lo schema di avviso comune?
 
-Lo schema di avviso comune standardizza l'esperienza di consumo per le notifiche di avviso in Azure oggi stesso. Storicamente, i tre tipi di avviso in Azure oggi (metrica, log e log attività) hanno i propri modelli di messaggio di posta elettronica, schemi webhook e così via. Con lo schema di avviso comune, è ora possibile ricevere notifiche di avviso con uno schema coerente.
+Lo schema di avviso comune standardizza l'esperienza di utilizzo per le notifiche di avviso attualmente in Azure. Storicamente, i tre tipi di avviso attualmente disponibili in Azure (metrica, log e log attività) hanno modelli di posta elettronica, schemi webhook e così via. Con lo schema di avviso comune è ora possibile ricevere notifiche di avviso con uno schema coerente.
 
-Qualsiasi istanza di avviso descrive **la risorsa interessata** e **la causa dell'avviso**e queste istanze sono descritte nello schema comune nelle sezioni seguenti:
-* **Essentials**: Un set di **campi standardizzati,** comune a tutti i tipi di avviso, che descrivono la **risorsa** in cui si trova l'avviso insieme ad altri metadati di avviso comuni ( ad esempio, gravità o descrizione). 
-* **Contesto avviso**: un insieme di campi che descrivono la **causa dell'avviso**, con campi che variano **in base al tipo di avviso.** Ad esempio, un avviso di metrica conterebbe campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività condivida informazioni sull'evento che ha generato l'avviso. 
+Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa origine**, che vengono descritte nello schema comune nelle seguenti sezioni:
+* **Essentials**: un set di **campi standardizzati**, comune in tutti i tipi di avviso, che descrivono la **risorsa** in cui si trova l'avviso insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
+* **Contesto**dell'avviso: un set di campi che descrivono la relativa **origine**, con campi che variano **in base al tipo di avviso**. Ad esempio, un avviso di metrica avrebbe campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività avrebbe informazioni sull'evento che ha generato l'avviso. 
 
-Gli scenari di integrazione tipici che sentiamo dai clienti implicano il routing dell'istanza di avviso al team interessato in base a un pivot (ad esempio, gruppo di risorse), dopo di che il team responsabile inizia a lavorarvi. Con lo schema di avviso comune, è possibile avere una logica di routing standardizzata tra i tipi di avviso sfruttando i campi essenziali, lasciando i campi di contesto come per i team interessati per indagare ulteriormente.
+Gli scenari di integrazione tipici dei clienti implicano il routing dell'istanza di avviso al team interessato in base ad alcuni pivot, ad esempio il gruppo di risorse, dopo il quale il team responsabile inizia a lavorare su di esso. Con lo schema di avviso comune è possibile avere una logica di routing standardizzata tra i tipi di avviso sfruttando i campi essenziali, lasciando i campi di contesto così come sono i team interessati a esaminare ulteriormente.
 
-Ciò significa che si può potenzialmente avere meno integrazioni, rendendo il processo di gestione e manutenzione un compito _molto_ più semplice. Inoltre, gli arricchimenti futuri del payload di avviso (ad esempio, personalizzazione, arricchimento diagnostico e così via) verranno visualizzati solo nello schema comune.
+Ciò significa che è possibile avere un minor numero di integrazioni, rendendo il processo di gestione e manutenzione di un'attività _molto_ più semplice. Inoltre, gli arricchimenti futuri del payload degli avvisi (ad esempio, personalizzazione, arricchimento di diagnostica e così via) vengono visualizzati solo nello schema comune.
 
-## <a name="what-enhancements-does-the-common-alert-schema-bring"></a>Quali miglioramenti apporta lo schema di avviso comune?
+## <a name="what-enhancements-does-the-common-alert-schema-bring"></a>Quali sono i miglioramenti apportati dallo schema di avviso comune?
 
-Lo schema di avviso comune si manifesterà principalmente nelle notifiche di avviso. I miglioramenti che vedrete sono elencati di seguito:
+Lo schema di avviso comune si manifesterà principalmente nelle notifiche di avviso. I miglioramenti che verranno visualizzati sono elencati di seguito:
 
-| Azione | Miglioramenti|
+| Action | Miglioramenti|
 |:---|:---|
-| sms | Un modello SMS coerente per tutti i tipi di avviso. |
-| Email | Un modello di email coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti diretti incorporati all'istanza di avviso nel portale e alla risorsa interessata consentono di passare rapidamente al processo di correzione. |
-| Webhook/App logica/Funzione di Azure/Runbook di automazione | Una struttura JSON coerente per tutti i tipi di avviso, che consente di creare facilmente integrazioni tra i diversi tipi di avviso. |
+| SMS | Un modello SMS coerente per tutti i tipi di avviso. |
+| Posta elettronica | Un modello di posta elettronica coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti profondi incorporati all'istanza di avviso nel portale e la risorsa interessata assicurano che sia possibile passare rapidamente al processo di correzione. |
+| Webhook/app per la logica/funzione di Azure/Runbook di automazione | Struttura JSON coerente per tutti i tipi di avviso, che consente di creare facilmente integrazioni tra i diversi tipi di avviso. |
 
-Il nuovo schema consentirà inoltre un'esperienza di consumo degli avvisi più completa sia nel portale di Azure che nell'app per dispositivi mobili di Azure nell'immediato futuro. 
+Il nuovo schema consentirà inoltre un'esperienza di utilizzo più approfondita degli avvisi sia nel portale di Azure che nel app per dispositivi mobili di Azure nel futuro immediato. 
 
-[Altre informazioni sulle definizioni dello schema per Webhooks/App per la logica/Funzioni di Azure/Runbook di automazione.](https://aka.ms/commonAlertSchemaDefinitions)
-
-> [!NOTE]
-> Le azioni seguenti non supportano lo schema di avviso comune: ITSM Connector.
-
-## <a name="how-do-i-enable-the-common-alert-schema"></a>Come si abilita lo schema di avviso comune?
-
-È possibile acconsentire esplicitamente o rifiutare esplicitamente lo schema di avviso comune tramite gruppi di azioni, sia nel portale che tramite l'API REST. L'interruttore per passare al nuovo schema esiste a livello di azione. Ad esempio, è necessario attivare separatamente un'azione di posta elettronica e un'azione webhook.
+[Altre informazioni sulle definizioni dello schema per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> 1. I seguenti tipi di avviso supportano lo schema comune per impostazione predefinita (non è necessario alcun consenso esplicito):
+> Le azioni seguenti non supportano lo schema di avviso comune: connettore ITSM.
+
+## <a name="how-do-i-enable-the-common-alert-schema"></a>Ricerca per categorie abilitare lo schema di avviso comune?
+
+È possibile acconsentire esplicitamente o rifiutare esplicitamente lo schema di avviso comune tramite i gruppi di azioni, sia nel portale che tramite l'API REST. L'interruttore per passare al nuovo schema esiste a livello di azione. Ad esempio, è necessario optare separatamente per un'azione di posta elettronica e un'azione webhook.
+
+> [!NOTE]
+> 1. Per impostazione predefinita, i tipi di avviso seguenti supportano lo schema comune (non è richiesto il consenso esplicito):
 >     * Avvisi del rilevamento intelligente
-> 1. I tipi di avviso seguenti attualmente non supportano lo schema comune:The following alert types currently do not support the common schema:
->     * Avvisi generati da [Monitoraggio di Azure per macchine virtualiAlerts](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) generated by Azure Monitor for VMs
->     * Avvisi generati dalla gestione dei costi di [AzureAlerts](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario) generated by Azure Cost Management
+> 1. Attualmente i tipi di avviso seguenti non supportano lo schema comune:
+>     * Avvisi generati da [monitoraggio di Azure per le macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * Avvisi generati da [Gestione costi di Azure](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
 ### <a name="through-the-azure-portal"></a>Tramite il portale di Azure
 
-![Schema di avviso comune acconsentire esplicitamente](media/alerts-common-schema/portal-opt-in.png)
+![Consenso esplicito per lo schema di avviso comune](media/alerts-common-schema/portal-opt-in.png)
 
-1. Aprire un'azione esistente o una nuova azione in un gruppo di azioni. 
-1. Selezionare 'Sì' per l'interruttore per abilitare lo schema di avviso comune come illustrato.
+1. Aprire qualsiasi azione esistente o nuova in un gruppo di azione. 
+1. Selezionare ' Sì' per attivare lo schema di avviso comune come illustrato.
 
 ### <a name="through-the-action-groups-rest-api"></a>Tramite l'API REST dei gruppi di azioni
 
-È anche possibile usare [l'API Gruppi di](https://docs.microsoft.com/rest/api/monitor/actiongroups) azioni per acconsentire esplicitamente allo schema di avviso comune. Durante la creazione [o l'aggiornamento](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) della chiamata all'API REST, è possibile impostare il flag "useCommonAlertSchema" su "true" (per acconsentire esplicitamente) o "false" (per rifiutare esplicitamente) per una delle azioni seguenti: email/webhook/logic app/Azure Function/automation runbook.
+È anche possibile usare l' [API dei gruppi di azioni](https://docs.microsoft.com/rest/api/monitor/actiongroups) per acconsentire esplicitamente allo schema di avviso comune. Quando si [Crea o si aggiorna](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) la chiamata all'API REST, è possibile impostare il flag "useCommonAlertSchema" su "true" (per acconsentire esplicitamente) o "false" (per rifiutare esplicitamente) per una delle azioni seguenti: indirizzo di posta elettronica/webhook/app per la logica/Runbook di automazione e funzioni di Azure.
 
-Ad esempio, il corpo della richiesta seguente eseguito all'API REST di creazione o aggiornamento eseguirà le operazioni seguenti:For [example,](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) the following request body made to the create or update REST API will do the following:
+Il corpo della richiesta seguente, ad esempio, per l'API REST di [creazione o aggiornamento](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) effettuerà le operazioni seguenti:
 
-* Abilitare lo schema di avviso comune per l'azione di posta elettronica "Posta elettronica di John Doe"Enable the common alert schema for the email action "John Doe's email"
-* Disabilitare lo schema di avviso comune per l'azione di posta elettronica "Posta elettronica di Jane Smith"
-* Abilitare lo schema di avviso comune per l'azione webhook "Sample webhook"
+* Abilitare lo schema di avviso comune per l'azione di posta elettronica "posta elettronica di John Doe"
+* Disabilitare lo schema di avviso comune per l'azione di posta elettronica "messaggio di posta elettronica di Jane Smith"
+* Abilitare lo schema di avviso comune per l'azione webhook "esempio di Webhook"
 
 ```json
 {
@@ -120,8 +120,8 @@ Ad esempio, il corpo della richiesta seguente eseguito all'API REST di creazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Definizioni comuni dello schema di avviso per Webhook/App per la logica/Funzioni di Azure/Runbook di automazione.Common alert schema definitions for Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Informazioni su come creare un'app per la logica che sfrutta lo schema degli avvisi comune per gestire tutti gli avvisi.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- [Definizioni dello schema di avviso comuni per webhook/app per la logica/funzioni di Azure/manuali operativi di automazione.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Informazioni su come creare un'app per la logica che sfrutta lo schema di avviso comune per gestire tutti gli avvisi.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

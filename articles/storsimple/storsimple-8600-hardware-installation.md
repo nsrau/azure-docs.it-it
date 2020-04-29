@@ -1,5 +1,5 @@
 ---
-title: Installare il dispositivo Microsoft Azure StorSimple 8600Install Microsoft Azure StorSimple 8600 device
+title: Installare Microsoft Azure StorSimple dispositivo 8600
 description: Viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8600 prima di distribuire e configurare il software.
 author: alkohli
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254755"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
@@ -42,7 +42,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    
     **Dispositivo di archiviazione disimballato**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |   1 |Scatola |
    |   2 |Cavi SAS (nel vassoio cavi e accessori) |
@@ -106,7 +106,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    
     **Fissaggio delle slitte delle guide ai lati dell’enclosure**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |  1 |Viti con testa a bottone M 3X4 |
    |  2 |Guide dello chassis |
@@ -119,7 +119,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    
     **Fissaggio dei gruppi guida al rack**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |   1 |Vite di fissaggio |
    |   2 |Montante rack anteriore con fori quadrati |
@@ -145,7 +145,7 @@ Per montare l'enclosure EBOD nel rack usando le guide appena installate, seguire
    
     **Installazione dei copriflangia**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |   1 |Vite di fissaggio dell'enclosure |
 
@@ -198,7 +198,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -209,9 +209,9 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
 **Cablaggio di rete per il dispositivo**
 
-| Etichetta | Descrizione |
+| Label | Descrizione |
 | --- | --- |
-| Una  |LAN con accesso a Internet |
+| Una |LAN con accesso a Internet |
 | b |Controller 0 |
 | C |PCM 0 |
 | D |Controller 1 |
@@ -256,7 +256,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
 > [!NOTE]
-> **Gestione Luci spente:** Quando il dispositivo viene installato in un data center remoto o in una sala computer con accesso limitato, assicurarsi che le connessioni seriali a entrambi i controller siano sempre connesse a un interruttore della console seriale o a apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> **Gestione Lights-out:** Quando il dispositivo è installato in un data center remoto o in una sala computer con accesso limitato, verificare che le connessioni seriali a entrambi i controller siano sempre connesse a un comportatore di console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 > 
 > 
 

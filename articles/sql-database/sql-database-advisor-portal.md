@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214170"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
@@ -28,8 +28,8 @@ Per visualizzare e applicare le raccomandazioni, sono necessarie le autorizzazio
 
 Usare la procedura seguente per trovare raccomandazioni per le prestazioni nel portale di Azure:
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
-2. Passare a Tutti i**database SQL** **dei servizi** > e selezionare il database.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Passare a **tutti i servizi** > **database SQL**e selezionare il database.
 3. Fare clic su **Raccomandazione per le prestazioni** per visualizzare le raccomandazioni disponibili per il database selezionato.
 
 Le raccomandazioni per le prestazioni vengono visualizzate in una tabella simile a quella illustrata nella figura seguente:
@@ -41,13 +41,13 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 | Impatto | Descrizione |
 |:--- |:--- |
 | Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
-| Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
+| Medio |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
 | Basso |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
 > [!NOTE]
 > Il database SQL di Azure deve monitorare le attività almeno per un giorno per poter individuare alcune raccomandazioni. Il database SQL di Azure può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari casuali di attività. Se non sono disponibili raccomandazioni, nella pagina **Performance recommendation** (Raccomandazione prestazioni) viene visualizzato un messaggio che ne spiega il motivo.
 
-È anche possibile visualizzare lo stato delle ultime operazioni storiche. Selezionare un suggerimento o uno stato per visualizzare ulteriori informazioni.
+È anche possibile visualizzare lo stato delle ultime operazioni storiche. Selezionare un'indicazione o uno stato per visualizzare altre informazioni.
 
 Di seguito è riportato un esempio della raccomandazione "Crea indice" nel portale di Azure.
 
@@ -109,11 +109,11 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
 
 Dopo aver selezionato la configurazione desiderata, fare clic su Applica.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>Applicare manualmente le raccomandazioni tramite T-SQLManually apply recommendations through T-SQL
+### <a name="manually-apply-recommendations-through-t-sql"></a>Applicare manualmente le raccomandazioni tramite T-SQL
 
 Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script**. Eseguire questo script nel database per applicare manualmente l'indicazione.
 
-*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Inoltre, le raccomandazioni applicate manualmente rimarranno attive e visualizzate nell'elenco delle raccomandazioni per le ore 24-48. prima che il sistema li ritiri automaticamente. Se si desidera rimuovere un suggerimento prima, è possibile eliminarlo manualmente.
+*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Inoltre, le raccomandazioni applicate manualmente rimarranno attive e visualizzate nell'elenco di raccomandazioni per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla manualmente.
 
 ### <a name="canceling-recommendations"></a>Annullamento delle raccomandazioni
 
@@ -128,7 +128,7 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 
 | Stato | Descrizione |
 |:--- |:--- |
-| In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
+| Pending |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
 | Convalida in corso. |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
 | Operazione completata |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
@@ -170,5 +170,5 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [CREA INDICE](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Porta frontale di Azure - Sicurezza a livello di applicazione Documenti Microsoft
-description: Questo articolo consente di comprendere in che modo Azure Front Door consente di proteggere e proteggere i back-end delle applicazioni
+title: Sportello anteriore di Azure-sicurezza a livello dell'applicazione | Microsoft Docs
+description: Questo articolo consente di comprendere il modo in cui la porta anteriore di Azure consente di proteggere e proteggere i backend dell'applicazione
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,20 +12,20 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471796"
 ---
 # <a name="application-layer-security-with-front-door"></a>Sicurezza del livello dell'applicazione con Frontdoor
-Azure Front Door offre funzionalità di protezione delle applicazioni Web per proteggere le applicazioni Web da attacchi alla rete e da exploit comuni di vulnerabilità Web come SQL Injection o Cross Site Scripting (XSS). Abilitata per i front-end HTTP(S), la sicurezza del livello dell'applicazione di Frontdoor viene distribuita a livello globale ed è sempre attiva, permettendo così di bloccare gli attacchi dannosi alla periferia della rete di Azure, molto lontano dai back-end. Grazie a una maggiore sicurezza e all'ottimizzazione delle prestazioni, Frontdoor offre esperienze Web veloci e sicure agli utenti finali.
+Il front-end di Azure offre funzionalità di protezione delle applicazioni Web per salvaguardare le applicazioni Web da attacchi di rete e exploit di vulnerabilità Web comuni, come SQL Injection o cross site scripting (XSS). Abilitata per i front-end HTTP(S), la sicurezza del livello dell'applicazione di Frontdoor viene distribuita a livello globale ed è sempre attiva, permettendo così di bloccare gli attacchi dannosi alla periferia della rete di Azure, molto lontano dai back-end. Grazie a una maggiore sicurezza e all'ottimizzazione delle prestazioni, Frontdoor offre esperienze Web veloci e sicure agli utenti finali.
 
 ## <a name="application-protection"></a>Protezione dell'applicazione
 La protezione delle applicazioni di Frontdoor viene configurata in tutti gli ambienti perimetrali in tutto il mondo, in linea con le applicazioni, e impedisce automaticamente al traffico non HTTP(S) di raggiungere le applicazioni Web. L'architettura distribuita multi-tenant rende possibile una protezione globale su larga scala senza sacrificare le prestazioni. Per i carichi di lavoro HTTP(S), il servizio di protezione delle applicazioni Web di Frontdoor offre un motore regole avanzato per regole personalizzate, un set di regole preconfigurato contro gli attacchi comuni e la registrazione dettagliata per tutte le richieste corrispondenti a una regola. Sono supportate azioni flessibili, tra cui consentire, bloccare o solo registrazione.
 
 ## <a name="custom-access-control-rules"></a>Regole di controllo di accesso personalizzate
-- **Elenco indirizzi IP consentiti ed elenco di blocco:** È possibile configurare regole personalizzate per controllare l'accesso alle applicazioni Web in base all'elenco di indirizzi IP client. Sono supportati sia indirizzi IPv4 che IPv6
+- Elenco **di indirizzi IP consentiti e bloccati:** È possibile configurare regole personalizzate per controllare l'accesso alle applicazioni Web in base all'elenco di indirizzi IP del client. Sono supportati sia indirizzi IPv4 che IPv6
 - **Controllo di accesso geografico:** è possibile configurare regole personalizzate per controllare l'accesso alle applicazioni Web in base al codice paese di provenienza dell'indirizzo IP
 - **Filtro dei parametri HTTP:** è possibile configurare le regole di accesso personalizzate in base ai parametri delle richieste HTTP(S) corrispondenti, inclusi intestazioni, URL e stringhe di query
 

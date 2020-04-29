@@ -1,6 +1,6 @@
 ---
-title: Web application firewall custom rule for Azure Front Door
-description: Informazioni su come utilizzare le regole personalizzate WAF (Web Application Firewall) che proteggono le applicazioni Web da attacchi dannosi.
+title: Regola personalizzata del firewall applicazione Web per il front-end di Azure
+description: Informazioni su come usare le regole personalizzate del Web Application Firewall (WAF) per proteggere le applicazioni Web da attacchi dannosi.
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
@@ -8,93 +8,93 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79475825"
 ---
-#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regole personalizzate per il firewall dell'applicazione Web con il portetno anteriore di AzureCustom rules for Web Application Firewall with Azure Front Door
+#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regole personalizzate per il Web Application Firewall con sportello anteriore di Azure
 
-Firewall applicazione Web di Azure (WAF) con porte anteriori consente di controllare l'accesso alle applicazioni Web in base alle condizioni definite. Una regola WAF personalizzata è costituita da un numero di priorità, un tipo di regola, condizioni di corrispondenza e un'azione. Esistono due tipi di regole personalizzate: regole di corrispondenza e regole limite di frequenza. Una regola di corrispondenza controlla l'accesso in base a un set di condizioni corrispondenti, mentre una regola di limite di frequenza controlla l'accesso in base alle condizioni di corrispondenza e alle frequenze delle richieste in ingresso. È possibile disabilitare una regola personalizzata per impedirne la valutazione, pur conservando la configurazione. 
+Il Web Application Firewall (WAF) di Azure con sportello anteriore consente di controllare l'accesso alle applicazioni Web in base alle condizioni definite. Una regola WAF personalizzata è costituita da un numero di priorità, da un tipo di regola, da condizioni di corrispondenza e da un'azione. Esistono due tipi di regole personalizzate: regole di corrispondenza e regole relative ai limiti di frequenza. Una regola di corrispondenza controlla l'accesso in base a un set di condizioni di corrispondenza mentre una regola limite di velocità controlla l'accesso in base alle condizioni di corrispondenza e alle frequenze delle richieste in ingresso. È possibile disabilitare una regola personalizzata per impedirne la valutazione, mantenendo comunque la configurazione. 
 
 ## <a name="priority-match-conditions-and-action-types"></a>Priorità, condizioni di corrispondenza e tipi di azione
 
 È possibile controllare l'accesso con una regola WAf personalizzata che definisce un numero di priorità, un tipo di regola, una matrice di condizioni di corrispondenza e un'azione. 
 
-- **Priorità:** è un numero intero univoco che descrive l'ordine di valutazione delle regole WAF. Le regole con valori di priorità inferiori vengono valutate prima delle regole con valori più alti. I numeri di priorità devono essere univoci tra tutte le regole personalizzate.
+- **Priority:** valore integer univoco che descrive l'ordine di valutazione delle regole WAF. Le regole con valori di priorità inferiore vengono valutate prima delle regole con valori più elevati. I numeri di priorità devono essere univoci tra tutte le regole personalizzate.
 
-- **Azione:** definisce come instradare una richiesta se viene soddisfatta una regola WAF. È possibile scegliere una delle seguenti azioni da applicare quando una richiesta corrisponde a una regola personalizzata.
+- **Action:** definisce la modalità di indirizzamento di una richiesta in caso di corrispondenza di una regola WAF. È possibile scegliere una delle azioni seguenti da applicare quando una richiesta corrisponde a una regola personalizzata.
 
-    - *Consenti* - WAF inoltra la missione al back-end, registra una voce nei registri WAF e esce.
-    - *Blocca:* la richiesta è bloccata, WAF invia la risposta al client senza inoltrare la richiesta al back-end. WAF registra una voce nei registri WAF.
-    - *Registro* - WAF registra una voce nei registri WAF e continua a valutare la regola successiva.
-    - *Reindirizzamento:* WAF reindirizza la richiesta a un URI specificato, registra una voce nei registri WAF e esce.
+    - *Allow* -WAF Invia la ricerca al back-end, registra una voce nei log WAF e viene chiusa.
+    - La richiesta di *blocco* è bloccata, WAF Invia la risposta al client senza inoltrare la richiesta al back-end. WAF registra una voce nei log di WAF.
+    - *Log* -WAF registra una voce nei log WAF e continua a valutare la regola successiva.
+    - *Redirect-WAF reindirizza la* richiesta a un URI specificato, registra una voce nei log WAF e viene chiusa.
 
-- **Condizione di corrispondenza:** definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza. Ogni regola può contenere più condizioni di corrispondenza. Una condizione di corrispondenza può essere basata sulla posizione geografica, sugli indirizzi IP del client (CIDR), sulle dimensioni o sulla corrispondenza delle stringhe. La corrispondenza delle stringhe può essere confrontata con un elenco di variabili di corrispondenza.
+- **Condizione di corrispondenza:** definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza. Ogni regola può contenere più condizioni di corrispondenza. Una condizione di corrispondenza può essere basata sulla posizione geografica, sugli indirizzi IP del client (CIDR), sulle dimensioni o sulla corrispondenza di stringa. La corrispondenza della stringa può essere confrontata con un elenco di variabili di corrispondenza.
   - **Variabile di corrispondenza:**
-    - Metodo Request
+    - RequestMethod
     - QueryString
-    - PostArgs (informazioni in stato di comando
-    - Requesturi
+    - Postargs
+    - RequestUri
     - RequestHeader
     - RequestBody
     - Cookie
-  - **Operator:**
-    - Qualsiasi: viene spesso utilizzato per definire l'azione predefinita se non viene trovata alcuna corrispondenza con le regole. Any è una corrispondenza all operatore.
+  - **Operatore**
+    - Any: viene spesso usato per definire l'azione predefinita se non sono presenti regole corrispondenti. Any è un operatore match all.
     - Uguale
     - Contiene
-    - LessThan: vincolo di dimensione
-    - GreaterThan: vincolo di dimensione
-    - LessThanOrEqual: vincolo di dimensione
-    - GreaterThanOrEqual: vincolo di dimensione
+    - LessThan: vincolo size
+    - GreaterThan: vincolo size
+    - LessThanOrEqual: vincolo size
+    - GreaterThanOrEqual: vincolo size
     - BeginsWith
     - EndsWith
     - Regex (Espressione regolare)
   
-  - **Regex** non supporta le seguenti operazioni: 
+  - **Regex** non supporta le operazioni seguenti: 
     - Backreference e acquisizione di sottoespressioni
-    - Asserzioni arbitrarie di larghezza zero
-    - Riferimenti di subroutine e modelli ricorsiviSubroutine references and recursive patterns
+    - Asserzioni di larghezza zero arbitrarie
+    - Riferimenti a subroutine e modelli ricorsivi
     - Modelli condizionali
-    - Verbi di controllo di backtracking
-    - Direttiva a byte singolo c
-    - La direttiva di corrispondenza della nuova riga di riga di tipo R
-    - L'inizio di .K della direttiva match reset
+    - Verbi di controllo backtracking
+    - Direttiva a byte singolo \c
+    - Direttiva di corrispondenza nuova riga
+    - La direttiva \k Start of match Reset
     - Callout e codice incorporato
     - Raggruppamento atomico e quantificatori possessivi
 
-  - **Nega [opzionale]:** È possibile impostare la condizione *di negazione su* true se il risultato di una condizione deve essere negato.
+  - **Negazione [facoltativo]:** È possibile impostare la condizione *negate* su true se il risultato di una condizione deve essere negato.
       
-  - **Trasforma [opzionale]:** Elenco di stringhe con nomi di trasformazioni da eseguire prima che venga tentata la corrispondenza. Queste possono essere le seguenti trasformazioni:
+  - **Transform [facoltativo]:** Elenco di stringhe con i nomi delle trasformazioni da eseguire prima che venga tentata la corrispondenza. Queste possono essere le trasformazioni seguenti:
      - Maiuscolo 
      - Lettere minuscole
      - Trim
      - RemoveNulls
      - UrlDecode
-     - Urlencode
+     - UrlEncode
      
-   - **Valore di corrispondenza:** I valori del metodo di richiesta HTTP supportati includono:Supported HTTP request method values include:
+   - **Valore corrispondenza:** I valori del metodo di richiesta HTTP supportati includono:
      - GET
      - POST
      - PUT
      - HEAD
-     - Elimina
+     - DELETE
      - LOCK
      - UNLOCK
      - PROFILE
      - OPTIONS
      - PROPFIND
-     - Proppatch
+     - PROPPATCH
      - MKCOL
      - COPIA
      - MOVE
 
 ## <a name="examples"></a>Esempi
 
-### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Esempio di regole personalizzate WAF basate su parametri http
+### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Esempio di regole personalizzate di WAF basate su parametri http
 
-Di seguito è riportato un esempio che illustra la configurazione di una regola personalizzata con due condizioni di corrispondenza. Le richieste provengono da un sito specificato come definito dal referrer e la stringa di query non contiene "password".
+Di seguito è riportato un esempio in cui viene illustrata la configurazione di una regola personalizzata con due condizioni di corrispondenza. Le richieste provengano da un sito specificato come definito dal referrer e la stringa di query non contiene "password".
 
 ```
 # http rules example
@@ -126,7 +126,7 @@ Di seguito è riportato un esempio che illustra la configurazione di una regola 
 }
 
 ```
-Di seguito è riportato un esempio di configurazione per il blocco del metodo "PUT":An example configuration for blocking "PUT" method is shown as below:
+Di seguito è riportata una configurazione di esempio per il blocco del metodo "PUT":
 
 ``` 
 # http Request Method custom rules
@@ -150,9 +150,9 @@ Di seguito è riportato un esempio di configurazione per il blocco del metodo "P
 }
 ```
 
-### <a name="size-constraint"></a>Vincolo di dimensione
+### <a name="size-constraint"></a>Vincolo size
 
-È possibile creare una regola personalizzata che specifica il vincolo di dimensione in una parte di una richiesta in ingresso. Ad esempio, la regola seguente blocca un URL di lunghezza superiore a 100 caratteri.
+È possibile compilare una regola personalizzata che specifica il vincolo di dimensione per una parte di una richiesta in ingresso. La regola seguente, ad esempio, blocca un URL composto da più di 100 caratteri.
 
 ```
 # http parameters size constraint
@@ -177,7 +177,7 @@ Di seguito è riportato un esempio di configurazione per il blocco del metodo "P
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Configurare un criterio di Firewall applicazione Web con Azure PowerShellConfigure a Web Application Firewall policy using Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
-- Informazioni su [Web Application Firewall con front Door](afds-overview.md)
+- [Configurare un criterio di Web Application Firewall usando Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
+- Informazioni su [Web Application Firewall con sportello anteriore](afds-overview.md)
 - Informazioni su come [creare una Frontdoor](../../frontdoor/quickstart-create-front-door.md).
 
