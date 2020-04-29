@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79213955"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
@@ -31,7 +31,7 @@ In questo argomento viene illustrato come l'implementazione di eventi estesi nel
 
 Per altre informazioni sugli eventi estesi, per il database SQL di Azure e Microsoft SQL Server, vedere l'articolo:
 
-- [Guida introduttiva: Eventi estesi in SQL ServerQuick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Avvio rapido: eventi estesi in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventi estesi](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -100,12 +100,12 @@ Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.
 | **sys.dm_xe_database_session_event_actions** |Restituisce informazioni sulle azioni di sessione di evento. |
 | **sys.dm_xe_database_session_events** |Restituisce informazioni sugli eventi di sessione. |
 | **sys.dm_xe_database_session_object_columns** |Mostra i valori di configurazione per gli oggetti associati a una sessione. |
-| **sys.dm_xe_database_session_targets** |Restituisce informazioni sulle destinazioni della sessione. |
+| **sys. dm_xe_database_session_targets** |Restituisce informazioni sulle destinazioni della sessione. |
 | **sys.dm_xe_database_sessions** |Restituisce una riga per ogni sessione di eventi con ambito nel database corrente. |
 
-In Microsoft SQL Server, viste del * \_* catalogo simili sono denominate senza la parte di database del nome, ad esempio:
+In Microsoft SQL Server, le viste del catalogo simili sono denominate senza la * \_* parte del nome del database, ad esempio:
 
-- **sys.dm_xe_sessions**, anziché il nome<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions**, anziché il nome<br/>**sys. dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV comuni a entrambi
 Per gli eventi estesi sono disponibili DMV aggiuntive comuni a Microsoft SQL Server e database SQL di Azure:
@@ -188,9 +188,9 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 
 - Per ridurre questo rischio delle prestazioni, evitare di impostare l'opzione **EVENT_RETENTION_MODE** su **NO_EVENT_LOSS** nelle definizioni della sessione di eventi.
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 
-- [Uso di Azure PowerShell con Archiviazione di Azure.](../storage/common/storage-powershell-guide-full.md)
+- [Uso di Azure PowerShell con archiviazione di Azure](../storage/common/storage-powershell-guide-full.md).
 - [Cmdlet di Archiviazione di Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md) : fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
 - [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)

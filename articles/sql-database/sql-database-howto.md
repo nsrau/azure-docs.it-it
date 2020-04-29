@@ -12,22 +12,22 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
 ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79209433"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Come usare il database SQL di Azure
 
-In questa sezione sono disponibili varie guide, script e spiegazioni che possono essere utili per gestire e configurare il database SQL di Azure. È inoltre possibile trovare guide pratiche specifiche per [singolo database](sql-database-howto-single-database.md) e [istanza gestita](sql-database-howto-managed-instance.md).
+In questa sezione sono disponibili varie guide, script e spiegazioni che possono essere utili per gestire e configurare il database SQL di Azure. È anche possibile trovare guide pratiche specifiche per [database singolo](sql-database-howto-single-database.md) e [istanza gestita](sql-database-howto-managed-instance.md).
 
-## <a name="load-data"></a>Caricare i dati
+## <a name="load-data"></a>Caricare dati
 
 - [Copiare un database singolo o un database in pool all'interno di Azure](sql-database-copy.md)
 - [Importare un database da un file BACPAC](sql-database-import.md)
 - [Esportare un database in un file BACPAC](sql-database-export.md)
-- [Caricare i dati con BCP](sql-database-load-from-csv-with-bcp.md)
+- [Caricare dati con BCP](sql-database-load-from-csv-with-bcp.md)
 - [Caricare dati con ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Sincronizzazione dei dati
@@ -42,7 +42,7 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 ## <a name="monitoring-and-tuning"></a>Monitoraggio e ottimizzazione
 
 - [Ottimizzazione manuale](sql-database-performance-guidance.md)
-- [Usare le DMV per monitorare le prestazioni](sql-database-monitoring-with-dmvs.md)
+- [Usare le viste a gestione dinamica per monitorare le prestazioni](sql-database-monitoring-with-dmvs.md)
 - [Usare Query Store per monitorare le prestazioni](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Risolvere i problemi delle prestazioni con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Usare il log di diagnostica di Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md)
@@ -76,7 +76,7 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 - [Linee guida per la connettività](sql-database-connectivity-issues.md)
 - [Alias DNS](dns-alias-overview.md)
 - [Impostare PowerShell per l'alias DNS](dns-alias-powershell.md)
-- [Porte - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
+- [Porte: ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C e C++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
 
