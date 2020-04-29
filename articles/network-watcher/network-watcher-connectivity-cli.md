@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi alle connessioni - Interfaccia della riga di comando di AzureTroubleshoot connections -
+title: Risolvere i problemi relativi alle connessioni-CLI di Azure
 titleSuffix: Azure Network Watcher
 description: Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con l'interfaccia della riga di comando di Azure.
 services: network-watcher
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 842e58de8dbc06d3f045b0e9d0dc6b99e6b1e2fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76842887"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher tramite l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> - [Powershell](network-watcher-connectivity-powershell.md)
-> - [Interfaccia della riga di comando di AzureAzure](network-watcher-connectivity-cli.md)
+> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-connectivity-cli.md)
 > - [API REST di Azure](network-watcher-connectivity-rest.md)
 
 Informazioni su come usare la risoluzione dei problemi di connessione per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
@@ -273,4 +273,4 @@ Il codice JSON seguente è la risposta di esempio generata dall'esecuzione del c
 
 Per altre informazioni su come automatizzare le acquisizioni di pacchetti tramite gli avvisi della macchina virtuale, leggere l'articolo su come [creare un'acquisizione di pacchetti attivata da un avviso](network-watcher-alert-triggered-packet-capture.md).
 
-Trovare se un determinato traffico è consentito all'ingresso o all'esterno della macchina virtuale visitando [Verifica verifica flusso IP](diagnose-vm-network-traffic-filtering-problem.md)
+Individuare se un determinato traffico è consentito all'interno o all'esterno della macchina virtuale visitando la verifica del [flusso IP](diagnose-vm-network-traffic-filtering-problem.md)

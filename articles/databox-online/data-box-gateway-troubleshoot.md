@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265389"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Risolvere i problemi di Azure Data Box Gateway 
@@ -75,7 +75,7 @@ Gli eventuali errori riscontrati durante i processi di caricamento e aggiornamen
 
 3. Quando viene visualizzato un errore in questo file (evidenziato nell'esempio), annotare il codice di errore, che in questo caso è 16001. Cercare la descrizione di questo codice di errore con il riferimento di errore seguente.
 
-    |     Codice di errore     |     Nome dell'eccezione                                         |     Descrizione dell'errore                                                                                                                                                                                                                     |
+    |     Codice errore     |     Nome dell'eccezione                                         |     Descrizione dell'errore                                                                                                                                                                                                                     |
     |--------------------|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     |    100             |    ERROR_CONTAINER_OR_SHARE_NAME_LENGTH                    |    Il nome del contenitore o della condivisione deve avere una lunghezza compresa tra 3 e 63 caratteri.                                                                                                                                                                     |
     |    101             |    ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH        |    Il nome del contenitore o della condivisione deve contenere solo lettere, numeri o trattini.                                                                                                                                                       |

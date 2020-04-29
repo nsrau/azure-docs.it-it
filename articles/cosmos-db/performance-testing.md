@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: fb510c5628913fb3fa37b572c4409aee5d1028ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76313754"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test delle prestazioni e della scalabilità con Azure Cosmos DB
@@ -39,10 +39,10 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET, come d
 
 **Passaggio 1**: scaricare il progetto dell'[esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare una copia tramite fork del repository GitHub.
 
-**Fase 2:** Modificare le impostazioni per EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) in App.config.
+**Passaggio 2:** Modificare le impostazioni per EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) in app. config.
 
 > [!NOTE]
-> Prima di effettuare il provisioning delle raccolte con velocità effettiva elevata, fare riferimento alla [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) per stimare i costi per raccolta. Azure Cosmos DB addebita l'archiviazione e la velocità effettiva in modo indipendente su base oraria. È possibile risparmiare sui costi eliminando o riducendo la velocità effettiva dei contenitori di Azure Cosmos dopo il test.
+> Prima di effettuare il provisioning delle raccolte con velocità effettiva elevata, fare riferimento alla [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) per stimare i costi per raccolta. Azure Cosmos DB addebita l'archiviazione e la velocità effettiva in modo indipendente su base oraria. È possibile ridurre i costi eliminando o riducendo la velocità effettiva dei contenitori di Azure Cosmos dopo i test.
 > 
 > 
 
@@ -89,7 +89,7 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET, come d
     Press any key to exit...
 
 
-**Passaggio 4 (se necessario)** : la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta o di un set di raccolte. In caso contrario, l'aumento di DegreeOfParallelism a piccoli incrementi può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client si stabilizza, avviare più istanze dell'app in altri computer client. Se è necessaria assistenza per questo file di passaggio, un ticket di supporto dal portale di [Azure.](https://portal.azure.com)
+**Passaggio 4 (se necessario)** : la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta o di un set di raccolte. In caso contrario, l'aumento di DegreeOfParallelism a piccoli incrementi può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client si stabilizza, avviare più istanze dell'app in altri computer client. Per informazioni su questo passaggio, è necessario un ticket di supporto dal [portale di Azure](https://portal.azure.com).
 
 Quando l'app è in esecuzione, è possibile provare [criteri di indicizzazione](index-policy.md) e [livelli di coerenza](consistency-levels.md) diversi per comprenderne l'impatto sulla velocità effettiva e sulla latenza. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle suite di test o alle applicazioni di produzione.
 

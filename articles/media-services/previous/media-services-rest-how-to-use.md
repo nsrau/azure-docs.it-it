@@ -1,6 +1,6 @@
 ---
 title: Informazioni generali sull'API REST di Servizi multimediali | Microsoft Docs
-description: L'API "Media Services Operations REST" viene utilizzata per la creazione di processi, asset, canali live e altre risorse in un account di Servizi multimediali. Questo articolo offre una panoramica dell'API REST di Servizi multimediali di Azure.This article provides an Azure Media Services v2 REST API overview.
+description: L'API REST di servizi multimediali viene usata per la creazione di processi, asset, canali live e altre risorse in un account di servizi multimediali. Questo articolo fornisce una panoramica dell'API REST di servizi multimediali di Azure V2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,16 +16,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773670"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 L'**API REST di Servizi multimediali** viene usata per la creazione di processi, asset, canali live e altre risorse in un account di Servizi multimediali. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -81,15 +81,15 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 | Accept-Charset |Tipo di set di caratteri, ad esempio "UTF-8" |L'impostazione predefinita è UTF-8. |
 | X-HTTP-Method |Metodo HTTP |Consente ai client o ai firewall che non supportano metodi HTTP come PUT o DELETE di usarli, con tunneling tramite una chiamata GET. |
 | Content-Type |Tipo di contenuto |Tipo di contenuto del corpo delle richieste PUT o POST. |
-| client-request-id |string |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
+| client-request-id |Stringa |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 Nella seguente tabella è riportato un set di intestazioni che possono essere restituite a seconda della risorsa richiesta e dell'azione che si intende eseguire.
 
 | Intestazione | Type | valore |
 | --- | --- | --- |
-| request-id |string |Identificatore univoco per l'operazione corrente, generato dal servizio. |
-| client-request-id |string |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
+| request-id |Stringa |Identificatore univoco per l'operazione corrente, generato dal servizio. |
+| client-request-id |Stringa |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
 | Data |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
 | Content-Type |Variabile |Tipo di contenuto del corpo della risposta. |
 | Content-Encoding |Variabile |Gzip o deflate, a seconda delle esigenze. |
@@ -102,7 +102,7 @@ Nella seguente tabella è riportato l'elenco completo dei verbi HTTP che è poss
 | GET |Restituisce il valore corrente di un oggetto. |
 | POST |Crea un oggetto in base ai dati forniti o invia un comando. |
 | PUT |Sostituisce un oggetto o ne crea uno nuovo con nome, se applicabile. |
-| Elimina |Elimina un oggetto. |
+| DELETE |Elimina un oggetto. |
 | MERGE |Aggiorna un oggetto esistente con le modifiche alle proprietà denominate. |
 | HEAD |Restituisce i metadati di un oggetto per una risposta GET. |
 
@@ -126,6 +126,6 @@ Per informazioni su come usare l'autenticazione di Azure AD con l'API REST di Se
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c50232abd12c8c0390409bd7bf72833b4f153e02
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80667353"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Funzionamento di Azure Multi-Factor Authentication
@@ -48,7 +48,7 @@ Con Multi-Factor Authentication di Azure è possibile usare le seguenti forme di
 
 * App Microsoft Authenticator
 * Token hardware OATH
-* sms
+* SMS
 * Chiamata vocale
 
 ## <a name="how-to-enable-and-use-azure-multi-factor-authentication"></a>Come abilitare e usare Azure Multi-Factor Authentication

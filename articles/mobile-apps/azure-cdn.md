@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 1daff5c610092b009b122d05655ea637d5da5c3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241033"
 ---
 # <a name="content-delivery-network-on-azure-with-azure-content-delivery-network"></a>Rete per la distribuzione di contenuti in Azure con rete per la distribuzione di contenuti di Azure

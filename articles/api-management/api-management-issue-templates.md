@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249581"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelli di pagina dei problemi in Gestione API di Azure
@@ -34,10 +34,10 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="issue-list"></a><a name="IssueList"></a>Elenco dei problemi  
+##  <a name="issue-list"></a><a name="IssueList"></a>Elenco di problemi  
  Il modello **Elenco problemi** consente di personalizzare il corpo della pagina di elenco problemi nel portale per sviluppatori.  
   
- ![Portale per sviluppatori dell'elenco dei problemi](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portale per sviluppatori dell'elenco dei problemi di APIM")  
+ ![Elenco problemi portale per sviluppatori](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portale per sviluppatori dell'elenco di problemi di gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -104,7 +104,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |`Paging`|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di applicazioni.|  
 |`IsAuthenticated`|boolean|Se l'utente corrente ha effettuato l'accesso nel portale per sviluppatori.|  
 |`CanReportIssues`|boolean|Se l'utente corrente dispone delle autorizzazioni per presentare un problema.|  
-|`Search`|string|Questa proprietà è deprecata e non deve essere usata.|  
+|`Search`|stringa|Questa proprietà è deprecata e non deve essere usata.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   

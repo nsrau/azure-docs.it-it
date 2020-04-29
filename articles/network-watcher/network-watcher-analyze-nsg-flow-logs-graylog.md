@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
 ms.openlocfilehash: 1e597a81967a8fb6be2959d53e65ad01135e5e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76842904"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog
@@ -180,7 +180,7 @@ Dopo aver stabilito una connessione con i log di flusso tramite Logstash e confi
 2. Per spostarsi sulla pagina di configurazione, selezionare il menu a discesa **System** (Sistema) nella barra di spostamento superiore a destra e quindi fare clic su **Inputs** (Input).
    In alternativa, accedere all'URL `http://<graylog-server-ip>:9000/system/inputs`
 
-   ![Introduzione](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+   ![Guida introduttiva](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
 3. Per avviare il nuovo input, selezionare *GELF UDP* nel menu a discesa **Select input** (Seleziona input) e quindi compilare il modulo. GELF è l'acronimo di Graylog Extended Log Format. Il formato GELF viene sviluppato da Graylog. Per altre informazioni sui vantaggi relativi, vedere la [documentazione](https://docs.graylog.org/en/2.2/pages/gelf.html) di Graylog.
 

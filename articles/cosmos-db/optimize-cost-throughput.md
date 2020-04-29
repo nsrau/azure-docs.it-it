@@ -6,11 +6,11 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c80ab4acd745717e2e68ae7d9dc818594ad1ce9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79501460"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
@@ -29,11 +29,11 @@ Offrendo il modello di velocità effettiva con provisioning, Azure Cosmos DB gar
 
 Di seguito sono riportate alcune linee guida per scegliere una strategia di velocità effettiva con provisioning:
 
-**Valutare la possibilità di effettuare il provisioning della velocità effettiva in un database di Azure Cosmos (contenente un set di contenitori) se:Consider provisioning throughput on an Azure Cosmos database (containing a set of containers) if:**
+**Prendere in considerazione il provisioning della velocità effettiva in un database di Azure Cosmos (contenente un set di contenitori) se**:
 
 1. Si dispone di qualche dozzina di contenitori Azure Cosmos e si desidera condividere la velocità effettiva in tutti o in alcuni di loro. 
 
-2. Si sta eseguendo la migrazione da un database a tenant singolo che è stato progettato per l'esecuzione sulle macchine virtuali ospitate su IaaS o locali, ad esempio database relazionali o NoSQL, in Azure Cosmos DB. E se si dispone di molte raccolte/tabelle/grafici e non si desidera apportare modifiche al modello di dati. Si noti che potrebbe essere necessario compromettere alcuni dei vantaggi offerti da Azure Cosmos DB se non si aggiorna il modello di dati durante la migrazione da un database locale. È consigliabile ripetere sempre l'accesso al modello di dati per ottenere il massimo in termini di prestazioni e anche per ottimizzare i costi. 
+2. Si sta eseguendo la migrazione da un database a tenant singolo che è stato progettato per l'esecuzione sulle macchine virtuali ospitate su IaaS o locali, ad esempio database relazionali o NoSQL, in Azure Cosmos DB. Se si dispone di numerose raccolte/tabelle/grafici e non si desidera apportare modifiche al modello di dati. Si noti che potrebbe essere necessario compromettere alcuni dei vantaggi offerti da Azure Cosmos DB se non si aggiorna il modello di dati quando si esegue la migrazione da un database locale. È consigliabile ripetere sempre l'accesso al modello di dati per ottenere il massimo in termini di prestazioni e anche per ottimizzare i costi. 
 
 3. Si desidera assorbire i picchi non pianificati nei carichi di lavoro grazie alla velocità effettiva in pool a livello di database soggetto a picchi imprevisti nel carico di lavoro. 
 
@@ -65,7 +65,7 @@ Con il provisioning della velocità effettiva a livelli diversi, è possibile ot
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Ottimizzare impostando limiti di velocità per le richieste
 
-Per i carichi di lavoro che non sono sensibili alla latenza, è possibile effettuare il provisioning di una velocità effettiva inferiore e consentire all'applicazione di gestire l'impostazione di limiti quando la velocità effettiva reale supera la velocità effettiva con provisioning. Il server terminerà preventivamente `RequestRateTooLarge` la richiesta con (codice di `x-ms-retry-after-ms` stato HTTP 429) e restituirà l'intestazione che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di ritentare la richiesta. 
+Per i carichi di lavoro che non sono sensibili alla latenza, è possibile effettuare il provisioning di una velocità effettiva inferiore e consentire all'applicazione di gestire l'impostazione di limiti quando la velocità effettiva reale supera la velocità effettiva con provisioning. Il server termina preventivamente la richiesta con `RequestRateTooLarge` (codice di stato http 429) e restituisce `x-ms-retry-after-ms` l'intestazione che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di ritentare la richiesta. 
 
 ```html
 HTTP Status 429, 
@@ -77,9 +77,9 @@ HTTP Status 429,
 
 Gli SDK nativi (.NET/.NET Core, Java, Node.js e Python) intercettano implicitamente questa risposta, rispettano l'intestazione retry-after specificata dal server e ripetono la richiesta. A meno che all'account non accedano contemporaneamente più client, il tentativo successivo avrà esito positivo.
 
-Se si dispone di più client che operano cumulativamente in modo coerente al di sopra della frequenza delle richieste, il numero di tentativi predefinito, attualmente impostato su 9, potrebbe non essere sufficiente. In questi casi, il `RequestRateTooLargeException` client genera un con codice di stato 429 all'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione `RequestRateTooLargeException` predefinita, il codice di stato 429 con codice di stato viene restituito dopo un tempo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
+Se si dispone di più di un client che funziona cumulativamente in modo costante al di sopra della frequenza delle richieste, il numero di tentativi predefinito, attualmente impostato su 9, potrebbe non essere sufficiente. In questi casi, il client genera un' `RequestRateTooLargeException` eccezione con codice di stato 429 per l'applicazione. Il numero predefinito di ripetizioni dei tentativi può essere modificato impostando `RetryOptions` nell'istanza di ConnectionPolicy. Per impostazione predefinita, `RequestRateTooLargeException` il codice di stato 429 viene restituito dopo un periodo di attesa cumulativo di 30 secondi se la richiesta continua a funzionare al di sopra della frequenza delle richieste. Ciò si verifica anche quando il numero di ripetizioni dei tentativi corrente è inferiore al numero massimo di tentativi, indipendentemente dal fatto che si tratti del valore predefinito 9 o di un valore definito dall'utente. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) è impostato su 3, pertanto in questo caso, se un'operazione di richiesta è limitata dal superamento della velocità effettiva riservata per il contenitore, l'operazione di richiesta riprova tre volte prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, pertanto in questo caso se il tempo di attesa cumulativo dei tentativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) è impostato su 3, quindi, in questo caso, se un'operazione di richiesta è limitata alla frequenza superando la velocità effettiva riservata per il contenitore, l'operazione di richiesta esegue tre tentativi prima di generare l'eccezione all'applicazione. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) è impostato su 60, quindi, in questo caso, se il tempo di attesa per tentativi cumulativi in secondi dalla prima richiesta supera i 60 secondi, viene generata l'eccezione.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -111,7 +111,7 @@ Inoltre, se si usa Azure Cosmos DB e si sa che non verranno effettuate ricerche 
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Ottimizzare modificando i criteri di indicizzazione 
 
-Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà di ogni record. Ciò ha lo scopo di semplificare lo sviluppo e garantire prestazioni eccellenti in molti tipi diversi di query ad hoc. Se si dispone di record di grandi dimensioni con migliaia di proprietà, potrebbe non essere utile corrispondere il costo della velocità effettiva per indicizzare ogni proprietà, in particolare se si eseguono query solo in 10 o 20 di queste proprietà. Man mano che ci si avvicina a un carico di lavoro specifico, è consigliabile perfezionare i criteri di indicizzazione. I dettagli completi sui criteri di indicizzazione di Azure Cosmos DB sono disponibili [qui](indexing-policies.md). 
+Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà di ogni record. Questa operazione è stata progettata per semplificare lo sviluppo e garantire prestazioni ottimali in molti tipi diversi di query ad hoc. Se si dispone di record di grandi dimensioni con migliaia di proprietà, potrebbe non essere utile corrispondere il costo della velocità effettiva per indicizzare ogni proprietà, in particolare se si eseguono query solo in 10 o 20 di queste proprietà. Man mano che ci si avvicina a un carico di lavoro specifico, è consigliabile perfezionare i criteri di indicizzazione. I dettagli completi sui criteri di indicizzazione di Azure Cosmos DB sono disponibili [qui](indexing-policies.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Monitoraggio della velocità effettiva con provisioning e utilizzata 
 
@@ -123,7 +123,7 @@ Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>Ridimensionare la velocità effettiva in modo elastico e su richiesta 
 
-Poiché si paga la velocità effettiva con provisioning, è possibile combinarla con le proprie esigenze per evitare di incorrere in costi per la velocità effettiva non utilizzata. È possibile aumentare o ridurre la velocità effettiva con provisioning in qualsiasi momento in base alle esigenze. Se le esigenze di velocità effettiva sono molto prevedibili, è possibile usare Funzioni di Azure e usare un trigger Timer per [aumentare o ridurre la velocità effettiva in base](scale-on-schedule.md)a una pianificazione. 
+Poiché si paga la velocità effettiva con provisioning, è possibile combinarla con le proprie esigenze per evitare di incorrere in costi per la velocità effettiva non utilizzata. È possibile aumentare o ridurre la velocità effettiva con provisioning in qualsiasi momento in base alle esigenze. Se le esigenze di velocità effettiva sono molto prevedibili, è possibile usare funzioni di Azure e usare un trigger timer per [aumentare o ridurre la velocità effettiva in base a una pianificazione](scale-on-schedule.md). 
 
 * Il monitoraggio dell'utilizzo di UR e la proporzione di richieste soggette a limiti di velocità possono rivelare che non è necessario un provisioning costante della velocità effettiva per un intero giorno o un'intera settimana. Ad esempio, di notte o durante il fine settimana il traffico potrebbe essere inferiore. Usando il portale di Azure, gli SDK nativi di Azure Cosmos DB o l'API REST, è possibile ridimensionare la velocità effettiva con provisioning in qualsiasi momento. L'API REST di Azure Cosmos DB fornisce gli endpoint per aggiornare in modo programmatico il livello di prestazioni dei contenitori, semplificando la regolazione della velocità effettiva dal codice in base all'ora del giorno o al giorno della settimana. L'operazione viene eseguita senza alcun tempo di inattività e in genere ha effetto in meno di un minuto. 
 
@@ -155,9 +155,9 @@ La procedura seguente consente di rendere le soluzioni altamente scalabili ed ec
 
 1. Se il provisioning della velocità effettiva tra contenitori e database è notevolmente superiore, esaminare il rapporto tra UR con provisioning e UR utilizzate e perfezionare i carichi di lavoro.  
 
-2. Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito di UR associato all'esecuzione di operazioni tipiche rispetto a un database o a un contenitore di Azure Cosmos rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo. Assicurarsi di misurare e includere anche le query tipiche e il loro utilizzo. Per informazioni su come stimare in modo programmatico o con il portale i costi di UR per le query, vedere [Ottimizzare il costo delle query](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). 
+2. Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito di UR associato all'esecuzione di operazioni tipiche rispetto a un database o a un contenitore di Azure Cosmos rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo. Assicurarsi di misurare e includere anche le query tipiche e il loro utilizzo. Per informazioni su come stimare in modo programmatico o con il portale i costi di UR per le query, vedere [Ottimizzare il costo delle query](online-backup-and-restore.md). 
 
-3. Un altro modo per ottenere le operazioni e i relativi costi nelle RU consiste nell'abilitare i log di Monitoraggio di Azure, che fornirà la suddivisione dell'operazione/durata e l'addebito della richiesta. Azure Cosmos DB offre l'addebito per la richiesta per ogni operazione, in modo che ogni addebito per le operazioni possa essere archiviato dalla risposta e quindi usato per l'analisi. 
+3. Un altro modo per ottenere le operazioni e i relativi costi in ur è l'abilitazione dei log di monitoraggio di Azure, che consente di ottenere la suddivisione dell'operazione/durata e l'addebito della richiesta. Azure Cosmos DB offre l'addebito per la richiesta per ogni operazione, in modo che ogni addebito per le operazioni possa essere archiviato dalla risposta e quindi usato per l'analisi. 
 
 4. È possibile aumentare e ridurre la velocità effettiva con provisioning in modo elastico in base alle esigenze di soddisfare le richieste del carico di lavoro. 
 

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80676497"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizzare l'uscita del cluster con una route definita dall'utente (anteprima)
@@ -520,7 +520,7 @@ kubernetes         ClusterIP      192.168.0.1      <none>        443/TCP        
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 > [!NOTE]
 > Quando si elimina il servizio interno Kubernetes, se il servizio di bilanciamento del carico interno non è più usato da alcun servizio, il provider di servizi cloud di Azure eliminerà il servizio di bilanciamento del carico interno. Alla successiva distribuzione del servizio, verrà distribuito un servizio di bilanciamento del carico se non è possibile trovarlo con la configurazione richiesta.

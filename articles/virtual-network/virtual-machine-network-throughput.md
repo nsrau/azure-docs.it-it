@@ -16,10 +16,10 @@ ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
 ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245434"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Larghezza di banda della rete di macchine virtuali
@@ -44,29 +44,29 @@ Il limite di velocità effettiva si applica alla macchina virtuale. La velocità
 - **Destinazione del traffico**: tutte le destinazioni contano per il limite in uscita.
 - **Protocollo**: tutto il traffico in uscita su tutti i protocolli conta per il limite.
 
-## <a name="network-flow-limits"></a>Limiti del flusso di rete
+## <a name="network-flow-limits"></a>Limiti dei flussi di rete
 
-Oltre alla larghezza di banda, il numero di connessioni di rete presenti in una macchina virtuale in un determinato momento può influire sulle prestazioni della rete. Lo stack di rete di Azure mantiene lo stato per ogni direzione di una connessione TCP/UDP in strutture di dati denominate "flussi". Una tipica connessione TCP/UDP avrà 2 flussi creati, uno per l'ingresso e un altro per la direzione in uscita. 
+Oltre alla larghezza di banda, il numero di connessioni di rete presenti in una macchina virtuale in un determinato momento può influire sulle prestazioni della rete. Lo stack di rete di Azure mantiene lo stato di ogni direzione di una connessione TCP/UDP in strutture di dati denominate "Flows". Per una connessione TCP/UDP tipica vengono creati 2 flussi, uno per il traffico in ingresso e un altro per la direzione in uscita. 
 
-Il trasferimento dei dati tra endpoint richiede la creazione di diversi flussi oltre a quelli che eseguono il trasferimento dei dati. Alcuni esempi sono i flussi creati per la risoluzione DNS e i flussi creati per i probe di integrità del servizio di bilanciamento del carico. Si noti inoltre che le appliance virtuali di rete (NVA), ad esempio gateway, proxy, firewall, vedranno i flussi creati per le connessioni terminate nell'appliance e originate dall'appliance. 
+Il trasferimento dei dati tra endpoint richiede la creazione di più flussi, oltre a quelli che eseguono il trasferimento dei dati. Alcuni esempi sono i flussi creati per la risoluzione DNS e i flussi creati per i probe di integrità del servizio di bilanciamento del carico. Si noti anche che le appliance virtuali di rete (appliance virtuali), come gateway, proxy e firewall, visualizzeranno i flussi creati per le connessioni terminate nel dispositivo e originate dall'appliance. 
 
-![Conteggio del flusso per la conversazione TCP tramite un'appliance di inoltro](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+![Numero di flussi per la conversazione TCP tramite un'appliance di invio](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>Limiti di flusso e consigli
+## <a name="flow-limits-and-recommendations"></a>Limiti e raccomandazioni per il flusso
 
-Oggi, lo stack di rete di Azure supporta 250K flussi di rete totali con buone prestazioni per le macchine virtuali con più di 8 core CPU e 100k flussi totali con buone prestazioni per le macchine virtuali con meno di 8 core CPU. Superato questo limite, le prestazioni della rete si riducono normalmente per i flussi aggiuntivi fino a un limite rigido di 500K flussi totali, 250K in ingresso e 250K in uscita, dopo di che vengono eliminati flussi aggiuntivi.
+Attualmente, lo stack di rete di Azure supporta 250K totali dei flussi di rete con prestazioni ottimali per le macchine virtuali con più di 8 core CPU e 100.000 flussi totali con prestazioni ottimali per le macchine virtuali con meno di 8 core CPU. Oltre questo limite, le prestazioni di rete diminuiscono normalmente per i flussi aggiuntivi fino a un limite rigido dei flussi totali 500.000, 250K in ingresso e 250K in uscita, dopo il quale vengono eliminati i flussi aggiuntivi.
 
-||Macchine virtuali con <8 core CPU|Macchine virtuali con 8 core CPU|
+||VM con <8 core CPU|VM con più di 8 core CPU|
 |---|---|---|
-|<b>Buone prestazioni</b>|100K Flussi |250K Flussi|
-|<b>Prestazioni ridotte</b>|Oltre 100k flussi|Sopra i 250K Flussi|
-|<b>Limite di flusso</b>|500K Flussi|500K Flussi|
+|<b>Prestazioni ottimali</b>|100K flussi |Flussi 250K|
+|<b>Prestazioni ridotte</b>|Oltre 100.000 flussi|Sopra i flussi 250K|
+|<b>Limite di flusso</b>|Flussi 500.000|Flussi 500.000|
 
-Le metriche sono disponibili in [Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) per tenere traccia del numero di flussi di rete e della velocità di creazione del flusso nelle istanze della macchina virtuale o di VMSS.
+Le metriche sono disponibili in [monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) per tenere traccia del numero di flussi di rete e della velocità di creazione del flusso nelle istanze della macchina virtuale o vmss.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![Azure-monitor-Flow-Metrics. png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
-La creazione della connessione e la velocità di terminazione possono inoltre influire sulle prestazioni della rete, poiché la creazione della connessione e la terminazione condividono la CPU con le routine di elaborazione dei pacchetti. È consigliabile eseguire il benchmark dei carichi di lavoro in base ai modelli di traffico previsti e scalare orizzontalmente i carichi di lavoro in modo appropriato in base alle esigenze di prestazioni. 
+La definizione della connessione e i tassi di terminazione possono anche influire sulle prestazioni di rete durante la creazione e la terminazione della connessione CPU con routine di elaborazione pacchetti. È consigliabile eseguire il benchmark dei carichi di lavoro in base ai modelli di traffico previsti e scalare i carichi di lavoro in modo appropriato per soddisfare le esigenze di prestazioni. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

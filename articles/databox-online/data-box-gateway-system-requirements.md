@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260189"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema di Azure Data Box Gateway
+# <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema Azure Data Box Gateway
 
 Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Data Box Gateway e per i client che ci connettono ad Azure Data Box Gateway. Prima di distribuire Data Box Gateway è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
 
@@ -85,7 +85,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-azure-government"></a>URL patterns for Azure Government
+### <a name="url-patterns-for-azure-government"></a>Modelli di URL per Azure per enti pubblici
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 

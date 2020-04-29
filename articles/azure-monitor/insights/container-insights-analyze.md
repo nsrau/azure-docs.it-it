@@ -4,10 +4,10 @@ description: Questo articolo descrive come è possibile visualizzare e analizzar
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 227fe70512536790d179797394b6fba22e7eb50e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298382"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
@@ -72,17 +72,17 @@ Nella tabella seguente viene fornita una suddivisione del calcolo che controlla 
 | |Healthy |100% |  
 | |Avviso |90 - 99% |  
 | |Critico |<90% |  
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |  
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |  
 |**Pod di sistema**| | |  
 | |Healthy |100% |
 | |Avviso |N/D |
 | |Critico |<100% |
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Nodo** | | |
 | |Healthy |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |
-| |Unknown |Se non è stato segnalato negli ultimi 30 minuti |
+| |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 
 Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **cluster** selezionando il nome del cluster. Passare quindi alla pagina prestazioni **nodi** selezionando il rollup dei nodi nella colonna **nodi** per quel cluster specifico. In alternativa, è possibile eseguire il drill-down nella pagina prestazioni **controller** selezionando il rollup della colonna **Pod utente** o **pod di sistema** .
 

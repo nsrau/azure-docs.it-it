@@ -1,137 +1,137 @@
 ---
-title: TexConv - Strumento di conversione texture
+title: TexConv-strumento di conversione della trama
 description: Manuale dell'utente per lo strumento da riga di comando TexConv
 author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680024"
 ---
-# <a name="texconv---texture-conversion-tool"></a>TexConv - Strumento di conversione texture
+# <a name="texconv---texture-conversion-tool"></a>TexConv-strumento di conversione della trama
 
-TexConv è uno strumento della riga di comando per elaborare le trame da formati di input tipici come PNG, TGA, JPEG e DDS in formati ottimizzati per l'utilizzo di runtime.
-Mentre lo scenario più comune consiste `A.xxx` nel convertire un `B.yyy`singolo file di input in un formato ottimizzato, lo strumento dispone di molte opzioni aggiuntive per gli usi avanzati.
+TexConv è uno strumento da riga di comando per elaborare trame da formati di input tipici come PNG, TGA, JPEG e DDS in formati ottimizzati per l'utilizzo in fase di esecuzione.
+Sebbene lo scenario più comune consiste nel convertire un singolo file `A.xxx` di input in un formato `B.yyy`ottimizzato, lo strumento offre molte opzioni aggiuntive per gli utilizzi avanzati.
 
 ## <a name="command-line-help"></a>Guida della riga di comando
 
-L'esecuzione di TexConv.exe con il `--help` parametro elencherà tutte le opzioni disponibili. Inoltre, TexConv stampa le opzioni utilizzate quando viene eseguito, per aiutare a capire cosa sta facendo. Consultare questo output per i dettagli.
+Eseguendo TexConv. exe con il `--help` parametro, vengono elencate tutte le opzioni disponibili. Inoltre, TexConv stampa le opzioni usate al momento dell'esecuzione, per facilitare la comprensione del funzionamento. Per informazioni dettagliate, vedere questo output.
 
 ## <a name="general-usage"></a>Utilizzo generale
 
-TexConv produce sempre esattamente un file di **output.** Può utilizzare più file di **input** per assemblare l'output da. Per l'assieme, è necessario anche un **channel mapping**, che indica quale canale (*Rosso, Verde, Blu* o *Alfa*) prendere da quale file di input e spostarlo in quale canale dell'immagine di output.
+TexConv produce sempre **esattamente un** file di output. Può usare più file di **input** per assemblare l'output da. Per l'assembly, è necessario anche un **mapping del canale**, che indica quale canale (*rosso, verde, blu* o *alfa*) deve prendere da quale file di input e spostarlo nel canale dell'immagine di output.
 
-La riga di comando più semplice è la seguente:
+La riga di comando più diretta è la seguente:
 
 ```cmd
 TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 ```
 
-- `-out`specifica il file di output e il formato
-- `-in0`specifica la prima immagine di input
-- `-rgba`indica che l'immagine di output deve utilizzare tutti e quattro i canali e che devono essere presi 1:1 dall'immagine di input
+- `-out`Specifica il formato e il file di output
+- `-in0`Specifica la prima immagine di input
+- `-rgba`indica che l'immagine di output deve usare tutti e quattro i canali e che devono essere presi 1:1 dall'immagine di input
 
 ## <a name="multiple-input-files"></a>Più file di input
 
-Per assemblare l'output da più file `-in` di input, specificare ogni file di input utilizzando l'opzione con un numero crescente:
+Per assemblare l'output da più file di input, specificare ogni file di `-in` input usando l'opzione con un numero crescente:
 
 ```cmd
 -in0 D:/img0.jpg -in1 D:/img1.jpg -in2 D:/img2.jpg ...
 ```
 
-Quando si assembla una mappa cubo da trame `-right` `-left`2D, `-back` è `-px` `-nx`possibile `-py` `-ny`utilizzare `-pz` `-nz`anche , , `-top`, , `-bottom`, `-front`o , , , , , , .
+Quando si assembla un mappa cubi da trame 2D, è possibile usare `-right`anche `-left`, `-top`, `-bottom`, `-front`, `-back` o `-px`, `-nx` `-py`,, `-ny`, `-pz`, `-nz`.
 
-Per eseguire il mapping di questi input al file di output, è necessario un mapping dei canali appropriato.
+Per eseguire il mapping di questi input al file di output, è necessario un mapping del canale appropriato.
 
-## <a name="channel-mappings"></a>Mappature dei canali
+## <a name="channel-mappings"></a>Mapping dei canali
 
-Le opzioni di mappatura dei canali specificano da quale ingresso riempire i canali di output specificati. È possibile specificare l'ingresso per ogni canale singolarmente in questo modo:
+Le opzioni di mapping del canale specificano da quale input inserire i canali di output specificati. È possibile specificare l'input per ogni canale singolarmente, come indicato di seguito:
 
 ```cmd
 -r in0.b -g in0.g -b in0.r -a in1.r
 ```
 
-Qui i canali RGB dell'uscita verrebbero riempiti utilizzando la prima immagine di input, ma rosso e blu verranno scambiati. Il canale alfa dell'output verrebbe riempito con i valori del canale rosso della seconda immagine di input.
+Qui i canali RGB dell'output verrebbero riempiti usando la prima immagine di input, ma il rosso e il blu verranno scambiati. Il canale alfa dell'output verrebbe riempito con i valori del canale rosso della seconda immagine di input.
 
-Specificare il mapping per ogni canale separatamente offre la massima flessibilità. Per comodità lo stesso può essere scritto utilizzando operatori "swizzling":
+La specifica del mapping per ogni canale garantisce la massima flessibilità. Per praticità, lo stesso può essere scritto usando gli operatori "swizzling":
 
 ```cmd
 -rgb in0.bgr -a in1.r
 ```
 
-### <a name="output-channels"></a>Canali di uscita
+### <a name="output-channels"></a>Canali di output
 
-Sono disponibili le seguenti opzioni di mappatura dei canali:
+Sono disponibili le seguenti opzioni di mapping dei canali:
 
-- `-r`, `-g` `-b`, `-a` , : specificano le assegnazioni di un singolo canale
-- `-rg`: specificare le assegnazioni dei canali rosso e verde.
-- `-rgb`: specificare le assegnazioni dei canali rosso, verde e blu.
-- `-rgba`: specifica tutte e quattro le assegnazioni dei canali.
+- `-r`, `-g`, `-b`, `-a` : Specificano assegnazioni a canale singolo
+- `-rg`: Specificare le assegnazioni di canale rosso e verde.
+- `-rgb`: Specificare le assegnazioni di canale rosso, verde e blu.
+- `-rgba`: Specifica tutte e quattro le assegnazioni di canale.
 
-Menzionando solo il canale R, RG o RGB, indica a TexConv di creare un file di output con solo 1, 2 o 3 canali rispettivamente.
+Per citare solo il canale R, RG o RGB, indica a TexConv di creare un file di output con soli 1, 2 o 3 canali rispettivamente.
 
-### <a name="input-swizzling"></a>Vortice di ingresso
+### <a name="input-swizzling"></a>Swizzling di input
 
-Quando si indica quale trama di input deve riempire quale canale di output, si può swizzll l'ingresso:
+Quando si indica quale trama di input deve riempire il canale di output, è possibile swizzle l'input:
 
 - `-rgba in0`equivale a`-rgba in0.rgba`
-- `-rgba in0.bgra`swizzera i canali di ingresso
-- `-rgb in0.rrr`duplica il canale rosso in tutti i canali
+- `-rgba in0.bgra`swizzle i canali di input
+- `-rgb in0.rrr`il canale rosso viene duplicato in tutti i canali
 
-Si può anche riempire i canali con nero o bianco:
+Uno può anche riempire i canali con il nero o il bianco:
 
-- `-rgb in0 -a white`creerà una texture di output a 4 canali ma imposta alfa su completamente opaco
-- `-rg black -b white`creerà una texture interamente blu
+- `-rgb in0 -a white`creerà una trama di output a 4 canali, ma imposterà Alpha su completamente opaco
+- `-rg black -b white`creerà una trama completamente blu
 
 ## <a name="common-options"></a>Opzioni comuni
 
-Le opzioni più interessanti sono elencate di seguito. Altre opzioni sono `TexConv --help`elencate per .
+Le opzioni più interessanti sono elencate di seguito. Altre opzioni sono elencate da `TexConv --help`.
 
 ### <a name="output-type"></a>Tipo di output
 
-- `-type 2D`: l'output sarà un'immagine 2D normale.
-- `-type Cubemap`: l'output sarà un'immagine della mappa del cubo. Supportato solo per i file di output DDS. Quando questo è specificato, si può assemblare la mappa cubo da 6 immagini di input 2D regolari.
+- `-type 2D`: L'output sarà un'immagine 2D normale.
+- `-type Cubemap`: L'output sarà un'immagine mappa cubi. Supportato solo per i file di output DDS. Quando si specifica questa impostazione, è possibile assemblare mappa cubi da 6 immagini di input 2D regolari.
 
-### <a name="image-compression"></a>Compressione delle immagini
+### <a name="image-compression"></a>Compressione immagini
 
-- `-compression none`: l'immagine di output verrà decompressa.
-- `-compression medium`: se supportata, l'immagine di output utilizzerà la compressione senza sacrificare troppa qualità.
-- `-compression high`: se supportata, l'immagine di output utilizzerà la compressione e la qualità del sacrificio a favore di un file più piccolo.
+- `-compression none`: L'immagine di output verrà decompressa.
+- `-compression medium`: Se supportato, l'immagine di output utilizzerà la compressione senza sacrificare una quantità eccessiva di qualità.
+- `-compression high`: Se supportato, l'immagine di output utilizzerà la compressione e sacrifica la qualità a favore di un file più piccolo.
 
 ### <a name="mipmaps"></a>Mipmap
 
 Per impostazione predefinita, TexConv genera mipmap quando il formato di output lo supporta.
 
-- `-mipmaps none`: le mipmap non verranno generate.
-- `-mipmaps Linear`: se supportato, le mipmap verranno generate utilizzando un filtro box.
+- `-mipmaps none`: Mipmap non verrà generato.
+- `-mipmaps Linear`: Se supportato, mipmap verrà generato utilizzando un filtro Box.
 
-### <a name="usage-srgb--gamma-correction"></a>Utilizzo (correzione sRGB/gamma)
+### <a name="usage-srgb--gamma-correction"></a>Utilizzo (correzione RGB/gamma)
 
-L'opzione `-usage` specifica lo scopo dell'output e indica quindi a TexConv se applicare la correzione gamma ai file di input e output. L'utilizzo influisce solo sui canali RGB. Il canale alfa è sempre considerato conterrà valori 'lineari'. Se l'utilizzo non è specificato, la modalità 'auto' tenterà di rilevare l'utilizzo dal formato e dal nome file della prima immagine di input. Ad esempio, i formati di output a canale singolo e doppio sono sempre lineari. Controllare l'output per vedere quale decisione TexConv ha preso.
+L' `-usage` opzione specifica lo scopo dell'output e quindi indica a TexConv se applicare la correzione gamma ai file di input e di output. L'utilizzo influiscono solo sui canali RGB. Il canale alfa viene sempre considerato contenere valori "Linear". Se non si specifica Usage, la modalità "auto" tenterà di rilevare l'utilizzo dal formato e dal nome file della prima immagine di input. Ad esempio, i formati di output single e Dual Channel sono sempre lineari. Controllare l'output per verificare quale decisione ha TexConv.
 
-- `-usage Linear`: l'immagine di output contiene valori che non rappresentano colori. Questo è in genere il caso per le texture metalliche e di rugosità, così come tutti i tipi di maschere.
+- `-usage Linear`: L'immagine di output contiene valori che non rappresentano colori. Si tratta in genere del caso di trame metalliche e di rugosità, nonché di tutti i tipi di maschere.
 
-- `-usage Color`: l'immagine di output rappresenta il colore, ad esempio le mappe diffuse/albedo. Il flag sRGB verrà impostato nell'intestazione DDS di output.
+- `-usage Color`: L'immagine di output rappresenta il colore, ad esempio mappe diffuse/albedo. Il flag sRGB verrà impostato nell'intestazione DDS di output.
 
-- `-usage HDR`: il file di output deve utilizzare più di 8 bit per pixel per la codifica. Di conseguenza tutti i valori vengono memorizzati nello spazio lineare. Per le trame HDR non importa se i dati rappresentano il colore o altri dati.
+- `-usage HDR`: Il file di output deve usare più di 8 bit per pixel per la codifica. Di conseguenza, tutti i valori vengono archiviati nello spazio lineare. Per le trame HDR non è rilevante se i dati rappresentano il colore o altri dati.
 
-- `-usage NormalMap`: l'immagine di output rappresenta una mappa normale con spazio tangente. I valori verranno normalizzati e il calcolo mipmap verrà leggermente ottimizzato.
+- `-usage NormalMap`: L'immagine di output rappresenta una mappa normale dello spazio tangente. I valori verranno normalizzati e il calcolo mipmap verrà ottimizzato leggermente.
 
-- `-usage NormalMap_Inverted`: l'output è una mappa normale dello spazio tangente con Y che punta nella direzione opposta a quella dell'ingresso.
+- `-usage NormalMap_Inverted`: L'output è una mappa normale dello spazio tangente con Y che punta alla direzione opposta rispetto all'input.
 
 ### <a name="image-rescaling"></a>Ridimensionamento dell'immagine
 
-- `-minRes 64`: specifica la risoluzione minima dell'output. Se l'immagine di input è più piccola, verrà ridimensionata.
-- `-maxRes 1024`: specifica la risoluzione massima dell'output. Se l'immagine di input è più grande, verrà ridimensionata.
-- `-downscale 1`: se è maggiore di 0, le immagini di input verranno dimezzate con risoluzione N volte. Utilizzare questa opzione per applicare una riduzione di qualità complessiva.
+- `-minRes 64`: Specifica la risoluzione minima dell'output. Se l'immagine di input è più piccola, verrà ridimensionata.
+- `-maxRes 1024`: Specifica la risoluzione massima dell'output. Se l'immagine di input è più grande, otterrà downscaling.
+- `-downscale 1`: Se è maggiore di 0, le immagini di input saranno dimezzate nella risoluzione N volte. Usare questa applicazione per applicare una riduzione complessiva della qualità.
 
 ## <a name="examples"></a>Esempi
 
-### <a name="convert-a-color-texture"></a>Convertire una trama di colore
+### <a name="convert-a-color-texture"></a>Convertire una trama colori
 
 ```cmd
 TexConv.exe -out D:/diffuse.dds -in0 D:/diffuse.jpg -rgba in0 -usage color
@@ -143,21 +143,21 @@ TexConv.exe -out D:/diffuse.dds -in0 D:/diffuse.jpg -rgba in0 -usage color
 TexConv.exe -out D:/normalmap.dds -in0 D:/normalmap.png -rgb in0 -usage normalmap
 ```
 
-### <a name="create-an-hdr-cubemap"></a>Creare una mappa cubo HDRCreate an HDR cubemap
+### <a name="create-an-hdr-cubemap"></a>Creare un mappa cubi HDR
 
 ```cmd
 TexConv.exe -out "D:/skybox.dds" -in0 "D:/skymap.hdr" -rgba in0 -type cubemap -usage hdr
 ```
 
-Un'ottima fonte per i cubemap HDR è [hdrihaven.com](https://hdrihaven.com/hdris/).
+Un'ottima fonte di CubeMaps HDR è [hdrihaven.com](https://hdrihaven.com/hdris/).
 
-### <a name="bake-multiple-images-into-one"></a>Cuocere più immagini in una
+### <a name="bake-multiple-images-into-one"></a>Cuocere più immagini in un'unica
 
 ```cmd
 TexConv.exe -out "D:/Baked.dds" -in0 "D:/metal.tga" -in1 "D:/roughness.png" -in2 "D:/DiffuseAlpha.dds" -r in1.r -g in0.r -b black -a in2.a -usage linear
 ```
 
-### <a name="extract-a-single-channel"></a>Estrarre un singolo canale
+### <a name="extract-a-single-channel"></a>Estrarre un canale singolo
 
 ```cmd
 TexConv.exe -out D:/alpha-mask-only.dds -in0 D:/DiffuseAlpha.dds -r in0.a

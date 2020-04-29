@@ -1,6 +1,6 @@
 ---
-title: Distribuzione con Terraform da Azure Cloud Shell Documenti Microsoft
-description: Eseguire la distribuzione con Terraform da Azure Cloud ShellDeploy with Terraform from Azure Cloud Shell
+title: Distribuire con la bonifica da Azure Cloud Shell | Microsoft Docs
+description: Distribuire con la bonifica da Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
 ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79458155"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuire con Terraform da Bash in Azure Cloud Shell

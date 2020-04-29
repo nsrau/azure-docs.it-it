@@ -1,6 +1,6 @@
 ---
 title: Creare un hub IoT mediante l'interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Informazioni su come usare i comandi dell'interfaccia della riga di comando di Azure per creare un gruppo di risorse e quindi creare un hub IoT nel gruppo di risorse. Scopri anche come rimuovere l'hub.
+description: Informazioni su come usare i comandi dell'interfaccia della riga di comando di Azure per creare un gruppo di risorse e quindi creare un hub Internet delle cose nel gruppo di risorse. Viene anche illustrato come rimuovere l'hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284720"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure
@@ -66,7 +66,7 @@ Usare l'interfaccia della riga di comando di Azure per creare un gruppo di risor
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 
-Il comando precedente crea un hub IoT nel piano tariffario S1 che viene fatturato. Per altre informazioni, vedere [Prezzi dell'hub IoT di Azure.For more information, see Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+Il comando precedente crea un hub IoT nel piano tariffario S1 che viene fatturato. Per altre informazioni, vedere [Azure IoT Hub Prezzi](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="remove-an-iot-hub"></a>Rimuovere un hub IoT
 
@@ -89,5 +89,5 @@ az group delete --name {your resource group name}
 
 Per altre informazioni sull'uso di un hub IoT, vedere gli articoli seguenti:
 
-* [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide.md)
+* [Guida per gli sviluppatori dell'hub Internet](iot-hub-devguide.md)
 * [Uso del portale di Azure per gestire l'hub IoT](iot-hub-create-through-portal.md)

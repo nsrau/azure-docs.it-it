@@ -1,6 +1,6 @@
 ---
 title: Creazione di entità ContentKey mediante REST | Microsoft Docs
-description: In questo articolo viene illustrato come creare chiavi di contenuto che forniscono accesso sicuro alle risorse.
+description: Questo articolo illustra come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d256f417fb3bacbf3f363fc2a9f8701a1bb49d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773635"
 ---
 # <a name="create-content-keys-with-rest"></a>Creazione di entità ContentKey mediante REST
@@ -177,7 +177,7 @@ Uno dei valori che è necessario impostare quando si crea la chiave simmetrica �
     }
 
 
-Nell'esempio seguente viene illustrato come creare un **ContentKey** con un **ContentKeyType** impostato per la crittografia di archiviazione ("1") e **ProtectionKeyType** impostato su "0" per indicare che l'ID della chiave di protezione è l'identificazione personale del certificato X.509.  
+Nell'esempio seguente viene illustrato come creare un **ContentKey** con un set di **ContentKeyType** per la crittografia di archiviazione ("1") e **ProtectionKeyType** impostato su "0" per indicare che l'ID della chiave di protezione è l'identificazione personale del certificato X. 509.  
 
 Richiesta
 
@@ -253,6 +253,6 @@ Risposta:
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

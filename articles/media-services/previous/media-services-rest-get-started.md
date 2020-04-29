@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773674"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Questa guida introduttiva illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure.
 
@@ -39,8 +39,8 @@ Fare clic sull'immagine per visualizzarla a schermo intero.
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare l'attività di sviluppo con Servizi multimediali e le API REST sono previsti i seguenti prerequisiti.
 
-* Un account Azure. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .
-* Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere [Creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
+* Un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Account di Servizi multimediali. Per creare un account di servizi multimediali, vedere [come creare un account di servizi multimediali](media-services-portal-create-account.md).
 * Informazioni su come eseguire attività di sviluppo con l'API REST di Servizi multimediali. Per altre informazioni, vedere [Informazioni generali sull'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 * Un'applicazione di propria scelta per l'invio di richieste e risposte HTTP. In questa esercitazione viene usato [Fiddler](https://www.telerik.com/download/fiddler).
 
@@ -66,7 +66,7 @@ Per altre informazioni sulle entità di REST AMS usate in questo articolo, veder
 Uno degli scenari più frequenti dell'uso di Servizi multimediali di Azure riguarda la distribuzione di contenuto video in streaming a bitrate adattivo. Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, come MPEG DASH, HLS e Smooth Streaming in modalità JIT, senza dover archiviare le versioni predefinite di ognuno di questi formati di streaming.
 
 >[!NOTE]
->Quando viene creato l'account AMS, viene aggiunto un endpoint di streaming **predefinito** all'account nello stato **Arrestato.** Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account nello stato **interrotto** . Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
 Per avviare l'endpoint di streaming, eseguire queste operazioni:
 
@@ -85,15 +85,15 @@ Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Se
 
 ## <a name="create-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Creare un nuovo asset e caricare un file video con l'API REST
 
-In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di miniature, tracce di testo e file di sottotitoli codificati (e i metadati relativi a questi file).  Una volta caricati i file nell'asset, il contenuto viene archiviato in modo sicuro nel cloud per un'ulteriore elaborazione e streaming.
+In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Una volta caricati i file nell'asset, il contenuto viene archiviato in modo sicuro nel cloud per un'ulteriore elaborazione e streaming.
 
 Quando si crea un asset è necessario specificare le opzioni correlate. La proprietà **Options** è un valore di enumerazione che descrive le opzioni di crittografia da usare per la creazione di un asset. Nel seguente elenco sono riportati i valori validi, che è possibile specificare singolarmente, non in combinazione:
 
-* **None** = **0** - Non viene utilizzata alcuna crittografia. Quando si usa questa opzione il contenuto non è protetto durante il transito, né nell'archiviazione locale.
+* **None** = **0** : non viene usata alcuna crittografia. Quando si usa questa opzione il contenuto non è protetto durante il transito, né nell'archiviazione locale.
     Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
-* **StorageEncrypted** = **1** - Crittografa il contenuto non crittografato localmente usando la crittografia AES-256 bit e quindi lo carica in Archiviazione di Azure dove è archiviato crittografato in attivi. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
-* **CommonEncryptionProtected** = **2** - Utilizzare questa opzione se si carica contenuto che è già stato crittografato e protetto con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
-* **EnvelopeEncryptionProtected** = **4** – Utilizzare questa opzione se si sta caricando HLS crittografato con AES. I file devono essere stati codificati e crittografati da Transform Manager.
+* **StorageEncrypted** = **1** : crittografa il contenuto non crittografato localmente usando la crittografia AES-256 bit e quindi lo carica in archiviazione di Azure dove viene archiviato crittografato. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
+* **CommonEncryptionProtected** = **2** -usare questa opzione se si sta caricando contenuto già crittografato e protetto con crittografia comune o PlayReady DRM (ad esempio Smooth Streaming protetto con PlayReady DRM).
+* **EnvelopeEncryptionProtected** = **4** : usare questa opzione se si sta caricando HLS crittografato con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
 ### <a name="create-an-asset"></a>Creare un asset
 Un asset è un contenitore di più tipi o set di oggetti in Servizi multimediali, inclusi elementi video e audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli chiusi. Nell'API REST, la creazione di un asset richiede l'invio di una richiesta POST a Servizi multimediali e l'inserimento di tutte le informazioni sulle proprietà relative all'asset nel corpo della richiesta.
@@ -271,7 +271,7 @@ Considerazioni applicabili:
 
 * Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset. 
 * Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").    
-* Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso. Questo problema si applica sia [all'URL di firma](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) di dominio che ai localizzatori di origine.
+* Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso. Questo problema si applica sia agli [URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) di firma di accesso condiviso sia ai localizzatori di origine.
 
 Il seguente esempio mostra come creare un localizzatore URL di firma di accesso condiviso, come definito dalla proprietà Type nel corpo della richiesta ("1" per un localizzatore di firma di accesso condiviso e "2" per un localizzatore di origine su richiesta). La proprietà **Path** restituita contiene l'URL da usare per caricare il file.
 
@@ -405,7 +405,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
     HTTP/1.1 204 No Content
     ...
 
-## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificare il file di origine in un set di file MP4 bitrate adattiviEncode the source file into a set of adaptive bitrate MP4 files
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
 
 Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset (per altre informazioni, vedere le descrizioni di [processi](https://docs.microsoft.com/rest/api/media/operations/job) e [attività](https://docs.microsoft.com/rest/api/media/operations/task)).
 
@@ -699,7 +699,7 @@ Per eseguire lo streaming o il download di un asset è necessario prima "pubblic
 Dopo aver creato i localizzatori è possibile compilare gli URL usati per eseguire lo streaming o il download dei file.
 
 >[!NOTE]
->Quando viene creato l'account AMS, viene aggiunto un endpoint di streaming **predefinito** all'account nello stato **Arrestato.** Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account nello stato **interrotto** . Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
 Un URL di streaming per Smooth Streaming ha il seguente formato:
 
@@ -918,5 +918,5 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 ## <a name="next-steps-media-services-learning-paths"></a>Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

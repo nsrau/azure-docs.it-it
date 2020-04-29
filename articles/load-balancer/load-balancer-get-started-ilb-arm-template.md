@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 0d7cc4d571ddeb0b57fd4f025b8cbf7b204f61e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456965"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Creare un servizio di bilanciamento del carico interno usando un modello
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [Powershell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Interfaccia della riga di comando di AzureAzure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Scaricare il file dei parametri sul disco locale.
 3. Modificare il file e salvarlo.
-4. Eseguire il cmdlet **New-AzResourceGroupDeployment** per creare un gruppo di risorse utilizzando il modello.
+4. Eseguire il cmdlet **New-AzResourceGroupDeployment** per creare un gruppo di risorse usando il modello.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -57,8 +57,8 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 
 Per distribuire il modello tramite l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
-1. Se non si è mai usato l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga](../cli-install-nodejs.md) di comando di Azure e seguire le istruzioni fino al punto in cui si seleziona l'account di Azure e la sottoscrizione.
-2. Vai [https://shell.azure.com](https://shell.azure.com) a per aprire Cloud Shell nel browser. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
+1. Se non è mai stata usata l'interfaccia della riga di comando di Azure, vedere [installare e configurare l'interfaccia della](../cli-install-nodejs.md) riga di comando di Azure e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure
+2. Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Cloud Shell nel browser. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
     ```console
     azure config mode arm

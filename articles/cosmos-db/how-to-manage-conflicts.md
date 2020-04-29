@@ -1,16 +1,16 @@
 ---
-title: Gestire i conflitti tra le aree in Azure Cosmos DBManage conflicts between regions in Azure Cosmos DB
-description: Informazioni su come gestire i conflitti in Azure Cosmos DB creando l'ultimo-writer-wins o un criterio di risoluzione dei conflitti personalizzato
+title: Gestire i conflitti tra le aree in Azure Cosmos DB
+description: Informazioni su come gestire i conflitti in Azure Cosmos DB mediante la creazione del criterio di risoluzione dei conflitti last-writer-WINS o Custom
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: mjbrown
 ms.openlocfilehash: 6d364f1a9974d6d638bb0f824e88ed3866644c15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247410"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
@@ -107,10 +107,10 @@ Questi esempi illustrano come configurare un contenitore con un criterio di riso
 
 Le stored procedure per la risoluzione personalizzata di conflitti devono essere implementate usando la firma della funzione indicata di seguito. Anche se non è necessario, scegliendo per la funzione lo stesso nome usato per la registrazione della stored procedure con il contenitore si semplifica la denominazione. Ecco una descrizione dei parametri che è necessario implementare per questa stored procedure.
 
-- **incomingItem**: l'elemento inserito o aggiornato nel commit che genera i conflitti. Per le operazioni di eliminazione è Null.
-- **existingItem**: l'elemento attualmente impegnato. Questo valore è non Null in un aggiornamento e Null per un'operazione di inserimento o eliminazione.
-- **isTombstone**: booleano che indica se incomingItem è in conflitto con un elemento eliminato in precedenza. Se True, existingItem è Null.
-- **conflictingItems**: matrice della versione di cui è stato eseguito il commit di tutti gli elementi nel contenitore in conflitto con incomingItem nell'ID o in qualsiasi altra proprietà di indice univoco.
+- **incomingItem**: l'elemento da inserire o aggiornare nel commit che genera i conflitti. Per le operazioni di eliminazione è Null.
+- **existingItem**: elemento di cui è attualmente stato eseguito il commit. Questo valore è non Null in un aggiornamento e Null per un'operazione di inserimento o eliminazione.
+- **Tombstone**: valore booleano che indica se incomingItem è in conflitto con un elemento eliminato in precedenza. Se True, existingItem è Null.
+- **conflictingItems**: matrice della versione di cui è stato eseguito il commit di tutti gli elementi nel contenitore in conflitto con INCOMINGITEM su ID o qualsiasi altra proprietà di indice univoco.
 
 > [!IMPORTANT]
 > Come per qualsiasi stored procedure, una procedura personalizzata di risoluzione dei conflitti può accedere ai dati con la stessa chiave di partizione e può eseguire qualsiasi operazione di inserimento, aggiornamento o eliminazione per risolvere i conflitti.
@@ -427,7 +427,7 @@ while conflict:
 Apprendere i concetti di Azure Cosmos DB seguenti:
 
 - [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
-- [Come configurare più master nelle applicazioni](how-to-multi-master.md)
+- [Come configurare la funzionalità multimaster nelle applicazioni](how-to-multi-master.md)
 - [Configurare i client per il multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Aggiungere o rimuovere aree dall'account Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md).

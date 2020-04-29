@@ -1,5 +1,5 @@
 ---
-title: Failover e ripristino di emergenza per il dispositivo serie StorSimple 8000
+title: Failover e ripristino di emergenza per il dispositivo StorSimple serie 8000
 description: Informazioni su come eseguire il failover del dispositivo StorSimple su se stesso, su un altro dispositivo fisico o su un'applicazione cloud.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397515"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e ripristino di emergenza per dispositivi StorSimple serie 8000
@@ -84,7 +84,7 @@ Usare la seguente tabella per determinare se è possibile eseguire il failover o
 In caso di emergenza è possibile eseguire il failover del dispositivo StorSimple:
 
 * [In un dispositivo fisico](storsimple-8000-device-failover-physical-device.md).
-* [A se stesso](storsimple-8000-device-failover-same-device.md).
+* [A se stessa](storsimple-8000-device-failover-same-device.md).
 * [In un'appliance cloud](storsimple-8000-device-failover-cloud-appliance.md).
 
 Gli articoli precedenti descrivono in dettaglio i passaggi di ognuno dei casi precedenti di failover.
@@ -108,19 +108,19 @@ Se si prevede di effettuare failover/failback di test, si consiglia di testare i
 
 Q. **Cosa accade se il ripristino di emergenza non riesce o viene eseguito solo parzialmente?**
 
-R. Se il ripristino di emergenza non riesce, si consiglia di tentare nuovamente. Il secondo processo di failover del dispositivo è a conoscenza dello stato di avanzamento del processo precedente e si avvia da quel punto in poi.
+A. Se il ripristino di emergenza non riesce, si consiglia di tentare nuovamente. Il secondo processo di failover del dispositivo è a conoscenza dello stato di avanzamento del processo precedente e si avvia da quel punto in poi.
 
 Q. **È possibile eliminare un dispositivo mentre è in corso il failover?**
 
-R. Non è possibile eliminare un dispositivo durante un ripristino di emergenza. Il dispositivo può essere eliminato solo al termine del processo. È possibile monitorare lo stato del processo di failover del dispositivo nel pannello **Processi**.
+A. Non è possibile eliminare un dispositivo durante un ripristino di emergenza. Il dispositivo può essere eliminato solo al termine del processo. È possibile monitorare lo stato del processo di failover del dispositivo nel pannello **Processi**.
 
 Q. **Quando viene avviata l'operazione di Garbage Collection nel dispositivo di origine, in modo da eliminare i dati locali sul dispositivo di origine?**
 
-R. L'operazione di Garbage Collection sul dispositivo di origine verrà attivata solo una volta ripulito il dispositivo. La pulizia riguarda gli oggetti sottoposti a failover dal dispositivo di origine, come volumi, oggetti di backup (non dati), contenitori di volumi e criteri.
+A. L'operazione di Garbage Collection sul dispositivo di origine verrà attivata solo una volta ripulito il dispositivo. La pulizia riguarda gli oggetti sottoposti a failover dal dispositivo di origine, come volumi, oggetti di backup (non dati), contenitori di volumi e criteri.
 
 Q. **Cosa accade se il processo di eliminazione associato ai contenitori di volumi nel dispositivo di origine non riesce?**
 
-R.  Se il processo di eliminazione non riesce, è possibile eliminare manualmente i contenitori di volumi. Nel pannello **Dispositivi** selezionare il dispositivo di origine e fare clic su **Contenitori dei volumi**. Selezionare i contenitori di volumi precedentemente sottoposti a failover e fare clic sul pulsante di **eliminazione**in fondo al pannello. Dopo avere eliminato dal dispositivo di origine tutti i contenitori dei volumi sottoposti a failover, è possibile avviare il failback. Per altre informazioni, visitare [Eliminare un contenitore del volume](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
+A.  Se il processo di eliminazione non riesce, è possibile eliminare manualmente i contenitori di volumi. Nel pannello **Dispositivi** selezionare il dispositivo di origine e fare clic su **Contenitori dei volumi**. Selezionare i contenitori di volumi precedentemente sottoposti a failover e fare clic sul pulsante di **eliminazione**in fondo al pannello. Dopo avere eliminato dal dispositivo di origine tutti i contenitori dei volumi sottoposti a failover, è possibile avviare il failback. Per altre informazioni, visitare [Eliminare un contenitore del volume](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>Ripristino di emergenza di continuità aziendale (BCDR)
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299023"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Usare Azure Active Directory per l'autenticazione con MySQL
@@ -77,7 +77,7 @@ Una volta eseguita l'autenticazione con il Active Directory, viene recuperato un
 > [!NOTE]
 > Per altri dettagli su come connettersi con un token di Active Directory, vedere [configurare e accedere con Azure ad per database di Azure per MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 
-## <a name="additional-considerations"></a>Considerazioni aggiuntive
+## <a name="additional-considerations"></a>Altre considerazioni
 
 - È possibile configurare un solo amministratore Azure AD per un database di Azure per il server MySQL in qualsiasi momento.
 - Solo un amministratore Azure AD per MySQL può connettersi inizialmente al database di Azure per MySQL usando un account di Azure Active Directory. L'amministratore di Active Directory può configurare gli utenti del database di Azure AD successivi.

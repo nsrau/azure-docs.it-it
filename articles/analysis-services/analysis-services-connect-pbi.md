@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 6205c4189abfefc2ee9c4a273ebfd6773ea609b6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411369"
 ---
 # <a name="connect-with-power-bi"></a>Connettersi con Power BI
@@ -25,7 +25,7 @@ Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel s
   
 ## <a name="connect-in-power-bi-desktop"></a>Connettersi in Power BI Desktop
 
-1. In Power BI Desktop fare clic su Ottieni database di Azure**Azure** > **Azure Analysis Services** **dati.** > 
+1. In Power bi desktop fare clic su **Ottieni dati** > **Azure** > **Azure Analysis Services database**.
 
 2. In **Server** immettere il nome del server. Includere l'URL completo, ad esempio asazure://westcentralus.asazure.windows.net/advworks.
 
@@ -47,6 +47,6 @@ Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel s
 2. In [Power BI](https://powerbi.microsoft.com) fare clic su **Recupera dati** > **File** e quindi individuare e selezionare il file con estensione pbix.
 
 ## <a name="see-also"></a>Vedere anche
-[Connettersi ad Azure Analysis ServicesConnect to Azure Analysis Services](analysis-services-connect.md)   
+[Connetti a Azure Analysis Services](analysis-services-connect.md)   
 [Librerie client](analysis-services-data-providers.md)
 

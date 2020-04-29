@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
 ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80667866"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
@@ -55,7 +55,7 @@ Nella tabella seguente vengono descritte le topologie di rete supportate da Azur
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Connettività al volume in un VNet locale    |    Sì    |         |
 |    Connettività al volume in un VNet con peering (stessa area)    |    Sì    |         |
-|    Connettività al volume in una VNet con peering (tra aree o peering globale)    |    No    |    nessuno    |
+|    Connettività al volume in una VNet con peering (tra aree o peering globale)    |    No    |    Nessuno    |
 |    Connettività a un volume sul gateway ExpressRoute    |    Sì    |         |
 |    Connettività da locale a volume in una VNet spoke tramite gateway ExpressRoute e peering VNet con transito gateway    |    Sì    |        |
 |    Connettività da locale a volume in una VNet spoke tramite gateway VPN    |    Sì    |         |

@@ -1,5 +1,5 @@
 ---
-title: Installare e utilizzare il dispositivo StorSimple in modo sicuro
+title: Installare e usare in modo sicuro il dispositivo StorSimple
 description: Vengono descritte considerazioni, linee guida e convenzioni di sicurezza e viene spiegato come installare e utilizzare il dispositivo StorSimple in modo sicuro.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 480875c17d5ff5bb5c0d42d827b5477f45bf30f4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396459"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installazione sicura e funzionamento del dispositivo StorSimple
@@ -36,7 +36,7 @@ Ecco le icone dove sono visualizzate le precauzioni di sicurezza da osservare du
 | Icona | Descrizione |
 |:--- |:--- |
 | ![Icona di pericolo](./media/storsimple-safety/IC740879.png) **PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
-| ![Icona](./media/storsimple-safety/IC740879.png) di avviso **AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
+| ![Avviso icona](./media/storsimple-safety/IC740879.png) di avviso **.** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
 | ![Icona di avviso](./media/storsimple-safety/IC740879.png) **ATTENZIONE:** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
 | ![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
 | ![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png) **pericolo di scosse elettriche** |Voltaggio |
@@ -70,7 +70,7 @@ Per ridurre la probabilità di ferite, scosse elettriche o morte:
 Per ridurre il rischio di surriscaldamento o fiamme dalle connessioni elettriche:
 
 * Fornire una fonte di alimentazione adatta con protezione dal sovraccarico elettrico per soddisfare i requisiti dettagliati nelle specifiche tecniche.
-* Non utilizzare cavi di alimentazione biforcati ("cavi Y").
+* Non usare i cavi di alimentazione biforcato (lead "Y").
 * Per conformità ai requisiti termici, emissione e sicurezza applicabili, le coperture non devono essere rimosse  e tutti gli alloggiamenti devono essere popolati con i moduli plug-in o unità spazi vuoti.
 * Assicurarsi che l'attrezzatura venga utilizzata nel modo specificato dal produttore. Se il dispositivo viene utilizzato in modo non specificato dal produttore, la protezione fornita dai dispositivi potrebbe non riuscire.
 
@@ -99,7 +99,7 @@ Per ridurre la probabilità di ferite, scosse elettriche o morte:
 
 * Rack deve disporre di un sistema sicuro di distribuzione elettrica. È necessario fornire protezione per ulteriore corrente per lo chassis e non deve essere sottoposto a sovraccarico per il numero totale di enclosure installate. La classificazione del consumo di energia elettrica illustrata sulla targhetta di identificazione dovrebbe essere esaminata.
 * Il sistema di distribuzione elettrica deve fornire un motivo affidabile per ciascun alloggiamento nel rack.
-* La progettazione del sistema di distribuzione elettrica deve prendere in considerazione la perdita di massa totale di corrente di tutti gli alimentatori in tutti i contenitori. Si noti che ogni alimentatore in ciascun alloggiamento ha una perdita terra corrente massima di mA 1.0 a 60 Hz, 264 volt. Il rack può richiedere l'etichettatura con "HIGH LEAKAGE CURRENT. La connessione a terra (terra) è essenziale prima di collegare una fornitura."
+* La progettazione del sistema di distribuzione elettrica deve prendere in considerazione la perdita di massa totale di corrente di tutti gli alimentatori in tutti i contenitori. Si noti che ogni alimentatore in ciascun alloggiamento ha una perdita terra corrente massima di mA 1.0 a 60 Hz, 264 volt. È possibile che il rack richieda l'assegnazione di etichette con "perdita elevata corrente. La connessione terra è essenziale prima di connettere un approvvigionamento ".
 * Il Rack, se configurato con allegati, deve soddisfare i requisiti di sicurezza di UL 60950-1 e IEC 60950-1/EN 60950-1.
 
 ![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:**
@@ -138,7 +138,7 @@ Osservare le seguenti precauzioni relative a ESD .
 ## <a name="battery-disposal-precautions"></a>Precauzioni relative alla disposizione della batteria
 L'alimentatore utilizza una batteria speciale per proteggere il contenuto della memoria durante l'interruzione dell'alimentazione temporanea, a breve termine. La batteria è inserita nel PCM. Ricordare le seguenti informazioni riguardo la batteria.
 
-![Icona](./media/storsimple-safety/IC740879.png) di avviso **AVVISO!**
+![Avviso icona](./media/storsimple-safety/IC740879.png) di avviso **.**
 
 Per ridurre il rischio di cortometraggi, incendio, esplosione, ferite o morte:
 
@@ -148,7 +148,7 @@ Per ridurre il rischio di cortometraggi, incendio, esplosione, ferite o morte:
 
 ![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:**
 
-Quando si spediscono o trasportano in altro modo le batterie in aereo, seguire il documento IATA Liithium Battery Guidance disponibile all'indirizzo[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Quando si inviano o si trasportano in altro modo le batterie per aria, attenersi al documento della guida IATA Lithium Battery disponibile all'indirizzo[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Dopo aver esaminato questi avvisi sulla sicurezza, i passaggi successivi sono per decomprimere, togliere e cablare il vostro dispositivo.
 

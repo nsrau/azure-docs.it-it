@@ -1,25 +1,25 @@
 ---
 title: Utilizzo di matrici e oggetti in Azure Cosmos DB
-description: Informazioni sulla sintassi SQL per creare matrici e oggetti in Azure Cosmos DB. In questo articolo vengono inoltre forniti alcuni esempi per eseguire operazioni sugli oggetti di matrice
+description: Informazioni sulla sintassi SQL per creare matrici e oggetti in Azure Cosmos DB. Questo articolo fornisce anche alcuni esempi per eseguire operazioni sugli oggetti Array
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79246552"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Utilizzo di matrici e oggetti in Azure Cosmos DB
 
-Una funzionalità chiave dell'API SQL del database Cosmos di Azure è la creazione di matrici e oggetti.
+Una funzionalità chiave dell'API di Azure Cosmos DB SQL è la creazione di matrici e oggetti.
 
 ## <a name="arrays"></a>Matrici
 
-È possibile costruire matrici, come illustrato nell'esempio seguente:You can construct arrays, as shown in the following example:
+È possibile creare matrici, come illustrato nell'esempio seguente:
 
 ```sql
     SELECT [f.address.city, f.address.state] AS CityState
@@ -45,7 +45,7 @@ I risultati sono:
     ]
 ```
 
-È inoltre possibile utilizzare [l'espressione ARRAY](sql-query-subquery.md#array-expression) per costruire una matrice dai risultati [della sottoquery.](sql-query-subquery.md) Questa query ottiene tutti i nomi distinti di elementi figlio in una matrice.
+È anche possibile usare l' [espressione di matrice](sql-query-subquery.md#array-expression) per costruire una matrice dai risultati della [sottoquery](sql-query-subquery.md) . Questa query ottiene tutti i nomi distinti di elementi figlio in una matrice.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -54,7 +54,7 @@ FROM f
 
 ## <a name="iteration"></a><a id="Iteration"></a>Iterazione
 
-L'API SQL fornisce il supporto per l'iterazione su matrici JSON, con un nuovo costrutto aggiunto tramite la [parola chiave IN](sql-query-keywords.md#in) nell'origine FROM. Nell'esempio seguente:
+L'API SQL fornisce supporto per l'iterazione su matrici JSON, con un nuovo costrutto aggiunto tramite la [parola chiave in](sql-query-keywords.md#in) nell'origine da. Nell'esempio seguente:
 
 ```sql
     SELECT *
@@ -90,7 +90,7 @@ I risultati sono:
     ]
 ```
 
-La query successiva `children` esegue `Families` l'iterazione nel contenitore. La matrice di output è diversa dalla query precedente. Questo esempio `children`suddivide , e appiattisce i risultati in un'unica matrice:  
+La query successiva esegue l'iterazione `children` nel `Families` contenitore. La matrice di output è diversa dalla query precedente. Questo esempio divide `children`e rende Flat i risultati in una singola matrice:  
 
 ```sql
     SELECT *
@@ -122,7 +122,7 @@ I risultati sono:
     ]
 ```
 
-È possibile filtrare ulteriormente in base a ogni singola voce della matrice, come illustrato nell'esempio seguente:
+È possibile filtrare ulteriormente in ogni singola voce della matrice, come illustrato nell'esempio seguente:
 
 ```sql
     SELECT c.givenName
@@ -138,7 +138,7 @@ I risultati sono:
     }]
 ```
 
-È inoltre possibile eseguire l'aggregazione sul risultato di un'iterazione di matrice. Ad esempio, la query seguente conta il numero di figli tra tutte le famiglie:
+È anche possibile aggregare sul risultato di un'iterazione della matrice. Ad esempio, la query seguente conta il numero di elementi figlio tra tutte le famiglie:
 
 ```sql
     SELECT COUNT(child)
@@ -157,6 +157,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Guida introduttiva](sql-query-getting-started.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Join](sql-query-join.md)

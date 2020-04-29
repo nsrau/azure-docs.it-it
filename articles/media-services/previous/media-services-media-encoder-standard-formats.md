@@ -15,15 +15,15 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251024"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
 
-> [!div class="op_single_selector" title1="Selezionare la versione di Servizi multimediali in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
 > * [Versione 2](media-services-media-encoder-standard-formats.md)
 > * [Versione 3](../latest/media-encoder-standard-formats.md)
 
@@ -89,7 +89,7 @@ o
 | MP3 (MPEG-1 Audio Layer 3) |Sì |
 | Windows Media Audio |Sì |
 | WAV/PCM |Sì |
-| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sì |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sì |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sì |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sì |
 | AMR (velocità multipla adattiva) |Sì |
@@ -109,7 +109,7 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

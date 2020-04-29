@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Failover su un dispositivo fisico StorSimple nello stesso dispositivoTutorial - Fail over StorSimple physical device to same device
+title: 'Esercitazione: eseguire il failover del dispositivo fisico StorSimple sullo stesso dispositivo'
 description: Informazioni su come effettuare il failover di un dispositivo StorSimple sullo stesso dispositivo.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
 ms.openlocfilehash: dde01f9b91ff5a04ddb3fcc8d5f0c535278b0539
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398085"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Effettuare il failover di un dispositivo fisico StorSimple sullo stesso dispositivo

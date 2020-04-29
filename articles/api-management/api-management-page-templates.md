@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249542"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelli di pagina in Gestione API di Azure
@@ -41,7 +41,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="sign-in"></a><a name="SignIn"></a>Accedi  
  Il modello di **accesso** consente di personalizzare la pagina di accesso del portale per sviluppatori.  
   
- ![Pagina di accesso](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina di accesso APIM")  
+ ![Pagina di accesso](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina di accesso gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -100,11 +100,11 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ```  
   
 ### <a name="controls"></a>Controlli  
- Questo modello può utilizzare i seguenti [controlli di pagina](api-management-page-controls.md).  
+ Questo modello può usare i [controlli di pagina](api-management-page-controls.md)seguenti.  
   
--   [basic-signin](api-management-page-controls.md#basic-signin)  
+-   [Basic-signin](api-management-page-controls.md#basic-signin)  
   
--   [Provider](api-management-page-controls.md#providers)  
+-   [provider](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>Modello di dati  
  Entità [Accesso utente](api-management-template-data-model-reference.md#UseSignIn).  
@@ -140,7 +140,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="sign-up"></a><a name="SignUp"></a>Registrati  
  Il modello di **iscrizione** consente di personalizzare la pagina di iscrizione del portale per sviluppatori.  
   
- ![Pagina di iscrizione](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina di iscrizione a APIM")  
+ ![Pagina di iscrizione](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina di iscrizione gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -159,9 +159,9 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ```  
   
 ### <a name="controls"></a>Controlli  
- Questo modello può utilizzare i seguenti [controlli di pagina](api-management-page-controls.md).  
+ Questo modello può usare i [controlli di pagina](api-management-page-controls.md)seguenti.  
   
--   [Iscrizione](api-management-page-controls.md#sign-up)  
+-   [Sign](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>Modello di dati  
  Entità [Iscrizione utente](api-management-template-data-model-reference.md#UserSignUp).  
@@ -188,7 +188,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="page-not-found"></a><a name="PageNotFound"></a> Pagina non trovata  
  Il modello **Pagina non trovata** consente di personalizzare la pagina Pagina non trovata del portale per sviluppatori.  
   
- ![Pagina Non trovata](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori di pagine non trovate APIM Not Found Page")  
+ ![Pagina non trovata](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "GESTIONE API pagina non trovata modelli del portale per sviluppatori")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -229,11 +229,11 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
-|referenceCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|errorCode|string|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|emailBody|string|Corpo del messaggio di posta elettronica generato se questa pagina viene visualizzata in seguito a un errore interno.|  
-|requestedUrl|string|URL richiesto quando la pagina non è stata trovata.|  
-|referrerUrl|string|URL del referrer all'URL richiesto.|  
+|referenceCode|stringa|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|errorCode|stringa|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|emailBody|stringa|Corpo del messaggio di posta elettronica generato se questa pagina viene visualizzata in seguito a un errore interno.|  
+|requestedUrl|stringa|URL richiesto quando la pagina non è stata trovata.|  
+|referrerUrl|stringa|URL del referrer all'URL richiesto.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   

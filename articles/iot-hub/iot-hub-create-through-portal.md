@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284733"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creare un hub IoT usando il portale di Azure
@@ -52,13 +52,13 @@ Fare clic su **Aggiungi** per aprire il pannello **Aggiungi un criterio di acces
 
 * I criteri **Lettura registro** e **Scrittura registro** consentono di concedere diritti di accesso in lettura e scrittura per il registro delle identità. Queste autorizzazioni vengono usate dai servizi cloud back-end per gestire le identità dei dispositivi. La scelta dell'opzione di scrittura include automaticamente l'opzione di lettura.
 
-* I criteri **di connessione del servizio** concedono l'autorizzazione per accedere agli endpoint del servizio. Questa autorizzazione viene utilizzata dai servizi cloud back-end per inviare e ricevere messaggi dai dispositivi, nonché per aggiornare e leggere i dati del dispositivo gemello e del modulo gemello.
+* Il criterio di **connessione del servizio** concede l'autorizzazione per accedere agli endpoint del servizio. Questa autorizzazione viene usata dai servizi cloud back-end per inviare e ricevere messaggi dai dispositivi, nonché per aggiornare e leggere i dati del dispositivo gemello e del modulo gemello.
 
-* I criteri **Connessione dispositivo** concedono le autorizzazioni per l'invio e la ricezione di messaggi tramite gli endpoint sul lato dispositivo dell'hub IoT. Questa autorizzazione viene utilizzata dai dispositivi per inviare e ricevere messaggi da un hub IoT, aggiornare e leggere i dati del dispositivo gemello e del modulo gemello ed eseguire il caricamento di file.
+* I criteri **Connessione dispositivo** concedono le autorizzazioni per l'invio e la ricezione di messaggi tramite gli endpoint sul lato dispositivo dell'hub IoT. Questa autorizzazione viene usata dai dispositivi per inviare e ricevere messaggi da un hub Internet delle cose, aggiornare e leggere i dati del dispositivo gemello e del modulo gemello ed eseguire caricamenti di file.
 
 Fare clic su **Crea** per aggiungere i criteri appena creati all'elenco esistente.
 
-Per informazioni più dettagliate sull'accesso concesso da autorizzazioni specifiche, vedere [Autorizzazioni dell'hub IoT](./iot-hub-devguide-security.md#iot-hub-permissions).
+Per informazioni più dettagliate sull'accesso concesso da autorizzazioni specifiche, vedere autorizzazioni per l' [Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registrare un nuovo dispositivo nell'hub IoT
 
@@ -94,7 +94,7 @@ Fare clic su **Salva** per salvare la regola di routing. Si tornerà al riquadro
 
 ### <a name="custom-endpoints"></a>Endpoint personalizzati
 
-Fare clic sulla scheda **Endpoint personalizzati.** Tutti gli endpoint personalizzati sono già stati creati. A questo punto, è possibile aggiungere nuovi endpoint o eliminare quelli esistenti. 
+Fare clic sulla scheda **endpoint personalizzati** . Vengono visualizzati tutti gli endpoint personalizzati già creati. A questo punto, è possibile aggiungere nuovi endpoint o eliminare quelli esistenti. 
 
 > [!NOTE]
 > Se si elimina una route, non vengono eliminati gli endpoint assegnati a tale route. Per eliminare un endpoint, fare clic sulla scheda Endpoint personalizzati, selezionare l'endpoint che si vuole eliminare e fare clic su Elimina.

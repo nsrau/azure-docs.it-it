@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 02/12/2020
 ms.author: shvija
 ms.openlocfilehash: 0b20c73ed0590f3afc19db43b4b55dd3ff6bde8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79453871"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creare uno spazio dei nomi con l'hub eventi e abilitare l'acquisizione usando un modello
 
-Questo articolo illustra come usare un modello di Azure Resource Manager che crea uno spazio dei nomi [Hub eventi,](event-hubs-what-is-event-hubs.md) con un'istanza dell'hub eventi e abilita anche la [funzionalità di acquisizione](event-hubs-capture-overview.md) nell'hub eventi. L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+Questo articolo illustra come usare un modello di Azure Resource Manager che crea uno spazio dei nomi di [Hub eventi](event-hubs-what-is-event-hubs.md) con un'istanza di hub eventi e Abilita anche la [funzionalità di acquisizione](event-hubs-capture-overview.md) nell'hub eventi. L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
 Questo articolo illustra anche come specificare l'acquisizione degli eventi in BLOB del servizio di archiviazione di Azure o in un'istanza di Azure Data Lake Store, in base alla destinazione scelta.
 
@@ -45,11 +45,11 @@ Per i modelli completi, fare clic sui collegamenti a GitHub seguenti:
 
 Questo modello consente di distribuire uno spazio dei nomi di Hub eventi con un hub eventi nonché di abilitare la [funzionalità di acquisizione di Hub eventi](event-hubs-capture-overview.md). La funzionalità di acquisizione di Hub eventi consente di distribuire automaticamente i dati di streaming di Hub eventi in un archivio BLOB di Azure o in Azure Data Lake Store, entro un intervallo di tempo o di dimensioni specificato. Fare clic sul pulsante seguente per abilitare la funzionalità di Hub eventi per l'acquisizione in Archiviazione di Azure:
 
-[![Distribuire in AzureDeploy to Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
 Fare clic sul pulsante seguente per abilitare la funzionalità di Hub eventi per l'acquisizione in Azure Data Lake Store:
 
-[![Distribuire in AzureDeploy to Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
 
@@ -235,7 +235,7 @@ Contenitore BLOB in cui acquisire i dati degli eventi.
 }
 ```
 
-Usare i parametri seguenti se si sceglie Azure Data Lake Store Gen 1 come destinazione. È necessario impostare le autorizzazioni per il percorso di Data Lake Store in cui si vuole acquisire l'evento. Per impostare le autorizzazioni, vedere [Acquisire dati in Azure Data Lake Storage Gen 1.](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1)
+Usare i parametri seguenti se si sceglie Azure Data Lake Store generazione 1 come destinazione. È necessario impostare le autorizzazioni per il percorso di Data Lake Store in cui si vuole acquisire l'evento. Per impostare le autorizzazioni, vedere [acquisizione di dati in Azure Data Lake storage generazione 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
 
 ### <a name="subscriptionid"></a>subscriptionId
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80667773"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creare e gestire le pianificazioni dei lab per le classi in Azure Lab Services 
@@ -30,10 +30,10 @@ Le pianificazioni consentono di configurare un lab per le classi in modo che le 
 Creare un evento pianificato per il lab in modo che le VM al suo interno vengano automaticamente avviate/arrestate in specifici orari. La quota utente specificata in precedenza corrisponde al tempo aggiuntivo assegnato a ogni utente al di fuori del tempo pianificato. 
 
 > [!NOTE]
-> Prima di iniziare, ecco come le pianificazioni influiscono sulle macchine virtuali lab:Before we get started, here's how schedules affect lab virtual machines: 
+> Prima di iniziare, ecco in che modo le pianificazioni influiscono sulle macchine virtuali del Lab: 
 >- La macchina virtuale modello non è inclusa nelle pianificazioni. 
->- Vengono avviate solo le macchine virtuali assegnate. Ciò significa che, se una macchina non viene rivendicata da un utente finale (studente), la macchina non verrà avviata nelle ore pianificate. 
->- Tutte le macchine virtuali (richieste da un utente o meno) vengono arrestate in base alla pianificazione lab. 
+>- Vengono avviate solo le macchine virtuali assegnate. Ciò significa che se un computer non è richiesto da un utente finale (studente), il computer non verrà avviato nelle ore pianificate. 
+>- Tutte le macchine virtuali (richieste da un utente o meno) vengono arrestate in base alla pianificazione del Lab. 
 
 1. Passare alla pagina **Schedules** (Pianificazione) e selezionare **Add scheduled event** (Aggiungi evento pianificato) sulla barra degli strumenti. 
 
@@ -70,11 +70,11 @@ Quando si seleziona una pianificazione evidenziata nel calendario, vengono visua
 
 ![Modificare la pagina della pianificazione](../media/how-to-create-schedules/schedule-edit-button.png)
 
-Nella pagina **Modifica evento pianificato** è possibile aggiornare la pianificazione e selezionare **Salva**. 
+Nella pagina **modifica evento pianificato** è possibile aggiornare la pianificazione e selezionare **Salva**. 
 
 ## <a name="delete-a-schedule"></a>Eliminare una pianificazione
 
-1. Per eliminare una pianificazione, selezionare una pianificazione evidenziata nel calendario e selezionare il pulsante con l'icona del cestino (elimina):
+1. Per eliminare una pianificazione, selezionare una pianificazione evidenziata nel calendario e selezionare il pulsante icona del cestino (Elimina):
 
     ![Pulsante Elimina sulla barra degli strumenti](../media/how-to-create-schedules/schedule-delete-button.png)
 2. Nella finestra di dialogo **Elimina evento pianificato** selezionare **Sì** per confermare l'eliminazione. 

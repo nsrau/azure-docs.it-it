@@ -1,5 +1,5 @@
 ---
-title: Gestire il server di configurazione per il ripristino di emergenza con Azure Site RecoveryManage the configuration server for disaster recovery with Azure Site Recovery
+title: Gestire il server di configurazione per il ripristino di emergenza con Azure Site Recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80672758"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza VM/server fisico VMware
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware/server fisici
 
 Un server di configurazione locale viene impostato quando si usa [Azure Site Recovery](site-recovery-overview.md) per il ripristino di emergenza di server fisici e macchine virtuali VMware in Azure. Il server di configurazione coordina le comunicazioni tra VMware locale e Azure e gestisce la replica dei dati. Questo articolo riepiloga le attività comuni per la gestione del server di configurazione dopo che è stato distribuito.
 
@@ -22,14 +22,14 @@ Un server di configurazione locale viene impostato quando si usa [Azure Site Rec
 
 ## <a name="update-windows-license"></a>Aggiornare la licenza di Windows
 
-La licenza fornita con il modello OVF è una licenza di valutazione valida per 180 giorni. Per un utilizzo senza interruzioni, è necessario attivare Windows con una licenza acquistata. L'aggiornamento della licenza può essere eseguito tramite una chiave autonoma o una chiave standard del Servizio di gestione delle chiavi. Le linee guida sono disponibili nella riga di comando di Windows di Gestione e gestione e gestione e gestione e gestione messaggi stica è possibile [per l'esecuzione del sistema operativo.](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options) Per ottenere le chiavi, fare riferimento alla configurazione del [client KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+La licenza fornita con il modello OVF è una licenza di valutazione valida per 180 giorni. Per un utilizzo senza interruzioni, è necessario attivare Windows con una licenza acquistata. L'aggiornamento delle licenze può essere eseguito tramite una chiave autonoma o una chiave standard del servizio di gestione delle chiavi. Informazioni aggiuntive sono disponibili nella [riga di comando di Windows DISM per l'esecuzione del sistema operativo](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Per ottenere le chiavi, fare riferimento alla [configurazione del client KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
 
 ## <a name="access-configuration-server"></a>Accedere al server di configurazione
 
 È possibile accedere al server di configurazione come indicato di seguito:
 
 * Accedere alla macchina virtuale in cui è distribuito e avviare **Gestione configurazione di Azure Site Recovery** dal collegamento sul desktop.
-* In alternativa, è possibile accedere al server di configurazione in remoto da https://*ConfigurationServerName*/:44315/. Accedere con le credenziali di amministratore.
+* In alternativa, è possibile accedere al server di configurazione in modalità remota da https://*ConfigurationServerName*/: 44315/. Accedere con le credenziali di amministratore.
 
 ## <a name="modify-vmware-server-settings"></a>Modificare le impostazioni del server VMware
 
@@ -45,7 +45,7 @@ La licenza fornita con il modello OVF è una licenza di valutazione valida per 1
 
 È possibile modificare le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool.exe
+1. Accedere al server di configurazione e avviare CSPSConfigtool. exe
 2. Scegliere l'account che si vuole modificare e fare clic su **Modifica**.
 3. Immettere le credenziali modificate e fare clic su **OK**.
 
@@ -53,16 +53,16 @@ La licenza fornita con il modello OVF è una licenza di valutazione valida per 1
 
 Modificare le credenziali usate per installare automaticamente il servizio Mobility nelle macchine virtuali VMware abilitate per la replica.
 
-1. Dopo [l'accesso,](#access-configuration-server)selezionare **Gestisci credenziali macchina virtuale**
-2. Scegli l'account che desideri modificare e fai clic su **Modifica**
+1. Dopo l' [accesso](#access-configuration-server), selezionare **Gestisci le credenziali della macchina virtuale**
+2. Scegliere l'account che si desidera modificare e fare clic su **modifica** .
 3. Immettere le nuove credenziali e quindi selezionare **OK**.
 
     ![Modificare le credenziali del servizio Mobility](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
 È possibile modificare le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool.exe
-2. Scegli l'account che desideri modificare e fai clic su **Modifica**
+1. Accedere al server di configurazione e avviare CSPSConfigtool. exe
+2. Scegliere l'account che si desidera modificare e fare clic su **modifica** .
 3. Immettere le nuove credenziali e fare clic su **OK**.
 
 ## <a name="add-credentials-for-mobility-service-installation"></a>Aggiungere le credenziali per l'installazione del servizio Mobility
@@ -76,7 +76,7 @@ Se non si sono aggiunte le credenziali durante la distribuzione OVF del server d
 
 È possibile aggiungere le credenziali anche tramite CSPSConfigtool.exe.
 
-1. Accedere al server di configurazione e avviare CSPSConfigtool.exe
+1. Accedere al server di configurazione e avviare CSPSConfigtool. exe
 2. Fare clic su **Aggiungi**, immettere le nuove credenziali e fare clic su **OK**.
 
 ## <a name="modify-proxy-settings"></a>Modificare le impostazioni proxy
@@ -90,12 +90,12 @@ Modificare le impostazioni proxy usate dal computer server di configurazione per
 
 Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale del server di configurazione con una sola scheda di rete.
 
-- È possibile [aggiungere un adattatore aggiuntivo alla macchina virtuale,](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)ma è necessario aggiungerlo prima di registrare il server di configurazione nell'insieme di credenziali.
+- È possibile [aggiungere un adapter aggiuntivo alla VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), ma è necessario aggiungerlo prima di registrare il server di configurazione nell'insieme di credenziali.
 - Per aggiungere una scheda dopo aver registrato il server di configurazione nell'insieme di credenziali, aggiungere la scheda nelle proprietà della macchina virtuale. È quindi necessario [registrare di nuovo](#reregister-a-configuration-server-in-the-same-vault) il server nell'insieme di credenziali.
 
 ## <a name="how-to-renew-ssl-certificates"></a>Come rinnovare i certificati SSL
 
-Il server di configurazione dispone di un server Web integrato, che orchestra le attività degli agenti Mobility su tutti i computer protetti, i server di elaborazione incorporati/scalabili tà-out e i server di destinazione master connessi. Il server Web usa un certificato SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.
+Il server di configurazione include un server Web integrato che orchestra le attività degli agenti di mobilità in tutti i computer protetti, i server di elaborazione incorporati/con scalabilità orizzontale e i server di destinazione master connessi. Il server Web usa un certificato SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.
 
 ### <a name="check-expiry"></a>Controllare la scadenza
 
@@ -105,32 +105,32 @@ La data di scadenza viene visualizzata in **Integrità del server di configurazi
 - Un banner di notifica viene visualizzato nella pagina delle risorse dell'insieme di credenziali. Per altre informazioni, selezionare il banner.
 - Se viene visualizzato il pulsante **Aggiorna ora**, alcuni componenti nell'ambiente non sono stati aggiornati alla versione 9.4.xxxx.x o versioni successive. Aggiornare i componenti prima di rinnovare il certificato. Non è possibile eseguire il rinnovo per le versioni precedenti.
 
-### <a name="if-certificates-are-yet-to-expire"></a>Se i certificati devono ancora scadere
+### <a name="if-certificates-are-yet-to-expire"></a>Se i certificati hanno ancora una scadenza
 
-1. Per eseguire il rinnovo, nell'insieme di credenziali aprire Server di**configurazione** **dell'infrastruttura** > di Site Recovery . Selezionare il server di configurazione richiesto.
-2. Verificare che tutti i componenti con scalabilità orizzontale dei server di elaborazione, dei server di destinazione master e degli agenti per dispositivi mobili in tutti i computer protetti siano nelle versioni più recenti e siano connessi.
-3. A questo punto, selezionare **Rinnova certificati**.
-4. Seguire attentamente le istruzioni in questa pagina e fare clic su OK per rinnovare i certificati nel server di configurazione selezionato e i componenti associati.
+1. Per rinnovare, nell'insieme di credenziali aprire **Site Recovery** > **server di configurazione**dell'infrastruttura. Selezionare il server di configurazione richiesto.
+2. Assicurarsi che tutti i componenti server di elaborazione con scalabilità orizzontale, server di destinazione master e agenti di mobilità in tutti i computer protetti si trovino nelle versioni più recenti e siano in stato connesso.
+3. A questo punto, selezionare **rinnova certificati**.
+4. Seguire attentamente le istruzioni in questa pagina e fare clic su OK per rinnovare i certificati nel server di configurazione selezionato e i relativi componenti.
 
 ### <a name="if-certificates-have-already-expired"></a>Se i certificati sono già scaduti
 
-1. Dopo la scadenza, i certificati **non possono essere rinnovati dal portale**di Azure. Prima di procedere, verificare che tutti i componenti con scalabilità orizzontale dei server di elaborazione, i server di destinazione master e gli agenti di mobilità su tutti i computer protetti siano nelle versioni più recenti e siano connessi.
-2. **Seguire questa procedura solo se i certificati sono già scaduti.** Accedere al server di configurazione, passare all'unità C > Program Data > Site Recovery > home > svsystems > bin ed eseguire lo strumento di esecutore "RenewCerts" come amministratore.
+1. Dopo la scadenza, i certificati **non possono essere rinnovati da portale di Azure**. Prima di procedere, assicurarsi che tutti i componenti server di elaborazione con scalabilità orizzontale, server di destinazione master e agenti di mobilità in tutti i computer protetti si trovino nelle versioni più recenti e siano in stato connesso.
+2. **Seguire questa procedura solo se i certificati sono già scaduti.** Accedere al server di configurazione, passare a unità C > > dati del programma Site Recovery > Home > svsystems > bin ed eseguire lo strumento Executor "utilità renewcerts" come amministratore.
 3. Viene visualizzata una finestra di esecuzione di PowerShell che attiva il rinnovo dei certificati. Questa operazione può richiedere fino a 15 minuti. Non chiudere la finestra fino al completamento del rinnovo.
 
-:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="Rinnovare i certificatiRenewCertificates":::
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Registrare di nuovo un server di configurazione nello stesso insieme di credenziali
 
 È possibile registrare nuovamente il server di configurazione nello stesso insieme di credenziali, se necessario. Se si ha un altro computer server di elaborazione, oltre al server di elaborazione predefinito in esecuzione nel computer server di configurazione, registrare nuovamente entrambi i computer.
 
 
-1. Nell'insieme di credenziali aprire **Gestisci** > server di**configurazione****dell'infrastruttura** > di Site Recovery .
+1. Nell'insieme di credenziali aprire **Gestisci** > **Site Recovery** > **server di configurazione**dell'infrastruttura.
 2. In **Server** selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
 3. Accedere al computer del server di configurazione.
 4. In **%ProgramData%\ASR\home\svsystems\bin** aprire **cspsconfigtool.exe**.
 5. Nella scheda **Registrazione insieme di credenziali** selezionare **Sfoglia** e individuare il file di credenziali dell'insieme di credenziali scaricato.
-6. Se necessario, fornire i dettagli del server proxy. Quindi selezionare **Registra**.
+6. Se necessario, fornire i dettagli del server proxy. Selezionare quindi **Register (registra**).
 7. Aprire una finestra dei comandi di PowerShell per amministratore ed eseguire il comando seguente:
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -138,7 +138,7 @@ La data di scadenza viene visualizzata in **Integrità del server di configurazi
    ```
 
     >[!NOTE]
-    >Per estrarre i **certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale eseguire il comando " *\<Unità di installazione, Microsoft Azure Site Recovery, agente, cdpcli.exe>"--registermt*
+    >Per eseguire il **pull dei certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale, eseguire il comando *\<"installazione Drive\Microsoft Azure site Recovery\agent\cdpcli.exe>"--registermt*
 
 8. Infine, riavviare obengine eseguendo il comando seguente.
    ```
@@ -178,7 +178,7 @@ I collegamenti agli aggiornamenti cumulativi a tutte le versioni del server di c
 
 Per aggiornare il server, seguire questa procedura:
 
-1. Nell'insieme di credenziali passare a **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+1. Nell'insieme di credenziali passare a **Gestisci** > **Site Recovery** > **server di configurazione**dell'infrastruttura.
 2. Se è disponibile un aggiornamento, verrà visualizzato un collegamento nella colonna **Versione agente**.
     ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Scaricare il file del programma di installazione dell'aggiornamento nel server di configurazione.
@@ -256,7 +256,7 @@ ProxyPassword="Password"
 1. [Disabilitare la protezione](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) per tutte le macchine virtuali nel server di configurazione.
 2. [Annullare l'associazione](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) ed [eliminare](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) tutti i criteri di replica dal server di configurazione.
 3. [Eliminare](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) tutti i server vCenter/host vSphere associati al server di configurazione.
-4. Nell'insieme di credenziali aprire Server di**configurazione** **dell'infrastruttura** > di Site Recovery .
+4. Nell'insieme di credenziali aprire **Site Recovery** > **server di configurazione**dell'infrastruttura.
 5. Selezionare il server di configurazione che si vuole rimuovere, quindi nella pagina **Dettagli** selezionare **Elimina**.
 
     ![Eliminare il server di configurazione](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
@@ -287,7 +287,7 @@ Facoltativamente, è possibile eliminare il server di configurazione usando Powe
     `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> È possibile utilizzare l'opzione **-Force** in Remove-AzSiteRecoveryFabric per l'eliminazione forzata del server di configurazione.
+> Per l'eliminazione forzata del server di configurazione, è possibile usare l'opzione **-Force** in Remove-AzSiteRecoveryFabric.
 
 ## <a name="generate-configuration-server-passphrase"></a>Generare il passphrase del server di configurazione
 
@@ -298,10 +298,10 @@ Facoltativamente, è possibile eliminare il server di configurazione usando Powe
 
 ## <a name="refresh-configuration-server"></a>Aggiornare il server di configurazione
 
-1. Nel portale di Azure passare a **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **For VMware & Physical machines** > **Configuration Servers**
+1. Nel portale di Azure passare a insieme di credenziali di **Servizi** > di ripristino**Gestisci** > **infrastruttura** > Site Recovery**per VMware & server di configurazione dei computer fisici** > **Configuration Servers**
 2. Fare clic sul server di configurazione che si vuole aggiornare.
-3. Nel pannello con i dettagli del server di configurazione scelto fare clic su **Altro** > **aggiorna server**.
-4. Monitorare lo stato di avanzamento del processo in Processi di**monitoraggio** > **del sito**di Monitoraggio > del sito di Servizi di **ripristino**.
+3. Nel pannello con i dettagli del server di configurazione scelto fare clic su **altro** > **Aggiorna server**.
+4. Monitorare lo stato di avanzamento del processo nel**monitoraggio** > dell'insieme di credenziali di **Servizi** > di ripristino**Site Recovery processi**.
 
 ## <a name="failback-requirements"></a>Requisiti di failback
 

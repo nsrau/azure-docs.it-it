@@ -1,5 +1,5 @@
 ---
-title: Connettività SSL - Database di Azure per MySQL
+title: Connettività SSL-database di Azure per MySQL
 description: Informazioni per la configurazione del Database di Azure per MySQL e delle applicazioni associate per usare correttamente le connessioni SSL
 author: kummanish
 ms.author: manishku
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 6a12ef851823ab5eff2b11905d05be1950c82ef0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79474272"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>Connettività SSL nel Database di Azure per MySQL
@@ -29,4 +29,4 @@ Per informazioni su come abilitare o disabilitare la connessione SSL durante lo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Raccolte connessioni per il database di Azure per MySQLConnection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+[Librerie di connessione per database di Azure per MySQL](concepts-connection-libraries.md)

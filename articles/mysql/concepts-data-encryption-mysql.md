@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299125"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di database di Azure per MySQL con una chiave gestita dal cliente
@@ -76,7 +76,7 @@ Di seguito sono riportati i requisiti per la configurazione della chiave gestita
 * La chiave deve essere nello stato *abilitato* .
 * Se si sta importando una chiave esistente nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di`.pfx`file `.byok`supportati `.backup`(,,).
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Indicazioni
 
 Quando si usa la crittografia dei dati usando una chiave gestita dal cliente, di seguito sono riportati i consigli per la configurazione di Key Vault:
 

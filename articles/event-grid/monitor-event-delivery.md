@@ -1,6 +1,6 @@
 ---
 title: Monitorare il recapito dei messaggio di Griglia di eventi di Azure
-description: Questo articolo descrive come usare il portale di Azure per visualizzare lo stato del recapito dei messaggi di Griglia di eventi di Azure.This article describes how to use the Azure portal to see the status of the delivery of Azure Event Grid messages.
+description: Questo articolo descrive come usare la portale di Azure per visualizzare lo stato del recapito dei messaggi di griglia di eventi di Azure.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722136"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
@@ -78,7 +78,7 @@ Visualizzare le metriche per l'argomento dell'evento personalizzato.
 
 ## <a name="set-alerts"></a>Impostazione di avvisi
 
-È possibile impostare avvisi sulle metriche a livello di argomento e di dominio per Gli argomenti personalizzati e i domini di evento. Nel pannello Panoramica per, selezionare **Avvisi** a sinistra con il menu delle risorse per visualizzare, gestire e creare regole di avviso. [Altre informazioni sugli avvisi di Monitoraggio di AzureLearn more about Azure Monitor Alerts](../azure-monitor/platform/alerts-overview.md)
+È possibile impostare gli avvisi sull'argomento e la metrica a livello di dominio per gli argomenti personalizzati e i domini di evento. Nel pannello panoramica per selezionare **avvisi** dal menu delle risorse a sinistra per visualizzare, gestire e creare regole di avviso. [Altre informazioni sugli avvisi di monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
 
 ![Visualizzare le metriche degli eventi](./media/monitor-event-delivery/select-alerts.png)
 
