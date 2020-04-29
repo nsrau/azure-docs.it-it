@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: msraiye
@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 456d550659c04b2272c048fcd64fe73b1a11522a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74566290"
 ---
 L'acceleratore di scrittura è una funzionalità del disco per macchine virtuali di serie M disponibile in Archiviazione Premium esclusivamente con Azure Managed Disks. Come indicato dal nome, lo scopo della funzionalità è migliorare la latenza di I/O delle scritture per Archiviazione Premium di Azure. L'acceleratore di scrittura è la soluzione ideale quando gli aggiornamenti dei file di log devono persistere nel disco in modo altamente efficiente per i database moderni.
@@ -81,7 +81,7 @@ Per abilitare o distribuire i dischi supportati dall'acceleratore di scrittura, 
 
 Se non si assegna il parametro, la proprietà viene impostata su false e verranno distribuiti dischi senza supporto dell'acceleratore di scrittura.
 
-Un nuovo parametro switch, **-OsDiskWriteAccelerator,** è stato aggiunto ai cmdlet seguenti:
+Un nuovo parametro switch, **-OsDiskWriteAccelerator** è stato aggiunto ai cmdlet seguenti:
 
 - [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
@@ -171,7 +171,7 @@ Per abilitare l'acceleratore di scrittura in un disco esistente, usare [az vm up
 
 Per collegare un disco con l'acceleratore di scrittura abilitato, usare [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach). È possibile usare l'esempio seguente sostituendo i valori appropriati: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-Per disabilitare L'acceleratore di scrittura, utilizzare [az vm update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update), impostando le proprietà su false:`az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+Per disabilitare acceleratore di scrittura, usare [AZ VM Update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update), impostando le proprietà su false:`az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>Abilitazione dell'acceleratore di scrittura con l’API Rest
 
