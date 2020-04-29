@@ -1,49 +1,49 @@
 ---
-title: Funzioni modello - stringa
+title: Funzioni modello-stringa
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per operare con le stringhe.
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982415"
 ---
-# <a name="string-functions-for-arm-templates"></a>Funzioni stringa per i modelli ARM
+# <a name="string-functions-for-arm-templates"></a>Funzioni di stringa per i modelli ARM
 
-Resource Manager offre le funzioni seguenti per l'uso delle stringhe nei modelli di Azure Resource Manager (ARM):
+Gestione risorse fornisce le funzioni seguenti per l'uso delle stringhe nei modelli di Azure Resource Manager (ARM):
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [Concat](#concat)
-* [Contiene](#contains)
-* [dataUri (informazioni in base all'](#datauri)
+* [contains](#contains)
+* [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [Vuoto](#empty)
+* [empty](#empty)
 * [endsWith](#endswith)
-* [Prima](#first)
-* [Formato](#format)
-* [Guid](#guid)
-* [indiceDi](#indexof)
+* [prima](#first)
+* [format](#format)
+* [GUID](#guid)
+* [indexOf](#indexof)
 * [Ultima](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
-* [Newguid](#newguid)
+* [newGuid](#newguid)
 * [padLeft](#padleft)
-* [Sostituire](#replace)
-* [skip](#skip)
-* [diviso](#split)
-* [Startswith](#startswith)
+* [replace](#replace)
+* [ignorare](#skip)
+* [Split](#split)
+* [startsWith](#startswith)
 * [string](#string)
-* [Sottostringa](#substring)
+* [sottostringa](#substring)
 * [take](#take)
-* [Tolower](#tolower)
-* [Toupper](#toupper)
-* [Tagliare](#trim)
+* [toLower](#tolower)
+* [toUpper](#toupper)
+* [Trim](#trim)
 * [uniqueString](#uniquestring)
-* [Uri](#uri)
+* [URI](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 
@@ -55,9 +55,9 @@ Restituisce la rappresentazione base64 della stringa di input.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| inputString |Sì |string |Il valore da restituire come rappresentazione base64. |
+| inputString |Sì |stringa |Il valore da restituire come rappresentazione base64. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -108,8 +108,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| base64Output | string | b25lLCB0d28sIHRocmVl |
-| toStringOutput | string | one, two, three |
+| base64Output | Stringa | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Stringa | one, two, three |
 | toJsonOutput | Oggetto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -120,9 +120,9 @@ Converte una rappresentazione base64 in un oggetto JSON.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sì |string |Rappresentazione base64 da convertire in un oggetto JSON. |
+| base64Value |Sì |stringa |Rappresentazione base64 da convertire in un oggetto JSON. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -173,8 +173,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| base64Output | string | b25lLCB0d28sIHRocmVl |
-| toStringOutput | string | one, two, three |
+| base64Output | Stringa | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Stringa | one, two, three |
 | toJsonOutput | Oggetto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -185,9 +185,9 @@ Converte una rappresentazione base64 in una stringa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sì |string |Rappresentazione base64 da convertire in stringa. |
+| base64Value |Sì |stringa |Rappresentazione base64 da convertire in stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -238,8 +238,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| base64Output | string | b25lLCB0d28sIHRocmVl |
-| toStringOutput | string | one, two, three |
+| base64Output | Stringa | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Stringa | one, two, three |
 | toJsonOutput | Oggetto | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
@@ -250,12 +250,12 @@ Combina più valori stringa e restituisce la stringa concatenata oppure combina 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |Stringa o matrice |Prima stringa o matrice per la concatenazione. |
 | argomenti aggiuntivi |No |Stringa o matrice |Stringhe o matrici aggiuntive in ordine sequenziale per la concatenazione. |
 
-Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Tuttavia, non è possibile fornire matrici e stringhe per i parametri. Le stringhe vengono concatenate solo con altre stringhe.
+Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Tuttavia, non è possibile fornire sia matrici che stringhe per i parametri. Le stringhe vengono concatenate solo con altre stringhe.
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -289,7 +289,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| concatOutput | string | prefix-5yj4yjf5mbg72 |
+| concatOutput | Stringa | prefix-5yj4yjf5mbg72 |
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) seguente illustra come combinare due matrici.
 
@@ -340,7 +340,7 @@ Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
 | itemToFind |Sì |stringa o numero intero |Valore da trovare. |
@@ -421,9 +421,9 @@ Converte un valore in un URI di dati.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sì |string |Valore da convertire in un URI di dati. |
+| stringToConvert |Sì |stringa |Valore da convertire in un URI di dati. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -465,8 +465,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| dataUriOutput | string | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | string | Hello, World! |
+| dataUriOutput | Stringa | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Stringa | Hello, World! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -476,9 +476,9 @@ Converte un valore formattato come URI di dati in una stringa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sì |string |Valore dell'URI di dati da convertire. |
+| dataUriToConvert |Sì |stringa |Valore dell'URI di dati da convertire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -520,8 +520,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| dataUriOutput | string | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | string | Hello, World! |
+| dataUriOutput | Stringa | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Stringa | Hello, World! |
 
 ## <a name="empty"></a>empty
 
@@ -531,9 +531,9 @@ Determina se una matrice, un oggetto o una stringa sono vuoti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sì |matrice, oggetto o stringa |Valore da verificare se è vuoto. |
+| itemToTest |Sì |matrice, oggetto o stringa |Valore per verificare se è vuoto. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -596,10 +596,10 @@ Determina se una stringa termina con un valore. Il confronto non fa distinzione 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |string |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |string |Valore da trovare. |
+| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
+| stringToFind |Sì |stringa |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -662,7 +662,7 @@ Restituisce il primo carattere della stringa o il primo elemento della matrice.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
@@ -703,8 +703,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| arrayOutput | string | one |
-| stringOutput | string | O |
+| arrayOutput | Stringa | one |
+| stringOutput | Stringa | O |
 
 ## <a name="format"></a>format
 
@@ -714,19 +714,19 @@ Crea una stringa formattata dai valori di input.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| formatString | Sì | string | Stringa di formato composito. |
-| arg1 | Sì | stringa, numero intero o booleano | Valore da includere nella stringa formattata. |
-| argomenti aggiuntivi | No | stringa, numero intero o booleano | Valori aggiuntivi da includere nella stringa formattata. |
+| formatString | Sì | stringa | Stringa di formato composito. |
+| arg1 | Sì | stringa, Integer o booleano | Valore da includere nella stringa formattata. |
+| argomenti aggiuntivi | No | stringa, Integer o booleano | Valori aggiuntivi da includere nella stringa formattata. |
 
 ### <a name="remarks"></a>Osservazioni
 
-Utilizzare questa funzione per formattare una stringa nel modello. Utilizza le stesse opzioni di formattazione del metodo [System.String.Format](/dotnet/api/system.string.format) in .NET.
+Usare questa funzione per formattare una stringa nel modello. Usa le stesse opzioni di formattazione del metodo [System. String. Format](/dotnet/api/system.string.format) in .NET.
 
 ### <a name="examples"></a>Esempi
 
-Nel modello di esempio seguente viene illustrato come utilizzare la funzione format.
+Il modello di esempio seguente mostra come usare la funzione Format.
 
 ```json
 {
@@ -761,7 +761,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| formatTest | string | Ciao, Utente. Numero formattato: 8,175,133 |
+| formatTest | Stringa | Hello, User. Numero formattato: 8.175.133 |
 
 ## <a name="guid"></a>guid
 
@@ -771,16 +771,16 @@ Crea un valore con il formato di un identificatore univoco globale in base ai va
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| baseString |Sì |string |Il valore usato nella funzione hash per creare il GUID. |
-| parametri aggiuntivi in base alle esigenze |No |string |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
+| baseString |Sì |stringa |Il valore usato nella funzione hash per creare il GUID. |
+| parametri aggiuntivi in base alle esigenze |No |stringa |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
 
 ### <a name="remarks"></a>Osservazioni
 
 Questa funzione è utile quando è necessario creare un valore con il formato di un identificatore univoco globale. È possibile specificare i valori dei parametri che limitano l'ambito di univocità per il risultato. È possibile specificare se il nome è univoco nella sottoscrizione, nel gruppo di risorse o nella distribuzione.
 
-Il valore restituito non è una stringa casuale, ma piuttosto il risultato di una funzione hash sui parametri. Il valore restituito è lungo 36 caratteri. Non è univoco a livello globale. Per creare un nuovo GUID non basato su tale valore hash dei parametri, utilizzare la funzione [newGuid.](#newguid)
+Il valore restituito non è una stringa casuale, bensì il risultato di una funzione hash sui parametri. Il valore restituito è lungo 36 caratteri. Non è univoco a livello globale. Per creare un nuovo GUID che non si basa su tale valore hash dei parametri, usare la funzione [newGuid](#newguid) .
 
 Gli esempi seguenti illustrano come usare guid per creare un valore univoco per livelli di uso comune.
 
@@ -842,14 +842,14 @@ Restituisce la prima posizione di un valore all'interno di una stringa. Il confr
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |string |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |string |Valore da trovare. |
+| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
+| stringToFind |Sì |stringa |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Numero intero che rappresenta la posizione dell'elemento da trovare. Il valore è in base zero. Se l'elemento non viene trovato, viene restituito -1.
+Numero intero che rappresenta la posizione dell'elemento da trovare. Il valore è in base zero. Se l'elemento non viene trovato, viene restituito-1.
 
 ### <a name="examples"></a>Esempi
 
@@ -903,7 +903,7 @@ Restituisce il primo carattere della stringa o l'ultimo elemento della matrice.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
@@ -944,8 +944,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| arrayOutput | string | three |
-| stringOutput | string | e |
+| arrayOutput | Stringa | three |
+| stringOutput | Stringa | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -955,14 +955,14 @@ Restituisce l'ultima posizione di un valore all'interno di una stringa. Il confr
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |string |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |string |Valore da trovare. |
+| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
+| stringToFind |Sì |stringa |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Numero intero che rappresenta l'ultima posizione dell'elemento da trovare. Il valore è in base zero. Se l'elemento non viene trovato, viene restituito -1.
+Numero intero che rappresenta l'ultima posizione dell'elemento da trovare. Il valore è in base zero. Se l'elemento non viene trovato, viene restituito-1.
 
 ### <a name="examples"></a>Esempi
 
@@ -1012,13 +1012,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 `length(string)`
 
-Restituisce il numero di caratteri in una stringa, gli elementi in una matrice o le proprietà a livello di radice in un oggetto.
+Restituisce il numero di caratteri in una stringa, elementi in una matrice o proprietà a livello di radice in un oggetto.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice, stringa o oggetto |Matrice da utilizzare per ottenere il numero di elementi, la stringa da utilizzare per ottenere il numero di caratteri o l'oggetto da utilizzare per ottenere il numero di proprietà a livello di radice. |
+| arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1082,27 +1082,27 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
-| objectLength (Lunghezza oggetto) | Int | 4 |
+| objectLength | Int | 4 |
 
-## <a name="newguid"></a>Newguid
+## <a name="newguid"></a>newGuid
 
 `newGuid()`
 
-Restituisce un valore nel formato di un identificatore univoco globale. **Questa funzione può essere utilizzata solo nel valore predefinito per un parametro.**
+Restituisce un valore nel formato di un identificatore univoco globale. **Questa funzione può essere usata solo nel valore predefinito per un parametro.**
 
 ### <a name="remarks"></a>Osservazioni
 
-È possibile utilizzare questa funzione solo all'interno di un'espressione per il valore predefinito di un parametro. L'utilizzo di questa funzione in qualsiasi altro punto di un modello restituisce un errore. La funzione non è consentita in altre parti del modello perché restituisce un valore diverso ogni volta che viene chiamato. La distribuzione dello stesso modello con gli stessi parametri non produrrebbe in modo affidabile gli stessi risultati.
+Questa funzione può essere usata solo all'interno di un'espressione per il valore predefinito di un parametro. L'uso di questa funzione in qualsiasi altra posizione in un modello restituisce un errore. La funzione non è consentita in altre parti del modello perché restituisce un valore diverso ogni volta che viene chiamato. La distribuzione dello stesso modello con gli stessi parametri non produrrebbe in modo affidabile gli stessi risultati.
 
-La funzione newGuid differisce dalla funzione [guid](#guid) perché non accetta parametri. Quando si chiama guid con lo stesso parametro, restituisce ogni volta lo stesso identificatore. Utilizzare guid quando è necessario generare in modo affidabile lo stesso GUID per un ambiente specifico. Usare newGuid quando ogni volta è necessario un identificatore diverso, ad esempio la distribuzione di risorse in un ambiente di test.
+La funzione newGuid differisce dalla funzione [GUID](#guid) perché non accetta parametri. Quando si chiama GUID con lo stesso parametro, viene restituito ogni volta lo stesso identificatore. Utilizzare il GUID quando è necessario generare in modo affidabile lo stesso GUID per un ambiente specifico. Usare newGuid quando è necessario un identificatore diverso ogni volta, ad esempio la distribuzione di risorse in un ambiente di test.
 
-La funzione newGuid utilizza la [struttura Guid](/dotnet/api/system.guid) in .NET Framework per generare l'identificatore univoco globale.
+La funzione newGuid usa la [struttura Guid](/dotnet/api/system.guid) nel .NET Framework per generare l'identificatore univoco globale.
 
-Se si utilizza l'opzione per ridistribuire una [distribuzione con esito positivo precedente](rollback-on-error.md)e la distribuzione precedente include un parametro che utilizza newGuid, il parametro non viene rivalutato. Al contrario, il valore del parametro dalla distribuzione precedente viene riutilizzato automaticamente nella distribuzione di rollback.
+Se si usa l' [opzione per ridistribuire una distribuzione riuscita in precedenza](rollback-on-error.md)e la distribuzione precedente include un parametro che usa newGuid, il parametro non viene rivalutato. Al contrario, il valore del parametro della distribuzione precedente viene riutilizzato automaticamente nella distribuzione di rollback.
 
-In un ambiente di test, potrebbe essere necessario distribuire ripetutamente le risorse che risiedono solo per un breve periodo di tempo. Anziché creare nomi univoci, è possibile utilizzare newGuid con [uniqueString](#uniquestring) per creare nomi univoci.
+In un ambiente di test, potrebbe essere necessario distribuire ripetutamente le risorse che risiedono solo per un breve periodo di tempo. Anziché costruire nomi univoci, è possibile usare newGuid con [uniqueString](#uniquestring) per creare nomi univoci.
 
-Prestare attenzione alla ridistribuzione di un modello che si basa sulla funzione newGuid per un valore predefinito. Quando si ridistribuisce e non si specifica un valore per il parametro, la funzione viene rivalutata. Se si desidera aggiornare una risorsa esistente anziché crearne una nuova, passare il valore del parametro dalla distribuzione precedente.
+Prestare attenzione nella ridistribuzione di un modello che si basa sulla funzione newGuid per un valore predefinito. Quando si esegue la ridistribuzione e non si fornisce un valore per il parametro, la funzione viene rivalutata. Se si desidera aggiornare una risorsa esistente anziché crearne una nuova, passare il valore del parametro dalla distribuzione precedente.
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1133,13 +1133,13 @@ Il modello di esempio seguente mostra un parametro con un nuovo identificatore.
 }
 ```
 
-L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile al seguente:The output from the preceding example varies for each deployment but will be similar to:
+L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile a:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | stringa | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-L'esempio seguente usa la funzione newGuid per creare un nome univoco per un account di archiviazione. Questo modello potrebbe funzionare per l'ambiente di test in cui l'account di archiviazione esiste per un breve periodo di tempo e non viene ridistribuito.
+Nell'esempio seguente viene usata la funzione newGuid per creare un nome univoco per un account di archiviazione. Questo modello potrebbe funzionare per l'ambiente di test in cui l'account di archiviazione esiste per un breve periodo di tempo e non viene ridistribuito.
 
 ```json
 {
@@ -1176,11 +1176,11 @@ L'esempio seguente usa la funzione newGuid per creare un nome univoco per un acc
 }
 ```
 
-L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile al seguente:The output from the preceding example varies for each deployment but will be similar to:
+L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile a:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| nameOutput | string | storagenziwvyru7uxie |
+| nameOutput | stringa | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1191,7 +1191,7 @@ Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a si
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sì |stringa o numero intero |Il valore per eseguire l'allineamento a destra. |
 | totalLength |Sì |INT |Numero totale di caratteri della stringa restituita. |
@@ -1231,7 +1231,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| stringOutput | string | 0000000123 |
+| stringOutput | Stringa | 0000000123 |
 
 ## <a name="replace"></a>replace
 
@@ -1241,11 +1241,11 @@ Restituisce una nuova stringa con tutte le istanze di una stringa sostituita con
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| originalString |Sì |string |Valore che contiene tutte le istanze di una stringa sostituita con un'altra stringa. |
-| oldString |Sì |string |Stringa da rimuovere dalla stringa originale. |
-| newString |Sì |string |Stringa da aggiungere al posto della stringa rimossa. |
+| originalString |Sì |stringa |Valore che contiene tutte le istanze di una stringa sostituita con un'altra stringa. |
+| oldString |Sì |stringa |Stringa da rimuovere dalla stringa originale. |
+| newString |Sì |stringa |Stringa da aggiungere al posto della stringa rimossa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1283,8 +1283,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| firstOutput | string | 1231231234 |
-| secondOutput | string | 123-123-xxxx |
+| firstOutput | Stringa | 1231231234 |
+| secondOutput | Stringa | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1294,7 +1294,7 @@ Restituisce una stringa con tutti i caratteri dopo il numero specificato di cara
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sì |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
 | numberToSkip |Sì |INT |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se è maggiore della lunghezza della matrice o della stringa, viene restituita una matrice o una stringa vuota. |
@@ -1352,7 +1352,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | string | two three |
+| stringOutput | Stringa | two three |
 
 ## <a name="split"></a>split
 
@@ -1362,9 +1362,9 @@ Restituisce una matrice di stringhe che contiene le sottostringhe della stringa 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| inputString |Sì |string |Stringa da dividere. |
+| inputString |Sì |stringa |Stringa da dividere. |
 | delimiter |Sì |Stringa o matrice di stringhe |Il delimitatore da usare per dividere la stringa. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -1421,10 +1421,10 @@ Determina se una stringa inizia con un valore. Il confronto non fa distinzione t
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |string |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |string |Valore da trovare. |
+| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
+| stringToFind |Sì |stringa |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1487,7 +1487,7 @@ Converte il valore specificato in una stringa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì | Qualsiasi |Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici. |
 
@@ -1546,9 +1546,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| objectOutput | string | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | string | ["a","b","c"] |
-| intOutput | string | 5 |
+| objectOutput | Stringa | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | Stringa | ["a","b","c"] |
+| intOutput | Stringa | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1558,9 +1558,9 @@ Restituisce una sottostringa che inizia nella posizione del carattere specificat
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sì |string |La stringa originale da cui estrarre la sottostringa. |
+| stringToParse |Sì |stringa |La stringa originale da cui estrarre la sottostringa. |
 | startIndex |No |INT |La posizione del carattere iniziale in base zero della sottostringa. |
 | length |No |INT |Il numero di caratteri della sottostringa. Deve fare riferimento a una posizione nella stringa. Deve essere uguale a o maggiore di zero. |
 
@@ -1609,7 +1609,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| substringOutput | string | two |
+| substringOutput | Stringa | two |
 
 ## <a name="take"></a>take
 
@@ -1619,10 +1619,10 @@ Restituisce una stringa con il numero specificato di caratteri dall'inizio della
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sì |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
-| numberToTake |Sì |INT |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se è più grande della lunghezza della matrice o della stringa specificata, vengono restituiti tutti gli elementi nella matrice o nella stringa. |
+| numberToTake |Sì |INT |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se è maggiore della lunghezza della stringa o della matrice specificata, vengono restituiti tutti gli elementi della matrice o della stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1677,7 +1677,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | string | on |
+| stringOutput | Stringa | on |
 
 ## <a name="tolower"></a>toLower
 
@@ -1687,9 +1687,9 @@ Converte la stringa specificata in caratteri minuscoli.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sì |string |Il valore da convertire in lettere minuscole. |
+| stringToChange |Sì |stringa |Il valore da convertire in lettere minuscole. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1727,8 +1727,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| toLowerOutput | string | one two three |
-| toUpperOutput | string | ONE TWO THREE |
+| toLowerOutput | Stringa | one two three |
+| toUpperOutput | Stringa | ONE TWO THREE |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1738,9 +1738,9 @@ Converte la stringa specificata in lettere maiuscole.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sì |string |Il valore da convertire in lettere maiuscole. |
+| stringToChange |Sì |stringa |Il valore da convertire in lettere maiuscole. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1778,8 +1778,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| toLowerOutput | string | one two three |
-| toUpperOutput | string | ONE TWO THREE |
+| toLowerOutput | Stringa | one two three |
+| toUpperOutput | Stringa | ONE TWO THREE |
 
 ## <a name="trim"></a>Trim
 
@@ -1789,9 +1789,9 @@ Rimuove tutti i caratteri di spazi vuoti iniziali e finali dalla stringa specifi
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sì |string |Il valore da tagliare. |
+| stringToTrim |Sì |stringa |Il valore da tagliare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1825,7 +1825,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| return | string | one two three |
+| return | Stringa | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1835,16 +1835,16 @@ Crea una stringa hash deterministica in base ai valori forniti come parametri.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| baseString |Sì |string |Il valore usato nella funzione hash per creare una stringa univoca. |
-| parametri aggiuntivi in base alle esigenze |No |string |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
+| baseString |Sì |stringa |Il valore usato nella funzione hash per creare una stringa univoca. |
+| parametri aggiuntivi in base alle esigenze |No |stringa |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
 
 ### <a name="remarks"></a>Osservazioni
 
 Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che limitano l'ambito di univocità per il risultato. È possibile specificare se il nome è univoco nella sottoscrizione, nel gruppo di risorse o nella distribuzione. 
 
-Il valore restituito non è una stringa casuale, ma piuttosto il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è univoco a livello globale. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome significativo. L'esempio seguente illustra il formato del valore restituito. Il valore effettivo varia in base ai parametri forniti.
+Il valore restituito non è una stringa casuale, bensì il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è univoco a livello globale. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome significativo. L'esempio seguente illustra il formato del valore restituito. Il valore effettivo varia in base ai parametri forniti.
 
     tcvhiyu5h2o5o
 
@@ -1868,7 +1868,7 @@ Con ambito univoco nella distribuzione per un gruppo di risorse
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-Nell'esempio seguente viene illustrato come creare un nome univoco per un account di archiviazione in base al gruppo di risorse. All'interno del gruppo di risorse, il nome non è univoco se costruito allo stesso modo.
+Nell'esempio seguente viene illustrato come creare un nome univoco per un account di archiviazione in base al gruppo di risorse. All'interno del gruppo di risorse, il nome non è univoco se costruito nello stesso modo.
 
 ```json
 "resources": [{ 
@@ -1877,7 +1877,7 @@ Nell'esempio seguente viene illustrato come creare un nome univoco per un accoun
     ...
 ```
 
-Se è necessario creare un nuovo nome univoco ogni volta che si distribuisce un modello e non si intende aggiornare la risorsa, è possibile usare la funzione [utcNow](template-functions-date.md#utcnow) con uniqueString. È possibile usare questo approccio in un ambiente di test. Per un esempio, vedere [utcNow](template-functions-date.md#utcnow).
+Se è necessario creare un nuovo nome univoco ogni volta che si distribuisce un modello e non si intende aggiornare la risorsa, è possibile usare la funzione [UtcNow](template-functions-date.md#utcnow) con uniqueString. Questo approccio può essere utilizzato in un ambiente di testing. Per un esempio, vedere [UtcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1913,18 +1913,18 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sì |string |La stringa URI di base. Prestare attenzione a osservare il comportamento relativo alla gestione della barra finale ('/'), come descritto in questa tabella.  |
-| relativeUri |Sì |string |La stringa URI relativa da aggiungere alla stringa di URI di base. |
+| baseUri |Sì |stringa |La stringa URI di base. Prestare attenzione a osservare il comportamento relativo alla gestione della barra finale ('/'), come descritto nella tabella seguente.  |
+| relativeUri |Sì |stringa |La stringa URI relativa da aggiungere alla stringa di URI di base. |
 
 * Se **baseUri** termina con una barra finale, il risultato è semplicemente **baseUri** seguito da **relativeUri**.
 
-* Se **baseUri** non termina con una barra finale, viene eseguita una delle due cose.  
+* Se **baseUri** non termina con una barra finale, viene eseguita una delle due operazioni.  
 
-   * Se **baseUri** non ha barre (a parte il "//" vicino alla parte anteriore) il risultato è semplicemente **baseUri** seguito da **relativeUri**.
+   * Se **baseUri** non contiene alcuna barra (a parte l'"//" vicino all'inizio), il risultato è semplicemente **baseUri** seguito da **relativeUri**.
 
-   * Se **baseUri** ha alcune barre, ma non termina con una barra, tutto, dall'ultima barra in poi, viene rimosso da **baseUri** e il risultato è **baseUri** seguito da **relativeUri**.
+   * Se **baseUri** presenta alcune barre, ma non termina con una barra, tutti gli elementi dell'ultima barra in avanti vengono rimossi da **baseUri** e il risultato è **baseUri** seguito da **relativeUri**.
      
 Di seguito sono riportati alcuni esempi:
 
@@ -1934,7 +1934,7 @@ uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstp
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
-Per i dettagli completi, i parametri **baseUri** e **relativeUri** vengono risolti come specificato nella [RFC 3986, sezione 5](https://tools.ietf.org/html/rfc3986#section-5).
+Per informazioni complete, i parametri **baseUri** e **relativeUri** vengono risolti come specificato in [RFC 3986, sezione 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1981,9 +1981,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| uriOutput | string | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | string | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | string | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Stringa | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1993,9 +1993,9 @@ Codifica un URI.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sì |string |Valore da codificare. |
+| stringToEncode |Sì |stringa |Valore da codificare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -2036,9 +2036,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| uriOutput | string | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | string | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | string | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Stringa | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2048,9 +2048,9 @@ Restituisce una stringa di un valore URI codificato.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sì |string |Valore URI codificato da convertire in stringa. |
+| uriEncodedString |Sì |stringa |Valore URI codificato da convertire in stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -2091,13 +2091,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| uriOutput | string | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | string | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | string | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Stringa | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)
-* Per unire più modelli, vedere [Utilizzo di modelli collegati con Azure Resource Manager.](linked-templates.md)
-* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [creazione di modelli di Azure Resource Manager](template-syntax.md).
+* Per unire più modelli, vedere [uso di modelli collegati con Azure Resource Manager](linked-templates.md).
+* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
 

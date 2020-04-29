@@ -1,35 +1,35 @@
 ---
-title: Dati dell'advisor in Azure Resource GraphAdvisor data in Azure Resource Graph
+title: Dati di Advisor nel grafico delle risorse di Azure
 description: Eseguire query per i dati di Advisor in Azure Resource Graph
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
 ms.openlocfilehash: f8ad8fd450bc004d9caa2699922717f38d38b482
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502451"
 ---
-# <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Query for Advisor data in Resource Graph Explorer (Azure Resource Graph)
+# <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Eseguire una query per i dati di Advisor in Resource Graph Explorer (grafico delle risorse di Azure)
 
-Le risorse dell'advisor sono ora incartone in [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). Questo pone le basi per molti scenari di clienti su larga scala per consigli di Advisor. Pochi scenari che non erano possibili prima da eseguire su larga scala e ora possono essere raggiunti utilizzando Resource Graph sono:Few scenarios that were not possible before to do at scale and now can be achieved using Resource Graph are:
-* Offre la possibilità di eseguire query complesse per tutte le sottoscrizioni nel portale di AzureGives capability to perform complex query for all your subscriptions in Azure portal
-* Raccomandazioni riepilogate per tipi di categoria (ad esempio disponibilità elevata, prestazioni) e tipi di impatto (alta, media, bassa)
-* Tutte le raccomandazioni per un particolare tipo di raccomandazione
-* Conteggio delle risorse interessate per categoria di raccomandazione
+Le risorse di Advisor vengono ora caricate in [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). Questo costituisce la base per molti scenari di clienti su larga scala per le raccomandazioni di Advisor. Pochi scenari che non erano possibili prima di eseguire su larga scala e che ora possono essere realizzati usando il grafico risorse sono:
+* Offre la possibilità di eseguire query complesse per tutte le sottoscrizioni in portale di Azure
+* Indicazioni riepilogate in base ai tipi di categoria (ad esempio disponibilità elevata, prestazioni) e tipi di effetto (alta, media, bassa)
+* Tutti i consigli per un particolare tipo di raccomandazione
+* Conteggio risorse interessate per categoria raccomandazione
 
-![Advisor in Azure Resource Graph Explorer (Esplora diagramma risorse di Azure)](./media/azure-resource-graph-1.png)  
+![Advisor in Azure Resource Graph Explorer](./media/azure-resource-graph-1.png)  
 
 
-## <a name="advisor-resource-types-in-azure-graph"></a>Advisor resource types in Azure Graph
+## <a name="advisor-resource-types-in-azure-graph"></a>Tipi di risorse Advisor in Azure Graph
 
-Tipi di risorse Advisor disponibili in [Diagramma risorse:](https://docs.microsoft.com/azure/governance/resource-graph/)sono disponibili 3 tipi di risorse per l'esecuzione di query in Risorse Advisor.Available Advisor resource types in Resource Graph : There are 3 resource types available for querying under Advisor resources. Ecco l'elenco delle risorse che sono ora disponibili per l'esecuzione di query in Resource Graph.
-* Microsoft.Advisor/configurations
-* Microsoft.Advisor/raccomandazioni
-* Microsoft.Advisor/soppressioni
+Tipi di risorse Advisor disponibili nel [grafico risorse](https://docs.microsoft.com/azure/governance/resource-graph/): sono disponibili tre tipi di risorse per l'esecuzione di query in risorse Advisor. Di seguito è riportato l'elenco delle risorse ora disponibili per l'esecuzione di query nel grafico risorse.
+* Microsoft. Advisor/configurazioni
+* Microsoft. Advisor/raccomandazioni
+* Microsoft. Advisor/evitamenti
 
-Questi tipi di risorse sono elencati in una nuova tabella denominata AdvisorResources, che è anche possibile eseguire query in Resource Graph Explorer nel portale di Azure.These resource types are listed under a new table named as AdvisorResources, which you can also query in the Resource Graph Explorer in Azure portal.
+Questi tipi di risorse sono elencati in una nuova tabella denominata AdvisorResources, in cui è anche possibile eseguire query in Resource Graph Explorer in portale di Azure.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -40,5 +40,5 @@ Per altre informazioni sui consigli di Advisor, vedere:
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
-* [Consigli per l'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
+* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)

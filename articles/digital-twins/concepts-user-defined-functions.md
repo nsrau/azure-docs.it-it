@@ -1,5 +1,5 @@
 ---
-title: Elaborazione dei dati e funzioni definite dall'utente - Gemelli digitali di Azure Documenti Microsoft
+title: Elaborazione dei dati e funzioni definite dall'utente-dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Panoramica dell'elaborazione dei dati, dei matcher e delle funzioni definite dall'utente con Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265181"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
@@ -21,7 +21,7 @@ Gemelli digitali di Azure offre funzionalità di calcolo avanzate. Gli sviluppat
 
 ## <a name="data-processing-flow"></a>Flusso di elaborazione dei dati
 
-Dopo che i dispositivi inviano dati di telemetria ai gemelli digitali di Azure, gli sviluppatori possono elaborare i dati in quattro fasi: *convalida,* *corrispondenza,* *calcolo*e *invio.*
+Dopo che i dispositivi inviano i dati di telemetria ai dispositivi gemelli digitali di Azure, gli sviluppatori possono elaborare i dati in quattro fasi: *Validate*, *match*, *Compute*e *Dispatch*.
 
 [![Flusso di elaborazione dei dati di Gemelli digitali di Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
@@ -32,7 +32,7 @@ Dopo che i dispositivi inviano dati di telemetria ai gemelli digitali di Azure, 
 
 ## <a name="data-processing-objects"></a>Oggetti di elaborazione dei dati
 
-L'elaborazione dei dati in Azure Digital Twins è costituita dalla definizione di tre oggetti: *matcher*, *funzioni definite dall'utente*e *assegnazioni*di ruolo .
+L'elaborazione dei dati nei dispositivi gemelli digitali di Azure è costituita dalla definizione di tre oggetti: *corrispondenze*, *funzioni definite dall'utente*e *assegnazioni di ruolo*.
 
 [![Oggetti di elaborazione dei dati di Gemelli digitali di Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
@@ -104,7 +104,7 @@ Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi 
 - Creare una notifica quando vengono soddisfatte determinate condizioni per una lettura del sensore in ingresso.
 - Collegare metadati del grafico alla lettura del sensore prima di inviare una notifica.
 
-Per ulteriori informazioni, leggere [Come utilizzare funzioni definite dall'utente](./how-to-user-defined-functions.md).
+Per altre informazioni, vedere [come usare le funzioni definite dall'utente](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Esempi
 
@@ -114,7 +114,7 @@ Il [repository GitHub per l'esempio C# di Gemelli digitali](https://github.com/A
 
 ### <a name="role-assignment"></a>Assegnazione di ruolo
 
-Le azioni di una funzione definita dell'utente sono soggette al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) di Gemelli digitali di Azure per proteggere i dati all'interno del servizio. Le assegnazioni di ruolo definiscono quali funzioni definite dall'utente possiedono le autorizzazioni appropriate per interagire con il grafico spaziale e le relative entità. Ad esempio, una funzione definita dall'utente potrebbe avere la capacità e l'autorizzazione per *CREARE*, *LEGGERE*, *AGGIORNARE* o *ELIMINARE* i dati del grafico in uno spazio specificato. Il livello di accesso di una funzione definita dell'utente viene controllato quando la funzione definita dall'utente chiede dati al grafico o tenta un'operazione. Per ulteriori informazioni, leggere [Controllo degli accessi in base](./security-create-manage-role-assignments.md)al ruolo .
+Le azioni di una funzione definita dell'utente sono soggette al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) di Gemelli digitali di Azure per proteggere i dati all'interno del servizio. Le assegnazioni di ruolo definiscono quali funzioni definite dall'utente possiedono le autorizzazioni appropriate per interagire con il grafico spaziale e le relative entità. Ad esempio, una funzione definita dall'utente potrebbe avere la capacità e l'autorizzazione per *CREARE*, *LEGGERE*, *AGGIORNARE* o *ELIMINARE* i dati del grafico in uno spazio specificato. Il livello di accesso di una funzione definita dell'utente viene controllato quando la funzione definita dall'utente chiede dati al grafico o tenta un'operazione. Per altre informazioni, vedere [controllo degli accessi in base al ruolo](./security-create-manage-role-assignments.md).
 
 È possibile che un matcher attivi una funzione definita dall'utente priva di assegnazioni di ruolo. In questo caso, la funzione definita dall'utente non riuscirà a leggere alcun dato dal grafico.
 

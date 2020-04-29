@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254651"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
@@ -87,7 +87,7 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
 
 #### <a name="to-view-volume-information"></a>Per visualizzare le informazioni del volume
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager. 
-2. Nel riquadro **Ambito** fare clic sul nodo **Volumi**. Viene visualizzato un elenco di volumi locali e montati, compresi tutti i volumi StorSimple di Azure, nel **riquadro** Risultati. Le colonne nel **riquadro** Risultati sono configurabili. Fare clic con il pulsante destro del mouse sul nodo **Volumi,** **scegliere Visualizza**, quindi **Aggiungi/Rimuovi colonne.**
+2. Nel riquadro **Ambito** fare clic sul nodo **Volumi**. Viene visualizzato un elenco di volumi locali e montati, compresi tutti i volumi StorSimple di Azure, nel **riquadro** Risultati. Le colonne nel **riquadro** Risultati sono configurabili. Fare clic con il pulsante destro del mouse sul nodo **volumi** , selezionare **Visualizza**, quindi selezionare **Aggiungi/Rimuovi colonne**.
    
     ![Configurare le colonne](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
@@ -102,7 +102,7 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
 Utilizzare la procedura seguente per eliminare un volume da StorSimple Snapshot Manager.
 
 > [!NOTE]
-> Non è possibile eliminare un volume se fa parte di un gruppo di volumi. L'opzione di eliminazione non è disponibile per i volumi membri di un gruppo di volumi. È necessario eliminare l'intero gruppo di volumi per eliminare il volume.
+> Non è possibile eliminare un volume se fa parte di un gruppo di volumi. L'opzione Elimina non è disponibile per i volumi che sono membri di un gruppo di volumi. Per eliminare il volume, è necessario eliminare l'intero gruppo di volumi.
 
 #### <a name="to-delete-a-volume"></a>Per eliminare un volume
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
@@ -145,7 +145,7 @@ Prima di iniziare:
    
     ![Crea gruppo di volumi](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
 6. Nella finestra di dialogo **Crea gruppo di volumi** digitare un nome per il gruppo di volumi, assegnare il volume al gruppo, quindi fare clic su **OK**.
-7. Nel riquadro **Ambito** espandere il nodo **Gruppi di volumi**. Il nuovo gruppo di volumi dovrebbe essere visualizzato nel nodo **Gruppi di** volumi. 
+7. Nel riquadro **Ambito** espandere il nodo **Gruppi di volumi**. Il nuovo gruppo di volumi dovrebbe essere visualizzato nel nodo **gruppi di volumi** . 
 8. Fare clic sul nome del gruppo di volumi.
    
    * Per avviare un processo di backup interattivo (su richiesta), fare clic su **Esegui backup**. 

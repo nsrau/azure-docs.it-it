@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef908429d359020282920d73480a472bfde0aa60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261515"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
@@ -43,11 +43,11 @@ Questo argomento descrive le varie operazioni che è possibile eseguire tramite 
 6. Per finalizzare le modifiche, fare clic su **Salva**. Le modifiche diventano effettive dopo il salvataggio.
 
 >[!NOTE] 
-> Quando si verificano problemi durante l'elaborazione delle richieste di sincronizzazione nel servizio back-end, questo servizio invia un messaggio di posta elettronica di notifica con i dettagli dell'errore agli indirizzi di posta elettronica di contatto amministrativi del tenant. Abbiamo ricevuto feedback dai clienti che in alcuni casi il volume di questi messaggi è proibitivo, quindi stiamo cambiando il modo in cui inviamo questi messaggi. 
+> Quando si verificano problemi durante l'elaborazione delle richieste di sincronizzazione nel servizio back-end, questo servizio invia un messaggio di posta elettronica di notifica con i dettagli dell'errore agli indirizzi di posta elettronica dei contatti amministrativi del tenant. I clienti hanno inviato commenti e suggerimenti che, in alcuni casi, il volume di questi messaggi è eccessivamente grande, quindi si sta cambiando il modo in cui vengono inviati i messaggi. 
 >
-> Invece di inviare un messaggio per ogni errore di sincronizzazione ogni volta che si verifica, invieremo un digest giornaliero di tutti gli errori restituiti dal servizio back-end. Ciò consente ai clienti di elaborare questi errori in modo più efficiente e riduce il numero di messaggi di errore duplicati.
+> Anziché inviare un messaggio per ogni errore di sincronizzazione ogni volta che si verifica, verrà inviato un digest giornaliero di tutti gli errori restituiti dal servizio back-end. Questo consente ai clienti di elaborare questi errori in modo più efficiente e di ridurre il numero di messaggi di errore duplicati.
 >
-> Prevediamo che questo cambiamento sarà attuato il 15 gennaio 2020.
+> Si prevede che questa modifica venga implementata il 15 gennaio 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Eliminare un server o un'istanza del servizio
 
@@ -113,7 +113,7 @@ Azure AD Connect Health supporta i ruoli predefiniti seguenti:
 | --- | --- |
 | Proprietario |I proprietari possono *gestire l'accesso* (ad esempio assegnare ruoli a un utente o gruppo), *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. <br>Per impostazione predefinita, gli amministratori globali di Azure AD vengono assegnati a questo ruolo e questa assegnazione non è modificabile. |
 | Collaboratore |I collaboratori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale e *modificare le impostazioni* (ad esempio le notifiche di posta elettronica) all'interno di Azure AD Connect Health. |
-| Reader |I lettori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health. |
+| Lettore |I lettori possono *visualizzare tutte le informazioni* (ad esempio visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health. |
 
 Tutti gli altri ruoli, ad esempio gli amministratori dell'accesso utente o gli utenti DevTest Labs, anche se disponibili nell'esperienza del portale, non influiscono sull'accesso all'interno di Azure AD Connect Health.
 
@@ -168,9 +168,9 @@ Ora gli utenti e i gruppi elencati hanno accesso, in base ai relativi ruoli asse
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Installazione dell'agente di Azure AD Connect HealthAzure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
+* [Installazione agente Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md)
-* [Uso di Azure AD Connect Health per la sincronizzazioneUsing Azure AD Connect Health for sync](how-to-connect-health-sync.md)
+* [Uso di Azure AD Connect Health per la sincronizzazione](how-to-connect-health-sync.md)
 * [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](how-to-connect-health-adds.md)
 * [Domande frequenti su Azure AD Connect Health](reference-connect-health-faq.md)
-* [Cronologia delle versioni di Azure AD Connect HealthAzure AD Connect Health version history](reference-connect-health-version-history.md)
+* [Cronologia delle versioni di Azure AD Connect Health](reference-connect-health-version-history.md)

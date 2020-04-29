@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 4b265bb574895e4728ad93ee25c9dad0da226ea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240294"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
@@ -60,7 +60,7 @@ In questa sezione si crea uno spazio dei nomi dell'hub eventi e si aggiunge un h
 
 6. Denominare il nuovo hub eventi *socialtwitter-eh*. È possibile usare un nome diverso. In questo caso, tenerne traccia, poiché sarà necessario in un secondo momento. Non sono richieste altre impostazioni per l'hub eventi.
  
-7. Seleziona **Crea**.
+7. Selezionare **Crea**.
 
 ### <a name="grant-access-to-the-event-hub"></a>Concedere l'accesso all'hub eventi
 
@@ -75,7 +75,7 @@ Prima che un processo possa inviare dati a un hub eventi, l'hub eventi richiede 
 
 3.  Nella pagina Criteri di accesso selezionare **+ Aggiungi**. Immettere quindi *socialtwitter-Access* per il **nome del criterio** e selezionare la casella di controllo **Gestisci** .
  
-4.  Seleziona **Crea**.
+4.  Selezionare **Crea**.
 
 5.  Dopo aver distribuito i criteri, selezionare i criteri nell'elenco dei criteri di accesso condiviso.
 
@@ -148,7 +148,7 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
     È consigliabile posizionare il processo e l'hub eventi nella stessa area per ottenere prestazioni ottimali ed evitare di pagare il trasferimento dei dati tra aree.
 
-3. Seleziona **Crea**. Quindi passare al processo al termine della distribuzione.
+3. Selezionare **Crea**. Quindi passare al processo al termine della distribuzione.
 
 ## <a name="specify-the-job-input"></a>Specificare l'input del processo
 

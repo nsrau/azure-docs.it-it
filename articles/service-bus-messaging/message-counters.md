@@ -1,6 +1,6 @@
 ---
-title: Bus di servizio di Azure - conteggio messaggiAzure Service Bus - message count
-description: Recuperare il numero di messaggi contenuti nelle code e nelle sottoscrizioni usando Azure Resource Manager e le API NamespaceManager del bus di servizio di Azure.Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
+title: Bus di servizio di Azure-numero messaggi
+description: Recuperare il numero di messaggi contenuti in code e sottoscrizioni usando Azure Resource Manager e le API NamespaceManager del bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/08/2020
 ms.author: aschhab
 ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80891765"
 ---
 # <a name="message-counters"></a>Contatori di messaggi
@@ -45,9 +45,9 @@ Il conteggio dei messaggi attivi è utile per stabilire se una coda crea un back
 Se un'applicazione vuole ridimensionare le risorse in base alla lunghezza della coda, deve farlo in maniera limitata. L'acquisizione dei contatori di messaggi è un'operazione impegnativa all'interno del broker messaggi e, se viene eseguita frequentemente, influisce direttamente e negativamente sulle prestazioni dell'entità.
 
 > [!NOTE]
-> I messaggi inviati a un argomento del bus di servizio vengono inoltrati alle sottoscrizioni per tale argomento. Pertanto, il numero di messaggi attivi sull'argomento stesso è 0, poiché tali messaggi sono stati inoltrati correttamente alla sottoscrizione. Ottenere il numero di messaggi nella sottoscrizione e verificare che sia maggiore di 0.Get the message count at the subscription and verify that it's greater than 0. Anche se vengono visualizzati messaggi nella sottoscrizione, vengono effettivamente archiviati in uno spazio di archiviazione di proprietà dell'argomento. 
+> I messaggi inviati a un argomento del bus di servizio vengono inoltrati alle sottoscrizioni per tale argomento. Il numero di messaggi attivi nell'argomento stesso è 0, perché questi messaggi sono stati inviati correttamente alla sottoscrizione. Ottenere il numero di messaggi nella sottoscrizione e verificare che sia maggiore di 0. Anche se i messaggi vengono visualizzati nella sottoscrizione, vengono effettivamente archiviati in una risorsa di archiviazione di proprietà dell'argomento. 
 
-Se si esaminano le sottoscrizioni, il numero di messaggi diverso da zero (che aggiunge fino a 323 MB di spazio per l'intera entità).
+Se si esaminano le sottoscrizioni, si otterrebbe un numero di messaggi diverso da zero (che aggiunge fino a 323MB di spazio per l'intera entità).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

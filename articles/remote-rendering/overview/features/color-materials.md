@@ -1,58 +1,58 @@
 ---
-title: Materiali colore
+title: Materiali a colori
 description: Descrive il tipo di materiale colore.
 author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681077"
 ---
-# <a name="color-materials"></a>Materiali colore
+# <a name="color-materials"></a>Materiali a colori
 
-*I materiali a* colori sono uno dei tipi di materiale supportati in Rendering remoto di Azure.Color materials are one of the supported material [types](../../concepts/materials.md) in Azure Remote Rendering. Sono utilizzati per [le maglie](../../concepts/meshes.md) che non dovrebbero ricevere alcun tipo di illuminazione, ma piuttosto essere piena luminosità in ogni momento. Questo potrebbe essere il caso di materiali "luminosi", come cruscotti per auto, lampadine o dati che incorporano già l'illuminazione statica, come i modelli ottenuti attraverso la [fotogrammetria](https://en.wikipedia.org/wiki/Photogrammetry).
+I *materiali colori* sono uno dei [tipi di materiale](../../concepts/materials.md) supportati nel rendering remoto di Azure. Vengono usati per le [mesh](../../concepts/meshes.md) che non dovrebbero ricevere alcun tipo di illuminazione, ma devono essere sempre completamente luminosi. Questo potrebbe essere il caso di materiali "luminosi", come i dashboard dell'automobile, le lampadine o i dati che incorporano già l'illuminazione statica, ad esempio i modelli ottenuti tramite [fotogrammetria](https://en.wikipedia.org/wiki/Photogrammetry).
 
-I materiali a colori sono più efficienti da renderizzare rispetto ai [materiali PBR](pbr-materials.md) grazie al loro modello di ombreggiatura più semplice. Supportano anche diverse modalità di trasparenza.
+I materiali colori sono più efficienti per il rendering rispetto ai [materiali PBR](pbr-materials.md) a causa del modello di ombreggiatura più semplice. Supportano inoltre diverse modalità di trasparenza.
 
-## <a name="common-material-properties"></a>Proprietà comuni del materiale
+## <a name="common-material-properties"></a>Proprietà materiali comuni
 
 Queste proprietà sono comuni a tutti i materiali:
 
-* **albedoColor:** Questo colore viene moltiplicato con altri colori, ad esempio i colori *albedoMap* o *vertice*. Se *la trasparenza* è attivata su un materiale, il `1` canale alfa viene `0` utilizzato per regolare l'opacità, con significato completamente opaco e completamente trasparente. Il valore predefinito è bianco.
+* **albedoColor:** Questo colore viene moltiplicato con altri colori, ad esempio i colori di *albedoMap* o *vertici*. Se la *trasparenza* è abilitata su un materiale, il canale alfa viene usato per modificare l'opacità, con `1` un `0` significato completamente opaco e un significato completamente trasparente. Il valore predefinito è bianco.
 
   > [!NOTE]
-  > Poiché i materiali a colori non riflettono l'ambiente, un materiale di colore completamente trasparente diventa invisibile. Questo è diverso per i [materiali PBR](pbr-materials.md).
+  > Poiché i materiali dei colori non riflettono l'ambiente, un materiale colorato completamente trasparente diventa invisibile. Questa operazione è diversa per i [materiali PBR](pbr-materials.md).
 
-* **albedoMap:** Una [trama 2D](../../concepts/textures.md) per i valori albedo per pixel.
+* **albedoMap:** [Trama 2D](../../concepts/textures.md) per i valori di albedo per pixel.
 
-* **alphaClipEnabled** e **alphaClipThreshold:** se *alphaClipEnabled* è true, tutti i pixel in cui il valore alfa dell'albedo è inferiore a *alphaClipThreshold* non verranno disegnati. Il ritaglio alfa può essere utilizzato anche senza abilitare la trasparenza ed è molto più veloce da eseguire il rendering. I materiali ritagliati alfa sono comunque più lenti a essere sottoposti a rendering rispetto ai materiali completamente opachi. Per impostazione predefinita, il ritaglio alfa è disabilitato.
+* **alphaClipEnabled** e **AlphaClipThreshold:** se *alphaClipEnabled* è true, tutti i pixel in cui il valore alfa albedo è inferiore a *alphaClipThreshold* non verranno tracciati. Il ritaglio alfa può essere usato anche senza abilitare la trasparenza ed è molto più veloce per il rendering. I materiali ritagliati alfa sono comunque più lenti per il rendering rispetto ai materiali completamente opachi. Per impostazione predefinita, il ritaglio alfa è disabilitato.
 
-* **textureCoordinateScale** e **textureCoordinateOffset:** la scala viene moltiplicata nelle coordinate della trama UV, l'offset viene aggiunto ad esso. Può essere utilizzato per allungare e spostare le texture. La scala di default è (1, 1) e offset è (0, 0).
+* **textureCoordinateScale** e **textureCoordinateOffset:** la scala viene moltiplicata per le coordinate di trama UV, a cui viene aggiunto l'offset. Può essere usato per estendere e spostare le trame. La scala predefinita è (1,1) e offset è (0, 0).
 
-* **useVertexColor:** Se la mesh contiene i colori dei vertici e questa opzione è abilitata, i colori dei vertici delle mesh vengono moltiplicati in *albedoColor* e *albedoMap*. Per impostazione predefinita, i colori dei vertici sono disabilitati.
+* **useVertexColor:** Se la mesh contiene colori dei vertici e questa opzione è abilitata, i colori dei vertici delle maglie vengono moltiplicati in *albedoColor* e *albedoMap*. Per impostazione predefinita i colori dei vertici sono disabilitati.
 
-* **isDoubleSided:** Se il doppio lato è impostato su true, i triangoli con questo materiale vengono visualizzati anche se la fotocamera sta guardando le facce posteriori. Per impostazione predefinita, questa opzione è disabilitata. Consultate anche [Rendering su un lato.](single-sided-rendering.md)
+* **isDoubleSided:** Se la doppia facciata è impostata su true, il rendering dei triangoli con questo materiale viene eseguito anche se la fotocamera esamina i visi posteriori. Per impostazione predefinita, questa opzione è disabilitata. Vedere anche [rendering a lato singolo](single-sided-rendering.md).
 
-## <a name="color-material-properties"></a>Proprietà del materiale di colore
+## <a name="color-material-properties"></a>Proprietà del materiale colori
 
-Le seguenti proprietà sono specifiche dei materiali a colori:
+Le proprietà seguenti sono specifiche dei materiali colori:
 
-* **vertexMix:** Questo valore `0` `1` compreso tra e specifica quanto fortemente il colore del vertice in una [mesh](../../concepts/meshes.md) contribuisce al colore finale. Con il valore predefinito 1, il colore del vertice viene moltiplicato completamente nel colore dell'albedo. Con un valore pari a 0, i colori dei vertici vengono ignorati completamente.
+* **vertexMix:** Questo valore tra `0` e `1` specifica il modo in cui il colore del vertice in una [mesh](../../concepts/meshes.md) contribuisce al colore finale. Il valore predefinito è 1, il colore del vertice viene moltiplicato per il colore dell'albedo completamente. Con un valore pari a 0, i colori dei vertici vengono ignorati interamente.
 
-* **transparencyMode:** Contrariamente ai [materiali PBR,](pbr-materials.md)i materiali a colori distinguono tra diverse modalità di trasparenza:
+* **transparencyMode:** Contrariamente ai [materiali di PBR](pbr-materials.md), i materiali dei colori si distinguono tra modalità di trasparenza diverse:
 
-  1. **Opaco:** La modalità predefinita disabilita la trasparenza. Il ritaglio alfa è comunque possibile, tuttavia, e dovrebbe essere preferito, se sufficiente.
+  1. **Opaco:** La modalità predefinita Disabilita la trasparenza. Il ritaglio alfa è comunque possibile, ma deve essere preferito, se sufficiente.
   
-  1. **AlphaBlended:** Questa modalità è simile alla modalità di trasparenza per i materiali PBR. Dovrebbe essere utilizzato per materiali trasparente come il vetro.
+  1. **AlphaBlended:** Questa modalità è simile alla modalità di trasparenza per i materiali PBR. Deve essere usato per i materiali See-through, ad esempio Glass.
 
-  1. **Additivo:** Questa modalità è la modalità di trasparenza più semplice ed efficiente. Il contributo del materiale viene aggiunto all'immagine sottoposta a rendering. Questa modalità può essere utilizzata per simulare oggetti luminosi (ma ancora trasparenti), ad esempio marcatori utilizzati per evidenziare oggetti importanti.
+  1. **Additivo:** Questa modalità è la modalità di trasparenza più semplice e più efficiente. Il contributo del materiale viene aggiunto all'immagine di cui è stato eseguito il rendering. Questa modalità può essere usata per simulare oggetti luminosi (ma ancora trasparenti), ad esempio marcatori usati per evidenziare oggetti importanti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Materiali PBR](pbr-materials.md)
 * [Trame](../../concepts/textures.md)
-* [Maglie](../../concepts/meshes.md)
+* [Mesh](../../concepts/meshes.md)

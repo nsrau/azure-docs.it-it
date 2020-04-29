@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
@@ -10,22 +10,22 @@ ms.date: 10/09/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: f79b25c98ae2e764f607fc5a12bc311ed0edacae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286184"
 ---
-Connettiti direttamente con i clienti elencando la tua offerta nei marketplace e collegando il tuo sistema DiO (Customer Relationship Management) in modo da poter ricevere le informazioni di contatto dei clienti subito dopo che un cliente esprime interesse o distribuisce il tuo Prodotto.
+È possibile connettersi direttamente con i clienti elencando l'offerta nei Marketplace e associando il sistema CRM (Customer Relationship Management) in modo da ricevere le informazioni di contatto del cliente immediatamente dopo che un cliente esprime interesse o distribuisce il prodotto.
 
-- **Scegliere una destinazione lead** (menu a discesa): fornire i dettagli di connessione al sistema CRM in cui si desidera che i lead dei clienti inviino i lead dei clienti. 
+- **Scegliere una destinazione principale** (menu a discesa): specificare i dettagli della connessione al sistema CRM in cui si desidera inviare i lead dei clienti. 
 
-Il Centro per i partner supporta i seguenti sistemi CRM per la gestione dei lead. Selezionare il collegamento per le istruzioni di configurazione.
+Il centro per i partner supporta i sistemi CRM seguenti per la gestione dei lead. Selezionare il collegamento per le istruzioni di installazione.
 
-- [BLOB di Azure:](../commercial-marketplace-lead-management-instructions-azure-blob.md) fornire la posta elettronica del contatto, il nome del contenitore e la stringa di connessione dell'account di archiviazione. 
-- [Tabella di Azure:](../commercial-marketplace-lead-management-instructions-azure-table.md) fornire la stringa di connessione contatto e di posta elettronica dell'account di archiviazione. 
-- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) - Fornire la posta elettronica di contatto, l'URL e la modalità di autenticazione (Office 365 o Azure Active Directory).
-- [Endpoint Https:](../commercial-marketplace-lead-management-instructions-https.md) fornire la posta elettronica del contatto e l'URL dell'endpoint HTTPS. 
-- Marketo - Fornire [l'indirizzo](../commercial-marketplace-lead-management-instructions-marketo.md) di posta elettronica di contatto, l'ID del modulo, l'ID account Munchkin e l'ID server.
-- [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md) - Fornire l'indirizzo e-mail di contatto e l'ID dell'organizzazione. 
+- [BLOB di Azure](../commercial-marketplace-lead-management-instructions-azure-blob.md) : fornire posta elettronica di contatto, nome del contenitore e stringa di connessione dell'account di archiviazione. 
+- [Tabella di Azure](../commercial-marketplace-lead-management-instructions-azure-table.md) : specificare la stringa di connessione dell'account di archiviazione e di contatto. 
+- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) : fornire l'indirizzo di posta elettronica di contatto, l'URL e la modalità di autenticazione (Office 365 o Azure Active Directory).
+- [Endpoint HTTPS](../commercial-marketplace-lead-management-instructions-https.md) : specificare l'URL dell'endpoint HTTPS e il messaggio di posta elettronica di contatto. 
+- [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md) -fornire posta elettronica di contatto, ID modulo, ID account Munchkin e ID server.
+- [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md) : fornire un indirizzo di posta elettronica di contatto e un ID organizzazione. 
 

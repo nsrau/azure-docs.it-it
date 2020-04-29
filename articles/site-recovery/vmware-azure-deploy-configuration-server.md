@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257381"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
@@ -92,7 +92,7 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
 Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di configurazione, eseguire questa operazione prima di registrare il server nell'insieme di credenziali. L'aggiunta di altre schede non è supportata dopo la registrazione.
 
 1. Nell'inventario del client vSphere fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Edit Settings** (Modifica impostazioni).
-2. In **Hardware** selezionare **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Fare quindi clic su **Avanti**.
+2. In **Hardware** selezionare **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Selezionare quindi **Avanti**.
 3. Selezionare un tipo di scheda e una rete.
 4. Per connettere la scheda di interfaccia di rete virtuale all'accensione della macchina virtuale, selezionare **Connect at power on** (Connetti all'accensione). Quindi fare clic su**fine** >  **Avanti** > **OK**.
 
@@ -102,7 +102,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 2. La macchina virtuale si avvia con la procedura di installazione di Windows Server 2016. Accettare il contratto di licenza e immettere una password amministratore.
 3. Al termine dell'installazione, accedere alla macchina virtuale come amministratore.
 4. La prima volta che si accede, entro pochi secondi viene avviato lo strumento di configurazione Azure Site Recovery.
-5. Immettere un nome che verrà usato per registrare il server di configurazione in Site Recovery. Fare quindi clic su **Avanti**.
+5. Immettere un nome che verrà usato per registrare il server di configurazione in Site Recovery. Selezionare quindi **Avanti**.
 6. Lo strumento verifica che la macchina virtuale possa connettersi ad Azure. Dopo aver stabilito la connessione, selezionare **Accedi** per accedere alla sottoscrizione di Azure.</br>
     a. Le credenziali devono avere accesso all'insieme di credenziali in cui si vuole registrare il server di configurazione.</br>
     b. Assicurarsi che l'account utente scelto disponga dell'autorizzazione per la creazione di un'applicazione in Azure. Per abilitare le autorizzazioni necessarie, attenersi alle linee guida riportate nella sezione [Azure Active Directory requisiti di autorizzazione](#azure-active-directory-permission-requirements).
@@ -111,7 +111,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ### <a name="configure-settings"></a>Configurare le impostazioni
 
-1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività**. Nelle caselle a discesa selezionare innanzitutto la scheda di interfaccia di rete usata dal server di elaborazione incorporato per l'individuazione e l'installazione push del servizio Mobility nei computer di origine. Selezionare quindi la scheda di interfaccia di rete utilizzata dal server di configurazione per la connettività con Azure. Selezionare **Salva**. Questa impostazione non può essere modificata dopo che è stata configurata. Non modificare l'indirizzo IP di un server di configurazione. Verificare che l'indirizzo IP assegnato al server di configurazione sia un indirizzo IP statico e non un indirizzo IP DHCP.
+1. In Gestione guidata server di configurazione selezionare **configurazione connettività**. Nelle caselle a discesa selezionare innanzitutto la scheda di interfaccia di rete usata dal server di elaborazione incorporato per l'individuazione e l'installazione push del servizio Mobility nei computer di origine. Selezionare quindi la scheda di interfaccia di rete utilizzata dal server di configurazione per la connettività con Azure. Selezionare **Salva**. Questa impostazione non può essere modificata dopo che è stata configurata. Non modificare l'indirizzo IP di un server di configurazione. Verificare che l'indirizzo IP assegnato al server di configurazione sia un indirizzo IP statico e non un indirizzo IP DHCP.
 2. In **Seleziona**insieme di credenziali di servizi di ripristino accedere a Microsoft Azure con le credenziali usate nel passaggio 6 di [registrare il server di configurazione con Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services).
 3. Dopo l'accesso, selezionare la sottoscrizione di Azure e il gruppo di risorse e l'insieme di credenziali pertinenti.
 
@@ -129,8 +129,8 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 5. Quando si **convalida la configurazione dell'appliance**, i prerequisiti vengono verificati prima di continuare.
 6. In **configura server vCenter/vSphere ESXi Server**immettere il nome di dominio completo o l'indirizzo IP del server vCenter o dell'host vSphere in cui si trovano le macchine virtuali da replicare. Immettere la porta su cui è in ascolto il server. Immettere un nome descrittivo da usare per il server VMware nell'insieme di credenziali.
-7. Immettere le credenziali che verranno usate dal server di configurazione per connettersi al server VMware. Site Recovery usa queste credenziali per individuare automaticamente le macchine virtuali VMware disponibili per la replica. Selezionare **Aggiungi** > **continua**. Le credenziali immesse qui vengono salvate in locale.
-8. In **Configura credenziali macchina virtuale**immettere il nome utente e la password delle macchine virtuali per installare automaticamente il servizio Mobility durante la replica. Per le macchine virtuali **Windows**, l'account deve avere privilegi di amministratore locale nelle macchine virtuali da replicare. Per **Linux**, specificare i dettagli dell'account radice.
+7. Immettere le credenziali che verranno usate dal server di configurazione per connettersi al server VMware. Site Recovery usa queste credenziali per individuare automaticamente le macchine virtuali VMware disponibili per la replica. Selezionare **Aggiungi** > **Continua**. Le credenziali immesse qui vengono salvate in locale.
+8. In **Configura credenziali macchina virtuale**immettere il nome utente e la password delle macchine virtuali per installare automaticamente il servizio Mobility durante la replica. Per i computer **Windows** , l'account deve disporre dei privilegi di amministratore locale nei computer che si desidera replicare. Per **Linux**, fornire i dettagli per l'account radice.
 9. Selezionare **Finalizza configurazione** per completare la registrazione.
 10. Al termine della registrazione, aprire il portale di Azure e verificare che il server di configurazione e il server VMware siano elencati nell'insieme di credenziali di **Servizi** > di ripristino**gestione** > **Site Recovery** > **server di configurazione**dell'infrastruttura.
 

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: 31ac43ec796d305b8a8f4b62ea09481e262b6b3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80256981"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
@@ -30,7 +30,7 @@ Il ridimensionamento di un processo di Analisi di flusso sfrutta i vantaggi offe
 Tutti gli input di Analisi di flusso di Azure possono sfruttare i vantaggi del partizionamento:
 -   Hub eventi (è necessario impostare la chiave di partizione in modo esplicito con PARTITION BY)
 -   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito con PARTITION BY)
--   Archiviazione BLOB
+-   Archiviazione - BLOB
 
 ### <a name="outputs"></a>Output
 

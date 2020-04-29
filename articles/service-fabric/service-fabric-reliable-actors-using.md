@@ -1,15 +1,15 @@
 ---
-title: Implementare funzionalità negli attori di Azure Service FabricImplement features in Azure Service Fabric actors
+title: Implementare le funzionalità in Azure Service Fabric Actors
 description: Illustra come scrivere il proprio servizio Actor, implementando così funzionalità a livello di servizio nello stesso modo usato per ereditare StatefulService.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502277"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementare le funzionalità a livello di servizio nel servizio Actor
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implementare il backup e ripristino dell'attore
 
-Un servizio Actor personalizzato può esporre un metodo per il backup dei dati dell'attore sfruttando il listener di comunicazione remota già presente in `ActorService`. Per un esempio, vedere [Backup e ripristino di attori](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Un servizio Actor personalizzato può esporre un metodo per il backup dei dati dell'attore sfruttando il listener di comunicazione remota già presente in `ActorService`. Per un esempio, vedere [Backup e ripristino di attori](service-fabric-reliable-actors-backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Attore che usa uno stack di comunicazione remota V2 (compatibile con l'interfaccia)
 
@@ -214,7 +214,7 @@ Questa modifica consiste in un aggiornamento in due passaggi. Seguire i passaggi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md)
-* [Ciclo di vita dell'attore e Garbage CollectionActor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+* [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Codice di esempio .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Codice di esempio Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

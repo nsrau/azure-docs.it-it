@@ -4,10 +4,10 @@ description: Configurare un endpoint privato in un registro contenitori e abilit
 ms.topic: article
 ms.date: 03/10/2020
 ms.openlocfilehash: de8228d84497e71f24dba3dd4e6162cb6735a8c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79498924"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configurare il collegamento privato di Azure per un registro contenitori di Azure 
@@ -272,7 +272,7 @@ I passaggi seguenti presuppongono che sia già stata configurata una rete virtua
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Immettere il nome di un gruppo esistente o crearne uno nuovo.|
     | **Dettagli istanza** |  |
-    | Nome | Immettere un nome univoco. |
+    | Name | Immettere un nome univoco. |
     |Region|Scegliere un'area,|
     |||
 5. Selezionare **Avanti: Risorsa**.
@@ -289,7 +289,7 @@ I passaggi seguenti presuppongono che sia già stata configurata una rete virtua
 7. Selezionare **Avanti: Configurazione**.
 8. Immettere o selezionare le informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     |**Funzionalità di rete**| |
     | Rete virtuale| Selezionare la rete virtuale in cui è distribuita la macchina virtuale, ad esempio *myDockerVMVNET*. |
@@ -367,7 +367,7 @@ az acr private-endpoint-connection list \
 
 Quando si configura una connessione a un endpoint privato eseguendo la procedura descritta in questo articolo, il registro di sistema accetta automaticamente le connessioni da client e servizi che dispongono di autorizzazioni RBAC nel registro di sistema. È possibile configurare l'endpoint in modo da richiedere l'approvazione manuale delle connessioni. Per informazioni su come approvare e rifiutare le connessioni agli endpoint privati, vedere [gestire una connessione all'endpoint privato](../private-link/manage-private-endpoint.md).
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Se sono state create tutte le risorse di Azure nello stesso gruppo di risorse e non sono più necessarie, è possibile eliminare facoltativamente le risorse usando un singolo comando [AZ Group Delete](/cli/azure/group) :
 

@@ -1,6 +1,6 @@
 ---
-title: Crittografia dati trasparente (portale)
-description: Crittografia dei dati trasparente (TDE) in Azure Synapse Analytics
+title: Transparent Data Encryption (portale)
+description: Transparent Data Encryption (Transparent Data Encryption) in Azure sinapsi Analytics
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 247691326e3aa2c8027dd0318b23a2cbfcba1efe
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745236"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introduzione a Transparent Data Encryption (TDE)
@@ -33,25 +33,25 @@ Per abilitare Transparent Data Encryption (TDE), è necessario essere un amminis
 
 ## <a name="enabling-encryption"></a>Abilitazione della crittografia
 
-Per abilitare TDE, attenersi alla seguente procedura:
+Per abilitare Transparent Data Encryption, attenersi alla procedura seguente:
 
 1. Aprire il database nel [portale di Azure](https://portal.azure.com)
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
-3. Selezionare **Transparent data encryption** le impostazioni ![del portale dell'opzione Crittografia dati trasparente](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. Selezionare **On** l'impostazione ![delle impostazioni del portale su](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
+3. Selezionare le impostazioni del portale per ![l'opzione **Transparent Data Encryption**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
+4. Selezionare l' **On** impostazione ![Impostazioni portale on](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
 5. Selezionare **Salva**
-   ![impostazioni portale salva](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
+   ![Impostazioni portale Salva](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
 
 ## <a name="disabling-encryption"></a>Disabilitazione della crittografia
 
-Per disattivare TDE, attenersi alla seguente procedura:
+Per disabilitare Transparent Data Encryption, attenersi alla procedura seguente:
 
 1. Aprire il database nel [portale di Azure](https://portal.azure.com)
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
-3. Selezionare **Transparent data encryption** le impostazioni ![del portale dell'opzione Crittografia dati trasparente](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. Selezionare l'impostazione ![ **Disattivata** impostazioni portale disattivata](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
+3. Selezionare le impostazioni del portale per ![l'opzione **Transparent Data Encryption**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
+4. Selezionare ![off **impostazione Impostazioni portale disattivato**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
 5. Selezionare **Salva**
-   ![impostazioni portale salva 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
+   ![impostazione del portale Salva 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
 
 ## <a name="encryption-dmvs"></a>Viste a gestione dinamica della crittografia
 

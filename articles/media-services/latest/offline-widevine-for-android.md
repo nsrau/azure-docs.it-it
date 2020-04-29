@@ -1,5 +1,5 @@
 ---
-title: Streaming Widevine Android Offline con Servizi multimediali di Azure v3
+title: Streaming di Widevine Android offline con servizi multimediali di Azure V3
 description: Questo argomento illustra come configurare l'account di Servizi multimediali di Azure per lo streaming offline di contenuto protetto da Widevine.
 services: media-services
 keywords: DASH, DRM, modalità offline Widevine, ExoPlayer, Android
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: willzhan
 ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887198"
 ---
-# <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming Widevine offline per Android con Media Services v3
+# <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming Widevine offline per Android con servizi multimediali V3
 
 Oltre a proteggere il contenuto per lo streaming online, i servizi di sottoscrizione e noleggio di contenuti multimediali offrono la possibilità di scaricare contenuto utilizzabile anche quando non si è connessi a Internet. Può ad esempio essere necessario scaricare contenuto sullo smartphone o sul tablet per la riproduzione in modalità aereo quando si è disconnessi dalla rete durante il volo. Il download di contenuto può essere utile anche in altri scenari, come nei casi seguenti:
 
-- Alcuni provider di contenuti potrebbero non consentire la distribuzione di licenze DRM oltre il confine di un paese. Se un utente vuole consultare il contenuto durante una trasferta all'estero, è necessario il download offline.
-- In alcuni paesi/aree geografiche, la disponibilità e/o la larghezza di banda di Internet sono limitate. Gli utenti possono quindi scegliere di scaricare il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente.
+- Alcuni provider di contenuti possono impedire la distribuzione di licenze DRM oltre il bordo di un paese/area geografica. Se un utente vuole consultare il contenuto durante una trasferta all'estero, è necessario il download offline.
+- In alcuni paesi o aree geografiche la disponibilità Internet e/o la larghezza di banda sono limitate. Gli utenti possono quindi scegliere di scaricare il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente.
 
 Questo articolo illustra come implementare la riproduzione in modalità offline per contenuto DASH protetto da Widevine su dispositivi Android. Con la tecnologia DRM offline è possibile fornire modelli di sottoscrizione, noleggio e acquisto per i servizi di contenuto offerti in modo da consentire ai clienti di usare il contenuto scaricato anche quando non sono connessi a Internet.
 
@@ -40,7 +40,7 @@ Per creare un'app lettore per Android vengono presentate tre opzioni:
 L'articolo include inoltre le risposte ad alcune domande frequenti relative allo streaming offline di contenuto protetto da Widevine.
 
 > [!NOTE]
-> DRM offline viene fatturato solo per effettuare una singola richiesta di una licenza quando si scarica il contenuto. Gli eventuali errori non vengono fatturati.
+> Il DRM offline viene addebitato solo per l'esecuzione di una singola richiesta di licenza quando si Scarica il contenuto. Eventuali errori non vengono addebitati.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -48,7 +48,7 @@ Prima di implementare la tecnologia DRM offline per Widevine su dispositivi Andr
 
 - Acquisire familiarità con i concetti relativi alla protezione di contenuto online con Widevine DRM. Questi concetti sono illustrati in dettaglio nei documenti ed esempi seguenti:
     - [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](design-multi-drm-system-with-access-control.md)
-    - [Utilizzare la crittografia dinamica DRM e il servizio di distribuzione delle licenze](protect-with-drm.md)
+    - [Usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze](protect-with-drm.md)
 - Clonare https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
     È necessario modificare il codice in [Encrypt with DRM using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) (Eseguire la crittografia con DRM usando .NET) per aggiungere configurazioni Widevine.  
@@ -98,7 +98,7 @@ Per abilitare la modalità **offline** per le licenze Widevine, è necessario co
 
 ## <a name="configuring-the-android-player-for-offline-playback"></a>Configurazione del lettore Android per la riproduzione offline
 
-Il modo più semplice per sviluppare un'app lettore nativa per dispositivi Android è quello di usare [Google ExoPlayer SDK](https://github.com/google/ExoPlayer), un SDK per lettori video open source. ExoPlayer supporta funzionalità attualmente non supportate dall'API MediaPlayer nativa di Android, inclusi i protocolli di recapito MPEG-DASH e Microsoft Smooth Streaming.
+Il modo più semplice per sviluppare un'app lettore nativa per dispositivi Android è quello di usare [Google ExoPlayer SDK](https://github.com/google/ExoPlayer), un SDK per lettori video open source. ExoPlayer supporta funzionalità non attualmente supportate dall'API MediaPlayer nativa di Android, inclusi i protocolli di recapito MPEG-DASH e Microsoft Smooth Streaming.
 
 ExoPlayer versione 2.6 e successive include molte classi che supportano la riproduzione offline con Widevine DRM. In particolare, la classe OfflineLicenseHelper fornisce funzioni di utilità per facilitare l'uso di DefaultDrmSessionManager per scaricare, rinnovare e rilasciare licenze offline. Le classi fornite nella cartella "library/core/src/main/java/com/google/android/exoplayer2/offline/" dell'SDK supportano il download di contenuto video offline.
 
@@ -136,7 +136,7 @@ Vedere anche il thread seguente relativo al [binding Xamarin](https://github.com
 
 ## <a name="chrome-player-apps-for-android"></a>App lettore su browser Chrome per Android
 
-A partire dal rilascio di [Chrome per Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates), licenza permanente in EME è supportata. In Chrome per Android è ora supportato anche [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1). È così possibile creare applicazioni per la riproduzione offline in Chrome che gli utenti finali possono usare se dispongono di questa o di una versione successiva del browser. 
+A partire dalla versione di [Chrome per Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates), è supportata la licenza permanente in EME. In Chrome per Android è ora supportato anche [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1). È così possibile creare applicazioni per la riproduzione offline in Chrome che gli utenti finali possono usare se dispongono di questa o di una versione successiva del browser. 
 
 Google ha inoltre realizzato un esempio di PWA (Progressive Web App) e lo ha reso disponibile in open source: 
 
@@ -147,7 +147,7 @@ Se si aggiorna il browser Chrome per dispositivi mobili alla versione 62 o succe
 
 Questa app PWA open source è stata creata in Node.js. Se si vuole ospitare una versione personalizzata su un server Ubuntu, tenere presenti i seguenti problemi comunemente riscontrati che possono impedire la riproduzione:
 
-1. Problema CORS: il video di esempio nell'app di esempio è ospitato in https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurato CORS per tutti gli esempi di test ospitati nel bucket di Google Cloud Storage. Questi sono resi disponibili con intestazioni CORS, che specificano in modo esplicito la voce CORS `https://biograf-155113.appspot.com` (il dominio in cui Google ospita l'esempio), impedendo l'accesso da altri siti. Se si tenta, verrà visualizzato il seguente errore HTTP:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+1. Problema CORS: il video di esempio nell'app di esempio è ospitato in https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurato CORS per tutti gli esempi di test ospitati nel bucket di Google Cloud Storage. Questi sono resi disponibili con intestazioni CORS, che specificano in modo esplicito la voce CORS `https://biograf-155113.appspot.com` (il dominio in cui Google ospita l'esempio), impedendo l'accesso da altri siti. Se si prova, verrà visualizzato il seguente errore HTTP:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Problema di certificato: a partire da Chrome versione 58, EME per Widevine richiede HTTPS. È pertanto necessario ospitare l'app di esempio su HTTPS con un certificato X509. Un normale certificato di test non è in grado di soddisfare i requisiti. È necessario ottenere un certificato che soddisfi i requisiti minimi seguenti:
     - Per Chrome e Firefox, nel certificato deve essere definita l'impostazione relativa al nome alternativo del soggetto (SAN).
     - Il certificato deve avere una CA attendibile. Non è possibile usare un certificato di sviluppo autofirmato.
@@ -155,12 +155,12 @@ Questa app PWA open source è stata creata in Node.js. Se si vuole ospitare una 
 
 ## <a name="faqs"></a>Domande frequenti
 
-Per ulteriori informazioni, consultate [Domande frequenti su Widevine.](frequently-asked-questions.md#widevine-streaming-for-android)
+Per altre informazioni, vedere [domande frequenti su Widevine](frequently-asked-questions.md#widevine-streaming-for-android).
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
 Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo articolo ha illustrato come implementare la riproduzione in modalità offline per contenuto DASH protetto da Widevine su dispositivi Android.  Sono state inoltre fornite le risposte ad alcune domande frequenti relative allo streaming offline di contenuto protetto da Widevine.

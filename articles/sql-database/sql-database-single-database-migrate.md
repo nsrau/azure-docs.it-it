@@ -1,5 +1,5 @@
 ---
-title: Migrazione del database di SQL Server in un database singolo/in pool
+title: SQL Server la migrazione di database a un database singolo o in pool
 description: Informazioni sulla migrazione del database SQL Server a un databsase singolo o a un pool elastico nel database SQL di Azure.
 keywords: migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql
 services: sql-database
@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268613"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrazione di un database SQL Server al database SQL di Azure
@@ -84,14 +84,14 @@ Con la replica transazionale, tutte le modifiche ai dati o allo schema vengono v
 
 1. Configurare la distribuzione
    - [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
-   - [Utilizzo di Transact-SQLUsing Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+   - [Utilizzo di Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
 
 2. Creare la pubblicazione
    - [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
-   - [Utilizzo di Transact-SQLUsing Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+   - [Utilizzo di Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
 3. Creazione di sottoscrizioni
    - [Usando SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
-   - [Utilizzo di Transact-SQLUsing Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+   - [Utilizzo di Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
 Suggerimenti e differenze per la migrazione al database SQL
 
@@ -108,8 +108,8 @@ Esiste una vasta gamma di problemi di compatibilità che possono verificarsi, a 
 
 - [Funzionalità del database di SQL Server non supportate nel database SQL di Azure](sql-database-transact-sql-information.md)
 - [Funzionalità del motore di database non più usate in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-- [Funzionalità del motore di database sospese in SQL Server 2014Discontinued Database Engine Functionality in SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-- [Funzionalità del motore di database sospese in SQL Server 2012Discontinued Database Engine Functionality in SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+- [Funzionalità del Motore di database non più utilizzate in SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+- [Funzionalità di motore di database sospese in SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
 - [Funzionalità del motore di database sospese in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Funzionalità del motore di database sospese in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 

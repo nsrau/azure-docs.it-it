@@ -1,5 +1,5 @@
 ---
-title: Porta anteriore di Azure - architettura di routing Documenti Microsoft
+title: Architettura di routing di Azure front door | Microsoft Docs
 description: Questo articolo aiuta a comprendere l'aspetto di visualizzazione globale dell'architettura di Frontdoor.
 services: front-door
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879293"
 ---
 # <a name="routing-architecture-overview"></a>Panoramica dell'architettura di routing
 
-Lo sportello anteriore di Azure quando riceve le richieste client risponde alle richieste (se la memorizzazione nella cache è abilitata) o le inoltra al back-end dell'applicazione appropriato (come proxy inverso).
+Il front-end di Azure quando riceve le richieste client quindi le risponde (se la memorizzazione nella cache è abilitata) o le inoltra al back-end dell'applicazione appropriato (come proxy inverso).
 
 </br>Esistono opportunità di ottimizzare il traffico durante il routing a Frontdoor di Azure così come durante il routing verso i back-end.
 
@@ -32,10 +32,10 @@ Il routing al Frontdoor di Azure si basa su ambienti [Anycast](https://en.wikipe
 
 ## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Connessione all'ambiente Frontdoor (Split TCP)
 
-[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) è una tecnica che serve a ridurre latenza e problemi TCP tramite la suddivisione di una connessione che comporterebbe un tempo di round trip elevato in parti più piccole.  Inserendo degli ambienti Frontdoor più vicino agli utenti finali e terminando le connessioni TCP in ambiente Frontdoor, una connessione TCP all’applicazione di back-end con un tempo di round trip (RTT) ampio è suddivisa in due connessioni TCP. La breve connessione tra l'utente finale e l'ambiente Front Door significa che la connessione viene stabilita su tre brevi round trip invece di tre lunghi round trip, risparmiando latenza.  La lunga connessione tra l’ambiente Frontdoor e il back-end può essere prestabilita e riutilizzata in più chiamate per l'utente finale, risparmiando nuovamente il tempo di connessione TCP.  L'effetto viene moltiplicato per stabilire una connessione SSL/TLS (Transport Layer Security) poiché sono presenti più round trip per la proteggere la connessione.
+[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) è una tecnica che serve a ridurre latenza e problemi TCP tramite la suddivisione di una connessione che comporterebbe un tempo di round trip elevato in parti più piccole.  Inserendo degli ambienti Frontdoor più vicino agli utenti finali e terminando le connessioni TCP in ambiente Frontdoor, una connessione TCP all’applicazione di back-end con un tempo di round trip (RTT) ampio è suddivisa in due connessioni TCP. La connessione breve tra l'utente finale e l'ambiente di sportello anteriore indica che la connessione viene stabilita in tre brevi round trip anziché tre round trip lunghi, risparmiando latenza.  La lunga connessione tra l’ambiente Frontdoor e il back-end può essere prestabilita e riutilizzata in più chiamate per l'utente finale, risparmiando nuovamente il tempo di connessione TCP.  L'effetto viene moltiplicato per stabilire una connessione SSL/TLS (Transport Layer Security) poiché sono presenti più round trip per la proteggere la connessione.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Elaborazione della richiesta per la corrispondenza di una regola di gestione
-Dopo aver stabilito una connessione ed eseguito un handshake TLS, quando una richiesta atterra su un ambiente Front Door, la corrispondenza di una regola di routing è il primo passaggio. Questa corrispondenza consiste nel determinare tra tutte le configurazioni in Frontdoor, quali regole di gestione specifiche corrispondano alla richiesta. Per altre informazioni, vedere come Frontdoor effettua la [corrispondenza delle route](front-door-route-matching.md).
+Dopo aver stabilito una connessione ed eseguito un handshake TLS, quando una richiesta si trova in un ambiente di sportello anteriore, la corrispondenza di una regola di routing è il primo passaggio. Questa corrispondenza consiste nel determinare tra tutte le configurazioni in Frontdoor, quali regole di gestione specifiche corrispondano alla richiesta. Per altre informazioni, vedere come Frontdoor effettua la [corrispondenza delle route](front-door-route-matching.md).
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identificazione di back-end disponibili nel pool di back-end per la regola di gestione
 Una volta che Frontdoor acquisisce una corrispondenza per una regola di gestione basata su richiesta in ingresso e in assenza di memorizzazione nella cache, il passaggio successivo è estrarre lo stato di integrità del probe per il pool di back-end associato alla route corrispondente. Per altre informazioni, vedere come Frontdoor monitora l'integrità del back-end usando [Probe di integrità](front-door-health-probes.md).

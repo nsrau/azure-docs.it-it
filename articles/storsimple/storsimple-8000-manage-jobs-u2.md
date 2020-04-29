@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254872"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire i processi (Aggiornamento 3 e successivi)
@@ -48,10 +48,10 @@ L'elenco dei processi viene aggiornato ogni 30 secondi.
 
 In questa pagina è possibile eseguire le seguenti azioni relative ai processi:
 
-* Visualizza i dettagli dei processi
+* Visualizzare i dettagli di un processo
 * Annullare un processo
 
-## <a name="view-job-details"></a>Visualizza i dettagli dei processi
+## <a name="view-job-details"></a>Visualizzare i dettagli di un processo
 Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo.
 
 #### <a name="to-view-job-details"></a>Per visualizzare i dettagli dei processi

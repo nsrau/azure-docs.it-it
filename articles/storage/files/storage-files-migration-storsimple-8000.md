@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755040"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
@@ -252,7 +252,7 @@ Durante questo processo di migrazione, sarà possibile montare diversi cloni di 
 > [!IMPORTANT]
 > Per il corretto funzionamento, è necessario impostare una chiave del registro di sistema sul server prima di configurare Sincronizzazione file di Azure.
 
-1. Creare una nuova directory nell'unità di sistema della macchina virtuale. Sincronizzazione file di Azure le informazioni devono essere salvate in modo permanente anziché nei cloni dei volumi montati. Ad esempio: `"C:\syncmetadata"`
+1. Creare una nuova directory nell'unità di sistema della macchina virtuale. Sincronizzazione file di Azure le informazioni devono essere salvate in modo permanente anziché nei cloni dei volumi montati. ad esempio `"C:\syncmetadata"`
 2. Aprire regedit e individuare l'hive del registro di sistema seguente:`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Creare una nuova chiave di tipo String, denominata: ***MetadataRootPath***
 4. Impostare il percorso completo della directory creata nel volume di sistema, ad esempio:`C:\syncmetadata"`

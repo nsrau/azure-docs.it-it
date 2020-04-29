@@ -1,5 +1,5 @@
 ---
-title: Aggiungere il dispositivo di lavoro alla rete dell'organizzazione - Active Directory
+title: Aggiungere il dispositivo di lavoro all'organizzazione Network-AD
 description: Informazioni su come aggiungere il dispositivo aziendale alla rete dell'organizzazione.
 services: active-directory
 author: curtand
@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266312"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Aggiungere il dispositivo aziendale alla rete dell'organizzazione
@@ -25,7 +25,7 @@ Aggiungere il dispositivo Windows 10 di proprietà dell'azienda alla rete dell'o
 ## <a name="what-happens-when-you-join-your-device"></a>Cosa accade quando si aggiunge il dispositivo
 Mentre si aggiunge il dispositivo Windows 10 alla rete dell'organizzazione, si verificheranno le azioni seguenti:
 
-- Windows registra il dispositivo nella rete dell'organizzazione, consentendoti di accedere alle risorse utilizzando il tuo account personale. Dopo aver registrato il dispositivo, Windows aggiunge il dispositivo alla rete, in modo da poter usare nome utente e password dell'organizzazione per eseguire l'accesso e accedere alle risorse limitate.
+- Windows registra il dispositivo nella rete dell'organizzazione, consentendo l'accesso alle risorse con l'account personale. Dopo aver registrato il dispositivo, Windows aggiunge il dispositivo alla rete, in modo da poter usare nome utente e password dell'organizzazione per eseguire l'accesso e accedere alle risorse limitate.
 
 - Facoltativamente, in base alle scelte dell'organizzazione, potrebbe essere richiesto di configurare la verifica in due passaggi tramite [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) oppure [info di sicurezza](user-help-security-info-overview.md).
 
@@ -61,7 +61,7 @@ Se il dispositivo è nuovo e non è ancora stato configurato, è possibile usare
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'azienda o all'istituto**di istruzione e assicurarsi di visualizzare un testo simile a **Connesso a * \<your_organization>* Azure AD.**
+2. Selezionare **Accedi all'ufficio o all'Istituto di istruzione**e verificare che venga visualizzato un testo simile **a, connesso a * \<your_organization>* Azure ad**.
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -106,7 +106,7 @@ Se si possiede il dispositivo da tempo ed è già stato configurato, è possibil
 
     ![Account nella schermata Impostazioni](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selezionare **Accedi all'azienda o all'istituto**di istruzione e assicurarsi di visualizzare un testo simile a **Connesso a * \<your_organization>* Azure AD.**
+2. Selezionare **Accedi all'ufficio o all'Istituto di istruzione**e verificare che venga visualizzato un testo simile **a, connesso a * \<your_organization>* Azure ad**.
 
     ![Schermata Accedi all'azienda o all'istituto di istruzione con l'account contoso connesso](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
@@ -115,4 +115,4 @@ Dopo avere aggiunto il dispositivo alla rete dell'organizzazione, è necessario 
 
 - Se l'organizzazione richiede la registrazione del dispositivo personale, ad esempio il telefono, vedere [Registrare il dispositivo personale nella rete dell'organizzazione](user-help-register-device-on-network.md).
 
-- Se l'organizzazione è gestita con Microsoft Intune e si hanno domande sulla registrazione, l'accesso o qualsiasi altro problema correlato a Intune, vedere il contenuto della Guida per gli utenti di [Intune.](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done)
+- Se l'organizzazione viene gestita con Microsoft Intune e si hanno domande sull'iscrizione, l'accesso o qualsiasi altro problema relativo a Intune, vedere il contenuto della Guida per gli [utenti di Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

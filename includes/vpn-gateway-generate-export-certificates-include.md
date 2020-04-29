@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80059965"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Creare un certificato radice autofirmato
@@ -28,7 +28,7 @@ Usare il cmdlet New-SelfSignedCertificate per creare un certificato radice autof
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
- 3. Lasciare aperta la console di PowerShell se si vuole creare un certificato client subito dopo aver creato questo certificato radice.
+ 3. Lasciare aperta la console di PowerShell se si desidera creare un certificato client subito dopo la creazione del certificato radice.
 
 ## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generazione di un certificato client
 
@@ -38,9 +38,9 @@ I passaggi seguenti illustrano come generare un certificato client da un certifi
 
 Gli esempi usano il cmdlet New-SelfSignedCertificate per generare un certificato client con scadenza in un anno. Per informazioni aggiuntive sui parametri, ad esempio l'impostazione di un valore di scadenza diverso per i certificati client, vedere [New SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-### <a name="example-1---powershell-console-session-still-open"></a>Esempio 1 - Sessione della console di PowerShell ancora apertaExample 1 - PowerShell console session still open
+### <a name="example-1---powershell-console-session-still-open"></a>Esempio 1: sessione della console di PowerShell ancora aperta
 
-Usare questo esempio se dopo aver creato il certificato radice autofirmato non si è chiusa la console di PowerShell. Questo esempio continua dalla sezione precedente e usa la variabile dichiarata "$cert". Se la console di PowerShell è stata chiusa dopo aver creato il certificato radice autofirmato o si creano certificati client aggiuntivi in una nuova sessione della console di PowerShell, eseguire la procedura descritta [nell'esempio 2.](#ex2)
+Usare questo esempio se dopo aver creato il certificato radice autofirmato non si è chiusa la console di PowerShell. Questo esempio continua dalla sezione precedente e usa la variabile dichiarata "$cert". Se è stata chiusa la console di PowerShell dopo aver creato il certificato radice autofirmato o se sono stati creati certificati client aggiuntivi in una nuova sessione della console di PowerShell, attenersi alla procedura descritta nell' [esempio 2](#ex2).
 
 Modificare ed eseguire l'esempio per generare un certificato client. Se si esegue l'esempio seguente senza modificarlo, il risultato è un certificato client denominato "P2SChildCert".  Se si desidera assegnare un nome diverso al certificato figlio, modificare il valore CN. Non modificare il TextExtension quando si esegue questo esempio. Il certificato client generato viene installato automaticamente in "Certificati-Utente corrente\Personale\Certificati" nel computer in uso.
 
@@ -52,7 +52,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>Esempio 2 - Nuova sessione della console di PowerShellExample 2 - New PowerShell console session
+### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>Esempio 2: nuova sessione della console di PowerShell
 
 Se si creano certificati client aggiuntivi o non si usa la stessa sessione di PowerShell utilizzata per creare il certificato radice autofirmato, usare la procedura seguente:
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 3295c7e677e4c9bf7bff27614fe5fa4fa3200570
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334891"
 ---
 | Risorsa | Limite |
@@ -19,5 +19,5 @@ ms.locfileid: "80334891"
 | [Endpoint interni](/previous-versions/azure/reference/gg557552(v=azure.100)#internalendpoint) per distribuzione |25 |
 | [Certificati di servizi ospitati](../articles/cloud-services/cloud-services-certs-create.md#what-are-service-certificates) per distribuzione |199 |
 
-<sup>1 : il</sup> nome del Ogni servizio cloud di Azure con ruoli Web o di lavoro può avere due distribuzioni, una per la produzione e una per la gestione temporanea. Questo limite si riferisce al numero di ruoli distinti, ovvero alla configurazione. Questo limite non fa riferimento al numero di istanze per ruolo, ovvero al ridimensionamento.
+<sup>1</sup> Ogni servizio cloud di Azure con ruoli Web o di lavoro può avere due distribuzioni, una per la produzione e una per la gestione temporanea. Questo limite indica il numero di ruoli distinti, ovvero la configurazione. Questo limite non si riferisce al numero di istanze per ruolo, ovvero il ridimensionamento.
 

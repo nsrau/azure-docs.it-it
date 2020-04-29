@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271902"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuire e gestire le topologie Apache Storm su Azure HDInsight
@@ -205,7 +205,7 @@ La pagina di riepilogo della topologia Storm è simile a questa pagina Web:
 
 Nella sezione **azioni topologia** è possibile selezionare i pulsanti seguenti per eseguire un'azione:
 
-| Pulsante | Descrizione |
+| Button | Descrizione |
 | --- | --- |
 | Activate | riprende l'elaborazione di una topologia disattivata. |
 | Disattivare | sospende una topologia in esecuzione. |
@@ -255,7 +255,7 @@ L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibil
 | Web Ambari | Nella pagina Web del cluster Ambari (`https://CLUSTERNAME.azurehdinsight.net`) selezionare **Servizi** nella parte superiore della pagina, quindi selezionare **Storm**. Dalla scheda **Riepilogo** selezionare **Storm UI Server** (Server dell'interfaccia utente di Storm). Il nome FQDN del nodo che ospita l'API REST e l'interfaccia utente di Storm è visualizzato nella parte superiore della pagina. |
 | API REST Ambari | usare il comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` per recuperare informazioni sul nodo in cui sono in esecuzione l'interfaccia utente di Storm e l'API REST. Sostituire le due istanze di *clustername* con il nome del cluster. Quando richiesto, immettere la password per l'account utente (amministratore). Nella risposta, la voce "host_name" dell'output JSON contiene il nome di dominio completo (FQDN) del nodo. |
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 Le richieste all'API REST devono usare l' *autenticazione di base*, quindi è necessario usare il nome e la password dell'amministratore per il cluster HDInsight.
 

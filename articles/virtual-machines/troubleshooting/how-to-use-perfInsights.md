@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250127"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
@@ -71,7 +71,7 @@ Questo scenario esegue una traccia dei [contatori delle prestazioni](https://msd
 
 Questo scenario esegue una speciale acquisizione dei contatori delle prestazioni insieme a una traccia di rete. L'acquisizione include tutti i contatori delle condivisioni client Server Message Block, ovvero SMB. I seguenti sono alcuni dei principali contatori delle prestazioni Condivisioni client SMB che fanno parte dell'acquisizione:
 
-| **Tipo**     | **Contatore Condivisioni client SMB** |
+| **Type**     | **Contatore Condivisioni client SMB** |
 |--------------|-------------------------------|
 | IOPS         | Richieste dati/sec             |
 |              | Richieste di lettura/sec             |
@@ -79,14 +79,14 @@ Questo scenario esegue una speciale acquisizione dei contatori delle prestazioni
 | Latenza      | Media secondi/richiesta dati         |
 |              | Media secondi/lettura                 |
 |              | Media secondi/scrittura                |
-| Dimensioni I/O      | Media byte/richiesta di dati       |
+| Dimensioni I/O      | Media byte/richiesta dati       |
 |              | Media byte/lettura               |
 |              | Media byte/scrittura              |
 | Velocità effettiva   | Byte dati/sec                |
 |              | Byte letti/sec                |
 |              | Byte scritti/sec               |
-| Lunghezza coda | Lunghezza media coda di lettura        |
-|              | Lunghezza media coda di scrittura       |
+| Lunghezza coda | Media lunghezza coda di lettura        |
+|              | Media lunghezza coda di scrittura       |
 |              | Lunghezza media coda dati        |
 
 ### <a name="advanced-performance-analysis"></a>Analisi avanzata delle prestazioni
@@ -266,7 +266,7 @@ Nella sezione **Risultati** vengono visualizzate i risultati e le raccomandazion
 
 Le sezioni **Disk Map** (Mapping del disco) e **Volume Map** (Mapping del volume) descrivono la correlazione tra i volumi logici e i dischi fisici.
 
-Dal punto di vista del disco fisico, ovvero Disk Map (Mapping del disco), la tabella mostra tutti i volumi logici in esecuzione sul disco. Nell'esempio **seguente, PhysicalDrive2** esegue due volumi logici creati su più partizioni (J e H):In the following example, PhysicalDrive2 runs two logical volumes created on multiple partitions (J and H):
+Dal punto di vista del disco fisico, ovvero Disk Map (Mapping del disco), la tabella mostra tutti i volumi logici in esecuzione sul disco. Nell'esempio seguente **PhysicalDrive2** esegue due volumi logici creati in più partizioni (J e H):
 
 ![Screenshot della scheda del disco](media/how-to-use-perfInsights/pi-disk-tab.png)
 
@@ -282,7 +282,7 @@ Se la macchina virtuale di destinazione ospita istanze di SQL Server, nel report
 
 Questa sezione contiene una scheda **Risultati** e altre schede per ogni istanza di SQL Server ospitata nella macchina virtuale.
 
-La scheda **Risultati** contiene un elenco di tutti i problemi di prestazioni correlati a SQL rilevati, insieme ai suggerimenti.
+La scheda **risultati** contiene un elenco di tutti i problemi di prestazioni correlati a SQL rilevati, insieme alle raccomandazioni.
 
 Nell'esempio seguente viene visualizzato **PhysicalDrive0** che esegue l'unità C, perché entrambi i file **modeldev** e **modellog** si trovano nell'unità C e sono di tipo diverso, ad esempio file di dati e log delle transazioni rispettivamente.
 

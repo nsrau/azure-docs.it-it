@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254508"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 1.0 nell'array virtuale StorSimple
@@ -58,7 +58,7 @@ Quando si usa l'interfaccia utente Web locale, è necessario eseguire due passag
 * Installare l'aggiornamento o l'hotfix
 
 > [!IMPORTANT] 
-> **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0.6 (10.0.10293.0). Se si esegue una versione precedente, installare prima [l'aggiornamento 0.6](storsimple-virtual-array-install-update-06.md) nel dispositivo e quindi applicare l'aggiornamento 1.**
+> **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0,6 (10.0.10293.0). Se si esegue una versione precedente, installare prima l' [aggiornamento 0,6](storsimple-virtual-array-install-update-06.md) nel dispositivo e quindi applicare l'aggiornamento 1.**
 
 ### <a name="download-the-update-or-the-hotfix"></a>Scaricare l'aggiornamento o l'hotfix
 
@@ -66,7 +66,7 @@ Se l'array virtuale esegue l'aggiornamento 0.6, eseguire i passaggi seguenti per
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Per scaricare l'aggiornamento o l'hotfix
 
-1. Avviare Internet Explorer [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)e passare a .
+1. Avviare Internet Explorer e passare a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 
@@ -76,7 +76,7 @@ Se l'array virtuale esegue l'aggiornamento 0.6, eseguire i passaggi seguenti per
    
     ![Cercare nel catalogo](./media/storsimple-virtual-array-install-update-1/download1.png)
 
-4. Fare clic su **Download**
+4. Fare clic su **Download**.
 
 5. Scaricare i due file in una cartella. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
 
@@ -99,7 +99,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Per installare l'aggiornamento o l'hotfix
 
-1. Nell'interfaccia utente Web locale, passare a**Aggiornamento software**di **manutenzione** > . Prendere nota della versione del software in esecuzione. **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0.6 (10.0.10293.0). Se si esegue una versione precedente, installare prima [l'aggiornamento 0.6](storsimple-virtual-array-install-update-06.md) nel dispositivo e quindi applicare l'aggiornamento 1.**
+1. Nell'interfaccia utente Web locale passare a **manutenzione** > **aggiornamento software**. Prendere nota della versione del software in esecuzione. **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0,6 (10.0.10293.0). Se si esegue una versione precedente, installare prima l' [aggiornamento 0,6](storsimple-virtual-array-install-update-06.md) nel dispositivo e quindi applicare l'aggiornamento 1.**
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
@@ -115,7 +115,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-1/update5m.png)
 
-5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a**Aggiornamento software**di **manutenzione** > . Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10296** per l'aggiornamento 1.0.
+5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione** > **aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10296** per l'aggiornamento 1.0.
    
    > [!NOTE]
    > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale indica **10.0.0.0.0.10296**, mentre il portale di Azure indica **10.0.10296.0** per la stessa versione.

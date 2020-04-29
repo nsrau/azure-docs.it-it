@@ -1,5 +1,5 @@
 ---
-title: Stackify Retrace Azure Linux Agent Extension
+title: Estensione dell'agente Linux di Azure per la ritraccia Stackify
 description: Distribuire l'agente Linux di Stackify Retrace in una macchina virtuale di Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253793"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Estensione dell'agente Linux dello Stackify Retrace
@@ -183,7 +183,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 
 ### <a name="error-codes"></a>Codici di errore
 
-| Codice di errore | Significato | Azione possibile |
+| Codice errore | Significato | Azione possibile |
 | :---: | --- | --- |
 | 10 | Errore di installazione | wget è obbligatorio |
 | 20 | Errore di installazione | python è obbligatorio |
@@ -191,7 +191,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Errore di installazione | activationKey è obbligatorio |
 | 51 | Errore di installazione | Distribuzione del sistema operativo non supportata |
 | 60 | Errore di installazione | l'ambiente è obbligatorio |
-| 70 | Errore di installazione | Unknown |
+| 70 | Errore di installazione | Sconosciuto |
 | 80 | Errore di abilitazione | L'installazione del servizio non è riuscita |
 | 90 | Errore di abilitazione | L'avvio del servizio non è riuscito |
 | 100 | Errore di disabilitazione | L'interruzione del servizio non è riuscita |

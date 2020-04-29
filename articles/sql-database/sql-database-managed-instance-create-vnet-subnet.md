@@ -1,5 +1,5 @@
 ---
-title: Creare una rete virtuale per l'istanza gestitaCreate a virtual network for managed instance
+title: Creare una rete virtuale per l'istanza gestita
 description: Questo articolo descrive come creare una rete virtuale in cui è possibile distribuire Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
 ms.openlocfilehash: 0ce88f9a61b8aa7c2588a6e077d694afa6fb8631
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878851"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creare una rete virtuale per Istanza gestita di database SQL di Azure
@@ -34,7 +34,7 @@ Istanza gestita di database SQL di Azure deve essere distribuita all'interno di 
 >
 > Se si prevede di usare una rete virtuale esistente, è necessario modificare la configurazione di rete in base all'istanza gestita. Per altre informazioni, vedere [Configurare una rete virtuale esistente per Istanza gestita](sql-database-managed-instance-configure-vnet-subnet.md).
 >
-> Dopo la creazione di un'istanza gestita, lo spostamento dell'istanza gestita o della rete virtuale in un altro gruppo di risorse o sottoscrizione non è supportato.  Anche lo spostamento dell'istanza gestita in un'altra subnet non è supportato.
+> Dopo la creazione di un'istanza gestita, lo stato di trasferimento dell'istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.  Anche lo stato di trasferimento dell'istanza gestita in un'altra subnet non è supportato.
 >
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
@@ -60,8 +60,8 @@ Il modo più semplice per creare e configurare una rete virtuale è quello di us
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica, vedere [Che cos'è un'istanza gestita?](sql-database-managed-instance.md).
+- Per una panoramica, vedere [che cos'è un istanza gestita?](sql-database-managed-instance.md).
 - Altre informazioni sull'[architettura della connettività per l'istanza gestita](sql-database-managed-instance-connectivity-architecture.md).
 - Informazioni su come [modificare una rete virtuale esistente per Istanza gestita](sql-database-managed-instance-configure-vnet-subnet.md).
 - Per un'esercitazione che mostra come creare una rete virtuale e un'istanza gestita e ripristinare un database da un backup, vedere [Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started.md).
-- Per problemi relativi al DNS, vedere [Configurazione di un DNS personalizzato.](sql-database-managed-instance-custom-dns.md)
+- Per problemi relativi al DNS, vedere [configurazione di un DNS personalizzato](sql-database-managed-instance-custom-dns.md).

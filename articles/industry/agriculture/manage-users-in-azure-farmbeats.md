@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502056"
 ---
 # <a name="manage-users"></a>Gestire gli utenti
@@ -78,7 +78,7 @@ Attenersi alla procedura per aggiungere utenti a Azure AD:
     ![Riquadro "tutti gli utenti"](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
 
 5. Selezionare il nome del nuovo utente e quindi completare i campi obbligatori per tale utente.
-6. Seleziona **Crea**.
+6. Selezionare **Crea**.
 
 Per informazioni sulla gestione di utenti Azure AD, vedere [aggiungere o eliminare utenti in Azure ad](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
 

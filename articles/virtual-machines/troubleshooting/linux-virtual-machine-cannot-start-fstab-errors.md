@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: 7e16eabc4f9572591eabd37b93258fcd783cce7e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80351141"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori fstab
@@ -98,7 +98,7 @@ Give root password for maintenance
 
 Questo problema può verificarsi se la sintassi fstab (file System Table) non è corretta o se un disco dati richiesto di cui è stato eseguito il mapping a una voce nel file "/etc/fstab" non è collegato alla macchina virtuale.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Per risolvere questo problema, avviare la macchina virtuale in modalità di emergenza usando la console seriale per le macchine virtuali di Azure. Usare quindi lo strumento per ripristinare la file system. Se la console seriale non è abilitata nella macchina virtuale, passare alla sezione [ripristinare la macchina virtuale offline](#repair-the-vm-offline) .
 

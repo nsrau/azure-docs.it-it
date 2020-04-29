@@ -1,61 +1,61 @@
 ---
-title: Sostituzione dello stato gerarchico
-description: Viene illustrato il concetto di componenti di sostituzione dello stato gerarchico.
+title: Override dello stato gerarchico
+description: Viene illustrato il concetto di componenti di override dello stato gerarchico.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: f3be073857cc8583669ab26f306760478479e2ae
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680791"
 ---
-# <a name="hierarchical-state-override"></a>Sostituzione dello stato gerarchico
+# <a name="hierarchical-state-override"></a>Override dello stato gerarchico
 
-In molti casi, è necessario modificare dinamicamente l'aspetto di parti di un [modello,](../../concepts/models.md)ad esempio nascondere sottografi e passare da una parte a un rendering trasparente. La modifica dei materiali di ogni parte coinvolta non è pratica in quanto richiede l'iterazione sull'intero grafico della scena e la gestione della clonazione e dell'assegnazione dei materiali su ogni nodo.
+In molti casi, è necessario modificare dinamicamente l'aspetto delle parti di un [modello](../../concepts/models.md), ad esempio nascondendo sottografici o cambiando parti nel rendering trasparente. Non è possibile modificare i materiali di ogni parte, perché è necessario scorrere l'intero grafico della scena e gestire la clonazione e l'assegnazione di materiali in ogni nodo.
 
-A tale scopo, utilizzare il caso `HierarchicalStateOverrideComponent`con il minor sovraccarico possibile, utilizzare il metodo . Questo componente implementa aggiornamenti dello stato gerarchico su rami arbitrari del grafico della scena. Ciò significa che uno stato può essere definito a qualsiasi livello nel grafico della scena e scorre verso il basso nella gerarchia fino a quando non viene sottoposto a override da un nuovo stato o applicato a un oggetto foglia.
+Per eseguire questo caso di utilizzo con il minor sovraccarico possibile, utilizzare `HierarchicalStateOverrideComponent`. Questo componente implementa gli aggiornamenti di stato gerarchico in rami arbitrari del grafico della scena. Ciò significa che uno stato può essere definito a qualsiasi livello nel grafico della scena e che esegue il gocciolamento della gerarchia fino a quando non viene sottoposto a override da un nuovo stato o applicato a un oggetto foglia.
 
-Ad esempio, si consideri il modello di un'auto e si desidera cambiare l'intera vettura in modo che sia trasparente, ad eccezione della parte interna del motore. Questo caso d'uso coinvolge solo due istanze del componente:
+Si consideri, ad esempio, il modello di un'automobile e si desidera passare l'intera automobile a trasparente, ad eccezione della parte del motore interno. Questo caso d'uso riguarda solo due istanze del componente:
 
-* Il primo componente viene assegnato al nodo radice del modello e attiva il rendering trasparente per l'intera vettura.
-* Il secondo componente viene assegnato al nodo radice del motore ed esegue nuovamente l'override dello stato disattivando in modo esplicito la modalità di visualizzazione.
+* Il primo componente viene assegnato al nodo radice del modello e attiva il rendering trasparente per l'intera automobile.
+* Il secondo componente viene assegnato al nodo radice del motore e sostituisce di nuovo lo stato disattivando in modo esplicito la modalità di visualizzazione.
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>Caratteristiche
 
-Il set fisso di stati che possono essere sostituiti sono:
+Il set fisso di Stati di cui è possibile eseguire l'override sono:
 
-* **Nascosto**: Le maglie rispettive nel grafico della scena sono nascoste o mostrate.
-* **Tint color (Colore tinta):** un oggetto sottoposto a rendering può essere colorato con il colore e lo spessore della tinta individuale. L'immagine seguente mostra il colore che si sciolse il bordo di una ruota.
+* **Nascosto**: le mesh corrispondenti nel grafico della scena sono nascoste o visualizzate.
+* **Colore tinta**: un oggetto di cui è stato eseguito il rendering può essere colorato con il colore della tinta singola e il peso della tinta. L'immagine seguente mostra la colorazione del bordo di una rotellina.
   
-  ![Tinta colore](./media/color-tint.png)
+  ![Tinta del colore](./media/color-tint.png)
 
-* **See-through**: La geometria viene renderizzata in modo semitrasparente, ad esempio per rivelare le parti interne di un oggetto. L'immagine seguente mostra l'intera vettura sottoposta a rendering in modalità di intratpareti, ad eccezione della pinza rossa del freno:
+* **See-through**: la geometria viene sottoposta a rendering semi-trasparente, ad esempio per rivelare le parti interne di un oggetto. Nell'immagine seguente viene mostrata l'intera automobile sottoposta a rendering in modalità di visualizzazione, ad eccezione della pinza del freno rossa:
 
-  ![Trasparente](./media/see-through.png)
+  ![Vedere](./media/see-through.png)
 
   > [!IMPORTANT]
-  > L'effetto di selezione funziona solo quando viene utilizzata la [modalità](../../concepts/rendering-modes.md) di rendering *TileBasedComposition.*
+  > L'effetto See-through funziona solo quando viene usata la [modalità di rendering](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
-* **Selezionato**: La geometria viene sottoposta a rendering con un [contorno](outlines.md)di selezione .
+* **Selezionato**: la geometria viene sottoposta a rendering con una [struttura di selezione](outlines.md).
 
-  ![Contorno di selezione](./media/selection-outline.png)
+  ![Struttura di selezione](./media/selection-outline.png)
 
-* **DisableCollision**: La geometria è esente da [query spaziali.](spatial-queries.md) Il flag **Nascosto** non disattiva le collisioni, pertanto questi due flag sono spesso impostati insieme.
+* **DisableCollision**: la geometria è esentata dalle [query spaziali](spatial-queries.md). Il flag **Hidden** non disattiva i conflitti, quindi questi due flag vengono spesso impostati insieme.
 
 ## <a name="hierarchical-overrides"></a>Sostituzioni gerarchiche
 
-L'oggetto `HierarchicalStateOverrideComponent` può essere collegato a più livelli di una gerarchia di oggetti. Poiché può essere presente un solo componente `HierarchicalStateOverrideComponent` di ogni tipo su un'entità, ognuno gestisce gli stati per nascosto, see-through, selezionato, tinta di colore e collisione.
+Il `HierarchicalStateOverrideComponent` può essere collegato a più livelli di una gerarchia di oggetti. Poiché può essere presente solo un componente di ogni tipo in un'entità, ognuno `HierarchicalStateOverrideComponent` gestisce gli Stati per le proprietà nascoste, see-through, Selected, color e Collision.
 
-Pertanto ogni stato può essere impostato su uno dei:
+Pertanto, ogni stato può essere impostato su uno dei seguenti:
 
-* `ForceOn`- lo stato è abilitato per tutte le mesh al di sotto e al di sotto di questo nodo
-* `ForceOff`- lo stato è disabilitato per tutte le maglie al di sotto e al di sotto di questo nodo
-* `InheritFromParent`- lo stato non è influenzato da questo componente di sostituzione- the state is unaffected by this override component
+* `ForceOn`-lo stato è abilitato per tutti i mesh al di sotto di questo nodo
+* `ForceOff`-lo stato è disabilitato per tutte le mesh al di sotto di questo nodo
+* `InheritFromParent`-lo stato non è interessato da questo componente di sostituzione
 
-È possibile modificare gli `SetState` stati direttamente o tramite la funzione:
+È possibile modificare gli stati direttamente o tramite `SetState` la funzione:
 
 ```cs
 HierarchicalStateOverrideComponent component = ...;
@@ -72,13 +72,13 @@ component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollisi
 
 ### <a name="tint-color"></a>Colore tinta
 
-La sostituzione del colore della tinta è leggermente speciale in quanto è presente sia uno stato on/off/inherit che una proprietà di colore tinta. La parte alfa del colore della tinta definisce lo spessore dell'effetto di colorazione: se impostato su 0,0, non è visibile alcun colore di tinta e se impostato su 1,0 l'oggetto verrà sottoposto a rendering con colore di tinta puro. Per i valori intermedi, il colore finale verrà mescolato con il colore della tinta. Il colore della tinta può essere modificato in base al fotogramma per ottenere un'animazione del colore.
+L'override del colore di tinta è leggermente speciale in quanto è disponibile uno stato on/off/inherit e una proprietà Color tinta. La parte alfa del colore tinta definisce il peso dell'effetto colorazione: se è impostato su 0,0, non è visibile alcun colore tinta e se è impostato su 1,0 verrà eseguito il rendering dell'oggetto con il colore tinta pura. Per i valori in-between, il colore finale verrà combinato con il colore della tinta. Il colore della tinta può essere modificato in base ai singoli fotogrammi per ottenere un'animazione colori.
 
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
-Un'istanza `HierarchicalStateOverrideComponent` di se stessa non aggiunge molto sovraccarico di runtime. Tuttavia, è sempre buona norma mantenere basso il numero di componenti attivi. Ad esempio, quando si implementa un sistema di selezione che evidenzia l'oggetto selezionato, si consiglia di eliminare il componente quando l'evidenziazione viene rimossa. Mantenere i componenti con caratteristiche neutre può rapidamente sommarsi.
+Un'istanza di `HierarchicalStateOverrideComponent` se stessa non aggiunge molto sovraccarico in fase di esecuzione. Tuttavia, è sempre consigliabile evitare che il numero di componenti attivi sia basso. Ad esempio, quando si implementa un sistema di selezione che evidenzia l'oggetto selezionato, è consigliabile eliminare il componente quando l'evidenziazione viene rimossa. Il mantenimento dei componenti con funzionalità neutre può essere aggiunto rapidamente.
 
-Il rendering trasparente attribuisce più carico di lavoro alle GPU del server rispetto al rendering standard. Se grandi parti del grafico della scena vengono commutate in *riquadri*visibili, con molti layer di geometria visibili, potrebbe diventare un collo di bottiglia delle prestazioni. Lo stesso vale per gli oggetti con [contorni di selezione.](../../overview/features/outlines.md#performance)
+Il rendering trasparente mette un carico di lavoro maggiore sulle GPU del server rispetto al rendering standard. Se le parti grandi del grafico della scena vengono passate a *See-through*, con molti livelli di geometria visibili, potrebbe diventare un collo di bottiglia delle prestazioni. Lo stesso valore è valido per gli oggetti con [strutture di selezione](../../overview/features/outlines.md#performance).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,10 +4,10 @@ description: Questo articolo descrive come ripristinare SQL Server database in e
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252454"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
@@ -84,7 +84,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 2. Selezionare il nome di SQL Server e l'istanza in cui si vuole ripristinare il database.
 3. Nella finestra di dialogo **Nome del database ripristinato** inserire il nome del database di destinazione.
 4. Se applicabile, scegliere **Sovrascrivere se il database con lo stesso nome esiste già nell'istanza selezionata di SQL**.
-5. Fare clic su **OK**.
+5. Selezionare **OK**.
 
     ![Fornire valori per il menu Configurazione di ripristino](./media/backup-azure-sql-database/restore-configuration.png)
 
@@ -120,7 +120,7 @@ Per ripristinare i dati di backup come file con estensione bak anziché come dat
     >- Avviare un ripristino come file dall'insieme di credenziali per il `\\<storageacct>.file.core.windows.net\<filesharename>` backup a come percorso<BR>
     È possibile scaricare PsExec tramite<https://docs.microsoft.com/sysinternals/downloads/psexec>
 
-4. Fare clic su **OK**.
+4. Selezionare **OK**.
 
     ![Selezionare Ripristina come file](./media/backup-azure-sql-database/restore-as-files.png)
 
@@ -148,7 +148,7 @@ Se si è scelto **log (punto temporizzato)** come tipo di ripristino, eseguire l
 
 1. Nel menu **configurazione avanzata** , se si desidera lasciare il database non operativo dopo il ripristino, abilitare **RESTORE WITH NORECOVERY**.
 1. Se si vuole modificare il percorso di ripristino nel server di destinazione, specificare un nuovo percorso di destinazione.
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
     ![Menu configurazione avanzata](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
@@ -170,7 +170,7 @@ Se si è scelto **Completo e differenziale** come tipo di ripristino, eseguire l
 
 1. Nel menu **configurazione avanzata** , se si desidera lasciare il database non operativo dopo il ripristino, abilitare **RESTORE WITH NORECOVERY**.
 1. Se si vuole modificare il percorso di ripristino nel server di destinazione, specificare un nuovo percorso di destinazione.
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
     ![Menu configurazione avanzata](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
