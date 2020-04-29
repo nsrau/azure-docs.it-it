@@ -1,6 +1,6 @@
 ---
-title: IS_BOOL nel linguaggio di query del database Cosmos di AzureGet in Azure Cosmos DB query language
-description: Informazioni sulla funzione del sistema SQL IS_BOOL in Azure Cosmos DB.
+title: IS_BOOL nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL IS_BOOL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b7f1cfb09121309e246b314d57a5e4e475bd0983
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303869"
 ---
 # <a name="is_bool-azure-cosmos-db"></a>IS_BOOL (Azure Cosmos DB)
@@ -25,8 +25,8 @@ IS_BOOL(<expr>)
   
 ## <a name="arguments"></a>Argomenti
   
-*Expr*  
-   È qualsiasi espressione.  
+*expr*  
+   Qualsiasi espressione.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -34,7 +34,7 @@ IS_BOOL(<expr>)
   
 ## <a name="examples"></a>Esempi
   
-  L'esempio seguente controlla gli oggetti di tipi JSON Boolean, Number, string, null, object, array e undefined utilizzando la `IS_BOOL` funzione.  
+  L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando `IS_BOOL` la funzione.  
   
 ```sql
 SELECT   
@@ -55,10 +55,10 @@ SELECT
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema beneficerà di un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni di controllo dei tipi Azure Cosmos DBType checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
+- [Funzioni di controllo dei tipi Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

@@ -1,6 +1,6 @@
 ---
-title: TRUNC nel linguaggio di query di Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL TRUNC in Azure Cosmos DB.
+title: TRONCA nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulla funzione di sistema SQL tronca in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8bad33f593bae2679c83d59ae4567dcab4a64809
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78304226"
 ---
-# <a name="trunc-azure-cosmos-db"></a>TRUNC (Azure Cosmos DB)
+# <a name="trunc-azure-cosmos-db"></a>TRONCA (Azure Cosmos DB)
  Restituisce un valore numerico, troncato al valore integer più vicino.  
   
 ## <a name="syntax"></a>Sintassi
@@ -48,7 +48,7 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema beneficerà di un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

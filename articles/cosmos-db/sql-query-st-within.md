@@ -1,6 +1,6 @@
 ---
-title: ST_WITHIN nel linguaggio di query del database Cosmos di AzureUse in Azure Cosmos DB query language
-description: Informazioni sulla funzione del sistema SQL ST_WITHIN in Azure Cosmos DB.
+title: ST_WITHIN nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL ST_WITHIN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 07a339d82f5e4bea1ea0412a5d5b19522611b54a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78296117"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *spatial_expr*  
-   È un'espressione oggetto GeoJSON Point, Polygon o LineString.  
+   È un'espressione di oggetto GeoJSON Point, Polygon o LineString.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -34,7 +34,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene illustrato come trovare `ST_WITHIN`tutti i documenti di famiglia all'interno di un poligono utilizzando .  
+  Nell'esempio seguente viene illustrato come trovare tutti i documenti della famiglia all'interno `ST_WITHIN`di un poligono usando.  
   
 ```sql
 SELECT f.id
@@ -53,7 +53,7 @@ WHERE ST_WITHIN(f.location, {
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema beneficerà di un [indice geospaziale.](index-policy.md#spatial-indexes)
+Questa funzione di sistema trarrà vantaggio da un [Indice geospaziale](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: ATAN nel linguaggio di query del database Cosmos di Azure
-description: Informazioni su come la funzione del sistema SQL Arctangent (ATAN ) in Azure Cosmos DB restituisce l'angolo, in radianti, la cui tangente è l'espressione numerica specificata
+title: ATAN in linguaggio di query Azure Cosmos DB
+description: Informazioni sul modo in cui la funzione di sistema SQL arcotangente (ATAN) in Azure Cosmos DB restituisce l'angolo, in radianti, la cui tangente corrisponde all'espressione numerica specificata.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 899c94a939be7825dca82522eab235bde9252896
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302679"
 ---
 # <a name="atan-azure-cosmos-db"></a>ATAN (Azure Cosmos DB)
@@ -34,7 +34,7 @@ ATAN(<numeric_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente `ATAN` viene restituito l'oggetto del valore specificato.  
+  Nell'esempio seguente viene restituito `ATAN` l'oggetto del valore specificato.  
   
 ```sql
 SELECT ATAN(-45.01) AS atan  

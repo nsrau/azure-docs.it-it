@@ -1,5 +1,5 @@
 ---
-title: Regole in uscita - Azure Load BalancerOutbound rules - Azure Load Balancer
+title: Regole in uscita-Azure Load Balancer
 description: Con questo percorso di apprendimento, iniziare a usare le regole in uscita per definire le traduzioni degli indirizzi di rete in uscita.
 services: load-balancer
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
 ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78304192"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regole in uscita di Load Balancer
@@ -34,7 +34,7 @@ Le regole in uscita consentono di controllare:
 - La modalità di allocazione delle [porte SNAT in uscita](load-balancer-outbound-connections.md#snat).
 - Per quali protocolli implementare la conversione in uscita.
 - Quale durata usare per il timeout di inattività delle connessioni in uscita (4-120 minuti).
-- se inviare un ripristino TCP al timeout di inattività
+- indica se inviare una reimpostazione TCP al timeout di inattività
 
 Le regole in uscite estendono lo [scenario 2](load-balancer-outbound-connections.md#lb) descritto nell'articolo dedicato alle [connessioni in uscita](load-balancer-outbound-connections.md) senza variazioni per l'ordine di precedenza degli scenari.
 
@@ -42,7 +42,7 @@ Le regole in uscite estendono lo [scenario 2](load-balancer-outbound-connections
 
 Come tutte le regole di Load Balancer, le regole in uscita seguono la stessa sintassi familiare delle regole di bilanciamento del carico e delle regole NAT in ingresso:
 
-**frontend** + **pool** + **back-end** dei parametri frontend
+**pool back**-end**parametri** + front-**end**  + 
 
 Una regola in uscita configura NAT in uscita per _tutte le macchine virtuali identificate dal pool back-end_ da convertire in _front-end_.  E i _parametri_ offrono ulteriore controllo dettagliato sull'algoritmo NAT in uscita.
 
@@ -83,9 +83,9 @@ Usare il parametro seguente per allocare 10.000 porte SNAT per ogni macchina vir
 
           "allocatedOutboundPorts": 10000
 
-Ogni indirizzo IP pubblico da tutti i front-end di una regola in uscita rende disponibili fino a 64.000 porte temporanee da usare come porte SNAT.  Load Balancer alloca le porte SNAT in multipli di 8. Se si specifica un valore non divisibile per 8, l'operazione di configurazione viene rifiutata.  Se si tenta di allocare più porte SNAT di quante ne siano disponibili in base al numero di indirizzi IP pubblici, l'operazione di configurazione viene rifiutata.  Ad esempio, se si allocano 10.000 porte per macchina virtuale e 7 macchine virtuali in un pool back-end condividerebbero un singolo indirizzo IP pubblico, la configurazione viene rifiutata (7 x 10.000 porte SNAT > 64.000 porte SNAT).  È possibile aggiungere altri indirizzi IP al front-end della regola in uscita per abilitare questo scenario.
+Ogni indirizzo IP pubblico da tutti i front-end di una regola in uscita rende disponibili fino a 64.000 porte temporanee da usare come porte SNAT.  Load Balancer alloca le porte SNAT in multipli di 8. Se si specifica un valore non divisibile per 8, l'operazione di configurazione viene rifiutata.  Se si tenta di allocare più porte SNAT di quante ne siano disponibili in base al numero di indirizzi IP pubblici, l'operazione di configurazione viene rifiutata.  Se ad esempio si allocano 10.000 porte per macchina virtuale e 7 macchine virtuali in un pool back-end condividono un solo indirizzo IP pubblico, la configurazione viene rifiutata (7 x 10.000 porte SNAT > 64.000 porte SNAT).  È possibile aggiungere altri indirizzi IP al front-end della regola in uscita per abilitare questo scenario.
 
-È possibile tornare all'[allocazione automatica delle porte SNAT basata sulle dimensioni dei pool back-end](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. In tal caso le prime 50 istanze della macchina virtuale otterranno 1024 porte, 51-100 istanze di macchine virtuali otterranno 512 e così via in base alla tabella.
+È possibile tornare all'[allocazione automatica delle porte SNAT basata sulle dimensioni dei pool back-end](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. In tal caso, la prima istanza di VM 50 otterrà 1024 porte, 51-100 istanze di VM otterranno 512 e così via in base alla tabella.
 
 ### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a> Controllare il timeout di inattività per i flussi in uscita
 
@@ -95,7 +95,7 @@ Per impostare il timeout di inattività in uscita su 1 ora, usare il parametro s
 
           "idleTimeoutInMinutes": 60
 
-### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Abilita la reimpostazione TCP al timeout di inattività
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Abilitare la reimpostazione TCP al timeout di inattività
 
 Il comportamento predefinito di Load Balancer prevede l'eliminazione automatica del flusso quando viene raggiunto il timeout di inattività in uscita.  Con il parametro enableTCPReset, è possibile abilitare un comportamento dell'applicazione più prevedibile e stabilire se inviare un TCP Reset bidirezionale (TCP RST) quando si verifica il timeout di inattività in uscita. 
 
@@ -103,7 +103,7 @@ Per abilitare TCP Reset per una regola in uscita, usare il parametro seguente:
 
            "enableTcpReset": true
 
-Per informazioni dettagliate, inclusa la disponibilità dell'area, vedere [Tcp Reset on idle timeout.](https://aka.ms/lbtcpreset)
+Esaminare [il timeout di inattività](https://aka.ms/lbtcpreset) per i dettagli, inclusa la disponibilità dell'area.
 
 ### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a> Supportare sia TCP che UDP come protocolli di trasporto con una singola regola
 
@@ -206,11 +206,11 @@ Quando si usa un Load Balancer Standard interno, NAT in uscita non è disponibil
 - Il numero massimo di porte temporanee utilizzabili per ogni indirizzo IP front-end è 64.000.
 - L'intervallo del timeout di inattività in uscita configurabile è compreso tra 4 a 120 minuti (da 240 a 7200 secondi).
 - Load Balancer non supporta ICMP per NAT in uscita.
-- Le regole in uscita possono essere applicate solo alla configurazione IP primaria di una scheda di interfaccia di rete.  Sono supportate più schede di interfaccia di rete.
+- Le regole in uscita possono essere applicate solo alla configurazione IP primaria di una scheda di interfaccia di rete.  Sono supportate più schede di rete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sull'uso di [Load Balancer per le connessioni in uscita](load-balancer-outbound-connections.md).
-- Altre informazioni su [Azure Load Balancer Standard](load-balancer-standard-overview.md).
+- Informazioni sulle [Load Balancer standard](load-balancer-standard-overview.md).
 - Altre informazioni su [TCP Reset bidirezionale in caso di timeout di inattività](load-balancer-tcp-reset.md).
 - [Configurare le regole in uscita e il bilanciamento del carico in Load Balancer Standard usando l'interfaccia della riga di comando di Azure](configure-load-balancer-outbound-cli.md).

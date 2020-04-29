@@ -1,5 +1,5 @@
 ---
-title: Come ridimensionare una macchina virtuale Linux con l'interfaccia della riga di comando di AzureHow to resize a Linux VM with the Azure CLI
+title: Come ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure
 description: Come ridimensionare una macchina virtuale di Linux, modificando le dimensioni della VM.
 author: mikewasson
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.openlocfilehash: 20e7db80b55347c4a4a76b7c95d4d8bec368abda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78969272"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Ridimensionare una macchina virtuale Linux tramite l'interfaccia della riga di comando di Azure 
@@ -46,7 +46,7 @@ Per ridimensionare una VM, è necessario aver installato la versione più recent
    > La deallocazione della VM rilascia anche degli indirizzi IP dinamici assegnati alla VM. I dischi del sistema operativo e dei dati non sono coinvolti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per una scalabilità aggiuntiva, eseguire più istanze di macchine virtuali e scalare orizzontalmente. Per ulteriori informazioni, consultate Ridimensionare automaticamente le macchine Linux in un set di [scalabilità][scale-set]di macchine virtuali . 
+Per una maggiore scalabilità, eseguire più istanze di VM e scalare in orizzontale. Per altre informazioni, vedere [ridimensionare automaticamente i computer Linux in un set di scalabilità di macchine virtuali][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

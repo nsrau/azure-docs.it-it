@@ -1,14 +1,14 @@
 ---
-title: Sistema operativo e cadenza di applicazione delle patch di runtime
-description: Informazioni su come il servizio app di Azure aggiorna il sistema operativo e i runtime, quali runtime e livello di patch sono disponibili nelle app e come è possibile ottenere gli annunci di aggiornamento.
+title: Cadenza della patch del sistema operativo e del runtime
+description: Informazioni sul modo in cui il servizio app Azure aggiorna il sistema operativo e i runtime, i runtime e il livello di patch disponibili per le app e come è possibile ottenere gli annunci degli aggiornamenti.
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
 ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273628"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
@@ -51,7 +51,7 @@ Gli annunci relativi a runtime aggiornati e deprecati sono disponibili qui:
 
 ### <a name="new-patch-updates"></a>Nuove patch di aggiornamento
 
-Le patch di aggiornamento per la versione di .NET, PHP, Java SDK o Tomcat/Jetty vengono applicate automaticamente sovrascrivendo l'installazione esistente con la nuova versione. Le patch di aggiornamento di Node.js vengono installate affiancate alle versioni esistenti (in modo analogo alle versioni principale e secondaria nella sezione successiva). Le nuove versioni delle patch Python possono essere installate manualmente tramite [le estensioni](https://azure.microsoft.com/blog/azure-web-sites-extensions/)del sito, affiancate alle installazioni Python integrate.
+Le patch di aggiornamento per la versione di .NET, PHP, Java SDK o Tomcat/Jetty vengono applicate automaticamente sovrascrivendo l'installazione esistente con la nuova versione. Le patch di aggiornamento di Node.js vengono installate affiancate alle versioni esistenti (in modo analogo alle versioni principale e secondaria nella sezione successiva). Le nuove versioni di patch di Python possono essere installate manualmente tramite le [estensioni del sito](https://azure.microsoft.com/blog/azure-web-sites-extensions/)affiancate alle installazioni predefinite di Python.
 
 ### <a name="new-major-and-minor-versions"></a>Nuove versioni principali e secondarie
 

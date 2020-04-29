@@ -1,5 +1,5 @@
 ---
-title: Spostare file da e verso macchine virtuali di Azure Linux con SCPMove files to and from Azure Linux VMs with SCP
+title: Spostare file da e verso VM Linux di Azure con SCP
 description: Spostare in sicurezza file da e verso una macchina virtuale Linux in Azure usando SCP e una coppia di chiavi SSH.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,10 +9,10 @@ ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: a0837790b70de42073338bf085ee0f3976b866f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78969612"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Spostare file da e verso una macchina virtuale Linux usando SCP
@@ -65,7 +65,7 @@ Il comando seguente consente di copiare i file contenuti nella directory */home/
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-Il `-r` flag indica a SCP di copiare in modo ricorsivo i file e le directory dal punto della directory elencata nel comando.  Osservare inoltre come la sintassi della riga di comando sia simile al comando di copia `cp`.
+Il `-r` flag indica a SCP di copiare in modo ricorsivo i file e le directory dal punto della directory elencato nel comando.  Osservare inoltre come la sintassi della riga di comando sia simile al comando di copia `cp`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

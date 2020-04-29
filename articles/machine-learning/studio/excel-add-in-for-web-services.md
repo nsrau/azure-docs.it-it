@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
 ms.openlocfilehash: e30103589c1baf9a165839cd041ff511a119c5ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204376"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Componente aggiuntivo di Excel per i servizi Web di Azure Machine Learning Studio (classico)
@@ -39,13 +39,13 @@ Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun c
    
     ![Sezione Stima](./media/excel-add-in-for-web-services/image1.png)
 
-Distribuire un servizio Web o usarne uno esistente. Per ulteriori informazioni sulla distribuzione di un servizio Web, vedere [Esercitazione 3: Distribuire](tutorial-part3-credit-risk-deploy.md)il modello di rischio di credito .
+Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
 
 Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l'operazione varia a seconda che sia stato pubblicato un servizio Web classico o un nuovo servizio Web di Machine Learning.
 
 **Usare un servizio Web classico** 
 
-1. In Machine Learning Studio (classico) fare clic sulla sezione **WEB SERVICES** nel riquadro sinistro e quindi selezionare il servizio Web.
+1. In Machine Learning Studio (classico), fare clic sulla sezione **servizi Web** nel riquadro sinistro, quindi selezionare il servizio Web.
    
     ![Selezione di un servizio Web in Studio](./media/excel-add-in-for-web-services/image4.png)
 2. Copiare la chiave dell'API per il servizio Web.
@@ -55,22 +55,22 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 4. Cercare la sezione **Request URI** (Richiedi URI).  Copiare e salvare l'URL.
 
 > [!NOTE]
-> È ora possibile accedere al portale dei servizi Web di [Azure Machine Learning](https://services.azureml.net) per ottenere la chiave API per un servizio Web classico di Machine Learning.
+> È ora possibile accedere al portale dei [servizi web Azure Machine Learning](https://services.azureml.net) per ottenere la chiave API per un servizio web di Machine Learning classico.
 > 
 > 
 
-**Usare un nuovo servizio WebUse a New web service**
+**Usare un nuovo servizio Web**
 
-1. Nel portale dei servizi Web di [Azure Machine Learning](https://services.azureml.net) fare clic su Servizi **Web**, quindi selezionare il servizio Web. 
+1. Nel portale dei [servizi web Azure Machine Learning](https://services.azureml.net) fare clic su **servizi Web**, quindi selezionare il servizio Web. 
 2. Fare clic su **Consume**(Uso).
 3. Cercare la sezione **Basic consumption info** (Informazioni di base sull'uso). Copiare e salvare il valore di **Primary Key** (Chiave primaria) e l'URL **Request-Response** (Richiesta-risposta).
 
 ## <a name="steps-to-add-a-new-web-service"></a>Procedura per aggiungere un nuovo servizio Web
 
-1. Distribuire un servizio Web o usarne uno esistente. Per ulteriori informazioni sulla distribuzione di un servizio Web, vedere [Esercitazione 3: Distribuire](tutorial-part3-credit-risk-deploy.md)il modello di rischio di credito .
+1. Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
 2. Fare clic su **Consume**(Uso).
 3. Cercare la sezione **Basic consumption info** (Informazioni di base sull'uso). Copiare e salvare il valore di **Primary Key** (Chiave primaria) e l'URL **Request-Response** (Richiesta-risposta).
-4. In Excel passare alla sezione **Servizi Web** (se ci si trova nella sezione **Previsione,** fare clic sulla freccia indietro per passare all'elenco dei servizi Web).
+4. In Excel passare alla sezione **servizi Web** (se si è nella sezione **stima** , fare clic sulla freccia indietro per passare all'elenco dei servizi Web).
    
     ![Passare alla selezione del servizio Web](./media/excel-add-in-for-web-services/image3.png)
 5. Fare clic su **Aggiungi servizio Web**.

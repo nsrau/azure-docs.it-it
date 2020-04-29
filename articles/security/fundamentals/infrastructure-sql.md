@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78942962"
 ---
 # <a name="azure-sql-database-security-features"></a>Funzionalità di sicurezza del database SQL di Azure    
@@ -75,7 +75,7 @@ L'isolamento del sistema operativo radice dalle VM guest e delle VM guest l'una 
 ### <a name="types-of-rules-on-firewalls"></a>Tipi di regole nei firewall
 Una regola viene definita come mostrato di seguito.
 
-IP Src, Porta Src, IP di destinazione, Porta di destinazione, Protocollo di destinazione, In/Out, Con stato/Senza stato, Timeout flusso con stato.
+{Src IP, porta src, IP di destinazione, porta di destinazione, protocollo di destinazione, in/out, con stato/senza stato, timeout del flusso con stato}.
 
 I pacchetti SYN (Synchronous idle character) sono consentiti in entrata e in uscita solo se autorizzati da una regola. Per TCP, Azure usa regole senza stato il cui principio è che sono consentiti solo i pacchetti non SYN in entrata e in uscita dalla VM. Il presupposto di sicurezza è che qualsiasi stack host evita di ignorare un pacchetto non SYN se non ne ha mai visto uno in precedenza. Il protocollo TCP stesso è con stato e, in combinazione con la regola basata su SYN senza stato, adotta il comportamento generale di un'implementazione con stato.
 

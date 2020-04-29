@@ -4,10 +4,10 @@ description: Introduzione alle attività di ACR, una suite di funzionalità in A
 ms.topic: article
 ms.date: 01/22/2020
 ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79087279"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
@@ -119,7 +119,7 @@ La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per 
 
 Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il `--platform` tag per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/ `--platform Linux/arm`architettura (ad esempio,). Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante ( `--platform Linux/arm64/v8`ad esempio,):
 
-| OS | Architecture|
+| Sistema operativo | Architecture|
 | --- | ------- | 
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |

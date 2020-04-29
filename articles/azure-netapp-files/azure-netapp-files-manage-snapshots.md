@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: b-juche
 ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78267910"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
-È possibile usare File NetApp di Azure per creare manualmente uno snapshot su richiesta per un volume o eseguire il ripristino da uno snapshot a un nuovo volume. Il servizio File NetApp di Azure non crea automaticamente snapshot di volume.  
+È possibile usare Azure NetApp Files per creare manualmente uno snapshot su richiesta per un volume o un ripristino da uno snapshot in un nuovo volume. Il servizio Azure NetApp Files non crea automaticamente snapshot del volume.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creare uno snapshot su richiesta per un volume
 
@@ -72,7 +72,7 @@ Attualmente, è possibile ripristinare uno snapshot solo in un nuovo volume.
 
     *   **Rete virtuale**  
         Specificare la rete virtuale di Azure da cui si vuole accedere al volume.  
-        Per la rete virtuale specificata è necessario delegare una subnet ad Azure NetApp Files. Azure NetApp Files è accessibile solo dalla stessa rete virtuale o da una rete virtuale presente nella stessa area del volume tramite il peering delle reti virtuali. È possibile accedere al volume dalla rete locale tramite Express Route. 
+        Per la rete virtuale specificata è necessario delegare una subnet ad Azure NetApp Files. Azure NetApp Files è accessibile solo dalla stessa rete virtuale o da una rete virtuale presente nella stessa area del volume tramite il peering delle reti virtuali. È possibile accedere al volume dalla rete locale tramite Express route. 
 
     * **Subnet**  
         Specificare la subnet desiderata per il volume.  

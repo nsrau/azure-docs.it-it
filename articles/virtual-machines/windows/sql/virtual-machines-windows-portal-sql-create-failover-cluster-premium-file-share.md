@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
 ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303223"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server con una condivisione file Premium in macchine virtuali di Azure
@@ -101,7 +101,7 @@ Con questi prerequisiti, è possibile iniziare a compilare il cluster di failove
 
    1. Nella portale di Azure selezionare **Crea una risorsa** per aprire Azure Marketplace. Cercare **Set di disponibilità**.
    1. Selezionare **set di disponibilità**.
-   1. Seleziona **Crea**.
+   1. Selezionare **Crea**.
    1. In **Crea set di disponibilità**specificare i valori seguenti:
       - **Nome**: nome del set di disponibilità.
       - **Sottoscrizione**: la sottoscrizione di Azure.
@@ -332,7 +332,7 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Selezionare **Aggiungi**. Cerca **Load Balancer**in Azure Marketplace. Selezionare **Load Balancer**.
 
-1. Seleziona **Crea**.
+1. Selezionare **Crea**.
 
 1. Configurare il servizio di bilanciamento del carico usando i valori seguenti:
 
@@ -377,7 +377,7 @@ Per creare il servizio di bilanciamento del carico:
    - **Intervallo**: 5 secondi.
    - **Soglia di non integrità**: 2 errori consecutivi.
 
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 ### <a name="set-load-balancing-rules"></a>Impostare le regole di bilanciamento del carico
 
@@ -397,7 +397,7 @@ Per creare il servizio di bilanciamento del carico:
    - **Timeout di inattività (minuti)**: 4.
    - **IP mobile (Direct Server Return)**: abilitata.
 
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 ## <a name="step-7-configure-the-cluster-for-the-probe"></a>Passaggio 7: configurare il cluster per il probe
 
@@ -465,7 +465,7 @@ In macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016 o 
 - Non è possibile configurare la risorsa MSDTC in cluster per usare l'archiviazione condivisa. In Windows Server 2016, se si crea una risorsa MSDTC, non verrà visualizzata alcuna archiviazione condivisa disponibile per l'uso, anche se è disponibile spazio di archiviazione. Questo problema è stato risolto per Windows Server 2019.
 - Il servizio di bilanciamento del carico di base non gestisce le porte RPC.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server istanze del cluster di failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

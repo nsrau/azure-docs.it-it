@@ -1,6 +1,6 @@
 ---
-title: SQUARE nel linguaggio di query di Azure Cosmos DB
-description: Informazioni sulla funzione SQUARE del sistema SQL in Azure Cosmos DB.
+title: QUADRATO in linguaggio Azure Cosmos DB query
+description: Informazioni sul quadrato della funzione di sistema SQL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303444"
 ---
-# <a name="square-azure-cosmos-db"></a>SQUARE (Azure Cosmos DB)
+# <a name="square-azure-cosmos-db"></a>QUADRATO (Azure Cosmos DB)
  Restituisce il quadrato del valore numerico specificato.  
   
 ## <a name="syntax"></a>Sintassi

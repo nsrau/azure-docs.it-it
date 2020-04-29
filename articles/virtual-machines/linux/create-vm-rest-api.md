@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale Linux con l'API RESTCreate a Linux VM with the REST API
+title: Creare una VM Linux con l'API REST
 description: Informazioni su come creare una macchina virtuale Linux in Azure che usa l'autenticazione SSH e Managed Disks tramite l'API REST di Azure.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78970265"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
@@ -45,8 +45,8 @@ Gli argomenti seguenti sono obbligatori:
 
 | Intestazione della richiesta   | Descrizione |
 |------------------|-----------------|
-| *Tipo di contenuto:*  | Obbligatorio. Impostare su `application/json`. |
-| *Autorizzazione:* | Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
+| *Content-Type:*  | Obbligatorio. Impostare su `application/json`. |
+| *Authorization:* | Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
 
 Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Componenti di una richiesta/risposta dell'API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -54,10 +54,10 @@ Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Com
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-| Nome                       | Obbligatoria | Type                                                                                | Descrizione  |
+| Name                       | Obbligatoria | Type                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | posizione                   | True     | string                                                                              | Percorso della risorsa. |
-| name                       |          | string                                                                              | Nome della macchina virtuale. |
+| name                       |          | stringa                                                                              | Nome della macchina virtuale. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Specifica le impostazioni hardware per la macchina virtuale. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Specifica le impostazioni di archiviazione per i dischi della macchina virtuale. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Specifica le impostazioni del sistema operativo per la macchina virtuale. |
@@ -118,7 +118,7 @@ Un esempio di corpo di richiesta è riportato di seguito. Assicurarsi di specifi
 }
 ```
 
-Per un elenco completo delle definizioni disponibili nel corpo della richiesta, vedere Le definizioni del corpo della richiesta di ambiente virtuale, vedere [Le definizioni](/rest/api/compute/virtualmachines/createorupdate#definitions)del corpo della richiesta di ambiente virtuale .
+Per un elenco completo delle definizioni disponibili nel corpo della richiesta, vedere [macchine virtuali creare o aggiornare le definizioni del corpo della richiesta](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Invio della richiesta
 
@@ -128,7 +128,7 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| Nome        | Type                                                                              | Descrizione |
+| Nome        | Type                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |
@@ -150,5 +150,5 @@ Per altre informazioni sulle API REST di Azure o su altri strumenti di gestione,
 
 - [API REST del provider Calcolo di Azure](/rest/api/compute/)
 - [Introduzione all'API REST di Azure](/rest/api/azure/)
-- [Interfaccia della riga di comando di AzureAzure](/cli/azure/)
+- [Interfaccia della riga di comando di Azure](/cli/azure/)
 - [Modulo di Azure PowerShell](/powershell/azure/overview)

@@ -1,5 +1,5 @@
 ---
-title: Usare il filtro pacchetti di FreeBSD per creare un firewall in AzureUse FreeBSD's Packet Filter to create a firewall in Azure
+title: Usare il filtro pacchetti di FreeBSD per creare un firewall in Azure
 description: Informazioni su come distribuire un firewall NAT usando PF di FreeBSD in Azure.
 author: KylieLiang
 ms.service: virtual-machines-linux
@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
 ms.openlocfilehash: 9b78c0d93b57a3e3f4963088d0b93f121f57483c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78945097"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Procedura: usare Packet Filter di FreeBSD per creare un firewall sicuro in Azure
@@ -34,7 +34,7 @@ Il modello Azure Resource Manager configura una macchina virtuale FreeBSD che es
 az group create --name myResourceGroup --location westus
 ```
 
-Quindi distribuire il modello [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment). Scaricare [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) nello stesso percorso e definire valori `adminPassword` `networkPrefix`di `domainNamePrefix`risorsa personalizzati, ad esempio , e . 
+Quindi distribuire il modello [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment). Scaricare [file azuredeploy. Parameters. JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) nello stesso percorso e definire i propri valori di risorsa, ad esempio `adminPassword`, `networkPrefix`e `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

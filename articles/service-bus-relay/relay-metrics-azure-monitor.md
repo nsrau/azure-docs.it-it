@@ -1,6 +1,6 @@
 ---
-title: 'Metriche di inoltro di Azure in Monitor di Azure : Documenti Microsoft'
-description: Questo articolo fornisce informazioni su come usare Monitoraggio di Azure per monitorare lo stato dell'inoltro di Azure.This article provides information on how you can use Azure Monitor to monitor to state of Azure Relay.
+title: Metriche di inoltro di Azure in monitoraggio di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni su come usare monitoraggio di Azure per monitorare lo stato del servizio di inoltro di Azure.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 159249e2c997e4c414127992b08a83b488281e46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273125"
 ---
-# <a name="azure-relay-metrics-in-azure-monitor"></a>Azure Relay metrics in Azure Monitor 
+# <a name="azure-relay-metrics-in-azure-monitor"></a>Metriche di inoltro di Azure in monitoraggio di Azure 
 Le metriche del servizio Inoltro di Azure indicano lo stato delle risorse nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse di inoltro, non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti poiché consentono di monitorare lo stato del servizio di inoltro di Azure. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
 
 Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di diversi servizi di Azure. Per altre informazioni, vedere [Panoramica sul monitoraggio in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e l'esempio che descrive come [recuperare le metriche di Monitoraggio di Azure con .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) in GitHub.
@@ -47,7 +47,7 @@ Per le metriche che supportano le dimensioni, è necessario filtrare specificand
 
 ## <a name="billing"></a>Fatturazione
 
-L'uso delle metriche in Monitoraggio di Azure è attualmente gratuito durante la fase di anteprima. Se tuttavia si usano soluzioni aggiuntive per inserire i dati delle metriche, è possibile che la fatturazione venga effettuata da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. I log di Monitoraggio di Azure vengono inoltre fatturati dai log di Monitoraggio di Azure se si esegue il flusso dei dati delle metriche nei log di Monitoraggio di Azure per l'analisi avanzata.
+L'uso delle metriche in Monitoraggio di Azure è attualmente gratuito durante la fase di anteprima. Se tuttavia si usano soluzioni aggiuntive per inserire i dati delle metriche, è possibile che la fatturazione venga effettuata da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. Vengono addebitati anche i log di monitoraggio di Azure se i dati di metrica vengono trasmessi ai log di monitoraggio di Azure per l'analisi avanzata.
 
 Le metriche seguenti offrono una panoramica dell'integrità del servizio. 
 
@@ -68,7 +68,7 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 |SenderConnections-ServerError |Numero di errori del server nelle connessioni del mittente in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |ListenerConnections-TotalRequests |Numero totale di connessioni del listener in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |SenderConnections-TotalRequests |Richieste di connessione eseguite dai mittenti in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|ActiveConnections |Il numero di connessioni attive. Questo valore è un valore temporizzato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|ActiveConnections |Numero di connessioni attive. Questo valore è un valore temporizzato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |ActiveListeners |Numero di listener attivi. Questo valore è un valore temporizzato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |ListenerDisconnects |Numero di listener disconnessi in un periodo specificato.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Disconnessioni mittente |Numero di mittenti disconnessi in un periodo specificato.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|

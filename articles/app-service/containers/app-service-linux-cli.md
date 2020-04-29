@@ -1,15 +1,15 @@
 ---
-title: Gestire i contenitori Linux personalizzati con l'interfaccia della riga di comandoManage custom Linux containers with CLI
-description: Informazioni su come gestire contenitori Linux personalizzati nel servizio app di Azure dalla riga di comando. Automatizza il provisioning o la manutenzione delle app.
+title: Gestire contenitori Linux personalizzati con l'interfaccia della riga di comando
+description: Informazioni su come gestire i contenitori Linux personalizzati nel servizio app Azure dalla riga di comando. Automatizzare il provisioning o la manutenzione delle app.
 keywords: servizio app di Azure, app Web, interfaccia della riga di comando, domande frequenti, linux, oss
 ms.topic: article
 ms.date: 08/22/2017
 ms.custom: seodec18
 ms.openlocfilehash: 5ca5322467402af710df68c82d747f8f8d65e142
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255931"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure

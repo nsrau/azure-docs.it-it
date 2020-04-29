@@ -1,5 +1,5 @@
 ---
-title: Collegare un disco dati a una macchina virtuale LinuxAttach a data disk to a Linux VM
+title: Alleghi un disco dati a una VM Linux
 description: Usare il portale per collegare il disco dati nuovo o esistente a una macchina virtuale Linux.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78969348"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
@@ -19,15 +19,15 @@ In questo articolo viene illustrato come collegare dischi nuovi o esistenti a un
 
 Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerimenti:
 
-* La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni per le macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [dimensioni delle macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * I dischi collegati a macchine virtuali sono effettivamente file con estensione VHD archiviati in Azure. Per informazioni dettagliate, vedere [Introduzione ai dischi gestiti](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Dopo aver collegato il disco, è necessario [connettersi alla VM Linux per montare il nuovo disco](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
 ## <a name="find-the-virtual-machine"></a>Trovare la macchina virtuale
-1. Passare al portale di [Azure](https://portal.azure.com/) per trovare la macchina virtuale. Cercare e selezionare **Macchine virtuali**.
-2. Scegliere la macchina virtuale dall'elenco.
-3. Nella barra **laterale della** pagina Macchine virtuali, in **Impostazioni,** scegliere **Dischi**.
+1. Passare alla [portale di Azure](https://portal.azure.com/) per trovare la macchina virtuale. Cercare e selezionare **Macchine virtuali**.
+2. Scegliere la VM dall'elenco.
+3. Nella barra laterale della pagina **macchine virtuali** , in **Impostazioni**, scegliere **dischi**.
    
     ![Aprire le impostazioni del disco](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -47,7 +47,7 @@ Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerime
 
    ![Salvare il nuovo disco gestito Azure](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nelle impostazioni del disco della macchina virtuale in **Dischi dati**. Dal momento che i dischi gestiti sono una risorsa di livello superiore, il disco viene visualizzato nella directory principale del gruppo di risorse:
+5. Quando Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nelle impostazioni del disco della macchina virtuale in **dischi dati**. Dal momento che i dischi gestiti sono una risorsa di livello superiore, il disco viene visualizzato nella directory principale del gruppo di risorse:
 
    ![Disco gestito Azure nel gruppo di risorse](./media/attach-disk-portal/view-md-resource-group.png)
 
@@ -64,13 +64,13 @@ Prima di collegare i dischi alla macchina virtuale, leggere i seguenti suggerime
 4. Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Connettersi alla VM Linux per montare il nuovo disco
-È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere Come usare SSH con Linux in Azure.For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*: 
+È necessario SSH nella macchina virtuale per partizionare, formattare e montare il nuovo disco in modo che la macchina virtuale di Linux possa usarlo. Per altre informazioni, vedere [come usare SSH con Linux in Azure](mac-create-ssh-keys.md). Nell'esempio seguente viene eseguito il collegamento a una macchina virtuale con la voce DNS pubblica di *mypublicdns.westus.cloudapp.azure.com* con il nome utente *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Una volta connessi alla macchina virtuale, si è pronti per collegare un disco. Trovare prima il disco usando `dmesg`. Il metodo usato per trovare il nuovo disco può variare. Nell'esempio seguente viene utilizzato dmesg per filtrare in base ai dischi *SCSI:*
+Una volta connessi alla macchina virtuale, si è pronti per collegare un disco. Trovare prima il disco usando `dmesg`. Il metodo usato per trovare il nuovo disco può variare. Nell'esempio seguente viene usato dmesg per filtrare i dischi *SCSI* :
 
 ```bash
 dmesg | grep SCSI
@@ -92,7 +92,7 @@ In questo caso, *sdc* è il disco interessato.
 Se si usa un disco esistente contenente dati, procedere al montaggio del disco. Se si collega un nuovo disco, è necessario eseguire la partizione del disco.
 
 > [!NOTE]
-> Si consiglia di utilizzare le versioni più recenti di fdisk o parted disponibili per la distro.
+> Si consiglia di usare le versioni più recenti di Fdisk o di parte disponibili per la distribuzione.
 
 Eseguire la partizione del disco con `fdisk`. Se le dimensioni del disco sono 2 tebibyte (TiB) o maggiori è necessario utilizzare il partizionamento GPT. È possibile usare `parted` per eseguire il partizionamento GPT. Se le dimensioni del disco sono inferiori a 2 TiB, è possibile usare il partizionamento MBR oppure GPT. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
 
@@ -175,13 +175,13 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-#### <a name="alternate-method-using-parted"></a>Metodo alternativo con parted
-L'utilità fdisk necessita di input interattivo e quindi non è ideale per l'uso all'interno di script di automazione. Tuttavia, l'utilità [parted](https://www.gnu.org/software/parted/) può essere scritto e quindi si presta meglio negli scenari di automazione. L'utilità parted può essere utilizzata per partizionare e formattare un disco dati. Per la procedura dettagliata riportata di seguito, viene usato un nuovo disco dati /dev/sdc e lo formattiamo utilizzando il file system [XFS.](https://xfs.wiki.kernel.org/)
+#### <a name="alternate-method-using-parted"></a>Metodo alternativo con una parte
+L'utilità Fdisk richiede un input interattivo e pertanto non è ideale per l'uso negli script di automazione. Tuttavia, l'utilità a più parti può essere [inclusa](https://www.gnu.org/software/parted/) nello script e pertanto si presta meglio agli scenari di automazione. L'utilità a parti può essere usata per partizionare e formattare un disco dati. Per la procedura dettagliata riportata di seguito, viene usato un nuovo disco dati/dev/sdc e viene formattato con il file System [XFS](https://xfs.wiki.kernel.org/) .
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 partprobe /dev/sdc1
 ```
-Come visto sopra, usiamo l'utilità [partprobe](https://linux.die.net/man/8/partprobe) per assicurarci che il kernel sia immediatamente a conoscenza della nuova partizione e del file system. La mancata utilizzo di partprobe può causare la mancata restituzione dell'UUID per il nuovo file system ai comandi blkid o lslbk.
+Come illustrato in precedenza, si usa l'utilità [partprobe](https://linux.die.net/man/8/partprobe) per verificare che il kernel sia immediatamente in grado di riconoscere la nuova partizione e il file System. L'impossibilità di usare partprobe può causare la restituzione immediata dell'UUID per il nuovo file System da parte dei comandi blkid o lslbk.
 
 ### <a name="mount-the-disk"></a>Montare il disco
 Creare una directory per montare il file system usando `mkdir`. L'esempio seguente crea una directory in */datadrive*:
@@ -211,7 +211,7 @@ L'output è simile al seguente esempio:
 ```
 
 > [!NOTE]
-> La modifica non corretta del file **/etc/fstab** potrebbe causare un sistema non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
+> La modifica errata del file **/etc/fstab** potrebbe causare un sistema non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
 
 Successivamente, aprire il file */etc/fstab* in un editor di testo, come segue:
 
@@ -228,7 +228,7 @@ Al termine, salvare il file */etc/fstab* e riavviare il sistema.
 > [!NOTE]
 > Se si rimuove successivamente un disco dati senza modificare fstab, è possibile che si verifichi un errore di avvio della VM. La maggior parte delle distribuzioni specifica le opzioni fstab *nofail* e/o *nobootwait*. Queste opzioni consentono l'avvio di un sistema anche se il montaggio del disco non riesce in fase di avvio. Per altre informazioni su questi parametri, consultare la documentazione della distribuzione.
 > 
-> L'opzione *nofail* garantisce che l'avvio della VM anche se il file system è danneggiato o se non è presente il disco in fase di avvio. Senza questa opzione, è possibile riscontrare un comportamento come descritto in Non è possibile [sSH alla macchina virtuale Linux a causa](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) di errori FSTAB
+> L'opzione *nofail* garantisce che l'avvio della VM anche se il file system è danneggiato o se non è presente il disco in fase di avvio. Senza questa opzione, è possibile che si verifichi un comportamento come descritto in [non è possibile connettersi da SSH a una VM Linux a causa di errori FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Supporto delle funzioni TRIM/UNMAP per Linux in Azure
 Alcuni kernel di Linux supportano operazioni TRIM/UNMAP allo scopo di rimuovere i blocchi inutilizzati sul disco. Nel servizio di archiviazione standard, questa caratteristica è particolarmente utile per informare Azure che le pagine eliminate non sono più valide e possono essere rimosse, permettendo di risparmiare denaro se si creano file di grandi dimensioni per eliminarli successivamente.

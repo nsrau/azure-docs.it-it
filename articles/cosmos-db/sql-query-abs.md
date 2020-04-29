@@ -1,6 +1,6 @@
 ---
-title: ABS nel linguaggio di query del database Cosmos di AzureABS in Azure Cosmos DB query language
-description: Informazioni su come la funzione del sistema SQL Absolute(ABS) in Azure Cosmos DB restituisce il valore positivo dell'espressione numerica specificata
+title: ABS nel linguaggio di query Azure Cosmos DB
+description: Informazioni sul modo in cui la funzione di sistema SQL Absolute (ABS) in Azure Cosmos DB restituisce il valore positivo dell'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6d173827f2695cc20fa208d390731acf0edb3848
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78301098"
 ---
 # <a name="abs-azure-cosmos-db"></a>ABS (Azure Cosmos DB)
@@ -34,7 +34,7 @@ ABS (<numeric_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente vengono illustrati `ABS` i risultati dell'utilizzo della funzione su tre numeri diversi.  
+  Nell'esempio seguente vengono illustrati i risultati dell' `ABS` utilizzo della funzione su tre numeri diversi.  
   
 ```sql
 SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 
@@ -48,7 +48,7 @@ SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema beneficerà di un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

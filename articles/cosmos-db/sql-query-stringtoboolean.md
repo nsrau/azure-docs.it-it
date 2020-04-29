@@ -1,6 +1,6 @@
 ---
-title: StringToBoolean nel linguaggio di query del database Cosmos di AzureStringToBoolean in Azure Cosmos DB query language
-description: Informazioni sulla funzione di sistema SQL StringToBoolean nel database Cosmos di Azure.Learn about SQL system function StringToBoolean in Azure Cosmos DB.
+title: StringToBoolean in linguaggio di query Azure Cosmos DB
+description: Informazioni sulla funzione di sistema SQL StringToBoolean in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: ce11db91eff51e669f0917fbf34b1d560d0e9f07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78296542"
 ---
 # <a name="stringtoboolean-azure-cosmos-db"></a>StringToBoolean (Azure Cosmos DB)
@@ -26,15 +26,15 @@ StringToBoolean(<str_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *str_expr*  
-   È un'espressione stringa da analizzare come espressione booleana.  
+   Espressione stringa da analizzare come espressione booleana.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
-  Restituisce un'espressione booleana o non definita.  
+  Restituisce un'espressione booleana o undefined.  
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente `StringToBoolean` viene illustrato come si comporta in diversi tipi. 
+  Nell'esempio seguente viene illustrato `StringToBoolean` il comportamento di tra tipi diversi. 
  
  Di seguito sono riportati esempi con input valido.
 
@@ -55,7 +55,7 @@ SELECT
 
 Di seguito sono riportati esempi con input non valido.
 
- I valori booleani fanno distinzione tra maiuscole e minuscole e devono essere scritti con tutti i caratteri minuscoli, ovvero "true" e "false".
+ I valori booleani fanno distinzione tra maiuscole e minuscole e devono essere scritti con caratteri minuscoli, ad esempio "true" e "false".
 
 ```sql
 SELECT 
@@ -69,7 +69,7 @@ Questo è il set di risultati.
 [{}]
 ``` 
 
-L'espressione passata verrà analizzata come espressione booleana. questi input non restituiscono il tipo Boolean e pertanto restituiscono undefined.
+L'espressione passata verrà analizzata come espressione booleana. questi input non restituiscono il tipo booleano e pertanto restituiscono undefined.
 
 ```sql
 SELECT 
@@ -92,6 +92,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

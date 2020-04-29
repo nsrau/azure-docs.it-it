@@ -1,6 +1,6 @@
 ---
-title: ACOS nel linguaggio di query di Azure Cosmos DBACOS in Azure Cosmos DB query language
-description: Informazioni su come la funzione del sistema SQL ACOS (arccosice) in Azure Cosmos DB restituisce l'angolo, in radianti, il cui coseno è l'espressione numerica specificata
+title: ARccOS in linguaggio di query Azure Cosmos DB
+description: Informazioni sul modo in cui la funzione di sistema SQL ARCCOS (arccosice) in Azure Cosmos DB restituisce l'angolo, in radianti, il cui coseno corrisponde all'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 733d6b009f03d61c37170cc506a3b2ec842d7c47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78300962"
 ---
-# <a name="acos-azure-cosmos-db"></a>ACOS (Azure Cosmos DB)
+# <a name="acos-azure-cosmos-db"></a>ARCCOS (Azure Cosmos DB)
  Restituisce l'angolo, espresso in radianti, il cui coseno corrisponde all'espressione numerica specificata. Denominato anche arcocoseno.  
   
 ## <a name="syntax"></a>Sintassi
@@ -34,7 +34,7 @@ ACOS(<numeric_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente `ACOS` viene restituito il valore di -1.  
+  Nell'esempio seguente viene restituito `ACOS` l'oggetto di-1.  
   
 ```sql
 SELECT ACOS(-1) AS acos 

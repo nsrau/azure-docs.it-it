@@ -1,29 +1,29 @@
 ---
 title: Effettuare il provisioning della velocità effettiva per un contenitore in Azure Cosmos DB
-description: Informazioni su come eseguire il provisioning della velocità effettiva a livello di contenitore in Azure Cosmos DB usando il portale di Azure, l'interfaccia della riga di comando, PowerShell e vari altri SDK.
+description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di contenitore in Azure Cosmos DB usando portale di Azure, CLI, PowerShell e vari altri SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
 ms.openlocfilehash: e416501cb3c532b3ba0a262442b35b236875a463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273285"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos
 
-Questo articolo illustra come effettuare il provisioning della velocità effettiva per un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. È possibile eseguire il provisioning della velocità effettiva in un singolo contenitore oppure eseguire il provisioning della [velocità effettiva in un database](how-to-provision-database-throughput.md) e condividerla tra i contenitori all'interno del database. Il provisioning della velocità effettiva per un contenitore può essere effettuato usando il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK di Azure Cosmos DB.
+Questo articolo illustra come effettuare il provisioning della velocità effettiva per un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. È possibile effettuare il provisioning della velocità effettiva in un singolo contenitore oppure effettuare il [provisioning della velocità effettiva in un database](how-to-provision-database-throughput.md) e condividerla tra i contenitori all'interno del database Il provisioning della velocità effettiva per un contenitore può essere effettuato usando il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK di Azure Cosmos DB.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. [Creare un nuovo account Azure Cosmos](create-sql-api-dotnet.md#create-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **Nuova raccolta**. Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **nuova raccolta**. Specificare quindi i dettagli seguenti:
 
    * Indicare se si intende creare un nuovo database o usarne uno esistente.
    * Immettere un ID contenitore (o Table o Graph).
@@ -33,12 +33,12 @@ Questo articolo illustra come effettuare il provisioning della velocità effetti
 
     ![Screenshot del riquadro Esplora dati con l'opzione Nuova raccolta evidenziata](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="azure-cli-or-powershell"></a>Azure CLI or PowerShell
+## <a name="azure-cli-or-powershell"></a>INTERFACCIA della riga di comando di Azure o PowerShell
 
-Per creare un contenitore con velocità effettiva dedicata, vedere,
+Per creare un contenitore con una velocità effettiva dedicata, vedere
 
 * [Creare un contenitore tramite l'interfaccia della riga di comando di Azure](manage-with-cli.md#create-a-container)
-* [Creare un contenitore usando PowershellCreate a container using Powershell](manage-with-powershell.md#create-container)
+* [Creare un contenitore con PowerShell](manage-with-powershell.md#create-container)
 
 > [!Note]
 > Se si effettua il provisioning della velocità effettiva in un contenitore in un account Azure Cosmos configurato con l'API Azure Cosmos DB per MongoDB, usare `/myShardKey` come percorso della chiave di partizione. Se si effettua il provisioning della velocità effettiva in un contenitore in un account Azure Cosmos configurato con l'API Cassandra, usare `/myPrimaryKey` come percorso della chiave di partizione.
@@ -96,7 +96,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Cassandra API
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
 
 Comandi simili possono essere emessi tramite qualsiasi driver conforme a CQL.
 
@@ -108,7 +108,7 @@ session.Execute("CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=400");
 
 ```
-### <a name="alter-or-change-throughput-for-cassandra-table"></a>Modificare o modificare la velocità effettiva per la tabella CassandraAlter or change throughput for Cassandra table
+### <a name="alter-or-change-throughput-for-cassandra-table"></a>Modificare o modificare la velocità effettiva per la tabella Cassandra
 
 ```csharp
 // Altering the throughput too can be done through code by issuing following command
@@ -121,4 +121,4 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 Vedere gli articoli seguenti per informazioni sul provisioning della velocità effettiva in Azure Cosmos DB:
 
 * [Come effettuare il provisioning della velocità effettiva per un database](how-to-provision-database-throughput.md)
-* [Richiedere unità e velocità effettiva in Azure Cosmos DBRequest units and throughput in Azure Cosmos DB](request-units.md)
+* [Unità richiesta e velocità effettiva in Azure Cosmos DB](request-units.md)

@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di sicurezza del disco casella dei dati di Microsoft Azure Documenti Microsoft nei dati
+title: Microsoft Azure Data Box Disk funzionalità di sicurezza | Microsoft Docs nei dati
 description: Descrive le funzionalità di sicurezza implementate per Azure Data Box Disk, una soluzione cloud che consente di trasferire grandi quantità di dati in Azure
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79117284"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Sicurezza e protezione dei dati per Azure Data Box Disk
@@ -72,7 +72,7 @@ Azure Data Box Disk raccoglie e visualizza informazioni personali nei principali
 
   - Nome del contatto
   - Numero di telefono
-  - Email
+  - Posta elettronica
   - Indirizzo
   - city
   - CAP

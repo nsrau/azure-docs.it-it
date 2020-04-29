@@ -1,6 +1,6 @@
 ---
-title: Abilitare la registrazione in Azure Machine LearningEnable logging in Azure Machine Learning
-description: Informazioni su come abilitare la registrazione in Azure Machine Learning usando sia il pacchetto di registrazione Python predefinito, sia le funzionalità specifiche dell'SDK.
+title: Abilitare la registrazione in Azure Machine Learning
+description: Informazioni su come abilitare la registrazione in Azure Machine Learning usando il pacchetto di registrazione Python predefinito, oltre a usare funzionalità specifiche dell'SDK.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 03/05/2020
 ms.openlocfilehash: 73b9ae6bc3c15526bfdafd74330c7b86286631b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78396145"
 ---
-# <a name="enable-logging-in-azure-machine-learning"></a>Abilitare la registrazione in Azure Machine LearningEnable logging in Azure Machine Learning
+# <a name="enable-logging-in-azure-machine-learning"></a>Abilitare la registrazione in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Il SDK Python di Azure Machine Learning consente di abilitare la registrazione usando sia il pacchetto di registrazione di Python predefinito, che la funzionalità specifica di SDK sia per la registrazione locale che per la registrazione all'area di lavoro nel portale. I log di forniscono agli sviluppatori informazioni in tempo reale sullo stato dell'applicazione e possono facilitare la diagnosi di errori o avvisi. Questo articolo illustra diverse modalità di abilitazione della registrazione nelle aree seguenti:
@@ -27,7 +27,7 @@ Il SDK Python di Azure Machine Learning consente di abilitare la registrazione u
 > * Modelli distribuiti
 > * Impostazioni `logging` di Python
 
-[Creare un'area](how-to-manage-workspace.md)di lavoro di Azure Machine Learning. Utilizzare la [guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per ulteriori informazioni sdk.
+[Creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni sull'SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Training dei modelli e registrazione delle destinazioni di calcolo
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Vedere la documentazione di riferimento per la classe [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) per ulteriori funzioni di registrazione.
+Vedere la documentazione di riferimento per la classe [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) per altre funzioni di registrazione.
 
 Per abilitare la registrazione locale dello stato dell'applicazione durante il corso del training, usare il parametro `show_output`. L'abilitazione della registrazione dettagliata consente di visualizzare i dettagli dal processo di training, nonché informazioni su tutte le risorse remote o le destinazioni di calcolo. Usare il codice seguente per abilitare la registrazione dopo l'invio di un esperimento.
 
@@ -101,7 +101,7 @@ logs = service.get_logs()
 service.update(enable_app_insights=True)
 ```
 
-Per ulteriori informazioni, consultate Monitorare e raccogliere dati dagli endpoint del [servizio Web ML.](how-to-enable-app-insights.md)
+Per altre informazioni, vedere [monitorare e raccogliere i dati dagli endpoint del servizio Web ml](how-to-enable-app-insights.md).
 
 ## <a name="python-native-logging-settings"></a>Impostazioni native della registrazione di Python
 
@@ -114,4 +114,4 @@ logging.basicConfig(level=logging.DEBUG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Monitorare e raccogliere dati dagli endpoint del servizio Web MLMonitor and collect data from ML web service endpoints](how-to-enable-app-insights.md)
+* [Monitorare e raccogliere dati da endpoint servizio Web di ML](how-to-enable-app-insights.md)

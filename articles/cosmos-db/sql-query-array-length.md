@@ -1,6 +1,6 @@
 ---
-title: ARRAY_LENGTH nel linguaggio di query del database Cosmos di AzureUse in Azure Cosmos DB query language
-description: Informazioni su come la funzione del sistema SQL di lunghezza dell'array in Azure Cosmos DB restituisce il numero di elementi dell'espressione di matrice specificataLearn about how the Array length SQL system function in Azure Cosmos DB returns the number of elements of the specified array expression
+title: ARRAY_LENGTH nel linguaggio di query Azure Cosmos DB
+description: Informazioni sul modo in cui la funzione di sistema SQL di lunghezza della matrice in Azure Cosmos DB restituisce il numero di elementi dell'espressione di matrice specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 3596ce4bc702d5e54225d8c90db2f9563feab670
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303988"
 ---
 # <a name="array_length-azure-cosmos-db"></a>ARRAY_LENGTH (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ARRAY_LENGTH(<arr_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *arr_expr*  
-   È un'espressione di matrice.  
+   Espressione di matrice.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -34,7 +34,7 @@ ARRAY_LENGTH(<arr_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio riportato di seguito viene `ARRAY_LENGTH`illustrato come ottenere la lunghezza di una matrice utilizzando .  
+  Nell'esempio seguente viene illustrato come ottenere la lunghezza di una matrice `ARRAY_LENGTH`utilizzando.  
   
 ```sql
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  
@@ -52,6 +52,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni di matrice Azure Cosmos DBArray functions Azure Cosmos DB](sql-query-array-functions.md)
+- [Funzioni di matrice Azure Cosmos DB](sql-query-array-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

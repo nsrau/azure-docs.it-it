@@ -1,6 +1,6 @@
 ---
-title: Tipo di assegnazione desktop personale di Windows Virtual Desktop - Azure
-description: Come configurare il tipo di assegnazione per un pool di host desktop personale di Windows Virtual Desktop.
+title: Tipo di assegnazione desktop personale desktop virtuale Windows-Azure
+description: Come configurare il tipo di assegnazione per un pool host desktop personale desktop virtuale di Windows.
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -9,29 +9,29 @@ ms.date: 12/10/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 41b24a94d36b21fe5d5f539e056abb535bda433a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79128293"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurare il tipo di assegnazione del pool host personale del desktop
+# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurare il tipo di assegnazione del pool di host personal desktop
 
-È possibile configurare il tipo di assegnazione del pool host desktop personale per regolare l'ambiente di Windows Virtual Desktop in base alle proprie esigenze. In questo argomento verrà illustrato come configurare l'assegnazione automatica o diretta per gli utenti.
+È possibile configurare il tipo di assegnazione del pool di host desktop personali per modificare l'ambiente di desktop virtuale Windows in base alle proprie esigenze. In questo argomento verrà illustrato come configurare l'assegnazione automatica o diretta per gli utenti.
 
 >[!NOTE]
-> Le istruzioni contenute in questo articolo si applicano solo ai pool di host desktop personali, non ai pool host in pool, poiché gli utenti nei pool host non sono assegnati a host di sessione specifici.
+> Le istruzioni riportate in questo articolo sono valide solo per i pool host desktop personali, non per i pool di host in pool, perché gli utenti in pool di host non sono assegnati a host di sessione specifici.
 
-## <a name="configure-automatic-assignment"></a>Configurare l'assegnazione automatica
+## <a name="configure-automatic-assignment"></a>Configura assegnazione automatica
 
-L'assegnazione automatica è il tipo di assegnazione predefinito per i nuovi pool host desktop personali creati nell'ambiente Windows Virtual Desktop. L'assegnazione automatica degli utenti non richiede un host di sessione specifico.
+Assegnazione automatica è il tipo di assegnazione predefinito per i nuovi pool host desktop personali creati nell'ambiente desktop virtuale di Windows. L'assegnazione automatica di utenti non richiede un host sessione specifico.
 
-Per assegnare automaticamente gli utenti, assegnarli innanzitutto al pool host desktop personale in modo che possano visualizzare il desktop nel feed. Quando un utente assegnato avvia il desktop nel feed, richiederà un host di sessione disponibile se non è già connesso al pool host, che completa il processo di assegnazione.
+Per assegnare automaticamente gli utenti, assegnarli prima al pool di host desktop personali in modo che possano visualizzare il desktop nel feed. Quando un utente assegnato avvia il desktop nel proprio feed, dimostrerà un host sessione disponibile se non è già connesso al pool host, che completa il processo di assegnazione.
 
-Prima di iniziare, [scaricare e importare il modulo PowerShell](/powershell/windows-virtual-desktop/overview/) di Windows Virtual Desktop, se non è già stato fatto. 
+Prima di iniziare, [scaricare e importare il modulo PowerShell per desktop virtuale di Windows](/powershell/windows-virtual-desktop/overview/) , se non è già stato fatto. 
 
 > [!NOTE]
-> Assicurarsi di aver installato il modulo PowerShell di Windows Virtual Desktop versione 1.0.1534.2001 o successiva prima di seguire queste istruzioni.
+> Prima di seguire queste istruzioni, verificare di aver installato Windows Virtual Desktop PowerShell Module versione 1.0.1534.2001 o successiva.
 
 Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
 
@@ -39,13 +39,13 @@ Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Per configurare un pool host per assegnare automaticamente gli utenti alle macchine virtuali, eseguire il cmdlet PowerShell seguente:To configure a host pool to automatically assign users to VMs, run the following PowerShell cmdlet:
+Per configurare un pool di host per assegnare automaticamente gli utenti alle macchine virtuali, eseguire il cmdlet di PowerShell seguente:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Automatic
 ```
 
-Per assegnare un utente al pool host desktop personale, eseguire il seguente cmdlet PowerShell:
+Per assegnare un utente al pool di host desktop personali, eseguire il cmdlet PowerShell seguente:
 
 ```powershell
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
@@ -53,21 +53,21 @@ Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -Use
 
 ## <a name="configure-direct-assignment"></a>Configurare l'assegnazione diretta
 
-A differenza dell'assegnazione automatica, quando si utilizza l'assegnazione diretta, è necessario assegnare l'utente sia al pool host desktop personale che a un host di sessione specifico prima di potersi connettere al desktop personale. Se l'utente viene assegnato solo a un pool host senza un'assegnazione host di sessione, non sarà in grado di accedere alle risorse.
+Diversamente dall'assegnazione automatica, quando si usa l'assegnazione diretta, è necessario assegnare l'utente sia al pool di host desktop personale che a un host sessione specifico prima di potersi connettere al desktop personale. Se l'utente viene assegnato a un pool di host senza assegnazione host sessione, non sarà in grado di accedere alle risorse.
 
-Per configurare un pool host per richiedere l'assegnazione diretta degli utenti agli host di sessione, eseguire il cmdlet PowerShell seguente:
+Per configurare un pool host in modo da richiedere l'assegnazione diretta degli utenti agli host di sessione, eseguire il cmdlet PowerShell seguente:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Direct
 ```
 
-Per assegnare un utente al pool host desktop personale, eseguire il seguente cmdlet PowerShell:
+Per assegnare un utente al pool di host desktop personali, eseguire il cmdlet PowerShell seguente:
 
 ```powershell
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-Per assegnare un utente a un host di sessione specifico, eseguire il seguente cmdlet PowerShell:
+Per assegnare un utente a un host sessione specifico, eseguire il cmdlet PowerShell seguente:
 
 ```powershell
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
@@ -75,7 +75,7 @@ Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -Assigned
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato il tipo di assegnazione desktop personale, è possibile accedere a un client Windows Virtual Desktop per testarlo come parte di una sessione utente. I prossimi due how-toti ti diranno come connetterti a una sessione utilizzando il client di tua scelta:
+Ora che è stato configurato il tipo di assegnazione desktop personale, è possibile accedere a un client desktop virtuale Windows per testarlo come parte di una sessione utente. Queste due procedure successive indicano come connettersi a una sessione usando il client di propria scelta:
 
 - [Connettersi con il client desktop di Windows](connect-windows-7-and-10.md)
 - [Connettersi con il client Web](connect-web.md)

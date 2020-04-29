@@ -4,10 +4,10 @@ description: In questa esercitazione si apprenderà come eseguire un'attività d
 ms.topic: article
 ms.date: 06/27/2019
 ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78402874"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Eseguire un'attività ACR in base a una pianificazione definita
@@ -178,7 +178,7 @@ Il fuso orario utilizzato con le espressioni cron è Coordinated Universal Time 
 
 Ogni campo può avere uno dei tipi di valori seguenti:
 
-|Type  |Esempio  |Quando viene attivato  |
+|Tipo  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>`"5 * * * *"`</nobr>|ogni ora a 5 minuti dopo l'ora|
 |Tutti i valori (`*`)|<nobr>`"* 5 * * *"`</nobr>|ogni minuto dell'ora inizia 5:00 UTC (60 volte al giorno)|
@@ -200,7 +200,7 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |`"30 9 * * 1-5"`|alle 9:30 UTC di ogni giorno feriale|
 |`"30 9 * Jan Mon"`|alle 9:30 UTC ogni lunedì di gennaio|
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Per rimuovere tutte le risorse create in questa serie di esercitazioni, tra cui il registro contenitori o i registri, l'istanza del contenitore, l'insieme di credenziali delle chiavi e l'entità servizio, eseguire i comandi seguenti:
 

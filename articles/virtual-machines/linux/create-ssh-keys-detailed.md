@@ -1,5 +1,5 @@
 ---
-title: Passaggi dettagliati per creare una coppia di chiavi SSHDetailed steps to create an SSH key pair
+title: Procedura dettagliata per creare una coppia di chiavi SSH
 description: Informazioni sulla procedura dettagliata per creare e gestire una coppia di chiavi SSH pubblica e privata per le VM Linux in Azure.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: c34a88c39104d3af2c5747d1cd6d3dea6929379a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78969546"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Procedura dettagliata: Creare e gestire chiavi SSH per l'autenticazione in una VM Linux di Azure 
@@ -64,7 +64,7 @@ ssh-keygen \
 
 `ssh-keygen`: programma usato per creare le chiavi.
 
-`-m PEM`: formattare la chiave come PEM
+`-m PEM`= formattare la chiave come PEM
 
 `-t rsa` = tipo di chiave da creare, in questo caso nel formato RSA
 

@@ -1,5 +1,5 @@
 ---
-title: RAND nel linguaggio di query di Azure Cosmos DB
+title: RAND nel linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL RAND in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: e44878b6d65725f08aeca4eb07088315ae2bb78a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302220"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
- Restituisce un valore numerico generato casualmente da [0,1).
+ Restituisce un valore numerico generato in modo casuale da [0, 1).
  
 ## <a name="syntax"></a>Sintassi
   
@@ -29,11 +29,11 @@ RAND ()
 
 ## <a name="remarks"></a>Osservazioni
 
-  `RAND` è una funzione non deterministica. Le chiamate ripetitive `RAND` di non restituiscono gli stessi risultati.
+  `RAND` è una funzione non deterministica. Le chiamate ripetute di `RAND` non restituiscono gli stessi risultati.
 
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene restituito un valore numerico generato casualmente.
+  Nell'esempio seguente viene restituito un valore numerico generato in modo casuale.
   
 ```sql
 SELECT RAND() AS rand 

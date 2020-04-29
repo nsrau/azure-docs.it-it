@@ -1,17 +1,17 @@
 ---
-title: Guida introduttiva - Invia eventi alla griglia di eventi
+title: Guida introduttiva-inviare eventi a griglia di eventi
 description: In questa guida introduttiva si abilitano gli eventi di Griglia di eventi per il proprio registro contenitori e quindi si inviano gli eventi push e delete di un'immagine di contenitore a un'applicazione di esempio.
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78403239"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: Inviare eventi dal registro contenitori privati a Griglia di eventi
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: inviare eventi dal registro contenitori privato a griglia di eventi
 
 Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che consente un uso degli eventi uniforme tramite un modello di pubblicazione-sottoscrizione. In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per creare un registro contenitori, sottoscrivere gli eventi del registro e quindi distribuire un'applicazione Web di esempio per ricevere gli eventi. Infine, si attivano gli eventi `push` e `delete` di un'immagine di contenitore e si visualizza il payload degli eventi nell'applicazione di esempio.
 
@@ -202,7 +202,7 @@ Lo screenshot seguente mostra l'app di esempio con tre eventi. L'evento `ImageDe
 
 Congratulazioni! Se vengono visualizzati gli eventi `ImagePushed` e `ImageDeleted`, significa che il registro invia eventi a Griglia di eventi e che quest'ultimo li inoltra a sua volta all'endpoint dell'app Web.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando le risorse create in questa guida introduttiva non sono più necessarie, è possibile eliminarle tutte con il seguente comando dell'interfaccia della riga di comando di Azure. Quando si elimina un gruppo di risorse, vengono eliminate definitivamente tutte le risorse contenute nel gruppo.
 

@@ -1,6 +1,6 @@
 ---
-title: ARROTONDA nel linguaggio di query del database Cosmos di AzureROUND in Azure Cosmos DB query language
-description: Informazioni sulla funzione del sistema SQL ROUND in Azure Cosmos DB.
+title: ROUND in linguaggio Azure Cosmos DB query
+description: Informazioni sulla funzione di sistema SQL ROUND in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b6aac5a963d0f58a3b21b9fb0958793169a3d444
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302118"
 ---
-# <a name="round-azure-cosmos-db"></a>ARROTONDA (Azure Cosmos DB)
+# <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
  Restituisce un valore numerico, arrotondato al valore integer più vicino.  
   
 ## <a name="syntax"></a>Sintassi
@@ -34,14 +34,14 @@ ROUND(<numeric_expr>)
   
 ## <a name="remarks"></a>Osservazioni
   
-  L'operazione di arrotondamento eseguita segue l'arrotondamento del punto medio da zero. Se l'input è un'espressione numerica che rientra esattamente tra due numeri interi, il risultato sarà il valore intero più vicino a zero.  
+  L'operazione di arrotondamento eseguita segue l'arrotondamento a zero. Se l'input è un'espressione numerica che rientra esattamente tra due numeri interi, il risultato sarà il valore integer più vicino a zero.  
   
   |<numeric_expr>|Arrotondato|
   |-|-|
-  |-6.5000|-7|
-  |-0.5|-1|
+  |-6,5000|-7|
+  |-0,5|-1|
   |0.5|1|
-  |6.5000|7||
+  |6,5000|7||
   
 ## <a name="examples"></a>Esempi
   
@@ -59,7 +59,7 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema beneficerà di un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

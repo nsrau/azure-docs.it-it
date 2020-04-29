@@ -1,5 +1,5 @@
 ---
-title: StringToObject nel linguaggio di query del database Cosmos di AzureStringToObject in Azure Cosmos DB query language
+title: StringToObject in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL StringToObject in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78296382"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
- Restituisce l'espressione convertita in un oggetto Object. Se l'espressione non può essere convertita, restituisce undefined.  
+ Restituisce l'espressione convertita in un oggetto. Se l'espressione non può essere convertita, restituisce undefined.  
   
 ## <a name="syntax"></a>Sintassi
   
@@ -26,15 +26,15 @@ StringToObject(<str_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *str_expr*  
-   È un'espressione stringa da analizzare come espressione oggetto JSON. Si noti che i valori stringa nidificati devono essere scritti con virgolette doppie per essere validi. Per informazioni dettagliate sul formato JSON, vedere [json.org](https://json.org/)  
+   Espressione stringa da analizzare come espressione di oggetto JSON. Si noti che i valori di stringa annidati devono essere scritti con virgolette doppie per essere validi. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/)  
   
 ## <a name="return-types"></a>Tipi restituiti
   
-  Restituisce un'espressione di oggetto o non definito.  
+  Restituisce un'espressione di oggetto o non definita.  
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente `StringToObject` viene illustrato come si comporta in diversi tipi. 
+  Nell'esempio seguente viene illustrato `StringToObject` il comportamento di tra tipi diversi. 
   
  Di seguito sono riportati esempi con input valido.
 
@@ -56,9 +56,9 @@ Questo è il set di risultati.
 ```
 
  Di seguito sono riportati esempi con input non valido.
-Anche se sono validi all'interno di una query, non verranno analizzati in oggetti validi. Le stringhe all'interno della stringa\\di\\oggetto\\devono\\essere precedute da un carattere di escape "" " " " , "str " " o la citazione circostante deve essere singola '"a": "str" ' .
+Anche se sono valide all'interno di una query, non verranno analizzate in oggetti validi. Le stringhe all'interno della stringa dell'oggetto devono essere precedute\\da un\\carattere di\\Escape "\\{" a ":" Str "}" oppure la virgoletta circostante deve essere singola ' {"a": "Str"}'.
 
-Virgolette singole che racchiudono i nomi delle proprietà non sono JSON validi.
+Le virgolette singole che racchiudono i nomi delle proprietà non sono JSON valide.
 
 ```sql
 SELECT 
@@ -71,7 +71,7 @@ Questo è il set di risultati.
 [{}]
 ```  
 
-I nomi delle proprietà senza virgolette circostanti non sono JSON validi.
+I nomi di proprietà senza virgolette circostanti non sono JSON validi.
 
 ```sql
 SELECT 
@@ -86,7 +86,7 @@ Questo è il set di risultati.
 
 Di seguito sono riportati esempi con input non valido.
 
- L'espressione passata verrà analizzata come oggetto JSON. questi input non restituiscono il tipo object e pertanto restituiscono undefined.
+ L'espressione passata verrà analizzata come un oggetto JSON. questi input non restituiscono un oggetto di tipo e pertanto restituiscono undefined.
 
 ```sql
 SELECT 
@@ -110,6 +110,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

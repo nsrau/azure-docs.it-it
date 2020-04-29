@@ -1,5 +1,5 @@
 ---
-title: RTRIM nel linguaggio di query di Azure Cosmos DBRIN in Azure Cosmos DB query language
+title: RTRIM in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL RTRIM in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b740d14315f6d9ba2f1788c56d6b1fcd8945c83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302084"
 ---
 # <a name="rtrim-azure-cosmos-db"></a>RTRIM (Azure Cosmos DB)
@@ -34,7 +34,7 @@ RTRIM(<str_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene `RTRIM` illustrato come utilizzare all'interno di una query.  
+  Nell'esempio seguente viene illustrato come utilizzare `RTRIM` all'interno di una query.  
   
 ```sql
 SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  
@@ -52,6 +52,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

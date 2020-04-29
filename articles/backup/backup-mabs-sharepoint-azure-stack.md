@@ -4,10 +4,10 @@ description: Usare il server di Backup di Azure per eseguire il backup e riprist
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d080605022cadf121fa6be99c9758fe9c0d878ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673016"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Eseguire il backup di una farm di SharePoint con Azure Stack
@@ -20,7 +20,7 @@ Backup di Azure per MABS supporta gli scenari seguenti:
 
 | Carico di lavoro | Versione | Distribuzione di SharePoint | Protezione e ripristino |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint distribuito come macchina virtuale di Azure StackSharePoint deployed as an Azure Stack virtual machine <br> -------------- <br> SQL AlwaysOn | Proteggere le opzioni di ripristino di farm di SharePoint: farm di ripristino, database, e file o voce di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint distribuito come macchina virtuale Azure Stack <br> -------------- <br> SQL AlwaysOn | Proteggere le opzioni di ripristino di farm di SharePoint: farm di ripristino, database, e file o voce di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -59,12 +59,12 @@ Prima di usare MABS per proteggere SharePoint, è necessario configurare il serv
 
 1. Nel server WFE, al prompt dei comandi, passare a [percorso di installazione di MABS]\bin\
 2. Digitare ConfigureSharePoint -EnableSharePointProtection.
-3. Immettere le credenziali di amministratore della farm. Questo account deve essere un membro del gruppo degli amministratori locale nel server front-end Web. Se l'amministratore della farm non è un amministratore locale, concedere le autorizzazioni seguenti sul server WFE:
+3. Immettere le credenziali di amministratore della farm. Questo account deve essere un membro del gruppo degli amministratori locale nel server front-end Web. Se l'amministratore della farm non è un amministratore locale, concedere le seguenti autorizzazioni nel server WFE:
    * Concedere il controllo completo del gruppo WSS_Admin_WPG sulla cartella DPM (% Program Files%\Microsoft Azure Backup\DPM).
    * Concedere l'accesso in lettura al gruppo WSS_Admin_WPG per la chiave del Registro di sistema di DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Sarà necessario eseguire nuovamente ConfigureSharePoint.exe ogni volta che viene apportata una modifica alle credenziali di amministratore della farm di SharePoint.
+> È necessario eseguire di nuovo ConfigureSharePoint. exe ogni volta che viene apportata una modifica alle credenziali di amministratore della farm di SharePoint.
 >
 >
 
@@ -95,7 +95,7 @@ Dopo aver configurato MABS e la farm di SharePoint come descritto in precedenza,
    > Il metodo di protezione del disco consente di soddisfare obiettivi di tempi di ripristino brevi.
    >
    >
-5. Nella pagina **Specifica obiettivi a breve termine** selezionare l'intervallo di **conservazione**preferito e identificare quando si desidera eseguire i backup.
+5. Nella pagina **Specifica obiettivi a breve termine** selezionare il periodo di **mantenimento**dati preferito e identificare quando si desidera che vengano eseguiti i backup.
 
     ![Specifica obiettivi a breve termine](./media/backup-azure-backup-sharepoint/specify-short-term-goals2.png)
 

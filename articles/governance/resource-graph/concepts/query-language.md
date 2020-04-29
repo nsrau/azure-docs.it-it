@@ -4,10 +4,10 @@ description: Descrive le tabelle di grafici delle risorse e i tipi di dati, gli 
 ms.date: 03/07/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2f4be4d86a340867e1ad3015ff288f98fc54cecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78927489"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
@@ -74,7 +74,7 @@ Di seguito è riportato l'elenco degli operatori tabulari KQL supportati da Reso
 |[count](/azure/kusto/query/countoperator) |[Conteggio insiemi di credenziali delle chiavi](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostra valori distinti per un alias specifico](../samples/starter.md#distinct-alias-values) | |
 |[estendere](/azure/kusto/query/extendoperator) |[Contare le macchine virtuali per tipo di sistema operativo](../samples/starter.md#count-os) | |
-|[Join](/azure/kusto/query/joinoperator) |[Key Vault con nome sottoscrizione](../samples/advanced.md#join) |Tipi di join supportati: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [LeftOuter](/azure/kusto/query/joinoperator#left-outer-join). Limite di 3 `join` in una singola query. Le strategie di join personalizzate, ad esempio broadcast join, non sono consentite. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
+|[join](/azure/kusto/query/joinoperator) |[Key Vault con nome sottoscrizione](../samples/advanced.md#join) |Tipi di join supportati: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [LeftOuter](/azure/kusto/query/joinoperator#left-outer-join). Limite di 3 `join` in una singola query. Le strategie di join personalizzate, ad esempio broadcast join, non sono consentite. Può essere utilizzato all'interno di una singola tabella o tra le _risorse_ e le tabelle _ResourceContainers_ . |
 |[limite](/azure/kusto/query/limitoperator) |[Elencare tutti gli indirizzi IP pubblici](../samples/starter.md#list-publicip) |Sinonimo di`take` |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operatore legacy, usare `mv-expand` invece. _RowLimit_ massimo di 400. Il valore predefinito è 128. |
 |[MV-Espandi](/azure/kusto/query/mvexpandoperator) |[Elenca Cosmos DB con percorsi di scrittura specifici](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ massimo di 400. Il valore predefinito è 128. |

@@ -1,6 +1,6 @@
 ---
-title: Integrazione di Splunk con Monitor di Azure Documenti Microsoft
-description: Informazioni su come integrare i log di Azure Active Directory con SumoLogic usando Monitoraggio di Azure
+title: Integrare Splunk con monitoraggio di Azure | Microsoft Docs
+description: Informazioni su come integrare i log di Azure Active Directory con SumoLogic usando monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2eda3643a7b1a341c7ed664dbfea933145f1f927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968701"
 ---
-# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procedura: integrare i log di Azure Active Directory con Splunk tramite Monitoraggio di AzureHow to: Integrate Azure Active Directory logs with Splunk using Azure Monitor
+# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procedura: integrare log di Azure Active Directory con Splunk usando monitoraggio di Azure
 
 Questo articolo illustra come integrare i log di Azure Active Directory (Azure AD) con Splunk tramite Monitoraggio di Azure. Innanzitutto indirizzare i log a un hub eventi di Azure e quindi integrare l'hub eventi con Splunk.
 
@@ -34,7 +34,7 @@ Per usare questa funzionalità, sono necessari:
 
 - Un hub eventi di Azure contenente i log attività di Azure AD. Informazioni su come [trasmettere i log attività a un hub eventi](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 
--  Componente aggiuntivo di [Microsoft Azure per Splunk](https://splunkbase.splunk.com/app/3757/). 
+-  Il [Microsoft Azure aggiungere per Splunk](https://splunkbase.splunk.com/app/3757/). 
 
 ## <a name="integrate-azure-active-directory-logs"></a>Integrare i log di Azure Active Directory 
 
@@ -56,6 +56,6 @@ Per usare questa funzionalità, sono necessari:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Interpretare lo schema dei log di controllo in Monitoraggio di AzureInterpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Interpretare lo schema dei log di accesso in Monitoraggio di AzureInterpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpretare lo schema dei log di controllo in monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
+* [Interpretare lo schema dei log di accesso in monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
 * [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

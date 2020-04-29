@@ -1,86 +1,86 @@
 ---
-title: Azure Kubernetes Service (AKS) Diagnostics Overview
-description: Informazioni sui cluster auto-diagnosi nel servizio Azure Kubernetes.Learn about self-diagnosing clusters in Azure Kubernetes Service.
+title: Panoramica di diagnostica del servizio Azure Kubernetes (AKS)
+description: Informazioni sui cluster di diagnostica automatica nel servizio Azure Kubernetes.
 services: container-service
 author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
 ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79126601"
 ---
-# <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Panoramica di Diagnostica servizio Di Azure Kubernetes (anteprima)Azure Kubernetes Service Diagnostics (preview) overview
+# <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Panoramica di diagnostica del servizio Kubernetes di Azure (anteprima)
 
-Risoluzione dei problemi del cluster del servizio Kubernetes di Azure è una parte importante della gestione del cluster, soprattutto se il cluster esegue carichi di lavoro mission-critical. Diagnostica AKS è un'esperienza intelligente e autodiagnostica che consente di identificare e risolvere i problemi nel cluster. AKS Diagnostics è nativa cloud ed è possibile usarla senza costi di fatturazione o configurazione aggiuntivi.
+La risoluzione dei problemi del cluster di Azure Kubernetes Service (AKS) è una parte importante della gestione del cluster, soprattutto se il cluster esegue carichi di lavoro cruciali. Il servizio di diagnostica AKS è un'esperienza intuitiva e autonoma che consente di identificare e risolvere i problemi nel cluster. La diagnostica AKS è nativa del cloud ed è possibile usarla senza costi aggiuntivi per la configurazione o la fatturazione.
 
-Questa funzione è ora in anteprima pubblica.
+Questa funzionalità è ora disponibile in anteprima pubblica.
 
-## <a name="open-aks-diagnostics"></a>Aprire la diagnostica AKSOpen AKS Diagnostics
+## <a name="open-aks-diagnostics"></a>Apri diagnostica AKS
 
-Per accedere a Diagnostica AKS:
+Per accedere alla diagnostica AKS:
 
-- Passare al cluster Kubernetes nel portale di [Azure.](https://portal.azure.com)
-- Fare clic su **Diagnostica e risolvi i problemi** nel riquadro di spostamento sinistro, che apre Diagnostica AKS.
-- Scegliere una categoria che descriva meglio il problema del cluster utilizzando le parole chiave nel riquadro della home page oppure digitare una parola chiave che descriva meglio il problema nella barra di ricerca, ad esempio Problemi relativi ai nodi del _cluster._
+- Passare al cluster Kubernetes nel [portale di Azure](https://portal.azure.com).
+- Fare clic su **diagnostica e risoluzione dei problemi** nel percorso di spostamento a sinistra per aprire la diagnostica AKS.
+- Scegliere una categoria che descriva meglio il problema del cluster usando le parole chiave nel riquadro della Home page oppure digitare una parola chiave che meglio descriva il problema nella barra di ricerca, ad esempio _problemi del nodo del cluster_.
 
 ![Home page](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
-## <a name="view-a-diagnostic-report"></a>Visualizzare un rapporto di diagnostica
+## <a name="view-a-diagnostic-report"></a>Visualizzare un report di diagnostica
 
-Dopo aver fatto clic su una categoria, è possibile visualizzare un report di diagnostica specifico per il cluster. Il rapporto di diagnostica indica in modo intelligente se si verifica un problema nel cluster con le icone di stato. È possibile eseguire il drill-down su ogni argomento facendo clic su **Ulteriori informazioni** per visualizzare la descrizione dettagliata del problema, le azioni consigliate, i collegamenti a documenti utili, le metriche correlate e la registrazione dei dati. I report di diagnostica vengono generati in modo intelligente in base allo stato corrente del cluster dopo l'esecuzione di una varietà di controlli. I report diagnostici possono essere uno strumento utile per individuare il problema del cluster e trovare i passaggi successivi per risolvere il problema.
+Dopo aver fatto clic su una categoria, è possibile visualizzare un report di diagnostica specifico per il cluster. Il report di diagnostica chiama in modo intelligente se si verificano problemi nel cluster con icone di stato. È possibile eseguire il drill-down in ogni argomento facendo clic su **altre informazioni** per visualizzare una descrizione dettagliata del problema, le azioni consigliate, i collegamenti a docs utili, le metriche correlate e i dati di registrazione. I report di diagnostica vengono generati in modo intelligente in base allo stato corrente del cluster dopo l'esecuzione di un'ampia gamma di controlli. I report di diagnostica possono essere uno strumento utile per individuare il problema del cluster e individuare i passaggi successivi per risolvere il problema.
 
-![Rapporto di diagnostica](./media/concepts-diagnostics/diagnostic-report.png)
+![Report di diagnostica](./media/concepts-diagnostics/diagnostic-report.png)
 
-![Rapporto di diagnostica espanso](./media/concepts-diagnostics/node-issues.png)
+![Report di diagnostica espanso](./media/concepts-diagnostics/node-issues.png)
 
-## <a name="cluster-insights"></a>Approfondimenti sui cluster
+## <a name="cluster-insights"></a>Informazioni dettagliate sul cluster
 
-In **Cluster Insights**sono disponibili i controlli diagnostici seguenti.
+In **cluster Insights**sono disponibili i seguenti controlli di diagnostica.
 
-### <a name="cluster-node-issues"></a>Problemi relativi ai nodi del cluster
+### <a name="cluster-node-issues"></a>Problemi del nodo del cluster
 
-Problemi nodo cluster controlla i problemi relativi ai nodi che possono causare il verificarsi imprevisto del cluster.
+Problemi del nodo del cluster controlla la presenza di problemi correlati al nodo che potrebbero causare un comportamento imprevisto del cluster.
 
-- Problemi di preparazione dei nodiNode readiness issues
-- Errori dei nodi
+- Problemi di conformità dei nodi
+- Errori del nodo
 - Risorse insufficienti
-- Nodo mancante configurazione IP
-- Errori CNI del nodoNode CNI failures
+- Configurazione IP mancante nel nodo
+- Errori CNI nodo
 - Nodo non trovato
 - Spegnimento del nodo
-- Errore di autenticazione del nodoNode authentication failure
-- Nodo kube-proxy non aggiornatoNode kube-proxy stale
+- Errore di autenticazione del nodo
+- Nodo Kube-proxy non aggiornato
 
-### <a name="create-read-update--delete-operations"></a>Creare, leggere, aggiornare & eliminare le operazioni
+### <a name="create-read-update--delete-operations"></a>Operazioni di creazione, lettura, aggiornamento & eliminazione
 
-Operations CRUD controlla le operazioni CRUD che possono causare problemi nel cluster.
+Le operazioni CRUD controllano eventuali operazioni CRUD che possono causare problemi nel cluster.
 
-- Errore di operazione di eliminazione della subnet in usoIn-use subnet delete operation error
-- Errore dell'operazione di eliminazione del gruppo di sicurezza di reteNetwork security group delete operation error
-- Errore di operazione di eliminazione tabella ciclo di lavorazione in uso
-- Errore di provisioning delle risorse di riferimento
+- Errore dell'operazione di eliminazione della subnet in uso
+- Errore dell'operazione di eliminazione del gruppo di sicurezza di rete
+- Errore dell'operazione di eliminazione della tabella di route in uso
+- Errore di provisioning delle risorse a cui si fa riferimento
 - Errore dell'operazione di eliminazione dell'indirizzo IP pubblico
 - Errore di distribuzione dovuto alla quota di distribuzione
-- Errore di funzionamento dovuto ai criteri dell'organizzazione
-- Registrazione dell'abbonamento mancante
+- Errore dell'operazione a causa di criteri dell'organizzazione
+- Registrazione della sottoscrizione mancante
 - Errore di provisioning dell'estensione VM
-- Capacità della subnet
-- Errore di quota superata
+- Capacità subnet
+- Errore di superamento della quota
 
 ### <a name="identity-and-security-management"></a>Gestione delle identità e della sicurezza
 
-Identity and Security Management rileva gli errori di autenticazione e autorizzazione che potrebbero impedire la comunicazione con il cluster.
+Gestione identità e sicurezza rileva gli errori di autenticazione e autorizzazione che possono impedire la comunicazione con il cluster.
 
-- Errori di autorizzazione dei nodiNode authorization failures
+- Errori di autorizzazione del nodo
 - 401 errori
 - Errori 403
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Raccogliere i registri per facilitare la risoluzione ulteriore dei problemi del cluster utilizzando [AKS Periscope](https://aka.ms/aksperiscope).
+Raccogliere i log per facilitare la risoluzione dei problemi del cluster usando il [periscopio AKS](https://aka.ms/aksperiscope).
 
-Pubblicare le domande o il feedback su [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) aggiungendo "[Diag]" nel titolo.
+Pubblicare domande o commenti e suggerimenti in [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) aggiungendo "[diag]" nel titolo.

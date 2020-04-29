@@ -1,6 +1,6 @@
 ---
-title: Posizioni dei dati per Windows Virtual Desktop - AzureData locations for Windows Virtual Desktop - Azure
-description: Breve panoramica delle posizioni in cui sono archiviati i dati e i metadati di Windows Virtual Desktop.
+title: Percorsi dati per desktop virtuale Windows-Azure
+description: Breve panoramica delle posizioni in cui vengono archiviati i metadati e i dati del desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,20 +9,20 @@ ms.date: 09/27/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5f48586f38c310c77c61f470d3e2fbc819c33f71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79128049"
 ---
-# <a name="data-locations-for-windows-virtual-desktop"></a>Posizioni dei dati per Windows Virtual Desktop
+# <a name="data-locations-for-windows-virtual-desktop"></a>Percorsi dati per desktop virtuale Windows
 
-Windows Virtual Desktop è attualmente disponibile per tutte le località geografiche. Inizialmente, i metadati del servizio possono essere archiviati solo nell'area geografica degli Stati Uniti (US). Gli amministratori possono scegliere il percorso in cui archiviare i dati utente quando creano le macchine virtuali del pool host e i servizi associati, ad esempio i file server. Per altre informazioni sulle aree geografiche di Azure, vedere la mappa del data center di Azure.Learn more about Azure geographies at the [Azure datacenter map](https://azuredatacentermap.azurewebsites.net/).
+Desktop virtuale di Windows è attualmente disponibile per tutte le posizioni geografiche. Inizialmente, i metadati del servizio possono essere archiviati solo nel Stati Uniti geografia (US). Gli amministratori possono scegliere il percorso in cui archiviare i dati utente quando creano le macchine virtuali del pool host e i servizi associati, ad esempio i file server. Scopri di più sulle aree geografiche di Azure nella [mappa del Data Center di Azure](https://azuredatacentermap.azurewebsites.net/).
 
 >[!NOTE]
->Microsoft non controlla o limita le aree in cui l'utente o gli utenti possono accedere ai dati specifici dell'utente e dell'app.
+>Microsoft non controlla né limita le aree in cui l'utente o gli utenti possono accedere ai dati specifici dell'utente e dell'app.
 
 >[!IMPORTANT]
->Windows Virtual Desktop archivia le informazioni sui metadati globali, ad esempio i nomi dei tenant, i nomi dei pool host, i nomi dei gruppi di app e i nomi delle entità utente in un data center situato negli Stati Uniti. I metadati archiviati vengono crittografati inattivi e i mirror con ridondanza geografica vengono mantenuti all'interno degli Stati Uniti. Tutti i dati dei clienti, ad esempio le impostazioni dell'app e i dati utente, risiedono nella posizione scelta dal cliente e non sono gestiti dal servizio.
+>Desktop virtuale di Windows archivia le informazioni sui metadati globali, ad esempio i nomi dei tenant, i nomi dei pool di host, i nomi dei gruppi di app e i nomi delle entità utente in un centro dati situato nel Stati Uniti. I metadati archiviati vengono crittografati a riposo e i mirror con ridondanza geografica vengono mantenuti all'interno del Stati Uniti. Tutti i dati dei clienti, ad esempio le impostazioni dell'app e i dati utente, si trovano nella posizione scelta dal cliente e non sono gestiti dal servizio.
 
-I metadati del servizio vengono replicati negli Stati Uniti per scopi di ripristino di emergenza.
+I metadati del servizio vengono replicati nel Stati Uniti a scopo di ripristino di emergenza.

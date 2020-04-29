@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 052223f69fc1c1d59ec5f1bcbeb3746ef7122c86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79087060"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Esercitazione: configurare RingCentral per il provisioning utenti automatico
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e RingCentral](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare RingCentral per supportare il provisioning con Azure AD
+## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare RingCentral per supportare il provisioning con Azure AD
 
 1. Accedere a [RingCentral Admin Console](https://login.ringcentral.com/sw.html). Passare a **strumenti > integrazione della directory**.
 
@@ -114,21 +114,21 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |externalId|string|
+   |userName|Stringa|
+   |externalId|Stringa|
    |active|Boolean|
-   |displayName|string|
-   |title|string|
-   |emails[type eq "work"].value|string|
-   |indirizzi [digitare EQ "Work"]. Country|string|
-   |indirizzi [digitare EQ "Work"]. Region|string|
-   |indirizzi [digitare EQ "Work"]. località|string|
-   |addresses[type eq "work"].postalCode|string|
-   |addresses[type eq "work"].streetAddress|string|
-   |name.givenName|string|
-   |name.familyName|string|
-   |phoneNumbers[type eq "mobile"].value|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|string|
+   |displayName|Stringa|
+   |title|Stringa|
+   |emails[type eq "work"].value|Stringa|
+   |indirizzi [digitare EQ "Work"]. Country|Stringa|
+   |indirizzi [digitare EQ "Work"]. Region|Stringa|
+   |indirizzi [digitare EQ "Work"]. località|Stringa|
+   |addresses[type eq "work"].postalCode|Stringa|
+   |addresses[type eq "work"].streetAddress|Stringa|
+   |name.givenName|Stringa|
+   |name.familyName|Stringa|
+   |phoneNumbers[type eq "mobile"].value|Stringa|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|Stringa|
    |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|Informazioni di riferimento|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

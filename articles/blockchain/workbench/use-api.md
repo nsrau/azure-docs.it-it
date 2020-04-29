@@ -5,10 +5,10 @@ ms.date: 03/05/2020
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 3084fcf343bc42fe01bf352b6791916d62f63540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672741"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Uso dell'API REST di Azure blockchain Workbench Preview
@@ -28,7 +28,7 @@ L'API REST di Azure blockchain Workbench Preview fornisce a sviluppatori e Infor
 
     ![URL dell'endpoint dell'API del servizio app](media/use-api/app-service-api.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Le richieste all'API REST di blockchain Workbench sono protette con Azure Active Directory (Azure AD).
 
@@ -74,7 +74,7 @@ Usare l' [API post di codice del contratto](https://docs.microsoft.com/rest/api/
 
 Sostituire i valori seguenti:
 
-| Parametro | Valore |
+| Parametro | valore |
 |-----------|-------|
 | ApplicationId | Valore restituito dall'API POST delle applicazioni. |
 | {ledgerId} | Indice del Ledger. Il valore è in genere 1. È anche possibile controllare la [tabella Ledger](data-sql-management-studio.md) per il valore. |
@@ -104,7 +104,7 @@ Usare le [assegnazioni di ruolo applicazione Post API](https://docs.microsoft.co
 
 Sostituire i valori seguenti:
 
-| Parametro | Valore |
+| Parametro | valore |
 |-----------|-------|
 | ApplicationId | Valore restituito dall'API POST delle applicazioni. |
 | UserID | Valore dell'ID utente della [tabella utente](data-sql-management-studio.md). |
@@ -223,7 +223,7 @@ Usare i [contratti V2 post API](https://docs.microsoft.com/rest/api/azure-blockc
 
 Sostituire i valori seguenti:
 
-| Parametro | Valore |
+| Parametro | valore |
 |-----------|-------|
 | WorkflowId | Il valore ID del flusso di lavoro è il ConstructorID del contratto dalla [tabella del flusso di lavoro](data-sql-management-studio.md). |
 | {contractCodeId} | Valore ID del codice del contratto dalla [tabella ContractCode](data-sql-management-studio.md). Correlare l'ID applicazione e l'ID Ledger per l'istanza del contratto che si vuole creare. |
@@ -231,7 +231,7 @@ Sostituire i valori seguenti:
 
 Per il corpo della richiesta, impostare i valori usando le seguenti informazioni:
 
-| Parametro | Valore |
+| Parametro | valore |
 |-----------|-------|
 | workflowFunctionID | ID della [tabella WorkflowFunction](data-sql-management-studio.md). |
 | workflowActionParameters | Coppie nome-valore dei parametri passati al costruttore. Per ogni parametro, usare il valore workflowFunctionParameterID dalla tabella [WorkflowFunctionParameter](data-sql-management-studio.md) . |

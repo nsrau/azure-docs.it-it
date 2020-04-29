@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dech
 ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79096809"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Utilizzare i dati con Azure Cosmos Explorer 
@@ -25,7 +25,7 @@ Azure Cosmos DB Explorer è un'interfaccia autonoma basata sul Web che consente 
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Accesso ad Azure Cosmos DB Explorer
 
-1. Accedere al portale di [Azure](https://portal.azure.com/). 
+1. Accedere al [portale di Azure](https://portal.azure.com/). 
 
 2. In **Tutte le risorse** individuare e accedere all'account di Azure Cosmos DB, selezionare Chiavi e copiare il valore del campo **Stringa di connessione primaria**.  
 
@@ -47,7 +47,7 @@ Azure Cosmos DB Explorer è un'interfaccia autonoma basata sul Web che consente 
 
 L'opzione **Apri a schermo intero** che consente di condividere l'accesso temporaneo in lettura o in lettura/scrittura non è ancora supportata per gli account dell'API di tabella e Gremlin per Azure Cosmos DB. È comunque possibile visualizzare questi account passando la stringa di connessione ad Azure Cosmos DB Explorer. 
 
-Attualmente, la visualizzazione di documenti che contengono un UUID non è supportata in Esplora dati. Ciò non influisce sul caricamento delle raccolte, ma solo sulla visualizzazione di singoli documenti o query che includono tali documenti. Per visualizzare e gestire questi documenti, gli utenti devono continuare a utilizzare lo strumento utilizzato in origine per creare tali documenti.
+Attualmente, la visualizzazione di documenti che contengono un UUID non è supportata in Esplora dati. Ciò non influisce sul caricamento delle raccolte, visualizzando solo i singoli documenti o le query che includono tali documenti. Per visualizzare e gestire questi documenti, gli utenti devono continuare a usare lo strumento originariamente usato per creare i documenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che si è appreso come iniziare a usare Azure Cosmos DB Explorer per gestire i dati, è possibile eseguire questa operazione:

@@ -1,5 +1,5 @@
 ---
-title: 'Creare un gateway VPN basato sulla route: portaleCreate a route-based VPN gateway: portal'
+title: 'Creare un gateway VPN basato su Route: portale'
 titleSuffix: Azure VPN Gateway
 description: Creare un gateway VPN basato su route usando il portale di Azure
 services: vpn-gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6156d689a29ee348f9b1974d1520eb7d186a8d8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78331350"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creare un gateway VPN basato su route usando il portale di Azure
@@ -21,7 +21,7 @@ Questo articolo illustra come creare rapidamente un gateway VPN di Azure basato 
 
 Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subnet, una subnet del gateway e un gateway VPN (gateway di rete virtuale) basato su route. Dopo aver creato il gateway, è possibile configurare le connessioni. Questi passaggi richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtualeCreate a virtual network
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtuale
 
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
@@ -34,7 +34,7 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 [!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 >[!NOTE]
->Lo SKU del gateway basic non supporta l'autenticazione IKEv2 o RADIUS. Se si prevede di fare in modo che i client Mac si connettano alla rete virtuale, non usare lo SKU di base.
+>Lo SKU del gateway Basic non supporta l'autenticazione IKEv2 o RADIUS. Se si prevede che i client Mac si connettano alla rete virtuale, non usare lo SKU Basic.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -46,7 +46,7 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 2. Nell'elenco di dispositivi fare clic su **VNet1GW** per visualizzare altre informazioni.
 
-   ![Visualizza gateway VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Visualizza gateway VPN")
+   ![Visualizzare il gateway VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Visualizzare il gateway VPN")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

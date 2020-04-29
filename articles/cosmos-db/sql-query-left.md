@@ -1,6 +1,6 @@
 ---
-title: SINISTRA nel linguaggio di query di Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL SINISTRA in Azure Cosmos DB.
+title: LEFT in Azure Cosmos DB linguaggio di query
+description: Informazioni sulla funzione di sistema SQL LASCIAta in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 0eac35a91e4d5158335d6797d49a09f8f6f391e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303750"
 ---
-# <a name="left-azure-cosmos-db"></a>SINISTRA (Azure Cosmos DB)
+# <a name="left-azure-cosmos-db"></a>A sinistra (Azure Cosmos DB)
  Restituisce la parte sinistra di una stringa con il numero specificato di caratteri.  
   
 ## <a name="syntax"></a>Sintassi
@@ -26,10 +26,10 @@ LEFT(<str_expr>, <num_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *str_expr*  
-   È l'espressione stringa da cui estrarre i caratteri.  
+   Espressione stringa da cui estrarre i caratteri.  
   
 *num_expr*  
-   È un'espressione numerica che specifica il numero di caratteri.  
+   Espressione numerica che specifica il numero di caratteri.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -51,10 +51,10 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema beneficerà di un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a82c69575e82a7cf397955f08c3f114e449ba6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968784"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
@@ -26,14 +26,14 @@ Nei criteri, gli amministratori possono definire quali metodi di autenticazione 
 
 Si consiglia agli amministratori di consentire agli utenti la selezione di un numero maggiore di metodi di autenticazione rispetto al limite minimo nel caso in cui non abbiano accesso a uno.
 
-|Metodo di autenticazione|Uso|
+|Metodo di autenticazione|Utilizzo|
 | --- | --- |
 | Password | Autenticazione a più fattori e SSPR |
 | Domande di sicurezza | Solo SSPR |
 | Indirizzo di posta elettronica | Solo SSPR |
 | App Microsoft Authenticator | Autenticazione a più fattori e SSPR |
 | Token hardware OATH | Anteprima pubblica per autenticazione a più fattori e SSPR |
-| sms | Autenticazione a più fattori e SSPR |
+| SMS | Autenticazione a più fattori e SSPR |
 | Chiamata vocale | Autenticazione a più fattori e SSPR |
 | Password dell'app | Autenticazione a più fattori solo in alcuni casi |
 

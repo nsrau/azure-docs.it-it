@@ -1,5 +1,5 @@
 ---
-title: StringToArray nel linguaggio di query di Azure Cosmos DBStringToArray in Azure Cosmos DB query language
+title: StringToArray in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL StringToArray in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302917"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
@@ -26,18 +26,18 @@ StringToArray(<str_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *str_expr*  
-   È un'espressione stringa da analizzare come espressione JSON Array. 
+   Espressione stringa da analizzare come espressione di matrice JSON. 
   
 ## <a name="return-types"></a>Tipi restituiti
   
-  Restituisce un'espressione di matrice o non definita. 
+  Restituisce un'espressione di matrice o undefined. 
   
 ## <a name="remarks"></a>Osservazioni
-  I valori stringa annidati devono essere scritti tra virgolette doppie per essere JSON validi. Per informazioni dettagliate sul formato JSON, vedere [json.org](https://json.org/)
+  I valori stringa annidati devono essere scritti con virgolette doppie per essere JSON validi. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente `StringToArray` viene illustrato come si comporta in diversi tipi. 
+  Nell'esempio seguente viene illustrato `StringToArray` il comportamento di tra tipi diversi. 
   
  Di seguito sono riportati esempi con input valido.
 
@@ -58,8 +58,8 @@ Questo è il set di risultati.
 
 Di seguito è riportato un esempio di input non valido. 
    
- Le virgolette singole all'interno della matrice non sono JSON valido.
-Anche se sono validi all'interno di una query, non verranno analizzati in matrici valide. Le stringhe all'interno della stringa\\\\di matrice devono essere sottoposte a escape "[ "]" o la virgoletta circostante deve essere singola '[""]'.
+ Le virgolette singole all'interno della matrice non sono JSON valide.
+Anche se sono valide all'interno di una query, non verranno analizzate in matrici valide. Per le stringhe all'interno della stringa di matrice deve essere preceduto da un carattere di escape "[\\"\\"]" oppure la virgoletta circostante deve essere singola "[" "]".
 
 ```sql
 SELECT
@@ -72,9 +72,9 @@ Questo è il set di risultati.
 [{}]
 ```
 
-Di seguito sono riportati esempi di input non valido.
+Di seguito sono riportati alcuni esempi di input non valido.
    
- L'espressione passata verrà analizzata come matrice JSON. di seguito non restituiscono la matrice di tipo e pertanto restituiscono undefined.
+ L'espressione passata verrà analizzata come matrice JSON. gli elementi seguenti non restituiscono una matrice di tipi e pertanto restituiscono undefined.
    
 ```sql
 SELECT
@@ -97,6 +97,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

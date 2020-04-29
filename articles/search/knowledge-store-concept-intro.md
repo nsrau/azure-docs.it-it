@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78942987"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduzione agli archivi conoscenze in Ricerca cognitiva di Azure
@@ -131,7 +131,7 @@ Una volta che gli arricchimenti sono presenti nell'archiviazione, è possibile u
 
 <a name="kstore-rest-api"></a>
 
-## <a name="api-reference"></a>Informazioni di riferimento sulle API
+## <a name="api-reference"></a>API (riferimento)
 
 La versione `2019-05-06-Preview` dell'API REST fornisce l'archivio delle informazioni tramite definizioni aggiuntive in skillsets. Per informazioni dettagliate su come chiamare le API, vedere l'articolo relativo alla [creazione di un archivio informazioni con il post](knowledge-store-create-rest.md) .
 

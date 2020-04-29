@@ -1,6 +1,6 @@
 ---
-title: REVERSE nel linguaggio di query del database Cosmos di AzureREVERSE in Azure Cosmos DB query language
-description: Informazioni sulla funzione di sistema SQL REVERSE in Azure Cosmos DB.
+title: Inverti in Azure Cosmos DB linguaggio di query
+description: Informazioni sull'inversione della funzione di sistema SQL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a22e1c8a5f4350bd2f966ee48f96368c648a4a1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302169"
 ---
-# <a name="reverse-azure-cosmos-db"></a>REVERSE (Azure Cosmos DB)
+# <a name="reverse-azure-cosmos-db"></a>Inverti (Azure Cosmos DB)
  Restituisce un valore stringa in ordine inverso.  
   
 ## <a name="syntax"></a>Sintassi
@@ -26,7 +26,7 @@ REVERSE(<str_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *str_expr*  
-   È un'espressione stringa.  
+   Espressione stringa.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -34,7 +34,7 @@ REVERSE(<str_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene `REVERSE` illustrato come utilizzare in una query.  
+  Nell'esempio seguente viene illustrato come utilizzare `REVERSE` in una query.  
   
 ```sql
 SELECT REVERSE("Abc") AS reverse  
@@ -52,6 +52,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

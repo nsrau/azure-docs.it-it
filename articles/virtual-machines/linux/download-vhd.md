@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
 ms.openlocfilehash: 02c3ee483e6a31960fd5123070a49f568ac4c690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968788"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
@@ -48,8 +48,8 @@ Per usare il disco rigido virtuale come immagine per la creazione di altre macch
 
 Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di un disco dati o di una macchina virtuale esistente, seguire questa procedura:
 
-1.  Accedere al [portale](https://portal.azure.com/)di Azure .
-2.  Nel menu a sinistra selezionare **Macchine virtuali**.
+1.  Accedere al [portale di Azure](https://portal.azure.com/).
+2.  Nel menu a sinistra selezionare **macchine virtuali**.
 3.  Selezionare la VM dall'elenco.
 4.  Nella pagina della macchina virtuale selezionare **Arresta**.
 
@@ -59,17 +59,17 @@ Per usare il disco rigido virtuale come disco in cui creare una nuova istanza di
 
 Per scaricare il file VHD, è necessario generare un URL di [firma di accesso condiviso (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando viene generato, all'URL viene assegnata una scadenza.
 
-1.  Nel menu della pagina per la macchina virtuale selezionare **Dischi**.
-2.  Selezionare il disco del sistema operativo per la macchina virtuale e quindi selezionare **Esportazione disco**.
-3.  Selezionare **Genera URL**.
+1.  Scegliere **dischi**dal menu della pagina per la macchina virtuale.
+2.  Selezionare il disco del sistema operativo per la macchina virtuale e quindi selezionare **esportazione disco**.
+3.  Selezionare **genera URL**.
 
     ![Generare l'URL](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>Scaricare il disco rigido virtuale
 
-1.  Sotto l'URL generato selezionare **Scarica il file VHD**.
+1.  In URL generato selezionare **scaricare il file VHD**.
 **
-    ![Scarica il disco rigido virtuale](./media/download-vhd/export-download.png)
+    ![Scarica VHD](./media/download-vhd/export-download.png)
 
 2.  Potrebbe essere necessario selezionare **Salva** nel browser per avviare il download. Il nome predefinito per il file VHD è *abcd*.
 

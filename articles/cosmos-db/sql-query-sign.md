@@ -1,6 +1,6 @@
 ---
-title: SEGNO nel linguaggio di query del database Cosmos di AzureSIGN in Azure Cosmos DB query language
-description: Informazioni sulla funzione di sistema SQL SIGN in Azure Cosmos DB.
+title: Linguaggio di query per l'accesso Azure Cosmos DB
+description: Informazioni sull'accesso alla funzione di sistema SQL Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 84335acbee1e4166e5346f5c5cac6ef8dae11e99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302067"
 ---
-# <a name="sign-azure-cosmos-db"></a>SEGNO (Azure Cosmos DB)
+# <a name="sign-azure-cosmos-db"></a>FIRMA (Azure Cosmos DB)
  Restituisce il segno positivo (+1), zero (0) o negativo (-1) dell'espressione numerica specificata.  
   
 ## <a name="syntax"></a>Sintassi
@@ -34,7 +34,7 @@ SIGN(<numeric_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente `SIGN` vengono restituiti i valori dei numeri da -2 a 2.  
+  Nell'esempio seguente vengono restituiti `SIGN` i valori dei numeri da-2 a 2.  
   
 ```sql
 SELECT SIGN(-2) AS s1, SIGN(-1) AS s2, SIGN(0) AS s3, SIGN(1) AS s4, SIGN(2) AS s5  
