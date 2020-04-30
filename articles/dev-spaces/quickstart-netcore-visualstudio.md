@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5d0d1541600f4c10b021d5d7f7f435f1aa5ae589
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e6fa490285582c827b8704496fb7a20a7eb9cfbc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80239712"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82166020"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Guida introduttiva: Eseguire il debug e l'iterazione in Kubernetes: Visual Studio e .NET Core - Azure Dev Spaces
 
@@ -89,12 +89,12 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://default.webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-Nell'esempio precedente l'URL pubblico è http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. 
+Nell'esempio precedente l'URL pubblico è `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`. 
 
 Selezionare **Debug** e quindi **Avvia debug**. Dopo alcuni secondi, il servizio verrà avviato e Visual Studio aprirà un browser con l'URL pubblico del servizio. Se non viene aperto automaticamente un browser, passare all'URL pubblico del servizio in un browser e interagire con il servizio in esecuzione nello spazio di Dev Spaces.
 

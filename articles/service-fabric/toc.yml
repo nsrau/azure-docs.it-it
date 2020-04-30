@@ -16,7 +16,7 @@
       href: service-fabric-quickstart-containers-linux.md
     - name: Distribuire un'applicazione contenitore Windows
       href: service-fabric-quickstart-containers.md
-    - name: Guide introduttive su Java
+    - name: Avvii rapidi di Java
       items:
         - name: Distribuire un'applicazione Spring Boot
           href: service-fabric-quickstart-java-spring-boot.md
@@ -138,6 +138,8 @@
           href: service-fabric-security-controls.md
         - name: Autenticazione basata su certificati in Service Fabric
           href: cluster-security-certificates.md
+        - name: Gestione dei certificati in Service Fabric
+          href: cluster-security-certificate-management.md
     - name: Terminologia
       href: service-fabric-technical-overview.md
     - name: Compilazione di applicazioni

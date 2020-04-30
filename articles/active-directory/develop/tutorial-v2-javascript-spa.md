@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52b7c582848dd24f6d9963a9d37c8f12c5db6149
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678016"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181563"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -32,14 +32,10 @@ Questa guida illustra come un'applicazione a pagina singola JavaScript consente 
 
 ![Illustra come funziona l'app di esempio generata da questa esercitazione](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Ulteriori informazioni
 
 L'applicazione di esempio creata in questa guida consente a un'applicazione a pagina singola JavaScript di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dall'endpoint di Microsoft Identity Platform. Per questo scenario, dopo l'accesso di un utente, viene richiesto un token di accesso che viene aggiunto a richieste HTTP tramite l'intestazione dell'autorizzazione. Questo token verrà usato per acquisire il profilo dell'utente e gli indirizzi di posta elettronica tramite l'**API Microsoft Graph**. L'acquisizione e il rinnovo del token vengono gestiti da **Microsoft Authentication Library (MSAL) per JavaScript**.
 
-<!--end-collapse-->
-
-<!--start-collapse-->
 ### <a name="libraries"></a>Librerie
 
 Questa guida usa la libreria seguente:
@@ -47,8 +43,6 @@ Questa guida usa la libreria seguente:
 |Libreria|Descrizione|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Authentication Library di Microsoft per JavaScript|
-
-<!--end-collapse-->
 
 ## <a name="set-up-your-web-server-or-project"></a>Impostare il server Web o il progetto
 
@@ -400,7 +394,6 @@ Creare un nuovo file js denominato `authPopup.js`, che conterrà la logica di au
    }
    ```
 
-<!--start-collapse-->
 ### <a name="more-information"></a>Ulteriori informazioni
 
 Quando un utente seleziona il pulsante **Accedi** per la prima volta, il metodo `signIn` chiama `loginPopup` per farlo accedere. Questo metodo apre una finestra popup con l'*endpoint di Microsoft Identity Platform* per la richiesta e la convalida delle credenziali dell'utente. Dopo aver eseguito l'accesso, l'utente viene reindirizzato alla pagina *index.html* originale. Un token viene ricevuto ed elaborato da `msal.js`, quindi le informazioni contenute nel token vengono memorizzate nella cache. Questo token è noto come *token ID* e contiene informazioni di base sull'utente, ad esempio il nome visualizzato. Se si prevede di usare per qualsiasi scopo i dati forniti da questo token, è necessario verificare che il token venga convalidato dal server back-end per garantire che il token sia stato rilasciato a un utente valido per l'applicazione.
@@ -427,7 +420,6 @@ Il metodo `acquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token se
 
 > [!NOTE]
 > Questo avvio rapido usa i metodi `loginPopup` e `acquireTokenPopup` per impostazione predefinita. Se si usa Internet Explorer come browser, è consigliabile usare i metodi `loginRedirect` e `acquireTokenRedirect` a causa di un [problema noto](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) correlato al modo in cui Internet Explorer gestisce le finestre popup. Per informazioni su come ottenere lo stesso risultato usando `Redirect methods`, vedere [qui](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
-<!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>Chiamare l'API Microsoft Graph usando il token appena acquisito
 
@@ -466,13 +458,9 @@ Il metodo `acquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token se
    }
    ```
 
-<!--start-collapse-->
-
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Altre informazioni sull'esecuzione di una chiamata REST a un'API protetta
 
 Nell'applicazione di esempio creata in questa guida, viene usato il metodo `callMSGraph()` per eseguire una richiesta HTTP `GET` per una risorsa protetta che richiede un token. La richiesta restituisce quindi il contenuto al chiamante. Questo metodo aggiunge il token acquisito nell'*intestazione di autorizzazione HTTP*. Per l'applicazione di esempio creata da questa guida, la risorsa è l'endpoint *me* dell'API Microsoft Graph, che visualizza informazioni sul profilo dell'utente.
-
-<!--end-collapse-->
 
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -502,7 +490,6 @@ Dopo l'accesso, le informazioni del profilo utente vengono restituite nella risp
 
 ![Risultati della chiamata all'API Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
-<!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Altre informazioni sugli ambiti e sulle autorizzazioni delegate
 
 L'API Microsoft Graph richiede l'ambito *user.read* per leggere il profilo dell'utente. Per impostazione predefinita, questo ambito viene aggiunto automaticamente in ogni applicazione registrata nel portale di registrazione. Altre API per Microsoft Graph e le API personalizzate per il server di back-end potrebbero richiedere anche altri ambiti. Ad esempio, l'API Microsoft Graph richiede l'ambito *Mail.Read* per generare l'elenco degli indirizzi di posta elettronica dell'utente.
@@ -511,7 +498,5 @@ L'API Microsoft Graph richiede l'ambito *user.read* per leggere il profilo dell'
 > Con l'aumentare del numero di ambiti è possibile che all'utente venga chiesto di esprimere anche altri tipi di consenso.
 
 Se un'API back-end non richiede alcun ambito (scelta non consigliata), è possibile usare *clientId* come ambito nelle chiamate per acquisire i token.
-
-<!--end-collapse-->
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

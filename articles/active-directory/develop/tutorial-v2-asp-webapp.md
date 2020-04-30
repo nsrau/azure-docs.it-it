@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 29f5a48feaaafee64a20745b3cdf09726a6372ac
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533838"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181614"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
@@ -70,10 +70,8 @@ Questa sezione illustra l'installazione e la configurazione della pipeline di au
     Install-Package Microsoft.Owin.Host.SystemWeb
     ```
 
-<!--start-collapse-->
-> ### <a name="about-these-libraries"></a>Informazioni sulle librerie
-> Queste librerie abilitano l'accesso Single Sign-On (SSO) usando OpenID Connect tramite l'autenticazione basata su cookie. Al termine dell'autenticazione e dopo l'invio del token che rappresenta l'utente all'applicazione, il middleware OWIN crea un cookie di sessione. Il browser usa quindi questo cookie nelle richieste successive, in modo che l'utente non debba digitare di nuovo la password e non siano necessarie operazioni di verifica aggiuntive.
-<!--end-collapse-->
+### <a name="about-these-libraries"></a>Informazioni sulle librerie
+Queste librerie abilitano l'accesso Single Sign-On (SSO) usando OpenID Connect tramite l'autenticazione basata su cookie. Al termine dell'autenticazione e dopo l'invio del token che rappresenta l'utente all'applicazione, il middleware OWIN crea un cookie di sessione. Il browser usa quindi questo cookie nelle richieste successive, in modo che l'utente non debba digitare di nuovo la password e non siano necessarie operazioni di verifica aggiuntive.
 
 ## <a name="configure-the-authentication-pipeline"></a>Configurare la pipeline di autenticazione
 
@@ -171,10 +169,9 @@ La procedura seguente consente di creare una classe di avvio del middleware OWIN
 > L'impostazione di `ValidateIssuer = false` è una semplificazione per questo avvio rapido. Nelle applicazioni reali è necessario convalidare l'autorità di certificazione.
 > Per informazioni su come eseguire questa operazione, vedere gli esempi.
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Ulteriori informazioni
-> I parametri forniti in *OpenIDConnectAuthenticationOptions* fungeranno da coordinate per consentire all'applicazione di comunicare con Microsoft Identity Platform. Dal momento che il middleware OpenID Connect usa i cookie in background, è anche necessario configurare l'autenticazione dei cookie, come illustrato nel codice precedente. Il valore *ValidateIssuer* indica a OpenIdConnect di non limitare l'accesso a un'organizzazione specifica.
-<!--end-collapse-->
+### <a name="more-information"></a>Ulteriori informazioni
+
+I parametri forniti in *OpenIDConnectAuthenticationOptions* fungeranno da coordinate per consentire all'applicazione di comunicare con Microsoft Identity Platform. Dal momento che il middleware OpenID Connect usa i cookie in background, è anche necessario configurare l'autenticazione dei cookie, come illustrato nel codice precedente. Il valore *ValidateIssuer* indica a OpenIdConnect di non limitare l'accesso a un'organizzazione specifica.
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Aggiungere un controller per gestire le richieste di accesso e disconnessione
 
@@ -266,10 +263,8 @@ In Visual Studio creare una nuova visualizzazione per aggiungere il pulsante di 
     </html>
     ```
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Ulteriori informazioni
-> Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Linee guida sulla personalizzazione").
-<!--end-collapse-->
+### <a name="more-information"></a>Ulteriori informazioni
+Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Linee guida sulla personalizzazione").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Aggiungere un controller per visualizzare le attestazioni dell'utente
 Questo controller illustra gli usi dell'attributo `[Authorize]` per la protezione di un controller. Questo attributo limita l'accesso al controller ai soli utenti autenticati. Il codice seguente usa l'attributo per visualizzare le attestazioni utente recuperate durante l'accesso:
@@ -309,10 +304,8 @@ Questo controller illustra gli usi dell'attributo `[Authorize]` per la protezion
     }
     ```
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Ulteriori informazioni
-> A causa dell'uso dell'attributo `[Authorize]`, tutti i metodi di questo controller possono essere eseguiti solo se l'utente è autenticato. Se un utente non autenticato prova ad accedere al controller, OWIN avvia una richiesta di autenticazione e impone all'utente di eseguire l'autenticazione. Il codice precedente cerca nell'elenco di attestazioni attributi utente specifici inclusi nel token ID dell'utente. Tali attributi includono nome e cognome, nome utente e soggetto ID utente globale dell'utente. Contengono anche l'*ID tenant*, che rappresenta l'ID dell'organizzazione dell'utente.
-<!--end-collapse-->
+### <a name="more-information"></a>Ulteriori informazioni
+A causa dell'uso dell'attributo `[Authorize]`, tutti i metodi di questo controller possono essere eseguiti solo se l'utente è autenticato. Se un utente non autenticato prova ad accedere al controller, OWIN avvia una richiesta di autenticazione e impone all'utente di eseguire l'autenticazione. Il codice precedente cerca nell'elenco di attestazioni attributi utente specifici inclusi nel token ID dell'utente. Tali attributi includono nome e cognome, nome utente e soggetto ID utente globale dell'utente. Contengono anche l'*ID tenant*, che rappresenta l'ID dell'organizzazione dell'utente.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Creare una visualizzazione per mostrare le attestazioni dell'utente
 
@@ -403,16 +396,16 @@ Quando si è pronti per eseguire il test, usare un account Azure AD (aziendale o
 <br/><br/>
 ![Accedere all'account Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-<!--start-collapse-->
-> ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
->  Le applicazioni che si integrano con Microsoft Identity Platform seguono un modello di autorizzazione che offre a utenti e amministratori il controllo sulle modalità di accesso ai dati. Quando un utente esegue l'autenticazione con Microsoft Identity Platform per accedere a questa applicazione, viene richiesto di fornire il consenso alle autorizzazioni richieste dall'applicazione ("Visualizza il profilo di base personale" e "Conservazione dell'accesso ai dati per cui è stato autorizzato l'accesso"). Dopo aver accettato queste autorizzazioni, l'utente potrà passare ai risultati dell'applicazione. È tuttavia possibile che all'utente venga visualizzata la pagina **Need admin consent** (Consenso amministratore richiesto) se si verifica una delle condizioni seguenti:
->  > - Lo sviluppatore dell'applicazione inserisce autorizzazioni aggiuntive che richiedono il **consenso dell'amministratore**.
->  > - La configurazione del tenant (accessibile in **Applicazioni aziendali -> Impostazioni utente**) è tale che gli utenti non possono concedere alle app il consenso per accedere ai dati aziendali per proprio conto.
->
-> Per altre informazioni, vedere [Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
-<!--end-collapse-->
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
-#### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
+Le applicazioni che si integrano con Microsoft Identity Platform seguono un modello di autorizzazione che offre a utenti e amministratori il controllo sulle modalità di accesso ai dati. Quando un utente esegue l'autenticazione con Microsoft Identity Platform per accedere a questa applicazione, viene richiesto di fornire il consenso alle autorizzazioni richieste dall'applicazione ("Visualizza il profilo di base personale" e "Conservazione dell'accesso ai dati per cui è stato autorizzato l'accesso"). Dopo aver accettato queste autorizzazioni, l'utente potrà passare ai risultati dell'applicazione. È tuttavia possibile che all'utente venga visualizzata la pagina **Need admin consent** (Consenso amministratore richiesto) se si verifica una delle condizioni seguenti:
+
+- Lo sviluppatore dell'applicazione inserisce autorizzazioni aggiuntive che richiedono il **consenso dell'amministratore**.
+- La configurazione del tenant (accessibile in **Applicazioni aziendali -> Impostazioni utente**) è tale che gli utenti non possono concedere alle app il consenso per accedere ai dati aziendali per proprio conto.
+
+Per altre informazioni, vedere [Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+
+### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
 
 Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web. La home page è l'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. La home page include un messaggio di benvenuto di tipo *"Salve \<utente>"* , un collegamento per la disconnessione e un collegamento per la visualizzazione delle attestazioni dell'utente. Il collegamento per le attestazioni dell'utente consente di connettersi al controller Attestazioni creato in precedenza.
 
@@ -446,14 +439,13 @@ Viene richiesta l'autenticazione per usare la visualizzazione protetta dei contr
 
 ## <a name="advanced-options"></a>Advanced Options
 
-<!--start-collapse-->
 ### <a name="protect-your-entire-website"></a>Proteggere l'intero sito Web
+
 Per proteggere l'intero sito Web, nel file **Global.asax** aggiungere l'attributo `AuthorizeAttribute` al filtro `GlobalFilters` nel metodo `Application_Start`:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
-<!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Limitare l'accesso all'applicazione
 

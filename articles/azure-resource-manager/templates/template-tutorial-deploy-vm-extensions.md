@@ -2,15 +2,15 @@
 title: Distribuire estensioni di VM con un modello
 description: Informazioni su come distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager
 author: mumian
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 280b4a9775346c719e82d1fef4162fa6ea666798
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616886"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184963"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Esercitazione: Distribuire estensioni di macchina virtuale con i modelli di Azure Resource Manager
 
