@@ -1,6 +1,6 @@
 ---
-title: Assegnare ed elencare i ruoli con l'ambito dell'unità amministrativa (anteprima) - Azure Active Directory Documenti Microsoft
-description: Utilizzo di unità amministrative per limitare l'ambito delle assegnazioni di ruolo in Azure Active DirectoryUsing administrative units to restrict the scope of role assignments in Azure Active Directory
+title: Assegnare ed elencare i ruoli con ambito unità amministrativa (anteprima)-Azure Active Directory | Microsoft Docs
+description: Utilizzo di unità amministrative per limitare l'ambito delle assegnazioni di ruolo in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,40 +15,40 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3af281846e2bd1a39e691d84e964d8a8f780a6f1
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870426"
 ---
-# <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativaAssign scoped roles to an administrative unit
+# <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativa
 
-In Azure Active Directory (Azure AD) è possibile assegnare gli utenti a un ruolo di Azure AD con un ambito limitato a una o più unità amministrative (AU) per un controllo amministrativo più granulare.
+In Azure Active Directory (Azure AD), è possibile assegnare utenti a un ruolo Azure AD con un ambito limitato a una o più unità amministrative (AUs) per un controllo amministrativo più granulare.
 
-Per la procedura di preparazione all'utilizzo di PowerShell e Microsoft Graph per la gestione delle unità amministrative, vedere [Introduzione.](roles-admin-units-manage.md#get-started)
+Per i passaggi necessari per preparare l'uso di PowerShell e Microsoft Graph per la gestione delle unità amministrative, vedere [Introduzione](roles-admin-units-manage.md#get-started).
 
 ## <a name="roles-available"></a>Ruoli disponibili
 
 Ruolo  |  Descrizione
 ----- |  -----------
-Amministratore dell'autenticazione  |  Consente di visualizzare, impostare e reimpostare le informazioni sul metodo di autenticazione per qualsiasi utente non amministratore solo nell'unità amministrativa assegnata.
-Amministratore gruppi  |  Può gestire tutti gli aspetti delle impostazioni di gruppi e gruppi, ad esempio i criteri di denominazione e di scadenza solo nell'unità amministrativa assegnata.
-Amministratore del supporto tecnico  |  Può reimpostare le password solo per gli amministratori non amministratori e gli amministratori del supporto tecnico nell'unità amministrativa assegnata.
-Amministratore licenze  |  Può assegnare, rimuovere e aggiornare le assegnazioni delle licenze solo all'interno dell'unità amministrativa.
-Amministratore password  |  Può reimpostare le password solo per gli utenti non amministratori e gli amministratori delle password all'interno dell'unità amministrativa assegnata.
-Amministratore utenti  |  Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione delle password per gli amministratori con password limitata solo all'interno dell'unità amministrativa assegnata.
+Amministratore dell'autenticazione  |  Ha accesso per visualizzare, impostare e reimpostare le informazioni sul metodo di autenticazione per qualsiasi utente non amministratore nell'unità amministrativa assegnata.
+Amministratore gruppi  |  Consente di gestire tutti gli aspetti delle impostazioni di gruppi e gruppi, ad esempio i criteri di denominazione e scadenza, solo nell'unità amministrativa assegnata.
+Amministratore del supporto tecnico  |  Può reimpostare le password per gli amministratori non amministratori e helpdesk solo nell'unità amministrativa assegnata.
+Amministratore licenze  |  Consente di assegnare, rimuovere e aggiornare le assegnazioni di licenze solo nell'unità amministrativa.
+Amministratore password  |  Consente di reimpostare le password per gli amministratori non amministratori e password solo nell'unità amministrativa assegnata.
+Amministratore utenti  |  Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione delle password per gli amministratori limitati all'interno dell'unità amministrativa assegnata.
 
-## <a name="assign-a-scoped-role"></a>Assegnare un ruolo con ambitoAssign a scoped role
+## <a name="assign-a-scoped-role"></a>Assegnare un ruolo con ambito
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Passare ad **Azure AD > unità amministrative** nel portale. Selezionare l'unità amministrativa a cui si desidera assegnare il ruolo a un utente. Nel riquadro sinistro selezionare Ruoli e amministratori per elencare tutti i ruoli disponibili.
+Passare a **Azure AD > unità amministrative** nel portale. Selezionare l'unità amministrativa a cui si desidera assegnare il ruolo a un utente. Nel riquadro sinistro selezionare ruoli e amministratori per elencare tutti i ruoli disponibili.
 
 ![Selezionare un'unità amministrativa per modificare l'ambito del ruolo](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-Selezionare il ruolo da assegnare, quindi selezionare **Aggiungi assegnazioni**. Questa diapositiva aprirà un pannello a destra in cui è possibile selezionare uno o più utenti da assegnare al ruolo.
+Selezionare il ruolo da assegnare e quindi selezionare **Aggiungi assegnazioni**. Verrà visualizzato un pannello a destra in cui è possibile selezionare uno o più utenti da assegnare al ruolo.
 
-![Selezionare il ruolo da definire l'ambito e quindi selezionare Aggiungi assegnazioni](./media/roles-admin-units-assign-roles/select-add-assignment.png)
+![Selezionare il ruolo da definire come ambito, quindi selezionare Aggiungi assegnazioni](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -72,11 +72,11 @@ La sezione evidenziata può essere modificata in base alle esigenze dell'ambient
       }
     }
 
-## <a name="list-the-scoped-admins-on-an-au"></a>Elencare gli amministratori con ambito in un'Unione africanaList the scoped admins on an AU
+## <a name="list-the-scoped-admins-on-an-au"></a>Elencare gli amministratori con ambito in un AU
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Tutte le assegnazioni di ruolo eseguite con un ambito di unità amministrativa possono essere visualizzate nella [sezione Unità amministrative di Azure AD.](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit) Passare ad **Azure AD > unità amministrative** nel portale. Selezionare l'unità di amministrazione per le assegnazioni di ruolo che si desidera elencare. Selezionare **Ruoli e amministratori** e aprire un ruolo per visualizzare le assegnazioni nell'unità di amministrazione.
+Tutte le assegnazioni di ruolo eseguite con un ambito di unità amministrativa possono essere visualizzate nella [sezione unità amministrative del Azure ad](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Passare a **Azure AD > unità amministrative** nel portale. Selezionare l'unità amministrativa per le assegnazioni di ruolo che si desidera elencare. Selezionare **ruoli e amministratori** e aprire un ruolo per visualizzare le assegnazioni nell'unità amministrativa.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -94,4 +94,4 @@ La sezione evidenziata può essere modificata in base alle esigenze dell'ambient
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risoluzione dei problemi relativi alle unità amministrative e domande frequenti](roles-admin-units-faq-troubleshoot.md)
+- [Risoluzione dei problemi e domande frequenti sulle unità amministrative](roles-admin-units-faq-troubleshoot.md)

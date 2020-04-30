@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.openlocfilehash: d8069b174b7a69cc2e6c47171159569c56a15563
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82081949"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire i dischi non gestiti di una VM Windows in dischi gestiti
@@ -29,7 +29,7 @@ Se si hanno macchine virtuali (VM) Windows che usano dischi non gestiti, è poss
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* I dischi rigidi virtuali originali e l'account di archiviazione usato dalla macchina virtuale prima della conversione non verranno eliminati e i costi correlati continueranno a essere addebitati. Per evitare addebiti per questi elementi, eliminare i BLOB VHD originali dopo aver verificato che la conversione sia stata completata. Se è necessario trovare questi dischi non collegati per eliminarli, vedere l'articolo [Trovare ed eliminare dischi gestiti e non gestiti](find-unattached-disks.md)di Azure non collegati .
+* I dischi rigidi virtuali originali e l'account di archiviazione usato dalla macchina virtuale prima della conversione non verranno eliminati e i costi correlati continueranno a essere addebitati. Per evitare addebiti per questi elementi, eliminare i BLOB VHD originali dopo aver verificato che la conversione sia stata completata. Se è necessario trovare questi dischi non collegati per eliminarli, vedere l'articolo [trovare ed eliminare dischi gestiti e non gestiti di Azure non collegati](find-unattached-disks.md).
 
 
 ## <a name="convert-single-instance-vms"></a>Convertire VM a istanza singola
@@ -105,7 +105,7 @@ La macchina virtuale verrà arrestata e riavviata al termine della migrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Convertire i dischi gestiti standard in dischi premiumConvert standard managed disks to premium](convert-disk-storage.md)
+[Convertire i dischi gestiti standard in Premium](convert-disk-storage.md)
 
 Eseguire una copia di sola lettura di una VM usando [snapshot](snapshot-copy-managed-disk.md).
 

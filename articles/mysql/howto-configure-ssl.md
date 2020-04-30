@@ -1,5 +1,5 @@
 ---
-title: Configurare SSL - Database di Azure per MySQLConfigure SSL - Azure Database for MySQL
+title: Configurare SSL-database di Azure per MySQL
 description: Istruzioni per la configurazione di Database di Azure per MySQL e delle applicazioni associate per usare correttamente le connessioni SSL
 author: ajlam
 ms.author: andrela
@@ -7,35 +7,35 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/21/2020
 ms.openlocfilehash: a68b63fa190aa67125b2bf8c09ae7f31aedc3905
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770257"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL
 Database di Azure per il server MySQL supporta la connessione alle applicazioni client tramite Secure Sockets Layer (SSL). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>Passaggio 1: ottenere un certificato SSL
-Scaricare il certificato necessario per comunicare tramite SSL [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) con il database di Azure per il server MySQL e salvare il file del certificato nell'unità locale (ad esempio, questa esercitazione usa c:.
+Scaricare il certificato necessario per comunicare tramite SSL con il database di Azure per il server [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) MySQL e salvare il file del certificato nell'unità locale. in questa esercitazione viene usato c:\ssl, ad esempio.
 **Per Microsoft Internet Explorer e Microsoft Edge:** una volta completato il download, rinominare il certificato in BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="step-2-bind-ssl"></a>Passaggio 2: eseguire il binding SSL
 
-Per le stringhe di connessione specifiche del linguaggio di programmazione, fare riferimento al [codice di esempio](howto-configure-ssl.md#sample-code) riportato di seguito.
+Per le stringhe di connessione specifiche del linguaggio di programmazione, consultare il [codice di esempio](howto-configure-ssl.md#sample-code) seguente.
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Connessione al server tramite MySQL Workbench tramite SSL
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Connessione al server con MySQL Workbench tramite SSL
 Configurare MySQL Workbench per connettersi in modo sicuro tramite SSL. 
 
 1. Passare alla scheda **SSL** dalla finestra di dialogo Setup New Connection (Configura nuova connessione). 
 
-1. Aggiornare il campo **Usa SSL** su "Richiedi".
+1. Aggiornare il campo **Usa SSL** a "Richiedi".
 
 1. Immettere il percorso del file **BaltimoreCyberTrustRoot.crt.pem** nel campo **SSL CA File:** (File CA SSL:). 
     
     ![Salva configurazione SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-Per le connessioni esistenti, è possibile associare SSL facendo clic con il pulsante destro del mouse sull'icona della connessione e scegliere Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
+Per le connessioni esistenti, è possibile associare SSL facendo clic con il pulsante destro del mouse sull'icona di connessione e scegliendo Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Connessione al server con l'interfaccia della riga di comando di MySQL tramite SSL
 Un altro modo per associare il certificato SSL è quello di usare l'interfaccia della riga di comando di MySQL eseguendo i comandi seguenti. 
@@ -68,7 +68,7 @@ Verificare che la connessione sia crittografata analizzando l'output, che dovreb
 ## <a name="sample-code"></a>Codice di esempio
 Per stabilire una connessione sicura a Database di Azure per MySQL tramite SSL dall'applicazione, fare riferimento agli esempi di codice seguenti:
 
-Fare riferimento all'elenco dei driver compatibili supportati dal servizio Database di Azure per MySQL.Refer to the list of [compatible drivers](concepts-compatibility.md) supported by the Azure Database for MySQL service.
+Vedere l'elenco dei [driver compatibili](concepts-compatibility.md) supportati dal servizio database di Azure per MySQL.
 
 ### <a name="php"></a>PHP
 ```php
@@ -79,7 +79,7 @@ if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-### <a name="php-using-pdo"></a>PHP (Utilizzo di PDO)
+### <a name="php-using-pdo"></a>PHP (usando DOP)
 ```phppdo
 $options = array(
     PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
@@ -147,7 +147,7 @@ var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')   
 db, _ := sql.Open("mysql", connectionString)
 ```
-### <a name="java-mysql-connector-for-java"></a>Java (connettore MySQL per Java)
+### <a name="java-mysql-connector-for-java"></a>Java (MySQL Connector per Java)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -174,7 +174,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
-### <a name="java-mariadb-connector-for-java"></a>Java (Connettore MariaDB per Java)
+### <a name="java-mariadb-connector-for-java"></a>Java (MariaDB Connector per Java)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+

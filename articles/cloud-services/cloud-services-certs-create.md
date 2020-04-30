@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024609"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
@@ -20,7 +20,7 @@ I [certificati di servizio](#what-are-service-certificates) vengono usati in Azu
 
 Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dall'autore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorare questo problema. È consigliabile utilizzare i certificati autofirmati solo quando si sviluppano e si testano servizi cloud. 
 
-I certificati usati da Azure possono includere una chiave pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate-portal.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
+I certificati usati da Azure possono contenere una chiave pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate-portal.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare. 
 
 >[!Note]
 >I servizi Cloud di Azure non accettano il certificato crittografato AES256-SHA256.
@@ -33,7 +33,7 @@ I certificati di servizio sono associati ai servizi cloud e consentono la comuni
 I certificati di servizio possono essere gestiti separatamente dai servizi e da persone diverse. Ad esempio, uno sviluppatore può caricare un pacchetto del servizio che fa riferimento a un certificato caricato in precedenza in Azure da un responsabile IT. Un responsabile IT può gestire e rinnovare tale certificato, modificando la configurazione del servizio, senza dover caricare un nuovo pacchetto del servizio. Questa operazione è possibile poiché il nome logico, il nome di archivio e il percorso vengono specificati nel file di definizione del servizio, mentre l'identificazione personale del certificato viene specificata nel file di configurazione del servizio. Per aggiornare il certificato, è sufficiente caricare un nuovo certificato e modificare il valore dell'identificazione personale nel file di configurazione del servizio.
 
 >[!Note]
->L'articolo [Domande frequenti sui servizi cloud - Configurazione e gestione](cloud-services-configuration-and-management-faq.md) contiene alcune informazioni utili sui certificati.
+>L'articolo [domande frequenti sui servizi cloud-configurazione e gestione](cloud-services-configuration-and-management-faq.md) contiene alcune informazioni utili sui certificati.
 
 ## <a name="what-are-management-certificates"></a>Cosa sono i certificati di gestione?
 I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud. 
@@ -55,7 +55,7 @@ I certificati di gestione consentono di eseguire l'autenticazione con il modello
 * Viene creato per lo scambio di chiave (file PFX).
 * Il nome del soggetto deve corrispondere al dominio usato per accedere al servizio cloud.
 
-    > Non è possibile acquisire un certificato TLS/SSL per il dominio cloudapp.net (o per qualsiasi dominio correlato ad Azure). il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio **contoso.net**, non **contoso.cloudapp.net**.
+    > Non è possibile acquisire un certificato TLS/SSL per cloudapp.net (o per qualsiasi dominio relativo ad Azure); il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio **contoso.net**, non **contoso.cloudapp.net**.
 
 * Crittografia minima a 2048 bit.
 * **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *Personale* .

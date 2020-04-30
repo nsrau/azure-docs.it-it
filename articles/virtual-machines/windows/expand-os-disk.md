@@ -1,5 +1,5 @@
 ---
-title: Espandere l'unità del sistema operativo di una macchina virtuale Windows in AzureExpand the OS drive of a Windows VM in an Azure
+title: Espandere l'unità del sistema operativo di una macchina virtuale Windows in Azure
 description: Espandere la dimensione dell'unità del sistema operativo di una macchina virtuale tramite Azure PowerShell nel modello di distribuzione Resource Manager.
 author: mimckitt
 manager: vashan
@@ -10,10 +10,10 @@ ms.date: 07/05/2018
 ms.author: mimckitt
 ms.subservice: disks
 ms.openlocfilehash: e69b041a2e4c8a0715adb6ab126a3aede42f7dde
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869697"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Come espandere l'unità del sistema operativo di una macchina virtuale
@@ -201,11 +201,11 @@ Dopo aver espanso il disco della macchina virtuale è necessario passare nel sis
 
 2.  Aprire il prompt dei comandi e digitare **diskpart**.
 
-2.  Al prompt di **DISKPART** digitare `list volume`. Prendere nota del volume da estendere.
+2.  Al prompt **DISKPART** digita `list volume`. Prendere nota del volume da estendere.
 
-3.  Al prompt di **DISKPART** digitare `select volume <volumenumber>`. Ciò consente di selezionare il volume *volumenumber* che si intende estendere nello spazio vuoto contiguo sullo stesso disco.
+3.  Al prompt **DISKPART** digita `select volume <volumenumber>`. Ciò consente di selezionare il volume *volumenumber* che si intende estendere nello spazio vuoto contiguo sullo stesso disco.
 
-4.  Al prompt di **DISKPART** digitare `extend [size=<size>]`. Ciò consente di estende il volume selezionato nelle *dimensioni* in megabyte (MB).
+4.  Al prompt **DISKPART** digita `extend [size=<size>]`. Ciò consente di estende il volume selezionato nelle *dimensioni* in megabyte (MB).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

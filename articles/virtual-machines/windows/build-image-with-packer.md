@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
 ms.openlocfilehash: f813551ed665628898bb219a611947c3026ac67c
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82084482"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Come usare Packer per creare immagini di macchine virtuali di Windows in Azure
 Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da un'immagine che ne definisce la distribuzione di Windows e la versione del sistema operativo. Le immagini possono includere applicazioni e configurazioni preinstallate. In Microsoft Azure Marketplace sono disponibili molte prime immagini e immagini di terze parti per i sistemi operativi e gli ambienti applicativi più diffusi. In alternativa, è possibile creare immagini personalizzate su misura per le proprie esigenze. Questo articolo illustra in dettaglio come definire e compilare immagini personalizzate in Azure tramite lo strumento open source [Packer](https://www.packer.io/).
 
-Questo articolo è stato testato l'ultima volta il 21/02/2019 usando il [modulo Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) versione 1.3.0 e [Packer](https://www.packer.io/docs/install/index.html) versione 1.3.4.
+Questo articolo è stato testato per l'ultima volta il 2/21/2019 usando [AZ PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps) Version 1.3.0 and [Packer](https://www.packer.io/docs/install/index.html) Version 1.3.4.
 
 > [!NOTE]
-> Azure dispone ora di un servizio, Azure Image Builder (anteprima), per la definizione e la creazione di immagini personalizzate. Azure Image Builder è basato su Packer, pertanto è anche possibile usare gli script di provisioning della shell Packer esistenti. Per iniziare a usare Azure Image Builder, vedere [Creare una macchina virtuale Windows con Azure Image Builder.](image-builder.md)
+> Azure dispone ora di un servizio, generatore di immagini di Azure (anteprima), per la definizione e la creazione di immagini personalizzate. Il generatore di immagini di Azure si basa su Packer, quindi è possibile anche usare gli script esistenti del provisioning della shell di Packer. Per iniziare a usare Azure Image Builder, vedere [creare una VM Windows con Azure Image Builder](image-builder.md).
 
 ## <a name="create-azure-resource-group"></a>Creare un gruppo di risorse di Azure
 Durante il processo di compilazione della macchina virtuale di origine Packer crea risorse di Azure temporanee. Per acquisire la macchina virtuale di origine per usarla come immagine, è necessario definire un gruppo di risorse, nel quale verrà archiviato l'output del processo di compilazione di Packer.
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Creare credenziali di Azure
 Per eseguire l'autenticazione con Azure, Packer usa un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come Packer. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente.
 
-Creare un'entità servizio con [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) e assegnare le autorizzazioni per consentire all'entità servizio di creare e gestire risorse con [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Il valore `-DisplayName` per deve essere univoco; sostituire con il proprio valore in base alle esigenze.  
+Creare un'entità servizio con [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) e assegnare le autorizzazioni per consentire all'entità servizio di creare e gestire risorse con [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Il valore di `-DisplayName` deve essere univoco. sostituire con il valore personalizzato in base alle esigenze.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -69,7 +69,7 @@ Creare un file con nome *windows.json* e incollare al suo interno il contenuto s
 | Parametro                           | Origine |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | ID entità servizio di visualizzazione con `$sp.applicationId` |
-| *client_secret*                     | Visualizzare la password generata automaticamente con`$plainPassword` |
+| *client_secret*                     | Visualizza la password generata automaticamente con`$plainPassword` |
 | *tenant_id*                         | Output del comando `$sub.TenantId` |
 | *subscription_id*                   | Output del comando `$sub.SubscriptionId` |
 | *managed_image_resource_group_name* | Nome del gruppo di risorse creato nel primo passaggio |
@@ -124,7 +124,7 @@ Questo modello compila una macchina virtuale di Windows Server 2016, installa II
 ## <a name="build-packer-image"></a>Compilare l'immagine in Packer
 Se Packer non è installato nel computer locale, [seguire le istruzioni di installazione di Packer](https://www.packer.io/docs/install/index.html).
 
-Compilare l'immagine aprendo un prompt dei comandi e specificando il file del modello Packer come segue:
+Compilare l'immagine aprendo un prompt dei comandi e specificando il file di modello di Packer come indicato di seguito:
 
 ```
 ./packer build windows.json
@@ -243,4 +243,4 @@ Per vedere in azione la macchina virtuale, con l'installazione IIS dello strumen
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È anche possibile usare gli script del provisioning Packer esistenti con [Azure Image Builder.](image-builder.md)
+È anche possibile usare gli script di provisioning di Packer esistenti con [Azure Image Builder](image-builder.md).

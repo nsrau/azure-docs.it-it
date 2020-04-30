@@ -1,42 +1,42 @@
 ---
-title: Azure Blob storage trigger for Azure Functions
-description: Informazioni su come eseguire una funzione di Azure quando cambiano i dati di archiviazione BLOB di Azure.Learn how to run an Azure Function as Azure Blob storage data changes.
+title: Trigger di archiviazione BLOB di Azure per funzioni di Azure
+description: Informazioni su come eseguire una funzione di Azure come modifiche ai dati di archiviazione BLOB di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82084958"
 ---
-# <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob storage trigger for Azure Functions
+# <a name="azure-blob-storage-trigger-for-azure-functions"></a>Trigger di archiviazione BLOB di Azure per funzioni di Azure
 
-Il trigger di archiviazione BLOB avvia una funzione quando viene rilevato un BLOB nuovo o aggiornato. Il contenuto del BLOB viene fornito come [input per la funzione](./functions-bindings-storage-blob-input.md).
+Il trigger di archiviazione BLOB avvia una funzione quando viene rilevato un BLOB nuovo o aggiornato. Il contenuto del BLOB viene fornito come [input alla funzione](./functions-bindings-storage-blob-input.md).
 
-Il trigger di archiviazione BLOB di Azure richiede un account di archiviazione generico. Per usare un account solo BLOB o se l'applicazione ha esigenze specifiche, esaminare le alternative all'uso di questo trigger.
+Il trigger di archiviazione BLOB di Azure richiede un account di archiviazione per utilizzo generico. Per usare un account solo BLOB o se l'applicazione ha esigenze specializzate, esaminare le alternative all'uso di questo trigger.
 
-Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-storage-blob.md).
+Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-storage-blob.md).
 
 ## <a name="alternatives"></a>Alternativi
 
-### <a name="event-grid-trigger"></a>Trigger Griglia di eventi
+### <a name="event-grid-trigger"></a>Trigger griglia di eventi
 
-Il [trigger Griglia di eventi](functions-bindings-event-grid.md) include inoltre il supporto incorporato per gli eventi [BLOB.](../storage/blobs/storage-blob-event-overview.md) Usare Griglia eventi anziché il trigger di archiviazione BLOB per gli scenari seguenti:
+Il [trigger griglia di eventi](functions-bindings-event-grid.md) include anche il supporto predefinito per [gli eventi BLOB](../storage/blobs/storage-blob-event-overview.md). Usare Griglia eventi anziché il trigger di archiviazione BLOB per gli scenari seguenti:
 
-- **Account di archiviazione solo BLOB:** [gli account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts) sono supportati per l'input BLOB e le associazioni di output, ma non per i trigger BLOB.
+- **Account di archiviazione solo BLOB**: gli [account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts) sono supportati per le associazioni di input e di output di BLOB, ma non per i trigger di BLOB.
 
-- **Su larga scala:** la scalabilità elevata può essere definita come contenitori con più di 100.000 BLOB o account di archiviazione con più di 100 aggiornamenti BLOB al secondo.
+- **Scalabilità elevata**: la scalabilità elevata può essere definita in modo generico come contenitori con più di 100.000 BLOB o account di archiviazione con più di 100 aggiornamenti BLOB al secondo.
 
-- **Riduzione al minimo della latenza:** se l'app per le funzioni è nel piano Consumo, l'elaborazione di nuovi BLOB può essere pari a un ritardo massimo di 10 minuti se un'app per le funzioni è rimasta inattiva. Per evitare questa latenza, è possibile passare a un piano di servizio app con AlwaysOn abilitato. È anche possibile usare un [trigger griglia di eventi](functions-bindings-event-grid.md) con l'account di archiviazione BLOB. Per un esempio, vedere l'[esercitazione di Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
+- **Riduzione della latenza**: se l'app per le funzioni è nel piano a consumo, è possibile che si verifichi un ritardo massimo di 10 minuti nell'elaborazione di nuovi BLOB se un'app per le funzioni è diventata inattiva. Per evitare questa latenza, è possibile passare a un piano di servizio app con AlwaysOn abilitato. È anche possibile usare un [trigger griglia di eventi](functions-bindings-event-grid.md) con l'account di archiviazione BLOB. Per un esempio, vedere l'[esercitazione di Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 
-Vedere [l'esercitazione Immagine ridimensionare con Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md) di un esempio di griglia di eventi.
+Vedere l'esercitazione [ridimensionare l'immagine con griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md) di un esempio di griglia di eventi.
 
 ### <a name="queue-storage-trigger"></a>Trigger per l'archiviazione code
 
-Un altro approccio all'elaborazione dei BLOB consiste nel scrivere i messaggi della coda che corrispondono ai BLOB creati o modificati e quindi usare un trigger di [archiviazione della coda](./functions-bindings-storage-queue.md) per avviare l'elaborazione.
+Un altro approccio all'elaborazione dei BLOB consiste nello scrivere messaggi della coda che corrispondono ai BLOB creati o modificati e quindi usare un [trigger di archiviazione di Accodamento](./functions-bindings-storage-queue.md) per iniziare l'elaborazione.
 
 ## <a name="example"></a>Esempio
 
@@ -54,11 +54,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 
 La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](./functions-bindings-expressions-patterns.md) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#blob-name-patterns) più avanti in questo articolo.
 
-Per ulteriori informazioni `BlobTrigger` sull'attributo , vedere [attributi e annotazioni](#attributes-and-annotations).
+Per ulteriori informazioni sull' `BlobTrigger` attributo, vedere [attributi e annotazioni](#attributes-and-annotations).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-L'esempio seguente mostra un'associazione di trigger BLOB in un file *function.json* e codice che usa l'associazione. La funzione scrive un log quando un `samples-workitems` BLOB viene aggiunto o aggiornato nel [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *Function. JSON* e il codice che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `samples-workitems` [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -139,7 +139,7 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice Python](functions-reference-python.md) che usa l'associazione. La funzione scrive un log quando un `samples-workitems` BLOB viene aggiunto o aggiornato nel [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice Python](functions-reference-python.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `samples-workitems` [contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Ecco il file *function.json*:
 
@@ -176,7 +176,7 @@ def main(myblob: func.InputStream):
 
 # <a name="java"></a>[Java](#tab/java)
 
-Questa funzione scrive un log quando un `myblob` BLOB viene aggiunto o aggiornato nel contenitore.
+Questa funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel `myblob` contenitore.
 
 ```java
 @FunctionName("blobprocessor")
@@ -226,7 +226,7 @@ Nelle [librerie di classi](functions-dotnet-class-library.md) usare i seguenti a
   }
    ```
 
-  Per un esempio completo, vedere [Esempio di trigger](#example).
+  Per un esempio completo, vedere [esempio di trigger](#example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -254,7 +254,7 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script di C.
+Gli attributi non sono supportati dallo script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -266,25 +266,25 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'attributo `@BlobTrigger` viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, fare riferimento all'esempio di [trigger.](#example)
+L' `@BlobTrigger` attributo viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
 
 ---
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `BlobTrigger` .
+La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `BlobTrigger` attributo.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `blobTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**Direzione** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. Le eccezioni sono indicate nella sezione [usage](#usage). |
-|**nome** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione. |
+|**direzione** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. Le eccezioni sono indicate nella sezione [usage](#usage). |
+|**name** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione. |
 |**path** | **BlobPath** |[Contenitore](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) da monitorare.  Può essere un [modello di nome per il BLOB](#blob-name-patterns). |
-|**Connessione** | **Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** | **Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -296,19 +296,19 @@ Nella tabella seguente vengono illustrate le proprietà di configurazione dell'a
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Accedere ai `context.bindings.<NAME>` `<NAME>` dati BLOB usando dove corrisponde al valore definito in *function.json*.
+Accedere ai dati BLOB `context.bindings.<NAME>` usando `<NAME>` where corrisponde al valore definito in *Function. JSON*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Accedere ai dati BLOB tramite il parametro tipizzato come [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Per informazioni dettagliate, fare riferimento all'esempio di [trigger.](#example)
+Accedere ai dati BLOB tramite il parametro tipizzato come [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'attributo `@BlobTrigger` viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, fare riferimento all'esempio di [trigger.](#example)
+L' `@BlobTrigger` attributo viene usato per fornire l'accesso al BLOB che ha attivato la funzione. Per informazioni dettagliate, vedere l' [esempio di trigger](#example) .
 
 ---
 
-## <a name="blob-name-patterns"></a>Modelli di nomi BLOBBlob name patterns
+## <a name="blob-name-patterns"></a>Modelli di nome BLOB
 
 È possibile specificare un modello di nome di BLOB nella proprietà `path` in *function.json* o nel costruttore dell'attributo `BlobTrigger`. Il modello di nome può essere un'[espressione di filtro o di associazione](./functions-bindings-expressions-patterns.md). Per esempi, vedere le sezioni seguenti.
 
@@ -348,7 +348,7 @@ Per cercare le parentesi graffe nei nomi dei file, raddoppiare le parentesi graf
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se il BLOB è denominato `name` * {20140101}-soundfile.mp3*, il valore della variabile nel codice della funzione è *soundfile.mp3*.
+Se il BLOB è denominato * {20140101}-soundfile. mp3*, il `name` valore della variabile nel codice della funzione sarà *soundfile. mp3*.
 
 ## <a name="metadata"></a>Metadati
 
@@ -375,7 +375,7 @@ I metadati non sono disponibili in Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-I metadati non sono disponibili in Java.Metadata is not available in Java.
+I metadati non sono disponibili in Java.
 
 ---
 
@@ -385,21 +385,21 @@ Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB ve
 
 Funzioni di Azure archivia le conferme di BLOB in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure per l'app per le funzioni, specificato dall'impostazione app `AzureWebJobsStorage`. Una conferma di BLOB contiene le seguenti informazioni:
 
-* La funzione attivata ("*&lt;nome dell'app per le funzioni>*. Funzioni. nome di funzione>", ad esempio: "MyFunctionApp.Functions.CopyBlob") * &lt; *
+* Funzione attivata ("*&lt;nome dell'app per le funzioni>*. Funzioni. nome della funzione>", ad esempio:" MyFunctionApp. Functions. CopyBlob ") * &lt; *
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
 * Il valore ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
 
-Per forzare la rielaborazione di un BLOB è possibile eliminare manualmente la conferma del BLOB dal contenitore *azure-webjobs-hosts*. Mentre il ritrattamento potrebbe non avvenire immediatamente, è garantito che si verifichi in un secondo momento. Per rielaborare immediatamente, è possibile aggiornare il BLOB *scaninfo* in *azure-webjobs-hosts/blobscaninfo.To* reprocess immediately, the scaninfo blob in azure-webjobs-hosts/blobscaninfo can be updated. Tutti i BLOB con un `LatestScan` timestamp dell'ultima modifica dopo la proprietà verranno analizzati di nuovo.
+Per forzare la rielaborazione di un BLOB è possibile eliminare manualmente la conferma del BLOB dal contenitore *azure-webjobs-hosts*. Mentre la rielaborazione potrebbe non essere immediatamente eseguita, è garantita in un momento successivo. Per la rielaborazione immediata, il BLOB *ScanInfo* in *Azure-webjobs-hosts/blobscaninfo* può essere aggiornato. Tutti i BLOB con il timestamp dell'Ultima modifica `LatestScan` dopo la proprietà verranno analizzati nuovamente.
 
-## <a name="poison-blobs"></a>Blob velenosi
+## <a name="poison-blobs"></a>BLOB non elaborabili
 
 Se una funzione di trigger del BLOB ha esito negativo per un determinato BLOB, per impostazione predefinita Funzioni di Azure ritenta l'esecuzione fino a 5 volte.
 
 Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a una coda di archiviazione denominata *webjobs-blobtrigger-poison*. Il numero massimo di tentativi è configurabile. La stessa impostazione MaxDequeueCount viene usata per la gestione dei BLOB non elaborabili e per la gestione dei messaggi della coda non elaborabile. Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel * &lt;formato nome applicazione funzione>*. Funzioni. nome funzione>) * &lt; *
+* FunctionId (nel formato * &lt;nome dell'app per le funzioni>*. Funzioni. Nome funzione>) * &lt; *
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -409,13 +409,13 @@ Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a u
 
 Il trigger del BLOB usa una un servizio di accodamento interno, quindi il numero massimo di chiamate di funzione simultanee è controllato dalla [configurazione delle code in host.json](functions-host-json.md#queues). Le impostazioni predefinite limitano la concorrenza a 24 chiamate. Questo limite si applica separatamente a ciascuna funzione che usa un trigger di BLOB.
 
-[Il piano Consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita un'app per le funzioni in una macchina virtuale (VM) a 1,5 GB di memoria. La memoria viene usata da ogni istanza della funzione attualmente in esecuzione e dal runtime di funzioni stesso. Se una funzione di attivazione del BLOB carica l'intero BLOB nella memoria, la memoria massima usata da tale funzione solo per i BLOB è pari a 24 * le dimensioni massime del BLOB. Ad esempio, un'app per le funzioni con tre funzioni attivate dal BLOB e le impostazioni predefinite avrebbe una concorrenza per macchina virtuale massima pari a 3 * 24 = 72 chiamate di funzione.
+[Il piano a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita un'app per le funzioni in una macchina virtuale (VM) a 1,5 GB di memoria. La memoria viene usata da ogni istanza della funzione attualmente in esecuzione e dal runtime di funzioni stesso. Se una funzione di attivazione del BLOB carica l'intero BLOB nella memoria, la memoria massima usata da tale funzione solo per i BLOB è pari a 24 * le dimensioni massime del BLOB. Ad esempio, un'app per le funzioni con tre funzioni attivate dal BLOB e le impostazioni predefinite avrebbe una concorrenza per macchina virtuale massima pari a 3 * 24 = 72 chiamate di funzione.
 
 Le funzioni JavaScript e Java caricano in memoria l'intero BLOB e le funzioni C# eseguono questa operazione se si esegue l'associazione a `string`, `Byte[]` o POCO.
 
 ## <a name="polling"></a>Polling
 
-Il polling funziona come un ibrido tra l'ispezione dei log e l'esecuzione di analisi periodiche dei contenitori. I BLOB vengono analizzati in gruppi di 10.000 alla volta con un token di continuazione usato tra intervalli.
+Il polling funziona come ibrido tra l'ispezione dei log e l'esecuzione di analisi periodiche dei contenitori. I BLOB vengono analizzati in gruppi di 10.000 alla volta con un token di continuazione usato tra gli intervalli.
 
 > [!WARNING]
 > Per di più [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log può non riuscire.
@@ -425,5 +425,5 @@ Il polling funziona come un ibrido tra l'ispezione dei log e l'esecuzione di ana
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Leggere i dati di archiviazione BLOB durante l'esecuzione di una funzioneRead blob storage data when a function runs](./functions-bindings-storage-blob-input.md)
-- [Scrivere i dati di archiviazione BLOB da una funzioneWrite blob storage data from a function](./functions-bindings-storage-blob-output.md)
+- [Leggere i dati di archiviazione BLOB quando viene eseguita una funzione](./functions-bindings-storage-blob-input.md)
+- [Scrivere dati di archiviazione BLOB da una funzione](./functions-bindings-storage-blob-output.md)

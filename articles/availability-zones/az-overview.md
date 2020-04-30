@@ -8,10 +8,10 @@ ms.date: 10/17/2019
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: e7ba62a96a6fc76ad63960cfe57f5b1f85589c32
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085043"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Informazioni sulle zone di disponibilità di Azure
@@ -21,7 +21,7 @@ Una zona di disponibilità in un'area di Azure è una combinazione di un dominio
 
 È possibile configurare la disponibilità elevata nell'architettura delle applicazioni includendo le risorse di calcolo, archiviazione, rete e dati all'interno di una zona e replicandole in altre zone. I servizi di Azure che supportano le zone di disponibilità rientrano in due categorie:
 
-- **Servizi zonali:** si aggiunge la risorsa a una zona specifica (ad esempio, macchine virtuali, dischi gestiti, indirizzi IP standard) o
+- **Servizi di zona** : è possibile aggiungere la risorsa a una zona specifica, ad esempio macchine virtuali, dischi gestiti, indirizzi IP standard, oppure
 - **Servizi con ridondanza della zona**: la piattaforma replica automaticamente le applicazioni e i dati tra le zone, usando ad esempio l'archiviazione con ridondanza della zona o il database SQL.
 
 Per garantire la continuità aziendale completa in Azure, creare l'architettura delle applicazioni combinando le zone di disponibilità con coppie di aree di Azure. È possibile replicare in modo sincrono le applicazioni e i dati usando le zone di disponibilità all'interno di un'area di Azure per la disponibilità elevata ed eseguire repliche asincrone tra le aree di Azure per la protezione con ripristino di emergenza.
@@ -29,35 +29,35 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 ![Visualizzazione concettuale di una zona che diventa indisponibile in un'area](./media/az-overview/az-graphic-two.png)
 
 > [!IMPORTANT]
-> Gli identificatori delle zone di disponibilità (i numeri 1, 2 e 3 nell'immagine precedente) vengono mappati logicamente alle zone fisiche effettive per ogni sottoscrizione in modo indipendente. Ciò significa che la zona di disponibilità 1 in una determinata sottoscrizione potrebbe fare riferimento a una zona fisica diversa rispetto alla zona di disponibilità 1 in una sottoscrizione diversa. Di conseguenza, è consigliabile non basarsi sugli ID zona di disponibilità in sottoscrizioni diverse per il posizionamento di macchine virtuali.
+> Gli identificatori delle zone di disponibilità (i numeri 1, 2 e 3 nell'immagine precedente) vengono mappati logicamente alle zone fisiche effettive per ogni sottoscrizione in modo indipendente. Ciò significa che Zona 1 di disponibilità in una determinata sottoscrizione possono fare riferimento a una zona fisica diversa rispetto alla disponibilità Zona 1 in una sottoscrizione diversa. Di conseguenza, è consigliabile non fare affidamento sugli ID della zona di disponibilità tra sottoscrizioni diverse per la selezione host per macchina virtuale.
 
-## <a name="services-support-by-region"></a>Supporto dei servizi per regione
+## <a name="services-support-by-region"></a>Supporto dei servizi in base all'area
 
-Le combinazioni di servizi e aree di Azure che supportano le zone di disponibilità sono:The combinations of Azure services and regions that support Availability zones are:
+Le combinazioni dei servizi e delle aree di Azure che supportano zone di disponibilità sono:
 
 
 |                                 |Americhe |              |           |           | Europa |              |          |              | Asia Pacifico |                 |                |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
 |          |Stati Uniti centrali|Stati Uniti orientali|Stati Uniti orientali 2|Stati Uniti occidentali 2|Francia centrale|Europa settentrionale|Regno Unito meridionale|Europa occidentale|Giappone orientale|Asia sud-orientale|Australia orientale|
-| **Calcolo**                         |            |              |           |           |                |              |          |             |            |                |                |
+| **Compute**                         |            |              |           |           |                |              |          |             |            |                |                |
 | Macchine virtuali Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Macchine virtuali Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Set di scalabilità di macchine virtuali      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Azure App Service Environments ILB | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
+| ILB ambienti del servizio app Azure | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Servizio Azure Kubernetes        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
+| **Archiviazione**   |            |              |           |           |                |              |          |             |            |                |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Archiviazione con ridondanza di zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Rete**                     |            |              |           |           |                |              |          |             |            |                |                |
+| Archiviazione con ridondanza della zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
+| **Funzionalità di rete**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Indirizzo IP standard        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Load Balancer Standard     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Gateway VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
 | Gateway ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Gateway applicazione (V2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
+| Gateway applicazione (v2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
 | Firewall di Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
 | **Database**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Esplora dati di Azure                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
-| Database SQL                    | &#10003;   | &#10003;     | &#10003;  | &#10003; (Anteprima) | &#10003;       | &#10003; (Anteprima)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
+| Database SQL                    | &#10003;   | &#10003;     | &#10003;  | &#10003; (anteprima) | &#10003;       | &#10003; (anteprima)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
 | Cache Redis di Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
 | Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; | &#10003; |       |     | &#10003; |  &#10003;   |            | &#10003;       |                |
 | **Analisi**                       |            |              |           |           |                |              |          |             |            |                |                |
@@ -69,7 +69,7 @@ Le combinazioni di servizi e aree di Azure che supportano le zone di disponibili
 | Servizi di dominio Azure Active Directory | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 
 ## <a name="services-resiliency"></a>Resilienza dei servizi
-Tutti i servizi di gestione di Azure sono progettati per essere resilienti da errori a livello di area. Nello spettro degli errori, uno o più errori della zona di disponibilità all'interno di un'area hanno un raggio di errore inferiore rispetto a un errore dell'intera area. Azure può eseguire il ripristino da un errore a livello di zona dei servizi di gestione all'interno dell'area o da un'altra area di Azure.Azure can recover from a zone-level failure of management services within the region or from another Azure region. Azure esegue la manutenzione critica una zona alla volta all'interno di un'area, per evitare errori che influiscono sulle risorse dei clienti distribuite tra le zone di disponibilità all'interno di un'area.
+Tutti i servizi di gestione di Azure sono progettati per essere resilienti da errori a livello di area. Nello spettro degli errori, uno o più errori della zona di disponibilità all'interno di un'area hanno un raggio di errore inferiore rispetto a un errore dell'intera area. Azure può eseguire il ripristino da un errore a livello di zona dei servizi di gestione all'interno dell'area o da un'altra area di Azure. Azure esegue una manutenzione critica di una zona alla volta all'interno di un'area, per evitare errori che influiscano sulle risorse dei clienti distribuite tra zone di disponibilità all'interno di un'area.
 
 ## <a name="pricing"></a>Prezzi
 Per le macchine virtuali distribuite in una zona di disponibilità non sono previsti costi aggiuntivi. Il contratto di servizio con tempo di attività delle VM del 99,99% viene offerto quando due o più macchine virtuali vengono distribuite tra due o più zone di disponibilità all'interno di un'area di Azure. Vengono applicati addebiti per il trasferimento dei dati da VM a VM tra diverse zone di disponibilità. Per altre informazioni, vedere la pagina [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -86,10 +86,10 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Ripristino di emergenza geografico di Hub eventi](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Ripristino di emergenza geografico del bus di servizio](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Creare un gateway di rete virtuale con ridondanza della zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Aggiungere un'area ridondante di zona per il database Cosmos di AzureAdd zone redundant region for Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
-- [Introduzione alla cache di Azure per le zone di disponibilità Di RedisGetting Started Azure Cache for Redis Availability zones](https://aka.ms/redis/az/getstarted)
+- [Aggiungere un'area con ridondanza della zona per Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
+- [Introduzione cache di Azure per Redis zone di disponibilità](https://aka.ms/redis/az/getstarted)
 - [Creare un'istanza di Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
-- [Creare un cluster del servizio Azure Kubernetes (AKS) che usa le zone di disponibilitàCreate an Azure Kubernetes Service (AKS) cluster that uses Availability zones](../aks/availability-zones.md)
+- [Creare un cluster Azure Kubernetes Service (AKS) che usa zone di disponibilità](../aks/availability-zones.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Modelli di Guida introduttiva](https://aka.ms/azqs)

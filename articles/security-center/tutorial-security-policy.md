@@ -1,6 +1,6 @@
 ---
 title: Uso dei criteri di sicurezza | Microsoft Docs
-description: Questo articolo descrive come usare i criteri di sicurezza nel Centro sicurezza di Azure.This article describes how to work with security policies in Azure Security Center.
+description: Questo articolo descrive come usare i criteri di sicurezza nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024881"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
@@ -27,17 +27,17 @@ Questo articolo illustra come vengono configurati i criteri di sicurezza e come 
 
 ## <a name="introduction-to-security-policies"></a>Introduzione ai criteri di sicurezza
 
-I criteri di sicurezza definiscono la configurazione desiderata dei carichi di lavoro e consentono di garantire la conformità ai requisiti di sicurezza dell'azienda o delle autorità di regolamentazione.
+Un criterio di sicurezza definisce la configurazione desiderata dei carichi di lavoro e contribuisce a garantire la conformità ai requisiti di sicurezza della società o dei regolatori.
 
-Il Centro sicurezza di Azure fornisce i consigli di sicurezza in base ai criteri scelti. I criteri del Centro sicurezza si basano sulle iniziative dei criteri create in Criteri di Azure.Security Center policies are based on policy initiatives created in Azure Policy. È possibile usare Criteri di [Azure](../governance/policy/overview.md) per gestire i criteri e impostare criteri tra gruppi di gestione e tra più sottoscrizioni.
+Il Centro sicurezza di Azure apporta le raccomandazioni sulla sicurezza in base ai criteri scelti. I criteri del Centro sicurezza si basano sulle iniziative dei criteri create in criteri di Azure. È possibile usare i [criteri di Azure](../governance/policy/overview.md) per gestire i criteri e impostare i criteri tra i gruppi di gestione e tra più sottoscrizioni.
 
-Il Centro sicurezza offre le opzioni seguenti per l'utilizzo dei criteri di sicurezza:
+Il Centro sicurezza offre le opzioni seguenti per l'uso dei criteri di sicurezza:
 
-* **Visualizzare e modificare i criteri predefiniti predefiniti:** quando si abilita il Centro sicurezza, un'iniziativa predefinita denominata "Impostazione predefinita ASC" viene assegnata automaticamente a tutte le sottoscrizioni registrate del Centro sicurezza (livelli gratuito o Standard). Per personalizzare questa iniziativa, è possibile abilitare o disabilitare singoli criteri al suo interno. Vedere l'elenco dei criteri di [sicurezza predefiniti](security-center-policy-definitions.md) per comprendere le opzioni disponibili.
+* **Visualizzare e modificare i criteri predefiniti predefiniti** : quando si Abilita il Centro sicurezza, un'iniziativa predefinita denominata ' ASC default ' viene assegnata automaticamente a tutte le sottoscrizioni registrate del Centro sicurezza (livelli gratuito o standard). Per personalizzare questa iniziativa, è possibile abilitare o disabilitare singoli criteri al suo interno. Per informazioni sulle opzioni disponibili, vedere l'elenco dei [criteri di sicurezza predefiniti](security-center-policy-definitions.md) .
 
-* **Aggiungere criteri personalizzati:** se si desidera personalizzare le iniziative di sicurezza applicate alla sottoscrizione, è possibile farlo nel Centro sicurezza. Si riceveranno quindi suggerimenti se i computer non seguono i criteri creati. Per istruzioni sulla creazione e l'assegnazione di criteri personalizzati, vedere Utilizzo di criteri di [sicurezza personalizzati.](custom-security-policies.md)
+* **Aggiungere criteri personalizzati** : se si desidera personalizzare le iniziative di sicurezza applicate alla sottoscrizione, è possibile eseguire questa operazione nel centro sicurezza. Si riceveranno quindi consigli se i computer non seguono i criteri creati. Per istruzioni sulla creazione e l'assegnazione di criteri personalizzati, vedere [uso dei criteri di sicurezza personalizzati](custom-security-policies.md).
 
-* Aggiungere criteri di **conformità alle normative:** il dashboard di conformità normativa del Centro sicurezza mostra lo stato di tutte le valutazioni all'interno dell'ambiente nel contesto di uno standard o di una regolamentazione particolare (ad esempio Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). Per ulteriori informazioni, vedere [Migliorare la conformità alle normative](security-center-compliance-dashboard.md).
+* **Aggiungere i criteri di conformità normativi** : il dashboard di conformità normativa del Centro sicurezza Mostra lo stato di tutte le valutazioni all'interno dell'ambiente nel contesto di uno standard o di una norma particolare, ad esempio Azure CIS, NIST SP 800-53 R4, Swift CSP CSCF-V2020. Per ulteriori informazioni, vedere [migliorare la conformità alle normative](security-center-compliance-dashboard.md).
 
 
 ## <a name="managing-your-security-policies"></a>Gestione dei criteri di sicurezza
@@ -52,29 +52,29 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
 1. Selezionare la sottoscrizione o il gruppo di gestione di cui si vogliono visualizzare i criteri.
 
-1. Viene visualizzata la pagina dei criteri di sicurezza per la sottoscrizione o il gruppo di gestione. Mostra i criteri disponibili e assegnati.
+1. Verrà visualizzata la pagina Criteri di sicurezza per la sottoscrizione o il gruppo di gestione. Mostra i criteri disponibili e assegnati.
 
    ![Schermata dei criteri](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Se accanto al criterio predefinito è presente l'etichetta "MG ereditata", significa che il criterio è stato assegnato a un gruppo di gestione ed ereditato dalla sottoscrizione visualizzata.
+    > Se è presente un'etichetta "MG ereditato" insieme ai criteri predefiniti, significa che il criterio è stato assegnato a un gruppo di gestione e ereditato dalla sottoscrizione che si sta visualizzando.
 
 
-1. Scegli tra le opzioni disponibili in questa pagina:
+1. Scegliere tra le opzioni disponibili in questa pagina:
 
-    1. Per utilizzare i criteri di settore, selezionare **Aggiungi altri standard**. Per ulteriori informazioni, consultate [Aggiornamento ai pacchetti di conformità dinamica.](update-regulatory-compliance-packages.md)
+    1. Per usare i criteri di settore, selezionare **Aggiungi altri standard**. Per altre informazioni, vedere [aggiornare i pacchetti di conformità dinamici](update-regulatory-compliance-packages.md).
 
-    1. Per assegnare e gestire iniziative personalizzate, selezionare **Aggiungi iniziative personalizzate**. Per ulteriori informazioni, vedere [Utilizzo di criteri](custom-security-policies.md)di sicurezza personalizzati .
+    1. Per assegnare e gestire le iniziative personalizzate, selezionare **Aggiungi iniziative personalizzate**. Per ulteriori informazioni, vedere [utilizzo dei criteri di sicurezza personalizzati](custom-security-policies.md).
 
-    1. Per visualizzare e modificare il criterio predefinito, selezionare **Visualizza criteri effettivi** e procedere come descritto di seguito. 
+    1. Per visualizzare e modificare i criteri predefiniti, selezionare **Visualizza criteri validi** e procedere come descritto di seguito. 
 
        ![Schermata dei criteri](./media/security-center-policies/policy-screen.png)
        
-       Questa schermata Criteri di **sicurezza** riflette l'azione eseguita dai criteri assegnati alla sottoscrizione o al gruppo di gestione selezionato.
+       Questa schermata dei **criteri di sicurezza** riflette l'azione eseguita dai criteri assegnati alla sottoscrizione o al gruppo di gestione selezionato.
        
-       * Usare i collegamenti nella parte superiore per aprire **un'assegnazione** di criteri applicabile alla sottoscrizione o al gruppo di gestione. Questi collegamenti consentono di accedere all'assegnazione e modificare o disabilitare il criterio. Ad esempio, se si nota che una particolare assegnazione di criteri nega effettivamente la protezione degli endpoint, utilizzare il collegamento per modificare o disabilitare il criterio.
+       * Usare i collegamenti nella parte superiore per aprire un' **assegnazione** dei criteri che si applica alla sottoscrizione o al gruppo di gestione. Questi collegamenti consentono di accedere all'assegnazione e modificare o disabilitare i criteri. Se, ad esempio, si nota che un'assegnazione di criteri specifica nega effettivamente Endpoint Protection, utilizzare il collegamento per modificare o disabilitare i criteri.
        
-       * Nell'elenco dei criteri è possibile visualizzare l'applicazione effettiva del criterio nella sottoscrizione o nel gruppo di gestione. Vengono prese in considerazione le impostazioni di ogni criterio che si applicano all'ambito e viene visualizzato il risultato cumulativo delle azioni intraprese dal criterio. Ad esempio, se in un'assegnazione del criterio è disabilitata, ma in un'altra è impostata su AuditIfNotExist, l'effetto cumulativo applica AuditIfNotExist. L'effetto più attivo ha sempre la precedenza.
+       * Nell'elenco dei criteri è possibile visualizzare l'applicazione effettiva del criterio nella sottoscrizione o nel gruppo di gestione. Vengono prese in considerazione le impostazioni di ogni criterio applicato all'ambito e viene visualizzato il risultato cumulativo delle azioni eseguite dal criterio. Se, ad esempio, in un'assegnazione dei criteri è disabilitata, ma in un'altra è impostata su AuditIfNotExist, l'effetto cumulativo si applica a AuditIfNotExist. L'effetto più attivo ha sempre la precedenza.
        
        * L'effetto dei criteri può essere: Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Per altre informazioni su come vengono applicati gli effetti, vedere [Informazioni sugli effetti di Criteri](../governance/policy/concepts/effects.md).
 
@@ -86,49 +86,49 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
 È possibile modificare i criteri di sicurezza tramite il portale Criteri di Azure, l'API REST o Windows PowerShell.
 
-Il Centro sicurezza usa il controllo degli accessi in base al ruolo, che fornisce ruoli predefiniti assegnabili a utenti, gruppi e servizi in Azure. Quando un utente apre il Centro sicurezza, visualizza solo informazioni correlate alle risorse a cui ha accesso. Ciò significa che agli utenti viene assegnato il ruolo di *proprietario,* *collaboratore*o *lettore* alla sottoscrizione della risorsa. Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:As as these roles, there are two specific Security Center roles:
+Il Centro sicurezza usa il controllo degli accessi in base al ruolo, che fornisce ruoli predefiniti assegnabili a utenti, gruppi e servizi in Azure. Quando un utente apre il Centro sicurezza, visualizza solo informazioni correlate alle risorse a cui ha accesso. Il che significa che agli utenti viene assegnato il ruolo di *proprietario*, *collaboratore*o *lettore* alla sottoscrizione della risorsa. Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
-- **Lettore di sicurezza:** dispone dei diritti di visualizzazione per il Centro sicurezza, che include consigli, avvisi, criteri e integrità, ma non possono apportare modifiche.
-- **Amministratore della sicurezza**: disporre degli stessi diritti di visualizzazione del lettore di *sicurezza*e possono inoltre aggiornare i criteri di sicurezza e ignorare i suggerimenti e gli avvisi.
+- **Lettura**per la sicurezza: avere i diritti di visualizzazione per il Centro sicurezza, che include consigli, avvisi, criteri e integrità, ma non possono apportare modifiche.
+- **Amministratore della sicurezza**: hanno gli stessi diritti di visualizzazione del *lettore di sicurezza*e possono anche aggiornare i criteri di sicurezza e ignorare le raccomandazioni e gli avvisi.
 
 
-## <a name="disable-security-policies"></a>Disabilitare i criteri di sicurezzaDisable security policies
-Se i criteri di sicurezza predefiniti generano una raccomandazione non rilevante per l'ambiente, è possibile interromperla disabilitando la definizione dei criteri che invia la raccomandazione.
-Per ulteriori informazioni sui suggerimenti, vedere [Gestione dei suggerimenti per](security-center-recommendations.md)la sicurezza .
+## <a name="disable-security-policies"></a>Disabilitare i criteri di sicurezza
+Se i criteri di sicurezza predefiniti generano una raccomandazione non pertinente per l'ambiente in uso, è possibile arrestarla disabilitando la definizione dei criteri che invia la raccomandazione.
+Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccomandazioni sulla sicurezza](security-center-recommendations.md).
 
-1. Nel Centro sicurezza selezionare **Criteri di sicurezza**nella sezione Criteri & **Conformità.**
+1. Nella sezione **policy & Compliance** del Centro sicurezza selezionare criteri di **sicurezza**.
 
-   ![gestione delle politiche](./media/tutorial-security-policy/policy-management.png)
+   ![gestione dei criteri](./media/tutorial-security-policy/policy-management.png)
 
-2. Selezionare la sottoscrizione o il gruppo di gestione per cui si vuole disabilitare il suggerimento.
+2. Selezionare la sottoscrizione o il gruppo di gestione per il quale si desidera disabilitare la raccomandazione.
 
    > [!NOTE]
    > Tenere presente che un gruppo di gestione applica i propri criteri alle relative sottoscrizioni. Pertanto, se si disabilita un criterio di una sottoscrizione e la sottoscrizione appartiene a un gruppo di gestione che usa ancora lo stesso criterio, si continuerà a ricevere le raccomandazioni relative al criterio in questione. Il criterio verrà comunque applicato dal livello di gestione e le raccomandazioni continueranno a essere generate.
 
-1. Selezionare **Visualizza criterio effettivo**.
+1. Selezionare **Visualizza criteri validi**.
 
-   ![disattivare il criterio](./media/tutorial-security-policy/view-effective-policy.png)
+   ![disabilitare i criteri](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. Selezionare il criterio assegnato.
+1. Selezionare i criteri assegnati.
 
-   ![disattivare il criterio](./media/tutorial-security-policy/security-policy.png)
+   ![disabilitare i criteri](./media/tutorial-security-policy/security-policy.png)
 
-1. Nella sezione **PARAMETERS** cercare il criterio che richiama la raccomandazione che si desidera disabilitare e nell'elenco a discesa selezionare **Disabilitato**
+1. Nella sezione **parametri** cercare i criteri che richiamano la raccomandazione che si desidera disabilitare e nell'elenco a discesa selezionare **disabilitato**
 
-   ![disattivare il criterio](./media/tutorial-security-policy/disable-policy.png)
+   ![disabilitare i criteri](./media/tutorial-security-policy/disable-policy.png)
 
 1. Selezionare **Salva**.
 
    > [!NOTE]
-   > L'effetto di modifica dei criteri di disabilitazione può richiedere fino a 12 ore.
+   > Per rendere effettive le modifiche ai criteri di disabilitazione possono essere necessarie fino a 12 ore.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo sono stati appresi i criteri di sicurezza. Per informazioni correlate, vedere gli articoli seguenti:For related information, see the following articles:
+In questo articolo sono stati illustrati i criteri di sicurezza. Per informazioni correlate, vedere gli articoli seguenti:
 
-* Per istruzioni su come impostare i criteri usando PowerShell, vedere Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi usando il modulo di Azure PowerShellFor instructions on how to set policies using PowerShell, [see Quickstart: Create a policy assignment to identify non-compliant resources using the Azure PowerShell module](../governance/policy/assign-policy-powershell.md)
+* Per istruzioni su come impostare i criteri usando PowerShell, vedere [Guida introduttiva: creare un'assegnazione di criteri per identificare le risorse non conformi usando il modulo Azure PowerShell](../governance/policy/assign-policy-powershell.md)
 
-* Per istruzioni su come modificare i criteri di sicurezza in Criteri di Azure, vedere [Creare e gestire criteri per applicare la conformità.](../governance/policy/tutorials/create-and-manage.md)
+* Per istruzioni su come modificare i criteri di sicurezza in criteri di Azure, vedere [creare e gestire criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md).
 
-* Per istruzioni su come impostare un criterio tra sottoscrizioni o gruppi di gestione usando Criteri di Azure, vedere [Che cos'è Criteri](../governance/policy/overview.md) di Azure?
+* Per istruzioni su come impostare un criterio tra le sottoscrizioni o i gruppi di gestione usando criteri di Azure, vedere informazioni su [criteri di Azure.](../governance/policy/overview.md)

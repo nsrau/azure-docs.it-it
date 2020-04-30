@@ -1,5 +1,5 @@
 ---
-title: Autorizzare gli account per sviluppatori tramite Azure Active DirectoryAuthorize developer accounts by using Azure Active Directory
+title: Autorizzare gli account per sviluppatori usando Azure Active Directory
 titleSuffix: Azure API Management
 description: Informazioni su come autorizzare gli utenti usando Azure Active Directory in Gestione API.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81868402"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
@@ -35,34 +35,34 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Select ![freccia](./media/api-management-howto-aad/arrow.png).
-3. Digitare **api** nella casella di ricerca.
-4. Selezionare **Servizi di gestione API**.
+3. Digitare **API** nella casella di ricerca.
+4. Selezionare **Servizi gestione API**.
 5. Selezionare l'istanza del servizio Gestione API in esecuzione.
-6. In **Portale per sviluppatori**selezionare **Identità**.
+6. In **Developer Portal**selezionare identitys ( **identità**).
 7. Selezionare **+Aggiungi** nella parte superiore.
 
     Sulla destra verrà visualizzato il riquadro **Aggiungi provider di identità**.
 8. In **Tipo di provider** selezionare **Azure Active Directory**.
 
     Nel riquadro vengono visualizzati i controlli che consentono di immettere altre informazioni necessarie, tra cui **ID client** e **Segreto client**. Per altre informazioni su questi controlli, vedere più avanti in questo articolo.
-9. Prendere nota del contenuto di URL di **reindirizzamento**.
+9. Prendere nota del contenuto dell'URL di **Reindirizzamento**.
     
    ![Passaggi per l'aggiunta di un provider di identità nel portale di Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. Nel browser aprire una scheda diversa. 
-11. Passare al [portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) per registrare un'app in Active Directory.Navigate to the Azure portal - App registrations to register an app in Active Directory.
+11. Passare al [Registrazioni app portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) per registrare un'App in Active Directory.
 12. In **Gestisci** selezionare **Registrazioni app**.
-13. Selezionare **Nuova registrazione**. Nella pagina **Registra un'applicazione** impostare i valori come segue:
+13. Selezionare **Nuova registrazione**. Nella pagina **registra un'applicazione** impostare i valori come segue:
     
-    * Impostare **Nome** su un nome significativo. ad esempio, *portale per sviluppatori*
-    * Impostare **Tipi di account supportati** su Account solo in questa directory **dell'organizzazione**. 
-    * Impostare **URI di reindirizzamento** sul valore ottenuto dal passaggio 9.Set Redirect URI to the value you got from step 9. 
-    * Scegliere **Registra**. 
+    * Impostare **nome** su un nome significativo. ad esempio, *Developer-Portal*
+    * Impostare i **tipi di account supportati** solo per gli **account in questa directory aziendale**. 
+    * Impostare **URI di reindirizzamento** sul valore ottenuto nel passaggio 9. 
+    * Scegliere **registra**. 
 
-14.  Dopo aver registrato l'applicazione, copiare **l'ID applicazione (client)** dalla pagina **Panoramica.** 
-15. Tornare all'istanza di Gestione API. Nella finestra Aggiungi provider di **identità** incollare il valore **ID applicazione (client)** nella casella **ID client.**
-16. Tornare alla configurazione di Azure AD, selezionare **i & i segreti in** **Gestisci**. Selezionare il pulsante **New client secret** (Nuovo segreto client). Immettere un valore in **Descrizione**, selezionare un'opzione per **Scadenza** e scegliere **Aggiungi**. Copiare il valore del segreto client prima di uscire dalla pagina. Saranno necessari nel passaggio successivo. 
-17. In **Gestisci**selezionare **Autenticazione** e quindi selezionare **Token ID** in **Concessione implicita**
-18. Tornare all'istanza di Gestione API, incollare il segreto nella casella **Segreto client.**
+14.  Dopo aver registrato l'applicazione, copiare l' **ID applicazione (client)** dalla pagina **Panoramica** . 
+15. Tornare all'istanza di gestione API. Nella finestra **Aggiungi provider di identità** incollare il valore di **ID applicazione (client)** nella casella **ID client** .
+16. Tornare alla configurazione di Azure AD, selezionare **certificati & segreti** in **Gestisci**. Selezionare il pulsante **New client secret** (Nuovo segreto client). Immettere un valore in **Descrizione**, selezionare un'opzione per **Scadenza** e scegliere **Aggiungi**. Copiare il valore del segreto client prima di uscire dalla pagina. Saranno necessari nel passaggio successivo. 
+17. In **Gestisci**selezionare **autenticazione** , quindi selezionare **token ID** in **concessione implicita**
+18. Tornare all'istanza di gestione API e incollare il segreto nella casella **Secret client** .
 
     > [!IMPORTANT]
     > Assicurarsi di aggiornare il **segreto client** prima della scadenza della chiave. 
@@ -82,16 +82,16 @@ Dopo aver salvato le modifiche, gli utenti nell'istanza di Azure AD specificata 
 
 ## <a name="add-an-external-azure-ad-group"></a>Aggiungere un gruppo di Azure AD esterno
 
-Dopo aver abilitato l'accesso per gli utenti in un tenant di Azure AD, è possibile aggiungere gruppi di Azure AD in Gestione API. Di conseguenza, è possibile controllare la visibilità del prodotto usando i gruppi di Azure AD.
+Dopo aver abilitato l'accesso per gli utenti in un tenant di Azure AD, è possibile aggiungere gruppi di Azure AD in gestione API. Di conseguenza, è possibile controllare la visibilità del prodotto utilizzando gruppi Azure AD.
 
-Per aggiungere un gruppo di Azure AD esterno in Gestione API, è innanzitutto necessario completare la sezione precedente. Inoltre, all'applicazione registrata deve essere concesso l'accesso all'API Microsoft Graph con `Directory.Read.All` l'autorizzazione attenendosi alla seguente procedura: 
+Per aggiungere un gruppo di Azure AD esterno in gestione API, è necessario completare prima la sezione precedente. Inoltre, l'applicazione registrata deve avere accesso all'API di Microsoft Graph con `Directory.Read.All` l'autorizzazione attenendosi alla procedura seguente: 
 
-1. Torna alla Registrazione app creata nella sezione precedente.
-2. Selezionare **Autorizzazioni API**, quindi fare clic su **Aggiungi un'autorizzazione**. 
-3. Nel riquadro **Autorizzazioni API richiesta** selezionare la scheda API Microsoft e quindi il riquadro Microsoft Graph.In the Request API Permissions pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Selezionare **Autorizzazioni applicazione**, cercare **Directory**, quindi selezionare l'autorizzazione **Directory.Read.All.** 
-4. Fare clic su **Aggiungi autorizzazioni** nella parte inferiore del riquadro e quindi su **Concedi il consenso dell'amministratore per il** nome tenant in modo da concedere l'accesso a tutti gli utenti in questa directory. 
+1. Tornare alla registrazione dell'app creata nella sezione precedente.
+2. Selezionare **autorizzazioni API**, quindi fare clic su **+ Aggiungi un'autorizzazione**. 
+3. Nel riquadro **autorizzazioni API richiesta** selezionare la scheda **API Microsoft** e quindi selezionare il riquadro **Microsoft Graph** . Selezionare **Autorizzazioni applicazione**, cercare **directory**, quindi selezionare l'autorizzazione **Directory. Read. All** . 
+4. Fare clic su **Aggiungi autorizzazioni** nella parte inferiore del riquadro, quindi fare clic su **concedi il consenso dell'amministratore per {TenantName}** in modo da concedere l'accesso a tutti gli utenti in questa directory. 
 
-È ora possibile aggiungere gruppi esterni di Azure AD dalla scheda **Gruppi** dell'istanza di Gestione API.
+A questo punto è possibile aggiungere gruppi di Azure AD esterni dalla scheda **gruppi** dell'istanza di gestione API.
 
 1. Selezionare la scheda **Gruppi** .
 2. Selezionare il pulsante **Aggiungi gruppo AAD**.
@@ -99,22 +99,22 @@ Per aggiungere un gruppo di Azure AD esterno in Gestione API, è innanzitutto ne
 3. Selezionare il gruppo che si vuole aggiungere.
 4. Scegliere il pulsante **Seleziona**.
 
-Dopo aver aggiunto un gruppo di Azure AD esterno, è possibile esaminarne e configurarne le proprietà. Selezionare il nome del gruppo dalla scheda **Gruppi.** Da qui è possibile modificare le informazioni relative a **Nome** e **Descrizione** per il gruppo.
+Dopo aver aggiunto un gruppo di Azure AD esterno, è possibile esaminarne e configurarne le proprietà. Selezionare il nome del gruppo nella scheda **gruppi** . Da qui è possibile modificare le informazioni relative al **nome** e alla **Descrizione** per il gruppo.
  
 Ora gli utenti dell'istanza di Azure AD configurata possono accedere al portale per sviluppatori. Possono visualizzare e sottoscrivere qualsiasi gruppo per cui hanno visibilità.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/>Portale per sviluppatori- aggiungere l'autenticazione dell'account Azure ADDeveloper portal - add Azure AD account authentication
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/>Portale per sviluppatori: aggiungere Azure AD autenticazione dell'account
 
-Nel portale per sviluppatori, l'accesso con AAD è possibile con il **pulsante Accedi: widget OAuth.** Il widget è già incluso nella pagina di accesso del contenuto predefinito del portale per sviluppatori.
+Nel portale per sviluppatori è possibile accedere con AAD con il **pulsante di accesso: OAuth** widget. Il widget è già incluso nella pagina di accesso del contenuto predefinito del portale per sviluppatori.
 
-Anche se un nuovo account verrà creato automaticamente ogni volta che un nuovo utente accede con AAD, è possibile aggiungere lo stesso widget alla pagina di iscrizione.
+Sebbene venga creato automaticamente un nuovo account ogni volta che un nuovo utente accede con AAD, è possibile aggiungere lo stesso widget alla pagina di iscrizione.
 
-Modulo iscrizione: il widget **OAuth** rappresenta un modulo utilizzato per la registrazione con OAuth.
+Il **modulo di iscrizione: OAuth** widget rappresenta un modulo usato per l'iscrizione a OAuth.
 
 > [!IMPORTANT]
-> È necessario [ripubblicare il portale](api-management-howto-developer-portal-customize.md#publish) per rendere effettive le modifiche di AAD.
+> Per rendere effettive le modifiche di AAD, è necessario [ripubblicare il portale](api-management-howto-developer-portal-customize.md#publish) .
 
-## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portale per sviluppatori legacy: come accedere con Azure ADLegacy developer portal - how to sign in with Azure AD
+## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portale per sviluppatori Legacy-come accedere con Azure AD
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
