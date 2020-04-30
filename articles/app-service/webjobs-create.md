@@ -1,6 +1,6 @@
 ---
-title: Eseguire attività in background con WebJobs
-description: Informazioni su come usare WebJobs per eseguire attività in background nel servizio app di Azure.Learn how to use WebJobs to run background tasks in Azure App Service. Scegli tra una varietà di formati di script ed eseguili con le espressioni CRON.
+title: Eseguire attività in background con processi Web
+description: Informazioni su come usare i processi Web per eseguire attività in background nel servizio app Azure. È possibile scegliere tra un'ampia gamma di formati di script ed eseguirli con espressioni CRON.
 author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -9,18 +9,18 @@ ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085145"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con WebJobs nel servizio app di AzureRun background tasks with WebJobs in Azure App Service
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con processi Web nel servizio app Azure
 
 L'articolo descrive come distribuire Processi Web usando il [portale di Azure](https://portal.azure.com) per caricare un eseguibile o uno script. Per informazioni su come sviluppare e distribuire processi Web usando Visual Studio, vedere [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md) (Distribuire processi Web usando Visual Studio).
 
 ## <a name="overview"></a>Panoramica
-WebJobs è una funzionalità del [servizio app](index.yml) di Azure che consente di eseguire un programma o uno script nella stessa istanza di un'app Web, un'app API o un'app per dispositivi mobili. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
+Processi Web è una funzionalità di [app Azure servizio](index.yml) che consente di eseguire un programma o uno script nella stessa istanza di un'app Web, un'app per le API o un'app per dispositivi mobili. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
 
 > [!IMPORTANT]
 > Processi Web non è ancora supportato per il servizio App in Linux.
@@ -79,7 +79,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
-   | **Tipo** | Continuo | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
+   | **Type** | Continuo | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
    | **Ridimensionare** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito o Condiviso. | 
 
 4. Fare clic su **OK**.
@@ -117,7 +117,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_".|
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
-   | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
+   | **Type** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
    | **Trigger** | Manuale | |
 
 4. Fare clic su **OK**.
@@ -155,8 +155,8 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nome** | myScheduledWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
-   | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
-   | **Trigger** | Pianificato | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
+   | **Type** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
+   | **Trigger** | Pianificate | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
    | **Espressione CRON** | 0 0/20 * * * * | Le [espressioni CRON](#ncrontab-expressions) vengono descritte nella sezione seguente. |
 
 4. Fare clic su **OK**.
@@ -167,7 +167,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB
 
-È possibile immettere [un'espressione NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) nel portale o includere un `settings.job` file nella radice del file *WebJob .zip,* come nell'esempio seguente:
+È possibile immettere un' [espressione NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) nel portale o includere un `settings.job` file nella radice del file processo Web *. zip* , come nell'esempio seguente:
 
 ```json
 {
@@ -175,11 +175,11 @@ when making changes in one don't forget the other two.
 }
 ```
 
-Per ulteriori informazioni, vedere [Pianificazione di un Processo Web attivato](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+Per altre informazioni, vedere [pianificazione di un processo Web attivato](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Visualizzare la cronologia dei processi
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Visualizzare la cronologia processo
 
 1. Selezionare il processo Web di cui si vuole visualizzare la cronologia e quindi selezionare il pulsante **Log**.
    

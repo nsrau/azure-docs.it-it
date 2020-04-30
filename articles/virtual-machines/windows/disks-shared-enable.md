@@ -1,6 +1,6 @@
 ---
-title: Abilitare i dischi condivisi per i dischi gestiti di AzureEnable shared disks for Azure managed disks
-description: Configurare un disco gestito di Azure con dischi condivisi (anteprima) in modo da poterlo condividere tra più macchine virtualiConfigure an Azure managed disk with shared disks (preview) so that you can share it across multiple VMs
+title: Abilitare i dischi condivisi per Azure Managed Disks
+description: Configurare un disco gestito di Azure con dischi condivisi (anteprima) in modo che sia possibile condividerlo tra più macchine virtuali
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,15 +8,15 @@ ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0dbb1844d4c670abfdc5562580b0ee8b4549b6bd
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085484"
 ---
 # <a name="enable-shared-disk"></a>Abilita disco condiviso
 
-Questo articolo illustra come abilitare la funzionalità dischi condivisi (anteprima) per i dischi gestiti di Azure.This article covers how to enable the shared disks (preview) feature for Azure managed disks. Dischi condivisi di Azure (anteprima) è una nuova funzionalità per i dischi gestiti di Azure che consente di collegare un disco gestito a più macchine virtuali (VM) contemporaneamente. La connessione di un disco gestito a più macchine virtuali consente di distribuire nuove applicazioni cluster o di eseguire la migrazione di applicazioni cluster esistenti in Azure.Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure. 
+Questo articolo illustra come abilitare la funzionalità dischi condivisi (anteprima) per Azure Managed Disks. Azure Shared Disks (anteprima) è una nuova funzionalità di Azure Managed disks che consente di aggiungere contemporaneamente un disco gestito a più macchine virtuali (VM). Il fissaggio di un disco gestito a più macchine virtuali consente di distribuire le applicazioni in cluster nuove o migrate in Azure. 
 
-Se si cercano informazioni concettuali sui dischi gestiti con dischi condivisi abilitati, vedere [Dischi condivisi](disks-shared.md)di Azure .
+Per informazioni concettuali sui dischi gestiti in cui sono abilitati i dischi condivisi, vedere [Azure Shared disks](disks-shared.md).
 [!INCLUDE [virtual-machines-enable-shared-disk](../../../includes/virtual-machines-enable-shared-disk.md)]

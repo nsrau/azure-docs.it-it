@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: e624c6c291dcd3ac17571cd93d67ac909d04f3d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400411"
 ---
 # <a name="quickstart-synthesize-speech-to-a-speaker"></a>Guida introduttiva: Sintetizzare la voce in un altoparlante
