@@ -1,16 +1,16 @@
 ---
 title: Piani di servizio app
-description: Informazioni sul funzionamento dei piani del servizio app nel servizio app di Azure, su come vengono fatturati al cliente e su come ridimensionarli in base alle proprie esigenze.
+description: Scopri in che modo i piani di servizio app funzionano nel servizio app Azure, come vengono fatturati al cliente e come ridimensionarli in base alle tue esigenze.
 keywords: servizio app, servizio app di azure, scala, scalabile, scalabilità, piano di servizio app, costo del servizio app
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
 ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537645"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
@@ -22,17 +22,17 @@ Quando si crea un piano di servizio app in una determinata area (ad esempio, Eur
 - Area (Stati Uniti occidentali, Stati Uniti orientali e così via)
 - Numero di istanze di VM
 - Dimensioni delle istanze di VM (Small, Medium, Large)
-- Livello di determinazione dei prezzi (Gratuito, Condiviso, Basic, Standard, Premium, PremiumV2, Isolato)
+- Piano tariffario (gratuito, condiviso, Basic, standard, Premium, PremiumV2, isolated)
 
 Il _piano tariffario_ di un piano di servizio app determina le funzionalità del servizio app disponibili e il costo del piano. Esistono alcune categorie di piani tariffari:
 
 - **Calcolo condiviso**: i due piani di base **Gratuito** e **Condiviso** eseguono un'app nella stessa VM di Azure delle altre app del servizio app, incluse le app di altri clienti. Questi piani allocano quote di CPU a ogni app eseguita nelle risorse condivise e non è possibile aumentare il numero di istanze delle risorse.
 - **Calcolo dedicato**: i piani **Basic**, **Standard**, **Premium** e **PremiumV2** eseguono le app in VM di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
-- **Isolato:** questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento della rete in cima all'isolamento di calcolo per le app. Offre funzionalità ottimali per aumentare il numero di istanze.
+- **Isolated**: questo livello esegue macchine virtuali di Azure dedicate in reti virtuali di Azure dedicate. Fornisce l'isolamento di rete oltre all'isolamento di calcolo per le app. Offre funzionalità ottimali per aumentare il numero di istanze.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Ogni piano fornisce anche un subset specifico di funzionalità del servizio app. Queste funzionalità includono domini personalizzati e certificati TLS/SSL, scalabilità automatica, slot di distribuzione, backup, integrazione di Gestione traffico e altro ancora. Il numero di funzionalità disponibili è direttamente proporzionale al livello del piano. Per conoscere le funzionalità disponibili supportate in ogni piano tariffario, vedere [Informazioni dettagliate sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Ogni piano fornisce anche un subset specifico di funzionalità del servizio app. Queste funzionalità includono domini personalizzati e certificati TLS/SSL, scalabilità automatica, slot di distribuzione, backup, integrazione di gestione traffico e altro ancora. Il numero di funzionalità disponibili è direttamente proporzionale al livello del piano. Per conoscere le funzionalità disponibili supportate in ogni piano tariffario, vedere [Informazioni dettagliate sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -51,7 +51,7 @@ Ogni piano fornisce anche un subset specifico di funzionalità del servizio app.
 
 ## <a name="how-does-my-app-run-and-scale"></a>Come viene eseguita e ridimensionata l'app?
 
-Nei livelli **Gratuito** e **Condiviso,** un'app riceve i minuti della CPU in un'istanza di macchina virtuale condivisa e non può aumentare la scalabilità orizzontale. In altri livelli, un'app viene eseguita e ridimensionata come indicato di seguito.
+Nei livelli **gratuito** e **condiviso** un'app riceve minuti di CPU in un'istanza di macchina virtuale condivisa e non è possibile eseguire il ridimensionamento. In altri livelli, un'app viene eseguita e ridimensionata come indicato di seguito.
 
 Quando si crea un'app nel servizio app, questa viene inserita in un piano di servizio app e viene eseguita in tutte le istanze di VM configurate nel piano di servizio app. Se più app sono nello stesso piano di servizio app, condividono tutte le stesse istanze di VM. Se si hanno più slot di distribuzione per un'app, anche tutti gli slot di distribuzione vengono eseguiti nelle stesse istanze di VM. Se si abilitano i log di diagnostica, si effettuano backup o si eseguono processi Web, anche questi usano i cicli CPU e la memoria in tali istanze di VM.
 
@@ -68,14 +68,14 @@ Questa sezione descrive come vengono fatturate le app del servizio app. Per info
 Fatta eccezione per il piano **Gratuito**, un piano di servizio app prevede una tariffa oraria per le risorse di calcolo usate.
 
 - Nel piano **Condiviso** ogni app riceve una quota di minuti di CPU, quindi la quota di CPU di _ogni app_ viene fatturata su base oraria.
-- Nei livelli di calcolo dedicati (**Basic**, **Standard**, **Premium**, **PremiumV2**), il piano del servizio app definisce il numero di istanze di macchine virtuali a cui vengono ridimensionate le app, in modo che ogni istanza di _macchina virtuale_ nel piano di servizio app abbia un addebito orario. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
+- Nei livelli di calcolo dedicati (**Basic**, **standard**, **Premium**, **PremiumV2**) il piano di servizio app definisce il numero di istanze di VM a cui vengono ridimensionate le app, quindi _ogni istanza di macchina virtuale_ nel piano di servizio app ha un costo orario. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
 - Nel piano **Isolato** l'ambiente del servizio app definisce il numero di ruoli di lavoro isolati che eseguono le app e _ogni ruolo di lavoro_ viene fatturato su base oraria. È anche prevista una tariffa di base oraria per l'esecuzione dell'ambiente del servizio app stesso.
 
-Non viene addebitato alcun costo per l'utilizzo delle funzionalità del servizio app disponibili (configurazione di domini personalizzati, certificati TLS/SSL, slot di distribuzione, backup e così via). Le eccezioni sono le seguenti:
+Non viene addebitato alcun costo per l'uso delle funzionalità del servizio app disponibili (configurazione di domini personalizzati, certificati TLS/SSL, slot di distribuzione, backup e così via). Le eccezioni sono le seguenti:
 
 - Domini del servizio app: si paga quando se ne acquista uno in Azure e per il rinnovo annuale.
 - Certificati del servizio app: si paga quando se ne acquista uno in Azure e per il rinnovo annuale.
-- Connessioni TLS basate su IP- C'è un costo orario per ogni connessione TLS basata su IP, ma alcuni livelli **Standard** o superiore ti dà una connessione TLS basata su IP gratuitamente. Le connessioni TLS basate su SNI sono gratuite.
+- Connessioni TLS basate su IP: è previsto un addebito orario per ogni connessione TLS basata su IP, ma un livello **standard** o superiore offre una connessione TLS basata su IP gratuita. Le connessioni TLS basate su SNI sono gratuite.
 
 > [!NOTE]
 > Se si integra il servizio app con un altro servizio di Azure, potrebbe essere necessario tenere presenti le tariffe per questi altri servizi. Se ad esempio si usa Gestione traffico di Azure per ridimensionare l'app geograficamente, anche Gestione traffico di Azure viene fatturato in base all'utilizzo. Per valutare il costo per tutti i servizi in Azure, vedere [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ Non viene addebitato alcun costo per l'utilizzo delle funzionalità del servizio
 
 È possibile passare a un piano di servizio app superiore o inferiore in qualsiasi momento. È semplice come cambiare il piano tariffario. È possibile scegliere prima un piano tariffario inferiore e passare a uno superiore in seguito, quando sono necessarie altre funzionalità del servizio app.
 
-È ad esempio possibile avviare il test dell'app Web in un piano di servizio app **Gratuito** senza pagare nulla. Quando si vuole aggiungere il [nome DNS personalizzato](app-service-web-tutorial-custom-domain.md) all'app Web, è sufficiente passare al piano superiore **Condiviso**. Successivamente, quando si desidera [creare un'associazione TLS](configure-ssl-bindings.md), ridimensionare il piano fino al livello Basic.Later, when you want to create a TLS binding , scale your plan up to **Basic** tier. Quando sono necessari [ambienti di staging](deploy-staging-slots.md), passare al piano superiore **Standard**. Quando sono necessari più core, memoria o risorse di archiviazione, passare a dimensioni delle VM superiori nello stesso piano.
+È ad esempio possibile avviare il test dell'app Web in un piano di servizio app **Gratuito** senza pagare nulla. Quando si vuole aggiungere il [nome DNS personalizzato](app-service-web-tutorial-custom-domain.md) all'app Web, è sufficiente passare al piano superiore **Condiviso**. Successivamente, quando si vuole [creare un'associazione TLS](configure-ssl-bindings.md), ridimensionare il piano fino al livello **Basic** . Quando sono necessari [ambienti di staging](deploy-staging-slots.md), passare al piano superiore **Standard**. Quando sono necessari più core, memoria o risorse di archiviazione, passare a dimensioni delle VM superiori nello stesso piano.
 
 Lo stesso meccanismo funziona in ordine inverso. Quando le funzionalità di un piano superiore non sono più necessarie, è possibile passare a un piano inferiore per risparmiare.
 
@@ -101,7 +101,7 @@ Poiché le risorse di calcolo allocate dal piano di servizio app vengono fattura
 Isolare l'app in un nuovo piano di servizio app nei casi seguenti:
 
 - L'app usa molte risorse.
-- Si desidera ridimensionare l'app in modo indipendente dalle altre app nel piano esistente.
+- Si vuole ridimensionare l'app in modo indipendente dalle altre app del piano esistente.
 - L'app necessita di risorse in un'area geografica diversa.
 
 In questo modo è possibile allocare un nuovo set di risorse per l'app e ottenere un maggiore controllo delle app.

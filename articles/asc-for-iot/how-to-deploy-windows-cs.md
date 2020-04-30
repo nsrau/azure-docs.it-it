@@ -1,6 +1,6 @@
 ---
-title: Installare l'agente C ' su dispositivo WindowsInstall C' agent on Windows device
-description: Informazioni su come installare il Centro sicurezza di Azure per l'agente IoT in dispositivi Windows a 32 o 64 bit.
+title: Installare l'agente C# nel dispositivo Windows
+description: Informazioni su come installare il Centro sicurezza di Azure per l'agente Internet in dispositivi Windows a 32 bit o a 64 bit.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537611"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Distribuire un agente di sicurezza per Windows basato su C# del Centro sicurezza di Azure per IoT
 
-Questa guida illustra come installare l'agente di sicurezza basato su Azure Security Center per L'IoT in Windows.This guide explains how to install the Azure Security Center for IoT C's based security agent on Windows.
+Questa guida illustra come installare il Centro sicurezza di Azure per l'agente sicurezza basato su C# in Windows.
 
 Questa guida illustra come eseguire queste operazioni:
 
@@ -36,17 +36,17 @@ Questa guida illustra come eseguire queste operazioni:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per altre piattaforme e ruoli di agente, vedere [Scegliere l'agente](how-to-deploy-agent.md)di sicurezza corretto.
+Per altre piattaforme e versioni degli agenti, vedere [scegliere l'agente di sicurezza appropriato](how-to-deploy-agent.md).
 
-1. Diritti di amministratore locale sul computer in cui si desidera eseguire l'installazione.
+1. Diritti di amministratore locale nel computer in cui si vuole eseguire l'installazione.
 
 1. [Creare un modulo di sicurezza](quickstart-create-security-twin.md) per il dispositivo.
 
 ## <a name="installation"></a>Installazione
 
-Per installare l'agente di sicurezza, utilizzare il flusso di lavoro seguente:
+Per installare l'agente sicurezza, utilizzare il flusso di lavoro seguente:
 
-1. Installare nel dispositivo il Centro sicurezza di Azure per l'agente Windows C. Scaricare la versione più recente nel computer dal repository di Azure Security Center for IoT [GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
+1. Installare il Centro sicurezza di Azure per l'agente Windows in C# sul dispositivo. Scaricare la versione più recente nel computer dal centro sicurezza di Azure per il [repository GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
 
 1. Estrarre il contenuto del pacchetto e passare alla cartella /Install.
 
@@ -57,7 +57,7 @@ Per installare l'agente di sicurezza, utilizzare il flusso di lavoro seguente:
     Unblock-File .\InstallSecurityAgent.ps1
     ```
 
-    quindi eseguire:
+    eseguire quindi:
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
@@ -69,18 +69,18 @@ Per installare l'agente di sicurezza, utilizzare il flusso di lavoro seguente:
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
     ```
 
-    Per ulteriori informazioni sui parametri di autenticazione, vedere [Come configurare l'autenticazione](concept-security-agent-authentication-methods.md).
+    Per ulteriori informazioni sui parametri di autenticazione, vedere [How to Configure Authentication](concept-security-agent-authentication-methods.md).
 
-Questo script esegue le azioni seguenti:This script does the following actions:
+Questo script esegue le azioni seguenti:
 
 * Installazione dei prerequisiti.
 * Aggiunge un utente del servizio (con accesso interattivo disabilitato).
 * Installazione dell'agente come **Servizio di sistema**.
 * Configurazione dell'agente con i parametri di autenticazione forniti.
 
-Per altre informazioni, usare il comando Get-Help in PowerShell.For additional help, use the Get-Help command in PowerShell.
+Per ulteriori informazioni, utilizzare il comando Get-Help in PowerShell.
 
-Esempio Get-Help:```Get-Help .\InstallSecurityAgent.ps1```
+Esempio di Get-Help:```Get-Help .\InstallSecurityAgent.ps1```
 
 ### <a name="verify-deployment-status"></a>Verificare lo stato di distribuzione
 
@@ -104,7 +104,7 @@ Se l'agente non viene avviato, abilitare la registrazione (che è *disattivata* 
 
 Per abilitare la registrazione:
 
-1. Aprire il file di configurazione (General.config) per la modifica utilizzando un editor di file standard.
+1. Aprire il file di configurazione (generale. config) per la modifica tramite un editor di file standard.
 
 1. Modificare i valori seguenti:
 
@@ -120,7 +120,7 @@ Per abilitare la registrazione:
 
 1. Riavviare l'agente eseguendo la riga di comando o il comando PowerShell seguenti:
 
-    **Powershell**
+    **PowerShell**
 
      ```
      Restart-Service "ASC IoT Agent"
@@ -128,21 +128,21 @@ Per abilitare la registrazione:
 
    o
 
-    **Cmd**
+    **CMD**
 
      ```
      sc.exe stop "ASC IoT Agent"
      sc.exe start "ASC IoT Agent"
      ```
 
-1. Esaminare il file di log per altre informazioni sull'errore. Il file di registro sarebbe presente nella directory di lavoro in cui viene eseguito lo script. 
+1. Esaminare il file di log per altre informazioni sull'errore. Il file di log sarà presente nella directory di lavoro in cui viene eseguito lo script. 
 
    Posizione dei file di log: `.\IoTAgentLog.log`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggi la [panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoT
-* Altre informazioni sul Centro sicurezza di Azure per l'architettura IoTLearn more about Azure Security Center for IoT [Architecture](architecture.md)
+* Leggi il Centro sicurezza di Azure per [informazioni generali](overview.md) sul servizio Internet
+* Scopri di più sul centro sicurezza di Azure per l' [architettura dell'it](architecture.md)
 * Abilitare il [servizio](quickstart-onboard-iot-hub.md)
 * Leggere le [Domande frequenti](resources-frequently-asked-questions.md)
 * Informazioni sugli [avvisi](concept-security-alerts.md)

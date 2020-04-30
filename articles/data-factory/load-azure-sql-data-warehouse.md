@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/16/2020
 ms.openlocfilehash: 1a764f392402acf9aa405468470d0fb6f680d755
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461109"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory
@@ -29,9 +29,9 @@ Iniziare a usare Azure SQL Data Warehouse è oggi più semplice che mai con Azur
 Azure Data Factory offre i vantaggi seguenti per il caricamento di dati in Azure SQL Data Warehouse:
 
 * **Semplicità di configurazione**: procedura guidata intuitiva in 5 passaggi, senza necessità di script.
-* **Supporto avanzato dell'archivio dati:** supporto integrato per un set completo di archivi dati locali e basati su cloud. Per un elenco dettagliato, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Supporto per gli archivi dati avanzati**: supporto incorporato per un set completo di archivi dati locali e basati sul cloud. Per un elenco dettagliato, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Sicurezza e conformità**: i dati vengono trasferiti tramite HTTPS o ExpressRoute. La presenza di un servizio globale garantisce che i dati non oltrepassino mai il confine geografico.
-* **Prestazioni ineguagliabili con PolyBase**: PolyBase è lo strumento più efficiente per spostare dati in Azure SQL Data Warehouse. Usare la funzionalità del BLOB di staging per ottenere velocità di carico elevate da tutti i tipi di archivi dati, tra cui l'archiviazione BLOB di Azure e Data Lake Store. Polybase supporta l'archiviazione BLOB di Azure e l'archivio dati di Azure per impostazione predefinita. Per informazioni dettagliate, vedere [Prestazioni dell'attività di copia](copy-activity-performance.md).
+* **Prestazioni ineguagliabili con PolyBase**: PolyBase è lo strumento più efficiente per spostare dati in Azure SQL Data Warehouse. Usare la funzionalità del BLOB di staging per ottenere velocità di carico elevate da tutti i tipi di archivi dati, tra cui l'archiviazione BLOB di Azure e Data Lake Store. (Polibase supporta l'archiviazione BLOB di Azure e Azure Data Lake Store per impostazione predefinita). Per informazioni dettagliate, vedere [prestazioni dell'attività di copia](copy-activity-performance.md).
 
 Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _caricare dati dal database SQL di Azure in Azure SQL Data Warehouse_. È possibile seguire una procedura simile a quella usata per copiare dati da altri tipi di archivi dati.
 
@@ -47,17 +47,17 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **Crea una risorsa** > Dati - Data**Factory****analisi:** > 
+1. Nel menu a sinistra selezionare **Crea una risorsa** > **dati e analisi** > **Data Factory**:
 
-2. Nella pagina Nuova data factory specificare i valori per gli elementi seguenti:On the **New data factory** page, provide values for following items:
+2. Nella pagina **nuovo data factory** specificare i valori per gli elementi seguenti:
 
-    * **Nome**: Immettere *LoadSQLDWDemo* come nome. Il nome della data factory deve essere univoco a livello globale. Se viene visualizzato l'errore "Nome data factory 'LoadSQLDWDemo' non è disponibile", immettere un nome diverso per la data factory. Ad esempio, è possibile usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Riprovare a creare la data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+    * **Nome**: immettere *LoadSQLDWDemo* per nome. Il nome del data factory deve essere * globalmente univoco. Se viene visualizzato l'errore "il nome ' LoadSQLDWDemo ' della data factory non è disponibile", immettere un nome diverso per il data factory. Ad esempio, è possibile usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Riprovare a creare la data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
     * **Sottoscrizione**: selezionare la sottoscrizione di Azure in cui creare la data factory. 
     * **Gruppo di risorse**: selezionare un gruppo di risorse esistente nell'elenco a discesa oppure selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Azure Data Lake Store, Archiviazione di Azure, il database SQL di Azure e così via.
 
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente:
 
    ![Home page di Data factory](./media/doc-common-process/data-factory-home-page.png)
@@ -66,47 +66,47 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 
 ## <a name="load-data-into-azure-sql-data-warehouse"></a>Caricare i dati in Azure SQL Data Warehouse
 
-1. Nella pagina **Guida introduttiva** selezionare il riquadro **Copia dati** per avviare lo strumento Copia dati.
+1. Nella pagina attività **iniziali** selezionare il riquadro **copia dati** per avviare lo strumento copia dati.
 
-1. Nella pagina **Proprietà** specificare **CopyFromSQLToSQLDW** per il campo **Nome attività** e selezionare **Avanti**.
+1. Nella pagina **Proprietà** specificare **CopyFromSQLToSQLDW** per il campo **nome attività** , quindi fare clic su **Avanti**.
 
     ![Pagina Proprietà](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
 
 1. Nella pagina **Archivio dati di origine** completare la procedura seguente:
     >[!TIP]
-    >In questa esercitazione si usa *l'autenticazione SQL* come tipo di autenticazione per l'archivio dati di origine, ma è possibile scegliere altri metodi di autenticazione supportati:*Entità servizio* e *Identità gestita,* se necessario. Fare riferimento alle sezioni corrispondenti in [questo articolo](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties) per i dettagli.
-    >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Fare riferimento a [questo articolo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) per informazioni dettagliate.
+    >In questa esercitazione si usa *l'autenticazione SQL* come tipo di autenticazione per l'archivio dati di origine, ma è possibile scegliere altri metodi di autenticazione supportati: l'*entità servizio* e l' *identità gestita* , se necessario. Per informazioni dettagliate, vedere le sezioni corrispondenti in [questo articolo](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties).
+    >Per archiviare in modo sicuro i segreti per gli archivi dati, è anche consigliabile usare il servizio Azure Key Vault. Per le spiegazioni dettagliate, vedere [questo articolo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
 
-    a. fare clic su **Crea nuova connessione**.
+    a. fare clic su **+ Crea nuova connessione**.
 
     b. Selezionare **Database SQL di Azure** dalla raccolta e selezionare **Continua**. È possibile digitare "SQL" nella casella di ricerca per filtrare i connettori.
 
     ![Selezionare il database SQL di Azure](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. Nella pagina **Nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Test connessione** per convalidare le impostazioni, quindi selezionare **Crea**.
+    c. Nella pagina **nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Test connessione** per convalidare le impostazioni, quindi selezionare **Crea**.
 
     ![Configurare il database SQL di Azure](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
     d. Selezionare il servizio collegato appena creato come origine, quindi fare clic su **Avanti**.
 
-1. Nella pagina **Select tables from which to copy the data or use a custom query** (Selezionare le tabelle dalle quali copiare i dati oppure usare una query personalizzata) immettere **SalesLT** per filtrare le tabelle. Scegliere la casella **(Seleziona tutto)** per utilizzare tutte le tabelle per la copia e quindi selezionare **Avanti**.
+1. Nella pagina **Select tables from which to copy the data or use a custom query** (Selezionare le tabelle dalle quali copiare i dati oppure usare una query personalizzata) immettere **SalesLT** per filtrare le tabelle. Scegliere la casella **(Seleziona tutto)** per utilizzare tutte le tabelle per la copia, quindi fare clic su **Avanti**.
 
     ![Selezionare le tabelle di origine](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
-1. Nella pagina **Applica filtro** specificare le impostazioni o selezionare **Avanti**.
+1. Nella pagina **Applica filtro** specificare le impostazioni oppure fare clic su **Avanti**.
 
 1. Nella pagina **Archivio dati di destinazione** completare la procedura seguente:
     >[!TIP]
-    >In questa esercitazione si usa *l'autenticazione SQL* come tipo di autenticazione per l'archivio dati di destinazione, ma è possibile scegliere altri metodi di autenticazione supportati:*Entità servizio* e *Identità gestita,* se necessario. Fare riferimento alle sezioni corrispondenti in [questo articolo](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#linked-service-properties) per i dettagli.
-    >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Fare riferimento a [questo articolo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) per informazioni dettagliate.
+    >In questa esercitazione si usa *l'autenticazione SQL* come tipo di autenticazione per l'archivio dati di destinazione, ma è possibile scegliere altri metodi di autenticazione supportati:*entità servizio* e *identità gestita* , se necessario. Per informazioni dettagliate, vedere le sezioni corrispondenti in [questo articolo](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#linked-service-properties).
+    >Per archiviare in modo sicuro i segreti per gli archivi dati, è anche consigliabile usare il servizio Azure Key Vault. Per le spiegazioni dettagliate, vedere [questo articolo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
 
     a. Fare clic su **+ Crea nuova connessione** per aggiungere una connessione
 
-    b. Selezionare **Azure Synapse Analytics (in precedenza SQL DW)** dalla raccolta e **selezionare Continua**. È possibile digitare "SQL" nella casella di ricerca per filtrare i connettori.
+    b. Selezionare **Azure sinapsi Analytics (in precedenza SQL DW)** dalla raccolta e selezionare **continua**. È possibile digitare "SQL" nella casella di ricerca per filtrare i connettori.
 
     ![Selezionare Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. Nella pagina **Nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Test connessione** per convalidare le impostazioni, quindi selezionare **Crea**.
+    c. Nella pagina **nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Test connessione** per convalidare le impostazioni, quindi selezionare **Crea**.
 
     ![Configurare Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
@@ -121,31 +121,31 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 
 1. Nella pagina **Mapping colonne** esaminare il contenuto e selezionare **Avanti**. Il mapping intelligente delle tabelle è basato sul nome di colonna. Se si sceglie di consentire a Data Factory di creare automaticamente le tabelle, può essere applicata la conversione del tipo di dati in caso di incompatibilità tra gli archivi di origine e di destinazione. Se viene applicata una conversione del tipo di dati non supportata tra la colonna di origine e quella di destinazione, viene visualizzato un messaggio di errore accanto alla tabella corrispondente.
 
-    ![Pagina Mapping colonne](./media/load-azure-sql-data-warehouse/schema-mapping.png)
+    ![Pagina mapping colonne](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
 1. Nella pagina **Impostazioni** completare la procedura seguente:
 
-    a. In **Impostazioni di gestione temporanea** fare clic su **+ Nuovo** per creare una nuova risorsa di archiviazione di gestione temporanea. La risorsa di archiviazione viene usata per eseguire lo staging dei dati prima di caricarli in SQL Data Warehouse tramite PolyBase. Al termine della copia, i dati intermedi in Archiviazione BLOB di Azure vengono puliti automaticamente.
+    a. In **Impostazioni di gestione temporanea** fare clic su **+ Nuovo** per creare una nuova risorsa di archiviazione di gestione temporanea. La risorsa di archiviazione viene usata per eseguire lo staging dei dati prima di caricarli in SQL Data Warehouse tramite PolyBase. Al termine della copia, i dati provvisori nell'archivio BLOB di Azure vengono puliti automaticamente.
 
-    b. Nella pagina **Nuovo servizio collegato** selezionare l'account di archiviazione e quindi **selezionare Crea** per distribuire il servizio collegato.
+    b. Nella pagina **nuovo servizio collegato** selezionare l'account di archiviazione e selezionare **Crea** per distribuire il servizio collegato.
 
     c. Nella sezione **Impostazioni avanzate**, deselezionare l’opzione **Usa tipo predefinito**, quindi selezionare **Avanti**.
 
     ![Configurare PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
-1. Nella pagina **Riepilogo** rivedere le impostazioni e selezionare **Avanti**.
+1. Nella pagina **Riepilogo** verificare le impostazioni e fare clic su **Avanti**.
 
     ![Pagina Riepilogo](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. Nella **pagina Distribuzione**selezionare **Monitoraggio** per monitorare la pipeline (attività).
+1. Nella **pagina distribuzione**selezionare **monitoraggio** per monitorare la pipeline (attività).
 
-1. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. Al termine dell'esecuzione della pipeline, selezionare il collegamento **CopyFromSQLToSQLDW** nella colonna **PIPELINE NAME** per visualizzare i dettagli di esecuzione dell'attività e rieseguire la pipeline.
+1. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. Quando l'esecuzione della pipeline viene completata correttamente, selezionare il collegamento **CopyFromSQLToSQLDW** nella colonna **nome pipeline** per visualizzare i dettagli dell'esecuzione dell'attività e rieseguire la pipeline.
 
-    [![Monitorare le esecuzioni di pipeline](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
-1. Per tornare alla visualizzazione delle esecuzioni della pipeline, selezionare il collegamento **Tutte le esecuzioni della pipeline** nella parte superiore. Selezionare **Aggiorna** per aggiornare l'elenco.
+    [![Monitorare le esecuzioni delle pipeline](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+1. Per tornare alla visualizzazione delle esecuzioni di pipeline, selezionare il collegamento **tutte le esecuzioni della pipeline** nella parte superiore. Selezionare **Aggiorna** per aggiornare l'elenco.
 
     ![Monitorare le esecuzioni delle attività](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
-1. Per monitorare i dettagli di esecuzione per ogni attività di copia, selezionare il collegamento **Dettagli** (icona a forma di occhiali) in **NOME ACTIVITY** nella visualizzazione delle esecuzioni dell'attività. È possibile monitorare dettagli quali il volume di dati copiati dall'origine al sink, la velocità effettiva dei dati, i passaggi di esecuzione con la durata corrispondente e le configurazioni usate.
+1. Per monitorare i dettagli di esecuzione di ogni attività di copia, selezionare il collegamento **Dettagli** (icona occhiali) in **nome attività** nella visualizzazione esecuzioni attività. È possibile monitorare i dettagli, ad esempio il volume di dati copiati dall'origine al sink, la velocità effettiva dei dati, i passaggi di esecuzione con la durata corrispondente e le configurazioni usate.
     ![Monitorare i dettagli di esecuzione delle attività](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png)
 
     ![Monitorare i dettagli di esecuzione delle attività](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
@@ -155,4 +155,4 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 Leggere l'articolo seguente per altre informazioni sul supporto di Azure SQL Data Warehouse:
 
 > [!div class="nextstepaction"]
->[Connettore sql Data Warehouse di AzureAzure SQL Data Warehouse connector](connector-azure-sql-data-warehouse.md)
+>[Connettore Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)

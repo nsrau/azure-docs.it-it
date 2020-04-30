@@ -1,13 +1,13 @@
 ---
-title: Separazione della telemetria in Azure Application Insights
+title: Separazione della telemetria in applicazione Azure Insights
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536778"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separazione della telemetria da sviluppo, test e produzione
@@ -47,7 +47,7 @@ Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs 
 In questo esempio i valori ikey per le diverse risorse vengono inseriti in versioni diverse del file di configurazione Web. Lo scambio del file di configurazione Web, che è possibile eseguire nell'ambito dello script di rilascio, consente di scambiare la risorsa di destinazione.
 
 ### <a name="web-pages"></a>Pagina Web
-L'iKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal pannello di avvio rapido.](../../azure-monitor/app/javascript.md) Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
+IKey viene usato anche nelle pagine Web dell'app, nello [script ottenuto dal pannello avvio rapido](../../azure-monitor/app/javascript.md). Invece di codificarlo letteralmente nello script, generarlo dallo stato del server. Ad esempio, in un'app ASP.NET:
 
 *JavaScript in Razor*
 
@@ -70,14 +70,14 @@ In [portal.azure.com](https://portal.azure.com)aggiungere una nuova risorsa di A
 ![Fare clic su Nuovo, Application Insights](./media/separate-resources/01-new.png)
 
 * Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche](../../azure-monitor/platform/metrics-charts.md). Se il tipo dell'app non è visualizzato, scegliere uno dei tipi Web per le pagine Web.
-* **Il gruppo** di risorse è una comodità per la gestione di proprietà come il controllo di [accesso.](../../azure-monitor/app/resources-roles-access-control.md) È possibile usare gruppi di risorse separati per lo sviluppo, i test e la produzione.
+* Il **gruppo di risorse** è una praticità per la gestione di proprietà come il controllo di [accesso](../../azure-monitor/app/resources-roles-access-control.md). È possibile usare gruppi di risorse separati per lo sviluppo, i test e la produzione.
 * **sottoscrizione** è il proprio account di pagamento in Azure.
 * Il **percorso** è la posizione in cui vengono conservati i dati. e attualmente non è modificabile. 
 * **Aggiungi al dashboard** inserisce un riquadro di accesso rapido alla propria risorsa nella pagina iniziale di Azure. 
 
 La creazione della risorsa richiede pochi secondi. Al termine della creazione verrà visualizzato un avviso.
 
-È possibile scrivere uno script di [PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) per creare automaticamente una risorsa.
+È possibile scrivere uno [script di PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) per creare automaticamente una risorsa.
 
 ### <a name="getting-the-instrumentation-key"></a>Ottenere la chiave di strumentazione
 La chiave di strumentazione identifica la risorsa creata. 
@@ -123,14 +123,14 @@ Esistono diversi metodi di impostazione della proprietà della versione dell'app
     </PropertyGroup>
     ```
 
-    Verrà generato un file denominato *nomeProgetto*. BuildInfo.config. Il processo di pubblicazione lo rinomina in BuildInfo.config.
+    Verrà generato un file denominato *yourProjectName*. BuildInfo. config. il processo di pubblicazione lo rinomina in BuildInfo. config.
 
     L'etichetta di compilazione contiene un segnaposto (AutoGen_) se la compilazione viene eseguita in Visual Studio. Se la compilazione viene eseguita con MSBuild, viene inserito il numero di versione corretto.
 
     Per consentire a MSBuild di generare i numeri di versione, in AssemblyReference.cs impostare la versione come, ad esempio, `1.0.*` .
 
 ## <a name="version-and-release-tracking"></a>Verifica della versione
-Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel `.csproj` file, aggiungi:  
+Per tenere traccia della versione dell'applicazione, assicurarsi che il processo di Microsoft Build Engine generi `buildinfo.config`. Nel `.csproj` file aggiungere:  
 
 ```XML
 
@@ -141,7 +141,7 @@ Per tenere traccia della versione dell'applicazione, assicurarsi che il processo
 
 Quando ha le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento dei dati di telemetria. Questo consente di applicare filtri in base alla versione quando si eseguono [ricerche diagnostiche](../../azure-monitor/app/diagnostic-search.md) o quando si [esaminano le metriche](../../azure-monitor/platform/metrics-charts.md).
 
-Tuttavia, si noti che il numero di versione della build viene generato solo da Microsoft Build Engine, non dalla build dello sviluppatore da Visual Studio.However, notice that the build version number is generated only by the Microsoft Build Engine, not by the developer build from Visual Studio.
+Si noti tuttavia che il numero di versione della build viene generato solo dal Microsoft Build Engine, non dalla Build dello sviluppatore da Visual Studio.
 
 ### <a name="release-annotations"></a>Annotazioni sulle versioni
 Se si usa Azure DevOps, è possibile [visualizzare un marcatore di annotazione](../../azure-monitor/app/annotations.md) aggiunto ai grafici quando si rilascia una nuova versione. L'immagine seguente illustra come viene visualizzato il marcatore.

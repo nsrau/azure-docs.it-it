@@ -11,15 +11,15 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81530972"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Supporto per le lingue naturali per i servizi cognitivi di Azure
 
-Servizi cognitivi di Azure consentono di creare applicazioni che visualizzano, ascoltano, parlano con e comprendono gli utenti. Tra questi servizi sono supportate più di trenta lingue, consentendo agli utenti di comunicare con l'applicazione in modi naturali. Utilizzare i collegamenti seguenti per visualizzare la disponibilità della lingua in base al servizio.
+I servizi cognitivi di Azure consentono di creare applicazioni in grado di vedere, ascoltare, parlare e comprendere gli utenti. Tra questi servizi sono supportate più di trenta lingue, consentendo agli utenti di comunicare con l'applicazione in modi naturali. Usare i collegamenti seguenti per visualizzare la disponibilità della lingua in base al servizio.
 
 Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazioni basate sul linguaggio umano.
 
@@ -65,5 +65,5 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Cosa sono i Servizi cognitivi?](welcome.md)
+* [Che cosa sono i servizi cognitivi?](welcome.md)
 * [Creare un account](cognitive-services-apis-create-account.md)

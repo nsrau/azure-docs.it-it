@@ -1,6 +1,6 @@
 ---
-title: Configurare un lab per usare Gateway Desktop remoto in Azure DevTest LabsConfigure a lab to use Remote Desktop Gateway in Azure DevTest Labs
-description: Informazioni su come configurare un lab in Laboratori DevTest di Azure con un gateway desktop remoto per garantire l'accesso sicuro alle macchine virtuali lab senza dover esporre la porta RDP.
+title: Configurare un Lab per l'uso di Desktop remoto Gateway in Azure DevTest Labs
+description: Informazioni su come configurare un Lab in Azure DevTest Labs con Gateway Desktop remoto per garantire l'accesso sicuro alle macchine virtuali del Lab senza dover esporre la porta RDP.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,104 +13,104 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460988"
 ---
-# <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurare il lab in Azure DevTest Labs per l'uso di un gateway di desktop remotoConfigure your lab in Azure DevTest Labs to use a remote desktop gateway
-In Laboratori DevTest di Azure è possibile configurare un gateway desktop remoto per il lab per garantire l'accesso sicuro alle macchine virtuali lab (VM) senza dover esporre la porta RDP. Il lab offre agli utenti del lab una posizione centrale in cui gli utenti del lab possono visualizzare e connettersi a tutte le macchine virtuali a cui hanno accesso. Il pulsante **Connetti** nella pagina **Macchina virtuale** crea un file RDP specifico del computer che è possibile aprire per connettersi al computer. È possibile personalizzare e proteggere ulteriormente la connessione RDP connettendo il lab a un gateway di desktop remoto. 
+# <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurare il Lab in Azure DevTest Labs per l'uso di un Gateway Desktop remoto
+In Azure DevTest Labs, è possibile configurare un Gateway Desktop remoto per il Lab per garantire l'accesso sicuro alle macchine virtuali (VM) Lab senza dover esporre la porta RDP. Il Lab fornisce una posizione centralizzata in cui gli utenti del Lab possono visualizzare e connettersi a tutte le macchine virtuali a cui hanno accesso. Il pulsante **Connetti** nella pagina **macchina virtuale** crea un file RDP specifico del computer che è possibile aprire per connettersi al computer. È possibile personalizzare ulteriormente e proteggere la connessione RDP connettendo il Lab a un Gateway Desktop remoto. 
 
-Questo approccio è più sicuro perché l'utente del lab esegue l'autenticazione direttamente nel computer gateway o può usare le credenziali aziendali in un computer gateway aggiunto al dominio per connettersi ai propri computer. Il lab supporta inoltre l'utilizzo dell'autenticazione token nel computer gateway che consente agli utenti di connettersi alle macchine virtuali lab senza esporre la porta RDP a Internet. Questo articolo illustra un esempio su come configurare un lab che usa l'autenticazione token per connettersi ai computer lab.
+Questo approccio è più sicuro perché l'utente del Lab esegue l'autenticazione direttamente nel computer del gateway o può usare le credenziali aziendali in un computer gateway aggiunto al dominio per connettersi ai computer. Il Lab supporta anche l'uso dell'autenticazione basata su token nel computer gateway che consente agli utenti di connettersi alle macchine virtuali del Lab senza avere la porta RDP esposta a Internet. Questo articolo illustra un esempio di come configurare un Lab che usa l'autenticazione basata su token per connettersi ai computer lab.
 
 ## <a name="architecture-of-the-solution"></a>Architettura della soluzione
 
 ![Architettura della soluzione](./media/configure-lab-remote-desktop-gateway/architecture.png)
 
-1. L'azione [Ottieni contenuto file RDP](/rest/api/dtl/virtualmachines/getrdpfilecontents) viene chiamata quando si seleziona il pulsante **Connetti.1.** 
-1. L'azione Get RDP `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` file contents richiama per richiedere un token di autenticazione.
-    1. `{gateway-hostname}`è il nome host del gateway specificato nella pagina Impostazioni lab per il lab nel portale di Azure.Is the gateway hostname specified on the **Lab Settings** page for your lab in the Azure portal. 
-    1. `{lab-machine-name}`è il nome della macchina che si sta tentando di connettere.
-    1. `{port-number}`è la porta su cui è necessario connettersi. Di solito questa porta è 3389. Se la macchina virtuale del lab usa la funzionalità [IP condiviso](devtest-lab-shared-ip.md) in DevTest Labs, la porta sarà diversa.
-1. Il gateway desktop remoto rinvia la chiamata da `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` a una funzione di Azure per generare il token di autenticazione. Il servizio DevTest Labs include automaticamente il tasto funzione nell'intestazione della richiesta. Il tasto funzione deve essere salvato nell'insieme di credenziali delle chiavi del lab. Nome del segreto da visualizzare come **segreto** del token gateway nella pagina **Impostazioni lab** per il lab.
-1. La funzione di Azure deve restituire un token per l'autenticazione basata su token basata su certificati nel computer gateway.  
+1. L'azione [Ottieni contenuto file RDP](/rest/api/dtl/virtualmachines/getrdpfilecontents) viene chiamata quando si seleziona il pulsante **Connetti** . 1. 
+1. L'azione Ottieni contenuto file RDP richiama `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` per richiedere un token di autenticazione.
+    1. `{gateway-hostname}`è il nome host del gateway specificato nella pagina **impostazioni Lab** per il lab nel portale di Azure. 
+    1. `{lab-machine-name}`è il nome del computer che si sta tentando di connettere.
+    1. `{port-number}`porta su cui deve essere effettuata la connessione. In genere questa porta è 3389. Se la macchina virtuale del Lab usa la funzionalità [IP condivisa](devtest-lab-shared-ip.md) in DevTest Labs, la porta sarà diversa.
+1. Il Gateway Desktop remoto rinvia la chiamata da `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` a una funzione di Azure per generare il token di autenticazione. Il servizio DevTest Labs include automaticamente il tasto funzione nell'intestazione della richiesta. Il tasto funzione deve essere salvato nell'insieme di credenziali delle chiavi del Lab. Nome del segreto da visualizzare come chiave privata del **token del gateway** nella pagina **impostazioni Lab** per il Lab.
+1. Si prevede che la funzione di Azure restituisca un token per l'autenticazione del token basata sui certificati nel computer del gateway.  
 1. L'azione Ottieni contenuto file RDP restituisce quindi il file RDP completo, incluse le informazioni di autenticazione.
-1. Si apre il file RDP utilizzando il programma di connessione RDP preferito. Tenere presente che non tutti i programmi di connessione RDP supportano l'autenticazione token. Il token di autenticazione ha una data di scadenza, impostata dall'app per le funzioni. Effettuare la connessione alla macchina virtuale lab prima della scadenza del token.
-1. Una volta che il computer gateway desktop remoto autentica il token nel file RDP, la connessione viene inoltrata al computer lab.
+1. Aprire il file RDP utilizzando il programma di connessione RDP preferito. Tenere presente che non tutti i programmi di connessione RDP supportano l'autenticazione basata su token. Il token di autenticazione ha una data di scadenza, impostata dall'app per le funzioni. Eseguire la connessione alla VM Lab prima della scadenza del token.
+1. Quando il computer Gateway Desktop remoto autentica il token nel file RDP, la connessione viene trasmessa al computer lab.
 
 ### <a name="solution-requirements"></a>Requisiti della soluzione
-Per utilizzare la funzionalità di autenticazione token DevTest Labs, esistono alcuni requisiti di configurazione per i computer gateway, i servizi DNS (Domain Name Services) e le funzioni.
+Per usare la funzionalità di autenticazione dei token di DevTest Labs, esistono alcuni requisiti di configurazione per i computer gateway, Domain Name Services (DNS) e le funzioni.
 
-### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisiti per i computer gateway desktop remoto
-- Il certificato TLS/SSL deve essere installato nel computer gateway per gestire il traffico HTTPS. Il certificato deve corrispondere al nome di dominio completo (FQDN) del servizio di bilanciamento del carico per la farm gateway o al nome di dominio completo del computer stesso se è presente un solo computer. I certificati TLS/SSL con caratteri jolly non funzionano.  
-- Un certificato di firma installato nei computer gateway. Creare un certificato di firma utilizzando lo script [Create-SigningCertificate.ps1.Create](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) a signing certificate by using Create-SigningCertificate.ps1 script.
-- Installare il modulo [Autenticazione collegabile](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) che supporta l'autenticazione token per il gateway desktop remoto. Un esempio di tale `RDGatewayFedAuth.msi` modulo è che viene fornito con le immagini di [System Center Virtual Machine Manager (VMM).](/system-center/vmm/install-console?view=sc-vmm-1807) Per ulteriori informazioni su System Center, vedere [documentazione di System Center](https://docs.microsoft.com/system-center/) e [dettagli sui prezzi](https://www.microsoft.com/cloud-platform/system-center-pricing).  
-- Il server gateway è `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`in grado di gestire le richieste effettuate a .
+### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisiti per i computer Gateway Desktop remoto
+- Il certificato TLS/SSL deve essere installato nel computer del gateway per gestire il traffico HTTPS. Il certificato deve corrispondere al nome di dominio completo (FQDN) del servizio di bilanciamento del carico per la farm del gateway o al nome di dominio completo (FQDN) del computer stesso se è presente un solo computer. I certificati TLS/SSL Wild Card non funzionano.  
+- Un certificato di firma installato nei computer gateway. Creare un certificato di firma tramite lo script [create-SigningCertificate. ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) .
+- Installare il modulo di [autenticazione collegabile](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) che supporta l'autenticazione basata su token per Gateway Desktop remoto. Un esempio di tale modulo è `RDGatewayFedAuth.msi` incluso nelle [Immagini System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807). Per ulteriori informazioni su System Center, vedere la [documentazione di System Center](https://docs.microsoft.com/system-center/) e [i dettagli relativi ai prezzi](https://www.microsoft.com/cloud-platform/system-center-pricing).  
+- Il server gateway è in grado di gestire `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`le richieste effettuate a.
 
-    Il nome host del gateway è il nome di dominio completo del servizio di bilanciamento del carico della farm gateway o il nome di dominio completo del computer stesso se è presente un solo computer. Il `{lab-machine-name}` è il nome del computer lab che si `{port-number}` sta tentando di connettere e la porta is su cui verrà stabilita la connessione.  Per impostazione predefinita, questa porta è 3389.By default, this port is 3389.  Tuttavia, se la macchina virtuale utilizza la funzionalità [IP condiviso](devtest-lab-shared-ip.md) in DevTest Labs, la porta sarà diversa.
-- Il modulo [Richiesta di routing dell'applicazione](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) per Internet `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` Information Server (IIS) può essere utilizzato per reindirizzare le richieste alla funzione azure, che gestisce la richiesta per ottenere un token per l'autenticazione.
+    Gateway-hostname è il nome di dominio completo del servizio di bilanciamento del carico della farm del gateway o il nome di dominio completo (FQDN) del computer se è presente un solo computer. `{lab-machine-name}` È il nome del computer lab a cui si sta tentando di connettersi e la `{port-number}` porta is su cui verrà effettuata la connessione.  Per impostazione predefinita, questa porta è 3389.  Tuttavia, se la macchina virtuale usa la funzionalità [IP condivisa](devtest-lab-shared-ip.md) in DevTest Labs, la porta sarà diversa.
+- Il modulo [Application routing request](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) per Internet Information Server (IIS) può essere usato per reindirizzare `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` le richieste alla funzione di Azure, che gestisce la richiesta per ottenere un token per l'autenticazione.
 
 
-## <a name="requirements-for-azure-function"></a>Requisiti per la funzione di AzureRequirements for Azure function
-La funzione di Azure `https://{function-app-uri}/app/host/{lab-machine-name}/port/{port-number}` gestisce la richiesta con il formato di e restituisce il token di autenticazione in base allo stesso certificato di firma installato nei computer gateway. Il `{function-app-uri}` è l'URI utilizzato per accedere alla funzione. Il tasto funzione viene passato automaticamente nell'intestazione della richiesta. Per una funzione [https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/src/RDGatewayAPI/Functions/CreateToken.cs](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/src/RDGatewayAPI/Functions/CreateToken.cs)di esempio, vedere . 
+## <a name="requirements-for-azure-function"></a>Requisiti per la funzione di Azure
+La funzione di Azure gestisce la richiesta `https://{function-app-uri}/app/host/{lab-machine-name}/port/{port-number}` con formato e restituisce il token di autenticazione basato sullo stesso certificato di firma installato nei computer gateway. `{function-app-uri}` È l'URI utilizzato per accedere alla funzione. Il tasto funzione viene passato automaticamente nell'intestazione della richiesta. Per una funzione di esempio, [https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/src/RDGatewayAPI/Functions/CreateToken.cs](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/src/RDGatewayAPI/Functions/CreateToken.cs)vedere. 
 
 
 ## <a name="requirements-for-network"></a>Requisiti per la rete
 
-- Il DNS per il nome di dominio completo associato al certificato TLS/SSL installato nei computer gateway deve indirizzare il traffico al computer gateway o al servizio di bilanciamento del carico della farm di computer gateway.
-- Se il computer lab utilizza indirizzi IP privati, deve essere presente un percorso di rete dal computer gateway al computer lab, tramite la condivisione della stessa rete virtuale o l'utilizzo di reti virtuali con peered.
+- Il DNS per il nome FQDN associato al certificato TLS/SSL installato nei computer gateway deve indirizzare il traffico al computer gateway o al servizio di bilanciamento del carico della farm di computer gateway.
+- Se il computer lab USA indirizzi IP privati, è necessario che sia presente un percorso di rete dal computer gateway al computer lab, tramite la condivisione della stessa rete virtuale o l'uso di reti virtuali con peering.
 
-## <a name="configure-the-lab-to-use-token-authentication"></a>Configurare il lab per l'utilizzo dell'autenticazione tokenConfigure the lab to use token authentication 
-In questa sezione viene illustrato come configurare un lab per l'utilizzo di un computer gateway desktop remoto che supporta l'autenticazione token. In questa sezione non viene illustrato come configurare una farm gateway desktop remoto. Per ulteriori informazioni, vedere la sezione [Esempio per creare un gateway di desktop remoto](#sample-to-create-a-remote-desktop-gateway) alla fine di questo articolo. 
+## <a name="configure-the-lab-to-use-token-authentication"></a>Configurare il Lab per l'uso dell'autenticazione basata su token 
+In questa sezione viene illustrato come configurare un Lab per l'utilizzo di un computer Gateway Desktop remoto che supporta l'autenticazione del token. Questa sezione non illustra come configurare una farm di Gateway Desktop remoto. Per informazioni, vedere la sezione [esempio per creare un Gateway Desktop remoto](#sample-to-create-a-remote-desktop-gateway) alla fine di questo articolo. 
 
-Prima di aggiornare le impostazioni lab, archiviare la chiave necessaria per eseguire correttamente la funzione per restituire un token di autenticazione nell'insieme di credenziali delle chiavi del lab. È possibile ottenere il valore del tasto funzione nella pagina Gestisci per la funzione nel portale di Azure.You can get the function key value in the **Manage** page for the function in the Azure portal. Per ulteriori informazioni su come salvare un segreto in un insieme di credenziali delle chiavi, vedere [Aggiungere un segreto all'insieme di](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)credenziali delle chiavi . Salvare il nome del segreto per un uso successivo.
+Prima di aggiornare le impostazioni del Lab, archiviare la chiave necessaria per eseguire correttamente la funzione per restituire un token di autenticazione nell'insieme di credenziali delle chiavi del Lab. È possibile ottenere il valore della chiave della funzione nella pagina **Gestisci** per la funzione nell'portale di Azure. Per altre informazioni su come salvare un segreto in un insieme di credenziali delle chiavi, vedere [aggiungere un segreto a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault). Salvare il nome del segreto per un uso successivo.
 
-Per trovare l'ID dell'insieme di credenziali delle chiavi del lab, eseguire il comando dell'interfaccia della riga di comando di Azure seguente:To find the ID of the lab's key vault, run the following Azure CLI command: 
+Per trovare l'ID dell'insieme di credenziali delle chiavi del Lab, eseguire il comando dell'interfaccia della riga di comando di Azure seguente: 
 
 ```azurecli
 az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' --resource-group {lab-resource-group-name} --query properties.vaultName
 ```
 
-Configurare il lab per l'utilizzo dell'autenticazione token attenendosi alla procedura seguente:Configure the lab to use the token authentication by using these steps:
+Configurare il Lab per l'uso dell'autenticazione del token usando la procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
-1. Nell'elenco dei laboratori selezionare il **lab**.
-1. Nella pagina del lab selezionare **Configurazione e criteri**.
-1. Nel menu a sinistra, nella sezione **Impostazioni,** selezionare **Impostazioni lab.**
-1. Nella sezione **Desktop remoto** immettere il nome di dominio completo (FQDN) o l'indirizzo IP della macchina o della farm gateway di Servizi desktop remoti per il campo Nome **host gateway.** Questo valore deve corrispondere al nome di dominio completo del certificato TLS/SSL utilizzato nei computer gateway.
+1. Dall'elenco dei Lab selezionare il **Lab**.
+1. Nella pagina del Lab selezionare **configurazione e criteri**.
+1. Nel menu a sinistra, nella sezione **Impostazioni** , selezionare **impostazioni Lab**.
+1. Nella sezione **Desktop remoto** immettere il nome di dominio completo (FQDN) o l'indirizzo IP del computer gateway Servizi Desktop remoto o della farm per il campo nome **host gateway** . Questo valore deve corrispondere al nome di dominio completo del certificato TLS/SSL usato nei computer gateway.
 
-    ![Opzioni di Desktop remoto nelle impostazioni lab](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
-1. Nella sezione **Desktop remoto,** per **Segreto token gateway,** immettere il nome del segreto creato in precedenza. Questo valore non è la chiave della funzione stessa, ma il nome del segreto nell'insieme di credenziali delle chiavi del lab che contiene la chiave della funzione.
+    ![Opzioni di desktop remoto nelle impostazioni del Lab](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
+1. Nella sezione **Desktop remoto** , per il segreto del **token del gateway** , immettere il nome del segreto creato in precedenza. Questo valore non è la chiave della funzione stessa, ma il nome del segreto nell'insieme di credenziali delle chiavi del Lab che include il tasto funzione.
 
-    ![Segreto del token del gateway nelle impostazioni lab](./media/configure-lab-remote-desktop-gateway/gateway-token-secret.png)
-1. **Salva** Cambiamenti.
+    ![Segreto del token del gateway nelle impostazioni del Lab](./media/configure-lab-remote-desktop-gateway/gateway-token-secret.png)
+1. **Salva** Modifiche.
 
     > [!NOTE] 
-    > Facendo clic su **Salva**, si accettano le [condizioni](https://www.microsoft.com/licensing/product-licensing/products)di licenza di Gateway Desktop remoto . Per ulteriori informazioni sul gateway remoto, vedere [Introduzione a Servizi Desktop remoto](https://aka.ms/rds) e Distribuire [l'ambiente desktop remoto](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+    > Facendo clic su **Salva**, si accettano le [condizioni di licenza di desktop remoto Gateway](https://www.microsoft.com/licensing/product-licensing/products). Per ulteriori informazioni su gateway remoto, vedere la pagina relativa [all'introduzione a Servizi Desktop remoto e alla](https://aka.ms/rds) [distribuzione dell'ambiente desktop remoto](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 
-Se è preferibile configurare il lab tramite l'automazione, vedere [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) per uno script di PowerShell di esempio per impostare le impostazioni del **nome host del gateway** e del **segreto del token del gateway.** Il repository GitHub di [Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) fornisce anche un modello di Azure Resource Manager che crea o aggiorna un lab con il nome host del **gateway** e le impostazioni del token del **gateway.**
+Se è preferibile configurare il Lab tramite automazione, vedere [set-DevTestLabGateway. ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) per uno script di PowerShell di esempio per impostare le impostazioni del **nome host** e del **segreto** del gateway del gateway. Il [repository GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) fornisce anche un modello di Azure Resource Manager che crea o aggiorna un Lab con le impostazioni del **nome host del gateway** e del **segreto del token del gateway** .
 
-## <a name="configure-network-security-group"></a>Configurare il gruppo di sicurezza di rete
-Per proteggere ulteriormente il lab, è possibile aggiungere un gruppo di sicurezza di rete (NSG) alla rete virtuale usata dalle macchine virtuali lab. Per istruzioni su come configurare un gruppo di sicurezza di rete, vedere [Creare, modificare o eliminare un gruppo](../virtual-network/manage-network-security-group.md)di sicurezza di rete.
+## <a name="configure-network-security-group"></a>Configurare un gruppo di sicurezza di rete
+Per proteggere ulteriormente il Lab, è possibile aggiungere un gruppo di sicurezza di rete (NSG) alla rete virtuale usata dalle macchine virtuali del Lab. Per istruzioni su come configurare un NSG, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md).
 
-Di seguito è riportato un gruppo di sicurezza di rete di esempio che consente solo il traffico che passa per primo attraverso il gateway per raggiungere i computer lab. L'origine in questa regola è l'indirizzo IP del computer singolo gateway o l'indirizzo IP del servizio di bilanciamento del carico davanti ai computer gateway.
+Di seguito è riportato un esempio di NSG che consente solo il traffico che passa per primo attraverso il gateway per raggiungere i computer lab. L'origine in questa regola è l'indirizzo IP del computer del gateway singolo o l'indirizzo IP del servizio di bilanciamento del carico davanti ai computer del gateway.
 
-![Gruppo di sicurezza di rete - regole](./media/configure-lab-remote-desktop-gateway/network-security-group-rules.png)
+![Gruppo di sicurezza di rete-regole](./media/configure-lab-remote-desktop-gateway/network-security-group-rules.png)
 
-## <a name="sample-to-create-a-remote-desktop-gateway"></a>Esempio per creare un gateway di desktop remoto
+## <a name="sample-to-create-a-remote-desktop-gateway"></a>Esempio per la creazione di un Gateway Desktop remoto
 
 > [!NOTE] 
-> Utilizzando i modelli di esempio, si accettano le condizioni di [licenza di Gateway Desktop remoto.](https://www.microsoft.com/licensing/product-licensing/products) Per ulteriori informazioni sul gateway remoto, vedere [Introduzione a Servizi Desktop remoto](https://aka.ms/rds) e Distribuire [l'ambiente desktop remoto](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+> Usando i modelli di esempio, si accettano le [condizioni di licenza del Gateway Desktop remoto](https://www.microsoft.com/licensing/product-licensing/products). Per ulteriori informazioni su gateway remoto, vedere la pagina relativa [all'introduzione a Servizi Desktop remoto e alla](https://aka.ms/rds) [distribuzione dell'ambiente desktop remoto](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
-Il repository GitHub di Azure DevTest Labs fornisce alcuni esempi per configurare le risorse necessarie per usare l'autenticazione token e il gateway desktop remoto con DevTest Labs.The [Azure DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) provides a few samples to help setup the resources needed to use token authentication and remote desktop gateway with DevTest Labs. Questi esempi includono i modelli di Azure Resource Manager per i computer gateway, le impostazioni lab e l'app per le funzioni.
+Il [repository GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) fornisce alcuni esempi che consentono di configurare le risorse necessarie per l'uso dell'autenticazione basata su token e di Gateway Desktop remoto con DevTest Labs. Questi esempi includono Azure Resource Manager modelli per i computer gateway, le impostazioni Lab e l'app per le funzioni.
 
-Seguire questi passaggi per configurare una soluzione di esempio per la farm gateway desktop remoto.
+Per configurare una soluzione di esempio per la farm di Gateway Desktop remoto, attenersi alla seguente procedura.
 
-1. Creare un certificato di firma.  Eseguire [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Salvare l'identificazione personale, la password e la codifica Base64 del certificato creato.
-2. Ottenere un certificato TLS/SSL. Il nome di dominio completo associato al certificato TLS/SSL deve essere per il dominio controllato. Salvare l'identificazione personale, la password e la codifica Base64 per questo certificato. Per ottenere l'identificazione personale tramite PowerShell, usare i comandi seguenti.
+1. Creare un certificato di firma.  Eseguire [create-SigningCertificate. ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Salvare l'identificazione personale, la password e la codifica Base64 del certificato creato.
+2. Ottenere un certificato TLS/SSL. Il nome FQDN associato al certificato TLS/SSL deve essere per il dominio controllato. Salvare l'identificazione personale, la password e la codifica Base64 per questo certificato. Per ottenere l'identificazione personale tramite PowerShell, usare i comandi seguenti.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -118,55 +118,55 @@ Seguire questi passaggi per configurare una soluzione di esempio per la farm gat
     $hash = $cer.GetCertHashString()
     ```
 
-    Per ottenere la codifica Base64 tramite PowerShell, usare il comando seguente.
+    Per ottenere la codifica Base64 usando PowerShell, usare il comando seguente.
 
     ```powershell
     [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(‘path-to-certificate’))
     ```
-3. Scaricare file [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway)da .
+3. Scaricare i file [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway)da.
 
-    Il modello richiede l'accesso ad alcuni altri modelli di Resource Manager e alle risorse correlate allo stesso URI di base. Copiare tutti [https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/arm/gateway) i file da e RDGatewayFedAuth.msi in un contenitore BLOB in un account di archiviazione.  
-4. Distribuire **azuredeploy.json** da [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway). Il modello accetta i seguenti parametri:
-    - adminUsername – Obbligatorio.  Nome utente amministratore per i computer gateway.
-    - adminPassword – Obbligatorio. Password per l'account amministratore per i computer gateway.
+    Il modello richiede l'accesso ad altri modelli di Gestione risorse e risorse correlate nello stesso URI di base. Copiare tutti i file da [https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/arm/gateway) e RDGatewayFedAuth. msi in un contenitore BLOB in un account di archiviazione.  
+4. Distribuire **file azuredeploy. JSON** da [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway). Il modello accetta i parametri seguenti:
+    - Con valori AdminUsername: obbligatorio.  Nome utente dell'amministratore per i computer gateway.
+    - adminPassword: obbligatorio. Password per l'account amministratore per i computer gateway.
     - instanceCount: numero di computer gateway da creare.  
-    - alwaysOn: indica se mantenere l'app Funzioni di Azure creata in uno stato caldo o meno. Mantenere l'app Funzioni di Azure eviterà ritardi quando gli utenti tentano per la prima volta di connettersi alla macchina virtuale lab, ma ha implicazioni sui costi.  
-    - tokenLifetime: periodo di validità del token creato. Il formato è HH:MM:SS.
+    - alwaysOn: indica se lasciare o meno l'app funzioni di Azure creata in uno stato di riscaldamento. Mantenendo l'app funzioni di Azure si eviteranno ritardi quando gli utenti tentano di connettersi alla macchina virtuale del Lab, ma hanno implicazioni sui costi.  
+    - tokenLifetime: periodo di tempo in cui il token creato sarà valido. Il formato è HH: MM: SS.
     - sslCertificate: codifica Base64 del certificato TLS/SSL per il computer gateway.
-    - sslCertificatePassword: password del certificato TLS/SSL per il computer gateway.
+    - sslCertificatePassword: la password del certificato TLS/SSL per il computer gateway.
     - sslCertificateThumbprint: identificazione personale del certificato per l'identificazione nell'archivio certificati locale del certificato TLS/SSL.
-    - signCertificate: codifica Base64 per il certificato di firma per il computer gateway.
-    - signCertificatePassword: password per il certificato di firma per il computer gateway.
+    - signCertificate: codifica Base64 per la firma del certificato per il computer gateway.
+    - signCertificatePassword: password per la firma del certificato per il computer del gateway.
     - signCertificateThumbprint: identificazione personale del certificato per l'identificazione nell'archivio certificati locale del certificato di firma.
-    - _artifactsLocation: percorso URI in cui sono disponibili tutte le risorse di supporto. Questo valore deve essere un UIR completo, non un percorso relativo.
-    - _artifactsLocationSasToken: token firma di accesso condiviso (SAS) usato per accedere alle risorse di supporto, se il percorso è un account di archiviazione di Azure.For an Domain: The Shared Access Signature (SAS) token used to access supporting resources, if the location is an Azure storage account.
+    - _artifactsLocation: percorso URI in cui è possibile trovare tutte le risorse di supporto. Questo valore deve essere un UIR completo, non un percorso relativo.
+    - _artifactsLocationSasToken: token di firma di accesso condiviso usato per accedere alle risorse di supporto, se il percorso è un account di archiviazione di Azure.
 
-    Il modello può essere distribuito usando l'interfaccia della riga di comando di Azure usando il comando seguente:The template can be deployed using the Azure CLI by using the following command:
+    Il modello può essere distribuito usando l'interfaccia della riga di comando di Azure usando il comando seguente:
 
     ```azurecli
     az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
     ```
 
-    Ecco le descrizioni dei parametri:
+    Di seguito sono riportate le descrizioni dei parametri:
 
-    - È possibile ottenere l'endpoint dell'account `az storage account show --name {storage-acct-name} --query primaryEndpoints.blob`di archiviazione eseguendo .  Il nome di archiviazione è il nome dell'account di archiviazione che contiene i file caricati.  
-    - Il nome del contenitore è il nome del contenitore nel nome di archiviazione che contiene i file caricati.  
-    - È possibile ottenere il token sas `az storage container generate-sas --name {container-name} --account-name {storage-acct-name} --https-only –permissions drlw –expiry {utc-expiration-date}`eseguendo . 
-        - Il nome di archiviazione è il nome dell'account di archiviazione che contiene i file caricati.  
-        - Il nome del contenitore è il nome del contenitore nel nome di archiviazione che contiene i file caricati.  
-        - La data di scadenza utc è la data UTC in cui il token di firma di accesso condiviso scadrà e il token di firma di accesso condiviso non potrà più essere usato per accedere all'account di archiviazione.
+    - È possibile ottenere {storage-account-endpoint} eseguendo `az storage account show --name {storage-acct-name} --query primaryEndpoints.blob`.  {Storage-Acct-Name} è il nome dell'account di archiviazione che include i file caricati.  
+    - {Container-Name} è il nome del contenitore in {Storage-Acct-Name} che include i file caricati.  
+    - {SAS-token} può essere ottenuto eseguendo `az storage container generate-sas --name {container-name} --account-name {storage-acct-name} --https-only –permissions drlw –expiry {utc-expiration-date}`. 
+        - {Storage-Acct-Name} è il nome dell'account di archiviazione che include i file caricati.  
+        - {Container-Name} è il nome del contenitore in {Storage-Acct-Name} che include i file caricati.  
+        - {UTC-Expire-Date} è la data, in formato UTC, in cui il token SAS scadrà e il token di firma di accesso condiviso non potrà più essere usato per accedere all'account di archiviazione.
 
-    Registrare i valori per gatewayFQDN e gatewayIP dall'output di distribuzione del modello. È inoltre necessario salvare il valore del tasto funzione per la funzione appena creata, che si trova nella scheda [Impostazioni dell'app Funzione.](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
-5. Configurare DNS in modo che FQDN del certificato TLS/SSL indirizzi all'indirizzo IP di gatewayIP dal passaggio precedente.
+    Registrare i valori per gatewayFQDN e gatewayIP dall'output della distribuzione del modello. Sarà anche necessario salvare il valore della chiave funzione per la funzione appena creata, disponibile nella scheda [impostazioni app](../azure-functions/functions-how-to-use-azure-function-app-settings.md) per le funzioni.
+5. Configurare DNS in modo che il nome di dominio completo del certificato TLS/SSL venga indirizzato all'indirizzo IP di gatewayIP dal passaggio precedente.
 
-    Dopo aver creato la farm di Gateway Desktop remoto e aver apportato gli aggiornamenti DNS appropriati, è possibile utilizzarla da un lab in DevTest Labs. Le impostazioni del **nome host del gateway** e del **segreto del token del gateway** devono essere configurate per l'utilizzo dei computer gateway distribuiti. 
+    Dopo la creazione della farm Desktop remoto Gateway e l'aggiornamento del DNS appropriato, è possibile usarlo in un Lab in DevTest Labs. Il **nome host del gateway** e le impostazioni del **segreto del token** del gateway devono essere configurate per usare i computer gateway distribuiti. 
 
     > [!NOTE]
-    > Se il computer lab utilizza indirizzi IP privati, deve essere presente un percorso di rete dal computer gateway al computer lab, tramite la condivisione della stessa rete virtuale o l'utilizzo di una rete virtuale con peered.
+    > Se il computer lab USA indirizzi IP privati, è necessario che sia presente un percorso di rete dal computer gateway al computer lab, tramite la condivisione della stessa rete virtuale o con una rete virtuale con peering.
 
-    Dopo aver configurato sia il gateway che il lab, il file di connessione creato quando l'utente del lab fa clic su **Connetti** includerà automaticamente le informazioni necessarie per connettersi tramite l'autenticazione token.     
+    Una volta configurati sia il gateway che il Lab, il file di connessione creato quando l'utente del Lab fa clic su **Connetti** includerà automaticamente le informazioni necessarie per la connessione tramite l'autenticazione del token.     
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni su Servizi Desktop remoto, la documentazione di [Servizi Desktop remoto,](/windows-server/remote/remote-desktop-services/Welcome-to-rds) vedere l'articolo seguente
+Vedere l'articolo seguente per altre informazioni su Servizi Desktop remoto: [Servizi Desktop remoto documentazione](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
 
 

@@ -4,10 +4,10 @@ description: Monitoraggio esteso delle prestazioni delle applicazioni del sito W
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537526"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: metriche delle prestazioni Linux in Application Insights
@@ -82,7 +82,7 @@ Configurare altri [plug-in collectd](https://collectd.org/wiki/index.php/Table_o
 Riavviare collectd, come indicato nel rispettivo [manuale](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visualizzare i dati in Application Insights
-Nella risorsa Application Insights aprire [Metriche e aggiungere grafici][metrics], selezionare le metriche da visualizzare dalla categoria Personalizzato.
+Nella risorsa Application Insights aprire [metriche e aggiungere grafici][metrics], selezionando le metriche da visualizzare nella categoria personalizzata.
 
 Per impostazione predefinita, le metriche vengono aggregate per tutti i computer host da cui vengono raccolte le metriche. Per visualizzare le metriche dei singoli host, nel pannello di dettagli del grafico attivare l'opzione Raggruppamento e quindi scegliere di eseguire il raggruppamento in base a CollectD-Host.
 
@@ -115,7 +115,7 @@ Separare le direttive con un valore NewLine.
 
 Il plug-in di scrittura di Application Insights non è compatibile con alcuni plug-in di lettura. Alcuni plug-in a volte inviano un errore "non un numero" quando il plug-in di Application Insights prevede un numero a virgola mobile.
 
-Sintomo: Il registro raccolto mostra gli errori che includono "AI: ... SyntaxError: token imprevisto N".
+Sintomo: il log collectd Mostra gli errori che includono "AI:... SyntaxError: token imprevisto N ".
 
 Soluzione alternativa: escludere i dati raccolti dal plug-in di scrittura che causa il problema. 
 

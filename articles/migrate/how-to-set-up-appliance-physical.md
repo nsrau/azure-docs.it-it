@@ -1,26 +1,26 @@
 ---
-title: Configurare un'appliance di Azure Migrate per i server fisiciSet up an Azure Migrate appliance for physical servers
-description: Informazioni su come configurare un'appliance Di Azure Migrate per la valutazione del server fisico.
+title: Configurare un'appliance Azure Migrate per i server fisici
+description: Informazioni su come configurare un appliance Azure Migrate per la valutazione del server fisico.
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
 ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538274"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
-Questo articolo descrive come configurare l'appliance Di Azure Migrate se si valutano i server fisici con lo strumento Azure Migrate: Server Assessment.This article describes how to set up the Azure Migrate appliance if you're assessing physical servers with the Azure Migrate: Server Assessment tool.
+Questo articolo descrive come configurare l'appliance Azure Migrate se si sta valutando server fisici con lo strumento di valutazione Azure Migrate: Server.
 
-L'appliance Azure Migrate è un'appliance leggera, usata da Azure Migrate Server Assessment per eseguire le operazioni seguenti:The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate Server Assessment to do the following:
+Il Azure Migrate Appliance è un'appliance semplice, usata da Azure Migrate Assessment server per eseguire le operazioni seguenti:
 
 - Individuare i server locali.
-- Inviare i metadati e i dati sulle prestazioni per i server individuati a Valutazione server di azure di migrazione.
+- Inviare i metadati e i dati sulle prestazioni per i server individuati a Azure Migrate server assessment.
 
-[Altre informazioni](migrate-appliance.md) sull'appliance Di Azure Migrate.Learn more about the Azure Migrate appliance.
+[Altre](migrate-appliance.md) informazioni sull'appliance Azure migrate.
 
 
 ## <a name="appliance-deployment-steps"></a>Passaggi di distribuzione dell'appliance
@@ -49,18 +49,18 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare l'hash per il file compresso:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo per il cloud pubblico:Example usage for public cloud:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Esempio di utilizzo per il cloud governativo:Example usage for government cloud:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+    - Esempio di utilizzo per il cloud pubblico: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Esempio di utilizzo per il cloud per enti pubblici: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
 3.  Verificare i valori hash:
  
-    - Per il cloud pubblico (per l'ultima versione dell'appliance):
+    - Per il cloud pubblico (per la versione più recente dell'appliance):
 
         **Algoritmo** | **Valore hash**
           --- | ---
           MD5 | 1e92ede3e87c03bd148e56a708cdd33f
           SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-    - Per gli enti di Azure per enti pubblici (per la versione più recente dell'appliance):For Azure government (for the latest appliance version):
+    - Per Azure per enti pubblici (per la versione più recente dell'appliance):
 
         **Algoritmo** | **Valore hash**
           --- | ---
@@ -75,28 +75,28 @@ Lo script del programma di installazione esegue le operazioni seguenti:
 - Scarica e installa un modulo di IIS riscrivibile. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435)
 - Aggiorna una chiave del Registro di sistema (HKLM) con i dettagli delle impostazioni permanenti per Azure Migrate.
 - Crea i seguenti file nei relativi percorsi:
-    - **File di configurazione**: %Programdata%
-    - **File di log**: %Programdata%
+    - **File di configurazione**: %Programdata%\Microsoft Azure\Config
+    - **File di log**: %Programdata%\Microsoft Azure\Logs
 
 Eseguire lo script nel modo seguente:
 
-1. Estrarre il file compresso in una cartella nel server che ospiterà l'appliance.  Assicurarsi di non eseguire lo script in un computer in un'appliance Azure Migrate esistente.
+1. Estrarre il file compresso in una cartella nel server che ospiterà l'appliance.  Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nello stesso server con privilegi amministrativi (elevati).
 3. Modificare la directory di PowerShell nella cartella in cui è stato estratto il contenuto del file compresso scaricato.
 4. Eseguire lo script denominato **AzureMigrateInstaller.ps1** eseguendo il comando seguente:
 
-    - Per il cloud pubblico:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
-    - Per Azure per enti pubblici:For Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+    - Per il cloud pubblico: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - Per Azure per enti pubblici: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
     Lo script avvierà l'applicazione Web dell'appliance al termine dell'operazione.
 
-Se si verificano problemi, è possibile accedere ai log di script in C<em>AzureMigrateScenarioInstaller_:</em>
+In caso di problemi, è possibile accedere ai log degli script in C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log per la risoluzione dei problemi.
 
 
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
-Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli URL di Azure per i cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi.](migrate-appliance.md#government-cloud-urls)
+Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli URL di Azure per i cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls).
 
 ## <a name="configure-the-appliance"></a>Configurare l'appliance
 
@@ -128,10 +128,10 @@ Configurare l'appliance per la prima volta.
 
 ## <a name="start-continuous-discovery"></a>Avviare l'individuazione continua
 
-Connettersi dall'appliance ai server fisici e avviare l'individuazione.
+Connettersi dal dispositivo ai server fisici e avviare l'individuazione.
 
 1. Fare clic su **Aggiungi credenziali** per specificare le credenziali dell'account che verranno usate dall'appliance per individuare i server.  
-2. Specificare il **sistema operativo,** un nome descrittivo per le credenziali e il nome utente e la password. Fare quindi clic su **Aggiungi**.
+2. Specificare il **Sistema operativo**, un nome descrittivo per le credenziali e il nome utente e la password. Fare quindi clic su **Aggiungi**.
 È possibile aggiungere un set di credenziali per ogni server Windows e Linux.
 4. Fare clic su **Aggiungi server** e specificarne i dettagli, FQDN/indirizzo IP e nome descrittivo delle credenziali (una voce per riga), per eseguire la connessione.
 3. Fare clic su **Convalida**. Dopo la convalida, viene visualizzato l'elenco dei server che è possibile individuare.
@@ -151,4 +151,4 @@ Al termine dell'individuazione, è possibile verificare che i server vengano vis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare la [valutazione dei server fisici](tutorial-assess-physical.md) con Azure Migrate Server Assessment.
+Provare [la valutazione dei server fisici](tutorial-assess-physical.md) con Azure migrate Assessment server.

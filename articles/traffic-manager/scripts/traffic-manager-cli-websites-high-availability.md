@@ -1,5 +1,5 @@
 ---
-title: Instradare il traffico per le applicazioni con stato attivo - interfaccia della riga di comando di Azure - Gestione trafficoRoute traffic for HA of applications - Azure CLI - Traffic Manager
+title: Instradare il traffico per la disponibilità elevata di applicazioni-Gestione traffico di Azure
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Instradare il traffico per la disponibilità elevata delle applicazioni
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -15,10 +15,10 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: rohink
 ms.openlocfilehash: e108fbe54ce67d4eb354319450259fc410462c53
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460614"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Instradare il traffico per la disponibilità elevata delle applicazioni con l'interfaccia della riga di comando di Azure

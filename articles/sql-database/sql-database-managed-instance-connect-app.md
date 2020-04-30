@@ -1,5 +1,5 @@
 ---
-title: Applicazione di connessione dell'istanza gestita
+title: Applicazione di connessione istanza gestita
 description: Questo articolo illustra come connettere un'applicazione a Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
 ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538087"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a un'istanza gestita di database SQL di Azure
@@ -44,7 +44,7 @@ Sono disponibili due opzioni per connettere reti virtuali:
 L'opzione di peering è quella preferibile perché il peering usa il backbone Microsoft e quindi, dal punto di vista della connettività non vi è alcuna differenza percepibile nella latenza tra le macchine virtuali nelle reti virtuali con peering e nella stessa rete virtuale. Il peering di reti virtuali è limitato alle reti nella stessa area.  
 
 > [!IMPORTANT]
-> Lo scenario di peering di reti virtuali per Istanza gestita è limitato alle reti nella stessa area a causa dei [vincoli del peering di reti virtuali globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altre informazioni, vedere anche la sezione relativa dell'articolo Domande frequenti sulle reti virtuali di Azure.See also the relevant section of the [Azure Virtual Networks Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
+> Lo scenario di peering di reti virtuali per Istanza gestita è limitato alle reti nella stessa area a causa dei [vincoli del peering di reti virtuali globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
 ## <a name="connect-an-on-premises-application"></a>Connettersi a un'applicazione locale
 
@@ -55,7 +55,7 @@ Sono disponibili due opzioni per connettersi in locale alla rete virtuale di Azu
 - Connessione VPN da sito a sito ([portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Interfaccia della riga di comando di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Connessione [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Se la connessione in locale ad Azure è stata stabilita correttamente e non è possibile stabilire la connessione all'istanza gestita, verificare se il firewall dispone di una connessione in uscita aperta sulla porta SQL 1433 e dell'intervallo di porte 11000-11999 per il reindirizzamento.
+Se è stata stabilita una connessione da locale ad Azure e non è possibile stabilire una connessione a Istanza gestita, controllare se il firewall ha aperto una connessione in uscita sulla porta SQL 1433, oltre a 11000-11999 intervallo di porte per il reindirizzamento.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Connettere un'applicazione nella finestra di sviluppo
 
@@ -95,7 +95,7 @@ Questo scenario è illustrato nel diagramma seguente:
 
 Per la risoluzione dei problemi di connettività, verificare quanto segue:
 
-- Se non è possibile connettersi all'istanza gestita da una macchina virtuale di Azure all'interno della stessa rete virtuale ma subnet diversa, verificare se si dispone di un gruppo di sicurezza di rete impostato nella subnet della macchina virtuale che potrebbe bloccare l'accesso. Si noti inoltre che è necessario aprire la connessione in uscita sulla porta SQL 1433 e le porte nell'intervallo 11000-11999 poiché sono necessarie per la connessione tramite il reindirizzamento all'interno del limite di Azure.Additionally note that you need to open outbound connection on SQL port 1433 as well as ports in range 11000-11999 since those are needed for connecting via redirection within the Azure boundary.
+- Se non si riesce a connettersi a Istanza gestita da una macchina virtuale di Azure all'interno della stessa VNet ma di una subnet diversa, verificare se è stato impostato un gruppo di sicurezza di rete nella subnet VM che potrebbe bloccare l'accesso. Si noti inoltre che è necessario aprire la connessione in uscita sulla porta SQL 1433 e le porte nell'intervallo 11000-11999, perché sono necessarie per la connessione tramite reindirizzamento all'interno del limite di Azure.
 - Assicurarsi che la propagazione BGP sia impostata su **Abilitata** per la tabella di route associata alla rete virtuale.
 - Se si utilizza la VPN P2S, controllare la configurazione nel portale Azure per vedere se si vedono i numeri **Ingresso/Uscita**. I numeri diversi da zero indicano che Azure indirizza il traffico da/per un’istanza locale.
 
@@ -133,7 +133,7 @@ Per la risoluzione dei problemi di connettività, verificare quanto segue:
 
 - Se si usa il peering della Vnet, assicurarsi di aver seguito le istruzioni per l'impostazione di [Consenti transito Gateway e Usa gateway remoti](#connect-from-on-premises-with-vnet-peering).
 
-- Se si usa il peering della rete virtuale per connettere un'applicazione ospitata del servizio app di Azure e la rete virtuale dell'istanza gestita ha un intervallo di indirizzi IP pubblici, assicurarsi che le impostazioni dell'applicazione ospitata consentano il traffico in uscita da instradare alle reti IP pubbliche. Seguire le istruzioni in [Integrazione regionale della rete virtuale](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
+- Se si usa il peering VNet per connettere un'applicazione ospitata da un servizio app Azure e il Istanza gestita VNet ha un intervallo di indirizzi IP pubblici, assicurarsi che le impostazioni dell'applicazione ospitata consentano il routing del traffico in uscita alle reti IP pubbliche. Seguire le istruzioni in [integrazione VNet a livello](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)di area.
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versioni richieste di strumenti e driver
 
@@ -147,8 +147,8 @@ Se si desidera connettersi all'istanza gestita, è consigliabili usare le versio
 |Driver JDBC| 6.4.0 |
 |Driver Node.js| 2.1.1 |
 |Driver OLEDB| 18.0.2.0 |
-|SSMS| 18.0 o [superiore](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o superiore |
+|SSMS| 18,0 o [versione successiva](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o versione successiva |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
