@@ -4,10 +4,10 @@ description: Creare un pool di batch con la raccolta di immagini condivise per e
 ms.topic: article
 ms.date: 08/28/2019
 ms.openlocfilehash: 45f721dbdf11e0a6f58da71c644acf687dfadd49
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116520"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Usare la raccolta di immagini condivise per creare un pool personalizzato
@@ -139,7 +139,7 @@ Usare la procedura seguente per creare un pool da un'immagine condivisa nel port
 1. Selezionare **pool** e quindi **Aggiungi** per creare un nuovo pool.
 1. Nella sezione **tipo di immagine** selezionare **raccolta immagini condivise**.
 1. Completare le sezioni rimanenti con le informazioni sull'immagine gestita.
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 ![Creare un pool con da un'immagine condivisa con il portale.](media/batch-sig-images/create-custom-pool.png)
 

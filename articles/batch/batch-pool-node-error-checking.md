@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: 5051b9c536ded50e77fb75515c16daba884d5d24
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115908"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
@@ -54,7 +54,7 @@ Si può anche impostare Azure Batch in modo da ridimensionare automaticamente il
 
 L'[evento di completamento del ridimensionamento del pool](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) acquisisce le informazioni su tutte le valutazioni.
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 
 Quando si elimina un pool che contiene nodi, Batch elimina prima di tutto i nodi, quindi l'oggetto pool stesso. L'eliminazione dei nodi del pool può richiedere alcuni minuti.
 

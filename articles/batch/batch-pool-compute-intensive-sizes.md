@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
 ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115959"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
@@ -34,7 +34,7 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pool Linux - Configurazione della macchina virtuale
 
-| Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
+| Dimensioni | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basato su CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Driver Linux RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
 | [Serie NC, NCv2, NCv3 e NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Ubuntu 16.04 LTS o<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Driver NVIDIA CUDA o CUDA Toolkit | N/D | 
@@ -44,7 +44,7 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pool Windows - Configurazione della macchina virtuale
 
-| Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
+| Dimensioni | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o versioni successive oppure<br/> Intel MPI 5<br/><br/>Driver Windows RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
 | [Serie NC, NCv2, NCv3, ND e NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Windows Server 2016 oppure <br/>2012 R2 (Azure Marketplace) | Driver NVIDIA CUDA o CUDA Toolkit| N/D | 
@@ -58,7 +58,7 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 > Le dimensioni serie N non sono supportate nei pool di Batch con la configurazione Servizi cloud.
 >
 
-| Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
+| Dimensioni | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (famiglia del sistema operativo guest) | Microsoft MPI 2012 R2 o versioni successive oppure<br/>Intel MPI 5<br/><br/>Driver Windows RDMA | Abilitare la comunicazione tra i nodi,<br/> disabilitare l'esecuzione di attività simultanee |
 
@@ -101,7 +101,7 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Windows, è necessario i
 | Impostazione | valore |
 | ---- | ----- | 
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
-| **Autore** | MicrosoftWindowsServer |
+| **Pubblicazione** | MicrosoftWindowsServer |
 | **Offerta** | WindowsServer |
 | **SKU** | 2016-Datacenter |
 | **Dimensioni nodo** | NC6 Standard |
@@ -155,7 +155,7 @@ Usando l'API Batch o il portale di Azure, creare un pool usando questa immagine,
 | Impostazione | valore |
 | ---- | ---- |
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
-| **Autore** | OpenLogic |
+| **Pubblicazione** | OpenLogic |
 | **Offerta** | CentOS-HPC |
 | **SKU** | 7.4 |
 | **Dimensioni nodo** | H16r Standard |

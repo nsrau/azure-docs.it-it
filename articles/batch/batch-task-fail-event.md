@@ -4,10 +4,10 @@ description: Riferimento per l'evento di fallimento dell'attività batch. Questo
 ms.topic: article
 ms.date: 08/15/2019
 ms.openlocfilehash: 0e973a7e0a2ab67300a0f6762c837336e12bae3b
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116452"
 ---
 # <a name="task-fail-event"></a>Evento di attività non riuscita
@@ -45,9 +45,9 @@ ms.locfileid: "82116452"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|`jobId`|string|ID del processo che contiene l'attività.|
-|`id`|string|ID dell'attività.|
-|`taskType`|string|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
+|`jobId`|Stringa|ID del processo che contiene l'attività.|
+|`id`|Stringa|ID dell'attività.|
+|`taskType`|Stringa|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
 |`systemTaskVersion`|Int32|Contatore dei tentativi interni di esecuzione di un'attività. Il servizio Batch può ritentare internamente l'esecuzione di un'attività in funzione di problemi transitori. Questi problemi possono includere errori interni di pianificazione o tentativi di ripristino a seguito di nodi di calcolo in uno stato non valido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complesso|Contiene informazioni sul nodo di calcolo in cui è stata eseguita l'attività.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) informazioni dettagliate, vedere.|
@@ -58,8 +58,8 @@ ms.locfileid: "82116452"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|`poolId`|string|ID del pool in cui è stata eseguita l'attività.|
-|`nodeId`|string|ID del nodo in cui è stata eseguita l'attività.|
+|`poolId`|Stringa|ID del pool in cui è stata eseguita l'attività.|
+|`nodeId`|Stringa|ID del nodo in cui è stata eseguita l'attività.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 

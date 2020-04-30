@@ -4,10 +4,10 @@ description: Informazioni di riferimento per l'evento di avvio dell'attività ba
 ms.topic: article
 ms.date: 04/20/2017
 ms.openlocfilehash: 6e897cb02163d11657c915d31ee5564e5bbd7407
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116401"
 ---
 # <a name="task-start-event"></a>Evento di avvio attività
@@ -41,9 +41,9 @@ ms.locfileid: "82116401"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|`jobId`|string|ID del processo che contiene l'attività.|
-|`id`|string|ID dell'attività.|
-|`taskType`|string|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi.|
+|`jobId`|Stringa|ID del processo che contiene l'attività.|
+|`id`|Stringa|ID dell'attività.|
+|`taskType`|Stringa|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi.|
 |`systemTaskVersion`|Int32|Contatore dei tentativi interni di esecuzione di un'attività. Il servizio Batch può ritentare internamente l'esecuzione di un'attività in funzione di problemi transitori. Questi problemi possono includere errori interni di pianificazione o tentativi di ripristino a seguito di nodi di calcolo in uno stato non valido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complesso|Contiene informazioni sul nodo di calcolo in cui è stata eseguita l'attività.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per informazioni dettagliate, vedere [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task).|
@@ -54,8 +54,8 @@ ms.locfileid: "82116401"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|`poolId`|string|ID del pool in cui è stata eseguita l'attività.|
-|`nodeId`|string|ID del nodo in cui è stata eseguita l'attività.|
+|`poolId`|Stringa|ID del pool in cui è stata eseguita l'attività.|
+|`nodeId`|Stringa|ID del nodo in cui è stata eseguita l'attività.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 

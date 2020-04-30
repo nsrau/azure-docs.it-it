@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: fea8efd4e4946b67754bad98589b728e8d696425
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116112"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creare query per elencare le risorse di Batch in modo efficiente
@@ -168,7 +168,7 @@ I nomi delle proprietà nelle stringhe di filtro, selezione ed espansione *devon
 ## <a name="example-construct-a-filter-string"></a>Esempio: costruire una stringa di filtro
 Quando si costruisce una stringa di filtro per un oggetto [ODATADetailLevel.FilterClause][odata_filter], vedere la tabella in "Mapping per le stringhe di filtro" per trovare la pagina di documentazione dell'API REST corrispondente all'operazione di tipo elenco da eseguire. Le proprietà filtrabili e gli operatori supportati sono disponibili nella prima tabella con più righe in quella pagina. Per recuperare ad esempio tutte le attività il cui codice di uscita non è pari a zero, questa riga in [Elencare le attività associate a un processo][rest_list_tasks] specifica la stringa della proprietà applicabile e gli operatori consentiti:
 
-| Proprietà | Operazioni consentite | Type |
+| Proprietà | Operazioni consentite | Tipo |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
