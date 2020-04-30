@@ -1,6 +1,6 @@
 ---
-title: Selezionare la trasformazione nel mapping del flusso di datiSelect transformation in mapping data flow
-description: Azure Data Factory mapping data flow Select Transformation
+title: Selezione trasformazione nel flusso di dati di mapping
+description: Trasformazione Selezione flusso di dati mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,90 +8,90 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/18/2020
 ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686504"
 ---
-# <a name="select-transformation-in-mapping-data-flow"></a>Selezionare la trasformazione nel mapping del flusso di datiSelect transformation in mapping data flow
+# <a name="select-transformation-in-mapping-data-flow"></a>Selezione trasformazione nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Utilizzare la trasformazione di selezione per rinominare, eliminare o riordinare le colonne. Questa trasformazione non altera i dati di riga, ma sceglie le colonne da propagare a valle. 
+Utilizzare la trasformazione seleziona per rinominare, eliminare o riordinare le colonne. Questa trasformazione non modifica i dati di riga, ma sceglie le colonne che vengono propagate a valle. 
 
-In una trasformazione di selezione, gli utenti possono specificare mapping fissi, utilizzare modelli per eseguire il mapping basato su regole o abilitare il mapping automatico. I mapping fissi e basati su regole possono essere utilizzati entrambi all'interno della stessa trasformazione di selezione. Se una colonna non corrisponde a uno dei mapping definiti, verrà eliminata.
+In una trasformazione selezione, gli utenti possono specificare i mapping fissi, utilizzare i modelli per eseguire il mapping basato sulle regole o abilitare il mapping automatico. È possibile utilizzare entrambi i mapping corretti e basati su regole all'interno della stessa trasformazione Select. Se una colonna non corrisponde a uno dei mapping definiti, verrà eliminata.
 
-## <a name="fixed-mapping"></a>Mappatura fissa
+## <a name="fixed-mapping"></a>Mapping fisso
 
-Se nella proiezione sono presenti meno di 50 colonne definite, tutte le colonne definite avranno un mapping fisso per impostazione predefinita. Un mapping fisso accetta una colonna definita in ingresso e le associa un nome esatto.
+Se nella proiezione sono definite meno di 50 colonne, per impostazione predefinita tutte le colonne definite avranno un mapping fisso. Un mapping fisso accetta una colonna definita in ingresso e ne esegue il mapping con un nome esatto.
 
-![Mappatura fissa](media/data-flow/fixedmapping.png "Mappatura fissa")
+![Mapping fisso](media/data-flow/fixedmapping.png "Mapping fisso")
 
 > [!NOTE]
-> Non è possibile mappare o rinominare una colonna alla deriva utilizzando un mapping fisso
+> Non è possibile eseguire il mapping o rinominare una colonna spostata utilizzando un mapping fisso
 
 ### <a name="mapping-hierarchical-columns"></a>Mapping di colonne gerarchiche
 
-I mapping fissi possono essere utilizzati per eseguire il mapping di una sottocolonna di una colonna gerarchica a una colonna di primo livello. Se si dispone di una gerarchia definita, utilizzare l'elenco a discesa delle colonne per selezionare una sottocolonna. La trasformazione di selezione creerà una nuova colonna con il valore e il tipo di dati della colonna secondaria.
+I mapping corretti possono essere utilizzati per eseguire il mapping di una sottocolonna di una colonna gerarchica a una colonna di livello superiore. Se si dispone di una gerarchia definita, utilizzare l'elenco a discesa colonna per selezionare una sottocolonna. La trasformazione selezione creerà una nuova colonna con il valore e il tipo di dati della sottocolonna.
 
-![mappatura gerarchica](media/data-flow/select-hierarchy.png "mappatura gerarchica")
+![mapping gerarchico](media/data-flow/select-hierarchy.png "mapping gerarchico")
 
 ## <a name="rule-based-mapping"></a>mapping basato su regole
 
-Se si desidera eseguire il mapping di più colonne contemporaneamente o passare colonne alla deriva a valle, utilizzare il mapping basato su regole per definire i mapping utilizzando modelli di colonna. Trova la `name`corrispondenza `stream`in `position` base alle colonne , `type`, e . È possibile avere qualsiasi combinazione di mapping fissi e basati su regole. Per impostazione predefinita, per tutte le proiezioni con più di 50 colonne verrà associato per impostazione predefinita un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome immesso. 
+Se si desidera eseguire il mapping di più colonne in una sola volta o passare a downstream le colonne, utilizzare il mapping basato su regole per definire i mapping utilizzando i modelli di colonna. Corrispondenza basata sulle colonne `name`, `type`, `stream`e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
 
-Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **Mapping basato su regole**.
+Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole**.
 
 ![mapping basato su regole](media/data-flow/rule2.png "mapping basato su regole")
 
-Ogni mapping basato su regole richiede due input: la condizione in base alla quale soddisfare e cosa denominare ogni colonna mappata. Entrambi i valori vengono immessi tramite il [generatore di espressioni.](concepts-data-flow-expression-builder.md) Nella casella dell'espressione a sinistra immettere la condizione di corrispondenza booleana. Nella casella di espressione a destra specificare a cosa verrà eseguito il mapping della colonna corrispondente.
+Ogni mapping basato su regole richiede due input, ovvero la condizione su cui trovare la corrispondenza e gli elementi per i quali assegnare un nome a ogni colonna mappata. Entrambi i valori vengono inseriti tramite il [Generatore di espressioni](concepts-data-flow-expression-builder.md). Nella casella espressione a sinistra immettere la condizione di corrispondenza booleana. Nella casella espressione a destra specificare l'elemento a cui verrà eseguito il mapping della colonna corrispondente.
 
 ![mapping basato su regole](media/data-flow/rule-based-mapping.png "mapping basato su regole")
 
-Utilizzare `$$` la sintassi per fare riferimento al nome di input di una colonna corrispondente. Utilizzando l'immagine precedente come esempio, si supponga che un utente desideri trovare una corrispondenza in tutte le colonne stringa i cui nomi sono più brevi di sei caratteri. Se una colonna `test`in arrivo `$$ + '_short'` è denominata , l'espressione rinominerà la colonna `test_short`. Se questo è l'unico mapping esistente, tutte le colonne che non soddisfano la condizione verranno eliminate dai dati restituiti.
+Utilizzare `$$` la sintassi per fare riferimento al nome di input di una colonna corrispondente. Utilizzando come esempio l'immagine precedente, si desidera che un utente desideri trovare la corrispondenza con tutte le colonne di stringa i cui nomi sono inferiori a sei caratteri. Se una colonna in ingresso è stata `test`denominata, l' `$$ + '_short'` espressione Rinomina la colonna `test_short`. Se è l'unico mapping esistente, tutte le colonne che non soddisfano la condizione verranno eliminate dai dati restituiti.
 
-I modelli corrispondono sia alle colonne alla deriva che a quelle definite. Per visualizzare le colonne definite mappate da una regola, fare clic sull'icona degli occhiali accanto alla regola. Verificare l'output utilizzando l'anteprima dei dati.
+I modelli corrispondono alle colonne derivate e definite. Per visualizzare le colonne definite di cui è stato eseguito il mapping in base a una regola, fare clic sull'icona degli occhiali accanto alla regola. Verificare l'output usando l'anteprima dei dati.
 
 ### <a name="regex-mapping"></a>Mapping Regex
 
-Se si fa clic sull'icona con la freccia rivolta verso il basso, è possibile specificare una condizione di mapping delle regex. Una condizione di mapping delle regole di espressione regolare corrisponde a tutti i nomi di colonna che corrispondono alla condizione di espressione regolare specificata. Può essere utilizzato in combinazione con mapping standard basati su regole.
+Se si fa clic sull'icona con la freccia di espansione verso il basso, è possibile specificare una condizione di mapping Regex. Una condizione di mapping Regex corrisponde a tutti i nomi di colonna che corrispondono alla condizione Regex specificata. Questo può essere usato in combinazione con i mapping standard basati su regole.
 
 ![mapping basato su regole](media/data-flow/regex-matching.png "mapping basato su regole")
 
-L'esempio precedente corrisponde `(r)` al modello regex o a qualsiasi nome di colonna che contiene una r minuscola. Analogamente al mapping standard basato su regole, tutte le `$$` colonne corrispondenti vengono modificate dalla condizione a destra utilizzando la sintassi.
+L'esempio precedente corrisponde a un criterio `(r)` Regex o a qualsiasi nome di colonna che contiene un r minuscolo. Analogamente al mapping basato su regole standard, tutte le colonne corrispondenti vengono modificate dalla condizione a destra usando `$$` la sintassi.
 
-Se nel nome della colonna sono presenti più corrispondenze `$n` regex, è possibile fare riferimento a corrispondenze specifiche usando dove 'n' si riferisce a quale corrispondenza. Ad esempio, ''2' si riferisce alla seconda corrispondenza all'interno di un nome di colonna.
+Se nel nome della colonna sono presenti più corrispondenze Regex, è possibile fare riferimento a corrispondenze specifiche usando `$n` Where ' n'indica la corrispondenza. Ad esempio, "$2" si riferisce alla seconda corrispondenza all'interno di un nome di colonna.
 
 ### <a name="rule-based-hierarchies"></a>Gerarchie basate su regole
 
-Se la proiezione definita ha una gerarchia, è possibile utilizzare il mapping basato su regole per eseguire il mapping delle sottocolonne delle gerarchie. Specificare una condizione corrispondente e la colonna complessa di cui si desidera mappare le sottocolonne. Ogni sottocolonna corrispondente verrà emessa utilizzando la regola 'Nome come' specificata a destra.
+Se la proiezione definita dispone di una gerarchia, è possibile utilizzare il mapping basato su regole per eseguire il mapping delle sottocolonne delle gerarchie. Specificare una condizione di corrispondenza e la colonna complessa le cui sottocolonne si desidera mappare. Ogni sottocolonna corrispondente verrà restituita utilizzando la regola "name As" specificata a destra.
 
 ![mapping basato su regole](media/data-flow/rule-based-hierarchy.png "mapping basato su regole")
 
-Nell'esempio precedente viene confrontato `a`con tutte le sottocolonne di column complex . `a`contiene due `b` sottocolonne e `c`. Lo schema di output `b` `c` includerà due colonne e `$$`come la condizione 'Nome come' è .
+L'esempio precedente corrisponde a tutte le sottocolonne della colonna `a`complessa. `a`contiene due sottocolonne `b` e `c`. Lo schema di output includerà due `b` colonne `c` e la condizione ' name As ' sarà `$$`.
 
 ### <a name="parameterization"></a>Parametrizzazione
 
-È possibile parametrizzare i nomi delle colonne utilizzando il mapping basato su regole. Utilizzare la ```name``` parola chiave per associare i nomi di colonna in ingresso a un parametro. Se ad esempio si dispone ```mycolumn```di un parametro del flusso di dati, ```mycolumn```è possibile creare una regola che corrisponda a qualsiasi nome di colonna uguale a . È possibile rinominare la colonna corrispondente con una stringa hardcoded, ad esempio 'chiave business', e farvi riferimento in modo esplicito. In questo esempio, la ```name == $mycolumn``` condizione corrispondente è e la condizione del nome è 'chiave business'. 
+È possibile parametrizzare i nomi delle colonne utilizzando il mapping basato su regole. Usare la parola ```name``` chiave per trovare la corrispondenza con i nomi di colonna in ingresso rispetto a un parametro. Se, ad esempio, si dispone di un parametro ```mycolumn```del flusso di dati, è possibile creare una regola che corrisponde a qualsiasi nome ```mycolumn```di colonna uguale a. È possibile rinominare la colonna corrispondente in una stringa hardcoded come ' business Key ' e farvi riferimento in modo esplicito. In questo esempio la condizione di corrispondenza è ```name == $mycolumn``` e la condizione del nome è "business Key". 
 
-## <a name="auto-mapping"></a>Mappatura automatica
+## <a name="auto-mapping"></a>Mapping automatico
 
-Quando si aggiunge una trasformazione di selezione, il **mapping automatico** può essere abilitato cambiando il dispositivo di scorrimento Mappatura automatica. Con il mapping automatico, la trasformazione di selezione esegue il mapping di tutte le colonne in ingresso, esclusi i duplicati, con lo stesso nome dell'input. Sono incluse le colonne con deriva, il che significa che i dati di output potrebbero contenere colonne non definite nello schema. Per ulteriori informazioni sulle colonne con deriva, vedere [deriva dello schema](concepts-data-flow-schema-drift.md).
+Quando si aggiunge una trasformazione Select, è possibile abilitare il **mapping automatico** cambiando il dispositivo di scorrimento mapping automatico. Con il mapping automatico, la trasformazione SELECT esegue il mapping di tutte le colonne in ingresso, esclusi i duplicati, con lo stesso nome dell'input. In questo modo, le colonne vengono riportate alla deriva, ovvero i dati di output possono contenere colonne che non sono definite nello schema. Per ulteriori informazioni sulle colonne di cui è stato visualizzato il Drift, vedere [schema Drift](concepts-data-flow-schema-drift.md).
 
-![Mappatura automatica](media/data-flow/automap.png "Mappatura automatica")
+![Mapping automatico](media/data-flow/automap.png "Mapping automatico")
 
-Con il mapping automatico attivato, la trasformazione di selezione rispetterà le impostazioni di ignorare i duplicati e fornire un nuovo alias per le colonne esistenti. L'aliasing è utile quando si esegueno più join o ricerche nello stesso flusso e in scenari di self-join. 
+Con il mapping automatico in, la trasformazione Select rispetta le impostazioni Skip duplicate e fornisce un nuovo alias per le colonne esistenti. L'aliasing è utile quando si esegue più join o ricerche nello stesso flusso e in scenari self-join. 
 
 ## <a name="duplicate-columns"></a>Colonne duplicate
 
-Per impostazione predefinita, la trasformazione di selezione elimina le colonne duplicate nella proiezione di input e di output. Le colonne di input duplicate provengono spesso da trasformazioni di join e di ricerca in cui i nomi delle colonne vengono duplicati su ogni lato del join. Colonne di output duplicate possono verificarsi se si esegue il mapping di due colonne di input diverse allo stesso nome. Scegliere se eliminare o trasferire colonne duplicate eseguendo l'alternazione della casella di controllo.
+Per impostazione predefinita, la trasformazione Select Elimina le colonne duplicate nella proiezione di input e di output. Le colonne di input duplicate spesso derivano da trasformazioni join e di ricerca, in cui i nomi delle colonne vengono duplicati a ogni lato del join. Le colonne di output duplicate possono verificarsi se si esegue il mapping di due colonne di input diverse con lo stesso nome. Scegliere se eliminare o passare colonne duplicate attivando la casella di controllo.
 
-![Salta duplicati](media/data-flow/select-skip-dup.png "Salta duplicati")
+![Ignora duplicati](media/data-flow/select-skip-dup.png "Ignora duplicati")
 
 ## <a name="ordering-of-columns"></a>Ordinamento delle colonne
 
-L'ordine dei mapping determina l'ordine delle colonne di output. Se una colonna di input viene mappata più volte, verrà rispettato solo il primo mapping. Per qualsiasi eliminazione di colonne duplicate, verrà mantenuta la prima corrispondenza.
+L'ordine dei mapping determina l'ordine delle colonne di output. Se viene eseguito il mapping di una colonna di input più volte, verrà rispettato solo il primo mapping. Per tutte le colonne duplicate eliminate, la prima corrispondenza verrà mantenuta.
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 
@@ -112,9 +112,9 @@ L'ordine dei mapping determina l'ordine delle colonne di output. Se una colonna 
 
 ### <a name="example"></a>Esempio
 
-Di seguito è riportato un esempio di mapping di selezione e relativo script del flusso di dati:Below is an example of a select mapping and its data flow script:
+Di seguito è riportato un esempio di un mapping Select e del relativo script del flusso di dati:
 
-![Esempio di selezione dello script](media/data-flow/select-script-example.png "Esempio di selezione dello script")
+![Esempio di script Select](media/data-flow/select-script-example.png "Esempio di script Select")
 
 ```
 DerivedColumn1 select(mapColumn(
@@ -130,4 +130,4 @@ DerivedColumn1 select(mapColumn(
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Dopo aver utilizzato Select per rinominare, riordinare e alias le colonne, utilizzare la [trasformazione Sink](data-flow-sink.md) per inserire i dati in un archivio dati.
+* Dopo aver utilizzato SELECT per rinominare, riordinare e utilizzare le colonne alias, utilizzare la [trasformazione sink](data-flow-sink.md) per inserire i dati in un archivio dati.

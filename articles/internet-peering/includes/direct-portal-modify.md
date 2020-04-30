@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 titleSuffix: Azure
 description: File di inclusione
 services: internet-peering
@@ -9,39 +9,39 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3894bf046ed4ee3f068e43dbc5bc5b7f2a1002b4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681041"
 ---
-In questa sezione viene descritto come eseguire le seguenti operazioni di modifica per il peering diretto.
+Questa sezione descrive come eseguire le operazioni di modifica seguenti per il peering diretto.
 
-### <a name="add-direct-peering-connections"></a>Aggiungere connessioni di peering direttoAdd Direct peering connections
-1. Selezionare il pulsante **: Aggiungi connessioni** e configurare una nuova connessione peering.
+### <a name="add-direct-peering-connections"></a>Aggiungi connessioni peering diretto
+1. Selezionare il pulsante **+ Aggiungi connessioni** e configurare una nuova connessione peering.
     > [!div class="mx-imgBorder"]
-    > ![Visualizzazione delle risorse peering](../media/setup-direct-modify-addconnection.png)
+    > ![Visualizzazione risorse peering](../media/setup-direct-modify-addconnection.png)
 
-1. Compilare il modulo **Connessione peering diretta** e selezionare **Salva**. Per assistenza con la configurazione di una connessione peering, esaminare i passaggi nella sezione "Creare ed eseguire il provisioning di un peering diretto".
+1. Compilare il modulo di **connessione peering diretto** e selezionare **Salva**. Per informazioni sulla configurazione di una connessione di peering, vedere la procedura descritta nella sezione "creazione e provisioning di un peering diretto".
     > [!div class="mx-imgBorder"]
-    > ![Modulo Connessione peering diretto](../media/setup-direct-modify-savenewconnection.png)
+    > ![Modulo di connessione peering diretto](../media/setup-direct-modify-savenewconnection.png)
 
-### <a name="remove-direct-peering-connections"></a>Rimuovere le connessioni di peering direttoRemove Direct peering connections
+### <a name="remove-direct-peering-connections"></a>Rimuovere connessioni peering dirette
 
-La rimozione di una connessione non è attualmente supportata nel portale di Azure.Removing a connection isn't currently supported in the Azure portal. Per ulteriori informazioni, [contattare Microsoft peering](mailto:peeringexperience@microsoft.com).
+La rimozione di una connessione non è attualmente supportata nella portale di Azure. Per ulteriori informazioni, contattare il [peering Microsoft](mailto:peeringexperience@microsoft.com).
 
-### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Aggiornare o ridurre la larghezza di banda nelle connessioni attiveUpgrade or downgrade bandwidth on Active connections
-1. Selezionare una connessione di peering che si desidera modificare e quindi selezionare **...**  >  **Modifica connessione**.
+### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Aggiornare o effettuare il downgrade della larghezza di banda nelle connessioni attive
+1. Selezionare una connessione di peering che si vuole modificare e quindi selezionare **...**  >  **Modifica connessione**.
     > [!div class="mx-imgBorder"]
     > ![Modifica connessione](../media/setup-direct-modify-editconnection.png)
 
-1. Modificare la larghezza di banda spostando il dispositivo di scorrimento e quindi selezionare **Salva**.
+1. Modificare la larghezza di banda spostando il dispositivo di scorrimento, quindi selezionare **Salva**.
     > [!div class="mx-imgBorder"]
     > ![Modificare la larghezza di banda](../media/setup-direct-modify-editconnectionsettings.png)
 
-### <a name="add-ipv4-or-ipv6-session-information-on-active-connections"></a>Aggiungere informazioni sulla sessione IPv4 o IPv6 nelle connessioni attive
-1. Selezionare una connessione di peering che si desidera modificare e quindi selezionare **...**  >  **Modificare la connessione** come illustrato nel passaggio 1.
-1. Immettere **Il prefisso IPv4** della sessione o le informazioni sul **prefisso IPv6** della sessione e selezionare **Salva**.
+### <a name="add-ipv4-or-ipv6-session-information-on-active-connections"></a>Aggiungere informazioni sulla sessione IPv4 o IPv6 sulle connessioni attive
+1. Selezionare una connessione di peering che si vuole modificare e quindi selezionare **...**  >  **Modificare la connessione** come illustrato nel passaggio 1.
+1. Immettere le informazioni relative al prefisso **IPv4** della sessione o al prefisso **IPv6** della sessione e selezionare **Salva**.
 
-### <a name="remove-ipv4-or-ipv6-session-information-on-active-connections"></a>Rimuovere le informazioni sulla sessione IPv4 o IPv6 nelle connessioni attive
-La rimozione del **prefisso IPv4** della sessione o delle informazioni sul **prefisso IPv6** della sessione non è attualmente supportata nel portale. Per ulteriori informazioni, [contattare Microsoft peering](mailto:peeringexperience@microsoft.com).
+### <a name="remove-ipv4-or-ipv6-session-information-on-active-connections"></a>Rimuovere le informazioni sulla sessione IPv4 o IPv6 sulle connessioni attive
+La rimozione delle informazioni sul **prefisso** **IPv4** Session o sul prefisso IPv6 della sessione non è attualmente supportata nel portale. Per ulteriori informazioni, contattare il [peering Microsoft](mailto:peeringexperience@microsoft.com).

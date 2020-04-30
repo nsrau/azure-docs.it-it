@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 titleSuffix: Azure
 description: File di inclusione
 services: internet-peering
@@ -9,39 +9,39 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: b8869e93a7156b24d61ac555c95b9ca7f850ae34
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678524"
 ---
-1. Nella scheda **Configurazione** della pagina **Crea peering** compilare le caselle come illustrato di seguito.
+1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato qui.
 
     > [!div class="mx-imgBorder"]
-    > ![Creare un tipo di peering di peering per pagine di peering](../media/setup-exchange-conf-tab.png)
+    > ![Creare un tipo di peering di scambio di pagine peering](../media/setup-exchange-conf-tab.png)
 
-    * Per **Tipo di peering**, selezionare **Exchange**.
+    * Per **tipo di peering**selezionare **Exchange**.
     * Selezionare **SKU** come **Basic Free**.
-    * Selezionare la posizione Metro in cui si vuole convertire il peering in una risorsa di Azure.Select the **Metro** location where you want to convert peering to an Azure resource. Se si dispone di connessioni di peering con Microsoft nella posizione **Metro** selezionata che non vengono convertite in una risorsa di Azure, queste connessioni verranno elencate nella sezione **Connessioni peering** come illustrato. È ora possibile convertire queste connessioni di peering in una risorsa di Azure.You can now convert these peering connections to an Azure resource.
+    * Selezionare la **località** in cui si vuole convertire il peering in una risorsa di Azure. Se si dispone di connessioni peering con Microsoft nella località **metro** selezionata che non vengono convertite in una risorsa di Azure, queste connessioni verranno elencate nella sezione **connessioni peering** , come illustrato. È ora possibile convertire le connessioni peering in una risorsa di Azure.
 
         > [!div class="mx-imgBorder"]
-        > ![Elenco delle connessioni di peering](../media/setup-exchange-legacy-conf-tab.png)
+        > ![Elenco connessioni peering](../media/setup-exchange-legacy-conf-tab.png)
 
         > [!NOTE]
-        > Non è possibile modificare le impostazioni per le connessioni peering legacy. Se si desidera aggiungere ulteriori connessioni di peering con Microsoft nella posizione **Metro** selezionata, selezionare **Crea nuovo**. Per ulteriori informazioni, vedere [Creare o modificare un peering](../howto-exchange-portal.md)di Exchange tramite il portale .
+        > Non è possibile modificare le impostazioni per le connessioni di peering legacy. Se si desidera aggiungere ulteriori connessioni peering con Microsoft nella località **metro** selezionata, selezionare **Crea nuovo**. Per altre informazioni, vedere [creare o modificare un peering di Exchange tramite il portale](../howto-exchange-portal.md).
         >
 
-1. Selezionare **Rivedi e crea**. Si noti che il portale esegue la convalida di base delle informazioni immesse. Una barra multifunzione nella parte superiore visualizza il messaggio *Esecuzione della convalida finale...*.
+1. Selezionare **Rivedi e crea**. Si noti che il portale esegue la convalida di base delle informazioni immesse. Una barra multifunzione nella parte superiore Visualizza il messaggio *che esegue la convalida finale...*.
 
     > [!div class="mx-imgBorder"]
-    > ![Scheda Convalida peering](../media/setup-direct-review-tab-validation.png)
+    > ![Scheda convalida peering](../media/setup-direct-review-tab-validation.png)
 
-1. Dopo che il messaggio diventa *Convalida superata,* verificare le informazioni. Inviare la richiesta selezionando **Crea**. Se è necessario modificare la richiesta, selezionare **Indietro** e ripetere i passaggi.
+1. Dopo che il messaggio è stato modificato in *convalida superata*, verificare le informazioni. Inviare la richiesta selezionando **Crea**. Se è necessario modificare la richiesta, selezionare **precedente** e ripetere i passaggi.
 
     > [!div class="mx-imgBorder"]
     > ![Invio peering](../media/setup-exchange-review-tab-submit.png)
 
-1. Dopo aver inviato la richiesta, attendere il completamento della distribuzione. Se la distribuzione non riesce, [contattare Microsoft peering](mailto:peering@microsoft.com). Viene visualizzata una distribuzione corretta come illustrato.
+1. Dopo aver inviato la richiesta, attendere il completamento della distribuzione. Se la distribuzione non riesce, contattare il [peering Microsoft](mailto:peering@microsoft.com). Viene visualizzata una distribuzione corretta, come illustrato.
 
     > [!div class="mx-imgBorder"]
-    > ![Successo di peering](../media/setup-direct-success.png)
+    > ![Il peering è riuscito](../media/setup-direct-success.png)

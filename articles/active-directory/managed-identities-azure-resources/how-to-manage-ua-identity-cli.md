@@ -1,5 +1,5 @@
 ---
-title: Gestire l'identità gestita assegnata dall'utente - interfaccia della riga di comando di Azure - Azure ADManage user-assigned managed identity - Azure CLI - Azure AD
+title: Gestire l'identità gestita assegnata dall'utente-interfaccia della riga di comando di Azure-Azure AD
 description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante l'interfaccia della riga di comando di Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81639769"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante l'interfaccia della riga di comando di Azure
@@ -40,7 +40,7 @@ Questo articolo illustra come creare, elencare ed eliminare un'identità gestita
 
 
 > [!NOTE]
-> Per modificare le autorizzazioni utente quando si usa un'entità di servizio dell'app usando l'interfaccia della riga di comando, è necessario fornire all'entità servizio autorizzazioni aggiuntive nell'API Graph di Azure AD poiché parti dell'interfaccia della riga di comando eseguono richieste GET sull'API Graph.In order to modify user permissions when using an app servivce principal using CLI, you must provide the service principal additional permissions in Azure AD Graph API as portion of CLI perform GET requests against the Graph API. In caso contrario, si potrebbe finire per ricevere un messaggio 'Privilegi insufficienti per completare l'operazione'. To do this you will need to go into the App registration in Azure Active Directory, select your app, click on API permissions, scroll down and select Azure Active Directory Graph. Da qui selezionare Autorizzazioni applicazionee quindi aggiungere le autorizzazioni appropriate. 
+> Per modificare le autorizzazioni utente quando si usa un'entità servivce dell'app usando l'interfaccia della riga di comando, è necessario fornire all'entità servizio autorizzazioni aggiuntive in Azure AD API Graph come parti dell'interfaccia della riga di comando eseguono richieste GET rispetto al API Graph. In caso contrario, è possibile che si riceva un messaggio "privilegi insufficienti per completare l'operazione". A tale scopo, è necessario passare alla registrazione dell'app in Azure Active Directory, selezionare l'app, fare clic su autorizzazioni API, scorrere verso il basso e selezionare Azure Active Directory grafico. Da qui selezionare autorizzazioni applicazione, quindi aggiungere le autorizzazioni appropriate. 
 
 
 

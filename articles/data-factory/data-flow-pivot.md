@@ -1,6 +1,6 @@
 ---
-title: Trasformazione pivot nel mapping del flusso di dati
-description: Trasformazione pivot del flusso di dati di mapping di Dati pivot da righe a colonne tramite la trasformazione pivot del flusso di dati di mapping di Azure Data Factory
+title: Trasformazione pivot nel flusso di dati di mapping
+description: Trasformare i dati tramite pivot da righe a colonne utilizzando la trasformazione pivot del flusso di dati del mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,76 +8,76 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686387"
 ---
-# <a name="pivot-transformation-in-mapping-data-flow"></a>Trasformazione pivot nel mapping del flusso di dati
+# <a name="pivot-transformation-in-mapping-data-flow"></a>Trasformazione pivot nel flusso di dati di mapping
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Utilizzare la trasformazione pivot per creare più colonne dai valori di riga univoci di una singola colonna. Pivot è una trasformazione di aggregazione in cui si seleziona raggruppa per colonne e si generano colonne pivot utilizzando funzioni di [aggregazione.](data-flow-expression-functions.md#aggregate-functions)
+Utilizzare la trasformazione pivot per creare più colonne dai valori di riga univoci di una singola colonna. Pivot è una trasformazione aggregazione in cui è possibile selezionare Raggruppa per colonne e generare colonne pivot utilizzando [funzioni di aggregazione](data-flow-expression-functions.md#aggregate-functions).
 
 ## <a name="configuration"></a>Configurazione
 
-La trasformazione pivot richiede tre diversi input: raggruppa per colonne, la chiave pivot e come generare le colonne pivot
+La trasformazione pivot richiede tre diversi input: colonne Group by, chiave pivot e come generare le colonne trasformate tramite pivot.
 
 ### <a name="group-by"></a>Group by
 
-![Opzioni di raggruppamento](media/data-flow/pivot2.png "[Raggruppa per opzioni")
+![Opzioni di raggruppamento](media/data-flow/pivot2.png "[Opzioni Group by")
 
-Selezionare le colonne in cui aggregare le colonne con pivot. I dati di output verranno raggruppati in tutte le righe con lo stesso gruppo in base ai valori in un'unica riga. L'aggregazione eseguita nella colonna pivot verrà eseguita su ogni gruppo.
+Consente di selezionare le colonne su cui aggregare le colonne trasformate tramite pivot. I dati di output raggruppano tutte le righe con gli stessi valori Group by in un'unica riga. L'aggregazione eseguita nella colonna trasformata tramite pivot viene eseguita su ogni gruppo.
 
-Questa sezione è facoltativa. Se non è selezionato alcun gruppo per colonne, verrà aggregato l'intero flusso di dati e verrà emessa una sola riga.
+Questa sezione è facoltativa. Se non sono selezionate colonne Group by, l'intero flusso di dati verrà aggregato e verrà restituita una sola riga.
 
-### <a name="pivot-key"></a>Tasto Pivot
+### <a name="pivot-key"></a>Chiave pivot
 
-![Tasto Pivot](media/data-flow/pivot3.png "Tasto Pivot")
+![Chiave pivot](media/data-flow/pivot3.png "Chiave pivot")
 
-La chiave pivot è la colonna i cui valori di riga vengono sottoposti a pivot in nuove colonne. Per impostazione predefinita, la trasformazione pivot creerà una nuova colonna per ogni valore di riga univoco.
+La chiave pivot è la colonna i cui valori di riga vengono trasformati tramite pivot in nuove colonne. Per impostazione predefinita, la trasformazione pivot creerà una nuova colonna per ogni valore di riga univoco.
 
-Nella sezione **Valore**è possibile immettere valori di riga specifici da eseguire il pivot. Verranno sottoposti a pivot solo i valori di riga immessi in questa sezione. L'abilitazione del **valore Null** creerà una colonna pivot per i valori Null nella colonna.
+Nella sezione **valore**con etichetta è possibile immettere valori di riga specifici da trasformare tramite pivot. Solo i valori di riga immessi in questa sezione verranno trasformati tramite pivot. L'abilitazione di un **valore null** creerà una colonna trasformata tramite pivot per i valori null nella colonna.
 
-### <a name="pivoted-columns"></a>Colonne pivot
+### <a name="pivoted-columns"></a>Colonne trasformate tramite pivot
 
-![Colonne pivot](media/data-flow/pivot4.png "Colonne pivot")
+![Colonne trasformate tramite pivot](media/data-flow/pivot4.png "Colonne trasformate tramite pivot")
 
-Per ogni valore di chiave pivot univoco che diventa una colonna, generare un valore di riga aggregato per ogni gruppo. È possibile creare più colonne per chiave pivot. Ogni colonna pivot deve contenere almeno una [funzione di aggregazione.](data-flow-expression-functions.md#aggregate-functions)
+Per ogni valore di chiave pivot univoco che diventa una colonna, generare un valore di riga aggregato per ogni gruppo. È possibile creare più colonne per ogni chiave pivot. Ogni colonna pivot deve contenere almeno una [funzione di aggregazione](data-flow-expression-functions.md#aggregate-functions).
 
-**Modello nome colonna:** Selezionare la modalità di formattazione del nome della colonna pivot. Il nome della colonna emessa sarà una combinazione del valore della chiave pivot, del prefisso di colonna e del prefisso facoltativo, sufficiente, dei caratteri intermedi. 
+**Modello nome colonna:** Consente di selezionare la modalità di formattazione del nome della colonna di ogni colonna pivot. Il nome della colonna in output sarà una combinazione del valore della chiave pivot, del prefisso di colonna e del prefisso facoltativo, bastanti, caratteri intermedi. 
 
-**Disposizione delle colonne:** Se si generano più colonne pivot per chiave pivot, scegliere la modalità di ordinamento delle colonne. 
+**Disposizione colonne:** Se si generano più colonne pivot per ogni chiave pivot, scegliere il modo in cui si desidera ordinare le colonne. 
 
-**Prefisso colonna:** Se si generano più di una colonna pivot per chiave pivot, immettere un prefisso di colonna per ogni colonna. Questa impostazione è facoltativa se si dispone di una sola colonna pivot.
+**Prefisso colonna:** Se si genera più di una colonna pivot per ogni chiave pivot, immettere un prefisso di colonna per ogni colonna. Questa impostazione è facoltativa se si dispone di una sola colonna trasformata tramite pivot.
 
-## <a name="help-graphic"></a>Grafica della Guida
+## <a name="help-graphic"></a>Immagine della Guida
 
-L'immagine della Guida seguente mostra come i diversi componenti di rotazione interagiscono tra loro
+Il grafico della guida seguente mostra il modo in cui i diversi componenti pivot interagiscono tra loro
 
-![Grafica della Guida pivot](media/data-flow/pivot5.png "Grafica della Guida pivot")
+![Grafica della Guida pivot](media/data-flow/pivot5.png "Rappresentazione grafica della Guida pivot")
 
 ## <a name="pivot-metadata"></a>Metadati pivot
 
-Se nella configurazione della chiave pivot non viene specificato alcun valore, le colonne pivot verranno generate dinamicamente in fase di esecuzione. Il numero di colonne pivot sarà uguale al numero di valori di chiave pivot univoci moltiplicato per il numero di colonne pivot. Poiché può trattarsi di un numero che cambia, l'esperienza utente non visualizzerà i metadati della colonna nella scheda **Controlla** e non sarà presente alcuna propagazione delle colonne. Per trasformare queste colonne, usare le funzionalità del modello di [colonna](concepts-data-flow-column-pattern.md) per il mapping del flusso di dati. 
+Se non viene specificato alcun valore nella configurazione della chiave pivot, le colonne trasformate tramite pivot verranno generate dinamicamente in fase di esecuzione. Il numero di colonne trasformate tramite pivot corrisponde al numero di valori di chiave pivot univoci moltiplicato per il numero di colonne pivot. Poiché può trattarsi di un numero modificabile, l'esperienza utente non visualizzerà i metadati della colonna nella scheda **Controlla** e non sarà presente alcuna propagazione delle colonne. Per eseguire la trasformazione di queste colonne, utilizzare le funzionalità del [modello di colonna](concepts-data-flow-column-pattern.md) del flusso di dati di mapping. 
 
-Se vengono impostati valori di chiave pivot specifici, le colonne pivot verranno visualizzate nei metadati. i nomi delle colonne saranno disponibili nel mapping Controlla e sink.
+Se sono impostati valori di chiave pivot specifici, le colonne trasformate tramite pivot verranno visualizzate nei metadati. e i nomi delle colonne saranno disponibili nel mapping controlla e sink.
 
-### <a name="generate-metadata-from-drifted-columns"></a>Generare metadati da colonne con deriva
+### <a name="generate-metadata-from-drifted-columns"></a>Genera metadati da colonne con drifting
 
-Pivot genera nuovi nomi di colonna in modo dinamico in base ai valori di riga. È possibile aggiungere queste nuove colonne ai metadati a cui è possibile fare riferimento in un secondo momento nel flusso di dati. A tale scopo, utilizzare l'azione rapida [mappa alla deriva](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) nell'anteprima dei dati. 
+Pivot genera i nuovi nomi di colonna in modo dinamico in base ai valori di riga. È possibile aggiungere queste nuove colonne ai metadati a cui è possibile fare riferimento in un secondo momento nel flusso di dati. A tale scopo, usare l'azione rapida per la [mappa](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) nell'anteprima dei dati. 
 
-![Colonne pivot](media/data-flow/newpivot1.png "Mappa colonne Pivot alla deriva")
+![Colonne pivot](media/data-flow/newpivot1.png "Eseguire il mapping delle colonne pivot")
 
-### <a name="sinking-pivoted-columns"></a>Colonne pivot affondate
+### <a name="sinking-pivoted-columns"></a>Sink di colonne trasformate tramite pivot
 
-Sebbene le colonne con pivot siano dinamiche, possono comunque essere scritte nell'archivio dati di destinazione. Abilitare **Consenti deriva schema** nelle impostazioni del sink. In questo modo sarà possibile scrivere colonne non incluse nei metadati. i metadati della colonna, ma l'opzione di deriva dello schema consente di ottenere i dati.
+Sebbene le colonne trasformate tramite pivot siano dinamiche, possono comunque essere scritte nell'archivio dati di destinazione. Abilitare **Consenti Drift schema** nelle impostazioni del sink. Ciò consentirà di scrivere colonne non incluse nei metadati. i metadati della colonna, ma l'opzione di disattivazione dello schema consente di inserire i dati.
 
-### <a name="rejoin-original-fields"></a>Ricongiungi campi originali
+### <a name="rejoin-original-fields"></a>Riunisci campi originali
 
-La trasformazione pivot proibirà solo il gruppo e le colonne sottoposte a pivot. Se si desidera che i dati di output includano altre colonne di input, usare un modello [di self join.](data-flow-join.md#self-join)
+Tramite la trasformazione pivot vengono proiettate solo le colonne Group by e pivoted. Se si vuole che i dati di output includano altre colonne di input, usare un modello [self-join](data-flow-join.md#self-join) .
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 
@@ -94,7 +94,7 @@ La trasformazione pivot proibirà solo il gruppo e le colonne sottoposte a pivot
 ```
 ### <a name="example"></a>Esempio
 
-Le schermate visualizzate nella sezione di configurazione hanno lo script del flusso di dati seguente:The screens shown in the configuration section, have the following data flow script:
+Le schermate visualizzate nella sezione configurazione hanno lo script del flusso di dati seguente:
 
 ```
 BasketballPlayerStats pivot(groupBy(Tm),
@@ -107,4 +107,4 @@ BasketballPlayerStats pivot(groupBy(Tm),
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare la [trasformazione unpivot](data-flow-unpivot.md) per trasformare i valori di colonna in valori di riga. 
+Provare la [trasformazione UnPivot](data-flow-unpivot.md) per trasformare i valori di colonna in valori di riga. 

@@ -1,6 +1,6 @@
 ---
-title: Licenze&reg; Microsoft Smooth Streaming Client Porting Kit
-description: Informazioni su come ottenere&reg; in licenza Microsoft Smooth Streaming Client Porting Kit.
+title: Licenza di&reg; Microsoft Smooth Streaming Client Porting Kit
+description: Informazioni sulle modalità di gestione delle licenze&reg; di Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
 ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686906"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenze&reg; Microsoft Smooth Streaming Client Porting Kit 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenza di&reg; Microsoft Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>Panoramica
 Microsoft Smooth Streaming Client Porting Kit, **SSPK** per brevità, è un'implementazione client di Smooth Streaming ottimizzata per aiutare produttori di dispositivi integrati, operatori di telefonia via cavo e mobile, provider di servizi di gestione del contenuto, produttori di telefoni, fornitori di software indipendenti (ISV) e provider di soluzioni a creare prodotti e servizi per la trasmissione di flussi adattivi in formato Smooth Streaming. SSPK è un'implementazione indipendente dal dispositivo e dalla piattaforma del client Smooth Streaming che può essere applicata dal licenziatario a qualsiasi dispositivo e piattaforma. 
 
@@ -71,11 +71,11 @@ Smooth Streaming Client Final Product è disponibile in un modello a pagamento c
 * Nessun diritto per le prime 10.000 implementazioni di dispositivi ogni anno 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedura di gestione delle licenze e accesso a SSPK
-E-mail [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) per tutte le query di licenza.
+Messaggio [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) di posta elettronica per tutte le query sulle licenze.
 
 Il portale di distribuzione di SSPK è accessibile a licenziatari della versione Interim registrati.
 
-I licenziatari provvisori e finali SSPK possono inviare domande tecniche a [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
+I licenziatari di SSPK provvisori e finali possono inviare domande tecniche [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)a.
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licenziatari di contratti Microsoft Smooth Streaming Client Interim Product
 
@@ -125,7 +125,7 @@ I licenziatari provvisori e finali SSPK possono inviare domande tecniche a [smoo
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* FilmFlex Movies Limited
+* FilmFlex film limitati
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
 * Gibson Innovations Limited
@@ -141,7 +141,7 @@ I licenziatari provvisori e finali SSPK possono inviare domande tecniche a [smoo
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
-* Shenzhen Chuangwei-RGB Elettronica Co.,Ltd.
+* Shenzhen Chuangwei-RGB Electronics Co. Ltd.
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
@@ -163,6 +163,6 @@ I licenziatari provvisori e finali SSPK possono inviare domande tecniche a [smoo
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

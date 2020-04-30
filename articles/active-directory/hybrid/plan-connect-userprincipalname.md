@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680032"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Popolamento di UserPrincipalName di Azure AD
@@ -52,7 +52,7 @@ In alcuni ambienti è possibile che gli utenti finali conoscano solo l'indirizzo
 
 L’ID di accesso alternativo consente di configurare un'esperienza di accesso in cui gli utenti possono accedere con un attributo diverso dal nome dell’entità utente, ad esempio la posta elettronica.
 
-Per abilitare l'ID di accesso alternativo con Azure AD, non sono necessari passaggi di configurazione aggiuntivi quando si usa Azure AD Connect. È possibile configurare l'ID alternativo direttamente dalla procedura guidata. Vedere Configurazione dell'accesso ad Azure AD per gli utenti nella sezione Sincronizzazione.See Azure AD sign-in configuration for your users under the section Sync. Nell'elenco a discesa **Nome entità utente** selezionare l'attributo per ID di accesso alternativo.
+Per abilitare l'ID di accesso alternativo con Azure AD, non sono necessari passaggi di configurazione aggiuntivi quando si usa Azure AD Connect. È possibile configurare l'ID alternativo direttamente dalla procedura guidata. Vedere la pagina relativa alla configurazione dell'accesso Azure AD per gli utenti nella sezione Sync. Nell'elenco a discesa **nome entità utente** selezionare l'attributo per ID di accesso alternativo.
 
 ![Domini non verificati](./media/plan-connect-userprincipalname/altloginid.png)  
 

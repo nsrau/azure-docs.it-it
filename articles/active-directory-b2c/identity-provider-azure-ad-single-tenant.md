@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso per un'organizzazione di Azure ADSet up sign-in for an Azure AD organization
+title: Configurare l'accesso per un'organizzazione Azure AD
 titleSuffix: Azure AD B2C
 description: Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5b21fcd2d3ec5560b01352b112e9ed1bb2404766
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678058"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
@@ -27,11 +27,11 @@ Per usare un account di Azure Active Directory (Azure AD) come [provider di iden
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurare Azure AD come provider di identità
 
-1. Assicurarsi di usare la directory che contiene il tenant B2C di Azure AD. Nel menu superiore, selezionare il filtro **Directory e sottoscrizione** e scegliere la directory che contiene il tenant B2C di Azure AD.
+1. Assicurarsi di usare la directory che contiene Azure AD B2C tenant. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant Azure ad B2C.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-1. Selezionare **Provider di identità**, quindi **nuovo provider OpenID Connect**.
-1. Immettere un **Nome**. Ad esempio, immettere *Contoso Azure AD*.
-1. Per **URL metadati**immettere `{tenant}` l'URL seguente sostituendo con il nome di dominio del tenant di Azure AD:
+1. Selezionare **provider di identità**e quindi fare clic su **nuovo provider OpenID Connect**.
+1. Immettere un **nome**. Ad esempio, immettere *Contoso Azure ad*.
+1. Per **URL metadati**immettere l'URL seguente sostituendo `{tenant}` con il nome di dominio del tenant di Azure ad:
 
     ```
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
@@ -40,16 +40,16 @@ Per usare un account di Azure Active Directory (Azure AD) come [provider di iden
     Ad esempio: `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
 
 1. Per **ID client**immettere l'ID applicazione registrato in precedenza.
-1. Per **Segreto client**immettere il segreto client registrato in precedenza.
-1. Per **l'ambito** `openid profile`, immettere il file .
-1. Lasciare i valori predefiniti per **Tipo di risposta**e **Modalità risposta**.
-1. (Facoltativo) Per **l'hint** `contoso.com`dominio , immettere . Per altre informazioni, vedere [Configurare l'accesso diretto tramite Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
-1. In **Mapping attestazioni provider**di identità selezionare le attestazioni seguenti:
+1. Per il **segreto client**, immettere il segreto client registrato in precedenza.
+1. Per l' **ambito**, immettere `openid profile`.
+1. Lasciare i valori predefiniti per il **tipo di risposta**e la modalità di **risposta**.
+1. Opzionale Per l' **hint di dominio**, `contoso.com`immettere. Per altre informazioni, vedere [Configurare l'accesso diretto tramite Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. In **mapping attestazioni provider di identità**selezionare le seguenti attestazioni:
 
-    * **ID utente**: *oid*
+    * **ID utente**: *OID*
     * **Nome visualizzato**: *nome*
-    * **Nome dato**: *given_name*
+    * **Nome specificato**: *given_name*
     * **Cognome**: *family_name*
-    * **E-mail**: *unique_name*
+    * **Posta elettronica**: *UNIQUE_NAME*
 
 1. Selezionare **Salva**.

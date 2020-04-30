@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 96528dc34305e77602634110a0153f7623a15c96
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676758"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementare Oracle Data Guard su una macchina virtuale Linux di Azure 
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo articolo spiega come usare l'interfaccia della riga di comando di Azure per distribuire un database Oracle 12c da un'immagine di Azure Marketplace. In questo articolo viene anche illustrata la procedura per installare e configurare Data Guard su una macchina virtuale di Azure (VM).
 
-Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per altre informazioni, vedere la [guida all'installazione dell'interfaccia della riga di comando di Azure.For](https://docs.microsoft.com/cli/azure/install-azure-cli)more information, see the Azure CLI installation guide .
+Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per ulteriori informazioni, vedere la [Guida all'installazione dell'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli)della riga di comando di Azure.
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente
 ### <a name="assumptions"></a>Presupposti
@@ -282,7 +282,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Attivare Flashback (che rende il recupero molto\_\_più facile) e impostare STANDBY FILE MANAGEMENT su auto. Dopo di che, uscire da SQL-Plus.
+Attivare il flashback, che semplifica notevolmente il ripristino, e impostare la gestione\_dei\_file di standby su auto. Uscire da SQL * Plus.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -512,7 +512,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Configurare Data Guard Broker su myVM1 (primaria)
 
-Avviare Data Guard Manage e accedere usando SYS e una password. (Non utilizzare l'autenticazione del sistema operativo.) Eseguire le operazioni seguenti:
+Avviare Data Guard Manage e accedere usando SYS e una password. Non usare l'autenticazione del sistema operativo. Eseguire le operazioni seguenti:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1

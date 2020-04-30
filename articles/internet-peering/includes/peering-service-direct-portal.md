@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 titleSuffix: Azure
 description: File di inclusione
 services: internet-peering
@@ -9,32 +9,32 @@ ms.topic: include
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: e5804aa1b005e670d8b430b1c0a3bd62efd0bb06
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687065"
 ---
-1. Selezionare una connessione di peering da abilitare per il servizio peering di Azure.Select a peering connection you want to enable for Azure Peering Service. Quindi selezionare **...**  >  **Modifica connessione**.
+1. Selezionare una connessione di peering che si vuole abilitare per il servizio peering di Azure. Quindi selezionare **...**  >  **Modifica connessione**.
     > [!div class="mx-imgBorder"]
-    > ![Connessione peering Modifica connessione](../media/setup-direct-modify-editconnection.png)
-1. In **Usa per il servizio di peering**selezionare **Abilitato** e quindi **Salva**.
+    > ![Connessione di modifica connessione peering](../media/setup-direct-modify-editconnection.png)
+1. In **USA per il servizio di peering**selezionare **abilitato** e quindi fare clic su **Salva**.
     > [!div class="mx-imgBorder"]
-    > ![Peering connection Enable Peering Service](../media/setup-direct-modify-editconnectionsettings-peering-service.png)
+    > ![Connessione peering Abilita servizio di peering](../media/setup-direct-modify-editconnectionsettings-peering-service.png)
 1. Nella schermata **Panoramica** vengono visualizzati i dettagli della distribuzione. Al termine della distribuzione, selezionare **Vai alla risorsa**.
     > [!div class="mx-imgBorder"]
-    > ![La distribuzione è completa](../media/setup-direct-modify-overview-deployment-complete.png)
+    > ![La distribuzione è stata completata](../media/setup-direct-modify-overview-deployment-complete.png)
 
-1. Nel riquadro **Prefissi registrati** selezionare **Aggiungi prefisso registrato**.
+1. Nel riquadro **prefissi registrati** selezionare **Aggiungi prefisso registrato**.
     > [!div class="mx-imgBorder"]
     > ![Aggiungi prefisso registrato](../media/setup-direct-modify-add-registered-prefix.png)
-1. Registrare un prefisso selezionando un **Nome** e un **Prefisso** e selezionando **Salva**.
+1. Registrare un prefisso selezionando un **nome** e un **prefisso** e selezionando **Save (Salva**).
     > [!div class="mx-imgBorder"]
-    >  ![Registrare un prefissoRegister a prefix](../media/setup-direct-modify-register-a-prefix.png) 
+    >  ![Registrare un prefisso](../media/setup-direct-modify-register-a-prefix.png) 
 
-1. Dopo aver creato un prefisso, viene visualizzato nell'elenco Dei **prefissi registrati**. Selezionare il **Nome** del prefisso per visualizzare ulteriori dettagli.
+1. Una volta creato un prefisso, questo viene visualizzato nell'elenco dei **prefissi registrati**. Selezionare il **nome** del prefisso per visualizzare altri dettagli.
     > [!div class="mx-imgBorder"]
     > ![Prefissi e connessioni registrati](../media/setup-direct-modify-registered-prefixes.png)
-1. Nella pagina del prefisso registrato vengono visualizzati i dettagli completi, che includono la **chiave Prefix** per ogni prefisso. Questa chiave deve essere fornita al cliente allocato questo prefisso dal provider ISP. Il cliente può quindi registrare il prefisso all'interno della sottoscrizione utilizzando questa chiave.
+1. Nella pagina prefisso registrato vengono visualizzati i dettagli completi che includono la **chiave di prefisso** per ogni prefisso. Questa chiave deve essere fornita al cliente allocato questo prefisso dal provider ISP del provider. Il cliente può quindi registrare il prefisso nella propria sottoscrizione usando questa chiave.
     > [!div class="mx-imgBorder"]
-    > ![Prefisso con chiave prefissoPrefix with prefix key](../media/setup-direct-modify-registered-prefix-detail.png)
+    > ![Prefisso con chiave prefisso](../media/setup-direct-modify-registered-prefix-detail.png)
