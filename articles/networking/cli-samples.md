@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Samples - Networking
+title: Esempi dell'interfaccia della riga di comando di Azure-rete
 description: Esempi dell'interfaccia della riga di comando di Azure
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
 ms.openlocfilehash: 84754a61bfe9537e928759aefbcb5dcddce33089
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457961"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Esempi dell'interfaccia della riga di comando di Azure per la rete
@@ -27,7 +27,7 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 
 | | |
 |-|-|
-|**Connettività tra le risorse di AzureConnectivity between Azure resources**||
+|**Connettività tra le risorse di Azure**||
 | [Creare una rete virtuale per le applicazioni multilivello](./scripts/virtual-network-cli-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crea una rete virtuale con subnet front-end e back-end. Il traffico verso la subnet front-end è limitato a HTTP e SSH, mentre il traffico verso la subnet back-end è limitato a MySQL sulla porta 3306. |
 | [Eseguire il peering di due reti virtuali](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crea e connette due reti virtuali nella stessa area. |
 | [Instradare il traffico attraverso un'appliance virtuale di rete](./scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crea una rete virtuale con subnet front-end e back-end e una VM che è in grado di instradare il traffico tra le due subnet. |

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459152"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visualizzazione e modifica di nomi host
@@ -41,7 +41,7 @@ Da un client REST, seguire queste istruzioni:
 
 1. Assicurarsi di disporre di un certificato client per connettersi al portale di Azure. Per ottenere un certificato client, eseguire la procedura descritta in [Procedura: informazioni sul Download e Importazione delle impostazioni di pubblicazione e Sottoscrizione](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Impostare una voce di intestazione denominata x-ms-version con un valore di 2013-11-01.
-3. Inviare una richiesta nel seguente\/\<formato: https: /management.core.windows.net/\>subscrition-id /services/hostedservices/\<nome-servizio\>?embed-detail
+3. Inviare una richiesta nel formato seguente:\/https:/Management.Core.Windows.NET/\<subscrition-ID\>sottoscrizione/services/hostedservices/nome\<nome\>-servizio? Embed-detail = true
 4. Cercare l'elemento **HostName** per ogni elemento **RoleInstance**.
 
 > [!WARNING]

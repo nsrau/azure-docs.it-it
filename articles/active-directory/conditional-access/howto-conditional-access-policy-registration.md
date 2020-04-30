@@ -1,6 +1,6 @@
 ---
-title: Accesso condizionale - Informazioni di sicurezza combinate - Azure Active DirectoryConditional Access - Combined security information - Azure Active Directory
-description: Creare criteri di accesso condizionale personalizzati per la registrazione delle informazioni di sicurezzaCreate a custom Conditional Access policy for security info registration
+title: Accesso condizionale-informazioni di sicurezza combinate-Azure Active Directory
+description: Creare un criterio di accesso condizionale personalizzato per la registrazione delle informazioni di sicurezza
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,60 +12,60 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457910"
 ---
-# <a name="conditional-access-securing-security-info-registration"></a>Accesso condizionale: protezione della registrazione delle informazioni di sicurezzaConditional Access: Securing security info registration
+# <a name="conditional-access-securing-security-info-registration"></a>Accesso condizionale: protezione della registrazione delle informazioni di sicurezza
 
-Garantire quando e come gli utenti si registrano per Azure Multi-Factor Authentication e la reimpostazione della password self-service è ora possibile con le azioni dell'utente nei criteri di accesso condizionale. Questa funzione di anteprima è disponibile per le organizzazioni che hanno abilitato [l'anteprima di registrazione combinata.](../authentication/concept-registration-mfa-sspr-combined.md) Questa funzionalità può essere abilitata nelle organizzazioni in cui desiderano usare condizioni come il percorso di rete attendibile per limitare l'accesso per la registrazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service (SSPR). Per ulteriori informazioni sulle condizioni utilizzabili, vedere l'articolo [Accesso condizionale: Condizioni](concept-conditional-access-conditions.md).
+È ora possibile proteggere quando e come gli utenti si registrano per Azure Multi-Factor Authentication e la reimpostazione della password self-service con le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità di anteprima è disponibile per le organizzazioni che hanno abilitato l' [anteprima della registrazione combinata](../authentication/concept-registration-mfa-sspr-combined.md). Questa funzionalità può essere abilitata nelle organizzazioni in cui si vuole usare condizioni come il percorso di rete attendibile per limitare l'accesso per la registrazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service (SSPR). Per ulteriori informazioni sulle condizioni utilizzabili, vedere l'articolo relativo all' [accesso condizionale: Conditions](concept-conditional-access-conditions.md).
 
-## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Creare un criterio per richiedere la registrazione da un percorso attendibileCreate a policy to require registration from a trusted location
+## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Creare un criterio per richiedere la registrazione da un percorso attendibile
 
-Il criterio seguente si applica a tutti gli utenti selezionati, che tentano di registrarsi utilizzando l'esperienza di registrazione combinata, e bloccano l'accesso a meno che non si connettano da una posizione contrassegnata come rete attendibile.
+I criteri seguenti si applicano a tutti gli utenti selezionati, che tentano di eseguire la registrazione usando l'esperienza di registrazione combinata e bloccano l'accesso a meno che non si connettano da un percorso contrassegnato come rete attendibile.
 
-1. Nel **portale di Azure**passare ad**Accesso condizionale**alla**sicurezza** > di **Azure Active Directory** > .
+1. Nella **portale di Azure**individuare **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
 1. Selezionare **Nuovi criteri**.
-1. In Nome immettere un Nome per il criterio. Ad esempio, Registrazione combinata delle informazioni di **sicurezza su reti attendibili**.
-1. In **Assegnazioni**selezionare **Utenti e gruppi**e selezionare gli utenti e i gruppi a cui si desidera applicare il criterio.
+1. In nome immettere un nome per il criterio. Ad esempio, la **registrazione delle informazioni di sicurezza combinata su reti attendibili**.
+1. In **assegnazioni**selezionare **utenti e gruppi**e selezionare gli utenti e i gruppi a cui si desidera applicare questo criterio.
 
    > [!WARNING]
    > Gli utenti devono essere abilitati per la [registrazione combinata](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. In **Azioni o app cloud**selezionare Azioni **utente**, selezionare Registra informazioni **di sicurezza**.
-1. In **Condizioni** > **Posizioni**.
-   1. Configura **Sì**.
-   1. Includi **qualsiasi posizione**.
-   1. Escludi **tutti i percorsi attendibili**.
-   1. Selezionare **Fatto** nel pannello Posizioni.
-   1. Selezionare Fatto nel pannello Condizioni.Select **Done** on the Conditions blade.
-1. In **Condizioni** > **App client (anteprima)** impostare **Configura** su **Sì**e selezionare **Fatto**.
-1. In **Controlli di** > accesso**Concedi**.
+1. In **azioni o app Cloud**selezionare **azioni utente**e selezionare **registra informazioni di sicurezza**.
+1. In **Conditions** > **posizioni**delle condizioni.
+   1. Configurare **Sì**.
+   1. Includere **qualsiasi percorso**.
+   1. Escludere **tutti i percorsi attendibili**.
+   1. Selezionare **fatto** nel pannello percorsi.
+   1. Selezionare **fatto** nel pannello condizioni.
+1. In **condizioni** > **app client (anteprima)** impostare **Configura** su **Sì**e fare clic su **fine**.
+1. In **controllo** > di accesso**concedere**.
    1. Selezionare **Blocca accesso**.
    1. Quindi fare clic su **Seleziona**.
 1. Impostare **Abilita criterio** su **Sì**.
-1. Quindi selezionare **Salva**.
+1. Selezionare quindi **Salva**.
 
-Al passaggio 6 di questo criterio, le organizzazioni hanno scelte che possono fare. Il criterio precedente richiede la registrazione da un percorso di rete attendibile. Le organizzazioni possono scegliere di utilizzare le condizioni disponibili al posto delle **sedi**. Tenere presente che questo criterio è un criterio di blocco, pertanto tutto ciò che è incluso viene bloccato e tutto ciò che non corrisponde all'inclusione è consentito. 
+Al passaggio 6 di questo criterio, le organizzazioni hanno scelte che possono apportare. Il criterio precedente richiede la registrazione da un percorso di rete attendibile. Le organizzazioni possono scegliere di utilizzare le condizioni disponibili al posto delle **località**. Tenere presente che questo criterio è un criterio di blocco in modo che tutti gli oggetti inclusi siano bloccati e che tutto ciò che non corrisponde all'inclusione sia consentito. 
 
-Alcuni possono scegliere di utilizzare lo stato del dispositivo anziché la posizione nel passaggio 6 precedente:Some may choose to use device state instead of location in step 6 above:
+Alcuni possono scegliere di usare lo stato del dispositivo invece della posizione nel passaggio 6 precedente:
 
-6. In **Condizioni** > **Stato dispositivo (anteprima)**.
-   1. Configura **Sì**.
-   1. Includi **tutto lo stato del dispositivo**.
-   1. Escludi dispositivo ibrido Azure AD aggiunto e/o **dispositivo contrassegnato come conformeExclude** **Device Hybrid Azure AD joined** and/or Device marked as compliant
-   1. Selezionare **Fatto** nel pannello Posizioni.
-   1. Selezionare Fatto nel pannello Condizioni.Select **Done** on the Conditions blade.
+6. In **condizioni** > **stato del dispositivo (anteprima)**.
+   1. Configurare **Sì**.
+   1. Includere **tutto lo stato del dispositivo**.
+   1. Escludi il **dispositivo Azure ad ibrido aggiunto** e/o **dispositivo contrassegnato come conforme**
+   1. Selezionare **fatto** nel pannello percorsi.
+   1. Selezionare **fatto** nel pannello condizioni.
 
 > [!WARNING]
-> Se si utilizza lo stato del dispositivo come condizione nei criteri, ciò potrebbe influire sugli utenti guest nella directory. [La modalità Solo report](concept-conditional-access-report-only.md) consente di determinare l'impatto delle decisioni relative ai criteri.
+> Se si usa lo stato del dispositivo come condizione nel criterio, questo può influito sugli utenti guest nella directory. La [modalità solo report](concept-conditional-access-report-only.md) consente di determinare l'effetto delle decisioni sui criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Criteri comuni di Accesso condizionaleConditional Access common policies](concept-conditional-access-policy-common.md)
+[Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
 
-[Determinare l'impatto utilizzando la modalità solo report di accesso condizionaleDetermine impact using Conditional Access report-only](howto-conditional-access-report-only.md)
+[Determinare l'effetto usando la modalità solo report di accesso condizionale](howto-conditional-access-report-only.md)
 
-[Simulare il comportamento di accesso con lo strumento Elementi di ricerca condizionali](troubleshoot-conditional-access-what-if.md)
+[Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)

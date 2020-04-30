@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81455363"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
@@ -29,14 +29,14 @@ Uno scenario comune tra i clienti di Azure di grandi dimensioni è la necessità
 * Tutto il traffico verso il server applicazioni deve passare attraverso un'appliance virtuale firewall. Questa appliance virtuale verrà usata per l'accesso al server back-end e l'accesso proveniente dalla rete locale tramite un gateway VPN.
 * Gli amministratori devono essere in grado di gestire le appliance virtuali firewall dai computer locali, con una terza appliance virtuale firewall usata esclusivamente per scopi di gestione.
 
-Si tratta di uno scenario di rete perimetrale standard (noto anche come rete perimetrale) con una rete perimetrale e una rete protetta. Tale scenario può essere creato in Azure usando i gruppi di sicurezza di rete, le appliance virtuali del firewall o una combinazione di entrambi. La tabella seguente mostra un confronto tra vantaggi e svantaggi di gruppi di sicurezza di rete e appliance virtuali firewall.
+Si tratta di uno scenario di rete perimetrale standard (noto anche come DMZ) con una rete perimetrale e una rete protetta. Questo scenario può essere costruito in Azure usando gruppi, appliance virtuali del firewall o una combinazione di entrambi. La tabella seguente mostra un confronto tra vantaggi e svantaggi di gruppi di sicurezza di rete e appliance virtuali firewall.
 
 |  | Vantaggi | Svantaggi |
 | --- | --- | --- |
-| NSG |Nessun costo. <br/>Integrato nel controllo degli accessi in base al ruolo di Azure. <br/>Le regole possono essere create nei modelli di Azure Resource Manager.Rules can be created in Azure Resource Manager templates. |La complessità può variare in ambienti più grandi. |
+| NSG |Nessun costo. <br/>Integrato nel controllo degli accessi in base al ruolo di Azure. <br/>In Azure Resource Manager modelli è possibile creare regole. |La complessità può variare in ambienti più grandi. |
 | Firewall |Controllo completo del piano dati. <br/>Gestione centrale con console firewall. |Costo dell'appliance firewall. <br/>Non integrato nel controllo degli accessi in base al ruolo di Azure. |
 
-La soluzione seguente usa le appliance virtuali del firewall per implementare uno scenario di rete perimetrale (DM)/rete protetta.
+La soluzione seguente usa appliance virtuali del firewall per implementare uno scenario di rete/protected perimetrale (DMZ).
 
 ## <a name="considerations"></a>Considerazioni
 È possibile distribuire l'ambiente illustrato in precedenza in Azure usando diverse funzionalità attualmente disponibili come indicato di seguito.
@@ -44,8 +44,8 @@ La soluzione seguente usa le appliance virtuali del firewall per implementare un
 * **Rete virtuale**. Una rete virtuale di Azure funziona in modo analogo a una rete locale e può essere segmentata in una o più subnet per l'isolamento del traffico e la separazione dei compiti.
 * **Appliance virtuale**. Numerosi partner offrono appliance virtuali in Azure Marketplace che possono essere usate per i tre firewall descritti in precedenza. 
 * **Route definite dall'utente**. Le tabelle di route possono contenere route definite dall'utente usate dalla rete di Azure per controllare il flusso dei pacchetti all'interno di una rete virtuale. Queste tabelle di route possono essere applicate alle subnet. Una delle funzionalità più recenti di Azure è la possibilità di applicare una tabella di route alla subnet del gateway, al fine di inoltrare tutto il traffico in ingresso sulla rete virtuale di Azure da una connessione ibrida verso un'appliance virtuale.
-* **Inoltro IP**. Per impostazione predefinita, il motore di rete Azure inoltra i pacchetti alle schede di interfaccia di rete (NIC) virtuale solo se l'indirizzo IP di destinazione dei pacchetti corrisponde all'indirizzo IP della scheda di interfaccia di rete. Se quindi una route definita dall'utente indica che un pacchetto dovrà essere inviato a una specifica appliance virtuale, il motore di rete di Azure rilascerà il pacchetto. Per far sì che il pacchetto venga inviato a una macchina virtuale, in questo caso un'appliance virtuale, che non è la destinazione effettiva del pacchetto è necessario abilitare l'inoltro IP per l'appliance virtuale.
-* **Gruppi di sicurezza di rete .** Nell'esempio seguente non vengono usati gruppi di sicurezza di rete, che possono essere tuttavia applicati alle subnet e/o alle schede di interfaccia di rete di questa soluzione per filtrare ulteriormente il traffico in ingresso e in uscita da tali subnet e schede di interfaccia di rete.
+* **Inoltri IP**. Per impostazione predefinita, il motore di rete Azure inoltra i pacchetti alle schede di interfaccia di rete (NIC) virtuale solo se l'indirizzo IP di destinazione dei pacchetti corrisponde all'indirizzo IP della scheda di interfaccia di rete. Se quindi una route definita dall'utente indica che un pacchetto dovrà essere inviato a una specifica appliance virtuale, il motore di rete di Azure rilascerà il pacchetto. Per far sì che il pacchetto venga inviato a una macchina virtuale, in questo caso un'appliance virtuale, che non è la destinazione effettiva del pacchetto è necessario abilitare l'inoltro IP per l'appliance virtuale.
+* **Gruppi di sicurezza di rete (gruppi)**. Nell'esempio seguente non vengono usati gruppi di sicurezza di rete, che possono essere tuttavia applicati alle subnet e/o alle schede di interfaccia di rete di questa soluzione per filtrare ulteriormente il traffico in ingresso e in uscita da tali subnet e schede di interfaccia di rete.
 
 ![IPv6 connectivity](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -65,7 +65,7 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
   * **azsn4**. Subnet di gestione usata esclusivamente per consentire l'accesso di gestione a tutte le appliance virtuali firewall. Questa subnet contiene solo una scheda di interfaccia di rete per ogni appliance virtuale firewall usata nella soluzione.
   * **GatewaySubnet**. Subnet di connessione ibrida di Azure necessaria per consentire a ExpressRoute e al gateway VPN di offrire la connessione tra le reti virtuali di Azure e altre reti. 
 * Sono disponibili 3 appliance virtuali firewall nella rete **azurevnet** . 
-  * **AF1**. Firewall esterno esposto a Internet pubblico con una risorsa di indirizzo IP pubblico in Azure. È necessario ottenere un modello dal Marketplace o direttamente dal fornitore dell'appliance per il provisioning di un'appliance virtuale con 3 schede di interfaccia di rete.
+  * **AZF1**. Firewall esterno esposto a Internet pubblico con una risorsa di indirizzo IP pubblico in Azure. È necessario ottenere un modello dal Marketplace o direttamente dal fornitore dell'appliance per il provisioning di un'appliance virtuale con 3 schede di interfaccia di rete.
   * **AZF2**. Firewall interno usato per gestire il traffico tra **azsn2** e **azsn3**. Anche questa è un'appliance virtuale con 3 schede di interfaccia di rete.
   * **AZF3**. Firewall di gestione accessibile agli amministratori dal centro dati locale e connesso a una subnet usata per la gestione di tutte le appliance firewall. I modelli per appliance virtuali con 2 schede di interfaccia di rete sono disponibili nel Marketplace oppure possono essere richiesti direttamente al fornitore dell'appliance.
 
@@ -166,5 +166,5 @@ Per distribuire lo scenario seguire questi passaggi generali.
 2. Se si intende distribuire una rete virtuale per simulare la rete locale, effettuare il provisioning delle risorse che fanno parte di **ONPREMRG**.
 3. Effettuare il provisioning delle risorse che fanno parte di **AZURERG**.
 4. Effettuare il provisioning del tunnel da **onpremvnet** ad **azurevnet**.
-5. Dopo aver eseguito il provisioning di tutte le risorse, accedere a **onpremvm2** ed eseguire il ping 10.0.3.101 per verificare la connettività tra **onpremsn2** e **azsn3**.
+5. Una volta eseguito il provisioning di tutte le risorse, accedere a **onpremvm2** e ping 10.0.3.101 per testare la connettività tra **onpremsn2** e **azsn3**.
 

@@ -1,53 +1,53 @@
 ---
-title: Monitorare le modifiche di delega nel tenant di gestioneMonitor delegation changes in your managing tenant
-description: Informazioni su come monitorare l'attività di delega dai tenant dei clienti al tenant di gestione.
+title: Monitorare le modifiche della delega nel tenant di gestione
+description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458812"
 ---
-# <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche di delega nel tenant di gestioneMonitor delegation changes in your managing tenant
+# <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
-In qualità di provider di servizi, è consigliabile tenere presente quando le sottoscrizioni dei clienti o i gruppi di risorse vengono delegati al tenant tramite la [gestione delle risorse delegate](../concepts/azure-delegated-resource-management.md)di Azure o quando vengono rimosse le risorse delegate in precedenza.
+Come provider di servizi, è opportuno tenere presente quando le sottoscrizioni dei clienti o i gruppi di risorse vengono delegati al tenant tramite la [gestione delle risorse](../concepts/azure-delegated-resource-management.md)delegate di Azure o quando le risorse delegate in precedenza vengono rimosse.
 
-Nel tenant di gestione, il [log attività](../../azure-monitor/platform/platform-logs-overview.md) di Azure tiene traccia dell'attività di delega a livello di tenant. Questa attività registrata include eventuali deleghe aggiunte o rimosse da tutti i tenant dei clienti.
+Nel tenant di gestione, il [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) tiene traccia dell'attività di delega a livello di tenant. Questa attività registrata include tutte le deleghe aggiunte o rimosse da tutti i tenant del cliente.
 
-In questo argomento vengono illustrate le autorizzazioni necessarie per monitorare l'attività di delega al tenant (in tutti i clienti) e le procedure consigliate per eseguire questa operazione. Include inoltre uno script di esempio che mostra un metodo per l'esecuzione di query e la creazione di report su questi dati.
+In questo argomento vengono illustrate le autorizzazioni necessarie per monitorare l'attività di delega al tenant (in tutti i clienti) e le procedure consigliate per eseguire questa operazione. Include anche uno script di esempio che mostra un metodo per l'esecuzione di query e la creazione di report su questi dati.
 
 > [!IMPORTANT]
-> Tutti questi passaggi devono essere eseguiti nella gestione tenant, anziché in qualsiasi tenant del cliente.
+> Tutti questi passaggi devono essere eseguiti nel tenant di gestione, anziché in tutti i tenant del cliente.
 
-## <a name="enable-access-to-tenant-level-data"></a>Abilitare l'accesso ai dati a livello di tenantEnable access to tenant-level data
+## <a name="enable-access-to-tenant-level-data"></a>Abilitare l'accesso ai dati a livello di tenant
 
-Per accedere ai dati del log attività a livello di tenant, è necessario assegnare a un account il ruolo predefinito Lettore di [monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) nell'ambito radice (/). Questa assegnazione deve essere eseguita da un utente con il ruolo di amministratore globale con accesso con privilegi elevati aggiuntivo.
+Per accedere ai dati del log attività a livello di tenant, a un account deve essere assegnato il ruolo predefinito [lettore monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) nell'ambito radice (/). Questa assegnazione deve essere eseguita da un utente che dispone del ruolo di amministratore globale con accesso con privilegi elevati.
 
 ### <a name="elevate-access-for-a-global-administrator-account"></a>Elevare l'accesso per un account amministratore globale
 
-Per assegnare un ruolo nell'ambito radice (/), è necessario disporre del ruolo amministratore globale con accesso con privilegi elevati. Questo accesso con privilegi elevati deve essere aggiunto solo quando è necessario effettuare l'assegnazione di ruolo, quindi rimuovere al termine.
+Per assegnare un ruolo all'ambito radice (/), sarà necessario disporre del ruolo di amministratore globale con accesso con privilegi elevati. Questo accesso con privilegi elevati deve essere aggiunto solo quando è necessario eseguire l'assegnazione di ruolo, quindi rimuovere al termine dell'operazione.
 
-Per istruzioni dettagliate sull'aggiunta e la rimozione dell'elevazione dei privilegi, vedere [Elevare l'accesso per gestire tutte le sottoscrizioni e i gruppi](../../role-based-access-control/elevate-access-global-admin.md)di gestione di Azure.For detailed instructions on adding and removing elevation, see Elevate access to manage all Azure subscriptions and management groups .
+Per istruzioni dettagliate sull'aggiunta e la rimozione dell'elevazione, vedere [elevare l'accesso per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
-Dopo aver elevare l'accesso, l'account disterrà il ruolo di amministratore di accesso utente in Azure nell'ambito radice. Questa assegnazione di ruolo consente di visualizzare tutte le risorse e assegnare l'accesso in qualsiasi sottoscrizione o gruppo di gestione nella directory, nonché di effettuare assegnazioni di ruolo nell'ambito radice. 
+Dopo aver innalzato di livello l'accesso, l'account avrà il ruolo di amministratore accesso utenti in Azure nell'ambito radice. Questa assegnazione di ruolo consente di visualizzare tutte le risorse e di assegnare l'accesso in qualsiasi sottoscrizione o gruppo di gestione nella directory, nonché di effettuare assegnazioni di ruolo nell'ambito radice. 
 
-### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Creare un nuovo account dell'entità servizio per accedere ai dati a livello di tenantCreate a new service principal account to access tenant-level data
+### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Creare un nuovo account dell'entità servizio per accedere ai dati a livello di tenant
 
-Dopo aver evlarmente elevato l'accesso, è possibile assegnare le autorizzazioni appropriate a un account in modo che possa eseguire query sui dati del log attività a livello di tenant. Questo account dovrà disporre del ruolo predefinito Lettore di [monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) assegnato nell'ambito radice del tenant di gestione.
+Una volta che l'accesso è stato elevato, è possibile assegnare le autorizzazioni appropriate a un account in modo che sia in grado di eseguire query sui dati del log attività a livello di tenant. Questo account deve avere il ruolo predefinito [lettore di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) assegnato all'ambito radice del tenant di gestione.
 
 > [!IMPORTANT]
-> La concessione di un'assegnazione di ruolo nell'ambito radice significa che le stesse autorizzazioni verranno applicate a ogni risorsa nel tenant.
+> La concessione di un'assegnazione di ruolo nell'ambito radice significa che le stesse autorizzazioni verranno applicate a tutte le risorse nel tenant.
 
-Poiché si tratta di un ampio livello di accesso, è consigliabile assegnare questo ruolo a un account dell'entità servizio, anziché a un singolo utente o a un gruppo. Inoltre, è consigliabile attenersi alle seguenti procedure consigliate:
+Poiché si tratta di un ampio livello di accesso, è consigliabile assegnare questo ruolo a un account dell'entità servizio, anziché a un singolo utente o a un gruppo. È inoltre consigliabile eseguire le procedure consigliate seguenti:
 
-- [Creare un nuovo account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md) da utilizzare solo per questa funzione, anziché assegnare questo ruolo a un'entità servizio esistente usata per altre automazioni.
-- Assicurarsi che questa entità servizio non abbia accesso alle risorse delegate dei clienti.
-- [Usare un certificato per autenticarlo](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e archiviarlo in modo sicuro in Archiviazione delle chiavi di Azure.Use a certificate to authenticate [and store it securely in Azure Key Vault](../../key-vault/general/best-practices.md).
-- Limitare gli utenti che hanno accesso per agire per conto dell'entità servizio.
+- [Creare un nuovo account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md) da usare solo per questa funzione, invece di assegnare questo ruolo a un'entità servizio esistente usata per l'automazione.
+- Assicurarsi che questa entità servizio non disponga dell'accesso alle risorse dei clienti Delegate.
+- [Usare un certificato per autenticare](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e [archiviarlo in modo sicuro in Azure Key Vault](../../key-vault/general/best-practices.md).
+- Limitare gli utenti che dispongono dell'accesso per agire per conto dell'entità servizio.
 
-Utilizzare uno dei metodi seguenti per eseguire le assegnazioni dell'ambito radice.
+Usare uno dei metodi seguenti per effettuare le assegnazioni dell'ambito radice.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -67,26 +67,26 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Rimuovere l'accesso con privilegi elevati per l'account amministratore globale
 
-Dopo aver creato l'account dell'entità servizio e aver assegnato il ruolo Lettore di monitoraggio nell'ambito radice, assicurarsi di [rimuovere l'accesso con privilegi elevati](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) per l'account amministratore globale, poiché questo livello di accesso non sarà più necessario.
+Dopo aver creato l'account dell'entità servizio e assegnato il ruolo di lettore di monitoraggio nell'ambito radice, assicurarsi di [rimuovere l'accesso con privilegi elevati](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) per l'account amministratore globale, in quanto questo livello di accesso non sarà più necessario.
 
-## <a name="query-the-activity-log"></a>Interrogare il log attività
+## <a name="query-the-activity-log"></a>Eseguire una query sul log attività
 
-Dopo aver creato un nuovo account dell'entità servizio con accesso Lettore monitoraggio all'ambito radice del tenant di gestione, è possibile usarlo per eseguire query e creare report sull'attività di delega nel tenant. 
+Dopo aver creato un nuovo account dell'entità servizio con il monitoraggio dell'accesso del lettore all'ambito radice del tenant di gestione, è possibile usarlo per eseguire query e creare report sulle attività di delega nel tenant. 
 
-Questo script di [Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) può essere usato per eseguire query sugli ultimi 1 giorno di attività e report su eventuali deleghe aggiunte o rimosse (o tentativi non riusciti). Esegue una query sui dati del [log attività tenant,](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) quindi crea i valori seguenti per creare report sulle deleghe aggiunte o rimosse:
+[Questo script di Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) può essere usato per eseguire una query dell'ultimo giorno di attività e per i report sulle deleghe aggiunte o rimosse o sui tentativi non riusciti. Esegue una query sui dati del [log attività del tenant](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) , quindi costruisce i valori seguenti per generare report sulle deleghe aggiunte o rimosse:
 
-- **DelegatedResourceId:** ID della sottoscrizione delegata o del gruppo di risorse
-- **CustomerTenantId**: L'ID tenant del cliente
-- **CustomerSubscriptionId:** ID sottoscrizione delegata o contenente il gruppo di risorse delegato
-- **CustomerDelegationStatus:** modifica dello stato della risorsa delegata (operazione non riuscita o non riuscita)
-- **EventTimeStamp**: la data e l'ora in cui è stata registrata la modifica della delega
+- **DelegatedResourceId**: ID della sottoscrizione o del gruppo di risorse delegato
+- **CustomerTenantId**: ID tenant del cliente
+- **CustomerSubscriptionId**: ID sottoscrizione delegato o che contiene il gruppo di risorse delegato
+- **CustomerDelegationStatus**: modifica dello stato per la risorsa delegata (SUCCEEDED o Failed)
+- **EventTimeStamp**: data e ora in cui è stata registrata la modifica della delega
 
-Quando si esegue una query su questi dati, tenere presente quanto segue:When querying this data, keep in mind:
+Quando si eseguono query su questi dati, tenere presente quanto segue:
 
-- Se in una singola distribuzione vengono delegati più gruppi di risorse, verranno restituite voci separate per ogni gruppo di risorse.
-- Le modifiche apportate a una delega precedente, ad esempio l'aggiornamento della struttura delle autorizzazioni, verranno registrate come delega aggiunta.
-- Come indicato in precedenza, un account deve disporre del ruolo predefinito Lettore di monitoraggio nell'ambito radice (/) per accedere a questi dati a livello di tenant.
-- È possibile utilizzare questi dati nei propri flussi di lavoro e report. Ad esempio, è possibile usare l'API agente di raccolta [dati HTTP (anteprima pubblica)](../../azure-monitor/platform/data-collector-api.md) per registrare i dati in Monitoraggio di Azure da un client DELL'API REST, quindi usare i [gruppi](../../azure-monitor/platform/action-groups.md) di azioni per creare notifiche o avvisi.
+- Se più gruppi di risorse vengono delegati in una singola distribuzione, verranno restituite voci separate per ogni gruppo di risorse.
+- Le modifiche apportate a una delega precedente, ad esempio l'aggiornamento della struttura delle autorizzazioni, verranno registrate come delega aggiuntiva.
+- Come indicato in precedenza, un account deve avere il ruolo predefinito lettore monitoraggio nell'ambito radice (/) per accedere ai dati a livello di tenant.
+- È possibile usare questi dati nei flussi di lavoro e nella creazione di report personalizzati. Ad esempio, è possibile usare l' [API dell'agente di raccolta dati http (anteprima pubblica)](../../azure-monitor/platform/data-collector-api.md) per registrare i dati in monitoraggio di Azure da un client dell'API REST, quindi usare i [gruppi di azioni](../../azure-monitor/platform/action-groups.md) per creare notifiche o avvisi.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come eseguire l'onboarding dei clienti alla gestione delle risorse delegate di [Azure.](../concepts/azure-delegated-resource-management.md)
-- Informazioni su [Monitoraggio di Azure](../../azure-monitor/index.yml) e sul log attività di [Azure.](../../azure-monitor/platform/platform-logs-overview.md)
+- Informazioni su come caricare i clienti nella [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md).
+- Informazioni su [monitoraggio di Azure](../../azure-monitor/index.yml) e [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).

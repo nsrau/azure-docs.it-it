@@ -1,6 +1,6 @@
 ---
-title: Configurare la propria chiave per la crittografia dei dati del bus di servizio di Azure inattiviConfigure your own key for encrypting Azure Service Bus data at rest
-description: Questo articolo fornisce informazioni su come configurare una chiave personalizzata per crittografare il rest dei dati del bus di servizio di Azure.This article provides information on how to configure your own key for encrypting Azure Service Bus data rest.
+title: Configurare la propria chiave per la crittografia dei dati del bus di servizio di Azure inattivi
+description: Questo articolo fornisce informazioni su come configurare una chiave personalizzata per la crittografia di REST di dati del bus di servizio di Azure.
 services: service-bus-messaging
 ms.service: service-bus
 documentationcenter: ''
@@ -9,61 +9,61 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: aschhab
 ms.openlocfilehash: 82a5fbef8c307d60d82b147f04a2a687b8b0433e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459067"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurare le chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi tramite il portale di AzureConfigure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal
-Azure Service Bus Premium offre la crittografia dei dati inattivi con Azure Storage Service Encryption (Azure SSE). Service Bus Premium si basa su Archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con Archiviazione di Azure vengono crittografati usando chiavi gestite da Microsoft.Service Bus Premium relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
+# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure
+Azure Service Bus Premium offre la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (SSE di Azure). Il bus di servizio Premium si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati con le chiavi gestite da Microsoft. 
 
 ## <a name="overview"></a>Panoramica
-Il bus di servizio di Azure supporta ora l'opzione di crittografare i dati inattivi con chiavi gestite da Microsoft o con chiavi gestite dal cliente (Bring Your Own Key - BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per crittografare il bus di servizio di Azure inattivi.
+Il bus di servizio di Azure ora supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente (Bring Your Own Key-BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia del bus di servizio di Azure.
 
-L'abilitazione della funzionalità BYOK è un processo di configurazione una tantera nello spazio dei nomi.
+L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
 
 > [!NOTE]
-> Sono presenti alcuni avvertimenti per la chiave gestita del cliente per la crittografia lato servizio. 
->   * Questa funzionalità è supportata dal livello Premium del bus di servizio di [Azure.This feature](service-bus-premium-messaging.md) is supported by Azure Service Bus Premium tier. Non può essere abilitato per gli spazi dei nomi del bus di servizio di livello standard.
->   * La crittografia può essere abilitata solo per spazi dei nomi nuovi o vuoti. Se lo spazio dei nomi contiene dati, l'operazione di crittografia avrà esito negativo.
+> Ci sono alcune avvertenze per la chiave gestita dal cliente per la crittografia lato servizio. 
+>   * Questa funzionalità è supportata dal livello [Premium del bus di servizio di Azure](service-bus-premium-messaging.md) . Non può essere abilitata per gli spazi dei nomi del bus di servizio di livello standard.
+>   * La crittografia può essere abilitata solo per gli spazi dei nomi nuovi o vuoti. Se lo spazio dei nomi contiene dati, l'operazione di crittografia avrà esito negativo.
 
-È possibile usare l'insieme di credenziali delle chiavi di Azure per gestire le chiavi e controllare l'utilizzo delle chiavi. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API dell'insieme di credenziali delle chiavi di Azure per generare le chiavi. Per altre informazioni su Archiviazione delle chiavi di Azure, vedere [Che cos'è l'insieme di](../key-vault/general/overview.md) credenziali delle chiavi di Azure.For more information about Azure Key Vault, see What is Azure Key Vault?
+È possibile usare Azure Key Vault per gestire le chiavi e controllare l'utilizzo della chiave. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](../key-vault/general/overview.md)
 
-Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente tramite il portale di Azure.This article shows how to configure a key vault with customer-managed keys by using the Azure portal. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: Impostare e recuperare un segreto da Un](../key-vault/secrets/quick-create-portal.md)insieme di credenziali delle chiavi di Azure usando il portale di Azure.To learn how to create a key vault using the Azure portal, see Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal.
+Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando il portale di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> L'uso di chiavi gestite dal cliente con il bus di servizio di Azure richiede che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Essi sono: **Eliminazione soft** e **non eliminare**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure.These properties are enabled by default when you create a new key vault in the Azure portal. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
+> L'uso delle chiavi gestite dal cliente con il bus di servizio di Azure richiede che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono: **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
 
-## <a name="enable-customer-managed-keys"></a>Abilitare le chiavi gestite dal clienteEnable customer-managed keys
-Per abilitare le chiavi gestite dal cliente nel portale di Azure, eseguire la procedura seguente:To enable customer-managed keys in the Azure portal, follow these steps:
+## <a name="enable-customer-managed-keys"></a>Abilita chiavi gestite dal cliente
+Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla procedura seguente:
 
-1. Passare allo spazio dei nomi Service Bus Premium.Navigate to your Service Bus Premium namespace.
-2. Nella pagina **Impostazioni** dello spazio dei nomi del bus di servizio selezionare **Crittografia**.
-3. Selezionare la crittografia della **chiave gestita dal cliente inattivi** come illustrato nell'immagine seguente.
+1. Passare allo spazio dei nomi premium del bus di servizio.
+2. Nella pagina **Impostazioni** dello spazio dei nomi del bus di servizio selezionare **crittografia**.
+3. Selezionare la **crittografia della chiave gestita dal cliente** , come illustrato nella figura seguente.
 
     ![Abilita chiave gestita dal cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 
-## <a name="set-up-a-key-vault-with-keys"></a>Configurare un insieme di credenziali delle chiavi con chiaviSet up a key vault with keys
+## <a name="set-up-a-key-vault-with-keys"></a>Configurare un insieme di credenziali delle chiavi con chiavi
 
-Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la chiave gestita del cliente allo spazio dei nomi del bus di servizio di Azure.After you enable customer-managed keys, you need to associate the customer managed key with your Azure Service Bus namespace. Il bus di servizio supporta solo l'insieme di credenziali delle chiavi di Azure.Service Bus supports only Azure Key Vault. Se si abilita l'opzione Crittografia con chiave gestita dal cliente nella sezione precedente, è necessario che la chiave importi nell'insieme di credenziali delle chiavi di Azure.If you enable the **Encryption with customer-managed key option** in the previous section, you need to have the key imported into Azure Key Vault. Inoltre, le chiavi devono avere **Soft Delete** e Do **Not Purge** configurato per la chiave. Queste impostazioni possono essere configurate tramite [PowerShell](../key-vault/general/soft-delete-powershell.md) o [l'interfaccia della riga di comando.](../key-vault/general/soft-delete-cli.md#enabling-purge-protection)
+Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la chiave gestita dal cliente allo spazio dei nomi del bus di servizio di Azure. Il bus di servizio supporta solo Azure Key Vault. Se si Abilita l'opzione **crittografia con chiave gestita dal cliente** nella sezione precedente, è necessario importare la chiave in Azure Key Vault. Inoltre, le chiavi devono essere **eliminate temporaneamente** e **non vengono rieliminate** configurate per la chiave. Queste impostazioni possono essere configurate tramite [PowerShell](../key-vault/general/soft-delete-powershell.md) o l' [interfaccia](../key-vault/general/soft-delete-cli.md#enabling-purge-protection)della riga di comando.
 
-1. Per creare un nuovo insieme di credenziali delle chiavi, seguire la [guida introduttiva](../key-vault/general/overview.md)dell'insieme di credenziali delle chiavi di Azure . Per ulteriori informazioni sull'importazione di chiavi esistenti, vedere [Informazioni su chiavi, segreti e certificati](../key-vault/about-keys-secrets-and-certificates.md).
-1. Per attivare la protezione di eliminazione temporanea ed eliminazione durante la creazione di un insieme di credenziali, utilizzare il comando [az keyvault create.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+1. Per creare un nuovo insieme di credenziali delle chiavi, seguire la [Guida introduttiva](../key-vault/general/overview.md)Azure Key Vault. Per ulteriori informazioni sull'importazione di chiavi esistenti, vedere [informazioni su chiavi, segreti e certificati](../key-vault/about-keys-secrets-and-certificates.md).
+1. Per attivare l'eliminazione temporanea e ripulire la protezione durante la creazione di un insieme di credenziali, usare il comando [AZ per Vault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) .
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. Per aggiungere la protezione dall'eliminazione a un vault esistente (che ha già attivato l'eliminazione temporanea), utilizzare il comando [az keyvault update.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update)
+1. Per aggiungere la protezione di ripulitura a un insieme di credenziali esistente (in cui è già abilitata l'eliminazione temporanea), usare il comando [AZ di Vault Update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) .
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
     ```
-1. Creare le chiavi attenendosi alla seguente procedura:
+1. Creare le chiavi attenendosi alla procedura seguente:
     1. Per creare una nuova chiave, selezionare **Genera/Importa** nel menu **Chiavi** in **Impostazioni**.
         
-        ![Selezionare il pulsante Genera/Importa](./media/configure-customer-managed-key/select-generate-import.png)
+        ![Pulsante Seleziona genera/importa](./media/configure-customer-managed-key/select-generate-import.png)
 
     1. Impostare **Opzioni** su **Genera** e assegnare un nome alla chiave.
 
@@ -71,53 +71,53 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
 
     1. È ora possibile selezionare questa chiave da associare allo spazio dei nomi del bus di servizio per la crittografia dall'elenco a discesa. 
 
-        ![Seleziona chiave dall'insieme di credenziali delle chiavi](./media/configure-customer-managed-key/select-key-from-key-vault.png)
+        ![Selezionare la chiave da Key Vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
         > [!NOTE]
-        > Per la ridondanza, è possibile aggiungere fino a 3 chiavi. Nel caso in cui una delle chiavi sia scaduta o non sia accessibile, le altre chiavi verranno utilizzate per la crittografia.
+        > Per la ridondanza, è possibile aggiungere fino a tre chiavi. Se una delle chiavi è scaduta o non è accessibile, verranno usate le altre chiavi per la crittografia.
         
-    1. Immettere i dettagli per la chiave e fare clic su **Seleziona**. Ciò consentirà la crittografia dei dati inattivi nello spazio dei nomi con una chiave gestita dal cliente. 
+    1. Inserire i dettagli per la chiave e fare clic su **Seleziona**. In questo modo verrà abilitata la crittografia dei dati inattivi nello spazio dei nomi con una chiave gestita dal cliente. 
 
 
     > [!IMPORTANT]
-    > Se si desidera utilizzare la chiave gestita dal cliente insieme al ripristino di emergenza di Geo, 
+    > Se si sta cercando di usare la chiave gestita dal cliente insieme al ripristino di emergenza geografico, vedere le 
     >
-    > Per abilitare la crittografia inlineata con la chiave gestita dal cliente, vengono impostati criteri di [accesso](../key-vault/general/secure-your-key-vault.md) per l'identità gestita del bus di servizio nel KeyVault di Azure specificato. Ciò garantisce l'accesso controllato a Azure KeyVault dallo spazio dei nomi del bus di servizio di Azure.This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+    > Per abilitare la crittografia dei file inattivi con la chiave gestita dal cliente, viene configurato un [criterio di accesso](../key-vault/general/secure-your-key-vault.md) per l'identità gestita del bus di servizio nell'insieme di credenziali delle chiavi di Azure specificato. Ciò garantisce l'accesso controllato all'insieme di credenziali delle credenziali di Azure dallo spazio dei nomi del bus di servizio di Azure.
     >
-    > A causa di questo:
+    > A causa di questa operazione:
     > 
-    >   * Se il ripristino di [emergenza geografico](service-bus-geo-dr.md) è già abilitato per lo spazio dei nomi del bus di servizio e si desidera abilitare la chiave gestita dal cliente, 
-    >     * Interrompere l'associazione
-    >     * [Impostare i criteri](../key-vault/general/managed-identity.md) di accesso per l'identità gestita per gli spazi dei nomi primario e secondario nell'insieme di credenziali delle chiavi.
+    >   * Se il [ripristino di emergenza geografico](service-bus-geo-dr.md) è già abilitato per lo spazio dei nomi del bus di servizio e si sta cercando di abilitare la chiave gestita dal cliente, 
+    >     * Interrompi l'associazione
+    >     * [Configurare i criteri di accesso](../key-vault/general/managed-identity.md) per l'identità gestita per gli spazi dei nomi primario e secondario nell'insieme di credenziali delle chiavi.
     >     * Configurare la crittografia nello spazio dei nomi primario.
-    >     * Riassociare gli spazi dei nomi primario e secondario.
+    >     * Associare nuovamente gli spazi dei nomi primari e secondari.
     > 
-    >   * Se si desidera abilitare Geo-DR in uno spazio dei nomi del bus di servizio in cui la chiave gestita dal cliente è già impostata,
-    >     * [Impostare i criteri](../key-vault/general/managed-identity.md) di accesso per l'identità gestita per lo spazio dei nomi secondario nell'insieme di credenziali delle chiavi.
-    >     * Associare gli spazi dei nomi primario e secondario.
+    >   * Se si vuole abilitare il ripristino di emergenza geografico in uno spazio dei nomi del bus di servizio in cui è già configurata la chiave gestita dal cliente,
+    >     * [Configurare i criteri di accesso](../key-vault/general/managed-identity.md) per l'identità gestita per lo spazio dei nomi secondario nell'insieme di credenziali delle chiavi.
+    >     * Associare gli spazi dei nomi primari e secondari.
 
 
 ## <a name="rotate-your-encryption-keys"></a>Ruotare le chiavi di crittografia
 
-È possibile ruotare la chiave nell'insieme di credenziali delle chiavi usando il meccanismo di rotazione degli insiemi di credenziali delle chiavi di Azure.You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Per ulteriori informazioni, consultate [Impostare la rotazione e](../key-vault/secrets/key-rotation-log-monitoring.md)il controllo delle chiavi. Le date di attivazione e scadenza possono anche essere impostate per automatizzare la rotazione delle chiavi. Il servizio Bus di servizio rileverà le nuove versioni chiave e inizierà a utilizzarle automaticamente.
+È possibile ruotare la chiave nell'insieme di credenziali delle chiavi usando il meccanismo di rotazione di Azure Key Vault. Per altre informazioni, vedere [configurare la rotazione e il controllo delle chiavi](../key-vault/secrets/key-rotation-log-monitoring.md). È anche possibile impostare le date di attivazione e di scadenza per automatizzare la rotazione delle chiavi. Il servizio del bus di servizio rileverà le nuove versioni chiave e inizierà a utilizzarle automaticamente.
 
-## <a name="revoke-access-to-keys"></a>Revoca dell'accesso alle chiavi
+## <a name="revoke-access-to-keys"></a>Revoca l'accesso alle chiavi
 
-La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati dal bus di servizio. Tuttavia, non è possibile accedere ai dati dallo spazio dei nomi del bus di servizio. È possibile revocare la chiave di crittografia tramite i criteri di accesso o eliminando la chiave. Ulteriori informazioni sui criteri di accesso e sulla protezione dell'insieme di credenziali delle chiavi da [Accesso sicuro a un insieme di credenziali delle chiavi](../key-vault/general/secure-your-key-vault.md).
+La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati dal bus di servizio. Tuttavia, non è possibile accedere ai dati dallo spazio dei nomi del bus di servizio. Per revocare la chiave di crittografia, è possibile usare i criteri di accesso oppure eliminare la chiave. Altre informazioni sui criteri di accesso e sulla protezione dell'insieme di credenziali delle chiavi dall' [accesso sicuro a un insieme di](../key-vault/general/secure-your-key-vault.md)credenziali delle chiavi.
 
-Una volta revocata la chiave di crittografia, il servizio bus di servizio nello spazio dei nomi crittografato diventerà inutilizzabile. Se l'accesso alla chiave è abilitato o la chiave eliminata viene ripristinata, il servizio bus di servizio selezionerà la chiave in modo da poter accedere ai dati dallo spazio dei nomi del bus di servizio crittografato.
+Una volta revocata la chiave di crittografia, il servizio del bus di servizio sullo spazio dei nomi crittografato diventerà inutilizzabile. Se l'accesso alla chiave è abilitato o la chiave eliminata viene ripristinata, il servizio del bus di servizio sceglierà la chiave in modo che sia possibile accedere ai dati dallo spazio dei nomi del bus di servizio crittografato.
 
-## <a name="use-resource-manager-template-to-enable-encryption"></a>Usare il modello di Resource Manager per abilitare la crittografiaUse Resource Manager template to enable encryption
-In questa sezione viene illustrato come eseguire le attività seguenti usando i modelli di **Azure Resource Manager.** 
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Usare Gestione risorse modello per abilitare la crittografia
+In questa sezione viene illustrato come eseguire le attività seguenti utilizzando i **modelli di Azure Resource Manager**. 
 
-1. Creare uno spazio dei nomi del bus di servizio **premium** con **un'identità**del servizio gestito.
-2. Creare un **insieme di credenziali** delle chiavi e concedere all'identità del servizio l'accesso all'insieme di credenziali delle chiavi. 
+1. Creare uno spazio dei nomi del bus di servizio **Premium** con un' **identità del servizio gestito**.
+2. Creare un insieme di credenziali delle **chiavi** e concedere all'identità del servizio l'accesso all'insieme di credenziali delle chiavi. 
 3. Aggiornare lo spazio dei nomi del bus di servizio con le informazioni sull'insieme di credenziali delle chiavi (chiave/valore). 
 
 
-### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Creare uno spazio dei nomi del bus di servizio premium con identità del servizio gestitoCreate a premium Service Bus namespace with managed service identity
-Questa sezione illustra come creare uno spazio dei nomi del bus di servizio di Azure con identità del servizio gestito usando un modello di Azure Resource Manager e PowerShell.This section shows you how to create an Azure Service Bus namespace with managed service identity by using an Azure Resource Manager template and PowerShell. 
+### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Creare uno spazio dei nomi del bus di servizio Premium con identità del servizio gestito
+Questa sezione illustra come creare uno spazio dei nomi del bus di servizio di Azure con l'identità del servizio gestito usando un modello di Azure Resource Manager e PowerShell. 
 
-1. Creare un modello di Azure Resource Manager per creare uno spazio dei nomi del livello Premium del bus di servizio con un'identità del servizio gestito. Denominare il file: **CreateServiceBusPremiumNamespace.json**: 
+1. Creare un modello di Azure Resource Manager per creare uno spazio dei nomi del livello Premium del bus di servizio con un'identità del servizio gestito. Denominare il file: **CreateServiceBusPremiumNamespace. JSON**: 
 
     ```json
     {
@@ -165,12 +165,12 @@ Questa sezione illustra come creare uno spazio dei nomi del bus di servizio di A
        }
     }
     ```
-2. Creare un file di parametri di modello denominato: **CreateServiceBusPremiumNamespaceParams.json**. 
+2. Creare un file di parametri di modello denominato: **CreateServiceBusPremiumNamespaceParams. JSON**. 
 
     > [!NOTE]
     > Sostituire i valori seguenti: 
-    > - `<ServiceBusNamespaceName>`- Nome dello spazio dei nomi del bus di servizio- Name of your Service Bus namespace
-    > - `<Location>`- Percorso dello spazio dei nomi del bus di servizio- Location of your Service Bus namespace
+    > - `<ServiceBusNamespaceName>`: Nome dello spazio dei nomi del bus di servizio
+    > - `<Location>`-Percorso dello spazio dei nomi del bus di servizio
 
     ```json
     {
@@ -186,7 +186,7 @@ Questa sezione illustra come creare uno spazio dei nomi del bus di servizio di A
        }
     }
     ```
-3. Eseguire il comando di PowerShell seguente per distribuire il modello per creare uno spazio dei nomi del bus di servizio premium. Quindi, recuperare l'ID dello spazio dei nomi del bus di servizio per utilizzarlo in un secondo momento. Sostituire `{MyRG}` con il nome del gruppo di risorse prima di eseguire il comando.  
+3. Eseguire il comando di PowerShell seguente per distribuire il modello per creare uno spazio dei nomi del bus di servizio Premium. Recuperare quindi l'ID dello spazio dei nomi del bus di servizio per usarlo in un secondo momento. Sostituire `{MyRG}` con il nome del gruppo di risorse prima di eseguire il comando.  
 
     ```powershell
     $outputs = New-AzResourceGroupDeployment -Name CreateServiceBusPremiumNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateServiceBusPremiumNamespace.json -TemplateParameterFile ./CreateServiceBusPremiumNamespaceParams.json
@@ -194,9 +194,9 @@ Questa sezione illustra come creare uno spazio dei nomi del bus di servizio di A
     $ServiceBusNamespaceId = $outputs.Outputs["serviceBusNamespaceId"].value
     ```
  
-### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>Concedere l'accesso all'identità dello spazio dei nomi del bus di servizio all'insieme di credenziali delle chiaviGrant Service Bus namespace identity identity
+### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>Concedere all'identità dello spazio dei nomi del bus di servizio l'accesso a Key Vault
 
-1. Eseguire il comando seguente per creare un insieme di credenziali delle chiavi con **la protezione di eliminazione** e **l'eliminazione temporanea** abilitata. 
+1. Eseguire il comando seguente per creare un insieme di credenziali delle chiavi con la **protezione di ripulitura** e l' **eliminazione** temporanea abilitata. 
 
     ```powershell
     New-AzureRmKeyVault -Name "{keyVaultName}" -ResourceGroupName {RGName}  -Location "{location}" -EnableSoftDelete -EnablePurgeProtection    
@@ -204,12 +204,12 @@ Questa sezione illustra come creare uno spazio dei nomi del bus di servizio di A
     
     OPPURE
     
-    Eseguire il comando riportato di seguito per aggiornare un **insieme di credenziali delle chiavi esistente.** Specificare i valori per i nomi dei gruppi di risorse e dell'insieme di credenziali delle chiavi prima di eseguire il comando. 
+    Eseguire il comando seguente per aggiornare un insieme di credenziali delle **chiavi esistente**. Specificare i valori per i nomi dei gruppi di risorse e delle chiavi prima di eseguire il comando. 
     
     ```powershell
     ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
     ``` 
-2. Impostare i criteri di accesso dell'insieme di credenziali delle chiavi in modo che l'identità gestita dello spazio dei nomi del bus di servizio possa accedere al valore della chiave nell'insieme di credenziali delle chiavi. Utilizzare l'ID dello spazio dei nomi del bus di servizio della sezione precedente. 
+2. Impostare i criteri di accesso di Key Vault in modo che l'identità gestita dello spazio dei nomi del bus di servizio possa accedere al valore della chiave nell'insieme di credenziali delle chiavi. Usare l'ID dello spazio dei nomi del bus di servizio della sezione precedente. 
 
     ```powershell
     $identity = (Get-AzureRmResource -ResourceId $ServiceBusNamespaceId -ExpandProperties).Identity
@@ -217,15 +217,15 @@ Questa sezione illustra come creare uno spazio dei nomi del bus di servizio di A
     Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
     ```
 
-### <a name="encrypt-data-in-service-bus-namespace-with-customer-managed-key-from-key-vault"></a>Crittografare i dati nello spazio dei nomi del bus di servizio con la chiave gestita dal cliente dall'insieme di credenziali delle chiaviEncrypt data in Service Bus namespace with customer-managed key from key vault
-Finora sono stati effettuati i seguenti passaggi: 
+### <a name="encrypt-data-in-service-bus-namespace-with-customer-managed-key-from-key-vault"></a>Crittografare i dati nello spazio dei nomi del bus di servizio con la chiave gestita dal cliente da Key Vault
+Fino a questo punto sono stati eseguiti i passaggi seguenti: 
 
-1. Creato uno spazio dei nomi premium con un'identità gestita.
-2. Creare un insieme di credenziali delle chiavi e concedere all'identità gestita l'accesso all'insieme di credenziali delle chiavi. 
+1. È stato creato uno spazio dei nomi Premium con un'identità gestita.
+2. Creare un insieme di credenziali delle chiavi e concedere all'identità gestita l'accesso a Key Vault. 
 
 In questo passaggio verrà aggiornato lo spazio dei nomi del bus di servizio con le informazioni sull'insieme di credenziali delle chiavi. 
 
-1. Creare un file JSON denominato UpdateServiceBusNamespaceWithEncryption.json con il contenuto seguente:Create a JSON file named **UpdateServiceBusNamespaceWithEncryption.json** with the following content: 
+1. Creare un file JSON denominato **UpdateServiceBusNamespaceWithEncryption. JSON** con il contenuto seguente: 
 
     ```json
     {
@@ -288,14 +288,14 @@ In questo passaggio verrà aggiornato lo spazio dei nomi del bus di servizio con
     }
     ``` 
 
-2. Creare un file di parametri di modello: **UpdateServiceBusNamespaceWithEncryptionParams.json**.
+2. Creare un file di parametri di modello: **UpdateServiceBusNamespaceWithEncryptionParams. JSON**.
 
     > [!NOTE]
     > Sostituire i valori seguenti: 
-    > - `<ServiceBusNamespaceName>`- Nome dello spazio dei nomi del bus di servizio- Name of your Service Bus namespace
-    > - `<Location>`- Percorso dello spazio dei nomi del bus di servizio- Location of your Service Bus namespace
-    > - `<KeyVaultName>`- Nome dell'insieme di credenziali delle chiavi
-    > - `<KeyName>`- Nome della chiave nell'insieme di credenziali delle chiavi- Name of the key in the key vault  
+    > - `<ServiceBusNamespaceName>`: Nome dello spazio dei nomi del bus di servizio
+    > - `<Location>`-Percorso dello spazio dei nomi del bus di servizio
+    > - `<KeyVaultName>`: Nome dell'insieme di credenziali delle chiavi
+    > - `<KeyName>`: Nome della chiave nell'insieme di credenziali delle chiavi  
 
     ```json
     {
@@ -317,7 +317,7 @@ In questo passaggio verrà aggiornato lo spazio dei nomi del bus di servizio con
        }
     }
     ```             
-3. Eseguire il comando PowerShell seguente per distribuire il modello di Resource Manager.Run the following PowerShell command to deploy the Resource Manager template. Sostituire `{MyRG}` con il nome del gruppo di risorse prima di eseguire il comando. 
+3. Eseguire il comando di PowerShell seguente per distribuire il modello di Gestione risorse. Sostituire `{MyRG}` con il nome del gruppo di risorse prima di eseguire il comando. 
 
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
@@ -327,6 +327,6 @@ In questo passaggio verrà aggiornato lo spazio dei nomi del bus di servizio con
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 - [Panoramica del bus di servizio](service-bus-messaging-overview.md)
-- [Panoramica dell'Insieme di chiaviKey Vault overview](../key-vault/general/overview.md)
+- [Panoramica di Key Vault](../key-vault/general/overview.md)
 
 

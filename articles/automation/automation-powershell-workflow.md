@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1b275239c19584bc11472711a32972aa3ebea1ab
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457536"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Informazioni sui concetti chiave del flusso di lavoro di PowerShell per i runbook di Automazione
@@ -21,11 +21,11 @@ Un flusso di lavoro è una sequenza di passaggi programmati e connessi che conse
 Per informazioni dettagliate sugli argomenti inclusi in questo articolo, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per istruzioni sull'installazione del modulo Az nel ruolo di lavoro ibrido per runbook, vedere [Installare il modulo di Azure PowerShell.For](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)Az module installation instructions on your Hybrid Runbook Worker, see Install the Azure PowerShell Module . Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.](automation-update-azure-modules.md)
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](automation-update-azure-modules.md).
 
 ## <a name="basic-structure-of-a-workflow"></a>Struttura di base di un flusso di lavoro
 
-Il primo passaggio per convertire uno script di PowerShell in `Workflow` un flusso di lavoro di PowerShell consiste nell'associarlo alla parola chiave.  Un flusso di `Workflow` lavoro inizia con la parola chiave seguita dal corpo dello script racchiuso tra parentesi graffe. Il nome del flusso `Workflow` di lavoro segue la parola chiave come illustrato nella sintassi seguente:
+Il primo passaggio per la conversione di uno script di PowerShell in un flusso di lavoro di PowerShell `Workflow` è la relativa inclusione con la parola chiave.  Un flusso di lavoro inizia `Workflow` con la parola chiave seguita dal corpo dello script racchiuso tra parentesi graffe. Il nome del flusso di lavoro segue `Workflow` la parola chiave, come illustrato nella sintassi seguente:
 
 ```powershell
 Workflow Test-Workflow
@@ -34,9 +34,9 @@ Workflow Test-Workflow
 }
 ```
 
-Il nome del flusso di lavoro deve corrispondere al nome del Runbook di Automazione. Se il runbook viene importato, il nome del file deve corrispondere al nome del flusso di lavoro e deve terminare con *.ps1*.
+Il nome del flusso di lavoro deve corrispondere al nome del Runbook di Automazione. Se il Runbook viene importato, il nome del file deve corrispondere al nome del flusso di lavoro e deve terminare con *. ps1*.
 
-Per aggiungere parametri al flusso `Param` di lavoro, utilizzare la parola chiave come in uno script.
+Per aggiungere parametri al flusso di lavoro, usare `Param` la parola chiave esattamente come in uno script.
 
 ## <a name="code-changes"></a>Modifiche al codice
 
@@ -102,7 +102,7 @@ Workflow Stop-MyService
 
 ## <a name="inlinescript"></a>InlineScript
 
-L'attività`InlineScript` è utile quando è necessario eseguire uno o più comandi come script di PowerShell tradizionale anziché flusso di lavoro di PowerShell.The activity is useful when you need to run one or more commands as traditional PowerShell script instead of PowerShell workflow.  Mentre i comandi di un flusso di lavoro vengono inviati a Windows Workflow Foundation per l'elaborazione, i comandi in un blocco InlineScript vengono elaborati da Windows PowerShell.
+L'`InlineScript` attività è utile quando è necessario eseguire uno o più comandi come script di PowerShell tradizionale anziché come flusso di lavoro PowerShell.  Mentre i comandi di un flusso di lavoro vengono inviati a Windows Workflow Foundation per l'elaborazione, i comandi in un blocco InlineScript vengono elaborati da Windows PowerShell.
 
 InlineScript usa la sintassi indicata di seguito.
 
@@ -157,7 +157,7 @@ Per altre informazioni sull'uso di InlineScript, vedere [Esecuzione dei comandi 
 
 Uno dei vantaggi offerti dai flussi di lavoro di Windows PowerShell consiste nella possibilità di eseguire un set di comandi in parallelo anziché in sequenza, come accade invece con uno script tipico.
 
-È possibile `Parallel` utilizzare la parola chiave per creare un blocco di script con più comandi che vengono eseguiti contemporaneamente. Viene usata la sintassi indicata di seguito. In questo caso Activity1 e Activity2 iniziano nello stesso momento. Activity3 viene avviata solo dopo il completamento di Activity1 e Activity2.
+È possibile usare la `Parallel` parola chiave per creare un blocco di script con più comandi eseguiti simultaneamente. Viene usata la sintassi indicata di seguito. In questo caso Activity1 e Activity2 iniziano nello stesso momento. Activity3 viene avviata solo dopo il completamento di Activity1 e Activity2.
 
 ```powershell
 Parallel
@@ -225,7 +225,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Checkpoint
 
-Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro.  È possibile impostare un checkpoint `Checkpoint-Workflow` in un flusso di lavoro con l'attività. Automazione di Azure dispone di una funzionalità denominata [condivisione equa,](automation-runbook-execution.md#fair-share)in cui qualsiasi runbook eseguito per 3 ore viene scaricato per consentire l'esecuzione di altri runbook. Infine, il runbook scaricato verrà ricaricato e, quando lo è, riprenderà l'esecuzione dall'ultimo checkpoint ripreso nel runbook. Per garantire il completamento del runbook, è necessario aggiungere checkpoint a intervalli eseguiti per meno di 3 ore. Se durante ogni esecuzione viene aggiunto un nuovo checkpoint e se il runbook viene rimosso dopo 3 ore a causa di un errore, il runbook verrà ripreso a tempo indeterminato.
+Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro.  È possibile impostare un checkpoint in un flusso di lavoro `Checkpoint-Workflow` con l'attività. Automazione di Azure dispone di una funzionalità denominata [condivisione equa](automation-runbook-execution.md#fair-share), in cui qualsiasi Runbook eseguito per 3 ore viene scaricato per consentire l'esecuzione di altre manuali operativi. Infine, il Runbook scaricato verrà ricaricato e, in tal caso, riprenderà l'esecuzione dall'ultimo checkpoint effettuato in Runbook. Per garantire che il Runbook venga completato, è necessario aggiungere Checkpoint a intervalli che vengono eseguiti per meno di 3 ore. Se durante ogni esecuzione viene aggiunto un nuovo checkpoint e se il Runbook viene eliminato dopo 3 ore a causa di un errore, il Runbook verrà ripreso per un periodo illimitato.
 
 Nel codice di esempio seguente si verifica un'eccezione dopo Activity2 con la conseguente sospensione del Runbook. Quando il flusso di lavoro viene nuovamente avviato, inizierà con l'esecuzione di Activity2, poiché questa attività si trovava immediatamente dopo l'ultimo checkpoint impostato.
 
@@ -257,7 +257,7 @@ Workflow Copy-Files
 }
 ```
 
-Poiché le credenziali del nome utente non vengono rese persistenti dopo la chiamata all'attività [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) o dopo `Suspend-Workflow` l'ultimo checkpoint, è necessario impostare le credenziali su null e quindi recuperarle nuovamente dall'archivio di asset dopo la chiamata o il checkpoint.  In caso contrario, venga visualizzato il seguente messaggio di errore:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+Poiché le credenziali del nome utente non vengono rese permanente dopo la chiamata dell'attività [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) o dopo l'ultimo checkpoint, è necessario impostare le credenziali su null e quindi recuperarle di nuovo dall'archivio `Suspend-Workflow` risorse dopo che è stato chiamato il metodo o il checkpoint.  In caso contrario, è possibile che venga visualizzato il messaggio di errore seguente:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Il codice seguente mostra come gestire questa situazione nei runbook del flusso di lavoro di PowerShell.
 
@@ -286,7 +286,7 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> Per i runbook di `Add-AzAccount` PowerShell non grafici e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile utilizzare questi cmdlet [oppure aggiornare i moduli](automation-update-azure-modules.md) nell'account di automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli anche se è stato appena creato un nuovo account di automazione.
+> Per manuali operativi di PowerShell non grafici, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). È possibile usare questi cmdlet oppure è possibile [aggiornare i moduli](automation-update-azure-modules.md) nell'account di Automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli, anche se è stato appena creato un nuovo account di Automazione.
 
 
 Ciò non è necessario se si esegue l'autenticazione usando un account RunAs configurato con un'entità servizio.
@@ -295,5 +295,5 @@ Per altre informazioni sui checkpoint, vedere l'articolo relativo all' [aggiunta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere Il mio primo runbook del flusso di lavoro di PowerShellTo get started with [PowerShell workflow runbooks, see My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+* Per iniziare a usare manuali operativi del flusso di lavoro PowerShell, vedere [il primo Runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 

@@ -1,15 +1,15 @@
 ---
-title: Usare l'insieme di credenziali delle chiavi durante la distribuzione dell'app gestitaUse Key Vault when deploying managed app
+title: Usare Key Vault quando si distribuisce l'app gestita
 description: Illustra come usare i segreti di accesso in Azure Key Vault durante la distribuzione delle applicazioni gestite
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458284"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segreto di accesso di Key Vault quando si distribuiscono le Applicazioni gestite di Azure
@@ -22,7 +22,7 @@ Questo articolo descrive come configurare Key Vault per lavorare con le applicaz
 
 1. Nel portale selezionare Key Vault.
 
-1. Selezionare **Criteri di accesso**.   
+1. Selezionare **criteri di accesso**.   
 
    ![Selezionare i criteri di accesso](./media/key-vault-access/select-access-policies.png)
 
@@ -36,7 +36,7 @@ Questo articolo descrive come configurare Key Vault per lavorare con le applicaz
 
 ## <a name="add-service-as-contributor"></a>Aggiungere il servizio come collaboratore
 
-1. Selezionare **Controllo di accesso (IAM)**.
+1. Selezionare **controllo di accesso (IAM)**.
 
    ![Selezionare il controllo di accesso](./media/key-vault-access/access-control.png)
 
@@ -52,7 +52,7 @@ Questo articolo descrive come configurare Key Vault per lavorare con le applicaz
 
 ## <a name="reference-key-vault-secret"></a>Fare riferimento al segreto di Key Vault
 
-Per passare un segreto da un insieme di credenziali delle chiavi a un modello nell'applicazione gestita, è necessario utilizzare un [modello collegato o nidificato](../templates/linked-templates.md) e fare riferimento all'insieme di credenziali delle chiavi nei parametri del modello collegato o nidificato. Fornire l'ID risorsa di Key Vault e il nome del segreto.
+Per passare un segreto da un Key Vault a un modello nell'applicazione gestita, è necessario usare un [modello collegato o annidato](../templates/linked-templates.md) e fare riferimento al Key Vault nei parametri per il modello collegato o annidato. Fornire l'ID risorsa di Key Vault e il nome del segreto.
 
 ```json
 {

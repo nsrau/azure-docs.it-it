@@ -1,5 +1,5 @@
 ---
-title: Configurare l'insieme di credenziali delle chiavi di Azure per le macchine virtuali LinuxSet up Azure Key Vault for Linux VMs
+title: Configurare Azure Key Vault per le macchine virtuali Linux
 description: Come configurare Key Vault per l'uso con una macchina virtuale di Azure Resource Manager con l'interfaccia della riga di comando di Azure.
 author: mimckitt
 manager: vashan
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: mimckitt
 ms.openlocfilehash: 9ae486ee522982b116af58cfb7cbfbca66a7ef4a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458744"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Come configurare Key Vault per le macchine virtuali con l'interfaccia della riga di comando di Azure

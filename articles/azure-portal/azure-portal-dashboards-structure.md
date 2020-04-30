@@ -1,6 +1,6 @@
 ---
 title: Struttura dei dashboard di Azure | Microsoft Docs
-description: Esaminare la struttura JSON di un dashboard di Azure usando un dashboard di esempio. Include un riferimento alle proprietà della risorsa.
+description: Esaminare la struttura JSON di un dashboard di Azure usando un dashboard di esempio. Include il riferimento alle proprietà delle risorse.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459220"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struttura dei dashboard di Azure
@@ -292,12 +292,12 @@ Poiché i [dashboard di Azure condivisi sono risorse](https://docs.microsoft.com
 
 Scomponendo le sezioni rilevanti del codice JSON,  le proprietà di primo livello __id__, __name__, __type__, __location__ e __tags__ vengono condivise tra tutti i tipi di risorsa di Azure. Di conseguenza, non riguardano molto il contenuto del dashboard.
 
-### <a name="the-id-property"></a>La proprietà ID
+### <a name="the-id-property"></a>Proprietà ID
 
-ID risorsa di Azure, in base alle [convenzioni di denominazione delle risorse di Azure.](/azure/architecture/best-practices/resource-naming) Quando il portale crea un dashboard, in genere sceglie un ID sotto forma di guid, ma è possibile usare qualsiasi nome valido quando lo si crea a livello di codice. 
+ID risorsa di Azure, soggetto alle [convenzioni di denominazione delle risorse di Azure](/azure/architecture/best-practices/resource-naming). Quando il portale crea un dashboard, in genere sceglie un ID sotto forma di GUID, ma è possibile usare qualsiasi nome valido quando vengono creati a livello di codice. 
 
 ### <a name="the-name-property"></a>Proprietà name
-Il nome è il segmento dell'ID risorsa che non include la sottoscrizione, il tipo di risorsa o le informazioni sul gruppo di risorse. Essenzialmente, è l'ultimo segmento dell'ID risorsa.
+Il nome è il segmento dell'ID risorsa che non include le informazioni relative alla sottoscrizione, al tipo di risorsa o al gruppo di risorse. Essenzialmente, si tratta dell'ultimo segmento dell'ID risorsa.
 
 ### <a name="the-type-property"></a>Proprietà type
 Tutti i dashboard sono di tipo __Microsoft.Portal/dashboards__.
@@ -317,7 +317,7 @@ L'oggetto delle proprietà contiene due proprietà, __lenses__ e __metadata__. L
 La proprietà __lenses__ contiene il dashboard. Notare che l'oggetto lenses in questo esempio contiene un'unica proprietà chiamata "0". Le sezioni sono un concetto di raggruppamento attualmente non implementato nei dashboard. Al momento, tutti i dashboard includono questa unica proprietà nell'oggetto delle sezioni, chiamata appunto "0".
 
 ### <a name="the-lens-object"></a>Oggetto lenses
-L'oggetto sotto la proprietà "0" contiene due proprietà, __order__ e __parts__.  Nella versione corrente dei dashboard __order__ è sempre 0. La proprietà __parts__ contiene un oggetto che definisce le singole parti (definite anche riquadri) nel dashboard.
+L'oggetto sotto la proprietà "0" contiene due proprietà, __order__ e __parts__.  Nella versione corrente dei dashboard __order__ è sempre 0. La proprietà __parts__ contiene un oggetto che definisce le singole parti, dette anche riquadri, nel dashboard.
 
 L'oggetto __parts__ contiene una proprietà per ogni parte, in cui il nome della proprietà è un numero. Questo numero non è significativo. 
 
@@ -343,7 +343,7 @@ Ogni parte contiene una proprietà metadata, mentre un oggetto ha solo una propr
 Ogni tipo di parte ha una configurazione propria. Le proprietà di configurazione possibili si chiamano __inputs__, __settings__ e __asset__. 
 
 ### <a name="the-inputs-object"></a>Oggetto inputs
-L'oggetto inputs contiene in genere informazioni che associano un riquadro a un'istanza della risorsa.  La parte della macchina virtuale nel dashboard di esempio contiene un singolo input che usa l'ID risorsa di Azure per esprimere l'associazione.  Questo formato di ID risorsa è coerente in tutte le risorse di Azure.This resource ID format is consistent across all Azure resources.
+L'oggetto inputs contiene in genere informazioni che associano un riquadro a un'istanza della risorsa.  La parte della macchina virtuale nel dashboard di esempio contiene un singolo input che usa l'ID risorsa di Azure per esprimere l'associazione.  Questo formato dell'ID risorsa è coerente in tutte le risorse di Azure.
 
 ```json
 "inputs":

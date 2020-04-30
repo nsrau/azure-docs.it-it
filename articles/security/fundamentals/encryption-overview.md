@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81454646"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
@@ -85,7 +85,7 @@ Per altre informazioni sulla crittografia lato client con Key Vault e per inizia
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Crittografia dei dati inattivi con il database SQL di Azure
 
-[Il database SQL di Azure](../../sql-database/sql-database-technical-overview.md) è un servizio di database relazionale generico in Azure che supporta strutture quali dati relazionali, JSON, spaziali e XML. Il database SQL supporta sia la crittografia lato server tramite la funzionalità Transparent Data Encryption (TDE) sia la crittografia lato client tramite la funzionalità Always Encrypted.
+Il [database SQL di Azure](../../sql-database/sql-database-technical-overview.md) è un servizio di database relazionale per utilizzo generico in Azure che supporta strutture quali dati relazionali, JSON, spaziali e XML. Il database SQL supporta sia la crittografia lato server tramite la funzionalità Transparent Data Encryption (TDE) sia la crittografia lato client tramite la funzionalità Always Encrypted.
 
 #### <a name="transparent-data-encryption"></a>Transparent Data Encryption
 
@@ -105,7 +105,7 @@ La crittografia CLE include funzioni predefinite che consentono di crittografare
 
 ### <a name="cosmos-db-database-encryption"></a>Crittografia del database Cosmos DB
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) è il database multimodello distribuito a livello globale da Microsoft.Azure Cosmos DB is Microsoft's Global ly distributed, multi-model database. I dati utente archiviati in Cosmos DB nella memoria non volatile (unità SSD) vengono crittografati per impostazione predefinita. Non sono presenti controlli per attivare o disattivare la crittografia. La crittografia dei dati inattivi viene implementata attraverso una serie di tecnologie di protezione, inclusi i sistemi di archiviazione protetta delle chiavi, le reti crittografate e le API di crittografia. Le chiavi di crittografia vengono gestite da Microsoft e ruotate in base alle linee guida interne di Microsoft.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) è il database multimodello distribuito a livello globale di Microsoft. I dati utente archiviati in Cosmos DB nella memoria non volatile (unità SSD) vengono crittografati per impostazione predefinita. Non sono presenti controlli per attivare o disattivare la crittografia. La crittografia dei dati inattivi viene implementata attraverso una serie di tecnologie di protezione, inclusi i sistemi di archiviazione protetta delle chiavi, le reti crittografate e le API di crittografia. Le chiavi di crittografia vengono gestite da Microsoft e ruotate in base alle linee guida interne di Microsoft.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Crittografia di dati inattivi in Data Lake
 
@@ -181,9 +181,9 @@ Per altre informazioni sulle connessioni VPN da punto a sito per reti virtuali d
 
 È possibile configurare una connessione VPN da sito a sito a una rete virtuale usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
-[Creare una connessione da sito a sito nel portale di AzureCreate a site-to-site connection in the Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Creare una connessione da sito a sito nel portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
 [Creare una connessione da sito a sito in PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 

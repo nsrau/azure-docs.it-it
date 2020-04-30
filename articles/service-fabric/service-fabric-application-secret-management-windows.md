@@ -1,21 +1,21 @@
 ---
-title: Configurare un certificato di crittografia nei cluster di WindowsSet up an encryption cert on Windows clusters
+title: Configurare un certificato di crittografia nei cluster Windows
 description: Informazioni su come configurare un certificato di crittografia e crittografare segreti in cluster Windows.
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: d563b338169ab26649b42c73f5fb7ed2fe8c0312
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460189"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configurare un certificato di crittografia e crittografare segreti in cluster Windows
 Questo articolo illustra come configurare un certificato di crittografia e usarlo per crittografare segreti in cluster Windows. Per i cluster Linux, vedere [Configurare un certificato di crittografia e crittografare segreti in cluster Linux.][secret-management-linux-specific-link]
 
-[Azure Key Vault][key-vault-get-started] viene usato come percorso di archiviazione sicuro per i certificati e come un modo per ottenere i certificati installati nei cluster Service Fabric in Azure. Se non si esegue la distribuzione in Azure, non è necessario usare l'insieme di credenziali delle chiavi per gestire i segreti nelle applicazioni di Service Fabric. Tuttavia, *l'utilizzo* di segreti in un'applicazione è indipendente dalla piattaforma cloud per consentire la distribuzione delle applicazioni in un cluster ospitato ovunque. 
+[Azure Key Vault][key-vault-get-started] viene usato come percorso di archiviazione sicuro per i certificati e come un modo per ottenere i certificati installati nei cluster Service Fabric in Azure. Se non si esegue la distribuzione in Azure, non è necessario usare l'insieme di credenziali delle chiavi per gestire i segreti nelle applicazioni di Service Fabric. Tuttavia, l' *uso* di segreti in un'applicazione è indipendente dalla piattaforma cloud per consentire la distribuzione delle applicazioni in un cluster ospitato in un punto qualsiasi. 
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Ottenere un certificato di crittografia dei dati
 Il certificato di crittografia dei dati viene usato esclusivamente per la crittografia e decrittografia dei [parametri][parameters-link] del file Settings.xml di un servizio e delle [variabili di ambiente][environment-variables-link] del file ServiceManifest.xml di un servizio. Non viene usato per l'autenticazione o per la firma di testo crittografato. Il certificato deve soddisfare i requisiti seguenti:

@@ -1,7 +1,7 @@
 ---
 title: Scrivere funzioni R avanzate
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Informazioni su come scrivere una funzione R per il calcolo statistico avanzato nel database SQL di Azure usando Machine Learning Services (anteprima).
+description: Informazioni su come scrivere una funzione R per un calcolo statistico avanzato nel database SQL di Azure usando Machine Learning Services (anteprima).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,15 +15,15 @@ manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: ba78267b1c6dc8f0e1bd25bb8ecdb1d8d344d03e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81453115"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Scrivere le funzioni R avanzate nel Database SQL di Azure con Machine Learning Services (anteprima)
 
-In questo articolo viene descritto come incorporare R funzioni matematiche e di utilità in una stored procedure SQL. Le funzioni statistiche avanzate complesse da implementare in T-SQL possono essere eseguite in R con una singola riga di codice.
+Questo articolo descrive come incorporare funzioni matematiche e di utilità R in un stored procedure SQL. Le funzioni statistiche avanzate complesse da implementare in T-SQL possono essere eseguite in R con una singola riga di codice.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -31,13 +31,13 @@ In questo articolo viene descritto come incorporare R funzioni matematiche e di 
 
 - Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/) prima di iniziare.
 
-- Per eseguire il codice di esempio in questi esercizi, è innanzitutto necessario avere il database SQL di [Azure con Machine Learning Services (con R)](sql-database-machine-learning-services-overview.md) abilitato.
+- Per eseguire il codice di esempio in questi esercizi, è necessario prima di tutto usare il [database SQL di Azure con Machine Learning Services (con R)](sql-database-machine-learning-services-overview.md) abilitato.
 
 - Assicurarsi di avere installato la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). È possibile eseguire gli script R tramite altri strumenti di gestione di database o di query, ma in questo Avvio rapido si userà SQL Server Management Studio.
 
 ## <a name="create-a-stored-procedure-to-generate-random-numbers"></a>Creare una stored procedure per generare numeri casuali
 
-Per semplicità, usare il `stats` pacchetto R installato e caricato per impostazione predefinita con il database SQL di Azure usando Machine Learning Services (anteprima). Il pacchetto contiene centinaia di funzioni per `rnorm` attività statistiche comuni, tra cui la funzione. Questa funzione genera un numero specificato di numeri casuali utilizzando la distribuzione normale, data una deviazione standard e mezzi.
+Per semplicità, usare il pacchetto R `stats` installato e caricato per impostazione predefinita con il database SQL di Azure usando Machine Learning Services (anteprima). Il pacchetto contiene centinaia di funzioni per le attività statistiche comuni, tra cui `rnorm` la funzione. Questa funzione genera un numero specificato di numeri casuali utilizzando la distribuzione normale, in base a una deviazione standard e a medie.
 
 Ad esempio, il codice R seguente restituisce 100 numeri, in una media di 50, in base alla deviazione standard 3.
 
@@ -45,7 +45,7 @@ Ad esempio, il codice R seguente restituisce 100 numeri, in una media di 50, in 
 as.data.frame(rnorm(100, mean = 50, sd = 3));
 ```
 
-Per chiamare questa riga di R `sp_execute_external_script` da T-SQL, eseguire e aggiungere la funzione R nel parametro di script R, in questo modo:To call this line of R from T-SQL, run and add the R function in the R script parameter, like this:
+Per chiamare questa riga di R da T-SQL, eseguire `sp_execute_external_script` e aggiungere la funzione r nel parametro di script r, come segue:
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -58,7 +58,7 @@ WITH RESULT SETS(([Density] FLOAT NOT NULL));
 
 Si vuole semplificare la generazione di un set diverso di numeri casuali?
 
-Questo è facile quando combinato con SQL. Si definisce una stored procedure che ottiene gli argomenti dall'utente e quindi si passano tali argomenti nello script R come variabili.
+Questa operazione è facile se combinata con SQL. Si definisce una stored procedure che ottiene gli argomenti dall'utente e quindi si passano tali argomenti nello script R come variabili.
 
 ```sql
 CREATE PROCEDURE MyRNorm (
@@ -95,7 +95,7 @@ EXECUTE MyRNorm @param1 = 100
 
 ## <a name="use-r-utility-functions-for-troubleshooting"></a>Usare funzioni di utilità R per la risoluzione dei problemi
 
-Il `utils` pacchetto, installato per impostazione predefinita, fornisce una varietà di funzioni di utilità per l'analisi dell'ambiente R corrente. Queste funzioni possono essere utili se si trovano discrepanze nel modo in cui il codice R esegue in SQL e in ambienti esterni. Ad esempio, è possibile usare la funzione R `memory.limit()` per ottenere memoria per l'ambiente R corrente.
+Il `utils` pacchetto, installato per impostazione predefinita, offre un'ampia gamma di funzioni di utilità per l'analisi dell'ambiente R corrente. Queste funzioni possono essere utili se si individuano discrepanze nel modo in cui il codice R viene eseguito in SQL e in ambienti esterni. Ad esempio, è possibile usare la funzione R `memory.limit()` per ottenere memoria per l'ambiente R corrente.
 
 Poiché il pacchetto `utils` viene installato, ma non viene caricato per impostazione predefinita, prima di tutto è necessario usare la funzione `library()` per caricarlo.
 
@@ -111,4 +111,4 @@ WITH RESULT SETS(([Col1] INT NOT NULL));
 ```
 
 > [!TIP]
-> Molti utenti amano utilizzare le funzioni di `system.time` temporizzazione del sistema in R, ad esempio e `proc.time`, per acquisire il tempo utilizzato dai processi R e analizzare i problemi di prestazioni.
+> Molti utenti vogliono usare le funzioni di temporizzazione del sistema in R, `system.time` ad `proc.time`esempio e, per acquisire il tempo usato dai processi r e analizzare i problemi di prestazioni.

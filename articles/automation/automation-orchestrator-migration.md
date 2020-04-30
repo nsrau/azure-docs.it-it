@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: c7df6e31cd021fc61129131f9bd02acc7b96e2ad
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457553"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrazione da Orchestrator ad Automazione di Azure (Beta)
@@ -29,7 +29,7 @@ Di seguito è illustrato il processo di base per la conversione di runbook di Or
 7. Configurare un [ruolo di lavoro ibrido per runbook](#hybrid-runbook-worker) nel data center locale per eseguire i runbook convertiti che accedono alle risorse locali.
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per istruzioni sull'installazione del modulo Az nel ruolo di lavoro ibrido per runbook, vedere [Installare il modulo di Azure PowerShell.For](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)Az module installation instructions on your Hybrid Runbook Worker, see Install the Azure PowerShell Module . Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.](automation-update-azure-modules.md)
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](automation-update-azure-modules.md).
 
 ## <a name="service-management-automation"></a>Service Management Automation
 
@@ -73,7 +73,7 @@ Le versioni aggiornate degli Integration Pack basati su OIT che possono essere c
 
 Runbook Converter converte i runbook di Orchestrator in [runbook grafici](automation-runbook-types.md#graphical-runbooks) che possono essere importati in Automazione di Azure.  
 
-Runbook Converter viene implementato come modulo di `ConvertFrom-SCORunbook` PowerShell con un cmdlet denominato che esegue la conversione.  Quando si installa lo strumento, verrà creato un collegamento a una sessione di PowerShell che carica il cmdlet.   
+Il convertitore Runbook viene implementato come modulo di PowerShell con un cmdlet `ConvertFrom-SCORunbook` denominato che esegue la conversione.  Quando si installa lo strumento, verrà creato un collegamento a una sessione di PowerShell che carica il cmdlet.   
 
 Di seguito è illustrato il processo di base per convertire un runbook di Orchestrator e importarlo in Automazione di Azure.  Le sezioni seguenti offrono altre informazioni dettagliate sull'uso dello strumento con runbook convertiti.
 
@@ -103,7 +103,7 @@ Il comando dell'esempio seguente converte i runbook in un file di esportazione d
 ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
 ```
 
-### <a name="log-files"></a>File di log
+### <a name="log-files"></a>File di registro
 
 Runbook Converter crea i file di log seguenti nello stesso percorso del runbook convertito.  Se i file esistono già, verranno sovrascritti con le informazioni dell'ultima conversione.
 
@@ -122,11 +122,11 @@ Per esportare un runbook da Orchestrator, fare clic con il pulsante destro del m
 
 Runbook Converter converte ogni attività del runbook di Orchestrator in un'attività corrispondente in Automazione di Azure.  Per le attività che non possono essere convertite, viene creata un'attività segnaposto nel runbook con un testo di avviso.  Dopo aver importato il runbook convertito in Automazione di Azure, è necessario sostituire queste attività, se presenti, con attività valide che eseguono la funzionalità necessaria.
 
-Le eventuali attività di Orchestrator nel [modulo delle attività standard](#standard-activities-module) verranno convertite.  Tuttavia, vi sono alcune attività standard di Orchestrator che non sono in questo modulo e che non vengono convertite.  Ad esempio, non ha un equivalente di Automazione di Azure poiché l'evento è specifico di Orchestrator.For example, `Send Platform Event` has no Azure Automation equivalent since the event is specific to Orchestrator.
+Le eventuali attività di Orchestrator nel [modulo delle attività standard](#standard-activities-module) verranno convertite.  Tuttavia, vi sono alcune attività standard di Orchestrator che non sono in questo modulo e che non vengono convertite.  Ad esempio, `Send Platform Event` non ha un equivalente di automazione di Azure perché l'evento è specifico dell'agente di orchestrazione.
 
 [Attività di monitoraggio](https://technet.microsoft.com/library/hh403827.aspx) non vengono convertite, in quanto non hanno un equivalente in Automazione di Azure.  L'eccezione sono le attività di monitoraggio negli [Integration Pack convertiti](#integration-pack-converter) , che verranno convertite in attività segnaposto.
 
-Qualsiasi attività da un pacchetto di [integrazione convertito](#integration-pack-converter) verrà convertita `modules` se si fornisce il percorso del modulo di integrazione con il parametro . Per gli Integration Pack di System Center, è possibile usare i [moduli di integrazione di System Center Orchestrator](#system-center-orchestrator-integration-modules).
+Eventuali attività da un [Integration Pack convertito](#integration-pack-converter) verranno convertite se si specifica il percorso del modulo di integrazione con il `modules` parametro. Per gli Integration Pack di System Center, è possibile usare i [moduli di integrazione di System Center Orchestrator](#system-center-orchestrator-integration-modules).
 
 ### <a name="orchestrator-resources"></a>Risorse di Orchestrator
 
@@ -136,13 +136,13 @@ Ad esempio, un runbook potrebbe usare una variabile per popolare un determinato 
 
 ### <a name="input-parameters"></a>Parametri di input
 
-I runbook in Orchestrator `Initialize Data` accettano i parametri di input con l'attività.  Se il runbook convertito include questa attività, viene creato un [parametro di input](automation-graphical-authoring-intro.md#runbook-input-and-output) nel runbook di Automazione di Azure per ogni parametro nell'attività.  Viene creata un'attività di [controllo dello script del flusso di lavoro](automation-graphical-authoring-intro.md#activities) nel runbook convertito, che recupera e restituisce tutti i parametri.  Eventuali attività del runbook che usano un parametro di input fanno riferimento all'output di questa attività.
+Manuali operativi nell'agente di orchestrazione accettano i `Initialize Data` parametri di input con l'attività.  Se il runbook convertito include questa attività, viene creato un [parametro di input](automation-graphical-authoring-intro.md#runbook-input-and-output) nel runbook di Automazione di Azure per ogni parametro nell'attività.  Viene creata un'attività di [controllo dello script del flusso di lavoro](automation-graphical-authoring-intro.md#activities) nel runbook convertito, che recupera e restituisce tutti i parametri.  Eventuali attività del runbook che usano un parametro di input fanno riferimento all'output di questa attività.
 
 Il motivo per cui viene usata questa strategia è riprodurre meglio la funzionalità nel runbook di Orchestrator.  Le attività nei nuovi runbook grafici devono fare riferimento direttamente ai parametri di input usando un'origine dati di input del runbook.
 
 ### <a name="invoke-runbook-activity"></a>Richiamare l'attività del runbook
 
-I runbook in Orchestrator avviano altri runbook con l'attività. `Invoke Runbook` Se il runbook da convertire `Wait for completion` include questa attività e l'opzione è impostata, nel runbook convertito viene creata un'attività del runbook.  Se `Wait for completion` l'opzione non è impostata, viene creata un'attività Script flusso di lavoro che utilizza [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) per avviare il runbook. Dopo aver importato il runbook convertito in Automazione di Azure, è necessario modificare questa attività con le informazioni specificate nell'attività.
+Manuali operativi nell'agente di orchestrazione avviano `Invoke Runbook` altri manuali operativi con l'attività. Se il Runbook convertito include questa attività e l' `Wait for completion` opzione è impostata, viene creata un'attività Runbook nel runbook convertito.  Se l' `Wait for completion` opzione non è impostata, viene creata un'attività script del flusso di lavoro che usa [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) per avviare il Runbook. Dopo aver importato il runbook convertito in Automazione di Azure, è necessario modificare questa attività con le informazioni specificate nell'attività.
 
 ## <a name="related-articles"></a>Articoli correlati
 
