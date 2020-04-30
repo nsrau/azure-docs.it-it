@@ -13,10 +13,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 24567461ee8a87fc9dbd1c5fb4eba5e34d458f7b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82097762"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: acquisire un token
@@ -217,7 +217,7 @@ Osservazioni:
 
 La classe definisce le costanti seguenti:
 
-- ``SelectAccount``impone al servizio STS di presentare la finestra di dialogo di selezione dell'account che contiene gli account per i quali l'utente dispone di una sessione. Questa opzione è utile quando gli sviluppatori di applicazioni desiderano consentire agli utenti di scegliere tra identità diverse. Questa opzione consente a MSAL di ``prompt=select_account`` inviare al provider di identità. Questa opzione è l'impostazione predefinita. Consente di fornire la migliore esperienza possibile in base alle informazioni disponibili, ad esempio l'account e la presenza di una sessione per l'utente. Non modificarla a meno che non si disponga di un buon motivo per eseguire questa operazione.
+- ``SelectAccount``impone al servizio STS di presentare la finestra di dialogo di selezione dell'account che contiene gli account per i quali l'utente dispone di una sessione. Questa opzione è utile quando gli sviluppatori di applicazioni desiderano consentire agli utenti di scegliere tra identità diverse. Questa opzione consente a MSAL di ``prompt=select_account`` inviare al provider di identità. Questa opzione corrisponde all'impostazione predefinita. Consente di fornire la migliore esperienza possibile in base alle informazioni disponibili, ad esempio l'account e la presenza di una sessione per l'utente. Non modificarla a meno che non si disponga di un buon motivo per eseguire questa operazione.
 - ``Consent``consente allo sviluppatore di applicazioni di forzare la richiesta di consenso da parte dell'utente, anche se è stato concesso il consenso in precedenza. In questo caso, MSAL Invia `prompt=consent` al provider di identità. Questa opzione può essere usata in alcune applicazioni incentrate sulla sicurezza, in cui la governance dell'organizzazione richiede che l'utente venga visualizzato con la finestra di dialogo di consenso ogni volta che viene usata l'applicazione.
 - ``ForceLogin``consente allo sviluppatore di applicazioni di chiedere all'utente le credenziali del servizio, anche se il prompt utente potrebbe non essere necessario. Questa opzione può essere utile per consentire all'utente di accedere di nuovo se l'acquisizione di un token ha esito negativo. In questo caso, MSAL Invia `prompt=login` al provider di identità. A volte viene usato nelle applicazioni con sicurezza in cui la governance dell'organizzazione richiede che l'utente esegua di nuovo l'accesso ogni volta che accede a parti specifiche di un'applicazione.
 - ``Never``(solo per .NET 4,5 e WinRT) non richiede l'intervento dell'utente, ma tenta di usare il cookie archiviato nella visualizzazione Web nascosta incorporata. Per altre informazioni, vedere visualizzazioni Web in MSAL.NET. L'utilizzo di questa opzione potrebbe non riuscire. In tal caso, `AcquireTokenInteractive` genera un'eccezione per notificare che è necessaria un'interazione dell'interfaccia utente. È necessario usare un altro `Prompt` parametro.
@@ -921,7 +921,7 @@ Questo flusso non è supportato in MSAL per macOS.
 
 ## <a name="command-line-tool-without-a-web-browser"></a>Strumento da riga di comando senza un Web browser
 
-### <a name="device-code-flow"></a>Flusso del codice del dispositivo
+### <a name="device-code-flow"></a>Flusso di codice del dispositivo
 
 Se si sta scrivendo uno strumento da riga di comando che non dispone di controlli Web e non è possibile o non si vuole usare i flussi precedenti, è necessario usare il flusso del codice del dispositivo.
 

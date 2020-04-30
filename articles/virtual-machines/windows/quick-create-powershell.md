@@ -1,26 +1,19 @@
 ---
 title: Avvio rapido - Creare una macchina virtuale Windows con Azure PowerShell
 description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare una macchina virtuale Windows
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 607ad17af42b88737d8ca4ebc379504d9b0b40df
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 45160e8bc406318f3b3924142899e33640ee6b73
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74073447"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82097949"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows in Azure con PowerShell
 
@@ -43,7 +36,7 @@ Creare un gruppo di risorse di Azure con [New-AzResourceGroup](https://docs.micr
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
 Creare una VM con [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Specificare i nomi per ognuna delle risorse. Se non esistono, vengono create dal cmdlet `New-AzVM`.
 

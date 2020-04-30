@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: 3807c1434e3758eafe299da7b30769b41d3ede87
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106305"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Creare una macchina virtuale Windows con rete accelerata usando Azure PowerShell
@@ -42,7 +42,7 @@ I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui 
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure:
-* **Windows Server 2016 Datacenter** 
+* **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
 * **Windows Server 2019 Datacenter**
 

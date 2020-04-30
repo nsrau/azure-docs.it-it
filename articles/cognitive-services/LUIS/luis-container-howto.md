@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82100244"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
-|Obbligatorio|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Segnaposto | valore |
+| Segnaposto | Valore |
 |-------------|-------|
 | **{APP_ID}** | ID applicazione dell'app LUIS pubblicata. |
 | **{SLOT_NAME}** | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Segnaposto | valore |
+| Segnaposto | Valore |
 |-------------|-------|
 | **{APP_ID}** | ID applicazione dell'app LUIS sottoposta a training. |
 | **{APP_VERSION}** | Versione dell'applicazione dell'app LUIS sottoposta a training. |
@@ -254,7 +254,7 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 
 |Query parameter (Parametro di query)|Type|Scopo|
 |--|--|--|
-|`query`|string|Espressione dell'utente.|
+|`query`|stringa|Espressione dell'utente.|
 |`verbose`|boolean|Valore booleano che indica se restituire tutti i metadati per i modelli stimati. L'impostazione predefinita è false.|
 |`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). L'impostazione predefinita è false.|
 |`show-all-intents`|boolean|Valore booleano che indica se restituire tutti gli Intent o solo il primo scopo del punteggio. L'impostazione predefinita è false.|
@@ -270,7 +270,7 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 
 |Query parameter (Parametro di query)|Type|Scopo|
 |--|--|--|
-|`q`|string|Espressione dell'utente.|
+|`q`|stringa|Espressione dell'utente.|
 |`timezoneOffset`|d'acquisto|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
 |`verbose`|boolean|Se l'impostazione è true, restituisce tutte le finalità e i relativi punteggi. Il valore predefinito è false, che restituisce solo la finalità principale.|
 |`staging`|boolean|Se l'impostazione è true, restituisce i risultati della query dall'ambiente di gestione temporanea. |

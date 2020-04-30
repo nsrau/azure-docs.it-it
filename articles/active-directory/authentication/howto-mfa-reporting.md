@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2df562d65ad064efb1be337e0b68cb8638536981
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112763"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication offre diversi report che possono essere usati dall'utente e dall'organizzazione e ai quali è possibile accedere tramite il portale di Azure. La tabella seguente elenca i report disponibili:
 
-| Report | Location | Description |
+| Report | Percorso | Descrizione |
 |:--- |:--- |:--- |
 | Cronologia utenti bloccati | Azure AD > sicurezza > autenticazione a più fattori > blocca/sblocca utenti | Consente di visualizzare la cronologia delle richieste di blocco o sblocco degli utenti. |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
@@ -152,7 +152,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 La tabella seguente può essere usata per risolvere i problemi di autenticazione a più fattori usando la versione scaricata del report attività di autenticazione a più fattori. Non verranno visualizzati direttamente nella portale di Azure.
 
-| Risultato della chiamata | Description | Descrizione generale |
+| Risultato della chiamata | Descrizione | Descrizione generale |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN immesso | L'utente ha immesso un PIN.  Se l'autenticazione ha esito positivo, l'utente ha immesso il PIN corretto. Se l'autenticazione viene negata, è stato immesso un PIN errato o l'utente è impostato sulla modalità standard. |
 | SUCCESS_NO_PIN | Solo # immesso | Se l'utente è impostato in modalità PIN e l'autenticazione viene negata, l'utente non ha immesso il PIN e ha immesso solo #.   Se l'utente è impostato in modalità Standard e l'autenticazione ha esito positivo, l'utente ha immesso solo #, come richiesto in modalità Standard. |

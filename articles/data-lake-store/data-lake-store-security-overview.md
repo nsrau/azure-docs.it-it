@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086573"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sicurezza in Azure Data Lake Storage Gen1
@@ -21,7 +21,7 @@ Molte aziende sfruttano l'analisi di Big Data per una visione completa dell'atti
 * Authentication
 * Autorizzazione
 * Isolamento rete
-* Protezione dei dati
+* Protezione dati
 * Controllo
 
 ## <a name="authentication-and-identity-management"></a>Autenticazione e gestione delle identità
@@ -52,7 +52,7 @@ Si noti che anche se per la gestione degli account vengono assegnati i ruoli, al
 
 | Ruoli | Diritti di gestione | Diritti di accesso ai dati | Spiegazione |
 | --- | --- | --- | --- |
-| Nessun ruolo assegnato |nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
+| Nessun ruolo assegnato |Nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
 | Proprietario |Tutti |Tutti |Il ruolo di Proprietario è un utente avanzato. Questo ruolo può gestire tutto e ha l'accesso completo ai dati. |
 | Lettore |Sola lettura |Regolato da ACL |Il ruolo Lettore può visualizzare tutti gli elementi riguardanti la gestione degli account, ad esempio l'utente assegnato a un determinato ruolo, ma non prevede la possibilità di apportare modifiche. |
 | Collaboratore |Tutti tranne quelli di aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Collaboratore può gestire alcuni aspetti di un account, ad esempio le distribuzioni e la creazione e la gestione di avvisi, ma non prevede la possibilità di aggiungere o rimuovere ruoli. |
@@ -66,7 +66,7 @@ Data Lake Storage Gen1 è un file system gerarchico come HDFS (Hadoop Distribute
 
 È consigliabile definire gli elenchi di controllo di accesso per più utenti usando [gruppi di sicurezza](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Aggiungere gli utenti a un gruppo di sicurezza, quindi assegnare gli elenchi di controllo di accesso per il file o una cartella a tale gruppo di sicurezza. Ciò è utile quando si intende fornire autorizzazioni assegnate, perché non è possibile superare il limite massimo di 28 voci per le autorizzazioni assegnate. Per altre informazioni su come proteggere meglio i dati archiviati in Data Lake Storage Gen1 usando i gruppi di sicurezza di Azure Active Directory, vedere [Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
 
-![Autorizzazioni di accesso agli elenchi](./media/data-lake-store-security-overview/adl.acl.2.png "Autorizzazioni di accesso agli elenchi")
+![Elencare le autorizzazioni di accesso](./media/data-lake-store-security-overview/adl.acl.2.png "Elencare le autorizzazioni di accesso")
 
 ## <a name="network-isolation"></a>Isolamento rete
 
@@ -74,9 +74,9 @@ Usare Data Lake Storage Gen1 per aiutare a controllare l'accesso all'archivio da
 
 ![Impostazioni del firewall e accesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Impostazioni del firewall e indirizzo IP")
 
-I tag di servizio delle reti virtuali di Azure (VNet) per Data Lake Gen 1.Azure virtual networks (VNet) support service tags for Data Lake Gen 1. Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure.A service tag represents a group of IP address prefixes from a given Azure service. Microsoft gestisce i prefissi degli indirizzi inclusi nel tag del servizio e aggiorna automaticamente il tag del servizio quando gli indirizzi cambiano. Per altre informazioni, vedere [Panoramica](../virtual-network/service-tags-overview.md)dei tag di servizio di Azure.For more information, see Azure service tags overview .
+Le reti virtuali di Azure (VNet) supportano i tag del servizio per Data Lake generazione 1. Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi. Per altre informazioni, vedere [Cenni preliminari sui tag dei servizi di Azure](../virtual-network/service-tags-overview.md).
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 Data Lake Storage Gen1 protegge i dati durante l'intero ciclo di vita. Per i dati in transito, Data Lake Storage Gen1 usa il protocollo standard TLS 1.2 (Transport Layer Security) per proteggere i dati trasmessi in rete.
 
@@ -105,13 +105,13 @@ Per altre informazioni sull'utilizzo dei log attività, vedere [Visualizzare i l
 
 ### <a name="diagnostics-logs"></a>Log di diagnostica
 
-È possibile abilitare la registrazione di controllo e diagnostica dell'accesso ai dati nel portale di Azure e inviare i log a un account di archiviazione BLOB di Azure, a un hub eventi o ai log di Monitoraggio di Azure.You can enable data access audit and diagnostic logging in the Azure portal and send the logs to an Azure Blob storage account, an event hub, or Azure Monitor logs.
+È possibile abilitare il controllo di accesso ai dati e la registrazione diagnostica nella portale di Azure e inviare i log a un account di archiviazione BLOB di Azure, a un hub eventi o ai log di monitoraggio di Azure.
 
 ![Log di diagnostica](./media/data-lake-store-security-overview/diagnostic-logs.png "Log di diagnostica")
 
 Per altre informazioni sull'uso dei log di diagnostica con Data Lake Storage Gen1, vedere [Accesso ai log di diagnostica per Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I clienti aziendali richiedono una piattaforma cloud di analisi dei dati protetta e facile da usare. Data Lake Storage Gen1 è progettato per aiutare a soddisfare questi requisiti attraverso la gestione delle identità e l'autenticazione con l'integrazione di Azure Active Directory, l'autorizzazione basata su elenchi di controllo di accesso, l'isolamento della rete, la crittografia dei dati in transito e inattivi e il controllo.
 

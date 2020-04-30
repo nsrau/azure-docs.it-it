@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: f5b0aeec851c8f514492e32792f48e955597ced5
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82096572"
 ---
 # <a name="database-advisor-performance-recommendations-for-single-and-pooled-databases"></a>Suggerimenti sulle prestazioni Advisor per database per database singoli e in pool
@@ -102,7 +102,7 @@ La **correzione dei problemi relativi allo schema** viene visualizzata quando il
 
 Quando il servizio di database SQL di Azure rileva un'anomalia nel numero di errori SQL correlati allo schema che si verificano nel database SQL, viene visualizzata la raccomandazione "Correggi problema schema". La tabella seguente illustra gli errori correlati ai problemi di schema:
 
-| Codice di errore SQL | Message |
+| Codice di errore SQL | Messaggio |
 | --- | --- |
 | 201 |La procedura o funzione '*' richiede il parametro '*', che non è stato specificato. |
 | 207 |Il nome di colonna '*' non è valido. |

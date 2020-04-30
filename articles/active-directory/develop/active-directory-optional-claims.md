@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099078"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedura: fornire attestazioni facoltative all'app Azure AD
@@ -38,7 +38,7 @@ Mentre le attestazioni facoltative sono supportate nei token di formato v 1.0 e 
 | Tipo di account               | Token v1.0 | Token v2.0 |
 |----------------------------|-------------|-------------|
 | Account Microsoft personale | N/D         | Supportato   |
-| Account Azure AD           | Supportato   | Supportato   |
+| Account di Azure AD           | Supportato   | Supportato   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>set di attestazioni facoltative v 1.0 e v 2.0
 
@@ -49,13 +49,13 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 
 **Tabella 2: set di attestazioni facoltativo v 1.0 e v 2.0**
 
-| Nome                       |  Descrizione   | Tipo di token | Tipo di utente | Note  |
+| Name                       |  Descrizione   | Tipo di token | Tipo di utente | Note  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Ora dell'ultima autenticazione dell'utente. Vedere la specifica di OpenID Connect.| Token JSON Web        |           |  |
 | `tenant_region_scope`      | Area del tenant della risorsa. | Token JSON Web        |           | |
 | `home_oid`                 | Per gli utenti guest, l'ID oggetto dell'utente nel tenant home dell'utente.| Token JSON Web        |           | |
 | `sid`                      | ID sessione, usato per la disconnessione utente per sessione. | Token JSON Web        |  Account personali e Azure AD.   |         |
-| `platf`                    | Piattaforma del dispositivo.    | Token JSON Web        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.|
+| `platf`                    | Piattaforma per i dispositivi    | Token JSON Web        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.|
 | `verified_primary_email`   | Originato da PrimaryAuthoritativeEmail dell'utente.      | Token JSON Web        |           |         |
 | `verified_secondary_email` | Originato da SecondaryAuthoritativeEmail dell'utente.   | Token JSON Web        |           |        |
 | `enfpolids`                | ID criteri applicati. Elenco degli ID criteri valutati per l'utente corrente. | Token JSON Web |  |  |
@@ -78,7 +78,7 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v 1.0, ma non sono
 
 **Tabella 3: attestazioni facoltative solo v 2.0**
 
-| Attestazione JWT     | Nome                            | Descrizione                                | Note |
+| Attestazione JWT     | Name                            | Descrizione                                | Note |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Indirizzo IP                      | Indirizzo IP da cui il client ha effettuato l'accesso.   |       |
 | `onprem_sid`  | ID di sicurezza locale |                                             |       |
@@ -185,7 +185,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Type                       | Descrizione                                           |
+| Nome          | Type                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -367,7 +367,7 @@ Sono disponibili più opzioni per l'aggiornamento delle proprietà di configuraz
 - È possibile usare il **manifesto** (vedere l'esempio seguente). Leggere prima il documento [Informazioni sul manifesto dell'applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) per un'introduzione al manifesto.
 - È anche possibile scrivere un'applicazione che usa l' [API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) per aggiornare l'applicazione. Il tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) nella Guida di riferimento dell'API Microsoft Graph può essere utile per la configurazione delle attestazioni facoltative.
 
-**Esempio**
+**Esempio:**
 
 Nell'esempio seguente si userà l'interfaccia utente di **configurazione del token** e il **manifesto** per aggiungere attestazioni facoltative ai token di accesso, ID e SAML destinati all'applicazione. Verranno aggiunte diverse attestazioni facoltative a ogni tipo di token che l'applicazione può ricevere:
 

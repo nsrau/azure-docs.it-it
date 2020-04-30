@@ -4,10 +4,10 @@ description: Questo articolo illustra i limiti di LUIS (Language Understanding) 
 ms.topic: reference
 ms.date: 04/02/2020
 ms.openlocfilehash: 0a734091ad2c9812f079d77c97c22872717aa7c9
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82103592"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limiti per il modello e le chiavi LUIS
@@ -110,7 +110,7 @@ L' [integrazione vocale](../speech-service/how-to-recognize-intents-from-speech-
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input tastiera | Description |
+|Input tastiera | Descrizione |
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 

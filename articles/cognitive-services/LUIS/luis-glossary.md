@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82099360"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
@@ -77,7 +77,7 @@ Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappres
 
 Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
 
-## <a name="features"></a><a name="features"></a>Funzionalità
+## <a name="features"></a><a name="features"></a>Caratteristiche
 
 Nell'apprendimento automatico, una [funzionalità](luis-concept-feature.md) è un tratto distintivo o un attributo di dati rilevato dal sistema.
 
@@ -119,7 +119,7 @@ Nei [test in batch](luis-interactive-test.md#batch-testing), la precisione (deno
 
 Rinominata [chiave di creazione](#authoring-key).
 
-## <a name="publish"></a><a name="publish"></a>Pubblica
+## <a name="publish"></a><a name="publish"></a>Pubblicare
 
 Pubblicare significa rendere una versione attiva di LUIS disponibile nell'[endpoint](#endpoint) di gestione temporanea o di produzione.
 
@@ -152,7 +152,7 @@ Chiave gratuita da usare per il primo avvio con LUIS.
 
 Aggiungere la struttura a un'entità appresa dal computer per fornire sottocomponenti con descrittori (funzionalità) e vincoli (espressione regolare o entità elenco).
 
-## <a name="subscription-key"></a><a name="subscription-key"></a>Chiave della sottoscrizione
+## <a name="subscription-key"></a><a name="subscription-key"></a>Chiave di sottoscrizione
 
 La chiave di sottoscrizione è la chiave dell' **endpoint di stima** associata al servizio Luis [creato in Azure](luis-how-to-azure-subscription.md). Questa chiave non è la [chiave di crezione](#programmatic-key). Se si dispone di una chiave endpoint, essa deve essere usata per qualsiasi richiesta di endpoint invece della chiave di creazione. È possibile visualizzare la chiave endpoint corrente all'interno dell'URL dell'endpoint in fondo alla pagina [**Keys and endpoints** (Chiavi ed endpoint)](luis-how-to-azure-subscription.md) nel sito Web [LUIS](luis-reference-regions.md). È il valore della coppia nome/valore **subscription-key**.
 
@@ -185,6 +185,6 @@ Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappres
 
 Un'espressione è una frase nel linguaggio naturale, ad esempio "prenota 2 biglietti per Parigi per martedì prossimo". Espressioni di esempio vengono aggiunte alla finalità.
 
-## <a name="version"></a><a name="version"></a>Version
+## <a name="version"></a><a name="version"></a>Versione
 
 Una [versione](luis-how-to-manage-versions.md) di LUIS è un modello di dati specifico associato a un ID app LUIS e all'endpoint pubblicato. Ogni app LUIS ha almeno una versione.

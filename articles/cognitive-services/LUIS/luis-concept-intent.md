@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82101077"
 ---
 # <a name="intents-in-your-luis-app"></a>Intent nell'app LUIS
@@ -29,7 +29,7 @@ Finalità dell'app di viaggi   |   Espressioni di esempio   |
  BookFlight (PrenotaVolo)     |   "Prenotami un volo per Rio la settimana prossima" <br/> "Fammi volare a Rio il 24" <br/> "Ho bisogno di un biglietto aereo per Rio de Janeiro per domenica prossima"    |
  Saluti     |   "Ciao" <br/>"Hello" <br/>"Buongiorno"  |
  Meteo | "Com'è il tempo a Boston?" <br/> "Mostrami le previsioni per il weekend" |
- nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
+ Nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
 
 Tutte le applicazioni hanno lo scopo predefinito, ovvero "[None](#none-intent)", ovvero lo scopo del fallback.
 

@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115755"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funzionalità di rendering di Azure Batch
@@ -28,7 +28,7 @@ Sono disponibili un'immagine Windows 2016 e un'immagine CentOS.  In [Azure Marke
 
 Per una configurazione pool di esempio, vedere l'[esercitazione sul rendering nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Il portale di Azure e Batch Explorer forniscono strumenti dell'interfaccia utente grafica per selezionare un'immagine di VM di rendering quando si crea un pool.  Se si usa un'API Batch, specificare i valori della proprietà seguenti per [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) quando si crea un pool:
 
-| Editore | Offerta | Sku | Version |
+| Editore | Offerta | Sku | Versione |
 |---------|---------|---------|--------|
 |  o batch | rendering-centos73 | rendering | più recenti |
 |  o batch | rendering-windows2016 | rendering | più recenti |

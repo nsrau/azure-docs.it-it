@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale Windows da un disco rigido virtuale specializzato nel portale di AzureCreate a Windows VM from a specialized VHD in the Azure portal
+title: Creare una macchina virtuale Windows da un disco rigido virtuale specializzato nella portale di Azure
 description: Creare una nuova macchina virtuale Windows da un disco rigido virtuale nel portale di Azure.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: d360ac5a57fe72b092a6694721905c066527bba3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086454"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creare una macchina virtuale da un disco rigido virtuale usando il portale di Azure
@@ -28,7 +28,7 @@ Esistono diversi modi per creare una macchina virtuale in Azure:
 
 Non usare un disco specializzato se si vogliono creare più macchine virtuali. Per distribuzioni di maggiori dimensioni, [creare invece un'immagine](capture-image-resource.md) e quindi [usare tale immagine per creare più macchine virtuali](create-vm-generalized-managed.md).
 
-È consigliabile limitare il numero di distribuzioni simultanee a 20 macchine virtuali da un singolo snapshot o disco rigido virtuale. 
+È consigliabile limitare il numero di distribuzioni simultanee a 20 VM da un singolo snapshot o VHD. 
 
 ## <a name="copy-a-disk"></a>Copiare un disco
 

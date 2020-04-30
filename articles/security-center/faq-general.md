@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106577"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Domande frequenti-domande generali sul centro sicurezza di Azure
@@ -36,7 +36,7 @@ Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft 
 Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
 
 * Macchine virtuali (VM) (inclusi i [servizi cloud](../cloud-services/cloud-services-choose-me.md))
-* set di scalabilità di macchine virtuali
+* Set di scalabilità di macchine virtuali
 * Reti virtuali di Azure
 * Contenitori
 * Servizio di SQL Azure

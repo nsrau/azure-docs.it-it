@@ -1,26 +1,20 @@
 ---
 title: 'Esercitazione: Disponibilità elevata per le VM Windows in Azure'
 description: In questa esercitazione si apprenderà come usare Azure PowerShell per distribuire macchine virtuali a disponibilità elevata nei set di disponibilità
-documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 59bf06d2b279bad792bdc42a7c3b6acc2bc304b8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d269b95e5e6fb8491afd4c2f9729cbb047cf3419
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985712"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100448"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con Azure PowerShell
 

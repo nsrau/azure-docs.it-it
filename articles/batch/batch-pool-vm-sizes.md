@@ -6,10 +6,10 @@ ms.date: 09/12/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: d33b97790d2ce9a276a552fd02fe28c796234b15
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115857"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
@@ -32,8 +32,8 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 | Basic A | Tutte le dimensioni *eccetto* Basic_A0 (a0) |
 | Una | Tutte le dimensioni *eccetto* Standard_A0 |
 | Av2 | Tutte le dimensioni |
-| b | nessuno |
-| DC | nessuno |
+| b | Nessuno |
+| DC | Nessuno |
 | Dv2, DSv2 | Tutte le dimensioni |
 | Dv3, Dsv3 | Tutte le dimensioni |
 | Dav4, Dasv4 | Nessuno-non ancora disponibile |
@@ -57,8 +57,8 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 | NDv2<sup>1</sup> | Nessuno-non ancora disponibile |
 | NV | Tutte le dimensioni |
 | NVv3<sup>1</sup> | Tutte le dimensioni |
-| NVv4 | nessuno |
-| SAP HANA | nessuno |
+| NVv4 | Nessuno |
+| SAP HANA | Nessuno |
 
 <sup>1</sup> le dimensioni di queste VM possono essere allocate nei pool di batch nella configurazione della macchina virtuale, ma è necessario creare un nuovo account batch e richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota)specifico. Questa limitazione verrà rimossa quando la quota di vCPU per ogni serie di macchine virtuali è completamente supportata per gli account batch.
 

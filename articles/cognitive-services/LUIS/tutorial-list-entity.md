@@ -3,12 +3,12 @@ title: 'Esercitazione: Entità elenco - LUIS'
 description: Ottenere i dati che corrisponde a un elenco predefinito di elementi. Ogni elemento nell'elenco può avere anche sinonimi che corrispondono esattamente
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9530719c43260751d64d7ccf446bc7941078d6e9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79297408"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101128"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Esercitazione: Ottenere dati con corrispondenza esatta di testo da un'espressione con l'entità elenco
 
@@ -33,7 +33,7 @@ Per questa applicazione per pizze importata, creare un'entità elenco per i vari
 Un'entità elenco è una scelta appropriata per questo tipo di dati quando:
 
 * I valori dei dati sono un set noto.
-* Il set non supera i [limiti](luis-boundaries.md) massimi di LUIS per questo tipo di entità.
+* Il set non supera i [limiti](luis-limits.md) massimi di LUIS per questo tipo di entità.
 * Il testo nell'espressione è una corrispondenza senza distinzione tra maiuscole e minuscole con un sinonimo o con il nome canonico. LUIS non usa l'elenco di là della corrispondenza. Stemming, plurali e altre varianti non vengono risolti semplicemente con un'entità elenco. Per gestire le variazioni, è consigliabile usare un [criterio](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
 
 > [!CAUTION]

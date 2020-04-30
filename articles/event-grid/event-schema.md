@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82114004"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
@@ -82,14 +82,14 @@ Tutti gli eventi contengono gli stessi dati di livello principale indicati di se
 
 | Proprietà | Type | Obbligatoria | Descrizione |
 | -------- | ---- | -------- | ----------- |
-| argomento | string | No, ma se incluso, deve corrispondere all'argomento della griglia di eventi Azure Resource Manager ID esattamente. Se non è incluso, griglia di eventi viene timbrato sull'evento. | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Sì | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Sì | Identificatore univoco dell'evento. |
-| data | object | No | Dati dell'evento specifici del provider di risorse. |
-| dataVersion | string | No, ma verrà contrassegnato con un valore vuoto. | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Non obbligatorio, ma se incluso, deve corrispondere esattamente allo schema `metadataVersion` di griglia di eventi (attualmente `1`, solo). Se non è incluso, griglia di eventi viene timbrato sull'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | No, ma se incluso, deve corrispondere all'argomento della griglia di eventi Azure Resource Manager ID esattamente. Se non è incluso, griglia di eventi viene timbrato sull'evento. | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | stringa | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Sì | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Sì | Identificatore univoco dell'evento. |
+| data | oggetto | No | Dati dell'evento specifici del provider di risorse. |
+| dataVersion | stringa | No, ma verrà contrassegnato con un valore vuoto. | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Non obbligatorio, ma se incluso, deve corrispondere esattamente allo schema `metadataVersion` di griglia di eventi (attualmente `1`, solo). Se non è incluso, griglia di eventi viene timbrato sull'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Per informazioni sulle proprietà nell'oggetto dati, vedere l'origine dell'evento:
 

@@ -1,26 +1,21 @@
 ---
 title: 'Esercitazione: Monitorare le macchine virtuali Windows in Azure'
 description: Questa esercitazione illustra come monitorare le prestazioni e i componenti delle applicazioni individuati in esecuzione nelle macchine virtuali Windows.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mgoedtel
 manager: carmonm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: monitoring
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a021675632a093d41e2565f63f8bb4e844213628
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74112494"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82101621"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare una macchina virtuale in Azure
 

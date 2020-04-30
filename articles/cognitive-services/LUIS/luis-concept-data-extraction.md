@@ -5,10 +5,10 @@ author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 3cea4a46564210ad8c37fdeda68e24337091d0bb
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82100295"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrai i dati da testo enunciato con Intent ed entità
@@ -73,9 +73,9 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|valore|
+|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
 |--|--|--|--|
-|Finalità|string|topScoringIntent.intent|"GetStoreInfo"|
+|Finalità|Stringa|topScoringIntent.intent|"GetStoreInfo"|
 
 Se l'app chatbot o LUIS-Calling prende una decisione in base a più di un punteggio preventivo, restituisce tutti i punteggi di Intent.
 
@@ -135,10 +135,10 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 Le finalità vengono ordinate dal punteggio più alto al più basso.
 
-|Oggetto dati|Tipo di dati|Posizione dei dati|valore|Punteggio|
+|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|Punteggio|
 |--|--|--|--|:--|
-|Finalità|string|intents[0].intent|"GetStoreInfo"|0,984749258|
-|Finalità|string|intents[0].intent|"None"|0,0168218873|
+|Finalità|Stringa|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Finalità|Stringa|intents[0].intent|"None"|0,0168218873|
 
 Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, ad esempio `Utilties` o `Communication` e la finalità:
 
@@ -196,11 +196,11 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
-|Dominio|Oggetto dati|Tipo di dati|Posizione dei dati|valore|
+|Dominio|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
 |--|--|--|--|--|
-|Servizi pubblici|Finalità|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicazione|Finalità|string|intents[0].intent|<b>Communication</b>.StartOver"|
-||Finalità|string|intents[2].intent|"None"|
+|Servizi pubblici|Finalità|Stringa|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicazione|Finalità|Stringa|intents[0].intent|<b>Communication</b>.StartOver"|
+||Finalità|Stringa|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Dati da entità

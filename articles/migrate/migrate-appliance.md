@@ -4,10 +4,10 @@ description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzat
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106371"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
@@ -18,7 +18,7 @@ Questo articolo riepiloga i prerequisiti e i requisiti di supporto per la Azure 
 
 Il dispositivo Azure Migrate viene usato negli scenari seguenti.
 
-**Scenario** | **Strumento** | **Utilizzo** 
+**Scenario** | **Strumento** | **Utilizzato per** 
 --- | --- | ---
 **Valutazione VM VMware** | Azure Migrate: valutazione del server | Individuare le macchine virtuali VMware<br/><br/> Individuare le app e le dipendenze del computer<br/><br/> Raccolta dei metadati del computer e delle prestazioni per le valutazioni.
 **Migrazione senza agenti di macchine virtuali VMware** | Azure Migrate: migrazione del server | Individuare le macchine virtuali VMware <br/><br/> Eseguire la replica di macchine virtuali VMware con migrazione senza agenti.
@@ -176,7 +176,7 @@ Indirizzi IPv6 | vm.Guest.Net
 Velocità effettiva lettura (MB al secondo) | net.received.average
 Velocità effettiva scrittura (MB al secondo) | net.transmitted.average
 **Dettagli percorso inventario** | 
-Nome | container.GetType().Name
+Name | container.GetType().Name
 Tipo di oggetto figlio | container.ChildType
 Informazioni di riferimento | container.MoRef
 Dettagli elemento padre | Container.Parent
@@ -271,7 +271,7 @@ Nome/versione/FQDN del sistema operativo | Msvm_KvpExchangeComponent | GuestIntr
 Stato di alimentazione della macchina virtuale | Msvm_ComputerSystem | EnabledState
 **Dettagli per disco** | 
 Identificatore disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Type
+Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Tipo
 Dimensioni del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Padre del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | ParentPath
 **Dettagli per NIC** | 

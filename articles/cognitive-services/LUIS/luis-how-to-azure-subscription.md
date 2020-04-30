@@ -5,10 +5,10 @@ services: cognitive-services
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82101026"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
@@ -111,7 +111,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Intestazione|valore|
+    |Intestazione|Valore|
     |--|--|
     |`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |`Ocp-Apim-Subscription-Key`|La chiave di creazione.|
@@ -122,7 +122,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Type|Impostazione|valore|
+    |Type|Impostazione|Valore|
     |--|--|--|
     |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|

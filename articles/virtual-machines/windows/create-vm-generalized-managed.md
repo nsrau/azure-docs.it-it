@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale da un'immagine gestita in AzureCreate VM from a managed image in Azure
+title: Creare una macchina virtuale da un'immagine gestita in Azure
 description: Creare una macchina virtuale Windows da un'immagine gestita generalizzata usando Azure PowerShell o il portale.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: b0c6689b66037067a4c5174738945b7c6fabd5b5
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086318"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creare una macchina virtuale da un'immagine gestita
@@ -23,7 +23,7 @@ Prima di creare una nuova macchina virtuale, è necessario [creare un'immagine d
 
 ## <a name="use-the-portal"></a>Usare il portale
 
-1. Passare al portale di [Azure](https://portal.azure.com) per trovare un'immagine gestita. Cercare e selezionare **Immagini**.
+1. Passare alla [portale di Azure](https://portal.azure.com) per trovare un'immagine gestita. Cercare e selezionare le **Immagini**.
 3. Selezionare l'immagine che si intende usare dall'elenco. Si apre la pagina **Panoramica** delle immagini.
 4. Scegliere **Crea macchina virtuale** dal menu.
 5. Immettere le informazioni relative alla macchina virtuale. Il nome utente e la password immessi in questa posizione verranno usati per accedere alla macchina virtuale. Al termine, selezionare **OK**. È possibile creare la nuova macchina virtuale in un gruppo di risorse esistente o scegliere **Crea nuovo** per creare un nuovo gruppo di risorse per archiviare la macchina virtuale.
