@@ -1,33 +1,33 @@
 ---
-title: Come scaricare i dati dei blocchi appunti (anteprima)
+title: Come scaricare i dati dei notebook (anteprima)
 titleSuffix: ML Studio (classic) - Azure
-description: Come scaricare i dati dei blocchi appunti (anteprima) in ML Studio (classico).
+description: Come scaricare i dati dei notebook (anteprima) in ML Studio (versione classica).
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: a342ef86817f4f66a6e74b72b4d167fa548b6345
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419188"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208466"
 ---
-# <a name="download-notebookspreview-data"></a>Scaricare i dati dei blocchi appunti (anteprima)Download Notebooks(preview) data
+# <a name="download-notebookspreview-data"></a>Scarica i dati dei notebook (anteprima)
 
-La funzionalità Blocchi appunti (anteprima) è stata rimossa il *13 aprile 2020.* La rimozione della scheda Blocchi appunti (anteprima) e dei file dei blocchi appunti utente è attualmente disponibile nelle aree di Azure in tutto il mondo.
+La funzionalità Notebooks (anteprima) è stata rimossa il *13 2020 aprile*. La rimozione della scheda notebook (anteprima) e dei file del notebook utente è attualmente in fase di implementazione nelle aree di Azure in tutto il mondo.
 
-In questo articolo vengono fornite istruzioni dettagliate su come scaricare i dati dei blocchi appunti (anteprima).
+Questo articolo fornisce istruzioni dettagliate su come scaricare i dati dei notebook (anteprima).
 
-1. Passare alla scheda **Blocchi appunti** in Azure Machine Learning Studio (classico).
-    ![Passare alla scheda Blocchi appunti!](./media/download-notebooks/notebooks-list.png)
+1. Passare alla scheda **Notebooks (notebook** ) in Azure Machine Learning Studio (classico).
+    ![Passare alla scheda notebook.](./media/download-notebooks/notebooks-list.png)
 
-1. Selezionare il blocco appunti da scaricare. Si aprirà a Jupyter.
-    ![Selezionare](./media/download-notebooks/select-notebook.png) un blocco appunti Il download di più blocchi appunti contemporaneamente non è supportato.
+1. Selezionare il notebook che si vuole scaricare. Verrà aperto in Jupyter.
+    ![Selezionare un notebook](./media/download-notebooks/select-notebook.png) che Scarica più notebook contemporaneamente non è supportato.
 
-1. Vai a **File** -> **Scarica come**e seleziona un'opzione di formato.
-    ![Opzioni di download dei blocchi appunti](./media/download-notebooks/download-options.PNG)
+1. Passare a **file** -> **Scarica come**e selezionare un'opzione di formattazione.
+    ![Opzioni di download del notebook](./media/download-notebooks/download-options.PNG)
 
-1. Dopo aver selezionato un'opzione, verrà avviato il download del file del blocco appunti. Ignorare eventuali errori 500 o 502 che vengono visualizzati, non influiranno sul download.
+1. Dopo aver selezionato un'opzione, il file del notebook si avvierà per il download. Ignorare gli errori 500 o 502 visualizzati, che non avranno alcun effetto sul download.

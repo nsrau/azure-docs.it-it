@@ -10,17 +10,20 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
-ms.date: 02/07/2019
-ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.openlocfilehash: 9ac30b6d502bb0fbdb454d7a3c36cde23a57fb6b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299074"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231629"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database dell'istanza gestita di database SQL di Azure
 
-La replica transazionale consente di replicare i dati in un database dell'istanza gestita di database SQL di Azure da un database di SQL Server o da un altro database dell'istanza. 
+La replica transazionale consente di replicare i dati in un database dell'istanza gestita di database SQL di Azure da un database di SQL Server o da un altro database dell'istanza.
+
+> [!NOTE]
+> Questo articolo descrive l'uso della [replica transazionale](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL istanza gestita. Non è correlato alla replica geografica attiva o ai [gruppi di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una funzionalità di istanza gestita SQL di Azure che consente di creare repliche leggibili complete di singole istanze.
 
 Questo articolo illustra come configurare la replica tra un server di pubblicazione o un server di distribuzione di istanze gestite e un Sottoscrittore di istanza gestita. 
 
@@ -305,7 +308,7 @@ Eseguire il frammento di codice T-SQL seguente per inserire righe aggiuntive nel
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Per eliminare la pubblicazione, eseguire il comando T-SQL seguente:
 
@@ -337,7 +340,7 @@ GO
 È possibile eseguire la pulizia delle risorse di Azure eliminando [le risorse dell'istanza gestita dal gruppo di risorse](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e quindi eliminando il gruppo `SQLMI-Repl`di risorse. 
 
    
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Replica transazionale](sql-database-managed-instance-transactional-replication.md)
 - [Esercitazione: configurare la replica transazionale tra un server di pubblicazione MI e SQL Server sottoscrittore](sql-database-managed-instance-configure-replication-tutorial.md)

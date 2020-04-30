@@ -1,22 +1,22 @@
 ---
 title: Limiti per risorse, SKU, aree
 titleSuffix: Azure Kubernetes Service
-description: Informazioni sulle quote predefinite, sulle dimensioni SKU delle macchine virtuali del nodo limitato e sulla disponibilità dell'area del servizio Azure Kubernetes (AKS).
+description: Informazioni sulle quote predefinite, sulle dimensioni dello SKU di VM del nodo limitate e sulla disponibilità delle aree del servizio Azure Kubernetes (AKS).
 services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.openlocfilehash: 054d6ff4fc105d84192ac81feda97515f6cfae49
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e3edbcf9603657ce0c747b01b3c59c2923bc0181
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886773"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208024"
 ---
-# <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità dell'area geografica nel servizio Azure Kubernetes (AKS)Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
+# <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità delle aree in Azure Kubernetes Service (AKS)
 
-Tutti i servizi di Azure impostano limiti e quote predefiniti per risorse e funzionalità. Anche alcuni SKU di macchine virtuali (VM) sono limitati per l'uso.
+Tutti i servizi di Azure impostano i limiti e le quote predefiniti per le risorse e le funzionalità. Alcuni SKU di macchine virtuali (VM) sono limitati anche per l'uso.
 
-Questo articolo descrive in dettaglio i limiti delle risorse predefinite per le risorse del servizio Azure Kubernetes (AKS) e la disponibilità di AKS nelle aree di Azure.This article details the default resource limits for Azure Kubernetes Service (AKS) resources and the availability of AKS in Azure regions.
+Questo articolo illustra in dettaglio i limiti delle risorse predefinite per le risorse di Azure Kubernetes Service (AKS) e la disponibilità di AKS nelle aree di Azure.
 
 ## <a name="service-quotas-and-limits"></a>Quote e limiti del servizio
 
@@ -24,14 +24,14 @@ Questo articolo descrive in dettaglio i limiti delle risorse predefinite per le 
 
 ## <a name="provisioned-infrastructure"></a>Infrastruttura sottoposta a provisioning
 
-Tutte le altre limitazioni relative alla rete, al calcolo e all'archiviazione si applicano all'infrastruttura sottoposta a provisioning. Per i limiti rilevanti, vedere Limiti della sottoscrizione e del servizio di [Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md)
+Tutte le altre limitazioni relative alla rete, al calcolo e all'archiviazione si applicano all'infrastruttura sottoposta a provisioning. Per i limiti rilevanti, vedere [sottoscrizione di Azure e limiti dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 > [!IMPORTANT]
-> Quando si aggiorna un cluster AKS, vengono temporaneamente utilizzate risorse aggiuntive. Queste risorse includono gli indirizzi IP disponibili in una subnet di rete virtuale o la quota vCPU della macchina virtuale. Se si utilizzano contenitori di Windows Server (attualmente in anteprima in AKS), l'unico approccio approvato per applicare gli aggiornamenti più recenti ai nodi consiste nell'eseguire un'operazione di aggiornamento. Un processo di aggiornamento del cluster non riuscito può indicare che non si dispone dello spazio di indirizzi IP o della quota vCPU disponibile per gestire queste risorse temporanee. Per ulteriori informazioni sul processo di aggiornamento dei nodi di Windows Server, vedere Aggiornare un pool di [nodi in AKS.][nodepool-upgrade]
+> Quando si esegue l'aggiornamento di un cluster AKS, vengono temporaneamente utilizzate risorse aggiuntive. Queste risorse includono gli indirizzi IP disponibili in una subnet della rete virtuale o la quota vCPU della macchina virtuale. Se si usano i contenitori di Windows Server, l'unico approccio approvato per applicare gli aggiornamenti più recenti ai nodi consiste nell'eseguire un'operazione di aggiornamento. Un processo di aggiornamento cluster non riuscito potrebbe indicare che non si dispone dello spazio di indirizzi IP disponibile o della quota vCPU per gestire queste risorse temporanee. Per altre informazioni sul processo di aggiornamento dei nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
 ## <a name="restricted-vm-sizes"></a>Dimensioni delle macchine virtuali limitate
 
-Ogni nodo in un cluster AKS contiene una quantità fissa di risorse di calcolo, ad esempio vCPU e memoria. Se un nodo AKS contiene risorse di calcolo insufficienti, i pod potrebbero non essere eseguiti correttamente. Per garantire che i pod *kube-system* necessari e le applicazioni possano essere pianificati in modo affidabile, **non utilizzare i seguenti SKU delle macchine virtuali in AKS:**
+Ogni nodo in un cluster AKS contiene una quantità fissa di risorse di calcolo, ad esempio vCPU e memoria. Se un nodo AKS contiene risorse di calcolo insufficienti, i pod potrebbero non funzionare correttamente. Per assicurarsi che i pod del *sistema Kube* richiesti e le applicazioni possano essere pianificati in modo affidabile, **non usare gli SKU di VM seguenti in AKS**:
 
 - Standard_A0
 - Standard_A1
@@ -41,15 +41,15 @@ Ogni nodo in un cluster AKS contiene una quantità fissa di risorse di calcolo, 
 - Standard_F1
 - Standard_F1s
 
-Per altre informazioni sui tipi di macchine virtuali e sulle relative risorse di calcolo, vedere Dimensioni per le macchine virtuali in Azure.For more information on VM types and their compute resources, see [Sizes for virtual machines in Azure.][vm-skus]
+Per altre informazioni sui tipi di VM e le relative risorse di calcolo, vedere [dimensioni delle macchine virtuali in Azure][vm-skus].
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Per un elenco più recente della distribuzione e dell'esecuzione dei cluster, vedere [Disponibilità dell'area AKS][region-availability].
+Per l'elenco più recente di dove è possibile distribuire ed eseguire i cluster, vedere la pagina relativa alla [disponibilità dell'area AKS][region-availability].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile aumentare alcune quote e alcuni limiti predefiniti. Se la risorsa supporta un aumento, richiedere l'aumento tramite una richiesta di supporto di [Azure][azure-support] (per Tipo **di problema**, selezionare **Quota**).
+È possibile aumentare alcune quote e alcuni limiti predefiniti. Se la risorsa supporta un aumento, richiedere l'aumento tramite una [richiesta di supporto tecnico di Azure][azure-support] . per **tipo di problema**, selezionare **quota**.
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

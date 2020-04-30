@@ -3,12 +3,12 @@ title: 'Monitorare le applicazioni Java in qualsiasi ambiente: monitoraggio di A
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687725"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508072"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights-anteprima pubblica
 
@@ -24,11 +24,11 @@ L'aggiunta di Application Insights Java SDK all'applicazione non è più necessa
 
 **1. scaricare l'agente**
 
-Scaricare [applicationinsights-Agent-3.0.0-Preview. 3. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
+Scaricare [applicationinsights-Agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
 
 **2. puntare la JVM all'agente**
 
-Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` agli argomenti JVM dell'applicazione
+Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` agli argomenti JVM dell'applicazione
 
 Gli argomenti JVM tipici `-Xmx512m` includono `-XX:+UseG1GC`e. Quindi, se si conosce la posizione in cui aggiungere questi, si sa già dove aggiungere questa.
 
@@ -44,7 +44,7 @@ Puntare l'agente alla risorsa Application Insights impostando una variabile di a
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Oppure creando un file di configurazione denominato `ApplicationInsights.json`e inserendolo nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.3.jar`, con il contenuto seguente:
+Oppure creando un file di configurazione denominato `ApplicationInsights.json`e inserendolo nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.4.jar`, con il contenuto seguente:
 
 ```json
 {
@@ -117,7 +117,7 @@ Vedere i dettagli all' [anteprima pubblica 3,0: opzioni di configurazione](https
 
 ### <a name="metrics"></a>Metriche
 
-* Micrometer
+* Micrometro (incluse le metriche dell'attuatore Spring boot)
 * Metriche JMX
 
 ## <a name="sending-custom-telemetry-from-your-application"></a>Invio di dati di telemetria personalizzati dall'applicazione
@@ -150,7 +150,7 @@ private static final TelemetryClient telemetryClient = new TelemetryClient();
 
 e usarlo per l'invio di dati di telemetria personalizzati.
 
-### <a name="events"></a>Events
+### <a name="events"></a>Eventi
 
   ```java
 telemetryClient.trackEvent("WinGame");

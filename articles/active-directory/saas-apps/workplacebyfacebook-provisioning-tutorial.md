@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99103c9994b240e2f45b66acf269b320c90e5135
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603213"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231731"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -33,25 +33,16 @@ Se si dispone di un'integrazione esistente con l'area di lavoro di Facebook, ved
 * Modifiche al lato Azure AD: il metodo di autorizzazione per il provisioning degli utenti nell'area di lavoro è stato in passato un token segreto di lunga durata. A breve si noterà che il metodo di autorizzazione è stato modificato in concessione autorizzazione OAuth. 
 * Modifiche sul lato dell'area di lavoro: in precedenza l'app Azure AD era un'integrazione personalizzata nell'area di lavoro di Facebook. A questo punto verrà visualizzato Azure AD nella directory Integrations dell'area di lavoro come applicazione di terze parti. 
 
- 
-
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Cosa è necessario fare per eseguire la migrazione dell'integrazione personalizzata esistente alla nuova applicazione?
-Se si dispone di un'integrazione aziendale esistente con un token valido, **non è necessaria alcuna azione**. La migrazione automatica dei clienti viene eseguita ogni settimana alla nuova applicazione. Questa operazione viene eseguita completamente dietro le quinte. Se non è possibile attendere e si desidera passare manualmente alla nuova applicazione, è possibile aggiungere una nuova istanza dell'area di lavoro dalla raccolta e configurare di nuovo il provisioning. Tutte le nuove istanze dell'area di lavoro utilizzeranno automaticamente la nuova versione dell'applicazione. 
-
+Se si dispone di un'integrazione aziendale esistente con un token valido, non è necessaria alcuna azione. **Al 04/28/2020 sono state automaticamente migrate tutte le applicazioni che non sono in quarantena a causa di credenziali non valide.**
  
-Se l'integrazione dell'area di lavoro è in quarantena, sarà necessario specificare nuovamente un token valido per eseguire la migrazione dell'utente. La sezione credenziali amministratore sarà disattivata, ma è possibile aggiungere quanto segue (**? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = true**) all'URL per salvare di nuovo le credenziali. 
-
-https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
-
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Come è possibile stabilire se è stata eseguita la migrazione dell'applicazione? 
-Quando si esegue la migrazione dell'applicazione, il banner nella sezione relativa all'autorizzazione relativa alle modifiche di comunicazione verrà rimosso e il campo token segreto verrà sostituito con un pulsante di autorizzazione blu. 
+* Nel portale di Azure: quando viene eseguita la migrazione dell'applicazione, il banner nella sezione relativa all'autorizzazione sulle modifiche imminenti verrà rimosso e il campo token segreto verrà sostituito con un pulsante di autorizzazione blu. 
+* Nel portale aziendale di Facebook: esaminare l'app Azure AD per assicurarsi che sia approvata.  
 
 #### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>La sezione credenziali amministratore è disattivata nell'applicazione e non è possibile salvare. Perché?
-È stata bloccata la sezione credenziali amministratore per i clienti esistenti dell'area di lavoro. Quando è stata eseguita la migrazione del tenant alla nuova applicazione aziendale, sarà possibile aggiornare di nuovo la sezione credenziali amministratore. Se non è possibile attendere, è possibile usare l'URL sopra riportato per modificare l'applicazione. 
+È stata bloccata la sezione credenziali amministratore per i clienti dell'area di lavoro che non sono stati migrati. Usare l'URL seguente se la sezione credenziali amministratore è disattivata ed è necessario autorizzare di nuovo l'accesso. **? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = true** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
 
- 
-#### <a name="when-will-these-changes-happen"></a>Quando si verificano queste modifiche?
-Tutte le nuove istanze dell'area di lavoro utilizzeranno già il nuovo metodo di integrazione/autorizzazione. Le integrazioni esistenti verranno migrate gradualmente entro il maggio. Il team aziendale ha fornito un'estensione alla scadenza dal 28 febbraio al 1 ° maggio. 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
@@ -81,7 +72,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e l'area di lavoro di Facebook](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
-## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare l'area di lavoro di Facebook per supportare il provisioning con Azure AD
+## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare l'area di lavoro di Facebook per supportare il provisioning con Azure AD
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app Workplace by Facebook. Dopo aver stabilito questo, è possibile assegnare tali utenti all'app Workplace by Facebook seguendo le istruzioni riportate nell'articolo seguente:
 
@@ -135,28 +126,28 @@ Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà es
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |displayName|string|
+   |userName|Stringa|
+   |displayName|Stringa|
    |active|Boolean|
    |title|Boolean|
-   |emails[type eq "work"].value|string|
-   |name.givenName|string|
-   |name.familyName|string|
-   |nome. formattato|string|
-   |indirizzi [tipo EQ "lavoro"]. formattato|string|
-   |addresses[type eq "work"].streetAddress|string|
-   |indirizzi [digitare EQ "Work"]. località|string|
-   |indirizzi [digitare EQ "Work"]. Region|string|
-   |indirizzi [digitare EQ "Work"]. Country|string|
-   |addresses[type eq "work"].postalCode|string|
-   |indirizzi [tipo EQ "other"]. formattato|string|
-   |phoneNumbers[type eq "work"].value|string|
-   |phoneNumbers[type eq "mobile"].value|string|
-   |phoneNumbers[type eq "fax"].value|string|
-   |externalId|string|
-   |preferredLanguage|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|string|
+   |emails[type eq "work"].value|Stringa|
+   |name.givenName|Stringa|
+   |name.familyName|Stringa|
+   |nome. formattato|Stringa|
+   |indirizzi [tipo EQ "lavoro"]. formattato|Stringa|
+   |addresses[type eq "work"].streetAddress|Stringa|
+   |indirizzi [digitare EQ "Work"]. località|Stringa|
+   |indirizzi [digitare EQ "Work"]. Region|Stringa|
+   |indirizzi [digitare EQ "Work"]. Country|Stringa|
+   |addresses[type eq "work"].postalCode|Stringa|
+   |indirizzi [tipo EQ "other"]. formattato|Stringa|
+   |phoneNumbers[type eq "work"].value|Stringa|
+   |phoneNumbers[type eq "mobile"].value|Stringa|
+   |phoneNumbers[type eq "fax"].value|Stringa|
+   |externalId|Stringa|
+   |preferredLanguage|Stringa|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|Stringa|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|Stringa|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

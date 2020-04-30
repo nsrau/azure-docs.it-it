@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0507989ec25db595a85b89f15d8ff7d056a970f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297669"
+ms.locfileid: "82229919"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
 
@@ -810,7 +810,7 @@ Le richieste da Azure Active Directory includono un token di connessione OAuth 2
 
 Nel token, l'emittente viene identificato da un'attestazione ISS, ad esempio `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. In questo esempio, l'indirizzo di base del valore dell'attestazione, `https://sts.windows.net`, identifica Azure Active Directory come emittente, mentre il segmento dell'indirizzo relativo, _cbb1a5ac-f33b-45FA-9BF5-f37db0fed422_, è un identificatore univoco del tenant Azure Active Directory per il quale è stato emesso il token.
 
-I destinatari del token saranno l'ID del modello di applicazione per l'applicazione nella raccolta. ogni applicazione registrata in un singolo tenant potrà ricevere la stessa `iss` attestazione con richieste SCIM. L'ID del modello di applicazione per ogni applicazione nella raccolta varia, contattare [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) per domande relative all'ID del modello di applicazione per un'applicazione della raccolta. L'ID del modello di applicazione per tutte le app personalizzate è _8adf8e6e-67b2-4cf2-A259-e3dc5476c621_.
+I destinatari del token saranno l'ID del modello di applicazione per l'applicazione nella raccolta. ogni applicazione registrata in un singolo tenant potrà ricevere la stessa `iss` attestazione con richieste SCIM. L'ID del modello di applicazione per tutte le app personalizzate è _8adf8e6e-67b2-4cf2-A259-e3dc5476c621_. Il token generato dal servizio di provisioning di Azure AD deve essere usato solo per i test. Non deve essere usato in ambienti di produzione.
 
 Nel codice di esempio, le richieste vengono autenticate usando il pacchetto Microsoft. AspNetCore. Authentication. JwtBearer. Il codice seguente impone l'autenticazione delle richieste a uno degli endpoint del servizio usando il bearer token emesso da Azure Active Directory per un tenant specificato:
 
@@ -1124,7 +1124,7 @@ Verificare la conformità ai requisiti sopra riportati con il provider dell'appl
 > [!IMPORTANT]
 > Il Azure AD implementazione di SCIM si basa sul servizio di provisioning utenti Azure AD, progettato per consentire agli utenti di sincronizzare costantemente gli utenti tra Azure AD e l'applicazione di destinazione e implementa un set molto specifico di operazioni standard. È importante comprendere questi comportamenti per comprendere il comportamento del client di Azure AD SCIM. Per ulteriori informazioni, vedere la sezione [cicli di provisioning: iniziale e incrementale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](how-provisioning-works.md).
 
-### <a name="getting-started"></a>Introduzione
+### <a name="getting-started"></a>Guida introduttiva
 
 Le applicazioni che supportano il profilo SCIM descritto in questo articolo possono essere connesse ad Azure Active Directory usando la funzionalità "Applicazione non nella raccolta" nella raccolta di applicazioni di Azure AD. Una volta stabilita la connessione, Azure AD esegue un processo di sincronizzazione ogni 40 minuti in cui interroga l'endpoint SCIM dell'applicazione in merito agli utenti e ai gruppi assegnati e li crea o li modifica in base alle istruzioni di assegnazione.
 

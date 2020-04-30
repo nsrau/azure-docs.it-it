@@ -8,18 +8,18 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5f92d98630c6fb875babeb907f92732b0c24bb52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e015c1ee335cbdfed7964d63b1f4600bc6a4cb77
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137955"
+ms.locfileid: "82208738"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
 Questo articolo descrive i problemi comuni, le soluzioni alternative, i passaggi di diagnostica e gli strumenti quando si usa [.NET SDK](sql-api-sdk-dotnet.md) con Azure Cosmos DB account API SQL.
 .NET SDK fornisce una rappresentazione logica sul lato client per accedere all'API SQL Azure Cosmos DB. Questo articolo descrive strumenti e approcci utili ad affrontare eventuali problemi.
 
-## <a name="checklist-for-troubleshooting-issues"></a>Elenco di controllo per la risoluzione dei problemi:
+## <a name="checklist-for-troubleshooting-issues"></a>Elenco di controllo per la risoluzione dei problemi
 Prendere in considerazione il seguente elenco di controllo prima di spostare l'applicazione in produzione. Utilizzando l'elenco di controllo, si eviteranno diversi problemi comuni che potrebbero verificarsi. È anche possibile diagnosticare rapidamente quando si verifica un problema:
 
 *    Usare l' [SDK](sql-api-sdk-dotnet-standard.md)più recente. Gli SDK di anteprima non devono essere usati per la produzione. In questo modo si eviteranno problemi noti già corretti.
@@ -101,6 +101,30 @@ La [metrica della query](sql-api-query-metrics.md) consente di determinare la po
 * Se la query back-end viene restituita rapidamente e trascorre molto tempo sul client, controllare il carico sul computer. È probabile che la risorsa non sia sufficiente e che l'SDK sia in attesa della disponibilità di risorse per la gestione della risposta.
 * Se la query back-end è lenta, provare a [ottimizzare la query](optimize-cost-queries.md) e a esaminare i [criteri di indicizzazione](index-overview.md) correnti 
 
+### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: la firma MAC trovata nella richiesta HTTP non corrisponde alla firma calcolata
+Se è stato ricevuto il messaggio di errore 401 seguente: "la firma MAC trovata nella richiesta HTTP non corrisponde alla firma calcolata". Questo problema può essere causato dagli scenari seguenti.
+
+1. La chiave è stata ruotata e non ha seguito le [procedure consigliate](secure-access-to-data.md#key-rotation). Questo è in genere il caso. Cosmos DB rotazione della chiave dell'account può richiedere da alcuni secondi a un certo numero di giorni, a seconda delle dimensioni dell'account di Cosmos DB.
+   1. 401 la firma MAC viene visualizzata subito dopo una rotazione delle chiavi e infine si interrompe senza alcuna modifica. 
+2. La chiave non è configurata correttamente nell'applicazione in modo che la chiave non corrisponda all'account.
+   1. 401 il problema di firma MAC sarà coerente e si verifica per tutte le chiamate
+3. È presente un race condition con la creazione del contenitore. Un'istanza dell'applicazione sta provando ad accedere al contenitore prima del completamento della creazione del contenitore. Scenario più comune per questa operazione se l'applicazione è in esecuzione e il contenitore viene eliminato e ricreato con lo stesso nome mentre l'applicazione è in esecuzione. L'SDK tenterà di usare il nuovo contenitore, ma la creazione del contenitore è ancora in corso, quindi non contiene le chiavi.
+   1. 401 il problema di firma MAC viene visualizzato poco dopo la creazione di un contenitore e si verifica solo fino al completamento della creazione del contenitore.
+ 
+ ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Errore HTTP 400. Le dimensioni delle intestazioni della richiesta sono troppo lunghe.
+ Le dimensioni dell'intestazione sono aumentate fino a grandi dimensioni e superano le dimensioni massime consentite. È sempre consigliabile usare l'SDK più recente. Assicurarsi di usare almeno la versione [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) o [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), che aggiunge la traccia della dimensione dell'intestazione al messaggio dell'eccezione.
+
+Cause
+ 1. Il token di sessione è diventato troppo grande. Il token di sessione aumenta con l'aumentare del numero di partizioni nel contenitore.
+ 2. Il token di continuazione è cresciuto fino a grandi dimensioni. Diverse query avranno dimensioni diverse per i token di continuazione.
+ 3. È causata da una combinazione del token di sessione e del token di continuazione.
+
+Soluzione
+   1. Seguire i [suggerimenti](performance-tips.md) per le prestazioni e convertire l'applicazione in modalità di connessione diretta + TCP. Direct + TCP non ha la restrizione delle dimensioni dell'intestazione, ad esempio HTTP, che evita questo problema.
+   2. Se il token di sessione è la provocazione, una mitigazione temporanea prevede il riavvio dell'applicazione. Il riavvio dell'istanza dell'applicazione reimposterà il token di sessione. Se le eccezioni vengono interrotte dopo il riavvio, viene confermata la presenza del token di sessione. Fino alla dimensione che genererà l'eccezione.
+   3. Se l'applicazione non può essere convertita in Direct + TCP e il token di sessione è la ragione, la mitigazione può essere eseguita modificando il [livello di coerenza](consistency-levels.md)del client. Il token di sessione viene usato solo per la coerenza di sessione, che è l'impostazione predefinita per Cosmos DB. Qualsiasi altro livello di coerenza non utilizzerà il token di sessione. 
+   4. Se l'applicazione non può essere convertita in Direct + TCP e il token di continuazione è la ragione, provare a impostare l'opzione ResponseContinuationTokenLimitInKb. L'opzione è disponibile in FeedOptions per v2 o QueryRequestOptions in V3.
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
@@ -108,5 +132,3 @@ La [metrica della query](sql-api-query-metrics.md) consente di determinare la po
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
-
-

@@ -5,12 +5,12 @@ description: Informazioni sulle procedure consigliate per l'operatore del cluste
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: d887f084ae329be30579b3400b4dc6cfb22c64ca
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145450"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208058"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -45,7 +45,7 @@ Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale 
 
 Per altre informazioni sulla delega dell'entità servizio del servizio Azure Kubernetes, vedere [Delegare l'accesso ad altre risorse di Azure][sp-delegation]. Anziché un'entità servizio, è anche possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
 
-Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire gli eventi di scalabilità orizzontale o gli aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata. Questo spazio di indirizzi aggiuntivo è particolarmente importante se si usano i contenitori di Windows Server (attualmente in anteprima in AKS), perché i pool di nodi richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per altre informazioni sui nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire gli eventi di scalabilità orizzontale o gli aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata. Questo spazio di indirizzi aggiuntivo è particolarmente importante se si usano i contenitori di Windows Server, perché i pool di nodi richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per altre informazioni sui nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
 Per calcolare l'indirizzo IP richiesto, vedere [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][advanced-networking] (Configurare le funzionalità di rete Azure CNI nel servizio Azure Kubernetes).
 
@@ -99,7 +99,7 @@ spec:
 
 Un controller di ingresso è un daemon che viene eseguito in un nodo del servizio Azure Kubernetes e controlla le richieste in arrivo. Il traffico viene quindi distribuito in base alle regole definite nella risorsa in ingresso. Il controller in ingresso più comune è basato su [NGINX]. Il servizio Azure Kubernetes non limita l'uso a uno specifico controller, quindi è possibile usare altri controller come [Contour][contour], [HAProxy][haproxy] o [Traefik][traefik].
 
-I controller di ingresso devono essere pianificati in un nodo Linux. I nodi di Windows Server (attualmente in anteprima in AKS) non devono eseguire il controller di ingresso. Usare un selettore di nodo nel manifesto YAML o nella distribuzione del grafico Helm per indicare che la risorsa deve essere eseguita in un nodo basato su Linux. Per altre informazioni, vedere [usare i selettori di nodo per controllare dove sono pianificati i pod in AKS][concepts-node-selectors].
+I controller di ingresso devono essere pianificati in un nodo Linux. I nodi di Windows Server non devono eseguire il controller di ingresso. Usare un selettore di nodo nel manifesto YAML o nella distribuzione del grafico Helm per indicare che la risorsa deve essere eseguita in un nodo basato su Linux. Per altre informazioni, vedere [usare i selettori di nodo per controllare dove sono pianificati i pod in AKS][concepts-node-selectors].
 
 Esistono molti scenari per l'ingresso, tra cui le guide pratiche seguenti:
 

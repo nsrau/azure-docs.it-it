@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 1a391a7a061d1382b5e07b45625c44fc0f5dec54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7b01e7667392d475bcab70dcd3dfaad2c3956e8f
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204461"
+ms.locfileid: "82208534"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio (classica)
 
@@ -24,6 +24,8 @@ ms.locfileid: "79204461"
 Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 
 ## <a name="create-a-studio-classic-workspace"></a>Creare un'area di lavoro di studio (classica)
+
+Per aprire un'area di lavoro in Machine Learning Studio (versione classica), è necessario aver eseguito l'accesso all'account Microsoft usato per creare l'area di lavoro oppure è necessario ricevere un invito dal proprietario per partecipare all'area di lavoro. Dal portale di Azure è possibile gestire l'area di lavoro e anche configurare l'accesso.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 
@@ -44,6 +46,9 @@ Per usare Azure Machine Learning Studio (versione classica), è necessario dispo
      ![Creare una nuova area di lavoro di studio (classica)](./media/create-workspace/create-new-workspace.png)
 
 5. Scegliere **Crea**.
+
+   Machine Learning è attualmente disponibile in un numero limitato di aree. Se la sottoscrizione non include una di queste aree, è possibile che venga visualizzato il messaggio di errore "non sono presenti sottoscrizioni nelle aree consentite".  Per richiedere l'aggiunta di un'area alla sottoscrizione, creare una nuova richiesta al supporto tecnico Microsoft dal portale di Azure, scegliere **Fatturazione** come tipo di problema, quindi seguire le istruzioni per inviare la richiesta.
+
 
 > [!NOTE]
 > Machine Learning Studio (classico) si basa su un account di archiviazione di Azure fornito per salvare i dati intermedi quando esegue il flusso di lavoro. Dopo la creazione dell'area di lavoro, se l'account di archiviazione viene eliminato o se le chiavi di accesso vengono cambiate, l'area di lavoro non funzionerà più e tutti gli esperimenti al suo interno avranno esito negativo.
@@ -99,5 +104,32 @@ Ogni utente aggiunto riceverà un messaggio di posta elettronica con istruzioni 
 > [!NOTE]
 > Per poter distribuire o gestire i servizi Web nell'area di lavoro, l'utente deve essere un collaboratore o un amministratore nella sottoscrizione di Azure. 
 
+## <a name="troubleshoot-storage-accounts"></a>Risolvere i problemi degli account di archiviazione
 
 
+Il servizio Machine Learning necessita di un account di archiviazione per archiviare i dati. È possibile usare un account di archiviazione esistente oppure è possibile creare un nuovo account di archiviazione quando si crea la nuova area di lavoro Machine Learning Studio (classica) (se si dispone di una quota per creare un nuovo account di archiviazione).
+
+Dopo aver creato la nuova area di lavoro Machine Learning Studio (classica), è possibile accedere a Machine Learning Studio (classica) usando il account Microsoft usato per creare l'area di lavoro. Se viene visualizzato il messaggio di errore "area di lavoro non trovata" (simile allo screenshot seguente), attenersi alla procedura seguente per eliminare i cookie del browser.
+
+![Area di lavoro non trovata](media/troubleshooting-creating-ml-workspace/screen3.png)
+
+**Per eliminare i cookie dal browser**
+
+1. Se si usa Internet Explorer, fare clic sul pulsante **Strumenti** nell'angolo superiore destro, quindi selezionare **Opzioni Internet**.  
+
+   ![Opzioni Internet](media/troubleshooting-creating-ml-workspace/screen4.png)
+
+2. Nella scheda **Generale** fare clic su **Elimina**.
+
+   ![Scheda Generale](media/troubleshooting-creating-ml-workspace/screen5.png)
+
+3. Nella finestra di dialogo **Elimina cronologia esplorazioni** assicurarsi che l'opzione **Cookie e dati di siti Web** sia selezionata, quindi fare clic su **Elimina**.
+
+   ![Eliminare i cookie](media/troubleshooting-creating-ml-workspace/screen6.png)
+
+Dopo l'eliminazione dei cookie, riavviare il browser e passare alla pagina [Microsoft Azure Machine Learning Studio (classica)](https://studio.azureml.net) . Quando vengono richiesti nome utente e password, immettere lo stesso account Microsoft usato per creare l'area di lavoro.
+
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per ulteriori informazioni sulla gestione di un'area di lavoro, vedere [gestire un'area di lavoro di Azure Machine Learning Studio (classica)](manage-workspace.md).

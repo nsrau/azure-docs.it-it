@@ -1,17 +1,17 @@
 ---
 title: Gestire i criteri di indicizzazione in Azure Cosmos DB
 description: Informazioni su come gestire i criteri di indicizzazione, includere o escludere una proprietà dall'indicizzazione, come definire l'indicizzazione con diversi Azure Cosmos DB SDK
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: thweiss
-ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: tisande
+ms.openlocfilehash: bdd5d986752e9d80d2967a8f5fd32491154fa236
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252077"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233932"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 
@@ -137,7 +137,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito `
     }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > È in genere consigliabile usare un criterio di indicizzazione di **esclusione** per consentire ad Azure Cosmos DB di indicizzare in modo proattivo qualsiasi nuova proprietà che può essere aggiunta al modello.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usare un indice spaziale solo in un percorso di proprietà specifico
@@ -173,6 +173,9 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito `
 ## <a name="composite-indexing-policy-examples"></a>Esempi di criteri di indicizzazione composti
 
 Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà. Inoltre, gli indici compositi avranno un vantaggio in materia di prestazioni per le query che hanno un filtro e hanno una clausola ORDER BY su proprietà diverse.
+
+> [!NOTE]
+> I percorsi composti hanno un `/?` implicito perché solo il valore scalare in quel percorso è indicizzato. Il `/*` carattere jolly non è supportato nei percorsi compositi. Non specificare `/?` né `/*` in un percorso composito.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>Indice composto definito per (nome cres, età disc):
 

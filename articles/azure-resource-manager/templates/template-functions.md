@@ -2,31 +2,29 @@
 title: Funzioni di modello
 description: Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: fbd82f89ed9a97a3f376a9ed6eaa8ae3760759ff
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/27/2020
+ms.openlocfilehash: a15e7dfdf01a99cd23b216fafcfb44320a716d16
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982379"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231289"
 ---
-# <a name="arm-template-functions"></a>Funzioni del modello ARM
+# <a name="arm-template-functions"></a>Funzioni modello ARM
 
-Questo articolo descrive tutte le funzioni che è possibile usare in un modello di Azure Resource Manager (ARM). Per informazioni sull'utilizzo delle funzioni nel modello, vedere [Sintassi](template-expressions.md)del modello .
+Questo articolo descrive tutte le funzioni che è possibile usare in un modello di Azure Resource Manager (ARM). Per informazioni sull'uso delle funzioni nel modello, vedere [sintassi del modello](template-expressions.md).
 
 Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](template-syntax.md#functions).
 
-La maggior parte delle funzioni funziona allo stesso modo quando viene distribuita in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Alcune funzioni non possono essere utilizzate in tutti gli ambiti. Sono annotati negli elenchi qui sotto.
+La maggior parte delle funzioni funziona allo stesso modo quando viene distribuita in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Alcune funzioni non possono essere usate in tutti gli ambiti. Sono indicati negli elenchi riportati di seguito.
 
 <a id="array" aria-hidden="true" />
-<a id="coalesce" aria-hidden="true" />
 <a id="concatarray" aria-hidden="true" />
 <a id="contains" aria-hidden="true" />
 <a id="createarray" aria-hidden="true" />
 <a id="empty" aria-hidden="true" />
 <a id="first" aria-hidden="true" />
 <a id="intersection" aria-hidden="true" />
-<a id="json" aria-hidden="true" />
 <a id="last" aria-hidden="true" />
 <a id="length" aria-hidden="true" />
 <a id="min" aria-hidden="true" />
@@ -36,28 +34,27 @@ La maggior parte delle funzioni funziona allo stesso modo quando viene distribui
 <a id="take" aria-hidden="true" />
 <a id="union" aria-hidden="true" />
 
-## <a name="array-and-object-functions"></a>Funzioni di array e di oggetto
+## <a name="array-functions"></a>Funzioni di matrice
 
-Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
+Gestione risorse fornisce diverse funzioni per l'utilizzo di matrici.
 
-* [Matrice](template-functions-array.md#array)
-* [Coalesce](template-functions-array.md#coalesce)
+* [array](template-functions-array.md#array)
 * [Concat](template-functions-array.md#concat)
-* [Contiene](template-functions-array.md#contains)
-* [createArray (matrice)](template-functions-array.md#createarray)
-* [Vuoto](template-functions-array.md#empty)
-* [Prima](template-functions-array.md#first)
-* [Intersezione](template-functions-array.md#intersection)
-* [Json](template-functions-array.md#json)
+* [contains](template-functions-array.md#contains)
+* [Funzione CreateArray](template-functions-array.md#createarray)
+* [empty](template-functions-array.md#empty)
+* [prima](template-functions-array.md#first)
+* [intersezione](template-functions-array.md#intersection)
 * [Ultima](template-functions-array.md#last)
 * [length](template-functions-array.md#length)
-* [Minimo](template-functions-array.md#min)
-* [Massimo](template-functions-array.md#max)
-* [Gamma](template-functions-array.md#range)
-* [skip](template-functions-array.md#skip)
+* [min](template-functions-array.md#min)
+* [max](template-functions-array.md#max)
+* [intervallo](template-functions-array.md#range)
+* [ignorare](template-functions-array.md#skip)
 * [take](template-functions-array.md#take)
 * [Unione](template-functions-array.md#union)
 
+<a id="coalesce" aria-hidden="true" />
 <a id="equals" aria-hidden="true" />
 <a id="less" aria-hidden="true" />
 <a id="lessorequals" aria-hidden="true" />
@@ -68,8 +65,9 @@ Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 
 Resource Manager include numerose funzioni per l'esecuzione di confronti nei modelli.
 
+* [COALESCE](template-functions-comparison.md#coalesce)
 * [equals](template-functions-comparison.md#equals)
-* [Meno](template-functions-comparison.md#less)
+* [meno](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
 * [greater](template-functions-comparison.md#greater)
 * [greaterOrEquals](template-functions-comparison.md#greaterorequals)
@@ -80,19 +78,19 @@ Resource Manager include numerose funzioni per l'esecuzione di confronti nei mod
 
 ## <a name="date-functions"></a>Funzioni di data
 
-Gestione risorse fornisce le seguenti funzioni per l'utilizzo delle date.
+Gestione risorse fornisce le funzioni seguenti per l'utilizzo delle date.
 
-* [dateTimeAggiungi](template-functions-date.md#datetimeadd)
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
 * [utcNow](template-functions-date.md#utcnow)
 
 ## <a name="deployment-value-functions"></a>Funzioni dei valori della distribuzione
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
 
-* [Distribuzione](template-functions-deployment.md#deployment)
-* [Ambiente](template-functions-deployment.md#environment)
-* [Parametri](template-functions-deployment.md#parameters)
-* [Variabili](template-functions-deployment.md#variables)
+* [distribuzione](template-functions-deployment.md#deployment)
+* [ambiente](template-functions-deployment.md#environment)
+* [parametri](template-functions-deployment.md#parameters)
+* [variabili](template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -104,11 +102,11 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezio
 
 Resource Manager fornisce le funzioni seguenti per utilizzare le condizioni logiche:
 
-* [E](template-functions-logical.md#and)
+* [e](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
 * [if](template-functions-logical.md#if)
-* [Non](template-functions-logical.md#not)
-* [O](template-functions-logical.md#or)
+* [non](template-functions-logical.md#not)
+* [o](template-functions-logical.md#or)
 
 <a id="add" aria-hidden="true" />
 <a id="copyindex" aria-hidden="true" />
@@ -125,16 +123,29 @@ Resource Manager fornisce le funzioni seguenti per utilizzare le condizioni logi
 
 Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 
-* [aggiungi](template-functions-numeric.md#add)
+* [add](template-functions-numeric.md#add)
 * [copyIndex](template-functions-numeric.md#copyindex)
 * [div](template-functions-numeric.md#div)
-* [Galleggiante](template-functions-numeric.md#float)
-* [Int](template-functions-numeric.md#int)
-* [Minimo](template-functions-numeric.md#min)
-* [Massimo](template-functions-numeric.md#max)
-* [Mod](template-functions-numeric.md#mod)
-* [mul](template-functions-numeric.md#mul)
+* [float](template-functions-numeric.md#float)
+* [int](template-functions-numeric.md#int)
+* [min](template-functions-numeric.md#min)
+* [max](template-functions-numeric.md#max)
+* [mod](template-functions-numeric.md#mod)
+* [Mul](template-functions-numeric.md#mul)
 * [Sub](template-functions-numeric.md#sub)
+
+<a id="json" aria-hidden="true" />
+
+## <a name="object-functions"></a>Funzioni oggetto
+
+Gestione risorse fornisce diverse funzioni per l'utilizzo di oggetti.
+
+* [contains](template-functions-object.md#contains)
+* [empty](template-functions-object.md#empty)
+* [intersezione](template-functions-object.md#intersection)
+* [JSON](template-functions-object.md#json)
+* [length](template-functions-object.md#length)
+* [Unione](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
@@ -151,18 +162,18 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risorse:
 
-* [extensionResourceId (idEstensione)extensionResourceId](template-functions-resource.md#extensionresourceid)
+* [extensionResourceId](template-functions-resource.md#extensionresourceid)
 * [listAccountSas](template-functions-resource.md#list)
 * [listKeys](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
-* [l'elenco di indirizzi](template-functions-resource.md#list)
-* [Provider](template-functions-resource.md#providers)
-* [Riferimento](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup) - può essere usato solo nelle distribuzioni in un gruppo di risorse.resourceGroup - can only be used in deployments to a resource group.
-* [resourceId](template-functions-resource.md#resourceid) - può essere utilizzato in qualsiasi ambito, ma i parametri validi cambiano a seconda dell'ambito.
-* [sottoscrizione](template-functions-resource.md#subscription) - può essere usato solo nelle distribuzioni in un gruppo di risorse o in una sottoscrizione.subscription - can only be used in deployments to a resource group or subscription.
-* [subscriptionResourceId (informazioni in stato inabbonamentoResourceId](template-functions-resource.md#subscriptionresourceid)
-* [tenantResourceId (informazioni in base al nome in com](template-functions-resource.md#tenantresourceid)
+* [elenco](template-functions-resource.md#list)
+* [provider](template-functions-resource.md#providers)
+* [riferimento](template-functions-resource.md#reference)
+* [resourceGroup](template-functions-resource.md#resourcegroup) : può essere usato solo nelle distribuzioni in un gruppo di risorse.
+* [resourceId](template-functions-resource.md#resourceid) : può essere usato in qualsiasi ambito, ma i parametri validi cambiano a seconda dell'ambito.
+* [Subscription](template-functions-resource.md#subscription) -può essere usato solo nelle distribuzioni in un gruppo di risorse o in una sottoscrizione.
+* [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true" />
 <a id="base64tojson" aria-hidden="true" />
@@ -203,38 +214,38 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
 * [Concat](template-functions-string.md#concat)
-* [Contiene](template-functions-string.md#contains)
-* [dataUri (informazioni in base all'](template-functions-string.md#datauri)
+* [contains](template-functions-string.md#contains)
+* [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
-* [Vuoto](template-functions-string.md#empty)
+* [empty](template-functions-string.md#empty)
 * [endsWith](template-functions-string.md#endswith)
-* [Prima](template-functions-string.md#first)
-* [Formato](template-functions-string.md#format)
-* [Guid](template-functions-string.md#guid)
-* [indiceDi](template-functions-string.md#indexof)
+* [prima](template-functions-string.md#first)
+* [format](template-functions-string.md#format)
+* [GUID](template-functions-string.md#guid)
+* [indexOf](template-functions-string.md#indexof)
 * [Ultima](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
 * [length](template-functions-string.md#length)
-* [Newguid](template-functions-string.md#newguid)
+* [newGuid](template-functions-string.md#newguid)
 * [padLeft](template-functions-string.md#padleft)
-* [Sostituire](template-functions-string.md#replace)
-* [skip](template-functions-string.md#skip)
-* [diviso](template-functions-string.md#split)
-* [Startswith](template-functions-string.md#startswith)
+* [replace](template-functions-string.md#replace)
+* [ignorare](template-functions-string.md#skip)
+* [Split](template-functions-string.md#split)
+* [startsWith](template-functions-string.md#startswith)
 * [string](template-functions-string.md#string)
-* [Sottostringa](template-functions-string.md#substring)
+* [sottostringa](template-functions-string.md#substring)
 * [take](template-functions-string.md#take)
-* [Tolower](template-functions-string.md#tolower)
-* [Toupper](template-functions-string.md#toupper)
-* [Tagliare](template-functions-string.md#trim)
+* [toLower](template-functions-string.md#tolower)
+* [toUpper](template-functions-string.md#toupper)
+* [Trim](template-functions-string.md#trim)
 * [uniqueString](template-functions-string.md#uniquestring)
-* [Uri](template-functions-string.md#uri)
+* [URI](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni di un modello ARM, vedere [Authoring ARM templates](template-syntax.md)
+* Per una descrizione delle sezioni in un modello ARM, vedere [creazione di modelli ARM](template-syntax.md)
 * Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](linked-templates.md)
-* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
-* Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con modelli ARMTo](deploy-powershell.md) see how to deploy the template you've created, see Deploy an application with ARM templates
+* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
+* Per informazioni su come distribuire il modello creato, vedere [distribuire un'applicazione con i modelli ARM](deploy-powershell.md)

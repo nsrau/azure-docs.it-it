@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 02/27/2020
+ms.date: 04/28/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 3fe13dcb35e6985d160f52b7ee3f9da4accd7806
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: f9558431d65a9c0f4fecf34141d9148afa514d86
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756678"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208568"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -527,7 +527,7 @@ La tabella seguente fornisce un esempio di creazione di una configurazione di di
 
 | Destinazione del calcolo | Esempio di configurazione della distribuzione |
 | ----- | ----- |
-| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Locale | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Istanze di Azure Container | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Servizio Azure Kubernetes | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -579,7 +579,7 @@ Nella tabella seguente vengono descritti i diversi Stati del servizio:
 | Stato WebService | Descrizione | Stato finale?
 | ----- | ----- | ----- |
 | Transizione | Il servizio è in fase di distribuzione. | No |
-| Non integro | Il servizio è stato distribuito ma non è attualmente raggiungibile.  | No |
+| Unhealthy | Il servizio è stato distribuito ma non è attualmente raggiungibile.  | No |
 | Non pianificabile | Non è possibile distribuire il servizio in questo momento a causa di risorse insufficienti. | No |
 | Operazione non riuscita | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
 | Healthy | Il servizio è integro e l'endpoint è disponibile. | Sì |
@@ -1067,7 +1067,7 @@ Per arrestare il contenitore, usare il comando seguente da una shell o riga di c
 docker kill mycontainer
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Per eliminare un servizio Web distribuito, usare `service.delete()`.
 Per eliminare un modello registrato, usare `model.delete()`.
@@ -1143,11 +1143,13 @@ Per configurare la distribuzione del modello per il supporto di CORS `AMLRespons
 Nell'esempio seguente viene impostata `Access-Control-Allow-Origin` l'intestazione per la risposta dallo script di immissione:
 
 ```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
     print("This is init()")
 
+@rawhttp
 def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))

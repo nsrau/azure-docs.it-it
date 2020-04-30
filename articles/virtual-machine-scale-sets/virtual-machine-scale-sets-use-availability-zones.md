@@ -1,5 +1,5 @@
 ---
-title: Creare un set di scalabilità di Azure che usa le zone di disponibilitàCreate an Azure scale set that uses Availability zones
+title: Creare un set di scalabilità di Azure che usa zone di disponibilità
 description: Informazioni su come creare set di scalabilità di macchine virtuali di Azure che usano le zone di disponibilità per aumentare la ridondanza in caso di interruzioni
 author: ju-shim
 tags: azure-resource-manager
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: jushiman
-ms.openlocfilehash: c8795f46e47b2ab43898f6f436b9ee6026a22fa7
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: a23164215376bee291c07d49c88bd9e916d710bf
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011566"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207837"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -28,11 +28,11 @@ Quando si distribuisce un set di scalabilità in una o più zone con la versione
 
 Con la distribuzione massima si vede solo un dominio di errore nella visualizzazione dell'istanza di macchina virtuale del set di scalabilità e nei metadati dell'istanza, indipendentemente dal numero di domini di errore in cui le macchine virtuali sono distribuite. La distribuzione all'interno di ogni zona è implicita.
 
-Per utilizzare la distribuzione massima, impostare *platformFaultDomainCount* su *1*. Per usare la distribuzione statica in cinque domini di errore, impostare *platformFaultDomainCount* su *5*. Nella versione API *2017-12-01*, *platformFaultDomainCount* il valore predefinito è *1* per i set di scalabilità a zona singola e tra zone. Attualmente, solo la distribuzione statica di cinque domini di errore è supportata per i set di scalabilità regionali (non zonali).
+Per usare la distribuzione massima, impostare *platformFaultDomainCount* su *1*. Per usare la distribuzione statica in cinque domini di errore, impostare *platformFaultDomainCount* su *5*. Nella versione API *2017-12-01*, *platformFaultDomainCount* è impostato su *1* per i set di scalabilità a zona singola e tra zone. Attualmente è supportata solo la distribuzione statica di cinque domini di errore per i set di scalabilità a livello di area (non di zona).
 
 ### <a name="placement-groups"></a>Gruppi di posizionamento
 
-Quando si distribuisce un set di scalabilità, è anche possibile procedere con un singolo [gruppo di posizionamento](./virtual-machine-scale-sets-placement-groups.md) per zona di disponibilità o con più gruppi per zona. Per i set di scalabilità regionali (non zonali), è possibile scegliere un singolo gruppo di posizionamento nella regione o più nell'area. Per la maggior parte dei carichi di lavoro è consigliabile usare più gruppi di posizionamento, che consentono una maggiore scalabilità. Nella versione API *2017-12-01*, la scalabilità imposta per impostazione predefinita più gruppi di posizionamento per i set di scalabilità a zona singola e tra zone, ma per impostazione predefinita vengono impostati un singolo gruppo di posizionamento per i set di scalabilità regionali (non zonali).
+Quando si distribuisce un set di scalabilità, è anche possibile procedere con un singolo [gruppo di posizionamento](./virtual-machine-scale-sets-placement-groups.md) per zona di disponibilità o con più gruppi per zona. Per i set di scalabilità a livello di area (non di zona), la scelta consiste nel disporre di un singolo gruppo di posizionamento nell'area o in più aree. Per la maggior parte dei carichi di lavoro è consigliabile usare più gruppi di posizionamento, che consentono una maggiore scalabilità. Nella versione API *2017-12-01*i set di scalabilità vengono impostati per impostazione predefinita su più gruppi di posizionamento per i set di scalabilità a zona singola e tra zone, ma per impostazione predefinita viene impostato il gruppo di posizionamento singolo per i set di scalabilità (non di zona) locali.
 
 > [!NOTE]
 > Se si usa la distribuzione massima, è necessario usare più gruppi di posizionamento.
@@ -46,9 +46,9 @@ Infine, per i set di scalabilità distribuiti in più zone è anche possibile sc
 
 È possibile che le macchine virtuali nel set di scalabilità vengano create correttamente, ma che non sia possibile distribuire le estensioni in tali macchine virtuali. Queste macchine virtuali con errori di estensione vengono comunque conteggiate per determinare se un set di scalabilità è bilanciato. Ad esempio, un set di scalabilità con 3 macchine virtuali nella zona 1, 3 nella zona 2 e 3 nella zona 3 viene considerato bilanciato anche se tutte le estensioni non sono riuscite nella zona 1 e tutte le estensioni sono riuscite nelle zone 2 e 3.
 
-Con il bilanciamento delle zone con massimo sforzo, il set di scalabilità tenta di aumentare e ridurre il numero di macchine virtuali mantenendo il bilanciamento. Tuttavia, se per qualche motivo ciò non è possibile (ad esempio, se una zona scende, il set di scalabilità non può creare una nuova macchina virtuale in tale zona), il set di scalabilità consente uno squilibrio temporaneo per aumentare o ridurre correttamente la scalabilità. Nei tentativi di scalabilità orizzontale successivi, il set di scalabilità aggiunge macchine virtuali alle zone che richiedono più macchine virtuali per bilanciare il set di scalabilità. Allo stesso modo, con i successivi tentativi di riduzione, il set di scalabilità rimuove macchine virtuali dalle zone che ne richiedono di meno per bilanciare il set di scalabilità. Con il bilanciamento delle zone restrittivo, qualsiasi tentativo di aumento o riduzione da parte del set di scalabilità ha esito negativo, in quanto così facendo si creerebbe uno squilibrio.
+Con il bilanciamento delle zone con massimo sforzo, il set di scalabilità tenta di aumentare e ridurre il numero di macchine virtuali mantenendo il bilanciamento. Tuttavia, se per qualche motivo questo non è possibile (ad esempio, se una zona diventa inattiva, il set di scalabilità non può creare una nuova macchina virtuale in tale zona), il set di scalabilità consente uno squilibrio temporaneo per la scalabilità verticale o orizzontale. Nei successivi tentativi di scalabilità orizzontale, il set di scalabilità aggiunge macchine virtuali alle zone che necessitano di più macchine virtuali per il set di scalabilità da bilanciare. Allo stesso modo, con i successivi tentativi di riduzione, il set di scalabilità rimuove macchine virtuali dalle zone che ne richiedono di meno per bilanciare il set di scalabilità. Con il bilanciamento delle zone restrittivo, qualsiasi tentativo di aumento o riduzione da parte del set di scalabilità ha esito negativo, in quanto così facendo si creerebbe uno squilibrio.
 
-Per usare il bilanciamento delle zone con massimo sforzo, impostare *zoneBalance* su *false*. Questa è l'impostazione predefinita nell'API versione *2017-12-01*. Per utilizzare il bilanciamento di zona rigoroso, impostare *zoneBalance* su *true*.
+Per usare il bilanciamento delle zone con massimo sforzo, impostare *zoneBalance* su *false*. Questa è l'impostazione predefinita nell'API versione *2017-12-01*. Per usare Strict zone Balance, impostare *zoneBalance* su *true*.
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Set di scalabilità a zona singola o con ridondanza della zona
 
@@ -56,7 +56,7 @@ Quando si distribuisce un set di scalabilità di macchine virtuali, è possibile
 
 Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le istanze delle macchine virtuali vengono eseguite è sotto controllo e il set di scalabilità viene gestito e ridimensionato automaticamente solo all'interno di questa zona. Un set di scalabilità con ridondanza della zona consente di creare un solo set di scalabilità che include più zone. Quando vengono create le istanze delle macchine virtuali, per impostazione predefinita vengono bilanciate equamente tra le diverse zone. Se si verifica un'interruzione in una di queste zone, un set di scalabilità non aumenta automaticamente le istanze per incrementare la capacità. Una procedura consigliata è quella di configurare regole di scalabilità automatica in base alla CPU o all'utilizzo della memoria. Le regole di scalabilità automatica consentono al set di scalabilità di rispondere a una perdita delle istanze delle macchine virtuali in una zona aumentando il numero di istanze nelle restanti zone operative.
 
-Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-overview.md#services-support-by-region). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
+Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-region.md). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
 
 - [Azure portal](#use-the-azure-portal)
 - Interfaccia della riga di comando di Azure

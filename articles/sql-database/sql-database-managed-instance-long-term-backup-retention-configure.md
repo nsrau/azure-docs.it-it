@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2020
-ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/29/2020
+ms.openlocfilehash: fba1dcdb8c4e5cfaa8071ae58ad75432b526c887
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677114"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509704"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gestire la conservazione dei backup a lungo termine dell'istanza gestita di database SQL di Azure (PowerShell)
 
 In istanza gestita di database SQL di Azure è possibile configurare un criterio di [conservazione dei backup a lungo termine](sql-database-long-term-retention.md#managed-instance-support) come funzionalità di anteprima pubblica limitata. In questo modo è possibile mantenere automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup con PowerShell.
 
    > [!IMPORTANT]
-   > La versione LTR per le istanze gestite è attualmente in anteprima limitata ed è disponibile per le sottoscrizioni EA e CSP ogni caso. Per richiedere la registrazione, creare un ticket di [supporto di Azure](https://azure.microsoft.com/support/create-ticket/) nell'argomento del supporto per il **backup, il ripristino e la continuità aziendale/conservazione dei backup a lungo termine**. 
-
+   > La versione LTR per le istanze gestite è attualmente in anteprima limitata ed è disponibile per le sottoscrizioni EA e CSP ogni caso. Per richiedere la registrazione, creare un ticket di [supporto di Azure](https://azure.microsoft.com/support/create-ticket/). Per tipo di problema selezionare problema tecnico, per servizio scegliere Istanza gestita di database SQL e per il tipo di problema selezionare **backup, ripristino e continuità aziendale/conservazione dei backup a lungo termine**. Nella richiesta, indicare lo stato che si vuole registrare nell'anteprima pubblica limitata di LTR per istanza gestita.
 
 Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione a lungo termine dei backup, visualizzare i backup nella risorsa di archiviazione di Azure SQL ed eseguire il ripristino da un backup nella risorsa di archiviazione di Azure SQL.
 

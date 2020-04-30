@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245460"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231102"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure
 
-  L'assegnazione di punteggio fa riferimento al calcolo di un *punteggio di ricerca* per ogni elemento restituito nei risultati della ricerca. Il punteggio è un indicatore della rilevanza di un elemento nel contesto dell'operazione di ricerca attuale. Maggiore è il punteggio, più rilevante sarà l'elemento. Nei risultati della ricerca gli elementi vengono classificati dal maggiore al minore, in base al punteggio di ricerca calcolato per ogni elemento.  
+Il *Punteggio* calcola un punteggio di ricerca per ogni elemento in un set di risultati ordinato in ordine di priorità. A ogni elemento nel set di risultati della ricerca viene assegnato un punteggio di ricerca e quindi gli elementi vengono classificati dal maggiore al minore.
 
  Azure ricerca cognitiva usa il Punteggio predefinito per calcolare un punteggio iniziale, ma è possibile personalizzare il calcolo tramite un *profilo di Punteggio*. I profili di punteggio offrono maggiore controllo sulla classificazione degli elementi nei risultati della ricerca. Ad esempio, è possibile aumentare la priorità degli elementi in base al rispettivo potenziale di profitto, alzare di livello elementi più recenti o evidenziare elementi che sono rimasti troppo a lungo in magazzino.  
 
@@ -275,7 +275,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  La tabella seguente fornisce alcuni esempi.  
 
-|Durata|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1 giorno|"P1D"|  
 |2 giorni e 12 ore|"P2DT12H"|  
@@ -284,7 +284,8 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML (W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Vedi anche  
- [Azure ricerca cognitiva REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Creare l'indice &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [Azure ricerca cognitiva .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+## <a name="see-also"></a>Vedere anche  
+
++ [Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Create index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Azure ricerca cognitiva .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78249870"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207888"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
 
@@ -60,7 +60,7 @@ Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico
     |Zona di disponibilità| Selezionare **Con ridondanza della zona**.    |
      
     >[!NOTE]
-     >Assicurarsi di creare il bilanciamento del carico e tutte le relative risorse in una posizione che supporti le zone di disponibilità. Per altre informazioni, consultare [Aree che supportano la funzionalità Zone di disponibilità di Azure](../availability-zones/az-overview.md#services-support-by-region). 
+     >Assicurarsi di creare il bilanciamento del carico e tutte le relative risorse in una posizione che supporti le zone di disponibilità. Per altre informazioni, consultare [Aree che supportano la funzionalità Zone di disponibilità di Azure](../availability-zones/az-region.md). 
 
 3. Nella scheda **Rivedi e crea** fare clic su **Crea**.  
   

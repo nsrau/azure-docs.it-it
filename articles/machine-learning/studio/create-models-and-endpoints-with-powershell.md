@@ -1,5 +1,5 @@
 ---
-title: Creare più endpoint per un modelloCreate multiple endpoints for a model
+title: Creazione di più endpoint modello
 titleSuffix: ML Studio (classic) - Azure
 description: Usare PowerShell per creare più modelli di Machine Learning ed endpoint di servizio Web con lo stesso algoritmo ma con set di dati di training diversi.
 services: machine-learning
@@ -10,14 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 4f8bb1f20dcc3a7900e3347616018a6e156962d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70fafa79c87d19d62ef936b286c82813d8e7fe17
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218181"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208517"
 ---
-# <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Usare PowerShell per creare modelli di Studio (classici) ed endpoint del servizio Web da un esperimentoUse PowerShell to create Studio (classic) models and web service endpoints from one experiment
+# <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Creare più endpoint di servizio Web da un esperimento con ML Studio (classico) e PowerShell
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -27,9 +27,9 @@ Si supponga, ad esempio, di essere proprietari di un franchising globale di nole
 
 Si potrebbe eseguire il training del modello una sola volta usando una versione unita di tutti i set di dati di tutte le località. Tuttavia, ogni negozio ha un ambiente unico. Perciò è preferibile eseguire il training del modello di regressione separatamente usando i set di dati dei singoli punti di noleggio. In questo modo, ogni modello di cui è stato eseguito il training terrà conto delle diverse caratteristiche, quali dimensioni del negozio, volume, posizione geografica, popolazione, traffico compatibile con le biciclette e così via.
 
-Questo potrebbe essere l'approccio migliore, ma non si vuole creare 1.000 esperimenti di formazione in Azure Machine Learning Studio (classico) con ognuno dei quali rappresenta una posizione unica. Oltre a essere un'attività eccessivamente complessa, risulta anche inefficiente poiché ogni esperimento avrebbe tutti gli stessi componenti eccetto il set di dati di training.
+Questo potrebbe essere l'approccio migliore, ma non si vuole creare 1.000 esperimenti di training in Azure Machine Learning Studio (classico) con ognuno di essi che rappresenta una posizione univoca. Oltre a essere un'attività eccessivamente complessa, risulta anche inefficiente poiché ogni esperimento avrebbe tutti gli stessi componenti eccetto il set di dati di training.
 
-Fortunatamente, è possibile eseguire questa operazione usando l'API di [riqualificazione di Azure Machine Learning Studio (classica)](/azure/machine-learning/studio/retrain-machine-learning-model) e automatizzando l'attività con Azure Machine Learning Studio [(classico) PowerShell.](powershell-module.md)
+Fortunatamente, a tale scopo è possibile usare l'API di ripetizione del [training Azure Machine Learning Studio (classica)](/azure/machine-learning/studio/retrain-machine-learning-model) e automatizzare l'attività con [Azure Machine Learning Studio (classico) PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Per eseguire l'esempio più velocemente, il numero di punti di noleggio verrà ridotto da 1.000 a 10. ma gli stessi principi e procedure si applicano anche a 1.000 località. Tuttavia, se si desidera eseguire il training da 1.000 set di dati, è consigliabile eseguire gli script di PowerShell seguenti in parallelo. Come eseguire questa operazione non rientra nell'ambito di questo articolo, ma in Internet è possibile trovare esempi di multithreading con PowerShell.  
@@ -37,7 +37,7 @@ Fortunatamente, è possibile eseguire questa operazione usando l'API di [riquali
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurare l'esperimento di training
-Usare l'esempio [esperimento di training](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) che si trova in [Cortana Intelligence Gallery](https://gallery.azure.ai). Apri questo esperimento nell'area di lavoro di [Azure Machine Learning Studio (classica).](https://studio.azureml.net)
+Usare l'esempio [esperimento di training](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) che si trova in [Cortana Intelligence Gallery](https://gallery.azure.ai). Aprire l'esperimento nell'area di lavoro [Azure Machine Learning Studio (classica)](https://studio.azureml.net) .
 
 > [!NOTE]
 > Per poter proseguire con l'esempio è consigliabile usare un'area di lavoro standard anziché una gratuita. Si crea un endpoint per ogni cliente, per un totale di 10 endpoint, e questo richiede l'uso di un'area di lavoro standard. Le aree di lavoro gratuite hanno un limite di 3 endpoint.
@@ -46,7 +46,7 @@ Usare l'esempio [esperimento di training](https://gallery.azure.ai/Experiment/Bi
 
 L’esperimento utilizza un modulo **Import Data** per importare il set di dati di training *customer001.csv* da un account di archiviazione di Azure. Si supponga di aver raccolto i set di dati di training da tutti i punti di noleggio di biciclette e di averli archiviati nello stesso archivio BLOB con nomi di file da *rentalloc001.csv* a *rentalloc10.csv*.
 
-![Il modulo Lettore importa i dati da un BLOB di AzureReader module imports data from an Azure blob](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Il modulo Reader importa i dati da un BLOB di Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Si noti che al modulo **Train Model** (Modello di training) è stato aggiunto un modulo **Web service output** (Output servizio Web).
 Quando l'esperimento viene distribuito come servizio Web, l'endpoint associato a tale output restituisce il modello di cui è stato eseguito il training come file con estensione .ilearner.
@@ -54,7 +54,7 @@ Quando l'esperimento viene distribuito come servizio Web, l'endpoint associato a
 Si noti anche che viene impostato un parametro del servizio Web che definisce l'URL usato dal modulo **Import Data**. Questo permette di usare il parametro per specificare singoli set di dati di training per eseguire il training del modello per ogni punto di noleggio.
 Sarebbe stato possibile farlo in altri modi. È possibile usare una query SQL con un parametro di servizio Web per ottenere dati da un database SQL Azure. Oppure è possibile usare un modulo **Input del servizio Web** per passare un set di dati al servizio Web.
 
-![Un modulo del modello addestrato viene restituito a un modulo di output del servizio WebA Trained Model module outputs to a Web service output module](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Un modulo di modello sottoposto a training restituisce un modulo di output del servizio Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Provare a eseguire l'esperimento di training usando il valore predefinito *rental001.csv* come set di dati di training. Fare clic sull'output del modulo **Evaluate** (Valuta) e selezionare **Visualize** (Visualizza) per vedere che è stata ottenuta una prestazione soddisfacente di *AUC* = 0,91. A questo punto è possibile distribuire un servizio Web basato su questo esperimento di training.
 

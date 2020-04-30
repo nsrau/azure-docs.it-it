@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 471c2d45e28e634adde78c2d96d407ec219be68c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80408707"
+ms.locfileid: "82229664"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Note per gli sviluppatori per i criteri personalizzati in Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 | [Credenziali password del proprietario della risorsa OAuth2](ropc-custom.md) |  | X |  |  |
 | [Connessione OIDC](openid-connect.md) |  |  | X |  |
 | [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | Binding POST e reindirizzamento. |
-| OAuth1 |  |  |  | Non supportato. |
+| OAuth1 |  |  |  | Non supportata. |
 | WSFED | X |  |  |  |
 
 ### <a name="identify-providers-federation"></a>Identificazione Federazione provider 
@@ -80,7 +80,7 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Ad esempio, Google +.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Ad esempio, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | Ad esempio Twitter. |
-| [SAML2](saml-technical-profile.md) |  |   | X | Ad esempio, Salesforce, ADFS. |
+| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | Ad esempio, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
@@ -134,7 +134,8 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 | [Provider sessione SSO predefinito](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Provider sessione di accesso esterno](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [Provider sessione SSO SAML](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
-
+| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
+| [Single Sign-Out](session-overview.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>Sicurezza
 

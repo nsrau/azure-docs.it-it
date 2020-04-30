@@ -1,6 +1,6 @@
 ---
-title: Isolare le applicazioni del bus di servizio di Azure in caso di interruzioni e disastriInsulate Azure Service Bus applications against outages and disasters
-description: In questo articolo vengono illustrate le tecniche per proteggere le applicazioni da una potenziale interruzione del bus di servizio di Azure.This articles provides techniques to protect applications against a potential Azure Service Bus outage.
+title: Isolare le applicazioni del bus di servizio di Azure da interruzioni ed emergenze
+description: Questo articolo fornisce le tecniche per proteggere le applicazioni da una potenziale interruzione del bus di servizio di Azure.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 29eb0625ceebf4fee75d0c1accef7ae03b5f61b9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984947"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208381"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 
@@ -33,10 +33,10 @@ Il bus di servizio Premium supporta il ripristino di emergenza geografico a live
 
 ### <a name="availability-zones"></a>Zone di disponibilità
 
-Lo SKU Premium del bus di servizio supporta le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno della stessa area di Azure. Il bus di servizio gestisce tre copie dell'archivio di messaggistica (1 principale e 2 secondario). Il bus di servizio mantiene tutte e tre le copie sincronizzate per le operazioni di gestione e dati. Se la copia primaria ha esito negativo, una delle copie secondarie viene promossa a primaria senza tempi di inattività percepiti. Se le applicazioni rilevano disconnessioni temporanee dal bus di servizio, la logica di ripetizione dei tentativi nell'SDK si riconnetterà automaticamente al bus di servizio. 
+Lo SKU Premium del bus di servizio supporta le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno della stessa area di Azure. Il bus di servizio gestisce tre copie dell'archivio di messaggistica (1 primario e 2 secondario). Il bus di servizio mantiene sincronizzate tutte e tre le copie per le operazioni di gestione e i dati. Se la copia primaria ha esito negativo, una delle copie secondarie viene promossa al database primario senza tempi di inattività percepiti. Se le applicazioni visualizzano disconnessioni temporanee dal bus di servizio, la logica di ripetizione dei tentativi nell'SDK si riconnetterà automaticamente al bus di servizio. 
 
 > [!NOTE]
-> Il supporto per le zone di disponibilità per il bus di servizio di Azure Premium è disponibile solo nelle [aree di Azure](../availability-zones/az-overview.md#services-support-by-region) in cui sono presenti le zone di disponibilità.
+> Il supporto per le zone di disponibilità per il bus di servizio di Azure Premium è disponibile solo nelle [aree di Azure](../availability-zones/az-region.md) in cui sono presenti le zone di disponibilità.
 
 Usando il portale di Azure, è possibile abilitare le zone di disponibilità solo negli spazi dei nomi. Il bus di servizio non supporta la migrazione degli spazi dei nomi esistenti. Non è possibile disabilitare la ridondanza della zona dopo che è stata abilitata nello spazio dei nomi.
 
@@ -78,7 +78,7 @@ Quando si usa la replica passiva, negli scenari seguenti è possibile che i mess
 L'esempio relativo alla [replica geografica con il livello standard del bus di servizio][Geo-replication with Service Bus Standard Tier] illustra la replica passiva delle entità di messaggistica.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protezione degli endpoint di inoltro da interruzioni o emergenze dei data center
-La replica geografica degli endpoint di [inoltro](../service-bus-relay/relay-what-is-it.md) di Azure consente a un servizio che espone un endpoint di inoltro di essere raggiungibile in presenza di interruzioni del bus di servizio. Per ottenere la replica geografica, il servizio deve creare due endpoint di inoltro in diverse istanze di spazio dei nomi servizio. Le due istanze di spazio dei nomi servizio devono trovarsi in data center diversi e i due endpoint devono avere nomi differenti. Ad esempio, un endpoint primario può essere raggiunto in **contosoPrimary.servicebus.windows.net/myPrimaryService**, mentre il corrispettivo endpoint secondario può essere raggiunto in **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+La replica geografica degli endpoint di [inoltro di Azure](../service-bus-relay/relay-what-is-it.md) consente a un servizio che espone un endpoint di inoltro di essere raggiungibile in presenza di interruzioni del bus di servizio. Per ottenere la replica geografica, il servizio deve creare due endpoint di inoltro in diverse istanze di spazio dei nomi servizio. Le due istanze di spazio dei nomi servizio devono trovarsi in data center diversi e i due endpoint devono avere nomi differenti. Ad esempio, un endpoint primario può essere raggiunto in **contosoPrimary.servicebus.windows.net/myPrimaryService**, mentre il corrispettivo endpoint secondario può essere raggiunto in **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Il servizio rimane quindi in ascolto su entrambi gli endpoint e un client può richiamare il servizio tramite l'uno o l'altro. Un'applicazione client seleziona casualmente uno degli inoltri come endpoint primario e invia la richiesta all'endpoint attivo. Se l'operazione ha esito negativo e viene visualizzato un codice di errore, significa che l'endpoint di inoltro non è disponibile. L'applicazione apre un canale per l'endpoint di backup e invia nuovamente la richiesta. A quel punto, l'endpoint attivo e quello di backup si scambiano i ruoli: l'applicazione client considera l'endpoint attivo precedente come nuovo endpoint di backup e l'endpoint di backup precedente come nuovo endpoint attivo. Se entrambe le operazioni di invio hanno esito negativo, i ruoli delle due entità rimangono invariati e viene restituito un errore.
 

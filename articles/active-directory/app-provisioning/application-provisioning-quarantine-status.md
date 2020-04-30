@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0355bb1c4255e6de4ed17d55097b7b22d6b37db6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154628"
+ms.locfileid: "82229902"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisioning dell'applicazione in stato di quarantena
 
@@ -33,7 +33,7 @@ Durante la quarantena, la frequenza dei cicli incrementali viene gradualmente ri
 
 Esistono tre modi per verificare se un'applicazione è in quarantena:
   
-- Nella portale di Azure passare a **Azure Active Directory** > **applicazioni** > &lt;*aziendali nome*&gt; > applicazione**provisioning** e scorrere fino all'indicatore di stato nella parte inferiore.  
+- Nella portale di Azure passare a **Azure Active Directory** > **applicazioni** > &lt;*aziendali nome*&gt; > applicazione**provisioning** ed esaminare l'indicatore di stato per un messaggio di quarantena.   
 
   ![Barra di stato del provisioning che mostra lo stato della quarantena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -51,7 +51,13 @@ Esistono tre modi per verificare se un'applicazione è in quarantena:
 
 ## <a name="why-is-my-application-in-quarantine"></a>Perché l'applicazione è in quarantena?
 
-Una richiesta di Microsoft Graph per ottenere lo stato del processo di provisioning Mostra il motivo seguente per la quarantena:
+|Descrizione|Azione consigliata|
+|---|---|
+|**Problema di conformità di SCIM:** È stata restituita una risposta HTTP/404 non trovata anziché la risposta HTTP/200 OK prevista. In questo caso il servizio di provisioning Azure AD ha effettuato una richiesta all'applicazione di destinazione e ha ricevuto una risposta imprevista.|Controllare la sezione credenziali amministratore per verificare se l'applicazione richiede la specifica dell'URL del tenant e verificare che l'URL sia corretto. Se non viene visualizzato alcun problema, contattare lo sviluppatore dell'applicazione per assicurarsi che il servizio sia conforme a SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Credenziali non valide:** Quando si tenta di autorizzare l'accesso all'applicazione di destinazione, è stata ricevuta una risposta dall'applicazione di destinazione che indica che le credenziali specificate non sono valide.|Passare alla sezione credenziali amministratore dell'interfaccia utente di configurazione del provisioning e autorizzare di nuovo l'accesso con credenziali valide. Se l'applicazione si trova nella raccolta, vedere l'esercitazione sulla configurazione dell'applicazione per eventuali ulteriori passaggi necessari.|
+|**Ruoli duplicati:** I ruoli importati da alcune applicazioni, ad esempio Salesforce e Zendesk, devono essere univoci. |Passare al [manifesto](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) dell'applicazione nella portale di Azure e rimuovere il ruolo duplicato.|
+
+ Una richiesta di Microsoft Graph per ottenere lo stato del processo di provisioning Mostra il motivo seguente per la quarantena:
 
 - `EncounteredQuarantineException`indica che sono state specificate credenziali non valide. Il servizio di provisioning non è in grado di stabilire una connessione tra il sistema di origine e il sistema di destinazione.
 

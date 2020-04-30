@@ -3,14 +3,14 @@ title: Soluzione di avvio/arresto di macchine virtuali durante gli orari di indi
 description: Questa soluzione di gestione delle VM avvia e arresta le macchine virtuali di Azure in base a una pianificazione e monitora in modo proattivo i log di monitoraggio di Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187331"
+ms.locfileid: "82207599"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Avviare/arrestare VM durante gli orari di indisponibilità in automazione di Azure
 
@@ -19,7 +19,7 @@ La soluzione **Avvia/arresta macchine virtuali durante gli orari di** indisponib
 Questa soluzione USA il cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) per avviare le VM. USA [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) per arrestare le macchine virtuali.
 
 > [!NOTE]
-> La soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità è stata aggiornata per supportare le versioni più recenti dei moduli di Azure disponibili.
+> La soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità è stata aggiornata per supportare le versioni più recenti dei moduli di Azure disponibili. La versione aggiornata della soluzione, disponibile nel Marketplace, non supporta i moduli AzureRM perché è stata eseguita la migrazione da AzureRM a AZ modules.
 
 La soluzione fornisce un'opzione di automazione a basso costo decentralizzata per gli utenti che desiderano ottimizzare i costi delle macchine virtuali. Con questa soluzione, è possibile:
 
@@ -108,7 +108,7 @@ Tutti manuali operativi padre includono il `WhatIf` parametro. Quando è imposta
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chiamato dal runbook padre. Questo runbook crea avvisi in base alle singole risorse per lo scenario di arresto automatico.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True o False  | Crea o aggiorna le regole di avviso di Azure nelle macchine virtuali nella sottoscrizione o nei gruppi di risorse selezionati. <br> `VMList`è un elenco delimitato da virgole di macchine virtuali. Ad esempio: `vm1, vm2, vm3`.<br> `WhatIf`Abilita la convalida della logica Runbook senza eseguire.|
-|AutoStop_Disable | nessuno | Disabilita gli avvisi di arresto automatico e la pianificazione predefinita.|
+|AutoStop_Disable | Nessuno | Disabilita gli avvisi di arresto automatico e la pianificazione predefinita.|
 |AutoStop_VM_Child | WebHookData | Chiamato dal runbook padre. Le regole di avviso chiamano questo Runbook per arrestare una macchina virtuale classica.|
 |AutoStop_VM_Child_ARM | WebHookData |Chiamato dal runbook padre. Le regole di avviso chiamano questo Runbook per arrestare una macchina virtuale.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Azione: avvio o arresto<br> VMList  | Esegue l'avvio o l'arresto dell'azione nel gruppo di VM classico per servizi cloud. |

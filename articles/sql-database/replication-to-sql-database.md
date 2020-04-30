@@ -10,19 +10,22 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: f28269b067ee98d69a97799911fd2d84a7f91e34
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 04/28/2020
+ms.openlocfilehash: 49be53febc1783edfa16fd019a094a7e80e1cdf7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381140"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231646"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
 
 La replica di SQL Server può essere configurata in database singoli e in pool su un [ server di database SQL](sql-database-servers.md) in Database SQL di Azure.  
 
-## <a name="supported-configurations"></a>**Configurazioni supportate:**
+> [!NOTE]
+> Questo articolo descrive l'uso della [replica transazionale](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) nel database SQL di Azure. Non è correlato alla [replica geografica attiva](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), una funzionalità del database SQL di Azure che consente di creare repliche leggibili complete dei singoli database.
+
+## <a name="supported-configurations"></a>Configurazioni supportate
   
 - Il server SQL può essere un'istanza di SQL Server in esecuzione in locale o un'istanza di SQL Server in esecuzione in una macchina virtuale di Azure nel cloud. Per altre informazioni, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
 - Il database SQL di Azure deve essere un sottoscrittore push di un server di pubblicazione SQL Server.  
@@ -32,14 +35,14 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 
 ## <a name="versions"></a>Versioni  
 
-I server di pubblicazione e i server di distribuzione di SQL Server locali devono utilizzare (almeno) una delle versioni seguenti:  
+Gli autori e i distributori SQL Server locali devono usare almeno una delle versioni seguenti:  
 
-- SQL Server 2016 e versione successiva
-- SQL Server 2014 [RTM CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) o [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2016 e versioni successive
+- SQL Server 2014 [RTM CU10 dalla (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) o [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
 - SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) o [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
 
 > [!NOTE]
-> Il tentativo di configurare la replica utilizzando una versione non supportata può causare il numero \<di errore MSSQL_REPL20084 (il processo non è riuscito a connettersi al Sottoscrittore.) e MSSQL_REPL40532 (Impossibile aprire il nome del server> richiesto dall'account di accesso. Accesso non riuscito).  
+> Il tentativo di configurare la replica con una versione non supportata può causare il numero di errore MSSQL_REPL20084 (il processo non è riuscito a connettersi al Sottoscrittore) e MSSQL_REPL40532 \<(non è possibile aprire il nome del server> richiesto dall'account di accesso. Accesso non riuscito).  
 
 Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
@@ -106,15 +109,15 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni del database SQL d
 
 ## <a name="examples"></a>Esempi
 
-Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
+Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedi:
   
-- [Creare una pubblicazioneCreate a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Creazione di una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'**) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
 
 ## <a name="see-also"></a>Vedere anche  
 
 - [Replica transazionale](sql-database-managed-instance-transactional-replication.md)
-- [Creare una pubblicazioneCreate a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Creazione di una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Creazione di una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [Monitoraggio (replica)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)

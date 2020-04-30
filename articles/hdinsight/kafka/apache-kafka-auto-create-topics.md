@@ -1,23 +1,23 @@
 ---
 title: Abilitare la creazione automatica di argomenti in Apache Kafka - Azure HDInsight
-description: Informazioni su come configurare Apache Kafka in HDInsight per creare automaticamente gli argomenti. È possibile configurare Kafka impostando auto.create.topics.enable su true tramite Ambari o in fase di creazione di cluster tramite i modelli di Resource Manager o PowerShell.
+description: Informazioni su come configurare Apache Kafka in HDInsight per creare automaticamente gli argomenti. È possibile configurare Kafka impostando `auto.create.topics.enable` su true tramite Ambari. Oppure durante la creazione del cluster tramite PowerShell o i modelli Gestione risorse.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 7ec7d15806927306b12624962facbafddf2ce08b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 88dc3e4d761f9b4df63dfa07a24298398f7b0187
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "73242372"
+ms.locfileid: "82231272"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Come configurare Apache Kafka in HDInsight per creare automaticamente gli argomenti
 
-Per impostazione predefinita, [Apache Kafka](https://kafka.apache.org/) in HDInsight non Abilita la creazione automatica di argomenti. È possibile abilitarla per i cluster esistenti con [Apache Ambari](https://ambari.apache.org/). È possibile anche abilitare la creazione automatica di argomenti quando si crea un nuovo cluster Kafka tramite un modello di Azure Resource Manager.
+Per impostazione predefinita, Apache Kafka in HDInsight non Abilita la creazione automatica di argomenti. È possibile abilitarla per i cluster esistenti con Apache Ambari. È possibile anche abilitare la creazione automatica di argomenti quando si crea un nuovo cluster Kafka tramite un modello di Azure Resource Manager.
 
 ## <a name="apache-ambari-web-ui"></a>Interfaccia utente Web di Apache Ambari
 
@@ -29,7 +29,7 @@ Per abilitare la creazione automatica di argomenti in un cluster esistente trami
 
     ![Immagine del portale con il dashboard del cluster selezionato](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-    Quando viene chiesto, eseguire l'autenticazione usando le credenziali di accesso (amministratore) per il cluster. In alternativa, è possibile connettersi a Amabri direttamente da `https://CLUSTERNAME.azurehdinsight.net/` dove `CLUSTERNAME` è il nome del cluster Kafka.
+    Quando viene chiesto, eseguire l'autenticazione usando le credenziali di accesso (amministratore) per il cluster. È invece possibile connettersi a Amabri direttamente da `https://CLUSTERNAME.azurehdinsight.net/` dove `CLUSTERNAME` è il nome del cluster Kafka.
 
 1. Selezionare il servizio Kafka nell'elenco a sinistra della pagina.
 
@@ -43,7 +43,7 @@ Per abilitare la creazione automatica di argomenti in un cluster esistente trami
 
     ![Campo filtro di ricerca di Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
-    In questo modo, l'elenco di proprietà verrà filtrato e verrà visualizzata l'impostazione `auto.create.topics.enable`.
+    Questa impostazione filtra l'elenco di proprietà e visualizza l' `auto.create.topics.enable` impostazione.
 
 1. Modificare il valore di `auto.create.topics.enable` in `true`e quindi selezionare **Salva**. Aggiungere una nota, quindi selezionare di nuovo **Salva** .
 
@@ -51,7 +51,7 @@ Per abilitare la creazione automatica di argomenti in un cluster esistente trami
 
 1. Selezionare il servizio Kafka, __Restart__ (Riavvia) e quindi __Restart all affected__ (Riavvia tutti gli elementi interessati). Quando richiesto, selezionare __Confirm restart all__.
 
-    ![Riavvio di Apache Ambari tutti interessati](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    ![' Apache Ambari restart all affected '](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
 > È possibile anche impostare i valori Ambari tramite l'API REST Ambari. Questo è in genere più complesso, poiché è necessario effettuare più chiamate REST per recuperare la configurazione corrente, modificarla e così via. Per altre informazioni, vedere [gestire i cluster HDInsight usando il documento dell'API REST di Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md) .

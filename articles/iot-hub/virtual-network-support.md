@@ -2,17 +2,17 @@
 title: Supporto dell'hub Internet degli Azure per le reti virtuali
 description: Come usare il modello di connettività delle reti virtuali con l'hub Internet
 services: iot-hub
-author: rezasherafat
+author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: rezas
-ms.openlocfilehash: 34f66c13b0e7eb7092332a48744f9abfd8f0db80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: jlian
+ms.openlocfilehash: c0d01ae6507864373a79282476846d6f96adf83b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501427"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231442"
 ---
 # <a name="iot-hub-support-for-virtual-networks"></a>Supporto dell'hub Internet per reti virtuali
 
@@ -199,7 +199,7 @@ Un'identità del servizio gestito può essere assegnata all'hub al momento del p
 Dopo aver sostituito i valori per la risorsa `name`, `location` `SKU.name` e `SKU.tier`, è possibile usare l'interfaccia della riga di comando di Azure per distribuire la risorsa in un gruppo di risorse esistente usando:
 
 ```azurecli-interactive
-az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
 Dopo aver creato la risorsa, è possibile recuperare l'identità del servizio gestito assegnata all'hub usando l'interfaccia della riga di comando di Azure:
@@ -217,9 +217,9 @@ Quando viene eseguito il provisioning dell'hub Internet con un'identità del ser
 
 1. Nella portale di Azure passare alla scheda controllo di accesso dell'account di archiviazione **(IAM)** e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo** .
 
-2. Selezionare **collaboratore dati BLOB di archiviazione** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub cose nell'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **collaboratore dati BLOB di archiviazione** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub cose nell'elenco a discesa. Fare clic sul pulsante **Salva**.
 
-3. Passare alla scheda **firewall e reti virtuali** nell'account di archiviazione e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
+3. Passare alla scheda **firewall e reti virtuali** nell'account di archiviazione e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva**.
 
 4. Nella pagina delle risorse dell'hub Internet, passare alla scheda **routing messaggi** .
 
@@ -236,9 +236,9 @@ A questo punto, l'endpoint di archiviazione personalizzato è configurato per us
 
 1. Nella portale di Azure passare alla scheda **controllo di accesso** di hub eventi e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo** .
 
-2. Selezionare **mittente dati Hub eventi** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub tutto nell'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **mittente dati Hub eventi** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub tutto nell'elenco a discesa. Fare clic sul pulsante **Salva**.
 
-3. Passare alla scheda **firewall e reti virtuali** nell'hub eventi e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a hub eventi**. Fare clic sul pulsante **Salva** .
+3. Passare alla scheda **firewall e reti virtuali** nell'hub eventi e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a hub eventi**. Fare clic sul pulsante **Salva**.
 
 4. Nella pagina delle risorse dell'hub Internet, passare alla scheda **routing messaggi** .
 
@@ -255,9 +255,9 @@ A questo punto l'endpoint dell'hub eventi personalizzato è configurato per usar
 
 1. Nella portale di Azure passare alla scheda **controllo di accesso (IAM)** del bus di servizio e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo** .
 
-2. Selezionare **mittente dati del bus di servizio** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub cose nell'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **mittente dati del bus di servizio** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub cose nell'elenco a discesa. Fare clic sul pulsante **Salva**.
 
-3. Passare alla scheda **firewall e reti virtuali** nel bus di servizio e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a questo bus di servizio**. Fare clic sul pulsante **Salva** .
+3. Passare alla scheda **firewall e reti virtuali** nel bus di servizio e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a questo bus di servizio**. Fare clic sul pulsante **Salva**.
 
 4. Nella pagina delle risorse dell'hub Internet, passare alla scheda **routing messaggi** .
 
@@ -274,9 +274,9 @@ La funzionalità di caricamento dei file dell'hub Internet consente ai dispositi
 
 1. Nella portale di Azure passare alla scheda controllo di accesso dell'account di archiviazione **(IAM)** e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo** .
 
-2. Selezionare **collaboratore dati BLOB di archiviazione** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub cose nell'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **collaboratore dati BLOB di archiviazione** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub cose nell'elenco a discesa. Fare clic sul pulsante **Salva**.
 
-3. Passare alla scheda **firewall e reti virtuali** nell'account di archiviazione e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
+3. Passare alla scheda **firewall e reti virtuali** nell'account di archiviazione e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva**.
 
 4. Nella pagina delle risorse dell'hub Internet, passare alla scheda **caricamento file** .
 
@@ -293,9 +293,9 @@ Questa funzionalità richiede la connettività dall'hub Internet all'account di 
 
 1. Nella portale di Azure passare alla scheda controllo di accesso dell'account di archiviazione **(IAM)** e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo** .
 
-2. Selezionare **collaboratore dati BLOB di archiviazione** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub cose nell'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **collaboratore dati BLOB di archiviazione** come **ruolo**, **Azure ad utente, gruppo o entità servizio** per l' **assegnazione dell'accesso a** e selezionare il nome della risorsa dell'hub cose nell'elenco a discesa. Fare clic sul pulsante **Salva**.
 
-3. Passare alla scheda **firewall e reti virtuali** nell'account di archiviazione e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
+3. Passare alla scheda **firewall e reti virtuali** nell'account di archiviazione e abilitare l'opzione **Consenti accesso dalle reti selezionate** . Nell'elenco **eccezioni** selezionare la casella **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva**.
 
 È ora possibile usare le API REST di Azure per la [creazione di processi di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) per informazioni su come usare la funzionalità di importazione/esportazione bulk. Si noti che sarà necessario specificare `storageAuthenticationType="identityBased"` nel corpo della richiesta e usare `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` come URL di input e output dell'account di archiviazione, rispettivamente.
 

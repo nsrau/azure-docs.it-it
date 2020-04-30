@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371591"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509823"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -47,6 +47,25 @@ Fare clic sul **grafico Aggiungi** e creare un altro grafico con una metrica div
 ### <a name="order-or-delete-multiple-charts"></a>Ordinare o eliminare più grafici
 
 Per ordinare o eliminare più grafici, fare clic sul simbolo dei puntini di sospensione ( **..** .) per aprire il menu grafico e scegliere la voce di menu appropriata di **Sposta su**, **Sposta giù**o **Elimina**.
+
+## <a name="changing-aggregation"></a>Modifica dell'aggregazione
+
+Quando si aggiunge una metrica a un grafico, Esplora metriche ne seleziona automaticamente l'aggregazione predefinita. Il valore predefinito è opportuno negli scenari di base, ma è possibile usare un'aggregazione diversa per ottenere informazioni aggiuntive sulla metrica. Per visualizzare aggregazioni diverse in un grafico è necessario comprendere il modo in cui vengono gestite da Esplora metriche. 
+
+Le metriche sono la serie di misurazioni (o "valori metrici") acquisite nel periodo di tempo. Quando si traccia un grafico, i valori della metrica selezionata vengono aggregati separatamente nell'intervallo di *tempo*. Per selezionare le dimensioni dell'intervallo di tempo, è possibile [usare il pannello di selezione Esplora metriche tempo](metrics-getting-started.md#select-a-time-range). Se non si esegue una selezione esplicita del periodo di tempo, la granularità temporale viene selezionata automaticamente in base all'intervallo di tempo attualmente selezionato. Una volta determinato l'intervallo di tempo, i valori delle metriche acquisiti durante ogni intervallo di tempo sono aggregati e inseriti nel grafico, uno per ogni punto di data e ora.
+
+Si supponga, ad esempio, che il grafico visualizzi la metrica del **tempo di risposta del server** usando l'aggregazione **media** nelle **ultime 24 ore** di intervallo:
+
+- Se la granularità temporale è impostata su 30 minuti, il grafico viene disegnato da 48 punti di collegamento aggregati (ad esempio, il grafico a linee connette 48 punti nell'area del tracciato del grafico). Ovvero 24 ore x 2 punti di riferimento all'ora. Ogni punto di riferimento rappresenta la *media* di tutti i tempi di risposta acquisiti per le richieste del server che si sono verificati durante ciascun periodo di tempo di 30 minuti pertinente.
+- Se si passa la granularità dell'ora a 15 minuti, si ottengono 96 punti di riferimento aggregati.  Ovvero 24 ore x 4 punti di riferimento all'ora.
+
+In Esplora metriche sono disponibili cinque tipi di aggregazione delle statistiche di base: **Sum**, **count**, **min**, **Max**e **Average**. L'aggregazione **Sum** viene a volte definita aggregazione **totale** . Per molte metriche, Esplora metriche nasconderà le aggregazioni che sono totalmente irrilevanti e non possono essere usate.
+
+- **Sum** : somma di tutti i valori acquisiti nell'intervallo di aggregazione
+- **Count** : numero di misurazioni acquisite sull'intervallo di aggregazione. Si noti che **count** sarà uguale a **Sum** nel caso in cui la metrica venga sempre acquisita con il valore 1. Questo è comune quando la metrica tiene traccia del numero di eventi distinti e ogni misura rappresenta un evento, ovvero il codice genera un record di metrica ogni volta che viene ricevuta una nuova richiesta.
+- **Media** : media dei valori della metrica acquisiti nell'intervallo di aggregazione
+- **Min** : il valore più piccolo acquisito nell'intervallo di aggregazione
+- **Max** : il valore più grande acquisito nell'intervallo di aggregazione
 
 ## <a name="apply-filters-to-charts"></a>Applicare filtri ai grafici
 

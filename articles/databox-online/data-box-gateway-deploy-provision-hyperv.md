@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77365314"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561622"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in Hyper-V
 
@@ -21,7 +21,7 @@ ms.locfileid: "77365314"
 
 Questa esercitazione illustra come effettuare il provisioning di un Data Box Gateway in un sistema host che esegue Hyper-V in Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.
 
-È necessario disporre dei privilegi di amministratore per effettuare il provisioning di un dispositivo virtuale e configurarlo. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti.
+È necessario disporre dei privilegi di amministratore per effettuare il provisioning di un dispositivo virtuale e configurarlo. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti. 
 
 In questa esercitazione verranno illustrate le procedure per:
 

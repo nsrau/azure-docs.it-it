@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d3d1b9af0b26fa775beb78b313937890cb9287b3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 99c64e703158c40c2cc110a18be7b8c8d3800ff0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633768"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207803"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Guida di avvio rapido: configurare l'isolamento del carico di lavoro tramite T-SQL
 
@@ -30,10 +30,6 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida di avvio rapido presuppone che l'utente abbia già un'istanza di SQL Analytics in Azure Synapse Analytics con autorizzazioni CONTROL DATABASE. Se è necessario crearne uno, fare riferimento a [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**.
-
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
-
-Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-login-for-dataloads"></a>Creare un account di accesso per i DataLoads
 
@@ -111,20 +107,6 @@ Per le unità del data warehouse e i dati archiviati vengono addebitati costi. L
 
 - Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il pool SQL non è in uso. In questo modo, vengono addebitati solo i costi per l'archiviazione dei dati. Quando si è pronti a lavorare con i dati, riprendere il calcolo.
 - Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse.
-
-Seguire questa procedura per pulire le risorse.
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare il proprio data warehouse.
-
-    ![Pulire le risorse](./media/quickstart-configure-workload-isolation-tsql/clean-up-resources.png)
-
-2. Per sospendere il calcolo, selezionare il pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, selezionare **Avvia**.
-
-3. Per rimuovere il data warehouse in modo da non ricevere addebiti per operazioni di calcolo o archiviazione, selezionare **Elimina**.
-
-4. Per rimuovere il server SQL creato, selezionare **mynewserver-20180430.database.windows.net** nell'immagine precedente e quindi selezionare **Elimina**.  Fare attenzione quando si esegue questa operazione perché l'eliminazione del server comporta anche quella di tutti i database assegnati al server.
-
-5. Per rimuovere il gruppo di risorse, selezionare **myResourceGroup** e quindi **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

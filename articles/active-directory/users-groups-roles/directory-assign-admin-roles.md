@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2403faf23294afbba539c7240e842f928fed83dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8033122601077945790005e23ec728911c3a4e1f
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181291"
+ms.locfileid: "82207531"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -1823,12 +1823,12 @@ Amministratore del servizio CRM | Amministratore di Dynamics 365 | 44367163-eba1
 Responsabile approvazione per l'accesso a Customer Lockbox | Responsabile approvazione per l'accesso a Customer Lockbox | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Amministratore di Desktop Analytics | Amministratore di Desktop Analytics | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Amministratori di dispositivi | Amministratori di dispositivi | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-Aggiunta di dispositivi | Aggiunta al dispositivo | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-Gestione dispositivi | Gestione dispositivi | 2b499bcd-da44-4968-8aec-78e1674fa64d
-Utenti di dispositivi | Utenti del dispositivo | d405c6df-0af8-4e3b-95e4-4d06e542189e
+Aggiunta di dispositivi | Deprecato | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+Gestione dispositivi | Deprecato | 2b499bcd-da44-4968-8aec-78e1674fa64d
+Utenti di dispositivi | Deprecato | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Ruoli con autorizzazioni di lettura nella directory | Ruoli con autorizzazioni di lettura nella directory | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
-Account di sincronizzazione della directory | Account di sincronizzazione della directory | d29b2b05-8046-44ba-8758-1e26182fcf32
-Writer di directory | Writer di directory | 9360feb5-f418-4baa-8175-e2a00bac4301
+Account di sincronizzazione della directory | Non viene visualizzato perché non deve essere usato | d29b2b05-8046-44ba-8758-1e26182fcf32
+Writer di directory | Non viene visualizzato perché non deve essere usato | 9360feb5-f418-4baa-8175-e2a00bac4301
 Amministratore del servizio Exchange | Amministratori di Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Amministratore del provider di identità esterno | Amministratore del provider di identità esterno | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Ruolo con autorizzazioni di lettura globali | Lettore globale | f2ef992c-3afb-46b9-b7cf-a126ee74c451
@@ -1844,8 +1844,8 @@ Lettore privacy del centro messaggi | Lettore privacy del centro messaggi | ac16
 Ruolo con autorizzazioni di lettura per il Centro messaggi | Lettore del centro messaggi | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Amministratore di rete | Amministratore di rete | d37c8bed-0711-4417-BA38-b4abe66ce4c2
 Amministratore delle app di Office | Amministratore delle app di Office | 2b745bdf-0803-4d80-aa65-822c4493daac
-Supporto partner - Livello 1 | Supporto partner - Livello 1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
-Supporto partner - Livello 2 | Supporto partner - Livello 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Supporto partner - Livello 1 | Non viene visualizzato perché non deve essere usato | 4ba39ca4-527c-499a-b93d-d9b492c50246
+Supporto partner - Livello 2 | Non viene visualizzato perché non deve essere usato | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Amministratore password | Amministratore password | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Amministratore del servizio Power BI | Amministratore Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Amministratore di Power Platform | Amministratore piattaforma Power | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
@@ -1865,9 +1865,9 @@ Amministratore comunicazioni Teams | Amministratore comunicazioni Teams | baf37b
 Tecnico di supporto comunicazioni Teams | Tecnico di supporto comunicazioni Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Specialista di supporto comunicazioni Teams | Specialista di supporto comunicazioni Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Amministratore del servizio Teams | Amministratore del servizio Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
-Utente | Utente | a0b1b346-4d3e-4e8b-98f8-753987be4970
+Utente | Non visualizzato perché non può essere usato | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Amministratore account utente | Amministratore degli utenti | fe930be7-5e62-47db-91af-98c3a49a38b1
-Aggiunta di dispositivi all'area di lavoro | Aggiunta di dispositivi all'area di lavoro | c34f683f-4D5A-4403-AFFD-6615e00e3a7f
+Aggiunta di dispositivi all'area di lavoro | Deprecato | c34f683f-4D5A-4403-AFFD-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Ruoli deprecati
 

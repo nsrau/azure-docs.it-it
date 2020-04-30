@@ -1,7 +1,7 @@
 ---
-title: Definire moduli R personalizzati
+title: Creare & distribuire moduli R personalizzati
 titleSuffix: ML Studio (classic) - Azure
-description: In questo argomento viene descritto come creare e distribuire un R Studio personalizzato (classico). Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli.
+description: Informazioni su come creare e distribuire un modulo R personalizzato in ML Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,25 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 5b8dab14a9416795eccef1f71988a048c8bedb48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fb628b1730f0811debf0ff8a6cd517b96f8ef53
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218174"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208432"
 ---
-# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definire moduli R personalizzati per Azure Machine Learning Studio (classico)Define custom R modules for Azure Machine Learning Studio (classic)
+# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definire moduli R personalizzati per Azure Machine Learning Studio (versione classica)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+Questo argomento descrive come creare e distribuire un R Studio personalizzato (classico). Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
 
-In questo argomento viene descritto come creare e distribuire un R Studio personalizzato (classico). Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
-
-
-
-## <a name="what-is-a-custom-r-module"></a>In cosa consiste un modulo R personalizzato?
 Un **modulo personalizzato** è un modulo definito dall'utente che può essere caricato nell'area di lavoro ed eseguito come parte dell'esperimento di Azure Machine Learning Studio (classico). Un **modulo R personalizzato** è un modulo personalizzato che esegue una funzione R definita dall'utente. **R** è un linguaggio di programmazione per il calcolo e statistico e la grafica ampiamente usato in campo statistico e di analisi dei dati per l'implementazione degli algoritmi. R è attualmente l'unico linguaggio supportato nei moduli personalizzati, ma il supporto per altri linguaggi è previsto per le versioni future.
 
-I moduli personalizzati hanno lo stato di **prima classe** in Azure Machine Learning Studio (classico) nel senso che possono essere usati come qualsiasi altro modulo. Possono essere eseguiti con altri moduli, inclusi nelle visualizzazioni o negli esperimenti pubblicati. Gli utenti possono gestire l'algoritmo implementato dal modulo, le porte di input e output da usare, i parametri di modellazione e altri comportamenti di runtime. Per una semplice condivisione è anche possibile pubblicare un esperimento contenente moduli personalizzati nella Raccolta di intelligenza artificiale per Azure.
+I moduli personalizzati hanno **uno stato di prima classe** nel Azure Machine Learning Studio (classico) nel senso che possono essere usati come qualsiasi altro modulo. Possono essere eseguiti con altri moduli, inclusi nelle visualizzazioni o negli esperimenti pubblicati. Gli utenti possono gestire l'algoritmo implementato dal modulo, le porte di input e output da usare, i parametri di modellazione e altri comportamenti di runtime. Per una semplice condivisione è anche possibile pubblicare un esperimento contenente moduli personalizzati nella Raccolta di intelligenza artificiale per Azure.
 
 ## <a name="files-in-a-custom-r-module"></a>File in un modulo R personalizzato
 Un modulo R personalizzato viene definito da un file ZIP che contiene almeno due file:
@@ -57,7 +52,7 @@ Considerare l'esempio di un modulo **Add Rows** (Aggiungi righe) personalizzato 
     } 
 
 ### <a name="the-xml-definition-file"></a>File di definizione XML
-Per esporre `CustomAddRows` questa funzione come modulo di Azure Machine Learning Studio (classico), è necessario creare un file di definizione XML per specificare l'aspetto e il comportamento del modulo **Aggiunta righe personalizzata.** 
+Per esporre questa `CustomAddRows` funzione come modulo Azure Machine Learning Studio (classico), è necessario creare un file di definizione XML per specificare la modalità di aspetto e il comportamento del modulo **Aggiungi righe personalizzato** . 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -99,7 +94,7 @@ Al contrario, l'attributo **id** per l'elemento **Output** non corrisponde ad al
 ### <a name="package-and-register-the-module"></a>Creare il pacchetto del modulo e registrarlo
 Salvare questi due file come *CustomAddRows.R* e *CustomAddRows.xml* e quindi comprimerli insieme nel file *CustomAddRows.zip*.
 
-Per registrarli nell'area di lavoro di Machine Learning, passare all'area di lavoro in Azure Machine Learning Studio (classica), fare clic sul pulsante **NUOVO** nella parte inferiore e scegliere **MODULE -> FROM .IP PACKAGE** per caricare il nuovo modulo **Aggiungi righe personalizzato.**
+Per registrarli nell'area di lavoro Machine Learning, passare all'area di lavoro in Azure Machine Learning Studio (classica), fare clic sul pulsante **+ nuovo** nella parte inferiore e scegliere **modulo-> da pacchetto zip** per caricare il nuovo modulo **Aggiungi righe personalizzato** .
 
 ![Caricamento file ZIP](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -107,7 +102,7 @@ Ora è possibile accedere al modulo **Add Rows personalizzato** con gli esperime
 
 ## <a name="elements-in-the-xml-definition-file"></a>Elementi nel file di definizione .xml
 ### <a name="module-elements"></a>Elementi dei moduli
-L'elemento **Module** viene usato per definire un modulo personalizzato nel file XML. Si possono definire più moduli in un file XML usando più elementi **Module** . Ogni modulo nell'area di lavoro deve avere un nome univoco. La registrazione di un modulo personalizzato con lo stesso nome di un modulo personalizzato esistente sostituisce il modulo esistente con quello nuovo. I moduli personalizzati possono, tuttavia, essere registrati con lo stesso nome di un modulo di Azure Machine Learning Studio (classico) esistente. In questo caso verranno visualizzati nella categoria **Custom** (Personalizzati) del pannello dei moduli.
+L'elemento **Module** viene usato per definire un modulo personalizzato nel file XML. Si possono definire più moduli in un file XML usando più elementi **Module** . Ogni modulo nell'area di lavoro deve avere un nome univoco. La registrazione di un modulo personalizzato con lo stesso nome di un modulo personalizzato esistente sostituisce il modulo esistente con quello nuovo. I moduli personalizzati possono, tuttavia, essere registrati con lo stesso nome di un modulo Azure Machine Learning Studio (classico) esistente. In questo caso verranno visualizzati nella categoria **Custom** (Personalizzati) del pannello dei moduli.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -125,7 +120,7 @@ Regole per i limiti di caratteri negli elementi Module:
 * Il contenuto dell'elemento **Description** non deve superare i 128 caratteri.
 * Il contenuto dell'elemento **Owner** non deve superare i 32 caratteri.
 
-I risultati di un modulo possono essere deterministici o non deterministici.* * Per impostazione predefinita, tutti i moduli sono considerati deterministici. Ovvero, dato un set immutabile di parametri di input e dati, il modulo deve restituire gli stessi risultati eacRAND o un tempo di funzione in cui viene eseguito. Dato questo comportamento, Azure Machine Learning Studio (classico) riesegue solo i moduli contrassegnati come deterministici se un parametro o i dati di input sono stati modificati. La restituzione dei risultati memorizzati nella cache offre anche un'esecuzione molto più rapida degli esperimenti.
+I risultati di un modulo possono essere deterministici o non deterministici.* * Per impostazione predefinita, tutti i moduli sono considerati deterministici. In altre termini, data una serie di parametri di input e dati non modificabili, il modulo deve restituire gli stessi risultati eacRAND o una funzione che viene eseguita. Dato questo comportamento, Azure Machine Learning Studio (classico) riesegue solo i moduli contrassegnati come deterministici se è stato modificato un parametro o i dati di input. La restituzione dei risultati memorizzati nella cache offre anche un'esecuzione molto più rapida degli esperimenti.
 
 Sono disponibili funzioni non deterministiche, ad esempio RAND o una funzione che restituisce la data o l'ora corrente. Se il modulo usa una funzione non deterministica, è possibile indicare che il modulo è non deterministico impostando l'attributo facoltativo **isDeterministic** su **FALSE**. Il modulo verrà così eseguito nuovamente ogni volta che verrà eseguito l'esperimento, anche se l'input e i parametri del modulo non sono stati modificati. 
 
@@ -161,7 +156,7 @@ Le porte **DataTable** facoltative che non vengono passate come input in un espe
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-Per i moduli R personalizzati, l'ID per una porta zip non deve corrispondere ai parametri della funzione R. perché il file ZIP viene estratto automaticamente nella directory di lavoro R.
+Per i moduli R personalizzati, non è necessario che l'ID di una porta zip corrisponda ai parametri della funzione R. perché il file ZIP viene estratto automaticamente nella directory di lavoro R.
 
 **Regole di input:**
 
@@ -173,7 +168,7 @@ Per i moduli R personalizzati, l'ID per una porta zip non deve corrispondere ai 
 * Il valore dell'attributo **isOptional** dell'elemento **Input** non è obbligatorio (ed è *false* per impostazione predefinita quando non è specificato), ma, se è specificato, deve essere *true* o *false*.
 
 ### <a name="output-elements"></a>Elementi di output
-**Porte di output standard:** le porte di output corrispondono ai valori restituiti dalla funzione R, che può quindi essere usata dai moduli successivi. *DataTable* è l'unico tipo di porta di output standard attualmente supportato. (Il supporto per *gli Allievi* e *le trasformazioni* è in arrivo.) Un output *di DataTable* è definito come:A DataTable output is defined as:
+**Porte di output standard:** le porte di output corrispondono ai valori restituiti dalla funzione R, che può quindi essere usata dai moduli successivi. *DataTable* è l'unico tipo di porta di output standard attualmente supportato. (Il supporto per gli *Learner* e le *trasformazioni* è imminente). Un output *DataTable* viene definito come segue:
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
@@ -202,7 +197,7 @@ Se ad esempio si vuole modificare il modulo **Add rows personalizzato** per l'ou
     </Ports> 
 
 
-E restituire l'elenco di oggetti in un elenco nell'ordine corretto in 'CustomAddRows.R':
+E restituiscono l'elenco di oggetti in un elenco nell'ordine corretto in ' CustomAddRows. R ':
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -227,7 +222,7 @@ E restituire l'elenco di oggetti in un elenco nell'ordine corretto in 'CustomAdd
 ### <a name="arguments"></a>Argomenti
 Dati aggiuntivi possono essere passati alla funzione R con i parametri del modulo definiti nell'elemento **Arguments**. Questi parametri vengono visualizzati nel riquadro delle proprietà più a destra dell'interfaccia utente di Machine Learning quando viene selezionato il modulo. Gli argomenti possono essere uno qualsiasi dei tipi supportati. In alternativa, è possibile creare un enumeratore personalizzato, se necessario. Analogamente agli elementi **Ports**, gli elementi **Arguments** possono presentare un elemento **Description** facoltativo che specifica il testo visualizzato quando si posiziona il mouse sul nome del parametro.
 Le proprietà facoltative per un modulo, quali defaultValue, minValue e maxValue, possono essere aggiunte a qualsiasi argomento come attributi di un elemento **Properties**. Le proprietà valide per l'elemento **Properties** dipendono dal tipo di argomento e vengono descritte con i tipi di argomento supportati nella sezione successiva. Gli argomenti con la proprietà **isOptional** impostata su **"true"** non richiedono che l'utente immetta un valore. Se non viene fornito un valore per l'argomento, l'argomento non verrà passato alla funzione del punto di ingresso. Gli argomenti della funzione del punto di ingresso facoltativi devono essere gestiti in modo esplicito dalla funzione, ad esempio viene assegnato un valore predefinito NULL nella definizione della funzione del punto di ingresso. Un argomento facoltativo imporrà gli altri vincoli dell'argomento, ad esempio min o max, solo se l'utente fornisce un valore.
-Come per gli input e gli output, è fondamentale che a ciascuno dei parametri siano associati valori ID univoci. Nel nostro esempio di avvio rapido l'id/parametro associato è stato *swap*.
+Come per gli input e gli output, è fondamentale che a ogni parametro siano associati valori ID univoci. Nell'esempio di avvio rapido l'ID/parametro associato era *swap*.
 
 ### <a name="arg-element"></a>Elemento Arg
 Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezione **Arguments** del file di definizione XML. Come con gli elementi figlio nella sezione **Ports**, l'ordine dei parametri nella sezione **Arguments** definisce il layout riscontrato nell'esperienza utente. I parametri vengono visualizzati dall'alto verso il basso nell'interfaccia utente nello stesso ordine in cui sono definiti nel file XML. I tipi supportati da Machine Learning per i parametri sono elencati di seguito. 
@@ -272,7 +267,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
 
 * *Proprietà facoltative*: **default** e **isOptional**
 
-**ColumnPicker**: parametro di selezione della colonna. Questo tipo esegue il rendering in UX come selezione di colonne. L'elemento **Property** viene utilizzato per specificare l'ID della porta da cui vengono selezionate le colonne, in cui il tipo di porta di destinazione deve essere *DataTable*. Il risultato della selezione delle colonne verrà passato alla funzione R come elenco di stringhe contenenti i nomi di colonna selezionati. 
+**ColumnPicker**: parametro di selezione della colonna. Questo tipo esegue il rendering in UX come selezione di colonne. L'elemento **Property** viene usato qui per specificare l'ID della porta da cui vengono selezionate le colonne, in cui il tipo di porta di destinazione deve essere *DataTable*. Il risultato della selezione delle colonne verrà passato alla funzione R come elenco di stringhe contenenti i nomi di colonna selezionati. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -280,7 +275,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
         </Arg>
 
 
-* *Proprietà obbligatorie*: **portId** - corrisponde all'ID di un elemento Input con tipo *DataTable*.
+* *Proprietà obbligatorie*: **ID porta** -corrisponde all'ID di un elemento di input con tipo *DataTable*.
 * *Proprietà facoltative*:
   
   * **allowedTypes** : filtra i tipi di colonna tra cui è possibile scegliere. I valori validi includono: 
@@ -288,14 +283,14 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     * Numeric
     * Boolean
     * Categorical
-    * string
-    * Etichetta
+    * Stringa
+    * Label
     * Funzionalità
     * Punteggio
     * Tutti
   * **default** : le selezioni predefinite valide per il selettore di colonna includono: 
     
-    * nessuno
+    * Nessuno
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -329,17 +324,17 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     </Arg>    
 
 * *Proprietà facoltative*:
-  * **default** - Il valore della proprietà predefinita deve corrispondere a un valore ID da uno degli elementi **Item.**
+  * **impostazione predefinita** : il valore della proprietà predefinita deve corrispondere a un valore ID di uno degli elementi **Item** .
 
 ### <a name="auxiliary-files"></a>File ausiliari
-Qualsiasi file inserito nel file ZIP del modulo personalizzato sarà disponibile per l'uso durante la fase di esecuzione. Vengono mantenute le strutture di directory presenti. Ciò significa che l'origine file funziona allo stesso modo in locale e nell'esecuzione di Azure Machine Learning Studio (classica). 
+Qualsiasi file inserito nel file ZIP del modulo personalizzato sarà disponibile per l'uso durante la fase di esecuzione. Vengono mantenute le strutture di directory presenti. Questo significa che l'origine file funziona allo stesso modo in locale e nell'esecuzione Azure Machine Learning Studio (classica). 
 
 > [!NOTE]
-> Si noti che tutti i file vengono estratti nella directory 'src', pertanto tutti i percorsi devono avere il prefisso 'src/'.
+> Si noti che tutti i file vengono estratti nella directory ' src ' in modo che tutti i percorsi abbiano il prefisso ' src/'.
 > 
 > 
 
-Si supponga, ad esempio, di voler rimuovere tutte le righe con NAs dal set di dati e rimuovere anche eventuali righe duplicate, prima di immetterlo in CustomAddRows, e hai già scritto una funzione R che esegue questa procedura in un file RemoveDupNARows.R:
+Si immagini, ad esempio, di voler rimuovere tutte le righe con NAs dal set di dati e rimuovere anche eventuali righe duplicate prima di renderle disponibili in CustomAddRows e di avere già scritto una funzione R che esegue tale operazione in un file RemoveDupNARows. R:
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -361,7 +356,7 @@ Si supponga, ad esempio, di voler rimuovere tutte le righe con NAs dal set di da
         return (dataset)
     }
 
-Successivamente, caricare un file zip contenente 'CustomAddRows.R', 'CustomAddRows.xml' e 'RemoveDupNARows.R' come modulo R personalizzato.
+Successivamente, caricare un file zip contenente ' CustomAddRows. R ',' CustomAddRows. xml ' è RemoveDupNARows. R ' come modulo R personalizzato.
 
 ## <a name="execution-environment"></a>Ambiente di esecuzione
 L'ambiente di esecuzione dello script R usa la stessa versione di R del modulo **Esegui script R** e può usare gli stessi pacchetti predefiniti. È anche possibile aggiungere altri pacchetti R al modulo personalizzato includendoli nel pacchetto ZIP del modulo personalizzato. È sufficiente caricare i pacchetti nello script R come si farebbe nel proprio ambiente R. 

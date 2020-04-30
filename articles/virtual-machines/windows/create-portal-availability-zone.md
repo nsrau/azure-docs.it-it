@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale Windows suddivisa in zone con il portale di AzureCreate a zoned Windows VM with the Azure portal
+title: Creare una VM Windows in zone con la portale di Azure
 description: Creare una VM Windows in una zona di disponibilità con il portale di Azure
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 418d02b1f271efc1112b67e5dd12b6ba67a3fcd9
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: b8a5f6543bc265605361b7875fad5232d428e27e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086182"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208993"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Creare una macchina virtuale Windows in una zona di disponibilità con il portale di Azure
 
-Questo articolo descrive come usare il portale di Azure per creare una macchina virtuale Linux in una zona di disponibilità di Azure. Una [zona di disponibilità](../../availability-zones/az-overview.md) è una zona fisicamente separata in un'area di Azure.An availability zone is a physically separate zone in an Azure region. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
+Questo articolo descrive come usare il portale di Azure per creare una macchina virtuale Linux in una zona di disponibilità di Azure. Una [zona di disponibilità](../../availability-zones/az-overview.md) è una zona fisicamente separata in un'area di Azure. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
 
-Per usare una zona di disponibilità, creare la macchina virtuale in un'[area di Azure supportata](../../availability-zones/az-overview.md#services-support-by-region).
+Per usare una zona di disponibilità, creare la macchina virtuale in un'[area di Azure supportata](../../availability-zones/az-region.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure 
 
@@ -28,7 +28,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
-1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.Click Create a resource in the upper left-left corner of the Azure portal.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro della portale di Azure.
 
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
 
@@ -40,7 +40,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Selezionare una dimensione di VM](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. In **Impostazioni** > **elevata disponibilità**selezionare una delle zone numerate nell'elenco a discesa Area di **disponibilità,** mantenere le impostazioni predefinite rimanenti e fare clic su **OK**.
+5. In **Impostazioni** > **disponibilità elevata**selezionare una delle zone numerate dall'elenco a discesa **zona di disponibilità** , mantenere le impostazioni predefinite rimanenti e fare clic su **OK**.
 
     ![Selezionare una zona di disponibilità](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 
@@ -68,4 +68,4 @@ Se la macchina virtuale è distribuita in una zona di disponibilità, viene crea
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Altre informazioni sulla disponibilità per le macchine virtuali di Azure.Learn more about [availability](availability.md) for Azure VMs.
+In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Altre informazioni sulla [disponibilità](availability.md) per le macchine virtuali di Azure.

@@ -1,7 +1,6 @@
 ---
-title: Guida introduttiva a R
-titleSuffix: ML Studio (classic) - Azure
-description: Usare questa esercitazione sulla programmazione R per iniziare a usare il linguaggio R con Azure Machine Learning Studio (classico) per creare una soluzione di previsione.
+title: Usare R con ML Studio (classico)-Azure
+description: Usare questa esercitazione sulla programmazione R per iniziare a usare Azure Machine Learning Studio (classico) in R per creare una soluzione di previsione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,21 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1b347707b3c656bd692a29f0fd748c1503be4fb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218003"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209503"
 ---
-# <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Introduzione al linguaggio di programmazione R in Azure Machine Learning Studio (versione classica)
+# <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introduzione a Azure Machine Learning Studio (classico) in R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-
-## <a name="introduction"></a>Introduzione
-
 Questa esercitazione consente di iniziare a estendere Azure Machine Learning Studio (classico) usando il linguaggio di programmazione R. Seguire questa esercitazione sulla programmazione R per creare, testare ed eseguire codice R in studio (classico). Quando si esegue l'esercitazione, si creerà una soluzione di previsione completa usando il linguaggio R in studio (classico).  
 
 Azure Machine Learning Studio (classico) contiene molti moduli avanzati di machine learning e di manipolazione dei dati. Il potente linguaggio R è stato definito come la lingua franca dell'analisi. Fortunatamente, le analisi e la manipolazione dei dati in studio (classico) possono essere estese usando R. Questa combinazione fornisce la scalabilità e la facilità di distribuzione di studio (classico) con la flessibilità e l'analisi approfondita di R.
@@ -1310,7 +1306,7 @@ RStudio è molto ben documentato. Di seguito sono riportati alcuni collegamenti 
 * La **modifica e l'esecuzione del codice r** : rstudio fornisce un ambiente integrato per la modifica e l'esecuzione di codice r. Per informazioni dettagliate, vedere [modifica ed esecuzione del codice](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) .
 * **Debug** -rstudio include potenti funzionalità di debug. Per ulteriori informazioni su queste funzionalità, vedere [debug con rstudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) . Per informazioni sulle funzionalità di risoluzione dei problemi, vedere [risoluzione dei problemi](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)del punto di interruzione.
 
-## <a name="further-reading"></a><a id="appendixb"></a>Altre letture
+## <a name="further-reading"></a><a id="appendixb"></a>Letture di approfondimento
 
 Questa esercitazione sulla programmazione R illustra le nozioni di base di ciò che è necessario per usare il linguaggio R con Azure Machine Learning Studio (classico). Se non si ha familiarità con R, in CRAN sono disponibili due introduzioni:
 

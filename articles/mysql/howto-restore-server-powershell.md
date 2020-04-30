@@ -1,0 +1,136 @@
+---
+title: Backup e ripristino-Azure PowerShell-database di Azure per MySQL
+description: Informazioni su come eseguire il backup e il ripristino di un server in database di Azure per MySQL usando Azure PowerShell.
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.devlang: azurepowershel
+ms.topic: conceptual
+ms.date: 4/28/2020
+ms.openlocfilehash: 1e63a6e57e1dc929c78e5278df6ef0e4ab2a17d7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82230847"
+---
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-powershell"></a>Come eseguire il backup e il ripristino di un server in database di Azure per MySQL con PowerShell
+
+Viene eseguito periodicamente il backup del database di Azure per i server MySQL per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare questa guida, è necessario:
+
+- Il [modulo AZ PowerShell](/powershell/azure/install-az-ps) installato localmente o [Azure cloud Shell](https://shell.azure.com/) nel browser
+- Un [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
+
+> [!IMPORTANT]
+> Mentre il modulo AZ. MySql PowerShell è in anteprima, è necessario installarlo separatamente dal modulo AZ PowerShell usando il comando seguente: `Install-Module -Name Az.MySql -AllowPrerelease`.
+> Una volta che il modulo AZ. MySql PowerShell è disponibile a livello generale, diventa parte delle future versioni del modulo AZ PowerShell e disponibile in modo nativo dall'interno Azure Cloud Shell.
+
+Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
+
+Al momento della creazione del server, è possibile scegliere tra la configurazione del server per i backup con ridondanza locale o con ridondanza geografica.
+
+> [!NOTE]
+> Dopo aver creato un server, il tipo di ridondanza, con ridondanza geografica e con ridondanza locale, non può essere modificato.
+
+Durante la creazione di un server `New-AzMySqlServer` tramite il comando, il parametro **GeoRedundantBackup** decide l'opzione di ridondanza del backup. Se **abilitata**, vengono eseguiti backup con ridondanza geografica. In alternativa, se **disabilitato**, vengono eseguiti backup con ridondanza locale.
+
+Il periodo di conservazione dei backup è impostato dal parametro **BackupRetentionDay** .
+
+Per altre informazioni sull'impostazione di questi valori durante la creazione del server, vedere [creare un database di Azure per il server MySQL usando PowerShell](quickstart-create-mysql-server-database-using-azure-powershell.md).
+
+È possibile modificare il periodo di conservazione dei backup di un server nel modo seguente:
+
+```azurepowershell-interactive
+Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -BackupRetentionDay 10
+```
+
+L'esempio precedente modifica il periodo di conservazione dei backup di mydemoserver impostandolo su 10 giorni.
+
+Il periodo di conservazione dei backup determina il modo in cui è possibile recuperare un ripristino temporizzato, perché si basa su backup disponibili. Il ripristino temporizzato è descritto in modo più dettagliato nella sezione seguente.
+
+## <a name="server-point-in-time-restore"></a>Ripristino temporizzato del server
+
+È possibile ripristinare il server a un momento precedente. I dati ripristinati vengono copiati in un nuovo server e il server esistente viene lasciato invariato. Ad esempio, se una tabella viene eliminata accidentalmente, è possibile eseguire il ripristino fino al momento in cui si è verificata la trascinamento. È possibile quindi recuperare la tabella e i dati mancanti dalla copia ripristinata del server.
+
+Per ripristinare il server, usare il `Restore-AzMySqlServer` cmdlet di PowerShell.
+
+### <a name="run-the-restore-command"></a>Eseguire il comando di ripristino
+
+Per ripristinare il server, eseguire l'esempio seguente da PowerShell.
+
+```azurepowershell-interactive
+$restorePointInTime = (Get-Date).AddMinutes(-10)
+Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
+  Restore-AzMySqlServer -Name mydemoserver-restored -ResourceGroupName myresourcegroup -RestorePointInTime $restorePointInTime -UsePointInTimeRestore
+```
+
+Il set di parametri **PointInTimeRestore** del `Restore-AzMySqlServer` cmdlet richiede i parametri seguenti:
+
+| Impostazione | Valore consigliato | Descrizione  |
+| --- | --- | --- |
+| ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| Name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
+| RestorePointInTime | 2020-03-13T13:59:00Z | Selezionare un momento specifico per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. Ad esempio, è possibile usare il proprio fuso orario locale, ad esempio **2020-03-13T05:59:00-08:00**. È anche possibile usare il formato UTC Zulu, ad esempio **2018-03-13T13:59:00Z**. |
+| UsePointInTimeRestore | `<SwitchParameter>` | Usare la modalità temporizzata per il ripristino. |
+
+Quando si ripristina un server a un momento precedente, viene creato un nuovo server. Il server originale e i relativi database dal punto nel tempo specificato vengono copiati nel nuovo server.
+
+I valori relativi al percorso e al piano tariffario per il server ripristinato sono gli stessi del server di origine.
+
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+
+Il nuovo server creato durante un ripristino non dispone degli endpoint di servizio di VNet che erano presenti nel server originale. Queste regole devono essere impostate separatamente per il nuovo server. Vengono ripristinate le regole del firewall dal server originale.
+
+## <a name="geo-restore"></a>Ripristino geografico
+
+Se il server è stato configurato per i backup con ridondanza geografica, è possibile creare un nuovo server dal backup del server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per MySQL.
+
+Per creare un server usando un backup con ridondanza geografica `Restore-AzMySqlServer` , usare il comando con il parametro **UseGeoRestore** .
+
+> [!NOTE]
+> Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.
+
+Per il ripristino geografico del server, eseguire l'esempio seguente da PowerShell:
+
+```azurepowershell-interactive
+Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
+  Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
+```
+
+Questo esempio crea un nuovo server denominato **mydemoserver-georipristinato** nell'area Stati Uniti orientali che appartiene a **myresourcegroup**. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di **mydemoserver**, anche nel gruppo di risorse **myresourcegroup**.
+
+Per creare il nuovo server in un gruppo di risorse diverso dal server esistente, specificare il nome del nuovo gruppo di risorse usando il parametro **ResourceGroupName** , come illustrato nell'esempio seguente:
+
+```azurepowershell-interactive
+Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
+  Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName newresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
+```
+
+Il set di parametri **Georestore** del `Restore-AzMySqlServer` cmdlet richiede i parametri seguenti:
+
+| Impostazione | Valore consigliato | Descrizione  |
+| --- | --- | --- |
+|ResourceGroupName | myresourcegroup | Nome del gruppo di risorse a cui appartiene il nuovo server.|
+|Name | mydemoserver-georestored | Nome del nuovo server. |
+|Location | eastus | Posizione del nuovo server. |
+|UseGeoRestore | `<SwitchParameter>` | Usare la modalità geografica per il ripristino. |
+
+Quando si crea un nuovo server con il ripristino geografico, esso eredita le stesse dimensioni di archiviazione e il piano tariffario del server di origine, a meno che non venga specificato il parametro **SKU** .
+
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+
+Il nuovo server creato durante un ripristino non dispone degli endpoint di servizio di VNet che erano presenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Vengono ripristinate le regole del firewall dal server originale.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Altre informazioni sui [backup](concepts-backup.md) del servizio
+- Informazioni sulle [repliche](concepts-read-replicas.md)
+- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)

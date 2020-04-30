@@ -1,16 +1,16 @@
 ---
-title: Creare dinamicamente il volume dei dischi di AzureDynamically create Azure disks volume
+title: Creazione dinamica di volumi di dischi di Azure
 titleSuffix: Azure Kubernetes Service
-description: Informazioni su come creare dinamicamente un volume persistente con dischi di Azure nel servizio Kubernetes di Azure
+description: Informazioni su come creare dinamicamente un volume permanente con dischi di Azure in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 0ed58ef86dcd93ff2bd5588c8479195443bc292d
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 9ac41b1738d1691f6547f508d1a38dec89b0bb79
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803552"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208143"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con i dischi di Azure nel servizio Azure Kubernetes
 
@@ -19,26 +19,26 @@ Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è
 > [!NOTE]
 > Un disco di Azure può essere montato solo con la *modalità di accesso**ReadWriteOnce*, che lo rende disponibile solo a un singolo pod nel servizio Azure Kubernetes. Se è necessario condividere un volume permanente tra più pod, usare i [File di Azure][azure-files-pvc].
 
-Per ulteriori informazioni sui volumi Kubernetes, vedere Opzioni di archiviazione per le [applicazioni in AKS][concepts-storage].
+Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione per le applicazioni in AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-È inoltre necessaria l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-## <a name="built-in-storage-classes"></a>Classi di archiviazione predefiniteBuilt-in storage classes
+## <a name="built-in-storage-classes"></a>Classi di archiviazione predefinite
 
 Una classe di archiviazione viene usata per definire la creazione dinamica di un'unità di archiviazione con un volume permanente. Per altre informazioni sulle classi di archiviazione Kubernetes, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
 
 Ogni cluster servizio Azure Kubernetes include due classi di archiviazione predefinite, entrambe configurate per l'uso con i dischi di Azure:
 
 * La classe di archiviazione *predefinita* esegue il provisioning di un disco di Azure standard.
-    * Lo storage standard è supportato da HDD e offre uno storage conveniente pur continuando a funzionare. I dischi standard sono ideali per un carico di lavoro di sviluppo e test conveniente.
+    * L'archiviazione standard è supportata da HDD e offre una soluzione di archiviazione economicamente conveniente mentre è ancora in fase di esecuzione. I dischi standard sono ideali per un carico di lavoro di sviluppo e test economicamente conveniente.
 * La classe di archiviazione *gestita Premium* esegue il provisioning di un disco di Azure premium.
     * I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. Se i nodi del servizio Azure Container nel cluster usano l'archiviazione premium, selezionare la classe *gestita Premium*.
     
-Queste classi di archiviazione predefinite non consentono di aggiornare le dimensioni del volume una volta create. Per abilitare questa funzionalità, aggiungere la riga *allowVolumeExpansion: true* a una delle classi di archiviazione predefinite oppure creare una classe di archiviazione personalizzata. È possibile modificare una classe `kubectl edit sc` di archiviazione esistente utilizzando il comando . Per ulteriori informazioni sulle classi di archiviazione e sulla creazione di proprietà personalizzate, vedere Opzioni di archiviazione per le [applicazioni in AKS][storage-class-concepts].
+Queste classi di archiviazione predefinite non consentono di aggiornare le dimensioni del volume dopo la creazione. Per abilitare questa funzionalità, aggiungere la riga *allowVolumeExpansion: true* a una delle classi di archiviazione predefinite oppure creare una classe di archiviazione personalizzata. È possibile modificare una classe di archiviazione esistente usando `kubectl edit sc` il comando. Per altre informazioni sulle classi di archiviazione e sulla creazione di una propria, vedere [Opzioni di archiviazione per le applicazioni in AKS][storage-class-concepts].
 
 Usare il comando [kubectl get sc][kubectl-get] per visualizzare le classi di archiviazione create in precedenza. L'esempio seguente illustra la creazione preliminare di classi di archiviazione disponibile all'interno di un cluster servizio Azure Kubernetes:
 
@@ -51,7 +51,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Le attestazioni di volumi permanenti sono specificate in GiB, ma i dischi gestiti di Azure vengono fatturati in base al codice SKU per una dimensione specifica. Questi SKU vanno da 32GiB per dischi S4 o P4 a 32TiB per dischi S80 o P80 (in anteprima). La velocità effettiva e le prestazioni delle operazioni di I/O al secondo per un disco gestito Premium dipendono sia dallo SKU sia dalla dimensione dell'istanza dei nodi nel cluster servizio Azure Kubernetes. Per altre informazioni, vedere [Prezzi e prestazioni dei dischi gestiti][managed-disk-pricing-performance].
+> Le attestazioni di volumi permanenti sono specificate in GiB, ma i dischi gestiti di Azure vengono fatturati in base al codice SKU per una dimensione specifica. Questi SKU variano da 32GiB per i dischi S4 o P4 a 32TiB per S80 o P80 Disks (in anteprima). La velocità effettiva e le prestazioni delle operazioni di I/O al secondo per un disco gestito Premium dipendono sia dallo SKU sia dalla dimensione dell'istanza dei nodi nel cluster servizio Azure Kubernetes. Per altre informazioni, vedere [Prezzi e prestazioni dei dischi gestiti][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Creare un'attestazione di volume permanente
 
@@ -86,7 +86,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Usare il volume permanente
 
-Dopo aver creato l'attestazione di volume persistente e aver effettuato il provisioning del disco, è possibile creare un pod con accesso al disco. Il manifesto seguente crea un pod NGINX di base che usa l'attestazione di volume persistente denominata *azure-managed-disk* per montare il disco di Azure nel percorso `/mnt/azure`. Per i contenitori di Windows Server (attualmente in anteprima in AKS), specificare un *mountPath* utilizzando la convenzione di percorso di Windows, ad esempio *'D:'.*
+Dopo aver creato l'attestazione di volume persistente e aver effettuato il provisioning del disco, è possibile creare un pod con accesso al disco. Il manifesto seguente crea un pod NGINX di base che usa l'attestazione di volume persistente denominata *azure-managed-disk* per montare il disco di Azure nel percorso `/mnt/azure`. Per i contenitori di Windows Server, specificare un *mountPath* usando la convenzione di percorso di Windows, ad esempio *' d:'*.
 
 Creare un file denominato `azure-pvc-disk.yaml` e copiarlo nel manifesto seguente.
 
@@ -251,12 +251,12 @@ Volumes:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per le procedure consigliate associate, vedere [Procedure consigliate per l'archiviazione e i backup in AKS][operator-best-practices-storage].
+Per le procedure consigliate associate, vedere procedure consigliate [per l'archiviazione e i backup in AKS][operator-best-practices-storage].
 
 Altre informazioni sui volumi permanenti Kubernetes che usano i dischi di Azure.
 
 > [!div class="nextstepaction"]
-> [Plug-in Kubernetes per i dischi di AzureKubernetes plugin for Azure disks][azure-disk-volume]
+> [Plug-in Kubernetes per dischi di Azure][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes

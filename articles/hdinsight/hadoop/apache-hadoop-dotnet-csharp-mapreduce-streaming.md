@@ -6,24 +6,24 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: 7a299ce16f6e9c7292cebf198c9c3077f8e05fcb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: c8c4e35fb14d834721a29037c9ac12d8160507d9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417600"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209095"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Apache Hadoop in HDInsight
 
 Informazioni su come usare C# per creare una soluzione di MapReduce su HDInsight.
 
-Lo streaming Apache Hadoop consente di eseguire processi MapReduce utilizzando uno script o un eseguibile. In questo caso, .NET viene utilizzato per implementare il mapper e il riduttore per una soluzione di conteggio delle parole.
+Apache Hadoop Streaming consente di eseguire processi MapReduce tramite uno script o un file eseguibile. In questo caso, .NET viene usato per implementare il mapper e il Reducer per una soluzione di conteggio delle parole.
 
 ## <a name="net-on-hdinsight"></a>.NET su HDInsight
 
-I cluster HDInsight usano [Mono (perhttps://mono-project.com) ](https://mono-project.com) eseguire applicazioni .NET. La versione Mono 4.2.1 è inclusa nella versione 3.6 di HDInsight. Per ulteriori informazioni sulla versione di Mono inclusa in HDInsight, vedere [Componenti Apache Hadoop disponibili con versioni diverse di HDInsight.](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
+I cluster HDInsight usano [monohttps://mono-project.com) ](https://mono-project.com) per eseguire le applicazioni .NET. La versione Mono 4.2.1 è inclusa nella versione 3.6 di HDInsight. Per altre informazioni sulla versione di mono inclusa in HDInsight, vedere [Apache Hadoop componenti disponibili con diverse versioni di HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
 
 Per altre informazioni sulla compatibilità Mono con le versioni di .NET Framework, vedere il documento relativo alla [compatibilità Mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -31,9 +31,9 @@ Per altre informazioni sulla compatibilità Mono con le versioni di .NET Framewo
 
 Il processo di base usato per il flusso in questo documento è il seguente:
 
-1. Hadoop passa i dati al mapper (*mapper.exe* in questo esempio) su STDIN.
+1. Hadoop passa i dati al mapper (*Mapper. exe* in questo esempio) su stdin.
 2. Il mapper elabora i dati ed emette una coppia chiave/valore delimitata da tabulazione su STDOUT.
-3. L'output viene letto da Hadoop e quindi passato al riduttore (*reducer.exe* in questo esempio) su STDIN.
+3. L'output viene letto da Hadoop e quindi passato al riduttore (*Reducer. exe* in questo esempio) su stdin.
 4. Il riduttore legge le coppie chiave/valore delimitate da tabulazioni, elabora i dati e quindi genera il risultato come coppie chiave/valore delimitate da tabulazione su STDOUT.
 5. L'output viene letto da Hadoop e scritto nella directory di output.
 
@@ -47,15 +47,15 @@ Per altre informazioni sullo streaming, vedere [Hadoop Streaming](https://hadoop
 
 * Un modo per caricare i file .exe sul cluster. La procedura in questo documento usa gli strumenti Data Lake per Visual Studio per caricare i file nell'archiviazione primaria per il cluster.
 
-* Se si usa PowerShell, è necessario il [modulo Az](https://docs.microsoft.com/powershell/azure/overview).
+* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
-* Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight su Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Questo schema `wasb://` è per `abfs://` Archiviazione di Azure, per `adl://` Azure Data Lake Storage Gen2 o per Azure Data Lake Storage Gen1.This scheme would be for Azure Storage, for Azure Data Lake Storage Gen2 or for Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure o Data Lake Storage Gen2, l'URI è rispettivamente `wasbs://` o `abfss://`. Vedere anche [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* Lo schema URI per l'archiviazione primaria dei cluster. Questo schema è `wasb://` per archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure o Data Lake Storage Gen2, l'URI `wasbs://` è `abfss://`rispettivamente o.
 
 ## <a name="create-the-mapper"></a>Creare il mapper
 
-In Visual Studio creare una nuova applicazione console .NET Framework denominata *mapper*. Usare il codice seguente per l'applicazione:
+In Visual Studio creare una nuova applicazione console .NET Framework denominata *Mapper*. Usare il codice seguente per l'applicazione:
 
 ```csharp
 using System;
@@ -88,11 +88,11 @@ namespace mapper
 }
 ```
 
-Dopo aver creato l'applicazione, compilarla per produrre il file */bin/Debug/mapper.exe* nella directory del progetto.
+Dopo aver creato l'applicazione, compilarla per produrre il file */bin/debug/Mapper.exe* nella directory del progetto.
 
 ## <a name="create-the-reducer"></a>Creare il reducer
 
-In Visual Studio creare una nuova applicazione console .NET Framework denominata *reducer*. Usare il codice seguente per l'applicazione:
+In Visual Studio creare una nuova applicazione console .NET Framework denominata *Reducer*. Usare il codice seguente per l'applicazione:
 
 ```csharp
 using System;
@@ -141,41 +141,41 @@ namespace reducer
 }
 ```
 
-Dopo aver creato l'applicazione, compilarla per produrre il file */bin/Debug/reducer.exe* nella directory del progetto.
+Dopo aver creato l'applicazione, compilarla per produrre il file */bin/debug/Reducer.exe* nella directory del progetto.
 
 ## <a name="upload-to-storage"></a>Caricare nella risorsa di archiviazione
 
-Successivamente, è necessario caricare le applicazioni *di mapper* e *riduttore* nell'archiviazione HDInsight.Next, you need to upload the mapper and reducer applications to HDInsight storage.
+Successivamente, è necessario caricare le applicazioni *Mapper* e *Reducer* nell'archivio HDInsight.
 
 1. In Visual Studio selezionare **Visualizza** > **Esplora server**.
 
-1. Fare clic con il pulsante destro del mouse su **Azure**, selezionare **Connetti a sottoscrizione di Microsoft Azure...** e completare il processo di accesso.
+1. Fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
 1. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo **(Account di archiviazione predefinito)**.
 
-   ![Account di archiviazione, cluster HDInsight, Esplora server, Visual StudioStorage account, HDInsight cluster, Server Explorer, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
+   ![Account di archiviazione, cluster HDInsight, Esplora server, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
-   * Se la voce **(Account di archiviazione predefinito)** può essere espansa, si usa un **account di archiviazione** di Azure come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nell'archivio predefinito per il cluster, espandere la voce e fare doppio clic su **(Contenitore predefinito)**.
+   * Se è possibile espandere la voce **(account di archiviazione predefinito)** , si sta usando un **account di archiviazione di Azure** come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nella risorsa di archiviazione predefinita per il cluster, espandere la voce e quindi fare doppio clic sul **contenitore predefinito**.
 
-   * Se la voce **(Account di archiviazione predefinito)** non può essere espansa, si usa **Archiviazione di Azure Data Lake** come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce **(Account di archiviazione predefinito)**.
+   * Se non è possibile espandere la voce **(account di archiviazione predefinito)** , si sta usando **Azure Data Lake storage** come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce **(Account di archiviazione predefinito)**.
 
 1. Per caricare i file con estensione .exe, usare uno dei metodi seguenti:
 
-    * Se si usa un account di archiviazione di **Azure,** selezionare l'icona **Carica BLOB.**
+    * Se si usa un **account di archiviazione di Azure**, selezionare l'icona **Carica BLOB** .
 
-        ![HDInsight upload icon for mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        ![Icona di caricamento HDInsight per Mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-        Nella finestra di dialogo **Carica nuovo file,** in **Nome file**, selezionare **Sfoglia**. Nella finestra di dialogo **Carica BLOB** passare alla cartella *bin-debug* per il progetto *mapper* e quindi scegliere il file *mapper.exe.* Infine, selezionare **Apri** e quindi **OK** per completare il caricamento.
+        Nella finestra di dialogo **Carica nuovo file** , in **nome file**, selezionare **Sfoglia**. Nella finestra di dialogo **Carica BLOB** passare alla cartella *bin\Debug* per il progetto *Mapper* , quindi scegliere il file *Mapper. exe* . Infine, selezionare **Apri** e quindi **OK** per completare il caricamento.
 
-    * Per **Archiviazione Data Lake di Azure**fare clic con il pulsante destro del mouse su un'area vuota dell'elenco dei file e quindi scegliere **Carica**. Infine, selezionare il file *mapper.exe* e quindi **scegliere Apri**.
+    * Per **Azure Data Lake storage**, fare clic con il pulsante destro del mouse su un'area vuota nell'elenco dei file e quindi scegliere **carica**. Infine, selezionare il file *Mapper. exe* e quindi selezionare **Apri**.
 
     Una volta terminato il caricamento *mapper.exe*, ripetere il processo di caricamento per il file *reducer.exe*.
 
 ## <a name="run-a-job-using-an-ssh-session"></a>Eseguire un processo: uso di una sessione SSH
 
-Nella procedura seguente viene descritto come eseguire un processo MapReduce utilizzando una sessione SSH:
+La procedura seguente descrive come eseguire un processo MapReduce usando una sessione SSH:
 
-1. Usare [il comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster, quindi immettere il comando:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -183,7 +183,7 @@ Nella procedura seguente viene descritto come eseguire un processo MapReduce uti
 
 1. Usare uno dei comandi seguenti per avviare il processo MapReduce:
 
-   * Se l'archiviazione predefinita è Archiviazione di Azure:If the default storage is **Azure Storage:**
+   * Se la risorsa di archiviazione predefinita è **archiviazione di Azure**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -194,7 +194,7 @@ Nella procedura seguente viene descritto come eseguire un processo MapReduce uti
             -output /example/wordcountout
         ```
 
-    * Se l'archiviazione predefinita è **Data Lake Storage Gen1**:
+    * Se la risorsa di archiviazione predefinita è **Data Lake storage Gen1**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -205,7 +205,7 @@ Nella procedura seguente viene descritto come eseguire un processo MapReduce uti
             -output /example/wordcountout
         ```
 
-   * Se l'archiviazione predefinita è **Data Lake Storage Gen2:**
+   * Se la risorsa di archiviazione predefinita è **Data Lake storage Gen2**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -216,18 +216,18 @@ Nella procedura seguente viene descritto come eseguire un processo MapReduce uti
             -output /example/wordcountout
         ```
 
-   Nell'elenco seguente viene descritto cosa rappresenta ogni parametro e opzione:The following list describes what each parameter and option represents:
+   Nell'elenco seguente vengono descritti gli elementi rappresentati da ogni parametro e opzione:
 
    |Parametro | Descrizione |
    |---|---|
-   |hadoop-streaming.jar|Specifica il file jar che contiene la funzionalità MapReduce di streaming.|
-   |-file|Specifica i file *mapper.exe* e *reducer.exe* per questo processo. La `wasbs:///` `adl:///`dichiarazione `abfs:///` di protocollo , o prima di ogni file è il percorso della radice dell'archiviazione predefinita per il cluster.|
-   |-mapper|Specifica il file che implementa il mapper.|
-   |-riduttore|Specifica il file che implementa il riduttore.|
+   |hadoop-streaming.jar|Specifica il file jar che contiene la funzionalità di streaming MapReduce.|
+   |-file|Specifica i file *Mapper.* exe e *Reducer. exe* per questo processo. La `wasbs:///`Dichiarazione `adl:///`di protocollo `abfs:///` , o prima di ogni file è il percorso alla radice della risorsa di archiviazione predefinita per il cluster.|
+   |-Mapper|Specifica il file che implementa il mapper.|
+   |-Reducer|Specifica il file che implementa il riduttore.|
    |-input|Specifica i dati di input.|
    |-output|Specifica la directory di output.|
 
-1. Al termine del processo MapReduce, utilizzare il comando seguente per visualizzare i risultati:
+1. Al termine del processo del MapReduce, usare il comando seguente per visualizzare i risultati:
 
    ```bash
    hdfs dfs -text /example/wordcountout/part-00000
@@ -253,7 +253,7 @@ Usare il seguente script di PowerShell per eseguire un processo MapReduce e scar
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Questo script richiede l'account di accesso del cluster e la password, insieme al nome del cluster HDInsight. Al termine del processo, l'output viene scaricato in un file denominato *output.txt*. Il testo seguente è un esempio dei dati nel file `output.txt`:
+Questo script richiede l'account di accesso del cluster e la password, insieme al nome del cluster HDInsight. Al termine del processo, l'output viene scaricato in un file denominato *output. txt*. Il testo seguente è un esempio dei dati nel file `output.txt`:
 
 ```output
 you     1128
@@ -269,8 +269,6 @@ youth   17
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso di MapReduce con HDInsight, vedere [Usare MapReduce in Apache Hadoop in HDInsight.](hdinsight-use-mapreduce.md)
-
-Per informazioni sull'uso di C# con Hive e Pig, vedere [Usare le funzioni definite dall'utente C# con Apache Hive e Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
-
-Per informazioni sull'uso di C# con Storm in HDInsight, vedere [Sviluppare topologie C# per Apache Storm in HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+* [Usare MapReduce in Apache Hadoop in HDInsight](hdinsight-use-mapreduce.md).
+* [Usare una funzione C# definita dall'utente con Apache hive e Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+* [Sviluppare programmi MapReduce in Java](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

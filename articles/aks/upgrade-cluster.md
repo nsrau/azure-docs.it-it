@@ -1,29 +1,29 @@
 ---
 title: Aggiornare un cluster del servizio Azure Kubernetes
-description: Informazioni su come aggiornare un cluster del servizio Azure Kubernetes (AKS) per ottenere le funzionalità e gli aggiornamenti di sicurezza più recenti.
+description: Informazioni su come aggiornare un cluster di Azure Kubernetes Service (AKS) per ottenere le funzionalità più recenti e gli aggiornamenti della sicurezza.
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 183e0a85f65d24dc7133307391931bea754a456d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7e9a47b7bda4cdb0ff6f1983bc884f7441a26d9b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632602"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207973"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
-Nel corso del ciclo di vita di un cluster del servizio Azure Kubernetes, è spesso necessario eseguire l'aggiornamento alla versione più recente di Kubernetes. È infatti importante applicare gli ultimi aggiornamenti della sicurezza di Kubernetes o eseguire l'aggiornamento per ottenere le funzionalità più nuove. In questo articolo viene illustrato come aggiornare i componenti master o un singolo pool di nodi predefinito in un cluster AKS.
+Nel corso del ciclo di vita di un cluster del servizio Azure Kubernetes, è spesso necessario eseguire l'aggiornamento alla versione più recente di Kubernetes. È infatti importante applicare gli ultimi aggiornamenti della sicurezza di Kubernetes o eseguire l'aggiornamento per ottenere le funzionalità più nuove. Questo articolo illustra come aggiornare i componenti Master o un singolo pool di nodi predefinito in un cluster AKS.
 
-Per i cluster AKS che utilizzano più pool di nodi o nodi di Windows Server (attualmente in anteprima in AKS), vedere Aggiornare un pool di [nodi in AKS][nodepool-upgrade].
+Per i cluster AKS che usano più pool di nodi, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Questo articolo richiede la versione 2.0.65 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 > [!WARNING]
-> Un aggiornamento del cluster AKS attiva un cordone e lo scarico dei nodi. Se è disponibile una quota di calcolo bassa, l'aggiornamento potrebbe non riuscire. Per ulteriori informazioni, vedere [quote di aumento.](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)
-> Se si esegue la distribuzione autoscaler del cluster, disabilitarla (è possibile ridimensionarla a zero repliche) durante l'aggiornamento, poiché è possibile che interferisca con il processo di aggiornamento. Il ridimensionamento automatico gestito gestisce automaticamente questa situazione. 
+> Un aggiornamento del cluster AKS attiva un cordone e lo svuotamento dei nodi. Se è disponibile una quota di calcolo bassa, l'aggiornamento potrebbe non riuscire. Per altre informazioni, vedere [aumentare le quote](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) .
+> Se si esegue la distribuzione del servizio di scalabilità automatica del cluster, disabilitarla (è possibile ridimensionarla a zero repliche) durante l'aggiornamento, in quanto esiste la possibilità che interferisca con il processo di aggiornamento. Il ridimensionamento automatico gestito lo gestisce automaticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verificare la presenza di aggiornamenti disponibili per il cluster del servizio Azure Kubernetes
 
@@ -34,27 +34,27 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Quando si aggiorna un cluster del servizio Azure Kubernetes, le versioni secondarie di Kubernetes non possono essere ignorate. Ad esempio, sono consentiti aggiornamenti compresi tra *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x,* tuttavia *1.12.x* -> *1.14.x.*
+> Quando si aggiorna un cluster del servizio Azure Kubernetes, le versioni secondarie di Kubernetes non possono essere ignorate. Ad esempio, gli aggiornamenti compresi tra *1.12. x* -> *1.13. x* o *1.13. x* -> *1.14.* x sono consentiti, tuttavia *1.12* -> . x*1.14. x* non lo è.
 >
-> Per eseguire l'aggiornamento, da *1.12.x* -> *1.14.x*, eseguire prima l'aggiornamento da *1.12.x* -> *1.13.x*, quindi eseguire l'aggiornamento da *1.13.x* -> *1.14.x*.
+> Per eseguire l'aggiornamento, da *1.12. x* -> *1.14. x*, eseguire prima l'aggiornamento da *1.12.* -> *1.13. x*, quindi eseguire l'aggiornamento da *1.13. x* -> *1.14. x*.
 
-L'output di esempio seguente mostra che il cluster può essere aggiornato alle versioni *1.13.9* e *1.13.10:*
+L'output di esempio seguente mostra che il cluster può essere aggiornato alle versioni *1.13.9* e *1.13.10*:
 
 ```console
 Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
 -------  ----------------  ---------------  -----------------  ---------------
 default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ```
-Se non è disponibile alcun aggiornamento, si otterrà:
+Se non è disponibile alcun aggiornamento, si otterrà quanto segue:
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container
 
-Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo al cluster che esegue la versione Kubernetes specificata, quindi [cordone][kubernetes-drain] con attenzione e scarica uno dei nodi precedenti per ridurre al minimo l'interruzione alle applicazioni in esecuzione. Quando il nuovo nodo viene confermato come pod dell'applicazione in esecuzione, il nodo precedente viene eliminato. Questo processo si ripete fino a quando tutti i nodi del cluster sono stati aggiornati.
+Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo al cluster che esegue la versione specificata di Kubernetes, quindi controlla attentamente [e svuota][kubernetes-drain] uno dei nodi obsoleti per ridurre al minimo le problematiche di esecuzione delle applicazioni. Quando il nuovo nodo viene confermato come esecuzione di Pod applicazione, il nodo precedente viene eliminato. Questo processo si ripete fino a quando tutti i nodi del cluster non sono stati aggiornati.
 
-L'esempio seguente aggiorna un cluster alla versione *1.13.10:*
+L'esempio seguente aggiorna un cluster alla versione *1.13.10*:
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
@@ -63,7 +63,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 Per aggiornare il cluster sono necessari alcuni minuti, a seconda del numero di nodi di cui si dispone. 
 
 > [!NOTE]
-> Il completamento di un aggiornamento del cluster è totale consentito. Questo tempo viene calcolato prendendo `10 minutes * total number of nodes in the cluster`il prodotto di . Ad esempio, in un cluster a 20 nodi, le operazioni di aggiornamento devono avere esito positivo in 200 minuti o AKS non riuscirà l'operazione per evitare uno stato del cluster irreversibile. Per eseguire il ripristino in caso di errore di aggiornamento, ripetere l'operazione di aggiornamento dopo il timeout.
+> È previsto un tempo totale consentito per il completamento dell'aggiornamento di un cluster. Questo tempo viene calcolato prendendo il prodotto di `10 minutes * total number of nodes in the cluster`. Ad esempio, in un cluster a 20 nodi, le operazioni di aggiornamento devono avere esito positivo in 200 minuti oppure AKS avrà esito negativo per evitare uno stato del cluster irreversibile. Per eseguire il ripristino in caso di errore di aggiornamento, ripetere l'operazione di aggiornamento dopo che è stato raggiunto il timeout.
 
 Per verificare che l'aggiornamento sia stato completato correttamente, usare il comando [az aks show][az-aks-show]:
 
@@ -71,7 +71,7 @@ Per verificare che l'aggiornamento sia stato completato correttamente, usare il 
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-L'output di esempio seguente mostra che il cluster viene ora eseguito *1.13.10:*
+L'output di esempio seguente mostra che il cluster ora esegue *1.13.10*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
