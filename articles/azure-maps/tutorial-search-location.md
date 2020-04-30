@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 0b0cb92cd6b4918e28e143178a5cdbbbb19ac9af
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80333623"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
