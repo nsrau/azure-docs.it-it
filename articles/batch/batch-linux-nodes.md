@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7abdab248a6f19ec4d57018d65f883fdc838da21
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116792"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Eseguire il provisioning di nodi di calcolo Linux nei pool di Batch
@@ -35,10 +35,10 @@ Quando si configura un riferimento all'immagine di macchina virtuale, si specifi
 
 | **Proprietà del riferimento all'immagine** | **Esempio** |
 | --- | --- |
-| Autore |Canonical |
+| Pubblicazione |Canonical |
 | Offerta |UbuntuServer |
 | SKU |18.04-LTS |
-| Version |più recenti |
+| Versione |più recenti |
 
 > [!TIP]
 > Per altre informazioni su queste proprietà e su come elencare le immagini del Marketplace, vedere [Selezionare immagini di VM Linux con l'interfaccia della riga di comando di Azure](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Si noti che non tutte le immagini del Marketplace sono attualmente compatibili con Batch. Per altre informazioni, vedere [SKU dell'agente del nodo](#node-agent-sku).

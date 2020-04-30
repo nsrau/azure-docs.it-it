@@ -10,13 +10,13 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: cc7c1fd1dff85908c96e2fd7b2276df3d833e37f
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134312"
 ---
-# <a name="monitor-iot-edge-deployments"></a>Monitorare le distribuzioni di IoT Edge
+# <a name="monitor-iot-edge-deployments"></a>Monitorare le distribuzioni IoT Edge
 
 Azure IoT Edge fornisce funzionalità di creazione di report che consentono di monitorare le informazioni in tempo reale sui moduli distribuiti nei dispositivi di IoT Edge. Il servizio hub Internet delle cose recupera lo stato dai dispositivi e li rende disponibili per l'operatore. Il monitoraggio è importante anche per le [distribuzioni su larga scala](module-deployment-monitoring.md) che includono distribuzioni automatiche e distribuzioni a più livelli.
 
@@ -45,7 +45,7 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
     | Colonna | Descrizione |
     | --- | --- |
     | ID | Nome della distribuzione. |
-    | Type | Il tipo di distribuzione **, ovvero la distribuzione o la** distribuzione a più **livelli**. |
+    | Tipo | Il tipo di distribuzione **, ovvero la distribuzione o la** distribuzione a più **livelli**. |
     | Target Condition (Condizione di destinazione) | Tag utilizzato per definire i dispositivi di destinazione. |
     | Priorità | Numero di priorità assegnato alla distribuzione. |
     | Metriche di sistema | Il numero di dispositivi gemelli nell'hub Internet che corrispondono alla condizione di destinazione. **Applicato** specifica il numero di dispositivi per i quali è stato applicato il contenuto di distribuzione ai moduli gemelli nell'hub. |

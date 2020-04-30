@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127689"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorare le richieste di query in Azure ricerca cognitiva
@@ -36,7 +36,7 @@ Il volume viene misurato come **query di ricerca al secondo** (query al secondo)
 
 In genere, le query vengono eseguite in millisecondi, quindi solo le query che misurano come secondi verranno visualizzate nelle metriche.
 
-| Tipo di aggregazione | Description |
+| Tipo di aggregazione | Descrizione |
 |------------------|-------------|
 | Media | Numero medio di secondi in un minuto durante i quali si è verificata l'esecuzione della query.|
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |

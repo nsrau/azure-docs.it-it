@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82120782"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemi di utilizzo delle estensioni VM in Python 3-sistemi di macchine virtuali di Azure abilitati per Linux
@@ -41,7 +41,7 @@ Gli utenti della distribuzione Linux che hanno eseguito la transizione a **Pytho
 
 Gli aggiornamenti sul posto, ad esempio l'aggiornamento da **ubuntu 18,04 LTS** a **Ubuntu 20,04 LTS**, devono mantenere `/usr/bin/python` il collegamento simbolico e rimanere inalterati.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Prima di distribuire le estensioni negli scenari di interesse noto descritti in precedenza nel riepilogo, prendere in considerazione i consigli generali seguenti:
 

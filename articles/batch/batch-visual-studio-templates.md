@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.custom: seodec18
 ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117523"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
@@ -358,7 +358,7 @@ I codici di uscita e le eccezioni forniscono un meccanismo per determinare il ri
 
 Un'attività dell'elaboratore di attività implementata con il modello Task Processor (Elaboratore di attività) può restituire tre possibili codici di uscita:
 
-| Codice | Description |
+| Codice | Descrizione |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |L'elaboratore di attività è stato eseguito fino al completamento. Si noti che questo non significa che il programma richiamato ha avuto esito positivo, ma solo che l'elaboratore di attività lo ha richiamato correttamente e ha eseguito le operazioni di post-elaborazione senza eccezioni. Il significato del codice di uscita dipende dal programma richiamato: in genere il codice di uscita 0 indica che il programma ha avuto esito positivo, mentre gli altri codici di uscita indicano che il programma ha avuto esito negativo. |
 | 1 |L'elaboratore di attività non è riuscito con un'eccezione in una parte "prevista" del programma. L'eccezione è stata convertita in `TaskProcessorException` con informazioni di diagnostica e, dove possibile, suggerimenti per la risoluzione dell'errore. |

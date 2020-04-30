@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3197ac3033c6550b72bdfdf39fd23c55dda20d90
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134234"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>Esercitazione: configurare New Relic by Organization per il provisioning utenti automatico
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e New Relic dall'organizzazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-new-relic-by-organization-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare New Relic by Organization per supportare il provisioning con Azure AD
+## <a name="step-2-configure-new-relic-by-organization-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare New Relic by Organization per supportare il provisioning con Azure AD
 
 Collaborare con il rappresentante dell'account o ottenere supporto in support.newrelic.com per configurare SCIM e SSO per la propria organizzazione. Sarà necessario fornire al rappresentante dell'account:
 
@@ -115,13 +115,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |externalId|string|
+   |userName|Stringa|
+   |externalId|Stringa|
    |active|Boolean|
-   |emails[type eq "work"].value|string|
-   |name.givenName|string|
-   |nome. formattato|string|
-   |timezone|string|
+   |emails[type eq "work"].value|Stringa|
+   |name.givenName|Stringa|
+   |nome. formattato|Stringa|
+   |timezone|Stringa|
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to New Relic by Organization**.
 
@@ -129,9 +129,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
       |Attributo|Type|
       |---|---|
-      |displayName|string|
-      |externalId|string|
-      |Membri di|Informazioni di riferimento|
+      |displayName|Stringa|
+      |externalId|Stringa|
+      |Membri di|Riferimento|
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

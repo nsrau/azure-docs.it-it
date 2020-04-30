@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
 ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128477"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Servizi, schemi e categorie supportati per i log delle risorse di Azure
@@ -22,7 +22,7 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 
 ## <a name="top-level-resource-logs-schema"></a>Schema dei log delle risorse di livello superiore
 
-| Nome | Obbligatorio/facoltativo | Descrizione |
+| Name | Obbligatorio/facoltativo | Descrizione |
 |---|---|---|
 | time | Obbligatoria | Il timestamp dell’evento (fuso UTC). |
 | resourceId | Obbligatoria | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
@@ -68,15 +68,15 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | Hub IoT | [Operazioni dell'hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Registrazione Azure Key Vault](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Registrazione di Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
-| Bilanciamento del carico |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protezione DDoS | [Gestire la protezione DDoS di Azure Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI dedicato | [Registrazione per Power BI Embedded in Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Servizi di ripristino | [Modello di dati per backup di Azure](../../backup/backup-azure-reports-data-model.md)|
-| Ricerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
+| Cerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
 | Bus di servizio |[Log del bus di servizio di Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Database di SQL Server | [Registrazione del database SQL di Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
+| Database SQL | [Registrazione del database SQL di Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Analisi di flusso |[Log di processo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Gestione traffico | [Schema del log di gestione traffico](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Reti virtuali | Lo schema non è disponibile. |

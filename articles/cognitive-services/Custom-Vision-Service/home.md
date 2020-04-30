@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a48c553f1c96b8777e0a591f428dca3f15d7d30e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 79ecb801e1b4d0fa96ca7ae06223fc231cbf12e6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053647"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129880"
 ---
 # <a name="what-is-custom-vision"></a>Informazioni su Visione personalizzata
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano _classi_) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), il servizio Visione personalizzata consente di determinare le etichette da applicare.
+Visione personalizzata di Azure è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano _classi_) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), il servizio Visione personalizzata consente di specificare le etichette da applicare.
 
 ## <a name="what-it-does"></a>Funzione
 
@@ -49,4 +49,4 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere la guida [Creare un classificatore](getting-started-build-a-classifier.md) per iniziare a usare Visione personalizzata sul Web oppure completare un'[esercitazione sulla classificazione delle immagini](csharp-tutorial.md) per implementare uno scenario di base nel codice.
+Vedere la guida [Creare un classificatore](getting-started-build-a-classifier.md) per iniziare a usare Visione personalizzata sul Web oppure completare un'[esercitazione sulla classificazione delle immagini](quickstarts/image-classification.md) per implementare uno scenario di base nel codice.

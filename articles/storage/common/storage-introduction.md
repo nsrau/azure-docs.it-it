@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133790"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure di base
@@ -22,7 +22,7 @@ La piattaforma di archiviazione di Azure è la soluzione di archiviazione cloud 
 - **Durabilità e disponibilità elevata.** La ridondanza garantisce che i dati siano al sicuro in caso di errori hardware temporanei. Si può anche scegliere di replicare i dati tra data center o aree geografiche per una protezione aggiuntiva da catastrofi locali o calamità naturali. Con questo tipo di replica, i dati mantengono disponibilità elevata in caso di interruzioni impreviste.
 - **Proteggere.** Tutti i dati scritti in un account di archiviazione di Azure vengono crittografati dal servizio. Archiviazione di Azure offre un controllo dettagliato su chi potrà accedere ai dati.
 - **Scalabile.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni.
-- **Soluzione gestita.** Azure gestisce automaticamente la manutenzione dell'hardware, gli aggiornamenti e i problemi critici.
+- **Gestito.** Azure gestisce automaticamente la manutenzione dell'hardware, gli aggiornamenti e i problemi critici.
 - **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft fornisce librerie client per archiviazione di Azure in un'ampia gamma di linguaggi, tra cui .NET, Java, node. js, Python, PHP, Ruby, go e altri ancora, oltre a un'API REST matura. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
 
 ## <a name="core-storage-services"></a>Servizi di archiviazione Core
@@ -49,7 +49,7 @@ Nella tabella seguente vengono confrontati i file, i BLOB, i dischi, le code e l
 | **Code di Azure** | Consente la coda asincrona dei messaggi tra i componenti dell'applicazione. | Si desidera separare i componenti dell'applicazione e utilizzare la messaggistica asincrona per comunicare tra di essi.<br><br>Per indicazioni su quando usare l'archiviazione di Accodamento e le code del bus di servizio, vedere Code di [archiviazione e code del bus di servizio-confronto e contrasto](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Tabelle di Azure** | Consente di archiviare dati NoSQL strutturati nel cloud, offrendo un archivio di chiavi/attributi con una progettazione senza schema. | Si desidera archiviare set di dati flessibili come i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. <br/><br/>Per indicazioni su quando usare l'archiviazione tabelle rispetto alla Azure Cosmos DB API Tabella, vedere [sviluppo con Azure Cosmos DB API tabella e archiviazione tabelle di Azure](../../cosmos-db/table-support.md). |
 
-## <a name="blob-storage"></a>Archiviazione BLOB
+## <a name="blob-storage"></a>Archiviazione - BLOB
 
 L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archivio BLOB è ottimizzato per l'archiviazione di enormi quantità di dati non strutturati, come dati di testo o binari.
 
@@ -83,7 +83,7 @@ Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](.
 
 Alcune funzionalità SMB non sono applicabili al cloud. Per altre informazioni, vedere [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Funzionalità non supportate da Servizio file di Azure).
 
-## <a name="queue-storage"></a>Archiviazione code
+## <a name="queue-storage"></a>Archiviazione - Code
 
 Il servizio di accodamento di Azure viene usato per archiviare e recuperare i messaggi. La dimensione massima dei messaggi nella coda può essere di 64 KB e una coda può contenere milioni di messaggi. Le code vengono in genere usate per archiviare elenchi di messaggi da elaborare in modo asincrono.
 
@@ -91,7 +91,7 @@ Si supponga ad esempio che si voglia consentire ai clienti di caricare immagini 
 
 Per altre informazioni sulle code di Azure, vedere [Introduzione alle code](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Archiviazione tabelle
+## <a name="table-storage"></a>Archiviazione - Tabelle
 
 L'archiviazione tabelle di Azure è ora inclusa in Azure Cosmos DB. Per la documentazione sull'archiviazione tabelle di Azure, vedere [Panoramica di Archiviazione tabelle di Azure](../tables/table-storage-overview.md). Oltre al servizio di archiviazione tabelle di Azure esistente, è disponibile una nuova API Tabelle di Azure Cosmos DB che offre tabelle con ottimizzazione per la velocità effettiva, distribuzione globale e indici secondari automatici. Per ulteriori informazioni e per provare la nuova esperienza Premium, vedere [Azure Cosmos DB API tabella](https://aka.ms/premiumtables).
 

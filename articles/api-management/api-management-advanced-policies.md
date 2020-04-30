@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 388f05c2af1516a0477392f37763a0480c7ad413
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128823"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
@@ -134,7 +134,7 @@ Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovend
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo                                              | Description                                                                                               | Obbligatoria |
+| Attributo                                              | Descrizione                                                                                               | Obbligatoria |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | condition="Boolean expression &#124; Boolean constant" | La costante o espressione booleana da valutare quando viene valutata l'istruzione del criterio contenente `when`. | Sì      |
 
@@ -250,14 +250,14 @@ Questo criterio a livello di operazione non inoltra le richieste al servizio bac
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo                                     | Description                                                                                                                                                                                                                                                                                                    | Obbligatoria | Impostazione predefinita |
+| Attributo                                     | Descrizione                                                                                                                                                                                                                                                                                                    | Obbligatoria | Predefinito |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout="integer"                             | Quantità di tempo in secondi di attesa per la restituzione delle intestazioni di risposta HTTP da parte del servizio back-end prima che venga generato un errore di timeout. Il valore minimo è 0 secondi. I valori maggiori di 240 secondi potrebbero non essere rispettati perché l'infrastruttura di rete sottostante può rilasciare le connessioni inattive dopo questo periodo di tempo. | No       | nessuno    |
+| timeout="integer"                             | Quantità di tempo in secondi di attesa per la restituzione delle intestazioni di risposta HTTP da parte del servizio back-end prima che venga generato un errore di timeout. Il valore minimo è 0 secondi. I valori maggiori di 240 secondi potrebbero non essere rispettati perché l'infrastruttura di rete sottostante può rilasciare le connessioni inattive dopo questo periodo di tempo. | No       | Nessuno    |
 | follow-redirects = "false &#124; true"          | Specifica se i reindirizzamenti dal servizio back-end sono seguiti dal gateway o restituiti al chiamante.                                                                                                                                                                                                    | No       | false   |
 | buffer-request-body = "false &#124; true"       | Se impostata su "true", la richiesta viene memorizzata nel buffer e verrà riutilizzata al [nuovo tentativo](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
 | Fail-on-Error-Status-Code = "false &#124; true" | Quando è impostato su true [, la sezione On-Error](api-management-error-handling-policies.md) per i codici di risposta nell'intervallo compreso tra 400 e 599 inclusi.                                                                                                                                                                      | No       | false   |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -302,12 +302,12 @@ Nell'esempio seguente viene illustrato come limitare il numero di richieste inol
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo | Description                                                                                        | Obbligatoria | Impostazione predefinita |
+| Attributo | Descrizione                                                                                        | Obbligatoria | Predefinito |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Key       | Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri. | Sì      | N/D     |
 | numero max | Valore intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.           | Sì      | N/D     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -355,13 +355,13 @@ Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub ev
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo     | Description                                                               | Obbligatoria                                                             |
+| Attributo     | Descrizione                                                               | Obbligatoria                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | ID del logger registrato con il servizio gestione API.         | Sì                                                                  |
 | partition-id  | Specifica l'indice della partizione a cui i messaggi vengono inviati.             | Facoltativo. Questo attributo non può essere usato se si usa `partition-key`. |
 | partition-key | Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi. | Facoltativo. Questo attributo non può essere usato se si usa `partition-id`.  |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -400,12 +400,12 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo    | Description                                                                                           | Obbligatoria | Impostazione predefinita |
+| Attributo    | Descrizione                                                                                           | Obbligatoria | Predefinito |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | status-code  | Specifica il codice di stato della risposta e viene usato per selezionare l'esempio o lo schema corrispondente.                 | No       | 200     |
-| content-type | Specifica il valore di intestazione della risposta `Content-Type` e viene usato per selezionare l'esempio o lo schema corrispondente. | No       | nessuno    |
+| content-type | Specifica il valore di intestazione della risposta `Content-Type` e viene usato per selezionare l'esempio o lo schema corrispondente. | No       | Nessuno    |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -459,7 +459,7 @@ Nella richiesta di esempio seguente l'inoltro viene ripetuto fino a dieci volte 
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo        | Description                                                                                                                                           | Obbligatoria | Impostazione predefinita |
+| Attributo        | Descrizione                                                                                                                                           | Obbligatoria | Predefinito |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condizione        | Valore letterale booleano o [espressione](api-management-policy-expressions.md) che specifica se i tentativi devono essere interrotti (`false`) o devono continuare (`true`).      | Sì      | N/D     |
 | count            | Numero positivo che specifica il numero massimo di tentativi da eseguire.                                                                                | Sì      | N/D     |
@@ -473,7 +473,7 @@ Nella richiesta di esempio seguente l'inoltro viene ripetuto fino a dieci volte 
 > Se vengono specificati solo `interval` e `delta`, viene usato un algoritmo di ripetizione a intervalli **lineari**, in cui il tempo di attesa tra i tentativi viene calcolato secondo la formula seguente: `interval + (count - 1)*delta`.
 > Se vengono specificati `interval`, `max-interval` e `delta`, viene applicato un algoritmo di ripetizione a intervalli **esponenziali**, in cui il tempo di attesa tra i tentativi cresce in modo esponenziale dal valore `interval` al valore `max-interval`, secondo la formula seguente: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti. Si noti che le restrizioni sull'uso dei criteri figlio verranno ereditate da questo criterio.
 
@@ -519,11 +519,11 @@ Il criterio `return-response` interrompe l'esecuzione della pipeline e restituis
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo              | Description                                                                                                                                                                          | Obbligatoria  |
+| Attributo              | Descrizione                                                                                                                                                                          | Obbligatoria  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | response-variable-name | Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`. | Facoltativo. |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -591,13 +591,13 @@ Questo criterio di esempio illustra come usare il criterio `send-one-way-request
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Impostazione predefinita  |
+| Attributo     | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string" | Determina se questa è una nuova richiesta o una copia della richiesta corrente. In modalità in uscita, mode=copy non avvia il corpo della richiesta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuova      |
 | name          | Specifica il nome dell'intestazione da impostare.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sì      | N/D      |
 | exists-action | Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -override-sostituisce il valore dell'intestazione esistente.<br />-Skip-non sostituisce il valore dell'intestazione esistente.<br />-Append-aggiunge il valore al valore dell'intestazione esistente.<br />-Delete: rimuove l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati. | No       | override |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -675,7 +675,7 @@ Questo esempio mostra un metodo per verificare un token di riferimento con un se
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Impostazione predefinita  |
+| Attributo                       | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | Determina se questa è una nuova richiesta o una copia della richiesta corrente. In modalità in uscita, mode=copy non avvia il corpo della richiesta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuova      |
 | response-variable-name="string" | Il nome della variabile di contesto che riceverà un oggetto risposta. Se la variabile non esiste, verrà creata al completamento dell'esecuzione del criterio e diventerà accessibile tramite [`context.Variable`](api-management-policy-expressions.md#ContextVariables) la raccolta.                                                                                                                                                                                                                                                                                                                          | Sì      | N/D      |
@@ -684,7 +684,7 @@ Questo esempio mostra un metodo per verificare un token di riferimento con un se
 | name                            | Specifica il nome dell'intestazione da impostare.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sì      | N/D      |
 | exists-action                   | Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -override-sostituisce il valore dell'intestazione esistente.<br />-Skip-non sostituisce il valore dell'intestazione esistente.<br />-Append-aggiunge il valore al valore dell'intestazione esistente.<br />-Delete: rimuove l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati. | No       | override |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -720,13 +720,13 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo         | Description                                            | Obbligatoria | Impostazione predefinita |
+| Attributo         | Descrizione                                            | Obbligatoria | Predefinito |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | URL del proxy nel formato http://host:port.             | Sì      | N/D     |
 | username="string" | Nome utente da usare per l'autenticazione con il proxy. | No       | N/D     |
 | password="string" | Password da usare per l'autenticazione con il proxy. | No       | N/D     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -781,7 +781,7 @@ Questo criterio di esempio che usa il criterio `set-method` mostra un esempio di
 | ---------- | ----------------------------------------------------------------- | -------- |
 | set-method | Elemento radice. Il valore dell'elemento specifica il metodo HTTP. | Sì      |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -826,12 +826,12 @@ Questo esempio illustra come restituire una risposta 401 se il token di autorizz
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo       | Description                                                | Obbligatoria | Impostazione predefinita |
+| Attributo       | Descrizione                                                | Obbligatoria | Predefinito |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="integer"  | Il codice di stato HTTP da restituire.                            | Sì      | N/D     |
 | reason="string" | Descrizione del motivo per la restituzione del codice di stato. | Sì      | N/D     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -864,12 +864,12 @@ L'esempio seguente illustra un criterio di impostazione della variabile nella se
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo | Description                                                              | Obbligatoria |
+| Attributo | Descrizione                                                              | Obbligatoria |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nome della variabile.                                                | Sì      |
 | value     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -950,14 +950,14 @@ Il `trace` criterio aggiunge una traccia personalizzata nell'output di controllo
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo | Description                                                                                                               | Obbligatoria | Impostazione predefinita |
+| Attributo | Descrizione                                                                                                               | Obbligatoria | Predefinito |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Valore letterale della stringa significativo per il visualizzatore di tracce e che specifica l'origine del messaggio.                                   | Sì      | N/D     |
 | severity  | Specifica il livello di gravità della traccia. I valori consentiti sono `verbose`, `information`, `error` (dal più basso al più alto). | No       | Dettagliato |
 | name      | Nome della proprietà.                                                                                                     | Sì      | N/D     |
 | value     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
@@ -1023,11 +1023,11 @@ L'esempio seguente contiene due criteri `choose` come criteri figlio immediato d
 
 ### <a name="attributes"></a>Attributes
 
-| Attributo | Description                                                                                                                                                                                                                                                                                                                                                                                                            | Obbligatoria | Impostazione predefinita |
+| Attributo | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                            | Obbligatoria | Predefinito |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | for       | Determina se il criterio `wait` attende il completamento di tutti o solo uno dei criteri figlio immediati. I valori consentiti sono i seguenti:<br /><br /> - `all`: consente di attendere il completamento di tutti i criteri figlio immediati<br />-any-attendi il completamento di qualsiasi criterio figlio immediato. Dopo il completamento del primo criterio figlio immediato, il criterio `wait` si completa e l'esecuzione di qualsiasi altro criterio figlio immediato viene arrestata. | No       | all     |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 

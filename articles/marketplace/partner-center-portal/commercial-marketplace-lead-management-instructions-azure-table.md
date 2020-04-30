@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: 9814b03e348fc807c04364afbf027369f917670a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131135"
 ---
 # <a name="configure-lead-management-by-using-an-azure-table"></a>Configurare la gestione dei lead con una tabella di Azure
@@ -67,7 +67,7 @@ Usare questo esempio come guida per creare un semplice flusso per l’invio auto
 
    ![Flussi personali + pianificato--da zero](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. Nella finestra **Compila un flusso pianificato** , per **Ripeti ogni**, selezionare **1** per l'intervallo e l' **ora** per la frequenza. Inoltre, assegnare un nome al flusso se lo si desidera. Seleziona **Crea**.
+1. Nella finestra **Compila un flusso pianificato** , per **Ripeti ogni**, selezionare **1** per l'intervallo e l' **ora** per la frequenza. Inoltre, assegnare un nome al flusso se lo si desidera. Selezionare **Crea**.
 
    >[!NOTE]
    >Sebbene in questo esempio venga usato un intervallo di un'ora, è possibile selezionare l'intervallo e la frequenza più adatti alle esigenze aziendali.
@@ -180,7 +180,7 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 1. Selezionare **Connetti** nella sezione **gestione dei lead** .
 1. Nella finestra popup **Dettagli connessione** selezionare **tabella di Azure** per la **destinazione principale**. Incollare la stringa di connessione dall'account di archiviazione di Azure creato seguendo i passaggi precedenti nella casella **stringa di connessione dell'account di archiviazione** .
 1. **Email di contatto**: fornire i messaggi di posta elettronica per gli utenti della società che devono ricevere notifiche tramite posta elettronica quando viene ricevuto un nuovo lead. È possibile specificare più messaggi di posta elettronica separandoli con punti e virgola.
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 Per assicurarsi di avere effettuato la connessione a una destinazione principale, selezionare il pulsante **convalida** . In caso di esito positivo, sarà presente un lead di test nella destinazione principale.
 

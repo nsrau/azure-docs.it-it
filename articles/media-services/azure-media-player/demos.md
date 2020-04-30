@@ -1,5 +1,5 @@
 ---
-title: Demo Azure Media Player
+title: Demo di Azure Media Player
 description: Questa pagina contiene un elenco di collegamenti a demo del Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
@@ -7,13 +7,13 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/24/2020
 ms.openlocfilehash: 584748b23f526e6f03b543b8298927e3f202f743
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82139303"
 ---
-# <a name="azure-media-player-demos"></a>Demo Azure Media Player
+# <a name="azure-media-player-demos"></a>Demo di Azure Media Player
 
 Di seguito è riportato un elenco di collegamenti a demo del Azure Media Player. È possibile scaricare tutti gli [esempi di Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples) da GitHub.
 
@@ -23,9 +23,9 @@ Di seguito è riportato un elenco di collegamenti a demo del Azure Media Player.
 | ------------|----------------------------|-------------------------------------|--------------|
 | Basic |
 | Imposta origine | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_setsource.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_setsource.html) |Riprodurre contenuto non protetto.|
-| Funzionalità |
+| Caratteristiche |
 | Inserimento di annunci VOD-VAST | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_vast_ads_vod.html) | N/D | Inserisci annunci incrociati pre-mid e post-roll in un asset VOD. |
-| Velocità di riproduzione | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_playback_speed.html)| N/D | Consente ai visualizzatori di controllare la velocità con cui il video viene controllato. |
+| Playback Speed | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_playback_speed.html)| N/D | Consente ai visualizzatori di controllare la velocità con cui il video viene controllato. |
 | Interfaccia di svuotamento AMP | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_flush_skin.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_flush_skin.html) | Abilita la nuova interfaccia AMP. **Nota:** Lo svuotamento AMP è supportato solo nelle versioni AMP 2.1.0 + |
 | Didascalie e sottotitoli | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_webvtt.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_webvtt.html) | Riproduzione con sottotitoli WebVTT.
 | Sottotitoli Live CEA 708 | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_live_captions.html) | N/D | Riproduzione con didascalie in ingresso Live CEA 708 con le didascalie allineate a sinistra. |
@@ -33,7 +33,7 @@ Di seguito è riportato un elenco di collegamenti a demo del Azure Media Player.
 | MP4 video progressivo | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveVideo.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveVideo.html) | Riproduzione di MP4 audio progressivo. |
 | MP3 progressivo audio | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveAudio.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveAudio.html) | Riproduzione di audio MP3 progressivo. |
 | DD + | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_dolbyDigitalPlus.html) | N/D | Riproduzione del contenuto con DD + audio. |
-| Opzioni |
+| Options |
 | Profilo euristico | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_heuristicsProfile.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_heuristicsProfile.html) | Modifica del profilo euristico |
 | Localizzazione | [Dinamico](https://amp.azure.net/libs/amp/latest/samples/dynamic_localization.html) | [Statico](https://amp.azure.net/libs/amp/latest/samples/videotag_localization.html) |
 Impostazione della localizzazione |
@@ -68,4 +68,4 @@ Opzioni per mostrare come visualizzare il menu tracce audio sull'interfaccia pre
 ## <a name="next-steps"></a>Passaggi successivi
 
 <!---Some context for the following links goes here--->
-- [Guida introduttiva a Azure Media Player](azure-media-player-quickstart.md)
+- [Avvio rapido su Azure Media Player](azure-media-player-quickstart.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: af0065db087595167ca71bb79b968cc4ad339acd
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116843"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Aggiungere Key Vault all'applicazione Web usando Servizi connessi di Visual Studio
@@ -174,7 +174,7 @@ A questo punto è possibile accedere ai segreti nel codice. I passaggi successiv
    ```
 1. Eseguire l'app localmente sotto il debugger, passare alla scheda **About** e verificare che venga visualizzato il valore della Key Vault.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando non è più necessario, eliminare il gruppo di risorse. In questo modo vengono eliminati l'insieme di credenziali delle chiavi e le risorse correlate. Per eliminare il gruppo di risorse tramite il portale:
 
@@ -205,7 +205,7 @@ Questa sezione identifica le modifiche esatte apportate a un progetto ASP.NET qu
 
 Influiscono sul file di progetto riferimenti .NET e sui riferimenti ai pacchetti NuGet.
 
-| Type | Informazioni di riferimento |
+| Tipo | Informazioni di riferimento |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -241,7 +241,7 @@ Questa sezione identifica le modifiche esatte apportate a un progetto ASP.NET qu
 
 Influiscono sul file di progetto .NET `packages.config` References e (riferimenti a NuGet).
 
-| Type | Informazioni di riferimento |
+| Tipo | Informazioni di riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

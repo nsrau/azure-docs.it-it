@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131000"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Log delle risorse per il servizio Azure SignalR
@@ -27,7 +27,7 @@ Per abilitare i log delle risorse, è necessario un punto in cui archiviare i da
 
 È possibile visualizzare i log delle risorse per il servizio Azure SignalR. Questi log forniscono una visualizzazione più dettagliata della connettività all'istanza del servizio Azure SignalR. I log delle risorse forniscono informazioni dettagliate su ogni connessione. Ad esempio, le informazioni di base (ID utente, ID connessione e tipo di trasporto e così via) e le informazioni sull'evento (connessione, disconnessione e evento di interruzione e così via) della connessione. i log delle risorse possono essere usati per l'identificazione dei problemi, il monitoraggio e l'analisi della connessione.
 
-### <a name="enable-resource-logs"></a>Abilitare i log delle risorse
+### <a name="enable-resource-logs"></a>Abilitare i log risorse
 
 I log delle risorse sono disabilitati per impostazione predefinita. Per abilitare i log delle risorse, attenersi alla procedura seguente:
 
@@ -66,9 +66,9 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 
 Le stringhe JSON di log di archiviazione includono elementi elencati nelle tabelle seguenti:
 
-**Formato**
+**Format**
 
-Nome | Descrizione
+Name | Descrizione
 ------- | -------
 time | Ora evento log
 level | Livello evento log
@@ -81,7 +81,7 @@ properties | Proprietà dettagliate correlate a questo evento del log. Per ulter
 
 **Tabella delle proprietà**
 
-Nome | Descrizione
+Name | Descrizione
 ------- | -------
 type | Tipo di evento del log. Attualmente, vengono fornite informazioni sulla connettività al servizio Azure SignalR. È `ConnectivityLogs` disponibile solo il tipo
 collection | Raccolta dell'evento log. I valori consentiti `Authorization` sono: `Connection`e`Throttling`
@@ -128,15 +128,15 @@ Per visualizzare i log delle risorse, attenersi alla procedura seguente:
 
 Le colonne del log di archiviazione includono gli elementi elencati nella tabella seguente:
 
-Nome | Descrizione
+Name | Descrizione
 ------- | ------- 
 TimeGenerated | Ora evento log
 Raccolta | Raccolta dell'evento log. I valori consentiti `Authorization` sono: `Connection`e`Throttling`
 OperationName | Nome dell'operazione dell'evento
-Location | Località del servizio Azure SignalR
+Percorso | Località del servizio Azure SignalR
 Level | Livello evento log
 CallerIpAddress | Indirizzo IP del server/client
-Message | Messaggio dettagliato dell'evento del log
+Messaggio | Messaggio dettagliato dell'evento del log
 UserId | Identità dell'utente
 ConnectionId | Identità della connessione
 ConnectionType | Tipo di connessione. I valori consentiti sono: `Server` \| `Client`. `Server`: connessione dal lato server; `Client`: connessione dal lato client
@@ -162,7 +162,7 @@ La differenza tra `ConnectionAborted` e `ConnectionEnded` è che `ConnectionEnde
 
 I motivi di interruzione sono elencati nella tabella seguente:
 
-Motivo | Description
+Motivo | Descrizione
 ------- | ------- 
 Il numero di connessioni raggiunge il limite | Il numero di connessioni raggiunge il limite del livello di prezzo corrente. Prendere in considerazione l'unità di servizio di scalabilità verticale
 Il server applicazioni ha chiuso la connessione | Il server applicazioni attiva l'aborto. Può essere considerato come un aborto previsto
