@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/04/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51a60d307ca7dac139db0097283fc08e9e41624c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "77025997"
+ms.locfileid: "82233534"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Parti interessate: Privileged Identity Management per i ruoli di Azure AD
 
-| Nome | Ruolo | Azione |
+| Name | Ruolo | Action |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Architetto delle identità o Amministratore globale di Azure**<br/>Un rappresentante del team di gestione delle identità che è responsabile di definire come questa modifica è allineata all'infrastruttura di base per la gestione delle identità all'interno dell'organizzazione. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Proprietario del servizio o diretto superiore**<br/>Un rappresentante dei proprietari IT di un servizio o di un gruppo di servizi. Sono essenziali per prendere decisioni e contribuire a implementare Privileged Identity Management per il team. | A/R/I |
@@ -109,7 +109,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Stakeholder: Privileged Identity Management per i ruoli delle risorse di Azure
 
-| Nome | Ruolo | Azione |
+| Name | Ruolo | Action |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Proprietario delle risorse o delle sottoscrizioni**<br/>Un rappresentante dei proprietari IT di ogni sottoscrizione o risorsa che si desidera distribuire Privileged Identity Management per | A/R/I |
 | Nome e indirizzo di posta elettronica | **Responsabile della sicurezza**<br/>Un rappresentante del team addetto alla sicurezza che può approvare la conformità del piano ai requisiti di sicurezza dell'organizzazione. | A/R |
@@ -240,26 +240,26 @@ Prima di implementare la soluzione di Privileged Identity Management, è consigl
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Impostazioni Privileged Identity Management per i ruoli di Azure AD
 
-| Ruolo | Richiedere l'autenticazione MFA | Notification | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
+| Ruolo | Richiedi MFA | Notification | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Amministratore globale | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri amministratori globali | 1 ora | Account di accesso di emergenza |
-| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | nessuno | 2 ore | nessuno |
-| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | nessuno | 8 ore | nessuno |
+| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nessuno | 2 ore | Nessuno |
+| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | Nessuno | 8 ore | Nessuno |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Impostazioni Privileged Identity Management per i ruoli delle risorse di Azure
 
-| Ruolo | Richiedere l'autenticazione MFA | Notification | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
+| Ruolo | Richiedi MFA | Notification | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | nessuno | n/d | 3 mesi |
-| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | nessuno | 1 ora | nessuno | n/d | 3 mesi |
-| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | nessuno | 3 ore | nessuno | n/d | 6 mesi |
+| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | Nessuno | n/d | 3 mesi |
+| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | Nessuno | 1 ora | Nessuno | n/d | 3 mesi |
+| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | Nessuno | 3 ore | Nessuno | n/d | 6 mesi |
 
 La tabella seguente include le descrizioni per ciascuna delle impostazioni.
 
 | Impostazione | Descrizione |
 | --- | --- |
 | Ruolo | Nome del ruolo per cui si definiscono le impostazioni. |
-| Richiedere l'autenticazione MFA | Indica se l'utente idoneo deve eseguire l'autenticazione a più fattori (MFA) prima dell'attivazione del ruolo.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di applicare l'autenticazione a più fattori per tutti i ruoli di amministratore, soprattutto se i ruoli hanno utenti guest. |
+| Richiedi MFA | Indica se l'utente idoneo deve eseguire l'autenticazione a più fattori (MFA) prima dell'attivazione del ruolo.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di applicare l'autenticazione a più fattori per tutti i ruoli di amministratore, soprattutto se i ruoli hanno utenti guest. |
 | Notification | Se è impostato l'invio di notifiche, gli utenti dell'organizzazione con i ruoli Amministratore globale, Amministratore dei ruoli con privilegi e Amministratore della sicurezza ricevono una notifica di posta elettronica quando un utente idoneo attiva il ruolo.<br/><br/>**Nota:** Alcune organizzazioni non dispongono di un indirizzo di posta elettronica associato agli account di amministratore. per ricevere queste notifiche di posta elettronica, è necessario impostare un indirizzo di posta elettronica alternativo in modo che gli amministratori ricevano questi messaggi. |
 | Ticket di evento imprevisto | Indica se l'utente idoneo deve registrare un numero di ticket di evento imprevisto quando attiva il proprio ruolo. Questa impostazione consente a un'organizzazione di identificare ogni attivazione con un numero di evento imprevisto interno per limitare le attivazioni indesiderate.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di sfruttare i numeri dei biglietti per gli eventi imprevisti per associare Privileged Identity Management al sistema interno. Questo è particolarmente utile per i responsabili dell'approvazione che devono conoscere il contesto dell'attivazione. |
 | Richiedi approvazione | Indica se l'utente idoneo deve ottenere l'approvazione per attivare il ruolo.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di impostare l'approvazione per i ruoli con la massima autorizzazione. In base ai modelli di utilizzo di tutti i Privileged Identity Management clienti, amministratore globale, amministratore utente, amministratore di Exchange, amministratore della sicurezza e amministratore password sono i ruoli più comuni con la configurazione dell'approvazione. |
@@ -325,7 +325,7 @@ Ora che sono stati identificati gli utenti di test, usare questo passaggio per c
 
 ### <a name="communicate-privileged-identity-management-to-affected-stakeholders"></a>Comunicare Privileged Identity Management alle parti interessate interessate
 
-La distribuzione di Privileged Identity Management introdurrà passaggi aggiuntivi per gli utenti con ruoli con privilegi. Sebbene Privileged Identity Management riduca notevolmente i problemi di sicurezza associati alle identità con privilegi, la modifica deve essere effettivamente comunicata prima della distribuzione a livello di tenant. A seconda del numero di amministratori interessati, le organizzazioni scelgono spesso di creare un documento interno, un video o un messaggio di posta elettronica per comunicare la novità. In queste comunicazioni sono spesso incluse le informazioni seguenti:
+La distribuzione di Privileged Identity Management introdurrà passaggi aggiuntivi per gli utenti con ruoli con privilegi. Sebbene Privileged Identity Management riduca notevolmente i problemi di sicurezza associati alle identità con privilegi, la modifica deve essere effettivamente comunicata prima della distribuzione a livello dell'organizzazione. A seconda del numero di amministratori interessati, le organizzazioni scelgono spesso di creare un documento interno, un video o un messaggio di posta elettronica per comunicare la novità. In queste comunicazioni sono spesso incluse le informazioni seguenti:
 
 - Che cos'è PIM
 - Quale vantaggio offre all'organizzazione
@@ -371,7 +371,7 @@ La distribuzione di Privileged Identity Management nell'ambiente di produzione �
 
 ### <a name="use-privileged-identity-management-alerts-to-safeguard-your-privileged-access"></a>Usare Privileged Identity Management avvisi per salvaguardare l'accesso con privilegi
 
-È consigliabile usare la funzionalità di avviso incorporata di Privileged Identity Management per salvaguardare meglio il tenant. Per altre informazioni, vedere [Avvisi di sicurezza](pim-how-to-configure-security-alerts.md#security-alerts). Questi avvisi includono: gli amministratori non usano i ruoli con privilegi, i ruoli vengono assegnati all'esterno del Privileged Identity Management, i ruoli vengono attivati troppo spesso e molto altro. Per proteggere completamente la propria organizzazione, è necessario scorrere regolarmente l'elenco degli avvisi e risolvere i problemi. Per visualizzare e risolvere gli avvisi, procedere nel modo seguente:
+È consigliabile usare la funzionalità di avviso incorporata di Privileged Identity Management per salvaguardare meglio l'organizzazione. Per altre informazioni, vedere [Avvisi di sicurezza](pim-how-to-configure-security-alerts.md#security-alerts). Questi avvisi includono: gli amministratori non usano i ruoli con privilegi, i ruoli vengono assegnati all'esterno del Privileged Identity Management, i ruoli vengono attivati troppo spesso e molto altro. Per proteggere completamente la propria organizzazione, è necessario scorrere regolarmente l'elenco degli avvisi e risolvere i problemi. Per visualizzare e risolvere gli avvisi, procedere nel modo seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Aprire **Azure ad Privileged Identity Management**.

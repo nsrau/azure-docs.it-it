@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268145"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231765"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -126,7 +126,7 @@ Dovrebbe ora essere possibile montare la condivisione o accedervi senza specific
 #### <a name="advanced-cmdkey-scenarios"></a>Scenari avanzati con cmdkey
 Esistono altri due scenari da prendere in considerazione con cmdkey: l'archiviazione di credenziali per un altro utente nel computer, ad esempio un account di servizio, e l'archiviazione di credenziali in un computer remoto con la comunicazione remota di PowerShell.
 
-Archiviare le credenziali per un altro utente nel computer è molto facile. Dopo aver eseguito l'accesso all'account, è sufficiente eseguire questo comando di PowerShell:
+L'archiviazione delle credenziali per un altro utente nel computer è semplice: quando si accede all'account, è sufficiente eseguire il comando PowerShell seguente:
 
 ```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
@@ -139,7 +139,7 @@ Verrà aperta una nuova finestra di PowerShell nel contesto utente dell'account 
 Archiviare le credenziali in un computer remoto con la comunicazione remota di PowerShell non è invece possibile, perché cmdkey non consente l'accesso all'archivio credenziali, anche per aggiunte, se l'utente ha eseguito l'accesso tramite la comunicazione remota di PowerShell. È consigliabile eseguire l'accesso al computer con [Desktop remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
 
 ### <a name="mount-the-azure-file-share-with-powershell"></a>Montare la condivisione file di Azure con PowerShell
-Per montare la condivisione file di Azure, eseguire i comandi seguenti da una sessione normale, ossia non con privilegi elevati, di PowerShell. Ricordarsi di sostituire `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` e `<desired-drive-letter>` con le informazioni appropriate.
+Eseguire i comandi seguenti da una sessione di PowerShell normale (non elevata) per montare la condivisione file di Azure. Ricordarsi di sostituire `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` e `<desired-drive-letter>` con le informazioni appropriate.
 
 ```powershell
 $resourceGroupName = "<your-resource-group-name>"
@@ -182,27 +182,23 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Aprire Esplora file. Per eseguire questa operazione, aprire il menu Start o premere i tasti di scelta rapida Win+E.
 
-2. Passare all'elemento **Questo PC** sul lato sinistro della finestra. Verranno cambiati i menu disponibili sulla barra multifunzione. Scegliere **Connetti unità di rete** dal menu Computer.
+1. Passare all'elemento **Questo PC** sul lato sinistro della finestra. Verranno cambiati i menu disponibili sulla barra multifunzione. Scegliere **Connetti unità di rete** dal menu Computer.
     
     ![Screenshot del menu a discesa "Connetti unità di rete"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. Copiare il percorso UNC dal riquadro **Connetti** della portale di Azure. 
-
-    ![Il percorso UNC dal riquadro Connetti di File di Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
-
-4. Selezionare la lettera di unità e immettere il percorso UNC. 
+1. Selezionare la lettera di unità e immettere il percorso UNC. il formato del percorso `<storageAccountName>.file.core.windows.net/<fileShareName>`UNC è. Ad esempio: `anexampleaccountname.file.core.windows.net/example-share-name`.
     
     ![Screenshot della finestra di dialogo "Connetti unità di rete"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. Usare il nome dell'account di archiviazione preceduto da `AZURE\` come nome utente e una chiave dell'account di archiviazione come password.
+1. Usare il nome dell'account di archiviazione preceduto da `AZURE\` come nome utente e una chiave dell'account di archiviazione come password.
     
     ![Screenshot della finestra di dialogo delle credenziali di rete](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. Usare la condivisione file di Azure in base alle esigenze.
+1. Usare la condivisione file di Azure in base alle esigenze.
     
     ![Condivisione file di Azure montata](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. Quando si è pronti per smontare la condivisione file di Azure, fare clic con il pulsante destro del mouse sulla voce relativa alla condivisione in **Percorsi di rete** in Esplora file e scegliere **Disconnetti**.
+1. Quando si è pronti per smontare la condivisione file di Azure, fare clic con il pulsante destro del mouse sulla voce relativa alla condivisione in **Percorsi di rete** in Esplora file e scegliere **Disconnetti**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Accedere agli snapshot di condivisione da Windows
 Se è stato creato uno snapshot di condivisione manualmente o automaticamente con uno script o un servizio come Backup di Azure, è possibile visualizzare le versioni precedenti di una condivisione, di una directory o di un determinato file dalla condivisione file in Windows. È possibile creare uno snapshot di condivisione dalla [portale di Azure](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md)e dall' [interfaccia](storage-how-to-use-files-cli.md)della riga di comando di Azure.
@@ -222,6 +218,7 @@ Selezionare **Versioni precedenti** per visualizzare l'elenco di snapshot di con
 
 #### <a name="restore-from-a-previous-version"></a>Eseguire il ripristino da una versione precedente
 Selezionare **Ripristina** per copiare il contenuto dell'intera directory in modo ricorsivo al momento della creazione dello snapshot di condivisione nel percorso originale.
+
  ![Pulsante Ripristina nel messaggio di avviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Protezione di Windows/Windows Server
@@ -234,13 +231,13 @@ La tabella seguente offre informazioni dettagliate sullo stato di SMB 1 in ogni 
 | Windows Server 2019                       | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows Server versione 1709 e successive            | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows 10 versione 1709 e successive                | Disabled             | Rimuovere con funzionalità di Windows |
-| Windows Server 2016                       | Enabled              | Rimuovere con funzionalità di Windows |
-| Windows 10 versioni 1507, 1607 e 1703 | Enabled              | Rimuovere con funzionalità di Windows |
-| Windows Server 2012 R2                    | Enabled              | Rimuovere con funzionalità di Windows | 
-| Windows 8.1                               | Enabled              | Rimuovere con funzionalità di Windows | 
-| Windows Server 2012                       | Enabled              | Disabilitare con Registro di sistema       | 
-| Windows Server 2008 R2                    | Enabled              | Disabilitare con Registro di sistema       |
-| Windows 7                                 | Enabled              | Disabilitare con Registro di sistema       | 
+| Windows Server 2016                       | Attivato              | Rimuovere con funzionalità di Windows |
+| Windows 10 versioni 1507, 1607 e 1703 | Attivato              | Rimuovere con funzionalità di Windows |
+| Windows Server 2012 R2                    | Attivato              | Rimuovere con funzionalità di Windows | 
+| Windows 8.1                               | Attivato              | Rimuovere con funzionalità di Windows | 
+| Windows Server 2012                       | Attivato              | Disabilitare con Registro di sistema       | 
+| Windows Server 2008 R2                    | Attivato              | Disabilitare con Registro di sistema       |
+| Windows 7                                 | Attivato              | Disabilitare con Registro di sistema       | 
 
 ### <a name="auditing-smb-1-usage"></a>Controllo dell'utilizzo di SMB 1
 > Si applica a Windows Server 2019, canale semestrale di Windows Server (versioni 1709 e 1803), Windows Server 2016, Windows 10 (versioni 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1

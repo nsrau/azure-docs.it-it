@@ -4,12 +4,12 @@ description: Informazioni su come usare l'API del servizio batch per salvare in 
 ms.topic: article
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5fbbf75defcfe976e59d38ae76341e71feee9f53
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116469"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234282"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
@@ -26,7 +26,7 @@ Il servizio Azure Batch offre diversi modi per rendere persistente l'output dell
 - Si vuole scrivere codice per rendere persistente l'output dell'attività dall'interno dell'applicazione client, senza modificare l'applicazione eseguita dall'attività.
 - Si vuole rendere persistente l'output delle attività del servizio Batch e delle attività del gestore di processi create con la configurazione della macchina virtuale.
 - Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure con un nome arbitrario.
-- Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure denominato in base agli [standard di Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure denominato in base agli [standard di Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
 
 Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario prendere in considerazione un approccio diverso. Ad esempio, l'API del servizio Batch attualmente non supporta flussi dell'output in Archiviazione di Azure durante l'esecuzione dell'attività. Per questa esigenza, prendere in considerazione l'uso della libreria Batch File Conventions, disponibile per .NET. Per altri linguaggi, sarà necessario implementare una soluzione personalizzata. Per altre informazioni sulle opzioni per rendere persistente l'output delle attività, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md).
 
@@ -155,7 +155,7 @@ Lo stato di caricamento viene registrato nel file `fileuploadout.txt`. È possib
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Usare l'API del servizio Batch con lo standard Batch File Conventions
 
-Quando si rende persistente l'output con l'API del servizio Batch, è possibile assegnare il nome preferito al contenitore di destinazione e ai BLOB. Si può anche scegliere il nome in base allo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Lo standard File Conventions determina i nomi del contenitore e del BLOB di destinazione in Archiviazione di Azure per un file di output specificato in base ai nomi del processo e dell'attività. Se si usa lo standard File Conventions per la denominazione dei file di output, i file di output sono disponibili per la visualizzazione nel [portale di Azure](https://portal.azure.com).
+Quando si rende persistente l'output con l'API del servizio Batch, è possibile assegnare il nome preferito al contenitore di destinazione e ai BLOB. Si può anche scegliere il nome in base allo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). Lo standard File Conventions determina i nomi del contenitore e del BLOB di destinazione in Archiviazione di Azure per un file di output specificato in base ai nomi del processo e dell'attività. Se si usa lo standard File Conventions per la denominazione dei file di output, i file di output sono disponibili per la visualizzazione nel [portale di Azure](https://portal.azure.com).
 
 Se si sviluppa in C#, è possibile usare i metodi inclusi nella [libreria Batch File Conventions per .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Questa libreria crea automaticamente i percorsi di BLOB e contenitori con nomi appropriati. Ad esempio, è possibile chiamare l'API per ottenere il nome corretto per il contenitore, in base al nome del processo:
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/23/2020
-ms.openlocfilehash: 8380cfcbf267b117108d46794153bd5a61b8ec6a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116231"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232888"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 
@@ -43,33 +43,33 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
 **Menu in alto:**  
 
-| Item| Description |
+| Item| Descrizione |
 |---|---|
-|Spostamento|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
-|Delete|elimina il cluster. |
+|Sposta|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
+|Elimina|elimina il cluster. |
 |Aggiorna|Aggiorna la vista.|
 
 **Menu a sinistra:**  
 
   - **Menu in alto a sinistra**
 
-    | Item| Description |
+    | Item| Descrizione |
     |---|---|
     |Panoramica|presenta informazioni generali relative al cluster.|
     |Log attività|visualizza i log attività e consente di eseguire query.|
     |Controllo di accesso (IAM)|usa le assegnazioni di ruolo.  Vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).|
     |Tag|consente di impostare coppie chiave/valore per definire una tassonomia personalizzata dei servizi cloud. Ad esempio, è possibile creare una chiave denominata **progetto**e usare un valore comune per tutti i servizi associati a un progetto specifico.|
     |Diagnostica e risoluzione dei problemi|visualizza informazioni sulla risoluzione dei problemi.|
-    |Guida introduttiva|visualizza informazioni utili per iniziare a usare HDInsight.|
+    |Avvio rapido|visualizza informazioni utili per iniziare a usare HDInsight.|
     |Strumenti|informazioni della Guida per gli strumenti correlati a HDInsight.|
 
   - **Menu Impostazioni**  
 
-    | Item| Description |
+    | Item| Descrizione |
     |---|---|
     |Dimensioni del cluster|consente di verificare, aumentare e ridurre il numero di nodi di ruolo di lavoro del cluster. Vedere [Ridimensionare i cluster](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Limiti di quota|visualizza i core usati e disponibili per la sottoscrizione.|
-    |Accesso SSH + cluster|visualizza le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH). Per altre informazioni, vedere [usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
+    |Accesso SSH + cluster|visualizza le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH). Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
     |Data Lake Storage Gen1|consente di configurare l'accesso a Data Lake Storage Gen1.  Vedere [Guida introduttiva: impostare i cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Account di archiviazione|visualizza gli account di archiviazione e le chiavi. Gli account di archiviazione vengono configurati durante il processo di creazione dei cluster.|
     |Applicazioni|consente di aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).|
@@ -82,7 +82,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
   - **Menu Monitoraggio**
 
-    | Item| Description |
+    | Item| Descrizione |
     |---|---|
     |Avvisi|gestisce gli avvisi e le azioni.|
     |Metriche|Monitorare le metriche del cluster nei log di monitoraggio di Azure.|
@@ -91,7 +91,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
   - **Menu Supporto e risoluzione dei problemi**
 
-    | Item| Description |
+    | Item| Descrizione |
     |---|---|
     |Resource Health|vedere [Panoramica di Integrità risorse di Azure](../service-health/resource-health-overview.md).|
     |Nuova richiesta di supporto|consente di creare un ticket di supporto con il supporto Microsoft.|
@@ -100,7 +100,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
 Dalla [home page del cluster](#homePage), selezionare **Proprietà** in **Impostazioni**.
 
-|Item | Description |
+|Item | Descrizione |
 |---|---|
 |NOME host|Nome del cluster.|
 |URL DEL CLUSTER|URL per l'interfaccia Web Ambari.|
@@ -111,7 +111,7 @@ Dalla [home page del cluster](#homePage), selezionare **Proprietà** in **Impost
 |DATA CREAZIONE|data di distribuzione del cluster.|
 |SISTEMA OPERATIVO|può essere **Windows** o **Linux**.|
 |TYPE|Hadoop, HBase, Storm, Spark.|
-|Version|Vedere [versioni di HDInsight](hdinsight-component-versioning.md).|
+|Versione|Vedere [versioni di HDInsight](hdinsight-component-versioning.md).|
 |Versione minima di TLS|Versione di TLS.|
 |SOTTOSCRIZIONE|nome della sottoscrizione.|
 |ORIGINE DATI PREDEFINITA|file system predefinito del cluster.|
@@ -196,13 +196,13 @@ Dalla [home page del cluster](#homePage):
 1. Selezionare **SSH + Account di accesso del cluster** in **Impostazioni**.
 2. Selezionare **Reimposta credenziali**.
 3. Immettere e confermare una nuova password nelle caselle di testo.
-4. Fare clic su **OK**.
+4. Selezionare **OK**.
 
 La password viene modificata in tutti i nodi del cluster.
 
-### <a name="change-the-ssh-user-password"></a>Modificare la password utente SSH
+### <a name="change-the-ssh-user-password-or-public-key"></a>Modificare la password utente SSH o la chiave pubblica
 
-1. Usando un editor di testo, salvare il testo seguente come file denominato **changepassword.sh**.
+1. Usando un editor di testo, salvare il testo seguente come file denominato **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > È necessario usare un editor che prevede LF come terminazione di riga. Se l'editor usa CRLF, lo script non funziona.
@@ -219,16 +219,16 @@ La password viene modificata in tutti i nodi del cluster.
 4. Nella pagina **azioni script** selezionare **Invia nuova**.
 5. Nella pagina **Invia azione script** immettere le informazioni seguenti:
 
-   | Campo | valore |
+   | Campo | Valore |
    | --- | --- |
    | Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
-   | Nome |"Change ssh password" |
-   | URI script Bash |L'URI per il file changepassword.sh |
+   | Name |"Modifica credenziali SSH" |
+   | URI script Bash |URI del file changecredentials.sh |
    | Tipi di nodo: (Head, Worker, Nimbus, Supervisor o Zookeeper). |✓ per tutti i tipi di nodo elencati |
    | Parametri |Immettere il nome utente SSH e la nuova password. Deve essere presente uno spazio tra il nome utente e la password. I caratteri seguenti non sono supportati nelle password ssh: "''/\ <% ~ | $ &
    | Salvare questa azione script... |Lasciare questo campo vuoto. |
 
-6. Selezionare **Crea** per applicare lo script. Al termine dello script, è possibile connettersi al cluster tramite SSH con la nuova password.
+6. Selezionare **Crea** per applicare lo script. Al termine dello script, è possibile connettersi al cluster usando SSH con le nuove credenziali.
 
 ## <a name="find-the-subscription-id"></a>Trovare l'ID sottoscrizione
 

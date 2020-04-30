@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: fc46b4f24c3c21cda190f80556373991f6c711c3
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82130934"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Stati del processo di Analisi di flusso di Azure
 
 Un processo di analisi di flusso potrebbe trovarsi in uno dei quattro stati in un determinato momento: in esecuzione, arrestato, danneggiato o non riuscito. È possibile visualizzare lo stato del processo alla pagina della panoramica del processo di Analisi di flusso del portale di Azure. 
 
-| State | Description | Azioni consigliate |
+| State | Descrizione | Azioni consigliate |
 | --- | --- | --- |
 | **In esecuzione** | Il processo in esecuzione in Azure analizza gli eventi provenienti da origini di input definite, li elabora e scrive i risultati nei sink degli output configurati. | La procedura consigliata consiste nel tenere traccia delle prestazioni dei processi monitorando le [metriche chiave](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). |
 | **Arrestato** | Il processo viene arrestato e non elabora gli eventi. | N/D | 

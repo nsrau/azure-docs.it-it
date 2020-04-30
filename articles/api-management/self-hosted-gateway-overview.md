@@ -1,30 +1,25 @@
 ---
-title: Panoramica del gateway di gestione API di Azure self-hosted | Microsoft Docs
-description: Informazioni sul modo in cui il gateway di gestione API di Azure self-hosted consente alle organizzazioni di gestire le API negli ambienti ibridi e multicloud.
+title: Panoramica del gateway self-hosted | Microsoft Docs
+description: Informazioni su come la funzionalità gateway self-hosted di gestione API di Azure consente alle organizzazioni di gestire le API in ambienti ibridi e multicloud.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
 manager: gwallace
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 415f0e209e607a863d715b1a66a2435603a662f0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73513718"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232973"
 ---
-# <a name="self-hosted-api-management-gateway-overview"></a>Panoramica del gateway di gestione API self-hosted
+# <a name="self-hosted-gateway-overview"></a>Panoramica del gateway self-hosted
 
-Questo articolo illustra il modo in cui la funzionalità gateway self-hosted consente la gestione di API ibride e multicloud, presenta l'architettura di alto livello e ne evidenzia le funzionalità fondamentali.
-
-> [!NOTE]
-> La funzionalità gateway self-hosted è in anteprima. Durante l'anteprima, il gateway self-hosted è disponibile solo nei livelli Developer e Premium senza costi aggiuntivi. Il livello Developer è limitato a una singola distribuzione del gateway self-hosted.
+Questo articolo illustra il modo in cui la funzionalità gateway self-hosted di gestione API di Azure consente la gestione di API ibride e multicloud, presenta l'architettura di alto livello ed evidenzia le sue funzionalità.
 
 ## <a name="hybrid-and-multi-cloud-api-management"></a>Gestione API ibrida e multicloud
 
@@ -42,20 +37,27 @@ Per impostazione predefinita, tutti questi componenti vengono distribuiti in Azu
 
 ![Flusso del traffico API senza gateway indipendenti](media/self-hosted-gateway-overview/without-gateways.png)
 
-La distribuzione di gateway indipendenti negli stessi ambienti delle implementazioni dell'API back-end e l'aggiunta di tali gateway al servizio gestione API consente il flusso del traffico API direttamente alle API back-end, che migliora la latenza, ottimizza i costi di trasferimento dei dati e garantisce la conformità mantenendo al tempo stesso i vantaggi derivanti dalla presenza di un singolo punto di gestione e individuazione di tutte le API all'
+La distribuzione di gateway indipendenti negli stessi ambienti in cui sono ospitate le implementazioni dell'API back-end consente il flusso del traffico API direttamente alle API back-end, che consente di migliorare la latenza, ottimizzare i costi di trasferimento dei dati e garantire la conformità, mantenendo al tempo stesso i vantaggi derivanti dall'uso di un singolo punto di gestione, osservabilità e individuazione di tutte le API
 
 ![Flusso del traffico API con gateway indipendenti](media/self-hosted-gateway-overview/with-gateways.png)
 
 ## <a name="packaging-and-features"></a>Creazione di pacchetti e funzionalità
 
-Il gateway self-hosted è una versione in contenitori, equivalente dal punto di vista funzionale, del gateway gestito distribuito in Azure come parte di ogni servizio gestione API. Il gateway self-hosted è disponibile come contenitore Docker basato su Linux da Microsoft Container Registry. Può essere distribuito in Docker, Kubernetes o qualsiasi altra soluzione di orchestrazione dei contenitori in esecuzione in un desktop, in un cluster di server o in un'infrastruttura cloud.
+Il gateway self-hosted è una versione in contenitori, equivalente dal punto di vista funzionale, del gateway gestito distribuito in Azure come parte di ogni servizio gestione API. Il gateway self-hosted è disponibile come [contenitore](https://aka.ms/apim/sputnik/dhub) Docker basato su Linux da Microsoft container Registry. Può essere distribuito in Docker, Kubernetes o qualsiasi altra soluzione di orchestrazione dei contenitori in esecuzione in un cluster di server in locale, in un'infrastruttura cloud o a scopo di valutazione e sviluppo, in una personal computer.
 
-> [!IMPORTANT]
-> Alcune funzionalità disponibili nel gateway gestito non sono ancora disponibili in anteprima. In particolare: accedere ai criteri dell'hub eventi, all'integrazione Service Fabric, a valle HTTP/2. Non è previsto alcun piano per rendere disponibile una cache predefinita nel gateway self-hosted.
+Le funzionalità seguenti trovate nei gateway gestiti **non sono disponibili** nei gateway self-hosted:
+
+- Log di Monitoraggio di Azure
+- Upstream (lato back-end) versione TLS e Gestione crittografia
+- Convalida dei certificati server e client usando i [certificati radice dell'autorità di certificazione](api-management-howto-ca-certificates.md) caricati nel servizio gestione API. Per aggiungere il supporto per la CA personalizzata, aggiungere un livello all'immagine del contenitore del gateway self-hosted che installa il certificato radice della CA.
+- Integrazione con il [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
+- Ripresa della sessione TLS
+- Rinegoziazione del certificato client. Ciò significa che per l' [autenticazione del certificato client](api-management-howto-mutual-certificates-for-clients.md) ai consumer dell'API di lavoro devono essere presenti i certificati come parte dell'handshake TLS iniziale. Per assicurarsi che, abilitare l'impostazione Negotiate client certificate quando si configura un nome host personalizzato del gateway self-hosted.
+- Cache predefinita. Per informazioni sull'uso della cache esterna nei gateway indipendenti, vedere questo [documento](api-management-howto-cache-external.md) .
 
 ## <a name="connectivity-to-azure"></a>Connettività ad Azure
 
-Il gateway self-hosted richiede la connettività TCP/IP in uscita ad Azure sulla porta 443. Ogni gateway self-hosted deve essere associato a un singolo servizio gestione API e viene configurato tramite il relativo piano di gestione. Il gateway self-hosted usa la connettività ad Azure per:
+I gateway indipendenti richiedono la connettività TCP/IP in uscita in Azure sulla porta 443. Ogni gateway self-hosted deve essere associato a un singolo servizio gestione API e viene configurato tramite il relativo piano di gestione. Il gateway self-hosted usa la connettività ad Azure per:
 
 -   Segnalazione dello stato inviando messaggi heartbeat ogni minuto
 -   Verifica regolarmente (ogni 10 secondi) e applicazione degli aggiornamenti della configurazione ogni volta che sono disponibili
@@ -64,22 +66,22 @@ Il gateway self-hosted richiede la connettività TCP/IP in uscita ad Azure sulla
 
 Quando la connettività ad Azure viene persa, il gateway self-hosted non sarà in grado di ricevere gli aggiornamenti della configurazione, di segnalarne lo stato o di caricare i dati di telemetria.
 
-Il gateway self-hosted è progettato per "generare un errore statico" e può sopravvivere alla perdita temporanea di connettività ad Azure. Può essere distribuito con o senza il backup della configurazione locale attivato. Nel primo caso, i gateway self-hosted salveranno regolarmente una copia di backup della configurazione in un volume permanente collegato al contenitore o pod.
+Il gateway self-hosted è progettato per "generare un errore statico" e può sopravvivere a una perdita temporanea di connettività ad Azure. Può essere distribuito con o senza il backup della configurazione locale. Nel primo caso, i gateway indipendenti salvano regolarmente una copia di backup dell'ultima configurazione scaricata in un volume permanente collegato al relativo contenitore o pod.
 
 Quando il backup della configurazione è disattivato e viene interrotta la connettività ad Azure:
 
--   I gateway self-hosted che eseguono continueranno a funzionare usando una copia in memoria della configurazione
+-   L'esecuzione di gateway indipendenti continuerà a funzionare usando una copia in memoria della configurazione
 -   I gateway indipendenti arrestati non potranno essere avviati
 
 Quando viene attivato il backup della configurazione e viene interrotta la connettività ad Azure:
 
--   I gateway self-hosted che eseguono continueranno a funzionare usando una copia in memoria della configurazione
--   I gateway indipendenti arrestati inizieranno a usare una copia di backup della configurazione
+-   L'esecuzione di gateway indipendenti continuerà a funzionare usando una copia in memoria della configurazione
+-   I gateway indipendenti arrestati saranno in grado di iniziare a usare una copia di backup della configurazione
 
 Quando viene ripristinata la connettività, ogni gateway indipendente interessato dall'interruzione si riconnetterà automaticamente al servizio gestione API associato e scaricherà tutti gli aggiornamenti della configurazione che si sono verificati mentre il gateway era "offline".
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 -   [Leggi un white paper per informazioni aggiuntive su questo argomento](https://aka.ms/hybrid-and-multi-cloud-api-management)
--   [Distribuire il gateway self-hosted in Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
--   [Distribuire il gateway self-hosted in Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
+-   [Distribuire il gateway self-hosted in Docker](how-to-deploy-self-hosted-gateway-docker.md)
+-   [Distribuire il gateway self-hosted in Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)

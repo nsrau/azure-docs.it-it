@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60757741"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561647"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware
 
@@ -21,7 +21,7 @@ ms.locfileid: "60757741"
 
 Questa esercitazione illustra come effettuare il provisioning di un Data Box Gateway in un sistema host che esegue VMware ESXi 6.0, 6.5 o 6.7. 
 
-È necessario disporre dei privilegi di amministratore per eseguire il provisioning e connettersi a un dispositivo virtuale. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti.
+È necessario disporre dei privilegi di amministratore per eseguire il provisioning e connettersi a un dispositivo virtuale. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti. 
 
 In questa esercitazione verranno illustrate le procedure per:
 
