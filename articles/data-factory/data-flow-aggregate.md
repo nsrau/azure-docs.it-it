@@ -1,6 +1,6 @@
 ---
-title: Trasformazione di aggregazione nel mapping del flusso di datiAggregate transformation in mapping data flow
-description: Informazioni su come aggregare i dati su larga scala in Azure Data Factory con la trasformazione Di aggregazione del flusso di dati di mapping.
+title: Trasformazione aggregazione nel flusso di dati di mapping
+description: Informazioni su come aggregare i dati su larga scala in Azure Data Factory con la trasformazione aggregazione del flusso di dati di mapping.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,54 +9,54 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606529"
 ---
-# <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione di aggregazione nel mapping del flusso di datiAggregate transformation in mapping data flow
+# <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione aggregazione nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La trasformazione Aggregazione definisce le aggregazioni delle colonne nei flussi di dati. Utilizzando il Generatore di espressioni, è possibile definire diversi tipi di aggregazioni, ad esempio SUM, MIN, MAX e COUNT raggruppate in base a colonne esistenti o calcolate.
+La trasformazione aggregazione definisce le aggregazioni di colonne nei flussi di dati. Utilizzando il generatore di espressioni, è possibile definire diversi tipi di aggregazione, ad esempio SUM, MIN, MAX e COUNT raggruppati in base a colonne esistenti o calcolate.
 
 ## <a name="group-by"></a>Group by
 
-Selezionare una colonna esistente o creare una nuova colonna calcolata da utilizzare come clausola group by per l'aggregazione. Per utilizzare una colonna esistente, selezionarla dall'elenco a discesa. Per creare una nuova colonna calcolata, passare il mouse sulla clausola e fare clic su **Colonna calcolata**. Verrà aperto il [generatore di espressioni del flusso](concepts-data-flow-expression-builder.md)di dati . Dopo aver creato la colonna calcolata, immettere il nome della colonna di output nel campo **Nome come.** Se si desidera aggiungere un'ulteriore clausola group by, passare il mouse su una clausola esistente e fare clic sull'icona più.
+Consente di selezionare una colonna esistente o di creare una nuova colonna calcolata da utilizzare come clausola Group by per l'aggregazione. Per utilizzare una colonna esistente, selezionarla nell'elenco a discesa. Per creare una nuova colonna calcolata, passare il puntatore del mouse sulla clausola e fare clic su **colonna calcolata**. Verrà aperto il [Generatore di espressioni del flusso di dati](concepts-data-flow-expression-builder.md). Dopo aver creato la colonna calcolata, immettere il nome della colonna di output sotto il campo **nome come** . Se si desidera aggiungere una clausola Group by aggiuntiva, passare il puntatore del mouse su una clausola esistente e fare clic sull'icona con il segno più.
 
-![Aggregare il gruppo di trasformazioni in base alle impostazioni](media/data-flow/agg.png "Aggregare il gruppo di trasformazioni in base alle impostazioni")
+![Raggruppamento della trasformazione aggregazione per impostazioni](media/data-flow/agg.png "Raggruppamento della trasformazione aggregazione per impostazioni")
 
-Una clausola group by è facoltativa in una trasformazione Aggregazione.A group by clause is optional in an Aggregate transformation.
+Una clausola Group by è facoltativa in una trasformazione aggregazione.
 
-## <a name="aggregate-column"></a>Colonna di aggregazione 
+## <a name="aggregate-column"></a>Colonna aggregazione 
 
-Passare alla scheda **Aggregazioni** per creare espressioni di aggregazione. È possibile sovrascrivere una colonna esistente con un'aggregazione oppure creare un nuovo campo con un nuovo nome. L'espressione di aggregazione viene immessa nella casella a destra accanto al selettore del nome della colonna. Per modificare l'espressione, fare clic sulla casella di testo per aprire il generatore di espressioni. Per aggiungere altre aggregazioni, passare il mouse su un'espressione esistente e fare clic sull'icona più per creare un nuovo modello di colonna o [colonna](concepts-data-flow-column-pattern.md)di aggregazione.
+Passare alla scheda **aggregazioni** per compilare le espressioni di aggregazione. È possibile sovrascrivere una colonna esistente con un'aggregazione oppure creare un nuovo campo con un nuovo nome. L'espressione di aggregazione viene immessa nella casella a destra accanto al selettore del nome di colonna. Per modificare l'espressione, fare clic sulla casella di testo per aprire il generatore di espressioni. Per aggiungere altre aggregazioni, passare il puntatore del mouse su un'espressione esistente e fare clic sull'icona del segno più per creare un nuovo [modello](concepts-data-flow-column-pattern.md)di colonna o colonna di aggregazione.
 
 Ogni espressione di aggregazione deve contenere almeno una funzione di aggregazione.
 
-![Impostazioni di aggregazione delle aggregazioni per le aggregazioni](media/data-flow/agg2.png "Impostazioni di aggregazione delle aggregazioni per le aggregazioni")
+![Impostazioni aggregate trasformazione aggregazione](media/data-flow/agg2.png "Impostazioni aggregate trasformazione aggregazione")
 
 
 > [!NOTE]
-> In modalità Debug, il generatore di espressioni non può produrre anteprime dei dati con funzioni di aggregazione. Per visualizzare le anteprime dei dati per le trasformazioni di aggregazione, chiudere il generatore di espressioni e visualizzare i dati tramite la scheda 'Anteprima dati'.
+> In modalità di debug, il generatore di espressioni non può produrre anteprime dei dati con funzioni di aggregazione. Per visualizzare le anteprime dei dati per le trasformazioni aggregate, chiudere il generatore di espressioni e visualizzare i dati tramite la scheda "Anteprima dati".
 
 ## <a name="reconnect-rows-and-columns"></a>Riconnettere righe e colonne
 
-Le trasformazioni di aggregazione sono simili alle query di selezione di aggregazione SQL. Le colonne non incluse nella clausola group by o nelle funzioni di aggregazione non passeranno all'output della trasformazione di aggregazione. Se si desidera includere altre colonne nell'output aggregato, eseguire uno dei metodi seguenti:
+Le trasformazioni di aggregazione sono simili alle query SELECT di aggregazione SQL. Le colonne che non sono incluse nella clausola Group by o funzioni di aggregazione non passano attraverso l'output della trasformazione aggregazione. Se si desidera includere altre colonne nell'output aggregato, effettuare uno dei seguenti metodi:
 
-* Utilizzare una funzione `last()` di `first()` aggregazione, ad esempio o per includere tale colonna aggiuntiva.
-* Riaggiungere le colonne al flusso di output utilizzando il [modello di self join](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+* Utilizzare una funzione di aggregazione `last()` , `first()` ad esempio o, per includere la colonna aggiuntiva.
+* Aggiungere nuovamente le colonne al flusso di output usando il [modello self join](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## <a name="removing-duplicate-rows"></a>Rimozione di righe duplicate
 
-Un utilizzo comune della trasformazione di aggregazione è la rimozione o l'identificazione di voci duplicate nei dati di origine. Questo processo è noto come deduplicazione. In base a un set di chiavi raggruppa in base a categorie, utilizzare un'euristica di propria scelta per determinare quale riga duplicata mantenere. L'euristica `first()`comune `last()` `max()`è `min()`, , , e . Utilizzare [i modelli](concepts-data-flow-column-pattern.md) di colonna per applicare la regola a tutte le colonne ad eccezione del raggruppamento per colonne.
+Un utilizzo comune della trasformazione aggregazione consiste nella rimozione o nell'identificazione di voci duplicate nei dati di origine. Questo processo è noto come deduplicazione. In base a un set di chiavi Group by, usare l'euristica scelta per determinare la riga duplicata da contenere. Le euristiche comuni `first()`sono `last()`, `max()`, e `min()`. Usare i [criteri di colonna](concepts-data-flow-column-pattern.md) per applicare la regola a ogni colonna, ad eccezione delle colonne Group by.
 
 ![Deduplicazione](media/data-flow/agg-dedupe.png "Deduplicazione")
 
-Nell'esempio precedente, `ProductID` `Name` le colonne e vengono utilizzate per il raggruppamento. Se due righe hanno gli stessi valori per queste due colonne, vengono considerate duplicati. In questa trasformazione di aggregazione, i valori della prima riga corrispondente verranno mantenuti e tutti gli altri verranno eliminati. Utilizzando la sintassi del modello di `ProductID` `Name` colonna, tutte le colonne i cui nomi non sono e vengono mappate al nome di colonna esistente e viene fornito il valore delle prime righe corrispondenti. Lo schema di output è lo stesso dello schema di input.
+Nell'esempio precedente le colonne `ProductID` e `Name` vengono utilizzate per il raggruppamento. Se due righe hanno gli stessi valori per queste due colonne, sono considerate duplicati. In questa trasformazione aggregazione i valori della prima riga corrispondente verranno mantenuti e tutti gli altri verranno eliminati. Utilizzando la sintassi del criterio di colonna, tutte le `ProductID` colonne `Name` i cui nomi non sono e vengono mappate al nome della colonna esistente e in base al valore delle prime righe corrispondenti. Lo schema di output corrisponde allo schema di input.
 
-Per gli scenari `count()` di convalida dei dati, la funzione può essere utilizzata per contare il numero di duplicati presenti.
+Per gli scenari di convalida dei `count()` dati, la funzione può essere utilizzata per contare il numero di duplicati.
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 
@@ -81,11 +81,11 @@ Per gli scenari `count()` di convalida dei dati, la funzione può essere utilizz
 
 ### <a name="example"></a>Esempio
 
-Nell'esempio seguente viene `MoviesYear` utilizzato un `year`flusso in ingresso e vengono raggruppate le righe per colonna . La trasformazione crea `avgrating` una colonna di aggregazione che restituisce la media della colonna `Rating`. Questa trasformazione `AvgComedyRatingsByYear`di aggregazione è denominata .
+L'esempio seguente accetta un flusso `MoviesYear` in ingresso e raggruppa le righe per `year`colonna. La trasformazione crea una colonna `avgrating` di aggregazione che restituisce la media della colonna `Rating`. Questa trasformazione aggregata è `AvgComedyRatingsByYear`denominata.
 
-Nell'esperienza utente di Data Factory questa trasformazione è simile all'immagine seguente:In the Data Factory UX, this transformation looks like the below image:
+In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
-![Raggruppa per esempio](media/data-flow/agg-script1.png "Raggruppa per esempio")
+![Esempio di Group by](media/data-flow/agg-script1.png "Esempio di Group by")
 
 ![Esempio di aggregazione](media/data-flow/agg-script2.png "Esempio di aggregazione")
 
@@ -98,9 +98,9 @@ MoviesYear aggregate(
             ) ~> AvgComedyRatingByYear
 ```
 
-![Script del flusso di dati di aggregazioneAggregate data flow script](media/data-flow/aggdfs1.png "Script del flusso di dati di aggregazioneAggregate data flow script")
+![Script del flusso di dati aggregato](media/data-flow/aggdfs1.png "Script del flusso di dati aggregato")
 
-```MoviesYear```: Colonne derivate che ```AvgComedyRatingByYear```definiscono colonne anno e titolo : Trasformazione aggregata per la valutazione media delle comunità raggruppate per anno ```avgrating```: nome della nuova colonna creata per contenere il valore aggregato
+```MoviesYear```: Colonna derivata che definisce le colonne ```AvgComedyRatingByYear```anno e titolo: trasformazione aggregazione per la valutazione media delle Comedie raggruppate per anno ```avgrating```: nome della nuova colonna da creare per conservare il valore aggregato
 
 ```
 MoviesYear aggregate(groupBy(year),
@@ -109,4 +109,4 @@ MoviesYear aggregate(groupBy(year),
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Definire l'aggregazione basata su finestre usando la [trasformazione FinestraDefine](data-flow-window.md) window-based aggregation using the Window transformation
+* Definire un'aggregazione basata su finestra mediante la [trasformazione finestra](data-flow-window.md)

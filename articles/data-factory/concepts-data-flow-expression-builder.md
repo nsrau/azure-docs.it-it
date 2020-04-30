@@ -1,6 +1,6 @@
 ---
-title: Generatore di espressioni nel mapping del flusso di dati
-description: Creare espressioni usando il Generatore di espressioni nel mapping dei flussi di dati in Azure Data FactoryBuild expressions by using Expression Builder in mapping data flows in Azure Data Factory
+title: Generatore di espressioni nel flusso di dati di mapping
+description: Compilazione di espressioni tramite Generatore di espressioni nel mapping di flussi di dati in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -8,61 +8,61 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: dda2812b5e2cc79d53658d568ba0845d593f41d6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605371"
 ---
-# <a name="build-expressions-in-mapping-data-flow"></a>Creare espressioni nel mapping del flusso di datiBuild expressions in mapping data flow
+# <a name="build-expressions-in-mapping-data-flow"></a>Espressioni di compilazione nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Nel mapping del flusso di dati, molte proprietà di trasformazione vengono immesse come espressioni. Queste espressioni sono costituite da valori di colonna, parametri, funzioni, operatori e valori letterali che restituiscono un tipo di dati Spark in fase di esecuzione.
+Nel flusso di dati del mapping, molte proprietà di trasformazione vengono immesse come espressioni. Queste espressioni sono costituite da valori di colonna, parametri, funzioni, operatori e valori letterali che restituiscono un tipo di dati Spark in fase di esecuzione.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
 
-## <a name="open-expression-builder"></a>Apri Generatore di espressioni
+## <a name="open-expression-builder"></a>Apri generatore di espressioni
 
-L'interfaccia di modifica delle espressioni nell'esperienza utente di Azure Data Factory è nota come Generatore di espressioni. Quando si immette la logica dell'espressione, Data Factory usa il completamento del codice [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) per l'evidenziazione, il controllo della sintassi e il completamento automatico.
+L'interfaccia di modifica delle espressioni nell'esperienza utente Azure Data Factory è nota come generatore di espressioni. Quando si immette la logica dell'espressione, Data Factory usa il completamento del codice [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) per l'evidenziazione, il controllo della sintassi e il completamento automatico.
 
 ![Generatore di espressioni](media/data-flow/xpb1.png "Generatore di espressioni")
 
-Nelle trasformazioni, ad esempio la colonna derivata e il filtro, in cui le espressioni sono obbligatorie, aprire Generatore di espressioni selezionando la casella di espressione blu.
+Nelle trasformazioni, ad esempio la colonna derivata e il filtro, in cui le espressioni sono obbligatorie, aprire Generatore di espressioni selezionando la casella espressione blu.
 
-![Casella di espressione blu](media/data-flow/expressionbox.png "Generatore di espressioni")
+![Casella espressione blu](media/data-flow/expressionbox.png "Generatore di espressioni")
 
-Quando si fa riferimento a colonne in una condizione corrispondente o di raggruppamento, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare **Colonna calcolata**.
+Quando si fa riferimento a colonne in una condizione di corrispondenza o di raggruppamento, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare **colonna calcolata**.
 
-![Opzione Colonna calcolata](media/data-flow/computedcolumn.png "Generatore di espressioni")
+![Opzione della colonna calcolata](media/data-flow/computedcolumn.png "Generatore di espressioni")
 
-Nei casi in cui un'espressione o un valore letterale sono input validi, selezionare **Aggiungi contenuto dinamico** per compilare un'espressione che restituisce un valore letterale.
+Nei casi in cui un'espressione o un valore letterale sono input validi, selezionare **Aggiungi contenuto dinamico** per compilare un'espressione che restituisca un valore letterale.
 
 ![Opzione Aggiungi contenuto dinamico](media/data-flow/add-dynamic-content.png "Generatore di espressioni")
 
-## <a name="expression-language-reference"></a>Informazioni di riferimento sul linguaggio delle espressioniExpression language reference
+## <a name="expression-language-reference"></a>Riferimento al linguaggio delle espressioni
 
-Il mapping dei flussi di dati include funzioni e operatori incorporati che possono essere utilizzati nelle espressioni. Per un elenco delle funzioni disponibili, vedere [Funzioni di espressione nel flusso di dati di mapping.](data-flow-expression-functions.md)
+Il mapping di flussi di dati include funzioni e operatori predefiniti che possono essere utilizzati nelle espressioni. Per un elenco delle funzioni disponibili, vedere [funzioni di espressione nel flusso di dati di mapping](data-flow-expression-functions.md).
 
 ## <a name="column-names-with-special-characters"></a>Nomi di colonna con caratteri speciali
 
-Quando si dispone di nomi di colonna che includono caratteri speciali o spazi, racchiudere il nome tra parentesi graffe per farvi riferimento in un'espressione.
+Quando sono presenti nomi di colonna che includono caratteri speciali o spazi, racchiudere il nome tra parentesi graffe per farvi riferimento in un'espressione.
 
 ```{[dbo].this_is my complex name$$$}```
 
-## <a name="preview-expression-results"></a>Visualizzare in anteprima i risultati delle espressioni
+## <a name="preview-expression-results"></a>Risultati espressione anteprima
 
-Se la [modalità](concepts-data-flow-debug-mode.md) di debug è attivata, è possibile usare il cluster Spark attivo per visualizzare un'anteprima in corso di ciò che l'espressione restituisce. Durante la compilazione della logica, è possibile eseguire il debug dell'espressione in tempo reale. 
+Se la [modalità di debug](concepts-data-flow-debug-mode.md) è attivata, è possibile usare il cluster Spark in tempo reale per visualizzare un'anteprima in corso della valutazione dell'espressione. Quando si compila la logica, è possibile eseguire il debug dell'espressione in tempo reale. 
 
 ![Anteprima in corso](media/data-flow/exp4b.png "Anteprima dati espressione")
 
-Selezionare **Aggiorna** per aggiornare i risultati dell'espressione rispetto a un campione attivo dell'origine.
+Selezionare **Aggiorna** per aggiornare i risultati dell'espressione rispetto a un campione Live dell'origine.
 
 ![Pulsante Aggiorna](media/data-flow/exp5.png "Anteprima dati espressione")
 
 ## <a name="string-interpolation"></a>Interpolazione di stringhe
 
-Utilizzare le virgolette per racchiudere il testo di una stringa letterale con le espressioni. È possibile includere funzioni di espressione, colonne e parametri. L'interpolazione di stringhe è utile per evitare un uso esteso della concatenazione di stringhe quando i parametri vengono inclusi nelle stringhe di query. Per utilizzare la sintassi dell'espressione, racchiuderla tra parentesi graffe,
+Utilizzare le virgolette per racchiudere il testo di stringa letterale insieme alle espressioni. È possibile includere funzioni di espressione, colonne e parametri. L'interpolazione di stringhe è utile per evitare l'utilizzo estensivo della concatenazione di stringhe quando i parametri sono inclusi nelle stringhe di query. Per utilizzare la sintassi delle espressioni, racchiuderla tra parentesi graffe,
 
 Alcuni esempi di interpolazione di stringhe:
 
@@ -74,11 +74,11 @@ Alcuni esempi di interpolazione di stringhe:
 
 ## <a name="comment-expressions"></a>Espressioni di commento
 
-Aggiungere commenti alle espressioni utilizzando la sintassi dei commenti a riga singola e su più righe.
+Aggiungere commenti alle espressioni usando la sintassi di commento a riga singola e a più righe.
 
-![Sintassi dei commenti su riga singola e su più righe](media/data-flow/comments.png "Commenti")
+![Sintassi per commenti a riga singola e a più righe](media/data-flow/comments.png "Commenti")
 
-I seguenti esempi sono commenti validi:
+Gli esempi seguenti sono commenti validi:
 
 * ```/* This is my comment */```
 
@@ -87,48 +87,48 @@ I seguenti esempi sono commenti validi:
    
 * ```// This is a single line comment```
 
-Se si inserisce un commento nella parte superiore dell'espressione, questo viene visualizzato nella casella di testo della trasformazione per documentare le espressioni di trasformazione.
+Se si inserisce un commento all'inizio dell'espressione, questo viene visualizzato nella casella di testo trasformazione per documentare le espressioni di trasformazione.
 
 ![Commento nella casella di testo trasformazione](media/data-flow/comments2.png "Commenti")
 
 ## <a name="regular-expressions"></a>Espressioni regolari
 
-Molte funzioni del linguaggio delle espressioni utilizzano la sintassi delle espressioni regolari. Quando si utilizzano funzioni di espressione regolare,\\il Generatore di espressioni tenta di interpretare una barra rovesciata ( ) come sequenza di caratteri di escape. Quando si utilizzano le barre rovesciate nell'espressione regolare,\`racchiudere l'intera espressione regolare tra le barre rovesciate ( ) o utilizzare una doppia barra rovesciata.
+Molte funzioni del linguaggio delle espressioni usano la sintassi delle espressioni regolari. Quando si usano le funzioni di espressione regolare, il generatore di espressioni tenta di\\interpretare una barra rovesciata () come sequenza di caratteri di escape. Quando si usano le barre rovesciate nell'espressione regolare, racchiudere l'intera espressione regolare in apice inverso (\`) o usare una doppia barra rovesciata.
 
-Un esempio che usa le zecche a traverso:An example that uses backticks:
+Esempio che usa i segni di inverso:
 
 ```
 regex_replace('100 and 200', `(\d+)`, 'digits')
 ```
 
-Un esempio che usa le barre doppie:An example that uses double lashes:
+Esempio che usa le barre doppie:
 
 ```
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="address-array-indexes"></a>Indici della matrice di indirizziAddress array indexes
+## <a name="address-array-indexes"></a>Indici di matrici di indirizzi
 
-Con funzioni di espressione che restituiscono matrici, utilizzare le parentesi quadre ([]) per indirizzare indici specifici all'interno che restituiscono oggetti di matrice. L'array è basato su quelli.
+Con le funzioni di espressione che restituiscono matrici, usare le parentesi quadre ([]) per indirizzare gli indici specifici all'interno di che restituiscono oggetti matrice. La matrice è basata su quelle.
 
-![Matrice del Generatore di espressioni](media/data-flow/expb2.png "Anteprima dati espressione")
+![Matrice generatore di espressioni](media/data-flow/expb2.png "Anteprima dati espressione")
 
-## <a name="keyboard-shortcuts"></a>Scelte rapide da tastiera
+## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida
 
-* Ctrl-K Ctrl-C: Commenta l'intera riga.
-* Ctrl K Ctrl-U: Rimuovi commento.
-* F1: Fornire i comandi della Guida dell'editor.
-* Alt : freccia giù: consente di spostarsi verso il basso nella riga corrente.
-* Alt: freccia su: consente di spostarsi verso l'alto nella riga corrente.
-* Ctrl-Barra spaziatrice: consente di visualizzare la guida contestuale.
+* CTRL + K CTRL + C: commento riga intera.
+* CTRL + K CTRL + U: rimuovere il commento.
+* F1: specificare i comandi della Guida dell'editor.
+* ALT + tasto freccia giù: Sposta giù riga corrente.
+* ALT + tasto freccia su: sposta su riga corrente.
+* CTRL + barra spaziatrice: Mostra la guida del contesto.
 
-## <a name="convert-to-dates-or-timestamps"></a>Convertire in date o indicatori data e ora
+## <a name="convert-to-dates-or-timestamps"></a>Converti in date o timestamp
 
-Per includere valori letterali stringa nell'output ```toString()```timestamp, eseguire il wrapping della conversione in .
+Per includere valori letterali stringa nell'output timestamp, eseguire il wrapping della ```toString()```conversione in.
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Per convertire millisecondi da epoca a una `toTimestamp(<number of milliseconds>)`data o a un timestamp, utilizzare . Se il tempo arriva in secondi, moltiplica per 1.000.
+Per convertire i millisecondi da Epoch a date o timestamp, usare `toTimestamp(<number of milliseconds>)`. Se il tempo è in secondi, moltiplicare per 1.000.
 
 ```toTimestamp(1574127407*1000l)```
 
@@ -136,4 +136,4 @@ La "l" finale alla fine dell'espressione precedente indica la conversione in un 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Iniziare a creare espressioni di trasformazione dei dati](data-flow-expression-functions.md)
+[Inizia a creare espressioni di trasformazione dei dati](data-flow-expression-functions.md)

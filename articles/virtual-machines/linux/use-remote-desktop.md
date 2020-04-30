@@ -1,5 +1,5 @@
 ---
-title: Usare Desktop remoto per una macchina virtuale Linux in AzureUse Remote Desktop to a Linux VM in Azure
+title: Usare Desktop remoto per una VM Linux in Azure
 description: Informazioni sull'installazione e la configurazione di Desktop remoto (xrdp) per collegarsi a una macchina virtuale Linux di Azure usando strumenti grafici
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605193"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure
@@ -25,16 +25,16 @@ Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Questo articolo richiede una macchina virtuale Ubuntu 18.04 LTS esistente in Azure.This article requires an existing Ubuntu 18.04 LTS VM in Azure. Se è necessario creare una macchina virtuale, usare uno dei metodi seguenti:
+Questo articolo richiede una VM Ubuntu 18,04 LTS esistente in Azure. Se è necessario creare una macchina virtuale, usare uno dei metodi seguenti:
 
-- [L'interfaccia della riga di comando di AzureThe Azure](quick-create-cli.md)
-- Il [portale di AzureThe Azure portal](quick-create-portal.md)
+- INTERFACCIA della riga di comando di [Azure](quick-create-cli.md)
+- [Portale di Azure](quick-create-portal.md)
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installare un ambiente desktop nella VM Linux
 La maggior parte delle macchine virtuali Linux di Azure non presenta un ambiente desktop installato per impostazione predefinita. Le macchine virtuali Linux in genere vengono gestite usando connessioni SSH piuttosto che un ambiente desktop. In Linux esistono diversi ambienti desktop tra i quali è possibile scegliere. A seconda dell'ambiente desktop scelto, questo può consumare da 1 a 2 GB di spazio su disco e può impiegare da 5 a 10 minuti per installare e configurare tutti i pacchetti necessari.
 
-L'esempio seguente installa l'ambiente desktop [xfce4](https://www.xfce.org/) leggero in una macchina virtuale Ubuntu 18.04 LTS. I comandi per le altre distribuzioni sono leggermente diversi (ad esempio, usare `yum` per installare in Red Hat Enterprise Linux e configurare regole `selinux` appropriate, oppure usare `zypper` per installare in SUSE).
+Nell'esempio seguente viene installato l'ambiente desktop Lightweight [xfce4](https://www.xfce.org/) in una VM Ubuntu 18,04 LTS. I comandi per le altre distribuzioni sono leggermente diversi (ad esempio, usare `yum` per installare in Red Hat Enterprise Linux e configurare regole `selinux` appropriate, oppure usare `zypper` per installare in SUSE).
 
 Innanzitutto, stabilire una connessione SSH alla VM. Nell'esempio seguente viene eseguita la connessione alla macchina virtuale denominata *myvm.westus.cloudapp.azure.com* con il nome utente *azureuser*. Usare valori personalizzati:
 
@@ -84,7 +84,7 @@ sudo passwd azureuser
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Creare una regola del gruppo di sicurezza di rete per il traffico di Desktop remoto
-Per consentire al traffico di Desktop remoto di raggiungere la VM Linux, è necessario creare una regola del gruppo di sicurezza di rete che consenta al TCP sulla porta 3389 di raggiungere la macchina virtuale. Per altre informazioni sulle regole dei gruppi di sicurezza di rete, vedere [Che cos'è un gruppo](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) di sicurezza di rete? È anche possibile [usare il portale di Azure per creare una regola del gruppo di sicurezza di rete](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per consentire al traffico di Desktop remoto di raggiungere la VM Linux, è necessario creare una regola del gruppo di sicurezza di rete che consenta al TCP sulla porta 3389 di raggiungere la macchina virtuale. Per ulteriori informazioni sulle regole del gruppo di sicurezza di rete, vedere [che cos'è un gruppo di sicurezza di rete?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) È anche possibile [usare il portale di Azure per creare una regola del gruppo di sicurezza di rete](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 L'esempio seguente crea una regola del gruppo di sicurezza di rete con il comando [az vm open-port](/cli/azure/vm#az-vm-open-port) sulla porta *3389*. Dall'interfaccia della riga di comando di Azure, non dalla sessione SSH alla macchina virtuale, aprire la regola di gruppo di sicurezza di rete seguente:
 
