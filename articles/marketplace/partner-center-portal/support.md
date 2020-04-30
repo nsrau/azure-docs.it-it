@@ -1,6 +1,6 @@
 ---
-title: Ottenere supporto per il portale del Marketplace commerciale nel Centro per i partner
-description: Scopri le opzioni di supporto nel Centro per i partner, incluso come presentare una richiesta di supporto.
+title: Ottenere supporto per il portale del Marketplace commerciale nel centro per i partner
+description: Informazioni sulle opzioni di supporto in Partner Center, incluso come archiviare una richiesta di supporto.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
@@ -8,74 +8,74 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
 ms.openlocfilehash: fd7582877a74aa998de3a6d0a0f38e56c3c3af91
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733122"
 ---
-# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Supporto per il programma Commercial Marketplace nel Centro per i partner
+# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Supporto per il programma Commercial Marketplace nel centro per i partner
 
 Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Trovare il team di supporto giusto è importante per garantire una risposta appropriata e tempestiva. Considerare gli scenari seguenti, che possono essere utili per indirizzare la propria richiesta al team appropriato: 
 
-- Se si è un editore e si ha una domanda di un cliente, chiedere al cliente di richiedere assistenza utilizzando i collegamenti di supporto nel portale di [Azure.](https://portal.azure.com/) 
+- Se si è un editore e si ha una domanda da parte di un cliente, chiedere al cliente di richiedere supporto tramite i collegamenti di supporto nella [portale di Azure](https://portal.azure.com/). 
 
-- Se sei un editore e hai una domanda relativa alla tua app o al tuo servizio, consulta le opzioni di supporto seguenti.
+- Se si è un editore e si ha una domanda relativa all'app o al servizio, esaminare le opzioni di supporto seguenti.
 
 ## <a name="support-options-for-publishers"></a>Opzioni di supporto per gli editori
 
-1. Accedi al [programma Commercial Marketplace nel Centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) con il tuo account di lavoro. Se non l'hai ancora fatto, dovrai [creare un account del Centro per i partner.](./create-account.md)
+1. Accedere al [programma Commercial Marketplace nel centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) con l'account aziendale. Se non è ancora stato fatto, sarà necessario [creare un account del centro](./create-account.md)per i partner.
 
-2. Nel menu superiore sul lato destro della pagina, selezionare l'icona **Supporto.** 
+2. Nel menu superiore sul lato destro della pagina selezionare l'icona **supporto** . 
  
-3. Il riquadro Guida in linea **e supporto** verrà visualizzato dal lato destro della pagina. 
+3. Il riquadro **Guida e supporto** verrà visualizzato dal lato destro della pagina. 
  
-   ![Menu a discesa Supporto](./media/commercial-marketplace-support-pane.png)
+   ![Menu a discesa supporto](./media/commercial-marketplace-support-pane.png)
 
-    In alternativa, passare al riquadro **Home page** e selezionare Guida e **supporto tecnico**.
+    In alternativa, passare al riquadro **Home page** e selezionare **Guida e supporto tecnico**.
 
-   ![Guida e supporto tecnico dalla home page](./media/homepage-help-support.png)
+   ![Guida e supporto tecnico dalla Home page](./media/homepage-help-support.png)
 
-4. Selezionare **[Documentazione](../index.yml)** per esaminare le risposte complete a domande e risorse. 
+4. Selezionare la **[documentazione](../index.yml)** per esaminare le risposte complete a domande e risorse. 
 
-5. Seleziona il **[forum della community](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** dei partner di Marketplace per rispondere alle tue domande sfruttando la conoscenza di altri editori Microsoft. 
+5. Per rispondere alle domande, selezionare **[Forum della community del partner Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** per rispondere alle proprie domande sfruttando la conoscenza di altri editori Microsoft. 
 
-6. Selezionare **[Guida aggiuntiva](https://partner.microsoft.com/support/v2/?stage=1)** per aprire un ticket di richiesta di **supporto nuovo.**  
+6. Selezionare la **[Guida aggiuntiva](https://partner.microsoft.com/support/v2/?stage=1)** per aprire un nuovo ticket di **richiesta di supporto** .  
 
 ## <a name="how-to-open-a-support-ticket"></a>Come aprire un ticket di supporto
 
-A questo punto è possibile aprire un ticket di supporto nella schermata **Guida in linea e supporto tecnico.**
+A questo punto si è pronti per aprire un ticket di supporto nella schermata **Guida e supporto tecnico** .
 
 ![Guida e supporto](./media/help-and-support.png)
 
 >[!Note]
->Se hai effettuato l'accesso al Centro per i partner, riceverai un'esperienza migliore con il supporto.
+>Se si è connessi al centro per i partner, si riceverà un'esperienza migliore con il supporto tecnico.
 
-**Opzione 1:** Immettere parole chiave quali Marketplace, app Azure, offerta SaaS, gestione dell'account, gestione dei lead, problema di distribuzione, pagamento e così via.
+**Opzione 1:** Immettere parole chiave quali Marketplace, app di Azure, offerta SaaS, gestione degli account, gestione dei lead, problema di distribuzione, pagamento e così via.
 
-**Opzione 2:** Sfogliare gli argomenti -> selezionare **Categoria** - Mercato commerciale -> selezionare **l'argomento** appropriato, quindi **Argomento secondario**.
+**Opzione 2:** Sfogliare gli argomenti-> selezionare **categoria** = Commercial marketplace-> selezionare l' **argomento** appropriato, quindi eseguire un **subargomento**.
 
-Una volta trovato l'argomento di vostra scelta, selezionare **Rivedi soluzioni**.
+Dopo aver trovato l'argomento desiderato, selezionare **verifica soluzioni**.
 
 ![Passaggio successivo](./media/next-step.png)
 
-Saranno disponibili le seguenti opzioni:
+Verranno rese disponibili le opzioni seguenti:
 
-* Per selezionare un argomento diverso, selezionare un collegamento a un argomento diverso in **Problema selezionato.**
-* Esaminare la descrizione del problema, se disponibile.  È il testo mostrato sopra i **passaggi consigliati**.
-* Esaminare **i passaggi consigliati,** se disponibili.
-* Rivedere i **documenti consigliati,** se disponibili.
+* Per selezionare un argomento diverso, selezionare un altro collegamento all'argomento in **problema selezionato**.
+* Esaminare la descrizione del problema, se disponibile.  È il testo visualizzato sopra i **passaggi consigliati**.
+* Esaminare le **procedure consigliate**, se disponibili.
+* Esaminare i **documenti consigliati**, se disponibili.
 
 ![Soluzioni consigliate](./media/recommended-solutions.png)
 
-Nel caso in cui non si riesce a trovare la risposta nelle **soluzioni consigliate**, fare clic su **fornire i dettagli**del problema .  Compila il modulo e tutti i campi obbligatori per velocizzare il processo di risoluzione.  Quindi fare clic su **Invia**.
+Se non è possibile trovare la risposta nelle **soluzioni consigliate**, fare clic su **specificare i dettagli del problema**.  Compilare il modulo e tutti i campi necessari per velocizzare il processo di risoluzione.  Quindi fare clic su **Invia**.
 
 >[!Note]
->Se non hai effettuato l'accesso al Centro per i partner e l'argomento richiede l'autenticazione, ti verrà richiesto di accedere prima di procedere.  Per gli argomenti pubblici, l'autenticazione non è necessaria.
+>Se non è stato effettuato l'accesso al centro per i partner e l'argomento richiede l'autenticazione, verrà richiesto di effettuare l'accesso prima di procedere.  Per gli argomenti pubblici, l'autenticazione non è obbligatoria.
 
 ## <a name="track-your-existing-support-requests"></a>Tenere traccia delle richieste di supporto esistenti 
 
-Per esaminare tutti i biglietti aperti e chiusi, passare a **Commercial Marketplace** sulla barra di spostamento sinistra e quindi selezionare **supporto**.
+Per esaminare tutti i ticket aperti e chiusi, passare a **Marketplace commerciale** sulla barra di spostamento a sinistra e quindi selezionare **supporto**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

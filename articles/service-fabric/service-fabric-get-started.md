@@ -1,15 +1,15 @@
 ---
-title: Configurare un ambiente di sviluppo WindowsSet up a Windows development environment
+title: Configurare un ambiente di sviluppo Windows
 description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a creare applicazioni in Windows.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.custom: sfrev
 ms.openlocfilehash: 1b43c838537e46ffbaf6c4adcfb117f6718bd046
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731763"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
@@ -21,7 +21,7 @@ ms.locfileid: "81731763"
 >
 >
 
-Per compilare ed eseguire [applicazioni di Azure Service Fabric][1] nel computer di sviluppo Windows, installare il runtime di Service Fabric, l'SDK e gli strumenti. È inoltre necessario [abilitare l'esecuzione degli script di Windows PowerShell](#enable-powershell-script-execution) inclusi nell'SDK.
+Per compilare ed eseguire [applicazioni di Azure Service Fabric][1] nel computer di sviluppo Windows, installare il runtime di Service Fabric, l'SDK e gli strumenti. È anche necessario [abilitare l'esecuzione degli script di Windows PowerShell](#enable-powershell-script-execution) inclusi nell'SDK.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,7 +37,7 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
 > [!NOTE]
 > Supporto per Windows 7:
-> - Per impostazione predefinita, Windows 7 include solo Windows PowerShell 2.0. I cmdlet di PowerShell per Service Fabric richiedono PowerShell 3.0 o versione successiva. È possibile [scaricare Windows PowerShell 5.1][powershell5-download] dall'Area download Microsoft.
+> - Per impostazione predefinita, Windows 7 include solo Windows PowerShell 2.0. I cmdlet di PowerShell per Service Fabric richiedono PowerShell 3.0 o versione successiva. È possibile [scaricare Windows PowerShell 5,1][powershell5-download] dall'area download Microsoft.
 > - Il proxy inverso di Service Fabric non è disponibile in Windows 7.
 
 ## <a name="install-the-sdk-and-tools"></a>Installare l'SDK e gli strumenti
@@ -49,7 +49,7 @@ Installazione guidata piattaforma Web (WebPI) è la soluzione consigliata per in
 
 ### <a name="to-use-visual-studio-2017-or-2019"></a>Per usare Visual Studio 2017 o 2019
 
-Gli strumenti di Service Fabric fanno parte del carico di lavoro di Sviluppo di Azure in Visual Studio 2017 e 2019.The Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017 and 2019. Abilitare questo carico di lavoro durante l'installazione di Visual Studio.
+Il Strumenti di Service Fabric fa parte del carico di lavoro di sviluppo di Azure in Visual Studio 2017 e 2019. Abilitare questo carico di lavoro durante l'installazione di Visual Studio.
 È anche necessario installare Microsoft Azure Service Fabric SDK e il runtime usando Installazione guidata piattaforma Web.
 
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
@@ -68,8 +68,8 @@ Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 
 Le versioni correnti sono:
 
-* SDK e strumenti di Service Fabric 4.1.409
-* Runtime di Service Fabric 7.1.409Service Fabric runtime 7.1.409
+* SDK e strumenti Service Fabric 4.1.409
+* 7.1.409 runtime di Service Fabric
 
 Per un elenco delle versioni supportate, vedere [Service Fabric versions](service-fabric-versions.md) (Versioni di Service Fabric)
 
@@ -96,7 +96,7 @@ Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire 
 * [Informazioni sui modelli di programmazione Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
 * [Vedere gli esempi di codice di Service Fabric in GitHub](https://aka.ms/servicefabricsamples)
 * [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-* Informazioni sulle opzioni di supporto di [Service Fabric](service-fabric-support.md)
+* Informazioni sulle [Opzioni di supporto Service Fabric](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

@@ -10,17 +10,17 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 51abfd1cbb438d0987554040867625f7fb71630b
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758227"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Distribuire OpenShift Container Platform in Azure Stack
 
 OpenShift può essere distribuito in Azure Stack. Esistono alcune differenze fondamentali tra Azure e Azure Stack perciò anche la distribuzione e le funzionalità saranno leggermente diverse.
 
-Attualmente, il Provider di servizi cloud di Azure non funziona in Azure Stack. Per questo motivo, non è possibile usare disk attach per l'archiviazione permanente in Azure Stack. È invece possibile configurare altre opzioni di archiviazione, ad esempio NFS, iSCSI, GlusterFS e così via. In alternativa, è possibile abilitare CNS e utilizzare GlusterFS per l'archiviazione permanente. Se i CNS sono abilitati, tre nodi aggiuntivi verranno distribuiti con ulteriore spazio di archiviazione per l'utilizzo di GlusterFS.
+Attualmente, il Provider di servizi cloud di Azure non funziona in Azure Stack. Per questo motivo, non è possibile usare disk attach per l'archiviazione permanente in Azure Stack. È invece possibile configurare altre opzioni di archiviazione, ad esempio NFS, iSCSI, GlusterFS e così via. In alternativa, è possibile abilitare CNS e usare GlusterFS per l'archiviazione permanente. Se i CNS sono abilitati, tre nodi aggiuntivi verranno distribuiti con ulteriore spazio di archiviazione per l'utilizzo di GlusterFS.
 
 Esistono diversi metodi per distribuire OpenShift Container Platform o OKD in Azure Stack:
 

@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2ef259bf76815fdf8672b696d2260fe6a143b798
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730181"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
@@ -82,7 +82,7 @@ Usare operazioni asincrone sull'[endpoint del provider di risorse dell'hub IoT](
 
 Per altre informazioni sulle API di importazione e di esportazione, vedere [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource) (API REST del provider di risorse dell'hub IoT). Per altre informazioni sull'esecuzione dei processi di importazione ed esportazione, vedere [Gestione in blocco delle identità dei dispositivi dell'hub IoT](iot-hub-bulk-identity-mgmt.md).
 
-Le identità dei dispositivi possono anche essere esportate e importate da un hub IoT tramite l'API del servizio tramite [l'API REST](/rest/api/iothub/service/jobclient/createimportexportjob) o uno degli SDK del [servizio](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)Hub IoT .
+Le identità dei dispositivi possono anche essere esportate e importate da un hub Internet delle cose tramite l'API del servizio tramite l' [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) o uno degli [SDK del servizio](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)hub Internet.
 
 ## <a name="device-provisioning"></a>Provisioning di dispositivi
 
@@ -186,11 +186,11 @@ Corpo: questa sezione è in formato JSON e rappresenta la copia dell'identità m
 
 Le identità dei dispositivi vengono rappresentate da documenti JSON con le proprietà indicate di seguito.
 
-| Proprietà | Opzioni | Descrizione |
+| Proprietà | Options | Descrizione |
 | --- | --- | --- |
 | deviceId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole/minuscole (lunghezza massima 128 caratteri) con caratteri alfanumerici ASCII a 7 bit più alcuni caratteri speciali: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |Obbligatoria, di sola lettura |Stringa con distinzione tra maiuscole/minuscole generata dall'hub IoT con lunghezza massima di 128 caratteri. Tale valore viene usato per distinguere i dispositivi con la stessa proprietà **deviceId** in caso di eliminazione e nuova creazione. |
-| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag debole per l'identità del dispositivo, in base [a RFC7232](https://tools.ietf.org/html/rfc7232). |
+| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag debole per l'identità del dispositivo, come per ogni [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |facoltativo |Oggetto composito contenente le informazioni di autenticazione e i materiali di sicurezza. |
 | auth.symkey |facoltativo |Oggetto composito contenente una chiave primaria e una chiave secondaria, archiviate in formato Base 64. |
 | status |obbligatorio |Indicatore di accesso. Può essere **Enabled** o **Disabled**. Se è **Enabled**, il dispositivo sarà autorizzato alla connessione. Se è **Disabled**, il dispositivo non potrà accedere ad alcun endpoint per il dispositivo. |
@@ -210,12 +210,12 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 
 Le identità dei moduli vengono rappresentate da documenti JSON con le proprietà seguenti:
 
-| Proprietà | Opzioni | Descrizione |
+| Proprietà | Options | Descrizione |
 | --- | --- | --- |
 | deviceId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole/minuscole (lunghezza massima 128 caratteri) con caratteri alfanumerici ASCII a 7 bit più alcuni caratteri speciali: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | moduleId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole/minuscole (lunghezza massima 128 caratteri) con caratteri alfanumerici ASCII a 7 bit più alcuni caratteri speciali: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |Obbligatoria, di sola lettura |Stringa con distinzione tra maiuscole/minuscole generata dall'hub IoT con lunghezza massima di 128 caratteri. Tale valore viene usato per distinguere i dispositivi con la stessa proprietà **deviceId** in caso di eliminazione e nuova creazione. |
-| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag debole per l'identità del dispositivo, in base [a RFC7232](https://tools.ietf.org/html/rfc7232). |
+| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag debole per l'identità del dispositivo, come per ogni [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |facoltativo |Oggetto composito contenente le informazioni di autenticazione e i materiali di sicurezza. |
 | auth.symkey |facoltativo |Oggetto composito contenente una chiave primaria e una chiave secondaria, archiviate in formato Base 64. |
 | status |obbligatorio |Indicatore di accesso. Può essere **Enabled** o **Disabled**. Se è **Enabled**, il dispositivo sarà autorizzato alla connessione. Se è **Disabled**, il dispositivo non potrà accedere ad alcun endpoint per il dispositivo. |
@@ -256,7 +256,7 @@ Ora che si è appreso come usare il registro delle identità dell'hub IoT, si po
 
 Per provare alcuni dei concetti descritti in questo articolo, vedere l'esercitazione sull'hub IoT seguente:
 
-* [Introduzione all'hub IoT di AzureGet started with Azure IoT Hub](quickstart-send-telemetry-dotnet.md)
+* [Introduzione all'hub IoT di Azure](quickstart-send-telemetry-dotnet.md)
 
 Per analizzare l'uso del servizio Device Provisioning dell'hub IoT per abilitare il provisioning automatico senza intervento umano, vedere: 
 

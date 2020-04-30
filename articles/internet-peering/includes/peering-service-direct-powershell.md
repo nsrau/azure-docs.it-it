@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 titleSuffix: Azure
 description: File di inclusione
 services: internet-peering
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 526d8a6a103e7623bac459004bf9ac79e4927541
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686969"
 ---
-1. Visualizzare le connessioni nel peering diretto selezionato.
+1. Visualizza le connessioni nel peering diretto selezionato.
     ```powershell
     $directPeering.Connections
 
@@ -31,7 +31,7 @@ ms.locfileid: "81686969"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Selezionare la connessione che si desidera abilitare per il servizio di peering. Per questo esempio, useremo l'unica connessione disponibile.
+1. Selezionare la connessione che si vuole abilitare per il servizio di peering. Per questo esempio verrà usata l'unica connessione disponibile.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -47,12 +47,12 @@ ms.locfileid: "81686969"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Ora salva le modifiche apportate al peering diretto usando questo comando:
+1. Salvare ora le modifiche apportate al peering diretto usando questo comando:
     ```powershell
     $directPeering | Update-AzPeering
     ```
     
-    Ecco un output di esempio:Here's a sample output:
+    Di seguito è riportato un esempio di output:
     
     ```powershell
         Name                 : SeattleDirectPeering

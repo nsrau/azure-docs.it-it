@@ -1,6 +1,6 @@
 ---
-title: Connettere una cascata di Rigado 500 in Azure IoT Central Documenti Microsoft
-description: Informazioni su come connettere un dispositivo gateway Rigado Cascade 500 all'applicazione IoT Central.
+title: Connettere un RIGADO Cascade 500 in Azure IoT Central | Microsoft Docs
+description: Informazioni su come connettere un dispositivo gateway RIGADO Cascade 500 all'applicazione IoT Central.
 services: iot-central
 ms.service: iot-central
 ms.topic: how-to
@@ -11,67 +11,67 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758257"
 ---
-# <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo gateway Rigado Cascade 500 all'applicazione Azure IoT CentralConnect a Rigado Cascade 500 gateway device to your Azure IoT Central application
+# <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo gateway RIGADO Cascade 500 all'applicazione IoT Central di Azure
 
-*Questo articolo si applica ai generatori di soluzioni e agli sviluppatori di dispositivi.*
+*Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
 
-In questo articolo viene descritto come, in qualità di generatore di soluzioni, è possibile connettere un dispositivo gateway Rigado Cascade 500 all'applicazione Microsoft Azure IoT Central.This article describes how, as a solution builder, you can connect a Rigado Cascade 500 gateway device to your Microsoft Azure IoT Central application. 
+Questo articolo descrive come un generatore di soluzioni può connettere un dispositivo gateway RIGADO Cascade 500 all'applicazione Microsoft Azure IoT Central. 
 
 ## <a name="what-is-cascade-500"></a>Che cos'è Cascade 500?
 
-Il gateway IoT Cascade 500 è un'offerta hardware di Rigado inclusa nella soluzione Cascade Edge-as-a-Service. Fornisce ai team commerciali di progetti e prodotti IoT una potenza di elaborazione perimetrale flessibile, un robusto ambiente applicativo containerizzato e un'ampia gamma di opzioni di connettività dei dispositivi wireless, tra cui Bluetooth 5, LTE & Wi-Fi.
+Il gateway Cascade 500 Internet è un'offerta hardware di RIGADO inclusa nell'ambito della soluzione Cascade Edge As a Service. Fornisce il progetto e i team dei prodotti commerciali con una potenza di elaborazione perimetrale flessibile, un ambiente applicativo in contenitori affidabile e un'ampia gamma di opzioni di connettività dei dispositivi wireless, tra cui Bluetooth 5, LTE, & Wi-Fi.
 
-Cascade 500 è pre-certificato per Azure IoT Plug and Play (anteprima) che consente ai nostri generatori di soluzioni di integrare facilmente il dispositivo fino alle soluzioni end-to-end. Il gateway Cascade consente di connettersi in modalità wireless a una varietà di sensori di monitoraggio delle condizioni che si trovano in prossimità del dispositivo gateway. Questi sensori possono essere integrati in IoT Central tramite il dispositivo gateway.
+La versione 500 di Azure è precertificata per i Plug and Play di Azure (anteprima) per consentire ai generatori di soluzioni di caricare facilmente il dispositivo nelle soluzioni end-to-end. Il gateway Cascade consente di connettersi in modalità wireless a diversi sensori di monitoraggio delle condizioni che si trovano in prossimità del dispositivo gateway. Questi sensori possono essere caricati in IoT Central tramite il dispositivo gateway.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per eseguire questa guida alle procedure, sono necessarie le risorse seguenti:To step through this how-to guide, you need the following resources:
+Per eseguire questa guida dettagliata, sono necessarie le risorse seguenti:
 
-* Un dispositivo Rigado Cascade 500. Per ulteriori informazioni, visitare [Rigado](https://www.rigado.com/).
-* Un'applicazione Azure IoT Central. Per ulteriori informazioni, vedere [Creare una nuova applicazione](./quick-deploy-iot-central.md).
+* Un dispositivo RIGADO Cascade 500. Per ulteriori informazioni, visitare [RIGADO](https://www.rigado.com/).
+* Un'applicazione Azure IoT Central. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di una nuova applicazione](./quick-deploy-iot-central.md).
 
 ## <a name="add-a-device-template"></a>Aggiungere un modello di dispositivo
 
-Per eseguire l'onboarding di un dispositivo gateway Cascade 500 nell'istanza dell'applicazione Azure IoT Central, è necessario configurare un modello di dispositivo corrispondente all'interno dell'applicazione.
+Per eseguire l'onboarding di un dispositivo gateway Cascade 500 nell'istanza dell'applicazione IoT Central di Azure, è necessario configurare un modello di dispositivo corrispondente all'interno dell'applicazione.
 
 Per aggiungere un modello di dispositivo Cascade 500: 
 
-1. Passare alla scheda ***Modelli di dispositivo*** nel riquadro sinistro, selezionare - **Nuovo**: ![Crea nuovo modello di dispositivo](./media/howto-connect-rigado-cascade-500/device-template-new.png)
-1. La pagina offre un'opzione per ***creare un modello personalizzato*** o utilizzare un modello di dispositivo ***preconfigurato***
-1. Selezionare il modello di dispositivo C500 dall'elenco ![dei modelli di dispositivo preconfigurati come illustrato di seguito: Selezionare il modello di dispositivo C500](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
+1. Passare alla scheda ***modelli di dispositivo*** nel riquadro sinistro, selezionare **+ nuovo**: ![crea nuovo modello di dispositivo](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. La pagina offre un'opzione per ***creare un modello personalizzato*** o ***usare un modello di dispositivo preconfigurato***
+1. Selezionare il modello di dispositivo C500 dall'elenco dei modelli di dispositivo preconfigurati, come illustrato ![di seguito: selezionare il modello di dispositivo C500](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
 1. Selezionare ***Avanti: Personalizza*** per continuare con il passaggio successivo. 
-1. Nella schermata successiva selezionare Crea per eseguire l'onboarding del modello di dispositivo C500 nell'applicazione IoT Central.On the next screen, select ***Create*** to onboard the C500 device template into your IoT Central application.
+1. Nella schermata successiva selezionare ***Crea*** per caricare il modello di dispositivo C500 nell'applicazione IoT Central.
 
-## <a name="retrieve-application-connection-details"></a>Recuperare i dettagli di connessione dell'applicazione
+## <a name="retrieve-application-connection-details"></a>Recupera i dettagli della connessione dell'applicazione
 
-A questo punto sarà necessario recuperare **l'ID ambito** e la chiave primaria per l'applicazione Azure IoT Central per connettere il dispositivo Cascade 500.You will now to retrieve the Scope ID and Primary **key** for your Azure IoT Central application in order to connect the Cascade 500 device. 
+Per connettere il dispositivo Cascade 500, è ora necessario recuperare l' **ID ambito** e la **chiave primaria** per l'applicazione IoT Central di Azure. 
 
-1. Passare ad **Amministrazione** nel riquadro sinistro e fare clic su **Connessione dispositivo**. 
-2. Prendere nota **dell'ID ambito** per l'applicazione IoT Central.
+1. Passare ad **Amministrazione** nel riquadro sinistro e fare clic su **connessione dispositivo**. 
+2. Prendere nota dell' **ID ambito** per l'applicazione IoT Central.
 ![ID ambito app](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
-3. Ora clicca su **Visualizza chiavi** e prendi nota della **chiave**
+3. Fare ora clic su **Visualizza chiavi** e prendere nota della chiave primaria della **chiave**
 ![primaria](./media/howto-connect-rigado-cascade-500/primary-key-sas.png)  
 
-## <a name="contact-rigado-to-connect-the-gateway"></a>Contattare Rigado per connettere il gateway 
+## <a name="contact-rigado-to-connect-the-gateway"></a>Contattare RIGADO per connettere il gateway 
 
-Per connettere il dispositivo Cascade 500 all'applicazione IoT Central, è necessario contattare Rigado e fornire i dettagli di connessione dell'applicazione dai passaggi precedenti. 
+Per connettere il dispositivo Cascade 500 all'applicazione IoT Central, sarà necessario contattare RIGADO e fornire i dettagli della connessione dell'applicazione nei passaggi precedenti. 
 
-Una volta che il dispositivo è connesso a Internet, Rigado sarà in grado di spingere verso il basso un aggiornamento di configurazione verso il basso per il dispositivo gateway Cascade 500 attraverso un canale sicuro. 
+Quando il dispositivo è connesso a Internet, RIGADO sarà in grado di eseguire il push di un aggiornamento della configurazione fino al dispositivo gateway Cascade 500 tramite un canale sicuro. 
 
-Questo aggiornamento applicherà i dettagli di connessione di IoT Central sul dispositivo Cascade 500 e verrà visualizzato nell'elenco dei dispositivi. 
+Questo aggiornamento applicherà i dettagli della connessione IoT Central nel dispositivo Cascade 500 e verrà visualizzato nell'elenco dei dispositivi. 
 
 ![Chiave primaria](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
-Ora sei pronto per usare il tuo dispositivo C500 nell'applicazione IoT Central!
+A questo punto è possibile usare il dispositivo C500 nell'applicazione IoT Central.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sei uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:If you're a device developer, some suggested next steps are to:
+Se si è uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:
 
-- Informazioni sulla connettività dei dispositivi [in Azure IoT CentralRead about Device connectivity in Azure IoT Central](./concepts-get-connected.md)
-- Informazioni su come [monitorare la connettività dei dispositivi usando l'interfaccia della riga di comando di AzureLearn](./howto-monitor-devices-azure-cli.md) how to Monitor device connectivity using Azure CLI
+- Scopri di più sulla [connettività dei dispositivi in Azure IOT Central](./concepts-get-connected.md)
+- Informazioni su come [monitorare la connettività dei dispositivi usando l'interfaccia](./howto-monitor-devices-azure-cli.md) della riga di comando

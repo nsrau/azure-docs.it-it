@@ -1,5 +1,5 @@
 ---
-title: Creare raccolte di immagini condivise con l'interfaccia della riga di comando di AzureCreate shared image galleries with the Azure CLI
+title: Creare raccolte di immagini condivise con l'interfaccia della riga di comando di Azure
 description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per creare immagini di macchine virtuali condivise in Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -10,10 +10,10 @@ ms.date: 05/06/2019
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: c75d33f8310cfd143bf201cdac861954d07baf0b
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758415"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Creare una raccolta di immagini condivise con l'interfaccia della riga di comando di Azure
@@ -39,7 +39,7 @@ La funzionalità di raccolta di immagini condivise presenta più tipi di risorse
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-Creare una macchina virtuale dall'ultima versione dell'immagine usando [az vm create](/cli/azure/vm#az-vm-create).
+Creare una macchina virtuale dalla versione più recente dell'immagine usando il comando [AZ VM create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
@@ -49,16 +49,16 @@ az vm create\
    --generate-ssh-keys
 ```
 
-È inoltre possibile utilizzare una versione specifica utilizzando `--image` l'ID versione immagine per il parametro. Ad esempio, per utilizzare la versione immagine `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` *1.0.0* di tipo: .
+È anche possibile usare una versione specifica usando l'ID versione dell'immagine per il `--image` parametro. Ad esempio, per usare l'immagine versione *1.0.0* , `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`digitare:.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Azure Image Builder (anteprima)](image-builder-overview.md) consente di automatizzare la creazione della versione dell'immagine, è anche possibile usarlo per aggiornare e [creare una nuova versione dell'immagine da una versione dell'immagine esistente.](image-builder-gallery-update-image-version.md) 
+Il [Generatore di immagini di Azure (anteprima)](image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](image-builder-gallery-update-image-version.md). 
 
-È inoltre possibile creare risorse della raccolta immagini condivise utilizzando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
+È anche possibile creare risorse della raccolta immagini condivise usando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
 
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

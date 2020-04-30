@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81729123"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Informazioni di riferimento: scegliere un protocollo di comunicazione
@@ -42,7 +42,7 @@ Nella scelta del protocollo per le comunicazioni sul lato dispositivo occorre pr
 
 * **Modello da cloud a dispositivo**. HTTPS non offre un modo efficiente per implementare il push del server. Di conseguenza, quando si usa HTTPS i dispositivi eseguono il polling dell'hub IoT per i messaggi da cloud a dispositivo. Questo approccio è inefficiente sia per il dispositivo che per l'hub IoT. In base alle attuali linee guida di HTTPS, ogni dispositivo dovrebbe eseguire il polling almeno ogni 25 minuti. MQTT e AMQP supportano il push del server quando si ricevono messaggi da cloud a dispositivo, consentendo il push immediato dei messaggi dall'hub IoT al dispositivo. Se la latenza di recapito rappresenta un problema, è consigliabile usare il protocollo MQTT o AMQP. Per i dispositivi che si connettono raramente, è possibile usare anche il protocollo HTTPS.
 
-* **Gateway sul campo**. MQTT e HTTPS supportano solo una singola identità del dispositivo (ID dispositivo più credenziali) per ogni connessione TLS. Per questo motivo, questi protocolli non sono supportati per gli scenari gateway di campo che richiedono il multiplexing dei messaggi utilizzando più identità di dispositivo in un pool singolo o un pool di connessioni upstream all'hub IoT.For this reason, these protocols are not supported for [Field gateway scenarios](iot-hub-devguide-endpoints.md#field-gateways) that require multiplexing messages using multiple device identities across a single or a pool of upstream connections to IoT Hub. Tali gateway possono usare un protocollo che supporta più identità di dispositivo per ogni connessione, ad esempio AMQP, per il traffico upstream.
+* **Gateway sul campo**. MQTT e HTTPS supportano solo una singola identità del dispositivo (ID dispositivo e credenziali) per ogni connessione TLS. Per questo motivo, questi protocolli non sono supportati per gli [scenari del gateway sul campo](iot-hub-devguide-endpoints.md#field-gateways) che richiedono il multiplexing dei messaggi usando più identità del dispositivo in un singolo o in un pool di connessioni upstream all'hub Internet. Questi gateway possono usare un protocollo che supporta più identità del dispositivo per connessione, ad esempio AMQP, per il traffico upstream.
 
 * **Dispositivi con risorse ridotte**. Le raccolte di MQTT e HTTPS hanno un'impronta inferiore rispetto alle raccolte di AMQP. Se quindi il dispositivo ha risorse limitate, ad esempio meno di 1 MB di RAM, questi protocolli possono costituire l'unica implementazione disponibile.
 

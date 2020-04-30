@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: a7814970d4ffb051ab54c965d27394f925d79e59
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732337"
 ---
-# <a name="get-started-with-device-management-nodejs"></a>Introduzione alla gestione dei dispositivi (Node.js)Get started with device management (Node.js)
+# <a name="get-started-with-device-management-nodejs"></a>Introduzione alla gestione dei dispositivi (node. js)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 Questa esercitazione illustra come:
 
-* Usare il portale di Azure per creare un hub IoT e creare un'identità del dispositivo nell'hub IoT.Use the [Azure portal](https://portal.azure.com) to create an IoT Hub and create a device identity in your IoT hub.
+* Usare il [portale di Azure](https://portal.azure.com) per creare un hub Internet delle cose e creare un'identità del dispositivo nell'hub Internet delle cose.
 
 * Creare un'app di dispositivo simulato contenente un metodo diretto per il riavvio del dispositivo. I metodi diretti vengono richiamati dal cloud.
 
@@ -36,11 +36,11 @@ Al termine di questa esercitazione si avranno due app console Node.js:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Node.js versione 10.0.x o successiva. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
+* Node. js versione 10.0. x o successiva. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica tramite la porta 8883.The device sample in this article uses MQTT protocol, which communicates over port 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -83,7 +83,7 @@ In questa sezione verrà illustrato come:
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**.  Sostituire `{yourdeviceconnectionstring}` il valore segnaposto con la stringa di connessione del dispositivo copiata in precedenza in [Registrare un nuovo dispositivo nell'hub IoT](#register-a-new-device-in-the-iot-hub).  
+5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**.  Sostituire il `{yourdeviceconnectionstring}` valore del segnaposto con la stringa di connessione del dispositivo copiata in precedenza in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub).  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';
@@ -150,7 +150,7 @@ In questa sezione verrà illustrato come:
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoTGet the IoT hub connection string
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
@@ -183,7 +183,7 @@ In questa sezione viene creata un'app console Node.js che attiva un riavvio remo
     var Client = require('azure-iothub').Client;
     ```
 
-5. Aggiungere le dichiarazioni di `{iothubconnectionstring}` variabile seguenti e sostituire il valore segnaposto con la stringa di connessione dell'hub IoT copiata in precedenza in Ottenere la stringa di [connessione dell'hub IoT:](#get-the-iot-hub-connection-string)
+5. Aggiungere le seguenti dichiarazioni di variabili e sostituire il `{iothubconnectionstring}` valore del segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string):
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -247,7 +247,7 @@ In questa sezione viene creata un'app console Node.js che attiva un riavvio remo
 
 ## <a name="run-the-apps"></a>Eseguire le app
 
-Ora sei pronto per eseguire le app.
+A questo punto si è pronti per eseguire le app.
 
 1. Al prompt dei comandi nella cartella **manageddevice** eseguire questo comando per iniziare l'ascolto del metodo diretto di riavvio.
 
@@ -263,11 +263,11 @@ Ora sei pronto per eseguire le app.
 
 3. Viene visualizzata la risposta del dispositivo al metodo diretto di riavvio e lo stato di riavvio nella console.
 
-   Di seguito viene illustrata la risposta del dispositivo al metodo diretto di riavvio inviato dal servizio:The following shows the device response to the reboot direct method sent by the service:
+   Di seguito viene illustrata la risposta del dispositivo al metodo diretto di riavvio inviato dal servizio:
 
    ![output dell'app manageddevice](./media/iot-hub-node-node-device-management-get-started/device.png)
 
-   Di seguito viene illustrato l'attivazione del servizio che attiva il riavvio ed esegui il polling del dispositivo gemello per l'ultimo riavvio:The following shows the service triggering the reboot and polling the device twin for the last reboot time:
+   Di seguito viene illustrato il servizio che attiva il riavvio e il polling del dispositivo gemello per l'ora dell'ultimo riavvio:
 
    ![output dell'app triggerrebootondevice](./media/iot-hub-node-node-device-management-get-started/service.png)
 

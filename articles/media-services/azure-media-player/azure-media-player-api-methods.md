@@ -1,34 +1,34 @@
 ---
-title: Azure Media Player API Methods
-description: L'API di Azure Media Player consente di interagire con il video tramite JavaScript, sia che il browser stia riproducendo il video tramite video HTML5, Flash, Silverlight o qualsiasi altra tecnologia di riproduzione supportata.
+title: Metodi API Azure Media Player
+description: L'API Azure Media Player consente di interagire con il video tramite JavaScript, se il browser sta eseguendo il video tramite HTML5 video, Flash, Silverlight o qualsiasi altra tecnologia di riproduzione supportata.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727268"
 ---
 # <a name="api"></a>API #
 
-L'API di Azure Media Player consente di interagire con il video tramite JavaScript, sia che il browser stia riproducendo il video tramite video HTML5, Flash, Silverlight o qualsiasi altra tecnologia di riproduzione supportata.
+L'API Azure Media Player consente di interagire con il video tramite JavaScript, se il browser sta eseguendo il video tramite HTML5 video, Flash, Silverlight o qualsiasi altra tecnologia di riproduzione supportata.
 
-## <a name="referencing-the-player"></a>Riferimento al giocatore ##
+## <a name="referencing-the-player"></a>Riferimento al lettore ##
 
-Per utilizzare le funzioni API, è necessario accedere all'oggetto lettore. Per fortuna è facile da ottenere. Devi solo assicurarti che il tag video abbia un ID. Il codice di incorporamento `vid1`di esempio ha un ID di . Se hai più video su una pagina, assicurati che ogni tag video abbia un ID univoco.
+Per usare le funzioni API, è necessario accedere all'oggetto Player. Fortunatamente è facile da ottenere. È sufficiente assicurarsi che il tag video abbia un ID. Il codice di incorporamento di `vid1`esempio ha un ID. Se in una pagina sono presenti più video, assicurarsi che ogni tag video abbia un ID univoco.
 
 `var myPlayer = amp('vid1');`
 
 > [!NOTE]
-> Se il lettore non è stato ancora inizializzato tramite l'attributo di impostazione dei dati o un altro metodo, questo inizializzerà anche il lettore.
+> Se il lettore non è stato ancora inizializzato tramite l'attributo di installazione dati o un altro metodo, verrà inizializzato anche il lettore.
 
-## <a name="wait-until-the-player-is-ready"></a>Attendere che il giocatore sia pronto ##
+## <a name="wait-until-the-player-is-ready"></a>Attendere che il lettore sia pronto ##
 
-Il tempo necessario ad Azure Media Player per configurare il video e l'API varia a seconda della tecnologia di riproduzione in uso. HTML5 sarà spesso molto più veloce da caricare rispetto a Flash o Silverlight. Per questo motivo, la funzione 'ready' del giocatore deve essere utilizzata per attivare qualsiasi codice che richiede l'API del giocatore.
+Il tempo necessario Azure Media Player per configurare il video e l'API variano a seconda della tecnologia di riproduzione utilizzata. HTML5 sarà spesso più veloce da caricare rispetto a Flash o Silverlight. Per questo motivo, è necessario usare la funzione ' Ready ' del giocatore per attivare qualsiasi codice che richiede l'API del lettore.
 
 ```javacript
     amp("vid_1").ready(function(){
@@ -47,9 +47,9 @@ OR
     });
 ```
 
-## <a name="api-methods"></a>Metodi dell'API ##
+## <a name="api-methods"></a>Metodi API ##
 
-Ora che hai accesso a un lettore pronto, puoi controllare il video, ottenere valori o rispondere agli eventi video. I nomi delle funzioni dell'API di Azure Media Player tentano di seguire [l'API multimediale HTML5.](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html) La differenza principale è che le funzioni getter/setter vengono utilizzate per le proprietà video.
+Ora che si ha accesso a un lettore pronto, è possibile controllare il video, ottenere i valori o rispondere agli eventi video. I nomi delle funzioni API Azure Media Player tentano di seguire l' [API del supporto HTML5](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). La differenza principale consiste nel fatto che le funzioni getter/setter vengono usate per le proprietà video.
 
 ```javacript
     // setting a property on a bare HTML5 video element
@@ -59,8 +59,8 @@ Ora che hai accesso a un lettore pronto, puoi controllare il video, ottenere val
     myPlayer.currentTime(120);
 ```
 
-## <a name="registering-for-events"></a>Registrazione per eventi ##
-Gli eventi devono essere registrati direttamente dopo l'inizializzazione del lettore per la prima volta per garantire che tutti gli eventi siano segnalati in modo appropriato all'applicazione e devono essere eseguiti al di fuori dell'evento ready.
+## <a name="registering-for-events"></a>Registrazione per gli eventi ##
+Gli eventi devono essere registrati direttamente dopo l'inizializzazione del lettore per la prima volta per assicurarsi che tutti gli eventi vengano segnalati in modo appropriato all'applicazione e che vengano eseguiti al di fuori dell'evento pronto.
 
 ```javacript
     var myPlayer = amp("vid_1", myOptions, function(){
@@ -73,4 +73,4 @@ Gli eventi devono essere registrati direttamente dopo l'inizializzazione del let
 ## <a name="next-steps"></a>Passaggi successivi ##
 
 <!---Some context for the following links goes here--->
-- [Azure Media Player Quickstart](azure-media-player-quickstart.md)
+- [Avvio rapido su Azure Media Player](azure-media-player-quickstart.md)

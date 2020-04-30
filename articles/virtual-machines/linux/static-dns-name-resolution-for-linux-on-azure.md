@@ -1,6 +1,6 @@
 ---
-title: Usare il DNS interno per la risoluzione dei nomi delle macchine virtuali con l'interfaccia della riga di comando di AzureUse internal DNS for VM name resolution with the Azure CLI
-description: Come creare schede di interfaccia di rete virtuale e usare il DNS interno per la risoluzione dei nomi delle macchine virtuali in Azure con l'interfaccia della riga di comando di Azure.How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI.
+title: Usare il DNS interno per la risoluzione dei nomi di VM con l'interfaccia della riga di comando
+description: Come creare schede di interfaccia di rete virtuale e usare DNS interno per la risoluzione dei nomi di VM in Azure con l'interfaccia della riga di comando di Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
 ms.openlocfilehash: 07a78e4987a844627824ac5034046cf6a393ad8d
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757838"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure
@@ -25,7 +25,7 @@ I requisiti sono:
 * [File di chiavi SSH pubbliche e private](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Comandi rapidi
-Se si vuole eseguire rapidamente l'attività, la sezione seguente indica dettagliatamente i comandi necessari. Informazioni e contesto più dettagliati per ogni passaggio sono disponibili nel resto del documento, [a partire da qui](#detailed-walkthrough). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index).
+Se si vuole eseguire rapidamente l'attività, la sezione seguente indica dettagliatamente i comandi necessari. Le informazioni più dettagliate e il contesto per ogni passaggio sono disponibili nel resto del documento, [a partire da qui](#detailed-walkthrough). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index).
 
 Pre-requisiti: gruppo di risorse, rete virtuale e subnet, gruppo di sicurezza di rete con SSH in ingresso.
 
@@ -158,4 +158,4 @@ Usando i flag dell'interfaccia della riga di comando per chiamare le risorse esi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Creare una macchina virtuale Linux in Azure usando i modelliCreate a Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Creare una VM Linux in Azure usando i modelli](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

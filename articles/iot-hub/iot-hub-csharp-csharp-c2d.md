@@ -13,51 +13,51 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 41c29e55f04f9edf06ba375ad4539e5fb3f82c18
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733426"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Inviare messaggi dal cloud al dispositivo con Hub IoT (.NET)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. La guida introduttiva [Invia dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md) mostra come creare un hub IoT, eseguire il provisioning di un'identità del dispositivo in esso e codificare un'app per dispositivi che invia messaggi da dispositivo a cloud.
+L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. La Guida introduttiva inviare dati di [telemetria da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md) Internet viene illustrato come creare un hub Internet, effettuare il provisioning di un'identità del dispositivo al suo interno e scrivere codice per un'app per dispositivi che invia messaggi da dispositivo a cloud.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Questa esercitazione si basa [sull'invio di dati di telemetria da un dispositivo a un hub IoT.This](quickstart-send-telemetry-dotnet.md)tutorial builds on Send telemetry from a device to an IoT hub . Viene illustrato come eseguire le attività seguenti:It shows you how to do the following tasks:
+Questa esercitazione si basa sull' [invio di dati di telemetria da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md)Internet. Viene illustrato come eseguire le attività seguenti:
 
 * Dal back-end della soluzione inviare messaggi da cloud a dispositivo a un singolo dispositivo tramite l'hub IoT.
 
 * Ricevere messaggi da cloud a dispositivo in un dispositivo.
 
-* Dal back-end della soluzione, richiedere il riconoscimento di recapito ( feedback ) per i messaggi inviati a un dispositivo dall'hub IoT.From your solution back-end, request delivery acknowledgment (*feedback*) for messages sent to a device from ioT Hub.
+* Dal back-end della soluzione, richiedere il riconoscimento del recapito (*feedback*) per i messaggi inviati a un dispositivo dall'hub Internet.
 
 Altre informazioni sui messaggi da cloud a dispositivo sono disponibili in [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
 
-Al termine di questa esercitazione, si eseguono due applicazioni console .NET.
+Al termine di questa esercitazione vengono eseguite due app console .NET.
 
-* **SimulatedDevice**. Questa app si connette all'hub IoT e riceve messaggi da cloud a dispositivo. Questa app è una versione modificata dell'app creata in [Invia dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md).
+* **SimulatedDevice**. Questa app si connette all'hub Internet e riceve i messaggi da cloud a dispositivo. Questa app è una versione modificata dell'app creata in inviare dati di [telemetria da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md)Internet.
 
-* **SendCloudToDevice**. Questa app invia un messaggio da cloud a dispositivo all'app del dispositivo tramite l'hub IoT e quindi riceve il riconoscimento di recapito.
+* **SendCloudToDevice**. Questa app invia un messaggio da cloud a dispositivo all'app per dispositivo tramite l'hub Internet e quindi riceve la conferma di recapito.
 
 > [!NOTE]
-> IoT Hub include il supporto SDK per molte piattaforme e linguaggi di dispositivi, tra cui C, Java, Python e Javascript, tramite gli SDK dei dispositivi [Azure IoT.](iot-hub-devguide-sdks.md) Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere la [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md).
+> L'hub Internet è dotato di supporto SDK per molte piattaforme e linguaggi per dispositivi, tra cui C, Java, Python e JavaScript, tramite gli [SDK per dispositivi Azure](iot-hub-devguide-sdks.md). Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere la [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md).
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Visual Studio
 
-* Un account Azure attivo. Se non hai un account, puoi creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica tramite la porta 8883.The device sample in this article uses MQTT protocol, which communicates over port 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="receive-messages-in-the-device-app"></a>Ricevere messaggi nell'app per dispositivi
 
-In questa sezione modificare l'app per dispositivi creata in [Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md) per ricevere messaggi da cloud a dispositivo dall'hub IoT.In this section, modify the device app you created in Send telemetry from a device to an IoT hub to receive cloud-to-device messages from the IoT hub.
+In questa sezione si modifica l'app per dispositivi creata in [inviare dati di telemetria da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md) Internet per ricevere i messaggi da cloud a dispositivo dall'hub Internet delle cose.
 
 1. In Visual Studio, nel progetto **SimulatedDevice** aggiungere il seguente metodo alla classe **Program**.
 
@@ -86,9 +86,9 @@ In questa sezione modificare l'app per dispositivi creata in [Inviare dati di te
    ReceiveC2dAsync();
    ```
 
-Il metodo `ReceiveAsync` restituisce in modo asincrono il messaggio ricevuto nel momento in cui viene ricevuto dal dispositivo. Restituisce *null* dopo un periodo di timeout specificabile. In questo esempio viene utilizzato il valore predefinito di un minuto. Quando l'app riceve un valore *Null*, deve rimanere in attesa di nuovi messaggi. Questo requisito è il motivo per la riga `if (receivedMessage == null) continue`.
+Il metodo `ReceiveAsync` restituisce in modo asincrono il messaggio ricevuto nel momento in cui viene ricevuto dal dispositivo. Restituisce *null* dopo un periodo di timeout specificabile. In questo esempio viene usato il valore predefinito di un minuto. Quando l'app riceve un valore *Null*, deve rimanere in attesa di nuovi messaggi. Questo requisito è il motivo per la riga `if (receivedMessage == null) continue`.
 
-La chiamata a `CompleteAsync()` notifica all'hub IoT che il messaggio è stato elaborato correttamente. Il messaggio può essere rimosso dalla coda del dispositivo in modo sicuro. Se si è verificato un evento che ha impedito all'app per dispositivo di completare l'elaborazione del messaggio, l'hub IoT lo recapita nuovamente. La logica di elaborazione dei messaggi nell'app per dispositivi deve essere *idempotente,* in modo che la ricezione dello stesso messaggio più volte produca lo stesso risultato.
+La chiamata a `CompleteAsync()` notifica all'hub IoT che il messaggio è stato elaborato correttamente. Il messaggio può essere rimosso dalla coda del dispositivo in modo sicuro. Se si è verificato un evento che ha impedito all'app per dispositivo di completare l'elaborazione del messaggio, l'hub IoT lo recapita nuovamente. La logica di elaborazione del messaggio nell'app per dispositivo deve essere *idempotente*, in modo che la ricezione dello stesso messaggio più volte produca lo stesso risultato.
 
 Un'applicazione può anche abbandonare temporaneamente un messaggio e, di conseguenza, l'hub IoT mantiene il messaggio nella coda per un uso futuro. In alternativa, l'applicazione può rifiutare un messaggio, rimuovendolo così definitivamente dalla coda. Per altre informazioni sul ciclo di vita dei messaggi da cloud a dispositivo, vedere [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
 
@@ -96,42 +96,42 @@ Un'applicazione può anche abbandonare temporaneamente un messaggio e, di conseg
    > Quando si usa HTTPS invece di MQTT o AMQP come trasporto, il metodo `ReceiveAsync` verrà restituito immediatamente. Il modello supportato per i messaggi da cloud a dispositivo con HTTPS è rappresentato da dispositivi collegati in modo intermittente che controllano raramente la presenza di messaggi (meno di ogni 25 minuti). La generazione di altre ricezioni HTTPS comporta la limitazione delle richieste da parte dell'hub IoT. Per altre informazioni sulle differenze tra il supporto di MQTT, AMQP e HTTPS e sulla limitazione delle richieste dell'hub IoT, vedere [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
    >
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoTGet the IoT hub connection string
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
 
-In questo articolo viene creato un servizio back-end per l'invio di messaggi da cloud a dispositivo tramite l'hub IoT creato in [Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md). Per inviare messaggi da cloud a dispositivo, il servizio deve disporre dell'autorizzazione di connessione del **servizio.** Per impostazione predefinita, ogni hub IoT viene creato con un criterio di accesso condiviso denominato **servizio** che concede questa autorizzazione.
+In questo articolo viene creato un servizio back-end per l'invio di messaggi da cloud a dispositivo tramite l'hub Internet delle cose creato in inviare dati di [telemetria da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md)Internet. Per inviare messaggi da cloud a dispositivo, il servizio richiede l'autorizzazione **Connect del servizio** . Per impostazione predefinita, ogni hub tutto viene creato con un criterio di accesso condiviso denominato **Service** che concede l'autorizzazione.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="send-a-cloud-to-device-message"></a>Inviare un messaggio da cloud a dispositivo
 
-A questo punto si scrive un'app console .NET che invia messaggi da cloud a dispositivo all'app per dispositivi.
+A questo punto si scrive un'app console .NET che invia messaggi da cloud a dispositivo all'app per dispositivo.
 
-1. Nella soluzione di Visual Studio corrente selezionare **File** > **Nuovo** > **progetto**. In **Crea un nuovo progetto**selezionare App console **(.NET Framework)** e quindi **avanti**.
+1. Nella soluzione di Visual Studio corrente selezionare **file** > **nuovo** > **progetto**. In **Crea un nuovo progetto**selezionare **App Console (.NET Framework)** e quindi fare clic su **Avanti**.
 
-1. Denominare il progetto *SendCloudToDevice*. In **Soluzione**selezionare **Aggiungi alla soluzione** e accettare la versione più recente di .NET Framework. Selezionare **Crea** per creare il progetto.
+1. Denominare il progetto *SendCloudToDevice*. In **soluzione**selezionare **Aggiungi a soluzione** e accettare la versione più recente del .NET Framework. Selezionare **Crea** per creare il progetto.
 
-   ![Configurare un nuovo progetto in Visual StudioConfigure a new project in Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
+   ![Configurare un nuovo progetto in Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla nuova soluzione, quindi **scegliere Gestisci pacchetti NuGet**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla nuova soluzione e quindi scegliere **Gestisci pacchetti NuGet**.
 
-1. In **Gestisci pacchetti NuGet**selezionare **Sfoglia**, quindi cercare e selezionare **Microsoft.Azure.Devices**. Selezionare **Installa**.
+1. In **Gestisci pacchetti NuGet**selezionare **Sfoglia**, quindi cercare e selezionare **Microsoft. Azure. Devices**. Selezionare **Installa**.
 
-   Questo passaggio scarica, installa e aggiunge un riferimento al [pacchetto NuGet dell'SDK del servizio Azure IoT.](https://www.nuget.org/packages/Microsoft.Azure.Devices/)
+   Questo passaggio consente di scaricare, installare e aggiungere un riferimento al [pacchetto NuGet Azure Internets Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-1. Aggiungere la `using` seguente istruzione all'inizio del file **Program.cs.**
+1. Aggiungere l'istruzione `using` seguente all'inizio del file **Program.cs** .
 
    ``` csharp
    using Microsoft.Azure.Devices;
    ```
 
-1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore segnaposto con la stringa di connessione dell'hub IoT copiata in precedenza in Ottenere la stringa di [connessione dell'hub IoT](#get-the-iot-hub-connection-string).
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
    ```
 
-1. Aggiungere il metodo seguente alla classe **Program**. Impostare il nome del dispositivo su quello usato quando si definisce il dispositivo in [Invia dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md).
+1. Aggiungere il metodo seguente alla classe **Program**. Impostare il nome del dispositivo su quello usato durante la definizione del dispositivo in inviare dati di [telemetria da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md)Internet.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -142,7 +142,7 @@ A questo punto si scrive un'app console .NET che invia messaggi da cloud a dispo
    }
    ```
 
-   Questo metodo invia un nuovo messaggio da cloud a dispositivo al dispositivo con ID `myFirstDevice`. Modificare questo parametro solo se è stato modificato da quello usato in [Invia dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md).
+   Questo metodo invia un nuovo messaggio da cloud a dispositivo al dispositivo con ID `myFirstDevice`. Modificare questo parametro solo se è stato modificato da quello usato in inviare dati di [telemetria da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md)Internet.
 
 1. Aggiungere infine le righe seguenti al metodo **Main** .
 
@@ -156,9 +156,9 @@ A questo punto si scrive un'app console .NET che invia messaggi da cloud a dispo
    Console.ReadLine();
    ```
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e scegliere Imposta progetti di **avvio**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**.
 
-1. In**Progetto di avvio** **delle proprietà** > comuni selezionare **Progetti di avvio multipli**, quindi selezionare l'azione **Avvia** per **ReadDeviceToCloudMessages**, **SimulatedDevice**e **SendCloudToDevice**. Selezionare **OK** per salvare le modifiche.
+1. In > **progetto di avvio** **Proprietà comuni**selezionare **progetti di avvio multipli**, quindi selezionare l'azione di **avvio** per **ReadDeviceToCloudMessages**, **SimulatedDevice**e **SendCloudToDevice**. Selezionare **OK** per salvare le modifiche.
 
 1. Premere **F5**. Devono avviarsi tutte e tre le applicazioni. Selezionare la finestra **SendCloudToDevice** e premere **INVIO**. Verrà visualizzato il messaggio ricevuto dall'app per dispositivi.
 
@@ -166,7 +166,7 @@ A questo punto si scrive un'app console .NET che invia messaggi da cloud a dispo
 
 ## <a name="receive-delivery-feedback"></a>Ricevere feedback di recapito
 
-È possibile richiedere i riconoscimenti di recapito (o scadenza) dall'hub IoT per ogni messaggio da cloud a dispositivo. Questa opzione consente al back-end della soluzione di informare facilmente la logica di ripetizione o di compensazione. Per altre informazioni sul feedback dei messaggi da cloud a dispositivo, vedere [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
+È possibile richiedere il recapito (o la scadenza) dei riconoscimenti dall'hub Internet per ogni messaggio da cloud a dispositivo. Questa opzione consente al back-end della soluzione di informare facilmente la logica di ripetizione o di compensazione. Per altre informazioni sul feedback dei messaggi da cloud a dispositivo, vedere [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
 
 In questa sezione si modifica l'app **SendCloudToDevice** per richiedere feedback e riceverlo dall'hub IoT.
 
@@ -195,13 +195,13 @@ In questa sezione si modifica l'app **SendCloudToDevice** per richiedere feedbac
 
     Si noti che il modello di ricezione è identico a quello usato per ricevere messaggi da cloud a dispositivo dall'app per dispositivo.
 
-1. Aggiungere la riga **Main** seguente nel metodo `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`Main , subito dopo .
+1. Aggiungere la riga seguente nel metodo **Main** , subito dopo `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`.
 
    ``` csharp
    ReceiveFeedbackAsync();
    ```
 
-1. Per richiedere feedback del recapito del messaggio da cloud a dispositivo, è necessario specificare una proprietà nel metodo **SendCloudToDeviceMessageAsync** . Aggiungere la riga seguente, `var commandMessage = new Message(...);` subito dopo la riga.
+1. Per richiedere feedback del recapito del messaggio da cloud a dispositivo, è necessario specificare una proprietà nel metodo **SendCloudToDeviceMessageAsync** . Aggiungere la riga seguente subito dopo la `var commandMessage = new Message(...);` riga.
 
    ``` csharp
    commandMessage.Ack = DeliveryAcknowledgement.Full;
@@ -212,7 +212,7 @@ In questa sezione si modifica l'app **SendCloudToDevice** per richiedere feedbac
    ![Ricezione di un messaggio da parte dell'app](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione, è necessario implementare criteri di ripetizione dei tentativi, ad esempio backoff esponenziale, come suggerito in [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
+> Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio backoff esponenziali, come suggerito nella [gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

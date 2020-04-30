@@ -1,5 +1,5 @@
 ---
-title: Configurare PostgreSQL in una macchina virtuale LinuxSet up PostgreSQL on a Linux VM
+title: Configurare PostgreSQL in una macchina virtuale Linux
 description: Informazioni su come installare e configurare PostgreSQL in una macchina virtuale Linux in Azure.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759341"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installare e configurare PostgreSQL in Azure
@@ -58,7 +58,7 @@ Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la p
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Se si desidera compilare tutto ciò che può essere compilato, inclusa la documentazione (pagine HTML e man) e moduli aggiuntivi (`contrib`), eseguire invece il comando seguente:
+5. Se si desidera compilare tutti gli elementi che possono essere compilati, inclusa la documentazione (pagine HTML e Man) e`contrib`i moduli aggiuntivi (), eseguire invece il comando seguente:
    
         # gmake install-world
    
@@ -225,7 +225,7 @@ Consente di eliminare tutte le informazioni nella riga "John". L'output è:
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Aggiornare dati in una tabella
-Per aggiornare dati in una tabella, usare il comando seguente: Per questo, Sandy ha confermato che stanno frequentando, quindi cambieremo il RSVP da "N" a "Y":
+Per aggiornare dati in una tabella, usare il comando seguente: Per questo motivo, Sandy ha confermato che sono partecipanti, quindi il RSVP verrà modificato da "N" a "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

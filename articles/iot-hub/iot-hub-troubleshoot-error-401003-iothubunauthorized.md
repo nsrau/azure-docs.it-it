@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi dell'hub IoT di Azure 401003 IoTHubUnauthorized
-description: Comprendere come risolvere l'errore 401003 IoTHubUnauthorized
+title: Risoluzione dei problemi dell'hub Azure Internet Error 401003 IoTHubUnauthorized
+description: Informazioni su come correggere l'errore 401003 IoTHubUnauthorized
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -12,64 +12,64 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759585"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
-In questo articolo vengono descritte le cause e le soluzioni per gli errori **401003 IoTHubUnauthorized.**
+Questo articolo descrive le cause e le soluzioni per gli errori di **401003 IoTHubUnauthorized** .
 
 ## <a name="symptoms"></a>Sintomi
 
 ### <a name="symptom-1"></a>Sintomo 1
 
-Nei log di diagnostica viene visualizzato un modello di dispositivi che si disconnettono con **401003 IoTHubUnauthorized**, seguito da **404104 DeviceConnectionClosedRemotely**e quindi si connettono correttamente poco dopo.
+Nei log di diagnostica viene visualizzato un modello di dispositivi che si disconnettono con **401003 IoTHubUnauthorized**, seguiti da **404104 DeviceConnectionClosedRemotely**e che si connettono subito dopo.
 
 ### <a name="symptom-2"></a>Sintomo 2
 
-Le richieste all'hub IoT hanno esito negativo con uno dei seguenti messaggi di errore:
+Le richieste all'hub Internet non riescono con uno dei messaggi di errore seguenti:
 
-* Intestazione di autorizzazione mancante
-* IotHub\*' ' non contiene\*il dispositivo specificato ' '
-* La regola\*di autorizzazione '\*' non consente l'accesso per ' '
-* Autenticazione non riuscita per questo dispositivo, rinnovare il token o il certificato e riconnettersi
-* L'identificazione personale non corrisponde alla configurazione:\*Identificazione personale:\*SHA1Hash , SHA2Hash ; Configurazione: PrimaryThumbprint\*, , SecondaryThumbprint\*
+* Intestazione dell'autorizzazione mancante
+* IotHub '\*' non contiene il dispositivo specificato '\*'
+* La regola di\*autorizzazione '' non consente l'accesso\*per ''
+* Autenticazione non riuscita per il dispositivo, rinnovo del token o del certificato e riconnessione
+* L'identificazione personale non corrisponde alla configurazione: identificazione personale\*: SHA1Hash =\*, SHA2Hash =; Configurazione: PrimaryThumbprint =\*, SecondaryThumbprint =\*
 
 ## <a name="cause"></a>Causa
 
 ### <a name="cause-1"></a>Causa 1
 
-Per MQTT, alcuni SDK si basano sull'hub IoT per emettere la disconnessione alla scadenza del token di firma di accesso condiviso per sapere quando aggiornarlo. Così 
+Per MQTT, alcuni SDK si basano sull'hub degli oggetti Internet per emettere la disconnessione quando il token di firma di accesso condiviso scade per stabilire quando aggiornarlo. Allora 
 
-1. Il token di firma di accesso condiviso scade
-1. Hub IoT rileva la scadenza e disconnette il dispositivo con **401003 IoTHubUnauthorized**
+1. Il token SAS scade
+1. L'hub Internet rileva la scadenza e disconnette il dispositivo con **401003 IoTHubUnauthorized**
 1. Il dispositivo completa la disconnessione con **404104 DeviceConnectionClosedRemotely**
-1. L'SDK IoT genera un nuovo token di firma di accesso condiviso
-1. Il dispositivo si riconnette con l'hub IoT
+1. L'SDK di Internet delle cose genera un nuovo token SAS
+1. Il dispositivo si riconnette con l'hub Internet con successo
 
 ### <a name="cause-2"></a>Causa 2
 
-L'hub IoT non è in stato di autenticare l'intestazione, la regola o la chiave di autenticazione.
+L'hub Internet delle cose non è riuscito ad autenticare l'intestazione, la regola o la chiave di autenticazione.
 
 ## <a name="solution"></a>Soluzione
 
 ### <a name="solution-1"></a>Soluzione 1
 
-Non è necessaria alcuna azione se si usa L'SDK IoT per la connessione usando la stringa di connessione del dispositivo. L'SDK IoT rigenera il nuovo token per riconnettersi alla scadenza del token SAS. 
+Non è necessaria alcuna azione se si usa l'SDK per la connessione usando la stringa di connessione del dispositivo. Per la riconnessione alla scadenza del token SAS, il nuovo token SDK viene rigenerato da Internet. 
 
-Se il volume di errori è un problema, passare al C SDK, che rinnova il token di firma di accesso condiviso prima della scadenza. Inoltre, per AMQP il token di firma di accesso condiviso può aggiornare senza disconnessione.
+Se il volume degli errori rappresenta un problema, passare a C SDK, che rinnova il token di firma di accesso condiviso prima della scadenza. Per AMQP, inoltre, il token SAS può essere aggiornato senza disconnessione.
 
 ### <a name="solution-2"></a>Soluzione 2
 
-In generale, il messaggio di errore presentato dovrebbe spiegare come risolvere l'errore. Se per qualche motivo non hai accesso ai dettagli del messaggio di errore, assicurati:
+In generale, il messaggio di errore presentato dovrebbe spiegare come correggere l'errore. Se per qualche motivo non è possibile accedere ai dettagli del messaggio di errore, verificare che:
 
-- La firma di accesso condiviso o un altro token di sicurezza usato non è scaduto. 
-- La credenziale di autorizzazione è ben formata per il protocollo utilizzato. Per altre informazioni, vedere Controllo degli [accessi all'hub IoT](iot-hub-devguide-security.md).
+- La firma di accesso condiviso o altri token di sicurezza usati non sono scaduti. 
+- Le credenziali di autorizzazione sono ben formate per il protocollo usato. Per altre informazioni, vedere [controllo di accesso dell'hub Internet](iot-hub-devguide-security.md).
 - La regola di autorizzazione utilizzata dispone dell'autorizzazione per l'operazione richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per semplificare l'autenticazione all'hub IoT, è consigliabile usare gli SDK di [Azure IoT.](iot-hub-devguide-sdks.md)
+Per semplificare l'autenticazione all'hub molto, è consigliabile usare gli [SDK di Azure](iot-hub-devguide-sdks.md).

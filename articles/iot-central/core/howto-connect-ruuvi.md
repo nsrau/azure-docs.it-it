@@ -1,6 +1,6 @@
 ---
-title: Connettere un RuuviTag in Azure IoT Central Documenti Microsoft
-description: Informazioni su come collegare un sensore di ambiente RuuviTag all'applicazione IoT Central.
+title: Connettere una RuuviTag in Azure IoT Central | Microsoft Docs
+description: Informazioni su come connettere un sensore di ambiente RuuviTag all'applicazione IoT Central.
 services: iot-central
 ms.service: iot-central
 ms.topic: how-to
@@ -11,72 +11,72 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758947"
 ---
-# <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Connettere un sensore RuuviTag all'applicazione Azure IoT Central
+# <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Connettere un sensore RuuviTag all'applicazione IoT Central di Azure
 
-*Questo articolo si applica ai generatori di soluzioni e agli sviluppatori di dispositivi.*
+*Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
 
-Questo articolo descrive come, in qualità di generatore di soluzioni, è possibile connettere un sensore RuuviTag all'applicazione Microsoft Azure IoT Central.This article describes how, as a solution builder, you can connect a RuuviTag sensor to your Microsoft Azure IoT Central application.
+Questo articolo descrive come un generatore di soluzioni può connettere un sensore RuuviTag all'applicazione Microsoft Azure IoT Central.
 
-Cos'è un tag Ruuvi?
+Che cos'è un tag Ruuvi?
 
-RuuviTag è un'avanzata piattaforma di sensori open source progettata per soddisfare le esigenze di clienti aziendali, sviluppatori, maker, studenti e hobbisti. Il dispositivo è configurato per funzionare non appena lo si estrae dalla sua scatola ed è pronto per la distribuzione dove serve. È un faro Bluetooth LE con sensore di ambiente e accelerometro integrato.
+RuuviTag è una piattaforma avanzata di Beacon per sensori open source progettata per soddisfare le esigenze di clienti aziendali, sviluppatori, produttori, studenti e appassionati. Il dispositivo è configurato per funzionare non appena lo si estrae ed è pronto per la distribuzione in cui è necessario. Si tratta di un beacon Bluetooth LE con un sensore di ambiente e un accelerometro incorporato.
 
-RuuviTag comunica tramite BLE (Bluetooth Low Energy) e richiede un dispositivo gateway per comunicare con Azure IoT Central. Assicurarsi di disporre di un dispositivo gateway, ad esempio Rigado Cascade 500, configurato per consentire a un RuuviTag di connettersi a IoT Central.
+RuuviTag comunica tramite BLE (Bluetooth Low Energy) e richiede un dispositivo gateway per comunicare con Azure IoT Central. Verificare che sia presente un dispositivo gateway, ad esempio RIGADO Cascade 500, per abilitare un RuuviTag per la connessione a IoT Central.
 
-Seguire le [istruzioni qui](./howto-connect-rigado-cascade-500.md) se si desidera configurare un dispositivo gateway Rigado Cascade 500.
+Per configurare un dispositivo gateway RIGADO Cascade 500, seguire le istruzioni riportate [qui](./howto-connect-rigado-cascade-500.md) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per collegare i sensori RuuviTag, sono necessarie le seguenti risorse:
+Per connettere i sensori RuuviTag, sono necessarie le risorse seguenti:
 
 * Un sensore RuuviTag. Per ulteriori informazioni, visitare [RuuviTag](https://ruuvi.com/).
-* Un dispositivo Rigado Cascade 500 o un altro gateway BLE. Per ulteriori informazioni, visitare [Rigado](https://www.rigado.com/).
-* Un'applicazione Azure IoT Central. Per ulteriori informazioni, vedere [Creare una nuova applicazione](./quick-deploy-iot-central.md).
+* Un dispositivo RIGADO Cascade 500 o un altro gateway BLE. Per ulteriori informazioni, visitare [RIGADO](https://www.rigado.com/).
+* Un'applicazione Azure IoT Central. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di una nuova applicazione](./quick-deploy-iot-central.md).
 
-## <a name="add-a-ruuvitag-device-template"></a>Aggiungere un modello di dispositivo RuuviTagAdd a RuuviTag device template
+## <a name="add-a-ruuvitag-device-template"></a>Aggiungere un modello di dispositivo RuuviTag
 
-Per eseguire l'onboarding di un sensore RuuviTag nell'istanza dell'applicazione Azure IoT Central, è necessario configurare un modello di dispositivo corrispondente all'interno dell'applicazione.
+Per caricare un sensore RuuviTag nell'istanza dell'applicazione IoT Central di Azure, è necessario configurare un modello di dispositivo corrispondente all'interno dell'applicazione.
 
 Per aggiungere un modello di dispositivo RuuviTag:
 
-1. Passare alla scheda ***Modelli*** di dispositivo nel riquadro sinistro,](./media/howto-connect-ruuvi/devicetemplate-new.png) selezionare - **Nuovo**: ![Crea nuovo modello di dispositivo La pagina offre un'opzione per creare un modello di dispositivo ***personalizzato*** o Usa un modello di ***dispositivo preconfigurato***
-1. Selezionare il modello di dispositivo RuuviTag dall'elenco ![dei modelli di dispositivo preconfigurati come illustrato di seguito: Selezionare il modello di dispositivo RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. Passare alla scheda ***modelli di dispositivo*** nel riquadro sinistro, selezionare **+ nuovo**: ![crea nuovo](./media/howto-connect-ruuvi/devicetemplate-new.png) modello di dispositivo. la pagina offre un'opzione per ***creare un modello personalizzato*** o ***usare un modello di dispositivo preconfigurato***
+1. Selezionare il modello di dispositivo RuuviTag dall'elenco dei modelli di dispositivo preconfigurati, come illustrato ![di seguito: selezionare il modello di dispositivo RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
 1. Selezionare ***Avanti: Personalizza*** per continuare con il passaggio successivo.
-1. Nella schermata successiva selezionare Crea per eseguire l'onboarding del modello di dispositivo C500 nell'applicazione IoT Central.On the next screen, select ***Create*** to onboard the C500 device template into your IoT Central application.
+1. Nella schermata successiva selezionare ***Crea*** per caricare il modello di dispositivo C500 nell'applicazione IoT Central.
 
-## <a name="connect-a-ruuvitag-sensor"></a>Collegare un sensore RuuviTag
+## <a name="connect-a-ruuvitag-sensor"></a>Connettere un sensore RuuviTag
 
-Come accennato in precedenza, per connettere RuuviTag con l'applicazione IoT Central, è necessario configurare un dispositivo gateway. I passaggi seguenti presuppongono che sia stato configurato un dispositivo gateway Rigado Cascade 500.  
+Come indicato in precedenza, per connettere il RuuviTag all'applicazione IoT Central, è necessario configurare un dispositivo gateway. I passaggi seguenti presuppongono che sia stato configurato un dispositivo gateway RIGADO Cascade 500.  
 
-1. Accendere il dispositivo Rigado Cascade 500 e collegarlo alla connessione di rete (tramite Ethernet o wireless)
-1. Estrarre il coperchio dal RuuviTag e tirare la linguetta di plastica per fissare la connessione con la batteria.
-1. Posizionare RuuviTag vicino a un gateway Rigado Cascade 500 già configurato nell'applicazione IoT Central.
-1. In pochi secondi, il RuuviTag dovrebbe essere visualizzato nell'elenco dei dispositivi all'interno di IoT Central.  
-    ![Elenco dispositivi RuuviTag](./media/howto-connect-ruuvi/ruuvi-devicelist.png)
+1. Accendere il dispositivo RIGADO Cascade 500 e connetterlo alla connessione di rete (tramite Ethernet o wireless)
+1. Estrarre il coperchio del RuuviTag ed estrarre la scheda plastica per proteggere la connessione con la batteria.
+1. Posizionare il RuuviTag vicino a un gateway RIGADO Cascade 500 già configurato nell'applicazione IoT Central.
+1. In pochi secondi, il RuuviTag dovrebbe essere visualizzato nell'elenco dei dispositivi all'interno IoT Central.  
+    ![Elenco di dispositivi RuuviTag](./media/howto-connect-ruuvi/ruuvi-devicelist.png)
 
-È ora possibile utilizzare questo RuuviTag all'interno dell'applicazione IoT Central.You can now use this RuuviTag within your IoT Central application.  
+È ora possibile usare questo RuuviTag all'interno dell'applicazione IoT Central.  
 
 ## <a name="create-a-simulated-ruuvitag"></a>Creare un RuuviTag simulato
 
-Se non si dispone di un dispositivo RuuviTag fisico, è possibile creare un sensore RuuviTag simulato da usare per il test all'interno dell'applicazione Azure IoT Central.If you don't have a physical RuuviTag device, you can create a simulated RuuviTag sensor to use for testing within your Azure IoT Central application.
+Se non si ha un dispositivo RuuviTag fisico, è possibile creare un sensore RuuviTag simulato da usare per il test nell'applicazione IoT Central di Azure.
 
 Per creare un RuuviTag simulato:
 
-1. Selezionare **Dispositivi > RuuviTag**.
+1. Selezionare **dispositivi > RuuviTag**.
 1. Selezionare **+ Nuovo**.
-1. Specificare un **ID dispositivo** univoco e un **nome descrittivo del dispositivo.**  
-1. Attivare l'impostazione **Simulato.**
-1. Selezionare **Create** (Crea).  
+1. Specificare un **ID dispositivo** univoco e un nome descrittivo del **dispositivo**.  
+1. Abilitare l'impostazione **simulata** .
+1. Selezionare **Crea**.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sei uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:If you're a device developer, some suggested next steps are to:
+Se si è uno sviluppatore di dispositivi, alcuni passaggi successivi suggeriti sono:
 
-- Informazioni sulla connettività dei dispositivi [in Azure IoT CentralRead about Device connectivity in Azure IoT Central](./concepts-get-connected.md)
-- Informazioni su come [monitorare la connettività dei dispositivi usando l'interfaccia della riga di comando di AzureLearn](./howto-monitor-devices-azure-cli.md) how to Monitor device connectivity using Azure CLI
+- Scopri di più sulla [connettività dei dispositivi in Azure IOT Central](./concepts-get-connected.md)
+- Informazioni su come [monitorare la connettività dei dispositivi usando l'interfaccia](./howto-monitor-devices-azure-cli.md) della riga di comando

@@ -1,5 +1,5 @@
 ---
-title: Creare uno snapshot di un disco rigido virtuale in AzureCreate a snapshot of a VHD in Azure
+title: Creare uno snapshot di un disco rigido virtuale in Azure
 description: Informazioni su come creare una copia di un disco rigido virtuale in Azure come backup o per la risoluzione dei problemi.
 author: roygara
 manager: twooley
@@ -10,10 +10,10 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: f2d905d041198bd35c4657052bf18d981904dc44
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758383"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot 
@@ -65,7 +65,7 @@ az snapshot list \
 5. Selezionare un gruppo di risorse esistente o specificare il nome di un nuovo gruppo. 
 7. Per **Disco di origine**, selezionare il disco gestito di cui creare lo snapshot.
 8. Selezionare il **tipo di account** da usare per archiviare lo snapshot. Usare il tipo **Standard HDD** a meno che non sia necessario archiviare lo snapshot su un'unità SSD a prestazioni elevate.
-9. Fare clic su **Crea**.
+9. Scegliere **Crea**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

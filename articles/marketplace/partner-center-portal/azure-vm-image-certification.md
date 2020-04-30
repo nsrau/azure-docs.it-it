@@ -1,6 +1,6 @@
 ---
-title: Azure virtual machine certification - Azure Marketplace
-description: Informazioni su come testare e inviare un'offerta di macchine virtuali nel mercato commerciale.
+title: Certificazione delle macchine virtuali di Azure-Azure Marketplace
+description: Informazioni su come testare e inviare un'offerta di macchina virtuale nel Marketplace commerciale.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
@@ -8,50 +8,50 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731134"
 ---
-# <a name="azure-virtual-machine-vm-image-certification"></a>Certificazione dell'immagine della macchina virtuale di AzureAzure virtual machine (VM) image certification
+# <a name="azure-virtual-machine-vm-image-certification"></a>Certificazione immagini macchina virtuale (VM) di Azure
 
 > [!NOTE]
-> Stiamo spostando la gestione delle offerte di vm di Azure dal portale Cloud Partner al Centro per i partner. Fino a quando non viene eseguita la migrazione delle offerte, continuare a seguire le istruzioni in [Creare certificati per L'insieme](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) di credenziali delle chiavi di Azure nel portale per i partner cloud per gestire le offerte.
+> Stiamo comunicando la gestione delle offerte della macchina virtuale di Azure dal portale Cloud Partner al centro per i partner. Fino a quando non viene eseguita la migrazione delle offerte, continuare a seguire le istruzioni riportate in [creare certificati per Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) in Portale cloud partner per gestire le offerte.
 
-Questo articolo descrive come testare e inviare un'immagine di macchina virtuale (VM) nel marketplace commerciale per verificare che soddisfi i requisiti di pubblicazione di Azure Marketplace più recenti.
+Questo articolo descrive come testare e inviare un'immagine di macchina virtuale (VM) nel Marketplace commerciale per verificare che soddisfi i requisiti di pubblicazione di Azure Marketplace più recenti.
 
-Completare questi passaggi prima di inviare l'offerta della macchina virtuale:Complete these steps before submitting your VM offer:
+Completare questi passaggi prima di inviare l'offerta di VM:
 
-1. Creare e distribuire certificati.
+1. Creare e distribuire i certificati.
 2. Distribuire una macchina virtuale di Azure usando l'immagine generalizzata.
-3. Eseguire le convalide.
+3. Eseguire convalide.
 
-## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Creare e distribuire certificati per l'insieme di credenziali delle chiavi di AzureCreate and deploy certificates for Azure Key Vault
+## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Creare e distribuire certificati per Azure Key Vault
 
-In questa sezione viene descritto come creare e distribuire i certificati autofirmati necessari per configurare la connettività Gestione remota Windows in una macchina virtuale ospitata da Azure.This section describes how to create and deploy the self-signed certificates required to set up Windows Remote Management (WinRM) connectivity to an Azure-hosted virtual machine.
+Questa sezione descrive come creare e distribuire i certificati autofirmati necessari per configurare la connettività di Gestione remota Windows (WinRM) a una macchina virtuale ospitata da Azure.
 
 ### <a name="create-certificates-for-azure-key-vault"></a>Creare certificati per Azure Key Vault
 
 Questo processo si articola in tre passaggi:
 
 1. Creare il certificato di protezione.
-2. Creare l'insieme di credenziali delle chiavi di Azure per archiviare il certificato.
+2. Creare il Azure Key Vault per archiviare il certificato.
 3. Archiviare i certificati nell'insieme di credenziali delle chiavi.
 
 È possibile usare un gruppo di risorse di Azure nuovo o esistente per questa operazione.
 
-#### <a name="create-the-security-certificate"></a>Creare il certificato di sicurezzaCreate the security certificate
+#### <a name="create-the-security-certificate"></a>Creare il certificato di sicurezza
 
-Modificare ed eseguire lo script di Azure PowerShell seguente per creare il file del certificato (con estensione pfx) in una cartella locale. Sostituire i valori per i parametri illustrati nella tabella seguente.
+Modificare ed eseguire lo script di Azure PowerShell seguente per creare il file del certificato (con estensione pfx) in una cartella locale. Sostituire i valori per i parametri indicati nella tabella seguente.
 
 | **Parametro** | **Descrizione** |
 | --- | --- |
 | $certroopath | Cartella locale in cui salvare il file con estensione pfx. |
-| $location | Una delle posizioni geografiche standard di Azure.One of the Azure standard geographic locations. |
+| $location | Una delle posizioni geografiche standard di Azure. |
 | $vmName | Nome della macchina virtuale di Azure pianificata. |
-| $certname | Nome del certificato; deve corrispondere al nome di dominio completo della macchina virtuale pianificata. |
-| $certpassword | La password per i certificati deve corrispondere alla password usata per la macchina virtuale pianificata. |
+| $certname | Nome del certificato. deve corrispondere al nome di dominio completo della macchina virtuale pianificata. |
+| $certpassword | Password per i certificati, deve corrispondere alla password usata per la VM pianificata. |
 | | |
 
 ```PowerShell
@@ -82,14 +82,14 @@ Modificare ed eseguire lo script di Azure PowerShell seguente per creare il file
 ```
 
 > [!TIP]
-> Mantenere aperta e in esecuzione la stessa sessione della console di Azure PowerShell durante questi passaggi per mantenere i valori dei vari parametri.
+> Mantenere lo stesso Azure PowerShell sessione della console aperta ed eseguita durante questi passaggi per mantenere i valori dei vari parametri.
 
 > [!WARNING]
-> Se si salva questo script, salvarlo solo in un percorso sicuro perché contiene informazioni di sicurezza (password).
+> Se si salva questo script, salvarlo solo in un percorso sicuro perché contiene informazioni di sicurezza (una password).
 
-#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Creare l'insieme di credenziali delle chiavi di Azure per archiviare il certificatoCreate the Azure key vault to store the certificate
+#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Creare l'insieme di credenziali delle chiavi di Azure per archiviare il certificato
 
-Copiare il contenuto del modello riportato di seguito in un file nel computer locale. Nello script di esempio riportato di seguito, questa risorsa è `C:\certLocation\keyvault.json`).
+Copiare il contenuto del modello seguente in un file nel computer locale. Nello script di esempio riportato di seguito, questa `C:\certLocation\keyvault.json`risorsa è).
 
 ```json
 {
@@ -184,14 +184,14 @@ Copiare il contenuto del modello riportato di seguito in un file nel computer lo
 
 ```
 
-Modificare ed eseguire lo script di Azure PowerShell seguente per creare un insieme di credenziali delle chiavi di Azure e il gruppo di risorse associato. Sostituire i valori per i parametri illustrati nella tabella seguente
+Modificare ed eseguire lo script di Azure PowerShell seguente per creare una Azure Key Vault e il gruppo di risorse associato. Sostituire i valori per i parametri indicati nella tabella seguente
 
 | **Parametro** | **Descrizione** |
 | --- | --- |
 | $postfix | Stringa numerica casuale associata agli identificatori di distribuzione. |
-| $rgName | Nome del gruppo di risorse di Azure (RG) da creare. |
-| $location | Una delle posizioni geografiche standard di Azure.One of the Azure standard geographic locations. |
-| $kvTemplateJson | Percorso del file (keyvault.json) contenente il modello di Resource Manager per l'insieme di credenziali delle chiavi. |
+| $rgName | Nome del gruppo di risorse di Azure da creare. |
+| $location | Una delle posizioni geografiche standard di Azure. |
+| $kvTemplateJson | Percorso del file (Key Vault. Json) che contiene Gestione risorse modello per Key Vault. |
 | $kvname | Nome del nuovo insieme di credenziali delle chiavi.|
 |   |   |
 
@@ -293,7 +293,7 @@ Modificare ed eseguire lo script di Azure PowerShell seguente per creare un insi
 
 #### <a name="store-the-certificates-to-the-key-vault"></a>Archiviare i certificati nell'insieme di credenziali delle chiavi
 
-Archiviare i certificati contenuti nel file con estensione pfx nel nuovo insieme di credenziali delle chiavi utilizzando questo script:
+Archiviare i certificati contenuti nel file con estensione pfx nel nuovo insieme di credenziali delle chiavi usando questo script:
 
 ```PowerShell
      $fileName =$certroopath+"\$certname"+".pfx"
@@ -317,13 +317,13 @@ Archiviare i certificati contenuti nel file con estensione pfx nel nuovo insieme
 
 ```
 
-## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Distribuire una macchina virtuale di Azure usando l'immagine generalizzataDeploy an Azure VM using your generalized image
+## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Distribuire una macchina virtuale di Azure usando l'immagine generalizzata
 
-Questa sezione descrive come distribuire un'immagine del disco rigido virtuale generalizzata per creare una nuova risorsa VM di Azure.This section describes how to deploy a generalized VHD image to create a new Azure VM resource. Per questo processo useremo il modello di Azure Resource Manager fornito e lo script di Azure PowerShell.For this process, we'll use the supplied Azure Resource Manager template and Azure PowerShell script.
+Questa sezione descrive come distribuire un'immagine del disco rigido virtuale generalizzato per creare una nuova risorsa di VM di Azure. Per questo processo, verrà usato il modello di Azure Resource Manager fornito e lo script di Azure PowerShell.
 
-### <a name="prepare-an-azure-resource-manager-template"></a>Preparare un modello di Azure Resource ManagerPrepare an Azure Resource Manager template
+### <a name="prepare-an-azure-resource-manager-template"></a>Preparare un modello di Azure Resource Manager
 
-Copiare il modello di Azure Resource Manager seguente per la distribuzione del disco rigido virtuale in un file locale denominato VHDtoImage.json.Copy the following Azure Resource Manager template for VHD deployment to a local file named VHDtoImage.json. Lo script successivo richiederà il percorso nel computer locale per usare questo JSON.
+Copiare il modello di Azure Resource Manager seguente per la distribuzione del disco rigido virtuale in un file locale denominato VHDtoImage. JSON. Lo script successivo richiederà il percorso nel computer locale per l'uso di questo JSON.
 
 ```JSON
 {
@@ -558,22 +558,22 @@ Copiare il modello di Azure Resource Manager seguente per la distribuzione del d
 
 ```
 
-Modificare questo file per fornire i valori per questi parametri:Edit this file to provide values for these parameters:
+Modificare questo file per specificare i valori per i parametri seguenti:
 
 | **Parametro** | **Descrizione** |
 | --- | --- |
-| ResourceGroupName | Nome del gruppo di risorse di Azure esistente. In genere, utilizzare lo stesso RG dell'insieme di credenziali delle chiavi. |
-| TemplateFile | Nome percorso completo del file VHDtoImage.json. |
+| ResourceGroupName | Nome del gruppo di risorse di Azure esistente. In genere, usare lo stesso RG dell'insieme di credenziali delle chiavi. |
+| TemplateFile | Percorso completo del file VHDtoImage. JSON. |
 | userStorageAccountName | Nome dell'account di archiviazione. |
-| sNameForPublicIP | Nome DNS per l'IP pubblico; deve essere minuscolo. |
-| subscriptionId | Identificatore della sottoscrizione di Azure.Azure subscription identifier. |
-| Location | Posizione geografica standard di Azure del gruppo di risorse. |
+| sNameForPublicIP | Nome DNS per l'indirizzo IP pubblico; deve essere minuscolo. |
+| subscriptionId | Identificatore della sottoscrizione di Azure. |
+| Percorso | Posizione geografica di Azure standard del gruppo di risorse. |
 | vmName | Nome della macchina virtuale. |
 | vaultName | Nome dell'insieme di credenziali delle chiavi. |
 | vaultResourceGroup | Gruppo di risorse dell'insieme di credenziali delle chiavi. |
-| certificateUrl | Indirizzo Web (URL) del certificato, inclusa la versione `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`archiviata nell'insieme di credenziali delle chiavi, ad esempio: . |
+| certificateUrl | Indirizzo Web (URL) del certificato, inclusa la versione archiviata nell'insieme di credenziali delle chiavi, `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`ad esempio:. |
 | vhdUrl | Indirizzo Web del disco rigido virtuale. |
-| vmSize | Dimensione dell'istanza della macchina virtuale. |
+| vmSize | Dimensioni dell'istanza di macchina virtuale. |
 | publicIPAddressName | Nome dell'indirizzo IP pubblico. |
 | virtualNetworkName | Nome della rete virtuale. |
 | nicName | Nome della scheda di interfaccia di rete per la rete virtuale. |
@@ -581,9 +581,9 @@ Modificare questo file per fornire i valori per questi parametri:Edit this file 
 | adminPassword | Password dell'amministratore. |
 |   |   |
 
-### <a name="deploy-an-azure-vm"></a>Distribuire una macchina virtuale di AzureDeploy an Azure VM
+### <a name="deploy-an-azure-vm"></a>Distribuire una macchina virtuale di Azure
 
-Copiare e modificare lo script `$storageaccount` seguente `$vhdUrl` per fornire i valori per le variabili e . Eseguirlo per creare una risorsa di macchina virtuale di Azure dal disco rigido virtuale generalizzato esistente.
+Copiare e modificare lo script seguente per specificare i valori per `$storageaccount` le `$vhdUrl` variabili e. Eseguirlo per creare una risorsa di macchina virtuale di Azure dal disco rigido virtuale generalizzato esistente.
 
 ```PowerShell
 
@@ -603,53 +603,53 @@ New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName
 
 ```
 
-## <a name="run-validations"></a>Eseguire le convalide
+## <a name="run-validations"></a>Esegui convalide
 
-Esistono due modi per eseguire le convalide nell'immagine distribuita:There are two ways to run validations on the deployed image:
+Esistono due modi per eseguire le convalide nell'immagine distribuita:
 
-- Usare lo strumento di test di certificazione per Azure certificatoUse Certification Test Tool for Azure Certified
-- Usare l'API di autotestUse the self-test API
+- Usare lo strumento di test di certificazione per Azure Certified
+- Usare l'API self-test
 
 ### <a name="download-and-run-the-certification-test-tool"></a>Scaricare ed eseguire lo strumento di test di certificazione
 
-Lo strumento di test della certificazione per Azure certificato viene eseguito in un computer Windows locale, ma testa una macchina virtuale Windows o Linux basata su Azure.The Certification Test Tool for Azure Certified runs on a local Windows machine but tests an Azure-based Windows or Linux VM. Certifica che l'immagine della macchina virtuale dell'utente può essere usata con Microsoft Azure e che le linee guida e i requisiti relativi alla preparazione del disco rigido virtuale sono stati soddisfatti. L'output dello strumento è un report di compatibilità che verrà caricato nel portale del Centro per i partner per richiedere la certificazione delle macchine virtuali.
+Lo strumento di test di certificazione per Azure Certified viene eseguito in un computer Windows locale, ma verifica una VM Windows o Linux basata su Azure. Certifica che l'immagine della macchina virtuale utente può essere usata con Microsoft Azure e che sono state soddisfatte le linee guida e i requisiti per la preparazione del disco rigido virtuale. L'output dello strumento è un report di compatibilità che verrà caricato nel portale del centro per i partner per richiedere la certificazione della macchina virtuale.
 
 1. Scaricare e installare lo [strumento di test di certificazione per Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
-2. Aprire lo strumento di certificazione, quindi selezionare **Avvia nuovo test**.
+2. Aprire lo strumento di certificazione e quindi selezionare **Avvia nuovo test**.
 3. Nella schermata **Test Information** (Informazioni test) immettere un valore in **Test Name** (Nome test) per l'esecuzione del test.
-4. Selezionare la piattaforma per la macchina virtuale, Windows Server o Linux.Select the **Platform** for your VM, either Windows Server or Linux. La piattaforma scelta determina le opzioni rimanenti.
-5. Se la macchina virtuale usa questo servizio di database, selezionare la casella di controllo Test per database SQL di Azure.If your VM is using this database **service,** select the Test for Azure SQL Database check box check.
+4. Selezionare la **piattaforma** per la VM, ovvero Windows Server o Linux. La piattaforma scelta determina le opzioni rimanenti.
+5. Se la macchina virtuale usa questo servizio di database, selezionare la casella **di controllo test per database SQL di Azure** .
 
 ### <a name="connect-the-certification-tool-to-a-vm-image"></a>Connettere lo strumento di certificazione a un'immagine di macchina virtuale
 
-Lo strumento si connette alle macchine virtuali basate su Windows con [Azure PowerShell](https://docs.microsoft.com/powershell/) e si connette alle macchine virtuali Linux tramite [SSH.Net.](https://www.ssh.com/ssh/protocol/)
+Lo strumento si connette alle macchine virtuali basate su Windows con [Azure PowerShell](https://docs.microsoft.com/powershell/) e si connette alle macchine virtuali Linux tramite [SSH.NET](https://www.ssh.com/ssh/protocol/).
 
 ### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Connettere lo strumento di certificazione a un'immagine di macchina virtuale Linux
 
-1. Selezionare la modalità **di autenticazione SSH:** Autenticazione password o Autenticazione file di chiave.
-2. Se si utilizza l'autenticazione basata su password, immettere i valori per **Nome DNS macchina virtuale**, Nome **utente**e **Password**. È inoltre possibile modificare il numero **di porta SSH** predefinito.
+1. Selezionare la modalità di **autenticazione SSH** : autenticazione della password o autenticazione del file di chiave.
+2. Se si usa l'autenticazione basata su password, immettere i valori per il **nome DNS della VM**, il **nome utente**e la **password**. È anche possibile modificare il numero di **porta SSH** predefinito.
 
-    ![Strumento di test certificato di Azure, autenticazione tramite password dell'immagine della macchina virtuale LinuxAzure Certified Test Tool, password authentication of Linux VM Image](media/avm-cert2.png)
+    ![Strumento di test Azure Certified, autenticazione della password dell'immagine di macchina virtuale Linux](media/avm-cert2.png)
 
-3. Se si usa l'autenticazione basata su file di chiavi, immettere i valori nei campi **VM DNS Name** (Nome DNS macchina virtuale), **User name** (Nome utente) e **Private key** (Chiave privata). È inoltre possibile includere una **passphrase** o modificare il numero di **porta SSH** predefinito.
+3. Se si usa l'autenticazione basata su file di chiavi, immettere i valori nei campi **VM DNS Name** (Nome DNS macchina virtuale), **User name** (Nome utente) e **Private key** (Chiave privata). È anche possibile includere una **passphrase** o modificare il numero di **porta SSH** predefinito.
 
 ### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Connettere lo strumento di certificazione a un'immagine di macchina virtuale basata su Windows**
 
-1. Immettere il nome DNS completo **della macchina virtuale,** ad esempio MyVMName.Cloudapp.net.
+1. Immettere il **nome DNS completo della macchina virtuale** (ad esempio, MyVMName.cloudapp.NET).
 2. Immettere i valori per **User Name** (Nome utente) e **Password**.
 
-    ![Strumento di test certificato di Azure, autenticazione tramite password dell'immagine della macchina virtuale basata su WindowsAzure Certified Test Tool, password authentication of Windows-based VM Image](media/avm-cert4.png)
+    ![Strumento di test Azure Certified, autenticazione della password dell'immagine di macchina virtuale basata su Windows](media/avm-cert4.png)
 
 ### <a name="run-a-certification-test"></a>Eseguire un test di certificazione
 
-Dopo aver fornito i valori dei parametri per l'immagine della macchina virtuale nello strumento di certificazione, selezionare **Test connessione** per creare una connessione valida alla macchina virtuale. Dopo che la connessone è verificata, selezionare **Next** (Avanti) per avviare il test. Al termine del test, i risultati del test vengono visualizzati in una tabella. La colonna Stato mostra (Superato/Non superato/Avviso) per ogni test. Se uno dei test non riesce, l'immagine _non viene_ certificata. In questo caso, esaminare i requisiti e i messaggi di errore, apportare le modifiche suggerite ed eseguire nuovamente il test.
+Dopo avere specificato i valori dei parametri per l'immagine di macchina virtuale nello strumento di certificazione, selezionare **Test connessione** per creare una connessione valida alla VM. Dopo che la connessone è verificata, selezionare **Next** (Avanti) per avviare il test. Al termine del test, i risultati del test vengono visualizzati in una tabella. La colonna stato Mostra (pass/fail/Warning) per ogni test. Se uno dei test non riesce, l'immagine _non viene_ certificata. In questo caso, esaminare i requisiti e i messaggi di errore, apportare le modifiche suggerite ed eseguire di nuovo il test.
 
-Al termine del test automatizzato, fornire informazioni aggiuntive sull'immagine della macchina virtuale nelle due schede della schermata **Questionario,** **Valutazione generale** e **Personalizzazione kernel**, quindi selezionare **Avanti**.
+Al termine del test automatizzato, fornire informazioni aggiuntive sull'immagine della macchina virtuale nelle due schede della schermata del **questionario** , **valutazione generale** e **personalizzazione del kernel**, quindi selezionare **Avanti**.
 
-L'ultima schermata consente di fornire ulteriori informazioni, ad esempio informazioni di accesso SSH per un'immagine di macchina virtuale Linux e una spiegazione per eventuali valutazioni non riuscite se si stanno cercando eccezioni.
+L'ultima schermata consente di fornire altre informazioni, ad esempio le informazioni di accesso SSH per un'immagine di macchina virtuale Linux e una spiegazione per eventuali valutazioni non riuscite se si cercano eccezioni.
 
-Infine, selezionare **Genera report** per scaricare i risultati dei test e i file di log per i test case eseguiti insieme alle risposte al questionario. Salvare i risultati nello stesso contenitore dei VHD.
+Infine, selezionare **genera report** per scaricare i risultati dei test e i file di log per i test case eseguiti insieme alle risposte al questionario. Salvare i risultati nello stesso contenitore dei VHD.
 
 ## <a name="next-step"></a>Passaggio successivo
 
-- [Generare un URI (Uniform Resource Identifier) per ogni disco rigido virtualeGenerate a uniform resource identifiers (URI) for each VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Generare un URI (Uniform Resource Identifier) per ogni disco rigido virtuale](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)

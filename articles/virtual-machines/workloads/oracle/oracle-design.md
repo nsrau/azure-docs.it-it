@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687529"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
@@ -26,7 +26,7 @@ ms.locfileid: "81687529"
 ## <a name="assumptions"></a>Presupposti
 
 - Si sta pianificando la migrazione di un database Oracle da locale ad Azure.
-- Si dispone del [pacchetto di diagnostica](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) per il database Oracle che si sta cercando di migrare
+- Si ha il [pacchetto di diagnostica](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) per il Oracle database si sta cercando di eseguire la migrazione
 - Si conoscono le varie metriche dei report AWR di Oracle.
 - Si ha una conoscenza di base delle prestazioni delle applicazioni e dell'utilizzo della piattaforma.
 
@@ -46,13 +46,13 @@ La tabella seguente elenca alcune differenze tra un'implementazione locale e un'
 > 
 > |  | **Implementazione locale** | **Implementazione in Azure** |
 > | --- | --- | --- |
-> | **Rete** |LAN/WAN  |SDN (Software Defined Networking)|
-> | **Gruppo di sicurezza** |Strumenti di restrizione per indirizzi IP/porte |[Gruppo di sicurezza di rete](https://azure.microsoft.com/blog/network-security-groups) |
+> | **Funzionalità di rete** |LAN/WAN  |SDN (Software Defined Networking)|
+> | **Gruppo di sicurezza** |Strumenti di restrizione per indirizzi IP/porte |[Gruppo di sicurezza di rete (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 > | **Resilienza** |MTBF (tempo medio tra gli errori) |MTTR (tempo medio per il ripristino)|
 > | **Manutenzione pianificata** |Applicazione di patch/aggiornamenti|[Set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (applicazione di patch/aggiornamenti gestita da Azure) |
 > | **Risorsa** |Dedicated  |Condivisa con altri client|
 > | **Regioni** |Data center |[Coppie di aree](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Storage** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Archiviazione** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Ridimensionare** |Scalabilità verticale |Scalabilità orizzontale|
 
 
@@ -72,11 +72,11 @@ Esistono quattro potenziali aree che è possibile ottimizzare per migliorare le 
 
 ### <a name="generate-an-awr-report"></a>Generare un report AWR
 
-Se è già disponibile database Oracle di cui si sta pianificando la migrazione ad Azure, esistono diverse opzioni. Se si dispone del [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) per le istanze Oracle, è possibile eseguire il report Oracle AWR per ottenere le metriche (IOPS, Mbps, GiB e così via). Scegliere quindi la VM in base alle metriche raccolte. In alternativa, è possibile contattare il team dell'infrastruttura per ottenere informazioni simili.
+Se è già disponibile database Oracle di cui si sta pianificando la migrazione ad Azure, esistono diverse opzioni. Se si dispone del [pacchetto di diagnostica](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) per le istanze di Oracle, è possibile eseguire il report AWR di Oracle per ottenere le metriche (IOPS, Mbps, GiBs e così via). Scegliere quindi la VM in base alle metriche raccolte. In alternativa, è possibile contattare il team dell'infrastruttura per ottenere informazioni simili.
 
 È possibile valutare se eseguire il report AWR durante i carichi di lavoro sia normali che di picco, per poter effettuare un confronto. Attraverso questi report, è possibile ridimensionare le macchine virtuali in base al carico di lavoro medio o al carico di lavoro massimo.
 
-Di seguito è riportato un esempio di come generare un report AWR (Generare i report AWR utilizzando Oracle Enterprise Manager, se l'installazione corrente ne ha uno):
+Di seguito è riportato un esempio di come generare un report AWR (generare i report di AWR usando Oracle Enterprise Manager, se l'installazione corrente ne contiene uno):
 
 ```bash
 $ sqlplus / as sysdba
@@ -102,7 +102,7 @@ Di seguito sono indicate le metriche che è possibile ottenere dal report AWR:
 
 ### <a name="virtual-machine-size"></a>Dimensioni della macchina virtuale
 
-#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Stimare le dimensioni della macchina virtuale in base alla CPU, alla memoria e all'utilizzo dei / o dal report AWR
+#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. stimare le dimensioni della macchina virtuale in base all'utilizzo di CPU, memoria e I/O dal report AWR
 
 Un elemento che è possibile osservare sono i primi cinque eventi in primo piano, che indicano dove sono presenti i colli di bottiglia del sistema.
 
@@ -114,11 +114,11 @@ Il diagramma seguente mostra l'I/O totale di lettura e scrittura. Sono stati reg
 
 ![Screenshot della pagina del report AWR](./media/oracle-design/io_info.png)
 
-#### <a name="2-choose-a-vm"></a>2. Scegliere una macchina virtuale
+#### <a name="2-choose-a-vm"></a>2. scegliere una macchina virtuale
 
 In base alle informazioni raccolte dal report AWR, il passaggio successivo è scegliere una macchina virtuale di dimensioni simili che soddisfi i requisiti. È possibile trovare un elenco delle VM disponibili nell'articolo [Ottimizzate per la memoria](../../linux/sizes-memory.md).
 
-#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Ottimizzare il dimensionamento della macchina virtuale con una serie VM simile basata sull'aCU
+#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. ottimizzare il dimensionamento delle macchine virtuali con una serie di VM simile basata sul ACU
 
 Dopo avere scelto la VM, prestare attenzione all'ACU per la VM. In base al valore ACU, è possibile scegliere una macchina virtuale diversa più adatta agli specifici requisiti. Per altre informazioni, vedere [Unità di calcolo di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
 
@@ -143,10 +143,10 @@ In base ai requisiti di larghezza di banda della rete, sono disponibili diversi 
 
 - La latenza di rete è superiore rispetto a una distribuzione locale. La riduzione dei round trip di rete può migliorare notevolmente le prestazioni.
 - Per ridurre i round trip, consolidare le applicazioni con transazioni elevate o con un livello di comunicazioni elevato nella stessa macchina virtuale.
-- Utilizzare macchine virtuali con [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) per migliorare le prestazioni di rete.
-- Per alcuni distruzioni Linux, prendere in considerazione l'abilitazione del [supporto TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Usare macchine virtuali con [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) per migliorare le prestazioni di rete.
+- Per alcuni distrubutions Linux, è consigliabile abilitare il [supporto per Trim/annullare](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Installare [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) in una macchina virtuale separata.
-- Le pagine enormi non sono abilitate su linux per impostazione predefinita. Valutare la possibilità `use_large_pages = ONLY` di abilitare pagine enormi e impostare il database Oracle. Ciò può contribuire ad aumentare le prestazioni. Altre informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Per impostazione predefinita, le pagine di grandi dimensioni non sono abilitate in Linux. Prendere in considerazione l'abilitazione `use_large_pages = ONLY` di pagine di grandi dimensioni e impostare sul Oracle DB. Questo può contribuire a migliorare le prestazioni. Altre informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipi di disco e configurazioni
 
@@ -187,15 +187,15 @@ Dopo avere ottenuto un quadro preciso dei requisiti di I/O, è possibile sceglie
 - Usare la compressione dei dati per ridurre le operazioni di I/O (per i dati e gli indici).
 - Separare i log di rollforward, di sistema e temporanei e annullare TS nei dischi dati separati.
 - Non inserire alcun file dell'applicazione nei dischi del sistema operativo predefiniti (dev/sda). Questi dischi non sono ottimizzati per l'avvio rapido delle macchine virtuali e potrebbero non offrire prestazioni valide per l'applicazione.
-- Quando si usano macchine virtuali M-Series nell'archiviazione Premium, abilitare [L'acceleratore](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) di scrittura nel disco dei registri di ripetizione dei dati.
+- Quando si usano macchine virtuali della serie M nell'archiviazione Premium, abilitare [acceleratore di scrittura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) sul disco dei log di rollforward.
 
 ### <a name="disk-cache-settings"></a>Impostazioni della cache su disco
 
 Sono disponibili tre opzioni per la memorizzazione nella cache dell'host:
 
-- *ReadOnly:* tutte le richieste vengono memorizzate nella cache per letture future. Tutte le scritture vengono rese persistenti direttamente nell'archivio BLOB di Azure.
+- *ReadOnly*: tutte le richieste vengono memorizzate nella cache per le letture future. Tutte le scritture vengono rese persistenti direttamente nell'archivio BLOB di Azure.
 
-- *ReadWrite*: Si tratta di un algoritmo "read-ahead". Le letture e le scritture sono memorizzate nella cache per le letture future. Le scritture non write-through sono rese persistenti prima nella cache locale. Offre anche la latenza del disco più bassa per i carichi di lavoro leggeri. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
+- *ReadWrite*: si tratta di un algoritmo "Read-ahead". Le letture e le scritture sono memorizzate nella cache per le letture future. Le scritture non write-through sono rese persistenti prima nella cache locale. Offre anche la latenza del disco più bassa per i carichi di lavoro leggeri. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
 
 - *Nessuna* (disabilitata): usando questa opzione, è possibile ignorare la cache. Tutti i dati vengono trasferiti sul disco e resi persistenti in Archiviazione di Azure. Questo metodo offre la massima frequenza di I/O per i carichi di lavoro con un uso intensivo dell'I/O. È anche necessario considerare il costo delle transazioni.
 
@@ -215,7 +215,7 @@ Dopo avere salvato l'impostazione del disco dati, non è possibile modificare l'
 
 Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo consiste nel proteggere la rete. Di seguito sono elencati alcuni suggerimenti:
 
-- *Criteri del gruppo di sicurezza di rete*: il gruppo di sicurezza di rete può essere definito da una subnet o una scheda di interfaccia di rete. È più semplice controllare l'accesso a livello di subnet, sia per la sicurezza che per forzare il routing per elementi come i firewall delle applicazioni.
+- *Criteri del gruppo di sicurezza di rete*: il gruppo di sicurezza di rete può essere definito da una subnet o una scheda di interfaccia di rete. È più semplice controllare l'accesso a livello di subnet per la sicurezza e forzare il routing per elementi come i firewall applicazione.
 
 - *Jumpbox*: per una maggiore sicurezza dell'accesso, gli amministratori non devono connettersi direttamente al servizio dell'applicazione o al database. Viene usato un jumpbox come elemento intermedio tra il computer dell'amministratore e le risorse di Azure.
 ![Screenshot della pagina della topologia jumpbox](./media/oracle-design/jumpbox.png)

@@ -1,25 +1,25 @@
 ---
 title: Scrittura di plug-in per Azure Media Player
-description: Scopri come scrivere un plugin con Azure Media Player con JavaScript
+description: Informazioni su come scrivere un plug-in con Azure Media Player con JavaScript
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727112"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Scrittura di plug-in per Azure Media Player #
 
-Un plugin è JavaScript scritto per estendere o migliorare il lettore. È possibile scrivere plug-in che modificano l'aspetto di Azure Media Player, la sua funzionalità o anche interfacciarlo con altri servizi. È possibile eseguire questa operazione in due semplici passaggi:You can do this in two easy steps:
+Un plug-in è scritto da JavaScript per estendere o migliorare il lettore. È possibile scrivere plug-in che modificano l'aspetto di Azure Media Player, la funzionalità o anche l'interfaccia it con altri servizi. Questa operazione può essere eseguita in due semplici passaggi:
 
 ## <a name="step-1"></a>Passaggio 1 ##
 
-Scrivi il tuo JavaScript in una funzione del genere:
+Scrivere il codice JavaScript in una funzione come segue:
 
 ```javascript
 
@@ -33,7 +33,7 @@ Scrivi il tuo JavaScript in una funzione del genere:
     }).call(this);
 ```
 
-Puoi scrivere il codice direttamente nella `<script>` tua pagina HTML all'interno di tag o in un file JavaScript esterno. Se si esegue quest'ultimo, assicurarsi di `<head>` includere il file JavaScript nella pagina HTML *dopo* lo script AMP.
+È possibile scrivere il codice direttamente nella pagina HTML all'interno `<script>` di tag o in un file JavaScript esterno. Se si esegue quest'ultimo, assicurarsi di includere il file JavaScript nel `<head>` della pagina HTML *dopo* lo script amp.
 
 Esempio:
 
@@ -74,21 +74,21 @@ Metodo 2:
     video.yourPluginName({[your plugins option]: [example option]});
 ```
 
-Le opzioni del plugin non sono necessarie, includendole consente solo agli sviluppatori che utilizzano il tuo plugin di configurare il suo comportamento senza dover cambiare il codice sorgente.
+Le opzioni di plug-in non sono necessarie, incluse consentono agli sviluppatori di usare il plug-in per configurarne il comportamento senza dover modificare il codice sorgente.
 
-Per ispirare e altri esempi sulla creazione di un plugin date un'occhiata alla nostra [galleria](azure-media-player-plugin-gallery.md)
+Per ispirare altri esempi sulla creazione di un plug-in, vedere la [raccolta](azure-media-player-plugin-gallery.md)
 
 >[!NOTE]
-> Il codice del plug-in modifica dinamicamente gli elementi nel DOM durante la durata dell'esperienza del giocatore dello spettatore, non apporta mai modifiche permanenti al codice sorgente del giocatore. Questo è dove la comprensione degli strumenti di sviluppo del browser è utile. Ad esempio, se desideri modificare l'aspetto di un elemento nel lettore, puoi trovare il suo elemento HTML in base al nome della classe e quindi aggiungere o modificare gli attributi da lì. Ecco un'ottima risorsa per la modifica degli [attributi HTML.](http://www.w3schools.com/js/js_htmldom_html.asp)
+> Il codice del plug-in modifica dinamicamente gli elementi nel DOM durante il ciclo di vita dell'esperienza del lettore del visualizzatore, non apporta mai modifiche permanenti al codice sorgente del lettore. Questo è il momento in cui è utile conoscere gli strumenti di sviluppo del browser. Se, ad esempio, si vuole modificare l'aspetto di un elemento nel lettore, è possibile trovare il relativo elemento HTML in base al nome della classe e quindi aggiungere o modificare gli attributi da questa posizione. Ecco una grande risorsa per la [modifica degli attributi HTML.](http://www.w3schools.com/js/js_htmldom_html.asp)
 
-### <a name="integrated-plugins"></a>Plugin integrati ###
+### <a name="integrated-plugins"></a>Plug-in integrati ###
 
- Ci sono attualmente due plugin al forno in AMP: il [time-tip](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html) e [tasti di scelta rapida](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html). Questi plugin sono stati originariamente sviluppati per essere plugin modulari per il giocatore, ma ora sono inclusi nel codice sorgente del giocatore.
+ Attualmente sono disponibili due plug-in, ovvero il suggerimento per i [tempi](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html) e i tasti di scelta [rapida](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html). Questi plug-in sono stati originariamente sviluppati come plug-in modulari per il lettore, ma ora sono inclusi nel codice sorgente del lettore.
 
-### <a name="plugin-gallery"></a>Galleria plugin ###
+### <a name="plugin-gallery"></a>Raccolta di plug-in ###
 
-La galleria di [plugin](http//:aka.ms/ampplugins) ha diversi plugin che la comunità ha già contribuito per caratteristiche come marcatori di linea temporale, zoom, analisi e altro ancora. La pagina fornisce gli accessi ai plugin e le istruzioni su come configurarlo, nonché una demo che mostra il plugin in azione. Se crei un plugin fresco che pensi debba essere incluso nella nostra galleria, sentiti libero di inviarlo in modo che possiamo controllarlo.
+La [raccolta di plug](http//:aka.ms/ampplugins) -in include diversi plug-in che la community ha già contribuito per funzionalità come marcatori di linee temporali, zoom, analisi e altro ancora. La pagina fornisce gli accessi ai plug-in e le istruzioni su come configurarla, oltre a una demo che mostra il plug-in in azione. Se si crea un plug-in interessante che si ritiene debba essere incluso nella raccolta, è possibile inviarlo per poterlo estrarre.
 
 ## <a name="next-steps"></a>Passaggi successivi ##
 
-- [Azure Media Player Quickstart](azure-media-player-quickstart.md)
+- [Avvio rapido su Azure Media Player](azure-media-player-quickstart.md)

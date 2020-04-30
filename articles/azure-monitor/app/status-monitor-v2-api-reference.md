@@ -1,42 +1,42 @@
 ---
-title: Informazioni di riferimento sull'API dell'agente .Net di Azure Application InsightsAzure Application Insights .Net Agent Reference
-description: Informazioni di riferimento sull'API dell'agente di Application Insights.Application Insights Agent API reference. Monitorare le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con ASP.NET app Web ospitate in locale, nelle macchine virtuali o in Azure.Works with a web apps hosted on-premises, in VMs, or on Azure.
+title: Riferimento all'API dell'agente .NET di applicazione Azure Insights
+description: Informazioni di riferimento sull'API dell'agente Application Insights. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733674"
 ---
-# <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights Agent API Reference
+# <a name="azure-monitor-application-insights-agent-api-reference"></a>Informazioni di riferimento sull'API dell'agente Application Insights di monitoraggio di Azure
 
-In questo articolo viene descritto un cmdlet membro del [modulo PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!NOTE] 
-> - Per iniziare, è necessaria una chiave di strumentazione. Per ulteriori informazioni, vedere [Creare una risorsa](create-new-resource.md#copy-the-instrumentation-key).
-> - Questo cmdlet richiede la revisione e l'accettazione della licenza e dell'informativa sulla privacy.
+> - Per iniziare, è necessaria una chiave di strumentazione. Per altre informazioni, vedere [creare una risorsa](create-new-resource.md#copy-the-instrumentation-key).
+> - Questo cmdlet richiede la revisione e l'accettazione delle condizioni di licenza e informativa sulla privacy.
 
 > [!IMPORTANT] 
-> Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore e criteri di esecuzione con privilegi elevati. Per altre informazioni, vedere [Eseguire PowerShell come amministratore con criteri](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy)di esecuzione con privilegi elevati.
-> - Questo cmdlet richiede la revisione e l'accettazione della licenza e dell'informativa sulla privacy.
-> - Il motore di strumentazione aggiunge ulteriore sovraccarico ed è disattivato per impostazione predefinita.
+> Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore e un criterio di esecuzione con privilegi elevati. Per altre informazioni, vedere [eseguire PowerShell come amministratore con criteri di esecuzione elevati](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
+> - Questo cmdlet richiede la revisione e l'accettazione delle condizioni di licenza e informativa sulla privacy.
+> - Il motore di strumentazione aggiunge ulteriore overhead ed è disattivato per impostazione predefinita.
 
 
-## <a name="enable-instrumentationengine"></a>Enable-InstrumentationEngine (Abilitazione-InstrumentationEngine)
+## <a name="enable-instrumentationengine"></a>Enable-InstrumentationEngine
 
-Abilita il motore di strumentazione impostando alcune chiavi del Registro di sistema.
+Abilita il motore di strumentazione impostando alcune chiavi del registro di sistema.
 Riavviare IIS per rendere effettive le modifiche.
 
-Il motore di strumentazione può integrare i dati raccolti dagli SDK di .NET.
-Raccoglie eventi e messaggi che descrivono l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici risultato di dipendenza, verbi HTTP e [testo del comando SQL.](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query)
+Il motore di strumentazione può integrare i dati raccolti dagli SDK .NET.
+Raccoglie eventi e messaggi che descrivono l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici di risultato di dipendenza, verbi HTTP e [testo del comando SQL](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
-Abilitare il motore di strumentazione se:Enable the instrumentation engine if:
+Abilitare il motore di strumentazione se:
 - Il monitoraggio è già stato abilitato con il cmdlet Enable ma non è stato abilitato il motore di strumentazione.
-- L'app è stata instrumentata manualmente con gli SDK di .NET e si vuole raccogliere dati di telemetria aggiuntivi.
+- L'app è stata instrumentata manualmente con gli SDK .NET e si vogliono raccogliere dati di telemetria aggiuntivi.
 
 ### <a name="examples"></a>Esempi
 
@@ -46,16 +46,16 @@ PS C:\> Enable-InstrumentationEngine
 
 ### <a name="parameters"></a>Parametri
 
-#### <a name="-acceptlicense"></a>-AcceptLicense (Licenza accettata)
-**Facoltativa.** Utilizzare questa opzione per accettare la licenza e l'informativa sulla privacy in installazioni headless.
+#### <a name="-acceptlicense"></a>-AcceptLicense
+**Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 #### <a name="-verbose"></a>-Verbose
-**Parametro comune.** Utilizzare questa opzione per generare log dettagliati.
+**Parametro comune.** Usare questa opzione per restituire i log dettagliati.
 
 ### <a name="output"></a>Output
 
 
-##### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Output di esempio dall'attivazione corretta del motore di strumentazioneExample output from successfully enabling the instrumentation engine
+##### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Esempio di output di abilitazione del motore di strumentazione
 
 ```
 Configuring IIS Environment for instrumentation engine...
@@ -64,32 +64,32 @@ Configuring registry for instrumentation engine...
 
 ## <a name="enable-applicationinsightsmonitoring"></a>Enable-ApplicationInsightsMonitoring
 
-Consente il monitoraggio delle connessione senza codice delle app IIS in un computer di destinazione.
+Consente il monitoraggio di associazione non codificato delle app IIS in un computer di destinazione.
 
-Questo cmdlet modificherà il file applicationHost.config di IIS e imposterà alcune chiavi del Registro di sistema.
-Verrà inoltre creato un file applicationinsights.ikey.config, che definisce la chiave di strumentazione utilizzata da ogni app.
-IIS caricherà RedfieldModule all'avvio, che inserirà Application Insights SDK nelle applicazioni all'avvio delle applicazioni.
+Questo cmdlet consente di modificare il file applicationHost. config di IIS e di impostare alcune chiavi del registro di sistema.
+Creerà anche un file applicationinsights. Ikey. config, che definisce la chiave di strumentazione usata da ogni app.
+IIS caricherà il RedfieldModule all'avvio, in modo da inserire il Application Insights SDK nelle applicazioni quando le applicazioni vengono avviate.
 Riavviare IIS per rendere effettive le modifiche.
 
-Dopo aver abilitato il monitoraggio, è consigliabile usare [metriche](live-stream.md) live per verificare rapidamente se l'app ci invia dati di telemetria.
+Dopo aver abilitato il monitoraggio, è consigliabile usare le [metriche in tempo reale](live-stream.md) per verificare rapidamente se l'app sta inviando dati di telemetria.
 
 ### <a name="examples"></a>Esempi
 
-#### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazioneExample with a single instrumentation key
-In questo esempio, a tutte le app nel computer corrente viene assegnata una singola chiave di strumentazione.
+#### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazione
+In questo esempio, a tutte le app nel computer corrente viene assegnata una sola chiave di strumentazione.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-#### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazioneExample with an instrumentation key map
+#### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
 Esempio:
-- `MachineFilter`corrisponde al computer corrente `'.*'` utilizzando il carattere jolly.
-- `AppFilter='WebAppExclude'`fornisce `null` una chiave di strumentazione. L'app specificata non verrà instrumentata.
+- `MachineFilter`corrisponde al computer corrente usando il `'.*'` carattere jolly.
+- `AppFilter='WebAppExclude'`fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
 - `AppFilter='WebAppOne'`assegna all'app specificata una chiave di strumentazione univoca.
 - `AppFilter='WebAppTwo'`assegna all'app specificata una chiave di strumentazione univoca.
-- Infine, `AppFilter` usa `'.*'` anche il carattere jolly per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
-- Gli spazi vengono aggiunti per la leggibilità.
+- Infine, `AppFilter` usa anche il `'.*'` carattere jolly per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
+- Gli spazi vengono aggiunti per migliorare la leggibilità.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
@@ -103,52 +103,52 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 ### <a name="parameters"></a>Parametri
 
-#### <a name="-instrumentationkey"></a>-InstrumentationKey (Chiave di Strumentazione)
-**Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione per l'utilizzo da parte di tutte le app nel computer di destinazione.
+#### <a name="-instrumentationkey"></a>-InstrumentationKey
+**Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
 
-#### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap (mappa delle chiavi di strumentazione)
-**Obbligatorio.** Usare questo parametro per fornire più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
-È possibile creare un singolo script `MachineFilter`di installazione per più computer impostando .
+#### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
+**Obbligatorio.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
+È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter`.
 
 > [!IMPORTANT]
-> Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Quindi è necessario specificare prima le regole più specifiche per ultime e le regole più generiche.
+> Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
 
 ##### <a name="schema"></a>SCHEMA
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
-- **MachineFilter** è un'espressione regolare c'è obbligatoria del nome del computer o della macchina virtuale.
-    - '.' corrisponderà a tutti
-    - 'ComputerName' corrisponderà solo ai computer con il nome esatto specificato.
-- **AppFilter** è un'espressione regolare c'è obbligatoria del nome del sito IIS. È possibile ottenere un elenco di siti sul server eseguendo il comando [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
-    - '.' corrisponderà a tutti
-    - 'SiteName' corrisponderà solo al sito IIS con il nome esatto specificato.
+- **MachineFilter** è un'espressione regolare C# obbligatoria del nome del computer o della macchina virtuale.
+    - '. *' corrisponderà a tutti
+    - ' ComputerName ' corrisponde solo ai computer con il nome esatto specificato.
+- **AppFilter** è un'espressione regolare C# obbligatoria del nome del sito IIS. È possibile ottenere un elenco dei siti nel server eseguendo il comando [Get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
+    - '. *' corrisponderà a tutti
+    - ' SiteName ' corrisponderà solo al sito IIS con il nome esatto specificato.
 - **InstrumentationKey** è necessario per abilitare il monitoraggio delle app che corrispondono ai due filtri precedenti.
-    - Lasciare null questo valore se si desidera definire regole per escludere il monitoraggio.
+    - Lasciare questo valore null se si desidera definire regole per escludere il monitoraggio.
 
 
-#### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine -EnableInstrumentationEngine
-**Facoltativa.** Utilizzare questa opzione per consentire al motore di strumentazione di raccogliere eventi e messaggi su ciò che accade durante l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici risultato di dipendenza, verbi HTTP e testo del comando SQL.
+#### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
+**Facoltativo.** Usare questa opzione per consentire al motore di strumentazione di raccogliere gli eventi e i messaggi relativi a ciò che accade durante l'esecuzione di un processo gestito. Questi eventi e messaggi includono codici di risultato di dipendenza, verbi HTTP e testo del comando SQL.
 
-Il motore di strumentazione aggiunge overhead ed è disattivato per impostazione predefinita.
+Il motore di strumentazione aggiunge un sovraccarico ed è disattivato per impostazione predefinita.
 
-#### <a name="-acceptlicense"></a>-AcceptLicense (Licenza accettata)
-**Facoltativa.** Utilizzare questa opzione per accettare la licenza e l'informativa sulla privacy in installazioni headless.
+#### <a name="-acceptlicense"></a>-AcceptLicense
+**Facoltativo.** Usare questa opzione per accettare la licenza e l'informativa sulla privacy nelle installazioni senza intestazione.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
-Quando si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa.](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)
-Il HttpModule non può essere inserito in questa configurazione condivisa.
-Questo script avrà esito negativo con il messaggio che sono necessarie ulteriori operazioni di installazione.
-Utilizzare questa opzione per ignorare questo controllo e continuare l'installazione dei prerequisiti. Per altre informazioni, vedere [conflitto noto con iis-shared-configurationFor more information, see known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
+Quando si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Non è possibile inserire HttpModule in questa configurazione condivisa.
+Questo script avrà esito negativo con il messaggio che è necessario eseguire ulteriori passaggi di installazione.
+Usare questa opzione per ignorare questa verifica e continuare l'installazione dei prerequisiti. Per altre informazioni, vedere [conflitto noto-con-IIS-Shared-Configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
 #### <a name="-verbose"></a>-Verbose
-**Parametro comune.** Utilizzare questa opzione per visualizzare i registri dettagliati.
+**Parametro comune.** Usare questa opzione per visualizzare i log dettagliati.
 
 #### <a name="-whatif"></a>-WhatIf 
-**Parametro comune.** Usare questa opzione per testare e convalidare i parametri di input senza abilitare effettivamente il monitoraggio.
+**Parametro comune.** Usare questa opzione per verificare e convalidare i parametri di input senza abilitare effettivamente il monitoraggio.
 
 ### <a name="output"></a>Output
 
-#### <a name="example-output-from-a-successful-enablement"></a>Output di esempio da un'abilitazione riuscitaExample output from a successful enablement
+#### <a name="example-output-from-a-successful-enablement"></a>Esempio di output di una corretta abilitazione
 
 ```powershell
 Initiating Disable Process
@@ -183,7 +183,7 @@ Successfully enabled Application Insights Status Monitor
 
 ## <a name="disable-instrumentationengine"></a>Disable-InstrumentationEngine
 
-Disabilita il motore di strumentazione rimuovendo alcune chiavi del Registro di sistema.
+Disabilita il motore di strumentazione rimuovendo alcune chiavi del registro di sistema.
 Riavviare IIS per rendere effettive le modifiche.
 
 ### <a name="examples"></a>Esempi
@@ -195,12 +195,12 @@ PS C:\> Disable-InstrumentationEngine
 ### <a name="parameters"></a>Parametri 
 
 #### <a name="-verbose"></a>-Verbose
-**Parametro comune.** Utilizzare questa opzione per generare log dettagliati.
+**Parametro comune.** Usare questa opzione per restituire i log dettagliati.
 
 ### <a name="output"></a>Output
 
 
-##### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Output di esempio dalla corretta disattivazione del motore di strumentazioneExample output from successfully disabling the instrumentation engine
+##### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Output di esempio dalla disabilitazione corretta del motore di strumentazione
 
 ```powershell
 Configuring IIS Environment for instrumentation engine...
@@ -213,7 +213,7 @@ Configuring registry for instrumentation engine...
 ## <a name="disable-applicationinsightsmonitoring"></a>Disable-ApplicationInsightsMonitoring
 
 Disabilita il monitoraggio nel computer di destinazione.
-Questo cmdlet rimuoverà le modifiche apportate a IIS applicationHost.config e rimuoverà le chiavi del Registro di sistema.
+Questo cmdlet consente di rimuovere le modifiche al file applicationHost. config di IIS e di rimuovere le chiavi del registro di sistema.
 
 ### <a name="examples"></a>Esempi
 
@@ -224,12 +224,12 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ### <a name="parameters"></a>Parametri 
 
 #### <a name="-verbose"></a>-Verbose
-**Parametro comune.** Utilizzare questa opzione per visualizzare i registri dettagliati.
+**Parametro comune.** Usare questa opzione per visualizzare i log dettagliati.
 
 ### <a name="output"></a>Output
 
 
-##### <a name="example-output-from-successfully-disabling-monitoring"></a>Output di esempio dalla corretta disabilitazione del monitoraggioExample output from successfully disabling monitoring
+##### <a name="example-output-from-successfully-disabling-monitoring"></a>Output di esempio dalla disabilitazione del monitoraggio riuscita
 
 ```powershell
 Initiating Disable Process
@@ -265,12 +265,12 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 ### <a name="parameters"></a>Parametri
 
-Nessun parametro richiesto.
+Nessun parametro necessario.
 
 ### <a name="output"></a>Output
 
 
-##### <a name="example-output-from-reading-the-config-file"></a>Output di esempio dalla lettura del file di configurazioneExample output from reading the config file
+##### <a name="example-output-from-reading-the-config-file"></a>Output di esempio della lettura del file di configurazione
 
 ```
 RedfieldConfiguration:
@@ -282,15 +282,15 @@ Filters:
 
 ## <a name="get-applicationinsightsmonitoringstatus"></a>Get-ApplicationInsightsMonitoringStatus
 
-Questo cmdlet fornisce informazioni sulla risoluzione dello stato.
-Utilizzare questo cmdlet per esaminare lo stato di monitoraggio, versione del modulo PowerShell, e per controllare il processo in esecuzione.
-Questo cmdlet segnalerà informazioni sulla versione e informazioni sui file chiave necessari per il monitoraggio.
+Questo cmdlet fornisce informazioni sulla risoluzione dei problemi relativi a Status Monitor.
+Usare questo cmdlet per esaminare lo stato del monitoraggio, la versione del modulo di PowerShell e per esaminare il processo in esecuzione.
+Questo cmdlet consente di segnalare le informazioni sulla versione e le informazioni sui file di chiave necessari per il monitoraggio.
 
 ### <a name="examples"></a>Esempi
 
-#### <a name="example-application-status"></a>Esempio: Stato dell'applicazione
+#### <a name="example-application-status"></a>Esempio: stato dell'applicazione
 
-Eseguire il `Get-ApplicationInsightsMonitoringStatus` comando per visualizzare lo stato di monitoraggio dei siti Web.
+Eseguire il comando `Get-ApplicationInsightsMonitoringStatus` per visualizzare lo stato di monitoraggio dei siti Web.
 
 ```powershell
 
@@ -325,17 +325,17 @@ ProcessId              : 5184
 AppAlreadyInstrumented : true
 ```
 
-In questo esempio;
-- **Identificatore macchina** è un ID anonimo utilizzato per identificare in modo univoco il server. Se crei una richiesta di supporto, avremo bisogno di questo ID per trovare i log per il tuo server.
-- **Il sito Web predefinito** è arrestato in IIS
+In questo esempio:
+- **Identificatore computer** è un ID anonimo utilizzato per identificare in modo univoco il server. Se si crea una richiesta di supporto, sarà necessario questo ID per trovare i log del server.
+- Il **sito Web predefinito** è stato arrestato in IIS
 - **DemoWebApp111** è stato avviato in IIS, ma non ha ricevuto alcuna richiesta. Questo report mostra che non è presente alcun processo in esecuzione (ProcessId: non trovato).
-- **DemoWebApp22** è in esecuzione e viene monitorato (Instrumented: true). In base alla configurazione utente, la chiave di strumentazione xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 è stata abbinata per questo sito.
-- **DemoWebApp333** è stato instrumentato manualmente utilizzando Application Insights SDK. Status Monitor ha rilevato l'SDK e non monitora questo sito.
+- **DemoWebApp222** è in esecuzione e viene monitorato (instrumentato: true). In base alla configurazione dell'utente, la chiave di strumentazione xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 è stata trovata per questo sito.
+- **DemoWebApp333** è stato instrumentato manualmente con Application Insights SDK. Status Monitor ha rilevato l'SDK e non monitorerà il sito.
 
 
-#### <a name="example-powershell-module-information"></a>Esempio: informazioni sui moduli di PowerShellExample: PowerShell module information
+#### <a name="example-powershell-module-information"></a>Esempio: informazioni sui moduli di PowerShell
 
-Eseguire il `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` comando per visualizzare informazioni sul modulo corrente:
+Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` per visualizzare le informazioni sul modulo corrente:
 
 ```powershell
 
@@ -388,11 +388,11 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-#### <a name="example-runtime-status"></a>Esempio: stato di runtimeExample: Runtime status
+#### <a name="example-runtime-status"></a>Esempio: stato di runtime
 
-È possibile esaminare il processo sul computer instrumentato per verificare se tutte le DLL sono caricate. Se il monitoraggio funziona, è necessario caricare almeno 12 DLL.
+È possibile esaminare il processo nel computer instrumentato per verificare se tutte le dll sono state caricate. Se il monitoraggio è funzionante, è necessario caricare almeno 12 dll.
 
-Eseguire il `Get-ApplicationInsightsMonitoringStatus -InspectProcess`comando :
+Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -431,29 +431,29 @@ listdlls64.exe -accepteula w3wp
 #### <a name="no-parameters"></a>(Nessun parametro)
 
 Per impostazione predefinita, questo cmdlet segnalerà lo stato di monitoraggio delle applicazioni Web.
-Utilizzare questa opzione per verificare se l'applicazione è stata instrumentata correttamente.
-È inoltre possibile verificare quale chiave di strumentazione è stata abbinata al sito.
+Usare questa opzione per verificare se l'applicazione è stata instrumentata correttamente.
+È anche possibile esaminare la chiave di strumentazione di cui è stata trovata una corrispondenza per il sito.
 
 
-#### <a name="-powershellmodule"></a>-Modulo di PowerShell
-**Facoltativo**. Utilizzare questa opzione per segnalare i numeri di versione e i percorsi delle DLL necessari per il monitoraggio.
-Utilizzare questa opzione se è necessario identificare la versione di qualsiasi DLL, incluso Application Insights SDK.
+#### <a name="-powershellmodule"></a>-PowerShellModule
+**Facoltativo**. Usare questa opzione per segnalare i numeri di versione e i percorsi delle DLL necessarie per il monitoraggio.
+Usare questa opzione se è necessario identificare la versione di qualsiasi DLL, incluso il Application Insights SDK.
 
 #### <a name="-inspectprocess"></a>-InspectProcess
 
 **Facoltativo**. Utilizzare questa opzione per segnalare se IIS è in esecuzione.
-Verranno inoltre scaricati gli strumenti esterni per determinare se le DLL necessarie vengono caricate nel runtime di IIS.
+Verranno inoltre scaricati gli strumenti esterni per determinare se le DLL necessarie sono state caricate nel runtime IIS.
 
 
-Se questo processo non riesce per qualsiasi motivo, è possibile eseguire questi comandi manualmente:If this process fails for any reason, you can run these commands manually:
-- iisreset.exe /status
-- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp findstr /I "InstrumentationEngine AI. ApplicationInsights"
-- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp findstr /I "InstrumentationEngine AI ApplicationInsights"
+Se il processo ha esito negativo per qualsiasi motivo, è possibile eseguire questi comandi manualmente:
+- iisreset. exe/status
+- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
+- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
 
-**Facoltativo**. Utilizzato solo con InspectProcess. Utilizzare questa opzione per ignorare il prompt dell'utente visualizzato prima del download di altri strumenti.
+**Facoltativo**. Utilizzato solo con InspectProcess. Usare questa opzione per ignorare la richiesta dell'utente visualizzata prima del download di altri strumenti.
 
 
 ## <a name="set-applicationinsightsmonitoringconfig"></a>Set-ApplicationInsightsMonitoringConfig
@@ -467,21 +467,21 @@ Riavviare IIS per rendere effettive le modifiche.
 
 ### <a name="examples"></a>Esempi
 
-#### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazioneExample with a single instrumentation key
-In questo esempio, a tutte le app nel computer corrente verrà assegnata una singola chiave di strumentazione.
+#### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazione
+In questo esempio, a tutte le app nel computer corrente verrà assegnata una sola chiave di strumentazione.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-#### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazioneExample with an instrumentation key map
+#### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
 Esempio:
-- `MachineFilter`corrisponde al computer corrente `'.*'` utilizzando il carattere jolly.
-- `AppFilter='WebAppExclude'`fornisce `null` una chiave di strumentazione. L'app specificata non verrà instrumentata.
+- `MachineFilter`corrisponde al computer corrente usando il `'.*'` carattere jolly.
+- `AppFilter='WebAppExclude'`fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
 - `AppFilter='WebAppOne'`assegna all'app specificata una chiave di strumentazione univoca.
 - `AppFilter='WebAppTwo'`assegna all'app specificata una chiave di strumentazione univoca.
-- Infine, `AppFilter` usa `'.*'` anche il carattere jolly per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
-- Gli spazi vengono aggiunti per la leggibilità.
+- Infine, `AppFilter` usa anche il `'.*'` carattere jolly per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
+- Gli spazi vengono aggiunti per migliorare la leggibilità.
 
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
@@ -493,38 +493,38 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 
 ### <a name="parameters"></a>Parametri
 
-#### <a name="-instrumentationkey"></a>-InstrumentationKey (Chiave di Strumentazione)
-**Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione per l'utilizzo da parte di tutte le app nel computer di destinazione.
+#### <a name="-instrumentationkey"></a>-InstrumentationKey
+**Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
 
-#### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap (mappa delle chiavi di strumentazione)
-**Obbligatorio.** Usare questo parametro per fornire più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
-È possibile creare un singolo script `MachineFilter`di installazione per più computer impostando .
+#### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
+**Obbligatorio.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
+È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter`.
 
 > [!IMPORTANT]
-> Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Quindi è necessario specificare prima le regole più specifiche per ultime e le regole più generiche.
+> Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
 
 ##### <a name="schema"></a>SCHEMA
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter** è un'espressione regolare c'è obbligatoria del nome del computer o della macchina virtuale.
-    - '.' corrisponderà a tutti
-    - 'ComputerName' corrisponderà solo ai computer con il nome specificato.
-- **AppFilter** è un'espressione regolare c'è obbligatoria del nome del computer o della macchina virtuale.
-    - '.' corrisponderà a tutti
-    - 'ApplicationName' corrisponderà solo alle app IIS con il nome specificato.
+- **MachineFilter** è un'espressione regolare C# obbligatoria del nome del computer o della macchina virtuale.
+    - '. *' corrisponderà a tutti
+    - ' ComputerName ' corrisponderà solo ai computer con il nome specificato.
+- **AppFilter** è un'espressione regolare C# obbligatoria del nome del computer o della macchina virtuale.
+    - '. *' corrisponderà a tutti
+    - ' ApplicationName ' corrisponderà solo alle app IIS con il nome specificato.
 - **InstrumentationKey** è necessario per abilitare il monitoraggio delle app che corrispondono ai due filtri precedenti.
-    - Lasciare null questo valore se si desidera definire regole per escludere il monitoraggio.
+    - Lasciare questo valore null se si desidera definire regole per escludere il monitoraggio.
 
 
 #### <a name="-verbose"></a>-Verbose
-**Parametro comune.** Utilizzare questa opzione per visualizzare i registri dettagliati.
+**Parametro comune.** Usare questa opzione per visualizzare i log dettagliati.
 
 
 ### <a name="output"></a>Output
 
-Per impostazione predefinita, nessun output.
+Per impostazione predefinita, non viene restituito alcun output.
 
-##### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>Esempio di output dettagliato dall'impostazione del file di configurazione tramite -InstrumentationKeyExample verbose output from setting the config file via -InstrumentationKey
+##### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>Esempio di output dettagliato dall'impostazione del file di configurazione tramite-InstrumentationKey
 
 ```
 VERBOSE: Operation: InstallWithIkey
@@ -536,7 +536,7 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-##### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>Esempio di output dettagliato dall'impostazione del file di configurazione tramite -InstrumentationKeyMapExample verbose output from setting the config file via -InstrumentationKeyMap
+##### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>Esempio di output dettagliato dall'impostazione del file di configurazione tramite-InstrumentationKeyMap
 
 ```
 VERBOSE: Operation: InstallWithIkeyMap
@@ -552,53 +552,53 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 ## <a name="start-applicationinsightsmonitoringtrace"></a>Start-ApplicationInsightsMonitoringTrace
 
-Raccoglie gli [eventi ETW](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) dal runtime di collegamento senza codice. Questo cmdlet è un'alternativa all'esecuzione di [PerfView](https://github.com/microsoft/perfview).
+Raccoglie [gli eventi ETW](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) dal runtime di associazione non codificabile. Questo cmdlet rappresenta un'alternativa all'esecuzione di [PerfView](https://github.com/microsoft/perfview).
 
-Gli eventi raccolti verranno stampati sulla console in tempo reale e salvati in un file ETL. Il file ETL di output può essere aperto da [PerfView](https://github.com/microsoft/perfview) per ulteriori indagini.
+Gli eventi raccolti verranno stampati nella console in tempo reale e salvati in un file ETL. Il file ETL di output può essere aperto da [PerfView](https://github.com/microsoft/perfview) per un'analisi più approfondita.
 
-Questo cmdlet verrà eseguito fino a quando non raggiunge rà`Ctrl + C`la durata del timeout (5 minuti predefiniti) o verrà arrestato manualmente ( ).
+Questo cmdlet verrà eseguito fino a quando non raggiungerà la durata del timeout (valore predefinito di 5 minuti`Ctrl + C`) o verrà interrotto manualmente ().
 
 ### <a name="examples"></a>Esempi
 
 #### <a name="how-to-collect-events"></a>Come raccogliere gli eventi
 
-Normalmente ti chiediamo di raccogliere gli eventi per indagare sul motivo per cui l'applicazione non viene instrumentata.
+Normalmente si richiede di raccogliere gli eventi per esaminare il motivo per cui l'applicazione non viene instrumentata.
 
-Il runtime di connessione senza codice genererà eventi ETW all'avvio di IIS e all'avvio dell'applicazione.
+Il runtime di associazione codificata genera eventi ETW all'avvio di IIS e all'avvio dell'applicazione.
 
 Per raccogliere questi eventi:
-1. In una console cmd con `iisreset /stop` privilegi di amministratore, eseguire Per disattivare IIS e tutte le applicazioni Web.
+1. In una console CMD con privilegi di amministratore eseguire `iisreset /stop` per disattivare IIS e tutte le app Web.
 2. Esegui questo cmdlet
-3. In una console cmd con `iisreset /start` privilegi di amministratore, eseguire Per avviare IIS.
-4. Prova a passare all'app.
-5. Al termine del caricamento dell'app, puoi`Ctrl + C`interromperlo manualmente ( ) o attendere il timeout.
+3. In una console CMD con privilegi di amministratore eseguire `iisreset /start` per avviare IIS.
+4. Provare a passare all'app.
+5. Al termine del caricamento dell'app, è possibile arrestarla manualmente`Ctrl + C`() o attendere il timeout.
 
 #### <a name="what-events-to-collect"></a>Eventi da raccogliere
 
-Sono disponibili tre opzioni per la raccolta di eventi:You have three options when collecting events:
-1. Utilizzare l'opzione `-CollectSdkEvents` per raccogliere gli eventi generati da Application Insights SDK.
-2. Utilizzare l'opzione `-CollectRedfieldEvents` per raccogliere gli eventi generati da Status Monitor e Redfield Runtime. Questi registri sono utili per la diagnosi di IIS e l'avvio dell'applicazione.
-3. Utilizzare entrambe le opzioni per raccogliere entrambi i tipi di evento.
-4. Per impostazione predefinita, se non viene specificata alcuna opzione verranno raccolti entrambi i tipi di evento.
+Sono disponibili tre opzioni per la raccolta di eventi:
+1. Usare l'opzione `-CollectSdkEvents` per raccogliere gli eventi generati da Application Insights SDK.
+2. Usare l'opzione `-CollectRedfieldEvents` per raccogliere gli eventi generati da status monitor e dal runtime di Redfield. Questi log sono utili per la diagnosi di IIS e l'avvio dell'applicazione.
+3. Usare entrambe le opzioni per raccogliere entrambi i tipi di evento.
+4. Per impostazione predefinita, se non viene specificata alcuna opzione, verranno raccolti entrambi i tipi di evento.
 
 
 ### <a name="parameters"></a>Parametri
 
-#### <a name="-maxdurationinminutes"></a>-MaxDurationInMinuti
-**Facoltativa.** Utilizzare questo parametro per impostare per quanto tempo questo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
+#### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
+**Facoltativo.** Utilizzare questo parametro per impostare per quanto tempo lo script deve raccogliere gli eventi. Il valore predefinito è 5 minuti.
 
-#### <a name="-logdirectory"></a>-LogDirectory (informazioni in cui è stato fatto clic
-**Facoltativa.** Utilizzare questa opzione per impostare la directory di output del file ETL. Per impostazione predefinita, questo file verrà creato nella directory Moduli di PowerShell.By default, this file will be created in the PowerShell Modules directory. Il percorso completo verrà visualizzato durante l'esecuzione dello script.
+#### <a name="-logdirectory"></a>-LogDirectory
+**Facoltativo.** Usare questa opzione per impostare la directory di output del file ETL. Per impostazione predefinita, questo file verrà creato nella directory dei moduli di PowerShell. Il percorso completo verrà visualizzato durante l'esecuzione dello script.
 
 
 #### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Facoltativa.** Utilizzare questa opzione per raccogliere gli eventi di Application Insights SDK.
+**Facoltativo.** Usare questa opzione per raccogliere gli eventi di Application Insights SDK.
 
 #### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Facoltativa.** Utilizzare questa opzione per raccogliere eventi da Status Monitor e dal runtime di Redfield.
+**Facoltativo.** Usare questa opzione per raccogliere gli eventi da Status Monitor e dal runtime di Redfield.
 
 #### <a name="-verbose"></a>-Verbose
-**Parametro comune.** Utilizzare questa opzione per generare log dettagliati.
+**Parametro comune.** Usare questa opzione per restituire i log dettagliati.
 
 
 
@@ -638,17 +638,17 @@ Timeout Reached. Stopping...
 
   Visualizzare i dati di telemetria:
  - [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo.
-- [Cerca eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
-- Usa [l'analisi](../../azure-monitor/app/analytics.md) per query più avanzate.
+- Eseguire [ricerche negli eventi e nei log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
+- Usare [Analytics](../../azure-monitor/app/analytics.md) per query più avanzate.
 - [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
  
  Aggiungere altri dati di telemetria:
  - [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- [Aggiungere dati di telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e abilitare le chiamate di traccia.
-- [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) in modo da poter inserire chiamate di traccia e log.
+- Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
+- [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
  
- Fai di più con Application Insights Agent:
- - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) all'agente application Insights.Use our guide to troubleshoot Application Insights Agent.
+ Eseguire altre operazioni con Application Insights Agent:
+ - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
 
 
 

@@ -10,13 +10,13 @@ ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt
 ms.openlocfilehash: e65c781bd5cb62bdaa693b854caafd5f91fd497e
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732288"
 ---
-# <a name="get-started-with-device-twins-nodejs"></a>Introduzione ai dispositivi gemelli (Node.js)Get started with device twins (Node.js)
+# <a name="get-started-with-device-twins-nodejs"></a>Introduzione ai dispositivi gemelli (node. js)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
@@ -24,7 +24,7 @@ Al termine di questa esercitazione si avranno due app console Node.js:
 
 * **AddTagsAndQuery.js**, un'app back-end di Node.js, che aggiunge tag ed esegue query sui dispositivi gemelli.
 
-* **TwinSimulatedDevice.js**, un'app Node.js, che simula un dispositivo che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e segnala la relativa condizione di connettività.
+* **TwinSimulatedDevice. js**, un'app node. js, che simula un dispositivo che si connette all'hub Internet delle cose con l'identità del dispositivo creata in precedenza e segnala la condizione di connettività.
 
 > [!NOTE]
 > L'articolo [Azure IoT SDK](iot-hub-devguide-sdks.md) riporta informazioni sui componenti Azure IoT SDK che consentono di compilare le app back-end e per dispositivi.
@@ -34,11 +34,11 @@ Al termine di questa esercitazione si avranno due app console Node.js:
 
 Per completare questa esercitazione, sono necessari:
 
-* Node.js versione 10.0.x o successiva.
+* Node. js versione 10.0. x o successiva.
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica tramite la porta 8883.The device sample in this article uses MQTT protocol, which communicates over port 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -48,7 +48,7 @@ Per completare questa esercitazione, sono necessari:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoTGet the IoT hub connection string
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
 
 [!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
 
@@ -58,7 +58,7 @@ Per completare questa esercitazione, sono necessari:
 
 In questa sezione si crea a un'app console Node.js che aggiunge i metadati della posizione al dispositivo gemello associato a **myDeviceId**. Viene quindi effettuata una query dei dispositivi gemelli archiviati nell'hub IoT selezionando i dispositivi situati negli Stati Uniti e quindi quelli che segnalano una rete cellulare.
 
-1. Creare una nuova cartella vuota denominata **addtagsandqueryapp**. Nella cartella **addtagsandqueryapp** creare un nuovo file package.json immettendo il comando seguente al prompt dei comandi. Il `--yes` parametro accetta tutte le impostazioni predefinite.
+1. Creare una nuova cartella vuota denominata **addtagsandqueryapp**. Nella cartella **addtagsandqueryapp** creare un nuovo file package.json immettendo il comando seguente al prompt dei comandi. Il `--yes` parametro accetta tutti i valori predefiniti.
 
     ```cmd/sh
     npm init --yes
@@ -72,7 +72,7 @@ In questa sezione si crea a un'app console Node.js che aggiunge i metadati della
 
 3. Usando un editor di testo, creare un nuovo file **AddTagsAndQuery.js** nella cartella **addtagsandqueryapp**.
 
-4. Aggiungere il codice seguente al file **AddTagsAndQuery.js.** Sostituire `{iot hub connection string}` con la stringa di connessione dell'hub IoT copiata in Ottenere la stringa di [connessione dell'hub IoT](#get-the-iot-hub-connection-string).
+4. Aggiungere il codice seguente al file **AddTagsAndQuery. js** . Sostituire `{iot hub connection string}` con la stringa di connessione dell'hub Internet che è stata copiata in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
@@ -135,7 +135,7 @@ In questa sezione si crea a un'app console Node.js che aggiunge i metadati della
 
     Il codice precedente esegue due query: la prima seleziona solo i dispositivi gemelli tra quelli situati nello stabilimento **Redmond43** e la seconda affina la query per selezionare solo i dispositivi che sono anche connessi tramite la rete cellulare.
 
-    Quando il codice crea l'oggetto **query,** specifica il numero massimo di documenti restituiti nel secondo parametro. L'oggetto **query** contiene una proprietà booleana **hasMoreResults** che è possibile usare per richiamare i metodi **nextAsTwin** più volte per recuperare tutti i risultati. Un metodo chiamato **next** è disponibile per i risultati che non sono dispositivi gemelli, ad esempio i risultati delle query di aggregazione.
+    Quando il codice crea l'oggetto **query** , specifica il numero massimo di documenti restituiti nel secondo parametro. L'oggetto **query** contiene una proprietà booleana **hasMoreResults** che è possibile usare per richiamare i metodi **nextAsTwin** più volte per recuperare tutti i risultati. Un metodo chiamato **Next** è disponibile per i risultati che non sono dispositivi gemelli, ad esempio i risultati delle query di aggregazione.
 
 6. Eseguire l'applicazione con:
 
@@ -145,7 +145,7 @@ In questa sezione si crea a un'app console Node.js che aggiunge i metadati della
 
    Nei risultati si noterà un dispositivo per la query che cerca tutti i dispositivi situati in **Redmond43** e nessuno per la query che limita i risultati ai dispositivi che usano una rete cellulare.
 
-   ![Visualizzare l'unico dispositivo nei risultati della query](media/iot-hub-node-node-twin-getstarted/service1.png)
+   ![Vedere l'unico dispositivo nei risultati della query](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 Nella sezione successiva si crea un'app per dispositivo che segnala le informazioni sulla connettività e modifica il risultato della query nella sezione precedente.
 
@@ -153,13 +153,13 @@ Nella sezione successiva si crea un'app per dispositivo che segnala le informazi
 
 In questa sezione si crea un'app console Node.js che si connette all'hub come **myDeviceId** e quindi aggiorna le proprietà segnalate del dispositivo gemello per poter contenere le informazioni relative alla connessione usando una rete cellulare.
 
-1. Creare una nuova cartella vuota denominata **reportconnectivity**. Nella cartella **reportconnectivity** creare un nuovo file package.json immettendo il comando seguente al prompt dei comandi. Il `--yes` parametro accetta tutte le impostazioni predefinite.
+1. Creare una nuova cartella vuota denominata **reportconnectivity**. Nella cartella **reportconnectivity** creare un nuovo file package.json immettendo il comando seguente al prompt dei comandi. Il `--yes` parametro accetta tutti i valori predefiniti.
 
     ```cmd/sh
     npm init --yes
     ```
 
-2. Al prompt dei comandi nella cartella **reportconnectivity** eseguire il comando seguente per installare i pacchetti **azure-iot-device**e **azure-iot-device-mqtt:**
+2. Eseguire il comando seguente al prompt dei comandi nella cartella **reportconnectivity** per installare i pacchetti **Azure-MQTT-Device**e **Azure--Device-** :
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -167,7 +167,7 @@ In questa sezione si crea un'app console Node.js che si connette all'hub come **
 
 3. Usando un editor di testo, creare un nuovo file **ReportConnectivity.js** nella cartella **reportconnectivity**.
 
-4. Aggiungere il codice seguente al file **ReportConnectivity.js.** Sostituire `{device connection string}` con la stringa di connessione del dispositivo copiata al momento della creazione dell'identità del dispositivo **myDeviceId** in [Registrare un nuovo dispositivo nell'hub IoT](#register-a-new-device-in-the-iot-hub).
+4. Aggiungere il codice seguente al file **ReportConnectivity. js** . Sostituire `{device connection string}` con la stringa di connessione del dispositivo copiata quando è stata creata l'identità del dispositivo **myDeviceId** in [registrare un nuovo dispositivo nell'hub Internet delle](#register-a-new-device-in-the-iot-hub)cose.
 
     ```javascript
         'use strict';
@@ -225,7 +225,7 @@ In questa sezione si crea un'app console Node.js che si connette all'hub come **
 
     Questa volta **myDeviceId** verrà visualizzato nei risultati di entrambe le query.
 
-    ![Mostra myDeviceId in entrambi i risultati della queryShow myDeviceId in both query results](media/iot-hub-node-node-twin-getstarted/service2.png)
+    ![Mostra myDeviceId in entrambi i risultati della query](media/iot-hub-node-node-twin-getstarted/service2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -233,8 +233,8 @@ In questa esercitazione è stato configurato un nuovo hub IoT nel Portale di Azu
 
 Per altre informazioni, vedere le risorse seguenti:
 
-* inviare dati di telemetria dai dispositivi con l'esercitazione [Introduzione all'hub IoT,](quickstart-send-telemetry-node.md)
+* per inviare dati di telemetria dai dispositivi, usare l'esercitazione [Introduzione all'hub](quickstart-send-telemetry-node.md) Internet.
 
-* configurare i dispositivi utilizzando le proprietà desiderate del dispositivo gemello con l'esercitazione [Usare le proprietà desiderate per configurare i dispositivi,](tutorial-device-twins.md)
+* configurare i dispositivi usando le proprietà desiderate del dispositivo gemello con l'esercitazione [usare le proprietà desiderate per configurare i dispositivi](tutorial-device-twins.md) .
 
-* controllare i dispositivi in modo interattivo (ad esempio l'attivazione di una ventola da un'app controllata dall'utente), con l'esercitazione [Usare metodi diretti.](quickstart-control-device-node.md)
+* controllare i dispositivi in modo interattivo, ad esempio l'accensione di una ventola da un'app controllata dall'utente, con l'esercitazione [usare i metodi diretti](quickstart-control-device-node.md) .

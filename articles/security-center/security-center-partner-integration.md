@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
 ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758065"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
@@ -26,24 +26,24 @@ Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Cent
 ## <a name="integrated-azure-security-solutions"></a>Soluzioni di sicurezza di Azure integrate
 Il Centro sicurezza semplifica l'abilitazione di soluzioni di sicurezza integrate in Azure. I vantaggi includono:
 
-- **Distribuzione semplificata**: il Centro sicurezza offre provisioning semplificato delle soluzioni dei partner integrate. Per soluzioni come la valutazione antimalware e vulnerabilità, il Centro sicurezza può eseguire il provisioning dell'agente nelle macchine virtuali. Per le appliance firewall, il Centro sicurezza può occuparsi di gran parte della configurazione di rete necessaria.
-- **Rilevamenti integrati:** gli eventi di sicurezza delle soluzioni partner vengono automaticamente raccolti, aggregati e visualizzati come parte degli avvisi e degli eventi del Centro sicurezza. Questi eventi vengono anche combinati con i rilevamenti di altre origini per offrire funzionalità avanzate di rilevamento delle minacce.
+- **Distribuzione semplificata**: il Centro sicurezza offre provisioning semplificato delle soluzioni dei partner integrate. Per soluzioni come antimalware e valutazione della vulnerabilità, il Centro sicurezza può effettuare il provisioning dell'agente nelle macchine virtuali. Per le appliance firewall, il Centro sicurezza può gestire la maggior parte delle configurazioni di rete necessarie.
+- **Rilevamenti integrati**: gli eventi di sicurezza delle soluzioni dei partner vengono raccolti, aggregati e visualizzati automaticamente come parte degli avvisi e degli eventi imprevisti del Centro sicurezza. Questi eventi vengono anche combinati con i rilevamenti di altre origini per offrire funzionalità avanzate di rilevamento delle minacce.
 - **Gestione e monitoraggio dell'integrità unificati**: i clienti possono usare eventi di integrità integrati per monitorare tutte le soluzioni dei partner in un attimo. Sono disponibili funzionalità di gestione di base, con un facile accesso alla configurazione avanzata con la soluzione partner.
 
-Attualmente, le soluzioni di sicurezza integrate includono la valutazione delle vulnerabilità da parte di [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e Microsoft Application Gateway Web application application application firewall.
+Attualmente, le soluzioni di sicurezza integrate includono la valutazione della vulnerabilità di [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e del Web Application Firewall del gateway applicazione Microsoft.
 
 > [!NOTE]
-> Il Centro sicurezza non installa l'agente Log Analytics nelle appliance virtuali partner perché la maggior parte dei fornitori di sicurezza proibisce gli agenti esterni in esecuzione sulle appliance.
+> Il Centro sicurezza non installa l'agente di Log Analytics in appliance virtuali partner perché la maggior parte dei fornitori di sicurezza impedisce l'esecuzione di agenti esterni nei propri dispositivi.
 
-Per ulteriori informazioni sull'integrazione degli strumenti di scansione delle vulnerabilità da Qualys, incluso uno scanner integrato disponibile per i clienti di livello standard, vedere: 
+Per ulteriori informazioni sull'integrazione degli strumenti di analisi delle vulnerabilità da Qualys, incluso uno scanner integrato disponibile per i clienti del livello standard, vedere: 
 
-- [Scanner di vulnerabilità integrato per macchine virtuali](built-in-vulnerability-assessment.md).
+- [Scanner di vulnerabilità integrato per le macchine virtuali](built-in-vulnerability-assessment.md).
 - [Distribuzione di una soluzione di analisi delle vulnerabilità dei partner](partner-vulnerability-assessment.md).
 
-Il Centro sicurezza offre anche l'analisi delle vulnerabilità per:
+Il Centro sicurezza offre anche l'analisi delle vulnerabilità per il:
 
-* Database SQL - vedere Esplorare i report di [valutazione della vulnerabilità nel dashboard di valutazione della vulnerabilità](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
-* Immagini del Registro di sistema del contenitore di Azure: vedere Integrazione del Registro di sistema del contenitore di [Azure con il Centro sicurezza (anteprima)Azure](azure-container-registry-integration.md) Container Registry images - see Azure Container Registry integration with Security Center (Preview)
+* Database SQL: vedere [esaminare i report di valutazione della vulnerabilità nel dashboard di valutazione della vulnerabilità](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* Immagini del Container Registry di Azure: vedere [integrazione di azure container Registry con il Centro sicurezza (anteprima)](azure-container-registry-integration.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Modalità di integrazione delle soluzioni di sicurezza
 Le soluzioni di sicurezza di Azure distribuite dal Centro sicurezza vengono connesse automaticamente. È anche possibile connettere altre origini dati di sicurezza, inclusi i computer in esecuzione in locale o in altri cloud.
@@ -52,34 +52,34 @@ Le soluzioni di sicurezza di Azure distribuite dal Centro sicurezza vengono conn
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gestire soluzioni di sicurezza di Azure integrate e altre origini dati
 
-1. Dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/)aprire **Centro sicurezza**.
+1. Dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/)aprire il **Centro sicurezza**.
 
-1. Dal menu del Centro sicurezza, selezionare **Soluzioni**di sicurezza .
+1. Dal menu del Centro sicurezza selezionare **soluzioni di sicurezza**.
 
-Nella pagina **Soluzioni** di sicurezza è possibile visualizzare l'integrità delle soluzioni di sicurezza di Azure integrate ed eseguire attività di gestione di base.
+Dalla pagina **soluzioni di sicurezza** è possibile visualizzare l'integrità delle soluzioni di sicurezza di Azure integrate ed eseguire attività di gestione di base.
 
 ### <a name="connected-solutions"></a>Soluzioni connesse
 
-La sezione **Soluzioni connesse** include soluzioni di sicurezza attualmente connesse al Centro sicurezza. Mostra anche lo stato di integrità di ogni soluzione.  
+La sezione **soluzioni connesse** include le soluzioni di sicurezza attualmente connesse al centro sicurezza. Mostra anche lo stato di integrità di ogni soluzione.  
 
 ![Soluzioni connesse](./media/security-center-partner-integration/connected-solutions.png)
 
 Una soluzione partner può avere uno degli stati seguenti:
 
-* **Sano** (verde) - nessun problema di salute.
-* **Non integro** (rosso) - c'è un problema di salute che richiede attenzione immediata.
-* **Interruzione della segnalazione** (arancione) - la soluzione ha smesso di segnalarne l'integrità.
-* **Non segnalato** (grigio) - la soluzione non ha ancora segnalato nulla e non sono disponibili dati sanitari. Lo stato di una soluzione potrebbe non essere segnalato se è stata connessa di recente ed è ancora in fase di distribuzione.
+* **Integro** (verde): nessun problema di integrità.
+* Non **integro** (rosso): si è verificato un problema di integrità che richiede attenzione immediata.
+* **Segnalazione interrotta** (arancione): la soluzione ha interrotto la segnalazione dello stato di integrità.
+* **Non segnalato** (grigio): la soluzione non ha ancora segnalato alcun dato e i dati di integrità non sono disponibili. Lo stato di una soluzione può non essere segnalato se è stato connesso di recente ed è ancora in distribuzione.
 
 > [!NOTE]
-> Se i dati relativi allo stato di integrità non sono disponibili, il Centro sicurezza mostra la data e l'ora dell'ultimo evento ricevuto, per indicare se la soluzione invia segnalazioni o meno. Se non sono disponibili dati sull'integrità e non sono stati ricevuti avvisi negli ultimi 14 giorni, il Centro sicurezza indica che la soluzione non è integra o non è stata segnalata.
+> Se i dati relativi allo stato di integrità non sono disponibili, il Centro sicurezza mostra la data e l'ora dell'ultimo evento ricevuto, per indicare se la soluzione invia segnalazioni o meno. Se non sono disponibili dati di integrità e non è stato ricevuto alcun avviso negli ultimi 14 giorni, il Centro sicurezza indica che la soluzione non è integra o non segnala.
 >
 >
 
-Selezionare **VISTA** per ulteriori informazioni e opzioni quali:
+Selezionare **Visualizza** per ulteriori informazioni e opzioni, ad esempio:
 
-   - **Console soluzione:** apre l'esperienza di gestione per questa soluzione.
-   - **Collega macchina virtuale** - Apre la pagina Collega applicazioni. In questo pannello è possibile connettere risorse alla soluzione del partner.
+   - **Console soluzione** : apre l'esperienza di gestione per questa soluzione.
+   - **Collega macchina virtuale** : apre la pagina collega applicazioni. In questo pannello è possibile connettere risorse alla soluzione del partner.
    - **Elimina soluzione**
    - **Configurare**
 
@@ -88,13 +88,13 @@ Selezionare **VISTA** per ulteriori informazioni e opzioni quali:
 
 ### <a name="discovered-solutions"></a>Discovered solutions (Soluzioni individuate)
 
-Il Centro sicurezza individua automaticamente le soluzioni di sicurezza in esecuzione in Azure ma non connesse al Centro sicurezza e visualizza le soluzioni nella sezione **Soluzioni individuate.** Queste soluzioni includono soluzioni di Azure, ad esempio [Azure AD Identity Protection,](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)e soluzioni per i partner.
+Il Centro sicurezza individua automaticamente le soluzioni di sicurezza in esecuzione in Azure ma non connesse al centro sicurezza e visualizza le soluzioni nella sezione **soluzioni individuate** . Queste soluzioni includono soluzioni di Azure, come [Azure ad Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)e soluzioni partner.
 
 > [!NOTE]
-> Il livello Standard del Centro sicurezza è necessario a livello di sottoscrizione per la funzionalità di soluzioni individuate. Per altre informazioni sui piani tariffari, vedere [Prezzi.](security-center-pricing.md)
+> Il livello Standard del Centro sicurezza è necessario a livello di sottoscrizione per la funzionalità di soluzioni individuate. Per altre informazioni sui piani tariffari, vedere [prezzi](security-center-pricing.md) .
 >
 
-Selezionare **CONNECT** in una soluzione per l'integrazione con il Centro sicurezza e ricevere una notifica degli avvisi di sicurezza.
+Selezionare **Connetti** in una soluzione per l'integrazione con il Centro sicurezza e ricevere notifiche relative agli avvisi di sicurezza.
 
 ### <a name="add-data-sources"></a>Aggiungere origini dati
 
@@ -106,7 +106,7 @@ La sezione **Aggiungi origini dati** include altre origini dati disponibili che 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come integrare soluzioni partner nel Centro sicurezza. Per informazioni correlate, vedere gli articoli seguenti:For related information, see the following articles:
+In questo articolo è stato illustrato come integrare soluzioni partner nel Centro sicurezza. Per informazioni correlate, vedere gli articoli seguenti:
 
-* [Esportare avvisi e consigli di sicurezza](continuous-export.md). Informazioni su come configurare un'integrazione con Azure Sentinel o qualsiasi altro SIEM.
+* [Esportare avvisi e raccomandazioni sulla sicurezza](continuous-export.md). Informazioni su come configurare un'integrazione con Sentinel di Azure o qualsiasi altro SIEM.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.

@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: bfd000e2b69f052e25f0ea6cd286b0ca3aef7519
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759715"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Supportare altri protocolli per l'hub IoT
@@ -48,4 +48,4 @@ Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, ve
 
 * [Ridimensionamento, disponibilità elevata e ripristino di emergenza](iot-hub-scaling.md)
 
-* [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide.md)
+* [Guida per gli sviluppatori dell'hub Internet](iot-hub-devguide.md)

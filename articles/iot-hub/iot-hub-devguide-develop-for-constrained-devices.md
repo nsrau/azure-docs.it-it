@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Develop for Constrained Devices using IoT Hub C SDK
+title: Sviluppo di hub Internet degli Azure per i dispositivi vincolati con l'SDK C dell'hub
 description: 'Guida per sviluppatori: materiale sussidiario sulle modalità di sviluppo tramite Azure IoT SDK per i dispositivi vincolati.'
 author: robinsh
 ms.service: iot-hub
@@ -11,17 +11,17 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733195"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Sviluppare per dispositivi vincolati tramite Azure IoT C SDK
 
 L'SDK C dell'hub IoT di Azure è scritto in ANSI C (C99), che lo rende particolarmente adatto per il funzionamento su una vasta gamma di piattaforme con footprint di memoria e disco ridotto. La quantità di RAM consigliata è almeno 64 KB, ma il footprint di memoria esatto varia in base al protocollo usato, al numero di connessioni aperte e alla piattaforma di destinazione.
 > [!NOTE]
-> * Azure IoT C SDK pubblica regolarmente le informazioni sul consumo di risorse per facilitare lo sviluppo.  Si prega di visitare il nostro [repository GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) ed rivedere l'ultimo benchmark.
+> * Azure le informazioni sul consumo di risorse di Azure sono regolarmente pubblicate per semplificare lo sviluppo.  Visitare il [repository GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) ed esaminare il benchmark più recente.
 >
 
 L'SDK C è disponibile in forma di pacchetto da apt-get, NuGet e MBED. Per fare riferimento ai dispositivi vincolati, è possibile compilare l'SDK in locale per la piattaforma di destinazione. Questa documentazione illustra come rimuovere alcune funzionalità per ridurre il footprint dell'SDK C usando [cmake](https://cmake.org/). Inoltre, questa documentazione presenta i modelli di programmazione consigliati per l'uso con i dispositivi vincolati.

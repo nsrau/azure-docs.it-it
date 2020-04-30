@@ -1,5 +1,5 @@
 ---
-title: Porta anteriore di Azure - metodi di instradamento del traffico Documenti Microsoft
+title: Sportello anteriore di Azure-metodi di routing del traffico | Microsoft Docs
 description: Questo articolo fornisce informazioni sui diversi metodi di routing del traffico usati da Frontdoor
 services: front-door
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687800"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
 
-La porta frontale di Azure supporta vari metodi di routing del traffico per determinare come instradare il traffico HTTP/HTTPS ai vari endpoint del servizio. Per ognuna delle richieste client che raggiunge Frontdoor, viene applicato il metodo di routing configurato per garantire che le richieste vengano inoltrate all'istanza di back-end migliore. 
+Lo sportello anteriore di Azure supporta vari metodi di routing del traffico per determinare come indirizzare il traffico HTTP/HTTPS ai vari endpoint di servizio. Per ognuna delle richieste client che raggiunge Frontdoor, viene applicato il metodo di routing configurato per garantire che le richieste vengano inoltrate all'istanza di back-end migliore. 
 
 Esistono quattro concetti principali in relazione al routing del traffico in Frontdoor:
 
 * **[Latenza](#latency):** il routing basato sulla latenza assicura che le richieste vengano inviate al back-end con la latenza più bassa accettabile all'interno di un intervallo di sensibilità. Sostanzialmente, le richieste utente vengono inviate al set di back-end "più vicino" rispetto alla latenza della rete.
-* ** [Priorità](#priority):** È possibile assegnare priorità ai diversi back-end quando si desidera utilizzare un back-end del servizio primario per tutto il traffico e fornire backup nel caso in cui il server primario o il back-end di backup non siano disponibili.
+* ** [Priorità](#priority):** È possibile assegnare le priorità ai back-end diversi quando si vuole usare un back-end del servizio primario per tutto il traffico e fornire backup nel caso in cui il back-end primario o di backup non sia disponibile.
 * **[Peso](#weighted):** è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set back-end, in modo uniforme o in base ai coefficienti di peso.
 * **[Affinità di sessione](#affinity):** è possibile configurare l'affinità di sessione per gli host o i domini front-end quando le richieste successive da un utente devono essere inviate allo stesso back-end, a condizione che la sessione utente sia ancora attiva e l'istanza di back-end sia ancora segnalata come integra in base ai probe di integrità. 
 
@@ -33,7 +33,7 @@ Tutte le configurazioni di Frontdoor includono il monitoraggio dell'integrità b
 
 ## <a name="lowest-latencies-based-traffic-routing"></a><a name = "latency"></a>Routing del traffico in base alla latenza più bassa
 
-La velocità di risposta di molte applicazioni può essere migliorata distribuendo i back-end in due o più posizioni a livello globale e indirizzando il traffico alla posizione più vicina agli utenti finali. Il metodo predefinito di routing del traffico per la configurazione di Frontdoor inoltra le richieste dagli utenti finali al back-end più vicino dall'ambiente Frontdoor che ha ricevuto la richiesta. In combinazione con l'architettura Anycast di Azure Front Door, questo approccio garantisce che ogni utente finale ottpiano le massime prestazioni personalizzate in base alla posizione.
+La velocità di risposta di molte applicazioni può essere migliorata distribuendo i back-end in due o più posizioni a livello globale e indirizzando il traffico alla posizione più vicina agli utenti finali. Il metodo predefinito di routing del traffico per la configurazione di Frontdoor inoltra le richieste dagli utenti finali al back-end più vicino dall'ambiente Frontdoor che ha ricevuto la richiesta. In combinazione con l'architettura Anycast di Azure front door, questo approccio garantisce che ogni utente finale ottenga le massime prestazioni personalizzate in base alla propria posizione.
 
 Il back-end più vicino non è necessariamente il più vicino in termini di distanza geografica. Frontdoor determina invece il back-end più vicino misurando la latenza di rete. Per altre informazioni, vedere [Front Door's routing architecture](front-door-routing-architecture.md) (Architettura di routing di Frontdoor). 
 
@@ -55,7 +55,7 @@ Il sistema Frontdoor predefinito contiene un elenco con uguale priorità dei bac
 
 ### <a name="configuring-priority-for-backends"></a>Configurazione della priorità per i back-end
 
-Ognuno dei back-end nel pool back-end all'interno della configurazione di Frontdoor include una proprietà denominata "Priorità", che può essere un numero compreso tra 1 e 5. Con lo sportello frontale di Azure è possibile configurare la priorità di back-end in modo esplicito usando questa proprietà per ogni back-end. Questa proprietà accetta un valore compreso tra 1 e 5, dove i valori più bassi rappresentano una priorità più elevata. I back-end possono condividere i valori di priorità.
+Ognuno dei back-end nel pool back-end all'interno della configurazione di Frontdoor include una proprietà denominata "Priorità", che può essere un numero compreso tra 1 e 5. Con Azure front door è possibile configurare la priorità di back-end in modo esplicito usando questa proprietà per ogni back-end. Questa proprietà accetta un valore compreso tra 1 e 5, dove i valori più bassi rappresentano una priorità più elevata. I back-end possono condividere i valori di priorità.
 
 ## <a name="weighted-traffic-routing-method"></a><a name = "weighted"></a>Metodo di routing del traffico Ponderato
 Il metodo di routing del traffico "Ponderato" consente di distribuire il traffico tra tutti gli endpoint in modo uniforme o con un peso predefinito.
@@ -71,7 +71,7 @@ Il metodo "Ponderato" abilita alcuni scenari utili:
 * **Espansione del cloud per capacità aggiuntiva**: espandere rapidamente una distribuzione locale nel cloud posizionandola dietro Frontdoor. In caso di necessità di capacità aggiuntiva nel cloud, si possono aggiungere o abilitare più back-end e si può specificare la quantità di traffico da indirizzare a ogni back-end.
 
 ## <a name="session-affinity"></a><a name = "affinity"></a>Affinità di sessione
-Per impostazione predefinita, senza affinità di sessione, Front Door inoltra le richieste provenienti dallo stesso client a back-end diversi in base alla configurazione di bilanciamento del carico, in particolare quando le latenze a back-end diversi cambiano o se richieste diverse dello stesso utente atterrano su un ambiente Front Door diverso. Tuttavia, per alcune applicazioni con stato o in determinati scenari è preferibile inoltrare le richieste successive dallo stesso utente allo stesso back-end che ha elaborato la richiesta iniziale. L'affinità di sessione basata su cookie è utile quando si vuole mantenere una sessione utente nello stesso back-end. Utilizzando i cookie gestiti Front Door, il front door di Azure può indirizzare il traffico successivo da una sessione utente allo stesso back-end per l'elaborazione, purché il back-end sia integro e la sessione utente non sia scaduta. 
+Per impostazione predefinita, senza affinità di sessione, il portello anteriore Invia le richieste provenienti dallo stesso client a backend diversi in base alla configurazione del bilanciamento del carico in particolare come le latenze per i diversi backend cambiano o se le richieste diverse provenienti dallo stesso utente vengono riportate in un altro ambiente di front-end. Tuttavia, per alcune applicazioni con stato o in determinati scenari è preferibile inoltrare le richieste successive dallo stesso utente allo stesso back-end che ha elaborato la richiesta iniziale. L'affinità di sessione basata su cookie è utile quando si vuole mantenere una sessione utente nello stesso back-end. Usando i cookie gestiti della porta anteriore, l'ingresso di Azure può indirizzare il traffico successivo da una sessione utente allo stesso back-end per l'elaborazione, purché il back-end sia integro e la sessione utente non sia scaduta. 
 
 L'affinità di sessione può essere abilitata a livello di host front-end per tutti i domini (o i sottodomini) configurati. Una volta abilitata, Frontdoor aggiunge un cookie alla sessione dell'utente. L'affinità di sessione basata su cookie consente a Frontdoor di identificare i diversi utenti, anche se usano lo stesso indirizzo IP, permettendo una distribuzione più uniforme del traffico tra back-end differenti.
 
@@ -80,7 +80,7 @@ La durata del cookie corrisponde a quella della sessione utente, perché Frontdo
 > [!NOTE]
 > I proxy pubblici possono interferire con l'affinità di sessione, perché per stabilire una sessione è necessario che Frontdoor aggiunga un cookie di affinità di sessione nella risposta, operazione che non può essere eseguita se la risposta è memorizzabile nella cache, in quanto potrebbe compromettere i cookie di altri client che richiedono la stessa risorsa. Per proteggersi da questa situazione, l'affinità di sessione **non** verrà stabilita se il back-end invia una risposta memorizzabile nella cache quando si tenta di eseguire questa operazione. Se la sessione è già stata stabilita, non importa se la risposta dal back-end è memorizzabile nella cache.
 > L'affinità di sessione verrà stabilita nelle circostanze seguenti, **a meno che** la risposta non abbia un codice di stato HTTP 304:
-> - La risposta ha valori ```Cache-Control``` specifici impostati per l'intestazione che impedisce la memorizzazione nella cache, ad esempio "private" o no-store".
+> - Per la risposta sono stati impostati valori specifici ```Cache-Control``` per l'intestazione che impedisce la memorizzazione nella cache, ad esempio "privato" o nessun archivio ".
 > - La risposta contiene un'intestazione ```Authorization``` non scaduta.
 > - La risposta contiene un codice di stato HTTP 302.
 

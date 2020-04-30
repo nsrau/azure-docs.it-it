@@ -1,6 +1,6 @@
 ---
-title: Disponibilità geografica e supporto valutario per il mercato commerciale Azure Marketplace
-description: Disponibilità geografica sul mercato commerciale
+title: Disponibilità geografica e supporto della valuta per il Marketplace commerciale | Azure Marketplace
+description: Disponibilità geografica nel Marketplace commerciale
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
 ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687580"
 ---
-# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilità geografica e supporto valutario per il mercato commerciale
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilità geografica e supporto della valuta per il Marketplace commerciale
 
-Le offerte del mercato commerciale possono essere acquistate in 141 aree geografiche definite dall'indirizzo di fatturazione del cliente e le transazioni possono essere completate in 17 valute. La tabella seguente elenca ogni posizione geografica supportata, il [relativo codice alfa a due cifre ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
+Le offerte del Marketplace commerciale possono essere acquistate in aree geografiche 141 come definito dall'indirizzo di fatturazione del cliente e le transazioni possono essere completate in 17 valute. Nella tabella seguente sono elencate tutte le posizioni geografiche supportate, il [codice alfa ISO 3166 2 cifre](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
 
-|   Nome paese/area geografica               |   ISO-2   |   Valuta   |
+|   Nome del paese/area geografica               |   ISO-2   |   Valuta   |
 |-------------------------------------|-----------|--------------|
 | Afghanistan                         | AF        | USD          |
 | Albania                             | AL        | USD          |
@@ -53,7 +53,7 @@ Le offerte del mercato commerciale possono essere acquistate in 141 aree geograf
 | Costa Rica                          | CR        | USD          |
 | Côte d’Ivoire (Costa d'Avorio)                       | CI        | USD          |
 | Croazia                             | HR        | EUR          |
-| Curaçao                             | Cw        | USD          |
+| Curaçao                             | CW        | USD          |
 | Cipro                              | CY        | EUR          |
 | Repubblica ceca                      | CZ        | EUR          |
 | Danimarca                             | DK        | DKK          |
@@ -107,7 +107,7 @@ Le offerte del mercato commerciale possono essere acquistate in 141 aree geograf
 | Mongolia                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marocco                             | MA        | USD          |
-| Namibia                             | ND        | USD          |
+| Namibia                             | N/D        | USD          |
 | Nepal                               | NP        | USD          |
 | Paesi Bassi                         | NL        | EUR          |
 | Nicaragua                           | NI        | USD          |
@@ -149,7 +149,7 @@ Le offerte del mercato commerciale possono essere acquistate in 141 aree geograf
 | Turchia                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
 | Città del Vaticano (Santa Sede)             | VA        | EUR          |
-| Isole Vergini degli Stati Uniti | VI        | USD          |
+| Isole Vergini della Stati Uniti | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ucraina                             | UA        | USD          |
 | Emirati Arabi Uniti                | AE        | USD          |
@@ -164,6 +164,6 @@ Le offerte del mercato commerciale possono essere acquistate in 141 aree geograf
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\*Per i clienti in Brasile, il Marketplace tramite Cloud Solution Provider (CSP) utilizza USD.
+\*Per i clienti in Brasile, il Marketplace tramite Cloud Solution Provider (CSP) USA USD.
 
-\*- Solo immagini VM gratuite e BYOL.
+\** Solo immagini di VM BYOL e gratuite.

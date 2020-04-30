@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/01/2020
 ms.custom: mqtt
 ms.openlocfilehash: 3bec3d19ed68b7eb8bb50baa8f6c11135ef778cc
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731474"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
@@ -59,7 +59,7 @@ Un dispositivo gemello è un documento JSON che include:
 
 * **Proprietà segnalate**. Sono usate insieme alle proprietà desiderate per sincronizzare la configurazione o le condizioni del dispositivo. L'app per dispositivo è in grado di impostare le proprietà segnalate, mentre il back-end della soluzione è in grado di fare delle query.
 
-* **Proprietà dell'identità del dispositivo**. La radice del documento JSON del dispositivo gemello contiene le proprietà di sola lettura dell'identità del dispositivo corrispondente archiviata nel [registro delle identità](iot-hub-devguide-identity-registry.md). Proprietà `connectionStateUpdatedTime` `generationId` e non saranno incluse.
+* **Proprietà di identità del dispositivo**. La radice del documento JSON del dispositivo gemello contiene le proprietà di sola lettura dell'identità del dispositivo corrispondente archiviata nel [registro delle identità](iot-hub-devguide-identity-registry.md). Le `connectionStateUpdatedTime` proprietà `generationId` e non verranno incluse.
 
 ![Screenshot delle proprietà del dispositivo gemello](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -145,7 +145,7 @@ Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gem
    }
    ```
 
-3. Il back-end della soluzione può tenere traccia dei risultati dell'operazione di configurazione su molti dispositivi eseguendo [query sui](iot-hub-devguide-query-language.md) dispositivi gemelli.
+3. Il back-end della soluzione può tenere traccia dei risultati dell'operazione di configurazione in molti dispositivi eseguendo una [query](iot-hub-devguide-query-language.md) sui dispositivi gemelli.
 
 > [!NOTE]
 > I frammenti di codice precedenti sono esempi ottimizzati per una migliore leggibilità, di un modo per codificare una configurazione del dispositivo e il relativo stato. L'hub IoT non impone uno schema specifico per l'uso delle proprietà desiderate e segnalate del dispositivo gemello nei dispositivi gemelli.
@@ -157,7 +157,7 @@ Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gem
 
 Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti operazioni atomiche esposte tramite HTTPS:
 
-* **Recuperare il dispositivo gemello in base all'ID**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà di sistema desiderate e segnalate.
+* **Recuperare i dispositivi gemelli in base all'ID**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà di sistema desiderate e segnalate.
 
 * **Aggiornare parzialmente il dispositivo gemello**. Questa operazione consente al back-end della soluzione di aggiornare parzialmente i tag o le proprietà desiderate di un dispositivo gemello. L'aggiornamento parziale è espresso come documento JSON che aggiunge o aggiorna tutte le proprietà. Le proprietà impostate su `null` vengono rimosse. L'esempio seguente crea una nuova proprietà desiderata con valore `{"newProperty": "newValue"}`, sostituisce il valore esistente di `existingProperty` con `"otherNewValue"`, e rimuove `otherOldProperty`. Non vengono apportate altre modifiche alle altre proprietà desiderate o ai tag esistenti:
 
@@ -192,14 +192,14 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
     deviceId | ID del dispositivo |
     hubName | Nome dell'hub IoT |
     operationTimestamp | Timestamp [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) dell'operazione |
-    iothub-message-schema | twinChangeNotification (notifica di modifica |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" o "updateTwin" |
 
     Le proprietà di sistema del messaggio hanno come prefisso il simbolo `$`.
 
   - Corpo
         
-    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Utilizza lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni gemelle: tag, properties.reported, properties.desired e che contiene gli elementi "$metadata". Ad esempio,
+    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. USA lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni gemelle: Tag, Properties. reported, Properties. desired, e che contiene gli elementi "$metadata". Ad esempio,
 
     ```json
     {
@@ -232,7 +232,7 @@ Oltre a queste operazioni, il back-end della soluzione può:
 
 Il dispositivo opera sul dispositivo gemello usando le seguenti operazioni atomiche:
 
-* **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello (incluse le proprietà di sistema desiderate e segnalate) per il dispositivo attualmente connesso. I tag non sono visibili alle app per dispositivi.
+* **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello (incluse le proprietà di sistema desiderate e segnalate) per il dispositivo attualmente connesso. I tag non sono visibili per le app per dispositivi.
 
 * **Aggiornamento parziale delle proprietà segnalate**. Questa operazione consente l'aggiornamento parziale delle proprietà segnalate del dispositivo attualmente connesso. Questa operazione usa lo stesso formato di aggiornamento JSON che il back-end della soluzione usa per un aggiornamento parziale delle proprietà desiderate.
 
@@ -246,15 +246,15 @@ Tutte le operazioni precedenti richiedono l'autorizzazione **DeviceConnect**, co
 
 I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle restrizioni indicate di seguito:
 
-* **Chiavi**: Tutte le chiavi negli oggetti JSON hanno una lunghezza codificata in UTF-8, con distinzione tra maiuscole e minuscole e fino a 1 KB. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, `$` e SP.
+* **Chiavi**: tutte le chiavi negli oggetti JSON sono con codifica UTF-8, con distinzione tra maiuscole e minuscole e con lunghezza fino a 1 KB. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, `$` e SP.
 
-* **Valori:** tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: boolean, number, string, object. Non sono consentite le matrici.
+* **Valori**: tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: Boolean, Number, String, Object. Non sono consentite le matrici.
 
-    * Gli numeri interi possono avere un valore minimo di -4503599627370496 e un valore massimo di 4503599627370495.
+    * I numeri interi possono avere un valore minimo di-4503599627370496 e un valore massimo pari a 4503599627370495.
 
-    * I valori stringa sono codificati UTF-8 e possono avere una lunghezza massima di 4 KB.
+    * I valori stringa sono codificati in UTF-8 e possono avere una lunghezza massima di 4 KB.
 
-* **Profondità**: La profondità massima degli oggetti JSON nei tag, nelle proprietà desiderate e nelle proprietà segnalate è 10. Ad esempio, il seguente oggetto è valido:
+* **Depth**: la profondità massima degli oggetti JSON nei tag, le proprietà desiderate e le proprietà segnalate sono 10. Ad esempio, l'oggetto seguente è valido:
 
    ```json
    {
@@ -288,21 +288,21 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
 
 ## <a name="device-twin-size"></a>Dimensioni del dispositivo gemello
 
-L'hub IoT applica un limite di `tags`dimensione di 8 KB al valore `properties/desired` di `properties/reported`, e un limite di dimensione di 32 KB ciascuno sul valore di e . Questi totali sono esclusivi di `$etag`elementi `$version`di `$metadata/$lastUpdated`sola lettura come , , e .
+L'hub Internet delle cose impone un limite di dimensioni di 8 KB sul `tags`valore di e una dimensione di 32 KB per ogni valore di `properties/desired` e `properties/reported`. Questi totali sono esclusivi di elementi di sola lettura come `$etag`, `$version`e. `$metadata/$lastUpdated`
 
-La dimensione del gemello viene calcolata come segue:
+Le dimensioni del dispositivo gemello vengono calcolate come segue:
 
-* Per ogni proprietà nel documento JSON, IoT Hub calcola e aggiunge cumulativamente la lunghezza della chiave e del valore della proprietà.
+* Per ogni proprietà nel documento JSON, l'hub Internet viene calcolato cumulativamente e viene aggiunta la lunghezza della chiave e del valore della proprietà.
 
-* Le chiavi di proprietà sono considerate stringhe con codifica UTF8.
+* Le chiavi delle proprietà sono considerate stringhe con codifica UTF8.
 
 * I valori di proprietà semplici sono considerati stringhe con codifica UTF8, valori numerici (8 byte) o valori booleani (4 byte).
 
-* La dimensione delle stringhe con codifica UTF8 viene calcolata contando tutti i caratteri, esclusi i caratteri di controllo UNICODE (segmenti C0 e C1).
+* Le dimensioni delle stringhe con codifica UTF8 vengono calcolate contando tutti i caratteri, esclusi i caratteri di controllo UNICODE (segmenti C0 e C1).
 
-* I valori delle proprietà complesse (oggetti nidificati) vengono calcolati in base alle dimensioni di aggregazione delle chiavi di proprietà e dei valori di proprietà che contengono.
+* I valori di proprietà complesse (oggetti annidati) vengono calcolati in base alle dimensioni aggregate delle chiavi di proprietà e dei valori delle proprietà in essi contenuti.
 
-L'hub IoT rifiuta con un errore tutte `tags`le `properties/desired`operazioni `properties/reported` che aumenterebbero le dimensioni dei documenti , o al di sopra del limite.
+L'hub cose rifiuta con un errore tutte le operazioni che aumentano le dimensioni dei `tags`documenti `properties/desired`, o `properties/reported` oltre il limite.
 
 ## <a name="device-twin-metadata"></a>Metadati del dispositivo gemello
 
@@ -360,7 +360,7 @@ Queste informazioni vengono mantenute a ogni livello (non solo al livello foglia
 ## <a name="optimistic-concurrency"></a>Concorrenza ottimistica
 
 I tag e le proprietà desiderate e segnalate supportano la concorrenza ottimistica.
-I tag hanno un ETag, come per [RFC7232](https://tools.ietf.org/html/rfc7232), che rappresenta la rappresentazione JSON del tag. Per garantire la coerenza è possibile usare l'ETag nelle operazioni di aggiornamento condizionale dal back-end della soluzione.
+I tag hanno un ETag, come per ogni [RFC7232](https://tools.ietf.org/html/rfc7232), che rappresenta la rappresentazione JSON del tag. Per garantire la coerenza è possibile usare l'ETag nelle operazioni di aggiornamento condizionale dal back-end della soluzione.
 
 Le proprietà desiderate e segnalate del dispositivo gemello non sono dotate di ETags, ma hanno un valore `$version` sempre incrementale. In modo analogo a un valore ETag, la versione può essere usata dall'entità di aggiornamento per garantire la coerenza degli aggiornamenti. Ad esempio, un'app per dispositivo per una proprietà segnalata o la soluzione del back-end per una proprietà desiderata.
 
@@ -405,5 +405,5 @@ In questa esercitazione si è appreso come usare i dispositivi gemelli. Altri ar
 Per provare alcuni dei concetti descritti in questo articolo, vedere le esercitazioni sull'hub IoT seguenti:
 
 * [Come usare il dispositivo gemello](iot-hub-node-node-twin-getstarted.md)
-* [Come usare le proprietà del dispositivo gemelloHow to use device twin properties](tutorial-device-twins.md)
+* [Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
 * [Gestione dei dispositivi con Azure IoT Tools per VS Code](iot-hub-device-management-iot-toolkit.md)

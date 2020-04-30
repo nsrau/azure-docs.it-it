@@ -1,37 +1,37 @@
 ---
-title: Risoluzione dei problemi e problemi noti di Azure Application Insights Agent Documenti Microsoft
-description: Problemi noti dell'agente application Insights e esempi di risoluzione dei problemi. Monitorare le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con ASP.NET app Web ospitate in locale, nelle macchine virtuali o in Azure.Works with a web apps hosted on-premises, in VMs, or on Azure.
+title: Risoluzione dei problemi dell'agente applicazione Azure Insights e problemi noti | Microsoft Docs
+description: Problemi noti relativi all'agente Application Insights e agli esempi di risoluzione dei problemi. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732948"
 ---
-# <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Risoluzione dei problemi di Application Insights Agent (precedentemente denominato Status Monitor v2)Troubleshooting Application Insights Agent (formerly named Status Monitor v2)
+# <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Risoluzione dei problemi relativi a Application Insights Agent (denominato in precedenza Status Monitor v2)
 
-Quando si abilita il monitoraggio, potrebbero verificarsi problemi che impediscono la raccolta dei dati.
-In questo articolo vengono elencati tutti i problemi noti e vengono forniti esempi di risoluzione dei problemi.
-Se ti imbatti in un problema che non è elencato qui, puoi contattarci su [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
+Quando si Abilita il monitoraggio, è possibile che si verifichino problemi che impediscono la raccolta dei dati.
+Questo articolo elenca tutti i problemi noti e fornisce esempi di risoluzione dei problemi.
+Se si riscontra un problema non elencato qui, è possibile contattarci su [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 ## <a name="known-issues"></a>Problemi noti
 
-### <a name="conflicting-dlls-in-an-apps-bin-directory"></a>DLL in conflitto nella directory bin di un'app
+### <a name="conflicting-dlls-in-an-apps-bin-directory"></a>Dll in conflitto nella directory bin di un'app
 
-Se una di queste DLL è presente nella directory bin, il monitoraggio potrebbe non riuscire:
+Se una di queste dll è presente nella directory bin, il monitoraggio potrebbe non riuscire:
 
-- Microsoft.ApplicationInsights.dll
-- Microsoft.AspNet.TelemetryCorrelation.dll
-- System.Diagnostics.DiagnosticSource.dll
+- Microsoft. ApplicationInsights. dll
+- Microsoft. AspNet. TelemetryCorrelation. dll
+- System. Diagnostics. DiagnosticSource. dll
 
-Alcune di queste DLL sono incluse nei modelli di app predefiniti di Visual Studio, anche se l'app non le usa.
-È possibile utilizzare gli strumenti di risoluzione dei problemi per visualizzare il comportamento sintomatico:You can use troubleshooting tools to see symptomatic behavior:
+Alcune di queste dll sono incluse nei modelli di app predefinite di Visual Studio, anche se l'app non le USA.
+Per visualizzare il comportamento sintomatico, è possibile usare gli strumenti di risoluzione dei problemi:
 
-- PerfView:
+- PerfView
     ```
     ThreadID="7,500" 
     ProcessorNumber="0" 
@@ -42,7 +42,7 @@ Alcune di queste DLL sono incluse nei modelli di app predefiniti di Visual Studi
     FormattedMessage="Found 'System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' assembly, skipping attaching redfield binaries" 
     ```
 
-- IISReset e caricamento dell'app (senza telemetria). Eseguire l'analisi con Sysinternals (Handle.exe e ListDLLs.exe):
+- IISReset e caricamento di app (senza telemetria). Esaminare con Sysinternals (handle. exe e ListDLLs. exe):
     ```
     .\handle64.exe -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
     E54: File  (R-D)   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
@@ -55,13 +55,13 @@ Alcune di queste DLL sono incluse nei modelli di app predefiniti di Visual Studi
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Conflitto con la configurazione condivisa di IIS
 
-Se si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa.](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)
-Il HttpModule non può essere inserito in questa configurazione condivisa.
-Eseguire il comando Enable in ogni server Web per installare la DLL nella Global Assembly Cache di ogni server.
+Se si dispone di un cluster di server Web, è possibile che si stia utilizzando una [configurazione condivisa](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Non è possibile inserire HttpModule in questa configurazione condivisa.
+Eseguire il comando Abilita in ogni server Web per installare la DLL nella GAC di ogni server.
 
-Dopo aver eseguito il comando Abilita, completare questi passaggi:After you run the Enable command, complete these steps:
-1. Passare alla directory di configurazione condivisa e individuare il file applicationHost.config.
-2. Aggiungi questa riga alla sezione dei moduli della tua configurazione:
+Dopo aver eseguito il comando di abilitazione, completare i passaggi seguenti:
+1. Passare alla directory di configurazione condivisa e trovare il file applicationHost. config.
+2. Aggiungere questa riga alla sezione moduli della configurazione:
     ```
     <modules>
         <!-- Registered global managed http module handler. The 'Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll' must be installed in the GAC before this config is applied. -->
@@ -71,31 +71,31 @@ Dopo aver eseguito il comando Abilita, completare questi passaggi:After you run 
 
 ### <a name="iis-nested-applications"></a>Applicazioni annidate IIS
 
-Non vengono instrumentate le applicazioni annidate in IIS nella versione 1.0.
-Stiamo monitorando questo problema [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
+Non è necessario instrumentare le applicazioni annidate in IIS nella versione 1,0.
+Questo problema è stato monitorato [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
 
-### <a name="advanced-sdk-configuration-isnt-available"></a>Advanced SDK Configuration non è disponibile.
+### <a name="advanced-sdk-configuration-isnt-available"></a>La configurazione avanzata dell'SDK non è disponibile.
 
-La configurazione SDK non è esposta all'utente finale nella versione 1.0.
-Stiamo monitorando questo problema [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
+La configurazione dell'SDK non è esposta all'utente finale nella versione 1,0.
+Questo problema è stato monitorato [qui](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
 
     
     
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
     
-### <a name="troubleshooting-powershell"></a>Risoluzione dei problemi di PowerShellTroubleshooting PowerShell
+### <a name="troubleshooting-powershell"></a>Risoluzione dei problemi relativi a PowerShell
 
 #### <a name="determine-which-modules-are-available"></a>Determinare quali moduli sono disponibili
-È possibile `Get-Module -ListAvailable` utilizzare il comando per determinare quali moduli sono installati.
+È possibile usare il `Get-Module -ListAvailable` comando per determinare quali moduli sono installati.
 
-#### <a name="import-a-module-into-the-current-session"></a>Importare un modulo nella sessione corrente
-Se un modulo non è stato caricato in una sessione di `Import-Module <path to psd1>` PowerShell, è possibile caricarlo manualmente usando il comando.
+#### <a name="import-a-module-into-the-current-session"></a>Importa un modulo nella sessione corrente
+Se un modulo non è stato caricato in una sessione di PowerShell, è possibile caricarlo manualmente tramite `Import-Module <path to psd1>` il comando.
 
 
-### <a name="troubleshooting-the-application-insights-agent-module"></a>Risoluzione dei problemi relativi al modulo Application Insights Agent
+### <a name="troubleshooting-the-application-insights-agent-module"></a>Risoluzione dei problemi del modulo agente Application Insights
 
-#### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Elencare i comandi disponibili nel modulo Agente di Application InsightsList the commands available in the Application Insights Agent module
-Eseguire il `Get-Command -Module Az.ApplicationMonitor` comando per ottenere i comandi disponibili:
+#### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Elencare i comandi disponibili nel modulo Application Insights Agent
+Eseguire il comando `Get-Command -Module Az.ApplicationMonitor` per ottenere i comandi disponibili:
 
 ```
 CommandType     Name                                               Version    Source
@@ -110,50 +110,50 @@ Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az
 Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
-#### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Determinare la versione corrente del modulo Application Insights Agent
-Eseguire `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` il comando per visualizzare le seguenti informazioni sul modulo:
+#### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Determinare la versione corrente del modulo agente Application Insights
+Eseguire il `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` comando per visualizzare le informazioni seguenti sul modulo:
    - Versione del modulo PowerShell
    - Versione di Application Insights SDK
    - Percorsi dei file del modulo PowerShell
     
-Esaminare le informazioni di [riferimento sull'API](status-monitor-v2-api-reference.md) per una descrizione dettagliata di come utilizzare questo cmdlet.
+Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazioni di [riferimento sulle API](status-monitor-v2-api-reference.md) .
 
 
-### <a name="troubleshooting-running-processes"></a>Risoluzione dei problemi relativi ai processi in esecuzioneTroubleshooting running processes
+### <a name="troubleshooting-running-processes"></a>Risoluzione dei problemi relativi ai processi in esecuzione
 
-È possibile esaminare i processi nel computer instrumentato per determinare se tutte le DLL sono caricate.
-Se il monitoraggio funziona, è necessario caricare almeno 12 DLL.
+È possibile esaminare i processi nel computer instrumentato per determinare se tutte le dll sono state caricate.
+Se il monitoraggio è funzionante, è necessario caricare almeno 12 dll.
 
-Utilizzare `Get-ApplicationInsightsMonitoringStatus -InspectProcess` il comando per controllare le DLL.
+Usare il `Get-ApplicationInsightsMonitoringStatus -InspectProcess` comando per controllare le dll.
 
-Esaminare le informazioni di [riferimento sull'API](status-monitor-v2-api-reference.md) per una descrizione dettagliata di come utilizzare questo cmdlet.
+Per una descrizione dettagliata di come usare questo cmdlet, vedere le informazioni di [riferimento sulle API](status-monitor-v2-api-reference.md) .
 
 
-### <a name="collect-etw-logs-by-using-perfview"></a>Raccogliere i registri ETW tramite PerfViewCollect ETW logs by using PerfView
+### <a name="collect-etw-logs-by-using-perfview"></a>Raccogliere i log ETW usando PerfView
 
 #### <a name="setup"></a>Configurazione
 
-1. Scaricare PerfView.exe e PerfView64.exe da [GitHub](https://github.com/Microsoft/perfview/releases).
-2. Avviare PerfView64.exe.
+1. Scaricare PerfView. exe e PerfView64. exe da [GitHub](https://github.com/Microsoft/perfview/releases).
+2. Avviare PerfView64. exe.
 3. Espandere **Opzioni avanzate**.
-4. Deselezionare queste caselle di controllo:
+4. Deselezionare le caselle di controllo seguenti:
     - **Zip**
-    - **Unione**
-    - **Insieme di simboli .NET**
-5. Impostare questi **provider aggiuntivi**:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+    - **Merge**
+    - **Raccolta di simboli .NET**
+5. Impostare i **provider aggiuntivi**seguenti:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
-#### <a name="collecting-logs"></a>Raccolta dei registri
+#### <a name="collecting-logs"></a>Raccolta di log
 
-1. In una console di comando con `iisreset /stop` privilegi di amministratore, eseguire il comando per disattivare IIS e tutte le app Web.
+1. In una console dei comandi con privilegi di amministratore eseguire `iisreset /stop` il comando per disattivare IIS e tutte le app Web.
 2. In PerfView selezionare **Avvia raccolta**.
-3. In una console dei comandi con `iisreset /start` privilegi di amministratore, eseguire il comando per avviare IIS.
-4. Prova a passare all'app.
-5. Dopo aver caricato l'app, torna a PerfView e seleziona **Interrompi raccolta**.
+3. In una console dei comandi con privilegi di amministratore eseguire `iisreset /start` il comando per avviare IIS.
+4. Provare a passare all'app.
+5. Al termine del caricamento dell'app, tornare a PerfView e selezionare **Arresta raccolta**.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare il [riferimento all'API](status-monitor-v2-overview.md#powershell-api-reference) per informazioni sui parametri che potrebbero essere stati persi.
-- Se ti imbatti in un problema che non è elencato qui, puoi contattarci su [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
+- Esaminare le informazioni di [riferimento sulle API](status-monitor-v2-overview.md#powershell-api-reference) per informazioni sui parametri che potrebbero essere stati persi.
+- Se si riscontra un problema non elencato qui, è possibile contattarci su [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).

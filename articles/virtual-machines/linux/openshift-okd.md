@@ -10,17 +10,17 @@ ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
 ms.openlocfilehash: d7d251370aefdfadc0b77a67f6dad1be2dcb9e9a
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759440"
 ---
 # <a name="deploy-okd-in-azure"></a>Distribuire OKD in Azure
 
 La distribuzione di OKD (in precedenza OpenShift Origin) in Azure può essere eseguita in uno dei due modi seguenti:
 
-- È possibile distribuire manualmente tutti i componenti dell'infrastruttura di Azure necessari e quindi seguire la [documentazione OKD.](https://docs.okd.io)
+- È possibile distribuire manualmente tutti i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione di OKD](https://docs.okd.io).
 - È anche possibile usare un [modello di Resource Manager](https://github.com/Microsoft/openshift-origin) esistente che semplifica la distribuzione del cluster OKD.
 
 ## <a name="deploy-using-the-okd-template"></a>Distribuire usando il modello OKD
@@ -148,7 +148,7 @@ Al termine della distribuzione, eseguire la connessione alla console di OpenShif
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando non servono più, è possibile rimuovere il gruppo di risorse, il cluster OpenShift e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group).
 

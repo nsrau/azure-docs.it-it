@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
 ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81728807"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guida per gli sviluppatori dell'hub IoT di Azure
@@ -40,15 +40,15 @@ Questa Guida per gli sviluppatori dell'hub IoT include gli articoli seguenti:
 
 * [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md) descrive le funzionalità di messaggistica da dispositivo a cloud e da cloud a dispositivo esposte dall'hub IoT.
 
-  * [Inviare messaggi da dispositivo a cloud all'hub IoT](iot-hub-devguide-messages-d2c.md).
+  * [Inviare messaggi da dispositivo a cloud all'hub](iot-hub-devguide-messages-d2c.md)Internet.
 
-  * [Leggere i messaggi da dispositivo a cloud dall'endpoint predefinito.](iot-hub-devguide-messages-read-builtin.md)
+  * [Leggere i messaggi da dispositivo a cloud dall'endpoint predefinito](iot-hub-devguide-messages-read-builtin.md).
 
-  * [Utilizzare endpoint personalizzati e regole](iot-hub-devguide-messages-read-custom.md)di routing per i messaggi da dispositivo a cloud .
+  * [Usare endpoint personalizzati e regole di routing per i messaggi da dispositivo a cloud](iot-hub-devguide-messages-read-custom.md).
 
-  * [Inviare messaggi da cloud a dispositivo dall'hub IoT](iot-hub-devguide-messages-c2d.md).
+  * [Inviare messaggi da cloud a dispositivo dall'hub](iot-hub-devguide-messages-c2d.md)Internet.
 
-  * [Creare e leggere i messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md).
+  * [Creare e leggere messaggi dell'hub](iot-hub-devguide-messages-construct.md)Internet.
 
 * [Upload files from a device](iot-hub-devguide-file-upload.md) (Caricare file da un dispositivo), che descrive come caricare file da un dispositivo. Questo articolo contiene anche informazioni sul modo in cui le notifiche possono essere inviate dal processo di aggiornamento.
 

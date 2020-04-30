@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: 75d89b54bae6eb8166d44e08ea020a0da67ad20c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732548"
 ---
 # <a name="get-started-with-device-management-java"></a>Introduzione alla gestione dei dispositivi (Java)
@@ -31,7 +31,7 @@ Questa esercitazione illustra come:
 
 Al termine di questa esercitazione si avranno due app di console Java:
 
-**dispositivo simulato**. Questa app:
+**Simulated-Device**. Questa app:
 
 * Si connette all'hub IoT con l'identit√† del dispositivo creato in precedenza.
 
@@ -54,13 +54,13 @@ Al termine di questa esercitazione si avranno due app di console Java:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **Supporto a lungo termine** per passare ai download per JDK 8.
+* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **Supporto a lungo termine** per passare ai download per JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
 * Un account Azure attivo. Se non si ha un account, √® possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica tramite la porta 8883.The device sample in this article uses MQTT protocol, which communicates over port 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -70,7 +70,7 @@ Al termine di questa esercitazione si avranno due app di console Java:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoTGet the IoT hub connection string
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
@@ -88,17 +88,17 @@ In questa sezione si crea un'app console Java che:
 
 Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leggere le propriet√† segnalate.
 
-1. Creare una cartella vuota denominata **dm-get-started**.
+1. Creare una cartella vuota denominata **DM-Get-Started**.
 
-2. Nella cartella **dm-get-start,** creare un progetto Maven denominato **trigger-reboot** utilizzando il comando seguente al prompt dei comandi:
+2. Nella cartella **DM-Get-Started** creare un progetto Maven denominato **trigger-riavvia** usando il comando seguente al prompt dei comandi:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-3. Al prompt dei comandi passare alla cartella **trigger-reboot.**
+3. Al prompt dei comandi passare alla cartella **trigger-reboot** .
 
-4. Utilizzando un editor di testo, aprire il file **pom.xml** nella cartella **trigger-reboot** e aggiungere la dipendenza seguente al nodo **dependencies.** Questa dipendenza consente di usare il pacchetto iot-service-client nell'app per comunicare con l'hub IoT:
+4. Usando un editor di testo, aprire il file **POM. XML** nella cartella **trigger-reboot** e aggiungere la dipendenza seguente al nodo **dipendenze** . Questa dipendenza consente di usare il pacchetto iot-service-client nell'app per comunicare con l'hub IoT:
 
     ```xml
     <dependency>
@@ -132,7 +132,7 @@ Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leg
 
 6. Salvare e chiudere il file **pom.xml**.
 
-7. Utilizzando un editor di testo, aprire il file di origine **trigger-reboot.**
+7. Usando un editor di testo, aprire il file di origine **trigger-reboot\src\main\java\com\mycompany\app\app.Java.** .
 
 8. Aggiungere al file le istruzioni **import** seguenti:
 
@@ -149,7 +149,7 @@ Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leg
     import java.util.concurrent.ExecutorService;
     ```
 
-9. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{youriothubconnectionstring}` con la stringa di connessione dell'hub IoT copiata in precedenza in Ottenere la stringa di [connessione dell'hub IoT:](#get-the-iot-hub-connection-string)
+9. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{youriothubconnectionstring}` con la stringa di connessione dell'hub Internet che √® stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string):
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -187,7 +187,7 @@ Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leg
     public static void main(String[] args) throws IOException
     ```
 
-12. Per richiamare il metodo diretto di riavvio sul dispositivo simulato, sostituire il codice nel metodo main con il codice seguente:To invoke the reboot direct method on the simulated device, replace the code in the **main** method with the following code:
+12. Per richiamare il metodo diretto di riavvio sul dispositivo simulato, sostituire il codice nel metodo **Main** con il codice seguente:
 
     ```java
     System.out.println("Starting sample...");
@@ -229,7 +229,7 @@ Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leg
     System.out.println("Shutting down sample...");
     ```
 
-15. Salvare e chiudere il file **trigger-reboot, src, main, java, microsoft azienda e app, app e app.java.**
+15. Salvare e chiudere il file **trigger-reboot\src\main\java\com\mycompany\app\app.Java.** .
 
 16. Compilare l'app di back-end **trigger riavvio** e correggere eventuali errori. Al prompt dei comandi passare alla cartella **trigger-reboot** ed eseguire il comando seguente:
 
@@ -241,15 +241,15 @@ Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leg
 
 In questa sezione si crea un'app console Java che simula un dispositivo. L'app √® in attesa della chiamata al metodo diretto di riavvio dall'hub IoT e risponde immediatamente. L'app viene quindi sospesa per un periodo di tempo per simulare il processo di riavvio prima di usare una propriet√† segnalata per notificare all'app di back-end **trigger-reboot** il completamento del riavvio.
 
-1. Nella cartella **dm-get-start,** creare un progetto Maven denominato **dispositivo simulato** utilizzando il comando seguente al prompt dei comandi:
+1. Nella cartella **DM-Get-Started** creare un progetto Maven denominato **Simulated-Device** usando il comando seguente al prompt dei comandi:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. Al prompt dei comandi passare alla cartella del **dispositivo simulato.**
+2. Al prompt dei comandi passare alla cartella **Simulated-Device** .
 
-3. Utilizzando un editor di testo, aprire il file **pom.xml** nella cartella **simulated-device** e aggiungere la dipendenza seguente al nodo **dependencies.** Questa dipendenza consente di usare il pacchetto iot-service-client nell'app per comunicare con l'hub IoT:
+3. Usando un editor di testo, aprire il file **POM. XML** nella cartella **Simulated-Device** e aggiungere la dipendenza seguente al nodo **dipendenze** . Questa dipendenza consente di usare il pacchetto iot-service-client nell'app per comunicare con l'hub IoT:
 
     ```xml
     <dependency>
@@ -262,7 +262,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app √
     > [!NOTE]
     > √à possibile cercare la versione pi√π recente di **iot-device-client** usando la [ricerca di Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Aggiungere la dipendenza seguente al nodo **delle dipendenze.** Questa dipendenza configura un NOP per la facciata di registrazione Apache [SLF4J,](https://www.slf4j.org/) che viene utilizzata dall'SDK del client del dispositivo per implementare la registrazione. Questa configurazione √® facoltativa, ma, se la si omette, √® possibile che venga visualizzato un avviso nella console quando si esegue l'app. Per altre informazioni sulla registrazione nell'SDK del client del dispositivo, vedere Registrazione nel file Leggimi sdk *di Esempio per il dispositivo Azure IoT per Java.For* more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) in the Samples for the Azure IoT device SDK for Java readme file.
+4. Aggiungere la dipendenza seguente al nodo **dipendenze** . Questa dipendenza configura un NOP per la facciata di registrazione di Apache [SLF4J](https://www.slf4j.org/) , che viene usata da Device client SDK per implementare la registrazione. Questa configurazione √® facoltativa, ma se viene omessa, √® possibile che venga visualizzato un avviso nella console quando si esegue l'app. Per ulteriori informazioni sulla registrazione in Device client SDK, vedere la pagina relativa alla [registrazione](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) degli *esempi per il file Leggimi di Azure per dispositivi SDK per Java* .
 
     ```xml
     <dependency>
@@ -292,7 +292,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app √
 
 6. Salvare e chiudere il file **pom.xml**.
 
-7. Utilizzando un editor di testo, aprire il file di origine **simulated-device, src, main, java , com, mycompany, app e App.java.**
+7. Usando un editor di testo, aprire il file di origine **Simulated-device\src\main\java\com\mycompany\app\app.Java.** .
 
 8. Aggiungere al file le istruzioni **import** seguenti:
 
@@ -308,7 +308,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app √
     import java.util.HashSet;
     ```
 
-9. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{yourdeviceconnectionstring}` con la stringa di connessione del dispositivo annotata nella sezione [Registrare un nuovo dispositivo nell'hub IoT:Replace](#register-a-new-device-in-the-iot-hub) with the device connection string you noted in the Register a new device in the IoT hub section:
+9. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{yourdeviceconnectionstring}` con la stringa di connessione del dispositivo annotata nella sezione [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub) tutto:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -377,7 +377,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app √
     }
     ```
 
-14. Per implementare il metodo diretto nel dispositivo, aggiungere la classe nidificata seguente alla classe **App**. Quando l'app simulata riceve una chiamata al metodo diretto di **riavvio,** restituisce un riconoscimento al chiamante e quindi avvia un thread per elaborare il riavvio:When the simulated app receives a call to the reboot direct method, it returns an acknowledgment to the caller and then starts a thread to process the reboot:
+14. Per implementare il metodo diretto nel dispositivo, aggiungere la classe nidificata seguente alla classe **App**. Quando l'app simulata riceve una chiamata al metodo diretto di **riavvio** , restituisce un riconoscimento al chiamante e quindi avvia un thread per elaborare il riavvio:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -415,7 +415,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app √
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-16. Per creare un'istanza di un **DeviceClient**, sostituire il codice nel metodo **principale** con il codice seguente:
+16. Per creare un'istanza di un **DeviceClient**, sostituire il codice nel metodo **Main** con il codice seguente:
 
     ```java
     System.out.println("Starting device client sample...");
@@ -453,7 +453,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app √
 
 19. Salvare e chiudere il file simulated-device\src\main\java\com\mycompany\app\App.java.
 
-20. Compilare l'app **simulated-device** e correggere eventuali errori. Al prompt dei comandi passare alla cartella **del dispositivo simulato** ed eseguire il comando seguente:
+20. Compilare l'app **simulated-device** e correggere eventuali errori. Al prompt dei comandi passare alla cartella **Simulated-Device** ed eseguire il comando seguente:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -461,9 +461,9 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app √
 
 ## <a name="run-the-apps"></a>Eseguire le app
 
-Ora sei pronto per eseguire le app.
+A questo punto si √® pronti per eseguire le app.
 
-1. Al prompt dei comandi nella cartella **del dispositivo simulato,** eseguire il comando seguente per avviare l'ascolto delle chiamate al metodo di riavvio dall'hub IoT:
+1. Al prompt dei comandi nella cartella **Simulated-Device** eseguire il comando seguente per iniziare ad ascoltare le chiamate al metodo di riavvio dall'hub Internet:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -471,7 +471,7 @@ Ora sei pronto per eseguire le app.
 
     ![App per il dispositivo simulato dell'hub IoT per Java per ascoltare le chiamate al metodo diretto di riavvio](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-2. Al prompt dei comandi nella cartella **trigger-reboot,** eseguire il comando seguente per chiamare il metodo di riavvio sul dispositivo simulato dall'hub IoT:
+2. Eseguire il comando seguente al prompt dei comandi nella cartella **trigger-reboot** per chiamare il metodo Reboot sul dispositivo simulato dall'hub Internet:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"

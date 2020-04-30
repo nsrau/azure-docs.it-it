@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: creare & installare i file di configurazione del client VPN - Connessioni RADIUS P2SAzure VPN Gateway: Create & install VPN client config files - P2S RADIUS connections'
+title: 'Gateway VPN di Azure: creare & installare i file di configurazione del client VPN-connessioni RADIUS P2S'
 description: Creare file di configurazione di client VPN Windows, Mac OS X e Linux per connessioni che usano l'autenticazione RADIUS.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 69517d69a26364cf1cc950d7aaa849522decacf1
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732745"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creare e installare i file di configurazione del client VPN per l'autenticazione RADIUS da punto a sito
@@ -26,7 +26,7 @@ Quando si usa l'autenticazione RADIUS, sono disponibili più opzioni di autentic
 
 Di seguito è riportato il flusso di lavoro di configurazione per l'autenticazione RADIUS da punto a sito:
 
-1. [Configurare il gateway VPN di Azure per la connettività P2S.](point-to-site-how-to-radius-ps.md)
+1. [Configurare il gateway VPN di Azure per la connettività P2S](point-to-site-how-to-radius-ps.md).
 2. [Configurare il server RADIUS per l'autenticazione](point-to-site-how-to-radius-ps.md#radius). 
 3. **Ottenere la configurazione del client VPN per l'opzione di autenticazione scelta e usarla per configurare il client VPN** (questo articolo).
 4. [Completare la configurazione da punto a sito e connettersi](point-to-site-how-to-radius-ps.md).
@@ -45,18 +45,18 @@ Per seguire le istruzioni contenute nelle sezioni di questo articolo è necessar
 
 Quando si configura l'autenticazione con nome utente/password, è possibile creare una configurazione solo per il protocollo di autenticazione con nome utente e password EAP-MSCHAPv2. Nei comandi `-AuthenticationMethod` è `EapMSChapv2`.
 
-### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a>1. Generare file di configurazione client VPN
+### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a>1. generare i file di configurazione del client VPN
 
-È possibile generare i file di configurazione del client VPN usando il portale di Azure o Azure PowerShell.You can generate the VPN client configuration files by using the Azure portal, or by using Azure PowerShell.
+È possibile generare i file di configurazione del client VPN usando il portale di Azure o Azure PowerShell.
 
 #### <a name="azure-portal"></a>Portale di Azure
 
 1. Passare al gateway di rete virtuale.
-2. Fare clic su **Configurazione da punto a sito**.
+2. Fare clic su **configurazione da punto a sito**.
 3. Fare clic su **Scarica client VPN**.
-4. Selezionare il client e inserire le informazioni richieste.
-5. Fare clic su **Download** per generare il file .zip.
-6. Il file .zip verrà scaricato, in genere nella cartella Download.
+4. Selezionare il client e compilare le informazioni richieste.
+5. Fare clic su **download** per generare il file con estensione zip.
+6. Il file zip viene scaricato, in genere nella cartella Downloads.
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -66,7 +66,7 @@ Generare i file di configurazione del client VPN per l'uso con l'autenticazione 
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
-L'esecuzione del comando restituisce un collegamento. Copiare e incollare il collegamento a un browser Web per scaricare **VpnClientConfiguration.zip**. Decomprimendo il file verranno visualizzate le cartelle seguenti: 
+L'esecuzione del comando restituisce un collegamento. Copiare e incollare il collegamento in un Web browser per scaricare **VpnClientConfiguration. zip**. Decomprimendo il file verranno visualizzate le cartelle seguenti: 
  
 * **WindowsAmd64** e **WindowsX86**: queste cartelle contengono i pacchetti del programma di installazione di Windows, rispettivamente a 64 bit e a 32 bit. 
 * **Generic**: questa cartella contiene le informazioni generali da usare per creare una configurazione del client VPN personalizzata. Non è necessario disporre di questa cartella per le configurazioni di autenticazione con nome utente/password.
@@ -80,7 +80,7 @@ Per recuperare i file di configurazione client generati in precedenza, usare il 
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. Configurare i client VPN
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. configurare i client VPN
 
 È possibile configurare i client VPN seguenti:
 
@@ -94,8 +94,8 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 
 Per configurare il client VPN Windows nativo per l'autenticazione del certificato, usare questa procedura:
 
-1. Selezionare i file di configurazione del client VPN corrispondenti all'architettura del computer Windows. Per un'architettura di processore a 64 bit, scegliere il pacchetto di installazione **VpnClientSetupAmd64.For** a 64-bit processor architecture, choose the VpnClientSetupAmd64 installer package. Per un'architettura di processore a 32 bit, scegliere il pacchetto di installazione **VpnClientSetupX86.For** a 32-bit processor architecture, choose the VpnClientSetupX86 installer package. 
-2. Fare doppio clic sul pacchetto per installarlo. Se viene visualizzato un popup SmartScreen, selezionare **Altre informazioni** > **Esegui comunque**.
+1. Selezionare i file di configurazione del client VPN corrispondenti all'architettura del computer Windows. Per un'architettura del processore a 64 bit, scegliere il pacchetto di installazione di **VpnClientSetupAmd64** . Per un'architettura del processore a 32 bit, scegliere il pacchetto di installazione di **VpnClientSetupX86** . 
+2. Fare doppio clic sul pacchetto per installarlo. Se viene visualizzato un popup SmartScreen, selezionare **altre informazioni** > **Esegui comunque**.
 3. Nel computer client andare a **Impostazioni di rete** e selezionare **VPN**. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette. 
 
 #### <a name="mac-os-x-vpn-client-setup"></a><a name="admaccli"></a>Configurazione di un client VPN Mac (OS X)
@@ -142,7 +142,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
 10. La connessione VPN compare con il nome **IkeV2-VPN**. È possibile modificare il nome aggiornando il file **mobileconfig**.
 
     ![Dettagli per la connessione VPN](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
-11. Selezionare **Impostazioni di autenticazione**. Selezionare **Nome utente** nell'elenco e immettere le proprie credenziali. Se sono state immesse in precedenza, l'opzione **Nome utente** è selezionata automaticamente nell'elenco e il nome utente e la password sono già inseriti. Scegliere **OK** per salvare le impostazioni.
+11. Selezionare **impostazioni di autenticazione**. Selezionare **Nome utente** nell'elenco e immettere le proprie credenziali. Se sono state immesse in precedenza, l'opzione **Nome utente** è selezionata automaticamente nell'elenco e il nome utente e la password sono già inseriti. Scegliere **OK** per salvare le impostazioni.
 
     ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. Nella finestra di dialogo **Network** selezionare **Applica** per salvare le modifiche. Per avviare la connessione, selezionare **Connetti**.
@@ -190,7 +190,7 @@ Ogni dispositivo client VPN richiede un certificato client installato. Un dispos
 
 `-ClientRootCert` è il file con estensione cer contenente il certificato radice ed è un parametro facoltativo. Se il dispositivo da cui si vuole effettuare la connessione ha un solo certificato client, non è necessario specificare questo parametro.
 
-### <a name="1-generate-vpn-client-configuration-files"></a><a name="certfiles"></a>1. Generare file di configurazione client VPN
+### <a name="1-generate-vpn-client-configuration-files"></a><a name="certfiles"></a>1. generare i file di configurazione del client VPN
 
 Generare i file di configurazione del client VPN per l'uso con l'autenticazione con certificato. È possibile generare i file di configurazione del client VPN con il comando seguente:
  
@@ -211,7 +211,7 @@ Per recuperare i file di configurazione client generati in precedenza, usare il 
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. Configurare i client VPN
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. configurare i client VPN
 
 È possibile configurare i client VPN seguenti:
 
@@ -221,8 +221,8 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 
 #### <a name="windows-vpn-client-setup"></a><a name="certwincli"></a>Configurazione di un client VPN Windows
 
-1. Selezionare un pacchetto di configurazione e installarlo nel dispositivo client. Per un'architettura di processore a 64 bit, scegliere il pacchetto di installazione **VpnClientSetupAmd64.For** a 64-bit processor architecture, choose the VpnClientSetupAmd64 installer package. Per un'architettura di processore a 32 bit, scegliere il pacchetto di installazione **VpnClientSetupX86.For** a 32-bit processor architecture, choose the VpnClientSetupX86 installer package. Se viene visualizzato un popup SmartScreen, selezionare **Altre informazioni** > **Esegui comunque**. È anche possibile salvare il pacchetto per l'installazione su altri computer client.
-2. Ogni client deve avere un certificato client per l'autenticazione. Installare il certificato client. Per informazioni sui certificati client, vedere [Certificati client per punto-a-sito](vpn-gateway-certificates-point-to-site.md). Per installare un certificato generato, vedere [Installare un certificato in client Windows](point-to-site-how-to-vpn-client-install-azure-cert.md).
+1. Selezionare un pacchetto di configurazione e installarlo nel dispositivo client. Per un'architettura del processore a 64 bit, scegliere il pacchetto di installazione di **VpnClientSetupAmd64** . Per un'architettura del processore a 32 bit, scegliere il pacchetto di installazione di **VpnClientSetupX86** . Se viene visualizzato un popup SmartScreen, selezionare **altre informazioni** > **Esegui comunque**. È anche possibile salvare il pacchetto per l'installazione su altri computer client.
+2. Ogni client deve avere un certificato client per l'autenticazione. Installare il certificato client. Per informazioni sui certificati client, vedere [certificati client per da punto a sito](vpn-gateway-certificates-point-to-site.md). Per installare un certificato generato, vedere [Installare un certificato in client Windows](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. Nel computer client andare a **Impostazioni di rete** e selezionare **VPN**. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette.
 
 #### <a name="mac-os-x-vpn-client-setup"></a><a name="certmaccli"></a>Configurazione di un client VPN Mac (OS X)
@@ -241,7 +241,7 @@ Usare questa procedura per configurare il client VPN nativo in un Mac per l'aute
 
    ![Aggiunta del certificato RadiusServerRoot](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. Ogni client deve avere un certificato client per l'autenticazione. Installare il certificato client nel dispositivo client.
-3. Aprire la finestra di dialogo **Network** in **Network Preferences** (Preferenze di rete). Selezionare questa opzione per creare un nuovo profilo di connessione client VPN per una connessione P2S alla rete virtuale di Azure.Select **+** to create a new VPN client connection profile for a P2S connection to the Azure virtual network.
+3. Aprire la finestra di dialogo **Network** in **Network Preferences** (Preferenze di rete). Selezionare **+** per creare un nuovo profilo di connessione del client VPN per una connessione P2S alla rete virtuale di Azure.
 
    Il valore di **Interfaccia** è **VPN** e quello di **Tipo di VPN** è **IKEv2**. Specificare un nome per il profilo nella casella **Nome servizio** e quindi selezionare **Crea** per creare il profilo di connessione del client VPN.
 

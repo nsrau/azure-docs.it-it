@@ -1,6 +1,6 @@
 ---
-title: OpenShift Container Platform 3.11 nelle attività di post-distribuzione di Azure
-description: Attività aggiuntive per dopo la distribuzione di un cluster OpenShift Container Platform 3.11.Additional tasks for after an OpenShift Container Platform 3.11 cluster has been deployed.
+title: OpenShift container Platform 3,11 nelle attività post-distribuzione di Azure
+description: Attività aggiuntive per dopo la distribuzione di un cluster OpenShift container Platform 3,11.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759528"
 ---
 # <a name="post-deployment-tasks"></a>Attività di post-distribuzione
@@ -21,7 +21,7 @@ ms.locfileid: "81759528"
 Dopo aver distribuito un cluster OpenShift, è possibile configurare elementi aggiuntivi. Questo articolo riguarda:
 
 - Come configurare l'accesso Single Sign-On usando Azure Active Directory (Azure AD)
-- Come configurare i log di Monitoraggio di Azure per monitorare OpenShiftHow to configure Azure Monitor logs to monitor OpenShift
+- Come configurare i log di monitoraggio di Azure per monitorare OpenShift
 - Come configurare le metriche e la registrazione
 - Come installare Open Service Broker for Azure (OSBA)
 
@@ -34,9 +34,9 @@ Per usare Azure Active Directory per l'autenticazione, è necessario creare prim
 Si userà l'interfaccia della riga di comando di Azure per creare la registrazione dell'app e l'interfaccia utente grafica (portale) per impostare le autorizzazioni. Per creare la registrazione dell'app, saranno necessarie le cinque informazioni seguenti:
 
 - Nome visualizzato: nome di registrazione dell'app, ad esempio OCPAzureAD
-- Home page: URL della console `https://masterdns343khhde.westus.cloudapp.azure.com/console`OpenShift (ad esempio, )
-- URI identificatore: URL della console `https://masterdns343khhde.westus.cloudapp.azure.com/console`OpenShift (ad esempio, )
-- URL di risposta: master pubblico URL e `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`il nome di registrazione dell'app (ad esempio, )
+- Home page: URL della console OpenShift (ad esempio `https://masterdns343khhde.westus.cloudapp.azure.com/console`,)
+- URI dell'identificatore: URL della console OpenShift (ad `https://masterdns343khhde.westus.cloudapp.azure.com/console`esempio,)
+- URL di risposta: URL pubblico master e nome della registrazione dell'app (ad `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`esempio,)
 - Password: password sicura. Usare una password complessa
 
 L'esempio seguente crea una registrazione dell'app usando le informazioni indicate sopra:
@@ -69,7 +69,7 @@ Prendere nota della proprietà appId restituita dal comando per un passaggio suc
 
 Nel portale di Azure:
 
-1. Selezionare**Registrazione app**di Azure **Active Directory** > .
+1. Selezionare **Azure Active Directory** > **registrazione dell'app**.
 2. Cercare la registrazione dell'app, ad esempio OCPAzureAD.
 3. Nei risultati fare clic sulla registrazione dell'app.
 4. Nel pannello **Impostazioni** selezionare **Autorizzazioni necessarie**.
@@ -85,7 +85,7 @@ Nel portale di Azure:
 
    ![Accesso alla registrazione dell'app](media/openshift-post-deployment/app-registration-access.png)
 
-8. Selezionare **Operazione completata**.
+8. Seleziona **Chiudi**.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configurare OpenShift per l'autenticazione di Azure AD
 
@@ -152,14 +152,14 @@ sudo /usr/local/bin/master-restart controllers
 
 Nella console OpenShift verranno visualizzate due opzioni per l'autenticazione, htpasswd_auth e [Registrazione app].
 
-## <a name="monitor-openshift-with-azure-monitor-logs"></a>Monitorare OpenShift con i log di Monitoraggio di AzureMonitor OpenShift with Azure Monitor logs
+## <a name="monitor-openshift-with-azure-monitor-logs"></a>Monitorare OpenShift con i log di monitoraggio di Azure
 
 Esistono tre modi per aggiungere l'agente di Log Analytics a OpenShift.
 - Installare l'agente di Log Analytics per Linux direttamente in ogni nodo OpenShift
-- Abilitare l'estensione della macchina virtuale di Monitoraggio di Azure in ogni nodo OpenShiftEnable Azure Monitor VM Extension on each OpenShift node
-- Installare l'agente di Log Analytics come set di daemon OpenShiftInstall the Log Analytics agent as an OpenShift daemon-set
+- Abilitare l'estensione della macchina virtuale di monitoraggio di Azure in ogni nodo OpenShift
+- Installare l'agente di Log Analytics come set di daemon OpenShift
 
-Leggi le [istruzioni](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) complete per maggiori dettagli.
+Leggere le [istruzioni](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) complete per altri dettagli.
 
 ## <a name="configure-metrics-and-logging"></a>Configurare le metriche e la registrazione
 
@@ -199,7 +199,7 @@ Open Service Broker for Azure o OSBA consente di effettuare il provisioning dei 
 
 Per installare OSBA su OpenShift, seguire le istruzioni disponibili qui: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
 > [!NOTE]
-> Completare solo i passaggi nella sezione Modello di progetto OpenShift e non l'intera sezione Installazione.
+> Completare i passaggi nella sezione del modello di progetto OpenShift e non nell'intera sezione di installazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

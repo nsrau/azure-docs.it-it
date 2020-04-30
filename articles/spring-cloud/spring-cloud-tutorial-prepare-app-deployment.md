@@ -1,21 +1,21 @@
 ---
-title: Procedura - Preparare un'applicazione Java Spring per la distribuzione in Azure Spring CloudHow-to - Prepare a Java Spring application for deployment in Azure Spring Cloud
-description: In this topic, you prepare a Java Spring application for deployment to Azure Spring Cloud.
+title: "Procedura: preparare un'applicazione Java Spring per la distribuzione nel cloud Spring di Azure"
+description: In questo argomento si prepara un'applicazione Java Spring per la distribuzione nel cloud Spring di Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 16cee333d52765755b732c4de4dd8a6e092a130d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731171"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparare un'applicazione Java Spring per la distribuzione in Azure Spring Cloud
 
-Questo argomento illustra come preparare un'applicazione Java Spring esistente per la distribuzione in Azure Spring Cloud.This topic shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. Se correttamente configurato, Azure Spring Cloud offre servizi affidabili per il monitoraggio, il ridimensionamento e l'aggiornamento dell'applicazione Java Spring Cloud.
+Questo argomento illustra come preparare un'applicazione Java Spring esistente per la distribuzione nel cloud Spring di Azure. Se correttamente configurato, Azure Spring Cloud offre servizi affidabili per il monitoraggio, il ridimensionamento e l'aggiornamento dell'applicazione Java Spring Cloud.
 
 Altri esempi illustrano come distribuire un'applicazione in Azure Spring Cloud quando viene configurato il file POM. 
 * [Avviare l'app usando il portale di Azure](spring-cloud-quickstart-launch-app-portal.md)
@@ -225,7 +225,7 @@ Includere le dipendenze `spring-cloud-starter-sleuth` e `spring-cloud-starter-zi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In this topic, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. Per informazioni su come configurare un'istanza di Server di configurazione, vedere l'articolo seguente.
+In questo argomento si è appreso come configurare un'applicazione Java Spring per la distribuzione nel cloud Spring di Azure. Per informazioni su come configurare un'istanza del server di configurazione, vedere l'articolo seguente.
 
 > [!div class="nextstepaction"]
 > [Come configurare un'istanza di Config Server](spring-cloud-tutorial-config-server.md)

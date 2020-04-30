@@ -10,22 +10,22 @@ ms.date: 11/11/2019
 ms.author: kgremban
 ms.custom: amqp
 ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732436"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
-Le aziende che implementano l'hub IoT di Azure si aspettano prestazioni affidabili dalle proprie risorse. Per aiutare l'utente a mantenere sotto controllo le proprie operazioni, l'hub IoT è completamente integrato con [Monitoraggio di Azure](../azure-monitor/index.yml) e [Integrità risorse di Azure](../service-health/resource-health-overview.md). Questi due servizi lavorano per fornirti i dati necessari per mantenere le tue soluzioni IoT in esecuzione in uno stato integro.
+Le aziende che implementano l'hub IoT di Azure si aspettano prestazioni affidabili dalle proprie risorse. Per aiutare l'utente a mantenere sotto controllo le proprie operazioni, l'hub IoT è completamente integrato con [Monitoraggio di Azure](../azure-monitor/index.yml) e [Integrità risorse di Azure](../service-health/resource-health-overview.md). Questi due servizi funzionano per fornire i dati necessari per rendere operativo le soluzioni Internet in uno stato integro.
 
-Monitoraggio di Azure è una singola origine di monitoraggio e registrazione per tutti i servizi di Azure. È possibile inviare i log di diagnostica che Monitoraggio di Azure genera ai log di Monitoraggio di Azure, agli hub eventi o ad Archiviazione di Azure per l'elaborazione personalizzata. Le impostazioni di diagnostica e le metriche di Monitoraggio di Azure offrono visibilità sulle prestazioni delle risorse. Continuare a leggere questo articolo per informazioni su come [Usare Monitoraggio di Azure](#use-azure-monitor) con l'hub IoT. 
+Monitoraggio di Azure è una singola origine di monitoraggio e registrazione per tutti i servizi di Azure. È possibile inviare i log di diagnostica generati da monitoraggio di Azure a log di monitoraggio di Azure, Hub eventi o archiviazione di Azure per l'elaborazione personalizzata. Le impostazioni di diagnostica e le metriche di Monitoraggio di Azure offrono visibilità sulle prestazioni delle risorse. Continuare a leggere questo articolo per informazioni su come [Usare Monitoraggio di Azure](#use-azure-monitor) con l'hub IoT. 
 
 > [!IMPORTANT]
 > Gli eventi generati dal servizio hub IoT tramite i log di diagnostica di Monitoraggio di Azure non sono necessariamente affidabili o ordinati. Alcuni eventi possono andare persi o recapitati non in ordine. I log di diagnostica, poi, è previsto che siano in tempo reale. La registrazione degli eventi nella destinazione scelta può richiedere diversi minuti.
 
-Integrità risorse di Azure aiuta a diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse e a ottenere il supporto necessario. Un dashboard fornisce lo stato di integrità corrente e passato per ogni hub IoT. Passare alla sezione nella parte inferiore di questo articolo per informazioni su come usare Azure Resource Health con l'hub IoT.Continue to the section at the bottom of this article to learn how to [Use Azure Resource Health](#use-azure-resource-health) with your IoT hub. 
+Integrità risorse di Azure aiuta a diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse e a ottenere il supporto necessario. Un dashboard fornisce lo stato di integrità corrente e precedente per ogni hub Internet. Passare alla sezione nella parte inferiore di questo articolo per informazioni su come [usare integrità risorse di Azure](#use-azure-resource-health) con l'hub Internet delle cose. 
 
 Hub IoT fornisce inoltre metriche specifiche che è possibile usare per comprendere lo stato delle risorse di IoT. Per altre informazioni, vedere [Comprendere le metriche dell'hub IoT](iot-hub-metrics.md).
 
@@ -313,9 +313,9 @@ La categoria relativa ai metodi diretti tiene traccia delle interazioni di richi
 
 #### <a name="distributed-tracing-preview"></a>Traccia distribuita (anteprima)
 
-La categoria relativa alla traccia distribuita tiene traccia degli ID di correlazione per i messaggi che contengono l'intestazione del contesto di traccia. Per abilitare completamente questi log, è necessario aggiornare il codice lato client seguendo [Analizza e diagnosticare le applicazioni IoT end-to-end con l'analisi distribuita (anteprima) dell'hub IoT](iot-hub-distributed-tracing.md).
+La categoria relativa alla traccia distribuita tiene traccia degli ID di correlazione per i messaggi che contengono l'intestazione del contesto di traccia. Per abilitare completamente questi log, è necessario aggiornare il codice sul lato client seguendo [le analisi e diagnosticare le applicazioni Internet end-to-end con l'analisi distribuita dell'hub Internet (anteprima)](iot-hub-distributed-tracing.md).
 
-Si `correlationId` noti che è conforme alla proposta [W3C Trace Context,](https://github.com/w3c/trace-context) in cui contiene un `trace-id` oggetto e un `span-id`oggetto .
+Si noti `correlationId` che è conforme alla proposta di [contesto di traccia W3C](https://github.com/w3c/trace-context) , in cui `trace-id` contiene un oggetto e `span-id`un oggetto.
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Log dell'hub IoT D2C (da dispositivo a cloud)
 
@@ -347,7 +347,7 @@ In questo caso, il valore di `durationMs` non viene calcolato in quanto l'orolog
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | Dimensione del messaggio da dispositivo a cloud in byte |
-| **Deviceid** | Stringa di caratteri alfanumerici ASCII a 7 bit | Identità del dispositivo |
+| **deviceId** | Stringa di caratteri alfanumerici ASCII a 7 bit | Identità del dispositivo |
 | **callerLocalTimeUtc** | Timestamp UTC | Ora di creazione del messaggio in base a quanto indicato dall'orologio locale del dispositivo |
 | **calleeLocalTimeUtc** | Timestamp UTC | Ora di arrivo del messaggio nel gateway dell'hub IoT in base a quanto indicato dall'orologio sul lato servizio dell'hub IoT |
 
@@ -376,12 +376,12 @@ L'hub IoT registra questo log quando un messaggio contenente proprietà di tracc
 }
 ```
 
-Nella `properties` sezione questo registro contiene informazioni aggiuntive sull'ingresso dei messaggi.
+Nella `properties` sezione questo log contiene informazioni aggiuntive sull'ingresso dei messaggi.
 
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | string | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
-| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
+| **isRoutingEnabled** | Stringa | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
+| **parentSpanId** | Stringa | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Log di uscita dell'hub IoT
 
@@ -408,17 +408,17 @@ L'hub IoT Hub registra questo log quando il [routing](iot-hub-devguide-messages-
 }
 ```
 
-Nella `properties` sezione questo registro contiene informazioni aggiuntive sull'ingresso dei messaggi.
+Nella `properties` sezione questo log contiene informazioni aggiuntive sull'ingresso dei messaggi.
 
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName (nomeendpoint)** | string | Nome dell'endpoint di routing |
-| **endpointType** | string | Tipo dell'endpoint di routing |
-| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
+| **endpointName** | Stringa | Nome dell'endpoint di routing |
+| **endpointType** | Stringa | Tipo dell'endpoint di routing |
+| **parentSpanId** | Stringa | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
 
 #### <a name="configurations"></a>Configurazioni
 
-I registri di configurazione dell'hub IoT tengono traccia degli eventi e degli errori per il set di funzionalità Gestione automatica dispositivi.
+I log di configurazione dell'hub Internet rileva gli eventi e gli errori relativi al set di funzionalità di gestione automatica dei dispositivi.
 
 ```json
 {
@@ -440,9 +440,9 @@ I registri di configurazione dell'hub IoT tengono traccia degli eventi e degli e
 }
 ```
 
-### <a name="device-streams-preview"></a>Flussi di dispositivi (anteprima)Device Streams (Preview)
+### <a name="device-streams-preview"></a>Flussi del dispositivo (anteprima)
 
-La categoria dei flussi di dispositivi tiene traccia delle interazioni richiesta-risposta inviate ai singoli dispositivi.
+La categoria flussi del dispositivo tiene traccia delle interazioni richiesta-risposta inviate ai singoli dispositivi.
 
 ```json
 {
@@ -543,11 +543,11 @@ Per controllare l'integrità degli hub IoT, seguire questi passaggi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare a**Integrità risorse** **integrità** > servizio .
+2. Passare a integrità**risorse** **servizio** > integrità.
 
-3. Nelle caselle di riepilogo a discesa selezionare la sottoscrizione, quindi selezionare **Hub IoT** come tipo di risorsa.
+3. Nelle caselle di riepilogo a discesa selezionare la sottoscrizione e quindi selezionare l' **Hub** Internet come tipo di risorsa.
 
-Per altre informazioni su come interpretare i dati sull'integrità, vedere [Panoramica dell'integrità delle risorse](../service-health/resource-health-overview.md)di Azure.To learn more about how to interpret health data, see Azure resource health overview.
+Per altre informazioni su come interpretare i dati di integrità, vedere [Panoramica di integrità risorse di Azure](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi alla distribuzione di OpenShift Container Platform 3.11 in AzureTroubleshoot OpenShift Container Platform 3.11 deployment in Azure
-description: Risolvere i problemi relativi alla distribuzione di OpenShift Container Platform 3.11 in Azure.Troubleshoot OpenShift Container Platform 3.11 deployment in Azure.
+title: Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure
+description: Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -11,13 +11,13 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 90fd3680cfdc4ecd1dcb0ce33b63f8d76dd8bfae
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759478"
 ---
-# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Risolvere i problemi relativi alla distribuzione di OpenShift Container Platform 3.11 in AzureTroubleshoot OpenShift Container Platform 3.11 deployment in Azure
+# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure
 
 Se il cluster OpenShift non viene distribuito correttamente, il portale di Azure fornirà un output degli errori. L'output potrebbe risultare difficile da leggere, rendendo complicata l'identificazione del problema. Eseguire rapidamente un'analisi di questo output per il codice di uscita 3, 4 o 5. Di seguito vengono fornite informazioni su questi tre codici di uscita:
 
@@ -35,11 +35,11 @@ Stabilire una connessione SSH all'host del playbook di Ansible. Per il modello o
 
 Stabilire una connessione SSH all'host del playbook di Ansible. Per il modello OKD (versione 3.9 e precedenti), usare l'host master-0. Per il modello OKD (versione 3.10 e successive), usare il bastion host. Dall'host del playbook di Ansible, è possibile stabilire una connessione SSH a tutti gli altri nodi del cluster (master, infranodo, CNS, calcolo). È necessario essere radice (sudo su-) per visualizzare i file di log. Siccome la radice è disabilitata per l'accesso SSH per impostazione predefinita, non usare la radice per stabilire una connessione SSH ad altri nodi.
 
-## <a name="log-files"></a>File di log
+## <a name="log-files"></a>File di registro
 
-I file di registro (stderr e stdout) `/var/lib/waagent/custom-script/download/0` per gli script di preparazione dell'host si trovano in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
+I file di log (stderr e stdout) per gli script di preparazione host si `/var/lib/waagent/custom-script/download/0` trovano in in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
 
-Se gli script di preparazione sono stati `/var/lib/waagent/custom-script/download/1` eseguiti correttamente, sarà necessario esaminare i file di log nella directory dell'host playbook ansible. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
+Se gli script di preparazione sono stati eseguiti correttamente, sarà necessario esaminare `/var/lib/waagent/custom-script/download/1` i file di log nella directory dell'host Ansible PlayBook. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
 
 Output di esempio
 
@@ -88,11 +88,11 @@ Gli errori più comuni durante l'installazione sono:
 
 ### <a name="private-key-has-a-passphrase"></a>La chiave privata ha una passphrase
 
-Verrà visualizzato un errore che indica che l'autorizzazione è stata negata per ssh. all'ansible playbook host per verificare la presenza di una passphrase sulla chiave privata.
+Verrà visualizzato un errore per cui è stata negata l'autorizzazione per SSH. eseguire ssh nell'host PlayBook Ansible per verificare la presenza di una passphrase sulla chiave privata.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Il segreto dell'insieme di credenziali delle chiavi con chiave privata non è stato creato correttamente
 
-La chiave privata viene copiata nell'audio ansible playbook - .ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
+La chiave privata viene copiata in Ansible PlayBook host-~/.ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Le credenziali dell'entità servizio non sono state immesse in modo corretto
 
@@ -114,5 +114,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Per alcuni errori, è anche possibile usare i comandi seguenti per ottenere ulteriori informazioni:
 
-1. servizio di \<stato systemctl>
+1. > del \<servizio di stato systemctl
 2. journalctl -xe

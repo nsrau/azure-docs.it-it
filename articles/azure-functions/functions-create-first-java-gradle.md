@@ -1,23 +1,23 @@
 ---
-title: Usare Java e Gradle per pubblicare una funzione in AzureUse Java and Gradle to publish a function to Azure
-description: Creare e pubblicare una funzione attivata da HTTP in Azure con Java e Gradle.Create and publish an HTTP-triggered function to Azure with Java and Gradle.
+title: Usare Java e Gradle per pubblicare una funzione in Azure
+description: Creare e pubblicare una funzione attivata tramite HTTP in Azure con Java e Gradle.
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732719"
 ---
-# <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usare Java e Gradle per creare e pubblicare una funzione in AzureUse Java and Gradle to create and publish a function to Azure
+# <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usare Java e Gradle per creare e pubblicare una funzione in Azure
 
-Questo articolo illustra come compilare e pubblicare un progetto di funzione Java in Funzioni di Azure con lo strumento da riga di comando Gradle.This article shows you how to build and publish a Java function project to Azure Functions with the Gradle command-line tool. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](functions-scale.md#consumption-plan) e viene attivato da una richiesta HTTP. 
+Questo articolo illustra come creare e pubblicare un progetto di funzione Java in funzioni di Azure con lo strumento da riga di comando Gradle. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](functions-scale.md#consumption-plan) e viene attivato da una richiesta HTTP. 
 
 > [!NOTE]
-> Se Gradle non è il tuo strumento di sviluppo preferito, dai un'occhiata ai nostri tutorial simili per gli sviluppatori Java che utilizzano [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Se Gradle non è lo strumento di sviluppo preferito, vedere le esercitazioni simili per gli sviluppatori Java che usano [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,23 +26,23 @@ Per sviluppare funzioni con Java, è necessario che siano installati gli element
 - [Java Developer Kit](https://aka.ms/azure-jdks), versione 8
 - [Interfaccia della riga di comando di Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.6.666 o successive
-- [Gradle](https://gradle.org/), versione 4.10 e superiore
+- [Gradle](https://gradle.org/), versione 4,10 e successive
 
 È anche necessaria una sottoscrizione di Azure attiva. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > Per completare questa guida di avvio rapido, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
 
-## <a name="prepare-a-functions-project"></a>Preparare un progetto di funzioniPrepare a Functions project
+## <a name="prepare-a-functions-project"></a>Preparare un progetto di funzioni
 
-Utilizzare il comando seguente per clonare il progetto di esempio:
+Usare il comando seguente per clonare il progetto di esempio:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
 cd azure-functions-samples-java/
 ```
 
-Aprire `build.gradle` e `appName` modificare nella sezione seguente un nome univoco per evitare conflitti di nomi di dominio durante la distribuzione in Azure.Open and change the in the following section to a unique name to avoid domain name conflict when deploying to Azure. 
+Aprire `build.gradle` e modificare la `appName` sezione seguente in un nome univoco per evitare conflitti di nomi di dominio durante la distribuzione in Azure. 
 
 ```gradle
 azurefunctions {
@@ -64,7 +64,7 @@ Aprire il nuovo file Function.java dal percorso *src/main/java* in un editor di 
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
-Eseguire il comando seguente per compilare quindi eseguire il progetto di funzione:
+Eseguire il comando seguente per compilare ed eseguire il progetto di funzione:
 
 ```bash
 gradle jar --info
@@ -84,7 +84,7 @@ Http Functions:
 ...
 </pre>
 
-Attivare la funzione dalla riga di comando utilizzando il seguente comando cURL in una nuova finestra del terminale:
+Attivare la funzione dalla riga di comando usando il comando cURL seguente in una nuova finestra del terminale:
 
 ```bash
 curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
@@ -119,11 +119,11 @@ Usare il comando seguente per distribuire il progetto in una nuova app per le fu
 gradle azureFunctionsDeploy
 ```
 
-In questo modo vengono create le risorse seguenti in Azure, in base ai valori nel file build.gradle:This creates the following resources in Azure, based on the values in the build.gradle file:
+In questo esempio vengono create le risorse seguenti in Azure, in base ai valori nel file Build. gradle:
 
 + Gruppo di risorse. Con il nome _resourceGroup_ specificato.
 + Account di archiviazione. Richiesto da Funzioni. Il nome viene generato in modo casuale in base ai requisiti di denominazione degli account di archiviazione.
-+ Piano di servizio app. Hosting del piano di consumo senza server per l'app per le funzioni _nell'appRegion_specificata. Il nome viene generato in modo casuale.
++ Piano di servizio app. Piano a consumo senza server che ospita l'app per le funzioni nel _appRegion_specificato. Il nome viene generato in modo casuale.
 + App per le funzioni. Un'app per le funzioni è l'unità di distribuzione ed esecuzione per le funzioni. Il nome è _appName_, con l'aggiunta finale di un numero generato in modo casuale. 
 
 La distribuzione inserisce inoltre i file di progetto in un pacchetto e li distribuisce nella nuova app per le funzioni tramite [ZipDeploy](functions-deployment-technologies.md#zip-deploy), con la modalità run-from-package abilitata.
