@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 45224625cfc828227708247d082a1aab1aef8469
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 1e41eb02f4b02078dbf4d42c46cab574cf8d0701
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82142649"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204067"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione di Analisi archiviazione di Azure
 
@@ -89,12 +89,12 @@ Per informazioni sull'elenco di BLOB a livello di codice, vedere [enumerazione d
 |Attributo|Descrizione|
 |---------------|-----------------|
 |`<service-name>`|Nome del servizio di archiviazione. Ad esempio: `blob`, `table` o `queue`|
-|`YYYY`|Anno a quattro cifre per il log. Ad esempio: `2011`|
-|`MM`|Mese a due cifre per il log. Ad esempio: `07`|
-|`DD`|Giorno a due cifre per il log. Ad esempio: `31`|
-|`hh`|Ora a due cifre che indica l'ora di inizio dei log, in nel formato UTC 24 ore. Ad esempio: `18`|
+|`YYYY`|Anno a quattro cifre per il log. ad esempio `2011`|
+|`MM`|Mese a due cifre per il log. ad esempio `07`|
+|`DD`|Giorno a due cifre per il log. ad esempio `31`|
+|`hh`|Ora a due cifre che indica l'ora di inizio dei log, in nel formato UTC 24 ore. ad esempio `18`|
 |`mm`|Numero di due cifre che indica il minuto iniziale per i log. **Nota:**  Questo valore non è supportato nella versione corrente di Analisi archiviazione e il suo valore sarà sempre `00`.|
-|`<counter>`|Contatore base zero con sei cifre che indica il numero di BLOB di log generati per il servizio di archiviazione in un'ora. Il contatore inizia da `000000`. Ad esempio: `000001`|
+|`<counter>`|Contatore base zero con sei cifre che indica il numero di BLOB di log generati per il servizio di archiviazione in un'ora. Il contatore inizia da `000000`. ad esempio `000001`|
 
  Di seguito è riportato un nome di log completo di esempio che combina gli esempi precedenti:
 
@@ -113,8 +113,8 @@ Per informazioni sull'elenco di BLOB a livello di codice, vedere [enumerazione d
 |Attributo|Descrizione|
 |---------------|-----------------|
 |`LogType`|Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola.<br /><br /> Esempio 1: `write`<br /><br /> Esempio 2: `read,write`<br /><br /> Esempio 3:`read,write,delete`|
-|`StartTime`|L'ora meno recente di una voce del log, sotto forma di `YYYY-MM-DDThh:mm:ssZ`. Ad esempio: `2011-07-31T18:21:46Z`|
-|`EndTime`|L'ora più recente di una voce del log, sotto forma di `YYYY-MM-DDThh:mm:ssZ`. Ad esempio: `2011-07-31T18:22:09Z`|
+|`StartTime`|L'ora meno recente di una voce del log, sotto forma di `YYYY-MM-DDThh:mm:ssZ`. ad esempio `2011-07-31T18:21:46Z`|
+|`EndTime`|L'ora più recente di una voce del log, sotto forma di `YYYY-MM-DDThh:mm:ssZ`. ad esempio `2011-07-31T18:22:09Z`|
 |`LogVersion`|Versione del formato del log.|
 
  Nell'elenco seguente vengono visualizzati metadati di esempio completi utilizzando i precedenti esempi:
@@ -160,7 +160,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/diagnostic-logs-classic.cs" id="snippet_EnableDiagnosticLogs":::
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
 # <a name="net-v11-sdk"></a>[\.NET V11 SDK](#tab/dotnet11)
 

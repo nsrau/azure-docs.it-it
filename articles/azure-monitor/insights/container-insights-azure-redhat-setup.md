@@ -3,12 +3,12 @@ title: Configurare Azure Red Hat OpenShift V3. x con monitoraggio di Azure per i
 description: Questo articolo descrive come configurare il monitoraggio di un cluster Kubernetes con monitoraggio di Azure ospitato in Azure Red Hat OpenShift versione 3 e successive.
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 98ac5752e047c4f5f6db63d228bec7c47271aa00
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: HT
+ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166294"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204135"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurare Azure Red Hat OpenShift V3 con monitoraggio di Azure per i contenitori
 
@@ -38,7 +38,7 @@ Monitoraggio di Azure per contenitori supporta il monitoraggio di Azure Red Hat 
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Abilitare per un nuovo cluster usando un modello di Azure Resource Manager
 
-Eseguire la procedura seguente per distribuire un cluster Azure Red Hat OpenShift con il monitoraggio abilitato. Prima di procedere, vedere l'esercitazione [creare un cluster Azure Red Hat OpenShift](../../openshift/tutorial-create-cluster.md#prerequisites) per comprendere le dipendenze che è necessario configurare in modo che l'ambiente sia configurato correttamente.
+Eseguire la procedura seguente per distribuire un cluster Azure Red Hat OpenShift con il monitoraggio abilitato. Prima di procedere, vedere l'esercitazione [creare un cluster Azure Red Hat OpenShift](../../openshift/tutorial-create-cluster.md) per comprendere le dipendenze che è necessario configurare in modo che l'ambiente sia configurato correttamente.
 
 Questo metodo include due modelli JSON. Un modello specifica la configurazione per distribuire il cluster con il monitoraggio abilitato e l'altro contiene i valori dei parametri configurati per specificare gli elementi seguenti:
 

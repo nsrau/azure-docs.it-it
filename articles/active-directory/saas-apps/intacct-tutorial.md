@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b28390dba009226d493f5bfc6a5270b067f5bba0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73570532"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201347"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Esercitazione: Integrare Sage Intacct con Azure Active Directory
 
@@ -94,7 +94,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | ---------------| --------------- |
     | Nome dell'azienda | **ID società di Sage Intacct** |
     | name | Il valore deve corrispondere a quello di **User ID** (ID utente) di Sage Intacct, che viene immesso nella sezione **Creare l'utente di test di Sage Intacct**, descritta più avanti nell'esercitazione. |
-    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | Il valore deve corrispondere a quello di **Federated SSO User ID** (ID utente SSO federato) di Sage Intacct, che viene immesso nella sezione **Creare l'utente di test di Sage Intacct**, descritta più avanti nell'esercitazione. |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | Il valore deve corrispondere a quello di **Federated SSO User ID** (ID utente SSO federato) di Sage Intacct, che viene immesso nella sezione **Creare l'utente di test di Sage Intacct**, descritta più avanti nell'esercitazione. |
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 

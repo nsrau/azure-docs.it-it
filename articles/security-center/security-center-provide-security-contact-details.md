@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: 64a9600a3014f7e85a7f924d38882bfadaf631db
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 08ad761e81909e6ab23c7c07f5ce05865136bc47
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387819"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204101"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure, se non è già stato fatto. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Microsoft Security Response Center esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi.
@@ -36,12 +36,12 @@ Le notifiche di avviso tramite posta elettronica vengono inviate:
  
 Ad esempio, se è già stato inviato un messaggio di posta elettronica per avvisare l'utente di un attacco RDP, questo non riceverà nessun altro messaggio di posta elettronica relativo all'attacco RDP nello stesso giorno, anche se viene attivato un altro avviso. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurare le notifiche di posta elettronica per gli avvisi<a name="email"></a>
 
-1. Aprire la pagina delle **notifiche di posta elettronica** :
+1. Per un utente con ruolo amministratore della sicurezza o proprietario della sottoscrizione, aprire la pagina delle **notifiche tramite posta elettronica** :
 
     - Per gli avvisi, aprire **prezzi & impostazioni**, selezionare la sottoscrizione pertinente e selezionare **notifiche di posta elettronica**.
 
@@ -57,7 +57,7 @@ Ad esempio, se è già stato inviato un messaggio di posta elettronica per avvis
 
 1. Per applicare le informazioni di contatto di sicurezza alla sottoscrizione, selezionare **Salva**.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.

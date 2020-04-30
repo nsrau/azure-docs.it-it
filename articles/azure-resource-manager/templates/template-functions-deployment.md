@@ -2,15 +2,15 @@
 title: Funzioni di modello-distribuzione
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per recuperare informazioni relative alla distribuzione.
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: 86a1d3d7e05fedacd7a3c044ecab241ca9d059c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156328"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203795"
 ---
-# <a name="deployment-functions-for-arm-templates"></a>Funzioni di distribuzione per i modelli ARM 
+# <a name="deployment-functions-for-arm-templates"></a>Funzioni di distribuzione per i modelli ARM
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori correlati alla distribuzione corrente del modello di Azure Resource Manager (ARM):
 
@@ -29,7 +29,12 @@ Restituisce informazioni sull'operazione di distribuzione corrente.
 
 ### <a name="return-value"></a>Valore restituito
 
-Questa funzione restituisce l'oggetto che viene passato durante la distribuzione. Le proprietà nell'oggetto restituito variano a seconda che l'oggetto di distribuzione venga passato come un collegamento o come un oggetto inline. Quando l'oggetto di distribuzione viene passato inline, ad esempio quando si usa il parametro **-TemplateFile** in Azure PowerShell per puntare a un file locale, l'oggetto restituito è nel formato seguente:
+Questa funzione restituisce l'oggetto che viene passato durante la distribuzione. Le proprietà nell'oggetto restituito variano a seconda che si tratti di:
+
+* distribuzione di un modello che è un file locale o distribuzione di un modello che è un file remoto a cui si accede tramite un URI.
+* distribuzione in un gruppo di risorse o distribuzione in uno degli altri ambiti ([sottoscrizione di Azure](deploy-to-subscription.md), [gruppo di gestione](deploy-to-management-group.md)o [tenant](deploy-to-tenant.md)).
+
+Quando si distribuisce un modello locale in un gruppo di risorse, la funzione restituisce il formato seguente:
 
 ```json
 {
@@ -44,6 +49,7 @@ Questa funzione restituisce l'oggetto che viene passato durante la distribuzione
             ],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -51,7 +57,7 @@ Questa funzione restituisce l'oggetto che viene passato durante la distribuzione
 }
 ```
 
-Quando l'oggetto viene passato come collegamento, come quando si usa il parametro **-TemplateUri** per puntare a un oggetto remoto, l'oggetto viene restituito nel formato seguente: 
+Quando si distribuisce un modello remoto in un gruppo di risorse, la funzione restituisce il formato seguente:
 
 ```json
 {
@@ -68,6 +74,7 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
             "resources": [],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -75,7 +82,26 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
 }
 ```
 
-Quando si [distribuisce in una sottoscrizione di Azure](deploy-to-subscription.md) anziché in un gruppo di risorse, l'oggetto restituito include una proprietà `location`. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno.
+Quando si esegue la distribuzione in una sottoscrizione, un gruppo di gestione o un tenant di Azure, `location` l'oggetto restituito include una proprietà. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno. Il formato è:
+
+```json
+{
+    "name": "",
+    "location": "",
+    "properties": {
+        "template": {
+            "$schema": "",
+            "contentVersion": "",
+            "resources": [],
+            "outputs": {}
+        },
+        "templateHash": "",
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+    }
+}
+```
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -99,7 +125,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
             "value": "[deployment()]",
             "type" : "object"
         }
@@ -118,20 +144,19 @@ L'esempio precedente restituisce l'oggetto seguente:
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
           "type": "Object",
           "value": "[deployment()]"
         }
       }
     },
+    "templateHash": "13135986259522608210",
     "parameters": {},
     "mode": "Incremental",
     "provisioningState": "Accepted"
   }
 }
 ```
-
-Per un modello a livello di sottoscrizione che usa la funzione di distribuzione, vedere la [funzione di distribuzione per sottoscrizione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). La distribuzione si esegue con i comandi `az deployment create` o `New-AzDeployment`.
 
 ## <a name="environment"></a>environment
 
@@ -239,9 +264,9 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |string |Nome del parametro da restituire. |
+| parameterName |Sì |stringa |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -328,11 +353,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| stringOutput | string | option 1 |
+| stringOutput | Stringa | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Oggetto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | string | option 1 |
+| crossOutput | Stringa | option 1 |
 
 Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azure Resource Manager modello](template-parameters.md).
 
@@ -344,7 +369,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | variableName |Sì |string |Nome della variabile da restituire. |
 
@@ -420,16 +445,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| exampleOutput1 | string | myVariable |
+| exampleOutput1 | Stringa | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | string | myVariable |
+| exampleOutput3 | Stringa | myVariable |
 | exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
 Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [creazione di modelli di Azure Resource Manager](template-syntax.md).
-* Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
-* Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
 
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).

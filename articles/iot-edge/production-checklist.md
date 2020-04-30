@@ -4,19 +4,19 @@ description: Informazioni su come portare la soluzione Azure IoT Edge dallo svil
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/24/2020
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ec196408c047682be527ee21735ce809f5916e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191839"
+ms.locfileid: "82204203"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -174,12 +174,22 @@ Per un esempio di una convenzione di tag, vedere [Aggiornare il runtime IoT Edge
 
 Si sa come archiviare le immagini del contenitore per i moduli di codice personalizzati nel registro di sistema privato di Azure, ma è anche possibile usarlo per archiviare le immagini del contenitore pubblico, ad esempio per i moduli di runtime edgeAgent e edgHub. Questa operazione potrebbe essere necessaria se si dispone di restrizioni del firewall molto rigide, perché questi contenitori di runtime vengono archiviati in Microsoft Container Registry (().
 
-Ottenere le immagini con il comando Docker pull da inserire nel registro. Tenere presente che sarà necessario aggiornare le immagini con ogni nuova versione di IoT Edge Runtime.
+Ottenere le immagini con il comando Docker pull da inserire nel registro di sistema privato. Tenere presente che sarà necessario aggiornare le immagini con ogni nuova versione di IoT Edge Runtime.
 
 | Contenitore IoT Edge Runtime | Comando pull di Docker |
 | --- | --- |
 | [Agente di Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [HUb Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Assicurarsi quindi di aggiornare i riferimenti all'immagine nel file Deployment. template. JSON per i moduli di sistema edgeAgent e edgeHub. Sostituire `mcr.microsoft.com` con il nome del registro di sistema e il server per entrambi i moduli.
+
+* EdgeAgent
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* EdgeHub
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## <a name="networking"></a>Rete
 
@@ -259,7 +269,7 @@ Per impostazione predefinita, il motore di contenitori di Moby non imposta limit
 
 Aggiungere (o accodare) queste informazioni a un file `daemon.json` denominato e posizionarlo nella posizione corretta per la piattaforma del dispositivo.
 
-| Piattaforma | Location |
+| Piattaforma | Percorso |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |

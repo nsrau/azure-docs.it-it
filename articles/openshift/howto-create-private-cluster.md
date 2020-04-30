@@ -7,17 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: Aro, OpenShift, cluster privato, Red Hat
-ms.openlocfilehash: b34b5d622527742447847102526eba9ee6ca220d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4ce6c79fa9fe6d05fdea4b877a8aa7faf404a9b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399419"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204169"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Creare un cluster privato con Azure Red Hat OpenShift 3,11
-
-> [!IMPORTANT]
-> I cluster privati di Azure Red Hat OpenShift (ARO) sono attualmente disponibili solo in anteprima privata nell'area Stati Uniti orientali 2. L'accettazione dell'anteprima privata è riservata a un invito. Assicurarsi di registrare la sottoscrizione prima di provare ad abilitare questa funzionalità.
 
 I cluster privati offrono i vantaggi seguenti:
 
@@ -25,9 +22,6 @@ I cluster privati offrono i vantaggi seguenti:
 * La rete virtuale di un cluster privato può essere configurata dai clienti, consentendo di configurare la rete per consentire il peering con altre reti virtuali, inclusi gli ambienti ExpressRoute. È anche possibile configurare un DNS personalizzato nella rete virtuale per l'integrazione con i servizi interni.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-
-> [!NOTE]
-> Questa funzionalità richiede la versione 2019-10-27-Preview dell'API HTTP ARO. Non è ancora supportata nell'interfaccia della riga di comando di Azure.
 
 I campi nel seguente frammento di configurazione sono nuovi e devono essere inclusi nella configurazione del cluster. `managementSubnetCidr`deve trovarsi all'interno della rete virtuale del cluster e viene usato da Azure per gestire il cluster.
 
@@ -50,7 +44,7 @@ Se si modificano i server dei nomi DNS nella rete virtuale del cluster, sarà ne
 
 Usare gli script di esempio in questa sezione per configurare e distribuire il cluster privato.
 
-### <a name="environment"></a>Environment
+### <a name="environment"></a>Ambiente
 
 Specificare le variabili di ambiente seguenti come usando i propri valori.
 

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b9052f364dfbae205dd324ba69de9578ccc225
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77026314"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201993"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Esercitazione: Consentire agli utenti di sbloccare l'account o reimpostare le password con la reimpostazione della password self-service di Azure Active Directory
 
@@ -104,7 +104,7 @@ Per informare gli utenti sull'attività dell'account, è possibile configurare l
 Se gli utenti necessitano di ulteriore assistenza per il processo di reimpostazione della password self-service, è possibile personalizzare il collegamento per "Contattare l'amministratore". Questo collegamento viene usato nel processo di registrazione della reimpostazione della password self-service e quando un utente sblocca il proprio account o ne reimposta la password. Per assicurarsi che gli utenti ottengano il supporto necessario, è consigliabile fornire un URL o un indirizzo di posta elettronica del supporto tecnico personalizzato.
 
 1. Nella pagina **Personalizzazione** dal menu a sinistra impostare *Personalizza collegamento al supporto tecnico* su **Sì**.
-1. Nel campo **Indirizzo di posta elettronica o URL del supporto tecnico** specificare un indirizzo di posta elettronica o l'URL di una pagina Web in cui gli utenti possono ottenere ulteriore assistenza dall'organizzazione, ad esempio *https://support.contoso.com/*
+1. Nel campo **Indirizzo di posta elettronica o URL del supporto tecnico** specificare un indirizzo di posta elettronica o l'URL di una pagina Web in cui gli utenti possono ottenere ulteriore assistenza dall'organizzazione, ad esempio *`https://support.contoso.com/`*
 1. Per applicare il collegamento personalizzato, selezionare **Salva**.
 
 ## <a name="test-self-service-password-reset"></a>Testare la reimpostazione della password self-service

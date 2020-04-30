@@ -243,11 +243,13 @@
             - name: Autonomo - qualsiasi ambiente
               items:
                 - name: Java (anteprima)
-                  href: app/java-in-process-agent.md
-                - name: Configurazione di Java JVM
-                  href: app/java-standalone-arguments.md
-                - name: Opzioni di configurazione di Java
-                  href: app/java-standalone-config.md
+                  items:
+                    - name: Panoramica
+                      href: app/java-in-process-agent.md
+                    - name: Opzioni di configurazione
+                      href: app/java-standalone-config.md
+                    - name: Configurazione degli argomenti di JVM
+                      href: app/java-standalone-arguments.md
             - name: Server locali
               items:
                 - name: ASP.NET
@@ -690,8 +692,10 @@
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Abilitare per l'ambiente ibrido
                   href: insights/container-insights-hybrid-setup.md
-                - name: Abilitare per Azure Red Hat OpenShift
+                - name: Abilitare per Azure Red Hat OpenShift v3
                   href: insights/container-insights-azure-redhat-setup.md
+                - name: Abilitare per Azure Red Hat OpenShift v4
+                  href: insights/container-insights-azure-redhat4-setup.md
                 - name: Mapping delle aree
                   href: insights/container-insights-region-mapping.md
             - name: Monitorare le prestazioni
@@ -724,10 +728,16 @@
               href: insights/container-insights-update-metrics.md
             - name: Configurazione del monitoraggio dell'integrità
               href: insights/container-insights-health-monitors-config.md
-            - name: Disabilitare il monitoraggio del servizio Azure Kubernetes
-              href: insights/container-insights-optout.md
-            - name: Disabilitare il monitoraggio di Red Hat OpenShift
-              href: insights/container-insights-optout-openshift.md
+            - name: Disabilitare il monitoraggio
+              items:
+                - name: Disabilitare il monitoraggio del servizio Azure Kubernetes
+                  href: insights/container-insights-optout.md
+                - name: Disabilitare il monitoraggio di Red Hat OpenShift v3
+                  href: insights/container-insights-optout-openshift-v3.md
+                - name: Disabilitare il monitoraggio di Red Hat OpenShift v4
+                  href: insights/container-insights-optout-openshift-v4.md
+                - name: Disabilitare il monitoraggio del cluster ibrido
+                  href: insights/container-insights-optout-hybrid.md
             - name: Risoluzione dei problemi
               href: insights/container-insights-troubleshoot.md
         - name: Monitoraggio dei contenitori Docker e Windows
@@ -1265,7 +1275,7 @@
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
-    - name: Modelli di Guida introduttiva
+    - name: Modelli di avvio rapido
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=monitoring'

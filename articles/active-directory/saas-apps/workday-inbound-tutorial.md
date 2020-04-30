@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190317"
+ms.locfileid: "82201636"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -458,11 +458,11 @@ In questo passaggio viene stabilita la connettività con la giornata lavorativa 
 
    * **Password giorni lavorativi-** Immettere la password dell'account del sistema di integrazione della giornata lavorativa
 
-   * **URL dell'API servizi Web giorni lavorativi-** Immettere l'URL dell'endpoint dei servizi Web della giornata lavorativa per il tenant. Questo valore dovrebbe essere simile al https://wd3-impl-services1.workday.com/ccx/service/contoso4seguente:, dove *contoso4* viene sostituito con il nome del tenant corretto e *WD3-impl* viene sostituito con la stringa di ambiente corretta.
+   * **URL dell'API servizi Web giorni lavorativi-** Immettere l'URL dell'endpoint dei servizi Web della giornata lavorativa per il tenant. Questo valore dovrebbe essere simile al `https://wd3-impl-services1.workday.com/ccx/service/contoso4`seguente:, dove *contoso4* viene sostituito con il nome del tenant corretto e *WD3-impl* viene sostituito con la stringa di ambiente corretta.
 
      > [!NOTE]
      > Per impostazione predefinita, l'app usa i servizi Web della giornata lavorativa (WWS) v 21.1 se nell'URL non è specificata alcuna informazione sulla versione. Per usare una versione specifica dell'API WWS, usare il formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Esempio: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0 <br>
+     > Esempio: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
      
      > [!NOTE]
      > Se si usa un'API WWS v 30 e versioni successive, prima di attivare il processo di provisioning, aggiornare le **espressioni API XPath** in **mapping degli attributi-> opzioni avanzate-> elenco degli attributi per la giornata lavorativa** che fa riferimento alla sezione [gestione della configurazione](#managing-your-configuration) e informazioni di [riferimento sugli attributi](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
@@ -621,11 +621,11 @@ Le sezioni seguenti descrivono i passaggi per la configurazione del provisioning
 
    * **Password giorni lavorativi-** Immettere la password dell'account del sistema di integrazione della giornata lavorativa
 
-   * **URL dell'API servizi Web giorni lavorativi-** Immettere l'URL dell'endpoint dei servizi Web della giornata lavorativa per il tenant. Questo valore dovrebbe essere simile a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, dove * contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta. Se l'URL non è noto, determinare l'URL corretto da usare insieme al proprio partner di integrazione Workday o al supporto tecnico.
+   * **URL dell'API servizi Web giorni lavorativi-** Immettere l'URL dell'endpoint dei servizi Web della giornata lavorativa per il tenant. Questo valore dovrebbe essere simile a: `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, dove * contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta. Se l'URL non è noto, determinare l'URL corretto da usare insieme al proprio partner di integrazione Workday o al supporto tecnico.
 
      > [!NOTE]
      > Per impostazione predefinita, l'app usa i servizi Web della giornata lavorativa v 21.1 se non è stata specificata alcuna informazione sulla versione nell'URL. Per usare una versione specifica dell'API dei servizi Web per la giornata lavorativa, usare il formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Esempio: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+     > Esempio: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
    * **Messaggio di posta elettronica di notifica:** Immettere l'indirizzo di posta elettronica e selezionare la casella di controllo "Invia messaggio di posta elettronica se si verifica un errore".
@@ -723,7 +723,7 @@ Seguire queste istruzioni per configurare il writeback degli indirizzi di posta 
 
    * **Password amministratore:** Immettere la password dell'account del sistema di integrazione della giornata lavorativa
 
-   * **URL tenant:** Immettere l'URL dell'endpoint dei servizi Web della giornata lavorativa per il tenant. Dovrebbe essere simile a: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, dove *contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta (se necessario).
+   * **URL tenant:** Immettere l'URL dell'endpoint dei servizi Web della giornata lavorativa per il tenant. Dovrebbe essere simile a: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, dove *contoso4* è sostituito dal nome del tenant corretto e *wd3-impl* è sostituito dalla stringa di ambiente corretta (se necessario).
 
    * **Messaggio di posta elettronica di notifica:** Immettere l'indirizzo di posta elettronica e selezionare la casella di controllo "Invia messaggio di posta elettronica se si verifica un errore".
 
@@ -752,7 +752,7 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Salva**.
+2. Fare clic su **Save**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti nel tenant di Workday. 
 

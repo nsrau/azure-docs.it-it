@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: roygara
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1827d44f4d4ac812a33aee4791c2103a10328ba7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75942779"
+ms.locfileid: "82204551"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 
@@ -232,7 +232,7 @@ Occorre ricordare che i dischi di Archiviazione Premium hanno capacità di prest
 
 ## <a name="disk-caching"></a>Memorizzazione nella cache del disco
 
-Le VM a scalabilità elevata che sfruttano i vantaggi dell'Archiviazione Premium di Azure includono una tecnologia di memorizzazione nella cache multilivello denominata BlobCache. BlobCache usa una combinazione della RAM della macchina virtuale e dell'unità SSD locale per la memorizzazione nella cache. Questa cache è disponibile per i dischi persistenti di Archiviazione Premium e i dischi locali della VM. Per impostazione predefinita, questa impostazione della cache viene configurata su Read/Write per dischi del sistema operativo e ReadOnly per i dischi dati ospitati nell'Archiviazione Premium. Quando la memorizzazione nella cache su disco è abilitata nei dischi di Archiviazione Premium, le VM a scalabilità elevata possono raggiungere livelli estremamente elevati di prestazioni che superano le prestazioni sottostanti del disco.
+Le VM a scalabilità elevata che sfruttano i vantaggi dell'Archiviazione Premium di Azure includono una tecnologia di memorizzazione nella cache multilivello denominata BlobCache. BlobCache usa una combinazione della RAM host e dell'unità SSD locale per la memorizzazione nella cache. Questa cache è disponibile per i dischi persistenti di Archiviazione Premium e i dischi locali della VM. Per impostazione predefinita, questa impostazione della cache viene configurata su Read/Write per dischi del sistema operativo e ReadOnly per i dischi dati ospitati nell'Archiviazione Premium. Quando la memorizzazione nella cache su disco è abilitata nei dischi di Archiviazione Premium, le VM a scalabilità elevata possono raggiungere livelli estremamente elevati di prestazioni che superano le prestazioni sottostanti del disco.
 
 > [!WARNING]
 > La memorizzazione nella cache del disco non è supportata per i dischi 4 TiB e superiori. Se alla VM sono collegati più dischi, ogni disco con dimensioni inferiori a 4 TiB supporterà la memorizzazione nella cache.
@@ -252,7 +252,7 @@ Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 
 | **Impostazione per la memorizzazione nella cache su disco** | **Raccomandazione su quando usare questa impostazione** |
 | --- | --- |
-| nessuno |Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
+| Nessuno |Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
 | ReadOnly |Configurare la cache host come ReadOnly per dischi di sola lettura e di lettura-scrittura. |
 | ReadWrite |Configurare la cache host come ReadWrite solo se l'applicazione gestisce correttamente la scrittura di dati memorizzati nella cache in dischi persistenti, quando necessario. |
 

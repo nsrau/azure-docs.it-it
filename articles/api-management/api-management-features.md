@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 2e84138419986ef1033ab076b3745187812e91b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335893"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203169"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Confronto basato sulle funzionalità dei livelli di Gestione API di Azure
 
 Ogni [piano tariffario](https://aka.ms/apimpricing) di Gestione API offre un set diverso di funzionalità e di[ capacità](api-management-capacity.md) per unità. La tabella seguente riepiloga le funzionalità chiave disponibili in ciascuno dei livelli. Alcune funzionalità potrebbero funzionare diversamente o avere capacità diverse a seconda del livello. In questi casi le differenze vengono indicate negli articoli della documentazione, i quali descrivono le singole funzionalità.
 
 > [!IMPORTANT]
-> Si noti che il livello Sviluppatore è per casi d'uso e valutazioni non di produzione. Non offre il servizio di sla.
+> Si noti che il livello Developer è per i casi d'uso e le valutazioni non di produzione. Non offre contratti di contratto.
 
-| Funzionalità                                                                                      | Consumo | Developer | Basic | Standard | Premium |
+| Funzionalità                                                                                      | Consumo | Sviluppatore | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Integrazione di Azure AD<sup>1</sup>                                                             | No          | Sì       | No    | Sì      | Sì     |
 | Supporto della Rete virtuale di Microsoft Azure (VNet)                                                               | No          | Sì       | No    | No       | Sì     |
@@ -45,6 +45,6 @@ Ogni [piano tariffario](https://aka.ms/apimpricing) di Gestione API offre un set
 | Metriche e log di Monitoraggio di Azure                                                               | No          | Sì       | Sì   | Sì      | Sì     |
 | IP statico                                                                                    | No          | Sì       | Sì   | Sì      | Sì     |
 
-<sup>1</sup> Abilita l'uso di Azure AD (e Azure AD B2C) come provider di identità per l'accesso utente nel portale per sviluppatori.<br/>
+<sup>1</sup> Abilita l'uso di Azure ad (e Azure ad B2C) come provider di identità per l'accesso utente nel portale per sviluppatori.<br/>
 <sup>2</sup> Sono incluse le funzionalità correlate, ad esempio utenti, gruppi, problemi, modelli di posta elettronica e applicazioni, nonché notifiche.<br/>
-<sup>3</sup> Limitato a una singola distribuzione di gateway self-hosted con un singolo nodo gateway.<br/>
+<sup>3</sup> nei gateway self-hosted del livello Developer sono limitati al nodo del singolo gateway.<br/>

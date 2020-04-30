@@ -3,22 +3,98 @@ title: Funzioni di modello-confronto
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per confrontare valori.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a9b7b32475695e5222b87c8fe75e8982f34ebb21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 15afc4d721c6577de9fe3e78483fdbfae5b493c6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192332"
+ms.locfileid: "82203778"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
 
 Gestione risorse offre diverse funzioni per l'esecuzione di confronti nei modelli di Azure Resource Manager (ARM).
 
+* [COALESCE](#coalesce)
 * [equals](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [meno](#less)
 * [lessOrEquals](#lessorequals)
+
+## <a name="coalesce"></a>coalesce
+
+`coalesce(arg1, arg2, arg3, ...)`
+
+Restituisce il primo valore non null dai parametri. Stringhe vuote, matrici vuote e oggetti vuoti sono non null.
+
+### <a name="parameters"></a>Parametri
+
+| Parametro | Obbligatoria | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore da controllare per verificare se è null. |
+| argomenti aggiuntivi |No |int, stringa, matrice o oggetto |Valori aggiuntivi da controllare per verificare se sono null. |
+
+### <a name="return-value"></a>Valore restituito
+
+Valore dei primi parametri non null, che può essere una stringa, un numero intero, una matrice o un oggetto. Null se tutti i parametri sono null.
+
+### <a name="example"></a>Esempio
+
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) seguente illustra l'output per diversi usi di coalesce.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "null1": null,
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Type | valore |
+| ---- | ---- | ----- |
+| stringOutput | Stringa | default |
+| intOutput | Int | 1 |
+| objectOutput | Oggetto | {"first": "default"} |
+| arrayOutput | Array | [1] |
+| emptyOutput | Bool | True |
 
 ## <a name="equals"></a>equals
 
@@ -28,7 +104,7 @@ Controlla se due valori sono uguali tra loro.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
 | arg2 |Sì |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
@@ -161,7 +237,7 @@ Controlla se il primo valore è maggiore del secondo.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
@@ -226,7 +302,7 @@ Controlla se il primo valore è maggiore o uguale al secondo valore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
@@ -291,7 +367,7 @@ Controlla se il primo valore è minore del secondo.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
@@ -356,7 +432,7 @@ Controlla se il primo valore è minore o uguale al secondo valore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |

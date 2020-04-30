@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: dd44d9cb01ff072d89afeb4efc4a59071c621315
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758864"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203966"
 ---
 Questa guida introduttiva basata su Postman assiste nell'ottenimento di una risposta da una knowledge base.
 
@@ -40,7 +40,7 @@ Usare questa procedura per configurare Postman, quindi leggere ogni sezione succ
     |Nome|Impostazione|Scopo e valore|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Si tratta del metodo HTTP e della route per l'URL.|
-    |`Host`|`https://diberry-qna-s0-s.azurewebsites.net/qnamaker`|Si tratta dell'host dell'URL. Concatenare i valori Host e Post per ottenere l'URL completo di generateAnswer.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Si tratta dell'host dell'URL. Concatenare i valori Host e Post per ottenere l'URL completo di generateAnswer.|
     |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Valore dell'intestazione per autorizzare la richiesta ad Azure. |
     |`Content-type`|`application/json`|Valore dell'intestazione per il contenuto.|
     ||`{"question":"<Your question>"}`|Corpo della richiesta POST come oggetto JSON. Questo valore verrà modificato in ogni sezione a seconda dello scopo della query.|

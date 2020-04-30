@@ -1,5 +1,5 @@
 ---
-title: Gestire le acquisizioni di pacchetti - Portale di AzureManage packet captures - Azure portal
+title: Gestire le acquisizioni di pacchetti-portale di Azure
 titleSuffix: Azure Network Watcher
 description: Altre informazioni su come gestire la funzionalità di acquisizione di pacchetti di Network Watcher usando il portale di Azure.
 services: network-watcher
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7a61438187534a05a7d3f0307a1a4ded89fc147
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840828"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204084"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
 
@@ -27,12 +27,16 @@ Questo articolo descrive come avviare, arrestare, scaricare ed eliminare un'acqu
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-L'acquisizione di pacchetti richiede la connettività seguente:
-* Connettività in uscita a un account di archiviazione tramite la porta 443.
-* Connettività in ingresso e in uscita a 169.254.169.254
-* Connettività in ingresso e in uscita a 168.63.129.16
+L'acquisizione di pacchetti richiede la connettività TCP in uscita seguente:
+- per l'account di archiviazione scelto sulla porta 443
+- per 169.254.169.254 sulla porta 80
+- per 168.63.129.16 sulla porta 8037
 
-Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla subnet in cui si trova l'interfaccia di rete, garantire l’esistenza di regole che autorizzino le porte precedenti. Analogamente, l'aggiunta di route di traffico definite dall'utente alla rete può impedire la connettività agli indirizzi IP e alle porte sopra menzionati. Si prega di assicurarsi che siano raggiungibili. 
+> [!NOTE]
+> Le porte indicate negli ultimi due casi sono comuni a tutte le funzionalità di Network Watcher che interessano l'estensione Network Watcher e talvolta possono cambiare.
+
+
+Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla subnet in cui si trova l'interfaccia di rete, garantire l’esistenza di regole che autorizzino le porte precedenti. Analogamente, l'aggiunta di route di traffico definite dall'utente alla rete può impedire la connettività agli indirizzi IP e alle porte indicati in precedenza. Assicurati che siano raggiungibili. 
 
 ## <a name="start-a-packet-capture"></a>Avviare un'acquisizione di pacchetti
 

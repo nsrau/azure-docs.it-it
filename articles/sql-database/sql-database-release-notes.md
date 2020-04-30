@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/28/2020
 ms.author: sstein
-ms.openlocfilehash: 27a62223970b0f697465ce9aa050f3fccbcae464
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106424"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201313"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -49,7 +49,7 @@ Questo articolo elenca le funzionalità del database SQL attualmente disponibili
 | <a href="https://aka.ms/managed-instance-aadlogins">Entità del server Azure AD a livello di istanza (account di accesso)</a> | Creare account di accesso a livello di server utilizzando l'istruzione <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">create login from External provider</a> . |
 | [Replica transazionale](sql-database-managed-instance-transactional-replication.md) | Replicare le modifiche dalle tabelle in altri database posizionati in istanze gestite, database singoli o istanze di SQL Server o aggiornare le tabelle quando alcune righe vengono modificate in altre istanze gestite o SQL Server istanza. Per informazioni, vedere [configurare la replica in un database dell'istanza gestita di database SQL di Azure](replication-with-sql-database-managed-instance.md). |
 | Introduzione al rilevamento delle minacce |Per informazioni, vedere [configurare il rilevamento delle minacce in istanza gestita di database SQL di Azure](sql-database-managed-instance-threat-detection.md).|
-| Conservazione del backup a lungo termine | Per informazioni, vedere [configurare la conservazione del backup a lungo termine in istanza gestita di database SQL di Azure](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
+| Conservazione del backup a lungo termine | Per informazioni, vedere [configurare la conservazione del backup a lungo termine in istanza gestita di database SQL di Azure](sql-database-managed-instance-long-term-backup-retention-configure.md), attualmente disponibile in anteprima pubblica limitata. | 
 
 ---
 
@@ -69,7 +69,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
   - Supporto per <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e per <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Creare istanze con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di server</a> e il <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso orario</a> desiderato.
   - Le istanze gestite sono ora protette con il <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall incorporato</a>.
-  - Configurare le istanze per l'uso di [endpoint pubblici](sql-database-managed-instance-public-endpoint-configure.md), la connessione per [l'override del proxy](sql-database-connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update">4 vcore di generazione hardware quinta generazione</a> o <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La conservazione dei backup a lungo termine (fino a 10 anni) non è ancora abilitata, quindi è possibile usare i <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backup di sola copia</a> come alternativa.
+  - Configurare le istanze per l'uso di [endpoint pubblici](sql-database-managed-instance-public-endpoint-configure.md), la connessione per [l'override del proxy](sql-database-connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update">4 vcore di generazione hardware quinta generazione</a> o <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La [conservazione dei backup a lungo termine](sql-database-long-term-retention.md#managed-instance-support) (fino a 10 anni) è attualmente in anteprima pubblica limitata.  
   - Le nuove funzionalità consentono di eseguire <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">il ripristino geografico del database in un altro Data Center tramite PowerShell</a>, [Rename database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [Delete Virtual cluster](sql-database-managed-instance-delete-virtual-cluster.md).
   - Il nuovo [ruolo Collaboratore istanza](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) incorporato consente la conformità alla separazione dei compiti (SOD) con i principi di sicurezza e la conformità agli standard aziendali.
   - Istanza gestita è disponibile nelle aree di Azure per enti pubblici seguenti per la versione GA (US Gov Texas, US Gov Arizona), nonché in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.
@@ -81,7 +81,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
 |[Autorizzazioni per il gruppo di risorse non applicate a Istanza gestita](#permissions-on-resource-group-not-applied-to-managed-instance)|2020 feb|Con soluzione alternativa||
 |[Limitazione del failover manuale tramite il portale per i gruppi di failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Gennaio 2020|Con soluzione alternativa||
 |[Per i ruoli SQL Agent sono necessarie autorizzazioni EXECUTE esplicite per gli account di accesso non sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|2019 dicembre|Con soluzione alternativa||
-|[I processi di SQL Agent possono essere interrotti dal riavvio del processo di Agent](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|2019 dicembre|Nessuna soluzione alternativa|Mar 2020|
+|[I processi di SQL Agent possono essere interrotti dal riavvio del processo di Agent](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|2019 dicembre|Risolto|Mar 2020|
 |[Gli account di accesso e gli utenti di AAD non sono supportati in SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|2019 novembre|Nessuna soluzione alternativa||
 |[I limiti di memoria di OLTP in memoria non vengono applicati](#in-memory-oltp-memory-limits-are-not-applied)|2019 ottobre|Con soluzione alternativa||
 |[Errore errato restituito durante il tentativo di rimozione di un file non vuoto](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|2019 ottobre|Con soluzione alternativa||
@@ -96,7 +96,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
 |[Superamento dello spazio di archiviazione con file di database di piccole dimensioni](#exceeding-storage-space-with-small-database-files)||Con soluzione alternativa||
 |[Valori GUID visualizzati al posto dei nomi di database](#guid-values-shown-instead-of-database-names)||Con soluzione alternativa||
 |[I log degli errori non sono salvati in stato permanente](#error-logs-arent-persisted)||Nessuna soluzione alternativa||
-|[L'ambito della transazione su due database all'interno della stessa istanza non è supportato](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Con soluzione alternativa|Marzo 2020|
+|[L'ambito della transazione su due database all'interno della stessa istanza non è supportato](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Con soluzione alternativa|Mar 2020|
 |[I moduli CLR e i server collegati talvolta non possono fare riferimento a un indirizzo IP locale](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Con soluzione alternativa||
 |Coerenza del database non verificata con DBCC CHECKDB dopo il ripristino del database dall'archiviazione BLOB di Azure.||Risolto|2019 novembre|
 |Il ripristino temporizzato del database dal livello business critical al livello per utilizzo generico non riuscirà se il database di origine contiene oggetti OLTP in memoria.||Risolto|2019 ottobre|
@@ -133,7 +133,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>I processi di SQL Agent possono essere interrotti dal riavvio del processo di Agent
 
-SQL Agent crea una nuova sessione ogni volta che viene avviato il processo, aumentando gradualmente il consumo di memoria. Per evitare di raggiungere il limite di memoria interna che blocca l'esecuzione dei processi pianificati, il processo dell'agente verrà riavviato quando il consumo di memoria raggiunge la soglia. Potrebbe causare l'interruzione dell'esecuzione dei processi in esecuzione al momento del riavvio.
+**(Risolto nel 2020 marzo)** SQL Agent crea una nuova sessione ogni volta che viene avviato il processo, aumentando gradualmente il consumo di memoria. Per evitare di raggiungere il limite di memoria interna che blocca l'esecuzione dei processi pianificati, il processo dell'agente verrà riavviato quando il consumo di memoria raggiunge la soglia. Potrebbe causare l'interruzione dell'esecuzione dei processi in esecuzione al momento del riavvio.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>I limiti di memoria di OLTP in memoria non vengono applicati
 

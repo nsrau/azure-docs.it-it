@@ -1,50 +1,54 @@
 ---
-title: Mapping della trasformazione dell'unione del flusso di dati
-description: Azure Data Factory mapping data flow New Branch Transformation
+title: Trasformazione Unione flusso di dati mapping
+description: Trasformazione nuovo ramo flusso di dati mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: 35f6b74f3b6cce5a0af812d4613f9da2f9fbd552
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/27/2020
+ms.openlocfilehash: 1874e3536a3dda123c7fff9726c02e5d92d88804
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606255"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204339"
 ---
-# <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Trasformazione dell'unione del flusso di dati di mapping di Azure Data FactoryAzure Data Factory mapping data union transformation
+# <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Trasformazione Unione flusso di dati mapping Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La trasformazione Unione consente di unire più flussi di dati in uno solo, con un'operazione Union SQL di tali flussi come nuovo output dalla trasformazione Unione. Tutto lo schema di ogni flusso di input verrà combinato all'interno del flusso di dati, senza che sia necessario disporre di una chiave di join.
+La trasformazione Unione consente di unire più flussi di dati in uno solo, con un'operazione Union SQL di tali flussi come nuovo output dalla trasformazione Unione. Tutti gli schemi di ogni flusso di input verranno combinati all'interno del flusso di dati, senza che sia necessario disporre di una chiave di join.
 
-È possibile combinare n-numero di flussi nella tabella delle impostazioni selezionando l'icona "" accanto a ogni riga configurata, inclusi i dati di origine e i flussi delle trasformazioni esistenti nel flusso di dati.
+È possibile combinare n-Number di flussi nella tabella Settings selezionando l'icona "+" accanto a ogni riga configurata, inclusi sia i dati di origine che i flussi delle trasformazioni esistenti nel flusso di dati.
+
+Ecco una breve descrizione dettagliata della trasformazione Unione nel flusso di dati di mapping di ADF:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vngz]
 
 ![Trasformazione Unione](media/data-flow/union.png "Union")
 
-In questo caso, è possibile combinare metadati disparati da più origini (in questo esempio, tre file di origine diversi) e combinarli in un unico flusso:In this case, you can combine disparate metadata from multiple sources (in this example, three different source files) and combine them into a single stream:
+In questo caso, è possibile combinare metadati diversi da più origini (in questo esempio, tre diversi file di origine) e combinarli in un singolo flusso:
 
-![Panoramica della trasformazione dell'unione](media/data-flow/union111.png "Unione 1")
+![Cenni preliminari sulla trasformazione Unione](media/data-flow/union111.png "Unione 1")
 
-A tale scopo, aggiungere altre righe nelle impostazioni dell'unione includendo tutte le origini che si desidera aggiungere. Non è necessaria una chiave di ricerca o join comune:There is no need for a common lookup or join key:
+A tale scopo, aggiungere altre righe nelle impostazioni di Unione includendo tutte le origini che si desidera aggiungere. Non è necessaria una chiave di join o di ricerca comune:
 
-![Impostazioni di trasformazione dell'unione](media/data-flow/unionsettings.png "Impostazioni dell'unione")
+![Impostazioni di trasformazione Unione](media/data-flow/unionsettings.png "Impostazioni Unione")
 
-Se si imposta una trasformazione Seleziona dopo l'unione, sarà possibile rinominare i campi sovrapposti o i campi che non sono stati denominati da origini senza intestazione. Fare clic su "Inspect" per visualizzare la combinazione di metadati con 132 colonne totali in questo esempio da tre origini diverse:
+Se si imposta una trasformazione seleziona dopo l'Unione, sarà possibile rinominare campi o campi sovrapposti non denominati da origini senza intestazione. Fare clic su "controlla" per visualizzare le colonne combina metadati con 132 totali in questo esempio da tre origini diverse:
 
-![Finale di trasformazione dell'Unione](media/data-flow/union333.png "Unione 3")
+![Unione finale trasformazione](media/data-flow/union333.png "Unione 3")
 
 ## <a name="name-and-position"></a>Nome e posizione
 
-Quando si sceglie "Unione per nome", ogni valore di colonna verrà inserito nella colonna corrispondente da ogni origine, con un nuovo schema di metadati concatenato.
+Quando si sceglie "Unione per nome", ogni valore di colonna viene inserito nella colonna corrispondente da ogni origine, con un nuovo schema di metadati concatenato.
 
-Se si sceglie "Unione per posizione", ogni valore di colonna cadrà nella posizione originale da ogni origine corrispondente, generando un nuovo flusso combinato di dati in cui i dati di ogni origine vengono aggiunti allo stesso flusso:
+Se si sceglie "Union by position", ogni valore della colonna verrà inserito nella posizione originale da ogni origine corrispondente, ottenendo un nuovo flusso combinato di dati in cui i dati di ogni origine vengono aggiunti allo stesso flusso:
 
-![Produzione dell'Unione](media/data-flow/unionoutput.png "Produzione dell'Unione")
+![Output Unione](media/data-flow/unionoutput.png "Output Unione")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplora trasformazioni simili, tra cui [Join](data-flow-join.md) ed [Exists](data-flow-exists.md).
+Esplora le trasformazioni simili che includono [join](data-flow-join.md) ed [Exists](data-flow-exists.md).

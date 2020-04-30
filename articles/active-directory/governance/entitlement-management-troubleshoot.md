@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128468"
+ms.locfileid: "82207245"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Risolvere i problemi di Azure AD gestione dei diritti
 
@@ -87,13 +87,19 @@ Questo articolo descrive alcuni elementi da controllare per semplificare la riso
 
     Se la richiesta presenta errori di recapito, lo stato della richiesta sarà non **recapitato** o **parzialmente recapitato**.
 
-    Se si verificano errori di recapito, nel riquadro dei dettagli della richiesta sarà presente un conteggio degli errori di recapito.
+    Se si verificano errori di recapito, nel riquadro dei dettagli della richiesta verrà visualizzato un conteggio degli errori di recapito.
 
 1. Fare clic sul conteggio per visualizzare tutti gli errori di recapito della richiesta.
 
 ### <a name="reprocess-a-request"></a>Rielaborare una richiesta
 
-Se una richiesta rileva un errore, è possibile rielaborare la richiesta per riprovare. È possibile rielaborare solo una richiesta con uno stato di **recapito non riuscito** o **parzialmente recapitato** e una data completata inferiore a una settimana.
+Se si verifica un errore dopo l'attivazione di una richiesta di rielaborazione del pacchetto di Access, è necessario attendere il completamento della rielaborazione della richiesta da parte del sistema. Il sistema tenta più volte di rielaborare per diverse ore, quindi non è possibile forzare la rielaborazione durante questo periodo di tempo. 
+
+È possibile rielaborare solo una richiesta con uno stato di **recapito non riuscito** o **parzialmente recapitato** e una data completata inferiore a una settimana.
+
+- Se l'errore viene risolto durante la finestra di valutazione, lo stato della richiesta cambierà in recapito **.** La richiesta viene rielaborata senza ulteriori azioni da parte dell'utente.
+
+- Se l'errore non è stato corretto durante la finestra di valutazione, è possibile che lo stato della richiesta **non** sia recapitato o **parzialmente recapitato**. È quindi possibile usare il pulsante **rielabora** . Sono necessari sette giorni per rielaborare la richiesta.
 
 **Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
 

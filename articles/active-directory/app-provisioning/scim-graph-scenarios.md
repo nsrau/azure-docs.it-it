@@ -1,31 +1,26 @@
 ---
-title: Usando SCIM, il Microsoft Graph e il servizio di provisioning Azure AD per eseguire il provisioning degli utenti e arricchire l'applicazione con i dati necessari | Microsoft Docs
+title: USA SCIM, Microsoft Graph e Azure AD per eseguire il provisioning degli utenti e arricchire le app con i dati
 description: Usare SCIM e il Microsoft Graph insieme per eseguire il provisioning degli utenti e arricchire l'applicazione con i dati necessari.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/26/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ffe0474fcfeb28b49f5c2504ede86cd38459d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181835"
+ms.locfileid: "82201687"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Uso di SCIM e Microsoft Graph insieme per eseguire il provisioning degli utenti e arricchire l'applicazione con i dati necessari
 
-**Destinatari:** Questo documento è destinato agli sviluppatori che compilano applicazioni da integrare con Azure AD. Per gli altri utenti che vogliono usare le applicazioni già integrate con Azure AD, ad esempio zoom, ServiceNow e DropBox, è possibile ignorare questo aspetto ed esaminare le [esercitazioni](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) specifiche dell'applicazione oppure verificare il [funzionamento del servizio di provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Destinatari:** Questo articolo è destinato agli sviluppatori che compilano applicazioni da integrare con Azure Active Directory (Azure AD). Se si intende usare applicazioni già integrate con Azure AD, ad esempio zoom, ServiceNow e DropBox, è possibile ignorare questo articolo ed esaminare le [esercitazioni](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) specifiche dell'applicazione o esaminare il [funzionamento del servizio di provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
 
 **Scenari comuni**
 
@@ -46,7 +41,6 @@ Attualmente, gli amministratori IT eseguono il provisioning degli utenti creando
 **Consiglio**: 
 * Se i clienti utilizzano diversi IDP e non si desidera mantenere un motore di sincronizzazione per l'integrazione con ognuno di essi, supportare un endpoint [/Users](https://aka.ms/scimreferencecode) conforme a scim. I clienti saranno in grado di usare facilmente questo endpoint per integrarsi con il servizio di provisioning Azure AD e creare automaticamente gli account utente quando devono accedere. È possibile compilare l'endpoint una sola volta e sarà compatibile con tutti gli IDP. Vedere la richiesta di esempio seguente per la modalità di creazione di un utente con SCIM.
 * Se sono necessari dati utente trovati nell'oggetto utente in Azure AD e altri dati da Microsoft, è consigliabile creare un endpoint SCIM per il provisioning degli utenti e chiamare il Microsoft Graph per ottenere il resto dei dati. 
-
 
 ```json
 POST /Users

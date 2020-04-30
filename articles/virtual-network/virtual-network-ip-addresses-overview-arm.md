@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
+ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 64940ee6451ef1a9e153ef4d699bdaed32d4030e
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: a698d0cc4653a7a9f938b8f013352d9b51e2e18c
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146346"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203727"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -59,6 +59,22 @@ Gli indirizzi IP pubblici vengono creati con uno degli SKU seguenti:
 >[!IMPORTANT]
 > Per le risorse di bilanciamento del carico e IP pubblico è necessario usare SKU corrispondenti. Non è possibile avere una combinazione di risorse SKU Basic e Standard. Non è possibile collegare le macchine virtuali autonome, le macchine virtuali in una risorsa del set di disponibilità, o una risorsa di un set di scalabilità di macchina virtuale per entrambi gli SKU contemporaneamente.  Per i nuovi progetti è consigliabile prendere in considerazione l'uso di risorse SKU Standard.  Per informazioni dettagliate, consultare [Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+#### <a name="standard"></a>Standard
+
+Gli indirizzi IP pubblici con SKU Standard sono:
+
+- Assegnati sempre con il metodo di allocazione statica.
+- Caratterizzati da un timeout di inattività per i flussi in ingresso modificabile di 4-30 minuti, con un valore predefinito di 4 minuti, e da un timeout di inattività per i flussi in uscita fisso di 4 minuti.
+- Sono protetti per impostazione predefinita e chiusi al traffico in ingresso. È necessario inserire esplicitamente in un elenco di elementi consentiti il traffico di rete in ingresso con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).
+- Assegnati a interfacce di rete, bilanciamenti del carico pubblico standard o gateway applicazione. Per altre informazioni su Load Balancer Standard, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Può essere con ridondanza della zona o di zona (è possibile creare una zona e garantire la garanzia in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+ 
+> [!NOTE]
+> La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
+
+> [!NOTE]
+> Quando si usa il [servizio metadati dell'istanza](../virtual-machines/windows/instance-metadata-service.md), sono disponibili solo indirizzi IP pubblici con SKU di base IMDS. Lo SKU standard non è supportato.
+
 #### <a name="basic"></a>Basic
 
 Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono indirizzi IP pubblici con SKU Basic. Con l'introduzione degli SKU, è possibile specificare lo SKU per l'indirizzo IP pubblico. Gli indirizzi con SKU Basic sono:
@@ -68,22 +84,6 @@ Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono in
 - Sono aperti per impostazione predefinita.  I gruppi di sicurezza di rete sono consigliati ma facoltativi per limitare il traffico in ingresso o in uscita.
 - Assegnati a qualsiasi risorsa di Azure a cui può essere assegnato un indirizzo IP pubblico, ad esempio interfacce di rete, gateway VPN e servizi di bilanciamento del carico con connessione Internet.
 - Non supportano gli scenari di Zona di disponibilità.  È necessario usare l'indirizzo IP pubblico dello SKU Standard per scenari di Zona di disponibilità. Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-#### <a name="standard"></a>Standard
-
-Gli indirizzi IP pubblici con SKU Standard sono:
-
-- Assegnati sempre con il metodo di allocazione statica.
-- Caratterizzati da un timeout di inattività per i flussi in ingresso modificabile di 4-30 minuti, con un valore predefinito di 4 minuti, e da un timeout di inattività per i flussi in uscita fisso di 4 minuti.
-- Sono protetti per impostazione predefinita e chiusi al traffico in ingresso. È necessario inserire esplicitamente in un elenco di elementi consentiti il traffico di rete in ingresso con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).
-- Assegnati a interfacce di rete, bilanciamenti del carico pubblico standard o gateway applicazione. Per altre informazioni su Load Balancer Standard, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Con ridondanza della zona per impostazione predefinita e facoltativamente di zona (può essere creato a livello di zona ed è garantito in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
- 
-> [!NOTE]
-> La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
-
-> [!NOTE]
-> Quando si usa il [servizio metadati dell'istanza](../virtual-machines/windows/instance-metadata-service.md), sono disponibili solo indirizzi IP pubblici con SKU di base IMDS. Lo SKU standard non è supportato.
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 

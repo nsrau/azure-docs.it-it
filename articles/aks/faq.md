@@ -3,12 +3,12 @@ title: Domande frequenti relative al servizio Azure Kubernetes
 description: Trovare le risposte ad alcune domande comuni sul servizio Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f91fe1c63430a0eac23cf9cbc184babb6dd5f7a4
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: a58c3510d8937b209bf6c73d33237785ecab161d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106085"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206610"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -50,7 +50,7 @@ Per altre informazioni sull'utilizzo di Kured, vedere [Apply security and kernel
 
 ### <a name="windows-server-nodes"></a>Nodi di Windows Server
 
-Per i nodi di Windows Server (attualmente in anteprima in AKS), Windows Update non vengono eseguiti automaticamente e applicati gli aggiornamenti più recenti. In base a una pianificazione regolare per il ciclo di rilascio Windows Update e per il processo di convalida, è necessario eseguire un aggiornamento nel cluster e nei pool di nodi di Windows Server nel cluster AKS. Questo processo di aggiornamento crea nodi che eseguono la versione più recente dell'immagine e delle patch di Windows Server, quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Per i nodi di Windows Server, Windows Update non viene eseguito automaticamente e vengono applicati gli aggiornamenti più recenti. In base a una pianificazione regolare per il ciclo di rilascio Windows Update e per il processo di convalida, è necessario eseguire un aggiornamento nel cluster e nei pool di nodi di Windows Server nel cluster AKS. Questo processo di aggiornamento crea nodi che eseguono la versione più recente dell'immagine e delle patch di Windows Server, quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Perché vengono creati due gruppi di risorse con servizio Azure Kubernetes?
 
@@ -122,7 +122,7 @@ AKS attualmente non è integrato in modo nativo con Azure Key Vault. Tuttavia, i
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>È possibile eseguire contenitori Windows Server in servizio Azure Kubernetes?
 
-Sì, i contenitori di Windows Server sono disponibili in anteprima. Per eseguire i contenitori di Windows Server in AKS, è possibile creare un pool di nodi che esegue Windows Server come sistema operativo guest. I contenitori di Windows Server possono usare solo Windows Server 2019. Per iniziare, vedere [creare un cluster AKS con un pool di nodi di Windows Server][aks-windows-cli].
+Sì, i contenitori di Windows Server sono disponibili su AKS. Per eseguire i contenitori di Windows Server in AKS, è possibile creare un pool di nodi che esegue Windows Server come sistema operativo guest. I contenitori di Windows Server possono usare solo Windows Server 2019. Per iniziare, vedere [creare un cluster AKS con un pool di nodi di Windows Server][aks-windows-cli].
 
 Il supporto di Windows Server per il pool di nodi include alcune limitazioni che fanno parte di Windows Server upstream nel progetto Kubernetes. Per ulteriori informazioni su queste limitazioni, vedere la pagina relativa ai [contenitori di Windows Server nelle limitazioni di AKS][aks-windows-limitations].
 

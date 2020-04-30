@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "65406965"
+ms.locfileid: "82202397"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrare Azure Active Directory con E Sales Manager Remix
 
@@ -158,7 +158,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     
     b. Nell'elenco a discesa nella sezione **Collaboration item** (Elemento collaborazione) selezionare **email** (e-mail).
 
-    c. Nella casella **Collaboration item** (Elemento collaborazione) incollare il valore di attestazione precedentemente copiato dal portale di Azure, ad esempio **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. Nella casella **Collaboration item** (Elemento collaborazione) incollare il valore di attestazione precedentemente copiato dal portale di Azure, ad esempio **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
     d. Nella casella **Issuer (entity ID)** (Autorità di certificazione - ID entità) incollare il valore dell'identificatore copiato prima dalla sezione **URL e dominio E Sales Manager Remix** del portale di Azure.
 
@@ -204,7 +204,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Create** (Crea).
+    d. Selezionare **Crea**.
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Creare un utente di test in E Sales Manager Remix
 

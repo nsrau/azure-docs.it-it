@@ -4,12 +4,12 @@ description: Informazioni sulla sicurezza nel servizio Azure Kubernetes, inclusi
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 7238e6cd7ab3625e2953a4408c82802d43372256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1960d18396f47b3dbdd51a50ec4241be5ebe4ff1
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595944"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206630"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -31,11 +31,11 @@ Per impostazione predefinita, il server API Kubernetes utilizza un indirizzo IP 
 
 ## <a name="node-security"></a>Sicurezza dei nodi
 
-I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi Linux eseguono una distribuzione Ubuntu ottimizzata usando il runtime di Moby container. I nodi di Windows Server (attualmente in anteprima in AKS) eseguono una versione ottimizzata di Windows Server 2019 e usano anche il runtime di Moby container. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
+I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi Linux eseguono una distribuzione Ubuntu ottimizzata usando il runtime di Moby container. I nodi di Windows Server eseguono una versione ottimizzata di Windows Server 2019 e usano anche il runtime del contenitore Moby. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
 
 La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi Linux su base giornaliera. Se un aggiornamento della sicurezza del sistema operativo Linux richiede un riavvio dell'host, il riavvio non viene eseguito automaticamente. È possibile riavviare manualmente i nodi Linux o un approccio comune consiste nell'usare [KURED][kured], un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet][aks-daemonsets] e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
 
-Per i nodi di Windows Server (attualmente in anteprima in AKS), Windows Update non vengono eseguiti automaticamente e applicati gli aggiornamenti più recenti. In base a una pianificazione regolare per il ciclo di rilascio Windows Update e per il processo di convalida, è necessario eseguire un aggiornamento sui pool di nodi di Windows Server nel cluster AKS. Questo processo di aggiornamento crea nodi che eseguono la versione più recente dell'immagine e delle patch di Windows Server, quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Per i nodi di Windows Server, Windows Update non viene eseguito automaticamente e vengono applicati gli aggiornamenti più recenti. In base a una pianificazione regolare per il ciclo di rilascio Windows Update e per il processo di convalida, è necessario eseguire un aggiornamento sui pool di nodi di Windows Server nel cluster AKS. Questo processo di aggiornamento crea nodi che eseguono la versione più recente dell'immagine e delle patch di Windows Server, quindi rimuove i nodi precedenti. Per altre informazioni su questo processo, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 
 I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indirizzi IP pubblici assegnati. Per motivi di gestione e risoluzione dei problemi, SSH è abilitato per impostazione predefinita. Questo accesso SSH è disponibile solo tramite l'indirizzo IP interno.
 

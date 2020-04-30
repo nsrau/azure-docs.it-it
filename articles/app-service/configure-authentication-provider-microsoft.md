@@ -7,12 +7,12 @@ ms.date: 08/08/2019
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: a78208ba592f86400e9b06b15d8a76923dda736f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 6fe0e39584cbaa001e11f712bb2f60b45dba6914
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519892"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203489"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configurare il servizio app o l'app funzioni di Azure per usare l'account di accesso Microsoft
 
@@ -28,7 +28,7 @@ Questo argomento illustra come configurare app Azure servizio o funzioni di Azur
 1. Passare a [**registrazioni app**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nel portale di Azure. Se necessario, accedere con l'account Microsoft.
 1. Selezionare **nuova registrazione**, quindi immettere un nome di applicazione.
 1. In **tipi di account supportati**selezionare **account in qualsiasi directory organizzativa (qualsiasi Azure ad directory-multi-tenant) e account Microsoft personali (ad esempio Skype, Xbox)**
-1. In **URI di reindirizzamento**selezionare **Web**, quindi immettere `https://<app-domain-name>/.auth/login/aad/callback`. Sostituire * \<app-Domain-Name>* con il nome di dominio dell'app.  Ad esempio, `https://contoso.azurewebsites.net/.auth/login/aad/callback` Assicurarsi di usare lo schema HTTPS nell'URL.
+1. In **URI di reindirizzamento**selezionare **Web**, quindi immettere `https://<app-domain-name>/.auth/login/aad/callback`. Sostituire * \<app-Domain-Name>* con il nome di dominio dell'app.  Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Assicurarsi di usare lo schema HTTPS nell'URL.
 
 1. Selezionare **Registra**.
 1. Copiare l' **ID applicazione (client)**. Sarà necessario più avanti.
@@ -42,8 +42,8 @@ Questo argomento illustra come configurare app Azure servizio o funzioni di Azur
 
 1. Passare all'applicazione nella [portale di Azure].
 1. Selezionare **Impostazioni** > **autenticazione/autorizzazione**e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.
-1. In **Provider di autenticazione** fare clic su **Azure Active Directory**. Selezionare **Avanzate** in **modalità di gestione**. Incollare l'ID dell'applicazione (client) e il segreto client ottenuti in precedenza. Usare **https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0** per il campo **URL autorità di certificazione** .
-1. Fare clic su **OK**.
+1. In **Provider di autenticazione** fare clic su **Azure Active Directory**. Selezionare **Avanzate** in **modalità di gestione**. Incollare l'ID dell'applicazione (client) e il segreto client ottenuti in precedenza. Usare **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** per il campo **URL autorità di certificazione** .
+1. Selezionare **OK**.
 
    Il servizio app fornisce l'autenticazione ma non limita l'accesso autorizzato al contenuto del sito e alle API. È necessario autorizzare gli utenti nel codice dell'app.
 

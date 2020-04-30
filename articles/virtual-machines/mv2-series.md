@@ -1,5 +1,5 @@
 ---
-title: Serie Mv2 - Macchine virtuali di AzureMv2-series - Azure Virtual Machines
+title: Serie Mv2-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie Mv2.
 services: virtual-machines
 author: ayshakeen
@@ -7,42 +7,42 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: lahugh
-ms.openlocfilehash: 764dc93608ae3b8882b7048a722c6d3415cbc644
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7df8dd439008258ea1b4986054660fb0fb9070ce
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885787"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204186"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
-La serie Mv2 è dotata di una piattaforma ad alta velocità effettiva e bassa latenza in esecuzione su un processore Intel ® Xeon ® Platinum 8180M 2.5GHz (Skylake) con una frequenza di base all core di 2,5 GHz e una frequenza massima di turbo di 3,8 GHz. Tutte le macchine virtuali della serie Mv2 possono utilizzare dischi persistenti sia standard che premium. Le istanze di serie Mv2 sono dimensioni delle macchine virtuali ottimizzate per la memoria che offrono prestazioni di calcolo senza precedenti per supportare carichi di lavoro e database in memoria di grandi dimensioni, con un rapporto tra memoria e CPU elevato, ideale per server di database relazionali, cache di grandi dimensioni e analisi in memoria.
+La serie Mv2 offre una piattaforma a bassa latenza e velocità effettiva elevata in esecuzione su un processore Intel® Xeon® Platinum 8180M a 2,5 GHz (Skylake) con una frequenza di base di tutti i core di 2,5 GHz e una frequenza massima turbo di 3,8 GHz. Tutte le dimensioni delle macchine virtuali della serie Mv2 possono usare dischi permanenti standard e Premium. Le istanze della serie Mv2 sono dimensioni di VM con ottimizzazione per la memoria che offrono prestazioni di calcolo ineguagliabili per supportare database e carichi di lavoro in memoria di grandi dimensioni, con un rapporto elevato tra memoria e CPU, ideale per server di database relazionali, cache di grandi dimensioni e analisi in memoria.
 
-Funzionalità intel® tecnologia Hyper-Threading di serie Mv2
+Funzionalità della VM della serie Mv2 Intel® tecnologia Hyper-Threading
 
 Archiviazione Premium: supportata
 
-Memorizzazione nella cache di archiviazione Premium: supportata
+Caching archiviazione Premium: supportato
 
 Live Migration: non supportato
 
-Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Updates: Not Supported
+Aggiornamenti con mantenimento della memoria: non supportato
 
 Acceleratore di scrittura: [supportato](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-|Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+|Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
-| <sup>Standard_M208ms_v2 1</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
-| <sup>Standard_M208s_v2 1</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8/32000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8/32000 |
+| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 / 16000 |
+| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8/32000 |
+| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8/32000 |
 
-<sup>1</sup> i VM di serie Mv2 sono solo di generazione 2.1 Mv2-series VMs are generation 2 only. Se si usa Linux, vedere [Supporto per le macchine virtuali di generazione 2 in Azure](./linux/generation-2.md) per istruzioni su come trovare e selezionare un'immagine. Se si usa Windows, vedere [Supporto per le macchine virtuali di generazione 2 in Azure](./windows/generation-2.md) per istruzioni su come trovare e selezionare un'immagine. Versioni minime del sistema operativo richieste per tutti e quattro i diversi tipi di VM serie Mv2 elencano come:
+<sup>1</sup> le macchine virtuali della serie Mv2 sono solo di seconda generazione e supportano un subset di immagini supportate di seconda generazione. Per l'elenco completo delle immagini supportate per la serie Mv2, vedere di seguito. Se si usa Linux, per istruzioni su come trovare e selezionare un'immagine, vedere [supporto per le macchine virtuali di seconda generazione in Azure](./linux/generation-2.md) . Se si usa Windows, vedere [supporto per le macchine virtuali di seconda generazione in Azure](./windows/generation-2.md) per istruzioni su come trovare e selezionare un'immagine. 
 
 - Windows Server 2019 o versione successiva
 - SUSE Linux Enterprise Server 12 SP4 e versioni successive o SUSE Linux Enterprise Server 15 SP1 e versioni successive
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 o versioni successive 
-- Oracle Enterprise Linux 7.7 o versione successiva
+- Red Hat Enterprise Linux 7,6, 7,7, 8,1 o versione successiva 
+- Oracle Enterprise Linux 7,7 o versione successiva
 
 
 
@@ -50,7 +50,7 @@ Acceleratore di scrittura: [supportato](https://docs.microsoft.com/azure/virtual
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Scopo generico](sizes-general.md)
+- [Utilizzo generico](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)

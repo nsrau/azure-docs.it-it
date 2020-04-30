@@ -136,10 +136,10 @@
         - name: Effettuare il provisioning della velocità effettiva per contenitori e database
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Effettuare il provisioning della velocità effettiva - Modalità Autopilot
-          href: provision-throughput-autopilot.md
-        - name: Domande frequenti su Autopilot
-          href: autopilot-faq.md
+        - name: Effettuare il provisioning della velocità effettiva - Modalità scalabilità automatica
+          href: provision-throughput-autoscale.md
+        - name: Domande frequenti sulla scalabilità automatica
+          href: autoscale-faq.md
     - name: query SQL
       items:
         - name: Introduzione
@@ -518,6 +518,7 @@
         - name: Costo totale di proprietà
           href: total-cost-ownership.md
         - name: Informazioni sulla fattura
+          displayName: free tier
           href: understand-your-bill.md
         - name: Ottimizzare i costi delle unità elaborate sottoposte a provisioning
           displayName: 'request units, RUs, RU'
@@ -531,6 +532,7 @@
         - name: Ottimizzare il costo per più aree geografiche
           href: optimize-cost-regions.md
         - name: Ottimizzare il costo di sviluppo/test
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Ottimizzare il costo con la capacità riservata
           href: cosmos-db-reserved-capacity.md

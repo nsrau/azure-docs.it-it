@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89de1495dc6bb411d5d43986177f11abb016cf15
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "60244866"
+ms.locfileid: "82200888"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
 ## <a name="overview"></a>Panoramica
@@ -96,7 +96,7 @@ Se le identificazioni personali in entrambi gli output corrispondono, i certific
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Passaggio 3: Verificare se il certificato sta per scadere
 Nell'output di Get-MsolFederationProperty o Get-AdfsCertificate verificare la data in "Not after". Se mancano meno di 30 giorni alla scadenza, è consigliabile intervenire.
 
-| AutoCertificateRollover | Certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Azione |
+| AutoCertificateRollover | Certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Action |
 |:---:|:---:|:---:|:---:|:---:|
 | Sì |Sì |Sì |- |Non è richiesta alcuna azione. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew). |
 | Sì |No |- |Meno di 15 giorni |Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
@@ -120,7 +120,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 dove `(your_FS_name)` viene sostituito con il nome host del servizio federativo usato dall'organizzazione, ad esempio FS.contoso.com.  Se si è in grado di verificare entrambe le impostazioni correttamente, non occorre eseguire altre operazioni.  
 
-Esempio: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+Esempio: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
 ## <a name="renew-the-token-signing-certificate-manually"></a>Rinnovare manualmente il certificato per la firma di token <a name="manualrenew"></a>
 Si può scegliere di rinnovare manualmente i certificati per la firma di token. Ad esempio, per gli scenari seguenti potrebbe funzionare meglio il rinnovo manuale:
 

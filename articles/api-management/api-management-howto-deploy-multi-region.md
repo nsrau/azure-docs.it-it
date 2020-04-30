@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75442658"
+ms.locfileid: "82203149"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
 
@@ -31,36 +31,23 @@ Un nuovo servizio gestione API di Azure contiene inizialmente una sola [unità][
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-an-api-management-service-instance-to-a-new-region"></a><a name="add-region"> </a>Distribuire un'istanza del servizio Gestione API in una nuova area
+## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Distribuire il servizio gestione API in una nuova area
 
 > [!NOTE]
 > Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][create an api management service instance].
 
-Passare alla pagina **Scalabilità** nel portale di Azure per l'istanza del servizio di Gestione API.
+1. Nel portale di Azure passare al servizio gestione API e fare clic sulla voce **locations (percorsi** ) nel menu.
+2. Fare clic su **+ Aggiungi** nella barra superiore.
+3. Selezionare la posizione dall'elenco a discesa e impostare il numero di unità con il dispositivo di scorrimento.
+4. Fare clic sul pulsante **Aggiungi** per confermare.
+5. Ripetere questo processo fino a quando non si configurano tutte le posizioni.
+6. Fare clic su **Salva** nella barra superiore per avviare il processo di distribuzione.
 
-![Scheda Scalabilità][api-management-scale-service]
+## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Eliminare un percorso del servizio gestione API
 
-Per distribuire una nuova area, fare clic su **+ Aggiungi area** dalla barra degli strumenti.
-
-![Aggiungere un'area][api-management-add-region]
-
-Selezionare la posizione dall'elenco a discesa e impostare il numero di unità con il dispositivo di scorrimento.
-
-![Specificare le unità][api-management-select-location-units]
-
-Fare clic su **Aggiungi** per inserire la selezione nella tabella Posizioni.
-
-Ripetere l'operazione per configurare tutte le posizioni e fare clic su **Salva** dalla barra degli strumenti per avviare il processo di distribuzione.
-
-## <a name="delete-an-api-management-service-instance-from-a-location"></a><a name="remove-region"> </a>Eliminare un'istanza del servizio di Gestione API da una posizione
-
-Passare alla pagina **Scalabilità** nel portale di Azure per l'istanza del servizio di Gestione API.
-
-![Scheda Scalabilità][api-management-scale-service]
-
-Per la località che si vuole rimuovere aprire il menu di scelta rapida usando il pulsante **...** sul lato destro della tabella. Selezionare l'opzione **Elimina**.
-
-Confermare l'eliminazione e fare clic su **Salva** per applicare le modifiche.
+1. Nel portale di Azure passare al servizio gestione API e fare clic sulla voce **locations (percorsi** ) nel menu.
+2. Per la località che si vuole rimuovere aprire il menu di scelta rapida usando il pulsante **...** sul lato destro della tabella. Selezionare l'opzione **Elimina**.
+3. Confermare l'eliminazione e fare clic su **Salva** per applicare le modifiche.
 
 ## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Chiamate di route API per servizi back-end a livello di area
 
@@ -119,11 +106,6 @@ Gestione API instrada le richieste a un _gateway_ a livello di area in base [all
 1. [Configurare gli endpoint di stato locale di gestione API in gestione traffico](../traffic-manager/traffic-manager-monitoring.md). Gli endpoint di stato regionali seguono il modello di `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`URL, ad esempio `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Specificare [il metodo di routing](../traffic-manager/traffic-manager-routing-methods.md) di gestione traffico.
 
-[api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-[api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
-[api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
-[api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
-[api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md
 [deploy an api management service instance to a new region]: #add-region
