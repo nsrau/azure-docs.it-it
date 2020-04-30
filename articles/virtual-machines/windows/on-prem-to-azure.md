@@ -11,10 +11,10 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dc283d1845926b79fb541d8ccb011fe853f50484
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870289"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da Amazon Web Services (AWS) e altre piattaforme a Managed Disks in Azure
@@ -26,7 +26,7 @@ ms.locfileid: "81870289"
 - **Disco rigido virtuale specializzato**: gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. 
 
 > [!IMPORTANT]
-> Prima di caricare qualsiasi disco rigido virtuale in Azure, è consigliabile seguire Preparare un disco rigido virtuale di [Windows o Un disco rigido virtuale per il caricamento](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in Azure
+> Prima di caricare un disco rigido virtuale in Azure, è necessario seguire [la procedura di preparazione di un disco rigido virtuale Windows o VHDX per il caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
@@ -49,7 +49,7 @@ Questa sezione consente di prendere le decisioni migliori sui tipi di macchina v
 
 Se si intende pianificare la migrazione da dischi non gestiti a dischi gestiti, occorre tener presente che gli utenti con il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) non saranno in grado di modificare le dimensioni della macchina virtuale com'era possibile prima della conversione. Il motivo è che le macchine virtuali con dischi gestiti richiedono che gli utenti abbiano l'autorizzazione Microsoft.Compute/disks/write per i dischi del sistema operativo.
 
-### <a name="location"></a>Location
+### <a name="location"></a>Percorso
 
 Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si esegue la migrazione a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione della migrazione. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti in base all'area](https://azure.microsoft.com/regions/#services) .
 
@@ -84,7 +84,7 @@ Esistono sette tipi di dischi gestiti della versione Standard che possono essere
 
 **Managed Disks Premium**
 
-Per impostazione predefinita, i criteri di memorizzazione nella cache del disco sono *Sola lettura* per tutti i dischi dati Premium e *Lettura-Scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni.
+Per impostazione predefinita, i criteri di memorizzazione nella cache del disco sono di sola *lettura* per tutti i dischi di dati Premium e di *lettura/scrittura* per il disco del sistema operativo Premium collegato alla VM. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni.
 
 ### <a name="pricing"></a>Prezzi
 
@@ -93,4 +93,4 @@ Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/pricing/detai
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Prima di caricare qualsiasi disco rigido virtuale in Azure, è consigliabile seguire Preparare un disco rigido virtuale di [Windows o Un disco rigido virtuale per il caricamento](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in Azure
+- Prima di caricare un disco rigido virtuale in Azure, è necessario seguire [la procedura di preparazione di un disco rigido virtuale Windows o VHDX per il caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

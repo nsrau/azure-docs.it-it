@@ -1,5 +1,5 @@
 ---
-title: Scaricare i profili VPN globali o basati su hub della rete WAN virtuale di Azure. Documenti Microsoft
+title: Scaricare i profili VPN globali o basati su hub della rete WAN virtuale di Azure | Microsoft Docs
 description: Informazioni sulla connettività scalabile da ramo a ramo, sulle aree disponibili e sui partner.
 services: virtual-wan
 author: anzaman
@@ -8,46 +8,46 @@ ms.topic: conceptual
 ms.date: 4/20/2020
 ms.author: alzam
 ms.openlocfilehash: b63bb861f4df087f852bb1bf599d32100d063f7e
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733176"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Scaricare un profilo globale o basato su hub per i client VPN utente
 
-La rete WAN virtuale di Azure offre due tipi di connettività per gli utenti remoti: globale e basata su hub. Utilizzare le sezioni seguenti per ottenere informazioni e scaricare un profilo. 
+La rete WAN virtuale di Azure offre due tipi di connettività per gli utenti remoti: globale e basato su Hub. Usare le sezioni seguenti per ottenere informazioni su un profilo e scaricarlo. 
 
 > [!IMPORTANT]
-> L'autenticazione RADIUS supporta solo il profilo basato su Hub.
+> L'autenticazione RADIUS supporta solo il profilo basato sull'hub.
 
 ## <a name="global-profile"></a>Profilo globale
 
-Il profilo punta a un servizio di bilanciamento del carico che include tutti gli hub VPN utente attivi. L'utente viene indirizzato all'hub più vicino alla posizione geografica dell'utente. Questo tipo di connettività è utile quando gli utenti si recano frequentemente in luoghi diversi. Per scaricare il profilo **globale:**
+Il profilo punta a un servizio di bilanciamento del carico che include tutti gli hub VPN utente attivi. L'utente viene indirizzato all'hub più vicino alla posizione geografica dell'utente. Questo tipo di connettività è utile quando gli utenti si spostano spesso in posizioni diverse. Per scaricare il profilo **globale** :
 
 1. Passare alla rete WAN virtuale.
-2. Fare clic su **Configurazione VPN utente**.
-3. Evidenziare la configurazione per la quale si desidera scaricare il profilo.
+2. Fare clic su **configurazione VPN utente**.
+3. Evidenziare la configurazione per cui si vuole scaricare il profilo.
 4. Fare clic su **Scarica profilo VPN utente WAN virtuale**.
 
    ![Profilo globale](./media/global-hub-profile/global1.png)
 
-## <a name="hub-based-profile"></a>Profilo basato su hub
+## <a name="hub-based-profile"></a>Profilo basato su Hub
 
-Il profilo punta a un singolo hub. L'utente può connettersi solo all'hub specifico utilizzando questo profilo. Per scaricare il profilo **basato su hub:**
+Il profilo punta a un singolo hub. L'utente può connettersi solo a un hub specifico usando questo profilo. Per scaricare il profilo **basato su Hub** :
 
 1. Passare alla rete WAN virtuale.
-2. Fare clic su **Hub** nella pagina Panoramica.
+2. Fare clic su **Hub** nella pagina panoramica.
 
     ![Profilo hub 1](./media/global-hub-profile/hub1.png)
-3. Fare clic su **VPN utente (punto al sito)**.
-4. Fare clic su **Scarica profilo VPN utente hub virtuale**.
+3. Fare clic su **VPN utente (da punto a sito)**.
+4. Fare clic su **Scarica profilo VPN utente dell'hub virtuale**.
 
-   ![Profilo hub 2](./media/global-hub-profile/hub2.png)
-5. Controllare **EAPTLS**.
-6. Fare clic su **Genera e scarica profilo**.
+   ![Profilo Hub 2](./media/global-hub-profile/hub2.png)
+5. Controllare **eaptls**.
+6. Fare clic su **genera e Scarica profilo**.
 
-   ![Profilo hub 3](./media/global-hub-profile/download.png)
+   ![Profilo Hub 3](./media/global-hub-profile/download.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

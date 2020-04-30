@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730100"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Pianificare processi in più dispositivi
@@ -69,7 +69,7 @@ La condizione di query può anche trovarsi in un ID dispositivo singolo o in un 
 
 [Linguaggio di query dell'hub IoT](iot-hub-devguide-query-language.md) illustra il linguaggio di query dell'hub IoT in maggiore dettaglio.
 
-Il frammento di codice seguente mostra la richiesta e la risposta per un processo pianificato per chiamare un metodo diretto denominato testMethod su tutti i dispositivi in contoso-hub-1:The following snippet shows the request and response for a job scheduled to call a direct method named testMethod on all devices on contoso-hub-1:
+Il frammento di codice seguente mostra la richiesta e la risposta di un processo pianificato per chiamare un metodo diretto denominato testMethod su tutti i dispositivi in Contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
@@ -122,9 +122,9 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> La proprietà *updateTwin* richiede una corrispondenza etag valida. ad esempio, `etag="*"`.
+> Per la proprietà *updateTwin* è richiesta una corrispondenza ETag valida. ad esempio, `etag="*"`.
 
-Il frammento di codice seguente mostra la richiesta e la risposta per un processo pianificato per aggiornare le proprietà del dispositivo gemello per il dispositivo di test in contoso-hub-1:The following snippet shows the request and response for a job scheduled to update device twin properties for test-device on contoso-hub-1:
+Il frammento di codice seguente mostra la richiesta e la risposta di un processo pianificato per aggiornare le proprietà del dispositivo gemello per test-device in Contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
@@ -180,13 +180,13 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 
 | Proprietà | Descrizione |
 | --- | --- |
-| **Jobid** |ID fornito dall'applicazione per il processo. |
+| **jobId** |ID fornito dall'applicazione per il processo. |
 | **startTime** |Ora di inizio fornita dall'applicazione (ISO 8601) per il processo. |
-| **Endtime** |Data fornita dall'hub IoT (ISO 8601) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
+| **endTime** |Data fornita dall'hub IoT (ISO 8601) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
 | **type** |Tipi di processi: |
-| | **scheduleUpdateTwin**: Processo utilizzato per aggiornare un set di proprietà o tag desiderati.scheduleUpdateTwin : A job used to update a set of desired properties or tags. |
-| | **scheduleDeviceMethod**: Processo utilizzato per richiamare un metodo del dispositivo su un set di dispositivi gemelli.scheduleDeviceMethod : A job used to invoke a device method on a set of device twins. |
-| **status** |Stato corrente del processo. Valori possibili per lo stato: |
+| | **scheduleUpdateTwin**: un processo usato per aggiornare un set di proprietà o tag desiderati. |
+| | **scheduleDeviceMethod**: un processo usato per richiamare un metodo del dispositivo su un set di dispositivi gemelli. |
+| **Stato** |Stato corrente del processo. Valori possibili per lo stato: |
 | | **pending**: processo pianificato e in attesa del prelievo da parte del servizio del processo. |
 | | **scheduled**: processo pianificato per un'ora futura. |
 | | **running**: processo attualmente attivo. |
@@ -194,7 +194,7 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 | | **failed**: processo non riuscito. |
 | | **completed**: processo completato. |
 | **deviceJobStatistics** |Statistiche sull'esecuzione del processo. |
-| | **proprietà deviceJobStatistics:** |
+| | Proprietà di **deviceJobStatistics** : |
 | | **deviceJobStatistics.deviceCount**: numero di dispositivi nel processo. |
 | | **deviceJobStatistics.deviceCount**: numero di dispositivi in cui il processo non è riuscito. |
 | | **deviceJobStatistics.succeededCount**: numero di dispositivi in cui il processo è riuscito. |

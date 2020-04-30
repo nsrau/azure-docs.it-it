@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
 ms.openlocfilehash: 41ac109e5c5379e6085dd57a3fcd8119915558fb
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133280"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Apache ZooKeeper server non riesce a creare un quorum in Azure HDInsight
@@ -38,7 +38,7 @@ java.nio.channels.CancelledKeyException
 
 Quando il volume dei file di snapshot è di grandi dimensioni o i file di snapshot sono danneggiati, il server ZooKeeper non riuscirà a formare un quorum, causando la mancata integrità dei servizi correlati a ZooKeeper. Il server ZooKeeper non rimuoverà i file di snapshot precedenti dalla relativa directory dati, bensì un'attività periodica da eseguire dagli utenti per mantenere la salubrità di ZooKeeper. Per altre informazioni, vedere [punti di forza e limitazioni di ZooKeeper](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Controllare la directory `/hadoop/zookeeper/version-2` dei dati `/hadoop/hdinsight-zookeeper/version-2` di ZooKeeper e per verificare se le dimensioni del file degli snapshot sono elevate. Se sono presenti snapshot di grandi dimensioni, seguire questa procedura:
 

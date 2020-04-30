@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127822"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
@@ -23,7 +23,7 @@ La configurazione dei log è utile per la diagnostica e la conservazione della c
 
 Nella tabella seguente sono elencate le opzioni per la raccolta e la conservazione dei dati.
 
-| Risorsa | Utilizzo |
+| Risorsa | Utilizzato per |
 |----------|----------|
 | [Invia a area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Archivia con archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Gli eventi e le metriche vengono archiviati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log non elaborato o Power BI per aggregare e visualizzare i dati di log.|
