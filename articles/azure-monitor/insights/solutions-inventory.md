@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b87179c79489bf781619b70b19ca8982f2e38dff
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663131"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509483"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Dettagli sull'inventario e sulla raccolta dei dati per le soluzioni di monitoraggio in Azure
-Le [soluzioni di monitoraggio](solutions.md) sfruttano i servizi in Azure per fornire informazioni aggiuntive sul funzionamento di un'applicazione o un servizio specifico. Le soluzioni di monitoraggio raccolgono in genere log di dati e offrono query e visualizzazioni per l'analisi dei dati raccolti. È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili gratuitamente, ma la raccolta dati potrebbe implicare addebiti per l'utilizzo.
+Il [monitoraggio delle soluzioni](solutions.md) usa i servizi di Azure per acquisire familiarità con il funzionamento di un'applicazione o di un servizio specifico. Le soluzioni di monitoraggio raccolgono in genere log di dati e offrono query e visualizzazioni per l'analisi dei dati raccolti. È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili senza costi aggiuntivi, ma raccolgono dati che potrebbero richiamare costi di utilizzo.
 
-Questo articolo include un elenco di [soluzioni Montioring](solutions.md) disponibili da Microsoft con collegamenti alla relativa documentazione dettagliata.  Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta dati in Monitoraggio di Azure.  È possibile utilizzare le informazioni contenute in questo articolo per identificare le diverse soluzioni disponibili e per comprendere i requisiti del flusso di dati e della connessione per diverse soluzioni di monitoraggio.
+Questo articolo include un elenco delle [soluzioni di monitoraggio](solutions.md) disponibili in Microsoft con i collegamenti alla relativa documentazione dettagliata.  Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta dati in Monitoraggio di Azure.  È possibile utilizzare le informazioni contenute in questo articolo per identificare le diverse soluzioni disponibili e per comprendere i requisiti del flusso di dati e della connessione per diverse soluzioni di monitoraggio.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,11 +26,11 @@ La tabella seguente elenca le [soluzioni di monitoraggio](solutions.md) in Azure
 
 L'elenco seguente include le spiegazioni per le colonne:
 
-- **Microsoft Monitoring Agent** -Agent usato in Windows e Linux per eseguire il Management Pack dalle soluzioni SCOM e di monitoraggio di Azure. In questa configurazione, l'agente è connesso direttamente a Monitoraggio di Azure senza essere connesso a un gruppo di gestione di Operations Manager. 
+- **Microsoft Monitoring Agent** -Agent usato in Windows e Linux per eseguire Management Pack da Microsoft System Center-Operations Manager (OM) e soluzioni di monitoraggio da Azure. In questa configurazione, l'agente è connesso direttamente a Monitoraggio di Azure senza essere connesso a un gruppo di gestione di Operations Manager. 
 - **Operations Manager** - Stesso agente di Microsoft Monitoring Agent. In questa configurazione è [connesso a un gruppo di gestione di Operations Manager](../platform/om-agents.md) a sua volta connesso a Monitoraggio di Azure. 
--  **Archiviazione di Azure** - La soluzione raccoglie i dati da un account di Archiviazione di Azure. 
+-  **Archiviazione di Azure** : la soluzione raccoglie i dati da un account di archiviazione di Azure. 
 - **È necessario Operations Manager?** -Un gruppo di gestione Operations Manager connesso è necessario per la raccolta dei dati da parte della soluzione di monitoraggio. 
-- **Dati dell'agente di Operations Manager inviati tramite il gruppo di gestione** - Se l'agente è [connesso a un gruppo di gestione SCOM](../platform/om-agents.md), i dati vengono inviati a Monitoraggio di Azure dal server di gestione. In questo caso, l'agente non deve connettersi direttamente a Monitoraggio di Azure. Se questa casella non è selezionata, i dati vengono inviati dall'agente direttamente a Monitoraggio di Azure anche se l'agente è connesso a un gruppo di gestione di SCOM. Dovrà essere in grado di comunicare con Monitoraggio di Azure tramite il [gateway di Log Analytics](../platform/gateway.md).
+- **Operations Manager i dati dell'agente inviati tramite il gruppo di gestione** : se l'agente è [connesso a un gruppo di gestione OM](../platform/om-agents.md), i dati vengono inviati a monitoraggio di Azure dal server di gestione. In questo caso, l'agente non deve connettersi direttamente a Monitoraggio di Azure. Se questa casella non è selezionata, i dati vengono inviati direttamente dall'agente a monitoraggio di Azure anche se l'agente è connesso a un gruppo di gestione OM. Dovrà essere in grado di comunicare con Monitoraggio di Azure tramite il [gateway di Log Analytics](../platform/gateway.md).
 - **Frequenza di raccolta** : specifica la frequenza con cui i dati vengono raccolti dalla soluzione di monitoraggio. 
 
 
@@ -53,8 +53,8 @@ L'elenco seguente include le spiegazioni per le colonne:
 | [Azure SQL Analytics (Anteprima)](azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | su notifica |
 | [Capacità e prestazioni (anteprima)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |all'arrivo |
-| [Rilevamento delle modifiche](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
-| [Rilevamento delle modifiche](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [Rilevamento delle modifiche](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varia](../../automation/change-tracking.md#change-tracking-and-inventory-data-collection) |
+| [Rilevamento delle modifiche](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varia](../../automation/change-tracking.md#change-tracking-and-inventory-data-collection) |
 | [Contenitori](containers.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 3 minuti |
 | [Analisi dell'insieme di credenziali delle chiavi](azure-key-vault.md) |Windows | | | | | |su notifica |
 | [Malware Assessment](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |Ogni ora |
@@ -66,7 +66,7 @@ L'elenco seguente include le spiegazioni per le colonne:
 | [SQL Assessment](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 giorni |
 | [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |all'arrivo |
 | [Valutazione System Center Operations Manager (anteprima)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7 giorni |
-| [Gestione degli aggiornamenti](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |almeno 2 volte al giorno e 15 minuti dopo l'installazione di un aggiornamento |
+| [Gestione degli aggiornamenti](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |almeno due volte al giorno e 15 minuti dopo l'installazione di un aggiornamento |
 | [Preparazione dell'aggiornamento](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 giorni |
 | [Monitoraggio VMware (deprecato)](vmware.md) | Linux | &#8226; |  |  |  |  | 3 minuti |
 | [Wire Data 2.0 (anteprima)](wire-data.md) |Windows (2012 R2/8.1 o versioni successive) |&#8226; |&#8226; | | | | 1 minuto |

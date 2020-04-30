@@ -8,12 +8,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8d22e63be880c0cef0c4072e99ab85bf3250a1c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d036733c023417af3ef038bb9abc278ec91e665c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114275"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508956"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in Automazione di Azure
 
@@ -21,8 +21,9 @@ Automazione di Azure consente di importare i moduli di PowerShell per abilitare 
 
 * [Azure PowerShell AZ. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM. Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
-* Modulo `Orchestrator.AssetManagement.Cmdlets` interno per l'agente di log Analytics per Windows
 * Altri moduli di PowerShell
+* Modulo `Orchestrator.AssetManagement.Cmdlets` interno
+* Moduli Python 2
 * Moduli personalizzati creati 
 
 Quando si crea un account di automazione, automazione di Azure importa alcuni moduli per impostazione predefinita. Vedere [moduli predefiniti](#default-modules).
@@ -33,7 +34,7 @@ Quando automazione di Azure esegue i processi di compilazione Runbook e DSC, car
 >Assicurarsi di importare solo i moduli effettivamente necessari per le configurazioni manuali operativi e DSC. Non è consigliabile importare la radice AZ Module perché include molti altri moduli che potrebbero non essere necessari, che possono causare problemi di prestazioni. Importare invece singoli moduli, ad esempio AZ. Compute.
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo AZ sul ruolo di lavoro ibrido per Runbook, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md).
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](../automation-update-azure-modules.md).
 
 ## <a name="default-modules"></a>Moduli predefiniti
 
@@ -44,7 +45,7 @@ Automazione di Azure non importa automaticamente il modulo AZ radice in tutti gl
 > [!NOTE]
 > Non è consigliabile modificare i moduli e manuali operativi negli account di automazione che contengono la [soluzione avvio/arresto di macchine virtuali durante gli orari di minore attività in automazione di Azure](../automation-solution-vm-management.md).
 
-|Nome del modulo|Version|
+|Nome del modulo|Versione|
 |---|---|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
@@ -82,7 +83,7 @@ La tabella seguente definisce i cmdlet interni supportati dal `Orchestrator.Asse
 >[!NOTE]
 >I cmdlet interni sono disponibili solo quando si esegue manuali operativi nell'ambiente sandbox di Azure o in un ruolo di lavoro ibrido per Runbook Windows. 
 
-|Nome|Descrizione|
+|Name|Descrizione|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -96,9 +97,13 @@ Si noti che i cmdlet interni differiscono per la denominazione dei cmdlet AZ e A
 
 È consigliabile usare i cmdlet AZ o AzureRM per modificare le risorse di automazione di Azure al di fuori del contesto di un Runbook. 
 
-## <a name="module-supporting-get-automationpscredential"></a>Modulo che supporta Get-AutomationPSCredential
+## <a name="orchestratorassetmanagementcmdlets-module"></a>Modulo Orchestrator. AssetManagement. Cmdlets
 
-Il `Get-AutomationPSCredential` cmdlet fa parte del modulo `Orchestrator.AssetManagement.Cmdlets`. Questo cmdlet restituisce un `PSCredential` oggetto, che è previsto dalla maggior parte dei cmdlet di PowerShell che utilizzano le credenziali. Per altre informazioni sull'uso delle credenziali in automazione di Azure, vedere [asset delle credenziali in automazione di Azure](credentials.md).
+Automazione di Azure supporta il `Orchestrator.AssetManagement.Cmdlets` modulo interno per l'agente di log Analytics per Windows, installato per impostazione predefinita. Il `Get-AutomationPSCredential` cmdlet in questo modulo viene comunemente usato in manuali operativi per recuperare un `PSCredential` oggetto, che è previsto dalla maggior parte dei cmdlet di PowerShell che funzionano con le credenziali. Per altre informazioni sull'uso delle credenziali in automazione di Azure, vedere [asset delle credenziali in automazione di Azure](credentials.md).
+
+## <a name="python-modules"></a>Moduli Python
+
+È possibile creare manuali operativi Python 2 in automazione di Azure. Per informazioni sul modulo Python, vedere [gestire i pacchetti Python 2 in automazione di Azure](../python-packages.md).
 
 ## <a name="migrating-to-az-modules"></a>Migrazione a moduli Az
 
@@ -117,7 +122,7 @@ L'importazione di un modulo AZ nell'account di automazione non comporta l'import
 * Quando un Runbook richiama un cmdlet da un modulo
 * Quando un Runbook importa il modulo in modo esplicito con il cmdlet [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7)
 * Quando un Runbook importa un altro modulo dipendente
-    
+
 #### <a name="testing-for-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Test delle configurazioni manuali operativi e DSC prima della migrazione del modulo
 
 Assicurarsi di testare attentamente tutte le configurazioni manuali operativi e DSC in un account di automazione separato prima di eseguire la migrazione ai moduli AZ. 
@@ -334,7 +339,7 @@ Per importare un modulo direttamente dalla PowerShell Gallery:
 
 1. Passare a https://www.powershellgallery.com e cercare il modulo da importare.
 2. Fare clic su **Distribuisci in automazione di Azure** nella scheda **automazione di Azure** in **Opzioni di installazione**. Questa azione consente di aprire il portale di Azure. 
-3. Nella pagina Importa selezionare l'account di automazione e fare clic su **OK**.
+3. Nella pagina Importa selezionare l'account di Automazione e fare clic su **OK**.
 
 ![Modulo di importazione PowerShell Gallery](../media/modules/powershell-gallery.png)
 

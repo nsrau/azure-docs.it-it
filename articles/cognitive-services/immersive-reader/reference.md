@@ -1,7 +1,7 @@
 ---
-title: Informazioni di riferimento su Immersive Reader SDK
+title: Guida di riferimento a immersive Reader SDK
 titleSuffix: Azure Cognitive Services
-description: Immersive Reader SDK contiene una libreria JavaScript che consente di integrare Immersive Reader nell'applicazione.
+description: Immersivous Reader SDK contiene una libreria JavaScript che consente di integrare il lettore immersivo nell'applicazione.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb88fb24ceed943d4104da6914959e4b79c35571
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76156404"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231918"
 ---
-# <a name="immersive-reader-sdk-reference-guide"></a>Guida di riferimento all'SDK di Immersive Reader
+# <a name="immersive-reader-sdk-reference-guide"></a>Guida di riferimento a immersive Reader SDK
 
-Immersive Reader SDK contiene una libreria JavaScript che consente di integrare Immersive Reader nell'applicazione.
+Immersivous Reader SDK contiene una libreria JavaScript che consente di integrare il lettore immersivo nell'applicazione.
 
 ## <a name="functions"></a>Funzioni
 
@@ -33,7 +33,7 @@ L'SDK espone le funzioni:
 
 ## <a name="launchasync"></a>launchAsync
 
-Avvia il lettore Immersive `iframe` all'interno di un'applicazione Web.
+Avvia il Reader immersivo all'interno `iframe` di un oggetto nell'applicazione Web.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
@@ -43,36 +43,36 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Nome | Type | Descrizione |
 | ---- | ---- |------------ |
-| `token` | string | Token di autenticazione di Azure AD. |
-| `subdomain` | string | Sottodominio personalizzato della risorsa Lettore immersivo in Azure.The custom subdomain of your Immersive Reader resource in Azure. |
-| `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel Lettore Immersivo. |
-| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del Lettore Immersivo. Facoltativa. |
+| `token` | string | Token di autenticazione Azure AD. |
+| `subdomain` | stringa | Sottodominio personalizzato della risorsa Reader immersiva in Azure. |
+| `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
+| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. Facoltativo. |
 
 ### <a name="returns"></a>Valori di codice restituiti
 
-Restituisce `Promise<LaunchResponse>`un oggetto , che viene risolto quando viene caricato il lettore immersivo. L'oggetto `Promise` viene [`LaunchResponse`](#launchresponse) risolto in un oggetto.
+Restituisce un `Promise<LaunchResponse>`oggetto, che viene risolto quando il lettore immersivo viene caricato. `Promise` Viene risolto in un [`LaunchResponse`](#launchresponse) oggetto.
 
 ### <a name="exceptions"></a>Eccezioni
 
-L'oggetto `Promise` restituito verrà rifiutato con un [`Error`](#error) oggetto se il lettore Immersive non viene caricato. Per ulteriori informazioni, vedere i [codici di errore](#error-codes).
+Il valore `Promise` restituito verrà rifiutato con un [`Error`](#error) oggetto se il lettore immersivo non viene caricato. Per ulteriori informazioni, vedere i [codici di errore](#error-codes).
 
 ## <a name="close"></a>chiudi
 
-Chiude il Lettore Immersivo.
+Chiude il lettore immersivo.
 
-Un esempio di caso d'uso per questa ```hideExitButton: true``` funzione è se il pulsante di uscita è nascosto impostando in [options](#options). Quindi, un pulsante diverso (ad esempio la freccia ```close``` Indietro di un'intestazione mobile) può chiamare questa funzione quando si fa clic su di essa.
+Un caso d'uso di esempio per questa funzione è se il pulsante Esci è nascosto ```hideExitButton: true``` impostando in [Opzioni](#options). Quindi, un pulsante diverso (ad esempio, la freccia indietro di un'intestazione mobile) può ```close``` chiamare questa funzione quando viene fatto clic su di essa.
 
 ```typescript
 close(): void;
 ```
 
-## <a name="renderbuttons"></a>renderButtons (pulsanti)
+## <a name="renderbuttons"></a>renderButtons
 
-Questa funzione applica uno stile e aggiorna gli elementi del pulsante Lettore immersivo del documento. Se ```options.elements``` viene fornito, allora questa ```options.elements```funzione eseguirà il rendering dei pulsanti all'interno di . In caso contrario, verrà eseguito il rendering ```immersive-reader-button```dei pulsanti all'interno degli elementi del documento che dispongono della classe .
+Questa funzione ha lo stile e aggiorna gli elementi del pulsante Reader immersive del documento. Se ```options.elements``` viene specificato, questa funzione eseguirà il rendering di ```options.elements```pulsanti all'interno di. In caso contrario, verrà eseguito il rendering dei pulsanti negli elementi del documento con la ```immersive-reader-button```classe.
 
 Questa funzione viene chiamata automaticamente dall'SDK quando viene caricata la finestra.
 
-Consultate [Attributi facoltativi](#optional-attributes) per altre opzioni di rendering.
+Per altre opzioni di rendering, vedere [attributi facoltativi](#optional-attributes) .
 
 ```typescript
 renderButtons(options?: RenderButtonsOptions): void;
@@ -82,13 +82,13 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 | Nome | Type | Descrizione |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. Facoltativa. |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. Facoltativo. |
 
 ## <a name="types"></a>Tipi
 
 ### <a name="content"></a>Contenuto
 
-Contiene il contenuto da visualizzare nel Lettore Immersive.
+Contiene il contenuto da visualizzare nel lettore immersivo.
 
 ```typescript
 {
@@ -99,7 +99,7 @@ Contiene il contenuto da visualizzare nel Lettore Immersive.
 
 ### <a name="chunk"></a>Blocco
 
-Un singolo blocco di dati, che verrà passato nel contenuto del lettore Immersive.
+Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 
 ```typescript
 {
@@ -111,7 +111,7 @@ Un singolo blocco di dati, che verrà passato nel contenuto del lettore Immersiv
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Contiene la risposta dalla `ImmersiveReader.launchAsync`chiamata a .
+Contiene la risposta dalla chiamata a `ImmersiveReader.launchAsync`.
 
 ```typescript
 {
@@ -122,7 +122,7 @@ Contiene la risposta dalla `ImmersiveReader.launchAsync`chiamata a .
 
 ### <a name="cookiepolicy-enum"></a>Enumerazione CookiePolicy
 
-Enum utilizzato per impostare i criteri per l'utilizzo dei cookie di Immersive Reader. Vedere [opzioni](#options).
+Enumerazione utilizzata per impostare i criteri per l'utilizzo dei cookie del lettore immersivo. Vedere [Opzioni](#options).
 
 ```typescript
 enum CookiePolicy { Disable, Enable }
@@ -133,24 +133,23 @@ enum CookiePolicy { Disable, Enable }
 | Tipo MIME | Descrizione |
 | --------- | ----------- |
 | text/plain | Testo normale. |
-| text/html | Contenuto HTML. [Scopri di più](#html-support)|
-| applicazione/mathml | MathML (Mathematical Markup Language). [Scopri di più](./how-to/display-math.md).
-| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento in formato .docx di Microsoft Word.
+| text/html | Contenuto HTML. [Altre informazioni](#html-support)|
+| Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](./how-to/display-math.md).
+| Application/vnd. openxmlformats-officedocument. WordprocessingML. Document | Documento di formato Microsoft Word. docx.
 
 ### <a name="html-support"></a>Supporto HTML
 
-| HTML | Contenuti supportati |
+| HTML | Contenuto supportato |
 | --------- | ----------- |
-| Stili carattere | Grassetto, Corsivo, Sottolineato, Codice, Barrato, Apice, Pedice |
-| Elenchi non ordinati | Disco, Cerchio, Quadrato |
-| Elenchi ordinati | Decimale, Superiore-Alfa, Alfa inferiore, Alto-Romano, Inferiore-Romano |
-| Collegamenti ipertestuali | Imminente |
+| Stili dei tipi di carattere | Grassetto, corsivo, sottolineato, codice, barrato, apice, pedice |
+| Elenchi non ordinati | Disco, cerchio, quadrato |
+| Elenchi ordinati | Decimale, superiore-alfa, inferiore-alfa, superiore-romana, minore-romana |
 
-I tag non supportati verranno visualizzati in modo comparabile. Le immagini e le tabelle non sono attualmente supportate.
+I tag non supportati verranno sottoposti a rendering in modo paragonabile. Le immagini e le tabelle non sono attualmente supportate.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
-Contiene proprietà che configurano determinati comportamenti di Immersive Reader.
+Contiene proprietà che configurano comportamenti specifici del lettore immersivo.
 
 ```typescript
 {
@@ -168,7 +167,7 @@ Contiene proprietà che configurano determinati comportamenti di Immersive Reade
 
 ### <a name="renderbuttonsoptions"></a>RenderButtonsOptions
 
-Opzioni per il rendering dei pulsanti Lettore immersivo.
+Opzioni per il rendering dei pulsanti Reader immersivi.
 
 ```typescript
 {
@@ -191,14 +190,14 @@ Contiene informazioni sull'errore.
 
 | Codice | Descrizione |
 | ---- | ----------- |
-| BadArgument | L'argomento fornito non `message` è valido, vedere per i dettagli. |
-| Timeout | Il caricamento di Immersive Reader non è riuscito entro il timeout specificato. |
+| BadArgument | L'argomento fornito non è valido `message` . per informazioni dettagliate, vedere. |
+| Timeout | Non è stato possibile caricare il lettore immersivo entro il timeout specificato. |
 | TokenExpired | Il token fornito è scaduto. |
 | Sospensione causata dal servizio Microsoft FullText | È stato superato il limite di frequenza delle chiamate. |
 
-## <a name="launching-the-immersive-reader"></a>Lancio del lettore Immersive
+## <a name="launching-the-immersive-reader"></a>Avvio del lettore immersivo
 
-L'SDK fornisce lo stile predefinito per il pulsante per l'avvio di Immersive Reader. Utilizzare `immersive-reader-button` l'attributo class per abilitare questo stile. Vedere [questo articolo](./how-to-customize-launch-button.md) per ulteriori dettagli.
+L'SDK fornisce lo stile predefinito per il pulsante per l'avvio del lettore immersivo. Usare l' `immersive-reader-button` attributo Class per abilitare questo stile. Per altri dettagli, vedere [questo articolo](./how-to-customize-launch-button.md) .
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -206,17 +205,17 @@ L'SDK fornisce lo stile predefinito per il pulsante per l'avvio di Immersive Rea
 
 ### <a name="optional-attributes"></a>Attributi facoltativi
 
-Utilizzare gli attributi seguenti per configurare l'aspetto del pulsante.
+Usare gli attributi seguenti per configurare l'aspetto del pulsante.
 
 | Attributo | Descrizione |
 | --------- | ----------- |
-| `data-button-style` | Imposta lo stile del pulsante. Può essere `icon`, `text` o `iconAndText`. L'impostazione predefinita è `icon`. |
-| `data-locale` | Imposta le impostazioni locali. Ad esempio, `en-US` o `fr-FR`. Il valore `en`predefinito è L'inglese . |
-| `data-icon-px-size` | Imposta le dimensioni dell'icona in pixel. Il valore predefinito è 20px. |
+| `data-button-style` | Imposta lo stile del pulsante. Può essere `icon`, `text` o `iconAndText`. Il valore predefinito è `icon`. |
+| `data-locale` | Imposta le impostazioni locali. Ad esempio, `en-US` o `fr-FR`. Il valore predefinito è `en`inglese. |
+| `data-icon-px-size` | Imposta la dimensione dell'icona in pixel. Il valore predefinito è 20px. |
 
 ## <a name="browser-support"></a>Supporto browser
 
-Utilizza le versioni più recenti dei seguenti browser per un'esperienza ottimale con Immersive Reader.
+Usare le versioni più recenti dei browser seguenti per un'esperienza ottimale con il lettore immersivo.
 
 * Microsoft Edge
 * Internet Explorer 11
@@ -227,4 +226,4 @@ Utilizza le versioni più recenti dei seguenti browser per un'esperienza ottimal
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esplorare [Immersive Reader SDK in GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Guida introduttiva: Creare un'app Web che avvia il lettore Immersive (C )Quickstart: Create a web app that launches the Immersive Reader (C](./quickstart.md)
+* [Guida introduttiva: creare un'app Web che avvia il lettore immersivo (C#)](./quickstart.md)

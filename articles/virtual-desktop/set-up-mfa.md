@@ -1,21 +1,21 @@
 ---
-title: Configurare Azure Multifactor Authentication per desktop virtuale Windows-Azure
-description: Come configurare l'autenticazione a più fattori di Azure per una maggiore sicurezza nel desktop virtuale di Windows.
+title: Configurare Multi-Factor Authentication di Azure per desktop virtuale Windows-Azure
+description: Come configurare Multi-Factor Authentication di Azure per una maggiore sicurezza nel desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b470f9278bdca94d1fe98c64b11b070fb36cb075
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 069d2a153e307ed94032ce1d980f26521969fc56
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80998482"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508344"
 ---
-# <a name="set-up-azure-multi-factor-authentication"></a>Configurare Azure Multi-Factor Authentication
+# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare Multi-Factor Authentication di Azure per desktop virtuale Windows
 
 Il desktop virtuale Windows client per Windows è un'ottima opzione per l'integrazione di desktop virtuali Windows con il computer locale. Tuttavia, quando si configura l'account desktop virtuale di Windows nel client Windows, è necessario adottare alcune misure per proteggere gli utenti.
 
@@ -27,71 +27,34 @@ Sebbene la memorizzazione delle credenziali sia comoda, può anche rendere le di
 
 Ecco gli elementi necessari per iniziare:
 
-- Assegnare a tutti gli utenti una delle licenze seguenti:
-  - Microsoft 365 E3 o E5
-  - Azure Active Directory Premium P1 o P2
-  - Enterprise Mobility + Security E3 o E5
+- Assegnare agli utenti una licenza che includa Azure Active Directory Premium P1 o P2.
 - Gruppo di Azure Active Directory con gli utenti assegnati come membri del gruppo.
 - Abilitare l'autenticazione a più fattori di Azure per tutti gli utenti. Per ulteriori informazioni su come eseguire questa operazione, vedere [come richiedere la verifica in due passaggi per un utente](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
->[!NOTE]
->L'impostazione seguente si applica anche al [client Web desktop virtuale di Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> [!NOTE]
+> L'impostazione seguente si applica anche al [client Web desktop virtuale di Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
-## <a name="opt-in-to-the-conditional-access-policy"></a>Acconsentire esplicitamente ai criteri di accesso condizionale
+## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
-1. Aprire **Azure Active Directory**.
+In questa sezione viene illustrato come creare un criterio di accesso condizionale che richiede l'autenticazione a più fattori quando ci si connette al desktop virtuale di Windows.
 
-2. Passare alla scheda **tutte le applicazioni** . Nel menu a discesa "tipo di applicazione" selezionare **applicazioni aziendali**, quindi cercare **client desktop virtuale di Windows**.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Passare a **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
+1. Selezionare **Nuovi criteri**.
+1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
+1. In **Assegnazioni** selezionare **Utenti e gruppi**.
+   1. In **Includi**selezionare **Seleziona utenti e gruppi** > **utenti e** gruppi > scegliere il gruppo creato nella fase prerequisiti.
+   1. Seleziona **Chiudi**.
+1. In **app Cloud o azioni** > **Includi**selezionare **Seleziona app**.
+   1. Scegliere **desktop virtuale Windows** e **client desktop virtuale di Windows** **, quindi selezionare** **fine**.
+   ![Screenshot della pagina app o azioni cloud. Il desktop virtuale Windows e le app client desktop virtuali Windows sono evidenziate in rosso.](media/cloud-apps-enterprise-selected.png)
+1. In **controllo** > di accesso**concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
+1. In **Access controls** > **sessione**controlli di accesso selezionare **frequenza**di accesso, impostare il valore su **1** e unità su **ore**, quindi **selezionare**.
+1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
+1. Selezionare **Crea** per abilitare i criteri.
 
-    ![Screenshot della scheda tutte le applicazioni. L'utente ha immesso "Windows Virtual Desktop client" nella barra di ricerca e l'app è stata visualizzata nei risultati della ricerca.](media/all-applications-search.png)
+## <a name="next-steps"></a>Passaggi successivi
 
-3. Selezionare **accesso condizionale**.
+- [Altre informazioni sui criteri di accesso condizionale](../active-directory/conditional-access/concept-conditional-access-policies.md)
 
-    ![Screenshot che mostra l'utente che posiziona il cursore del mouse sulla scheda accesso condizionale.](media/conditional-access-location.png)
-
-4. Selezionare **+ nuovo criterio**.
-
-   ![Screenshot della pagina di accesso condizionale. L'utente sta posizionando il cursore del mouse sul pulsante nuovo criterio.](media/new-policy-button.png)
-
-5. Immettere un **nome** per la **regola**, quindi **selezionare** il nome del **gruppo** creato nei prerequisiti.
-
-6. Selezionare **Seleziona**, quindi fare clic su **fine**.
-
-7. Aprire quindi le **app Cloud o le azioni**.
-
-8. Nel pannello **Seleziona** selezionare l'app Enterprise **desktop virtuale di Windows** .
-
-    ![Screenshot della pagina app o azioni cloud. L'utente ha selezionato l'app desktop virtuale Windows selezionando il segno di spunta accanto. L'app selezionata è evidenziata in rosso.](media/cloud-apps-select.png)
-    
-    >[!NOTE]
-    >È anche possibile visualizzare l'app client desktop virtuale di Windows selezionata sul lato sinistro dello schermo, come illustrato nella figura seguente. Per il corretto funzionamento del criterio sono necessarie sia il desktop virtuale Windows sia le app client di desktop virtuali Windows.
-    >
-    > ![Screenshot della pagina app o azioni cloud. Il desktop virtuale Windows e le app client desktop virtuali Windows sono evidenziate in rosso.](media/cloud-apps-enterprise-selected.png)
-
-9. Selezionare **Seleziona**
-
-10. Aprire quindi **Grant** 
-
-11. Selezionare **Richiedi autenticazione**a più fattori e quindi selezionare **Richiedi uno dei controlli selezionati**.
-   
-    ![Screenshot della pagina di concessione. È selezionata l'opzione "Richiedi autenticazione a più fattori".](media/grant-page.png)
-
-    >[!NOTE]
-    >Se nell'organizzazione sono presenti dispositivi registrati in MDM e non si vuole che mostrino la richiesta di autenticazione a più fattori, è anche possibile selezionare Richiedi che il **dispositivo sia contrassegnato come conforme**.
-
-12. Selezionare **sessione**.
-
-13. Impostare la **frequenza di accesso** su **attivo**, quindi impostare il relativo valore su **1 ore**.
-
-    ![Screenshot della pagina della sessione. Il menu della sessione Mostra che i menu a discesa della frequenza di accesso sono stati modificati in "1" e "ore".](media/sign-in-frequency.png)
-   
-    >[!NOTE]
-    >Le sessioni attive nell'ambiente desktop virtuale Windows continueranno a funzionare quando si modificano i criteri. Tuttavia, se si esegue la disconnessione o la disconnessione, sarà necessario specificare nuovamente le credenziali dopo 60 minuti. Quando si modificano le impostazioni, è possibile estendere il periodo di timeout nel modo desiderato (purché sia allineato ai criteri di sicurezza dell'organizzazione).
-    >
-    >L'impostazione predefinita è una finestra in sequenza di 90 giorni, il che significa che il client chiederà agli utenti di eseguire di nuovo l'accesso quando tentano di accedere a una risorsa dopo che il computer è stato inattivo per più di 90 giorni.
-
-14. Abilitare i criteri.
-
-15. Selezionare **Crea** per confermare i criteri.
-
-La procedura è terminata. È possibile testare i criteri per assicurarsi che l'elenco Consenti funzioni come previsto.
+- [Altre informazioni sulla frequenza di accesso degli utenti](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency)

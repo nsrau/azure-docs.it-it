@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010546"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509670"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -64,6 +64,9 @@ Le transazioni sono integrate in modo nativo nel modello di programmazione JavaS
 ### <a name="data-consistency"></a>Coerenza dei dati
 
 Le stored procedure e i trigger vengono sempre eseguiti nella replica primaria del contenitore di Azure Cosmos DB. Questa funzionalità garantisce la [coerenza assoluta](consistency-levels-tradeoffs.md) delle letture dalle stored procedure. Le query che usano funzioni definite dall'utente possono essere eseguite nella replica primaria o in qualsiasi replica secondaria. Le stored procedure e i trigger sono progettati per supportare scritture transazionali, mentre la logica di sola lettura viene implementata meglio come logica sul lato applicazione e le query che usano gli [SDK delle API SQL di Azure Cosmos DB](sql-api-dotnet-samples.md) consentiranno di saturare la velocità effettiva del database. 
+
+> [!TIP]
+> Le query eseguite all'interno di un stored procedure o di un trigger potrebbero non visualizzare le modifiche apportate agli elementi dalla stessa transazione di script. Questa istruzione si applica sia alle query SQL, ad `getContent().getCollection.queryDocuments()`esempio, sia alle query in linguaggio integrato, ad `getContext().getCollection().filter()`esempio.
 
 ## <a name="bounded-execution"></a>Esecuzione vincolata
 

@@ -6,16 +6,16 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 396e5bc31723768ada334dd5043bca724af5e84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c1180acec726d0863e11a3fe0825ffc7c48e3f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595859"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232531"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
-Quando si eseguono applicazioni nel servizio Azure Kubernetes può risultare necessario aumentare o ridurre la quantità di risorse di calcolo. Se cambia il numero di istanze dell'applicazione necessarie, potrebbe risultare necessario cambiare anche il numero di nodi Kubernetes sottostanti. Potrebbe anche essere necessario eseguire rapidamente il provisioning di un numero elevato di istanze aggiuntive dell'applicazione.
+Quando si eseguono applicazioni nel servizio Azure Kubernetes può risultare necessario aumentare o ridurre la quantità di risorse di calcolo. Se cambia il numero di istanze dell'applicazione necessarie, potrebbe risultare necessario cambiare anche il numero di nodi Kubernetes sottostanti. Potrebbe anche essere necessario effettuare rapidamente il provisioning di un numero elevato di istanze di applicazioni aggiuntive.
 
 Questo articolo introduce i principali concetti utili per gestire il ridimensionamento delle applicazioni nel servizio Azure Kubernetes:
 
@@ -26,9 +26,9 @@ Questo articolo introduce i principali concetti utili per gestire il ridimension
 
 ## <a name="manually-scale-pods-or-nodes"></a>Ridimensionare manualmente i pod o i nodi
 
-È possibile ridimensionare manualmente le repliche (pod) e i nodi per verificare come risponde l'applicazione a una modifica delle risorse disponibili e dello stato. Il ridimensionamento manuale delle risorse consente anche di definire una quantità specifica di risorse da usare per mantenere un costo fisso, ad esempio il numero di nodi. Per ridimensionare manualmente, definire il numero di repliche o di nodi. L'API Kubernetes pianifica quindi la creazione di pod aggiuntivi o lo svuotamento dei nodi in base alla replica o al numero di nodi.
+È possibile ridimensionare manualmente le repliche (pod) e i nodi per verificare come risponde l'applicazione a una modifica delle risorse disponibili e dello stato. Il ridimensionamento manuale delle risorse consente anche di definire una quantità specifica di risorse da usare per mantenere un costo fisso, ad esempio il numero di nodi. Per eseguire manualmente la scalabilità, è necessario definire la replica o il numero di nodi. L'API Kubernetes pianifica quindi la creazione di Pod aggiuntivi o lo svuotamento dei nodi in base alla replica o al numero di nodi.
 
-Quando si ridimensionano i nodi, l'API Kubernetes chiama l'API di calcolo di Azure pertinente legata al tipo di calcolo usato dal cluster. Ad esempio, per i cluster basati su VM Scale Imposta la logica per la selezione dei nodi da rimuovere è determinata dall'API dei set di scalabilità delle macchine virtuali. Per altre informazioni su come vengono selezionati i nodi per la rimozione nella scalabilità verso il basso, vedere le [domande frequenti su VMSS](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
+Quando si ridimensionano i nodi, l'API Kubernetes chiama l'API di calcolo di Azure pertinente collegata al tipo di calcolo usato dal cluster. Ad esempio, per i cluster basati su un set di scalabilità di macchine virtuali, la logica per la selezione dei nodi da rimuovere è determinata dall'API dei set di scalabilità di macchine virtuali. Per altre informazioni sulla modalità di selezione dei nodi per la rimozione in una scala ridotta, vedere le [domande frequenti su vmss](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
 
 Per informazioni introduttive sul ridimensionamento manuale di pod e nodi, vedere [Ridimensionare le applicazioni nel servizio Azure Kubernetes][aks-scale].
 
@@ -44,15 +44,15 @@ Per informazioni introduttive sul ridimensionamento automatico orizzontale dei p
 
 ### <a name="cooldown-of-scaling-events"></a>Raffreddamento degli eventi di ridimensionamento
 
-Dato che il ridimensionamento automatico orizzontale dei pod controlla l'API Metriche ogni 30 secondi, è possibile che eventi di ridimensionamento precedenti non siano stati completati prima dell'esecuzione del controllo successivo. Questo comportamento potrebbe causare il pod orizzontale autoscaler per modificare il numero di repliche prima che l'evento di scalabilità precedente potrebbe ricevere il carico di lavoro dell'applicazione e le richieste di risorse per regolare di conseguenza.
+Dato che il ridimensionamento automatico orizzontale dei pod controlla l'API Metriche ogni 30 secondi, è possibile che eventi di ridimensionamento precedenti non siano stati completati prima dell'esecuzione del controllo successivo. Questo comportamento potrebbe causare la modifica del numero di repliche prima che l'evento di scalabilità precedente possa ricevere il carico di lavoro dell'applicazione e la necessità di modificare di conseguenza la risorsa.
 
-Per ridurre al minimo questi eventi di gara, vengono impostati i valori di tempo di recupero o di ritardo. Questi valori indicano il tempo di attesa di un evento di ridimensionamento da parte del ridimensionamento automatico orizzontale dei pod prima che possa essere attivato un altro evento di ridimensionamento. Questo comportamento consente al nuovo numero di repliche di avere effetto e l'API Metrics per riflettere il carico di lavoro distribuito. Per impostazione predefinita, il ritardo per gli eventi di aumento delle risorse è di 3 minuti e il ritardo per gli eventi di riduzione delle risorse è di 5 minuti.
+Per ridurre al minimo gli eventi Race, viene impostato un valore di ritardo. Questo valore definisce per quanto tempo il ridimensionamento automatico del Pod orizzontale deve attendere un evento di ridimensionamento prima che sia possibile attivare un altro evento di ridimensionamento. Questo comportamento consente di rendere effettivo il nuovo conteggio delle repliche e l'API metrica per riflettere il carico di lavoro distribuito. Non si verificano [ritardi per gli eventi di scalabilità verticale a partire da Kubernetes 1,12](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay), ma il ritardo sugli eventi di scalabilità verticale viene impostato su 5 minuti.
 
-Attualmente, non è possibile ottimizzare questi valori di tempo di recupero come predefiniti.
+Attualmente, non è possibile ottimizzare i valori di cooldown dal valore predefinito.
 
 ## <a name="cluster-autoscaler"></a>Ridimensionamento automatico del cluster
 
-Per rispondere alle richieste di pod che cambiano, Kubernetes dispone di un ridimensionamento automatico del cluster, che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il cluster autoscaler controlla il server API Metrics ogni 10 secondi per eventuali modifiche necessarie nel numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
+Per rispondere alle mutevoli richieste di Pod, Kubernetes dispone di un cluster AutoScaler, che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il servizio di scalabilità automatica del cluster controlla il server API metrica ogni 10 secondi per eventuali modifiche necessarie nel numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
 
 ![Ridimensionamento automatico del cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -62,15 +62,15 @@ Per informazioni introduttive sul ridimensionamento automatico del cluster nel s
 
 ### <a name="scale-up-events"></a>Eventi di aumento delle risorse
 
-Se un nodo non dispone di risorse di calcolo sufficienti per eseguire un pod richiesto, tale pod non può passare attraverso il processo di pianificazione. Il pod non può essere avviato a meno che non siano disponibili risorse di calcolo aggiuntive all'interno del pool di nodi.
+Se un nodo non dispone di risorse di calcolo sufficienti per eseguire un pod richiesto, il Pod non può avanzare durante il processo di pianificazione. Il Pod non può essere avviato se non sono disponibili risorse di calcolo aggiuntive nel pool di nodi.
 
-Quando il cluster autoscaler rileva pod che non possono essere pianificati a causa di vincoli di risorse del pool di nodi, il numero di nodi all'interno del pool di nodi viene aumentato per fornire le risorse di calcolo aggiuntive. Dopo la distribuzione corretta di tali nodi aggiuntivi e quando sono disponibili per l'uso all'interno del pool di nodi, i pod vengono quindi pianificati per l'esecuzione su tali nodi.
+Quando il servizio di scalabilità automatica del cluster rileva i pod che non possono essere pianificati a causa dei vincoli delle risorse del pool di nodi, il numero di nodi all'interno del pool di nodi viene aumentato per fornire le risorse di calcolo aggiuntive. Dopo la distribuzione corretta di tali nodi aggiuntivi e quando sono disponibili per l'uso all'interno del pool di nodi, i pod vengono quindi pianificati per l'esecuzione su tali nodi.
 
 Se l'applicazione deve essere ridimensionata rapidamente, alcuni pod potrebbero rimanere in attesa di pianificazione fino a quando i nodi aggiuntivi distribuiti dal ridimensionamento automatico del cluster non possono accettare i pod pianificati. Per le applicazioni con richieste burst elevate, è possibile gestire il ridimensionamento con nodi virtuali e Istanze di Azure Container.
 
 ### <a name="scale-down-events"></a>Eventi di riduzione delle risorse
 
-Il cluster autoscaler monitora anche lo stato di pianificazione dei pod per i nodi che non hanno ricevuto di recente nuove richieste di pianificazione. Questo scenario indica che il pool di nodi dispone di più risorse di calcolo di quelle necessarie e il numero di nodi può essere ridotto.
+Il servizio di scalabilità automatica del cluster monitora anche lo stato di pianificazione dei pod per i nodi che non hanno ricevuto di recente nuove richieste di pianificazione. Questo scenario indica che il pool di nodi ha più risorse di calcolo di quelle richieste e il numero di nodi può essere ridotto.
 
 Un nodo che supera una soglia perché non è più richiesto per 10 minuti viene pianificato per l'eliminazione per impostazione predefinita. Quando si verifica questa situazione, i pod vengono pianificati per l'esecuzione su altri nodi all'interno del pool di nodi e il ridimensionamento automatico del cluster riduce il numero di nodi.
 
@@ -82,7 +82,7 @@ Per ridimensionare rapidamente il cluster del servizio Azure Kubernetes, è poss
 
 ![Ridimensionamento burst di Kubernetes in Istanze di contenitore di Azure](media/concepts-scale/burst-scaling.png)
 
-Istanze di Azure Container consente di distribuire rapidamente istanze di contenitore senza sovraccarico aggiuntivo per l'infrastruttura. Quando ci si connette con il servizio Azure Kubernetes, Istanze di Azure Container diventa un'estensione logica protetta del cluster servizio Azure Kubernetes. Il componente [dei nodi virtuali,][virtual-nodes-cli] basato su [Virtual Kubelet][virtual-kubelet], viene installato nel cluster AKS che presenta ACI come nodo Kubernetes virtuale. Kubernetes può quindi pianificare i pod che vengono eseguiti come istanze di Istanze di Azure Container tramite i nodi virtuali e non come pod sui nodi macchina virtuale direttamente nel cluster del servizio Azure Kubernetes. I nodi virtuali sono attualmente in anteprima in AKS.
+Istanze di Azure Container consente di distribuire rapidamente istanze di contenitore senza sovraccarico aggiuntivo per l'infrastruttura. Quando ci si connette con il servizio Azure Kubernetes, Istanze di Azure Container diventa un'estensione logica protetta del cluster servizio Azure Kubernetes. Il componente [nodi virtuali][virtual-nodes-cli] , basato su [Kubelet virtuale][virtual-kubelet], viene installato nel cluster AKS che presenta ACI come nodo Kubernetes virtuale. Kubernetes può quindi pianificare i pod che vengono eseguiti come istanze di Istanze di Azure Container tramite i nodi virtuali e non come pod sui nodi macchina virtuale direttamente nel cluster del servizio Azure Kubernetes. I nodi virtuali sono attualmente in anteprima in AKS.
 
 L'applicazione non richiede alcuna modifica per usare i nodi virtuali. Le distribuzioni possono essere ridimensionate su Istanze di Azure Container e il servizio Azure Kubernetes senza ritardo mentre il ridimensionamento automatico del cluster distribuisce nuovi nodi nel cluster del servizio Azure Kubernetes.
 

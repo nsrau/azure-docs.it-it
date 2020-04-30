@@ -1,26 +1,25 @@
 ---
-title: 'Esercitazione: Distribuire app ASP.NET in Funzioni di Azure con Azure DevOps Projects'
-description: Azure DevOps Projects permette di iniziare a usare Azure velocemente. Con DevOps Projects è possibile distribuire un'app ASP.NET in Funzioni di Azure in pochi rapidi passaggi.
+title: 'Esercitazione: distribuire app ASP.NET in funzioni di Azure con Azure DevOps Starter'
+description: Azure DevOps Starter consente di iniziare a usare Azure in modo semplice. Con DevOps Starter è possibile distribuire l'app ASP.NET in funzioni di Azure in pochi passaggi rapidi.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 03/24/2020
 author: mlearned
-monikerRange: vsts
-ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71971567"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233168"
 ---
-# <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>Eseguire la distribuzione continua in Funzioni di Azure con DevOps Projects
+# <a name="deploy-to-azure-functions-with-devops-starter"></a>Eseguire la distribuzione in funzioni di Azure con DevOps Starter
 
-Azure DevOps Projects offre un'esperienza semplificata in cui è possibile usare il codice esistente e il repository Git oppure scegliere un'applicazione di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) in Azure.
+Azure DevOps Starter presenta un'esperienza semplificata in cui è possibile importare il codice esistente e il repository git oppure scegliere un'applicazione di esempio per creare una pipeline di integrazione continua e recapito continuo (CD) in Azure.
 
-DevOps Projects permette anche di:
+DevOps Starter anche:
 
 * Creare automaticamente risorse di Azure, ad esempio Funzioni di Azure
 
@@ -29,7 +28,7 @@ DevOps Projects permette anche di:
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
->* Usare DevOps Projects per distribuire un'app ASP.NET in Funzioni di Azure
+>* Usare DevOps Starter per distribuire un'app ASP.NET in funzione di Azure
 >* Configurare Azure DevOps e una sottoscrizione di Azure
 >* Esaminare la funzione di Azure
 >* Esaminare la pipeline di integrazione continua
@@ -43,17 +42,15 @@ Attualmente i runtime supportati per le funzioni sono **.NET** e **Node.js**. Pe
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
-## <a name="use-devops-projects-to-deploy-an-aspnet-app-to-azure-functions"></a>Usare DevOps Projects per distribuire un'app ASP.NET in Funzioni di Azure
+## <a name="use-devops-starter-to-deploy-an-aspnet-app-to-azure-functions"></a>Usare DevOps Starter per distribuire un'app ASP.NET in funzioni di Azure
 
-DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure, ad esempio un hub IoT, nella sottoscrizione di Azure di propria scelta.
+DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure, ad esempio un hub IoT, nella sottoscrizione di Azure di propria scelta.
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 
-1. Nel riquadro a sinistra selezionare **Crea risorsa**.
+1. Nella casella di ricerca digitare **DevOps Starter**, quindi selezionare. Fare clic su **Aggiungi** per crearne uno nuovo.
 
-1. Nella casella di ricerca, digitare **DevOps Projects**, quindi fare clic su **Aggiungi**.
-
-   ![DevOps Projects](_img/azure-devops-project-functions/devops-project.png)
+    ![Dashboard Starter DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Selezionare **.NET**, quindi **Avanti**. In **Scegli un framework applicazione** selezionare **ASP.NET** e fare clic su **Avanti**.
 
@@ -67,23 +64,23 @@ DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare 
 
 1. Selezionare la sottoscrizione di Azure.
 
-1. Per visualizzare le impostazioni di configurazione aggiuntive di Azure e identificare il piano tariffario e la posizione, fare clic su Impostazioni aggiuntive. Questo riquadro mostra diverse opzioni per la configurazione del piano tariffario e della posizione dei servizi di Azure.
+1. Per visualizzare altre impostazioni di configurazione di Azure e identificare il piano tariffario e la località, fare clic su **Impostazioni aggiuntive**. Questo riquadro mostra diverse opzioni per la configurazione del piano tariffario e della posizione dei servizi di Azure.
 
-1. Chiudere l'area di configurazione di Azure e selezionare Fine.
+1. Uscire dall'area di configurazione di Azure e quindi **fare**clic su fine.
 
-1. Il processo verrà completato dopo alcuni minuti. Viene configurata un'app di esempio ASP.NET in un repository Git nell'organizzazione di Azure DevOps, vengono creati un'app per le funzioni e Application Insights, viene eseguita una pipeline CI/CD e l'app viene distribuita in Azure.
+1. Dopo alcuni minuti, il processo viene completato. Viene configurata un'app di esempio ASP.NET in un repository Git nell'organizzazione di Azure DevOps, vengono creati un'app per le funzioni e Application Insights, viene eseguita una pipeline CI/CD e l'app viene distribuita in Azure.
 
-   Al termine, il dashboard di Azure DevOps Projects viene visualizzato nel portale di Azure. È anche possibile passare al dashboard di DevOps Projects direttamente da **Tutte le risorse** nel portale di Azure.
+   Al termine di questa operazione, nel portale di Azure viene visualizzato il Dashboard Starter di Azure DevOps. È anche possibile accedere al dashboard DevOps Starter direttamente da **tutte le risorse** nella portale di Azure.
 
    Questo dashboard fornisce visibilità su repository di codice di Azure DevOps, pipeline CI/CD e la funzione di Azure. È possibile configurare le opzioni aggiuntive di CI/CD nella pipeline di Azure DevOps. A destra selezionare **App per le funzioni** per visualizzarla.
 
 ## <a name="examine-the-function-app"></a>Esaminare l'app per le funzioni
 
-DevOps Projects configura automaticamente l'app per le funzioni, che è possibile esplorare e personalizzare. Per familiarizzare con l'app per le funzioni seguire questa procedura:
+DevOps Starter configura automaticamente l'app per le funzioni, che è possibile esplorare e personalizzare. Per familiarizzare con l'app per le funzioni seguire questa procedura:
 
-1. Passare al dashboard di DevOps Projects.
+1. Passare al dashboard iniziale di DevOps.
 
-    ![Dashboard di DevOps Projects](_img/azure-devops-project-functions/devops-projects-dashboard.png)
+    ![Dashboard di DevOps Projects](_img/azure-devops-project-functions/fapp-dashboard.png)
 
 1. A destra selezionare l'app per le funzioni. Viene visualizzato un riquadro per l'app per le funzioni. Da questa visualizzazione è possibile eseguire varie azioni, ad esempio monitorare le operazioni ed eseguire ricerche nei log.
 
@@ -91,9 +88,9 @@ DevOps Projects configura automaticamente l'app per le funzioni, che è possibil
 
 ## <a name="examine-the-ci-pipeline"></a>Esaminare la pipeline di integrazione continua
 
-DevOps Projects configura automaticamente una pipeline CI/CD nell'organizzazione di Azure DevOps. È possibile esplorare e personalizzare la pipeline. Per acquisire familiarità, eseguire questa procedura:
+DevOps Starter configura automaticamente una pipeline CI/CD nell'organizzazione DevOps di Azure. È possibile esplorare e personalizzare la pipeline. Per acquisire familiarità, eseguire questa procedura:
 
-1. Passare al dashboard di DevOps Projects.
+1. Passare al dashboard iniziale di DevOps.
 
 1. Fare clic sul collegamento ipertestuale sotto **Compilare**. In una scheda del browser viene visualizzata la pipeline di compilazione per il nuovo progetto.
 
@@ -101,7 +98,7 @@ DevOps Projects configura automaticamente una pipeline CI/CD nell'organizzazione
 
 1. Selezionare **Modifica**. In questo riquadro è possibile esaminare le diverse attività per la pipeline di compilazione. La compilazione esegue diverse attività, ad esempio il recupero del codice sorgente dal repository Git, la compilazione dell'applicazione, l'esecuzione di unit test e la pubblicazione degli output usati per le distribuzioni.
 
-1. Selezionare **Trigger**. DevOps Projects crea automaticamente un trigger di integrazione continua e ogni commit nel repository avvia una nuova compilazione. Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
+1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger CI e ogni commit nel repository avvia una nuova compilazione. Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
 
 1. Selezionare **Conservazione**. A seconda dello scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 
@@ -113,7 +110,7 @@ DevOps Projects configura automaticamente una pipeline CI/CD nell'organizzazione
 
 ## <a name="examine-the-cd-release-pipeline"></a>Esaminare la pipeline di versione CD
 
-DevOps Projects crea e configura automaticamente i passaggi necessari per la distribuzione dall'organizzazione di Azure DevOps nella sottoscrizione di Azure. Questi passaggi includono la configurazione di una connessione al servizio di Azure per eseguire l'autenticazione di Azure DevOps nella sottoscrizione di Azure. L'automazione crea anche una pipeline di versione che fornisce la distribuzione continua in Azure. Per altre informazioni sulla pipeline di versione, eseguire le operazioni seguenti:
+DevOps Starter crea e configura automaticamente i passaggi necessari per eseguire la distribuzione dall'organizzazione DevOps di Azure alla sottoscrizione di Azure. Questi passaggi includono la configurazione di una connessione al servizio di Azure per eseguire l'autenticazione di Azure DevOps nella sottoscrizione di Azure. L'automazione crea anche una pipeline di versione che fornisce la distribuzione continua in Azure. Per altre informazioni sulla pipeline di versione, eseguire le operazioni seguenti:
 
 1. Passare a **Pipeline | Versioni**.
 
@@ -142,26 +139,26 @@ A questo punto, si è pronti per collaborare con un team a un'app usando un proc
 
 1. Il repository contiene già il codice denominato **SampleFunctionApp** basato sulla lingua dell'applicazione che si è scelta nel processo di creazione. Aprire il file **Application/SampleFunctionApp/Function1.cs**.
 
-1. Selezionare **Modifica** e quindi apportare una modifica al **numero di riga 31**. Ad esempio, è possibile aggiornarlo con **Salve! Benvenuti in Funzioni di Azure con DevOps Projects**
+1. Selezionare **Modifica** e quindi apportare una modifica al **numero di riga 31**. Ad esempio, è possibile aggiornarlo a **Hello. Introduzione a funzioni di Azure con DevOps Starter**
 
 1. In alto a destra, selezionare **Commit**, quindi selezionare **Commit** nuovamente per eseguire il push della modifica.
 
 1. Aprire il file **Application/SampleFunctionApp.Test/Function1TestRunner.cs**. 
 
-1. Selezionare **Modifica** e quindi apportare una modifica al **numero di riga 21**. Ad esempio, è possibile aggiornarlo con **Salve! Benvenuti in Funzioni di Azure con Azure DevOps Projects**.
+1. Selezionare **Modifica** e quindi apportare una modifica al **numero di riga 21**. Ad esempio, è possibile aggiornarlo a **Hello. Benvenuti in funzioni di Azure con Azure DevOps Starter**.
 
-     Dopo alcuni istanti verrà avviata una compilazione in Azure DevOps e verrà eseguita una versione per distribuire le modifiche. Monitorare lo stato della compilazione nel dashboard di DevOps Projects oppure nel browser con l'organizzazione di Azure DevOps.
+     Dopo alcuni istanti verrà avviata una compilazione in Azure DevOps e verrà eseguita una versione per distribuire le modifiche. Monitorare lo stato di compilazione nel dashboard iniziale di DevOps o nel browser con l'organizzazione DevOps di Azure.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile eliminare le risorse correlate create in precedenza. Usare la funzionalità **Elimina** nel dashboard di DevOps Projects.
+Quando non servono più, è possibile eliminare le risorse correlate create in precedenza. Usare la funzionalità di **eliminazione** nel dashboard iniziale di DevOps.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Facoltativamente, è possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Usare DevOps Projects per distribuire un'app ASP.NET Core in Funzioni di Azure
+> * Usare l'utilità di avvio di DevOps per distribuire un'app ASP.NET Core in funzione di Azure
 > * Configurare Azure DevOps e una sottoscrizione di Azure 
 > * Esaminare la funzione di Azure
 > * Esaminare la pipeline di integrazione continua

@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1fedf889fa8d39a926067eb227b895d4fe1e3c39
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380929"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509347"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
 Nel database SQL di Azure è possibile configurare un database singolo o in pool con criteri di [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) per mantenere automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell.
 
 > [!IMPORTANT]
-> [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md) attualmente non supporta la conservazione dei backup a lungo termine.
+> Per istanza gestita di database SQL di Azure, vedere [supporto di LTR per istanza gestita](sql-database-long-term-retention.md#managed-instance-support).
 
 ## <a name="using-azure-portal"></a>Uso del portale di Azure
 
