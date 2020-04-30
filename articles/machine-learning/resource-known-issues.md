@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127575"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231969"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -56,7 +56,23 @@ Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-     
+
+* **Errori Panda: in genere visualizzati durante l'esperimento AutoML:**
+   
+   Quando si configura manualmente la Environmnet con pip, si noterà l'errore degli attributi, soprattutto da Pandas, a causa dell'installazione di versioni del pacchetto non supportate. Per evitare tali errori, [installare AUTOML SDK usando il automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Aprire un prompt di Anaconda e clonare il repository GitHub per un set di notebook di esempio.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. CD per la cartella How-to-use-azureml/Automated-Machine-Learning in cui sono stati estratti i notebook di esempio e quindi eseguire:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Messaggio di errore: Impossibile installare "PyYAML"**
 
     Azure Machine Learning SDK per Python: PyYAML è un `distutils` progetto installato. Non è pertanto possibile stabilire in modo accurato quali file appartengono a esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
@@ -134,7 +150,7 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 
 ### <a name="data-labeling-projects"></a>Progetti di assegnazione di etichette ai dati
 
-|Problema  |Risoluzione  |
+|Problema  |Soluzione  |
 |---------|---------|
 |È possibile usare solo i set di dati creati negli archivi dati BLOB     |  si tratta di un limite noto della versione corrente.       |
 |Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo     | Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto.         |
@@ -198,7 +214,7 @@ Problemi noti:
 
 Eseguire queste azioni per gli errori seguenti:
 
-|Errore  | Risoluzione  |
+|Errore  | Soluzione  |
 |---------|---------|
 |Errore di compilazione dell'immagine durante la distribuzione del servizio Web     |  Aggiungere "pynacl = = 1.2.1" come dipendenza pip al file conda per la configurazione dell'immagine       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Modificare lo SKU per le macchine virtuali usate nella distribuzione in uno con una maggiore quantità di memoria. |

@@ -4,12 +4,12 @@ description: Informazioni su come usare Azure Batch libreria file Conventions pe
 ms.topic: article
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116435"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232701"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET
 
@@ -182,7 +182,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Visualizzare i file di output nel portale di Azure
 
-Il portale di Azure visualizza gli output e i log di un'attività resi persistenti in un account di archiviazione di Azure collegato usando lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). È possibile implementare queste convenzioni nel linguaggio preferito o usare la libreria File Conventions nelle applicazioni .NET.
+Il portale di Azure visualizza gli output e i log di un'attività resi persistenti in un account di archiviazione di Azure collegato usando lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). È possibile implementare queste convenzioni nel linguaggio preferito o usare la libreria File Conventions nelle applicazioni .NET.
 
 Per abilitare la visualizzazione dei file di output nel portale, è necessario soddisfare i requisiti seguenti:
 

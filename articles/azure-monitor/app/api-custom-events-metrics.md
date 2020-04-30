@@ -3,12 +3,12 @@ title: API di Application Insights per metriche ed eventi personalizzati | Micro
 description: Inserire alcune righe di codice nell'app desktop o per dispositivi, nella pagina Web o nel servizio per tenere traccia dell'utilizzo e diagnosticare i problemi.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 152bd117ec0ae76c2c85ead26ba5278aa71d582f
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536948"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509288"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -151,92 +151,7 @@ Se il [campionamento](../../azure-monitor/app/sampling.md) è attivo, la proprie
 
 ## <a name="getmetric"></a>GetMetric
 
-### <a name="examples"></a>Esempi
-
-*C#*
-
-```csharp
-namespace User.Namespace.Example01
-{
-    using System;
-    using Microsoft.ApplicationInsights;
-    using Microsoft.ApplicationInsights.DataContracts;
-
-    /// <summary>
-    /// Most simple cases are one-liners.
-    /// This is all possible without even importing an additional namespace.
-    /// </summary>
-
-    public class Sample01
-    {
-        /// <summary />
-        public static void Exec()
-        {
-            // *** SENDING METRICS ***
-
-            // Recall how you send custom telemetry with Application Insights in other cases, e.g. Events.
-            // The following will result in an EventTelemetry object to be sent to the cloud right away.
-            TelemetryClient client = new TelemetryClient();
-            client.TrackEvent("SomethingInterestingHappened");
-
-            // Metrics work very similar. However, the value is not sent right away.
-            // It is aggregated with other values for the same metric, and the resulting summary (aka "aggregate" is sent automatically every minute.
-            // To mark this difference, we use a pattern that is similar, but different from the established TrackXxx(..) pattern that sends telemetry right away:
-
-            client.GetMetric("CowsSold").TrackValue(42);
-
-            // *** MULTI-DIMENSIONAL METRICS ***
-
-            // The above example shows a zero-dimensional metric.
-            // Metrics can also be multi-dimensional.
-            // In the initial version we are supporting up to 2 dimensions, and we will add support for more in the future as needed.
-            // Here is an example for a one-dimensional metric:
-
-            Metric animalsSold = client.GetMetric("AnimalsSold", "Species");
-
-            animalsSold.TrackValue(42, "Pigs");
-            animalsSold.TrackValue(24, "Horses");
-
-            // The values for Pigs and Horses will be aggregated separately from each other and will result in two distinct aggregates.
-            // You can control the maximum number of number data series per metric (and thus your resource usage and cost).
-            // The default limits are no more than 1000 total data series per metric, and no more than 100 different values per dimension.
-            // We discuss elsewhere how to change them.
-            // We use a common .NET pattern: TryXxx(..) to make sure that the limits are observed.
-            // If the limits are already reached, Metric.TrackValue(..) will return False and the value will not be tracked. Otherwise it will return True.
-            // This is particularly useful if the data for a metric originates from user input, e.g. a file:
-
-            Tuple<int, string> countAndSpecies = ReadSpeciesFromUserInput();
-            int count = countAndSpecies.Item1;
-            string species = countAndSpecies.Item2;
-
-            if (!animalsSold.TrackValue(count, species))
-
-            {
-                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", SeverityLevel.Error);
-            }
-
-            // You can inspect a metric object to reason about its current state. For example:
-            int currentNumberOfSpecies = animalsSold.GetDimensionValues(1).Count;
-        }
-
-        private static void ResetDataStructure()
-        {
-            // Do stuff
-        }
-
-        private static Tuple<int, string> ReadSpeciesFromUserInput()
-        {
-            return Tuple.Create(18, "Cows");
-        }
-
-        private static int AddItemsToDataStructure()
-        {
-            // Do stuff
-            return 5;
-        }
-    }
-}
-```
+Per informazioni su come usare in modo efficace la chiamata getmetric () per acquisire metriche pre-aggregate localmente per le applicazioni .NET e .NET Core, vedere la documentazione relativa a [GetMetrics](../../azure-monitor/app/get-metric.md) .
 
 ## <a name="trackmetric"></a>TrackMetric
 
@@ -1016,7 +931,7 @@ L'[applicazione di filtri](../../azure-monitor/app/api-filtering-sampling.md#fil
 
 Il [campionamento](../../azure-monitor/app/api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 
-[Altre informazioni](../../azure-monitor/app/api-filtering-sampling.md)
+[Altre informazioni](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>Disabilitazione della telemetria
 

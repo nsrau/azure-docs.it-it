@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335980"
+ms.locfileid: "82233483"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="contact-us"></a>Contatti
-* [Come si rivolge una domanda al team di Gestione API di Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 * [Che cosa significa se una funzionalità è in anteprima?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -48,15 +45,8 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 * [È possibile spostare un servizio Gestione API da una sottoscrizione a un'altra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Esistono restrizioni o problemi noti relativi all'importazione di questa API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
-### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Come si rivolge una domanda al team di Gestione API di Microsoft Azure?
-È possibile contattare Microsoft in uno dei modi seguenti:
-
-* Pubblicare le domande sul [forum MSDN di Gestione API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Inviare un messaggio di posta elettronica all'indirizzo <mailto:apimgmt@microsoft.com>.
-* Inviare una richiesta di funzionalità nel [forum dei commenti e suggerimenti su Azure](https://feedback.azure.com/forums/248703-api-management).
-
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Che cosa significa se una funzionalità è in anteprima?
-Quando una funzionalità è in anteprima, significa che si stanno raccogliendo attivamente commenti e suggerimenti dagli utenti sulla funzionalità. Una funzionalità in anteprima è completa dal punto di vista funzionale, ma è possibile che venga apportata una modifica di rilievo in risposta ai commenti e suggerimenti dei clienti. È consigliabile non far dipendere l'ambiente di produzione da una funzionalità in anteprima. Per inviare commenti e suggerimenti sulle funzionalità in anteprima, usare una delle opzioni di contatto elencate in [Come si rivolge una domanda al team di Gestione API di Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+Quando una funzionalità è in anteprima, significa che si stanno raccogliendo attivamente commenti e suggerimenti dagli utenti sulla funzionalità. Una funzionalità in anteprima è completa dal punto di vista funzionale, ma è possibile che venga apportata una modifica di rilievo in risposta ai commenti e suggerimenti dei clienti. È consigliabile non far dipendere l'ambiente di produzione da una funzionalità in anteprima.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Come si protegge la connessione tra il gateway di Gestione API e i servizi back-end?
 Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestione API e i servizi back-end. È possibile scegliere:

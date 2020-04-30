@@ -1,40 +1,40 @@
 ---
-title: Librerie client di Azure Analysis Services - Documenti Microsoft
+title: Librerie client di Azure Analysis Services | Microsoft Docs
 description: Vengono illustrate le librerie client necessarie per la connessione di applicazioni e strumenti client ad Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 04/28/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: be6ee594896384bce86d892c9a7811e09a0f4efd
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 5ee3de593e7795f155e8ca38ffac02cfaa80d171
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676572"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232956"
 ---
-# <a name="client-libraries-for-connecting-to-analysis-services"></a>Client libraries for connecting to Analysis Services
+# <a name="client-libraries-for-connecting-to-analysis-services"></a>Librerie client per la connessione a Analysis Services
 
-Le librerie client sono necessarie per la connessione di applicazioni e strumenti client ai server di Analysis Services. Le applicazioni client Microsoft come Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e Analysis Services Analysis Services sono estensioni per i progetti di Visual Studio, installare tutte e tre le librerie client e aggiornarle insieme ai normali aggiornamenti delle applicazioni. In alcuni casi, potrebbe essere necessario installare le versioni più recenti delle librerie client. Le applicazioni client personalizzate richiedono inoltre l'installazione di librerie client.
+Le librerie client sono necessarie per la connessione di applicazioni e strumenti client ai server di Analysis Services. Le applicazioni client Microsoft come Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e l'estensione di progetti Analysis Services per Visual Studio installano tutte e tre le librerie client e le aggiornano insieme a normali aggiornamenti delle applicazioni. In alcuni casi, potrebbe essere necessario installare versioni più recenti delle librerie client. Le applicazioni client personalizzate richiedono anche l'installazione delle librerie client.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Scaricare le librerie client più recenti (Windows Installer)  
 
 |Download  |Versione del prodotto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.36.38    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.36.38       |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.6.0.1    |
-|[Adomd](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.6.0.1     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.37.40    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.37.40       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.7.0.1    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.7.0.1     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacchetti NuGet)
 
-Le librerie client AMO (Analysis Services Management Objects) e ADOMD sono disponibili come pacchetti installabili da [NuGet.org](https://www.nuget.org/). Si consiglia di eseguire la migrazione ai riferimenti NuGet anziché utilizzare Windows Installer. 
+Analysis Services Management Objects (AMO) e le librerie client ADOMD sono disponibili come pacchetti installabili da [NuGet.org](https://www.nuget.org/). È consigliabile eseguire la migrazione ai riferimenti NuGet invece di usare Windows Installer. 
 
 |Pacchetto  | Versione del prodotto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.6.0.1     |
-|[Adomd](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.6.0.1      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.7.0.1     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.7.0.1      |
 
 Gli assembly AssemblyVersion del pacchetto NuGet sono conformi al controllo delle versioni semantici: PRINCIPALE.SECONDARIA.PATCH. I riferimenti NuGet caricano la versione prevista anche se nella Global Assembly Cache è presente una versione diversa (risultante dall'installazione con file MSI). Il valore di PATCH viene incrementato a ogni versione. Le versioni di AMO e ADOMD vengono mantenute sincronizzate.
 
@@ -44,7 +44,7 @@ Analysis Services usa tre librerie client, definite anche provider di dati. ADOM
 
 Le applicazioni client di Microsoft, come ad esempio Power BI Desktop ed Excel, installano tutte e tre le librerie client e le aggiornano quando sono disponibili nuove versioni. A seconda della versione o della frequenza degli aggiornamenti, alcune librerie client potrebbero non essere le versioni più recenti richieste da Azure Analysis Services. Lo stesso vale per le applicazioni personalizzate o per le altre interfacce come AsCmd, TOM e ADOMD.NET. Queste applicazioni richiedono l'installazione manuale o a livello di codice delle librerie. Le librerie client per l'installazione manuale sono incluse nei Feature Pack di SQL Server come pacchetti distribuibili. Queste librerie client sono tuttavia collegate alla versione di SQL Server e potrebbero non essere le più recenti.  
 
-Le librerie client per le connessioni client sono diverse dai provider di dati necessari per connettersi da un server di Azure Analysis Services a un'origine dati. Per ulteriori informazioni sulle connessioni alle origini dati, vedere [Connessioni alle origini dati](analysis-services-datasource.md).
+Le librerie client per le connessioni client sono diverse dai provider di dati necessari per connettersi da un server di Azure Analysis Services a un'origine dati. Per altre informazioni sulle connessioni alle origini dati, vedere [connessioni alle origini dati](analysis-services-datasource.md).
 
 ## <a name="client-library-types"></a>Tipi di librerie client
 
@@ -58,7 +58,7 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
 
 ### <a name="amo"></a>AMO  
 
- AMO è una libreria client gestita usata per l'amministrazione di server e la definizione di dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `"data source=\<servername>"`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia Visual Studio che SSMS utilizzano AMO per connettersi a un'istanza di Analysis ServicesAnalysis Services .  
+ AMO è una libreria client gestita usata per l'amministrazione di server e la definizione di dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `"data source=\<servername>"`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia Visual Studio che SSMS utilizzano AMO per connettersi a un'istanza di Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD
@@ -74,7 +74,7 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
   
 1.  Passare a `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`. Se si ha più di una cartella, scegliere il numero più elevato.
   
-2.  Fare clic con il pulsante destro**del** > mouse su **Msolap.dll** > **Properties Details**. Se il nome del file è msolap140.dll, si tratta di una versione precedente che deve essere aggiornata.
+2.  Fare clic con il pulsante destro del mouse su **MSOLAP. dll** > **proprietà** > **Dettagli**. Se il nome del file è msolap140.dll, si tratta di una versione precedente che deve essere aggiornata.
     
     ![Dettagli della libreria client](media/analysis-services-data-providers/aas-msolap-details.png)
     
@@ -82,12 +82,12 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
 ### <a name="amo"></a>AMO
 
 1. Passare a `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. Se si ha più di una cartella, scegliere il numero più elevato.
-2. Fare clic**con il** > pulsante destro del mouse su Dettagli proprietà **Microsoft.AnalysisServices** > **.**  
+2. Fare clic con il pulsante destro del mouse su **Microsoft. AnalysisServices** > **proprietà** > **Dettagli**.  
 
 ### <a name="adomd"></a>ADOMD
 
 1. Passare a `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`. Se si ha più di una cartella, scegliere il numero più elevato.
-2. Fare clic**con** > il pulsante destro del mouse su **Microsoft.AnalysisServices.AdomdClient** > Properties**Details**.  
+2. Fare clic con il pulsante destro del mouse su **Microsoft. AnalysisServices. AdomdClient** > **proprietà** > **Dettagli**.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

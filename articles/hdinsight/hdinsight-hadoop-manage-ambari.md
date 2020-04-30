@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: 53d8da3f5ff715fa34f007272214823ed60e6326
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192060"
+ms.locfileid: "82232854"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
@@ -135,7 +135,7 @@ Selezionando uno di questi collegamenti, verrà aperta una nuova scheda nel brow
 
 ### <a name="ambari-users-groups-and-permissions"></a>Utenti, gruppi e autorizzazioni Ambari
 
-L'uso di utenti, gruppi e autorizzazioni è supportato con un cluster HDInsight aggiunto al dominio. Per informazioni sull'uso dell'interfaccia utente di gestione di Ambari in un cluster aggiunto al dominio, vedere [Gestire cluster HDInsight aggiunti al dominio](./domain-joined/hdinsight-security-overview.md).
+L'uso di utenti, gruppi e autorizzazioni è supportato. Per l'amministrazione locale, vedere [autorizzare gli utenti per le viste di Apache Ambari](./hdinsight-authorize-users-to-ambari.md). Per i cluster aggiunti a un dominio, vedere [gestire i cluster HDInsight aggiunti al dominio](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > Non modificare la password del watchdog Ambari (hdinsightwatchdog) nel cluster HDInsight basato su Linux. Se si modifica la password, non sarà più possibile usare azioni script o eseguire operazioni di ridimensionamento con il cluster.

@@ -1,47 +1,47 @@
 ---
-title: Risolvere i problemi relativi ai test di disponibilità di Azure Application InsightsTroubleshoot your Azure Application Insights availability tests
-description: Risolvere i problemi relativi ai test Web in Azure Application Insights.Troubleshoot web tests in Azure Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
+title: Risolvere i problemi relativi ai test di disponibilità di applicazione Azure Insights
+description: Risolvere i problemi dei test Web in applicazione Azure Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 09/19/2019
+ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 94b00a36445b0f4284caba218f6416db726611eb
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255448"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233959"
 ---
 # <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Questo articolo consente di risolvere i problemi comuni che possono verificarsi quando si utilizza il monitoraggio della disponibilità.
+Questo articolo consente di risolvere i problemi comuni che possono verificarsi quando si usa il monitoraggio della disponibilità.
 
 ## <a name="ssltls-errors"></a>Errori SSL/TLS
 
 |Sintomo/messaggio di errore| Possibili cause|
 |--------|------|
-|Impossibile creare il canale sicuro SSL/TLS  | versione SSL. Sono supportati solo TLS 1.0, 1.1 e 1.2. **SSLv3 non è supportato.**
-|TLSv1.2 Record Layer: Alert (Livello: Fatal, Descrizione: MAC record non valido)| Per [ulteriori informazioni,](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake)vedere Thread StackExchange .
-|L'URL in errore è una rete CDN (rete per la distribuzione di contenuti) | Ciò può essere causato da una configurazione errata nella rete CDN |  
+|Non è stato possibile creare il canale sicuro SSL/TLS  | Versione SSL. Sono supportati solo TLS 1,0, 1,1 e 1,2. **SSLv3 non è supportato.**
+|Livello record TLSv 1.2: avviso (livello: irreversibile, Descrizione: MAC record non valido)| Per [ulteriori informazioni](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake), vedere thread stackexchange.
+|L'URL che ha avuto esito negativo è la rete CDN (rete per la distribuzione di contenuti) | Il problema potrebbe essere causato da una configurazione errata della rete CDN |  
 
-### <a name="possible-workaround"></a>Possibile soluzione alternativa
+### <a name="possible-workaround"></a>Soluzione alternativa possibile
 
-* Se gli URL che si verificano il problema sono sempre per le risorse dipendenti, si consiglia di disabilitare **le richieste dipendenti di analisi** per il test web.
+* Se gli URL in cui si verifica il problema sono sempre a risorse dipendenti, è consigliabile disabilitare le **richieste di analisi dipendenti** per il test Web.
 
-## <a name="test-fails-only-from-certain-locations"></a>Il test non riesce solo da determinate posizioni
+## <a name="test-fails-only-from-certain-locations"></a>Il test ha esito negativo solo da determinate posizioni
 
 |Sintomo/messaggio di errore| Possibili cause|
 |----|---------|
-|Un tentativo di connessione non è riuscito perché la parte connessa non ha risposto correttamente dopo un periodo di tempo  | Gli agenti di test in determinati percorsi vengono bloccati da un firewall.|
-|    |Il reindirizzamento di determinati indirizzi IP avviene tramite (Load Balancer, Geo traffic managers, Azure Express Route). 
-|    |Se si usa Azure ExpressRoute, esistono scenari in cui i pacchetti possono essere eliminati nei casi in cui si verifica il [routing asimmetrico.](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing)|
+|Tentativo di connessione non riuscito. risposta non corretta della parte connessa dopo un periodo di tempo  | Gli agenti di test in determinate posizioni sono bloccati da un firewall.|
+|    |Il reindirizzamento di determinati indirizzi IP avviene tramite (bilanciamenti del carico, responsabili del traffico geografico, Azure Express Route). 
+|    |Se si usa Azure ExpressRoute, esistono scenari in cui i pacchetti possono essere eliminati nei casi in cui [si verifica il routing asimmetrico](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
-## <a name="test-failure-with-a-protocol-violation-error"></a>Errore di test con un errore di violazione del protocolloTest failure with a protocol violation error
+## <a name="test-failure-with-a-protocol-violation-error"></a>Errore di test con errore di violazione del protocollo
 
-|Sintomo/messaggio di errore| Possibili cause| Possibili risoluzioni |
+|Sintomo/messaggio di errore| Possibili cause| Possibili soluzioni |
 |----|---------|-----|
-|Il server ha commesso una violazione del protocollo. Sezione: ResponseHeader Detail: CR deve essere seguito da LF | Ciò si verifica quando vengono rilevate intestazioni in formato non corretto. In particolare, alcune intestazioni potrebbero non utilizzare CRLF per indicare la fine della riga, che viola la specifica HTTP. Application Insights applica questa specifica HTTP e non riesce le risposte con intestazioni in formato non corretto.| a. Contattare il provider host del sito Web / provider CDN per correggere i server difettosi. <br> b. Nel caso in cui le richieste non riuscite siano risorse (ad esempio file di stile, immagini, script), è possibile disabilitare l'analisi delle richieste dipendenti. Tenete a mente, se si esegue questa operazione si perde la possibilità di monitorare la disponibilità di tali file).
+|Il server ha eseguito il commit di una violazione del protocollo. Section = ResponseHeader detail = CR deve essere seguito da LF | Questo errore si verifica quando vengono rilevate intestazioni in formato non valido. In particolare, è possibile che alcune intestazioni non usino CRLF per indicare la fine della riga, violando la specifica HTTP. Application Insights impone questa specifica HTTP e non genera risposte con intestazioni in formato non valido.| a. Contattare il provider host del sito Web o il provider della rete CDN per correggere i server difettosi. <br> b. Se le richieste non riuscite sono risorse (ad esempio, file di stile, immagini, script), è possibile disabilitare l'analisi delle richieste dipendenti. Tenere presente che, se si esegue questa operazione, si perderà la possibilità di monitorare la disponibilità di tali file.
 
 > [!NOTE]
 > l'errore dell'URL potrebbe non verificarsi in browser con una convalida delle intestazioni HTTP meno rigida. Per una spiegazione dettagliata del problema, vedere questo post di blog: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
@@ -50,9 +50,9 @@ Questo articolo consente di risolvere i problemi comuni che possono verificarsi 
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Il sito sembra funzionare correttamente, ma i test segnalano errori. Perché Application Insights invia avvisi?
 
-   * Nel test sono abilitate **le richieste Dipendenti da Analizza?** Ciò si traduce in un rigoroso controllo sulle risorse come script, immagini, ecc. Questi tipi di errori potrebbero non essere evidenti in un browser. Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. Se uno di essi non riesce, il test viene segnalato come non riuscito, anche se la pagina HTML principale viene caricata senza problemi. Per desensibilizzare il test a tali errori di risorse, è sufficiente deselezionare le richieste dipendenti dall'analisi dalla configurazione di test.
+   * Il test ha **richieste di analisi dipendenti** abilitate? Ciò comporta un controllo rigoroso delle risorse, ad esempio script, immagini e così via. Questi tipi di errori potrebbero non essere evidenti in un browser. Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. Se uno di essi ha esito negativo, il test viene segnalato come non superato, anche se la pagina HTML principale viene caricata senza problemi. Per desensibilizzare il test a errori di questo tipo, è sufficiente deselezionare l'opzione analizza richieste dipendenti dalla configurazione di test.
 
-   * Per ridurre le probabilità di rumore da blips di rete transitorie e così via, assicurarsi che l'opzione Abilita tentativi per la configurazione degli errori di test sia selezionata. È anche possibile eseguire test da più posizioni e gestire la soglia delle regole di avviso di conseguenza per evitare che problemi specifici della posizione causino avvisi non dovuti.
+   * Per ridurre le probabilità di rumore dai blip di rete temporanei e così via, verificare che sia selezionata l'opzione Abilita tentativi per la configurazione degli errori dei test. È anche possibile eseguire test da più posizioni e gestire la soglia delle regole di avviso di conseguenza per evitare che problemi specifici della posizione causino avvisi non dovuti.
 
    * Fare clic su uno qualsiasi dei punti rossi dell'esperienza di disponibilità oppure su qualsiasi errore di disponibilità presente in Esplora ricerche per visualizzare i dettagli del motivo per cui è stato segnalato l'errore. Il risultato del test, insieme ai dati di telemetria lato server correlati (se abilitati), dovrebbe consentire di comprendere perché il test non è riuscito. Le cause più comuni dei problemi temporanei sono problemi di connessione o di rete.
 
@@ -68,14 +68,18 @@ Controllare la configurazione degli avvisi classici per verificare se l'indirizz
 
 Verificare che l'applicazione che riceve la notifica webhook sia disponibile e che riesca a elaborare le richieste di un webhook. Per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
 
+### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Si ricevono 403 errori non consentiti, che cosa significa?
+
+Questo errore indica che è necessario aggiungere eccezioni del firewall per consentire agli agenti di disponibilità di testare l'URL di destinazione. Per un elenco completo degli indirizzi IP di Agent da consentire, vedere l' [articolo eccezione IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Esito negativo intermittente dei test con un errore di violazione del protocollo?
 
-Un errore di tipo "Violazione del protocollo... CR deve essere seguito da LF" indica un problema relativo al server o alle dipendenze. Questa situazione si verifica quando nella risposta vengono impostate intestazioni in formato non valido e può essere causata da servizi di bilanciamento del carico o reti per la distribuzione di contenuti. In particolare, alcune intestazioni potrebbero non utilizzare CRLF per indicare la fine della riga, che viola la specifica HTTP e pertanto non supera la convalida a livello di WebRequest .NET. Esaminare la risposta alle intestazioni di spot, che potrebbero essere in violazione.
+Un errore di tipo "Violazione del protocollo... CR deve essere seguito da LF" indica un problema relativo al server o alle dipendenze. Questa situazione si verifica quando nella risposta vengono impostate intestazioni in formato non valido e può essere causata da servizi di bilanciamento del carico o reti per la distribuzione di contenuti. In particolare, è possibile che alcune intestazioni non usino CRLF per indicare la fine della riga, che viola la specifica HTTP e pertanto non riesce a eseguire la convalida a livello di WebRequest .NET. Controllare la risposta per individuare le intestazioni, che potrebbero essere in violazione.
 
 > [!NOTE]
 > l'errore dell'URL potrebbe non verificarsi in browser con una convalida delle intestazioni HTTP meno rigida. Per una spiegazione dettagliata del problema, vedere questo post di blog: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 
-### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Non viene visualizzata alcuna telemetria lato server correlata per diagnosticare gli errori dei test?
+### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Non vengono visualizzati dati di telemetria sul lato server correlati per diagnosticare gli errori dei test? *
 
 Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](../../azure-monitor/app/sampling.md). Selezionare un risultato di disponibilità diverso.
 
@@ -93,7 +97,7 @@ I due termini vengono usati in modo intercambiabile. Test di disponibilità è u
    Esistono due possibili soluzioni:
 
    * Configurare il firewall per consentire richieste in ingresso dagli [indirizzi IP degli agenti di test Web](../../azure-monitor/app/ip-addresses.md).
-   * Scrivere il proprio codice per testare periodicamente il server interno. Eseguire il codice come processo in background in un server di prova protetto da firewall. Il processo di test può inviare i risultati ad Application Insights tramite l'API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) nel pacchetto SDK di base. In questo modo è necessario testare il server per avere un accesso in uscita per l'endpoint di inserimento di Application Insights, ma questo rappresenta un minore rischio per la sicurezza rispetto all'alternativa di consentire le richieste in ingresso. I risultati verranno visualizzati nei blade di test Web di disponibilità anche se l'esperienza sarà leggermente semplificata rispetto a ciò che è disponibile per i test creati tramite il portale. I test di disponibilità personalizzati verranno visualizzati anche come risultati di disponibilità in Analisi, Ricerca e Metriche.
+   * Scrivere il proprio codice per testare periodicamente il server interno. Eseguire il codice come processo in background in un server di prova protetto da firewall. Il processo di test può inviare i risultati ad Application Insights tramite l'API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) nel pacchetto SDK di base. In questo modo è necessario testare il server per avere un accesso in uscita per l'endpoint di inserimento di Application Insights, ma questo rappresenta un minore rischio per la sicurezza rispetto all'alternativa di consentire le richieste in ingresso. I risultati verranno visualizzati nei pannelli dei test Web di disponibilità, anche se l'esperienza sarà leggermente semplificata rispetto a quanto disponibile per i test creati tramite il portale. I test di disponibilità personalizzati verranno visualizzati anche come risultati della disponibilità in analisi, ricerca e metriche.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Non è possibile caricare un test Web in più passi
 
@@ -119,7 +123,7 @@ Questa sezione si applica solo agli avvisi classici e aiuterà a ottimizzare le 
 
 * Per gli avvisi in caso di errori dalle posizioni X da Y, l'opzione **in blocco/gruppo** della casella di controllo, se abilitata, invia notifiche agli utenti con ruoli di amministratore o coamministratore.  Essenzialmente _tutti_ gli amministratori della _sottoscrizione_ riceveranno le notifiche.
 
-* Per gli avvisi sulle metriche di disponibilità, l'opzione di casella di controllo **bulk/group,** se abilitata, viene inviata agli utenti con ruoli di proprietario, collaboratore o lettore nella sottoscrizione. In effetti, _tutti_ gli utenti con accesso alla sottoscrizione della risorsa di Application Insights rientrano nell'ambito e riceveranno le notifiche. 
+* Per gli avvisi sulle metriche di disponibilità, l'opzione casella di controllo **bulk/Group** se abilitata, invia agli utenti i ruoli proprietario, collaboratore o lettore nella sottoscrizione. In effetti, _tutti_ gli utenti con accesso alla sottoscrizione della risorsa di Application Insights rientrano nell'ambito e riceveranno le notifiche. 
 
 > [!NOTE]
 > Se attualmente si usa l'opzione **in blocco/gruppo** della casella di controllo e la si disabilita, sarà impossibile annullare le modifiche.
@@ -128,5 +132,5 @@ Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Test Web in più fasi](availability-multistep.md)
+* [Test Web in più passaggi](availability-multistep.md)
 * [Test ping URL](monitor-web-app-availability.md)
