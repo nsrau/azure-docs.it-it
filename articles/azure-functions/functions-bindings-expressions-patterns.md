@@ -1,26 +1,26 @@
 ---
-title: Associazioni e modelli di funzioni di AzureAzure Functions bindings expressions and patterns
-description: Informazioni su come creare espressioni di associazione di funzioni di Azure diverse in base a modelli comuni.
+title: Espressioni e modelli di associazioni di funzioni di Azure
+description: Informazioni su come creare diverse espressioni di associazione di funzioni di Azure basate su modelli comuni.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277648"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Espressioni di Azure associare modelli di espressioneAzure Functions binding expression patterns
+# <a name="azure-functions-binding-expression-patterns"></a>Modelli di espressione di binding di funzioni di Azure
 
-Una delle funzionalità più potenti di [trigger e associazioni](./functions-triggers-bindings.md) è l'associazione di *espressioni*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
+Una delle funzionalità più potenti dei [trigger e delle associazioni](./functions-triggers-bindings.md) è rappresentata dalle *espressioni di associazione*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
 
 Quasi tutte le espressioni sono identificate tramite la disposizione del testo tra parentesi graffe. Ad esempio, in una funzione di trigger della coda `{queueTrigger}` viene risolto nel testo dei messaggi della coda. Se la proprietà `path` dell'associazione di output di un BLOB è `container/{queueTrigger}` e la funzione viene attivata da un messaggio della coda `HelloWorld`, viene creato un BLOB denominato `HelloWorld`.
 
 Tipi di espressioni di associazione
 
-* [Impostazioni app](#binding-expressions---app-settings)
+* [Impostazioni delle app](#binding-expressions---app-settings)
 * [Nome file del trigger](#trigger-file-name)
 * [Metadati dei trigger](#trigger-metadata)
 * [Payload JSON](#json-payloads)
@@ -131,7 +131,7 @@ public static void Run(
 
 ```
 
-È inoltre possibile creare espressioni per parti del nome del file. Nell'esempio seguente, la funzione viene attivata solo sui nomi di file che corrispondono a un modello:In the following example, function is triggered only on file names that match a pattern:`anyname-anyfile.csv`
+È inoltre possibile creare espressioni per parti del nome file. Nell'esempio seguente la funzione viene attivata solo sui nomi di file che corrispondono a un modello:`anyname-anyfile.csv`
 
 ```json
 {
@@ -319,4 +319,4 @@ In C# e altri linguaggi .NET, è possibile usare criteri di associazione imperat
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Uso del valore restituito della funzione di AzureUsing the Azure Function return value](./functions-bindings-return-value.md)
+> [Uso del valore restituito della funzione di Azure](./functions-bindings-return-value.md)

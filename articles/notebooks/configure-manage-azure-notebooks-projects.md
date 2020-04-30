@@ -4,10 +4,10 @@ description: Informazioni su come gestire i metadati del progetto, i file di pro
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280599"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gestione e configurazione di progetti in Azure Notebooks anteprima
@@ -73,7 +73,7 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 
 ![Comandi in un menu di scelta rapida di un file](media/project-file-commands.png)
 
-| Comando | Tasto di scelta rapida | Azione |
+| Comando | Tasti di scelta rapida | Action |
 | --- | --- | --- |
 | Esegui | r (o clic) | Esegue un file di notebook. Altri tipi di file sono aperti per la visualizzazione.  |
 | Copy Link (Copia collegamento) | y | Copia un collegamento al file negli Appunti. |
@@ -82,8 +82,8 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 | Edit file (Modifica file) | i | Apre il file per la modifica. |
 | Download | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
 | Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
-| Delete | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
-| Spostamento | m | Sposta un file in una cartella diversa dello stesso progetto. |
+| Elimina | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
+| Sposta | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
 #### <a name="preview"></a>Anteprima
 
@@ -91,7 +91,7 @@ L'anteprima di un file o un notebook è una visualizzazione di sola lettura del 
 
 La pagina di anteprima supporta vari comandi della barra degli strumenti con tasti di scelta rapida:
 
-| Comando | Tasto di scelta rapida | Azione |
+| Comando | Tasti di scelta rapida | Action |
 | --- | --- | --- |
 | Condividi | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
 | Clone | c  | Consente di clonare il notebook nel proprio account. |

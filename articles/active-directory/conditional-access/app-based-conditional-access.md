@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7a215e2bb7d9d1cf9013414037383590456296cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480896"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere app client approvate per l'accesso alle app cloud con accesso condizionale
@@ -46,7 +46,7 @@ Le organizzazioni devono completare i tre passaggi seguenti per richiedere l'uso
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .
    1. In **Includi**selezionare **tutti gli utenti** o i **gruppi e gli utenti** specifici a cui si desidera applicare questo criterio. 
-   1. Selezionare **Operazione completata**.
+   1. Seleziona **Chiudi**.
 1. In **app Cloud o azioni** > **includere**selezionare **Office 365 (anteprima)**.
 1. In **condizioni**selezionare **piattaforme del dispositivo**.
    1. Impostare **Configura** su **Sì**.
@@ -65,7 +65,7 @@ Le organizzazioni devono completare i tre passaggi seguenti per richiedere l'uso
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .
    1. In **Includi**selezionare **tutti gli utenti** o i **gruppi e gli utenti** specifici a cui si desidera applicare questo criterio. 
-   1. Selezionare **Operazione completata**.
+   1. Seleziona **Chiudi**.
 1. In **app Cloud o azioni** > **includere**selezionare **Office 365 Exchange Online**.
 1. In **condizioni**:
    1. **App client (anteprima)**:
@@ -93,7 +93,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei cli
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .
    1. In **Includi**selezionare **tutti gli utenti** o i **gruppi e gli utenti** specifici a cui si desidera applicare questo criterio. 
-   1. Selezionare **Operazione completata**.
+   1. Seleziona **Chiudi**.
 1. In **app Cloud o azioni** > **includere**selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**.
 1. In **condizioni**selezionare **piattaforme del dispositivo**.
    1. Impostare **Configura** su **Sì**.
@@ -112,7 +112,7 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei cli
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .
    1. In **Includi**selezionare **tutti gli utenti** o i **gruppi e gli utenti** specifici a cui si desidera applicare questo criterio. 
-   1. Selezionare **Operazione completata**.
+   1. Seleziona **Chiudi**.
 1. In **app Cloud o azioni** > **includere**selezionare **Office 365 Exchange Online**.
 1. In **condizioni**:
    1. **App client (anteprima)**:
@@ -132,4 +132,4 @@ Vedere l'articolo [come creare e assegnare criteri di protezione delle app](/int
 
 [Componenti di accesso condizionale](concept-conditional-access-policies.md)
 
-[Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+[Criteri di accesso condizionale comuni](concept-conditional-access-policy-common.md)

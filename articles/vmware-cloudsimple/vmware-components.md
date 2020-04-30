@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279507"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware del cloud privato
@@ -29,7 +29,7 @@ Un cloud privato è un ambiente VMware stack isolato (host ESXi, vCenter, rete V
 
 Un cloud privato VMware stack viene distribuito con la versione del software seguente.
 
-| Componente | Version | Versione con licenza |
+| Componente | Versione | Versione con licenza |
 |-----------|---------|------------------|
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | Standard vCenter |

@@ -1,15 +1,15 @@
 ---
-title: Diagnostica di Azure Service Fabric Stateful Reliable ServicesAzure Service Fabric Stateful Reliable Services diagnostics
+title: Diagnostica Reliable Services con stato di Azure Service Fabric
 description: Funzionalità di diagnostica per i servizi Reliable Services con stato in Azure Service Fabric
 author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282263"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
@@ -21,7 +21,7 @@ Il nome EventSource per la classe StatefulServiceBase dei servizi Reliable con s
 Esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e la [libreria TraceEvent di Microsoft](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Events
-| Nome evento | ID evento | Level | Descrizione evento |
+| Nome evento | ID evento | Level | Descrizione dell'evento |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informativo |Emesso quando l'attività RunAsync del servizio viene avviata |
 | StatefulRunAsyncCancellation |2 |Informativo |Emesso quando l'attività RunAsync del servizio viene annullata |
@@ -60,7 +60,7 @@ Per la categoria `Service Fabric Transactional Replicator`, i nomi delle istanze
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) la relativa rappresentazione di stringa viene generata tramite l'identificatore di formato "D".
+*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) tramite con l'identificatore di formato "D".
 
 *ServiceFabricReplicaId* è l'ID associato a una determinata replica di un servizio Reliable Services. L'ID replica è incluso nel nome dell'istanza del contatore delle prestazioni per garantirne l'univocità ed evitare conflitti con altre istanze del contatore delle prestazioni generate dalla stessa partizione. Informazioni dettagliate sulle repliche e il relativo ruolo nei servizi Reliable Services sono disponibili [qui](service-fabric-concepts-replica-lifecycle.md).
 
@@ -75,21 +75,21 @@ Per la categoria `Service Fabric TStore`, i nomi delle istanze dei contatori son
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) la relativa rappresentazione di stringa viene generata tramite l'identificatore di formato "D".
+*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) tramite con l'identificatore di formato "D".
 
 *ServiceFabricReplicaId* è l'ID associato a una determinata replica di un servizio Reliable Services. L'ID replica è incluso nel nome dell'istanza del contatore delle prestazioni per garantirne l'univocità ed evitare conflitti con altre istanze del contatore delle prestazioni generate dalla stessa partizione. Informazioni dettagliate sulle repliche e il relativo ruolo nei servizi Reliable Services sono disponibili [qui](service-fabric-concepts-replica-lifecycle.md).
 
-*StateProviderId* è l'ID associato a un provider di stato all'interno di un servizio affidabile. L'ID del provider di stato è incluso nel nome dell'istanza del contatore delle prestazioni per differenziare un TStore da un altro.
+*ID provider* è l'ID associato a un provider di stato all'interno di un servizio Reliable Services. L'ID del provider di stato è incluso nel nome dell'istanza del contatore delle prestazioni per distinguere un TStore da un altro.
 
 *PerformanceCounterInstanceDifferentiator* è un ID di differenziazione associato a un'istanza del contatore delle prestazioni all'interno di un provider di stato. Il differenziatore viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altre istanze di contatori delle prestazioni generate dallo stesso provider di stato.
 
-*StateProviderName* è il nome associato a un provider di stato all'interno di un servizio affidabile. Il nome del provider di stato è incluso nel nome dell'istanza del contatore delle prestazioni per consentire agli utenti di identificare facilmente lo stato fornito.
+*StateProviderName* è il nome associato a un provider di stato all'interno di un servizio Reliable Services. Il nome del provider di stato è incluso nel nome dell'istanza del contatore delle prestazioni per consentire agli utenti di identificare facilmente lo stato fornito.
 
 Di seguito è riportato un esempio di un nome di istanza per un contatore appartenente alla categoria `Service Fabric TStore`:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione in formato stringa dell'ID della partizione di Service Fabric, `131652217797162571` è l'ID della replica, `142652217797162571` è l'ID del provider di stato e `1337` è il differenziatore dell'istanza del contatore delle prestazioni. `urn:MyReliableDictionary/dataStore`è il nome del provider di stato `urn:MyReliableDictionary`che archivia i dati per la raccolta denominata .
+Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione in formato stringa dell'ID della partizione di Service Fabric, `131652217797162571` è l'ID della replica, `142652217797162571` è l'ID del provider di stato e `1337` è il differenziatore dell'istanza del contatore delle prestazioni. `urn:MyReliableDictionary/dataStore`nome del provider di stato che archivia i dati per la raccolta denominata `urn:MyReliableDictionary`.
 
 ### <a name="transactional-replicator-performance-counters"></a>Contatori delle prestazioni di Replicatore transazionale
 
@@ -99,10 +99,10 @@ Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Serv
 | --- | --- |
 | Operazioni di inizio transazione/sec | Numero di nuove transazioni di scrittura create al secondo.|
 | Operazioni di transazione/sec | Numero di operazioni di aggiunta/aggiornamento/eliminazione eseguite su raccolte Reliable Collections al secondo.|
-| Byte di scaricamento registro/sec | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
+| Byte scaricamento log/sec | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
 | Operazioni limitate/sec | Numero di operazioni rifiutate al secondo da Replicatore transazionale a causa della limitazione. |
-| Media transazione ms/Commit | Latenza media commit per transazione in millisecondi |
-| Latenza media di scarico (ms) | Durata media delle operazioni di flush su disco avviate da Replicatore transazionale in millisecondi |
+| Media transazione MS/commit | Latenza media commit per transazione in millisecondi |
+| Latenza media svuotamento (MS) | Durata media delle operazioni di flush su disco avviate da Replicatore transazionale in millisecondi |
 
 ### <a name="tstore-performance-counters"></a>Contatori delle prestazioni di TStore
 

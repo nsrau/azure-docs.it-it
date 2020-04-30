@@ -1,15 +1,15 @@
 ---
-title: Informazioni sulle opzioni di supporto di Azure Service FabricLearn about Azure Service Fabric Support options
+title: Informazioni sulle opzioni di supporto di Azure Service Fabric
 description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto
 author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282094"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
@@ -26,9 +26,9 @@ Altre informazioni su:
 - [Supporto tecnico Premier Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> I cluster in esecuzione in un livello di affidabilità di bronzo o in un cluster a nodo singolo consentono di eseguire solo carichi di lavoro di test. Se si verificano problemi con un cluster in esecuzione con affidabilità bronzo o cluster a nodo singolo, il team di supporto Microsoft vi aiuterà a mitigare il problema, ma non eseguirà un'analisi della causa principale. Per ulteriori dettagli, fare riferimento alle [caratteristiche di affidabilità del cluster.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)
+> I cluster in esecuzione in un cluster di livello di affidabilità bronze o a nodo singolo consentiranno di eseguire solo i carichi di lavoro di test. Se si verificano problemi con un cluster in esecuzione su un cluster con affidabilità bronze o a nodo singolo, il team di supporto di Microsoft fornirà assistenza per attenuare il problema, ma non eseguirà un'analisi della causa radice. Per altri dettagli, vedere [le caratteristiche di affidabilità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) .
 >
-> Per ulteriori informazioni sugli elementi necessari per un cluster pronto per la produzione, fare riferimento all'elenco di controllo per la preparazione alla [produzione.](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+> Per ulteriori informazioni sugli elementi necessari per un cluster pronto per la produzione, vedere l' [elenco di controllo della conformità alla produzione](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 

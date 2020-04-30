@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
 ms.openlocfilehash: 5fb54e812e72b9393ffdf632085d0f32ab8b1988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279546"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
@@ -76,7 +76,7 @@ Il transito del gateway tra le reti virtuali create tramite modelli di distribuz
 
 Quando si esegue il peering di reti virtuali che condividono una singola connessione Azure ExpressRoute, il traffico tra di essi passa attraverso la relazione di peering. Il traffico USA la rete backbone di Azure. È comunque possibile continuare a usare i gateway locali in ogni rete virtuale per connettersi al circuito locale. In caso contrario, è possibile usare un gateway condiviso e configurare il transito per la connettività locale.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Per verificare che sia stato utilizzato il peering delle reti virtuali, è possibile verificare le route valide. Controllare le route per un'interfaccia di rete in qualsiasi subnet in una rete virtuale. Se esiste un peering di rete virtuale, tutte le subnet all'interno della rete virtuale hanno route con tipo di hop successivo *Peering reti virtuali* per ogni spazio degli indirizzi di ogni rete virtuale con peering. Per ulteriori informazioni, vedere [diagnosticare un problema di routing di una macchina virtuale](diagnose-network-routing-problem.md).
 

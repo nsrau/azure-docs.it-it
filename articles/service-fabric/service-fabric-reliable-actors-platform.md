@@ -1,19 +1,19 @@
 ---
-title: Attori affidabili su Service Fabric
+title: Reliable Actors Service Fabric
 description: Descrive come Reliable Actors si sovrappone a Reliable Services e usa le funzionalità della piattaforma Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
 ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282302"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Modalità d'uso della piattaforma Service Fabric da parte di Reliable Actors
-Questo articolo descrive il funzionamento di Reliable Actors sulla piattaforma Service Fabric di Azure. Reliable Actors viene eseguito in un framework ospitato in un'implementazione di un servizio affidabile con stato denominato *actor service*. Il servizio attore contiene tutti i componenti necessari per gestire il ciclo di vita e l'invio di messaggi per gli attori:
+Questo articolo descrive il funzionamento di Reliable Actors sulla piattaforma Service Fabric di Azure. Reliable Actors eseguiti in un framework ospitato in un'implementazione di un servizio reliable con stato denominato *servizio Actor*. Il servizio attore contiene tutti i componenti necessari per gestire il ciclo di vita e l'invio di messaggi per gli attori:
 
 * Il runtime di Actors gestisce il ciclo di vita e la Garbage Collection e applica l'accesso a thread singolo.
 * Un listener di comunicazione remota del servizio Actor accetta chiamate di accesso remoto per gli attori e le invia a un dispatcher per l'indirizzamento all'istanza d attore appropriata.
@@ -36,7 +36,7 @@ In Reliable Services il servizio eredita la classe `StatefulService`. Questa cla
 
 Per altre informazioni, vedere [Implementazione di funzionalità a livello di servizio nel servizio Actor](service-fabric-reliable-actors-using.md).
 
-## <a name="application-model"></a>Modello di applicazione
+## <a name="application-model"></a>Modello applicativo
 I servizi Actor sono servizi Reliable Services, per cui il modello applicativo è lo stesso. Tuttavia, gli strumenti di compilazione del framework attore generano automaticamente alcuni dei file del modello applicativo.
 
 ### <a name="service-manifest"></a>Manifesto del servizio
@@ -89,7 +89,7 @@ Quando si usano GUID/UUID e stringhe, viene eseguito l'hashing dei valori in un 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md)
-* [Ciclo di vita dell'attore e Garbage CollectionActor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+* [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 * [Documentazione di riferimento delle API di Actors](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet)
 * [Codice di esempio .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Codice di esempio Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

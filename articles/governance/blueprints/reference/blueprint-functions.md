@@ -4,10 +4,10 @@ description: Descrive le funzioni disponibili per l'uso con gli artefatti del pr
 ms.date: 12/09/2019
 ms.topic: reference
 ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280677"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funzioni da usare con i progetti di Azure
@@ -36,7 +36,7 @@ Restituisce un oggetto di proprietà popolate con gli output degli artefatti del
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| artifactName |Sì |string |Nome di un elemento del progetto. |
+| artifactName |Sì |stringa |Nome di un elemento del progetto. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -109,10 +109,10 @@ Di seguito sono riportati alcuni esempi di recupero dei dati dall'esempio _myTem
 | Expression | Type | valore |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["primo", "secondo"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | prima |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | string | "valore stringa" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Stringa | prima |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | Stringa | "valore stringa" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Oggetto | {"SetProperty": "valore personale", "anotherProperty": true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "valore personale" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Stringa | "valore personale" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
@@ -125,8 +125,8 @@ Combina più valori stringa e restituisce la stringa concatenata.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| string1 |Sì |string |Il primo valore per la concatenazione. |
-| argomenti aggiuntivi |No |string |Valori aggiuntivi in ordine sequenziale per la concatenazione |
+| string1 |Sì |stringa |Il primo valore per la concatenazione. |
+| argomenti aggiuntivi |No |stringa |Valori aggiuntivi in ordine sequenziale per la concatenazione |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -150,7 +150,7 @@ Restituisce un valore del parametro del progetto. Il nome del parametro specific
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |string |Nome del parametro da restituire. |
+| parameterName |Sì |stringa |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -271,7 +271,7 @@ Restituisce un oggetto che rappresenta l'elemento del gruppo di risorse specific
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| segnaposto |Sì |string |Nome del segnaposto dell'artefatto del gruppo di risorse da restituire. |
+| segnaposto |Sì |stringa |Nome del segnaposto dell'artefatto del gruppo di risorse da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 

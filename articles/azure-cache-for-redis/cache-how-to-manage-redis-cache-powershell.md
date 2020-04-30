@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79278532"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
@@ -70,7 +70,7 @@ Per connettersi ad Azure Government Cloud, usare uno dei comandi seguenti.
 
     Connect-AzAccount -EnvironmentName AzureUSGovernment
 
-oppure
+o
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureUSGovernment)
 
@@ -86,7 +86,7 @@ Per connettersi ad Azure China Cloud, usare uno dei comandi seguenti.
 
     Connect-AzAccount -EnvironmentName AzureChinaCloud
 
-oppure
+o
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureChinaCloud)
 
@@ -103,7 +103,7 @@ Per connettersi a Microsoft Azure Germania, usare uno dei comandi seguenti.
     Connect-AzAccount -EnvironmentName AzureGermanCloud
 
 
-oppure
+o
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureGermanCloud)
 
@@ -119,10 +119,10 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 
 | Parametro | Descrizione | Predefinito |
 | --- | --- | --- |
-| Nome |Nome della cache | |
-| Location |Percorso della cache | |
+| Name |Nome della cache | |
+| Percorso |Percorso della cache | |
 | ResourceGroupName |Nome del gruppo di risorse in cui creare la cache | |
-| Dimensione |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
+| Dimensioni |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Numero di partizioni da creare quando si crea una cache Premium con clustering abilitato. I valori validi sono: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Specifica gli SKU della cache. I valori validi sono: Basic, Standard e Premium |Standard |
 | RedisConfiguration |Specifica le impostazioni di configurazione di Redis. Per i dettagli di ogni impostazione, vedere la tabella [Proprietà di RedisConfiguration](#redisconfiguration-properties) seguente. | |

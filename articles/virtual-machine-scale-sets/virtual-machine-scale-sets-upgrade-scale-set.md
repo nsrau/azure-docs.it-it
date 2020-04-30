@@ -8,11 +8,11 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimckitt
-ms.openlocfilehash: 66fd656b5175547641150a048e57c978dc06d291
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476825"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
@@ -86,7 +86,7 @@ Un set di scalabilità ha anche una "visualizzazione dell'istanza" che acquisisc
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
     ```
 
-- È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli SDK di Azure specifici della linguaYou can also use a or the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/)
+- È anche possibile usare [Resources.Azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio
 
 La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure:
 
@@ -174,13 +174,13 @@ Come un set di scalabilità ha una visualizzazione istanza, così anche ogni ist
     Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Interfaccia di comando di Azure con [az vmss get-instance](/cli/azure/vmss)
+- INTERFACCIA della riga di comando di Azure con [AZ vmss Get-instance-View](/cli/azure/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- È anche possibile usare resources.azure.com o gli SDK di AzureYou can also use [a](https://resources.azure.com) or the [Azure SDKs](https://azure.microsoft.com/downloads/)
+- È anche possibile usare [Resources.Azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/)
 
 La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure:
 
@@ -309,7 +309,7 @@ Per aggiornare le macchine virtuali esistenti, è necessario eseguire un "aggior
 - È anche possibile usare gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio.
 
 >[!NOTE]
-> I cluster di Service Fabric possono usare solo la modalità *automatica,* ma l'aggiornamento viene gestito in modo diverso. Per altre informazioni, vedere [Aggiornamenti dell'applicazione Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> I cluster Service Fabric possono usare solo la modalità *automatica* , ma l'aggiornamento viene gestito in modo diverso. Per ulteriori informazioni, vedere [Service Fabric aggiornamenti dell'applicazione](../service-fabric/service-fabric-application-upgrade.md).
 
 Esiste un tipo di modifica alle proprietà globali del set di scalabilità che non segue il criterio di aggiornamento. Le modifiche al sistema operativo del set di scalabilità e al profilo del disco dati (ad esempio nome utente amministratore e password) possono essere modificate solo nella versione API *2017-12-01* o successiva. Queste modifiche si applicano solo alle macchine virtuali create dopo la modifica nel modello del set di scalabilità. Per aggiornare le macchine virtuali esistenti, è necessario ricreare l'immagine di ogni singola macchina virtuale. È possibile farlo tramite:
 
@@ -342,7 +342,6 @@ Alcune proprietà possono essere impostate solo quando si crea il set di scalabi
 - Zone di disponibilità
 - Editore del riferimento all'immagine
 - Offerta di riferimento all'immagine
-- Riferimento immagine sku
 - Tipo di account di archiviazione su disco del sistema operativo gestito
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Proprietà che possono essere modificate solo in base al valore corrente
@@ -364,7 +363,7 @@ Alcune modifiche possono essere applicate solo a macchine virtuali specifiche an
 ## <a name="scenarios"></a>Scenari
 
 ### <a name="application-updates"></a>Aggiornamenti dell'applicazione
-Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni, un aggiornamento alla configurazione delle estensioni causa l'aggiornamento dell'applicazione in conformità con i criteri di aggiornamento. Ad esempio, se si dispone di una nuova versione di uno script da eseguire in un'estensione di script personalizzato, è possibile aggiornare la proprietà *fileUris* in modo che punti al nuovo script. In alcuni casi si potrebbe avere l'esigenza di forzare un aggiornamento anche se la configurazione delle estensioni è rimasta invariata, ad esempio nel caso in cui si sia aggiornato lo script senza modifiche all'URI. In questi casi, è possibile modificare *forceUpdateTag* per forzare un aggiornamento. La piattaforma di Azure non interpreta questa proprietà. Se si modifica il valore, l'esecuzione dell'estensione non subirà conseguenze. Una modifica forza semplicemente la ripetizione dell'esecuzione dell'estensione. Per ulteriori informazioni su *forceUpdateTag*, vedere la [documentazione dell'API REST per le estensioni](/rest/api/compute/virtualmachineextensions/createorupdate). Notare che la proprietà *forceUpdateTag* non può essere usata con tutte le estensioni e non solo con l'estensione di script personalizzata.
+Se un'applicazione viene distribuita a un set di scalabilità tramite estensioni, un aggiornamento alla configurazione delle estensioni causa l'aggiornamento dell'applicazione in conformità con i criteri di aggiornamento. Ad esempio, se si dispone di una nuova versione di uno script da eseguire in un'estensione di script personalizzata, è possibile aggiornare la proprietà *fileURI* in modo che punti al nuovo script. In alcuni casi si potrebbe avere l'esigenza di forzare un aggiornamento anche se la configurazione delle estensioni è rimasta invariata, ad esempio nel caso in cui si sia aggiornato lo script senza modifiche all'URI. In questi casi, è possibile modificare il *Proprietà forceupdatetag* per forzare un aggiornamento. La piattaforma di Azure non interpreta questa proprietà. Se si modifica il valore, l'esecuzione dell'estensione non subirà conseguenze. Una modifica forza semplicemente la ripetizione dell'esecuzione dell'estensione. Per altre informazioni su *Proprietà forceupdatetag*, vedere la [documentazione dell'API REST per le estensioni](/rest/api/compute/virtualmachineextensions/createorupdate). Notare che la proprietà *forceUpdateTag* non può essere usata con tutte le estensioni e non solo con l'estensione di script personalizzata.
 
 Uno scenario frequente è la distribuzione delle applicazioni tramite un'immagine personalizzata. Questo scenario è illustrato nella sezione seguente.
 
@@ -447,7 +446,7 @@ Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e
     ```
 
 >[!NOTE]
-> Questi comandi presuppongono che nel set di scalabilità siano presenti una sola configurazione IP e un solo servizio di bilanciamento del carico. Se sono presenti più elementi, potrebbe essere necessario utilizzare un indice di elenco diverso da *0*.
+> Questi comandi presuppongono che nel set di scalabilità siano presenti una sola configurazione IP e un solo servizio di bilanciamento del carico. Se sono presenti più, potrebbe essere necessario usare un indice di elenco diverso da *0*.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
