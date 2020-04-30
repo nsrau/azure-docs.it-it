@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: e055f2d7b98df9357ecdee5e044305e35935682e
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81791697"
 ---
 Usare il trigger di funzione per rispondere a un evento inviato a un flusso di eventi di hub eventi. È necessario avere accesso in lettura all'hub eventi sottostante per configurare il trigger. Quando la funzione viene attivata, il messaggio passato alla funzione viene tipizzato come stringa.
