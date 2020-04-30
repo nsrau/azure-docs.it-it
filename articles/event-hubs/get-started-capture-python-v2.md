@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187231"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159336"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Acquisire i dati di Hub eventi in archiviazione di Azure e leggerli con Python (azure-eventhub versione 5)
 
@@ -46,7 +46,7 @@ Questa guida introduttiva spiega come:
 - Un account di archiviazione di Azure, un contenitore BLOB al suo interno e una stringa di connessione all'account di archiviazione. Se questi elementi non sono disponibili, procedere come segue:  
     1. [Creare un account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
     1. [Creare un contenitore BLOB nell'account di archiviazione](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-    1. [Ottenere la stringa di connessione all'account di archiviazione](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string)
+    1. [Ottenere la stringa di connessione all'account di archiviazione](../storage/common/storage-configure-connection-string.md)
 
     Assicurarsi di prendere nota della stringa di connessione e del nome del contenitore per un uso successivo in questo argomento.  
 - Abilitare la funzionalità Acquisizione per l'hub eventi. A tale scopo, seguire le istruzioni riportate in [Abilitare Acquisizione di Hub eventi usando il portale di Azure](event-hubs-capture-enable-through-portal.md). Selezionare l'account di archiviazione nel contenitore BLOB creato nel passaggio precedente. È anche possibile abilitare la funzionalità quando si crea un hub eventi.  

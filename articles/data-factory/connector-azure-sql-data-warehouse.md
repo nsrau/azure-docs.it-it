@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
 ms.openlocfilehash: e469a38f4730eb0f9d8debe71bde9a56dd152028
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146404"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse) usando Azure Data Factory 
@@ -62,7 +62,7 @@ Per un servizio collegato di Azure sinapsi Analytics sono supportate le propriet
 
 | Proprietà            | Descrizione                                                  | Obbligatoria                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| tipo                | La proprietà type deve essere impostata su **AzureSqlDW**.             | Sì                                                          |
+| type                | La proprietà type deve essere impostata su **AzureSqlDW**.             | Sì                                                          |
 | connectionString    | Specificare le informazioni necessarie per connettersi all'istanza di Azure sinapsi Analytics per la proprietà **ConnectionString** . <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password/chiave entità servizio in Azure Key Vault e, se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Vedere gli esempi JSON sotto la tabella e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì                                                          |
 | servicePrincipalId  | Specificare l'ID client dell'applicazione.                         | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
@@ -223,7 +223,7 @@ Per il set di dati di analisi delle sinapsi di Azure sono supportate le propriet
 
 | Proprietà  | Descrizione                                                  | Obbligatoria                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| tipo      | La proprietà **Type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì                         |
+| type      | La proprietà **Type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì                         |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
 | tabella | Nome della tabella o della vista. |No per l'origine, Sì per il sink  |
 | tableName | Nome della tabella o della vista con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Per il nuovo carico di `schema` lavoro `table`, utilizzare e. | No per l'origine, Sì per il sink |
@@ -259,7 +259,7 @@ Per copiare dati da Azure sinapsi Analytics, impostare la proprietà **Type** ne
 
 | Proprietà                     | Descrizione                                                  | Obbligatoria |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| tipo                         | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Sì      |
+| type                         | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Sì      |
 | sqlReaderQuery               | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No       |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No       |
 | storedProcedureParameters    | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No       |
@@ -368,7 +368,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 
 | Proprietà          | Descrizione                                                  | Obbligatoria                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| tipo              | La proprietà **Type** del sink dell'attività di copia deve essere impostata su **SqlDWSink**. | Sì                                           |
+| type              | La proprietà **Type** del sink dell'attività di copia deve essere impostata su **SqlDWSink**. | Sì                                           |
 | allowPolyBase     | Indica se utilizzare la polibase per caricare i dati in SQL Data Warehouse. `allowCopyCommand`e `allowPolyBase` non possono essere entrambi true. <br/><br/>Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) .<br/><br/>I valori consentiti sono **True** e **False** (predefinito). | No.<br/>Applicare quando si usa la codebase.     |
 | polyBaseSettings  | Gruppo di proprietà che è possibile specificare quando la `allowPolybase` proprietà è impostata su **true**. | No.<br/>Applicare quando si usa la codebase. |
 | allowCopyCommand | Indica se utilizzare l' [istruzione Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (anteprima) per caricare i dati in SQL data warehouse. `allowCopyCommand`e `allowPolyBase` non possono essere entrambi true. <br/><br/>Vedere [usare l'istruzione Copy per caricare i dati nella sezione Azure SQL data warehouse](#use-copy-statement) per i vincoli e i dettagli.<br/><br/>I valori consentiti sono **True** e **False** (predefinito). | No.<br>Applicare quando si usa la copia. |

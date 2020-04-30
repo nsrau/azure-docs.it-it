@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 4c86d7c84ba5d7692e010ad95f258b67aa7dcfac
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147648"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Distribuire un sistema di SAP HANA con scalabilità orizzontale con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su Red Hat Enterprise Linux 
@@ -706,8 +706,8 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 6. Per ottimizzare SAP HANA per l'archiviazione Azure NetApp Files sottostante, impostare i parametri di SAP HANA seguenti:
 
    - `max_parallel_io_requests`**128**
-   - `async_read_submit` **on**
-   - `async_write_submit_active` **on**
+   - `async_read_submit`**il**
+   - `async_write_submit_active`**il**
    - `async_write_submit_blocks`**tutto**
 
    Per altre informazioni, vedere [applicazioni SAP NetApp su Microsoft Azure con Azure NetApp files][anf-sap-applications-azure]. 
