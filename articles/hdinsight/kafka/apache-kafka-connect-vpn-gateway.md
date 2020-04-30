@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272123"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Connettersi ad Apache Kafka in HDInsight tramite una rete virtuale di Azure
@@ -56,7 +56,7 @@ HDInsight non consente la connessione diretta a Kafka nella rete Internet pubbli
      > * Ogni client deve connettersi usando un client software VPN.
      > * Il client VPN non passa le richieste di risoluzione dei nomi alla rete virtuale, quindi per comunicare con Kafka è necessario usare gli indirizzi IP. La comunicazione tramite IP richiede una configurazione aggiuntiva nel cluster Kafka.
 
-Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere Pianificare una rete virtuale per i cluster HDInsight di Azure.For more information on using HDInsight in a virtual network, see [Plan a virtual network for Azure HDInsight clusters.](../hdinsight-plan-virtual-network-deployment.md)
+Per altre informazioni sull'uso di HDInsight in una rete virtuale, vedere [pianificare una rete virtuale per i cluster Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a> Connettersi ad Apache Kafka da una rete locale
 
@@ -85,7 +85,7 @@ Usare la procedura descritta in questa sezione per creare la configurazione segu
 
 1. Seguire la procedura nel documento [Usare i certificati autofirmati per le connessioni da punto a sito](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md). Questo documento consente di creare i certificati necessari per il gateway.
 
-2. Aprire un prompt di PowerShell e usare il codice seguente per accedere alla sottoscrizione di Azure:Open a PowerShell prompt and use the following code to sign in to your Azure subscription:
+2. Aprire un prompt di PowerShell e usare il codice seguente per accedere alla sottoscrizione di Azure:
 
     ```powershell
     Connect-AzAccount
@@ -242,7 +242,7 @@ Usare la procedura descritta in questa sezione per creare la configurazione segu
 
 Per impostazione predefinita, Apache ZooKeeper restituisce il nome di dominio dei broker di Kafka ai client. Questa configurazione non funziona con il client software VPN, poiché non può usare la risoluzione dei nomi per le entità nella rete virtuale. Per questa configurazione usare la procedura seguente per configurare Kafka in HDInsight affinché possa creare pubblicità per gli indirizzi IP anziché per i nomi di dominio:
 
-1. Usando un Web browser, passare a `https://CLUSTERNAME.azurehdinsight.net`. Sostituire `CLUSTERNAME` con il nome del Kafka nel cluster HDInsight.
+1. Usando un Web browser, passare a `https://CLUSTERNAME.azurehdinsight.net`. Sostituire `CLUSTERNAME` con il nome del cluster Kafka in HDInsight.
 
     Quando richiesto, usare il nome utente HTTPS e la password per il cluster. Viene visualizzata l'interfaccia utente di Ambari Web per il cluster.
 
@@ -274,7 +274,7 @@ Per impostazione predefinita, Apache ZooKeeper restituisce il nome di dominio de
 
 8. Per salvare le modifiche alla configurazione usare il pulsante __Salva__. Immettere un messaggio di testo che descrive le modifiche. Selezionare __OK__ dopo aver salvato le modifiche.
 
-    ![Apache Ambari salvare la configurazione](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    ![Configurazione del salvataggio di Apache Ambari](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. Per evitare errori al riavvio di Kafka, usare il pulsante __Service Actions__ (Azioni del servizio) e selezionare __Attiva modalità di manutenzione__. Per completare questa operazione selezionare OK.
 
@@ -368,7 +368,7 @@ Per convalidare la connettività a Kafka, usare la procedura seguente per creare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso di HDInsight con una rete virtuale, vedere il documento Pianificare una distribuzione di rete virtuale per i cluster HDInsight di Azure.For more information on using HDInsight with a virtual network, see [the Plan a virtual network deployment for Azure HDInsight clusters document.](../hdinsight-plan-virtual-network-deployment.md)
+Per altre informazioni sull'uso di HDInsight con una rete virtuale, vedere il documento [pianificare una distribuzione di rete virtuale per i cluster Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) .
 
 Per altre informazioni sulla creazione di una rete virtuale di Azure con gateway VPN da punto a sito, vedere i seguenti documenti:
 

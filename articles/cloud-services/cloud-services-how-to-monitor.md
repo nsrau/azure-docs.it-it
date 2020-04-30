@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273098"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
@@ -48,13 +48,13 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 * Log degli errori dei clienti
 
 > [!IMPORTANT]
-> Sebbene tutti questi dati vengano aggregati nell'account di archiviazione, il portale **non** fornisce un modo nativo per rappresentare graficamente i dati. È consigliabile integrare un altro servizio, come ad esempio Application Insights, nell'applicazione.
+> Mentre tutti questi dati vengono aggregati nell'account di archiviazione, il portale **non** fornisce un modo nativo per creare un grafico dei dati. È consigliabile integrare un altro servizio, come ad esempio Application Insights, nell'applicazione.
 
 ## <a name="setup-diagnostics-extension"></a>Configurare l'estensione di Diagnostica
 
 In primo luogo, se non si ha già un account di archiviazione **classico**, [crearne uno](../storage/common/storage-account-create.md). Verificare che l'account di archiviazione sia creato con il **modello di distribuzione classica** specificato.
 
-Quindi passare alla risorsa **Account di archiviazione (classico)**. Selezionare **Impostazioni** > **Chiavi di accesso** e copiare il valore della stringa di connessione **primaria.** Questo valore è necessario per il servizio cloud. 
+Quindi passare alla risorsa **Account di archiviazione (classico)**. Selezionare **Impostazioni** > **chiavi di accesso** e copiare il valore della **stringa di connessione primaria** . Questo valore è necessario per il servizio cloud. 
 
 Per poter abilitare la diagnostica avanzata, è necessario modificare i due file di configurazione seguenti: **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
 

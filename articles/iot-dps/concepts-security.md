@@ -1,6 +1,6 @@
 ---
-title: Servizio di provisioning dei dispositivi hub IoT di Azure IoT - Concetti relativi alla sicurezzaAzure IoT Hub Device Provisioning Service - Security concepts
-description: Descrive i concetti di provisioning della sicurezza specifici per i dispositivi con Device Provisioning Service (DPS) e IoT Hub
+title: Servizio Device provisioning in hub Azure-concetti sulla sicurezza
+description: Descrive i concetti relativi al provisioning della sicurezza specifici dei dispositivi con il servizio Device provisioning (DPS) e l'hub Internet
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271564"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concetti relativi alla sicurezza del servizio Device Provisioning in hub IoT 
@@ -78,7 +78,7 @@ Un certificato intermedio è un certificato X.509 che è stato firmato dal certi
 
 Il certificato foglia, o certificato dell'entità finale, identifica il titolare del certificato. Include il certificato radice nella relativa catena di certificati, nonché zero o più certificati intermedi. Il certificato foglia non viene usato per firmare altri certificati. Identifica in modo univoco il dispositivo per il servizio di provisioning e a volte viene chiamato anche certificato del dispositivo. Durante l'autenticazione, il dispositivo usa la chiave privata associata a questo certificato per rispondere a una richiesta di prova di possesso dal servizio.
 
-I certificati foglia utilizzati con una voce di [registrazione Singola](./concepts-service.md#individual-enrollment) hanno il requisito che il **nome del soggetto** deve essere impostato sull'ID di registrazione della voce di registrazione individuale. I certificati foglia utilizzati con una voce del gruppo di [registrazione](./concepts-service.md#enrollment-group) devono avere il **nome soggetto** impostato sull'ID dispositivo desiderato che verrà visualizzato nei record di **registrazione** per il dispositivo autenticato nel gruppo di registrazione.
+I certificati foglia usati con una voce di registrazione [singola](./concepts-service.md#individual-enrollment) hanno il requisito che il **nome del soggetto** deve essere impostato sull'ID di registrazione della voce di registrazione singola. I certificati foglia usati con una voce del [gruppo](./concepts-service.md#enrollment-group) di registrazioni devono avere il **nome soggetto** impostato sull'ID dispositivo desiderato, che verrà visualizzato nei **record di registrazione** per il dispositivo autenticato nel gruppo di registrazione.
 
 Per altre informazioni, vedere [Autenticazione dei dispositivi firmati con i certificati della CA X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
