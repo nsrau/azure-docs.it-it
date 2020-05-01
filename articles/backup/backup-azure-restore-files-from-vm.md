@@ -4,10 +4,10 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273306"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
@@ -190,7 +190,7 @@ In Linux, il sistema operativo del computer usato per ripristinare i file deve s
 
 Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
 
-|Componente | Version  |
+|Componente | Versione  |
 | --------------- | ---- |
 | bash | 4 e versioni successive |
 | python | 2.6.6 e versioni successive  |
