@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5283051de50b84ea87c0f02a391652854067168
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879020"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610743"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
@@ -26,9 +26,9 @@ I contenitori di sintesi vocale consentono ai clienti di creare un'architettura 
 > [!IMPORTANT]
 > Tutti i contenitori di riconoscimento vocale sono attualmente offerti come parte di un' [anteprima pubblica "gestita"](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Verrà creato un annuncio quando i contenitori di riconoscimento vocale sono in stato di disponibilità generale.
 
-| Funzione | Caratteristiche | Ultima versione |
+| Funzione | Funzionalità | Ultima versione |
 |--|--|--|
-| Riconoscimento vocale | Trascrive registrazioni audio continue in tempo reale o batch in testo con risultati intermedi. | 2.1.1 |
+| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.2.0 |
 | Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.1.1 |
 | Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.3.0 |
 | Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.3.0 |
@@ -164,7 +164,7 @@ Tutti i tag, ad `latest` eccezione di, sono nel formato seguente e fanno distinz
 Il seguente tag è un esempio del formato:
 
 ```
-2.1.1-amd64-en-us-preview
+2.2.0-amd64-en-us-preview
 ```
 
 Per tutte le impostazioni locali supportate del contenitore di **riconoscimento vocale** , vedere [tag dell'immagine da voce a testo](../containers/container-image-tags.md#speech-to-text).
@@ -258,6 +258,33 @@ Questo comando:
 * Alloca 4 core CPU e 4 gigabyte (GB) di memoria.
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
+
+
+#### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analizzare i sentimenti nell'output di sintesi vocale 
+
+A partire da v 2.2.0 del contenitore di riconoscimento vocale, è possibile chiamare l' [API analisi del sentimento V3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) nell'output. Per chiamare l'analisi dei sentimenti, è necessario un endpoint di risorsa API Analisi del testo. Ad esempio: 
+* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
+* `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
+
+Se si sta accedendo a un endpoint di analisi del testo nel cloud, sarà necessaria una chiave. Se si esegue Analisi del testo localmente, potrebbe non essere necessario specificarlo.
+
+La chiave e l'endpoint vengono passati al contenitore vocale come argomenti, come nell'esempio seguente.
+
+```bash
+docker run -it --rm -p 5000:5000 \
+containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+CloudAI:SentimentAnalysisSettings:TextAnalyticsHost={TEXT_ANALYTICS_HOST} \
+CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
+```
+
+Questo comando:
+
+* Esegue gli stessi passaggi del comando precedente.
+* Archivia un endpoint e una chiave API Analisi del testo per inviare le richieste di analisi dei sentimenti. 
+
 
 # <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
@@ -380,6 +407,9 @@ Questo comando:
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Eseguire query sull'endpoint di stima del contenitore
 
+> [!NOTE]
+> Usare un numero di porta univoco se sono in esecuzione più contenitori.
+
 | Contenitori | URL host SDK | Protocollo |
 |--|--|--|
 | Riconoscimento vocale e da Riconoscimento vocale personalizzato a testo | `ws://localhost:5000` | WS |
@@ -388,6 +418,121 @@ Questo comando:
 Per ulteriori informazioni sull'utilizzo di protocolli WSS e HTTPS, vedere [sicurezza dei contenitori](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
+
+#### <a name="analyze-sentiment"></a>Analizzare la valutazione
+
+Se sono state fornite le credenziali API Analisi del testo [per il contenitore](#analyze-sentiment-on-the-speech-to-text-output), è possibile usare l'SDK per la sintesi vocale per inviare richieste di riconoscimento vocale con l'analisi dei sentimenti. È possibile configurare le risposte API per l'uso di un formato *semplice* o *dettagliato* .
+
+# <a name="simple-format"></a>[Formato semplice](#tab/simple-format)
+
+Per configurare il client di riconoscimento vocale per l'utilizzo di un `"Sentiment"` formato semplice, aggiungere `Simple.Extensions`come valore per. Se si desidera scegliere una versione specifica del modello di Analisi del testo, `'latest'` sostituire nella `speechcontext-phraseDetection.sentimentAnalysis.modelversion` configurazione della proprietà.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Simple.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Simple.Extensions`restituirà il risultato del sentimento nel livello radice della risposta.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6098574b79434bd4849fee7e0a50f22e",
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+# <a name="detailed-format"></a>[Formato dettagliato](#tab/detailed-format)
+
+Per configurare il client di riconoscimento vocale per l'utilizzo di un `"Sentiment"` formato dettagliato, aggiungere `Detailed.Extensions`come `Detailed.Options`valore per, o entrambi. Se si desidera scegliere una versione specifica del modello di Analisi del testo, `'latest'` sostituire nella `speechcontext-phraseDetection.sentimentAnalysis.modelversion` configurazione della proprietà.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Options',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Detailed.Extensions`fornisce il risultato del sentimento nel livello radice della risposta. `Detailed.Options`fornisce il risultato in `NBest` base al livello della risposta. Possono essere usati separatamente o insieme.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6a2aac009b9743d8a47794f3e81f7963",
+   "NBest":[
+      {
+         "Confidence":0.973695,
+         "Display":"What's the weather like?",
+         "ITN":"what's the weather like",
+         "Lexical":"what's the weather like",
+         "MaskedITN":"What's the weather like",
+         "Sentiment":{
+            "Negative":0.03,
+            "Neutral":0.79,
+            "Positive":0.18
+         }
+      },
+      {
+         "Confidence":0.9164971,
+         "Display":"What is the weather like?",
+         "ITN":"what is the weather like",
+         "Lexical":"what is the weather like",
+         "MaskedITN":"What is the weather like",
+         "Sentiment":{
+            "Negative":0.02,
+            "Neutral":0.88,
+            "Positive":0.1
+         }
+      }
+   ],
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+---
+
+Se si desidera disabilitare completamente l'analisi dei sentimenti, aggiungere `false` un valore `sentimentanalysis.enabled`a.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentanalysis.enabled',
+    value='false',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
 
 ### <a name="text-to-speech-or-custom-text-to-speech"></a>Sintesi vocale o sintesi vocale personalizzata
 
@@ -423,7 +568,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](spe
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di sintesi vocale. In sintesi:
 
