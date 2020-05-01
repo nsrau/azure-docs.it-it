@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274346"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connetti Operations Manager a monitoraggio di Azure
@@ -65,7 +65,7 @@ Prima di iniziare, esaminare i requisiti seguenti.
 >- Per System Center Operations Manager 2012 R2, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57171).  
 
 
-### <a name="network"></a>Network
+### <a name="network"></a>Rete
 
 Nelle informazioni riportate di seguito sono elencate le informazioni di configurazione del proxy e del firewall necessarie per la comunicazione tra il Operations Manager Agent, i server di gestione e la console operatore con monitoraggio di Azure. Il traffico da ogni componente è in uscita dalla rete a monitoraggio di Azure.
 
