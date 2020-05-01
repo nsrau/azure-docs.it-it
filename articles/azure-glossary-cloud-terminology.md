@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276478"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
@@ -34,7 +34,7 @@ Account usato per accedere alla sottoscrizione di Azure e gestirla. Viene spesso
 Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](cost-management-billing/manage/office-365-account-for-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>App per le API
-Un altro nome per [l'app del servizio app](#app-service-app).
+Un altro nome per l' [app del servizio app](#app-service-app).
 
 ## <a name="app-service-app"></a>app del servizio app
 Risorse di calcolo fornite da [Servizio app di Azure](app-service/overview.md) per l'hosting di siti Web o applicazioni Web, API Web o [back-end per app per dispositivi mobili](app-service-mobile/app-service-mobile-value-prop.md). Le app del servizio app vengono chiamate anche *servizi app*, *app Web*, *app per le API* e *app per dispositivi mobili*.
@@ -46,14 +46,14 @@ Vedere [Gestire la disponibilità delle macchine virtuali Windows](virtual-machi
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>modello di distribuzione classica di Azure
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Azure. Il nuovo modello è Azure Resource Manager. Alcuni servizi di Azure supportano solo il modello di sviluppo di Resource Manager, alcuni supportano solo il modello di sviluppo classico e alcuni supportano entrambi. La documentazione per ogni servizio di Azure specifica i modelli supportati.
 
-## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Interfaccia della riga di comando (CLI) di AzureAzure command-line interface (CLI)
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Interfaccia della riga di comando di Azure (CLI)
 Interfaccia della riga di comando che può essere usata per la gestione dei servizi di Azure da PC Windows, OSX e Linux.  Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando. Vedere [Interfaccia della riga di comando di Azure](/cli/azure)
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Interfaccia della riga di comando per la gestione dei servizi di Azure tramite la riga di comando da PC Windows. Alcuni servizi o funzionalità dei servizi possono essere gestite solo tramite PowerShell o l'interfaccia della riga di comando.
-Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+Vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview)
 
-## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Modello di distribuzione di Azure Resource ManagerAzure Resource Manager deployment model
+## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Modello di distribuzione Azure Resource Manager
 Uno dei due [modelli di distribuzione](resource-manager-deployment-model.md) usati per la distribuzione delle risorse in Microsoft Azure. L'altro è il modello di distribuzione classica. Alcuni servizi di Azure supportano solo il modello di sviluppo di Resource Manager, alcuni supportano solo il modello di sviluppo classico e alcuni supportano entrambi. La documentazione per ogni servizio di Azure specifica i modelli supportati.
 
 ## <a name="fault-domain"></a>dominio di errore
@@ -75,7 +75,7 @@ Vedere [Esplorare e selezionare immagini di macchine virtuali Windows in Azure c
 
 ## <a name="limits"></a>limiti
 Numero di risorse che è possibile creare o benchmark delle prestazioni che può essere raggiunto. I limiti sono in genere associati a sottoscrizioni, servizi e offerte.  
-Vedere Limiti, quote e vincoli di sottoscrizione e servizio di [AzureSee Azure subscription and service limits, quotas, and constraints](azure-resource-manager/management/azure-subscription-service-limits.md)
+Vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>bilanciamento del carico
 Risorsa che distribuisce il traffico in ingresso nei computer di una rete. In Azure, il servizio di bilanciamento del carico distribuisce il traffico nelle macchine virtuali definite in un set di bilanciamento del carico . Il servizio di [bilanciamento del carico](load-balancer/load-balancer-overview.md) può essere connesso a Internet oppure interno.  
@@ -94,7 +94,7 @@ Portale Web sicuro usato per la distribuzione e la gestione dei servizi di Azure
 Area all'interno di un'area geografica che non supera i confini nazionali e include uno o più data center. I prezzi, i servizi regionali e i tipi di offerta sono resi disponibili a livello di area. Un'area viene in genere associata a un'altra area, che può trovarsi a centinaia di chilometri di distanza. Le coppie di aree possono essere usate come meccanismo per il ripristino di emergenza e gli scenari a disponibilità elevata. Chiamata anche genericamente *posizione*.  
 Vedere [Aree di Azure](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>resource
+## <a name="resource"></a>risorse
 Elemento incluso nella soluzione Azure. Ogni servizio di Azure consente di distribuire diversi tipi di risorse, ad esempio database o macchine virtuali.   
 Vedere [Panoramica di Azure Resource Manager](azure-resource-manager/management/overview.md)
 
@@ -141,21 +141,21 @@ Vedere [Gestire la disponibilità delle macchine virtuali Windows](virtual-machi
 Implementazione del software di un computer fisico che esegue un sistema operativo. È possibile eseguire più macchine virtuali contemporaneamente nello stesso hardware. In Azure sono disponibili macchine virtuali di dimensioni diverse.  
 Vedere [Documentazione delle macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-## <a name="virtual-machine-extension"></a><a name="vm-extension"></a>estensione della macchina virtuale
+## <a name="virtual-machine-extension"></a><a name="vm-extension"></a>estensione macchina virtuale
 Risorsa che implementa comportamenti o funzionalità utili per il funzionamento di altri programmi o che consentono di interagire con un computer in esecuzione. È possibile ad esempio usare l'estensione di accesso della macchina virtuale per reimpostare o modificare i valori di accesso remoto in una macchina virtuale di Azure.
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
 Vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-network"></a><a name="vnet"></a>rete virtuale
-Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Un [gateway VPN](vpn-gateway/vpn-gateway-about-vpngateways.md) di Azure consente di stabilire connessioni tra reti virtuali e tra una rete virtuale e una rete locale. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route all'interno di una rete virtuale.  
+Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Un [gateway VPN di Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) consente di stabilire connessioni tra le reti virtuali e tra una rete virtuale e una rete locale. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route all'interno di una rete virtuale.  
 Vedere [Panoramica di Rete virtuale](virtual-network/virtual-networks-overview.md)  
 
-## <a name="web-app"></a>app Web
+## <a name="web-app"></a>App Web
 Nome alternativo per [app del servizio app](#app-service-app).
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Introduzione ad Azure](https://azure.microsoft.com/get-started/)
+* [Inizia a usare Azure](https://azure.microsoft.com/get-started/)
 * [Centro risorse cloud](https://azure.microsoft.com/resources/)  
 * [Azure per le applicazioni aziendali](https://azure.microsoft.com/overview/business-apps-on-azure/)
 * [Azure nel data center](https://azure.microsoft.com/overview/business-apps-on-azure/)
