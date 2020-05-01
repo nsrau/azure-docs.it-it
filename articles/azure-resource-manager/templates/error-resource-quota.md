@@ -1,13 +1,13 @@
 ---
 title: Errori di quota
-description: Viene descritto come risolvere gli errori di quota delle risorse durante la distribuzione delle risorse con Azure Resource Manager.Describes how to resolve resource quota errors when deploying resources with Azure Resource Manager.
+description: Viene descritto come risolvere gli errori di quota delle risorse durante la distribuzione di risorse con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273787"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Risolvere gli errori di quota delle risorse
@@ -93,7 +93,7 @@ Per ottenere un aumento della quota, accedere al portale e inviare una richiesta
 >
 >
 
-1. Selezionare **Abbonamenti**.
+1. Selezionare **sottoscrizioni**.
 
    ![Sottoscrizioni](./media/error-resource-quota/subscriptions.png)
 

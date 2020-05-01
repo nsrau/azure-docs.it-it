@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272201"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN di Apache Hadoop usando Azure HDInsight
@@ -34,24 +34,24 @@ In questo esempio è stata modificata la capacità dal 50% al 25% per due code e
 
 1. Selezionare l'icona **Visualizzazioni di Ambari** e scegliere il motivo di griglia. Selezionare quindi **YARN Queue Manager** (Gestore code YARN).
 
-    ![Apache Ambari dashboard YARN Queue Manager](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    ![Gestore code YARN di Apache Ambari dashboard](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Selezionare la coda **predefinita**.
 
-    ![Apache Ambari YARN seleziona la coda predefinita](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    ![Apache Ambari YARN selezionare coda predefinita](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. Per la coda **predefinita**, modificare la **capacità** dal 50% al 25%. Per la coda **thriftsvr**, impostare la **capacità** sul 25%.
 
     ![Impostare la capacità sul 25% per la coda predefinita e la coda thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. Per creare una nuova coda, fare clic su **Aggiungi coda**.
 
-    ![Dashboard Apache Ambari YARN Aggiungi coda](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    ![Coda di aggiunta del dashboard di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Assegnare un nome alla nuova coda.
 
-    ![Apache Ambari YARN nome dashboard Coda](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    ![Coda nome dashboard di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Lasciare i valori di **Capacità** al 50% e selezionare il pulsante **Azioni**.
 
-    ![Apache Ambari YARN selezionare azione](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    ![Azione di selezione di Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Selezionare **Save and Refresh Queues** (Salva e aggiorna code).
 
     ![Selezionare Save and Refresh Queues (Salva e aggiorna code)](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
@@ -132,14 +132,14 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 ### <a name="additional-reading"></a><a name="additional-reading-2"></a>Informazioni aggiuntive
 
 - [Connettersi a HDInsight (Apache Hadoop) con SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-- [Concetti e applicazioni Apache Hadoop YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
+- [Concetti e applicazioni di Apache Hadoop YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-- Ottieni risposte dagli esperti di Azure tramite il supporto della community di [Azure.](https://azure.microsoft.com/support/community/)
+- Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
 
-- Connettiti [@AzureSupport](https://twitter.com/azuresupport) con - l'account ufficiale di Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse giuste: risposte, supporto ed esperti.
+- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-- Per altre informazioni, è possibile inviare una richiesta di supporto dal portale di [Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selezionare **Supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** tecnico. Per informazioni più dettagliate, vedere Come creare una richiesta di supporto di Azure.For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione e la fatturazione delle sottoscrizioni è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei piani di supporto di [Azure.](https://azure.microsoft.com/support/plans/)
+- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

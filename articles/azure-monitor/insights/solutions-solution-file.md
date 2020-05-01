@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275178"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
@@ -78,12 +78,12 @@ La tabella seguente elenca i parametri standard per tutte le soluzioni di gestio
 
 | Parametro | Type | Descrizione |
 |:--- |:--- |:--- |
-| accountName |string |Nome dell'account di Automazione di Azure. |
-| pricingTier |string |Piano tariffario dell'area di lavoro Log Analytics e dell'account di Automazione di Azure. |
-| regionId |string |Area dell'account di Automazione di Azure. |
-| solutionName |string |Nome della soluzione.  Se si distribuisce la soluzione tramite modelli di avvio rapido, è necessario definire solutionName come un parametro, in modo da poter definire una stringa anziché richiedere all'utente di specificarne una. |
-| workspaceName |string |Nome dell'area di lavoro Log Analytics. |
-| workspaceRegionId |string |Area dell'area di lavoro Log Analytics. |
+| accountName |stringa |Nome dell'account di Automazione di Azure. |
+| pricingTier |stringa |Piano tariffario dell'area di lavoro Log Analytics e dell'account di Automazione di Azure. |
+| regionId |stringa |Area dell'account di Automazione di Azure. |
+| solutionName |stringa |Nome della soluzione.  Se si distribuisce la soluzione tramite modelli di avvio rapido, è necessario definire solutionName come un parametro, in modo da poter definire una stringa anziché richiedere all'utente di specificarne una. |
+| workspaceName |stringa |Nome dell'area di lavoro Log Analytics. |
+| workspaceRegionId |stringa |Area dell'area di lavoro Log Analytics. |
 
 
 Di seguito viene mostrata la struttura dei parametri standard, che è possibile copiare e incollare nel file della soluzione.  
@@ -122,9 +122,9 @@ Di seguito viene mostrata la struttura dei parametri standard, che è possibile 
     }
 
 
-Per fare riferimento ai valori di parametro negli altri elementi della soluzione si usa la sintassi **parameters('nome parametro')**.  Ad esempio, per accedere al nome dell'area di lavoro, è necessario utilizzare **i parametri('nomeareadell')**
+Per fare riferimento ai valori di parametro negli altri elementi della soluzione si usa la sintassi **parameters('nome parametro')**.  Ad esempio, per accedere al nome dell'area di lavoro, è necessario usare **Parameters (' workspacename ')**
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 Le [variabili](../../azure-resource-manager/templates/template-syntax.md#variables) sono valori che verranno usati nella parte rimanente della soluzione di gestione.  Questi valori non sono esposti all'utente che esegue l'installazione della soluzione.  La loro funzione è quella di offrire all'autore un'unica posizione in cui gestire i valori che possono essere usati più volte all'interno della soluzione. È consigliabile inserire eventuali valori specifici della soluzione in variabili anziché impostarli come hardcoded nell'elemento **resources**.  In questo modo, il codice risulta più leggibile ed è possibile modificare facilmente questi valori nelle versioni successive.
 
 Di seguito è riportato un esempio di elemento **variables** con i parametri tipici usati nelle soluzioni.
@@ -137,7 +137,7 @@ Di seguito è riportato un esempio di elemento **variables** con i parametri tip
         "AutomationApiVersion": "2015-10-31"
     },
 
-Per fare riferimento ai valori di variabile all'interno della soluzione si usa la sintassi **variables('nome variabile')**.  Ad esempio, per accedere alla variabile SolutionName, è necessario utilizzare **variabili('NomeSoluzione')**.
+Per fare riferimento ai valori di variabile all'interno della soluzione si usa la sintassi **variables('nome variabile')**.  Per accedere alla variabile SolutionName, ad esempio, si useranno le **variabili ("SolutionName")**.
 
 È possibile anche definire variabili complesse che moltiplicano set di valori;  risultano particolarmente utili nelle soluzioni di gestione in cui si definiscono più proprietà per diversi tipi di risorse.  È possibile, ad esempio, ristrutturare come indicato di seguito le variabili di soluzione illustrate in precedenza.
 
@@ -206,7 +206,7 @@ La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  S
 
 | Proprietà | Descrizione |
 |:--- |:--- |
-| workspaceResourceId |ID dell'area di lavoro di Log Analytics nel formato * \<ID gruppo\<di\>risorse>/provider/Microsoft.OperationalInsights/workspaces/ Nome area di lavoro*. |
+| workspaceResourceId |ID dell'area di lavoro log Analytics nel formato * \<ID gruppo di risorse>\<nome\>dell'area di lavoro/Providers/Microsoft.operationalinsights/Workspaces/*. |
 | referencedResources |Elenco delle risorse nella soluzione che non devono essere rimosse quando la soluzione viene rimossa. |
 | containedResources |Elenco delle risorse nella soluzione che devono essere rimosse quando la soluzione viene rimossa. |
 
@@ -218,7 +218,7 @@ L'entità **plan** della risorsa soluzione ha le proprietà descritte nella tabe
 | Proprietà | Descrizione |
 |:--- |:--- |
 | name |Nome della soluzione. |
-| version |Versione della soluzione determinata dall'autore. |
+| Versione |Versione della soluzione determinata dall'autore. |
 | product |Stringa univoca che identifica la soluzione. |
 | publisher |Autore della soluzione. |
 
