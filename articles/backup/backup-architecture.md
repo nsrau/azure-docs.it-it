@@ -4,10 +4,10 @@ description: Panoramica dell'architettura, dei componenti e dei processi usati d
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273618"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
@@ -61,7 +61,7 @@ Backup di Azure fornisce diversi agenti di backup, a seconda del tipo di compute
 
 Nella tabella seguente sono illustrati i diversi tipi di backup e quando vengono utilizzati:
 
-**Tipo di backup** | **Dettagli** | **Uso**
+**Tipo di backup** | **Dettagli** | **Utilizzo**
 --- | --- | ---
 **Completo** | Un backup completo contiene l'intera origine dati. Richiede una maggiore larghezza di banda di rete rispetto al backup differenziale o incrementale. | Usato per il backup iniziale.
 **Differenziale** |  Un backup differenziale archivia i blocchi modificati dopo il backup completo iniziale. Usa una quantità minore di spazio di archiviazione e di rete e non mantiene copie ridondanti di dati non modificati.<br/><br/> Inefficiente poiché i blocchi di dati che non sono stati modificati tra i backup successivi vengono trasferiti e archiviati. | Non è usato da Backup di Azure.
@@ -71,7 +71,7 @@ Nella tabella seguente sono illustrati i diversi tipi di backup e quando vengono
 
 La tabella seguente illustra i diversi tipi di backup usati per SQL Server database e la frequenza con cui vengono usati:
 
-**Tipo di backup** | **Dettagli** | **Uso**
+**Tipo di backup** | **Dettagli** | **Utilizzo**
 --- | --- | ---
 **Backup completo** | un backup completo è un backup eseguito per l'intero database. Contiene tutti i dati in un database specifico o in un set di filegroup o file. Un backup completo contiene anche un numero sufficiente di log per recuperare i dati. | Al massimo, è possibile attivare un backup completo al giorno.<br/><br/> È possibile scegliere di eseguire un backup completo su un intervallo giornaliero o settimanale.
 **Backup differenziale** | Un backup differenziale si basa sul backup completo dei dati più recente e precedente.<br/><br/> Acquisisce solo i dati che sono stati modificati dopo il backup completo. |  Al massimo, è possibile attivare un backup differenziale al giorno.<br/><br/> Non è possibile configurare un backup completo e un backup differenziale nella stessa giornata.
@@ -106,7 +106,7 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
 
 - Un criterio di backup viene creato per ogni insieme di credenziali.
 - Un criterio di backup può essere creato per il backup dei carichi di lavoro seguenti
-  - Macchina virtuale di Azure
+  - Macchina virtuale Azure
   - SQL in macchine virtuali di Azure
   - Condivisione file di Azure
 - Un criterio può essere assegnato a più risorse. Un criterio di backup di macchine virtuali di Azure può essere usato per proteggere più macchine virtuali di Azure.

@@ -5,10 +5,10 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276738"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
@@ -76,8 +76,8 @@ $TriggerMetadata.sys
 | Proprietà   | Descrizione                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, in UTC, la funzione è stata attivata        | Datetime |
-| MethodName | Nome della funzione attivata     | string   |
-| RandGuid   | GUID univoco dell'esecuzione della funzione | string   |
+| MethodName | Nome della funzione attivata     | stringa   |
+| RandGuid   | GUID univoco dell'esecuzione della funzione | stringa   |
 
 Ogni tipo di trigger ha un set di metadati diverso. Ad esempio, `$TriggerMetadata` per `QueueTrigger` contiene `InsertionTime`, `Id`, `DequeueCount`, tra le altre cose. Per ulteriori informazioni sui metadati del trigger della coda, vedere la [documentazione ufficiale relativa ai trigger della coda](functions-bindings-storage-queue-trigger.md#message-metadata). Controllare la documentazione sui [trigger](functions-triggers-bindings.md) che si sta utilizzando per vedere cosa avviene all'interno dei metadati del trigger.
 
@@ -125,9 +125,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi `Push-OutputBinding`per chiamare:
 
-| Nome | Type | Posizione | Descrizione |
+| Nome | Tipo | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | string | 1 | Nome dell'associazione di output che si desidera impostare. |
+| **`-Name`** | Stringa | 1 | Nome dell'associazione di output che si desidera impostare. |
 | **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | denominata | Opzionale Quando specificato, impone l'impostazione del valore per un'associazione di output specificata. | 
 
@@ -275,7 +275,7 @@ Sono disponibili diversi trigger e associazioni da usare con l'app per le funzio
 Tutti i trigger e le associazioni sono rappresentati nel codice come pochi tipi di dati reali:
 
 * Hashtable
-* string
+* stringa
 * byte[]
 * INT
 * double
@@ -296,12 +296,12 @@ L'oggetto Request passato nello script è del tipo `HttpRequestContext`, che pre
 
 | Proprietà  | Descrizione                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body`viene serializzato nel tipo migliore in base ai dati. Se, ad esempio, i dati sono JSON, vengono passati come Hashtable. Se i dati sono una stringa, viene passata come stringa. | object |
+| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body`viene serializzato nel tipo migliore in base ai dati. Se, ad esempio, i dati sono JSON, vengono passati come Hashtable. Se i dati sono una stringa, viene passata come stringa. | oggetto |
 | **`Headers`** | Dizionario che contiene le intestazioni della richiesta.                | Dictionary<String, String><sup>*</sup> |
-| **`Method`** | Metodo HTTP della richiesta.                                | string                    |
+| **`Method`** | Metodo HTTP della richiesta.                                | stringa                    |
 | **`Params`**  | Oggetto che contiene i parametri di routing della richiesta. | Dictionary<String, String><sup>*</sup> |
 | **`Query`** | Oggetto che contiene i parametri di query della richiesta.                  | Dictionary<String, String><sup>*</sup> |
-| **`Url`** | URL della richiesta.                                        | string                    |
+| **`Url`** | URL della richiesta.                                        | stringa                    |
 
 <sup>*</sup>Tutte `Dictionary<string,string>` le chiavi non fanno distinzione tra maiuscole e minuscole.
 
@@ -311,8 +311,8 @@ L'oggetto Response da restituire è del tipo `HttpResponseContext`, che presenta
 
 | Proprietà      | Descrizione                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Oggetto che contiene il corpo della risposta.           | object                    |
-| **`ContentType`** | Una breve opzione per l'impostazione del tipo di contenuto per la risposta. | string                    |
+| **`Body`**  | Oggetto che contiene il corpo della risposta.           | oggetto                    |
+| **`ContentType`** | Una breve opzione per l'impostazione del tipo di contenuto per la risposta. | stringa                    |
 | **`Headers`** | Oggetto che contiene le intestazioni della risposta.               | Dictionary o Hashtable   |
 | **`StatusCode`**  | Codice di stato HTTP della risposta.                       | stringa o numero intero             |
 
