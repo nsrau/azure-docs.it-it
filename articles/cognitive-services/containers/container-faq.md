@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876507"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690831"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi cognitivi di Azure
 
@@ -76,7 +76,11 @@ Sfortunatamente, i contenitori di servizi cognitivi *non* sono supportati in mod
 
 **D: come è possibile eseguire i contenitori di servizi cognitivi nei dispositivi Internet?**
 
-Se non si dispone di una connessione Internet affidabile o se si vuole risparmiare sul costo della larghezza di banda. In alternativa, se si hanno requisiti di bassa latenza o si gestiscono dati sensibili che devono essere analizzati in sede, [Azure IOT Edge con i contenitori di servizi cognitivi](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) garantisce la coerenza con il cloud.
+**R:** Se non si dispone di una connessione Internet affidabile o se si vuole risparmiare sul costo della larghezza di banda. In alternativa, se si hanno requisiti di bassa latenza o si gestiscono dati sensibili che devono essere analizzati in sede, [Azure IOT Edge con i contenitori di servizi cognitivi](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) garantisce la coerenza con il cloud.
+
+**D: questi contenitori sono compatibili con OpenShift?** 
+
+I contenitori non vengono testati con OpenShift, ma in genere i contenitori di servizi cognitivi devono essere eseguiti su qualsiasi piattaforma che supporta le immagini docker. Se si usa OpenShift, è consigliabile eseguire i contenitori come `root-user`.
 
 **D: Ricerca per categorie fornire suggerimenti sul prodotto e suggerimenti sulle funzionalità?**
 
