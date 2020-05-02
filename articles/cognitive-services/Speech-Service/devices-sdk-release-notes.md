@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dbbbbb18bf81d70ed7955530db7c603594c16d0
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371614"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652730"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Note sulla versione: SDK per dispositivi vocali
 
 L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
+
+## <a name="speech-devices-sdk-1110"></a>1.11.0 SDK per dispositivi vocali:
+
+- Supporto per [URBETTER DDK](http://www.urbetter.com/products_56/278.html).
+- File binari rilasciati per l' [altoparlante GGEC](https://aka.ms/sdsdk-download-speaker) usato nell' [esempio di Assistente vocale](https://aka.ms/sdsdk-speaker).
+- File binari rilasciati per [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) e [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) per Raspberry Pi e dispositivi simili.
+- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.11.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-190"></a>1.9.0 SDK per dispositivi vocali:
 
