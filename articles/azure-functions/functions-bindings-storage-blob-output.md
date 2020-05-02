@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: c6e15c9a99a78f0f3637f718b35462fe49fd5ee6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277245"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Binding di output di archiviazione BLOB di Azure per funzioni di Azure
@@ -360,7 +360,7 @@ La tabella seguente illustra le proprietà di configurazione dell'associazione i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
