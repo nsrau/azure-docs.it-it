@@ -214,6 +214,7 @@
             - name: Pagina Web
               items:
                 - name: JavaScript lato client
+                  displayname: 'SPA, Single Page Applications, React, JS, Angular'
                   href: app/javascript.md
                 - name: Mappa di origine per JavaScript
                   href: app/source-map-support.md
@@ -441,6 +442,11 @@
               href: app/custom-data-correlation.md
             - name: Stringhe di connessione
               href: app/sdk-connection-string.md
+            - name: Stringhe di connessione
+              href: app/sdk-connection-string.md
+            - name: GetMetric
+              displayname: 'get metric, custom metrics, metrics, TrackMetric'
+              href: app/get-metric.md
             - name: Argomenti speciali
               items:
                 - name: Diagnostica completa dei servizi e delle app Web
@@ -1275,7 +1281,7 @@
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
-    - name: Modelli di avvio rapido
+    - name: Modelli di Guida introduttiva
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=monitoring'

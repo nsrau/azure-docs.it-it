@@ -73,7 +73,7 @@
       href: durable-functions-perf-and-scale.md
     - name: Disponibilità elevata
       href: durable-functions-disaster-recovery-geo-distribution.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Impostazioni di Host.json
       href: 'durable-functions-bindings.md#host-json'
@@ -83,6 +83,8 @@
       href: durable-functions-http-api.md
     - name: API .NET
       href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
+    - name: API Node.js
+      href: /javascript/api/durable-functions/?view=azure-node-latest
 - name: Guide pratiche
   items:
     - name: Sviluppo
@@ -125,7 +127,7 @@
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Video
       href: 'https://www.youtube.com/c/AzureFunctions'

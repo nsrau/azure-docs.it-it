@@ -36,8 +36,12 @@
       href: powershell-samples.md
 - name: Concetti
   items:
-    - name: Componenti e limiti
-      href: concepts-limitations.md
+    - name: Componenti
+      href: components.md
+    - name: Concetti
+      href: concepts.md
+    - name: Tipi
+      href: types.md
     - name: Monitoraggio dell’integrità
       items:
         - name: Probe di integrità
@@ -64,7 +68,7 @@
       href: load-balancer-security-controls.md
 - name: Procedure
   items:
-    - name: Set di scalabilità di macchine virtuali
+    - name: set di scalabilità di macchine virtuali
       items:
         - name: Uso con un'istanza esistente di Azure Load Balancer - Portale
           href: configure-vm-scale-set-portal.md
@@ -133,6 +137,8 @@
       items:
         - name: Risolvere i problemi di Azure Load Balancer
           href: load-balancer-troubleshoot.md
+        - name: Risolvere gli errori di distribuzione comuni
+          href: load-balancer-common-deployment-errors.md
 - name: Informazioni di riferimento
   items:
     - name: Esempi di codice
