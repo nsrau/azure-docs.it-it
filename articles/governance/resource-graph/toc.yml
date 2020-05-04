@@ -17,6 +17,9 @@
     - name: Eseguire la prima query - PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+    - name: Distribuire una query condivisa - Modello di Resource Manager
+      displayName: 'resource manager, queries'
+      href: shared-query-template.md
 - name: Esercitazioni
   items:
     - name: Creare e condividere una query nel portale di Azure
@@ -52,7 +55,7 @@
 - name: Risolvere problemi
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/resource-graph/graph
@@ -78,6 +81,8 @@
       href: /rest/api/azure-resourcegraph/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+    - name: Modelli di Gestione risorse
+      href: /azure/templates/microsoft.resourcegraph/allversions
     - name: Tabelle e tipi di risorsa di Resource Graph
       href: ./reference/supported-tables-resources.md
 - name: Risorse

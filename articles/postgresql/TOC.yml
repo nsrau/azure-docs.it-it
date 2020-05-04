@@ -167,6 +167,10 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Configurare SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: Continuità aziendale
+          items:
+            - name: Backup e ripristino
+              href: concepts-hyperscale-backup.md
         - name: Monitorare e ottimizzare
           items:
             - name: Monitorare e ottimizzare
@@ -273,6 +277,8 @@
               href: howto-data-encryption-portal.md
             - name: Interfaccia della riga di comando di Azure
               href: howto-data-encryption-cli.md
+            - name: Convalida della crittografia dei dati
+              href: howto-data-encryption-validation.md
         - name: Riavviare il server
           items:
             - name: Portale di Azure

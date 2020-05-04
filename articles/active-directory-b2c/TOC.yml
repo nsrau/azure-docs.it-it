@@ -76,6 +76,8 @@
       href: user-overview.md
     - name: Attributi del profilo utente
       href: user-profile-attributes.md
+    - name: Sessioni SSO
+      href: session-overview.md
 - name: Guide pratiche
   items:
     - name: Integrazione di app
@@ -335,8 +337,8 @@
                       href: phone-factor-technical-profile.md
                     - name: REST
                       href: restful-technical-profile.md
-                    - name: SAML
-                      href: saml-technical-profile.md
+                    - name: Provider di identità SAML
+                      href: saml-identity-provider-technical-profile.md
                     - name: Autorità emittente di token SAML
                       href: saml-issuer-technical-profile.md
                     - name: Autocertificazione

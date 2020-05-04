@@ -262,9 +262,11 @@
       items:
         - name: Usare i risultati
           href: search-pagination-page-layout.md
-        - name: Ottimizzazione della pertinenza (profili di punteggio)
+        - name: Punteggio di pertinenza
+          href: index-similarity-and-scoring.md
+        - name: Profili di punteggio
           href: index-add-scoring-profiles.md
-        - name: Ottimizzazione della pertinenza (algoritmo di somiglianza)
+        - name: Algoritmo di somiglianza
           href: index-ranking-similarity.md
     - name: Piano
       items:

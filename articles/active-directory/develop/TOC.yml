@@ -103,7 +103,15 @@
   items:
     - name: Nozioni di base sull'autenticazione
       displayName: Auth basics
-      href: authentication-scenarios.md
+      items:
+        - name: Confronto tra autenticazione e autorizzazione
+          href: authentication-vs-authorization.md
+        - name: Token di sicurezza
+          href: security-tokens.md
+        - name: Modello di applicazione
+          href: application-model.md
+        - name: Flusso di accesso alle app
+          href: app-sign-in-flow.md
     - name: Flussi di autenticazione e scenari di app
       displayName: Auth flows
       href: authentication-flows-app-scenarios.md
@@ -250,129 +258,120 @@
       items:
         - name: Panoramica
           href: msal-overview.md
-        - name: Account e profili del tenant - Android
-          href: accounts-overview.md
-        - name: Agenti di autorizzazione - Android
-          href: authorization-agents.md
-        - name: Autenticazione negoziata - Android
-          href: brokered-auth.md
-        - name: Migrazione
+        - name: .NET
+          displayName: 'xamarin, ASP.NET Core'
           items:
-            - name: Panoramica
-              href: msal-migration.md
+            - name: Inizializzare applicazioni
+              href: msal-net-initializing-client-applications.md
+            - name: Asserzioni dei client
+              href: msal-net-client-assertions.md
+            - name: Integrazione con Azure AD B2C
+              href: msal-net-aad-b2c-considerations.md
+            - name: Integrazione con AD FS
+              href: msal-net-adfs-support.md
             - name: Eseguire la migrazione a MSAL.NET
               href: msal-net-migration.md
-            - name: Eseguire la migrazione a MSAL.js
-              href: msal-compare-msal-js-and-adal-js.md
-            - name: Eseguire la migrazione a MSAL.Android
-              href: migrate-android-adal-msal.md
-            - name: Eseguire la migrazione a MSAL.iOS/macOS
-              href: migrate-objc-adal-msal.md
-            - name: Eseguire la migrazione a MSAL Python
-              href: migrate-python-adal-msal.md
-            - name: Eseguire la migrazione a MSAL per Java
-              href: migrate-adal-msal-java.md
             - name: Eseguire la migrazione di app Xamarin tramite broker a MSAL.NET
               href: msal-net-migration-ios-broker.md
-        - name: Flussi di autenticazione supportati
-          href: msal-authentication-flows.md
-        - name: App client pubbliche per uno o più account (Android)
-          href: single-multi-account.md
-        - name: Acquisire token e memorizzarli nella cache
+            - name: Considerazioni sui Web browser
+              href: msal-net-web-browsers.md
+            - name: Gestire errori ed eccezioni
+              href: msal-handling-exceptions.md?tabs=dotnet
+            - name: Registrazione
+              href: msal-logging.md?tabs=dotnet
+        - name: Android
           items:
+            - name: Account e profili del tenant
+              href: accounts-overview.md
+            - name: Agenti di autorizzazione
+              href: authorization-agents.md
+            - name: Autenticazione negoziata
+              href: brokered-auth.md
+            - name: Integrazione con Azure AD B2C
+              href: msal-android-b2c.md
+            - name: Eseguire la migrazione a MSAL.Android
+              href: migrate-android-adal-msal.md
+            - name: Modalità dispositivo condiviso
+              href: msal-android-shared-devices.md
+              displayName: 'firstline worker, frontline worker, flw'
+            - name: App client pubbliche per uno o più account
+              href: single-multi-account.md
+            - name: Registrazione
+              href: msal-logging.md?tabs=android
+        - name: iOS e macOS
+          items:
+            - name: Integrazione con Azure AD B2C
+              href: 'config-authority.md#b2c'
+            - name: Eseguire la migrazione a MSAL.iOS/macOS
+              href: migrate-objc-adal-msal.md
+            - name: Modalità dispositivo condiviso per dispositivi iOS
+              href: msal-ios-shared-devices.md
+              displayName: 'firstline worker, frontline worker, flw'
+            - name: SSO tra app MSAL
+              href: single-sign-on-macos-ios.md
+            - name: SSO tra app ADAL e MSAL
+              href: sso-between-adal-msal-apps-macos-ios.md
+            - name: Risolvere i problemi relativi a SSL (MSAL iOS/macOS)
+              href: ssl-issues.md
+            - name: Gestire errori ed eccezioni
+              href: msal-handling-exceptions.md?tabs=iosmacos
+            - name: Registrazione
+              href: msal-logging.md?tabs=swift
+        - name: Java
+          items:
+            - name: Eseguire la migrazione a MSAL per Java
+              href: migrate-adal-msal-java.md
+            - name: Supporto di AD FS in MSAL per Java
+              href: msal-java-adfs-support.md
+            - name: Gestire errori ed eccezioni
+              href: msal-handling-exceptions.md?tabs=java
+            - name: Registrazione
+              href: msal-logging.md?tabs=java
+        - name: JavaScript e Node.js
+          items:
+            - name: Inizializzare applicazioni - JavaScript
+              href: msal-js-initializing-client-applications.md
+            - name: Integrazione con Azure AD B2C
+              href: msal-b2c-overview.md
+            - name: Eseguire la migrazione a MSAL.js
+              href: msal-compare-msal-js-and-adal-js.md
+            - name: Single Sign-On con MSAL.js
+              href: msal-js-sso.md
+            - name: Considerazioni - IE
+              href: msal-js-use-ie-browser.md
+            - name: Problemi noti- Internet Explorer e Microsoft Edge
+              href: msal-js-known-issues-ie-edge-browsers.md
+            - name: Problemi noti- Safari
+              href: msal-js-known-issues-safari-browser.md
+            - name: Gestire errori ed eccezioni
+              href: msal-handling-exceptions.md?tabs=javascript
+            - name: Registrazione
+              href: msal-logging.md?tabs=javascript
+        - name: Python
+          items:
+            - name: Eseguire la migrazione a MSAL Python
+              href: migrate-python-adal-msal.md
+            - name: Supporto di AD FS in MSAL per Python
+              href: msal-python-adfs-support.md
+            - name: Gestire errori ed eccezioni
+              href: msal-handling-exceptions.md?tabs=python
+            - name: Registrazione
+              href: msal-logging.md?tabs=python
+        - Name: Tutte le piattaforme
+          items:
+            - name: Flussi di autenticazione supportati
+              href: msal-authentication-flows.md
             - name: Acquisire token e memorizzarli nella cache
               href: msal-acquire-cache-tokens.md
-            - name: Ambiti per le app v1.0
-              href: msal-v1-app-scopes.md
-        - name: Applicazioni client
-          displayName: Client apps
-          items:
-            - name: Configurare l'attestazione basata su ruolo
-              href: active-directory-enterprise-app-role-management.md
-            - name: Personalizzare le attestazioni - Portale
-              href: active-directory-saml-claims-customization.md
-            - name: Personalizzare le attestazioni - PowerShell
-              href: active-directory-claims-mapping.md
-            - name: Configurare le attestazioni facoltative
-              href: active-directory-optional-claims.md
-            - name: Configurare le durate dei token
-              href: active-directory-configurable-token-lifetimes.md
-            - name: Gestire le modifiche ai cookie SameSite nel browser Chrome
-              href: howto-handle-samesite-cookie-changes-chrome-browser.md
-        - name: Configurazione dell'applicazione
-          displayName: App configuration
-          items:
-            - name: Applicazioni client
+            - name: App client pubbliche e riservate
               href: msal-client-applications.md
             - name: Configurazione dell'applicazione
               href: msal-client-application-configuration.md
-            - name: Inizializzare applicazioni - .NET
-              href: msal-net-initializing-client-applications.md
-            - name: Asserzioni dei client - .NET
-              href: msal-net-client-assertions.md
-            - name: Inizializzare applicazioni - JavaScript
-              href: msal-js-initializing-client-applications.md
-        - name: Gestire errori ed eccezioni
-          href: msal-handling-exceptions.md
-        - name: Registrazione
-          href: msal-logging.md
-        - name: Dispositivi condivisi
-          items:
-            - name: Panoramica - Dispositivi condivisi
+            - name: Dispositivi condivisi
               href: msal-shared-devices.md
-              displayName: 'shared device mode, firstline worker, frontline worker'
-            - name: Modalità dispositivo condiviso per dispositivi iOS
-              href: msal-ios-shared-devices.md
-              displayName: 'firstline worker, frontline worker'
-            - name: Modalità dispositivo condiviso per dispositivi Android
-              href: msal-android-shared-devices.md
-              displayName: 'firstline worker, frontline worker'
-        - name: Single sign-on
-          displayName: SSO
-          items:
-            - name: Single Sign-On con MSAL.js
-              href: msal-js-sso.md
-            - name: Single Sign-On con MSAL per iOS e macOS
-              items:
-                - name: SSO tra app MSAL
-                  href: single-sign-on-macos-ios.md
-                - name: SSO tra app ADAL e MSAL
-                  href: sso-between-adal-msal-apps-macos-ios.md
-        - name: Integrazione con AD FS
-          displayName: Active Directory Federation Services
-          items:
-            - name: Supporto di AD FS in MSAL.NET
-              href: msal-net-adfs-support.md
-            - name: Supporto di AD FS in MSAL per Python
-              href: msal-python-adfs-support.md
-            - name: Supporto di AD FS in MSAL per Java
-              href: msal-java-adfs-support.md
-        - name: Integrazione con Azure AD B2C
-          items:
-            - name: Android
-              href: msal-android-b2c.md
-            - name: JavaScript
-              href: msal-b2c-overview.md
-            - name: .NET
-              href: msal-net-aad-b2c-considerations.md
-            - name: iOS e macOS
-              href: 'config-authority.md#b2c'
-        - name: Considerazioni e problemi noti
-          items:
-            - name: MSAL.NET
-              items:
-                - name: Web browser
-                  href: msal-net-web-browsers.md
-            - name: MSAL.js
-              items:
-                - name: Considerazioni - IE
-                  href: msal-js-use-ie-browser.md
-                - name: Problemi noti- Internet Explorer e Microsoft Edge
-                  href: msal-js-known-issues-ie-edge-browsers.md
-                - name: Problemi noti- Safari
-                  href: msal-js-known-issues-safari-browser.md
-            - name: Risolvere i problemi relativi a SSL (MSAL iOS/macOS)
-              href: ssl-issues.md
+              displayName: 'shared device mode, firstline worker, frontline worker, flw'
+            - name: Gestire le modifiche ai cookie SameSite nel browser Chrome
+              href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Protocolli di autenticazione
       displayName: Auth protocol
       items:
@@ -457,9 +456,13 @@
     - name: Provisioning utenti automatico (SCIM)
       items:
         - name: Informazioni sul provisioning utenti automatico
-          href: /azure/active-directory/manage-apps/user-provisioning
-        - name: Creazione e integrazione di un endpoint SCIM
-          href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
+          href: /azure/active-directory/app-provisioning/user-provisioning
+        - name: Sviluppo e integrazione di un endpoint SCIM
+          href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+        - name: Scenari comuni di provisioning
+          href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+        - name: Automatizzare la configurazione con MS Graph
+          href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
 - name: Guide pratiche
   items:
     - name: Authentication

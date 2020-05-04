@@ -48,6 +48,8 @@
       href: authentication-requests-and-responses.md
     - name: Guida alla limitazione delle richieste per Azure Key Vault
       href: overview-throttling.md
+    - name: Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
+      href: disaster-recovery-guidance.md
     - name: Endpoint servizio di rete virtuale per Azure Key Vault - Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: Guide pratiche
@@ -92,6 +94,10 @@
           href: soft-delete-cli.md
         - name: Usare l'eliminazione temporanea con PowerShell
           href: soft-delete-powershell.md
+    - name: Spostare Key Vault
+      items:
+        - name: Spostare Key Vault in un'altra area
+          href: keyvault-moveregion.md
     - name: Risolvere problemi
       items:
         - name: Modificare l'ID tenant per un insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione

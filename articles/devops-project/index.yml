@@ -1,30 +1,30 @@
 ### YamlMime:Landing
-title: Documentazione di Azure DevOps Projects
-summary: Azure DevOps Projects offre un'esperienza semplificata in cui è possibile usare il codice esistente e il repository Git oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e distribuzione continua (CD, Continuous Delivery) in Azure.
+title: Documentazione di Azure DevOps Starter
+summary: Azure DevOps Starter offre un'esperienza semplificata in cui è possibile usare il codice esistente e il repository Git oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua (CI, Continuous Integration) e distribuzione continua (CD, Continuous Delivery) in Azure.
 metadata:
-  title: Documentazione di Azure DevOps Projects
+  title: Documentazione di Azure DevOps Starter
   description: È possibile usare il codice esistente e il repository Git oppure scegliere un'app di esempio per creare una pipeline di integrazione continua (CI) e distribuzione continua (CD) in Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
-  ms.date: 03/05/2020
-  ms.openlocfilehash: f03a03b353ffa0d0562169a51a2552c2f2ab143b
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 03/24/2020
+  ms.openlocfilehash: 461d088f85f6845dfb9204381209b477b384a0be
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78942465"
+  ms.lasthandoff: 04/28/2020
+  ms.locfileid: "82231468"
 landingContent:
-- title: Informazioni su Azure DevOps Projects
+- title: Informazioni su Azure DevOps Starter
   linkLists:
   - linkListType: overview
     links:
-    - text: Informazioni su Azure DevOps Projects
+    - text: Che cos'è Azure DevOps Starter?
       url: overview.md
   - linkListType: video
     links:
-    - text: Video sulla creazione di CI/CD con DevOps Projects (8:53)
+    - text: Creare una pipeline CI/CD con DevOps Starter - Video (8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
 - title: Creare una pipeline CI/CD
   linkLists:
