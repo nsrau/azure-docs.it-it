@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: b2c119f6552773bce7bb93a503c22324278ac0bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb016ec490dc14cbde1a1cb3f34caf39e4740961
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399467"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732372"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
@@ -71,7 +71,7 @@ L'app client che verrà creata in questa esercitazione usa alcuni servizi di Azu
    * Immettere un nome per il **gruppo di risorse**. Si consiglia **SpeechEchoBotTutorial-ResourceGroup**.
    * Dall'elenco a discesa **Region** selezionare **Stati Uniti occidentali**.
 1. Fare clic su **Rivedi e crea**. Verrà visualizzato un banner che ha **superato la convalida**di lettura.
-1. Scegliere **Crea**. La creazione del gruppo di risorse potrebbe richiedere alcuni minuti.
+1. Fare clic su **Crea**. La creazione del gruppo di risorse potrebbe richiedere alcuni minuti.
 1. Come per le risorse che verranno create più avanti in questa esercitazione, è consigliabile aggiungere questo gruppo di risorse al dashboard per semplificare l'accesso. Se si vuole aggiungere questo gruppo di risorse, fare clic sull'icona Aggiungi in alto a destra nel dashboard.
 
 ### <a name="choosing-an-azure-region"></a>Scelta di un'area di Azure
@@ -121,7 +121,7 @@ Il passaggio successivo consiste nel creare un piano di servizio app. Un piano d
    * Per **area**selezionare **Stati Uniti occidentali**.
    * Per piano **tariffario**, assicurarsi che sia selezionata l'opzione **standard S1** . Deve corrispondere al valore predefinito. In caso contrario, assicurarsi di impostare il **sistema operativo** su **Windows** come descritto in precedenza.
 5. Fare clic su **Rivedi e crea**. Verrà visualizzato un banner che ha **superato la convalida**di lettura.
-6. Scegliere **Crea**. La creazione del gruppo di risorse potrebbe richiedere alcuni minuti.
+6. Fare clic su **Crea**. La creazione del gruppo di risorse potrebbe richiedere alcuni minuti.
 
 A questo punto, verificare che il gruppo di risorse (**SpeechEchoBotTutorial-ResourceGroup**) disponga di due risorse:
 
@@ -178,7 +178,7 @@ L' [emulatore di bot Framework](https://github.com/microsoft/botframework-emulat
 Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcuni modi per distribuire un bot, ma in questa esercitazione ci concentreremo sulla pubblicazione diretta da Visual Studio.
 
 > [!NOTE]
-> In alternativa, è possibile distribuire un bot usando l' [interfaccia](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) della riga di comando di Azure e i [modelli di distribuzione](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/directline-speech/csharp_dotnetcore/02.echo-bot/DeploymentTemplates).
+> In alternativa, è possibile distribuire un bot usando l' [interfaccia](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) della riga di comando di Azure e i [modelli di distribuzione](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates).
 
 1. Da Visual Studio, aprire il bot echo che è stato configurato per l'uso con il canale di sintesi vocale direct line:
 
@@ -221,7 +221,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
 2. In **Impostazioni**di navigazione **servizi di Azure** fare clic su **configurazione**.
 3. Selezionare la scheda **Impostazioni generali** .
 4. Individuare l'interruttore per i **socket Web** e impostarlo **su on**.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 > [!TIP]
 > È possibile utilizzare i controlli nella parte superiore della pagina del servizio app Azure per arrestare o riavviare il servizio. Questo potrebbe essere utile per la risoluzione dei problemi.
@@ -267,11 +267,11 @@ A questo punto è giunto il momento di registrare il bot con il canale di sintes
    * Cercare **altri canali**, trovare e fare clic su **voce diretta linea**.
    * Esaminare il testo nella pagina denominata **Configure Direct Line Speech**, quindi espandere il menu a discesa con l'etichetta "cognitive Service account".
    * Selezionare la risorsa vocale creata in precedenza (ad esempio, **SpeechEchoBotTutorial-Speech**) dal menu per associare il bot alla chiave di sottoscrizione vocale.
-   * Fare clic su **Save**.
+   * Fare clic su **Salva**.
 
 1. Dallo spostamento **gestione bot** fare clic su **Impostazioni**.
    * Selezionare la casella **Abilita endpoint di streaming**. Questa operazione è necessaria per abilitare un protocollo di comunicazione basato su Web socket tra il bot e il canale di riconoscimento vocale diretto.
-   * Fare clic su **Save**.
+   * Fare clic su **Salva**.
 
 > [!TIP]
 > Per altre informazioni, vedere [connettere un bot alla linea vocale diretta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Questa pagina include informazioni aggiuntive e problemi noti.
@@ -431,7 +431,7 @@ Ora che è stata apportata la modifica necessaria al bot, il passaggio successiv
 4. Aprire l'app client Windows Voice Assistant, fare clic sul pulsante Impostazioni (icona a forma di ingranaggio in alto a destra) e `de-de` verificare che il campo lingua sia ancora disponibile.
 5. Seguire le istruzioni riportate in [eseguire il client Windows Voice Assistant](#run-the-windows-voice-assistant-client) per riconnettersi al bot appena distribuito, rivolgersi al nuovo linguaggio e ascoltare il bot Reply in quel linguaggio con la nuova voce.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se non si intende continuare a usare echo-bot distribuito in questa esercitazione, è possibile rimuoverlo e tutte le risorse di Azure associate semplicemente eliminando il gruppo di risorse di Azure **SpeechEchoBotTutorial-ResourceGroup**.
 
