@@ -40,8 +40,6 @@
       href: components.md
     - name: Concetti
       href: concepts.md
-    - name: Tipi
-      href: types.md
     - name: Monitoraggio dell’integrità
       items:
         - name: Probe di integrità

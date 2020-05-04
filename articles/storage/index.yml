@@ -9,13 +9,13 @@ metadata:
   ms.topic: hub-page
   author: twooley
   ms.author: twooley
-  ms.date: 04/07/2020
-  ms.openlocfilehash: 5f599c7cc608a5e6a6246ed82c8f7b48e427dd66
-  ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+  ms.date: 05/01/2020
+  ms.openlocfilehash: f4428556c33bc476b21932034fa43b020f9e779d
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/09/2020
-  ms.locfileid: "80985338"
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82735029"
 highlightedContent:
   items:
   - title: Introduzione ai servizi di archiviazione principali
@@ -144,6 +144,6 @@ additionalContent:
       - url: /azure/backup/quick-backup-vm-portal
         text: Eseguire il backup di VM (Backup di Azure)
       - url: /azure/backup/tutorial-backup-azure-files
-        text: Eseguire il backup di condivisione file di Azure (anteprima)
+        text: Eseguire il backup di condivisioni file di Azure
       - url: /azure/backup/
         text: Altro >
