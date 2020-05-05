@@ -4,10 +4,10 @@ description: Viene descritto come utilizzare Gestione risorse di Azure per la di
 ms.topic: overview
 ms.date: 04/21/2020
 ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81870481"
 ---
 # <a name="what-is-azure-resource-manager"></a>Informazioni su Azure Resource Manager
@@ -31,7 +31,7 @@ Tutte le funzionalità disponibili nel portale sono disponibili anche tramite Po
 Se non si ha esperienza con Azure Resource Manager, ecco alcuni termini con cui acquisire familiarità.
 
 * **risorsa** : elemento gestibile disponibile tramite Azure. Sono ad esempio risorse le macchine virtuali, gli account di archiviazione, le app Web, i database e le reti virtuali. Anche i gruppi di risorse, le sottoscrizioni, i gruppi di gestione e i tag sono esempi di risorse.
-* **gruppo di risorse**: contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse include le risorse che si vogliono gestire come gruppo. L'utente decide quali risorse appartengono a un gruppo in base alle esigenze specifiche dell'organizzazione. Vedere [Gruppi di risorse](#resource-groups).
+* **gruppo di risorse** : contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse include le risorse che si vogliono gestire come gruppo. L'utente decide quali risorse appartengono a un gruppo in base alle esigenze specifiche dell'organizzazione. Vedere [Gruppi di risorse](#resource-groups).
 * **provider di risorse**: servizio che fornisce le risorse di Azure. Un provider di risorse comune è ad esempio Microsoft.Compute, che fornisce la risorsa macchina virtuale. Microsoft.Storage è un altro provider di risorse comune. Vedere [Provider e tipi di risorse](resource-providers-and-types.md).
 * **modello di Resource Manager**: file JSON (JavaScript Object Notation) che definisce una o più risorse da distribuire a un gruppo di risorse, a una sottoscrizione, a un gruppo di gestione o a un tenant. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto. Vedere [Panoramica della distribuzione di modelli](../templates/overview.md).
 * **sintassi dichiarativa** : sintassi che consente di indicare l'oggetto da creare senza dover scrivere la sequenza di comandi di programmazione per crearlo. Il modello di Resource Manager è un esempio di sintassi dichiarativa. Nel file vengono definite le proprietà per l'infrastruttura da distribuire in Azure.  Vedere [Panoramica della distribuzione di modelli](../templates/overview.md).

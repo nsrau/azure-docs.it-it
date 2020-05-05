@@ -61,7 +61,7 @@ Di proprietà di Microsoft, [Novell](https://visualstudio.microsoft.com/xamarin/
 - **Linguaggio di programmazione**: C #
 - **IDE**: Visual Studio in Windows o Mac
 
-### <a name="react-native"></a>Reazione nativa
+### <a name="react-native"></a>React Native
 Rilasciato da Facebook nel 2015, [React native](https://facebook.github.io/react-native/) è un framework JavaScript [Open Source](https://github.com/facebook/react-native) per la scrittura di applicazioni per dispositivi mobili reali e con rendering nativo per iOS e Android. Si basa su REACT, la libreria JavaScript di Facebook per la creazione di interfacce utente. Anziché indirizzare il browser, è destinato alle piattaforme mobili. React native usa componenti nativi anziché componenti Web come blocchi predefiniti.
  
 - **Linguaggio di programmazione**: JavaScript

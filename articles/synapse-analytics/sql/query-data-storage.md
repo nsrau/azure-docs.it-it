@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cdad95b1a910a45629e85bcc716218b272afd9de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421295"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116248"
 ---
 # <a name="overview-query-data-in-storage"></a>Panoramica: Eseguire query sui dati nell'archiviazione
 
@@ -72,9 +72,6 @@ Prima di poter eseguire le query, è necessario creare le credenziali. Queste cr
 > Per impostazione predefinita, SQL su richiesta usa sempre il pass-through di AAD.
 
 Per altre informazioni su come gestire il controllo di accesso all'archiviazione, vedere questo [collegamento](develop-storage-files-storage-access-control.md).
-
-> [!WARNING]
-> È necessario creare le credenziali per un account di archiviazione che si trova nella stessa area dell'endpoint. Sebbene SQL su richiesta possa accedere ad account di archiviazione di aree diverse, la disponibilità dell'account e dell'endpoint nella stessa area offrirà un'esperienza migliore in termini di prestazioni.
 
 Per creare le credenziali per i contenitori CSV, JSON e Parquet, eseguire il codice seguente:
 
