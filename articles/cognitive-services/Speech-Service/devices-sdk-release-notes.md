@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 5dbbbbb18bf81d70ed7955530db7c603594c16d0
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652730"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780913"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Note sulla versione: SDK per dispositivi vocali
 
@@ -23,6 +23,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 
 ## <a name="speech-devices-sdk-1110"></a>1.11.0 SDK per dispositivi vocali:
 
+- Supporto per [geometrie di matrici di microfoni arbitrari](how-to-devices-microphone-array-configuration.md) e impostazione dell'angolo di lavoro tramite un [file di configurazione](https://aka.ms/sdsdk-micarray-json).
 - Supporto per [URBETTER DDK](http://www.urbetter.com/products_56/278.html).
 - File binari rilasciati per l' [altoparlante GGEC](https://aka.ms/sdsdk-download-speaker) usato nell' [esempio di Assistente vocale](https://aka.ms/sdsdk-speaker).
 - File binari rilasciati per [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) e [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) per Raspberry Pi e dispositivi simili.
@@ -62,7 +63,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 - La nuova tecnologia per le parole chiave offre miglioramenti significativi della qualità, vedere modifiche di rilievo.
 - Nuova pipeline di elaborazione audio per migliorare il riconoscimento dei campi.
 
-**Modifiche di rilievo**
+**Modifiche che causano un'interruzione**
 
 - A causa della nuova tecnologia keyword, tutte le parole chiave devono essere ricreate nel portale delle parole chiave migliorato. Per rimuovere completamente le parole chiave obsolete dal dispositivo, disinstallare l'app precedente.
   - ADB disinstallare com. Microsoft. cognitiveservices. Speech. Samples. sdsdkstarterapp
@@ -77,7 +78,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 - Gestione delle parole chiave aggiornata. vedere modifiche di rilievo.
 - L'applicazione di esempio aggiunge la lingua scelta per il riconoscimento vocale e la traduzione.
 
-**Modifiche di rilievo**
+**Modifiche che causano un'interruzione**
 
 - L' [installazione di una parola chiave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) è stata semplificata ed è ora inclusa nell'app e non è necessaria un'installazione separata sul dispositivo.
 - Il riconoscimento delle parole chiave è stato modificato e sono supportati due eventi.
@@ -96,7 +97,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 - L'accuratezza del riconoscimento vocale risulterà migliorata grazie a un nuovo algoritmo di elaborazione audio.
 - Un bug relativo alla sessione audio di riconoscimento continuo è stato corretto.
 
-**Modifiche di rilievo**
+**Modifiche che causano un'interruzione**
 
 - Questa versione introduce numerose modifiche di rilievo. Vedere [questa pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) per informazioni dettagliate relative alle API.
 - I file di modello KWS non sono compatibili con Speech Devices SDK 1.0.1. I file delle parole chiave esistenti verranno eliminati dopo che i nuovi file di parole chiave vengono scritti nel dispositivo.
