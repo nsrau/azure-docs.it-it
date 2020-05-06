@@ -10,18 +10,18 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
-ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 41d68c58c43262b36b93af0008e7d35de13dff4d
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472221"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562271"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Esercitazione: Creare una pipeline di Azure Machine Learning per l'assegnazione di punteggi batch
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Informazioni su come creare una pipeline di Azure Machine Learning per eseguire un processo di assegnazione di punteggi batch. Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo per consentire così di concentrarsi su Machine Learning anziché sull'infrastruttura e l'automazione. Dopo aver creato e pubblicato una pipeline, configurare un endpoint REST da usare per attivare la pipeline da qualsiasi libreria HTTP in qualsiasi piattaforma. 
+In questa esercitazione avanzata viene illustrato come creare una pipeline di Azure Machine Learning per eseguire un processo di assegnazione di punteggi batch. Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo per consentire così di concentrarsi su Machine Learning anziché sull'infrastruttura e l'automazione. Dopo aver creato e pubblicato una pipeline, configurare un endpoint REST da usare per attivare la pipeline da qualsiasi libreria HTTP in qualsiasi piattaforma. 
 
 Questo esempio usa il modello di rete neurale convoluzionale [Inception-V3](https://arxiv.org/abs/1512.00567) già sottoposto a training implementato in Tensorflow per classificare le immagini senza etichetta. [Altre informazioni sulle pipeline di Machine Learning](concept-ml-pipelines.md).
 

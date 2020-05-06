@@ -29,7 +29,7 @@ Questo articolo descrive come eseguire il failback di macchine virtuali di Azure
 2. Verificare che le macchine virtuali di Azure utilizzino un account di archiviazione e non i dischi gestiti. Il failback delle VM Hyper-V replicate con Managed Disks non è supportato.
 3. Verificare che l'host Hyper-V locale (o il server System Center VMM se si usa con Site Recovery) sia in esecuzione e connesso ad Azure. 
 4. Verificare che il failover e il commit siano completi per le macchine virtuali. Non è necessario configurare componenti di Site Recovery specifici per il failback di macchine virtuali Hyper-V da Azure.
-5. Il tempo necessario per completare la sincronizzazione dei dati e avviare la macchina virtuale locale dipende da diversi fattori. Per velocizzare il download dei dati, è possibile configurare l'agente di servizi di ripristino di Microsoft per usare più thread per parallelizzare il download. [Altre informazioni](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage)
+5. Il tempo necessario per completare la sincronizzazione dei dati e avviare la macchina virtuale locale dipende da diversi fattori. Per velocizzare il download dei dati, è possibile configurare l'agente di servizi di ripristino di Microsoft per usare più thread per parallelizzare il download. [Altre informazioni](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
 
 
 ## <a name="fail-back-to-the-original-location"></a>Failback nella posizione originaria

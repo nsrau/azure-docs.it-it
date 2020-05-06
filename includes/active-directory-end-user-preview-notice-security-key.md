@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: active-directory
 author: eross-msft
 ms.service: active-directory

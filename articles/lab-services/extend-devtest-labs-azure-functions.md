@@ -95,7 +95,7 @@ In Visual Studio, dopo la pubblicazione della funzione di Azure, selezionare le 
 - ServicePrincipal_Key
 - ServicePrincipal_Tenant
 
-    ![Impostazioni dell'applicazione](./media/extend-devtest-labs-azure-functions/application-settings.png)
+    ![Impostazioni applicazione](./media/extend-devtest-labs-azure-functions/application-settings.png)
 
 ### <a name="step-6-test-the-azure-function"></a>Passaggio 6: testare la funzione di Azure
 L'ultimo passaggio di questa procedura dettagliata consiste nel testare la funzione di Azure.  

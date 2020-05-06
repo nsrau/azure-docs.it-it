@@ -63,7 +63,7 @@ Per creare un'assegnazione di ruolo per l'identità gestita della risorsa di con
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare il ruolo nella tabella di assegnazione ruolo precedente (ad esempio, per account di archiviazione selezionare *lettore dati BLOB di archiviazione*).
 1. In *Seleziona*Digitare il nome della risorsa di condivisione dati di Azure.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
 Per le origini basate su SQL, oltre ai passaggi precedenti, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure. A questo utente deve essere concessa l'autorizzazione *db_datareader* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [condividere i dati](share-your-data.md) . 
 
@@ -81,7 +81,7 @@ Per creare manualmente un'assegnazione di ruolo per l'identità gestita della ri
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare il ruolo nella tabella di assegnazione ruolo precedente (ad esempio, per account di archiviazione selezionare *lettore dati BLOB di archiviazione*).
 1. In *Seleziona*Digitare il nome della risorsa di condivisione dati di Azure.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
 Per la destinazione basata su SQL, oltre ai passaggi precedenti, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure. A questo utente deve essere concessa l'autorizzazione *db_datareader, db_datawriter db_ddladmin* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [accettare e ricevere dati](subscribe-to-data-share.md) . 
 

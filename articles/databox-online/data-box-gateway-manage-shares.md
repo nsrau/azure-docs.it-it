@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3df7ca90b81b697c72ba8f36bfff56c70cc090f2
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265441"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561320"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Gateway 
 
@@ -37,7 +37,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 1. Nel portale di Azure, selezionare la risorsa Data Box Gateway e quindi passare a **Panoramica**. Fare clic su **+ Aggiungi condivisione** sulla barra dei comandi.
-2. In **Aggiungi condivisione** specificare le impostazioni della condivisione. Specificare un nome univoco per la condivisione.
+2. In **Aggiungi condivisione** specificare le impostazioni della condivisione. Specificare un nome univoco per la condivisione. 
 
     ![Fare clic su Aggiungi condivisione](media/data-box-gateway-manage-shares/add-share-1.png)
 

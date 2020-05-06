@@ -36,7 +36,7 @@ Si raccolgono i computer in gruppi per valutare se sono adatti per la migrazione
 Se si desidera creare un gruppo manualmente al di fuori della creazione di una valutazione, procedere come segue:
 
 1. Nella **panoramica**> progetto Azure migrate fare clic su **valuta ed Esegui la migrazione dei server**. In **Azure migrate: server Assessment**, fare clic su **gruppi**
-    - Se non è ancora stato aggiunto lo strumento Azure Migrate: server Assessment, fare clic per aggiungerlo. [Altre informazioni](how-to-assess.md)
+    - Se non è ancora stato aggiunto lo strumento Azure Migrate: server Assessment, fare clic per aggiungerlo. [Altre informazioni](how-to-assess.md).
     - Se non è ancora stato creato un progetto di Azure Migrate, vedere [altre informazioni](how-to-add-tool-first-time.md).
 
     ![Selezionare i gruppi](./media/how-to-create-a-group/select-groups.png)
@@ -60,7 +60,7 @@ Se è già stato [configurato il mapping delle dipendenze](how-to-create-group-m
 
 1. Nella scheda **Server** , nel riquadro **Azure migrate: server Assessment** , fare clic su **gruppi**.
 2. Fare clic sul gruppo che si desidera ridefinire.
-    - Se non è ancora stato configurato il mapping delle dipendenze, nella colonna **dipendenze** viene visualizzato lo stato **richiesta installazione** . Per ogni macchina virtuale per cui si desidera visualizzare le dipendenze, fare clic su **richiede l'installazione**. Installare un paio di agenti in ogni macchina virtuale prima di poter eseguire il mapping delle dipendenze del computer. [Altre informazioni](how-to-create-group-machine-dependencies.md)
+    - Se non è ancora stato configurato il mapping delle dipendenze, nella colonna **dipendenze** viene visualizzato lo stato **richiesta installazione** . Per ogni macchina virtuale per cui si desidera visualizzare le dipendenze, fare clic su **richiede l'installazione**. Installare un paio di agenti in ogni macchina virtuale prima di poter eseguire il mapping delle dipendenze del computer. [Altre informazioni](how-to-create-group-machine-dependencies.md).
 
         ![Aggiungi mapping delle dipendenze](./media/how-to-create-a-group/add-dependency-mapping.png)
 

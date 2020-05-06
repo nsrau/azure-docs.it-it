@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -66,7 +66,7 @@ Update-AzGalleryImageVersion `
 ```
 
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando si eliminano risorse, è necessario iniziare con l'ultimo elemento nelle risorse nidificate, ovvero la versione dell'immagine. Una volta eliminate le versioni, è possibile eliminare la definizione dell'immagine. Non è possibile eliminare la raccolta fino a quando non sono state eliminate tutte le risorse sottostanti.
 

@@ -117,7 +117,7 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
 1. Selezionare **Verifica + crea** per verificare le impostazioni dell'account di archiviazione.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

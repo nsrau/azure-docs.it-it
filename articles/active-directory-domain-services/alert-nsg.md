@@ -40,19 +40,19 @@ Le seguenti regole di sicurezza predefinite in ingresso e in uscita vengono appl
 
 | Priorità | Nome | Porta | Protocollo | Source (Sorgente) | Destination | Azione |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Qualsiasi | Allow |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Qualsiasi | Allow |
-| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Qualsiasi | Allow |
-| 65000    | AllVnetInBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Allow |
-| 65001    | AllowAzureLoadBalancerInBound | Qualsiasi | Qualsiasi | AzureLoadBalancer | Qualsiasi | Allow |
+| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Qualsiasi | Consenti |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Qualsiasi | Consenti |
+| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Qualsiasi | Consenti |
+| 65000    | AllVnetInBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Consenti |
+| 65001    | AllowAzureLoadBalancerInBound | Qualsiasi | Qualsiasi | AzureLoadBalancer | Qualsiasi | Consenti |
 | 65500    | DenyAllInBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Nega |
 
 ### <a name="outbound-security-rules"></a>Regole di sicurezza in uscita
 
 | Priorità | Nome | Porta | Protocollo | Source (Sorgente) | Destination | Azione |
 |----------|------|------|----------|--------|-------------|--------|
-| 65000    | AllVnetOutBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Allow |
-| 65001    | AllowAzureLoadBalancerOutBound | Qualsiasi | Qualsiasi |  Qualsiasi | Internet | Allow |
+| 65000    | AllVnetOutBound | Qualsiasi | Qualsiasi | VirtualNetwork | VirtualNetwork | Consenti |
+| 65001    | AllowAzureLoadBalancerOutBound | Qualsiasi | Qualsiasi |  Qualsiasi | Internet | Consenti |
 | 65500    | DenyAllOutBound | Qualsiasi | Qualsiasi | Qualsiasi | Qualsiasi | Nega |
 
 >[!NOTE]

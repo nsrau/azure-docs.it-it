@@ -35,7 +35,7 @@ Altri parametri che è possibile modificare includono:
 > [!Note]
 > Per `sql_text`, log verrà troncato se supera i 2048 caratteri.
 
-| **Event** | **Descrizione** |
+| **Evento** | **Descrizione** |
 |---|---|
 | `CONNECTION` | -Avvio della connessione (esito positivo o negativo) <br> -Riautenticazione utente con diversi utenti/password durante la sessione <br> -Terminazione connessione |
 | `DML_SELECT`| Query SELECT |

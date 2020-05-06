@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2020
+ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 4095b0b48e86b0aafcc86d74ca1fa25bacddf0ec
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 6bb53539c105cda99c842b6b0fa236f0e18a85ea
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011719"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82182481"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Progettazione di reti virtuali con risorse gateway NAT
 
-Le risorse gateway NAT fanno parte del servizio [NAT di rete virtuale](nat-overview.md) e forniscono la connettività Internet in uscita per una o più subnet di una rete virtuale. La subnet della rete virtuale determina quale gateway NAT verrà usato. NAT fornisce funzionalità SNAT (Source Network Address Translation) per una subnet.  Le risorse gateway NAT specificano gli indirizzi IP statici usati dalle macchine virtuali durante la creazione di flussi in uscita. Gli indirizzi IP statici provengono da risorse di indirizzi IP pubblici, da risorse di prefissi di indirizzi IP pubblici o da entrambe. Una risorsa gateway NAT può usare fino a 16 indirizzi IP statici da una delle due risorse.
+Le risorse gateway NAT fanno parte del servizio [NAT di rete virtuale](nat-overview.md) e forniscono la connettività Internet in uscita per una o più subnet di una rete virtuale. La subnet della rete virtuale determina quale gateway NAT verrà usato. NAT fornisce funzionalità SNAT (Source Network Address Translation) per una subnet.  Le risorse gateway NAT specificano gli indirizzi IP statici usati dalle macchine virtuali durante la creazione di flussi in uscita. Gli indirizzi IP statici provengono da risorse indirizzo IP pubblico, da risorse prefisso di indirizzo IP pubblico o da entrambe. Se si usa una risorsa prefisso di indirizzo IP pubblico, tutti gli indirizzi IP dell'intera risorsa prefisso di indirizzo IP pubblico vengono utilizzati da una risorsa gateway NAT. Una risorsa gateway NAT può usare in totale fino a 16 indirizzi IP statici da una delle due risorse.
 
 
 <p align="center">
@@ -60,7 +60,8 @@ Il diagramma seguente mostra i riferimenti scrivibili tra le diverse risorse di 
 
 NAT è consigliato per la maggior parte dei carichi di lavoro, a meno che non esista una dipendenza specifica dalla [connettività in uscita con Load Balancer basata sul pool](../load-balancer/load-balancer-outbound-connections.md).  
 
-È possibile eseguire la migrazione da scenari di bilanciamento del carico standard, con [regole in uscita](../load-balancer/load-balancer-outbound-rules-overview.md), al gateway NAT. Per eseguire la migrazione, spostare le risorse di indirizzi IP pubblici e prefissi di indirizzi IP pubblici dai front-end del servizio di bilanciamento del carico al gateway NAT. Per il gateway NAT, non sono necessari nuovi indirizzi IP. È possibile riutilizzare indirizzi e prefissi di indirizzi IP pubblici standard, purché il totale non superi 16 indirizzi IP. Pianificare la migrazione tenendo presente l'interruzione del servizio durante la transizione.  Per ridurre l'interruzione, è possibile automatizzare il processo. Testare prima la migrazione in un ambiente di staging.  Durante la transizione, i flussi originati in ingresso non sono interessati.
+È possibile eseguire la migrazione da scenari di bilanciamento del carico standard, con [regole in uscita](../load-balancer/load-balancer-outbound-rules-overview.md), al gateway NAT. Per eseguire la migrazione, spostare le risorse di indirizzi IP pubblici e prefissi di indirizzi IP pubblici dai front-end del servizio di bilanciamento del carico al gateway NAT. Per il gateway NAT, non sono necessari nuovi indirizzi IP. È possibile riutilizzare risorse indirizzo IP pubblico e la risorsa prefisso di indirizzo IP pubblico standard, purché il totale non superi 16 indirizzi IP. Pianificare la migrazione tenendo presente l'interruzione del servizio durante la transizione.  Per ridurre l'interruzione, è possibile automatizzare il processo. Testare prima la migrazione in un ambiente di staging.  Durante la transizione, i flussi originati in ingresso non sono interessati.
+
 
 L'esempio seguente è un frammento di un modello di Azure Resource Manager.  Questo modello distribuisce diverse risorse, incluso un gateway NAT.  In questo esempio si useranno i parametri seguenti per il modello:
 
@@ -200,7 +201,7 @@ Se lo scenario richiede endpoint in ingresso, sono disponibili due opzioni:
 | Opzione | Modello | Esempio | Pro | Contro |
 |---|---|---|---|---|
 | (1) | **Allineare** gli endpoint in ingresso con i rispettivi **stack di zona** creati in uscita. | Creare un'istanza di Load Balancer Standard con un front-end di zona. | Modello di integrità e modalità di errore identici in ingresso e in uscita. Maggiore gestibilità. | Può essere necessario mascherare i singoli indirizzi IP per ogni zona con un nome DNS comune. |
-| (2) | **Sovrapporre** gli stack di zona con un endpoint in ingresso **tra zone**. | Creare un'istanza di Load Balancer Standard con un front-end con ridondanza della zona. | Singolo indirizzo IP per l'endpoint in ingresso. | Modello di integrità e modalità di errore variabili in ingresso e in uscita.  Maggiore complessità nella gestione. |
+|  (2) | **Sovrapporre** gli stack di zona con un endpoint in ingresso **tra zone**. | Creare un'istanza di Load Balancer Standard con un front-end con ridondanza della zona. | Singolo indirizzo IP per l'endpoint in ingresso. | Modello di integrità e modalità di errore variabili in ingresso e in uscita.  Maggiore complessità nella gestione. |
 
 >[!NOTE]
 > Un gateway NAT con isolamento della zona richiede indirizzi IP che corrispondono alla zona del gateway NAT. Le risorse gateway NAT con indirizzi IP di una zona diversa o senza una zona non sono consentite.
@@ -224,6 +225,12 @@ Anche se lo scenario sembra funzionare, il modello di integrità e la modalità 
 
 >[!NOTE] 
 >Gli indirizzi IP non sono di per sé con ridondanza della zona se non viene specificata una zona.  Il front-end di [Load Balancer Standard è con ridondanza della zona](../load-balancer/load-balancer-standard-availability-zones.md#frontend) se non viene creato un indirizzo IP in una zona specifica.  Ciò non si applica a NAT.  È supportato solo l'isolamento a livello di area o di zona.
+
+## <a name="performance"></a>Prestazioni
+
+Ogni risorsa gateway NAT può garantire fino a 50 Gbps di velocità effettiva. È possibile suddividere le distribuzioni in più subnet e assegnare a ogni subnet o gruppo di subnet un gateway NAT per aumentare il numero di istanze.
+
+Ogni gateway NAT può supportare 64.000 connessioni per ogni indirizzo IP in uscita assegnato.  Per informazioni dettagliate, vedere la sezione seguente relativa a SNAT (Source Network Address Translation), oltre all'articolo sulla [risoluzione dei problemi](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) per indicazioni specifiche sulla risoluzione dei problemi.
 
 ## <a name="source-network-address-translation"></a>Source Network Address Translation
 
@@ -277,9 +284,12 @@ Le porte SNAT rilasciate diventano disponibili per l'uso da parte di qualsiasi m
 
 ### <a name="scaling"></a>Scalabilità
 
-La scalabilità di NAT è principalmente una funzione della gestione dell'inventario di porte SNA disponibile e condiviso. Per NAT deve esistere un inventario di porte SNAT sufficiente per gestire il flusso di picco in uscita previsto per tutte le subnet collegate a una risorsa gateway NAT.  Per creare un inventario di porte SNAT, è possibile usare risorse di indirizzi IP pubblici, risorse di prefissi IP pubblici o entrambe.
+La scalabilità di NAT è principalmente una funzione della gestione dell'inventario di porte SNA disponibile e condiviso. Per NAT deve esistere un inventario di porte SNAT sufficiente per gestire il flusso di picco in uscita previsto per tutte le subnet collegate a una risorsa gateway NAT.  Per creare un inventario di porte SNAT, è possibile usare risorse di indirizzi IP pubblici, risorse di prefissi IP pubblici o entrambe.  
 
-SNAT associa gli indirizzi privati a uno o più indirizzi IP pubblici, riscrivendo l'indirizzo di origine e la porta di origine nei processi. Per questa conversione, una risorsa gateway NAT userà 64.000 porte (SNAT) per ogni indirizzo IP pubblico configurato. Le risorse gateway NAT sono scalabili fino a 16 indirizzi IP pubblici e 1 milione di porte SNAT. Se viene fornita una risorsa di prefisso IP pubblico, ogni indirizzo IP all'interno del prefisso fornisce l'inventario delle porte SNAT. Inoltre, l'aggiunta di altri indirizzi IP pubblici aumenta l'inventario disponibile di porte SNAT. TCP e UDP sono inventari di porte SNAT separati e non correlati.
+>[!NOTE]
+>Se si sta assegnando una risorsa prefisso di indirizzo IP pubblico, verrà usato l'intero prefisso di indirizzo IP pubblico.  Non è possibile assegnare una risorsa prefisso IP pubblico e quindi estrarre singoli indirizzi IP da assegnare ad altre risorse.  Se si vuole assegnare singoli indirizzi IP da un prefisso IP pubblico a più risorse, è necessario creare singoli indirizzi IP pubblici dalla risorsa prefisso di indirizzo IP pubblico e assegnarli in base alle esigenze invece di usare la risorsa prefisso di indirizzo IP pubblico.
+
+SNAT associa gli indirizzi privati a uno o più indirizzi IP pubblici, riscrivendo l'indirizzo di origine e la porta di origine nei processi. Per questa conversione, una risorsa gateway NAT userà 64.000 porte (SNAT) per ogni indirizzo IP pubblico configurato. Le risorse gateway NAT sono scalabili fino a 16 indirizzi IP pubblici e 1 milione di porte SNAT. Se viene fornita una risorsa prefisso di indirizzo IP pubblico, ogni indirizzo IP all'interno del prefisso fornisce l'inventario delle porte SNAT. Inoltre, l'aggiunta di altri indirizzi IP pubblici aumenta l'inventario disponibile di porte SNAT. TCP e UDP sono inventari di porte SNAT separati e non correlati.
 
 Le risorse gateway NAT riutilizzano opportunisticamente le porte di origine. Ai fini della scalabilità, è consigliabile presupporre che ogni flusso richieda una nuova porta SNAT e aumentare il numero totale di indirizzi IP pubblici per il traffico in uscita.
 

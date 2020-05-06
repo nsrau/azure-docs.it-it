@@ -91,7 +91,7 @@ Per usare il connettore SAP Business Warehouse Open Hub, è necessario:
 
 - Creare il tipo SAP Open Hub Destination come **Database Table** (Tabella di database) con l'opzione "Technical Key" (Chiave tecnica) selezionata.  È inoltre consigliabile lasciare deselezionata l'opzione di eliminazione dei dati dalla tabella, anche se questa impostazione non è obbligatoria. Sfruttare DTP (esecuzione diretta o integrazione nella catena di processo esistente) per il trasferimento dei dati dall'oggetto di origine scelto (ad esempio il cubo) nella tabella di destinazione dell'hub aperto.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 > [!TIP]
 >
@@ -105,7 +105,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP Business Warehouse Open Hub sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 |:--- |:--- |:--- |
 | type | La proprietà Type deve essere impostata su: **SapOpenHub** | Sì |
 | server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
@@ -147,7 +147,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da e in SAP BW Open Hub, impostare la proprietà type del set di dati su **SapOpenHubTable**. Sono supportate le proprietà seguenti.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **SapOpenHubTable**.  | Sì |
 | openHubDestinationName | Il nome di Open Hub Destination da cui copiare i dati. | Sì |
@@ -181,7 +181,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP BW Hub aperto, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su **SapOpenHubSource**. | Sì |
 | excludeLastRequest | Se escludere i record dell'ultima richiesta. | No (il valore predefinito è **true**) |
@@ -231,14 +231,14 @@ Quando si copiano dati da SAP BW Open Hub, vengono usati i mapping seguenti tra 
 
 | Tipo SAP ABAP | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| C (String) | Stringa |
+| C (String) | string |
 | I (integer) | Int32 |
 | F (Float) | Double |
-| D (Date) | Stringa |
-| T (Time) | Stringa |
+| D (Date) | string |
+| T (Time) | string |
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
-| N (Numc) | Stringa |
-| X (Binary e Raw) | Stringa |
+| N (Numc) | string |
+| X (Binary e Raw) | string |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 

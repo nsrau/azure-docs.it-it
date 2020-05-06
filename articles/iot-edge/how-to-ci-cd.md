@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a653d13137a3067bfaf51c64c09454a08783e31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131404"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561023"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
 
@@ -100,6 +100,13 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
    * **Piattaforma predefinita**: selezionare la piattaforma appropriata per i moduli in base al dispositivo IOT Edge di destinazione.
    * **Variabili di output**: le variabili di output includono un nome di riferimento che è possibile usare per configurare il percorso del file in cui verrà generato il file Deployment. JSON. Impostare il nome di riferimento su un valore facile da ricordare, ad esempio **edge**.
 
+
+   Queste configurazioni usano il repository di immagini e il tag definiti nel `module.json` file per assegnare un nome e un tag all'immagine del modulo. Le **Immagini dei moduli di compilazione** consentono inoltre di sostituire le variabili con il valore esatto `module.json` definito nel file. In Visual Studio o Visual Studio Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines è possibile impostare il valore nella scheda **variabili pipeline** . Selezionare la scheda **variabili** e configurare il nome e il valore come segue:
+
+    * **ACR_ADDRESS**: indirizzo del container Registry di Azure. 
+
+    Se nel progetto sono presenti altre variabili, è possibile specificare il nome e il valore in questa scheda. le **Immagini dei moduli di compilazione** riconoscono `${VARIABLE}` solo le variabili nel formato. Assicurarsi di usare questo formato nei `**/module.json` file.
+    
 7. Selezionare la seconda attività **Azure IoT Edge** per modificarla. Questa attività esegue il push di tutte le immagini dei moduli nel registro contenitori selezionato.
 
    * **Nome visualizzato**: il nome visualizzato viene aggiornato automaticamente quando viene modificato il campo dell'azione.

@@ -71,7 +71,7 @@ Il codice JSON seguente mostra lo schema dell'estensione dell'agente di dipenden
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/esempio |
+| Nome | Valore/esempio |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft. Azure. Monitoring. DependencyAgent |

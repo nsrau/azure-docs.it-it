@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dde84f0973cc7e21e57574bbabe398b38581358f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022682"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562400"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casi d'uso di Azure Data Box Gateway
 
@@ -77,7 +77,7 @@ Questo trasferimento in blocco completa la fase di seeding iniziale.
 
 ### <a name="ongoing-feed-with-data-box-gateway"></a>Feed continuativo con Data Box Gateway
 
-Seguire questa procedura per l'inserimento dati continuo tramite Data Box Gateway.
+Seguire questa procedura per l'inserimento dati continuo tramite Data Box Gateway. 
 
 1. Creare una condivisione cloud in Data Box Gateway. Questa condivisione carica automaticamente tutti i dati nell'account di Archiviazione di Azure. Nella risorsa Data Box Gateway passare a **Condivisioni** e fare clic su **+ Aggiungi condivisione**.
 

@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
 ms.service: marketplace
