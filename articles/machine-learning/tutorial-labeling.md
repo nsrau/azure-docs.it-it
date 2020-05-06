@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/02/2020
-ms.openlocfilehash: fa33861d86ff8bee3e2a34fb3d93032ac6180880
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879623"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203642"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura per la classificazione delle immagini multi-classe 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,18 +75,6 @@ Gli archivi dati di Azure Machine Learning vengono usati per archiviare le infor
 
 1. Selezionare **Crea** per creare l'archivio dati.
 
-### <a name="add-labelers-to-workspace"></a>Aggiungere etichettatori all'area di lavoro
-
-Configurare l'area di lavoro in modo da includere tutte le persone che etichetteranno i dati per un qualsiasi progetto.  Successivamente si aggiungeranno questi etichettatori al progetto di etichettatura specifico.
-
-1. Sul lato sinistro selezionare **Etichettatura dei dati**.
-
-1. Nella parte superiore della pagina selezionare **Etichettatori**.
-
-1. Selezionare **Aggiungi etichettatore** per aggiungere l'indirizzo di posta elettronica di un etichettatore.
-
-1. Continuare ad aggiungere gli altri etichettatori fino a completarne l'inserimento.
-
 ### <a name="create-a-labeling-project"></a>Creare un progetto di etichettatura
 
 Ora che si ha l'elenco di etichettatori e l'accesso ai dati da etichettare, creare il progetto di etichettatura.
@@ -142,51 +130,21 @@ Ora che si ha l'elenco di etichettatori e l'accesso ai dati da etichettare, crea
 
 Questa pagina non viene aggiornata automaticamente. Dopo una pausa, aggiornare manualmente la pagina finché lo stato del progetto non passa a **Creato**.
 
-### <a name="add-labelers-to-your-project"></a>Aggiungere etichettatori al progetto
-
-Aggiungere alcuni o tutti gli etichettatori al progetto.
-
-1. Selezionare il nome del progetto per aprirlo.  
-
-1. Nella parte superiore della pagina selezionare **Team**.
-
-1. Selezionare il collegamento **labeling_tutorial Default Team** (Team predefinito labeling_tutorial).
-
-1. Usare quindi **Assegna etichettatori** per aggiungere gli etichettatori che si vuole che partecipino al progetto. 
-
-1. Selezionare dall'elenco di etichettatori creato in precedenza.  Dopo aver selezionato tutti gli etichettatori desiderati, selezionare **Assegna etichettatori** per aggiungerli al team di progetto predefinito.
-
 ## <a name="start-labeling"></a>Avviare l'etichettatura
 
 Ora che sono stati configurati le risorse di Azure e un progetto di etichettatura dei dati, aggiungere le etichette ai dati.
 
-### <a name="notify-labelers"></a>Inviare notifiche agli etichettatori
+### <a name="tag-the-images"></a>Assegnare tag alle immagini
 
-Se le immagini da etichettare sono molte, è auspicabile avere anche un numero elevato di etichettatori per completare l'attività.  A questo punto sarà opportuno inviare loro le istruzioni affinché possano accedere ai dati e avviare l'etichettatura.
+In questa parte dell'esercitazione si passerà dal ruolo di *amministratore di progetto* a quello di *etichettatore*.  Chiunque abbia accesso come collaboratore all'area di lavoro può diventare un'etichettatore.
 
 1. In [Machine Learning Studio](https://ml.azure.com) selezionare **Etichettatura dei dati** sul lato sinistro per trovare il progetto.  
 
-1. Selezionare il collegamento con il nome del progetto.
+1. Selezionare il nome del progetto nell'elenco.
 
-1. Nella parte superiore della pagina selezionare **Dettagli**.  Verrà visualizzato un riepilogo del progetto.
+1. Sotto il nome del progetto selezionare **Etichetta dati**.
 
-    ![Dettagli del progetto](media/tutorial-labeling/project-details.png)
-
-1. Copiare il collegamento **URL del portale di etichettatura** da inviare agli etichettatori.
-
-1. Selezionare quindi **Team** nella parte superiore per trovare il team di etichettatura.  
-
-1. Selezionare il collegamento con il nome del team.
-
-1. Nella parte superiore della pagina selezionare **Invia messaggio di posta elettronica al team** per avviare il messaggio.  Incollare l'URL del portale di etichettatura appena copiato.  
-
-Ogni volta che un etichettatore passa all'URL del portale, verranno visualizzate altre immagini da etichettare finché la coda non sarà vuota.  
-
-### <a name="tag-the-images"></a>Assegnare tag alle immagini
-
-In questa parte dell'esercitazione si passerà dal ruolo di *amministratore di progetto* a quello di *etichettatore*.  Usare l'URL inviato al team.  Questo URL consente di andare al portale di etichettatura del progetto.  Se si sono aggiunte istruzioni, queste verranno visualizzate quando si arriva alla pagina.
-
-1. Nella parte superiore della pagina selezionare **Attività** per avviare l'etichettatura.
+1. Leggere le istruzioni, quindi selezionare **Attività**.
 
 1. Selezionare un'immagine di anteprima sulla destra per visualizzare il numero di immagini che si vuole etichettare in un'unica operazione. Prima di procedere, è necessario etichettare tutte queste immagini. Cambiare il layout solo quando si apre una nuova pagina di dati non etichettati. Quando si passa da un layout all'altro, l'attività di aggiunta dei tag in corso della pagina viene cancellata.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224038"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82182345"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -127,7 +127,7 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 2. In **Criteri di creazione e associazione**specificare il nome dei criteri. Il nome usato al momento è **ContosoReplicationPolicy**.
 3. Per questa esercitazione verranno usate le impostazioni predefinite:
     - **Frequenza di copia**: indica la frequenza di replica dei dati delta (dopo la replica iniziale). La frequenza predefinita è ogni 5 minuti.
-    - **Conservazione del punto di ripristino** indica che i punti di ripristino verranno conservati per due ore.
+    - **Conservazione del punto di ripristino** indica che i punti di ripristino verranno conservati per due ore. Il valore massimo consentito per la conservazione quando si proteggono le macchine virtuali ospitate in host Hyper-V è di 24 ore.
     - **Frequenza snapshot coerenti con l'app**: indica che i punti di ripristino contenenti snapshot coerenti con l'app verranno creati ogni ora.
     - **Ora di inizio della replica iniziale**: indica che la replica iniziale verrà avviata immediatamente.
 4. Dopo aver creato i criteri, selezionare **OK**. Quando si creano nuovi criteri, questi vengono associati automaticamente al sito Hyper-V. In questa esercitazione si tratta di **ContosoHyperVSite**.

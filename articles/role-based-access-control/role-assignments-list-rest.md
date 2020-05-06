@@ -1,6 +1,6 @@
 ---
-title: Elencare le assegnazioni di ruolo usando RBAC di Azure e l'API REST
-description: Informazioni su come determinare le risorse a cui utenti, gruppi, entità servizio o identità gestite possono accedere usando il controllo degli accessi in base al ruolo (RBAC) di Azure e l'API REST.
+title: Elencare le assegnazioni di ruolo di Azure usando l'API REST-RBAC di Azure
+description: Informazioni su come determinare le risorse a cui utenti, gruppi, entità servizio o identità gestite possono accedere usando l'API REST e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a494e7fd4c9fb79faa6a1d8cb2c3c871796ccdc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 043c91e5c1ecd86951ac3f9423558a3ab369d506
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062151"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735675"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Elencare le assegnazioni di ruolo usando RBAC di Azure e l'API REST
+# <a name="list-azure-role-assignments-using-the-rest-api"></a>Elencare le assegnazioni di ruolo di Azure tramite l'API REST
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Questo articolo descrive come elencare le assegnazioni di ruolo usando l'API REST.
 
@@ -31,7 +31,7 @@ ms.locfileid: "80062151"
 
 ## <a name="list-role-assignments"></a>Elencare le assegnazioni di ruolo
 
-Per visualizzare le informazioni sull'accesso nel controllo degli accessi in base al ruolo, elencare le assegnazioni di ruolo. Per elencare le assegnazioni di ruolo, usare una delle API REST per l'[elenco delle assegnazioni di ruolo](/rest/api/authorization/roleassignments/list). Per affinare i risultati, specificare un ambito e un filtro facoltativo.
+In controllo degli accessi in base al ruolo di Azure è possibile elencare le assegnazioni di ruolo. Per elencare le assegnazioni di ruolo, usare una delle API REST per l'[elenco delle assegnazioni di ruolo](/rest/api/authorization/roleassignments/list). Per affinare i risultati, specificare un ambito e un filtro facoltativo.
 
 1. Iniziare con la richiesta seguente:
 
@@ -42,7 +42,7 @@ Per visualizzare le informazioni sull'accesso nel controllo degli accessi in bas
 1. All'intero dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -63,5 +63,5 @@ Per visualizzare le informazioni sull'accesso nel controllo degli accessi in bas
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'API REST](role-assignments-rest.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](role-assignments-rest.md)
 - [Informazioni di riferimento sull'API REST di Azure](/rest/api/azure/)

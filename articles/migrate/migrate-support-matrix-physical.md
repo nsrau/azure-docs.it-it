@@ -3,12 +3,12 @@ title: Supporto per la valutazione del server fisico in Azure Migrate
 description: Informazioni sul supporto per la valutazione del server fisico con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: ae76a6b570ec58e71a8a1728a2a601728030f58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f21ec149aa6f85c0a1f33e91dacf9de48ff72bbb
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538155"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744525"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matrice di supporto per la valutazione del server fisico 
 
@@ -34,16 +34,18 @@ Per valutare i server fisici, creare un progetto Azure Migrate e aggiungere lo s
 | **Supporto tecnico**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
-| **Autorizzazioni**           | **Windows:** È necessario un account utente locale o di dominio in tutti i server Windows che si desidera individuare. L'account utente deve essere aggiunto a questi gruppi: Desktop remoto utenti, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
-| **Sistema operativo** | Tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) supportati da Azure, ad eccezione di Windows Server 2003 e SUSE Linux.|
+| **Autorizzazioni**           | **Windows:** È necessario essere un amministratore di dominio o un amministratore locale in tutti i server Windows che si desidera individuare. L'account utente deve essere aggiunto a questi gruppi: utenti Gestione remota, utenti di performance monitor e utenti di log delle prestazioni. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
+| **Sistema operativo** | Tutti i sistemi operativi server [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) supportati da Azure, ad eccezione di Windows Server 2003 e SUSE Linux.<br/><br/> Sistemi operativi client Windows 10 e Windows 8. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
 
-Azure Migrate usa l' [appliance Azure migrate](migrate-appliance.md) per l'individuazione e la valutazione. L'appliance per i server fisici può essere eseguita in una macchina virtuale o in un computer fisico. È possibile impostare l'appliance usando uno script di PowerShell che è possibile scaricare dal portale di Azure.
+Azure Migrate usa l' [appliance Azure migrate](migrate-appliance.md) per l'individuazione e la valutazione. L'appliance per i server fisici può essere eseguita in una macchina virtuale o in un computer fisico. 
 
 - Informazioni sui [requisiti degli appliance](migrate-appliance.md#appliance---physical) per i server fisici.
 - Informazioni sugli URL necessari all'appliance per accedere ai cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi](migrate-appliance.md#government-cloud-urls) .
+- È possibile impostare l'appliance usando uno [script di PowerShell](how-to-set-up-appliance-physical.md) che è possibile scaricare dal portale di Azure.
+In Azure per enti pubblici distribuire l'appliance [usando questo script](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Accesso alla porta
 

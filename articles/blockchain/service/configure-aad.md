@@ -63,7 +63,7 @@ La sezione seguire la Guida introduttiva nel **file Leggimi** per compilare il c
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Connettersi usando un account utente Azure AD
 
-1. Eseguire il comando seguente per eseguire l'autenticazione con un account utente Azure AD. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio: `yourdomain.onmicrosoft.com`.
+1. Eseguire il comando seguente per eseguire l'autenticazione con un account utente Azure AD. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio, `yourdomain.onmicrosoft.com`
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -99,7 +99,7 @@ Per altre informazioni su come registrare un'applicazione in Azure AD, vedere [p
 
 Per un dispositivo mobile o un browser basato su testo in cui non è possibile visualizzare la visualizzazione popup dell'autenticazione Azure AD, Azure AD genera un solo codice di accesso. È possibile copiare il codice e procedere con l'autenticazione Azure AD in un altro ambiente.
 
-Per generare il codice, sostituire **aadauthcode** con **aaddevice**. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio: `yourdomain.onmicrosoft.com`.
+Per generare il codice, sostituire **aadauthcode** con **aaddevice**. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio, `yourdomain.onmicrosoft.com`
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

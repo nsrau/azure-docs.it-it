@@ -42,9 +42,9 @@ Utilizzare la barra di scorrimento nella parte inferiore della tabella per visua
 
 | **Prefisso** |  **Tipo hop successivo** | **Hop successivo** |  **Origine route** |**Percorso AS** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
+| 10.20.1.0/24|Connessione |10.1.0.6, 10.1.0.7| /Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
 |10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
-|10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
+|10.23.1.0/24| Connessione |10.1.0.6, 10.1.0.7|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
 |10.4.0.0/16|Connessione alla rete virtuale| Collegamento |  |  |
 |10.5.0.0/16| Indirizzo IP| 10.4.0.6|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/Table_1| |
 |0.0.0.0/0| Indirizzo IP| `<Azure Firewall IP>` |/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/Table_1| |

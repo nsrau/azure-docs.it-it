@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: a34264870ce812da5d7e7c790a1482d90b33d06a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: db488e4a9ec9aa0f4f12c8de45f123dba1a93cdf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536166"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82112712"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
-In questa guida introduttiva si usa un esempio di codice per illustrare in che modo l'app Web ASP.NET Core può consentire l'accesso ad account personali (hotmail.com, outlook.com e di altro tipo) e account aziendali e dell'istituto di istruzione da qualsiasi istanza di Azure Active Directory (Azure AD). Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
+In questa guida di avvio rapido si usa un esempio di codice per illustrare in che modo l'app Web ASP.NET Core può consentire l'accesso ad account personali (hotmail.com, outlook.com e di altro tipo) e account aziendali e dell'istituto di istruzione da qualsiasi istanza di Azure Active Directory (Azure AD). Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
-> Per avviare l'applicazione della guida introduttiva sono disponibili due opzioni:
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida di avvio rapido
+> Per avviare l'applicazione della guida di avvio rapido sono disponibili due opzioni:
 > * [Rapida] [Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manuale] [Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
@@ -52,7 +52,7 @@ In questa guida introduttiva si usa un esempio di codice per illustrare in che m
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento dell'esempio di codice per questa guida introduttiva, è necessario aggiungere `https://localhost:44321/` e `https://localhost:44321/signin-oidc` come URL di risposta e `https://localhost:44321/signout-oidc` come URL di disconnessione e richiedere il rilascio di token ID da parte dell'endpoint di autorizzazione.
+> Per il funzionamento dell'esempio di codice per questa guida di avvio rapido, è necessario aggiungere `https://localhost:44321/` e `https://localhost:44321/signin-oidc` come URL di risposta e `https://localhost:44321/signout-oidc` come URL di disconnessione e richiedere il rilascio di token ID da parte dell'endpoint di autorizzazione.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >
@@ -155,6 +155,19 @@ La riga contenente `.AddAzureAd` aggiunge l'autenticazione di Microsoft Identity
 > [!NOTE]
 > L'impostazione di `ValidateIssuer = false` è una semplificazione per questo avvio rapido. Nelle applicazioni reali è necessario convalidare l'autorità di certificazione.
 > Vedere gli esempi per comprendere come eseguire questa operazione.
+>
+> Tenere presente anche che il metodo `Configure` contiene due metodi importanti: `app.UserCookiePolicy()` e `app.UseAuthentication()`
+
+```csharp
+// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    // more core
+    app.UseCookiePolicy();
+    app.UseAuthentication();
+    // more core
+}
+```
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Proteggere un controller o un metodo del controller
 

@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 9a6bd3cab41c69075f5170a8a3aad4f059d970e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159048"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732904"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per MariaDB con capacità riservata
 
@@ -19,7 +19,7 @@ Il database di Azure per MariaDB consente ora di risparmiare denaro prepagando l
 
 Non è necessario assegnare la prenotazione a specifici server di database di Azure per MariaDB. Un database di Azure già in esecuzione per MariaDB o uno appena distribuito, otterrà automaticamente il vantaggio dei prezzi riservati. Tramite l'acquisto di una prenotazione, si pagano in anticipo i costi di calcolo per un periodo di uno o tre anni. Non appena si acquista una prenotazione, i costi di calcolo per il database di Azure per MariaDB che corrispondono agli attributi di prenotazione non vengono più addebitati alle tariffe con pagamento in base al consumo. Una prenotazione non copre il software, la rete o gli addebiti di archiviazione associati al server di database MariaDB. Al termine del periodo di prenotazione, il vantaggio di fatturazione scade e il database di Azure per MariaDB viene fatturato in base al prezzo con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente. Per informazioni sui prezzi, vedere l' [offerta di capacità riservata per database di Azure per MariaDB](https://azure.microsoft.com/pricing/details/mariadb/). </br>
 
-È possibile acquistare il database di Azure per la capacità riservata MariaDB nel [portale di Azure](https://portal.azure.com/). Per acquistare la capacità riservata:
+È possibile acquistare il database di Azure per la capacità riservata MariaDB nel [portale di Azure](https://portal.azure.com/). Usare [pagamenti anticipati o mensili](../cost-management-billing/reservations/monthly-payments-reservations.md) per acquistare la prenotazione. Per acquistare la capacità riservata:
 
 * È necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise o singola con tariffe con pagamento in base al consumo.
 * Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore della sottoscrizione con contratto Enterprise.

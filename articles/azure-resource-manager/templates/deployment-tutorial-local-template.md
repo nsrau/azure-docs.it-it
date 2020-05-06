@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un modello di Azure Resource Manag
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c8e3eb62fa52caeaa63808b6b9ea199bdff5c4da
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081820"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82188825"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Esercitazione: Distribuire un modello di Azure Resource Manager locale
 
@@ -37,9 +37,7 @@ I modelli sono file JSON. Per controllare/modificare i modelli, è necessario un
 
 ## <a name="review-template"></a>Rivedere il modello
 
-Il modello usato in questa esercitazione è simile al modello usato nell'[esercitazione sui modelli di avvio rapido](template-tutorial-quickstart-template.md). Se si è interessati alla creazione del modello, è possibile eseguire tale esercitazione. Tuttavia, questo passaggio non è necessario per completare questa esercitazione.
-
-Con il modello vengono distribuiti un account di archiviazione, un piano di servizio app e un'app Web.
+Con il modello vengono distribuiti un account di archiviazione, un piano di servizio app e un'app Web. Se si è interessati alla creazione del modello, è possibile eseguire l'[esercitazione sui modelli di avvio rapido](template-tutorial-quickstart-template.md). Tuttavia, questo passaggio non è necessario per completare questa esercitazione.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 

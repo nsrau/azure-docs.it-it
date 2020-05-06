@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 754f30f7931f9fad6a95328cbf8ab34f70cb75a0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426110"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82105574"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Esercitazione: Importare un certificato in Azure Key Vault
 
@@ -76,11 +76,14 @@ Per importare un certificato nell'insieme di credenziali, è necessario che un f
     - **Metodo di creazione del certificato**: Importazione.
     - **Nome certificato**: ExampleCertificate.
     - **Carica il file di certificato**: selezionare il file di certificato dal disco
-    - Lasciare invariati gli altri valori predefiniti. Fare clic su **Crea**.
+    - **Password**: se si sta caricando un file di certificato protetto da password, inserire la password qui. In caso contrario, lasciare il campo vuoto. Una volta importato correttamente il file del certificato, Key Vault rimuoverà tale password.
+4. Fare clic su **Crea**.
 
 ![Proprietà del certificato](../media/certificates/tutorial-import-cert/cert-import.png)
 
-Dopo avere ricevuto il messaggio che indica che il certificato è stato importato, è possibile fare clic sul di esso nell'elenco per visualizzare alcune delle proprietà. 
+Con l'aggiunta di un certificato con il metodo di **importazione**, Azure Key Vault compilerà automaticamente i parametri del certificato, ad esempio il periodo di validità, il nome dell'autorità emittente, la data di attivazione e così via.
+
+Dopo avere ricevuto il messaggio che indica che il certificato è stato importato, è possibile fare clic sul di esso nell'elenco per visualizzarne le proprietà. 
 
 ![Proprietà del certificato](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
@@ -101,6 +104,22 @@ az keyvault certificate import --file
 ```
 Per altre informazioni sui parametri, vedere [qui](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
 
+Dopo aver importato il certificato, è possibile visualizzare il certificato con [Mostra certificato](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show).
+
+
+```azurecli
+az keyvault certificate show [--id]
+                             [--name]
+                             [--only-show-errors]
+                             [--subscription]
+                             [--vault-name]
+                             [--version]
+```
+
+
+
+A questo punto, è stato creato un insieme di credenziali delle chiavi, è stato importato un certificato e sono state visualizzate le proprietà del certificato.
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Altre guide introduttive ed esercitazioni relative a Key Vault si basano su questa guida introduttiva. Se si prevede di usare le guide introduttive e le esercitazioni successive, è consigliabile non cancellare le risorse create.
@@ -115,6 +134,6 @@ Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'is
 
 In questa esercitazione è stata creata un'istanza di Key Vault ed è stato importato un certificato al suo interno. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
-- Altre informazioni sulla [Gestione dei certificati in Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
+- Altre informazioni sulla [Gestione della creazione dei certificati in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
 - Vedere esempi di [Importazione di certificati con le API REST](/rest/api/keyvault/importcertificate/importcertificate)
 - Esaminare le [procedure consigliate per Azure Key Vault](../general/best-practices.md)

@@ -3,7 +3,7 @@ title: 'Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes
 description: Informazioni su come creare rapidamente un cluster Kubernetes, distribuire un'applicazione e monitorare le prestazioni nel servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 04/28/2020
 ms.custom:
 - H1Hack27Feb2017
 - mvc
@@ -11,18 +11,18 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: 369e0da49064197524ee20bb8a0050c00c242260
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2b45154a0198fe0845649167d0fa35aabfd0625e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392772"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207395"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure
 
 In questa guida di avvio rapido si distribuirà un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure. Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. Nel cluster verrà eseguita un'applicazione multi-contenitore che include un front-end Web e un'istanza di Redis. Verrà quindi descritto come monitorare l'integrità del cluster e dei pod che eseguono l'applicazione.
 
-Se si vogliono usare contenitori di Windows Server, attualmente in anteprima nel servizio Azure Kubernetes, vedere [Creare un cluster del servizio Azure Kubernetes che supporta contenitori di Windows Server][windows-container-cli].
+Per altre informazioni sulla creazione di un pool di nodi di Windows Server, vedere [Creare un cluster del servizio Azure Kubernetes che supporta i contenitori di Windows Server][windows-container-cli].
 
 ![App di voto distribuita nel servizio Azure Kubernetes](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere o rimuovere assegnazioni di ruolo con RBAC e l'API REST
-description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando il controllo degli accessi in base al ruolo (RBAC) di Azure e l'API REST.
+title: Aggiungere o rimuovere assegnazioni di ruolo di Azure usando l'API REST-RBAC di Azure
+description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando l'API REST e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9beda6589c03f1b14fc9756af86a9ce0711894c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b73de61834a3ab20cab5e664ed307ad63e087608
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063003"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735641"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'API REST
+# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Questo articolo descrive come assegnare i ruoli usando l'API REST.
 
@@ -34,7 +34,7 @@ Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 
 ## <a name="add-a-role-assignment"></a>Aggiungi un'assegnazione di ruolo
 
-In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo. Per aggiungere un'assegnazione di ruolo, usare le [assegnazioni di ruolo-crea](/rest/api/authorization/roleassignments/create) API REST e specificare l'entità di sicurezza, la definizione del ruolo e l'ambito. Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/write`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
+In controllo degli accessi in base al ruolo di Azure, è possibile aggiungere un'assegnazione di ruolo. Per aggiungere un'assegnazione di ruolo, usare le [assegnazioni di ruolo-crea](/rest/api/authorization/roleassignments/create) API REST e specificare l'entità di sicurezza, la definizione del ruolo e l'ambito. Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/write`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
 
 1. Usare l'API REST per l'[elenco delle definizioni del ruolo](/rest/api/authorization/roledefinitions/list) o vedere [Ruoli predefiniti](built-in-roles.md) per ottenere l'identificatore per la definizione del ruolo da assegnare.
 
@@ -58,7 +58,7 @@ In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo. Per aggi
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -72,7 +72,7 @@ In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo. Per aggi
 1. Nel corpo della richiesta sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -85,7 +85,7 @@ In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo. Per aggi
 
 ## <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
 
-Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, si rimuove un'assegnazione di ruolo. Per rimuovere un'assegnazione di ruolo, usare l'API REST per l'[eliminazione delle assegnazioni di ruolo](/rest/api/authorization/roleassignments/delete). Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/delete`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
+In controllo degli accessi in base al ruolo di Azure, rimuovere un'assegnazione di ruolo. Per rimuovere un'assegnazione di ruolo, usare l'API REST per l'[eliminazione delle assegnazioni di ruolo](/rest/api/authorization/roleassignments/delete). Per chiamare questa API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/delete`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator).
 
 1. Ottenere l'identificatore di assegnazione di ruolo (GUID). Questo identificatore viene restituito quando si crea l'assegnazione di ruolo per la prima volta oppure è possibile ottenerlo elencando le assegnazioni di ruolo.
 
@@ -98,7 +98,7 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per la rimozione dell'assegnazione di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -109,7 +109,7 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Elencare le assegnazioni di ruolo usando RBAC di Azure e l'API REST](role-assignments-list-rest.md)
+- [Elencare le assegnazioni di ruolo di Azure tramite l'API REST](role-assignments-list-rest.md)
 - [Distribuire le risorse con i modelli e l'API REST di Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
 - [Informazioni di riferimento sull'API REST di Azure](/rest/api/azure/)
-- [Creare ruoli personalizzati per le risorse di Azure tramite l'API REST](custom-roles-rest.md)
+- [Creare o aggiornare i ruoli personalizzati di Azure usando l'API REST](custom-roles-rest.md)

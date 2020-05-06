@@ -1,26 +1,35 @@
 ---
-ms.openlocfilehash: 13dcdec4eff72f97e1af8ecb26e32c0ef5f881fd
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+title: 'Guida introduttiva: Libreria client di QnA Maker per Python'
+description: Questa guida di avvio rapido illustra come usare la libreria client di QnA Maker per Python.
+ms.topic: include
+ms.date: 04/27/2020
+ms.openlocfilehash: ccd046ad8e511517abd9f45072781e736f0e79b9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81637061"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204024"
 ---
-
 Usare la libreria client di QnA Maker per Python per eseguire queste operazioni:
 
 * Creare una knowledge base
-* Gestire una knowledge base
+* Aggiornare una knowledge base
 * Pubblicare una knowledge base
+* Ottenere la chiave di un endpoint pubblicato
+* Attendere un'attività a esecuzione prolungata
+* Eliminare una knowledge base
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | [Pacchetto (PyPI)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/) | [Esempi Python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
+* Dopo aver creato la sottoscrizione di Azure, creare una [risorsa QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) nel portale di Azure per ottenere la chiave di creazione e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API QnA Maker. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
 

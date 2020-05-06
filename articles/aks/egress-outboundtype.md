@@ -4,12 +4,12 @@ description: Informazioni su come definire una route in uscita personalizzata in
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676497"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733499"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizzare l'uscita del cluster con una route definita dall'utente (anteprima)
 
@@ -73,7 +73,7 @@ Di seguito è riportata una topologia di rete distribuita nei cluster AKS per im
 
 Se `userDefinedRouting` è impostato, AKS non configurerà automaticamente i percorsi in uscita. L' **utente**deve eseguire le operazioni seguenti.
 
-Il cluster deve essere distribuito in una rete virtuale esistente con una subnet configurata. Una route definita dall'utente (UDR) valida deve esistere nella subnet con connettività in uscita.
+Il cluster AKS deve essere distribuito in una rete virtuale esistente con una subnet configurata. Quando si usa l'architettura Load Balancer standard (SLB) è necessario stabilire l'uscita esplicita. A questo scopo, è necessario inviare richieste in uscita a un'appliance, ad esempio un firewall, un gateway, un ambiente locale o per consentire l'uscita da un indirizzo IP pubblico assegnato al servizio di bilanciamento del carico standard o a un nodo specifico.
 
 Il provider di risorse AKS distribuirà un servizio di bilanciamento del carico standard (SLB). Il servizio di bilanciamento del carico non è configurato con alcuna regola e non [comporta alcun addebito fino a quando non viene inserita una regola](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **non** effettuerà automaticamente il provisioning di un indirizzo IP pubblico per il front-end SLB. AKS **non** configurerà automaticamente il pool back-end del servizio di bilanciamento del carico.
 
@@ -520,7 +520,7 @@ kubernetes         ClusterIP      192.168.0.1      <none>        443/TCP        
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 > [!NOTE]
 > Quando si elimina il servizio interno Kubernetes, se il servizio di bilanciamento del carico interno non è più usato da alcun servizio, il provider di servizi cloud di Azure eliminerà il servizio di bilanciamento del carico interno. Alla successiva distribuzione del servizio, verrà distribuito un servizio di bilanciamento del carico se non è possibile trovarlo con la configurazione richiesta.

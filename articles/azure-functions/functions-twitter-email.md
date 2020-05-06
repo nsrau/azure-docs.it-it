@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75768963"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190300"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -36,7 +36,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
 + Un account [Twitter](https://twitter.com/) attivo. 
 + Un account [Outlook.com](https://outlook.com/) per l'invio delle notifiche.
-+ Questo articolo usa per iniziare le risorse create in [Creare la prima funzione nel portale di Azure](functions-create-first-azure-function.md).  
+
+> [!NOTE]
+> Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare il connettore Gmail solo con app e servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione nel connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
++ Questo articolo usa per iniziare le risorse create in [Creare la prima funzione nel portale di Azure](functions-create-first-azure-function.md).
 Se queste procedure non sono state ancora completate, completarle ora per creare l'app per le funzioni.
 
 ## <a name="create-a-cognitive-services-resource"></a>Creare una risorsa per Servizi cognitivi
@@ -78,7 +82,7 @@ Funzioni permette di ripartire il carico di lavoro delle attività di elaborazio
 
 1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Nel portale**.
 
-    ![Pagina della guida introduttiva di Funzioni nel portale di Azure](media/functions-twitter-email/05-function-app-create-portal.png)
+    ![Pagina della guida di avvio rapido di Funzioni nel portale di Azure](media/functions-twitter-email/05-function-app-create-portal.png)
 
 2. Selezionare quindi **Webhook e API** e fare clic su **Crea**. 
 

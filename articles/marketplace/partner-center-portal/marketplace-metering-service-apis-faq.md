@@ -6,17 +6,17 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 6e5b691a41ef283449f9eeeb90e9d01a91616146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 04/13/2020
+ms.openlocfilehash: 9a1493790969c4d34d7d41572dff6e15d16d2a19
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275782"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735454"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>API del servizio di misurazione di Marketplace - domande frequenti
 
-Quando un utente di Azure sottoscrive un servizio SaaS che include la fatturazione a consumo, si tiene traccia del consumo per ogni dimensione di fatturazione usata dal cliente. Se il consumo supera le quantità incluse impostate per il termine selezionato dal cliente, il servizio emetterà gli eventi di utilizzo a Microsoft.
+Quando un utente di Azure sottoscrive un servizio SaaS che include la fatturazione a consumo, viene tenuto traccia del consumo per ogni dimensione di fatturazione usata dal cliente. Se il consumo supera le quantità incluse impostate per il termine selezionato dal cliente, il servizio emetterà gli eventi di utilizzo a Microsoft.
 
 ## <a name="emit-usage-events"></a>Generare eventi di utilizzo
 
@@ -35,7 +35,7 @@ Idealmente, è previsto che l'utilizzo venga emesso ogni ora nell'ultima ora, so
 
 Idealmente, l'evento Usage viene generato ogni ora per gli eventi che si sono verificati nell'ultima ora. Tuttavia, sono previsti ritardi. Il ritardo massimo consentito è di 24 ore, dopo i quali gli eventi di utilizzo non verranno accettati.
 
-Se, ad esempio, un evento di utilizzo si verifica alle ore 1 di un giorno, il giorno successivo per emettere un evento di utilizzo associato a questo evento sarà necessario attendere il giorno 1. Ciò significa che, nel caso in cui l'utilizzo dell'emissione del sistema abbia un tempo di inattività, può ripristinare e quindi inviare l'evento di utilizzo per l'intervallo di ore in cui si è verificato l'utilizzo, senza perdita di fedeltà.
+Se, ad esempio, un evento di utilizzo si verifica alle ore 1 di un giorno, il giorno successivo per emettere un evento di utilizzo associato a questo evento sarà necessario attendere il giorno 1. Quando l'utilizzo del sistema emette un tempo di inattività, viene ripristinato e quindi inviato l'evento di utilizzo per l'intervallo di ore in cui si è verificato l'utilizzo, senza perdita di fedeltà.
 
 ### <a name="what-happens-when-you-send-more-than-one-usage-event-on-the-same-hour"></a>Cosa accade quando si invia più di un evento di utilizzo nella stessa ora?
 
@@ -49,6 +49,12 @@ Tutti gli eventi di utilizzo emessi alla piattaforma Marketplace non verranno ac
 
 Sì, quando si chiama l' `GET /saas/subscriptions` API include un elenco di tutte le sottoscrizioni Saas. Il campo stato nella risposta per ogni sottoscrizione SaaS acquisisce se la sottoscrizione è attiva o non sottoscritta. La chiamata alle sottoscrizioni List restituisce al massimo 100 sottoscrizioni al momento.
 
+### <a name="what-happens-if-the-marketplace-metering-service-has-an-outage"></a>Cosa accade se il servizio di misurazione del Marketplace presenta un'interruzione?
+
+Se il ISV Invia un contatore personalizzato e riceve un errore, l'ISV deve attendere e quindi riprovare.
+
+Se l'errore viene mantenuto, inviare nuovamente il contatore personalizzato l'ora successiva (accumulo la quantità). Continuare questo processo fino a quando non viene ricevuta una risposta non di errore.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni, vedere le [API del servizio di misurazione del Marketplace](./marketplace-metering-service-apis.md) .
+- Per altre informazioni, vedere le [API del servizio di misurazione del Marketplace](./marketplace-metering-service-apis.md).

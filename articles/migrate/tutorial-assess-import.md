@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115050"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82114565"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Valutare i server con i dati importati
 
@@ -68,7 +68,7 @@ Per configurare un nuovo progetto di Azure Migrate:
 5. In **Progetto di migrazione** selezionare la sottoscrizione di Azure e creare un gruppo di risorse, se non se ne ha già uno.
 6. In **DETTAGLI DEL PROGETTO** specificare il nome del progetto e l'area geografica in cui lo si vuole creare. Per altre informazioni:
 
-    - Vedere le [aree geografiche supportate](migrate-support-matrix.md#supported-geographies). L'area geografica del progetto viene usata solo per archiviare i metadati raccolti dalle macchine virtuali locali.
+    - Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-matrix.md#supported-geographies-public-cloud) e per [enti pubblici](migrate-support-matrix.md#supported-geographies-azure-government).
     - Per la migrazione è possibile selezionare qualsiasi area di destinazione.
 
     ![Creare un progetto di Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
@@ -248,6 +248,8 @@ Questa visualizzazione mostra il costo stimato di calcolo e archiviazione associ
 > Le classificazioni di attendibilità non vengono assegnate alle valutazioni dei server importati in Valutazione server tramite CSV.
 
 ## <a name="supported-operating-system-names"></a>Nomi dei sistemi operativi supportati
+
+I nomi del sistema operativo specificati nel CSV devono corrispondere o contenere i nomi di questo elenco. Ciò è necessario affinché i nomi specificati siano riconosciuti validi dalla valutazione.
 
 <!-- BEGIN A - H -->
 

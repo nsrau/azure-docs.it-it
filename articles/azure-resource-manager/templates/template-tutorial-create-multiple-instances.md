@@ -2,15 +2,15 @@
 title: Creare più istanze di risorse
 description: Informazioni su come creare un modello di Azure Resource Manager per creare più istanze di risorse di Azure.
 author: mumian
-ms.date: 04/08/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83afff3aa15caa1743f66eea9eaee541492b8d1c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b62cca48323d4e12a92c89d64ab67bf5b783c36f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260837"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82183833"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Esercitazione: Creare più istanze di risorse con modelli di Azure Resource Manager
 
@@ -35,7 +35,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-I [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) costituiscono un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa guida introduttiva è denominato [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Creare un account di archiviazione Standard). Il modello definisce una risorsa account di archiviazione di Azure.
+[Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) è un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa guida di avvio rapido è denominato [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Creare un account di archiviazione Standard). Il modello definisce una risorsa account di archiviazione di Azure.
 
 1. In Visual Studio Code selezionare **File**>**Apri file**.
 2. In **Nome file** incollare l'URL seguente:
@@ -112,9 +112,40 @@ Per altre informazioni sulla creazione di più istanze, vedere [Distribuire più
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Vedere la sezione [Distribuire il modello](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) della guida introduttiva di Visual Studio Code per la procedura di distribuzione.
+1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+1. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (per l'interfaccia della riga di comando) nell'angolo in alto a sinistra.  Quando si cambia interfaccia, è necessario riavviare la shell.
+
+    ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
+
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata. Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
+
+1. In Cloud Shell eseguire i comandi riportati sotto. Selezionare la scheda per visualizzare il codice di PowerShell o il codice dell'interfaccia della riga di comando.
+
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
+    ```
+
+    ---
 
 Per elencare tutti e tre gli account di archiviazione, omettere il --parametro nome:
 
@@ -133,6 +164,7 @@ echo "Press [ENTER] to continue ..."
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
 $resourceGroupName = "${projectName}rg"
+
 Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 Write-Host "Press [ENTER] to continue ..."
 ```

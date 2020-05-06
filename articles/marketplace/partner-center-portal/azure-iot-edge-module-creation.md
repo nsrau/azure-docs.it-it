@@ -1,36 +1,33 @@
 ---
-title: Creare un'offerta di modulo Azure IoT Edge con centro per i partner-Azure Marketplace
-description: Informazioni su come creare un'offerta di modulo IoT Edge in Azure Marketplace tramite il centro per i partner
+title: Creare un'offerta di modulo Azure IoT Edge con il centro per i partner in Azure Marketplace
+description: Informazioni su come creare, configurare e pubblicare un'offerta di modulo IoT Edge in Azure Marketplace tramite il centro per i partner
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f2ebbf5a8628c5c0321f85fac9901c314048ad50
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869138"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743796"
 ---
-# <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
+# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Creare, configurare e pubblicare un'offerta di modulo IoT Edge in Azure Marketplace
 
 > [!IMPORTANT]
 > Stiamo muovendo la gestione delle offerte del modulo IoT Edge dal portale Cloud Partner al centro per i partner. Fino a quando non viene eseguita la migrazione delle offerte, seguire le istruzioni riportate nella [Panoramica della pubblicazione dell'offerta IOT Edge modulo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) per portale cloud partner per gestire le offerte.
 
-Questo articolo descrive come creare e pubblicare un'offerta di modulo perimetrale di Internet delle cose per Azure Marketplace.
-
-Prima di poter creare un'offerta di modulo IoT Edge, è necessario disporre di un account Marketplace commerciale nel centro per i partner. Se non ne è ancora stato creato uno, vedere [creare un account Marketplace commerciale nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Questo articolo descrive come creare e pubblicare un'offerta di modulo perimetrale di Internet delle cose per Azure Marketplace. Prima di iniziare, [creare un account Marketplace commerciale nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma Commercial Marketplace.
 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
-1. Accedere al Centro per i partner.
-2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace** > **Overview**.
+1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/home).
+2. Nel menu di navigazione a sinistra selezionare **Commercial Marketplace** > **Overview**.
+3. Nella pagina Panoramica selezionare **+ nuovo offerta** > **IOT Edge modulo**.
 
-    ![Viene illustrato il menu di spostamento a sinistra.](./media/cs-menu-overview.png)
-
-3. Selezionare **+ nuovo offerta** > **IOT Edge modulo**. Verrà visualizzata la finestra di dialogo **nuova offerta** .
+    ![Viene illustrato il menu di spostamento a sinistra.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > Dopo la pubblicazione di un'offerta, le modifiche apportate al centro per i partner vengono visualizzate solo nelle vetrine dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre dopo avere apportato modifiche.
@@ -41,14 +38,14 @@ Immettere un **ID offerta**. Si tratta di un identificatore univoco per ogni off
 
 - Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta Marketplace e Azure Resource Manager modelli, se applicabile.
 - Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi e con un limite di 50 caratteri. Se ad esempio si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- Non è possibile modificare l'ID offerta dopo aver selezionato Crea.
+- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
-Immettere un **alias dell'offerta**. Questo è il nome usato per fare riferimento all'offerta nel centro per i partner.
+Immettere un **alias dell'offerta**. Questo è il nome usato per l'offerta nel centro per i partner.
 
 - Questo nome non viene usato nel Marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati per i clienti.
 - Questa operazione non può essere modificata dopo aver selezionato **Crea**.
 
-Dopo aver immesso questi due valori, selezionare **Crea** prima di continuare con la pagina successiva, panoramica dell'offerta.
+Selezionare **Crea** per generare l'offerta e continuare.
 
 ## <a name="offer-overview"></a>Panoramica dell'offerta
 
@@ -86,16 +83,16 @@ Di seguito sono riportate alcune risorse di gestione lead aggiuntive:
 
 - [Panoramica della gestione dei lead](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Domande frequenti sulla gestione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Errori comuni di configurazione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Errori comuni di configurazione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Panoramica della gestione dei lead](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (assicurarsi che il blocco popup sia disattivato).
 
-Selezionare **Save Draft** prima di continuare con la sezione successiva, Properties.
+Selezionare **Salva bozza** prima di continuare.
 
 ### <a name="properties"></a>Proprietà
 
 Questa pagina consente di definire le categorie usate per raggruppare l'offerta nel Marketplace e i contratti legali che supportano l'offerta.
 
-#### <a name="category"></a>Category
+#### <a name="category"></a>Categoria
 
 Selezionare un minimo di uno e un massimo di cinque categorie. Queste categorie vengono usate per inserire l'offerta nelle aree di ricerca del Marketplace appropriate e vengono visualizzate nella pagina dei dettagli dell'offerta. Nella descrizione dell'offerta, spiegare in che modo l'offerta supporta queste categorie. Nelle pagine di esplorazione tutti i moduli IOT Edge vengono visualizzati nella categoria **Internet delle cose > modulo** IOT Edge.
 
@@ -132,7 +129,7 @@ Qui verranno definiti i dettagli dell'offerta visualizzati nel Marketplace. Sono
 > [!NOTE]
 > I dettagli dell'offerta non devono essere in inglese se la descrizione dell'offerta inizia con la frase "questa applicazione è disponibile solo in [lingua non inglese]". È anche possibile fornire un collegamento utile per offrire contenuti in una lingua diversa da quella usata nell'elenco dei dettagli dell'offerta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 Il nome immesso qui viene visualizzato come titolo dell'offerta. Questo campo è già compilato con il testo immesso nella casella **alias offerta** al momento della creazione dell'offerta. Il nome può essere modificato successivamente.
 

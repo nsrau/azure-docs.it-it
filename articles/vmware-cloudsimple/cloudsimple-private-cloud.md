@@ -37,7 +37,7 @@ Questa compatibilità consente ai team di gestire i carichi di lavoro nel cloud 
 
 * Rete
 * Sicurezza  
-* Protezione dati  
+* Protezione dei dati  
 * Audit
 
 CloudSimple gestisce l'infrastruttura e tutti i servizi di rete e gestione necessari. Il servizio CloudSimple consente al team di concentrarsi su:

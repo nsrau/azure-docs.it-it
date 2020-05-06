@@ -1,180 +1,265 @@
 ---
-title: Come eseguire query ricerca cognitiva di Azure da Power Apps
+title: 'Esercitazione: Eseguire query da Power Apps'
 titleSuffix: Azure Cognitive Search
-description: Istruzioni dettagliate su come creare un connettore personalizzato per ricerca cognitiva e come visualizzarlo da un'app Power
+description: Istruzioni dettagliate su come creare un'app Power Apps che si connette a un indice di Ricerca cognitiva di Azure, invia query e visualizza i risultati.
 author: luiscabrer
 manager: eladz
 ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: c246f8652227a5ad2c0798880e530d6039cdeea8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 04/25/2020
+ms.openlocfilehash: e4afa3c122fa6e21b29b6ad52a386096b20aa055
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385113"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184445"
 ---
-# <a name="how-to-query-a-cognitive-search-index-from-power-apps"></a>Come eseguire query su un indice di ricerca cognitiva da Power Apps
+# <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Esercitazione: Eseguire query su un indice di Ricerca cognitiva da Power Apps
 
-Questo documento illustra come creare un connettore personalizzato di Power Apps per poter recuperare i risultati della ricerca da un indice di ricerca. Viene anche illustrato come eseguire una query di ricerca e visualizzare i risultati da un'app Power. 
+Sfruttare l'ambiente di sviluppo rapido di applicazioni di Power Apps per creare un'app personalizzata per il contenuto ricercabile in Ricerca cognitiva di Azure.
+
+In questa esercitazione verranno illustrate le procedure per:
+
+> [!div class="checklist"]
+> * Connettersi a Ricerca cognitiva di Azure
+> * Configurare una richiesta di query
+> * Visualizzare i risultati in un'app canvas
+
+Se non si ha una sottoscrizione di Azure, aprire un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-*    Accesso all'account Power Apps con la possibilità di creare connettori personalizzati.
-*    Si presuppone che sia già stato creato un indice di ricerca di Azure.
 
-## <a name="create-a-custom-connector-to-query-azure-search"></a>Creare un connettore personalizzato per eseguire query in ricerca di Azure
+* [Account di Power Apps](http://make.powerapps.com)
 
-Esistono due passaggi principali per avere un PowerApp che mostra i risultati di ricerca cognitiva di Azure. Prima di tutto, creiamo un connettore in grado di eseguire query sull'indice di ricerca. Nella [sezione successiva](#visualize-results-from-the-custom-connector) verrà aggiornata l'applicazione Power Apps per visualizzare i risultati restituiti dal connettore.
+* [Indice Hotels-sample](search-get-started-portal.md)
 
-1. Passare a [make.powerapps.com](http://make.powerapps.com) ed eseguire l' **accesso**.
+* [Chiave API di query](search-security-api-keys.md#find-existing-keys)
 
-1. Ricerca di**connettori personalizzati** per **i dati** > 
+## <a name="1---create-a-custom-connector"></a>1 - Creare un connettore personalizzato
+
+Un connettore in Power Apps è una connessione all'origine dati. In questo passaggio verrà creato un connettore personalizzato per connettersi a un indice di ricerca nel cloud.
+
+1. [Accedere](http://make.powerapps.com) a Power Apps.
+
+1. A sinistra espandere **Dati** > **Connettori personalizzati**.
  
-    :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menu connettore personalizzato" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menu Connettori personalizzati" border="true":::
 
-1. Fare clic su **+ nuovo connettore personalizzato** , quindi selezionare **Crea da zero**.
+1. Selezionare **+ Nuovo connettore personalizzato** e quindi **Crea da zero**.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Crea dal menu vuoto" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Menu Crea da zero" border="true":::
 
-1. Assegnare un nome al connettore personalizzato. (ovvero, *AzureSearchQuery*), quindi fare clic su **continue (continua**). Verrà creata una procedura guidata per creare il nuovo connettore.
+1. Assegnare un nome al connettore personalizzato, ad esempio *AzureSearchQuery*, quindi fare clic su **Continua**.
 
-1. Immettere le informazioni nella pagina generale.
+1. Immettere le informazioni nella pagina Generale:
 
-    - Colore di sfondo dell'icona (ad esempio, #007ee5)
-    - Descrizione (ad esempio, "un connettore ad Azure ricerca cognitiva")
-    - Nell'host sarà necessario immettere l'URL del servizio di ricerca (ad esempio, `<yourservicename>.search.windows.net`)
-    - Per URL di base, è sufficiente immettere "/"
-    
-    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Dialogo informazioni generali" border="true":::
+   * Colore di sfondo dell'icona (ad esempio #007ee5)
+   * Descrizione (ad esempio "Connettore a Ricerca cognitiva di Azure")
+   * In Host sarà necessario immettere l'URL del servizio di ricerca (ad esempio `<yourservicename>.search.windows.net`)
+   * Per URL di base, immettere semplicemente "/"
 
-1. Nella pagina sicurezza impostare *chiave API* come **tipo di autenticazione**, impostare l'etichetta del parametro e i campi nome parametro come *API-Key*. In **percorso parametri**selezionare *intestazione* come illustrato di seguito.
- 
-    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Opzione tipo di autenticazione" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Finestra di dialogo di informazioni generali" border="true":::
 
-1. Nella pagina definizioni selezionare **+ nuova azione** per creare un'azione che eseguirà una query sull'indice. Immettere il valore "query" per il riepilogo e il nome dell'ID operazione. Immettere una descrizione, ad esempio *"query nell'indice di ricerca"*.
- 
-    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Opzioni nuova azione" border="true":::
+1. Nella pagina Sicurezza impostare *Chiave API* per **Tipo di autenticazione**, quindi impostare sia l'etichetta che il nome del parametro su *api-key*. Per **Posizione parametro** selezionare *Intestazione* come illustrato di seguito.
 
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Opzione per Tipo di autenticazione" border="true":::
 
-1. Premere il pulsante **+ Importa da esempio** per definire i parametri e le intestazioni. Verrà quindi definita la richiesta di query.  
+1. Nella pagina Definizioni selezionare **+ Nuova azione** per creare un'azione che eseguirà una query sull'indice. Immettere il valore "Query" per il riepilogo e per il nome dell'ID operazione. Immettere una descrizione, ad esempio *"query sull'indice di ricerca"* .
 
-    * Selezionare il verbo`GET`
-    * Per l'URL, immettere una query di esempio per l'indice di ricerca, ad esempio:
-       
-    >https://yoursearchservicename.search.windows.net/indexes/yourindexname/docs?search=* &API-Version = 2019-05-06-Preview
-    
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="Opzioni di Nuova azione" border="true":::
 
-    **Power Apps** userà la sintassi per estrarre i parametri dalla query. Si noti che il campo di ricerca è stato definito in modo esplicito. 
+1. Scorrere verso il basso. In Richieste selezionare il pulsante **+ Importa da esempio** per configurare una richiesta di query per il servizio di ricerca:
 
-    :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importa da esempio" border="false":::
+   * Selezionare il verbo `GET`
 
-1.  Fare clic su **Importa** per eseguire automaticamente il pre-riempimento della finestra di dialogo di richiesta.
+   * Per URL immettere una query di esempio per l'indice di ricerca (`search=*` restituisce tutti i documenti, `$select=` consente di scegliere i campi). Il campo Versione API è obbligatorio. Un URL completamente specificato sarà simile al seguente: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
 
-    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Finestra di dialogo Importa da esempio" border="false":::
+   * Per Intestazioni, digitare `Content-Type`. 
 
+     **Power Apps** userà la sintassi per estrarre i parametri dalla query. Si noti che il campo di ricerca è stato definito in modo esplicito. 
 
-1. Per completare l'impostazione dei metadati del parametro, fare clic su **...** simbolo accanto a ognuno dei parametri.
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importa da esempio" border="true":::
 
-    - Per *la ricerca*: `*` impostare come **valore predefinito**, impostare **required** su *false* e impostare la **visibilità** su *None*. 
+1. Fare clic su **Importa** per compilare automaticamente la richiesta. Completare l'impostazione dei metadati dei parametri facendo clic sul simbolo **...** accanto a ogni parametro. Fare clic su **Indietro** per tornare nella pagina Richiesta dopo l'aggiornamento di ogni parametro.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Cerca metadati parametro" border="true":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Finestra di dialogo Importa da esempio" border="true":::
 
-    - Per *API-Version*: impostare `2019-05-06-Preview` come **valore predefinito**, impostare la **visibilità** come Internal e impostare **required** su *true*.  
+1. Per *search*: impostare `*` come **valore predefinito**, impostare **Obbligatorio?** su *no* e impostare **Visibilità** su *nessuna*. 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadati del parametro della versione" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Ricerca dei metadati dei parametri" border="true":::
 
-    - Analogamente, per la *chiave API*, impostarla come **obbligatoria**, con **visibilità** *interna* . Immettere la chiave API del servizio di ricerca come **valore predefinito**.
-    
-    Dopo avere apportato queste modifiche, impostare la visualizzazione dell' **editor di spavalderia** . Nella sezione Parameters dovrebbe essere visualizzata la seguente configurazione:    
+1. Per *select*: impostare `HotelName,Description,Address/City` come **valore predefinito**, impostare **Obbligatorio?** su *no* e impostare **Visibilità** su *nessuna*.  
 
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Versione dei metadati dei parametri" border="true":::
+
+1. Per *api-version*: impostare `2019-05-06` come **valore predefinito**, impostare **Obbligatorio?** su *sì* e impostare **Visibilità** su *interna*.  
+
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Versione dei metadati dei parametri" border="true":::
+
+1. Per *Content-Type*: Impostare su `application/json`.
+
+1. Dopo aver apportato queste modifiche, passare alla visualizzazione **Editor Swagger**. Nella sezione parameters dovrebbe essere visualizzata la configurazione seguente:
+
+    ```JSON
+    parameters:
+      - {name: search, in: query, required: false, type: string, default: '*'}
+      - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
+      - {name: api-version, in: query, required: true, type: string, default: '2019-05-06',
+        x-ms-visibility: internal}
+      - {name: Content-Type, in: header, required: false, type: string}
     ```
-          parameters:
-          - {name: search, in: query, required: false, type: string, default: '*'}
-          - {name: api-version, in: query, required: true, type: string, default: 2019-05-06-Preview,
-            x-ms-visibility: internal}
-          - {name: api-key, in: header, required: true, type: string, default: YOURKEYGOESHERE,
-            x-ms-visibility: internal}
-    ```
 
-1. Nella sezione risposta fare clic su **"Aggiungi risposta predefinita"**. Questo è fondamentale perché consente alle **app Power** di comprendere lo schema della risposta. Incollare una risposta di esempio.
+1. Tornare al passaggio **3. Richiesta** e scorrere verso il basso fino alla sezione Risposta. Fare clic su **"Aggiungi risposta predefinita"** . Questa scelta è fondamentale perché consente a Power Apps di riconoscere lo schema della risposta. 
+
+1. Incollare una risposta di esempio. Per acquisire facilmente una risposta di esempio, è possibile usare Esplora ricerche nel portale di Azure. In Esplora ricerche è necessario immettere la stessa query specificata per la richiesta, ma aggiungendo **$top = 2** per vincolare i risultati a due soli documenti: `search=*&$select=HotelName,Description,Address/City&$top=2`. 
+
+   Power Apps richiede solo pochi risultati per rilevare lo schema.
+
+    ```JSON
+    {
+        "@odata.context": "https://mydemo.search.windows.net/indexes('hotels-sample-index')/$metadata#docs(*)",
+        "value": [
+            {
+                "@search.score": 1,
+                "HotelName": "Arcadia Resort & Restaurant",
+                "Description": "The largest year-round resort in the area offering more of everything for your vacation – at the best value!  What can you enjoy while at the resort, aside from the mile-long sandy beaches of the lake? Check out our activities sure to excite both young and young-at-heart guests. We have it all, including being named “Property of the Year” and a “Top Ten Resort” by top publications.",
+                "Address": {
+                    "City": "Seattle"
+                }
+            },
+            {
+                "@search.score": 1,
+                "HotelName": "Travel Resort",
+                "Description": "The Best Gaming Resort in the area.  With elegant rooms & suites, pool, cabanas, spa, brewery & world-class gaming.  This is the best place to play, stay & dine.",
+                "Address": {
+                    "City": "Albuquerque"
+                }
+            }
+        ]
+    }
+    ```
 
     > [!TIP] 
-    > È presente un limite di caratteri per la risposta JSON che è possibile immettere, quindi è consigliabile semplificare il codice JSON in modo che prima di incollarlo. Schema/formato di aspetto importante della risposta. I valori effettivi nella risposta di esempio sono meno importanti e possono essere semplificati per ridurre il numero di caratteri.
-    
+    > Esiste un limite di caratteri per la risposta JSON che è possibile immettere, quindi è consigliabile semplificare il codice JSON prima di incollarlo. Lo schema e il formato della risposta sono più importanti dei valori stessi. Il campo Descrizione, ad esempio, può essere semplificato lasciando solo per la prima frase.
 
-1.    Fare clic sul pulsante **Crea connettore** nella parte superiore destra della schermata prima di poterlo testare.
+1. Fare clic su **Crea connettore** in alto a destra.
 
-1.  Nella pagina test fare clic su **+ nuova connessione**e immettere la chiave di query del servizio di ricerca come valore per *chiave API*.
+## <a name="2---test-the-connection"></a>2 - Testare la connessione
 
-    Questo passaggio consente di passare all'esterno della procedura guidata e alla pagina connessioni. È possibile tornare all'editor delle connessioni personalizzate per testare effettivamente la connessione. Passare a **connettore personalizzato** > selezionare il > connettore appena creato *...* > **Visualizzare le proprietà** > **modifica** > **4. **Eseguire un test per tornare alla pagina di test.
+La prima volta che viene creato il connettore, è necessario riaprirlo dall'elenco di connettori personalizzati per poterlo testare. In seguito, se si apportano altri aggiornamenti, è possibile testarlo dalla procedura guidata.
 
-1.    Fare clic su **test operazione** per assicurarsi di ottenere risultati dall'indice. Se l'operazione ha esito positivo, verrà visualizzato lo stato 200 e nel corpo della risposta verrà visualizzato JSON che descrive i risultati della ricerca.
+Per questa attività sarà necessaria una [chiave API di query](search-security-api-keys.md#find-existing-keys). Ogni volta che viene creata una connessione, sia per un'esecuzione di test o per l'inclusione in un'app, il connettore richiede la chiave API di query usata per la connessione a Ricerca cognitiva di Azure.
 
+1. All'estrema sinistra fare clic su **Connettori personalizzati**.
 
+1. Cercare il connettore in base al nome, che in questa esercitazione è "AzureSearchQuery".
 
+1. Selezionare il connettore, espandere l'elenco di azioni e selezionare **Visualizza proprietà**.
 
-## <a name="visualize-results-from-the-custom-connector"></a>Visualizzare i risultati del connettore personalizzato
-L'obiettivo di questa esercitazione non è mostrare come creare esperienze utente accattivanti con Power Apps, quindi il layout dell'interfaccia utente sarà minimalista. Creare un PowerApp con una casella di ricerca, un pulsante di ricerca e visualizzare i risultati in un controllo raccolta.  Il PowerApp si connetterà al connettore personalizzato creato di recente per ottenere i dati da ricerca di Azure.
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="Visualizzare proprietà" border="true":::
 
-1. Creare una nuova app Power app. Passare alla sezione **app** , fare clic su **+ nuova app**e selezionare **Canvas**.
+1. Selezionare **Modifica** in alto a destra.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Crea app Canvas" border="true":::
+1. Selezionare **4. Test** per aprire la pagina di test.
 
-1. Selezionare il tipo di applicazione che si desidera. Per questa esercitazione creare un' **app vuota** con il **layout del telefono**. Verrà visualizzato **Power Apps Studio** .
+1. In Verifica operazione fare clic su **+ Nuova connessione**.
 
-1. In Studio selezionare la scheda **origini dati** e fare clic sul nuovo connettore appena creato. In questo caso, è denominato *AzureSearchQuery*. Fare clic su **Aggiungi connessione**.
+1. Immettere una chiave API di query. Si tratta di una query di Ricerca cognitiva di Azure per l'accesso in sola lettura a un indice. La [chiave è reperibile](search-security-api-keys.md#find-existing-keys) nel portale di Azure. 
 
-    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Connetti connettore" border="true":::
+1. In Operazioni fare clic sul pulsante **Verifica operazione**. Se l'operazione riesce, verrà visualizzato lo stato 200 e nel corpo della risposta verrà visualizzato il codice JSON che descrive i risultati della ricerca.
 
-    Ora *AzureSearchQuery* è un'origine dati disponibile per l'uso da un'applicazione.
-    
-1. Passare alla **scheda Inserisci**, in modo che sia possibile aggiungere alcuni controlli al modulo.
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="Risposta JSON" border="true":::
+
+## <a name="3---visualize-results"></a>3 - Visualizzare i risultati
+
+In questo passaggio creare un'app Power Apps con una casella di ricerca, un pulsante di ricerca e un'area per la visualizzazione dei risultati. Power Apps si connetterà al connettore personalizzato creato di recente per ottenere i dati da Ricerca di Azure.
+
+1. A sinistra espandere **App** >  **+ Nuova app** > **Canvas**.
+
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Creare un'app canvas" border="true":::
+
+1. Selezionare il tipo di applicazione. Per questa esercitazione, scegliere **App vuota** con **Layout telefono**. Verrà visualizzato **Power Apps Studio**.
+
+1. In Studio selezionare la scheda **Origini dati** e fare clic sul nuovo connettore appena creato. In questo caso, si chiama *AzureSearchQuery*. Fare clic su **Aggiungi connessione**.
+
+   Immettere la chiave API di query.
+
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="Connettere il connettore" border="true":::
+
+    A questo punto *AzureSearchQuery* è un'origine dati disponibile per l'applicazione.
+
+1. Nella scheda **Inserisci** aggiungere alcuni controlli al canvas.
 
     :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Inserire i controlli" border="true":::
 
-1.  Inserire gli elementi seguenti:
-    -   Etichetta di testo con il valore "query:"
-    -   Un elemento input di testo (chiamato *txtQuery*, valore predefinito: "*")
-    -   Un pulsante con il testo "Search" 
-    -   Una raccolta verticale denominata (chiamata *galleryResults*)
-    
-    Il form dovrebbe avere un aspetto simile al seguente:
+1. Inserire gli elementi seguenti:
 
-    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Layout controlli" border="true":::
+   * Un'etichetta di testo con il valore "Query":
+   * Un elemento input di testo (assegnare il nome *txtQuery*, valore predefinito: "*")
+   * Un pulsante con il testo "Search" 
+   * Una raccolta verticale denominata (assegnare il nome *galleryResults*)
 
-1. Per fare in modo che il **pulsante di ricerca** rilasciasse una query, selezionare il pulsante e incollare l'azione seguente per eseguire **onselect**:
+    Il canvas sarà simile al seguente:
+
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Layout dei controlli" border="true":::
+
+1. Per fare in modo che il **pulsante di ricerca** esegua una query, incollare l'azione seguente in **OnSelect**:
 
     ```
     If(!IsBlank(txtQuery.Text),
-        ClearCollect(azResult, AzureSearchQuery.Get({search: txtQuery.Text}).value))
+        ClearCollect(azResult, AzureSearchQuery.Query({search: txtQuery.Text}).value))
     ```
 
+   Lo screenshot seguente mostra la barra della formula per l'azione **OnSelect**.
+
     :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Pulsante OnSelect" border="true":::
- 
-    Questa azione comporterà l'aggiornamento di una nuova raccolta denominata *azResult* con il risultato della query di ricerca, usando il testo nella casella di testo *txtQuery* come termine della query.
-    
-1.  Come passaggio successivo, si collegherà la raccolta verticale creata alla raccolta *azResult* . Selezionare il controllo raccolta ed eseguire le azioni seguenti nel riquadro proprietà.
 
-    -  Impostare **DataSource** su *azResult*.
-    
-    -  Selezionare un **layout** che funzioni in base al tipo di dati nell'indice. In questo caso, è stato usato il *titolo, il sottotitolo e* il layout del corpo.
-    
-    -  **Modificare i campi**e selezionare i campi che si desidera visualizzare.
+   Con questa azione, il pulsante aggiornerà una nuova raccolta denominata *azResult* con il risultato della query di ricerca, usando il testo della casella di testo *txtQuery* come termine della query.
 
-    Poiché è stato fornito un risultato di esempio quando è stato definito il connettore, l'app è in grado di riconoscere i campi disponibili nell'indice.
+   > [!NOTE]
+   > Verificare se si ottiene un errore di sintassi della formula, con un messaggio analogo a "La funzione 'ClearCollect' include alcune funzioni non valide":
+   > 
+   > * Assicurarsi prima di tutto che il riferimento al connettore sia corretto. Cancellare il nome del connettore e iniziare a digitarne il nome. IntelliSense dovrebbe suggerire il connettore e il verbo corretti.
+   > 
+   > * Se l'errore persiste, eliminare il connettore e ricrearlo. Se sono presenti più istanze di un connettore, è possibile che l'app usi quella sbagliata.
+   > 
+
+1. Collegare il controllo raccolta verticale alla raccolta *azResult* creata nel passaggio precedente. 
+
+   Selezionare il controllo raccolta ed eseguire le azioni seguenti nel riquadro delle proprietà.
+
+   * Impostare **DataSource** su *azResult*.
+   * Selezionare un **Layout** appropriato in base al tipo di dati dell'indice. In questo caso, è stato usato il layout *Titolo, sottotitolo e corpo*.
+   * Scegliere **Modifica campi** e selezionare i campi da visualizzare.
+
+    Poiché quando è stato definito il connettore è stato fornito un risultato di esempio, l'app è in grado di riconoscere i campi disponibili nell'indice.
     
     :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Campi della raccolta" border="true":::   
  
-1.  Premere **F5** per visualizzare l'anteprima dell'app.  
+1. Premere **F5** per visualizzare l'anteprima dell'app.  
 
-    Tenere presente che i campi possono essere impostati su valori calcolati.      
-    Per l'esempio, impostando il layout *"immagine, titolo e sottotitolo"* e specificando la funzione di *immagine* come concatenazione del percorso radice per i dati e il nome del file (ad `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`esempio,) produrrà il risultato riportato di seguito.
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="App finale" border="true":::    
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="App finale" border="true":::        
+<!--     Remember that the fields can be set to calculated values.
+
+    For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
+
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+
+Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
+
+Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e origini dati è limitato a tre. Per non superare il limite, è possibile eliminare i singoli elementi nel portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni e corsi di formazione online, vedere catalogo di formazione per [Power Apps](https://docs.microsoft.com/powerapps/learning-catalog/get-started).
+Power Apps consente lo sviluppo rapido di app personalizzate. Ora che si è appreso come connettersi a un indice di ricerca, vedere altre informazioni su come creare un'esperienza di visualizzazione arricchita in un'app personalizzata di Power Apps.
+
+> [!div class="nextstepaction"]
+> [Catalogo di risorse di apprendimento per Power Apps](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
 

@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4d2681c09030ff0f36938d7a09e1d1b2e9aa645c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77047941"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82166311"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Azure AD SAML Toolkit
 
@@ -65,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con Azure AD SAML Toolkit usando
 Per configurare e testare l'accesso SSO di Azure AD con Azure AD SAML Toolkit, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Azure AD SAML Toolkit](#configure-azure-ad-saml-toolkit-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Azure AD SAML Toolkit](#create-azure-ad-saml-toolkit-test-user)** per avere una controparte di B.Simon in Azure AD SAML Toolkit collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -88,6 +87,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://samltoolkit.azurewebsites.net`
 
     c. Nella casella di testo **URL di risposta** digitare un URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
+
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, aggiornarli con quelli effettivi dell'URL di accesso, dell'identificatore e dell'URL di risposta, come illustrato più avanti in questa esercitazione.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (base)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -111,7 +113,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Azure AD SAML Toolkit.
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Azure AD SAML Toolkit.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Azure AD SAML Toolkit**.
@@ -155,15 +157,17 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
     1. Fare clic su **Crea**.
 
+    1. Copiare i valori di Sign-on URL (URL di accesso), Identifier (Identificatore) e ACS URL (URL ACS) nella pagina di configurazione dell'accesso SSO di Azure AD SAML Toolkit e incollarli nelle caselle di testo rispettive della **sezione Configurazione SAML di base** nel portale di Azure.
+
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Creare l'utente di test di Azure AD SAML Toolkit
 
-In questa sezione viene creato un utente di nome B. Simon in Azure AD SAML Toolkit. Azure AD SAML Toolkit supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Azure AD SAML Toolkit, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B.Simon in Azure AD SAML Toolkit. Azure AD SAML Toolkit supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Azure AD SAML Toolkit, ne viene creato uno nuovo dopo l'autenticazione.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Azure AD SAML Toolkit nel Pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Azure AD SAML Toolkit per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Azure AD SAML Toolkit nel Pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Azure AD SAML Toolkit per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

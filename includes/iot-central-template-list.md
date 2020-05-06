@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0fbd2f1d01665d7fefe03430855dc5c063fdaec9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2eda1fc8595962849b6a24cc272f6604d0be9175
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137715"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744557"
 ---
 **Modelli di applicazione**
 
-| Modello                 | Name        | Descrizione |
+| Modello                 | Nome        | Descrizione |
 | ------------------------ | ----------- | ----------- |
-| iotc-pnp-preview@1.0.0   | Applicazione personalizzata | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
-| iotc-default@1.0.0       | Applicazione personalizzata (legacy) | Consente di creare un'applicazione legacy vuota da popolare con i propri dispositivi e modelli di dispositivo.
-| iotc-condition@1.0.0     | Analisi in-Store-monitoraggio delle condizioni | Crea un'applicazione per la connessione e il monitoraggio di un ambiente di archiviazione. |
-| iotc-consumption@1.0.0   | Monitoraggio del consumo di acqua | Crea un'applicazione per monitorare e controllare il flusso di acqua. |
-| iotc-distribution@1.0.0  | Centro distribuzione digitale | Crea un'applicazione per migliorare l'efficienza dell'output del warehouse grazie alla digitalizzazione delle risorse e delle azioni principali. |
-| iotc-inventory@1.0.0     | Gestione Smart Inventory | Crea un'applicazione per automatizzare la ricezione, lo spostamento del prodotto, il conteggio del ciclo e il rilevamento. |
-| iotc-logistics@1.0.0     | Logistica connessa | Crea un'applicazione per tenere traccia delle spedizioni in tempo reale tra aria, acqua e terra con il monitoraggio della posizione e della condizione. |
-| iotc-meter@1.0.0         | Analisi intelligente del contatore | Crea un'applicazione per monitorare il consumo di energia, lo stato della rete e identificare le tendenze per migliorare il supporto tecnico e la gestione intelligente dei contatori.  |
-| iotc-mfc@1.0.0           | Centro di micro-adempimenti | Consente di creare un'applicazione per la connessione digitale e la gestione di un centro evasione completamente automatizzato. |
-| iotc-patient@1.0.0       | Monitoraggio continuo del paziente | Consente di creare un'applicazione per estendere la cura del paziente, ridurre le riammissioni e gestire le patologie. |
-| iotc-power@1.0.0         | Monitoraggio dell'energia solare | Crea un'applicazione per monitorare lo stato del pannello solare e le tendenze di generazione dell'energia. |
-| iotc-quality@1.0.0       | Monitoraggio della qualità dell'acqua | Crea un'applicazione per il monitoraggio digitale della qualità dell'acqua. |
-| iotc-store@1.0.0         | Analisi in-Store-checkout | Consente di creare un'applicazione per il monitoraggio e la gestione del flusso di estrazione all'interno dell'archivio. |
-| iotc-waste@1.0.0         | Gestione dello spreco connesso | Crea un'applicazione per monitorare i cassonetti e gli operatori dei campi di invio. |
+| IOTC-PNP-anteprima         | Applicazione personalizzata | Crea un'applicazione vuota per l'utente da popolare con i propri modelli di dispositivi e dispositivi. |
+| IOTC-predefinito             | Applicazione personalizzata (legacy) | Consente di creare un'applicazione legacy vuota da popolare con i propri dispositivi e modelli di dispositivo.
+| IOTC-Condition           | Analisi in-Store-monitoraggio delle condizioni | Crea un'applicazione per la connessione e il monitoraggio di un ambiente di archiviazione. |
+| IOTC-consumo         | Monitoraggio del consumo di acqua | Crea un'applicazione per monitorare e controllare il flusso di acqua. |
+| IOTC-distribuzione        | Centro distribuzione digitale | Crea un'applicazione per migliorare l'efficienza dell'output del warehouse grazie alla digitalizzazione delle risorse e delle azioni principali. |
+| IOTC-inventario           | Gestione Smart Inventory | Crea un'applicazione per automatizzare la ricezione, lo spostamento del prodotto, il conteggio del ciclo e il rilevamento. |
+| IOTC-logistica           | Logistica connessa | Crea un'applicazione per tenere traccia delle spedizioni in tempo reale tra aria, acqua e terra con il monitoraggio della posizione e della condizione. |
+| IOTC-contatore               | Analisi intelligente del contatore | Crea un'applicazione per monitorare il consumo di energia, lo stato della rete e identificare le tendenze per migliorare il supporto tecnico e la gestione intelligente dei contatori.  |
+| IOTC-MFC                 | Centro di micro-adempimenti | Consente di creare un'applicazione per la connessione digitale e la gestione di un centro evasione completamente automatizzato. |
+| IOTC-paziente             | Monitoraggio continuo del paziente | Consente di creare un'applicazione per estendere la cura del paziente, ridurre le riammissioni e gestire le patologie. |
+| IOTC-Power               | Monitoraggio dell'energia solare | Crea un'applicazione per monitorare lo stato del pannello solare e le tendenze di generazione dell'energia. |
+| IOTC-qualità             | Monitoraggio della qualità dell'acqua | Crea un'applicazione per il monitoraggio digitale della qualità dell'acqua. |
+| IOTC-Store               | Analisi in-Store-checkout | Consente di creare un'applicazione per il monitoraggio e la gestione del flusso di estrazione all'interno dell'archivio. |
+| IOTC-Waste               | Gestione dello spreco connesso | Crea un'applicazione per monitorare i cassonetti e gli operatori dei campi di invio. |

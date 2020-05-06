@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 621aff0a6571714ad8dad587c2385e6081c2d0f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1eef510e6389b551e128877ffde723955a1084d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181665"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734638"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>App Web che esegue l'accesso degli utenti: configurazione del codice
 
@@ -298,7 +298,7 @@ Il filtro elabora il flusso del codice di autorizzazione OAuth 2,0 e controlla s
 
 Quando arriva la risposta, che contiene il codice di autorizzazione, acquisisce il token usando MSAL Java. Quando riceve infine il token dall'endpoint del token (sull'URI di reindirizzamento), l'utente ha eseguito l'accesso.
 
-Per informazioni dettagliate, vedere `doFilter()` il metodo in [AuthFilter. Java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java).
+Per informazioni dettagliate, vedere `doFilter()` il metodo in [AuthFilter. Java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java).
 
 > [!NOTE]
 > Il codice di `doFilter()` viene scritto in un ordine leggermente diverso, ma il flusso è quello descritto.
