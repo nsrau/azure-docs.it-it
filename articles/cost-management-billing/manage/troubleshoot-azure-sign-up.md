@@ -1,27 +1,31 @@
 ---
-title: Risolvere i problemi di iscrizione ad Azure
-description: Risoluzione di un problema che si verifica quando si prova a creare un nuovo account nel portale o nel Centro account di Microsoft Azure.
+title: Risolvere i problemi di iscrizione a un nuovo account nel portale di Azure o nel Centro account di Azure
+description: Risoluzione di un problema che si verifica quando si prova a effettuare l'iscrizione a un nuovo account nel portale di Microsoft Azure o nel Centro account di Azure.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409464"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133176"
 ---
-# <a name="troubleshoot-azure-sign-up"></a>Risolvere i problemi di iscrizione ad Azure
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Risolvere i problemi di iscrizione a un nuovo account nel portale di Azure o nel Centro account di Azure
 
-Si verifica un problema quando si prova a creare un nuovo account nel portale di Microsoft Azure o nel Centro account di Azure. Prima di risolvere il problema, effettuare prima le verifiche seguenti:
+Si verifica un problema quando si prova a effettuare l'iscrizione a un nuovo account nel portale di Microsoft Azure o nel Centro account di Azure. Prima di risolvere il problema, effettuare prima le verifiche seguenti:
 
-- Le informazioni fornite per il profilo dell'account di Azure, ad esempio indirizzo di posta elettronica di contatto, indirizzo e numero di telefono, sono corrette.
+- Le informazioni fornite per il profilo dell'account Azure, ad esempio indirizzo di posta elettronica di contatto, indirizzo e numero di telefono, sono corrette.
 - Le informazioni della carta di credito sono corrette.
 - Non è già presente un account Microsoft con le stesse informazioni.
+
+> [!NOTE]
+> Se si ha già un account esistente e si cercano indicazioni per la risoluzione dei problemi di accesso, vedere [Risolvere i problemi di accesso alla sottoscrizione di Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
 
 ## <a name="resolutions"></a>Soluzioni
 

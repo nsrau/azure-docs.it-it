@@ -4,12 +4,12 @@ description: In questo argomento di avvio rapido viene usato un modello di Resou
 ms.date: 03/16/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: ae6b2d151baaa904215639276c7fb74766810c6a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 646e2e064618e70fd9e9e747926f0886d85fde26
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606610"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82187784"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
 
@@ -70,7 +70,7 @@ Alcune risorse aggiuntive:
 
 Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
-![Pagina di panoramica della conformità ai criteri](./media/assign-policy-template/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Pagina di panoramica della conformità ai criteri" border="false":::
 
 Le eventuali risorse esistenti non conformi a questa nuova assegnazione verranno visualizzate nella scheda **Non-compliant resources** (Risorse non conformi).
 
@@ -84,7 +84,7 @@ Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
 1. Fare clic con il pulsante destro del mouse sull'assegnazione di criteri **Controlla macchine virtuali che non usano dischi gestiti** e scegliere **Elimina assegnazione**.
 
-   ![Eliminare un'assegnazione dalla pagina di panoramica della conformità](./media/assign-policy-template/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Eliminare un'assegnazione dalla pagina di panoramica della conformità" border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

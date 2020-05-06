@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: 3912d55b13f3977818e8d898efa651ffeb1a798a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76046476"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195622"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Esercitazione: Integrare più risorse dello strumento di lettura immersiva
 
@@ -258,7 +258,7 @@ L'endpoint API **getimmersivereaderlaunchparams** deve essere protetto da qualch
     npm start
     ```
 
-4. Aprire il browser e passare a [http://localhost:3000](http://localhost:3000). Nella pagina verrà visualizzato il contenuto sopra riportato. Fare clic sul pulsante **EastUS Immersive Reader** o sul pulsante**WestUS Immersive Reader** per avviare lo strumento di lettura immersiva usando le rispettive risorse.
+4. Aprire il browser e passare a `http://localhost:3000`. Nella pagina verrà visualizzato il contenuto sopra riportato. Fare clic sul pulsante **EastUS Immersive Reader** o sul pulsante**WestUS Immersive Reader** per avviare lo strumento di lettura immersiva usando le rispettive risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

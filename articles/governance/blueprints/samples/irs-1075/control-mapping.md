@@ -4,10 +4,10 @@ description: Mapping dei controlli dell'esempio di progetto IRS 1075. Ogni contr
 ms.date: 11/20/2019
 ms.topic: sample
 ms.openlocfilehash: 86570012000e660b53b2c3c7291b9ca98576a004
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74546820"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto IRS 1075

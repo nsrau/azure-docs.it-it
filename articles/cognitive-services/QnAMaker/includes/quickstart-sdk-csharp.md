@@ -2,20 +2,22 @@
 title: 'Guida introduttiva: Libreria client di QnA Maker per .NET'
 description: Questo argomento di avvio rapido illustra come usare la libreria client di QnA Maker per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 ms.topic: quickstart
-ms.date: 01/13/2020
-ms.openlocfilehash: 2911c74226c3b682b75e8d10b0b4b7617a48ec64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: ce12b0d5739f3c17a324a663a777b70e61f167d1
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75945984"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204026"
 ---
 Usare la libreria client di QnA Maker per .NET per:
 
 * Creare una knowledge base
-* Gestire una knowledge base
+* Aggiornare una knowledge base
 * Pubblicare una knowledge base
-* Generare una risposta dalla knowledge base
+* Ottenere la chiave di un endpoint pubblicato
+* Attendere un'attività a esecuzione prolungata
+* Eliminare una knowledge base
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [Esempi C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
@@ -24,7 +26,10 @@ Usare la libreria client di QnA Maker per .NET per:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* [IDE di Visual Studio](https://visualstudio.microsoft.com/vs/) o la versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Dopo aver creato la sottoscrizione di Azure, creare una [risorsa QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) nel portale di Azure per ottenere la chiave di creazione e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API QnA Maker. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -32,7 +37,7 @@ Usare la libreria client di QnA Maker per .NET per:
 
 I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per QnA Maker usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale.
 
-Dopo aver ottenuto una chiave e un endpoint per la risorsa, [creare la variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)`QNAMAKER_SUBSCRIPTION_KEY` per la chiave. Il nome della risorsa viene usato nell'URL dell'endpoint.
+Dopo aver ottenuto una chiave e un endpoint per la risorsa, [creare la variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave, denominata `QNAMAKER_SUBSCRIPTION_KEY`. Il nome della risorsa viene usato come sottodominio personalizzato dell'URL dell'endpoint.
 
 ### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
@@ -121,7 +126,7 @@ Nel metodo **main** creare una variabile per l'autenticazione della risorsa, est
 
 Creare un oggetto [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) per eseguire una query sulla knowledge base e generare una risposta o eseguire il training da apprendimento attivo.
 
-[!code-csharp[Authenticate the runtime](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=EndpointKey)]
+[!code-csharp[Authenticate the runtime](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=EndpointKey&highlight=3)]
 
 ## <a name="create-a-knowledge-base"></a>Creare una knowledge base
 
@@ -135,7 +140,7 @@ Chiamare il metodo [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft
 
 La riga finale del codice seguente restituisce l'ID knowledge base dalla risposta di MonitorOperation.
 
-[!code-csharp[Create a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=CreateKB&highlight=29,30)]
+[!code-csharp[Create a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=CreateKB&highlight=30)]
 
 Per creare correttamente una knowledge base, assicurarsi di includere la funzione [`MonitorOperation`](#get-status-of-an-operation), a cui si fa riferimento nel codice precedente.
 

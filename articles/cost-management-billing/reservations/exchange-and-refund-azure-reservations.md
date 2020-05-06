@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 393db5d2e14e047ade04e0b688582e272c6ca44f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 174ed17056bf49b541d55719f4058141e88e7ea5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200436"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192111"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
@@ -40,7 +40,7 @@ In primo luogo, Microsoft annulla la prenotazione esistente e rimborsa l'importo
 
 ### <a name="enterprise-agreement-customers"></a>Clienti con Contratto Enterprise
 
-Il denaro viene aggiunto all'impegno monetario per gli scambi e i rimborsi se l'acquisto originale è stato effettuato usando uno di questi. Tutte le fatture in eccedenza dall'acquisto originale vengono riaperte e rivalutate per assicurarsi che venga usato l'impegno monetario. Se il termine dell'impegno monetario con cui è stata acquistata la prenotazione non è più attivo, il credito viene aggiunto al termine dell'impegno monetario del contratto Enterprise corrente. Il credito è valido per 90 giorni dalla data di rimborso. Il credito inutilizzato scade al termine dei 90 giorni.
+Il denaro viene aggiunto all'impegno monetario per gli scambi e i rimborsi se l'acquisto originale è stato effettuato usando uno di questi. Tutte le fatture in eccedenza dall'acquisto originale vengono riaperte e rivalutate per assicurarsi che venga usato l'impegno monetario. Se il termine dell'impegno monetario con cui è stata acquistata la prenotazione non è più attivo, il credito viene aggiunto al termine dell'impegno monetario del contratto Enterprise corrente. Il credito è valido per 90 giorni dalla data del rimborso. Il credito inutilizzato scade al termine dei 90 giorni.
 
 Se l'acquisto originale è stato effettuato come eccedenza, Microsoft rilascia una nota di credito.
 

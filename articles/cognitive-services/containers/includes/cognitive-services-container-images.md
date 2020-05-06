@@ -26,7 +26,7 @@ Le tabelle seguenti sono un elenco delle immagini di contenitori disponibili off
 
 Microsoft Container Registry (il Consorzio) pubblica tutti i contenitori "non controllati" disponibili pubblicamente per servizi cognitivi. I contenitori sono anche disponibili direttamente dall' [Hub Docker](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-| Servizio | Contenitore | Container Registry/repository/nome dell'immagine |
+| Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
 | [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cogni'ive-services/luis` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Estrazione frasi chiave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
@@ -37,7 +37,7 @@ Microsoft Container Registry (il Consorzio) pubblica tutti i contenitori "non co
 
 Il registro di anteprima del contenitore ospita tutti i contenitori "controllati" disponibili pubblicamente per servizi cognitivi. Questi contenitori richiedono una richiesta formale per accedervi tramite il registro contenitori.
 
-| Servizio | Contenitore | Container Registry/repository/nome dell'immagine |
+| Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
 | [Rilevamento anomalie](../../anomaly-detector/anomaly-detector-container-howto.md) | Rilevamento anomalie | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
 | [Visione artificiale](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lettura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
