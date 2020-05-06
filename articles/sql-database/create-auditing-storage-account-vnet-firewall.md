@@ -23,7 +23,7 @@ Il controllo per il [database SQL di Azure](sql-database-technical-overview.md) 
 
 Questo articolo illustra due modi per configurare SQL Server di Azure e l'account di archiviazione di Azure per questa opzione. Il primo usa il portale di Azure, il secondo USA REST.
 
-### <a name="background"></a>Informazioni
+### <a name="background"></a>Background
 
 [Rete virtuale di Azure (VNet)](../virtual-network/virtual-networks-overview.md) è il blocco predefinito fondamentale per la rete privata in Azure. VNet consente a diversi tipi di risorse di Azure, ad esempio Macchine virtuali di Azure, di comunicare in modo sicuro tra di esse, con Internet e con le reti locali. VNet è simile a una rete tradizionale in data center, ma offre vantaggi aggiuntivi dell'infrastruttura di Azure, ad esempio scalabilità, disponibilità e isolamento.
 
@@ -98,7 +98,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2015-05-01-preview
    ```
 
-   Testo della richiesta
+   Corpo della richiesta
 
    ```json
    {
@@ -127,7 +127,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2017-03-01-preview
    ```
 
-   Testo della richiesta
+   Corpo della richiesta
 
    ```json
    {

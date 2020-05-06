@@ -35,7 +35,7 @@ Si tratta di un problema noto con il framework open source Spark rilevato in que
 
 Questo problema è stato risolto in Spark 2.3.0.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Verificare che il file jar dell'applicazione sia archiviato nell'archivio predefinito/primario per il cluster HDInsight. In caso di Azure Data Factory, assicurarsi che il servizio collegato di ADF faccia riferimento al contenitore predefinito HDInsight anziché a un contenitore secondario.
 
