@@ -124,7 +124,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
 
 1. Selezionare i dispositivi che si desidera esportare, quindi selezionare l'azione **Esporta** .
 
-    ![Export](./media/howto-manage-devices/export1a.png)
+    ![Esportazione](./media/howto-manage-devices/export1a.png)
 
 
 1. Verrà avviato il processo di esportazione. È possibile tenere traccia dello stato usando il pannello operazioni del dispositivo.

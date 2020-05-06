@@ -78,7 +78,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
 5. In **Versione** selezionare la versione **V2**.
 6. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre località e aree.
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 8. Al termine della creazione verrà visualizzata la home page **Data factory**.
 9. Per avviare l'interfaccia utente di Azure Data Factory in una scheda separata, selezionare il riquadro **Crea e monitora**.
 

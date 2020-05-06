@@ -85,7 +85,7 @@ Per altre informazioni sulla creazione di un'impostazione di diagnostica, vedere
 
 Per Azure Machine Learning è possibile configurare i log seguenti:
 
-| Category | Descrizione |
+| Categoria | Descrizione |
 |:---|:---|
 | AmlComputeClusterEvent | Eventi da Azure Machine Learning cluster di elaborazione. |
 | AmlComputeClusterNodeEvent | Eventi dai nodi all'interno di un cluster di calcolo Azure Machine Learning. |

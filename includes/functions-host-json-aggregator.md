@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include

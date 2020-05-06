@@ -83,7 +83,7 @@ Il messaggio visualizzato nella colonna **Dettagli** fornisce informazioni detta
 > [!NOTE]
 > La richiesta di probe predefinita viene inviata nel formato \<protocollo\>://127.0.0.1:\<porta\>/. Ad esempio, http://127.0.0.1:80 per un probe http sulla porta 80. Solo i codici di stato HTTP da 200 a 399 sono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione Probe su un protocollo, un nome host o un percorso diverso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
 
-<a name="error-messages"></a>Messaggi di errore
+<a name="error-messages"></a>messaggi di errore
 ------------------------
 #### <a name="backend-server-timeout"></a>Timeout server back-end
 
@@ -174,7 +174,7 @@ Controllare anche se NSG/UDR/firewall blocca l'accesso all'IP e alla porta di qu
 
 **Soluzione:** A seconda del codice di risposta del server back-end, è possibile eseguire i passaggi seguenti. Di seguito sono elencati alcuni codici di stato comuni:
 
-| **Erroree** | **Azioni** |
+| **Erroree** | **Actions** |
 | --- | --- |
 | Mancata corrispondenza del codice di stato Probe: ricevuto 401 | Verificare che il server back-end richieda l'autenticazione. I probe del gateway applicazione non possono passare le credenziali per l'autenticazione a questo punto. Consentire \"HTTP 401\" in una corrispondenza del codice di stato probe o eseguire il probe in un percorso in cui il server non richiede l'autenticazione. | |
 | Mancata corrispondenza del codice di stato Probe: ricevuto 403 | Accesso non consentito. Controllare se l'accesso al percorso è consentito nel server back-end. | |

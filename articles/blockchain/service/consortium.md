@@ -31,7 +31,7 @@ Con la gestione del Consorzio nel servizio blockchain di Azure, è possibile ges
 
 I partecipanti a un consorzio possono essere individui o organizzazioni e possono essere assegnati a un ruolo utente o a un ruolo di amministratore. Nella tabella seguente sono elencate le differenze di alto livello tra i due ruoli:
 
-| Action | Ruolo utente | Ruolo amministratore
+| Azione | Ruolo utente | Ruolo amministratore
 |--------|:----:|:------------:|
 | Crea nuovo membro | Sì | Sì |
 | Invita nuovi membri | No | Sì |

@@ -26,7 +26,7 @@ In `extensionBundle`sono disponibili le proprietà seguenti:
 | Proprietà | Descrizione |
 | -------- | ----------- |
 | id | Spazio dei nomi per i bundle di estensioni di funzioni Microsoft Azure. |
-| Versione | Versione del bundle da installare. Il runtime di funzioni sceglie sempre la versione massima consentita definita dall'intervallo o dall'intervallo di versioni. Il valore della versione precedente consente a tutte le versioni del bundle da 1.0.0 fino a, ma non incluso 2.0.0. Per ulteriori informazioni, vedere la [notazione intervallo per specificare gli intervalli di versione](/nuget/reference/package-versioning#version-ranges). |
+| version | Versione del bundle da installare. Il runtime di funzioni sceglie sempre la versione massima consentita definita dall'intervallo o dall'intervallo di versioni. Il valore della versione precedente consente a tutte le versioni del bundle da 1.0.0 fino a, ma non incluso 2.0.0. Per ulteriori informazioni, vedere la [notazione intervallo per specificare gli intervalli di versione](/nuget/reference/package-versioning#version-ranges). |
 
 Le versioni del bundle vengono incrementate come pacchetti nella modifica del bundle. Le modifiche alla versione principale si verificano quando i pacchetti nel bundle vengono incrementati di una versione principale. Le modifiche alla versione principale del bundle coincidono in genere con una modifica nella versione principale del runtime di funzioni.  
 

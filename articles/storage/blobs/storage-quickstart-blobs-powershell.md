@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 3b005bc359b3c1b0cafe663b7ce2b599b10973a1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: bca04317acf589e8bae46f086c6c79dfc82152a8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474010"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82176652"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con PowerShell
 
@@ -116,10 +116,10 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva sono stati trasferiti file tra un disco locale e l'archivio BLOB di Azure. Per altre informazioni sull'uso dell'archivio BLOB con PowerShell, continuare con Usare Azure PowerShell con Archiviazione di Azure.
+In questa guida di avvio rapido sono stati trasferiti file tra un file system locale e l'archivio BLOB di Azure. Per altre informazioni sull'uso dell'archiviazione BLOB con PowerShell, esplorare gli esempi di Azure PowerShell per l'archiviazione BLOB.
 
 > [!div class="nextstepaction"]
-> [Uso di Azure PowerShell con Archiviazione di Azure](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Esempi di Azure PowerShell per l'archiviazione BLOB di Azure](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Riferimenti cmdlet di archiviazione per Microsoft Azure PowerShell
 

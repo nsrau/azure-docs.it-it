@@ -104,7 +104,7 @@ $O365Licenses -SmtpServer $emailSMTPServer -UseSSL
 3. Selezionare il nuovo Runbook e fare clic su **modifica**.
 4. Copiare lo script e incollarlo nell'editor di testo per Runbook.
 5. Selezionare **Asset**, quindi **credenziali** e verificare che le credenziali di Office 365 siano presenti.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 7. Selezionare **riquadro Test**, quindi fare clic su **Avvia** per avviare il test del Runbook. Vedere [gestire manuali operativi in automazione di Azure](https://docs.microsoft.com/azure/automation/manage-runbooks).
 8. Al termine del test, uscire dal riquadro test.
 

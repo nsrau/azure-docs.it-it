@@ -64,7 +64,7 @@ L'esempio seguente usa le credenziali a livello di utente, ad esempio l'entità 
 
 1. In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**
 
-2. Incollare il contenuto del comando seguente `az cli` come valore della variabile Secret. Ad esempio: `AZURE_CREDENTIALS`.
+2. Incollare il contenuto del comando seguente `az cli` come valore della variabile Secret. Ad esempio, `AZURE_CREDENTIALS`
 
     
     ```azurecli

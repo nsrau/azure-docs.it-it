@@ -6,14 +6,14 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614044"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159950"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Esercitazione: monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric usando Application Insights
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Esercitazione: Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric usando Application Insights
 
 Questa è la quinta di una serie di esercitazioni. Analizza i passaggi per configurare il monitoraggio e la diagnostica per un'applicazione ASP.NET Core in esecuzione in un cluster di Service Fabric con Application Insights. Verranno raccolti i dati di telemetria dall'applicazione sviluppata nella prima parte dell'esercitazione, [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -32,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare l'integrazione continua e la distribuzione continua con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurare il monitoraggio e la diagnostica per l'applicazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -168,7 +168,7 @@ A questo punto, si è pronti per distribuire l'applicazione. Fare clic su **Star
 >[!NOTE]
 >Se non è installata una versione aggiornata di .NET Core SDK, potrebbe essere generato un errore di compilazione.
 
-Una volta eseguita la distribuzione dell'applicazione, procedere a [localhost:8080](localhost:8080), dove si dovrebbe poter vedere l'applicazione della pagina singola Esempio di voto. Votare per alcuni elementi diversi di propria scelta per creare alcuni dati e dati di telemetria di esempio; in questo caso sono stati scelti i dessert.
+Una volta eseguita la distribuzione dell'applicazione, passare a `localhost:8080`, dove si dovrebbe poter vedere l'applicazione della pagina singola Esempio di voto. Votare per alcuni elementi diversi di propria scelta per creare alcuni dati e dati di telemetria di esempio; in questo caso sono stati scelti i dessert.
 
 ![Voti di esempio di AI](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -251,7 +251,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Dopo aver apportato queste modifiche, **Avviare** l'applicazione in modo che compili e distribuisca la versione più recente. Al termine della distribuzione dell'applicazione, passare a [localhost:8080](localhost:8080) e aggiungere ed eliminare alcune opzioni di voto. Quindi, tornare alla risorsa di Application Insights per visualizzare le tracce dell'esecuzione più recente (come prima, possono essere necessari da 1 a 2 minuti per la visualizzazione delle tracce in Application Insights). Dovrebbe essere visualizzato ora un "Evento personalizzato* insieme a tutti i dati di telemetria della risposta, per tutti i voti aggiunti ed eliminati.
+Dopo aver apportato queste modifiche, **Avviare** l'applicazione in modo che compili e distribuisca la versione più recente. Al termine della distribuzione dell'applicazione, passare a `localhost:8080` e aggiungere ed eliminare alcune opzioni di voto. Quindi, tornare alla risorsa di Application Insights per visualizzare le tracce dell'esecuzione più recente (come prima, possono essere necessari da 1 a 2 minuti per la visualizzazione delle tracce in Application Insights). Dovrebbe essere visualizzato ora un "Evento personalizzato* insieme a tutti i dati di telemetria della risposta, per tutti i voti aggiunti ed eliminati.
 
 ![eventi personalizzati](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

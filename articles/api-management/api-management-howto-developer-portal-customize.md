@@ -23,7 +23,7 @@ ms.locfileid: "79244095"
 
 Il portale per sviluppatori è un sito Web completamente personalizzabile e completamente personalizzabile con la documentazione delle API. Si tratta del punto in cui gli utenti dell'API possono individuare le API, informazioni su come usarle e richiedere l'accesso.
 
-In questa esercitazione verranno illustrate le procedure per:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Accedere alla versione gestita del portale per sviluppatori

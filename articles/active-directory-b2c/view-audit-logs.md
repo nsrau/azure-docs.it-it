@@ -106,7 +106,7 @@ Per scaricare Azure AD B2C eventi del log di controllo tramite l'API, filtrare i
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
 ```
 
-### <a name="powershell-script"></a>Script di PowerShell
+### <a name="powershell-script"></a>Script PowerShell
 
 Lo script di PowerShell seguente mostra un esempio di come eseguire una query sull'API di creazione di report Azure AD. Dopo l'esecuzione di una query sull'API, gli eventi registrati vengono stampati nell'output standard, quindi l'output JSON viene scritto in un file.
 

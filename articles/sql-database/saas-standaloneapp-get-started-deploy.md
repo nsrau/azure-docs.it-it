@@ -81,7 +81,7 @@ L'app illustra le sedi che ospitano gli eventi.  Le sedi sono i tenant dell'appl
 
      In ogni URL sostituire &lt;user&gt; con il valore relativo all'utente della distribuzione specifica.
 
-   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![Eventi](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [*Gestione traffico di Azure*](../traffic-manager/traffic-manager-overview.md). Ogni istanza dell'app specifica del tenant include il nome del tenant come parte del nome di dominio nell'URL. Gli URL di tutti i tenant includono valori di **User** specifici. Gli URL hanno il formato seguente:
 - http://events.&lt;nomeluogo&gt;.&lt;utente&gt;.trafficmanager.net

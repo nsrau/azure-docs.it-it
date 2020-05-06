@@ -34,7 +34,7 @@ Con DevTest Labs è possibile testare le versioni più recenti delle applicazion
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 DevTest Labs fornisce le funzionalità seguenti agli sviluppatori che usano le macchine virtuali:
 
 - Per creare rapidamente le macchine virtuali, seguire meno di cinque semplici passaggi.

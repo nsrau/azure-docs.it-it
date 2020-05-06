@@ -353,7 +353,7 @@ L'accesso viene negato e viene visualizzato un `mount error(13): Permission deni
 
 Uscire dalla sessione SSH alla macchina virtuale *myVmPublic*.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure) per rimuoverli.
 

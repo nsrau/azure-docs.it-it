@@ -45,7 +45,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
 
      ![Creare un gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Selezionare **Verifica + crea**
-6. Selezionare **Crea**. La creazione di un gruppo di risorse richiede alcuni secondi.
+6. Selezionare **Create** (Crea). La creazione di un gruppo di risorse richiede alcuni secondi.
 7. Selezionare **Aggiorna** dal menu superiore per aggiornare l'elenco dei gruppi di risorse e quindi selezionare il gruppo di risorse appena creato per aprirlo. In alternativa, selezionare **notifica**(icona a campana) nella parte superiore e quindi selezionare **Vai al gruppo di risorse** per aprire il gruppo di risorse appena creato
 
     ![Vai al gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)

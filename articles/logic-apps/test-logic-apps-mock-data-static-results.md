@@ -47,7 +47,7 @@ Ad esempio, se si configurano i risultati statici per l'azione Invia messaggi di
 
       | Proprietà | Descrizione |
       |----------|-------------|
-      | **Stato** | Stato dell'azione da restituire. |
+      | **Status** | Stato dell'azione da restituire. |
       | **Codice di stato** | Codice di stato specifico da restituire. |
       | **Headers** | Contenuto dell'intestazione da restituire. |
       |||
@@ -136,7 +136,7 @@ La disattivazione dei risultati statici non elimina i valori dall'ultima install
 
    ![Disabilitare i risultati statici](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="reference"></a>Informazioni di riferimento
+## <a name="reference"></a>Riferimento
 
 Per altre informazioni su questa impostazione nelle definizioni del flusso di lavoro sottostanti, vedere [risultati statici-riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md#static-results) e [impostazioni di configurazione di runtimeConfiguration. staticResult-Runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 

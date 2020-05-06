@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: aad830ba7c7198077fe6073d6351c72ac9a8e662
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536098"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144402"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Guida introduttiva: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
 In questa guida di avvio rapido si usa codice di esempio per dimostrare in che modo un'applicazione a pagina singola JavaScript possa concedere l'accesso ad account personali, aziendali o dell'istituto di istruzione. Un'applicazione a pagina singola può anche ottenere un token di accesso per chiamare l'API Microsoft Graph o un'API Web. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Sottoscrizione di Azure - [Creare una sottoscrizione di Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (per modificare i file di progetto)
 
@@ -165,7 +165,7 @@ Dopo che il browser ha caricato l'applicazione, fare clic su **Accedi**. Al prim
 
 ### <a name="how-the-sample-works"></a>Funzionamento dell'esempio
 
-![Funzionamento dell'app di esempio in questo argomento di avvio rapido](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Funzionamento dell'applicazione a pagina singola JavaScript di esempio: 1. L'applicazione a pagina singola avvia l'accesso. 2. L'applicazione a pagina singola acquisisce un token ID da Microsoft Identity Platform. 3. L'applicazione a pagina singola chiama il token di acquisizione. 4. Microsoft Identity Platform restituisce un token di accesso per l'applicazione a pagina singola. 5. L'applicazione a pagina singola crea una richiesta HTTP GET con il token di accesso per l'API Microsoft Graph. 6. L'API Graph restituisce una risposta HTTP all'applicazione a pagina singola.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 
