@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c822e8af076f74e1bccc46b7a71717d9631de0a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e978a5e7e76c8ddc9b7e6b80ec7170c45baa2cae
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461902"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82784113"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>Aree di Azure all'interno di un'area geopolitica
 
-La connettività VPN basata da sito a sito e l'architettura WAN virtuale sono disponibili per le aree seguenti:
+La rete WAN virtuale è disponibile per le aree seguenti:
 
 |Area geopolitica | Aree di Azure|
 |---|---|
@@ -37,7 +37,7 @@ La connettività VPN basata da sito a sito e l'architettura WAN virtuale sono di
 
 ### <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Aree di Azure e confini geopolitici per cloud nazionali
 
-La connettività VPN basata da sito a sito e l'architettura WAN virtuale sono disponibili per le aree seguenti:
+La rete WAN virtuale è disponibile per le aree seguenti:
 
 |Area geopolitica | Aree di Azure|
 |---|---|

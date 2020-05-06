@@ -36,7 +36,7 @@ Esistono diversi motivi per cui un controllo di integrità potrebbe non essere e
 
 * Un numero ridotto di host nel cluster ospita molti componenti, quindi è necessario eseguire molti avvisi. Se il numero di componenti è elevato, è possibile che i processi di avviso non abbiano intervalli pianificati.
 
-## <a name="resolution"></a>Soluzione
+## <a name="resolution"></a>Risoluzione
 
 Provare a usare i metodi seguenti per risolvere i problemi relativi agli avvisi Ambari non aggiornati.
 

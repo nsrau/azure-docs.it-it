@@ -130,7 +130,7 @@ Se si usa un server DNS personalizzato in una rete virtuale, è anche possibile 
 * Gli indirizzi IP pubblici e privati con bilanciamento del carico sono disponibili nel pannello panoramica della portale di Azure.
 * Gli indirizzi IP assegnati per l'accesso pubblico e privato possono cambiare se il servizio viene rimosso da e quindi aggiunto nuovamente alla rete virtuale. In tal caso, potrebbe essere necessario aggiornare le registrazioni DNS, le regole di routing e gli elenchi di restrizioni IP all'interno della rete virtuale.
 
-## <a name="related-content"></a><a name="related-content"> </a>Contenuti correlati
+## <a name="related-content"></a><a name="related-content"> </a>Contenuto correlato
 Per altre informazioni, vedere gli articoli seguenti:
 * [Problemi comuni di configurazione di rete durante la configurazione di Gestione API di Azure in una rete virtuale][Common network configuration problems]
 * [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md)

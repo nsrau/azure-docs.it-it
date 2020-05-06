@@ -44,7 +44,7 @@ I passaggi seguenti sono necessari se si sta configurando un'esportazione contin
 
 1. Dall'area "Esporta destinazione" scegliere il percorso in cui salvare i dati. I dati possono essere salvati in una destinazione in una sottoscrizione diversa, ad esempio in un'istanza centrale dell'hub eventi o in un'area di lavoro centrale Log Analytics.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 
 

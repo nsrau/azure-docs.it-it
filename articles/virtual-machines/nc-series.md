@@ -26,7 +26,7 @@ Live Migration: non supportato
 
 Aggiornamenti con mantenimento della memoria: non supportato
 
-| Dimensioni | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|
 | Standard_NC6    | 6  | 56  | 340  | 1 | 12 | 24 | 1 |
 | Standard_NC12   | 12 | 112 | 680  | 2 | 24 | 48 | 2 |

@@ -39,9 +39,9 @@ Il modo in cui si specificano gli utenti che possono richiedere un pacchetto di 
 | --- | --- |
 | Si desidera che tutti gli utenti della directory dispongano delle stesse impostazioni di richiesta e approvazione per un pacchetto di accesso | Uno |
 | Desidero che tutti gli utenti di determinate organizzazioni connesse siano in grado di richiedere un pacchetto di accesso | Uno |
-| Desidero consentire agli utenti della mia directory e anche a utenti esterni alla directory di richiedere un pacchetto di accesso | Multipli |
-| Si desidera specificare impostazioni di approvazione diverse per alcuni utenti | Multipli |
-| Si desidera che alcuni utenti accedano alle assegnazioni dei pacchetti per scadere mentre altri utenti possono estenderne l'accesso | Multipli |
+| Desidero consentire agli utenti della mia directory e anche a utenti esterni alla directory di richiedere un pacchetto di accesso | Più elementi |
+| Si desidera specificare impostazioni di approvazione diverse per alcuni utenti | Più elementi |
+| Si desidera che alcuni utenti accedano alle assegnazioni dei pacchetti per scadere mentre altri utenti possono estenderne l'accesso | Più elementi |
 
 Per informazioni sulla logica di priorità usata quando si applicano più criteri, vedere [criteri multipli](entitlement-management-troubleshoot.md#multiple-policies
 ).

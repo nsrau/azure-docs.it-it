@@ -37,5 +37,5 @@ ms.locfileid: "78184351"
 1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
 1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
 1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
-1. Selezionare **Accetto**.
+1. Selezionare **Accetta**.
 1. Selezionare **Aggiorna**, quindi verificare che "concesso per..." viene visualizzato in **stato**. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
