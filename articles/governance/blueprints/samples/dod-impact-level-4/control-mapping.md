@@ -4,10 +4,10 @@ description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 4. 
 ms.date: 03/06/2020
 ms.topic: sample
 ms.openlocfilehash: a11a8637618bb42831ccf1a7001e4da40529ba74
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82024830"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto DoD Impact Level 4

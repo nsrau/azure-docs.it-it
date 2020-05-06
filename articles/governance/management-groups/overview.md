@@ -4,10 +4,10 @@ description: Informazioni sui gruppi di gestione, sul funzionamento delle autori
 ms.date: 04/15/2020
 ms.topic: overview
 ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81381546"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
@@ -87,12 +87,12 @@ Queste autorizzazioni vengono ereditate dalle risorse figlio presenti nella gera
 
 Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gruppi di gestione.
 
-| Nome del ruolo Controllo degli accessi in base al ruolo             | Creazione | Ridenominazione | Spostamento\*\* | Eliminazione | Assegnazione dell'accesso | Assegnazione di criteri | Lettura  |
+| Nome del ruolo Controllo degli accessi in base al ruolo             | Create | Rinominare | Spostamento\*\* | Delete | Assegnare l'accesso | Assegnare un criterio | Lettura  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietario                       | X      | X      | X        | X      | X             | X             | X     |
 |Collaboratore                 | X      | X      | X        | X      |               |               | X     |
 |Collaboratore gruppo di gestione\*            | X      | X      | X        | X      |               |               | X     |
-|Lettore                      |        |        |          |        |               |               | X     |
+|Reader                      |        |        |          |        |               |               | X     |
 |Lettore gruppo di gestione\*                 |        |        |          |        |               |               | X     |
 |Collaboratore per i criteri delle risorse |        |        |          |        |               | X             |       |
 |Amministratore accessi utente   |        |        |          |        | X             | X             |       |
