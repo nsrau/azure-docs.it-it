@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81737571"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204585"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -49,7 +49,7 @@ Per aggiungere server DNS per i client da punto a sito, sono disponibili due opz
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Per la VPN utente (da punto a sito), quanti client sono supportati?
 
-Ogni gateway VPN utente da punto a sito include due istanze, ognuna delle quali supporta fino a un determinato numero di utenti in base all'unità di scala. L'unità di scala 1-3 supporta 500 connessioni, l'unità di scala 4-6 supporta 1000 connessioni, l'unità di scala 7-10 supporta 5000 connessioni e l'unità di scala a partire da 11 supporta fino a 10.000 connessioni. Si supponga, ad esempio, che l'utente scelga l'unità di scala 1. Ogni unità di scala implica la distribuzione di un gateway attivo-attivo e ognuna delle istanze (in questo caso 2) supporta fino a 500 connessioni. Anche se è possibile ottenere 500 connessioni x 2 per ogni gateway, questo non significa che si prevede di usarne 1000 invece delle 500 di questa unità di scala, perché può essere necessario eseguire interventi di manutenzione sulle istanze, durante i quali la connettività potrebbe essere interrotta per le 500 aggiuntive se si supera il numero di connessioni raccomandate.
+Ogni gateway VPN utente da punto a sito include due istanze, ognuna delle quali supporta fino a un determinato numero di utenti in base all'unità di scala. L'unità di scala 1-3 supporta 500 connessioni, l'unità di scala 4-6 supporta 1000 connessioni, l'unità di scala 7-12 supporta 5000 connessioni e l'unità di scala 13-20 supporta fino a 10.000 connessioni. Si supponga, ad esempio, che l'utente scelga l'unità di scala 1. Ogni unità di scala implica la distribuzione di un gateway attivo-attivo e ognuna delle istanze (in questo caso 2) supporta fino a 500 connessioni. Anche se è possibile ottenere 500 connessioni x 2 per ogni gateway, questo non significa che si prevede di usarne 1000 invece delle 500 di questa unità di scala, perché può essere necessario eseguire interventi di manutenzione sulle istanze, durante i quali la connettività potrebbe essere interrotta per le 500 aggiuntive se si supera il numero di connessioni raccomandate.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual è la differenza tra un gateway di rete virtuale di Azure (gateway VPN) e un gateway VPN di rete WAN virtuale di Azure?
 
@@ -215,6 +215,10 @@ Se un hub virtuale apprende la stessa route da più hub remoti, l'ordine in cui 
 1) Route di origine a) Route di rete: prefissi di rete virtuale direttamente appresi dai gateway dell'hub virtuale b) Tabella di route dell'hub (route configurate in modo statico) c) BGP d) Route tra hub
 2)  Metrica di route: La rete WAN virtuale preferisce ExpressRoute rispetto alla VPN. Il peer ExpressRoute prevede una ponderazione più elevata rispetto al peer VPN
 3)  Lunghezza percorso routing asimmetrico
+
+### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>È disponibile il supporto per IPv6 nella rete WAN virtuale?
+
+IPv6 non è supportato nell'hub di rete WAN virtuale e nei relativi gateway. Non è neanche supportato lo scenario di una rete virtuale con il supporto per IPv6 da connettere a una rete WAN virtuale. 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quali sono le differenze tra i tipi di rete WAN virtuale (Basic e Standard)?
 

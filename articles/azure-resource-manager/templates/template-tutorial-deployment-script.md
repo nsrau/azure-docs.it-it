@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/07/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f369eb54dc92a29ba122a8a645262dc085b1ed36
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80930042"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184980"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato (anteprima)
 
@@ -284,35 +284,43 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Vedere la sezione [Distribuire il modello](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) nell'argomento di avvio rapido di Visual Studio Code per aprire Cloud Shell e caricare il file di modello nella shell. Eseguire quindi lo script di PowerShell seguente:
+1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-$identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
+1. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (per l'interfaccia della riga di comando) nell'angolo in alto a sinistra.  Quando si cambia interfaccia, è necessario riavviare la shell.
 
-$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
-$resourceGroupName = "${projectName}rg"
-$keyVaultName = "${projectName}kv"
+    ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata.  Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
+1. quindi eseguire lo script di PowerShell seguente per distribuire il modello.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+    $identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
-Il servizio dello script di distribuzione deve creare altre risorse dello script di distribuzione per l'esecuzione dello script. Il completamento della preparazione e del processo di pulizia può richiedere fino a un minuto oltre al tempo di esecuzione effettivo dello script.
+    $adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+    $resourceGroupName = "${projectName}rg"
+    $keyVaultName = "${projectName}kv"
 
-La distribuzione non è riuscita perché nello script è stato usato il comando **Write-Output1** non valido. Si riceverà un errore simile al seguente:
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-```error
-The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
-```
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
 
-Il risultato dell'esecuzione dello script di distribuzione viene archiviato nelle risorse dello script di distribuzione per la risoluzione dei problemi.
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    Il servizio dello script di distribuzione deve creare altre risorse dello script di distribuzione per l'esecuzione dello script. Il completamento della preparazione e del processo di pulizia può richiedere fino a un minuto oltre al tempo di esecuzione effettivo dello script.
+
+    La distribuzione non è riuscita perché nello script è stato usato il comando **Write-Output1** non valido. Si riceverà un errore simile al seguente:
+
+    ```error
+    The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
+    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    ```
+
+    Il risultato dell'esecuzione dello script di distribuzione viene archiviato nelle risorse dello script di distribuzione per la risoluzione dei problemi.
 
 ## <a name="debug-the-failed-script"></a>Eseguire il debug dello script non riuscito
 

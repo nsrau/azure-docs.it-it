@@ -2,14 +2,14 @@
 title: 'Guida introduttiva: Creare e usare un ciclo di apprendimento con SDK - Personalizza esperienze'
 description: Questo argomento di avvio rapido illustra come creare e gestire una knowledge base usando l'SDK client.
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 7ebe22227b4323b2e6b1c3fc9ca31e171d1d97cd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c65be6c68372ffe92ffd942bf71d2b635ec2fd16
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77524870"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188866"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Guida introduttiva: Libreria client di Personalizza esperienze
 
@@ -17,7 +17,7 @@ Visualizzare il contenuto personalizzato in questa guida di avvio rapido con il 
 
 Introduzione alla libreria client di Personalizza esperienze. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
- * API Classificazione: seleziona l'elemento migliore, da elementi di contenuto, in base alle informazioni in tempo reale fornite in merito al contenuto e al contesto.
+ * API Classificazione: seleziona l'elemento migliore, dalle azioni, in base alle informazioni in tempo reale fornite in merito al contenuto e al contesto.
  * API Premio: è possibile determinare il punteggio di ricompensa in base alle esigenze aziendali e quindi inviarlo a Personalizza esperienze con questa API. Questo punteggio può essere un singolo valore, ad esempio 1 per positivo e 0 per negativo, oppure un algoritmo creato in base alle esigenze aziendali.
 
 ::: zone pivot="programming-language-csharp"

@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: Includere file
+description: File di inclusione
 services: container-registry
 author: dlepow
 ms.service: container-registry
