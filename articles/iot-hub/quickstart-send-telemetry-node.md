@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - mqtt
 ms.date: 06/21/2019
-ms.openlocfilehash: 24b6d2eca2eaa12e3e04647d403a015bdbf24ec6
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 5c34dcc606e87e11a3a018df1b2d6bbedb262d04
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770021"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82209112"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Node.js)
 
@@ -86,19 +86,19 @@ az extension add --name azure-iot
 
     Il valore verrà usato più avanti in questa guida di avvio rapido.
 
-1. È necessaria anche una _stringa di connessione del servizio_ per consentire all'applicazione back-end di connettersi all'hub IoT dell'utente e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
+1. È necessario anche l'_endpoint compatibile con gli Hub eventi di Azure_, il _percorso compatibile con gli Hub eventi di Azure_, e la _chiave primaria di servizio_ dall'hub IoT dell'utente per consentire all'applicazione back-end di connettersi all'hub di IoT e recuperare i messaggi. I comandi seguenti recuperano questi valori per l'hub IoT:
 
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --policy-name service --output table
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
+
+    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
+
+    az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
     ```
 
-    Annotare la stringa di connessione del servizio, che avrà questo aspetto:
-
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
-
-    Il valore verrà usato più avanti in questa guida di avvio rapido. Questa stringa di connessione del servizio è diversa dalla stringa di connessione del dispositivo annotata nel passaggio precedente.
+    Prendere nota di questi tre valori, che verranno usati più avanti nella guida di avvio rapido.
 
 ## <a name="send-simulated-telemetry"></a>Inviare dati di telemetria simulati
 
@@ -127,9 +127,13 @@ L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio de
 
 1. Aprire un'altra finestra del terminale locale e passare alla cartella radice del progetto Node.js di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\read-d2c-messages**.
 
-1. Aprire il file **ReadDeviceToCloudMessages.js** in un editor di testo di propria scelta.
+1. Aprire il file **ReadDeviceToCloudMessages.js** in un editor di testo di propria scelta. Aggiornare le variabili seguenti e salvare le modifiche nel file.
 
-    Sostituire il valore della variabile `connectionString` con la stringa di connessione del servizio annotata in precedenza. Salvare quindi le modifiche nel file **ReadDeviceToCloudMessages.js**.
+    | Variabile | valore |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | Sostituire il valore della variabile con l'endpoint compatibile con hub eventi annotato in precedenza. |
+    | `eventHubsCompatiblePath`     | Sostituire il valore della variabile con il percorso compatibile con hub eventi annotato in precedenza. |
+    | `iotHubSasKey`                | Sostituire il valore della variabile con la chiave primaria di servizio annotata in precedenza. |
 
 1. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie ed eseguire l'applicazione back-end:
 

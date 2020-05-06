@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido: Indirizzare il traffico Web con il portale'
+title: 'Guida introduttiva: Indirizzare il traffico Web con il portale'
 titleSuffix: Azure Application Gateway
 description: Informazioni su come usare il portale di Azure per creare un gateway applicazione di Azure per il reindirizzamento del traffico Web a macchine virtuali in un pool back-end.
 services: application-gateway
@@ -10,13 +10,13 @@ ms.date: 03/09/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 17adc800bd5a2ae53e27350c7e0d588eaeee4a8f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79290169"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guida di avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
 
 In questa guida di avvio rapido si userà il portale di Azure per creare un gateway applicazione. Successivamente, verrà testato il gateway per verificare che funzioni correttamente. 
 
@@ -153,7 +153,7 @@ A questo scopo, è necessario:
     - **Nome macchina virtuale**: immettere *myVM* come nome della macchina virtuale.
     - **Area**: selezionare la stessa area geografica in cui è stato creato il gateway applicazione.
     - **Nome utente**: digitare *azureuser* come nome utente dell'amministratore.
-    - **Password**: digitare una password.
+    - **Password**: Digitare una password.
 4. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Dischi**.  
 5. Accettare le impostazioni predefinite della scheda **Dischi** e quindi selezionare **Avanti: Rete**.
 6. Nella scheda **Rete** verificare che **myVNet** sia selezionato per la **Rete virtuale** e che la **Subnet** sia **myBackendSubnet**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Gestione**.<br>Il gateway applicazione può comunicare con le istanze all'esterno della rete virtuale in cui si trova, ma è necessario verificare che ci sia la connettività IP.

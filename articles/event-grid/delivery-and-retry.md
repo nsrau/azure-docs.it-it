@@ -113,7 +113,7 @@ Griglia di eventi considera **solo** i codici di risposta HTTP seguenti come rec
 
 Tutti gli altri codici non inclusi nel set precedente (200-204) vengono considerati errori e verranno ripetuti. Per alcuni sono disponibili criteri di ripetizione dei tentativi specifici, tutti gli altri seguono il modello di back-off esponenziale standard. È importante tenere presente che, a causa della natura altamente parallela dell'architettura di griglia di eventi, il comportamento di ripetizione dei tentativi è non deterministico. 
 
-| Codice di stato | Comportamento in caso di nuovo tentativo |
+| Codice stato | Comportamento in caso di nuovo tentativo |
 | ------------|----------------|
 | 400 - Richiesta non valida | Riprovare dopo 5 minuti o più (DeadLetter immediatamente se il programma di installazione di DeadLetter) |
 | 401 - Non autorizzato | Riprovare dopo 5 minuti o più |

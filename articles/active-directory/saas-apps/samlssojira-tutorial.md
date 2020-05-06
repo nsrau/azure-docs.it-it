@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957fee48397bc0b23737157dec0e74cf6505fab5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160124"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -29,7 +29,7 @@ Questa esercitazione descrive come integrare SAML SSO for Jira by resolution Gmb
 L'integrazione di SAML SSO for Jira di resolution GmbH con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Jira con il plug-in SAML SSO by resolution GmbH.
-* È possibile abilitare gli utenti per l'accesso automatico a Jira (Single Sign-On) con gli account Azure AD personali usando SAML SSO for Jira by resolution GmbH.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Jira con gli account Azure AD personali usando SAML SSO for Jira by resolution GmbH.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -52,7 +52,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'accesso Single Sign-On di Azure AD, è necessario aggiungere una nuova applicazione aziendale. Nella raccolta è disponibile un set di impostazioni per l'applicazione preconfigurato a questo scopo, **SAML SSO for Jira by resolution GmbH**.
 
-**Per aggiungere SAML SSO for Jira di resolution GmbH dalla raccolta, eseguire la procedura seguente:**
+**Per aggiungere SAML SSO for Jira di resolution GmbH dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -203,7 +203,7 @@ Per configurare l'accesso Single Sign-On con SAML SSO for Jira by resolution Gmb
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure. L'utente verrà usato per testare l'accesso Single Sign-On.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure. L'utente verrà usato per testare l'accesso Single Sign-On.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -235,7 +235,7 @@ In questa sezione aggiungere Britta Simon all'applicazione aziendale per abilita
 
 2. Nell'elenco delle applicazioni cercare l'applicazione aziendale creata all'inizio di questa esercitazione. Se si sono seguiti i passaggi dell'esercitazione, il nome dell'applicazione è **SAML SSO for Jira by resolution GmbH**. Se si è assegnato un altro nome all'applicazione, cercare tale nome.
 
-    ![Collegamento di SAML SSO for Jira by resolution GmbH nell'elenco Applicazioni](common/all-applications.png)
+    ![Collegamento di SAML SSO for Jira by resolution GmbH nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** nel pannello a sinistra.
 
@@ -289,9 +289,9 @@ Per consentire agli utenti di Azure AD di accedere a SAML SSO for Jira by resolu
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di SAML SSO for Jira by resolution GmbH nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SAML SSO for Jira by resolution GmbH per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di SAML SSO for Jira by resolution GmbH nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di SAML SSO for Jira by resolution GmbH per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-È anche possibile testare l'accesso Single Sign-On all'indirizzo [https://\<server-base-url>/plugins/servlet/samlsso](https://\<server-base-url>/plugins/servlet/samlsso). Sostituire **\<server-base-url>** con l'URL di base dell'istanza di Jira.
+Per testare l'accesso Single Sign-On è anche possibile passare a `https://<server-base-url>/plugins/servlet/samlsso`. Sostituire **\<server-base-url>** con l'URL di base dell'istanza di Jira.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Abilitare il reindirizzamento Single Sign-On per Jira
@@ -311,7 +311,7 @@ Per attivare il reindirizzamento SSO, eseguire le operazioni seguenti nell'**ist
 
 1. Scegliere il pulsante **Save Settings** (Salva impostazioni) nell'angolo in alto a destra.
 
-Dopo aver attivato l'opzione, è comunque possibile tornare al prompt di nome utente/password, se l'opzione **Enable nosso** (Abilita nosso) è contrassegnata con un segno di spunta, passando a [https://\<server-base-url>/login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso). Come nei casi precedenti, sostituire **\<server-base-url>** con l'URL di base.
+Dopo aver attivato l'opzione, è comunque possibile tornare al prompt di nome utente/password, se l'opzione **Enable nosso** (Abilita nosso) è contrassegnata con un segno di spunta, passando a `https://\<server-base-url>/login.jsp?nosso`. Come nei casi precedenti, sostituire **\<server-base-url>** con l'URL di base.
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

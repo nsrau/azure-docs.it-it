@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: Includere file
 services: iot-hub
 author: robinsh
 ms.service: iot-hub

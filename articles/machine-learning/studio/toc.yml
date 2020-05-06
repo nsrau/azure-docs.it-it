@@ -52,8 +52,6 @@
           href: create-workspace.md
         - name: Gestione
           href: manage-workspace.md
-        - name: Risolvere problemi
-          href: troubleshooting-creating-ml-workspace.md
         - name: Eseguire la distribuzione usando ARM
           href: deploy-with-resource-manager-template.md
     - name: Importare dati di training
@@ -84,8 +82,6 @@
               href: algorithm-parameters-optimize.md
             - name: Interpretare i risultati
               href: interpret-model-results.md
-            - name: Debug
-              href: debug-models.md
         - name: Ripetere il training dei modelli
           items:
             - name: Nuovi servizi Web
@@ -96,19 +92,12 @@
           items:
             - name: Introduzione a R
               href: r-get-started.md
-            - name: Eseguire script R
-              href: extend-your-experiment-with-r.md
             - name: Creare moduli R personalizzati
               href: custom-r-modules.md
             - name: Eseguire script Python
               href: execute-python-scripts.md
     - name: Selezionare un algoritmo
-      items:
-        - name: Scegliere gli algoritmi
-          href: algorithm-choice.md
-        - name: Esempi di algoritmi
-          displayName: 'infographic, studio basics'
-          href: basics-infographic-with-algorithm-examples.md
+      href: algorithm-choice.md
     - name: Distribuire i modelli
       items:
         - name: Distribuire un servizio Web
@@ -143,14 +132,6 @@
           href: consuming-from-excel.md
         - name: Usare il componente aggiuntivo di Excel
           href: excel-add-in-for-web-services.md
-    - name: Casi d'uso
-      items:
-        - name: Abbandono dei clienti
-          href: azure-ml-customer-churn-scenario.md
-        - name: Analisi del sentiment
-          href: text-analytics-module-tutorial.md
-        - name: Eseguire la migrazione dell'analisi da Excel a Studio (versione classica)
-          href: use-case-excel-studio.md
     - name: Eliminare ed esportare dati dei clienti
       items:
         - name: Dati di Studio (versione classica)

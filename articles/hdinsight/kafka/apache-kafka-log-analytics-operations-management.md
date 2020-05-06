@@ -52,7 +52,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
 
 2. Nel menu a sinistra, in **generale**, selezionare **log**. Qui è possibile cercare i dati raccolti da Kafka. Immettere una query nella finestra query e quindi selezionare **Esegui**. Di seguito alcuni esempi di ricerche:
 
-* Utilizzo disco: 
+* Utilizzo disco:
 
     ```kusto
     Perf
