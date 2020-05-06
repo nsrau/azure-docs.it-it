@@ -48,7 +48,7 @@ Questo articolo è incentrato sull'uso degli **account utente** nel portale di A
 1. Opzionale È possibile **bloccare l'accesso** se si vuole ritardare la possibilità per l'utente di accedere. È possibile abilitare l'accesso in un secondo momento modificando il **profilo** dell'utente nel portale di Azure.
 1. Scegliere **genera automaticamente password** o **Consenti la creazione della password**.
 1. Specificare il **nome** e il **Cognome**dell'utente.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 A meno che non sia stata selezionata l'opzione **Blocca accesso**, l'utente può ora accedere usando il metodo di accesso (posta elettronica o nome utente) specificato.
 

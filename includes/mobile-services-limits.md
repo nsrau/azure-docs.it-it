@@ -22,7 +22,7 @@ ms.locfileid: "74224491"
 | Processi pianificati |Limitato |Incluso |Incluso |
 | Database SQL di Azure (obbligatorio) <br/>applicate tariffe Standard per capacità aggiuntiva |20 MB inclusi |20 MB inclusi |20 MB inclusi |
 | Capacità della CPU |60 minuti al giorno |Nessuna limitazione |Nessuna limitazione |
-| Costi di trasferimento dei dati in uscita |165 MB al giorno (rollover giornaliero) |Incluso |Incluso |
+| Trasferimento dati in uscita |165 MB al giorno (rollover giornaliero) |Incluso |Incluso |
 
 Per altre informazioni sui limiti e sui prezzi, vedere [prezzi di servizi mobili di Azure](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

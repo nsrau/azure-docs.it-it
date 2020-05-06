@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: a02abd931dddd410882dd67a73a5b5fab6dc8cf9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879548"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82194891"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -61,7 +61,7 @@ Centro sicurezza di Azure migliora il comportamento di sicurezza. Ciò significa
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Gestione delle policy di sicurezza dell’organizzazione e conformità
 
-Conoscere e verificare che i carichi di lavoro siano protetti è fondamentale. Per farlo, è necessario disporre di policy di sicurezza personalizzate. Dal momento che tutti i criteri di Centro sicurezza si basano su controlli dei criteri di Azure, è possibile usufruire dell'intera gamma e della flessibilità di una **soluzione di elevata qualità per i criteri**. In Centro sicurezza è possibile impostare le proprie policy da eseguire su gruppi di gestione, sulle sottoscrizioni e anche su un intero tenant.
+Conoscere e verificare che i carichi di lavoro siano protetti è fondamentale. Per farlo, è necessario disporre di policy di sicurezza personalizzate. Dal momento che tutti i criteri nel Centro sicurezza sono basati su controlli di Criteri di Azure, è possibile usufruire dell'intera gamma e della flessibilità di una **soluzione di qualità elevata per la gestione dei criteri**. In Centro sicurezza è possibile impostare le proprie policy da eseguire su gruppi di gestione, sulle sottoscrizioni e anche su un intero tenant.
 
 ![Dashboard del Centro sicurezza](media/security-center-intro/sc-dashboard.png)
 
@@ -127,7 +127,7 @@ Centro sicurezza consente di limitare l’esposizione agli attacchi di forza bru
 
 Centro sicurezza include funzionalità che consentono di classificare automaticamente i dati di SQL Azure. È anche possibile ottenere valutazioni per le potenziali vulnerabilità nei servizi di archiviazione e SQL di Azure e raccomandazioni su come attenuarle.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteggere i carichi di lavoro cloud ibridi e IoT
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteggere i carichi di lavoro di cloud ibrido e IoT
 
 Centro sicurezza di Azure per IoT (Internet delle cose) semplifica la protezione di carichi di lavoro ibridi offrendo visibilità unificata e controllo, prevenzione delle minacce adattiva, oltre a protezione e risposta intelligenti per le minacce in tutti i carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. Per altre informazioni, vedere [Centro sicurezza di Azure per IOT](https://docs.microsoft.com/azure/asc-for-iot/).
 

@@ -46,14 +46,14 @@ Il cluster HDInsight include alcuni dati di esempio. Usare i due esempi seguenti
   
   | Campo | Tipo di dati |
   | --- | --- |
-  | clientid |stringa |
-  | querytime |stringa |
-  | market |stringa |
-  | deviceplatform |stringa |
-  | devicemake |stringa |
-  | devicemodel |stringa |
-  | state |stringa |
-  | country |stringa |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -76,13 +76,13 @@ Il cluster, il database SQL e altri oggetti vengono creati tramite il portale di
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Immettere le seguenti proprietà:
+2. Immettere le proprietà seguenti:
 
     |Campo |valore |
     |---|---|
     |Subscription |Selezionare la sottoscrizione di Azure dall'elenco a discesa.|
     |Resource group |Selezionare il gruppo di risorse dall'elenco a discesa o crearne uno nuovo.|
-    |Location |Selezionare un'area dall'elenco a discesa.|
+    |Percorso |Selezionare un'area dall'elenco a discesa.|
     |Cluster Name |Immettere un nome per il cluster Hadoop. USA solo lettere minuscole.|
     |Nome utente dell'account di accesso del cluster |Mantieni il valore `admin`pre-popolato.|
     |Password di accesso al cluster |Immettere una password.|
@@ -93,7 +93,7 @@ Il cluster, il database SQL e altri oggetti vengono creati tramite il portale di
     |Località _artifacts | Usare il valore predefinito a meno che non si voglia usare il proprio file BACPAC in un percorso diverso.|
     |Token SAS percorso _artifacts |Lasciare vuoto.|
     |Nome file BACPAC |Usare il valore predefinito a meno che non si desideri usare un file BACPAC personalizzato.|
-    |Location |Usare il valore predefinito.|
+    |Percorso |Usare il valore predefinito.|
 
     Il nome del SQL Server di Azure `<ClusterName>dbserver`sarà. Il nome del database sarà `<ClusterName>db`. Il nome dell'account di archiviazione predefinito `e6qhezrh2pdqu`sarà.
 

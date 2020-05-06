@@ -118,7 +118,7 @@ Esempio: `<demo0-qa>`. mypolicies.com.
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-8. Fare clic su **Save**.
+8. Fare clic su **Salva**.
 
 9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti ai criteri**.
 

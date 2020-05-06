@@ -4,10 +4,10 @@ description: Procedura di distribuzione per l'esempio di progetto FedRAMP Modera
 ms.date: 10/31/2019
 ms.topic: sample
 ms.openlocfilehash: f38aad3adb625a0874d6287d25b1fe60f2579291
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74544481"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Distribuire l'esempio di progetto FedRAMP Moderate

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239245"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184997"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Esercitazione: Risolvere i problemi delle distribuzioni di modelli di Azure Resource Manager
 
@@ -26,20 +26,18 @@ Entrambi i tipi di errore restituiscono un codice necessario per risolvere i pro
 Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
-> * Creare un modello con errori
-> * Risolvere gli errori di convalida
-> * Risolvere gli errori relativi alla distribuzione
-> * Pulire le risorse
+> - Creare un modello con errori
+> - Risolvere gli errori di convalida
+> - Risolvere gli errori relativi alla distribuzione
+> - Pulire le risorse
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
+- Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Creare un modello con errori
 
@@ -51,12 +49,14 @@ Aprire un modello denominato [Create a standard storage account](https://azure.m
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Selezionare **Apri** per aprire il file.
 4. Sostituire la riga **apiVersion** con la riga seguente:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - **apiVersion1** non è un nome di elemento valido. È un errore di convalida.
     - La versione dell'API deve essere "2018-07-01".  È un errore di distribuzione.
 
@@ -64,7 +64,7 @@ Aprire un modello denominato [Create a standard storage account](https://azure.m
 
 ## <a name="troubleshoot-the-validation-error"></a>Risolvere l'errore di convalida
 
-Per distribuire il modello, vedere la sezione [Distribuire il modello](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template).
+Per distribuire il modello, vedere la sezione [Distribuire il modello](template-tutorial-create-multiple-instances.md#deploy-the-template).
 
 La shell restituirà un errore simile al seguente:
 
@@ -78,7 +78,7 @@ Usare Visual Studio Code per risolvere il problema sostituendo **apiVersion1** c
 
 ## <a name="troubleshoot-the-deployment-error"></a>Risolvere l'errore di distribuzione
 
-Per distribuire il modello, vedere la sezione [Distribuire il modello](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template).
+Per distribuire il modello, vedere la sezione [Distribuire il modello](template-tutorial-create-multiple-instances.md#deploy-the-template).
 
 La shell restituirà un errore simile al seguente:
 

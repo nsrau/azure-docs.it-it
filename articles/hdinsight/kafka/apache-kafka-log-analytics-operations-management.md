@@ -25,7 +25,7 @@ Informazioni su come usare i log di monitoraggio di Azure per analizzare i log g
 
 I log Apache Kafka nel cluster si trovano in `/var/log/kafka`. I registri Kafka non vengono salvati né salvati in permanenza tra i cicli di vita del cluster, indipendentemente dal fatto che vengano usati i dischi gestiti. La tabella seguente illustra i log disponibili.
 
-|File di log |Descrizione |
+|Registro |Descrizione |
 |---|---|
 |Kafka. out|stdout e stderr del processo Kafka. In questo file sono disponibili i log di avvio e arresto di Kafka.|
 |Server. log|Log del server Kafka principale. Tutti i log del broker Kafka si concludono qui.|

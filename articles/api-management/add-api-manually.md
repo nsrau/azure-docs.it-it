@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/27/2018
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5440333360549c5df2da57c97b24dcc77436ba4b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70072694"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82203268"
 ---
 # <a name="add-an-api-manually"></a>Aggiungere manualmente un'API
 
@@ -35,21 +35,11 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 
 ## <a name="create-an-api"></a>Creare un'API
 
-1. Selezionare **API** in **GESTIONE API**.
+1. Passare al servizio Gestione API nel portale di Azure e selezionare **API** dal menu.
 2. Fare clic su **+ Aggiungi API** nel menu a sinistra.
-3. Selezionare **API vuota** dall'elenco.
-
-    ![API vuota](media/add-api-manually/blank-api.png)
-4. Immettere le impostazioni per l'API.
-
-    |**Nome**|**Valore**|**Descrizione**|
-    |---|---|---|
-    |**Nome visualizzato**|*Blank API*|Questo nome viene visualizzato nel portale per sviluppatori.|
-    |**Nome**|*blank-api*|Fornisce un nome univoco per l'API.|
-    |**URL del servizio Web** (facoltativo)|*https://httpbin.org*| Per simulare un'API, è possibile non immettere nulla. <br/>In questo caso, immettere [https://httpbin.org](https://httpbin.org). Si tratta di un servizio pubblico di test. <br/>Per importare un'API di cui viene eseguito il mapping automatico a un back-end, vedere uno degli argomenti nella sezione [Argomenti correlati](#related-topics).|
-    |**Schema URL**|*HTTPS*|In questo caso, anche se il back end ha accesso HTTP non sicuro, viene specificato un accesso di Gestione API HTTPS sicuro al back-end. <br/>Questo tipo di scenario (da HTTPS a HTTP) viene chiamato terminazione HTTPS. È possibile eseguirlo se l'API esiste in una rete virtuale (dove è certo che l'accesso è sicuro anche se non viene usato HTTPS). <br/>È possibile usare la "terminazione HTTPS" per il salvataggio in alcuni cicli di CPU.|
-    |**Suffisso dell'URL dell'API**|*hbin*| Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.|
-    |**Prodotti**|*Illimitato*|Pubblicare l'API associandola a un prodotto. Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.<br/><br/>I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.<br/><br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Senza limiti**.| 
+3. Selezionare **API vuota** dall'elenco.  
+    ![Blank API](media/add-api-manually/blank-api.png)  
+4. Immettere le impostazioni per l'API. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#-import-and-publish-a-backend-api).
 5. Selezionare **Create** (Crea).
 
 A questo punto, non si hanno operazioni in Gestione API di cui viene eseguito il mapping alle operazioni nell'API back-end. Se si chiama un'operazione esposta tramite il back-end, ma non tramite Gestione API, viene visualizzato un errore **404**.

@@ -98,7 +98,7 @@ Per inviare una richiesta di accesso JIT:
 
 1. Visualizzare le notifiche per verificare che la nuova richiesta JIT venga inviata correttamente al consumer.
 
-   ![Notification](./media/request-just-in-time-access/in-progress.png)
+   ![Notifica](./media/request-just-in-time-access/in-progress.png)
 
    A questo punto, è necessario attendere che il consumer [approvi la richiesta](approve-just-in-time-access.md#approve-requests).
 

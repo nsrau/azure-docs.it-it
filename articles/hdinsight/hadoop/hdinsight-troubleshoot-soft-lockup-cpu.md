@@ -26,7 +26,7 @@ I syslog del kernel contengono il messaggio di errore `watchdog: BUG: soft locku
 
 Un [bug](https://bugzilla.kernel.org/show_bug.cgi?id=199437) nel kernel Linux causa blocchi software di CPU.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Applica patch del kernel. Lo script seguente aggiorna il kernel Linux e riavvia le macchine in momenti diversi in 24 ore. Eseguire l'azione script in due batch. Il primo batch si trova in tutti i nodi eccetto il nodo head. Il secondo batch si trova nel nodo head. Non eseguire nel nodo Head e in altri nodi nello stesso momento.
 
@@ -46,7 +46,7 @@ Applica patch del kernel. Lo script seguente aggiorna il kernel Linux e riavvia 
 
     Selezionare **Mantieni questa azione script...** se si desidera che esegua lo script quando vengono aggiunti nuovi nodi.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 1. Attendere che l'esecuzione abbia esito positivo.
 

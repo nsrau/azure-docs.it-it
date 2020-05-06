@@ -15,7 +15,7 @@ ms.locfileid: "77279576"
 Questa tabella mostra le associazioni supportate nelle versioni principali del runtime di funzioni di Azure:
 
 
-| Tipo | 1.x | 2. x e versioni successive<sup>1</sup> | Trigger | Input | Output |
+| Type | 1.x | 2. x e versioni successive<sup>1</sup> | Trigger | Input | Output |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Archiviazione BLOB](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|

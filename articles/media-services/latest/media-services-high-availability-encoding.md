@@ -34,7 +34,7 @@ Seguendo le linee guida e le procedure consigliate descritte nell'articolo, è p
 * Caricare i file multimediali nella stessa area da cui si prevede di inviare il processo. Per altre informazioni su come avviare la codifica, vedere [creare un input del processo da un URL HTTPS](job-input-from-http-how-to.md) o [creare un input del processo da un file locale](job-input-from-local-file-how-to.md).
 
     Se è necessario inviare nuovamente il [processo](transforms-jobs-concept.md) a un'altra area, è possibile usare JobInputHttp o usare [Copy-Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) per copiare i dati dal contenitore di asset di origine a un contenitore di asset nell'area alternativa.
-* Sottoscrivere i messaggi JobStateChange in ogni account tramite griglia di eventi di Azure. Per altre informazioni, vedi:
+* Sottoscrivere i messaggi JobStateChange in ogni account tramite griglia di eventi di Azure. Per altre informazioni, vedere:
 
     * [Esempio di analisi audio](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer) che Mostra come monitorare un processo con griglia di eventi di Azure, inclusa l'aggiunta di un fallback nel caso in cui i messaggi di griglia di eventi di Azure vengano ritardati per qualche motivo.
     * [Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali](media-services-event-schemas.md)

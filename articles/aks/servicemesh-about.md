@@ -38,7 +38,7 @@ Il **piano dati** è in genere costituito da un proxy che viene inserito in modo
 
 ![Architettura tipica di mesh di servizi](media/servicemesh/typical-architecture.png)
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
 Ognuna delle reti mesh dei servizi ha una scelta naturale e si concentra sul supporto di scenari specifici, ma in genere si noterà che la maggior parte implementa alcune delle funzionalità seguenti, se non tutte.
 

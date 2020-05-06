@@ -28,7 +28,7 @@ L'autenticazione basata su certificati consente di autenticare l'applicazione cl
 
 In questo passaggio si registrerà un'applicazione Web di esempio nell'account Azure AD. Questa applicazione viene usata in un secondo momento per leggere le chiavi dall'account Azure Cosmos DB. Per registrare un'applicazione, attenersi alla procedura seguente: 
 
-1. Accedi al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Aprire il riquadro **Active Directory** di Azure, passare al riquadro **registrazioni app** e selezionare **nuova registrazione**. 
 
@@ -103,7 +103,7 @@ Il comando precedente restituisce un output simile allo screenshot seguente:
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Configurare l'account Azure Cosmos per l'uso della nuova identità
 
-1. Accedi al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Passare all'account Azure Cosmos e aprire il **Pannello controllo di accesso (IAM)** .
 
@@ -119,7 +119,7 @@ Il comando precedente restituisce un output simile allo screenshot seguente:
 
 Nella registrazione dell'app di Azure per l'applicazione client:
 
-1. Accedi al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Aprire il riquadro **Active Directory** di Azure, passare al riquadro **registrazioni app** e aprire l'app di esempio creata nel passaggio precedente. 
 

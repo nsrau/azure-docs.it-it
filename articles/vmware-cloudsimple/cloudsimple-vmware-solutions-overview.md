@@ -21,7 +21,7 @@ La **soluzione VMware di Azure di CloudSimple** è un servizio completamente ges
 
 ![Panoramica della soluzione VMware in Azure di CloudSimple](media/azure-vmware-solution-by-cloudsimple.png)
 
-## <a name="features"></a>Caratteristiche
+## <a name="features"></a>Funzionalità
 
 * Provisioning self-service su richiesta di ambienti cloud VMware. Possibilità di aggiungere e rimuovere capacità su richiesta.
 * Distribuzione della piattaforma VMware, aggiornamento, backup del piano di gestione, monitoraggio dello stato e della capacità, avvisi, risoluzione dei problemi e correzione.
@@ -37,7 +37,7 @@ La **soluzione VMware di Azure di CloudSimple** è un servizio completamente ges
 ## <a name="benefits"></a>Vantaggi
 
 * **Continuità operativa**. CloudSimple offre accesso nativo alle piattaforme VMware. L'architettura di CloudSimple è compatibile con la esistente:
-    * Applicazioni
+    * APPLICAZIONI
     * Operazioni
     * Sicurezza
     * Backup

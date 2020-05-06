@@ -136,7 +136,7 @@ Negli elenchi seguenti sono illustrate le opzioni di configurazione Docker Compo
 
 #### <a name="supported-options"></a>Opzioni supportate
 
-- command
+- .
 - entrypoint
 - environment
 - image

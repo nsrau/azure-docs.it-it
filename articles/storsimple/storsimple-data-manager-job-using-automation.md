@@ -50,7 +50,7 @@ Prima di iniziare, assicurarsi di disporre di:
    3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
    4. Selezionare una **località**.
    5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
-   6. Per ottenere un collegamento per l'accesso rapido nel dashboard, selezionare **Aggiungi al dashboard**. Fare clic su **Crea**.
+   6. Per ottenere un collegamento per l'accesso rapido nel dashboard, selezionare **Aggiungi al dashboard**. Scegliere **Crea**.
 
       ![Creare un account di Automazione RunAs](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
@@ -86,7 +86,7 @@ Seguire questa procedura per importare, pubblicare ed eseguire il runbook per at
 
 2. In **Aggiungi runbook** fare clic su **Importa un runbook esistente**.
 
-3. Selezionare il file di script di Azure PowerShell `Trigger-DataTransformation-Job.ps1` in **Runbook file**. Il tipo di runbook viene selezionato automaticamente. Specificare un nome e una descrizione facoltativa per il runbook. Fare clic su **Crea**.
+3. Selezionare il file di script di Azure PowerShell `Trigger-DataTransformation-Job.ps1` in **Runbook file**. Il tipo di runbook viene selezionato automaticamente. Specificare un nome e una descrizione facoltativa per il runbook. Scegliere **Crea**.
 
     ![Aggiungere un runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 

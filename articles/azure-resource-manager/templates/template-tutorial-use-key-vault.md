@@ -2,16 +2,16 @@
 title: Usare Azure Key Vault nei modelli
 description: Informazioni su come usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione di modelli di Resource Manager
 author: mumian
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7fd84fc2e98578772c806f358cb8d6c400e0d994
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536701"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185014"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager
 
@@ -161,22 +161,30 @@ Con l'approccio basato sull'ID statico non è necessario apportare modifiche al 
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Seguire le istruzioni in [Distribuire il modello](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Caricare sia *azuredeploy.json* che *azuredeploy.parameters.json* in Cloud Shell e quindi usare lo script di PowerShell seguente per distribuire il modello:
+1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
-$location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
+1. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (per l'interfaccia della riga di comando) nell'angolo in alto a sinistra.  Quando si cambia interfaccia, è necessario riavviare la shell.
 
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile "$HOME/azuredeploy.json" `
-    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+    ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-Write-Host "Press [ENTER] to continue ..."
-```
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Caricare entrambi i file *azuredeploy.json* e *azuredeploy.parameters.json* in Cloud Shell. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
 
-Quando si distribuisce il modello, usare lo stesso gruppo di risorse usato nell'insieme di credenziali delle chiavi. Questo approccio semplifica la pulizia delle risorse, perché è necessario eliminare un solo gruppo di risorse anziché due.
+1. quindi eseguire lo script di PowerShell seguente per distribuire il modello.
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+    $location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -TemplateFile "$HOME/azuredeploy.json" `
+        -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    Quando si distribuisce il modello, usare lo stesso gruppo di risorse usato nell'insieme di credenziali delle chiavi. Questo approccio semplifica la pulizia delle risorse, perché è necessario eliminare un solo gruppo di risorse anziché due.
 
 ## <a name="validate-the-deployment"></a>Convalidare la distribuzione
 

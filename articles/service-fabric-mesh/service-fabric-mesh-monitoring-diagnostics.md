@@ -43,7 +43,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 L'ambiente mesh espone alcune metriche che indicano il modo in cui i contenitori vengono eseguiti. Le metriche seguenti sono disponibili tramite l'interfaccia della riga di comando portale di Azure e monitoraggio di Azure:
 
-| Metrica | Descrizione | Unità|
+| Metrica | Descrizione | Units|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu come percentuale | % |
 | MemoryUtilization | ActualMem/AllocatedMem come percentuale | % |

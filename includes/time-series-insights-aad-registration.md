@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 ms.topic: include
 ms.custom: include file
 services: time-series-insights

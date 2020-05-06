@@ -20,7 +20,7 @@ Visual Studio 2019 e Visual Studio 2017 supportano Azure Data Lake e gli strumen
 
 Per altre informazioni sull'uso degli strumenti, vedere [Guida introduttiva: creare un processo di analisi di flusso di Azure con Visual Studio](stream-analytics-quick-create-vs.md).
 
-## <a name="install"></a>Installazione
+## <a name="install"></a>Installazione di
 
 Le edizioni Visual Studio Enterprise (Ultimate/Premium), Professional e community supportano gli strumenti. Express Edition e Visual Studio per Mac non li supportano.
 
@@ -64,7 +64,7 @@ Per Visual Studio 2019 e Visual Studio 2017, un nuovo promemoria della versione 
 
 Per Visual Studio 2015 e Visual Studio 2013, gli strumenti verificano automaticamente la presenza di nuove versioni. Seguire le istruzioni per installare la versione più recente.
 
-## <a name="uninstall"></a>Disinstallazione
+## <a name="uninstall"></a>Uninstall
 
 È possibile disinstallare Azure Data Lake e gli strumenti di analisi di flusso. Per Visual Studio 2019 o Visual Studio 2017, scegliere **strumenti** > **Ottieni strumenti e funzionalità**. Per **modificare**, deselezionare **Azure Data Lake e gli strumenti di analisi di flusso**. Viene visualizzato nel carico di lavoro **elaborazione e archiviazione dati** o nel carico di lavoro **sviluppo di Azure** .
 

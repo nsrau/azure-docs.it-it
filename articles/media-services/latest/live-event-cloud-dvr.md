@@ -45,7 +45,7 @@ Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti possono trasmetter
 
 Se la risorsa dell'output Live è stata pubblicata usando un localizzatore di streaming, l'evento Live (fino alla lunghezza della finestra DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda di quale evento si verifica per primo.
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 - [Panoramica dello streaming live](live-streaming-overview.md)
 - [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)

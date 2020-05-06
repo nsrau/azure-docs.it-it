@@ -53,7 +53,7 @@ Questo articolo descrive come creare e personalizzare un piano di ripristino per
 
 È possibile personalizzare un piano di ripristino tramite l'aggiunta di uno script o di un'azione manuale. Tenere presente quanto segue:
 
-- Se si esegue la replica in Azure è possibile integrare i runbook di automazione di Azure nel piano di ripristino. [Altre informazioni](site-recovery-runbook-automation.md)
+- Se si esegue la replica in Azure è possibile integrare i runbook di automazione di Azure nel piano di ripristino. [Altre informazioni](site-recovery-runbook-automation.md).
 - Se si esegue la replica di macchine virtuali Hyper-V gestite da System Center VMM, è possibile creare uno script nel server VMM locale e includerlo nel piano di ripristino.
 - Quando si aggiunge uno script, viene aggiunto un nuovo set di azioni per il gruppo. Viene ad esempio, creato un set di passaggi preliminari per il Gruppo 1 denominato *Gruppo 1: passaggi preliminari*. Tutti i passaggi preliminari vengono elencati in questo set. È possibile aggiungere uno script nel sito primario solo se è stato distribuito un server VMM.
 - Se si aggiunge un'azione manuale, quando il piano di ripristino viene eseguito, si interrompe in corrispondenza del punto in cui è stata inserita l'azione manuale. Una finestra di dialogo richiede all'utente di specificare che l'azione manuale è stata completata.

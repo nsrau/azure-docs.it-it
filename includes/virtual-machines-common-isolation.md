@@ -51,7 +51,7 @@ Se è necessario l'isolamento, prima del 15 maggio 2020, è necessario eseguire 
 Per informazioni dettagliate, vedere di seguito:
 
 ## <a name="timeline"></a>Sequenza temporale
-| Data | Action | 
+| Data | Azione | 
 | --- | --- |
 | 18 novembre 2019 | Disponibilità di D/DS15i_v2 (PAYG, 1 anno RI) |
 | 14 maggio 2020  | Ultimo giorno per l'acquisto di D/DS15i_v2 1 anno RI | 
