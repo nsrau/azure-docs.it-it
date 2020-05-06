@@ -79,7 +79,7 @@ Per gli eventi nello schema di griglia di eventi:
 
 * ID
 * Argomento
-* Oggetto
+* Subject
 * EventType
 * DataVersion
 * Data. Prop1

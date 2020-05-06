@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 045f6d50846092820014ccc7f11a81f1e2234311
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75982564"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144088"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Esercitazione: Monitorare le modifiche delle macchine virtuali tramite Griglia di eventi e App per la logica di Azure
 
@@ -48,6 +48,9 @@ In questa esercitazione verranno illustrate le procedure per:
 * Un account di posta elettronica di un provider di posta elettronica supportato da App per la logica per l'invio di notifiche, come Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](/connectors/).
 
   In questa esercitazione viene usato un account di Office 365 Outlook. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
+
+  > [!IMPORTANT]
+  > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Una [macchina virtuale](https://azure.microsoft.com/services/virtual-machines) isolata nel rispettivo gruppo di risorse di Azure. Se questa operazione non è già stata eseguita, creare una macchina virtuale mediante l'[esercitazione Creare una macchina virtuale](../virtual-machines/windows/quick-create-portal.md). Per consentire alla macchina virtuale di pubblicare eventi, [non è necessario effettuare nessun'altra operazione](../event-grid/overview.md).
 

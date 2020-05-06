@@ -4,12 +4,12 @@ description: Riepiloga il supporto per il ripristino di emergenza di macchine vi
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 73160a6bf416722021d76da21a32a1cd1ee04386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111726"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864573"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali di Azure tra aree di Azure
 
@@ -84,7 +84,7 @@ Site Recovery supporta la replica di macchine virtuali di Azure che eseguono i s
 --- | ---
 Windows Server 2019 | Supportato per Server Core, server con esperienza desktop.
 Windows Server 2016  | Server Core supportato, server con esperienza desktop.
-Windows Server 2012 R2 | Supportato.
+R2 per Windows Server 2012 | Supportato.
 Windows Server 2012 | Supportato.
 Windows Server 2008 R2 con SP1/SP2 | Supportato.<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'estensione del servizio Mobility per le macchine virtuali di Azure, è necessario installare un aggiornamento di Windows [servicing stack (SSU)](https://support.microsoft.com/help/4490628) e un [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) nei computer che eseguono Windows Server 2008 R2 SP1/SP2.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Supportato.
@@ -154,7 +154,8 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,29 | Sono supportati tu
 
 **Versione** | **Versione del servizio Mobility** | **Versione kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | 9,32 | Sono supportati tutti i kernel SUSE 15 e 15 disponibili.</br></br> 4.12.14-5.5-da Azure a 4.12.14-8.22-Azure |
+SUSE Linux Enterprise Server 15 e 15 SP1 | 9,32 | Per impostazione predefinita, sono supportati tutti i [kernel SuSE 15 e 15](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5.5-da Azure a 4.12.14-8.22-Azure |
+
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Computer replicati - File system/archiviazione guest Linux
 
@@ -167,17 +168,19 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | 9,32 | Sono supportati tutti i kernel
 
 **Impostazione** | **Supporto tecnico** | **Dettagli**
 --- | --- | ---
-Dimensioni | Macchine virtuali di Azure di qualsiasi dimensione con almeno 2 core CPU e 1 GB di RAM | Verificare le [dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md).
+Dimensione | Macchine virtuali di Azure di qualsiasi dimensione con almeno 2 core CPU e 1 GB di RAM | Verificare le [dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md).
 Set di disponibilità | Supportato | Se si Abilita la replica per una macchina virtuale di Azure con le opzioni predefinite, viene creato automaticamente un set di disponibilità in base alle impostazioni dell'area di origine. È possibile modificare queste impostazioni.
 Zone di disponibilità | Supportato |
 Vantaggio Hybrid Use (HUB) | Supportato | Se la macchina virtuale di origine dispone di una licenza HUB abilitata, anche la macchina virtuale di failover o il failover di test userà la licenza HUB.
-Set di scalabilità di macchine virtuali | Non supportato |
+set di scalabilità di macchine virtuali | Non supportato |
 Immagini della raccolta di Azure - Pubblicate da Microsoft | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini della raccolta di Azure - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini personalizzate - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Macchine virtuali migrate tramite Site Recovery | Supportato | Se una VM VMware o un computer fisico è stato migrato ad Azure tramite Site Recovery, è necessario disinstallare la versione precedente del servizio di mobilità in esecuzione nel computer e riavviare il computer prima di eseguirne la replica in un'altra area di Azure.
 Criteri RBAC | Non supportato | I criteri di controllo degli accessi in base al ruolo nelle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
 Estensioni | Non supportato | Le estensioni non vengono replicate nella macchina virtuale di failover nell'area di destinazione. Deve essere installato manualmente dopo il failover.
+Gruppi di posizionamento di prossimità | Non supportato | Non è possibile proteggere le macchine virtuali che si trovano all'interno di un gruppo di posizionamento vicino con Site Recovery.
+
 
 ## <a name="replicated-machines---disk-actions"></a>Computer replicati - Azioni del disco
 
@@ -197,7 +200,7 @@ Questa tabella riepiloga il supporto per il disco del sistema operativo, il disc
 **Componente** | **Supporto tecnico** | **Dettagli**
 --- | --- | ---
 Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi delle VM.
-Disco temporaneo | Non supportato | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md)
+Disco temporaneo | Non supportato | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md).
 Dimensione massima del disco dati | 8192 GB per Managed Disks<br></br>4095 GB per dischi non gestiti|
 Dimensioni minime disco dati | Nessuna restrizione per i dischi non gestiti. 2 GB per Managed Disks |
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/windows/sizes.md) sulle dimensioni delle VM.
@@ -269,7 +272,7 @@ Proxy autenticato | Non supportato | Se la macchina virtuale utilizza un proxy a
 Connessione da sito a sito VPN a locale<br/><br/>(con o senza ExpressRoute)| Supportato | Verificare che UdR e gruppi siano configurati in modo tale che il traffico Site Recovery non venga indirizzato in locale. [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)
 Connessione da rete virtuale a rete virtuale    | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)
 Endpoint servizio di rete virtuale | Supportato | Se si limita l'accesso alla rete virtuale agli account di archiviazione, assicurarsi che ai servizi Microsoft attendibili sia consentito l'accesso all'account di archiviazione.
-Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una macchina virtuale di origine. [Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md)
+Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una macchina virtuale di origine. [Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

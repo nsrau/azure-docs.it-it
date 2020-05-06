@@ -46,7 +46,7 @@ Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti pr
 
 1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web in cui vengono richieste le credenziali dell'account: `Connect-AzAccount`.
    - In alternativa, è possibile includere le credenziali dell'account come parametro nel `Connect-AzAccount` cmdlet, usando il parametro **Credential** .
-   - Se si è un partner CSP che lavora per conto di un tenant, specificare il cliente come tenant, usando il nome di dominio primario tenantID o tenant. ad esempio `Connect-AzAccount -Tenant "fabrikam.com"`
+   - Se si è un partner CSP che lavora per conto di un tenant, specificare il cliente come tenant, usando il nome di dominio primario tenantID o tenant. Ad esempio: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 
    ```azurepowershell

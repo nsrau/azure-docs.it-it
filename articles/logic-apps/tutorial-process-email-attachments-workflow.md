@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/27/2020
-ms.openlocfilehash: 4adcda6030ed59cb6cc2285eb1c1eea0f768662c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 332be9cb0f31119e7d2f2d9fe2d3dc1f73e6d3ab
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77662749"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82146716"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure
 
@@ -41,6 +41,9 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 * Un account di posta elettronica di un provider supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](https://docs.microsoft.com/connectors/).
 
   Questa app per la logica usa un account Office 365 Outlook. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
+
+  > [!IMPORTANT]
+  > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Scaricare e installare lo [strumento gratuito Microsoft Azure Storage Explorer](https://storageexplorer.com/). Questo strumento consente di controllare che il contenitore di archiviazione sia configurato correttamente.
 

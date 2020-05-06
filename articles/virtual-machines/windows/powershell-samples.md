@@ -1,25 +1,19 @@
 ---
 title: Esempi di macchina virtuale di Azure PowerShell
 description: Esempi di macchina virtuale di Azure PowerShell
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: sample
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 434cf3f9342ad10bab39030e65cdd4bc4d0edc27
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
-ms.translationtype: MT
+ms.openlocfilehash: 03d27e1e72eaa5f5dee8cfa9062a56c6dd45007a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458863"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100023"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Esempi di macchina virtuale di Azure PowerShell
 
@@ -27,10 +21,10 @@ La tabella seguente include collegamenti a esempi di script di PowerShell che cr
 
 | | |
 |---|---|
-|**Creare macchine virtualiCreate virtual machines**||
+|**Creare macchine virtuali**||
 | [Creare rapidamente una macchina virtuale](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea un gruppo di risorse, una macchina virtuale e tutte le risorse correlate, con un numero minimo di istruzioni.|
 | [Creare una macchina virtuale completamente configurata](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea un gruppo di risorse, una macchina virtuale e tutte le risorse correlate.|
-| [Creare macchine virtuali a disponibilità elevataCreate highly available virtual machines](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea più macchine virtuali in una configurazione a disponibilità elevata e con bilanciamento del carico.|
+| [Creare macchine virtuali a disponibilità elevata](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea più macchine virtuali in una configurazione a disponibilità elevata e con bilanciamento del carico.|
 | [Creare una macchina virtuale ed eseguire uno script di configurazione](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Consente di creare una macchina virtuale e usa l'estensione dello script personalizzato di Azure per installare IIS. |
 | [Creare una macchina virtuale ed eseguire una configurazione DSC](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Consente di creare una macchina virtuale e usa l'estensione di configurazione dello stato desiderato di Azure per installare IIS. |
 | [Caricare un disco rigido virtuale e creare VM](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Carica un file del disco rigido virtuale locale in Azure, crea un'immagine dal disco rigido virtuale e quindi crea una macchina virtuale da tale immagine. |
@@ -45,8 +39,8 @@ La tabella seguente include collegamenti a esempi di script di PowerShell che cr
 | [Creare uno snapshot da un disco rigido virtuale](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea uno snapshot da un disco rigido virtuale e quindi usa tale snapshot per creare rapidamente più dischi gestiti identici.  |
 | [Copiare uno snapshot nella stessa sottoscrizione o in una sottoscrizione diversa](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Copia uno snapshot nella stessa sottoscrizione o in una sottoscrizione diversa nella stessa area dello snapshot padre. |
 |**Proteggere le macchine virtuali**||
-| [Crittografare una VM e i relativi dischi dati](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crea un'istanza di Azure Key Vault, una chiave di crittografia e un'entità servizio, quindi crittografa una macchina virtuale. |
+| [Crittografare una macchina virtuale e i relativi dischi dati](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crea un'istanza di Azure Key Vault, una chiave di crittografia e un'entità servizio, quindi crittografa una macchina virtuale. |
 |**Monitorare le macchine virtuali**||
 | [Monitorare una macchina virtuale con Monitoraggio di Azure](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea una macchina virtuale, installa l'agente di Azure Log Analytics e registra la macchina virtuale in un'area di lavoro Log Analytics.  |
-| [Raccogliere dettagli su tutte le macchine virtuali in una sottoscrizione con PowerShellCollect details about all VMs in a subscription with PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea un file csv che contiene il nome della macchina virtuale, il nome del gruppo di risorse, l'area, l'area, la rete virtuale, la subnet, l'indirizzo IP privato, il tipo di sistema operativo e l'indirizzo IP pubblico delle macchine virtuali nella sottoscrizione specificata.
+| [Raccogliere i dettagli su le VM in una sottoscrizione con PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea un CSV che contiene il nome della macchina virtuale, il nome del gruppo di risorse, l'area, la rete virtuale, la subnet, l'indirizzo IP privato, il tipo di sistema operativo e l'indirizzo IP pubblico delle macchine virtuali nella sottoscrizione fornita.
 | | |

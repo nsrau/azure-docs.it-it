@@ -39,7 +39,7 @@ Per registrare la macchina virtuale di SQL Server con il provider di risorse, è
 - La versione più recente di [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Versione più recente di [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Prima di procedere, è necessario creare prima di tutto una copia locale dello script, importarlo come modulo di PowerShell e connettersi ad Azure. 
 
@@ -57,7 +57,7 @@ Aprire un terminale di PowerShell amministrativo e passare al percorso in cui `R
 Import-Module .\RegisterSqlVMs.psm1
 ```
 
-### <a name="connect-to-azure"></a>Connettiti ad Azure
+### <a name="connect-to-azure"></a>Connettersi ad Azure
 
 Usare il cmdlet di PowerShell seguente per connettersi ad Azure:
 
@@ -214,7 +214,7 @@ Il report viene generato come `.txt` file denominato `RegisterSqlVMScriptReport<
 | Numero di macchine virtuali ignorate poiché non sono in esecuzione SQL Server in Windows | Numero di macchine virtuali ignorate perché non in esecuzione SQL Server o non sono una macchina virtuale Windows. Le macchine virtuali sono elencate nel formato `SubscriptionID, Resource Group, Virtual Machine`. | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>File di log 
+### <a name="log"></a>Registro 
 
 Gli errori vengono registrati nel file di log `VMsNotRegisteredDueToError<Timestamp>.log` denominato dove timestamp è l'ora di inizio dello script. Se l'errore è a livello di sottoscrizione, il log contiene le SubscriptionID separate da virgole e il messaggio di errore. Se l'errore è relativo alla registrazione della macchina virtuale, il log contiene l'ID sottoscrizione, il nome del gruppo di risorse, il nome della macchina virtuale, il codice di errore e il messaggio separati da virgole. 
 

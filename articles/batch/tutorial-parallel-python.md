@@ -1,21 +1,16 @@
 ---
-title: Eseguire un carico di lavoro parallelo - Python in Azure Batch
+title: Eseguire un carico di lavoro parallelo
 description: Esercitazione - Elaborare file multimediali in parallelo con ffmpeg in Azure Batch usando la libreria client Python di Batch
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 32e42fe04ad8ce55bbbbb90e5aca6356fd1c6f22
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77023090"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117115"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API Python
 
@@ -33,7 +28,7 @@ In questa esercitazione file multimediali MP4 vengono convertiti in parallelo in
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Python versione 2.7, 3.3 o successiva](https://www.python.org/downloads/)
 

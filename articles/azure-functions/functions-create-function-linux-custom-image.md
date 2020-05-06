@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 80881d96d713f3dc4127c94fd324e925e3c68792
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: fee4e16bd77664e541eeb36cb807a77d13191899
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382939"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82165723"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
@@ -150,7 +150,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
-Quando nell'output viene visualizzato l'endpoint `HttpExample`, passare a [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). Nel browser verrà visualizzato un messaggio "hello" che richiama `Functions`, il valore fornito al parametro di query `name`.
+Quando nell'output viene visualizzato l'endpoint `HttpExample`, passare a `http://localhost:7071/api/HttpExample?name=Functions`. Nel browser verrà visualizzato un messaggio "hello" che richiama `Functions`, il valore fornito al parametro di query `name`.
 
 Premere **CTRL**-**C** per arrestare l'host.
 
@@ -179,7 +179,7 @@ Quando l'immagine è in esecuzione in un contenitore locale, aprire un browser a
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-Quando l'immagine è in esecuzione in un contenitore locale, passare a [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions), che dovrebbe visualizzare lo stesso messaggio "hello" come in precedenza. Poiché l'archetipo Maven genera una funzione attivata tramite HTTP che usa l'autorizzazione anonima, è comunque possibile chiamare la funzione anche se è in esecuzione nel contenitore. 
+Quando l'immagine è in esecuzione in un contenitore locale, passare a `http://localhost:8080/api/HttpExample?name=Functions`, che dovrebbe visualizzare lo stesso messaggio "hello" come in precedenza. Poiché l'archetipo Maven genera una funzione attivata tramite HTTP che usa l'autorizzazione anonima, è comunque possibile chiamare la funzione anche se è in esecuzione nel contenitore. 
 ::: zone-end  
 
 Dopo aver verificato l'app per le funzioni nel contenitore, arrestare Docker con **CTRL**+**C**.
