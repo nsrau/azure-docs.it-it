@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 1d340aadc20110e6aa4bfb05b1cf794fd6a286b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7b1e7471f7850f71596317c7e2c38db367bfd3a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146187"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790117"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Creare una macchina virtuale con un indirizzo IP pubblico statico usando PowerShell
 
@@ -47,7 +47,7 @@ ms.locfileid: "82146187"
      -AllocationMethod "Static"
    ```
 
-   Se l'indirizzo IP pubblico deve essere uno SKU standard, è necessario [creare un indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address), [creare un'interfaccia di rete](virtual-network-network-interface.md#create-a-network-interface), [assegnare l'indirizzo IP pubblico all'interfaccia di rete](virtual-network-network-interface-addresses.md#add-ip-addresses) e quindi [creare una macchina virtuale con l'interfaccia di rete](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm) in passaggi separati. Altre informazioni sugli [SKU di indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#sku). Se la macchina virtuale verrà aggiunta al pool back-end di un Azure Load Balancer pubblico, lo SKU dell'indirizzo IP pubblico della macchina virtuale deve corrispondere allo SKU dell'indirizzo IP pubblico del bilanciamento del carico. Per informazioni dettagliate, vedere [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus).
+   Se l'indirizzo IP pubblico deve essere uno SKU standard, è necessario [creare un indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address), [creare un'interfaccia di rete](virtual-network-network-interface.md#create-a-network-interface), [assegnare l'indirizzo IP pubblico all'interfaccia di rete](virtual-network-network-interface-addresses.md#add-ip-addresses) e quindi [creare una macchina virtuale con l'interfaccia di rete](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm) in passaggi separati. Altre informazioni sugli [SKU di indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#sku). Se la macchina virtuale verrà aggiunta al pool back-end di un Azure Load Balancer pubblico, lo SKU dell'indirizzo IP pubblico della macchina virtuale deve corrispondere allo SKU dell'indirizzo IP pubblico del bilanciamento del carico. Per informazioni dettagliate, vedere [Azure Load Balancer](../load-balancer/skus.md).
 
 4. Visualizzare l'indirizzo IP pubblico assegnato e verificare che sia stato creato come indirizzo statico, con [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
@@ -64,7 +64,7 @@ ms.locfileid: "82146187"
 > [!WARNING]
 > Non modificare le impostazioni dell'indirizzo IP all'interno del sistema operativo della macchina virtuale. Il sistema operativo non rileva gli indirizzi IP pubblici di Azure. Anche se è possibile aggiungere al sistema operativo impostazioni relative a indirizzi IP privati, è consigliabile farlo solo se necessario e solo dopo aver letto [Aggiungere un indirizzo IP privato a un sistema operativo](virtual-network-network-interface-addresses.md#private).
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuoverli:
 

@@ -449,6 +449,8 @@
           items:
             - name: Creare un'offerta per un'applicazione di Azure
               href: ./partner-center-portal/create-new-azure-apps-offer.md
+            - name: Fatturazione a consumo per le applicazioni di Azure
+              href: ./partner-center-portal/azure-app-metered-billing.md
             - name: Gestione del feedback della revisione
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API per l'onboarding
@@ -515,11 +517,6 @@
               href: ./partner-center-portal/create-new-saas-offer.md
             - name: Fatturazione a consumo dell'offerta SaaS
               href: ./partner-center-portal/saas-metered-billing.md
-              items:
-                - name: API del servizio di misurazione di Marketplace - domande frequenti
-                  href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-                - name: API del servizio di misurazione di Marketplace
-                  href: ./partner-center-portal/marketplace-metering-service-apis.md
             - name: API di evasione ordini SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -546,6 +543,14 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+        - name: Servizio di misurazione del Marketplace
+          items:
+            - name: Strategie di autenticazione
+              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+            - name: API del servizio di misurazione di Marketplace
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
+            - name: API del servizio di misurazione di Marketplace - domande frequenti
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: Test drive dell'offerta
           href: ./partner-center-portal/test-drive.md
         - name: Opzione di co-selling
@@ -589,11 +594,13 @@
           href: ./partner-center-portal/get-paid.md
         - name: Configurare l'account proventi e i moduli fiscali
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: Dettagli di fatturazione
-          href: ./partner-center-portal/billing-details.md
         - name: 'Soglie, metodi e intervalli di pagamento'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Riepilogo proventi
+        - name: Panoramica del riepilogo proventi
+          href: ./partner-center-portal/payout-summary-overview.md
+        - name: Riepiloghi proventi
           href: ./partner-center-portal/payout-summary.md
+        - name: Dettagli dei criteri dei proventi
+          href: ./partner-center-portal/payout-policy-details.md
         - name: Dettagli sulle imposte
           href: ./partner-center-portal/tax-details-paid-transactions.md

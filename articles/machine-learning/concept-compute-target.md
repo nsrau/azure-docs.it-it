@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/30/2020
-ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398176"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780114"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -64,11 +64,37 @@ Quando vengono create, queste risorse di calcolo fanno automaticamente parte del
 È possibile usare Azure Machine Learning cluster di calcolo per il training e l'inferenza in batch (anteprima).  Con questa risorsa di calcolo sono disponibili:
 
 * Cluster a nodo singolo o a più nodi
-* Scalabilità automatica ogni volta che si invia un'esecuzione 
+* Ridimensionamento automatico ogni volta che si invia un'esecuzione 
 * Gestione automatica dei cluster e pianificazione dei processi 
 * Include il supporto per le risorse di CPU e GPU
 
+### <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni delle VM supportate
 
+Quando si selezionano le dimensioni di un nodo per una risorsa di calcolo gestita in Azure Machine Learning, è possibile scegliere tra le dimensioni di VM selezionate disponibili in Azure. Azure offre una gamma di dimensioni per Linux e Windows per carichi di lavoro diversi. Vedere qui per altre informazioni sui diversi [tipi di VM e dimensioni](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+
+Esistono alcune eccezioni e limitazioni nella scelta delle dimensioni delle macchine virtuali:
+* Alcune serie di macchine virtuali non sono supportate in Azure Machine Learning.
+* Alcune serie di macchine virtuali sono limitate. Per usare una serie con restrizioni, contattare il supporto tecnico e richiedere un aumento della quota per la serie. Per informazioni su come contattare il supporto tecnico, vedere [Opzioni di supporto di Azure](https://azure.microsoft.com/support/options/)
+
+Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle serie supportate. 
+
+| **Serie di macchine virtuali supportate**  | **Restrizioni** |
+|------------|------------|
+| D | Nessuno |
+| Dv2 | Nessuno |  
+| DSv2 | Nessuno |  
+| FSv2 | Nessuno |  
+| M | Richiede approvazione |
+| NC | Nessuno |    
+| NCsv2 | Richiede approvazione |
+| NCsv3 | Richiede approvazione |  
+| NDs | Richiede approvazione |
+| NDv2 | Richiede approvazione |
+| NV | Nessuno |
+| NVv3 | Richiede approvazione | 
+
+
+Mentre Azure Machine Learning supporta queste serie di macchine virtuali, potrebbero non essere disponibili in tutte le aree di Azure. È possibile verificare con le serie di VM disponibili qui: [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## <a name="unmanaged-compute"></a>Calcolo non gestito
 

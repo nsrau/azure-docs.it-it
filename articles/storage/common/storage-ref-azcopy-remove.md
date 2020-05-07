@@ -4,16 +4,16 @@ description: Questo articolo contiene informazioni di riferimento per il comando
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74033989"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780726"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -89,9 +89,13 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opzioni
 
-**--Exclude-percorso stringa**      Escludere questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. Ad esempio: fileFolder; MyFile/subDirName/file. pdf.
+**--Delete-Snapshots** stringa per impostazione predefinita, l'operazione di eliminazione ha esito negativo se un BLOB contiene snapshot. Specificare ' Includi ' per rimuovere il BLOB radice e tutti i relativi snapshot; in alternativa, specificare "solo" per rimuovere solo gli snapshot, mantenendo però il BLOB radice.
+
+**--Exclude-Path** stringa escludere questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. Ad esempio: fileFolder; MyFile/subDirName/file. pdf.
 
 **--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;*. PDF; exactname
+
+**--Force-if-sola lettura**    Quando si elimina un file o una cartella File di Azure, forzare l'eliminazione a funzionare anche se per l'oggetto esistente è impostato l'attributo di sola lettura
 
 **-h,--** guida per la rimozione
 
@@ -111,6 +115,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
+|--trusted-Microsoft-suffissi stringa   | Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
 
 ## <a name="see-also"></a>Vedere anche
 

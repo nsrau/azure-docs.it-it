@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/04/2020
 ms.author: b-juche
-ms.openlocfilehash: b83f530549ffa43789963fd0c95b4982f5289356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f36e40091ada27f411adc2ffa78b6d4a58f8cca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80054458"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791409"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegare una subnet ad Azure NetApp Files 
 
@@ -28,7 +28,8 @@ ms.locfileid: "80054458"
 ## <a name="considerations"></a>Considerazioni
 * La procedura guidata per la creazione di una nuova subnet una maschera di rete /24, che serve 251 indirizzi IP disponibili. Per il servizio, è sufficiente l'uso di una maschera di rete /28, la quale serve 16 indirizzi IP utili.
 * In ogni rete virtuale di Azure (VNet), è possibile delegare solo una subnet in Azure NetApp Files.   
-   Azure consente di creare più subnet delegate in un VNet.  Tuttavia, eventuali tentativi di creare un nuovo volume avranno esito negativo se si utilizza più di una subnet delegata.
+   Azure consente di creare più subnet delegate in un VNet.  Tuttavia, eventuali tentativi di creare un nuovo volume avranno esito negativo se si utilizza più di una subnet delegata.  
+   In un VNet è possibile avere una sola subnet delegata. Un account NetApp può distribuire volumi in più reti virtuali, ognuno dei quali ha una propria subnet delegata.  
 * Non è possibile designare un gruppo di sicurezza di rete o un endpoint di servizio nella subnet delegata. In questo modo, la delegazione della subnet ha esito negativo.
 * L'accesso a un volume da una rete virtuale con peering globale non è attualmente supportato.
 * La creazione di [route personalizzate definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) in subnet VM con prefisso di indirizzo (destinazione) a una subnet delegata a Azure NetApp files non è supportata. Questa operazione influirà sulla connettività della macchina virtuale.

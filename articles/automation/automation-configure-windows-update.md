@@ -3,14 +3,14 @@ title: Configurare le impostazioni di Windows Update per l'uso con Gestione aggi
 description: Questo articolo descrive le impostazioni di Windows Update configurate per l'uso con Gestione aggiornamenti di Azure.
 services: automation
 ms.subservice: update-management
-ms.date: 03/02/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279026"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779451"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configurare le impostazioni di Windows Update per Gestione aggiornamenti
 
@@ -22,6 +22,8 @@ Azure Gestione aggiornamenti si basa su [Windows Update client](https://docs.mic
 - Modifica diretta del registro di sistema
 
 Gestione aggiornamenti rispetta molte delle impostazioni specificate per controllare il client di Windows Update. Se si usano le impostazioni per abilitare gli aggiornamenti non Windows, Gestione aggiornamenti gestiranno anche tali aggiornamenti. Se si vuole abilitare il download degli aggiornamenti prima che si verifichi una distribuzione degli aggiornamenti, la distribuzione degli aggiornamenti può essere più veloce, più efficiente e meno probabile che superi la finestra di manutenzione.
+
+Per consigli aggiuntivi sulla configurazione di WSUS nella sottoscrizione di Azure e la conservazione sicura delle macchine virtuali Windows, vedere [pianificare la distribuzione per l'aggiornamento di macchine virtuali Windows in Azure tramite WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>Pre-download degli aggiornamenti
 

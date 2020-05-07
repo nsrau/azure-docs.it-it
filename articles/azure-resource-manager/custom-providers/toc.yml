@@ -21,6 +21,11 @@
       href: tutorial-custom-providers-create.md
     - name: Estendere le risorse
       href: tutorial-resource-onboarding.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Criteri di Azure per le associazioni

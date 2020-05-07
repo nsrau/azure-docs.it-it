@@ -8,11 +8,11 @@
   items:
     - name: connessioni ibride
       items:
-        - name: Inviare e ricevere messaggi - WebSocket per .NET
+        - name: Inviare e ricevere messaggi - WebSocket .NET
           href: relay-hybrid-connections-dotnet-get-started.md
         - name: Inviare e ricevere messaggi - .NET HTTP
           href: relay-hybrid-connections-http-requests-dotnet-get-started.md
-        - name: Inviare e ricevere messaggi - WebSocket per Node
+        - name: Inviare e ricevere messaggi - WebSocket Node
           href: relay-hybrid-connections-node-get-started.md
         - name: Inviare e ricevere messaggi - Node HTTP
           href: relay-hybrid-connections-http-requests-node-get-started.md
@@ -32,7 +32,7 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: Concetti
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Autenticazione e autorizzazione
           href: relay-authentication-and-authorization.md
@@ -59,11 +59,13 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Nodo
               href: relay-hybrid-connections-node-ws-api-overview.md
-    - name: Gestione
+    - name: Gestire e monitorare
       items:
         - name: Monitorare il servizio di inoltro di Azure con Monitoraggio di Azure
           href: relay-metrics-azure-monitor.md
-- name: Riferimento
+        - name: Configurare i log di diagnostica
+          href: diagnostic-logs.md
+- name: Informazioni di riferimento
   items:
     - name: .NET
       items:

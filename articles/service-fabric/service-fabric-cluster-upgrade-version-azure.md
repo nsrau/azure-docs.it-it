@@ -3,12 +3,12 @@ title: Aggiornare la versione di Azure Service Fabric di un cluster
 description: Aggiornamento del codice di Service Fabric e/o della configurazione eseguita in un cluster di Service Fabric, con impostazione della modalità di aggiornamento del cluster, aggiornamento dei certificati, aggiunta di porte dell'applicazione, applicazione di patch del sistema operativo e così via. Possibili risultati degli aggiornamenti.
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451814"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789601"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Aggiornare la versione di Service Fabric di un cluster
 
@@ -110,7 +110,7 @@ Output:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come personalizzare alcune [impostazioni dei cluster di Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Informazioni su come [aumentare o ridurre le istanze del cluster](service-fabric-cluster-scale-up-down.md)
+* Informazioni su come [aumentare o ridurre le istanze del cluster](service-fabric-cluster-scale-in-out.md)
 * Informazioni sugli [aggiornamenti delle applicazioni](service-fabric-application-upgrade.md)
 
 <!--Image references-->

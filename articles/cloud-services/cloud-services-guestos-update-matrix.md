@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/22/2020
+ms.date: 5/4/2020
 ms.author: yohaddad
-ms.openlocfilehash: 83ecbf05ab892e0673b31df893f66b03373957b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19a442126fe2f090851236eb41cb6995df857c77
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101502"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791545"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -41,6 +41,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="may-4-2020"></a>**4 maggio 2020**
+È stato rilasciato il sistema operativo guest di aprile. 
 
 ###### <a name="april-2-2020"></a>**2 aprile 2020**
 È stato rilasciato il sistema operativo guest di marzo. 
@@ -125,8 +128,9 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.18 _202004-01  |  4 maggio 2020  |  Post 6,20  |  
 |  WA-GUEST-OS-6.17 _202003-01  |  2 aprile 2020  |  Post 6,19  |  
-|  WA-GUEST-OS-6.16 _202002-01  |  5 marzo 2020  |  Post 6,18  |  
+|~~WA-GUEST-OS-6.16 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-6.15 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
 |~~WA-GUEST-OS-6.14 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
 |~~WA-GUEST-OS-6.13 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
@@ -155,8 +159,9 @@ Versione .NET Framework installata: 3.5, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.42 _202004-01  |  4 maggio 2020  |  Post 5,44  |  
 |  WA-GUEST-OS-5.41 _202003-01  |  2 aprile 2020  |  Post 5,43  |  
-|  WA-GUEST-OS-5.40 _202002-01  |  5 marzo 2020  |  Post 5,42  |  
+|~~WA-GUEST-OS-5.40 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-5.39 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
 |~~WA-GUEST-OS-5.38 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
 |~~WA-GUEST-OS-5.37 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
@@ -176,14 +181,15 @@ Versione .NET Framework installata: 3.5, 4.6.2
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 ottobre 2018 |14 dicembre 2018 |
 
 ## <a name="family-4-releases"></a>Versioni della famiglia 4
-**Windows Server 2012 R2**
+**R2 per Windows Server 2012**
 
 .NET Framework installato: 3,5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.77 _202004-01  |  4 maggio 2020  |  Post 4,79  |  
 |  WA-GUEST-OS-4.76 _202003-01  |  2 aprile 2020  |  Post 4,78  |  
-|  WA-GUEST-OS-4.75 _202002-01  |  5 marzo 2020  |  Post 4,77  |  
+|~~WA-GUEST-OS-4.75 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-4.74 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
 |~~WA-GUEST-OS-4.73 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
 |~~WA-GUEST-OS-4.72 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
@@ -209,8 +215,9 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.84 _202004-01  |  4 maggio 2020  |  Post 3,86  |  
 |  WA-GUEST-OS-3.83 _202003-01  |  2 aprile 2020  |  Post 3,85  |  
-|  WA-GUEST-OS-3.82 _202002-01  |  5 marzo 2020  |  Post 3,84  |  
+|~~WA-GUEST-OS-3.82 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-3.81 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
 |~~WA-GUEST-OS-3.80 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
 |~~WA-GUEST-OS-3.79 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
@@ -236,8 +243,9 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.97 _202004-01  |  4 maggio 2020  |  Post 2,99  |  
 |  WA-GUEST-OS-2.96 _202003-01  |  2 aprile 2020  |  Post 2,98  |  
-|  WA-GUEST-OS-2.95 _202002-01  |  5 marzo 2020  |  Post 2,97  |  
+|~~WA-GUEST-OS-2.95 _202002-01~~|  5 marzo 2020  |  4 maggio 2020  |  
 |~~WA-GUEST-OS-2.94 _202001-01~~|  24 gennaio 2020  |  2 aprile 2020  |  
 |~~WA-GUEST-OS-2.93 _201912-01~~| 8 gennaio 2020 | 5 marzo 2020 |  
 |~~WA-GUEST-OS-2.92 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  

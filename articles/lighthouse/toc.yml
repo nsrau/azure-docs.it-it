@@ -10,6 +10,9 @@
     - name: Indice
       displayName: 'template, sample'
       href: ./samples/index.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./samples/policy-samples.md
 - name: Concetti
   items:
     - name: Gestione risorse delegate di Azure
@@ -33,6 +36,9 @@
     - name: Azure Lighthouse in scenari aziendali
       displayName: 'corporation, IT, consolidate'
       href: ./concepts/enterprise.md
+    - name: Azure Lighthouse e applicazioni gestite di Azure
+      displayName: 'managed apps, ama'
+      href: ./concepts/managed-applications.md
 - name: Guide pratiche
   items:
     - name: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure

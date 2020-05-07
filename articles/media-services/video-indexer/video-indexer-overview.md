@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Video Indexer
+title: Informazioni su Video Indexer di Servizi multimediali di Azure
 titleSuffix: Azure Media Services
 description: Questo articolo offre una panoramica del servizio Video Indexer di servizi multimediali di Azure.
 services: media-services
@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: 1c7156da171a101f04db9f83df587f5b8bc71e8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08dcee28c234183aa2b125d82d046d31d4b50e47
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687105"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788854"
 ---
-# <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
+# <a name="what-is-azure-media-services-video-indexer"></a>Informazioni su Video Indexer di Servizi multimediali di Azure
 
 Video Indexer (VI) è la soluzione di intelligenza artificiale di servizi multimediali di Azure e fa parte del marchio Servizi cognitivi di Azure. Video Indexer offre la possibilità di estrarre informazioni approfondite (senza necessità di analisi dei dati o competenze di codifica) usando modelli di apprendimento automatico basati su più canali (voce, vocals, Visual). È possibile personalizzare ulteriormente ed eseguire il training dei modelli. Il servizio consente la ricerca approfondita, riduce i costi operativi, Abilita nuove opportunità di monetizzazione e crea nuove esperienze utente su archivi di video di grandi dimensioni (con barriere di immissione minime).
 
@@ -47,7 +47,7 @@ Le informazioni dettagliate di Video Indexer possono essere applicate a molti sc
 * *Moderazione del contenuto*: usare i modelli di moderazione del contenuto visivo e testuale per proteggere gli utenti dal contenuto inappropriato e verificare che i contenuti pubblicati corrispondano ai valori dell'organizzazione. È possibile bloccare automaticamente determinati video o avvisare gli utenti sul contenuto.
 * *Suggerimenti*: le informazioni dettagliate sul video possono essere usate per migliorare il coinvolgimento degli utenti evidenziando i momenti video pertinenti agli utenti. Contrassegnando ogni video con metadati aggiuntivi, è possibile consigliare agli utenti i video più rilevanti ed evidenziare le parti del video che soddisfano le proprie esigenze.
 
-## <a name="features"></a>Caratteristiche
+## <a name="features"></a>Funzionalità
 
 L'elenco seguente mostra le informazioni che è possibile recuperare dai video usando Video Indexer modelli video e audio:
 

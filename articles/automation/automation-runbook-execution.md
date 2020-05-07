@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09122581a3ade4e741a29996b7202ce0f96d074b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 558013a5e354f15ac3668e1fd2e93c6f2f24679c
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145538"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787448"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -38,7 +38,7 @@ Il diagramma seguente mostra il ciclo di vita di un processo Runbook per [PowerS
 Manuali operativi in automazione di Azure può essere eseguito in una sandbox di Azure o in un ruolo di [lavoro ibrido per Runbook](automation-hybrid-runbook-worker.md). Quando manuali operativi sono progettati per l'autenticazione e l'esecuzione di risorse in Azure, vengono eseguiti in una sandbox di Azure, un ambiente condiviso che può essere usato da più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox.
 
 >[!NOTE]
->L'ambiente sandbox di Azure non supporta operazioni interattive. Richiede anche l'uso di file MOF locali per manuali operativi che effettuano chiamate Win32.
+>L'ambiente sandbox di Azure non supporta operazioni interattive. Impedisce l'accesso a tutti i server COM out-of-process. Richiede anche l'uso di file MOF locali per manuali operativi che effettuano chiamate Win32.
 
 È possibile usare un ruolo di lavoro ibrido per Runbook per eseguire manuali operativi direttamente sul computer che ospita il ruolo e sulle risorse locali nell'ambiente. Automazione di Azure archivia e gestisce manuali operativi e li recapita a uno o più computer assegnati.
 
@@ -46,19 +46,19 @@ Nella tabella seguente sono elencate alcune attività di esecuzione di runbook c
 
 |Attività|Recommendation|Note|
 |---|---|---|
-|Integrazione con le risorse di Azure|Sandbox di Azure|Ospitata in Azure, l'autenticazione è più semplice. Se si usa un ruolo di lavoro ibrido per Runbook in una macchina virtuale di Azure, è possibile usare [le identità gestite per le risorse di Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
+|Integrazione con le risorse di Azure|Sandbox di Azure|Ospitata in Azure, l'autenticazione è più semplice. Se si usa un ruolo di lavoro ibrido per Runbook in una macchina virtuale di Azure, è possibile [usare l'autenticazione runbook con le identità gestite](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Ottenere prestazioni ottimali per la gestione delle risorse di Azure|Sandbox di Azure|Lo script viene eseguito nello stesso ambiente, con minore latenza.|
 |Ridurre al minimo i costi operativi|Sandbox di Azure|Non è previsto alcun overhead di calcolo e non è necessaria alcuna macchina virtuale.|
-|Esegui script con esecuzione prolungata|ruolo di lavoro ibrido per runbook|Le sandbox di Azure hanno [limiti di risorse](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Interagire con i servizi locali|ruolo di lavoro ibrido per runbook|Può accedere direttamente al computer host o alle risorse in altri ambienti cloud o nell'ambiente locale. |
-|Richiedi software e file eseguibili di terze parti|ruolo di lavoro ibrido per runbook|È possibile gestire il sistema operativo e installare il software.|
-|Monitorare un file o una cartella con un runbook|ruolo di lavoro ibrido per runbook|Usare un' [attività Watcher](automation-watchers-tutorial.md) in un ruolo di lavoro ibrido per Runbook.|
-|Eseguire uno script con utilizzo intensivo delle risorse|ruolo di lavoro ibrido per runbook| Le sandbox di Azure hanno [limiti di risorse](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Usare moduli con requisiti specifici| ruolo di lavoro ibrido per runbook|Ad esempio:</br> WinSCP - dipendenza da winscp.exe </br> Amministrazione di IIS: dipendenza dall'abilitazione o dalla gestione di IIS.|
-|Installare un modulo con un programma di installazione|ruolo di lavoro ibrido per runbook|I moduli per sandbox devono supportare la copia.|
-|Usare manuali operativi o moduli che richiedono la versione di .NET Framework diversa da 4.7.2|ruolo di lavoro ibrido per runbook|Le sandbox di automazione supportano .NET Framework 4.7.2 e l'aggiornamento a una versione diversa non è supportato.|
-|Eseguire script che richiedono l'elevazione dei privilegi|ruolo di lavoro ibrido per runbook|Le sandbox non consentono l'elevazione dei privilegi. Con un ruolo di lavoro ibrido per Runbook è possibile disattivare il controllo dell'account utente e usare [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) quando si esegue il comando che richiede l'elevazione dei privilegi.|
-|Eseguire script che richiedono l'accesso a Strumentazione gestione Windows (WMI)|ruolo di lavoro ibrido per runbook|I processi in esecuzione in sandbox nel cloud non possono accedere al provider WMI. |
+|Esegui script con esecuzione prolungata|Ruolo di lavoro ibrido per runbook|Le sandbox di Azure hanno [limiti di risorse](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Interagire con i servizi locali|Ruolo di lavoro ibrido per runbook|Può accedere direttamente al computer host o alle risorse in altri ambienti cloud o nell'ambiente locale. |
+|Richiedi software e file eseguibili di terze parti|Ruolo di lavoro ibrido per runbook|È possibile gestire il sistema operativo e installare il software.|
+|Monitorare un file o una cartella con un runbook|Ruolo di lavoro ibrido per runbook|Usare un' [attività Watcher](automation-watchers-tutorial.md) in un ruolo di lavoro ibrido per Runbook.|
+|Eseguire uno script con utilizzo intensivo delle risorse|Ruolo di lavoro ibrido per runbook| Le sandbox di Azure hanno [limiti di risorse](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Usare moduli con requisiti specifici| Ruolo di lavoro ibrido per runbook|Ad esempio:</br> WinSCP - dipendenza da winscp.exe </br> Amministrazione di IIS: dipendenza dall'abilitazione o dalla gestione di IIS.|
+|Installare un modulo con un programma di installazione|Ruolo di lavoro ibrido per runbook|I moduli per sandbox devono supportare la copia.|
+|Usare manuali operativi o moduli che richiedono la versione di .NET Framework diversa da 4.7.2|Ruolo di lavoro ibrido per runbook|Le sandbox di automazione supportano .NET Framework 4.7.2 e l'aggiornamento a una versione diversa non è supportato.|
+|Eseguire script che richiedono l'elevazione dei privilegi|Ruolo di lavoro ibrido per runbook|Le sandbox non consentono l'elevazione dei privilegi. Con un ruolo di lavoro ibrido per Runbook è possibile disattivare il controllo dell'account utente e usare [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) quando si esegue il comando che richiede l'elevazione dei privilegi.|
+|Eseguire script che richiedono l'accesso a Strumentazione gestione Windows (WMI)|Ruolo di lavoro ibrido per runbook|I processi in esecuzione in sandbox nel cloud non possono accedere al provider WMI. |
 
 ## <a name="using-modules-in-your-runbooks"></a>Uso dei moduli in manuali operativi
 
@@ -85,137 +85,9 @@ else
     }
 ```
 
-## <a name="supporting-time-dependent-scripts"></a>Supporto di script dipendenti dal tempo
+## <a name="using-self-signed-certificates"></a>Utilizzo di certificati autofirmati
 
-La manuali operativi deve essere affidabile e in grado di gestire gli errori temporanei che possono causare il riavvio o l'esito negativo. Se un Runbook ha esito negativo, automazione di Azure la ripete.
-
-Se il Runbook viene eseguito in genere all'interno di un vincolo temporale, fare in modo che lo script implementi la logica per controllare il tempo di esecuzione. Questo controllo garantisce l'esecuzione di operazioni come l'avvio, l'arresto o la scalabilità orizzontale solo in momenti specifici.
-
-> [!NOTE]
-> L'ora locale nel processo Azure sandbox è impostata su UTC. I calcoli relativi a data e ora nella manuali operativi devono prendere in considerazione questo fatto.
-
-## <a name="tracking-progress"></a>Tenere traccia dello stato di avanzamento
-
-È consigliabile creare la manuali operativi per la natura modulare, con la logica che può essere riutilizzata e riavviata facilmente. Tenere traccia dello stato di avanzamento in un Runbook è un modo efficace per garantire che la logica Runbook venga eseguita correttamente in caso di problemi. È possibile tenere traccia dello stato di avanzamento di un Runbook usando un'origine esterna, ad esempio un account di archiviazione, un database o file condivisi. È possibile creare la logica nel Runbook per verificare innanzitutto lo stato dell'ultima azione eseguita. Quindi, in base al risultato del controllo, la logica può ignorare o continuare attività specifiche in Runbook.
-
-## <a name="preventing-concurrent-jobs"></a>Impedisci processi simultanei
-
-Alcuni manuali operativi si comportano in modo strano se vengono eseguiti contemporaneamente a più processi. In questo caso, è importante che un Runbook implementi la logica per determinare se esiste già un processo in esecuzione. Di seguito è riportato un esempio di base.
-
-```powershell
-# Authenticate to Azure
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
--ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
-
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
-
-# Check for already running or new runbooks
-$runbookName = "<RunbookName>"
-$rgName = "<ResourceGroupName>"
-$aaName = "<AutomationAccountName>"
-$jobs = Get-AzAutomationJob -ResourceGroupName $rgName -AutomationAccountName $aaName -RunbookName $runbookName -AzContext $AzureContext
-
-# Check to see if it is already running
-$runningCount = ($jobs | ? {$_.Status -eq "Running"}).count
-
-If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Status -eq "New")) {
-    # Exit code
-    Write-Output "Runbook is already running"
-    Exit 1
-} else {
-    # Insert Your code here
-}
-```
-
-## <a name="working-with-multiple-subscriptions"></a>Uso di più sottoscrizioni
-
-Per gestire più sottoscrizioni, Runbook deve usare il cmdlet [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . Questo cmdlet garantisce che il contesto di autenticazione non venga recuperato da un altro Runbook in esecuzione nella stessa sandbox. Runbook usa anche il`AzContext` parametro sui cmdlet AZ Module e lo passa al contesto appropriato.
-
-```powershell
-# Ensures that you do not inherit an AzContext in your runbook
-Disable-AzContextAutosave –Scope Process
-
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal `
--Tenant $Conn.TenantID `
--ApplicationId $Conn.ApplicationID `
--CertificateThumbprint $Conn.CertificateThumbprint
-
-$context = Get-AzContext
-
-$ChildRunbookName = 'ChildRunbookDemo'
-$AutomationAccountName = 'myAutomationAccount'
-$ResourceGroupName = 'myResourceGroup'
-
-Start-AzAutomationRunbook `
-    -ResourceGroupName $ResourceGroupName `
-    -AutomationAccountName $AutomationAccountName `
-    -Name $ChildRunbookName `
-    -DefaultProfile $context
-```
-
-## <a name="handling-exceptions"></a>Gestione delle eccezioni
-
-Questa sezione descrive alcuni modi per gestire le eccezioni o i problemi intermittenti nei manuali operativi. Un esempio è un'eccezione WebSocket. La corretta gestione delle eccezioni impedisce che gli errori di rete temporanei causino un errore di manuali operativi. 
-
-### <a name="erroractionpreference"></a>ErrorActionPreference
-
-La variabile [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina il modo in cui PowerShell risponde a un errore non fatale. Gli errori di terminazione terminano sempre e non `ErrorActionPreference`sono interessati da.
-
-Quando Runbook USA `ErrorActionPreference`, un errore normalmente non fatale, ad esempio `PathNotFound` dal cmdlet [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) , impedisce il completamento di Runbook. L'esempio seguente illustra l'uso di `ErrorActionPreference`. Il comando [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) finale non viene mai eseguito, perché lo script viene arrestato.
-
-```powershell-interactive
-$ErrorActionPreference = 'Stop'
-Get-ChildItem -path nofile.txt
-Write-Output "This message will not show"
-```
-
-### <a name="try-catch-finally"></a>Try catch finally
-
-[Try catch finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) viene usato negli script di PowerShell per gestire gli errori di terminazione. Lo script può utilizzare questo meccanismo per intercettare eccezioni specifiche o eccezioni generali. L' `catch` istruzione deve essere utilizzata per rilevare o tentare di gestire gli errori. Nell'esempio seguente viene tentato di scaricare un file che non esiste. Viene intercettata l' `System.Net.WebException` eccezione e viene restituito l'ultimo valore per qualsiasi altra eccezione.
-
-```powershell-interactive
-try
-{
-   $wc = new-object System.Net.WebClient
-   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
-}
-catch [System.Net.WebException]
-{
-    "Unable to download MyDoc.doc from http://www.contoso.com."
-}
-catch
-{
-    "An error occurred that could not be resolved."
-}
-```
-
-### <a name="throw"></a>Throw
-
-[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) può essere usato per generare un errore di terminazione. Questo meccanismo può essere utile quando si definisce la logica personalizzata in un Runbook. Se lo script soddisfa un criterio che dovrebbe arrestarlo, può utilizzare l' `throw` istruzione per arrestare. Nell'esempio seguente viene utilizzata l'istruzione per visualizzare un parametro di funzione obbligatorio.
-
-```powershell-interactive
-function Get-ContosoFiles
-{
-  param ($path = $(throw "The Path parameter is required."))
-  Get-ChildItem -Path $path\*.txt -recurse
-}
-```
-
-## <a name="using-executables-or-calling-processes"></a>Uso di file eseguibili o chiamata di processi
-
-Manuali operativi eseguiti in sandbox di Azure non supportano processi di chiamata, ad esempio file eseguibili (file con**estensione exe** ) o sottoprocessi. Il motivo è che Azure sandbox è un processo condiviso eseguito in un contenitore che potrebbe non essere in grado di accedere a tutte le API sottostanti. Per gli scenari che richiedono software di terze parti o chiamate a sottoprocessi, è consigliabile eseguire un Runbook in un ruolo di [lavoro ibrido per Runbook](automation-hybrid-runbook-worker.md).
-
-## <a name="accessing-device-and-application-characteristics"></a>Accesso alle caratteristiche del dispositivo e dell'applicazione
-
-I processi Runbook eseguiti in sandbox di Azure non possono accedere alle caratteristiche del dispositivo o dell'applicazione. L'API più comune utilizzata per eseguire query sulle metriche delle prestazioni in Windows è WMI e alcune delle metriche comuni sono l'utilizzo della memoria e della CPU. Tuttavia, non importa quale API viene usata, perché i processi in esecuzione nel cloud non possono accedere all'implementazione Microsoft di Web-Based Enterprise Management (WBEM). Questa piattaforma è basata sulla Common Information Model (CIM), che fornisce gli standard di settore per la definizione delle caratteristiche del dispositivo e dell'applicazione.
-
-## <a name="handling-errors"></a>Gestione degli errori
-
-Il manuali operativi deve essere in grado di gestire gli errori. PowerShell presenta due tipi di errori, che terminano e non terminano. Gli errori di chiusura interrompono l'esecuzione del runbook quando si verificano. Il Runbook si interrompe con lo stato del processo non riuscito.
-
-Gli errori non fatali consentono a uno script di continuare anche dopo essersi verificati. Un esempio di errore non fatale è quello che si verifica quando un Runbook utilizza il `Get-ChildItem` cmdlet con un percorso che non esiste. PowerShell rileva che il percorso non esiste, genera un errore e passa alla cartella successiva. L'errore in questo caso non imposta lo stato del processo Runbook su Failed e il processo potrebbe anche essere completato. Per forzare l'arresto di un runbook in caso di errore non fatale, è possibile usare `ErrorAction Stop` nel cmdlet.
+Per usare i certificati autofirmati in manuali operativi, vedere [creazione di un nuovo certificato](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 
 ## <a name="handling-jobs"></a>Gestione dei processi
 
@@ -341,6 +213,142 @@ foreach ($log in $JobActivityLogs)
     }
 }
 $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
+```
+
+## <a name="tracking-progress"></a>Tenere traccia dello stato di avanzamento
+
+È consigliabile creare la manuali operativi per la natura modulare, con la logica che può essere riutilizzata e riavviata facilmente. Tenere traccia dello stato di avanzamento in un Runbook è un modo efficace per garantire che la logica Runbook venga eseguita correttamente in caso di problemi. È possibile tenere traccia dello stato di avanzamento di un Runbook usando un'origine esterna, ad esempio un account di archiviazione, un database o file condivisi. È possibile creare la logica nel Runbook per verificare innanzitutto lo stato dell'ultima azione eseguita. Quindi, in base al risultato del controllo, la logica può ignorare o continuare attività specifiche in Runbook.
+
+## <a name="preventing-concurrent-jobs"></a>Impedisci processi simultanei
+
+Alcuni manuali operativi si comportano in modo strano se vengono eseguiti contemporaneamente a più processi. In questo caso, è importante che un Runbook implementi la logica per determinare se esiste già un processo in esecuzione. Di seguito è riportato un esempio di base.
+
+```powershell
+# Authenticate to Azure
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+
+$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
+
+# Check for already running or new runbooks
+$runbookName = "<RunbookName>"
+$rgName = "<ResourceGroupName>"
+$aaName = "<AutomationAccountName>"
+$jobs = Get-AzAutomationJob -ResourceGroupName $rgName -AutomationAccountName $aaName -RunbookName $runbookName -AzContext $AzureContext
+
+# Check to see if it is already running
+$runningCount = ($jobs | ? {$_.Status -eq "Running"}).count
+
+If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Status -eq "New")) {
+    # Exit code
+    Write-Output "Runbook is already running"
+    Exit 1
+} else {
+    # Insert Your code here
+}
+```
+
+## <a name="handling-exceptions"></a>Gestione delle eccezioni
+
+Questa sezione descrive alcuni modi per gestire le eccezioni o i problemi intermittenti nei manuali operativi. Un esempio è un'eccezione WebSocket. La corretta gestione delle eccezioni impedisce che gli errori di rete temporanei causino un errore di manuali operativi. 
+
+### <a name="erroractionpreference"></a>ErrorActionPreference
+
+La variabile [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina il modo in cui PowerShell risponde a un errore non fatale. Gli errori di terminazione terminano sempre e non `ErrorActionPreference`sono interessati da.
+
+Quando Runbook USA `ErrorActionPreference`, un errore normalmente non fatale, ad esempio `PathNotFound` dal cmdlet [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) , impedisce il completamento di Runbook. L'esempio seguente illustra l'uso di `ErrorActionPreference`. Il comando [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) finale non viene mai eseguito, perché lo script viene arrestato.
+
+```powershell-interactive
+$ErrorActionPreference = 'Stop'
+Get-ChildItem -path nofile.txt
+Write-Output "This message will not show"
+```
+
+### <a name="try-catch-finally"></a>Try catch finally
+
+[Try catch finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) viene usato negli script di PowerShell per gestire gli errori di terminazione. Lo script può utilizzare questo meccanismo per intercettare eccezioni specifiche o eccezioni generali. L' `catch` istruzione deve essere utilizzata per rilevare o tentare di gestire gli errori. Nell'esempio seguente viene tentato di scaricare un file che non esiste. Viene intercettata l' `System.Net.WebException` eccezione e viene restituito l'ultimo valore per qualsiasi altra eccezione.
+
+```powershell-interactive
+try
+{
+   $wc = new-object System.Net.WebClient
+   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
+}
+catch [System.Net.WebException]
+{
+    "Unable to download MyDoc.doc from http://www.contoso.com."
+}
+catch
+{
+    "An error occurred that could not be resolved."
+}
+```
+
+### <a name="throw"></a>Throw
+
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) può essere usato per generare un errore di terminazione. Questo meccanismo può essere utile quando si definisce la logica personalizzata in un Runbook. Se lo script soddisfa un criterio che dovrebbe arrestarlo, può utilizzare l' `throw` istruzione per arrestare. Nell'esempio seguente viene utilizzata l'istruzione per visualizzare un parametro di funzione obbligatorio.
+
+```powershell-interactive
+function Get-ContosoFiles
+{
+  param ($path = $(throw "The Path parameter is required."))
+  Get-ChildItem -Path $path\*.txt -recurse
+}
+```
+
+## <a name="handling-errors"></a>Gestione degli errori
+
+Il manuali operativi deve essere in grado di gestire gli errori. PowerShell presenta due tipi di errori, che terminano e non terminano. Gli errori di chiusura interrompono l'esecuzione del runbook quando si verificano. Il Runbook si interrompe con lo stato del processo non riuscito.
+
+Gli errori non fatali consentono a uno script di continuare anche dopo essersi verificati. Un esempio di errore non fatale è quello che si verifica quando un Runbook utilizza il `Get-ChildItem` cmdlet con un percorso che non esiste. PowerShell rileva che il percorso non esiste, genera un errore e passa alla cartella successiva. L'errore in questo caso non imposta lo stato del processo Runbook su Failed e il processo potrebbe anche essere completato. Per forzare l'arresto di un runbook in caso di errore non fatale, è possibile usare `ErrorAction Stop` nel cmdlet.
+
+## <a name="using-executables-or-calling-processes"></a>Uso di file eseguibili o chiamata di processi
+
+Manuali operativi eseguiti in sandbox di Azure non supportano processi di chiamata, ad esempio file eseguibili (file con**estensione exe** ) o sottoprocessi. Il motivo è che Azure sandbox è un processo condiviso eseguito in un contenitore che potrebbe non essere in grado di accedere a tutte le API sottostanti. Per gli scenari che richiedono software di terze parti o chiamate a sottoprocessi, è consigliabile eseguire un Runbook in un ruolo di [lavoro ibrido per Runbook](automation-hybrid-runbook-worker.md).
+
+## <a name="accessing-device-and-application-characteristics"></a>Accesso alle caratteristiche del dispositivo e dell'applicazione
+
+I processi Runbook eseguiti in sandbox di Azure non possono accedere alle caratteristiche del dispositivo o dell'applicazione. L'API più comune utilizzata per eseguire query sulle metriche delle prestazioni in Windows è WMI e alcune delle metriche comuni sono l'utilizzo della memoria e della CPU. Tuttavia, non importa quale API viene usata, perché i processi in esecuzione nel cloud non possono accedere all'implementazione Microsoft di Web-Based Enterprise Management (WBEM). Questa piattaforma è basata sulla Common Information Model (CIM), che fornisce gli standard di settore per la definizione delle caratteristiche del dispositivo e dell'applicazione.
+
+## <a name="working-with-webhooks"></a>Uso dei webhook
+
+I servizi esterni, ad esempio Azure DevOps Services e GitHub, possono avviare un Runbook in automazione di Azure. Per eseguire questo tipo di avvio, il servizio usa un [webhook](automation-webhooks.md) tramite una singola richiesta HTTP. L'uso di un webhook consente di avviare manuali operativi senza implementare una soluzione completa di automazione di Azure. 
+
+## <a name="supporting-time-dependent-scripts"></a>Supporto di script dipendenti dal tempo
+
+La manuali operativi deve essere affidabile e in grado di gestire gli errori temporanei che possono causare il riavvio o l'esito negativo. Se un Runbook ha esito negativo, automazione di Azure la ripete.
+
+Se il Runbook viene eseguito in genere all'interno di un vincolo temporale, fare in modo che lo script implementi la logica per controllare il tempo di esecuzione. Questo controllo garantisce l'esecuzione di operazioni come l'avvio, l'arresto o la scalabilità orizzontale solo in momenti specifici.
+
+> [!NOTE]
+> L'ora locale nel processo Azure sandbox è impostata su UTC. I calcoli relativi a data e ora nella manuali operativi devono prendere in considerazione questo fatto.
+
+## <a name="working-with-multiple-subscriptions"></a>Uso di più sottoscrizioni
+
+Per gestire più sottoscrizioni, Runbook deve usare il cmdlet [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . Questo cmdlet garantisce che il contesto di autenticazione non venga recuperato da un altro Runbook in esecuzione nella stessa sandbox. Runbook usa anche il`AzContext` parametro sui cmdlet AZ Module e lo passa al contesto appropriato.
+
+```powershell
+# Ensures that you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave –Scope Process
+
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzAccount -ServicePrincipal `
+-Tenant $Conn.TenantID `
+-ApplicationId $Conn.ApplicationID `
+-CertificateThumbprint $Conn.CertificateThumbprint
+
+$context = Get-AzContext
+
+$ChildRunbookName = 'ChildRunbookDemo'
+$AutomationAccountName = 'myAutomationAccount'
+$ResourceGroupName = 'myResourceGroup'
+
+Start-AzAutomationRunbook `
+    -ResourceGroupName $ResourceGroupName `
+    -AutomationAccountName $AutomationAccountName `
+    -Name $ChildRunbookName `
+    -DefaultProfile $context
 ```
 
 ## <a name="sharing-resources-among-runbooks"></a><a name="fair-share"></a>Condivisione di risorse tra manuali operativi

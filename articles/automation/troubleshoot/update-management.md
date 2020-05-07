@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f936b62349a534e6193a3c628c66c49d1a58b681
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678930"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790831"
 ---
 # <a name="troubleshoot-issues-with-the-update-management-solution"></a>Risolvere i problemi relativi alla soluzione Gestione aggiornamenti
 
@@ -49,13 +49,13 @@ Le cause di questo errore sono le seguenti:
 
 * Eseguire lo strumento di risoluzione dei problemi per [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), a seconda del sistema operativo.
 
-* Passare a [pianificazione della rete](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e le porte che devono essere consentiti per il funzionamento gestione aggiornamenti.  
+* Passare a [configurazione di rete](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e le porte che devono essere consentiti per il funzionamento gestione aggiornamenti.  
 
-* Passare a [pianificazione della rete](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) per informazioni sugli indirizzi e le porte che devono essere consentiti per il funzionamento dell'agente log Analytics.
+* Passare a [configurazione di rete](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) per informazioni sugli indirizzi e le porte che devono essere consentiti per il funzionamento dell'agente log Analytics.
 
 * Verificare la presenza di problemi di configurazione dell'ambito. La [configurazione dell'ambito](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quali computer vengono configurati per la soluzione. Se il computer viene visualizzato nell'area di lavoro, ma non nel portale * * Gestione aggiornamenti, sarà necessario impostare la configurazione dell'ambito in modo che sia destinata ai computer. Per ulteriori informazioni sulla configurazione dell'ambito, vedere l'articolo relativo all' [onboarding dei computer nell'area di lavoro](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Rimuovere la configurazione del ruolo di lavoro attenendosi alla procedura descritta in [eliminazione del ruolo di lavoro ibrido per Runbook](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
+* Rimuovere la configurazione del ruolo di lavoro seguendo i passaggi descritti in rimuovere un ruolo di lavoro [ibrido per Runbook Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) o [rimuovere un ruolo di lavoro ibrido per Runbook Linux](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker) 
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scenario: aggiornamento sostituito indicato come mancante in Gestione aggiornamenti
 
@@ -448,7 +448,7 @@ Il computer è già stato caricato in un'altra area di lavoro per Gestione aggio
 ### <a name="resolution"></a>Soluzione
 
 1. Seguire i passaggi in [computer non vengono visualizzati nel portale in Gestione aggiornamenti](#nologs) per assicurarsi che il computer stia segnalando l'area di lavoro corretta.
-2. Pulire gli elementi nel computer [eliminando il gruppo Runbook ibrido](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group), quindi riprovare.
+2. Pulire gli elementi nel computer [eliminando il gruppo Runbook ibrido](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group), quindi riprovare.
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Scenario: il computer non può comunicare con il servizio
 

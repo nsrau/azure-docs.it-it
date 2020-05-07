@@ -1,18 +1,18 @@
 ---
-title: Ruolo di lavoro ibrido per runbook di Automazione di Azure
-description: Questo articolo fornisce informazioni sull'installazione e l'uso di Hybrid Runbook Workers, una funzionalità di Automazione di Azure che si può usare per eseguire i runbook nei computer del centro dati locale o del provider di servizi cloud.
+title: Panoramica del ruolo di lavoro ibrido per Runbook in automazione di Azure
+description: Questo articolo fornisce una panoramica del ruolo di lavoro ibrido per Runbook, una funzionalità di automazione di Azure che è possibile usare per eseguire manuali operativi nei computer del Data Center locale o del provider di servizi cloud.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 861c7ffa647c8d2f37b32c359253ca991eeb314f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9a5a5c57d6646e46e83794698d2c3d41fd377d1e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457706"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787669"
 ---
-# <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
+# <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
 I runbook in Automazione di Azure potrebbero non avere accesso alle risorse in altri cloud o negli ambienti locali perché vengono eseguiti nella piattaforma cloud di Azure. È possibile usare la funzionalità Ruolo di lavoro ibrido per runbook di Automazione di Azure per eseguire runbook direttamente nel computer che ospita il ruolo e su risorse nell'ambiente per gestire tali risorse locali. I runbook vengono infatti archiviati e gestiti in Automazione di Azure e quindi distribuiti a uno o più computer assegnati.
 
@@ -24,68 +24,27 @@ Ogni computer di lavoro runbook ibrido è un membro di un gruppo di computer di 
 
 Quando si avvia un runbook in un ruolo di lavoro ibrido per runbook, è necessario specificare il gruppo in cui verrà eseguito. Ogni ruolo di lavoro del gruppo esegue il polling di Automazione di Azure per vedere se sono disponibili processi. Se è disponibile un processo, il primo ruolo di lavoro che raggiunge il processo lo ottiene. Il tempo di elaborazione della coda processi dipende dal profilo hardware e dal carico del ruolo di lavoro ibrido. Non è possibile scegliere un computer di lavoro specifico. I ruoli di lavoro ibridi per runbook mancano di molti dei limiti presenti invece in sandbox di Azure, ad esempio non hanno gli stessi limiti di spazio su disco, memoria o socket di rete. I ruoli di lavoro ibridi per runbook sono limitati soltanto dalle risorse del ruolo di lavoro ibrido per runbook stesso. Inoltre, i ruoli di lavoro ibridi per Runbook non condividono il limite di tempo di [condivisione equa](automation-runbook-execution.md#fair-share) di 180 minuti di Azure sandbox. Per altre informazioni sui limiti dei servizi per sandbox di Azure e per i ruoli di lavoro ibridi per Runbook, vedere i [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)del processo.
 
-## <a name="install-a-hybrid-runbook-worker"></a>Installare un ruolo di lavoro ibrido per runbook
+## <a name="installation-of-a-hybrid-runbook-worker"></a>Installazione di un ruolo di lavoro ibrido per Runbook
 
 Il processo di installazione di un ruolo di lavoro ibrido per Runbook dipende dal sistema operativo. La tabella seguente definisce i tipi di distribuzione.
 
-|Sistema operativo  |Tipi distribuzione  |
+|OS  |Tipi distribuzione  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuale](automation-windows-hrw-install.md#manual-deployment)        |
-|Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
+|Linux     | [Python](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker)        |
 
 Il metodo di installazione consigliato prevede l'uso di un Runbook di automazione per automatizzare completamente il processo di configurazione di un computer Windows. Il secondo metodo consiste nel seguire una procedura dettagliata per installare e configurare manualmente il ruolo. Per i computer Linux si esegue uno script Python per installare l'agente nel computer.
 
 > [!NOTE]
-> Per gestire la configurazione dei server che supportano il ruolo di lavoro ibrido per runbook con desired state Configuration (DSC), è necessario aggiungere i server come nodi DSC. Per informazioni sul caricamento dei server per la gestione con DSC, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
->
->Se si abilita la [soluzione Gestione aggiornamenti](automation-update-management.md), qualsiasi computer connesso all'area di lavoro Azure Log Analytics viene automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione. Tuttavia, il computer non viene registrato con i gruppi di ruoli di lavoro ibridi già definiti nell'account di Automazione. È possibile aggiungere il computer a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
+> Per gestire la configurazione dei server che supportano il ruolo di lavoro ibrido per runbook con la configurazione dello stato (DSC), è necessario aggiungere i server come nodi DSC. Per ulteriori informazioni sull'onboarding, vedere [onboarding machines for Management by state Configuration (DSC)](automation-dsc-onboarding.md).
 
-Prima di iniziare la distribuzione di un ruolo di lavoro ibrido per runbook, rivedere le [informazioni per la pianificazione della rete](#network-planning). Dopo avere distribuito correttamente un ruolo di lavoro per runbook, esaminare [Esecuzione di runbook in un ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md) per informazioni su come configurare i runbook per automatizzare i processi nel centro dati locale o un altro ambiente cloud.
+Se si abilita [Gestione aggiornamenti](automation-update-management.md), qualsiasi computer connesso all'area di lavoro di Azure log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per Runbook per supportare manuali operativi incluso per la gestione degli aggiornamenti. Tuttavia, il computer non è registrato con nessun gruppo di lavoro ibrido per Runbook già definito nell'account di automazione. 
 
-È possibile aggiungere il computer a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
+È possibile aggiungere il computer a un gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione per supportare manuali operativi di automazione, purché si usi lo stesso account sia per Gestione aggiornamenti che per l'appartenenza al gruppo di lavoro ibrido per Runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per Runbook.
 
-## <a name="a-nameremove-a-hybrid-runbook-workerremove-a-hybrid-runbook-worker-from-an-on-premises-computer"></a><a name="remove-a-hybrid-runbook-worker">Rimuovere un ruolo di lavoro ibrido per Runbook da un computer locale
+Quando si ha familiarità con le informazioni contenute in questo argomento, è possibile distribuire il ruolo di lavoro ibrido per Runbook nell'ambiente in uso. Per un ruolo di lavoro ibrido per Runbook Windows, vedere [distribuire un ruolo di lavoro ibrido per Runbook Windows](automation-windows-hrw-install.md). Per un ruolo di lavoro Linux, vedere [distribuire un ruolo di lavoro ibrido per Runbook Linux](automation-linux-hrw-install.md).
 
-È possibile rimuovere un ruolo di lavoro ibrido per Runbook da un computer locale come descritto in questa sezione per Windows e Linux.
-
-### <a name="remove-the-worker-on-windows"></a>Rimuovere il ruolo di lavoro in Windows
-
-1. Nel portale di Azure passare all'account di Automazione.
-2. In **Impostazioni Account** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**.
-
-3. Aprire una sessione di PowerShell in modalità amministratore ed eseguire il comando seguente con i valori dell'URL e della chiave di accesso primaria. Usare il `Verbose` parametro per un log dettagliato del processo di rimozione. Per rimuovere le macchine non aggiornate dal gruppo di ruoli di lavoro ibridi, usare il parametro facoltativo `machineName`.
-
-```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
-```
-
-### <a name="remove-the-worker-on-linux"></a>Rimuovere il ruolo di lavoro in Linux
-
-È possibile usare il comando `ls /var/opt/microsoft/omsagent` sul ruolo di lavoro ibrido per Runbook per ottenere l'ID dell'area di lavoro. Viene creata una cartella denominata con l'ID dell'area di lavoro.
-
-```bash
-sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
-```
-
-> [!NOTE]
-> Questo codice non rimuove l'agente di Log Analytics per Linux dal computer. Rimuove solo la funzionalità e la configurazione del ruolo di lavoro ibrido per Runbook.
-
-## <a name="remove-a-hybrid-worker-group"></a>Rimuovere un gruppo di ruoli di lavoro ibridi
-
-Per rimuovere un gruppo di ruolo di lavoro ibrido per Runbook, è necessario prima di tutto rimuovere il ruolo di lavoro ibrido per Runbook da ogni computer membro del gruppo. Per rimuovere il gruppo, attenersi alla procedura seguente:
-
-1. Nel portale di Azure aprire l'account di automazione.
-2. Selezionare **gruppi di lavoro ibridi** in **automazione processi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
-
-   ![Pagina Proprietà](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
-
-3. Nella pagina delle proprietà del gruppo selezionato selezionare **Elimina**. Compare un messaggio che chiede di confermare. Selezionare **Sì** se si è certi di voler continuare.
-
-   ![Messaggio di conferma](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
-
-   Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
-
-## <a name="configure-your-network"></a><a name="network-planning"></a>Configurare la rete
+## <a name="network-configuration"></a><a name="network-planning"></a>Configurazione di rete
 
 ### <a name="hybrid-worker-role"></a>Ruolo di lavoro ibrido
 
@@ -126,22 +85,35 @@ Se è disponibile un account di Automazione definito per un'area specifica, è p
 
 Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il file XML degli [indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) dall'Area download Microsoft.
 
-> [!NOTE]
-> Il file XML degli indirizzi IP dei data center di Azure elenca gli intervalli di indirizzi IP usati nei data center di Microsoft Azure. Il file include gli intervalli per le risorse di calcolo, SQL e di archiviazione.
->
->Viene pubblicata una versione aggiornata del file ogni settimana. Il file include gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana.
->
-> È consigliabile scaricare il nuovo file XML ogni settimana e aggiornare quindi il sito per identificare correttamente i servizi in esecuzione in Azure. Per gli utenti di ExpressRoute è importante sottolineare che questo file viene usato per aggiornare l'annuncio BGP (Border Gateway Protocol) dello spazio di Azure la prima settimana del mese.
+Il file XML degli indirizzi IP dei data center di Azure elenca gli intervalli di indirizzi IP usati nei data center di Microsoft Azure. Il file include gli intervalli per le risorse di calcolo, SQL e di archiviazione.
 
-### <a name="update-management"></a>Gestione degli aggiornamenti
+Viene pubblicata una versione aggiornata del file ogni settimana. Il file include gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana.
+
+È consigliabile scaricare il nuovo file XML ogni settimana e aggiornare quindi il sito per identificare correttamente i servizi in esecuzione in Azure. Per gli utenti di ExpressRoute è importante sottolineare che questo file viene usato per aggiornare l'annuncio BGP (Border Gateway Protocol) dello spazio di Azure la prima settimana del mese.
+
+## <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Indirizzi Gestione aggiornamenti per il ruolo di lavoro ibrido per Runbook
 
 Oltre agli indirizzi e alle porte standard che il ruolo di lavoro ibrido per runbook richiede, per Gestione aggiornamenti sono necessari gli indirizzi specifici seguenti. La comunicazione verso questi indirizzi avviene sulla porta 443.
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.ods.opinsights.azure.com     | *.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+
+## <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
+
+È possibile che si disponga di manuali operativi per gestire le risorse nel computer locale o di eseguire le risorse nell'ambiente locale in cui viene distribuito un ruolo di lavoro ibrido per Runbook. In questo caso, è possibile scegliere di eseguire il manuali operativi nel ruolo di lavoro ibrido anziché in un account di automazione. I manuali operativi eseguiti in un ruolo di lavoro ibrido per Runbook sono identici a quelli eseguiti nell'account di automazione. Vedere [eseguire manuali operativi in un ruolo di lavoro ibrido per Runbook](automation-hrw-run-runbooks.md).
+
+### <a name="hybrid-runbook-worker-jobs"></a>Processi di lavoro ibrido per Runbook
+
+I processi di lavoro ibrido per Runbook vengono eseguiti con l'account di **sistema** locale in Windows o l'account **nxautomation** in Linux. Automazione di Azure gestisce i processi nei ruoli di lavoro ibridi per Runbook in modo diverso rispetto ai processi eseguiti in sandbox di Azure. Una differenza fondamentale è che non esiste alcun limite per la durata dei processi nei Runbook Worker. I manuali operativi eseguiti in sandbox di Azure sono limitati a tre ore a causa di una [condivisione equa](automation-runbook-execution.md#fair-share).
+
+Se il computer host del ruolo di lavoro ibrido per Runbook viene riavviato, qualsiasi processo Runbook in esecuzione viene riavviato dall'inizio o dall'ultimo checkpoint per manuali operativi del flusso di lavoro PowerShell. Quando un processo del Runbook viene riavviato più di tre volte, viene sospeso.
+
+### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Autorizzazioni Runbook per un ruolo di lavoro ibrido per Runbook
+
+Poiché accedono a risorse non di Azure, manuali operativi in esecuzione in un ruolo di lavoro ibrido per Runbook non possono usare il meccanismo di autenticazione usato in genere da manuali operativi per l'autenticazione alle risorse di Azure. Un Runbook fornisce l'autenticazione per le risorse locali o configura l'autenticazione usando [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). È anche possibile specificare un account RunAs per fornire un contesto utente per tutti manuali operativi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

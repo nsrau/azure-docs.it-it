@@ -18,7 +18,7 @@ Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle riso
 
 È anche possibile determinare i tipi di raccomandazioni usando queste proprietà:
 
-* Category
+* Categoria
 * Livello di effetto
 * Tipo di raccomandazione
 

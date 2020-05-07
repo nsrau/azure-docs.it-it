@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1208e08f7b85e893ba754bdbdf71a2da4f68c90a
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509067"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787176"
 ---
 # <a name="overview-of-change-tracking-and-inventory"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -23,10 +23,15 @@ Questo articolo presenta Rilevamento modifiche e l'inventario in automazione di 
 - Servizi Microsoft
 - Daemon Linux
 
-Rilevamento modifiche e l'inventario ottengono i dati dal servizio monitoraggio di Azure nel cloud. Azure invia le modifiche al software installato, ai servizi Microsoft, ai file e al registro di sistema di Windows e ai Daemon Linux nei server monitorati in monitoraggio di Azure per l'elaborazione. Il servizio cloud applica la logica ai dati ricevuti, li registra e li rende disponibili. 
-
 > [!NOTE]
 > Per tenere traccia delle modifiche apportate alle proprietà Azure Resource Manager, vedere [cronologia](../governance/resource-graph/how-to/get-resource-changes.md)delle modifiche di Azure Resource Graph.
+
+Rilevamento modifiche e l'inventario ottengono i dati da monitoraggio di Azure. Le macchine virtuali connesse alle aree di lavoro Log Analytics utilizzano agenti Log Analytics per raccogliere dati sulle modifiche al software installato, ai servizi Microsoft, al registro di sistema e ai file di Windows e a qualsiasi Daemon Linux nei server monitorati. Quando i dati sono disponibili, gli agenti lo inviano a monitoraggio di Azure per l'elaborazione. Monitoraggio di Azure applica la logica ai dati ricevuti, li registra e li rende disponibili. 
+
+La funzionalità Rilevamento modifiche e inventario consente di abilitare le aree funzionali rilevamento modifiche e inventario in automazione di Azure. Poiché entrambe le aree utilizzano lo stesso agente di Log Analytics, il processo di aggiunta di una macchina virtuale è lo stesso in entrambe le aree funzionali. 
+
+> [!NOTE]
+> Per usare la funzionalità di Rilevamento modifiche e inventario, è necessario individuare tutte le macchine virtuali nella stessa sottoscrizione e nella stessa area dell'account di automazione.
 
 Rilevamento modifiche e l'inventario attualmente non supportano gli elementi seguenti:
 
@@ -38,7 +43,7 @@ Rilevamento modifiche e l'inventario attualmente non supportano gli elementi seg
 Altre limitazioni:
 
 * La colonna **Dimensioni massime file** e i valori non sono usati nell'implementazione corrente.
-* Se si raccolgono più di 2500 file in un ciclo di raccolta di 30 minuti, è possibile che le prestazioni della soluzione risultino ridotte.
+* Se si raccolgono più di 2500 file in un ciclo di raccolta di 30 minuti, le prestazioni del rilevamento delle modifiche e dell'inventario potrebbero risultare ridotte.
 * Quando il traffico di rete è elevato, i record delle modifiche possono richiedere fino a sei ore per la visualizzazione.
 * Se si modifica una configurazione mentre un computer viene arrestato, il computer potrebbe registrare le modifiche appartenenti alla configurazione precedente.
 
@@ -49,33 +54,7 @@ Attualmente Rilevamento modifiche e l'inventario si verificano i seguenti proble
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-Rilevamento modifiche e l'inventario e gli agenti Log Analytics di monitoraggio di Azure sono supportati nei sistemi operativi Windows e Linux.
-
-### <a name="windows-operating-systems"></a>Sistemi operativi Windows
-
-La versione del sistema operativo Windows supportata ufficialmente è Windows Server 2008 R2 o versione successiva.
-
-### <a name="linux-operating-systems"></a>Sistemi operativi Linux
-
-Le distribuzioni di Linux descritte di seguito sono ufficialmente supportate per l'agente Log Analytics per Linux. È tuttavia possibile che l'agente Linux sia eseguito in altre distribuzioni non elencate. Se non diversamente indicato, tutte le versioni minori sono supportate per ogni versione principale elencata.
-
-#### <a name="64-bit-linux-operating-systems"></a>sistemi operativi Linux a 64 bit
-
-* CentOS 6 e 7
-* Amazon Linux 2017.09
-* Oracle Linux 6 e 7
-* Red Hat Enterprise Linux Server 6 e 7
-* Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
-* SUSE Linux Enterprise Server 12
-
-#### <a name="32-bit-linux-operating-systems"></a>sistemi operativi Linux a 32 bit
-
-* CentOS 6
-* Oracle Linux 6
-* Red Hat Enterprise Linux Server 6
-* Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS e 16.04 LTS
+Rilevamento modifiche e l'inventario sono supportati in tutti i sistemi operativi che soddisfano i requisiti di Log Analytics Agent. Le versioni del sistema operativo Windows supportate ufficialmente sono Windows Server 2008 SP1 o versione successiva e Windows 7 SP1 o versione successiva. Sono supportati anche diversi sistemi operativi Linux. Vedere [Panoramica di log Analytics Agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
 ## <a name="network-requirements"></a>Requisiti di rete
 
@@ -83,14 +62,14 @@ Rilevamento modifiche e l'inventario richiedono specificamente gli indirizzi di 
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+|*.azure-automation.net | *.azure-automation.us|
 
 ## <a name="change-tracking-and-inventory-user-interface"></a>Interfaccia utente di Rilevamento modifiche e inventario
 
-Utilizzare Rilevamento modifiche e inventario nel portale di Azure per visualizzare il riepilogo delle modifiche per i computer monitorati. La funzionalità è disponibile selezionando **rilevamento modifiche** in **Gestione configurazione** nell'account di automazione. 
+Utilizzare Rilevamento modifiche e inventario nel portale di Azure per visualizzare il riepilogo delle modifiche per i computer monitorati. La funzionalità è disponibile selezionando una delle opzioni Aggiungi VM per **rilevamento modifiche** o **inventario** in **Gestione configurazione** nell'account di automazione.  
 
 ![Dashboard Rilevamento modifiche](./media/change-tracking/change-tracking-dash01.png)
 
@@ -186,7 +165,7 @@ La tabella seguente illustra i limiti degli elementi rilevati per computer per R
 |Servizi|250|
 |DAEMON|250|
 
-L'utilizzo medio dei dati Log Analytics per un computer con Rilevamento modifiche e l'inventario è di circa 40 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.
+L'utilizzo medio dei dati Log Analytics per un computer che usa Rilevamento modifiche e l'inventario è di circa 40 MB al mese, a seconda dell'ambiente. Utilizzando la funzionalità utilizzo e costi stimati dell'area di lavoro Log Analytics, è possibile visualizzare i dati inseriti da Rilevamento modifiche e inventario in un grafico di utilizzo. È possibile usare questa visualizzazione dati per valutare l'utilizzo dei dati e determinare come influisce sulla fattura. Vedere [informazioni sull'utilizzo e la stima dei costi](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).  
 
 ### <a name="microsoft-service-data"></a>Dati del servizio Microsoft
 
