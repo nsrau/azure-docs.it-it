@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50118dcd4bf0fafa3e25399cf7d82558b7c776c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048151"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582803"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
@@ -160,7 +160,7 @@ Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: Boolean<li> Valore predefinito: False | Valore booleano che indica se un utente guest può essere o meno un proprietario di gruppi. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tipo: Boolean<li> Valore predefinito: True | Valore booleano che indica se un utente guest ha o meno accesso al contenuto dei gruppi di Office 365.  Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Impostazione predefinita: "" | URL di un collegamento alle linee guida per l'utilizzo dei gruppi. |
-|  <ul><li>AllowToAddGuests<li>Tipo: Boolean<li> Valore predefinito: True | Valore booleano che indica se è consentito o meno aggiungere utenti guest a questa directory. <br>Questa impostazione può essere sottoposta a override e diventa di sola lettura se *EnableMIPLabels* è impostato su *true* e un criterio Guest è associato all'etichetta di riservatezza assegnata al gruppo.<br>Se l'impostazione AllowToAddGuests è impostata su false a livello di tenant, qualsiasi impostazione AllowToAddGuests a livello di gruppo verrà ignorata. Se si vuole abilitare l'accesso guest solo per alcuni gruppi, è necessario impostare AllowToAddGuests su true a livello di tenant e quindi disabilitarlo selettivamente per gruppi specifici. |
+|  <ul><li>AllowToAddGuests<li>Tipo: Boolean<li> Valore predefinito: True | Valore booleano che indica se è consentito o meno aggiungere utenti guest a questa directory. <br>Questa impostazione può essere sottoposta a override e diventa di sola lettura se *EnableMIPLabels* è impostato su *true* e un criterio Guest è associato all'etichetta di riservatezza assegnata al gruppo.<br>Se l'impostazione AllowToAddGuests è impostata su false a livello di organizzazione, qualsiasi impostazione AllowToAddGuests a livello di gruppo verrà ignorata. Se si vuole abilitare l'accesso guest solo per alcuni gruppi, è necessario impostare AllowToAddGuests su true a livello di organizzazione e quindi disabilitarlo selettivamente per gruppi specifici. |
 |  <ul><li>ClassificationList<li>Tipo: String<li>Impostazione predefinita: "" | Elenco delimitato da virgole dei valori di classificazione validi che è possibile applicare ai gruppi di Office 365. <br>Questa impostazione non si applica quando EnableMIPLabels = = true.|
 |  <ul><li>EnableMIPLabels<li>Tipo: Boolean<li>Impostazione predefinita: "false" |Flag che indica se è possibile applicare le etichette di riservatezza pubblicate in Microsoft 365 Compliance Center ai gruppi di Office 365. Per altre informazioni, vedere [assign Sensitivity labels for Office 365 groups](groups-assign-sensitivity-labels.md). |
 

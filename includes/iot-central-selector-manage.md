@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: iot-central
 author: dominicbetts
 ms.service: iot-central

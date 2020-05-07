@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253455"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583133"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
@@ -88,7 +88,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
    Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
    ```
 
-## <a name="configure-single-sign-on"></a>Configura l'accesso Single Sign-On 
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On 
 1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md). Assicurarsi di selezionare **Azure Active Directory** come **Metodo di preautenticazione**.
 2. Quando l'applicazione viene visualizzata nell'elenco delle applicazioni aziendali, selezionarla e fare clic su **Single Sign-On**.
 3. Impostare la modalità Single Sign-On su **Autenticazione integrata di Windows**.  
@@ -100,11 +100,13 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 
 ## <a name="sso-for-non-windows-apps"></a>Accesso Single Sign-On per app non Windows
 
-Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando Azure AD autentica l'utente nel cloud. Quando la richiesta arriva in locale, il connettore del proxy dell'applicazione di Azure AD rilascia un ticket Kerberos per conto dell'utente tramite l'interazione con Active Directory locale. Questo processo è definito come delega vincolata Kerberos. Nella fase successiva, viene inviata una richiesta all'applicazione back-end con il ticket Kerberos. 
+Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando Azure AD autentica l'utente nel cloud. Quando la richiesta arriva in locale, il connettore del proxy dell'applicazione di Azure AD rilascia un ticket Kerberos per conto dell'utente tramite l'interazione con Active Directory locale. Questo processo è definito come delega vincolata Kerberos. 
 
-Esistono vari protocolli che definiscono la modalità di invio di tali richieste. La maggior parte dei server non-Windows prevede di negoziare con SPNEGO. Questo protocollo è supportato nell’Azure Active Directory Application Proxy, ma è disabilitato per impostazione predefinita. Un server può essere configurato per SPNEGO o per delega vincolata Kerberos standard, ma non per entrambi.
+Nella fase successiva, viene inviata una richiesta all'applicazione back-end con il ticket Kerberos. 
 
-Se si configura una macchina di connettori per SPNEGO, assicurarsi che tutti gli altri connettori in tale gruppo siano configurati anche con SPNEGO. Le applicazioni previste per delega vincolata Kerberos standard devono essere indirizzate attraverso gli altri connettori che non sono configurati per SPNEGO.
+Esistono diversi meccanismi che definiscono come inviare il ticket Kerberos in tali richieste. La maggior parte dei server non Windows si aspettano di riceverli sotto forma di token SPNEGO. Questo meccanismo è supportato nel proxy di applicazione Azure AD, ma è disabilitato per impostazione predefinita. Un connettore può essere configurato per SPNEGO o per il token Kerberos standard, ma non per entrambi.
+
+Se si configura una macchina di connettori per SPNEGO, assicurarsi che tutti gli altri connettori in tale gruppo siano configurati anche con SPNEGO. Le applicazioni che prevedono il token Kerberos standard devono essere instradate tramite altri connettori che non sono configurati per SPNEGO.
  
 
 Per abilitare SPNEGO:

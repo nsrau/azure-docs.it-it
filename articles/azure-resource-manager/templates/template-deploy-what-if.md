@@ -3,14 +3,14 @@ title: Distribuzione modelli simulazione (anteprima)
 description: Determinare quali modifiche si verificheranno nelle risorse prima di distribuire un modello di Azure Resource Manager.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: jgao
-ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509585"
+ms.locfileid: "82581196"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operazione di simulazione della distribuzione del modello ARM (anteprima)
 
@@ -106,7 +106,7 @@ Per visualizzare in anteprima le modifiche prima di distribuire un `-Whatif` mod
 * `New-AzResourceGroupDeployment -Whatif`per le distribuzioni di gruppi di risorse
 * `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` per le distribuzioni a livello di sottoscrizione
 
-In alternativa, è possibile usare `-Confirm` il parametro switch per visualizzare l'anteprima delle modifiche e ricevere la richiesta di continuare con la distribuzione.
+È possibile usare il `-Confirm` parametro switch per visualizzare l'anteprima delle modifiche e ottenere la richiesta di continuare con la distribuzione.
 
 * `New-AzResourceGroupDeployment -Confirm`per le distribuzioni di gruppi di risorse
 * `New-AzSubscriptionDeployment -Confirm`e `New-AzDeployment -Confirm` per le distribuzioni a livello di sottoscrizione
@@ -123,10 +123,10 @@ Per visualizzare in anteprima le modifiche prima di distribuire `what-if` un mod
 * `az deployment group what-if`per le distribuzioni di gruppi di risorse
 * `az deployment sub what-if`per le distribuzioni a livello di sottoscrizione
 
-In alternativa, è possibile usare `--confirm-with-what-if` il parametro per visualizzare l'anteprima delle modifiche e ricevere la richiesta di continuare la distribuzione.
+È possibile usare l' `--confirm-with-what-if` opzione (o la relativa forma `-c`breve) per visualizzare l'anteprima delle modifiche e ricevere la richiesta di continuare con la distribuzione.
 
-* `az deployment group create --confirm-with-what-if`per le distribuzioni di gruppi di risorse
-* `az deployment sub create --confirm-with-what-if`per le distribuzioni a livello di sottoscrizione
+* `az deployment group create --confirm-with-what-if`o `-c` per le distribuzioni di gruppi di risorse
+* `az deployment sub create --confirm-with-what-if`o `-c` per le distribuzioni a livello di sottoscrizione
 
 I comandi precedenti restituiscono un riepilogo di testo che è possibile ispezionare manualmente. Per ottenere un oggetto JSON che è possibile controllare a livello di codice delle modifiche, usare:
 
@@ -340,7 +340,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 L'operazione di simulazione supporta l'uso della [modalità di distribuzione](deployment-modes.md). Quando viene impostata la modalità completa, le risorse non presenti nel modello vengono eliminate. Nell'esempio seguente viene distribuito un [modello privo di risorse definite](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in modalità completa.
 
-Per visualizzare in anteprima le modifiche prima di distribuire un `-Confirm` modello, usare il parametro switch con il comando Deployment. Se le modifiche sono quelle previste, confermare che si desidera completare la distribuzione.
+Per visualizzare in anteprima le modifiche prima di distribuire un modello, usare il parametro Confirm switch con il comando Deployment. Se le modifiche sono quelle previste, confermare che si desidera completare la distribuzione.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

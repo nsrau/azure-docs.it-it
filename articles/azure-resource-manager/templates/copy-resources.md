@@ -2,13 +2,13 @@
 title: Distribuire più istanze di risorse
 description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager per distribuire il tipo di risorsa molte volte.
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153319"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583395"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARM
 
@@ -18,7 +18,7 @@ Questo articolo illustra come creare più di un'istanza di una risorsa nel model
 
 Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](conditional-resource-deployment.md).
 
-## <a name="resource-iteration"></a>Iterazione delle risorse
+## <a name="syntax"></a>Sintassi
 
 Il formato generale dell'elemento Copy è il seguente:
 
@@ -34,6 +34,23 @@ Il formato generale dell'elemento Copy è il seguente:
 La proprietà **Name** è qualsiasi valore che identifica il ciclo. La proprietà **count** specifica il numero di iterazioni desiderate per il tipo di risorsa.
 
 Usare le proprietà **mode** e **BatchSize** per specificare se le risorse vengono distribuite in parallelo o in sequenza. Queste proprietà sono descritte in [serie o in parallelo](#serial-or-parallel).
+
+## <a name="copy-limits"></a>Limiti di copia
+
+Il conteggio non può essere maggiore di 800.
+
+Il conteggio non può essere un numero negativo. Può essere zero se si distribuisce il modello con una versione recente dell'interfaccia della riga di comando di Azure, PowerShell o l'API REST. In particolare, è necessario usare:
+
+* Azure PowerShell **2,6** o versione successiva
+* INTERFACCIA della riga di comando di Azure **2.0.74** o versione successiva
+* API REST versione **2019-05-10** o successiva
+* Le [distribuzioni collegate](linked-templates.md) devono usare l'API versione **2019-05-10** o successiva per il tipo di risorsa di distribuzione
+
+Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
+
+Prestare attenzione quando si usa la [distribuzione in modalità completa](deployment-modes.md) con Copy. Se si esegue la ridistribuzione con la modalità completa in un gruppo di risorse, tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
+
+## <a name="resource-iteration"></a>Iterazione delle risorse
 
 Nell'esempio seguente viene creato il numero di account di archiviazione specificato nel parametro **storageCount** .
 
@@ -257,14 +274,6 @@ Nell'esempio seguente viene descritta l'implementazione:
   ...
 }]
 ```
-
-## <a name="copy-limits"></a>Limiti di copia
-
-Il conteggio non può essere maggiore di 800.
-
-Il conteggio non può essere un numero negativo. Se si distribuisce un modello con Azure PowerShell 2,6 o versioni successive, l'interfaccia della riga di comando di Azure 2.0.74 o versione successiva o l'API REST versione **2019-05-10** o successiva, è possibile impostare Count su zero. Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
-
-Prestare attenzione quando si usa la [distribuzione in modalità completa](deployment-modes.md) con Copy. Se si esegue la ridistribuzione con la modalità completa in un gruppo di risorse, tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
 
 ## <a name="example-templates"></a>Modelli di esempio
 

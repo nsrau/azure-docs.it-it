@@ -3,12 +3,12 @@ title: Definire più istanze di una proprietà
 description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire un'iterazione più volte durante la creazione di una proprietà in una risorsa.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81391330"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583401"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iterazione delle proprietà nei modelli ARM
 
@@ -16,7 +16,7 @@ Questo articolo illustra come creare più di un'istanza di una proprietà nel mo
 
 È anche possibile usare copia con [risorse](copy-resources.md), [variabili](copy-variables.md)e [output](copy-outputs.md).
 
-## <a name="property-iteration"></a>Iterazione delle proprietà
+## <a name="syntax"></a>Sintassi
 
 Il formato generale dell'elemento Copy è il seguente:
 
@@ -35,6 +35,21 @@ Per **nome**specificare il nome della proprietà della risorsa che si desidera c
 La proprietà **count** specifica il numero di iterazioni desiderate per la proprietà.
 
 La proprietà di **input** specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruiti dal valore nella proprietà di **input** .
+
+## <a name="copy-limits"></a>Limiti di copia
+
+Il conteggio non può essere maggiore di 800.
+
+Il conteggio non può essere un numero negativo. Può essere zero se si distribuisce il modello con una versione recente dell'interfaccia della riga di comando di Azure, PowerShell o l'API REST. In particolare, è necessario usare:
+
+* Azure PowerShell **2,6** o versione successiva
+* INTERFACCIA della riga di comando di Azure **2.0.74** o versione successiva
+* API REST versione **2019-05-10** o successiva
+* Le [distribuzioni collegate](linked-templates.md) devono usare l'API versione **2019-05-10** o successiva per il tipo di risorsa di distribuzione
+
+Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
+
+## <a name="property-iteration"></a>Iterazione delle proprietà
 
 Nell'esempio seguente viene illustrato come applicare `copy` alla proprietà dataDisks in una macchina virtuale:
 
@@ -232,12 +247,6 @@ L'elemento di copia è una matrice, pertanto è possibile specificare più di un
   }
 }
 ```
-
-## <a name="copy-limits"></a>Limiti di copia
-
-Il conteggio non può essere maggiore di 800.
-
-Il conteggio non può essere un numero negativo. Se si distribuisce un modello con Azure PowerShell 2,6 o versioni successive, l'interfaccia della riga di comando di Azure 2.0.74 o versione successiva o l'API REST versione **2019-05-10** o successiva, è possibile impostare Count su zero. Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
 
 ## <a name="example-templates"></a>Modelli di esempio
 

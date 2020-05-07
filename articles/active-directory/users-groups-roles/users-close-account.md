@@ -1,5 +1,5 @@
 ---
-title: Chiudere l'account aziendale o dell'Istituto di istruzione in una directory di Azure AD non gestita
+title: Chiudere l'account aziendale o dell'Istituto di istruzione in un'organizzazione Azure AD non gestita
 description: Come chiudere l'account aziendale o dell'Istituto di istruzione in un Azure Active Directory non gestito.
 services: active-directory
 author: rolyon
@@ -13,18 +13,18 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c101c0ef7932151e675c5c514ac558e6e0f94b2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 11c337f4838279771523a1f375b7349387d68f45
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73815727"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582545"
 ---
-# <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Chiudere l'account aziendale o dell'Istituto di istruzione in una directory non gestita
+# <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Chiudere l'account aziendale o dell'Istituto di istruzione in un'organizzazione Azure AD non gestita
 
-Se si è un utente in un'organizzazione Azure Active Directory non gestita (Azure AD) e non è più necessario usare le app di tale organizzazione o gestire qualsiasi associazione, è possibile chiudere l'account in qualsiasi momento. Una directory non gestita non dispone di un amministratore globale. Gli utenti di una directory non gestita possono chiudere gli account in modo autonomo, senza dover contattare un amministratore.
+Se si è un utente in un'organizzazione di Azure Active Organization (Azure AD) non gestita e non è più necessario usare le app di tale organizzazione o gestire qualsiasi associazione, è possibile chiudere l'account in qualsiasi momento. Un'organizzazione non gestita non dispone di un amministratore globale. Gli utenti di un'organizzazione non gestita possono chiudere gli account in modo autonomo, senza dover contattare un amministratore.
 
-Gli utenti in una directory non gestita vengono spesso creati durante l'iscrizione self-service. Un esempio potrebbe essere un Information Worker in un'organizzazione che si iscrive a un servizio gratuito. Per ulteriori informazioni sull'iscrizione self-service, vedere informazioni sull' [iscrizione self-service per Azure Active Directory](directory-self-service-signup.md).
+Gli utenti di un'organizzazione non gestita vengono spesso creati durante l'iscrizione self-service. Un esempio potrebbe essere un Information Worker in un'organizzazione che si iscrive a un servizio gratuito. Per ulteriori informazioni sull'iscrizione self-service, vedere informazioni sull' [iscrizione self-service per Azure Active Directory](directory-self-service-signup.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -32,7 +32,7 @@ Gli utenti in una directory non gestita vengono spesso creati durante l'iscrizio
 
 Prima di poter chiudere l'account, è necessario verificare gli elementi seguenti:
 
-* Assicurarsi di essere un utente di una directory di Azure AD non gestita. Non è possibile chiudere l'account se si appartiene a una directory gestita. Se si appartiene a una directory gestita e si vuole chiudere l'account, è necessario contattare l'amministratore. Per informazioni su come determinare se si appartiene a una directory non gestita, vedere [eliminare l'utente dal tenant non gestito](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Assicurarsi di essere un utente di un'organizzazione Azure AD non gestita. Non è possibile chiudere l'account se si appartiene a un'organizzazione gestita. Se si appartiene a un'organizzazione gestita e si vuole chiudere l'account, è necessario contattare l'amministratore. Per informazioni su come determinare se si appartiene a un'organizzazione non gestita, vedere [eliminare l'utente dal tenant non gestito](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
 * Salvare i dati che si desidera conservare. Per informazioni su come inviare una richiesta di esportazione, vedere [accesso e esportazione dei log generati dal sistema per i tenant non gestiti](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
 

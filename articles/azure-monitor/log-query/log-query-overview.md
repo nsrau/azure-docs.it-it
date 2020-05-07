@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 54a6f875bc33d24d412d2424c634d1019b4af399
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670118"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591653"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Panoramica delle query di log in monitoraggio di Azure
 Le query di log consentono di sfruttare appieno il valore dei dati raccolti nei [log di monitoraggio di Azure](../platform/data-platform-logs.md). Un linguaggio di query avanzato consente di unire dati da più tabelle, aggregare set di dati di grandi dimensioni ed eseguire operazioni complesse con codice minimo. È possibile rispondere a qualsiasi domanda ed eseguire l'analisi fino a quando i dati di supporto sono stati raccolti e si comprende come costruire la query corretta.
@@ -81,7 +81,7 @@ Log Analytics è lo strumento principale nell'portale di Azure per la scrittura 
 È possibile avviare Log Analytics da diverse posizioni nell'portale di Azure. L'ambito dei dati disponibili per Log Analytics è determinato dalla modalità di avvio. Per altri dettagli, vedere [ambito della query](scope.md) .
 
 - Selezionare **registri** dal menu **monitoraggio di Azure** o dal menu **aree di lavoro log Analytics** .
-- Selezionare **Analytics** dalla pagina **Panoramica** di un'applicazione Application Insights.
+- Selezionare **log** dalla pagina **Panoramica** di un'applicazione Application Insights.
 - Selezionare **registri** dal menu di una risorsa di Azure.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)

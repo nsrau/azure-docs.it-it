@@ -3,12 +3,12 @@ title: Definire più istanze di un valore di output
 description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire un'iterazione più volte quando si restituisce un valore da una distribuzione.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617829"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583419"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iterazione di output nei modelli ARM
 
@@ -16,7 +16,7 @@ Questo articolo illustra come creare più di un valore per un output nel modello
 
 È anche possibile usare copia con [risorse](copy-resources.md), [Proprietà in una risorsa](copy-properties.md)e [variabili](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Iterazione degli output
+## <a name="syntax"></a>Sintassi
 
 Il formato generale dell'elemento Copy è il seguente:
 
@@ -30,6 +30,21 @@ Il formato generale dell'elemento Copy è il seguente:
 La proprietà **count** specifica il numero di iterazioni desiderate per il valore di output.
 
 La proprietà di **input** specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruiti dal valore nella proprietà di **input** . Può essere una singola proprietà (ad esempio una stringa) o un oggetto con diverse proprietà.
+
+## <a name="copy-limits"></a>Limiti di copia
+
+Il conteggio non può essere maggiore di 800.
+
+Il conteggio non può essere un numero negativo. Può essere zero se si distribuisce il modello con una versione recente dell'interfaccia della riga di comando di Azure, PowerShell o l'API REST. In particolare, è necessario usare:
+
+* Azure PowerShell **2,6** o versione successiva
+* INTERFACCIA della riga di comando di Azure **2.0.74** o versione successiva
+* API REST versione **2019-05-10** o successiva
+* Le [distribuzioni collegate](linked-templates.md) devono usare l'API versione **2019-05-10** o successiva per il tipo di risorsa di distribuzione
+
+Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
+
+## <a name="outputs-iteration"></a>Iterazione degli output
 
 Nell'esempio seguente viene creato un numero variabile di account di archiviazione e viene restituito un endpoint per ogni account di archiviazione:
 

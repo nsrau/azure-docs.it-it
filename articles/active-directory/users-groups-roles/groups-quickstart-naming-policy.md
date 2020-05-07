@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026940"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582829"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guida introduttiva: Criteri di denominazione per i gruppi in Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Avvio rapido: Criteri di denominazione per i gruppi in Azure Active Directory
 
-In questa guida introduttiva si configurano criteri di denominazione nel tenant di Azure Active Directory (Azure AD) per i gruppi di Office 365 creati dall'utente, con lo scopo di ordinare i gruppi del tenant ed eseguire ricerche al loro interno. È possibile, ad esempio, usare i criteri di denominazione per:
+In questa guida di avvio rapido vengono configurati i criteri di denominazione nell'organizzazione di Azure Active Directory (Azure AD) per i gruppi di Office 365 creati dall'utente, con lo scopo di ordinare i gruppi dell'organizzazione ed eseguire ricerche al loro interno. È possibile, ad esempio, usare i criteri di denominazione per:
 
 * Comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo.
 * Agevolare la classificazione dei gruppi nella Rubrica.
@@ -31,7 +31,7 @@ In questa guida introduttiva si configurano criteri di denominazione nel tenant 
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configurare i criteri di denominazione dei gruppi per un tenant con il portale di Azure
+## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configurare i criteri di denominazione dei gruppi nel portale di Azure
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account Amministratore utenti.
 1. Selezionare **Gruppi** e quindi **Criteri di denominazione** per visualizzare la pagina corrispondente.

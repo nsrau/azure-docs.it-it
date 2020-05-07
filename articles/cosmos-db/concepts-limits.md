@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6dcda58652abe51d360748222263f30f337a2251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182736"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791766"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -138,9 +138,9 @@ Cosmos DB USA HMAC per l'autorizzazione. È possibile usare una chiave master o 
 
 Cosmos DB supporta l'esecuzione di trigger durante le Scritture. Il servizio supporta un massimo di un pre-trigger e un post-trigger per operazione di scrittura. 
 
-## <a name="autoscale-mode-limits"></a>Limiti della modalità di scalabilità automatica
+## <a name="limits-for-autoscale-provisioned-throughput"></a>Limiti per la velocità effettiva con provisioning con scalabilità automatica
 
-Vedere l'articolo relativo alla [scalabilità](provision-throughput-autoscale.md#autoscale-limits) automatica per i limiti di velocità effettiva e archiviazione in modalità di scalabilità automatica.
+Vedere l'articolo relativo alla [scalabilità](provision-throughput-autoscale.md#autoscale-limits) automatica per i limiti di velocità effettiva e archiviazione con scalabilità automatica.
 
 ## <a name="sql-query-limits"></a>Limiti per le query SQL
 

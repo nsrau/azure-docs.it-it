@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 12bf807f5866567508b644105f377cfde1494250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ba8c35fc1802f7ef3ac54c693c8106bbc40cc185
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410769"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560168"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Esplora dati usando Azure Data Factory
 
@@ -46,7 +46,7 @@ Con il connettore Azure Esplora dati è possibile eseguire le operazioni seguent
 * Come origine, recupero di dati tramite una query KQL (Kusto).
 * Come sink, accodamento di dati a una tabella di destinazione.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 >[!TIP]
 >Per una procedura dettagliata di Azure Esplora dati Connector, vedere Copiare dati da e verso [azure Esplora dati usando Azure Data Factory](/azure/data-explorer/data-factory-load-data) e [la copia bulk da un database in Azure Esplora dati](/azure/data-explorer/data-factory-template).
@@ -75,7 +75,7 @@ Il connettore Azure Esplora dati usa l'autenticazione basata su entità servizio
 
 Per il servizio collegato di Azure Esplora dati sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** deve essere impostata su **AzureDataExplorer**. | Sì |
 | endpoint | URL dell'endpoint del cluster di Esplora dati di Azure con il formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sì |
@@ -113,7 +113,7 @@ Per copiare dati in Esplora dati di Azure, impostare la proprietà type del set 
 
 Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** deve essere impostata su **AzureDataExplorerTable**. | Sì |
 | tabella | Nome della tabella a cui fa riferimento il servizio collegato. | Sì per il sink, no per l'origine |
@@ -145,7 +145,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell'origine dell'attività di copia su **AzureDataExplorerSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su: **AzureDataExplorerSource** | Sì |
 | query | Richiesta di sola lettura in [formato KQL](/azure/kusto/query/). Usare la query KQL personalizzata come riferimento. | Sì |
@@ -192,11 +192,11 @@ Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell
 
 Per copiare dati in Esplora dati di Azure, impostare la proprietà type nel sink dell'attività di copia su **AzureDataExplorerSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Necessario |
 |:--- |:--- |:--- |
 | type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su: **AzureDataExplorerSink**. | Sì |
 | ingestionMappingName | Nome di un [mapping](/azure/kusto/management/mappings#csv-mapping) creato in precedenza in una tabella kusto. Per eseguire il mapping delle colonne dall'origine ad Azure Esplora dati (che si applica a [tutti i formati e archivi di origine supportati](copy-activity-overview.md#supported-data-stores-and-formats), inclusi i formati CSV/JSON/Avro), è possibile usare il [mapping delle colonne](copy-activity-schema-and-type-mapping.md) dell'attività di copia (in modo implicito in base al nome o in modo esplicito come configurato) e/o i mapping di Esplora dati di Azure. | No |
-| additionalProperties | Elenco delle proprietà che può essere usato per specificare le proprietà di inserimento che non sono già state impostate dal sink di Azure Esplora dati. In particolare, può essere utile per specificare i tag di inserimento. Scopri di più sulla documentazione di inserimento [dati in Azure Data Explorer](https://kusto.azurewebsites.net/docs/management/data-ingestion/index.html). | No |
+| additionalProperties | Elenco delle proprietà che può essere usato per specificare le proprietà di inserimento che non sono già state impostate dal sink di Azure Esplora dati. In particolare, può essere utile per specificare i tag di inserimento. Scopri di più sulla documentazione di inserimento [dati in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | No |
 
 **Esempio:**
 

@@ -3,12 +3,12 @@ title: Definire più istanze di una variabile
 description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire un'iterazione più volte durante la creazione di una variabile.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fbe392e8a0fb477b6986fc9c7584291590eb4e7
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153302"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583380"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iterazione delle variabili nei modelli ARM
 
@@ -16,7 +16,7 @@ Questo articolo illustra come creare più di un valore per una variabile nel mod
 
 È anche possibile usare copia con [risorse](copy-resources.md), [Proprietà in una risorsa](copy-properties.md)e [output](copy-outputs.md).
 
-## <a name="variable-iteration"></a>Iterazione delle variabili
+## <a name="syntax"></a>Sintassi
 
 Il formato generale dell'elemento Copy è il seguente:
 
@@ -33,6 +33,21 @@ Il formato generale dell'elemento Copy è il seguente:
 La proprietà **Name** è qualsiasi valore che identifica il ciclo. La proprietà **count** specifica il numero di iterazioni desiderate per la variabile.
 
 La proprietà di **input** specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruiti dal valore nella proprietà di **input** . Può essere una singola proprietà (ad esempio una stringa) o un oggetto con diverse proprietà.
+
+## <a name="copy-limits"></a>Limiti di copia
+
+Il conteggio non può essere maggiore di 800.
+
+Il conteggio non può essere un numero negativo. Può essere zero se si distribuisce il modello con una versione recente dell'interfaccia della riga di comando di Azure, PowerShell o l'API REST. In particolare, è necessario usare:
+
+* Azure PowerShell **2,6** o versione successiva
+* INTERFACCIA della riga di comando di Azure **2.0.74** o versione successiva
+* API REST versione **2019-05-10** o successiva
+* Le [distribuzioni collegate](linked-templates.md) devono usare l'API versione **2019-05-10** o successiva per il tipo di risorsa di distribuzione
+
+Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
+
+## <a name="variable-iteration"></a>Iterazione delle variabili
 
 Nell'esempio seguente viene illustrato come creare una matrice di valori stringa:
 
@@ -294,12 +309,6 @@ Nell'esempio seguente vengono illustrati i diversi modi in cui è possibile util
   }
 }
 ```
-
-## <a name="copy-limits"></a>Limiti di copia
-
-Il conteggio non può essere maggiore di 800.
-
-Il conteggio non può essere un numero negativo. Se si distribuisce un modello con Azure PowerShell 2,6 o versioni successive, l'interfaccia della riga di comando di Azure 2.0.74 o versione successiva o l'API REST versione **2019-05-10** o successiva, è possibile impostare Count su zero. Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
 
 ## <a name="example-templates"></a>Modelli di esempio
 
