@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 01b2bd464db51e255930fe83a3f4321687322275
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77151205"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792361"
 ---
-# <a name="receive-and-send-b2b-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ricevere e inviare messaggi B2B usando app per la logica di Azure e Enterprise Integration Pack
+# <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ricevere e confermare messaggi AS2 B2B usando app per la logica di Azure e Enterprise Integration Pack
 
 Quando si dispone di un account di integrazione che definisce partner commerciali e contratti, è possibile creare un flusso di lavoro business to business (B2B) automatizzato che scambia i messaggi tra partner commerciali usando app per la [logica di Azure](../logic-apps/logic-apps-overview.md) con il [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). App per la logica di Azure funziona con i connettori che supportano i protocolli standard del settore AS2, X12, EDIFACT e RosettaNet. È anche possibile combinare questi connettori con altri [connettori disponibili nelle app](../connectors/apis-list.md)per la logica, ad esempio Salesforce e Office 365 Outlook.
 

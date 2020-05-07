@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/4/2020
+ms.openlocfilehash: cb82b3223d50c66b4d6c176a274d5ccf8d510911
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767881"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792106"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -56,7 +56,6 @@ Esistono tuttavia alcune limitazioni da considerare:
     
 * Coppie Uni-Directional: alcune aree di Azure sono abbinate solo in una direzione. Queste aree includono l'India occidentale, il Brasile meridionale e US Gov Virginia. 
    Ciò significa che un server master nell'India occidentale può creare una replica nell'India meridionale. Tuttavia, un server master nell'India meridionale non è in grado di creare una replica nell'India occidentale. Questo è dovuto al fatto che l'area secondaria dell'India occidentale è India meridionale, ma l'area secondaria dell'India meridionale non è India occidentale.
-
 
 ## <a name="create-a-replica"></a>Creare una replica
 
@@ -146,6 +145,8 @@ I parametri del server seguenti sono bloccati nei server master e di replica:
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 Il [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parametro è bloccato nei server di replica. 
+
+Per aggiornare uno dei parametri precedenti nel server master, eliminare i server di replica, aggiornare il valore del parametro nel database master e ricreare le repliche.
 
 ### <a name="other"></a>Altri
 

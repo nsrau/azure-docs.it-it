@@ -1,23 +1,22 @@
 ---
-title: Registrare un'applicazione SaaS | Azure Marketplace
-description: Viene illustrato come registrare un'applicazione SaaS usando il portale di Azure.
+title: Registrare un'applicazione SaaS-Azure Marketplace
+description: Informazioni su come usare la portale di Azure per registrare un'applicazione SaaS e ricevere un token di sicurezza Azure Active Directory.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 9c20fe34e108de95a34aabea56390e8a6f0d858f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c20d25917d66cba8ae3d811eddaa6455b87722
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275714"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792956"
 ---
 # <a name="register-a-saas-application"></a>Registrare un'applicazione SaaS
 
 Questo articolo illustra come registrare un'applicazione SaaS usando il [portale di Azure](https://portal.azure.com/)Microsoft.  Al termine della registrazione, si riceverà un token di sicurezza Azure Active Directory (Azure AD) che è possibile usare per accedere alle API di evasione SaaS.  Per ulteriori informazioni su Azure AD, vedere [che cos'è l'autenticazione?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
-
 
 ## <a name="service-to-service-authentication-flow"></a>Flusso di autenticazione da servizio a servizio
 
@@ -26,7 +25,6 @@ Il diagramma seguente mostra il flusso di sottoscrizione di un nuovo cliente e q
 ![Flusso di API dell'offerta SaaS](./media/saas-offer-publish-api-flow-v1.png)
 
 Azure non impone i vincoli per l'autenticazione che il servizio SaaS espone ai propri utenti finali. Tuttavia, l'autenticazione con le API di evasione SaaS viene eseguita con un token di sicurezza Azure AD, in genere ottenuto registrando l'app SaaS tramite il portale di Azure. 
-
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registrare un'app protetta da Azure AD
 
@@ -55,7 +53,6 @@ Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima e
 
 >[!Note]
 >Per impostazione predefinita, l'applicazione appena registrata viene configurata in modo da consentire solo agli utenti dello stesso tenant di accedere all'applicazione stessa.
-
 
 ## <a name="using-the-azure-ad-security-token"></a>Uso del token di sicurezza Azure AD
 
@@ -103,7 +100,7 @@ Metodo HTTP
 
 *Risposta*
 
-|  **Nome**  | **Type**       |  **Descrizione**    |
+|  **Nome**  | **Tipo**       |  **Descrizione**    |
 | ---------- | -------------  | ------------------- |
 | 200 - OK    | TokenResponse  | La richiesta ha avuto esito positivo   |
 |  |  |  |
@@ -123,7 +120,6 @@ Token di risposta di esempio:
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

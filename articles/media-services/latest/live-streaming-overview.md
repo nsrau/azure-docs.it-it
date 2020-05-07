@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: e2c4e5b6c10b06d82a1933962cb2d97e031876a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee9dfc11cad61d6190ae4a2382f0124207c32c4c
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80068030"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801621"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -129,6 +129,6 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Avvio rapido streaming live] (live-events-wirecast-quickstart.md (
+* [Guida introduttiva allo streaming live](live-events-wirecast-quickstart.md)
 * [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)
 * [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md)

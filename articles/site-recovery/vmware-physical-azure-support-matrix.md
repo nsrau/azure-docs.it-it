@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: eb78f6073d2bcb7289f13d5c994cff8c13f9a6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8e7b2f8f6483d462f781d95011ef7b972e83b87
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185796"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801791"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -29,7 +29,7 @@ Ripristino di emergenza di server fisici | Replica di server fisici Windows/Linu
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Server vCenter | Versione 6,7, 6,5, 6,0 o 5,5 | Si consiglia di usare un server vCenter nella distribuzione di ripristino di emergenza.
-Host vSphere | Versione 6,7, 6,5, 6,0 o 5,5 | È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Per impostazione predefinita, il server di elaborazione viene eseguito nel server di configurazione. [Altre informazioni](vmware-physical-azure-config-process-server-overview.md)
+Host vSphere | Versione 6,7, 6,5, 6,0 o 5,5 | È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Per impostazione predefinita, il server di elaborazione viene eseguito nel server di configurazione. [Altre informazioni](vmware-physical-azure-config-process-server-overview.md).
 
 
 ## <a name="site-recovery-configuration-server"></a>Server di configurazione di Site Recovery
@@ -66,13 +66,13 @@ Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in
 **Componente** | **Dettagli**
 --- | ---
 Impostazioni del computer | I computer che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
-Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato. [Altre informazioni](https://aka.ms/asr_workload)
+Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato. [Altre informazioni](https://aka.ms/asr_workload).
 Nome computer | Verificare che il nome visualizzato del computer non rientri nei [nomi delle risorse riservate di Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> I nomi di volumi logici non fanno distinzione tra maiuscole e minuscole. Assicurarsi che non siano presenti due volumi in un dispositivo con lo stesso nome. Esempio: i volumi con nomi "voLUME1", "voLUME1" non possono essere protetti tramite Azure Site Recovery.
 Windows Server 2019 | Supportato dall' [aggiornamento cumulativo 34](https://support.microsoft.com/help/4490016) (versione 9,22 del servizio Mobility) in poi.
 Windows Server 2016 64 bit | Supportato per Server Core, server con esperienza desktop.
 Windows Server 2012 R2/Windows Server 2012 | Supportato.
 Windows Server 2008 R2 con SP1 e versioni successive. | Supportato.<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario [aggiornare lo stack di manutenzione (SSU)](https://support.microsoft.com/help/4490628) e l' [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer che eseguono Windows 2008 R2 con SP1 o versione successiva. SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 con SP2 o versioni successive (64 bit/32 bit) |  Supportato solo per la migrazione. [Altre informazioni](migrate-tutorial-windows-server-2008.md)<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario aggiornare lo [stack di manutenzione (SSU)](https://support.microsoft.com/help/4493730) e l' [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer Windows 2008 SP2. Il codice di aggiornamento in base al codice non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
+Windows Server 2008 con SP2 o versioni successive (64 bit/32 bit) |  Supportato solo per la migrazione. [Altre informazioni](migrate-tutorial-windows-server-2008.md).<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario aggiornare lo [stack di manutenzione (SSU)](https://support.microsoft.com/help/4493730) e l' [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer Windows 2008 SP2. Il codice di aggiornamento in base al codice non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
 Windows 10, Windows 8.1, Windows 8 | Supportato.
 Windows 7 con SP1 64 bit | Supportato dall' [aggiornamento cumulativo 36](https://support.microsoft.com/help/4503156) (versione 9,22 del servizio Mobility) in poi. </br></br> Da [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility sono necessari aggiornamento [dello stack di manutenzione (SSU)](https://support.microsoft.com/help/4490628) e [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) installato nei computer Windows 7 SP1.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
 Linux | È supportato solo il sistema a 64 bit. il sistema a 32 bit non è supportato.<br/><br/>Ogni server Linux deve avere [componenti di linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) installati. È necessario avviare il server in Azure dopo il failover o il failover di test. Se i componenti LIS incorporati sono mancanti, assicurarsi di installare i [componenti](https://www.microsoft.com/download/details.aspx?id=55106) prima di abilitare la replica per l'avvio dei computer in Azure. <br/><br/> Site Recovery orchestra il failover per l'esecuzione di server Linux in Azure. Tuttavia i fornitori di Linux potrebbero limitare il supporto solo alle versioni di distribuzione che non hanno raggiunto la fine del ciclo di vita.<br/><br/> Nelle distribuzioni di Linux sono supportati solo i kernel di scorta che fanno parte di una versione/aggiornamento secondaria della distribuzione.<br/><br/> L'aggiornamento di computer protetti tra versioni di distribuzione principali di Linux non è supportato. Per eseguire l'aggiornamento, disabilitare la replica, aggiornare il sistema operativo e quindi abilitare nuovamente la replica.<br/><br/> [Scopri di più](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sul supporto per Linux e tecnologia open source in Azure.
@@ -128,7 +128,9 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | Da 3.12
 
 **Versione** | **Versione del servizio Mobility** | **Versione kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Sono supportati tutti i kernel SUSE 15 e 15 disponibili. </br></br> 4.12.14-5.5-da Azure a 4.12.14-8.22-Azure
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Per impostazione predefinita, sono supportati tutti i [kernel SuSE 15 e 15](https://www.suse.com/support/kb/doc/?id=000019587) . </br></br> 4.12.14-5.5-da Azure a 4.12.14-8.22-Azure
+
+
 
 ## <a name="linux-file-systemsguest-storage"></a>File system/archiviazione guest Linux
 
@@ -138,8 +140,8 @@ File system | ext3, ext4, XFS, BTRFS (condizioni applicabili in base a questa ta
 Provisioning di gestione volumi logici (LVM)| Provisioning Thick-Sì <br></br> Thin provisioning-No
 Gestore volumi | -LVM è supportato.<br/> -/boot in LVM è supportato dall' [aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/) (versione 9,20 del servizio Mobility) in poi. Non è supportata nelle versioni precedenti del servizio Mobility.<br/> -Non sono supportati più dischi del sistema operativo.
 Dispositivi di archiviazione paravirtualizzati | I dispositivi esportati da driver paravirtualizzati non sono supportati.
-Dispositivi di I/O a blocchi a code multiple | Non supportato.
-Server fisici con controller di archiviazione HP CCISS | Non supportato.
+Dispositivi di I/O a blocchi a code multiple | Non supportata.
+Server fisici con controller di archiviazione HP CCISS | Non supportata.
 Convenzione di denominazione del dispositivo e del punto di montaggio | Il nome del dispositivo o del punto di montaggio deve essere univoco.<br/> Verificare che due dispositivi o punti di montaggio non includano nomi con distinzione tra maiuscole e minuscole. Ad esempio, la denominazione dei dispositivi per la stessa macchina virtuale di *device1* e *device1* non è supportata.
 Directory | Se si esegue una versione del servizio Mobility precedente alla versione 9,20 (rilasciata nell' [aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/)), si applicano le restrizioni seguenti:<br/><br/> -Queste directory (se impostate come partizioni o file System separati) devono trovarsi nello stesso disco del sistema operativo nel server di origine:/(root),/boot,/usr,/usr/local,/var, ecc</br> -La directory/boot deve trovarsi in una partizione del disco e non essere un volume LVM.<br/><br/> Dalla versione 9,20 in poi, queste restrizioni non si applicano. 
 Directory di avvio | -I dischi di avvio non devono essere nel formato di partizione GPT. Si tratta di una limitazione dell'architettura di Azure. I dischi GPT sono supportati come dischi dati.<br/><br/> Non sono supportati più dischi di avvio in una macchina virtuale<br/><br/> -/boot su un volume LVM in più dischi non è supportato.<br/> -Non è possibile replicare un computer senza un disco di avvio.
@@ -152,7 +154,7 @@ BTRFS | BTRFS è supportato dall' [aggiornamento cumulativo 34](https://support.
 **Azione** | **Dettagli**
 --- | ---
 Ridimensionamento del disco nella macchina virtuale replicata | Supportato nella macchina virtuale di origine prima del failover, direttamente nelle proprietà della macchina virtuale. Non è necessario disabilitare o riabilitare la replica.<br/><br/> Se si modifica la macchina virtuale di origine dopo il failover, le modifiche non sono acquisite.<br/><br/> Se si modificano le dimensioni del disco nella macchina virtuale di Azure dopo il failover, quando si esegue il failback Site Recovery crea una nuova macchina virtuale con gli aggiornamenti.
-Aggiunta del disco alla macchina virtuale replicata | Non supportato.<br/> Disabilitare la replica per la macchina virtuale, aggiungere il disco e quindi abilitare nuovamente la replica.
+Aggiunta del disco alla macchina virtuale replicata | Non supportata.<br/> Disabilitare la replica per la macchina virtuale, aggiungere il disco e quindi abilitare nuovamente la replica.
 
 ## <a name="network"></a>Rete
 
@@ -262,9 +264,9 @@ Conteggio dischi del sistema operativo | 1 | Il controllo ha esito negativo se n
 Conteggio dischi dati | 64 o un numero inferiore. | Il controllo ha esito negativo se non supportato.
 Dimensioni del disco dati | Fino a 8.192 GB durante la replica in un disco gestito (versione 9,26 e successive)<br></br>Fino a 4.095 GB durante la replica nell'account di archiviazione| Il controllo ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede. |
-VHD condiviso | Non supportato. | Il controllo ha esito negativo se non supportato.
-Disco FC | Non supportato. | Il controllo ha esito negativo se non supportato.
-BitLocker | Non supportato. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker. |
+VHD condiviso | Non supportata. | Il controllo ha esito negativo se non supportato.
+Disco FC | Non supportata. | Il controllo ha esito negativo se non supportato.
+BitLocker | Non supportata. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker. |
 Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
 
 ## <a name="resource-group-limits"></a>Limiti del gruppo di risorse

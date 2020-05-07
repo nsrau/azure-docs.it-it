@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 80ca7d8ed89ba0a3b196f1b2b29384c749cf1b22
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459781"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792548"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -28,7 +28,7 @@ Se si usa il [Centro sicurezza di Azure](../../security-center/index.yml), l'ute
 > - Alcune indicazioni possono comportare un maggior utilizzo delle risorse di calcolo, rete o dati con un conseguente aumento dei costi di licenza o sottoscrizione. Per creare le risorse in Azure nella aree geografiche supportate, è necessario avere una sottoscrizione di Azure attiva e valida.
 > - Attualmente le macchine virtuali di seconda generazione non supportano crittografia dischi di Azure. Per informazioni dettagliate, vedere [supporto per le macchine virtuali di seconda generazione in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) .
 
-È possibile apprendere le nozioni di base di crittografia dischi di Azure per Linux in pochi minuti con la Guida [introduttiva creare e crittografare una VM Linux con l'interfaccia](disk-encryption-cli-quickstart.md) della riga di comando di Azure o [creare e crittografare una VM Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md).
+È possibile apprendere le nozioni di base di crittografia dischi di Azure per Linux in pochi minuti con la Guida [introduttiva creare e crittografare una VM Linux con l'interfaccia](disk-encryption-cli-quickstart.md) della riga di comando di Azure o [creare e crittografare una vm Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
 ## <a name="supported-vms-and-operating-systems"></a>Macchine virtuali e sistemi operativi supportati
 
@@ -56,29 +56,37 @@ Crittografia dischi di Azure è supportata in un subset di [distribuzioni Linux 
 
 Le distribuzioni di server Linux che non sono approvate da Azure non supportano crittografia dischi di Azure. di quelle approvate, solo le distribuzioni e le versioni seguenti supportano crittografia dischi di Azure:
 
-| Distribuzione di Linux | Versione | Tipo di volume supportato per la crittografia|
-| --- | --- |--- |
-| Ubuntu | 18,04| Disco del sistema operativo e dati |
-| Ubuntu | 16.04| Disco del sistema operativo e dati |
-| Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | Disco del sistema operativo e dati |
-| RHEL | 7.7 | Sistema operativo e disco dati (vedere la nota di seguito) |
-| RHEL | 7.6 | Sistema operativo e disco dati (vedere la nota di seguito) |
-| RHEL | 7.5 | Sistema operativo e disco dati (vedere la nota di seguito) |
-| RHEL | 7.4 | Sistema operativo e disco dati (vedere la nota di seguito) |
-| RHEL | 7.3 | Sistema operativo e disco dati (vedere la nota di seguito) |
-| RHEL | 7.2 | Sistema operativo e disco dati (vedere la nota di seguito) |
-| RHEL | 6.8 | Disco dati (vedere la nota di seguito) |
-| RHEL | 6.7 | Disco dati (vedere la nota di seguito) |
-| CentOS | 7.7 | Disco del sistema operativo e dati |
-| CentOS | 7.6 | Disco del sistema operativo e dati |
-| CentOS | 7.5 | Disco del sistema operativo e dati |
-| CentOS | 7.4 | Disco del sistema operativo e dati |
-| CentOS | 7.3 | Disco del sistema operativo e dati |
-| CentOS | 7.2n | Disco del sistema operativo e dati |
-| CentOS | 6.8 | Disco dati |
-| openSUSE | 42.3 | Disco dati |
-| SLES | 12-SP4 | Disco dati |
-| SLES | 12-SP3 | Disco dati |
+| Editore | Offerta | SKU | URN | Tipo di volume supportato per la crittografia |
+| --- | --- |--- | --- |
+| Canonical | Ubuntu | 18.04-LTS | Canonical: UbuntuServer: 18.04-LTS: più recente | Disco del sistema operativo e dati |
+| Canonical | Ubuntu 18.04 | 18,04-GIORNALIERA-LTS | Canonical: UbuntuServer: 18.04-DAILY-LTS: Latest | Disco del sistema operativo e dati |
+| Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical: UbuntuServer: 16.04-DAILY-LTS: Latest | Disco del sistema operativo e dati |
+| Canonical | Ubuntu 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical: UbuntuServer: 14.04.5-LTS: più recente | Disco del sistema operativo e dati |
+| Canonical | Ubuntu 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical: UbuntuServer: 14.04.5-DAILY-LTS: Latest | Disco del sistema operativo e dati |
+| RedHat | RHEL 7,7 | 7.7 | RedHat: RHEL: 7,7: più recente | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 7,7 | 7-RAW | RedHat: RHEL: 7-RAW: versione più recente | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 7,7 | 7-LVM | RedHat: RHEL: 7-LVM: più recente | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 7,6 | 7.6 | RedHat: RHEL: 7.6: più recente | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 7.5 | 7.5 | RedHat: RHEL: 7.5: più recente | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 7.4 | 7.4 | RedHat: RHEL: 7.4: più recente | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 7.3 | 7.3 | RedHat: RHEL: 7.3: più recente | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 7.2 | 7.2 | RedHat: RHEL: 7.2: più recente | Sistema operativo e disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 6,8 | 6.8 | RedHat: RHEL: 6.8: più recente | Disco dati (vedere la nota di seguito) |
+| RedHat | RHEL 6,7 | 6.7 | RedHat: RHEL: 6.7: più recente | Disco dati (vedere la nota di seguito) |
+| OpenLogic | CentOS 7,7 | 7.7 | OpenLogic: CentOS: 7,7: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7,7 | 7-LVM | OpenLogic: CentOS: 7-LVM: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7,6 | 7.6 | OpenLogic: CentOS: 7.6: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7.5 | 7.5 | OpenLogic: CentOS: 7.5: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic: CentOS: 7.4: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7.3 | 7.3 | OpenLogic: CentOS: 7.3: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7.2 n | 7.2n | OpenLogic: CentOS: 7.2 n: versione più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7.1 | 7.1 | OpenLogic: CentOS: 7.1: più recente | Solo il disco dati |
+| OpenLogic | CentOS 7,0 | 7.0 | OpenLogic: CentOS: 7.0: versione più recente | Solo il disco dati |
+| OpenLogic | CentOS 6.8 | 6.8 | OpenLogic: CentOS: 6.8: versione più recente | Solo il disco dati |
+| SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Solo il disco dati |
+| SUSE | SLES Priority 12-SP4 | 12-SP4 | SUSE:SLES-Priority:12-SP4:latest | Solo il disco dati |
+| SUSE | SLES Priority 12-SP3 | 12-SP3 | SUSE:SLES-Priority:12-SP3:latest | Solo il disco dati |
+| SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Solo il disco dati |
 
 > [!NOTE]
 > La nuova implementazione di crittografia dischi di Azure è supportata per il sistema operativo RHEL e il disco dati per le immagini con pagamento in base al consumo di RHEL7.  

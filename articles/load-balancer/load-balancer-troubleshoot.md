@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf9fa48019ab88190175131b27f4a40e29eb5ed0
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76935487"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801723"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
-
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Iniziare</a></span><span class="has-padding-small">a risolvere rapidamente il problema usando l'agente virtuale per eseguire la <b>diagnostica automatica.</b> </span> Informativa <sub>sulla privacy</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 In questa pagina vengono fornite informazioni sulla risoluzione dei problemi comuni di base e standard Azure Load Balancer domande. Per altre informazioni su Load Balancer Standard, vedere la [panoramica di Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
 
 Quando la connettività di Load Balancer non è disponibile, i sintomi più comuni sono i seguenti: 
@@ -98,7 +98,7 @@ Se una macchina virtuale non risponde al traffico dati, è possibile che la port
 
 1. Accedere alla macchina virtuale back-end. 
 2. Aprire un prompt dei comandi ed eseguire questo comando per verificare che un'applicazione sia in ascolto sulla porta dati:  netstat -an 
-3. Se lo stato della porta non è elencato come "LISTENING", configurare la porta di attesa corretta. 
+3. Se la porta non è elencata con lo stato "Listening", configurare la porta di listener corretta 
 4. Se la porta è contrassegnata come LISTENING, verificare se sono presenti problemi nell'applicazione di destinazione in ascolto su tale porta.
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: un gruppo di sicurezza di rete blocca la porta nella macchina virtuale del pool back-end di Load Balancer  
@@ -124,7 +124,7 @@ Se l'applicazione ospitata nella macchina virtuale back-end di un servizio di bi
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: accesso al front-end del servizio di bilanciamento del carico interno dalla macchina virtuale del pool back-end di Load Balancer
 
-Se è configurato un servizio di bilanciamento del carico interno in una rete virtuale e una delle macchine virtuali del back-end sta tentando di accedere al front-end del servizio di bilanciamento del carico interno, potrebbero verificarsi errori durante il mapping del flusso alla macchina virtuale di origine. Questo scenario non è supportato. Per informazioni più dettagliate, vedere [Limitazioni](concepts-limitations.md#limitations).
+Se è configurato un servizio di bilanciamento del carico interno in una rete virtuale e una delle macchine virtuali del back-end sta tentando di accedere al front-end del servizio di bilanciamento del carico interno, potrebbero verificarsi errori durante il mapping del flusso alla macchina virtuale di origine. Questo scenario non è supportato. Per informazioni più dettagliate, vedere [Limitazioni](concepts.md#limitations).
 
 **Risoluzione** È possibile sbloccare questo scenario in diversi modi, incluso l'uso di un proxy. Valutare un gateway applicazione o altri proxy di terze parti, ad esempio nginx o haproxy. Per altre informazioni sul gateway applicazione, vedere [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
 

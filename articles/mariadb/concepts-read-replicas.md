@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/4/2020
+ms.openlocfilehash: 6b738fc96a51893d8c0a0e75c5551007da60bdd2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024626"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793194"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliche in lettura in Database di Azure per MariaDB
 
@@ -146,6 +146,8 @@ I parametri del server seguenti sono bloccati nei server master e di replica:
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 Il [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) parametro è bloccato nei server di replica.
+
+Per aggiornare uno dei parametri precedenti nel server master, eliminare i server di replica, aggiornare il valore del parametro nel database master e ricreare le repliche.
 
 ### <a name="other"></a>Altri
 

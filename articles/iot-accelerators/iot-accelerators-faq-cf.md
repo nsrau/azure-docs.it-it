@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313598"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792378"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Domande frequenti sull'acceleratore di soluzioni di connected factory
 
@@ -111,7 +111,7 @@ La simulazione registra automaticamente i dispositivi seguenti:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Con lo strumento [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o con [l'estensione IoT dell'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension) è possibile controllare quali dispositivi sono registrati nell'hub IoT usato dalla soluzione. Per usare Device Explorer, è necessaria la stringa di connessione per l'hub IoT della distribuzione. Per usare l'estensione IoT dell'interfaccia della riga di comando di Azure, è necessario il nome dell'hub IoT.
+Con lo strumento [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) o con [l'estensione IoT dell'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension) è possibile controllare quali dispositivi sono registrati nell'hub IoT usato dalla soluzione. Per usare Device Explorer, è necessaria la stringa di connessione per l'hub IoT della distribuzione. Per usare l'estensione IoT dell'interfaccia della riga di comando di Azure, è necessario il nome dell'hub IoT.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Come è possibile ottenere i dati dei log dai componenti della simulazione?
 
@@ -125,7 +125,7 @@ In alternativa, accedere alla VM tramite SSH ed esaminare i file di log in fase 
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Come è possibile controllare se la simulazione sta inviando dati al cloud?
 
-Con [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o il comando [monitor-events dell'estensione dell'interfaccia della riga di comando di Azure IoT ](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events), è possibile controllare i dati inviati all'hub IoT da determinati dispositivi. Per usare questi strumenti, è necessario conoscere la stringa di connessione per l'hub IoT della distribuzione. Vedere [Come è possibile trovare la stringa di connessione dell'hub IoT usato dalla soluzione?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Con il comando Azure Internet Explorer o Azure Internet [Explorer](https://github.com/Azure/azure-iot-explorer) [Extension monitor-Events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) è possibile esaminare i dati inviati all'hub delle cose da determinati dispositivi. Per usare questi strumenti, è necessario conoscere la stringa di connessione per l'hub IoT della distribuzione. Vedere [Come è possibile trovare la stringa di connessione dell'hub IoT usato dalla soluzione?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Esaminare i dati inviati da uno dei dispositivi di pubblicazione:
 

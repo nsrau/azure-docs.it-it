@@ -5,23 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: 21f645e64c9944ed102f538710ea6facc26c7e83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 178daba47acaf8ad161a0634c16b046ec330abb6
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314039"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864428"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Distribuire un Firewall di Azure con più indirizzi IP pubblici usando Azure PowerShell
 
 Questa funzionalità consente gli scenari seguenti:
 
 - **DNAT** - È possibile convertire più istanze di porta standard per i server back-end. Se ad esempio si dispone di due indirizzi IP pubblici, è possibile convertire la porta TCP 3389 (RDP) per entrambi gli indirizzi IP.
-- **SNAT** - Sono disponibili porte aggiuntive per le connessioni SNAT in uscita, riducendo il rischio di esaurimento delle porte SNAT. Al momento, Firewall di Azure seleziona in modo casuale l'indirizzo IP pubblico di origine da usare per una connessione. Se sono presenti filtri downstream nella rete, è necessario consentire tutti gli indirizzi IP pubblici associati al firewall.
+- **SNAT** - Sono disponibili porte aggiuntive per le connessioni SNAT in uscita, riducendo il rischio di esaurimento delle porte SNAT. Al momento, Firewall di Azure seleziona in modo casuale l'indirizzo IP pubblico di origine da usare per una connessione. Se sono presenti filtri downstream nella rete, è necessario consentire tutti gli indirizzi IP pubblici associati al firewall. Prendere in considerazione l'uso di un [prefisso di indirizzo IP pubblico](../virtual-network/public-ip-address-prefix.md) per semplificare questa configurazione.
  
-Il servizio Firewall di Azure con più indirizzi IP pubblici è disponibile tramite il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure, REST e i modelli. È possibile distribuire un firewall di Azure con un massimo di 100 indirizzi IP pubblici.
+Il servizio Firewall di Azure con più indirizzi IP pubblici è disponibile tramite il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure, REST e i modelli. È possibile distribuire un firewall di Azure con un massimo di 250 indirizzi IP pubblici.
 
 Gli esempi di Azure PowerShell seguenti illustrano come è possibile configurare, aggiungere e rimuovere indirizzi IP pubblici per il firewall di Azure.
 

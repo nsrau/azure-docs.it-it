@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810377"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837159"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Eseguire nuovamente il training di modelli con la finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,13 +32,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro di Azure Machine Learning con Enterprise SKU.
-* Set di dati accessibile alla finestra di progettazione. I possibili valori sono i seguenti:
-   * Un set di dati registrato Azure Machine Learning
-    
-     **o**
-   * Un file di dati archiviato in un archivio dati Azure Machine Learning.
-   
-Per informazioni sull'accesso ai dati tramite la finestra [di progettazione, vedere come importare dati nella finestra di progettazione](how-to-designer-import-data.md).
+* Completare la parte 1 di questa serie di procedure, [trasformare i dati nella finestra di progettazione](how-to-designer-transform-data.md).
 
 Questo articolo presuppone inoltre che l'utente abbia una conoscenza di base della creazione di pipeline nella finestra di progettazione. Per un'introduzione guidata, completare l' [esercitazione](tutorial-designer-automobile-price-train-score.md). 
 

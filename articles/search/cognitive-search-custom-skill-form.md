@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274575"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792004"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Esempio: creare un'abilità personalizzata di riconoscimento del modulo
 
@@ -59,7 +59,7 @@ Si effettuerà la richiesta seguente per chiamare la funzione.
 POST https://localhost:7071/api/analyze-form
 ```
 
-### <a name="request-body"></a>Testo della richiesta
+### <a name="request-body"></a>Corpo della richiesta
 
 Iniziare con il modello del corpo della richiesta riportato di seguito.
 
@@ -164,8 +164,8 @@ Per usare questa competenza in una pipeline di ricerca cognitiva, è necessario 
 
 In questa guida è stata creata un'abilità personalizzata dal servizio di riconoscimento dei moduli di Azure. Per ulteriori informazioni sulle competenze personalizzate, vedere le risorse seguenti. 
 
-* [Azure Search Skills Power Skills: repository di competenze personalizzate](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Azure Search Skills Power Skills: repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Aggiungere un'abilità personalizzata a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
 * [Definire un insieme di competenze](cognitive-search-defining-skillset.md)
-* [Creare un oggetto di competenze (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Creare un oggetto di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 * [Mappare campi arricchiti](cognitive-search-output-field-mapping.md)

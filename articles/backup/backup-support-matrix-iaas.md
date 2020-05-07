@@ -3,12 +3,12 @@ title: Matrice di supporto per il backup di macchine virtuali di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto durante il backup di macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86141532e0db80f75c6e79277b36060ecb939a53
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389291"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801434"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -158,7 +158,7 @@ VM Gen2 | Supportato <br> Backup di Azure supporta il backup e il ripristino di 
 
 **Componente** | **Supporto tecnico**
 --- | ---
-Dischi di dati delle VM di Azure | Eseguire il backup di una macchina virtuale con un massimo di 16 dischi dati.<BR> Per iscriversi all'anteprima privata delle macchine virtuali con più di 16 dischi (massimo 32), scrivere all'indirizzo AskAzureBackupTeam@microsoft.com
+Dischi di dati delle VM di Azure | Eseguire il backup di una macchina virtuale con un massimo di 16 dischi dati.<BR> Per iscriversi all'anteprima limitata delle VM con più di 16 dischi (fino a 32 dischi), scrivici all'indirizzoAskAzureBackupTeam@microsoft.com
 Dimensioni del disco dati | Le dimensioni del disco singolo possono essere fino a 32 TB e un massimo di 256 TB combinati per tutti i dischi in una macchina virtuale.
 Tipo di archiviazione | HDD Standard, SDD Standard, SSD Premium.
 Dischi gestiti | Supportato.
@@ -183,7 +183,7 @@ Gruppo di sicurezza di rete (NSG) nella scheda di interfaccia di rete/subnet. |S
 Indirizzo IP statico | Non supportata.<br/><br/> A una nuova macchina virtuale creata a partire da un punto di ripristino viene assegnato un indirizzo IP dinamico.<br/><br/> Per le macchine virtuali classiche non è possibile eseguire il backup di una macchina virtuale con un indirizzo IP riservato e nessun endpoint definito.
 Indirizzo IP dinamico |Supportato.<br/><br/> Se la scheda di interfaccia di rete nella macchina virtuale di origine USA indirizzi IP dinamici, per impostazione predefinita la scheda di interfaccia di rete nella macchina virtuale ripristinata lo userà anche.
 Gestione traffico di Azure| Supportato.<br/><br/>Se la macchina virtuale di cui è stato eseguito il backup si trova in gestione traffico, aggiungere manualmente la macchina virtuale ripristinata alla stessa istanza di gestione traffico.
-Azure DNS |Supportato.
+DNS di Azure |Supportato.
 DNS personalizzato |Supportato.
 Connettività in uscita attraverso il proxy HTTP | Supportato.<br/><br/> Un proxy autenticato non è supportato.
 Endpoint servizio di rete virtuale| Supportato.<br/><br/> Le impostazioni dell'account di archiviazione di rete virtuale e del firewall devono consentire l'accesso da tutte le reti.

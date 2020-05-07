@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: a6746944e34b8bd2fbb115baaabece96ee93dd1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190096"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800652"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -176,6 +176,14 @@ Il backup della macchina virtuale viene eseguito usando le impostazioni di conse
 4. Riprendere il backup.
 
 È possibile ripristinare la macchina virtuale dai punti di ripristino disponibili creati prima dell'operazione di spostamento.
+
+### <a name="what-happens-after-i-move-a-vm-to-a-different-resource-group"></a>Cosa accade dopo aver spostato una macchina virtuale in un gruppo di risorse diverso?
+
+Quando una macchina virtuale viene spostata in un gruppo di risorse diverso, si tratta di una nuova macchina virtuale per quanto concerne backup di Azure.
+
+Dopo aver spostato la macchina virtuale in un nuovo gruppo di risorse, è possibile riproteggere la macchina virtuale nello stesso insieme di credenziali o in un insieme di credenziali diverso. Poiché si tratta di una nuova macchina virtuale per backup di Azure, ti verrà addebitata separatamente.
+
+Se necessario, i punti di ripristino della macchina virtuale precedente saranno disponibili per il ripristino. Se questi dati di backup non sono necessari, è possibile arrestare la protezione della macchina virtuale precedente con l'eliminazione dei dati.
 
 ### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Esiste un limite al numero di macchine virtuali che possono essere associate allo stesso criterio di backup?
 

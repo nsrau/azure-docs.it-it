@@ -4,12 +4,12 @@ description: Considerazioni sulla pianificazione della capacità del cluster Ser
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f011dee94e135ba40f8d3c87240e905e4a2739ec
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258915"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793058"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -104,7 +104,7 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi
 
 - Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato.
 - Ogni set di scalabilità di macchine virtuali con livello di durabilità Silver o Gold deve essere mappato al proprio tipo di nodo del cluster di Service Fabric. Il mapping di più set di scalabilità di macchine virtuali a un singolo tipo di nodo impedirà il corretto funzionamento del coordinamento tra il cluster di Service Fabric e l'infrastruttura di Azure.
-- Non eliminare istanze di VM casuali. Usare sempre la funzionalità di riduzione delle prestazioni del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM causali può creare squilibri nella distribuzione delle istanze di VM tra domini di aggiornamento e domini di errore. Tale squilibrio potrebbe influire negativamente sulla capacità del sistema di bilanciare correttamente il carico tra istanze dei servizi e repliche dei servizi.
+- Non eliminare istanze di VM casuali. usare sempre la funzionalità di scalabilità del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM causali può creare squilibri nella distribuzione delle istanze di VM tra domini di aggiornamento e domini di errore. Tale squilibrio potrebbe influire negativamente sulla capacità del sistema di bilanciare correttamente il carico tra istanze dei servizi e repliche dei servizi.
 - Se si usa la scalabilità automatica, impostare le regole in modo che la riduzione del numero di istanze (ossia la rimozione di istanze di VM) venga eseguita un solo nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
 - In caso di eliminazione o deallocazione delle macchine virtuali nel tipo di nodo primario, non ridurre mai il conteggio delle macchine virtuali allocate al di sotto del numero richiesto dal livello di affidabilità. Queste operazioni verranno bloccate indefinitamente in un set di scalabilità con un livello di durabilità di Silver o Gold.
 

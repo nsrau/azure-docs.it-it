@@ -1,19 +1,19 @@
 ---
 title: "Azure Cosmos DB: API Java per esecuzioni bulk, risorse dell'SDK &"
 description: Informazioni complete sull'SDK e sull'API Java per BulkExecutor, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB BulkExecutor Java SDK.
-author: tknandu
+author: milismsft
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
-ms.author: ramkris
-ms.openlocfilehash: 1a5de2647df5b8092fdcf8e6233f1fddc1690b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: adrianmi
+ms.openlocfilehash: 0030f974a36dc80dc8c4112000aa5934126a2482
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981325"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836445"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Libreria Java BulkExecutor: informazioni sul download
 
@@ -39,4 +39,27 @@ ms.locfileid: "80981325"
 | **Documentazione API**| [Documentazione di riferimento API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Operazioni preliminari**|[Introduzione a Java SDK per la libreria BulkExecutor](bulk-executor-java.md)|
 |**Runtime minimo supportato**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
+
+## <a name="release-notes"></a>Note sulla versione
+
+### <a name="2100"></a><a name="2.10.0"/>2.10.0
+
+* Correzione per DocumentAnalyzer. Java per estrarre correttamente i valori delle chiavi di partizione annidate da JSON.
+
+### <a name="294"></a><a name="2.9.4"/>2.9.4
+
+* Aggiungere la funzionalità nelle operazioni BulkDelete per riprovare in caso di errori specifici e restituire anche un elenco di errori all'utente che potrebbero essere ripetuti.
+
+### <a name="293"></a><a name="2.9.3"/>2.9.3
+
+* Aggiornamento per Cosmos SDK versione 2.4.7.
+
+### <a name="292"></a><a name="2.9.2"/>2.9.2
+
+* Correzione per "mergeAll" per continuare con "ID" e il valore della chiave di partizione in modo che tutte le proprietà del documento con patch inserite dopo "ID" e il valore della chiave di partizione vengano aggiunte all'elenco di elementi aggiornati.
+
+### <a name="291"></a><a name="2.9.1"/>2.9.1
+
+* Aggiornare il grado di concorrenza iniziale a 1 e aggiungere i log di debug per minibatch.
+
 

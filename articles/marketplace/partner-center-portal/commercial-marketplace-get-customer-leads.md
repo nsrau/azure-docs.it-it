@@ -1,24 +1,24 @@
 ---
-title: Configura lead dall'offerta Microsoft Commercial Marketplace
-description: Configurare i lead dei clienti nel Marketplace commerciale Microsoft.
+title: Gestione dei lead da Microsoft Commercial Marketplace
+description: Informazioni sulla generazione e la ricezione di lead dei clienti dalle offerte Microsoft AppSource e Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 54c67656d7847b44c8fc83b33a4e03be3838cf76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131109"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837329"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>Lead di clienti dall'offerta del marketplace
+# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Clienti lead dall'offerta del Marketplace commerciale
 
-I lead sono clienti interessati o distribuiscono le offerte da Microsoft [AppSource](https://appsource.microsoft.com) e [Azure Marketplace](https://azuremarketplace.microsoft.com). Dopo la pubblicazione dell'offerta nel Marketplace, riceverai i clienti potenziali. In questo articolo viene descritto quanto segue:
+I lead sono i clienti interessati a distribuire le offerte da [Microsoft AppSource](https://appsource.microsoft.com) e [Azure Marketplace](https://azuremarketplace.microsoft.com). È possibile ricevere i lead dei clienti dopo la pubblicazione dell'offerta nel Marketplace commerciale. Questo articolo illustra i concetti seguenti relativi alla gestione dei lead:
 
-* Il modo in cui l'offerta del Marketplace genera lead dei clienti per assicurarsi di non perdere le opportunità aziendali. 
+* Il modo in cui l'offerta del Marketplace commerciale genera lead dei clienti per assicurarsi di non perdere le opportunità aziendali. 
 * Come connettere il sistema CRM (Customer Relationship Management) all'offerta per poter gestire i lead in un'unica posizione centrale.
 * I dati principali che si inviano per poter completare i clienti che hanno contattato l'utente.
 
@@ -56,7 +56,7 @@ Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati
 
 I valori possibili sono:
 
-- **"Ins"**: sta per essere *installato*. Questa azione si trova in Azure Marketplace o in AppSource quando un cliente acquista il prodotto.
+- **"Ins"**: sta per essere *installato*. Questa azione si trova in Azure Marketplace o in AppSource quando un cliente acquisisce il prodotto.
 - **"PLT"**: sta per la *versione di valutazione del partner*. Questa azione è in AppSource quando un cliente seleziona l'opzione **Contact me** .
 - **"DNC"**: sta per non *contattare*. Questa azione si trova in AppSource quando viene richiesto di contattare un partner che è stato incrociato nella pagina dell'app. Si condivide una notifica che questo cliente è stato elencato in modo incrociato nell'app, ma non è necessario contattarlo.
 - **"Crea"**: questa azione è solo all'interno del portale di Azure e viene generata quando un cliente acquista l'offerta al proprio account.
@@ -92,7 +92,7 @@ Le informazioni del cliente vengono inviate tramite più campi. Nell'esempio seg
 - **Completamento**: non dimenticare di completare la procedura. Si prevede che la transazione tipica richieda da 5 a 12 chiamate di completamento.
 - **Coltiva**: è possibile coltivare i lead in modo da raggiungere un margine di profitto superiore.
 
-## <a name="leads-frequently-asked-questions"></a>Domande frequenti sui lead
+## <a name="common-questions-about-lead-management"></a>Domande frequenti sulla gestione dei lead
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Dove è possibile ottenere assistenza per configurare la destinazione dei lead?
 

@@ -1,31 +1,31 @@
 ---
-title: Dashboard di utilizzo in analisi del Marketplace commerciale nel centro per i partner
-description: Informazioni su come accedere a tutte le macchine virtuali offre l'utilizzo e le metriche di fatturazione a consumo.
+title: Dashboard di utilizzo in Microsoft Commercial Marketplace Analytics
+description: Informazioni su come accedere a tutte le macchine virtuali offre l'utilizzo e le metriche di fatturazione a consumo. Passare al dashboard Usage nel centro per i partner in Marketplace commerciale.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262180"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793007"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di utilizzo in analisi del Marketplace commerciale
+# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Dashboard di utilizzo in Microsoft Commercial Marketplace Analytics
 
 Questo articolo fornisce informazioni sul dashboard Usage (utilizzo) nel centro per i partner. Questo dashboard mostra che tutte le macchine virtuali offrono metriche di fatturazione di utilizzo e a consumo in due schede separate: utilizzo della macchina virtuale e fatturazione a consumo.
 
-Per accedere al dashboard Usage, aprire il dashboard di **[analisi](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
+Per accedere al dashboard Usage, aprire il dashboard di **[analisi](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in **Marketplace commerciale**.
 
 >[!NOTE]
 > Per le definizioni dettagliate della terminologia di analisi, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Dashboard Utilizzo
 
-Il dashboard Usage (utilizzo) rappresenta la metrica per tutte le macchine virtuali (VM) che offre l'utilizzo e la fatturazione a consumo. Si trovano in due schede separate: utilizzo della macchina virtuale e utilizzo della fatturazione a consumo.
+Il dashboard Usage (utilizzo) rappresenta la metrica per tutte le macchine virtuali (VM) che offre l'utilizzo e la fatturazione a consumo. Queste metriche si trovano in due schede separate: utilizzo della macchina virtuale e utilizzo della fatturazione a consumo.
 
 Nella scheda utilizzo VM sono presenti rappresentazioni grafiche degli elementi seguenti:
 
@@ -46,7 +46,7 @@ Nella scheda utilizzo VM sono presenti rappresentazioni grafiche degli elementi 
 Nella tabella Riepilogo utilizzo vengono visualizzate le ore di utilizzo del cliente per tutte le offerte acquistate.
 
 - Le ore di utilizzo normalizzate sono definite come ore di utilizzo normalizzate per tenere conto del numero di core VM ([numero di core VM] x [ore di utilizzo non elaborato]). Le macchine virtuali designate come "SHAREDCORE" usano 1/6 (o 0,1666) come moltiplicatore [Number of VM Cores].
-- Le ore di utilizzo non elaborato sono definite come quantità di tempo di esecuzione delle macchine virtuali in termini di ore.
+- Le ore di utilizzo non elaborato sono definite come il numero di macchine virtuali in esecuzione in termini di ore.
 - Il valore percentuale rappresenta la modifica della crescita dell'utilizzo per l'intervallo di date selezionato ([utilizzo del mese precedente, utilizzo del primo mese])/utilizzo del primo mese).
 - I triangoli verdi che puntano verso l'alto indicano una variazione di crescita.
 - Il triangolo rosso che punta verso il basso indica una modifica di crescita negativa rispetto al mese precedente.
@@ -58,13 +58,13 @@ L' **utilizzo normalizzato da geography** mappa termica Visualizza le ore di uti
 
 ### <a name="usage-by-offers"></a>Utilizzo per offerte
 
-- Il grafico a torta **utilizzo normalizzato per offerte** Visualizza una suddivisione delle ore di utilizzo normalizzate in base alle offerte in base all'intervallo di date selezionato. Le prime 5 offerte vengono visualizzate in Graph, mentre le altre sono raggruppate nella categoria "Rest all".
+- Il grafico a torta **utilizzo normalizzato per offerte** Visualizza una suddivisione delle ore di utilizzo normalizzate in base alle offerte in base all'intervallo di date selezionato. Le prime cinque offerte vengono visualizzate in Graph, mentre le altre sono raggruppate nella categoria **Rest all** .
 - Il grafico a barre illustra una tendenza di crescita mensile per mese per l'intervallo di date selezionato. Le colonne month rappresentano le ore di utilizzo dalle offerte con le ore di utilizzo massime per il mese corrispondente. Il grafico a linee rappresenta la tendenza percentuale di crescita tracciata sull'asse Y secondario.
 - Utilizzare il dispositivo di scorrimento nella parte superiore del grafico per scorrere a destra verso sinistra lungo l'asse x e/o concentrarsi su punti dati specifici.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>Tendenza di utilizzo per offerte e SKU
 
-Questo grafico mostra la tendenza dell'utilizzo normalizzato per gli SKU selezionati di un'offerta. La classifica dell'offerta Visualizza le prime 50 offerte con l'utilizzo più elevato e sono ordinate in base alle ore di utilizzo. La classifica SKU Visualizza i primi 50 SKU con l'utilizzo più elevato per l'offerta selezionata.
+Questo grafico mostra la tendenza dell'utilizzo normalizzato per gli SKU selezionati di un'offerta. La classifica dell'offerta Visualizza le prime 50 offerte con l'utilizzo più elevato, ordinate in base alle ore di utilizzo. La classifica SKU Visualizza i primi 50 SKU con l'utilizzo più elevato per l'offerta selezionata.
 
 ### <a name="usage-by-offer-type"></a>Utilizzo per tipo di offerta
 
@@ -101,7 +101,7 @@ I **filtri della pagina utilizzo** vengono applicati a livello di pagina. È pos
 
 - I **tipi di offerta** e **i nomi delle offerte** sono elencati solo per le offerte acquisite durante l'intervallo di date selezionato. I nomi delle offerte nell'elenco vengono visualizzati per i tipi di offerta selezionati nell'elenco.
 - La selezione predefinita è "All" per ogni opzione di filtro, ad eccezione del **tipo di utilizzo**. La selezione predefinita per il **tipo di utilizzo** è l'utilizzo normalizzato. Per visualizzare l'utilizzo non elaborato nei grafici, selezionare "utilizzo non elaborato".
-- I filtri applicati mostrano le selezioni di conteggio per le selezioni di filtro effettuate. I filtri applicati non vengono visualizzati per le selezioni predefinite.
+- I filtri applicati mostrano la selezione del conteggio per le selezioni di filtro effettuate. I filtri applicati non vengono visualizzati per le selezioni predefinite.
 
 > [!NOTE]
 > Una definizione dettagliata di ognuno dei campi nella griglia "dati dettagliati dell'ordine", dei filtri di pagina e di tutte le selezioni possibili è definita nella sezione Dizionario dei dati dell'articolo [domande frequenti e terminologia](link needed) .
@@ -123,5 +123,5 @@ La scheda **utilizzo fatturazione a consumo** Visualizza le informazioni sull'ut
 - Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard Orders in Commercial Marketplace Analytics](./orders-dashboard.md).
 - Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [dashboard dei clienti in analisi del Marketplace commerciale](./customer-dashboard.md).
 - Per un elenco delle richieste di download negli ultimi 30 giorni, vedere la pagina relativa ai [download del dashboard in Commercial Marketplace Analytics](./downloads-dashboard.md).
-- Per una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Dashboard ratings and Reviews in Commercial Marketplace Analytics](./ratings-reviews.md).
+- Per una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Microsoft AppSource e Azure Marketplace, vedere [Dashboard ratings and Reviews in Commercial Marketplace Analytics](./ratings-reviews.md).
 - Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).

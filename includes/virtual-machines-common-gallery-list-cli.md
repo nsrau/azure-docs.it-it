@@ -1,27 +1,20 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: Includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 01/28/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1ec3ecdafb8e475f5f13372789528612ccd7b8b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e8972b1b2bfaac12baee1ea823429749ed70461
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66226038"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792752"
 ---
-## <a name="using-rbac-to-share-images"></a>Usare RBCA per condividere immagini
-
-È possibile condividere immagini tra sottoscrizioni tramite il controllo degli accessi in base al ruolo (RBAC). Qualsiasi utente che disponga di autorizzazioni di lettura per la versione immagine, perfino tra sottoscrizioni, riuscirà a distribuire una macchina virtuale usando la versione immagine.
-
-Per altre informazioni su come condividere risorse usando RBCA, vedere [Gestione dell'accesso usando RBCA e L'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
-
-
 ## <a name="list-information"></a>Informazioni di un elenco
 
 Ottenere il percorso, lo stato e altre informazioni sulle raccolte immagini disponibili tramite [elenco az sig](/cli/azure/sig#az-sig-list).

@@ -4,12 +4,12 @@ description: Informazioni sul ridimensionamento dei cluster di Azure Service Fab
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258694"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793177"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Ridimensionamento di cluster di Azure Service Fabric
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I cluster possono contenere migliaia di nodi. Dopo aver creato un cluster di Service Fabric, è possibile scalare il cluster in orizzontale (modificare il numero di nodi) o in verticale (modificare le risorse dei nodi).  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -29,13 +29,13 @@ Quando si ridimensiona un cluster di Azure, tenere presenti le linee guida segue
 - I tipi di nodo non primario che eseguono carichi di lavoro di produzione con stato devono contenere sempre cinque o più nodi.
 - I tipi di nodo non primario che eseguono carichi di lavoro di produzione senza stato devono contenere sempre due o più nodi.
 - Qualsiasi tipo di nodo del [livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Gold o Silver deve sempre contenere cinque o più nodi.
-- Non rimuovere nodi/istanze di VM casuali da un tipo di nodo. Usare sempre la funzionalità di riduzione delle prestazioni del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM casuali può influenzare negativamente la capacità dei sistemi di eseguire il bilanciamento del carico in modo corretto.
+- Non rimuovere istanze/nodi di VM casuali da un tipo di nodo, usare sempre la funzionalità di scalabilità del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM casuali può influenzare negativamente la capacità dei sistemi di eseguire il bilanciamento del carico in modo corretto.
 - Se si usano regole di scalabilità automatica, impostare le regole in modo che la riduzione (rimozione di istanze di VM) venga eseguita un nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
 
-Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è possibile [configurare regole di ridimensionamento automatico o ridimensionare manualmente](service-fabric-cluster-scale-up-down.md) ogni tipo di nodo o set di scalabilità di macchine virtuali.
+Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è possibile [configurare regole di ridimensionamento automatico o ridimensionare manualmente](service-fabric-cluster-scale-in-out.md) ogni tipo di nodo o set di scalabilità di macchine virtuali.
 
 ### <a name="programmatic-scaling"></a>Scalabilità a livello di codice
-In molti scenari, le opzioni di [ridimensionamento di un cluster in modo manuale o mediante regole di scalabilità automatica](service-fabric-cluster-scale-up-down.md) rappresentano soluzioni valide. In scenari più avanzati, tuttavia, potrebbero non essere la scelta adatta. Alcuni potenziali svantaggi di questi approcci sono:
+In molti scenari, le opzioni di [ridimensionamento di un cluster in modo manuale o mediante regole di scalabilità automatica](service-fabric-cluster-scale-in-out.md) rappresentano soluzioni valide. In scenari più avanzati, tuttavia, potrebbero non essere la scelta adatta. Alcuni potenziali svantaggi di questi approcci sono:
 
 - Per la scalabilità manuale è necessario eseguire l'accesso e richiedere in modo esplicito le operazioni di ridimensionamento. Questo approccio potrebbe non essere una soluzione valida se le operazioni di scalabilità vengono richieste di frequente oppure in momenti imprevisti.
 - Quando le regole di scalabilità automatica rimuovono un'istanza da un set di scalabilità di macchine virtuali, non rimuovono automaticamente le informazioni di questo nodo dal cluster Service Fabric associato, a meno che il tipo di nodo non disponga di un livello di durabilità Silver o Gold. Poiché funzionano a livello di set di scalabilità anziché a livello di Service Fabric, le regole di scalabilità automatica possono rimuovere i nodi Service Fabric senza arrestarli in modo normale. Questo tipo di rimozione dei nodi lascerà il nodo Service Fabric nello stato "ghost" dopo le operazioni di riduzione delle istanze. Un utente o un servizio dovrà pulire periodicamente lo stato del nodo rimosso nel cluster Service Fabric.

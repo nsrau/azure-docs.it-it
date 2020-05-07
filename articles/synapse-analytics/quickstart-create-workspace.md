@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676737"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792208"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Guida introduttiva: Creare un'area di lavoro di Azure Synapse Analytics (anteprima)
 
@@ -41,7 +41,7 @@ Accedere al [portale di Azure](https://portal.azure.com/)
     | Impostazione | Valore consigliato | Descrizione |
     | :------ | :-------------- | :---------- |
     | **Sottoscrizione** | *Sottoscrizione in uso* | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
-    | **Gruppo di risorse** | *Any resource group* | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Gruppo di risorse** | *Any resource group* | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Nome area di lavoro** | mysampleworkspace | Specifica il nome dell'area di lavoro, che verrà usato anche per gli endpoint di connessione.|
     | **Area** | Stati Uniti Orientali 2 | Specifica la località dell'area di lavoro.|
     | **Data Lake Storage Gen2** | Account: `storage account name` </br> File system: `root file system to use` | Specifica il nome dell'account di archiviazione di ADLS Gen2 da usare come archiviazione primaria e il file system da usare.|

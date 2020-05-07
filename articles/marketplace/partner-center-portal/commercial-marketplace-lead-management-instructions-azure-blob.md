@@ -1,32 +1,36 @@
 ---
-title: Tabella di Azure in un programma per Marketplace commerciale | Azure Marketplace
-description: Configurare la gestione dei lead per il BLOB di Azure
+title: Gestione dei lead con archiviazione BLOB di Azure-Microsoft Commercial Marketplace
+description: Informazioni su come usare BLOB di Azure per configurare lead per Microsoft AppSource e Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285249"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792718"
 ---
-# <a name="lead-management-instructions-for-azure-blob"></a>Istruzioni per la gestione dei lead per BLOB di Azure
+# <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Usare l'archiviazione BLOB di Azure per gestire i lead del Marketplace commerciale
 
 >[!Caution]
->L'opzione BLOB di Azure per elaborare i lead dall'offerta del Marketplace è stata deprecata. Se è attualmente disponibile un'offerta pubblicata con la configurazione della gestione dei lead per il BLOB di Azure, non si ricevono più clienti potenziali. Aggiornare la configurazione della gestione dei lead a una delle altre opzioni di gestione dei lead. Informazioni sulle altre opzioni nella pagina di [destinazione della gestione dei lead](./commercial-marketplace-get-customer-leads.md). "
+>Il supporto del Marketplace commerciale per l'archiviazione BLOB di Azure è stato deprecato e non è più un'opzione per elaborare i lead dall'offerta. Se attualmente si dispone di un'offerta di Marketplace commerciale con gestione dei lead configurata per il BLOB di Azure, non si riceveranno più i lead del cliente. Aggiornare la configurazione della gestione dei lead a una delle altre opzioni di gestione dei lead. Informazioni sulle altre opzioni nella pagina di [destinazione della gestione dei lead](./commercial-marketplace-get-customer-leads.md). "
 
-Se il sistema CRM (Customer Relationship Management) non è supportato in modo esplicito nel centro per i partner per la ricezione di Azure Marketplace e AppSource lead, è possibile usare un BLOB di Azure per gestire i lead. È quindi possibile scegliere di esportare i dati e importarli nel sistema CRM. Le istruzioni riportate in questo articolo illustrano il processo di creazione di un account di archiviazione di Azure e di un BLOB di Azure con tale account. Inoltre, è possibile creare un nuovo flusso usando Microsoft Flow per inviare una notifica tramite posta elettronica quando l'offerta riceve un lead.
+ Se il sistema CRM (Customer Relationship Management) non è supportato in modo esplicito nel centro per i partner per la ricezione Microsoft AppSource e i lead di Azure Marketplace, è possibile usare l'archiviazione BLOB di Azure. È quindi possibile scegliere di esportare i dati e importarli nel sistema CRM. Le istruzioni in questo articolo illustrano il processo di creazione di un account di archiviazione di Azure e di un BLOB con tale account. Inoltre, è possibile creare un nuovo flusso usando Power automatici per inviare una notifica tramite posta elettronica quando l'offerta riceve un lead.
 
+>[!NOTE]
+>Il connettore Power automatizzate usato in queste istruzioni richiede una sottoscrizione a pagamento per l'automazione dell'energia elettrica. Prima di seguire le istruzioni riportate in questo articolo, assicurarsi di tenere conto di questo problema.
 
-## <a name="how-to-configure-azure-blob"></a>Come configurare un BLOB di Azure
+## <a name="configure-azure-blob-storage"></a>Configurare l'archiviazione BLOB di Azure
 
 1. Se non si ha un account Azure, è possibile [creare un account di prova gratuito](https://azure.microsoft.com/pricing/free-trial/).
-1. Quando l'account Azure è attivo, accedere al [portale di Azure](https://portal.azure.com).
-1. Nella portale di Azure creare un account di archiviazione usando la procedura riportata di seguito.  
+
+2. Quando l'account Azure è attivo, accedere al [portale di Azure](https://portal.azure.com).
+
+3. Nella portale di Azure creare un account di archiviazione usando la procedura riportata di seguito.  
     1. Selezionare **+ Crea una risorsa** nella barra dei menu a sinistra.  Il **nuovo** riquadro (pannello) verrà visualizzato a destra.
     2. Selezionare **archiviazione** nel **nuovo** riquadro.  A destra viene visualizzato un elenco in **primo piano** .
     3. Selezionare l' **account di archiviazione** per iniziare la creazione dell'account.  Seguire le istruzioni riportate nell'articolo [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
@@ -65,7 +69,7 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
     ![Nuovo contenitore](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Configurare l'offerta per inviare lead al BLOB di Azure
+## <a name="configure-your-offer-to-send-leads-to-azure-blob-storage"></a>Configurare l'offerta per inviare lead all'archivio BLOB di Azure
 
 Quando si è pronti per configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione, seguire questa procedura:
 

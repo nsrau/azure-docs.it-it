@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641613"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801774"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 
@@ -92,9 +92,15 @@ Un'altra opzione prevede l'uso di un [profilo di Punteggio personalizzato](index
 
 ## <a name="hit-highlighting"></a>Evidenziazione dei risultati
 
-L'evidenziazione dei riscontri si riferisce alla formattazione del testo (ad esempio evidenziazioni grassetto o gialle) applicata al termine corrispondente in un risultato, semplificando l'individuazione della corrispondenza. Nella [richiesta di query](https://docs.microsoft.com/rest/api/searchservice/search-documents)sono disponibili istruzioni per l'evidenziazione dei risultati. Il motore di ricerca racchiude il termine corrispondente nei tag `highlightPreTag` e `highlightPostTag`e il codice gestisce la risposta, ad esempio applicando un tipo di carattere in grassetto.
+L'evidenziazione dei riscontri si riferisce alla formattazione del testo (ad esempio evidenziazioni grassetto o gialle) applicata ai termini corrispondenti in un risultato, semplificando l'individuazione della corrispondenza. Nella [richiesta di query](https://docs.microsoft.com/rest/api/searchservice/search-documents)sono disponibili istruzioni per l'evidenziazione dei risultati. 
 
-La formattazione viene applicata alle query a termini interi. Nell'esempio seguente, i termini "Sandy", "Sand", "beaches", "Beach" trovati all'interno del campo Description sono contrassegnati per l'evidenziazione. Le query che attivano l'espansione di query nel motore, ad esempio fuzzy e la ricerca con caratteri jolly, hanno un supporto limitato per l'evidenziazione dei risultati.
+Per abilitare l'evidenziazione dei riscontri, aggiungere `highlight=[comma-delimited list of string fields]` per specificare i campi che utilizzeranno l'evidenziazione. L'evidenziazione è utile per i campi di contenuto più lunghi, ad esempio un campo di descrizione, in cui la corrispondenza non è immediatamente ovvia. Solo le definizioni di campo attribuite come **ricercabili** sono idonee per l'evidenziazione dei risultati.
+
+Per impostazione predefinita, Azure ricerca cognitiva restituisce fino a cinque evidenziazioni per ogni campo. È possibile modificare questo numero accodando il campo a un trattino seguito da un numero intero. Ad esempio, `highlight=Description-10` restituisce fino a 10 evidenziazioni sul contenuto corrispondente nel campo Descrizione.
+
+La formattazione viene applicata alle query a termini interi. Il tipo di formattazione è determinato dai tag, `highlightPreTag` e `highlightPostTag`e il codice gestisce la risposta, ad esempio applicando un tipo di carattere in grassetto o uno sfondo giallo.
+
+Nell'esempio seguente, i termini "Sandy", "Sand", "beaches", "Beach" trovati all'interno del campo Description sono contrassegnati per l'evidenziazione. Le query che attivano l'espansione di query nel motore, ad esempio fuzzy e la ricerca con caratteri jolly, hanno un supporto limitato per l'evidenziazione dei risultati.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 

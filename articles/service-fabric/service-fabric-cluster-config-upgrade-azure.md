@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 476a2d910b916ea29132b108478d06f756454813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75463293"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793075"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Aggiornare la configurazione di un cluster in Azure 
 
@@ -26,7 +26,7 @@ Questo articolo illustra come personalizzare le varie impostazioni dell'infrastr
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalizzare le impostazioni del cluster usando i modelli di Gestione risorse
 È possibile configurare i cluster di Azure tramite il modello di Resource Manager JSON. Per altre informazioni sulle diverse impostazioni, vedere [Impostazioni di configurazione per i cluster](service-fabric-cluster-fabric-settings.md). La procedura di esempio riportata di seguito illustra come aggiungere una nuova impostazione *MaxDiskQuotaInMB* alla sezione *Diagnostics* tramite Azure Resource Explorer.
 
-1. Passare a https://resources.azure.com.
+1. Passare a https://resources.azure.com
 2. Passare alla sottoscrizione espandendo **sottoscrizioni** -> **\<la sottoscrizione>**  ->  **resourceGroups** -> **\<il gruppo di risorse>**  ->  **provider** -> **Microsoft. ServiceFabric** -> **raggruppa** -> **\<il nome del cluster>**
 3. Nell'angolo in alto a destra selezionare **lettura/scrittura.**
 4. Selezionare **modifica** e aggiornare l' `fabricSettings` elemento JSON e aggiungere un nuovo elemento:
@@ -53,4 +53,4 @@ Questo articolo illustra come personalizzare le varie impostazioni dell'infrastr
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [impostazioni dei cluster di Service Fabric](service-fabric-cluster-fabric-settings.md).
-* Informazioni su come [ridimensionare il cluster](service-fabric-cluster-scale-up-down.md).
+* Informazioni su come [ridimensionare il cluster](service-fabric-cluster-scale-in-out.md).

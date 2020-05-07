@@ -1,17 +1,17 @@
 ---
-Description: Per ricevere denaro dalle vendite di offerte nel Marketplace commerciale, è necessario configurare l'account di pagamento e compilare i moduli fiscali necessari.
-title: Configurare l'account di pagamento e i moduli fiscali | Azure Marketplace
+title: Configurare l'account di pagamento & moduli fiscali-Microsoft Commercial Marketplace
+Description: Per ricevere denaro dalle vendite di offerte nel Marketplace commerciale, Scopri come configurare il tuo account di pagamento e compilare i moduli fiscali necessari.
 ms.date: 12/10/2019
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: fb0caa64feb7cb024b684a2e94937aec8893bb5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80281307"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792888"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurare l'account proventi e i moduli fiscali
 
@@ -32,7 +32,7 @@ Dopo aver configurato l'account, è necessario eseguire due operazioni prima di 
 
 ## <a name="tax-forms"></a>Moduli fiscali
 
-### <a name="filling-out-your-tax-forms"></a>Compilazione dei moduli fiscali
+### <a name="fill-out-your-tax-forms"></a>Compilare i moduli fiscali
 
 In primo luogo, è necessario creare un profilo fiscale e assegnarlo ai programmi a cui si partecipa. È possibile creare il *profilo fiscale* per il Marketplace commerciale completando i passaggi seguenti:
 
@@ -45,18 +45,21 @@ In primo luogo, è necessario creare un profilo fiscale e assegnarlo ai programm
 > Paesi e regioni diversi presentano requisiti fiscali diversi. La quantità esatta di cui è necessario pagare le tasse dipende dai paesi e dalle aree in cui si vende l'offerta. Vedere il [contratto di pubblicazione Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) per individuare i paesi in cui Microsoft effettua le vendite e usa le imposte per conto dell'utente. In altri paesi, a seconda della posizione in cui viene effettuata la registrazione, potrebbe essere necessario ricorrere alle vendite e utilizzare le imposte per le vendite dell'offerta direttamente all'autorità di tassazione locale. Inoltre i guadagni legati alla vendita delle app possono essere tassati come reddito. Si consiglia vivamente di contattare l'autorità pertinente per il paese o l'area geografica che può aiutare a determinare le informazioni fiscali corrette per le attività del Marketplace commerciale.
 
 1. In [centro](https://partner.microsoft.com/dashboard)per i partner selezionare l'icona **Impostazioni account** nell'angolo in alto a destra e quindi selezionare **Impostazioni sviluppatore**.
+
 2. Nel menu di spostamento a sinistra selezionare **pagamenti e imposte**, quindi selezionare **pagamenti e assegnazioni di imposte**.
 
 3. Selezionare la combinazione di programma e ID venditore per cui si desidera configurare le informazioni fiscali.
 
 4. Se si vuole usare un profilo fiscale esistente, selezionarlo nell'elenco a discesa. In caso contrario, selezionare **Crea nuovo profilo** e premere **invio**. Si verrà portati alla pagina profili fiscali.
+
 5. Fare clic sul pulsante **modifica** per modificare le informazioni fiscali.
+
 6. Selezionare il pulsante di opzione appropriato e selezionare il paese, se richiesto. Questo passaggio determina l'entità di business Microsoft che verrà usata per eseguire i pagamenti per l'account.
 
 7. A seconda delle selezioni effettuate nel passaggio 6, verrà richiesto di fornire le informazioni fiscali necessarie per il proprio paese.
 
-> [!NOTE]
-> Indipendentemente dal paese di residenza o cittadinanza, è necessario compilare Stati Uniti moduli fiscali per vendere eventuali offerte o componenti aggiuntivi tramite il Marketplace commerciale. Gli editori che soddisfano determinati requisiti di residenza Stati Uniti devono compilare un modulo IRS W-9. Altri editori all'esterno del Stati Uniti devono compilare un modulo IRS W-8. Puoi compilare questi moduli online non appena completi il tuo profilo fiscale.
+   > [!NOTE]
+   > Indipendentemente dal paese di residenza o cittadinanza, è necessario compilare Stati Uniti moduli fiscali per vendere eventuali offerte o componenti aggiuntivi tramite il Marketplace commerciale. Gli editori che soddisfano determinati requisiti di residenza Stati Uniti devono compilare un modulo IRS W-9. Altri editori all'esterno del Stati Uniti devono compilare un modulo IRS W-8. Puoi compilare questi moduli online non appena completi il tuo profilo fiscale.
 
 ### <a name="withholding-rates"></a>Tassi delle trattenute
 
@@ -108,8 +111,8 @@ Se si è scelto di usare un account bancario per ricevere i pagamenti, completar
 
 6. Fare clic su Invia per salvare le modifiche.
 
-> [!NOTE]
-> Microsoft può richiedere fino a 48 ore per convalidare le informazioni nel profilo. Quando il processo è completo, *lo stato di verifica* verrà visualizzato **completato**
+   > [!NOTE]
+   > Microsoft può richiedere fino a 48 ore per convalidare le informazioni nel profilo. Quando il processo è completo, *lo stato di verifica* verrà visualizzato **completato**
 
 Per assicurarsi che il pagamento abbia esito positivo, assicurarsi che:
 
@@ -122,7 +125,9 @@ Per assicurarsi che il pagamento abbia esito positivo, assicurarsi che:
 È possibile modificare i profili di pagamento esistenti se è necessario apportare modifiche o correggere eventuali informazioni non corrette.
 
 1. In [centro](https://partner.microsoft.com/dashboard)per i partner selezionare l'icona dell'ingranaggio **Impostazioni** nell'angolo in alto a destra, quindi selezionare **Impostazioni sviluppatore**.
+
 2. Sotto l'intestazione di *pagamento e di imposta* selezionare i **profili di pagamento e di imposta**.
+
 3. I profili di pagamento verranno elencati insieme al relativo stato. Trovare il profilo che si desidera modificare e fare clic su **modifica** all'estrema destra
 
 > [!IMPORTANT]
@@ -138,9 +143,13 @@ In alcuni paesi e aree geografiche puoi creare un conto di pagamento immettendo 
 Domande frequenti sull'uso di PayPal come metodo pagamento:
 
 - **Quali impostazioni di PayPal sono necessarie per ricevere i pagamenti?** Assicurarsi che l'account PayPal non blocchi i pagamenti eCheck. Questa impostazione viene gestita nella pagina delle preferenze per la ricezione dei pagamenti di PayPal. Per altre info, vedi la [pagina per l'impostazione del conto di PayPal](https://go.microsoft.com/fwlink/p/?linkid=513139).
+
 - **Il mio paese/area geografica è supportato?** Vedere le [soglie di pagamento, i metodi e gli intervalli](payment-thresholds-methods-timeframes.md) di tempo per scoprire dove PayPal è un metodo di pagamento supportato.
+
 - **L'account PayPal deve essere registrato nello stesso paese/area geografica dell'account del centro per i partner?** No. Quando imposti un conto PayPal, puoi accettare la configurazione predefinita. Non dovresti avere alcun problema con altri paesi/aree geografiche e valute, a meno che tu non abbia bloccato i pagamenti in alcune valute. Questa impostazione viene gestita nella pagina delle preferenze per la ricezione dei pagamenti di PayPal.
+
 - **Devo accettare manualmente i pagamenti PayPal?** No. I conti PayPal sono configurati per impostazione predefinita in modo da richiedere agli utenti di accettare i pagamenti manualmente, quindi se non accetti il pagamento entro 30 giorni, questo viene restituito. Puoi modificare questa impostazione disattivando l'opzione “Contattami” nella pagina delle impostazioni avanzate di PayPal.
+
 - **Quali valute supporta PayPal?** Vedere la [pagina del supporto di PayPal](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) per l'elenco corrente
 
 ### <a name="specific-requirements-for-certain-countriesregions"></a>Requisiti specifici per determinati paesi o aree geografiche
@@ -193,3 +202,7 @@ Se si è scelto di usare un account bancario per ricevere i pagamenti, completar
 4. Nella pagina *assegnazione profilo* selezionare la valuta che si vuole usare quando si inviano i pagamenti.
 5. È necessario selezionare un profilo di pagamento per ogni programma a cui si partecipa, sebbene sia possibile utilizzare lo stesso profilo per più programmi.
 6. Fare clic su Invia per salvare le modifiche.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Fatturazione del marketplace commerciale](billing-details.md)
