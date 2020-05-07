@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: fa5027ed285456247891c84e559b74a14237f553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 828357ef9dcb6a59534ede2a2843fc2cb5eaed5e
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537781"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598343"
 ---
 # <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard"></a>Aggiornare i pacchetti di conformità dinamici nel dashboard conformità normativa
 
 Il Centro sicurezza di Azure confronta continuamente la configurazione delle risorse con i requisiti in standard del settore, normative e benchmark. Il **Dashboard conformità normativa** fornisce informazioni approfondite sul comportamento di conformità in base al modo in cui si soddisfano i requisiti e i controlli di conformità specifici.
 
-Uno standard per il quale è possibile tenere traccia del comportamento di conformità è [Azure cis 1.1.0](https://www.cisecurity.org/benchmark/azure/) (più formalmente, "CIS Microsoft Azure Foundations Benchmark versione 1.1.0"). 
+Grazie alla funzionalità **Dynamic Compliance Packages** , il Centro sicurezza *migliora automaticamente la copertura degli standard del settore nel tempo*. 
 
-La rappresentazione di Azure CIS che inizialmente viene visualizzata nel dashboard di conformità si basa su un set statico di regole incluso nel centro sicurezza.
+Uno standard per il quale è possibile tenere traccia del comportamento di conformità è [Azure cis 1.1.0](https://www.cisecurity.org/benchmark/azure/) (più formalmente, "CIS Microsoft Azure Foundations Benchmark versione 1.1.0"). La rappresentazione di Azure CIS che inizialmente viene visualizzata nel dashboard di conformità si basa su un set statico di regole incluso nel centro sicurezza.
 
-Grazie alla funzionalità **Dynamic Compliance Packages** , il Centro sicurezza migliora automaticamente la copertura degli standard del settore nel tempo. I pacchetti di conformità sono essenzialmente iniziative definite in criteri di Azure. Possono essere assegnati all'ambito selezionato (sottoscrizione, gruppo di gestione e così via). Per visualizzare i dati di conformità mappati come valutazioni nel dashboard, aggiungere un pacchetto di conformità al gruppo di gestione o alla sottoscrizione dall'interno dei criteri di sicurezza. L'aggiunta di un pacchetto di conformità assegna efficacemente l'iniziativa di conformità normativa all'ambito selezionato. In questo modo, è possibile tenere traccia delle iniziative normative appena pubblicate come standard di conformità nel dashboard. Quando Microsoft rilascia nuovo contenuto per l'iniziativa (nuovi criteri con mapping a più controlli nello standard), il contenuto aggiuntivo viene visualizzato automaticamente nel dashboard.
+I pacchetti di conformità sono essenzialmente iniziative definite in criteri di Azure. Possono essere assegnati all'ambito selezionato (sottoscrizione, gruppo di gestione e così via). Per visualizzare i dati di conformità mappati come valutazioni nel dashboard, aggiungere un pacchetto di conformità al gruppo di gestione o alla sottoscrizione dall'interno dei criteri di sicurezza. L'aggiunta di un pacchetto di conformità assegna efficacemente l'iniziativa di conformità normativa all'ambito selezionato. In questo modo, è possibile tenere traccia delle iniziative normative appena pubblicate come standard di conformità nel dashboard. Quando Microsoft rilascia nuovo contenuto per l'iniziativa (nuovi criteri con mapping a più controlli nello standard), il contenuto aggiuntivo viene visualizzato automaticamente nel dashboard.
 
 Il pacchetto di conformità dinamica per il benchmark di Azure CIS, **Azure cis 1.1.0 (nuovo)**, migliora la versione *statica* originale in base a quanto segue:
 
@@ -43,22 +43,33 @@ I passaggi seguenti illustrano come aggiungere il pacchetto dinamico per il moni
 
 ### <a name="update-to-the-azure-cis-110-new-dynamic-compliance-package"></a>Eseguire l'aggiornamento al pacchetto di conformità dinamica di Azure CIS 1.1.0 (nuovo) 
 
-1. Aprire la pagina dei **criteri di sicurezza** . Questa pagina mostra il numero di gruppi di gestione, sottoscrizioni, aree di lavoro e struttura del gruppo di gestione.
+1. Dall'intestazione laterale del Centro sicurezza selezionare **conformità normativa** per aprire il dashboard conformità normativa. Qui è possibile visualizzare gli standard di conformità attualmente assegnati alle sottoscrizioni attualmente selezionate.   
 
-1. Selezionare la sottoscrizione o il gruppo di gestione per cui si desidera gestire il comportamento di conformità alle normative. Si consiglia di selezionare l'ambito più elevato per cui è applicabile lo standard in modo che i dati di conformità vengano aggregati e monitorati per tutte le risorse nidificate. 
+1. Nella parte superiore della pagina selezionare **Gestisci criteri di conformità**. Verrà visualizzata la pagina Gestione criteri.
+
+1. Selezionare la sottoscrizione o il gruppo di gestione per cui si desidera gestire il comportamento di conformità alle normative. 
+
+    > [!TIP]
+    > Si consiglia di selezionare l'ambito più elevato per cui è applicabile lo standard in modo che i dati di conformità vengano aggregati e monitorati per tutte le risorse nidificate. 
 
 1. Nella sezione relativa agli standard normativi del settore & si noterà che Azure CIS 1.1.0 può essere aggiornato per il nuovo contenuto. Fare clic su **Aggiorna ora**. 
 
-1. Facoltativamente, fare clic su **Aggiungi altri standard** per aprire la pagina **Aggiungi standard di conformità normativi** . In questa pagina è possibile eseguire ricerche manualmente per i pacchetti di **Azure (nuovi)** e dinamici di Azure per altri standard di conformità come **NIST SP 800-53 R4**, **Swift CSP CSCF-V2020**, **uko e UK NHS**e **Canada PBMM**.
+1. Facoltativamente, fare clic su **Aggiungi altri standard** per aprire la pagina **Aggiungi standard di conformità normativi** . In questa pagina è possibile eseguire la ricerca manuale di **Azure (nuovo)** e dei pacchetti dinamici per altri standard di conformità, ad esempio:
+
+    - **Benchmark di sicurezza di Azure** ([Dettagli qui](https://docs.microsoft.com/azure/security/benchmarks/introduction))
+    - **NIST SP 800-53 R4**
+    - **SWIFT CSP CSCF-V2020**
+    - **UKO e NHS UK**
+    - **Canada PBMM**
     
     > [!TIP]
     > Solo gli utenti che hanno il ruolo di proprietario o collaboratore di criteri hanno le autorizzazioni necessarie per aggiungere gli standard di conformità. 
 
-    ![Aggiunta di pacchetti normativi al dashboard di conformità alle normative del Centro sicurezza di Azure](./media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-additional-standards.png)
+    ![Aggiunta di pacchetti normativi al dashboard di conformità alle normative del Centro sicurezza di Azure](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 
-1. Dall'intestazione laterale del Centro sicurezza selezionare **conformità normativa** per aprire il dashboard conformità normativa. 
-    * Azure CIS 1.1.0 (nuovo) viene ora visualizzato nell'elenco degli standard normativi del settore &. 
+1. Dall'intestazione laterale del Centro sicurezza, selezionare di nuovo **conformità normativa** per tornare al dashboard conformità normativa.
+    * **Azure cis 1.1.0 (nuovo)** viene ora visualizzato nell'elenco degli standard normativi del settore &. 
     * La visualizzazione *statica* originale della conformità di Azure cis 1.1.0 rimarrà al suo insieme. Potrebbe essere rimossa automaticamente in futuro.
 
     > [!NOTE]

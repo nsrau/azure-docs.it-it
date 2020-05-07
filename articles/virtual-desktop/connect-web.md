@@ -8,14 +8,20 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70fd29944d31682de5a6a34f76fdf27e3ff7d3ff
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656365"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607844"
 ---
 # <a name="connect-with-the-web-client"></a>Connettersi con il client Web
+
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md).
+>
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il client Web consente di accedere alle risorse del desktop virtuale di Windows da un Web browser senza il lungo processo di installazione.
 
@@ -36,7 +42,7 @@ Anche se qualsiasi browser compatibile con HTML5 dovrebbe funzionare, sono suppo
 
 ## <a name="access-remote-resources-feed"></a>Accedere al feed di risorse remote
 
-In un browser passare al [client Web desktop virtuale di Windows](https://rdweb.wvd.microsoft.com/webclient) e accedere con l'account utente.
+In un browser passare al [client Web desktop virtuale di Windows](https://rdweb.wvd.microsoft.com/arm/webclient) e accedere con l'account utente.
 
 >[!NOTE]
 >Se è già stato effettuato l'accesso con un account di Azure Active Directory diverso da quello che si vuole usare per desktop virtuale Windows, è necessario disconnettersi o usare una finestra del browser privata.

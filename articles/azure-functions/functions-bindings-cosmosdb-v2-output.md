@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 743bd21a4fd974654760402a639c661fe086d2d5
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277765"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735012"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Binding di output Azure Cosmos DB per funzioni di Azure 2. x
 
@@ -527,7 +527,7 @@ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/test/WebJobs.Extensions.CosmosDB.Tests).
 
 Il costruttore dell'attributo accetta il nome del database e il nome della raccolta. Per informazioni su tali impostazioni e altre proprietà che è possibile configurare, vedere [Output - configurazione](#configuration). Di seguito è riportato un esempio dell'attributo `CosmosDB` in una firma del metodo:
 
@@ -588,7 +588,7 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Informazioni di riferimento |
+| Associazione | Riferimento |
 |---|---|
 | Cosmos DB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 

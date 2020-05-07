@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a4210947d771768943775a3e62c2558fa2883bd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a60779fb045aa612a6ba0988c4635752f973f60
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128183"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607402"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinare la latenza della connessione utente nel desktop virtuale di Windows
 
@@ -29,4 +29,4 @@ Desktop virtuale di Windows usa Gestione traffico di Azure, che controlla il per
 
 - Per controllare la posizione migliore per la latenza ottimale, vedere lo [strumento Windows Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - Per i piani tariffari, vedere [prezzi di desktop virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- Per iniziare a usare la distribuzione di desktop virtuali Windows, vedere [l'esercitazione](tenant-setup-azure-active-directory.md).
+- Per iniziare a usare la distribuzione di desktop virtuali Windows, vedere [l'esercitazione](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09dd4ea3cd039bcb91acc877e51fee7e40168ac3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303223"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612759"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server con una condivisione file Premium in macchine virtuali di Azure
 
@@ -47,7 +47,7 @@ Una cosa da tenere presente è che in un cluster di failover di macchine virtual
 > [!IMPORTANT]
 > A questo punto, SQL Server istanze del cluster di failover in macchine virtuali di Azure sono supportate solo con la [modalità di gestione semplice](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) dell' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Per passare dalla modalità di estensione completa a quella Lightweight, eliminare la risorsa della **macchina virtuale SQL** per le macchine virtuali corrispondenti e quindi registrarla con il provider di risorse VM SQL in modalità lightweight. Quando si elimina la risorsa della **macchina virtuale SQL** utilizzando la portale di Azure, **deselezionare la casella di controllo accanto alla macchina virtuale corretta**. L'estensione completa supporta funzionalità quali il backup automatizzato, l'applicazione di patch e la gestione avanzata del portale. Queste funzionalità non funzioneranno per le macchine virtuali SQL dopo che l'agente è stato reinstallato in modalità di gestione leggera.
 
-Le condivisioni file Premium forniscono IOPS e in tutte le capacità che soddisferanno le esigenze di molti carichi di lavoro. Per i carichi di lavoro con i/o intensivi, prendere in considerazione [SQL Server istanze del cluster di failover con spazi di archiviazione diretta](virtual-machines-windows-portal-sql-create-failover-cluster.md), in base a dischi Premium gestiti o dischi Ultra.  
+Le condivisioni file Premium offrono capacità di IOPS e velocità effettiva che soddisferanno le esigenze di molti carichi di lavoro. Per i carichi di lavoro con i/o intensivi, prendere in considerazione [SQL Server istanze del cluster di failover con spazi di archiviazione diretta](virtual-machines-windows-portal-sql-create-failover-cluster.md), in base a dischi Premium gestiti o dischi Ultra.  
 
 Controllare l'attività IOPS dell'ambiente e verificare che le condivisioni file Premium forniscano gli IOPS necessari prima di avviare una distribuzione o una migrazione. Utilizzare i contatori dei dischi di performance monitor di Windows per monitorare il numero totale SQL Server di operazioni di i/o al secondo e la velocità effettiva (byte disco/secondo) richieste per i file di dati, di log e di database temporanei.
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: c91b38fcbfb9b517651adead010408425e519a82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b71890323f6aca92fb9f847252feed57d8db234f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382750"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594951"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Aree di Azure in cui esiste Video Indexer
 
@@ -23,7 +23,7 @@ Le API di Video Indexer contengono un parametro **location** che è consigliabil
 
 ## <a name="locations"></a>Percorsi
 
-Al parametro **location** deve essere assegnato come valore il nome del codice di un'area di Azure. Se si usa Video Indexer in modalità di anteprima, inserire *"trial"* come valore. In alternativa, per ottenere il nome del codice dell'area di Azure in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](/cli/azure):
+Al `location` parametro deve essere assegnato il nome del codice dell'area di Azure come valore. Se si usa Video Indexer in modalità di anteprima, è necessario inserire `"trial"` come valore. `trial`è il valore predefinito per il `location` parametro. In alternativa, per ottenere il nome del codice dell'area di Azure in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](/cli/azure):
 
 ```azurecli-interactive
 az account list-locations

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ff2267c2d03076d3abc44d0bd1dddc64577cc7f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283862"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611416"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guida di riferimento allo schema per il linguaggio di definizione del flusso di lavoro in Azure per la logica
 
@@ -74,7 +74,7 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 },
 ```
 
-| Attributo | Obbligatoria | Type | Description |
+| Attributo | Necessario | Type | Description |
 |-----------|----------|------|-------------|
 | <*Nome parametro*> | Sì | string | Nome del parametro che si desidera definire |
 | <*tipo di parametro*> | Sì | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Nota**: per tutte le password, le chiavi e i segreti, `securestring` usare `secureobject` i tipi o `GET` perché l'operazione non restituisce questi tipi. Per ulteriori informazioni sulla protezione dei parametri, vedere [suggerimenti sulla sicurezza per i parametri di input e di azione](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Tipo di parametro |
@@ -112,7 +112,7 @@ Nell' `staticResults` attributo definire la simulazione `outputs` di un'azione e
 }
 ```
 
-| Attributo | Obbligatoria | Type | Description |
+| Attributo | Necessario | Type | Description |
 |-----------|----------|------|-------------|
 | <*Nome-risultato statico-definizione*> | Sì | string | Nome di una definizione di risultato statico a cui può fare riferimento una definizione di `runtimeConfiguration.staticResult` azione tramite un oggetto. Per altre informazioni vedere [Impostazioni di configurazione di runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>È possibile usare qualsiasi nome univoco desiderato. Per impostazione predefinita, questo nome univoco viene aggiunto con un numero, che viene incrementato in base alle esigenze. |
 | <*output-attributi e valori-restituiti*> | Sì | Variabile | I requisiti per questi attributi variano in base a condizioni diverse. Ad esempio, quando `status` è `Succeeded`, l' `outputs` attributo include gli attributi e i valori restituiti come output fittizi dall'azione. `status` Se `Failed`è, `outputs` l'attributo include l' `errors` attributo, ovvero una matrice con uno o più oggetti Error `message` con informazioni sull'errore. |
@@ -178,7 +178,7 @@ Con JSON è possibile avere valori letterali già esistenti in fase di progettaz
 "rainbowColorsCount": 7
 ```
 
-È anche possibile avere valori che non esistono fino all'esecuzione. Per rappresentare questi valori è possibile usare *espressioni* che vengono valutate in fase di esecuzione. Un'espressione è una sequenza che può contenere una o più [funzioni](#functions), [operatori](#operators), variabili, valori espliciti o costanti. Nella definizione del flusso di lavoro è possibile usare un'espressione in qualsiasi punto di un valore stringa JSON aggiungendo all'espressione il prefisso (\@). Quando si valuta un'espressione che rappresenta un valore JSON, il corpo dell'espressione viene estratto rimuovendo il carattere \@ e si ottiene sempre un altro valore JSON.
+È anche possibile avere valori che non esistono fino all'esecuzione. Per rappresentare questi valori è possibile usare *espressioni* che vengono valutate in fase di esecuzione. Un'espressione è una sequenza che può contenere una o più [funzioni](#functions), [operatori](#operators), [variabili](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), valori espliciti o costanti. Nella definizione del flusso di lavoro è possibile usare un'espressione in qualsiasi punto di un valore stringa JSON aggiungendo all'espressione il prefisso (\@). Quando si valuta un'espressione che rappresenta un valore JSON, il corpo dell'espressione viene estratto rimuovendo il carattere \@ e si ottiene sempre un altro valore JSON.
 
 Ad esempio, per la proprietà `customerName` definita in precedenza è possibile ottenere il valore usando la funzione [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) in un'espressione e assegnare tale valore alla proprietà `accountName`:
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 04/30/2020
 ms.author: spelluru
-ms.openlocfilehash: cb9a3e2b9ddcd0f74bfa4978f0bc3f4eb0688257
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dfd16d0977504e598492225238d29c83fcb7a028
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270862"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598063"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Abilitare Desktop remoto per le macchine virtuali Linux in un Lab in Azure Lab Services
 Questo articolo illustra come eseguire le attività seguenti:
@@ -36,7 +36,7 @@ Nella finestra di messaggio **Abilitazione di connessione Desktop remoto** selez
 ![Abilitare la connessione Desktop remoto per un'immagine Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> L'abilitazione di **Connessione desktop remoto** apre solo la porta **RDP** nei computer Linux. Se RDP è già installato e configurato nell'immagine della macchina virtuale (ad esempio, Ubuntu Data Science Virtual Machine Image), gli studenti possono connettersi alle macchine virtuali tramite RDP senza seguire ulteriori passaggi.
+> L'abilitazione di **Connessione desktop remoto** apre solo la porta **RDP** nei computer Linux. Se RDP è già installato e configurato nell'immagine della macchina virtuale, gli studenti possono connettersi alle macchine virtuali tramite RDP senza seguire ulteriori passaggi.
 > 
 > Se l'immagine di macchina virtuale non dispone di RDP installato e configurato, è necessario connettersi al computer Linux usando SSH per la prima volta e installare i pacchetti RDP e GUI in modo che gli studenti possano connettersi al computer Linux usando RDP in un secondo momento. Per altre informazioni, vedere [installare e configurare Desktop remoto per connettersi a una macchina virtuale Linux in Azure](../../virtual-machines/linux/use-remote-desktop.md). Quindi, si pubblica l'immagine in modo che gli studenti possano usare il protocollo RDP per le macchine virtuali Linux per studenti. 
 

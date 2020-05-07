@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 495877f1c839de2cf3583a37180054c91bd9f139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76907773"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732003"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorare lo stato di esecuzione, rivedere la cronologia dei trigger e configurare gli avvisi per le app per la logica di Azure
 
@@ -19,7 +19,8 @@ Dopo aver [creato ed eseguito un'app per la logica](../logic-apps/quickstart-cre
 
 Per il monitoraggio degli eventi in tempo reale e il debug più completo, configurare la registrazione diagnostica per l'app per la logica usando i [log di monitoraggio di Azure](../azure-monitor/overview.md). Questo servizio di Azure consente di monitorare gli ambienti cloud e locali in modo da mantenere la disponibilità e le prestazioni più semplici. È quindi possibile trovare e visualizzare gli eventi, ad esempio eventi trigger, eventi di esecuzione ed eventi di azione. Archiviando queste informazioni nei [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md), è possibile creare [query di log](../azure-monitor/log-query/log-query-overview.md) che consentono di trovare e analizzare tali informazioni. È anche possibile usare questi dati di diagnostica con altri servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. Per altre informazioni, vedere [monitorare le app per la logica con monitoraggio di Azure](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> Se le app per la logica vengono eseguite in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) creato per usare un [endpoint di accesso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni dell'app per *la logica solo dall'interno della rete virtuale*. Assicurarsi di disporre della connettività di rete tra gli endpoint privati e il computer da cui si vuole accedere alla cronologia delle esecuzioni. Ad esempio, il computer client può esistere all'interno della rete virtuale di ISE o in una rete virtuale connessa alla rete virtuale di ISE, ad esempio tramite il peering o una rete privata virtuale. Per altre informazioni, vedere [ISE endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 

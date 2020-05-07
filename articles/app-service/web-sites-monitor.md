@@ -1,18 +1,18 @@
 ---
-title: Monitorare le app
+title: Eseguire il monitoraggio delle app
 description: Informazioni su come monitorare le app di Servizio app di Azure tramite il portale di Azure. Comprendere le quote e le metriche segnalate.
 author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 8baefcbfa1eb34bc6cd37e4325d9a9bfc11e2d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181223"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738100"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [App Azure servizio](https://go.microsoft.com/fwlink/?LinkId=529714) fornisce funzionalità di monitoraggio predefinite per app Web, per dispositivi mobili e per le app per le API nel [portale di Azure](https://portal.azure.com).
@@ -36,7 +36,7 @@ Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 | **Tempo CPU (breve)** | Quantità di CPU consentita per l'app in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni cinque minuti. |
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
 | **Memoria** | Quantità totale di memoria consentita per l'app. |
-| **Banda** | Quantità totale di larghezza di banda in uscita consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
+| **Larghezza di banda** | Quantità totale di larghezza di banda in uscita consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
 | **Filesystem** | Quantità totale di spazio di archiviazione consentito. |
 
 L'unica quota applicabile alle app ospitate in *Basic*, *standard*e *Premium* è file System.
@@ -49,7 +49,7 @@ Se l'uso di un'app supera la quota *Tempo CPU (breve)*, *Tempo CPU (giorno)* o *
 
 ![Messaggio di errore 403][http403]
 
-Se viene superata la quota Memoria dell'app, quest'ultima viene riavviata.
+Se viene superata la quota di memoria dell'app, l'app viene arrestata temporaneamente.
 
 Se viene superata la quota Filesystem, tutte le operazioni di scrittura hanno esito negativo. Gli eventuali errori delle operazioni di scrittura includono qualsiasi operazione di scrittura nei log.
 
@@ -99,7 +99,7 @@ Le metriche disponibili per un'app sono:
 | **I/O - Operazioni di scrittura al secondo** | Frequenza con cui il processo dell'app rilascia le operazioni di I/O di scrittura.|
 | **working set memoria** | Quantità di memoria corrente usata dall'app, espressa in MiB. |
 | **Byte privati** | Byte privati è la dimensione corrente, in byte, della memoria allocata dal processo dell'app che non può essere condivisa con altri processi.|
-| **Richieste** | Numero totale di richieste, indipendentemente dal codice di stato HTTP restituito. |
+| **Requests** | Numero totale di richieste, indipendentemente dal codice di stato HTTP restituito. |
 | **Richieste nella coda dell'applicazione** | Numero di richieste nella coda di richieste dell'applicazione.|
 | **Numero dei thread** | Numero di thread attualmente attivi nel processo dell'app.|
 | **Totale di domini app** | Numero corrente di domini dell'applicazione caricati in questa applicazione.|
@@ -131,8 +131,7 @@ Le metriche che riflettono l'utilizzo della CPU sono due:
 **Percentuale CPU**: utile per le app ospitate nei piani Basic, standard e Premium, perché possono essere scalate orizzontalmente. La percentuale di CPU è una indicazione corretta dell'utilizzo complessivo in tutte le istanze.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularità delle metriche e criteri di conservazione
-
-Le metriche per un'app e il piano di servizio app vengono registrate e aggregate dal servizio. Le metriche vengono conservate per 90 giorni.
+Le metriche per un'app e il piano di servizio app vengono registrate e aggregate dal servizio e [mantenute in base a queste regole](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoraggio di quote e metriche nel portale di Azure
 Per esaminare lo stato delle varie quote e metriche che interessano un'app, accedere al [portale di Azure](https://portal.azure.com).

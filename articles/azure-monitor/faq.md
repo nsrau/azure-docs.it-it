@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: db63ce2d56eb78bf6b361d530511b6902c1cb6d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637782"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732037"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su monitoraggio di Azure
 
@@ -255,11 +255,15 @@ Vedere le [note sulla versione](app/release-notes.md) dell'SDK appropriato per i
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>In che modo è possibile modificare la risorsa di Azure che riceve i dati del progetto?
 In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationInsights.config` e scegliere **Aggiorna Application Insights**. È possibile inviare i dati a una risorsa nuova o esistente in Azure. L'aggiornamento guidato modifica la chiave di strumentazione in ApplicationInsights.config, che determina la destinazione dei dati inviati dall'SDK del server. A meno che non venga deselezionata l'opzione "Aggiorna tutto", modificherà anche la chiave in cui appare nelle pagine Web.
 
+### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>È possibile usare `providers('Microsoft.Insights', 'components').apiVersions[0]` nelle distribuzioni di Azure Resource Manager?
+
+Non è consigliabile usare questo metodo per popolare la versione dell'API. La versione più recente può rappresentare versioni di anteprima che possono contenere modifiche di rilievo. Anche con le versioni non di anteprima più recenti, le versioni dell'API non sono sempre compatibili con i modelli esistenti o in alcuni casi la versione dell'API potrebbe non essere disponibile per tutte le sottoscrizioni.
+
 ### <a name="what-is-status-monitor"></a>Che cos'è Status Monitor?
 
 Un'app desktop che è possibile usare nel server Web IIS per configurare Application Insights nelle app Web. Non raccoglie dati di telemetria: è possibile interromperlo se non si sta configurando un'app. 
 
-[Altre informazioni](app/monitor-performance-live-website-now.md#questions)
+[Altre informazioni](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>Quali dati di telemetria vengono raccolti da Application Insights?
 
@@ -305,7 +309,7 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 * Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione in Application Insights fare riferimento a questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/)
+È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 È possibile [usare Power BI](app/export-power-bi.md ) per visualizzare i dati di telemetria della richiesta in una mappa.
 
@@ -412,7 +416,7 @@ Ciò non dipende da dove è ospitata la risorsa di Application Insights. Dipende
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>È possibile inviare dati di telemetria al portale di Application Insights?
 
-È consigliabile usare gli SDK di Microsoft e l'[API SDK](app/api-custom-events-metrics.md). Sono disponibili varianti dell'SDK per diverse [piattaforme](app/platforms.md). Gli SDK gestiscono bufferring, compressione, limitazione, tentativi e così via. Tuttavia, lo [schema di inserimento](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e il [protocollo di endpoint](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sono pubblici.
+È consigliabile usare gli SDK di Microsoft e l'[API SDK](app/api-custom-events-metrics.md). Sono disponibili varianti dell'SDK per diverse [piattaforme](app/platforms.md). Gli SDK gestiscono bufferring, compressione, limitazione, tentativi e così via. Tuttavia, lo [schema di inserimento](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) e il [protocollo di endpoint](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sono pubblici.
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>È possibile monitorare un server Web Intranet?
 

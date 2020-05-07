@@ -3,12 +3,12 @@ title: Supporto per la migrazione di VMware in Azure Migrate
 description: Informazioni sul supporto per la migrazione di macchine virtuali VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 666fcc3771dfd4adadeab30fa5d1ec51da5bc038
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538138"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743675"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -69,7 +69,7 @@ La migrazione senza agente usa il [dispositivo Azure migrate](migrate-appliance.
 
 - Informazioni sui [requisiti degli appliance](migrate-appliance.md#appliance---vmware) per VMware.
 - Informazioni sugli URL necessari all'appliance per accedere ai cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi](migrate-appliance.md#government-cloud-urls) .
-- In Azure per enti pubblici è necessario distribuire l'appliance con lo script.
+- In Azure per enti pubblici è necessario distribuire l'appliance [con lo script](deploy-appliance-script-government.md).
 
 ## <a name="agentless-ports"></a>Porte senza agenti
 
@@ -140,7 +140,7 @@ Server di elaborazione | Il server di elaborazione riceve i dati di replica, li 
 
 Tutte le macchine virtuali locali replicate in Azure devono soddisfare i requisiti della macchina virtuale di Azure riepilogati in questa tabella. Quando Site Recovery esegue un controllo dei prerequisiti per la replica, il controllo ha esito negativo se alcuni dei requisiti non vengono soddisfatti.
 
-**Componente** | **Requirements** | **Dettagli**
+**Componente** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Sistema operativo guest | Verifica i sistemi operativi della macchina virtuale VMware supportati per la migrazione.<br/> È possibile eseguire la migrazione di qualsiasi carico di lavoro in esecuzione in un sistema operativo supportato. | Il controllo ha esito negativo se non supportato.
 Architettura del sistema operativo guest | 64 bit. | Il controllo ha esito negativo se non supportato.
@@ -153,7 +153,7 @@ VHD condiviso | Non supportata. | Il controllo ha esito negativo se non supporta
 Disco FC | Non supportata. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportata. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **app consentite**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md) |
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **app consentite**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md). |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 

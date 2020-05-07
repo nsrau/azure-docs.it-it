@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a878ecf4519a852a9798b320bda26cd490487a4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676435"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731986"
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gestire gli aggiornamenti per più macchine virtuali Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "81676435"
 - Pianificare l'installazione degli aggiornamenti necessari.
 - Esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitato Gestione aggiornamenti.
 
-Per informazioni sui requisiti di sistema per Gestione aggiornamenti, vedere [requisiti di gestione aggiornamenti client](automation-update-management.md#clients).
+Per informazioni sui requisiti di sistema per Gestione aggiornamenti, vedere [requisiti di gestione aggiornamenti client](automation-update-management.md#client-requirements).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

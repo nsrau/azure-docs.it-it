@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662077"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738083"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struttura dei log di monitoraggio di Azure
 La possibilità di ottenere rapidamente informazioni dettagliate sui dati tramite una query di [log](log-query-overview.md) è una funzionalità potente di monitoraggio di Azure. Per creare query efficienti e utili, è necessario comprendere alcuni concetti di base, ad esempio dove si trovano i dati desiderati e come sono strutturati. Questo articolo fornisce i concetti di base necessari per iniziare.
@@ -54,16 +54,17 @@ A differenza di un'area di lavoro Log Analytics, un'applicazione Application Ins
 
 | Tabella | Descrizione | 
 |:---|:---|
-| availabilityResults | Riepilogare i dati dei test di disponibilità. |
-| browserTimings      | Dati sulle prestazioni del client, ad esempio il tempo impiegato per elaborare i dati in ingresso. |
-| customEvents        | Eventi personalizzati creati dall'applicazione. |
-| customMetrics       | Metriche personalizzate create dall'applicazione. |
-| dependencies        | Chiamate dall'applicazione a componenti esterni. |
-| eccezioni          | Eccezioni generate dal runtime dell'applicazione. |
-| pageViews           | Dati relativi a ogni visualizzazione del sito Web con le informazioni del browser. |
-| performanceCounters | Misurazioni delle prestazioni dalle risorse di calcolo che supportano l'applicazione. |
-| requests            | Dettagli di ogni richiesta dell'applicazione.  |
-| traces              | Risultati dalla traccia distribuita. |
+| availabilityResults   | Riepilogare i dati dei test di disponibilità.
+| browserTimings      |     Dati sulle prestazioni del client, ad esempio il tempo impiegato per elaborare i dati in ingresso.
+| customEvents        | Eventi personalizzati creati dall'applicazione.
+| customMetrics       | Metriche personalizzate create dall'applicazione.
+| dependencies        | Chiamate dall'applicazione ad altri componenti (inclusi i componenti esterni) registrati tramite TrackDependency (), ad esempio chiamate a API REST, database o un file system. 
+| eccezioni            | Eccezioni generate dal runtime dell'applicazione, acquisisce le eccezioni lato server e lato client (browser).
+| pageViews           | Dati relativi a ogni visualizzazione del sito Web con le informazioni del browser.
+| performanceCounters   | Misurazioni delle prestazioni dalle risorse di calcolo che supportano l'applicazione, ad esempio i contatori delle prestazioni di Windows.
+| requests            | Richieste ricevute dall'applicazione. Ad esempio, viene registrato un record di richiesta separato per ogni richiesta HTTP ricevuta dall'app Web. 
+| traces                | Log dettagliati (tracce) emessi tramite il codice dell'applicazione/Framework di registrazione registrati tramite TrackTrace ().
+
 
 È possibile visualizzare lo schema per ogni tabella nella scheda **schema** log Analytics per l'applicazione.
 
@@ -75,7 +76,7 @@ Mentre ogni tabella nei log di monitoraggio di Azure ha un proprio schema, sono 
 | Area di lavoro Log Analytics | Applicazione Application Insights | Descrizione |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | Data e ora di creazione del record. |
-| Tipo          | itemType   | Nome della tabella da cui è stato recuperato il record. |
+| Type          | itemType   | Nome della tabella da cui è stato recuperato il record. |
 | _ResourceId   |            | Identificatore univoco per la risorsa a cui è associato il record. |
 | _IsBillable   |            | Specifica se i dati inseriti sono fatturabili. |
 | _BilledSize   |            | Specifica le dimensioni in byte dei dati che verranno fatturati. |

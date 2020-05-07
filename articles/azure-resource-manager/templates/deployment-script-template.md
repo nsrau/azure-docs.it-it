@@ -5,21 +5,20 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: jgao
-ms.openlocfilehash: 99db4ec61a515301224691d7c2e4e3c905fee1c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188910"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610803"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
 Informazioni su come usare gli script di distribuzione nei modelli di risorse di Azure. Con un nuovo tipo di risorsa `Microsoft.Resources/deploymentScripts`denominato, gli utenti possono eseguire script di distribuzione nelle distribuzioni di modelli ed esaminare i risultati dell'esecuzione. Questi script possono essere usati per eseguire passaggi personalizzati, ad esempio:
 
 - aggiungere utenti a una directory
-- creare una registrazione per l'app
 - eseguire operazioni sul piano dati, ad esempio, copiare i BLOB o il database di inizializzazione
 - cercare e convalidare un codice di licenza
 - Creare un certificato autofirmato
@@ -37,14 +36,14 @@ I vantaggi dello script di distribuzione:
 La risorsa script di distribuzione è disponibile solo nelle aree in cui è disponibile l'istanza di contenitore di Azure.  Vedere [disponibilità delle risorse per istanze di contenitore di Azure in aree di Azure](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
-> Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione dello script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio script quando l'esecuzione dello script di distribuzione si trova in uno stato terminale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulisci risorse script di distribuzione](#clean-up-deployment-script-resources).
+> Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili le opzioni per specificare un account di archiviazione esistente. in caso contrario, l'account di archiviazione insieme all'istanza del contenitore viene creato automaticamente dal servizio script. Le due risorse create automaticamente vengono in genere eliminate dal servizio script quando l'esecuzione dello script di distribuzione si trova in uno stato terminale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulisci risorse script di distribuzione](#clean-up-deployment-script-resources).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - **Identità gestita assegnata dall'utente con il ruolo di collaboratore al gruppo di risorse di destinazione**. Questa identità viene usata per eseguire gli script di distribuzione. Per eseguire operazioni all'esterno del gruppo di risorse, è necessario concedere autorizzazioni aggiuntive. Ad esempio, assegnare l'identità al livello della sottoscrizione se si vuole creare un nuovo gruppo di risorse.
 
   > [!NOTE]
-  > Il motore di script di distribuzione crea un account di archiviazione e un'istanza del contenitore in background.  Un'identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione è obbligatoria se la sottoscrizione non ha registrato i provider di risorse dell'account di archiviazione di Azure (Microsoft. Storage) e dell'istanza di contenitore di Azure (Microsoft. ContainerInstance).
+  > Il servizio script crea un account di archiviazione (a meno che non si specifichi un account di archiviazione esistente) e un'istanza del contenitore in background.  Un'identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione è obbligatoria se la sottoscrizione non ha registrato i provider di risorse dell'account di archiviazione di Azure (Microsoft. Storage) e dell'istanza di contenitore di Azure (Microsoft. ContainerInstance).
 
   Per creare un'identità, vedere [creare un'identità gestita assegnata dall'utente usando il portale di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)o l' [interfaccia](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)della riga di comando di Azure oppure [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 
@@ -101,6 +100,13 @@ Il codice JSON seguente è un esempio.  Lo schema del modello più recente è di
   },
   "properties": {
     "forceUpdateTag": 1,
+    "containerSettings": {
+      "containerGroupName": "mycustomaci"
+    },
+    "storageAccountSettings": {
+      "storageAccountName": "myStorageAccount",
+      "storageAccountKey": "myKey"
+    },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "environmentVariables": [
@@ -132,6 +138,8 @@ Dettagli valore proprietà:
 - **Identity**: il servizio script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script. Attualmente è supportata solo l'identità gestita assegnata dall'utente.
 - **kind**: specificare il tipo di script. Attualmente, Azure PowerShell e gli script dell'interfaccia della riga di comando di Azure sono supportati. I valori sono **AzurePowerShell** e **AzureCLI**.
 - **Proprietà forceupdatetag**: la modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Usare la funzione newGuid () o utcNow () che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
+- **containerSettings**: specificare le impostazioni per personalizzare l'istanza di contenitore di Azure.  **containerGroupName** è per specificare il nome del gruppo di contenitori.  Se non specificato, il nome del gruppo verrà generato automaticamente.
+- **storageAccountSettings**: specificare le impostazioni per l'uso di un account di archiviazione esistente. Se non specificato, viene creato automaticamente un account di archiviazione. Vedere [usare un account di archiviazione esistente](#use-an-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: specificare la versione del modulo da usare. Per un elenco delle versioni supportate di PowerShell e dell'interfaccia della riga di comando, vedere [prerequisiti](#prerequisites).
 - **arguments**: Specificare i valori del parametro. I valori sono separati da uno spazio.
 - **EnvironmentVariables**: specificare le variabili di ambiente da passare allo script. Per altre informazioni, vedere [sviluppare script di distribuzione](#develop-deployment-scripts).
@@ -241,7 +249,7 @@ Gli output dello script di distribuzione devono essere salvati nel percorso AZ_S
 ### <a name="handle-non-terminating-errors"></a>Gestione degli errori non fatali
 
 È possibile controllare il modo in cui PowerShell risponde agli errori non fatali usando la variabile [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) nello script di distribuzione. Il motore di script di distribuzione non imposta o modifica il valore.  Nonostante il valore impostato per $ErrorActionPreference, lo script di distribuzione imposta lo stato di provisioning delle risorse su *non riuscito* quando si verifica un errore nello script.
+) nello script di distribuzione. Il servizio script non imposta o modifica il valore.  Nonostante il valore impostato per $ErrorActionPreference, lo script di distribuzione imposta lo stato di provisioning delle risorse su *non riuscito* quando si verifica un errore nello script.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passa stringhe protette allo script di distribuzione
 
@@ -249,7 +257,7 @@ L'impostazione delle variabili di ambiente (Metodo EnvironmentVariable) nelle is
 
 ## <a name="debug-deployment-scripts"></a>Debug degli script di distribuzione
 
-Il servizio script crea un [account di archiviazione](../../storage/common/storage-account-overview.md) e un' [istanza del contenitore](../../container-instances/container-instances-overview.md) per l'esecuzione dello script. Entrambe le risorse hanno il suffisso **azscripts** nei nomi delle risorse.
+Il servizio script crea un [account di archiviazione](../../storage/common/storage-account-overview.md) (a meno che non si specifichi un account di archiviazione esistente) e un' [istanza del contenitore](../../container-instances/container-instances-overview.md) per l'esecuzione dello script. Se queste risorse vengono create automaticamente dal servizio script, entrambe le risorse hanno il suffisso **azscripts** nei nomi delle risorse.
 
 ![Nomi delle risorse dello script di distribuzione del modello Gestione risorse](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -292,17 +300,38 @@ Per visualizzare la risorsa deploymentScripts nel portale, selezionare **Mostra 
 
 ![Gestione risorse script di distribuzione del modello, Mostra tipi nascosti, portale](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
+## <a name="use-an-existing-storage-account"></a>Usare un account di archiviazione esistente
+
+Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili le opzioni per specificare un account di archiviazione esistente. in caso contrario, l'account di archiviazione insieme all'istanza del contenitore viene creato automaticamente dal servizio script. Requisiti per l'uso di un account di archiviazione esistente:
+
+- I tipi di account di archiviazione supportati sono: account per utilizzo generico V2, account per utilizzo generico V1 e account di archiviazione. Per altre informazioni, vedere [tipi di account di archiviazione](../../storage/common/storage-account-overview.md).
+- Le regole del firewall dell'account di archiviazione devono essere disattivate. Vedere [configurare i firewall e la rete virtuale di archiviazione di Azure](../../storage/common/storage-network-security.md)
+- L'identità gestita assegnata dall'utente dello script di distribuzione deve avere le autorizzazioni per gestire l'account di archiviazione, che include le condivisioni file di lettura, creazione ed eliminazione.
+
+Per specificare un account di archiviazione esistente, aggiungere il codice JSON seguente all'elemento Property `Microsoft.Resources/deploymentScripts`di:
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+Per [Sample templates](#sample-templates) un esempio di definizione completo `Microsoft.Resources/deploymentScripts` , vedere modelli di esempio.
+
+Quando viene usato un account di archiviazione esistente, il servizio script crea una condivisione file con un nome univoco. Vedere [pulire le risorse di script di distribuzione](#clean-up-deployment-script-resources) per il modo in cui il servizio script pulisce la condivisione file.
+
 ## <a name="clean-up-deployment-script-resources"></a>Pulisci risorse script di distribuzione
 
-Lo script di distribuzione crea un account di archiviazione e un'istanza del contenitore usati per l'esecuzione degli script di distribuzione e l'archiviazione delle informazioni di debug. Queste due risorse vengono create nello stesso gruppo di risorse delle risorse di cui è stato effettuato il provisioning e verranno eliminate dal servizio script al termine dello script. È possibile controllare il ciclo di vita di queste risorse.  Fino a quando non vengono eliminati, verranno addebitate entrambe le risorse. Per informazioni sui prezzi, vedere prezzi delle [istanze di contenitore](https://azure.microsoft.com/pricing/details/container-instances/) e prezzi di [archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili le opzioni per specificare un account di archiviazione esistente. in caso contrario, un account di archiviazione insieme a un'istanza del contenitore viene creato automaticamente dal servizio script. Le due risorse create automaticamente vengono eliminate dal servizio script quando l'esecuzione dello script di distribuzione si trova in uno stato terminale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per informazioni sui prezzi, vedere prezzi delle [istanze di contenitore](https://azure.microsoft.com/pricing/details/container-instances/) e prezzi di [archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 Il ciclo di vita di queste risorse è controllato dalle seguenti proprietà nel modello:
 
-- **cleanupPreference**: consente di pulire le preferenze quando l'esecuzione dello script si trova in uno stato terminale.  I valori supportati sono:
+- **cleanupPreference**: consente di pulire le preferenze quando l'esecuzione dello script si trova in uno stato terminale. I valori supportati sono:
 
-  - **Sempre**: eliminare le risorse dopo che l'esecuzione dello script si trova in uno stato terminale. Poiché la risorsa deploymentScripts potrebbe essere ancora presente dopo la pulizia delle risorse, lo script del sistema copia i risultati dell'esecuzione dello script, ad esempio stdout, gli output, il valore restituito e così via, nel database prima che le risorse vengano eliminate.
-  - **OnSuccess**: Elimina le risorse solo quando l'esecuzione dello script ha esito positivo. È comunque possibile accedere alle risorse per trovare le informazioni di debug.
-  - **Onexpireation**: Elimina le risorse solo quando l'impostazione **retentionInterval** è scaduta. Questa proprietà è attualmente disabilitata.
+  - **Sempre**: eliminare le risorse create automaticamente dopo che l'esecuzione dello script è stata eseguita in uno stato terminale. Se viene usato un account di archiviazione esistente, il servizio script Elimina la condivisione file creata nell'account di archiviazione. Poiché la risorsa deploymentScripts può essere ancora presente dopo la pulizia delle risorse, i servizi script salvano in modo permanente i risultati dell'esecuzione dello script, ad esempio stdout, output, valore restituito e così via, prima che le risorse vengano eliminate.
+  - **OnSuccess**: Elimina le risorse create automaticamente solo quando l'esecuzione dello script ha esito positivo. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file solo quando l'esecuzione dello script ha esito positivo. È comunque possibile accedere alle risorse per trovare le informazioni di debug.
+  - **Onexpireation**: eliminare le risorse automaticamente solo quando l'impostazione **retentionInterval** è scaduta. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file, ma mantiene l'account di archiviazione.
 
 - **retentionInterval**: specificare l'intervallo di tempo durante il quale verrà mantenuta una risorsa di script e dopo la scadenza e l'eliminazione.
 

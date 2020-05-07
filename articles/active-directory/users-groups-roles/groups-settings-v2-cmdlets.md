@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc12e571ca955a0ddc47e1c1dd73c2717161df4b
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74233104"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739314"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 
@@ -52,6 +52,10 @@ Per verificare che il modulo sia pronto per l'uso, usare il comando seguente:
 
 A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descrizione completa dei cmdlet nel modulo Azure AD, consultare la documentazione di riferimento online per [Azure Active Directory PowerShell versione 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
+> [!NOTE]
+> I cmdlet di PowerShell per Azure AD non funzionano con il nuovo PowerShell 7, perché si basa su .NET Core. È in corso il processo di aggiornamento. Al momento, è consigliabile usare il modulo Windows PowerShell 5. x da usare per le operazioni di Azure AD PowerShell. 
+
+
 ## <a name="connect-to-the-directory"></a>Connettersi alla directory
 
 Prima di iniziare la gestione di gruppi mediante i cmdlet PowerShell di Azure AD, è necessario connettere la sessione di PowerShell alla directory da gestire. Usare il comando seguente:
@@ -63,8 +67,8 @@ Prima di iniziare la gestione di gruppi mediante i cmdlet PowerShell di Azure AD
 Il cmdlet richiede le credenziali da usare per accedere alla directory. In questo esempio si usa karen@drumkit.onmicrosoft.com per accedere alla directory dimostrativa. Il cmdlet restituisce un messaggio di conferma per indicare che la sessione è stata connessa correttamente alla directory:
 
 ```powershell
-    Account                       Environment Tenant
-    -------                       ----------- ------
+    Account                       Environment Tenant ID
+    -------                       ----------- ---------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 ```
 
@@ -318,7 +322,7 @@ Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di s
 * postmaster
 * root
 * secure
-* security
+* sicurezza
 * ssl-admin
 * webmaster
 
@@ -336,5 +340,5 @@ Il writeback dei gruppi di Office 365 è una funzionalità di anteprima pubblica
 
 Per altre informazioni su Azure Active Directory PowerShell, consultare la documentazione sui [cmdlet di Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-* [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Gestione dell'accesso alle risorse con gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

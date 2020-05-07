@@ -3,12 +3,12 @@ title: Supporto dei tag per le risorse
 description: Informazioni sui tipi di risorse di Azure che supportano i tag. Include informazioni dettagliate per tutti i servizi di Azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c035f4f9ce6b7c842caeab3b705394417d15ba0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255027"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609290"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](tag-resources.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi. È possibile visualizzare i costi in base ai tag nell' [analisi dei costi di gestione costi](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e la [fattura e i dati di utilizzo giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -789,7 +789,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Report | No | No |
 > | Impostazioni | No | No |
 > | showbackRules | No | No |
-> | Visualizzazioni | No | No |
+> | Viste | No | No |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
 
@@ -1551,6 +1551,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | virtualHubs | Sì | Sì |
 > | virtualNetworkGateways | Sì | Sì |
 > | virtualNetworks | Sì | Sì |
+> | virtualNetworks/subnet | No | No |
 > | virtualNetworkTaps | Sì | Sì |
 > | virtualWans | Sì | No |
 > | vpnGateways | Sì | Sì |

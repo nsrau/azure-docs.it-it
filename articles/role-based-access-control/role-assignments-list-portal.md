@@ -1,6 +1,6 @@
 ---
-title: Elencare le assegnazioni di ruolo usando RBAC di Azure e il portale di Azure
-description: Informazioni su come determinare le risorse a cui utenti, gruppi, entità servizio o identità gestite possono accedere usando il controllo degli accessi in base al ruolo di Azure (RBAC) e il portale di Azure.
+title: Elencare le assegnazioni di ruolo di Azure usando la portale di Azure-RBAC
+description: Informazioni su come determinare le risorse a cui utenti, gruppi, entità servizio o identità gestite possono accedere usando il portale di Azure e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062233"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735726"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Elencare le assegnazioni di ruolo usando RBAC di Azure e il portale di Azure
+# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di ruolo di Azure usando il portale di Azure
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Questo articolo descrive come elencare le assegnazioni di ruolo usando il portale di Azure.
 
@@ -138,5 +138,5 @@ Se ci si avvicina al numero massimo e si tenta di aggiungere altre assegnazioni 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e il portale di Azure](role-assignments-portal.md)
-- [Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure](troubleshooting.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-portal.md)
+- [Risolvere i problemi relativi a RBAC di Azure](troubleshooting.md)
