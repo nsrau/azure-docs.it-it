@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway

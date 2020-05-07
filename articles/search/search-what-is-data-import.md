@@ -73,7 +73,7 @@ Il formato per POST è lo stesso, ma con solo la versione dell'API nei parametri
 Il modello pull effettua una ricerca per indicizzazione su un'origine dati supportata e carica automaticamente i dati nell'indice. In Azure ricerca cognitiva questa funzionalità viene implementata tramite gli *indicizzatori*, attualmente disponibili per queste piattaforme:
 
 + [Archiviazione BLOB](search-howto-indexing-azure-blob-storage.md)
-+ [Archiviazione - Tabelle](search-howto-indexing-azure-tables.md)
++ [Archiviazione tabelle](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Database SQL di Azure e SQL Server in macchine virtuali di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 

@@ -198,7 +198,7 @@ In questa sezione si effettuerà la connessione privata all'app Web usando l'end
 
 1. Si accede all'app Web tramite l'endpoint privato
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Al termine dell'uso dell'endpoint privato, dell'app Web e della macchina virtuale, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3dadb57c6358623974de1a27e1601d99b28fee32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c25c64268b38e5929c73891f7c48e79b9b8593e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80584323"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856053"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -100,7 +100,7 @@ Firewall di Azure può inviare log ai log di Archiviazione di Azure, Hub eventi 
  
 L'integrazione del firewall di Azure con i log di monitoraggio di Azure è utile quando si esegue per la prima volta un'applicazione quando non si è a conoscenza di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di monitoraggio di Azure, vedere [analizzare i dati del log in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
-## <a name="dependencies"></a>Dependencies
+## <a name="dependencies"></a>Dipendenze
 
 Le informazioni seguenti sono necessarie solo se si vuole configurare un'appliance firewall diversa da Firewall di Azure. 
 
@@ -174,6 +174,7 @@ Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente co
 |azglobal-red.azglobal.metrics.nsatc.net:443 |
 |antares-black.antares.metrics.nsatc.net:443 |
 |antares-red.antares.metrics.nsatc.net:443 |
+|prod.microsoftmetrics.com:443 |
 |maupdateaccount.blob.core.windows.net:443 |
 |clientconfig.passport.net:443 |
 |packages.microsoft.com:443 |
@@ -190,6 +191,8 @@ Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente co
 |admin.core.windows.net:443 |
 |prod.warmpath.msftcloudes.com:443 |
 |prod.warmpath.msftcloudes.com:80 |
+|gcs.prod.monitoring.core.windows.net:80|
+|gcs.prod.monitoring.core.windows.net:443|
 |azureprofileruploads.blob.core.windows.net:443 |
 |azureprofileruploads2.blob.core.windows.net:443 |
 |azureprofileruploads3.blob.core.windows.net:443 |
@@ -295,7 +298,7 @@ Linux non è disponibile nelle aree US Gov e pertanto non è elencato come confi
 | 13.82.184.151:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
 | 13.82.184.151:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
 
-#### <a name="dependencies"></a>Dependencies ####
+#### <a name="dependencies"></a>Dipendenze ####
 
 | Endpoint |
 |----------|

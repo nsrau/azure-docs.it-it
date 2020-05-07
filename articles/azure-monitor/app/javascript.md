@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276075"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854972"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -76,7 +76,7 @@ Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un n
     - ID (se presente) dell'utente che effettua la richiesta
     - Contesto di correlazione (se presente) in cui viene effettuata la richiesta
 - **Informazioni utente** (ad esempio, località, rete, IP)
-- **Informazioni sul dispositivo** (ad esempio browser, sistema operativo, versione, lingua, risoluzione, modello)
+- **Informazioni sul dispositivo** (ad esempio browser, sistema operativo, versione, lingua, modello)
 - **Informazioni sulla sessione**
 
 ### <a name="telemetry-initializers"></a>Inizializzatori di telemetria
@@ -99,7 +99,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configurazione
 La maggior parte dei campi di configurazione è denominata in modo che sia possibile impostarla su false. Tutti i campi sono facoltativi `instrumentationKey`ad eccezione di.
 
-| Name | Predefinito | Descrizione |
+| Nome | Predefinito | Descrizione |
 |------|---------|-------------|
 | instrumentationKey | Null | **Richiesto**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
 | accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
@@ -145,14 +145,21 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 
 Per impostazione predefinita, questo SDK **non** gestirà la modifica della Route basata sullo stato che si verifica nelle applicazioni a pagina singola. Per abilitare il rilevamento automatico delle modifiche della route per l'applicazione a pagina singola `enableAutoRouteTracking: true` , è possibile aggiungere alla configurazione di installazione.
 
-Attualmente si offre un plug-in [React](#react-extensions) separato che è possibile inizializzare con questo SDK. Verrà anche eseguito il rilevamento delle modifiche delle route, oltre a raccogliere altri dati di [telemetria specifici di React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+Attualmente si offre un plug-in [React](#react-extensions)separato, che può essere inizializzato con questo SDK. Verrà anche eseguito il rilevamento delle modifiche delle route, oltre a raccogliere altri dati di [telemetria specifici di React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+
+> [!NOTE]
+> Usare `enableAutoRouteTracking: true` solo se **non** si usa il plug-in React. Entrambi sono in grado di inviare nuove visualizzazioni di pagina quando la route cambia. Se entrambe le funzionalità sono abilitate, è possibile che vengano inviate pagine di visualizzazione duplicate.
+
+## <a name="configuration-autotrackpagevisittime"></a>Configurazione: autoTrackPageVisitTime
+
+Impostando `autoTrackPageVisitTime: true`, viene tenuta traccia del tempo impiegato da un utente in ogni pagina. In ogni nuova pagina di visualizzazione, la durata dell'utente nella pagina *precedente* viene inviata come [metrica personalizzata](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) denominata. `PageVisitTime` Questa metrica personalizzata è visualizzabile nel [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) come "metrica basata su log".
 
 ## <a name="react-extensions"></a>Estensioni React
 
 | Estensioni |
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [Reazione nativa](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Esplorare i dati sul lato client e sul browser
 
@@ -170,7 +177,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 
 ![](./media/javascript/performance-dependencies.png)
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 05/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c83aa6e476bbd898999fb6efe490c7847a809ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 200ede6b4c5565a8eab95b0398abaa1c056c612f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77120122"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853102"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifiche di Azure Active Directory Identity Protection
 
@@ -50,12 +50,11 @@ Configurare gli utenti a rischio di posta elettronica nel **portale di Azure** i
 Il messaggio di posta elettronica del digest settimanale contiene un riepilogo dei nuovi rilevamenti dei rischi.  
  Sono inclusi:
 
-- Utenti a rischio.
-- Attività sospette
-- Vulnerabilità rilevate.
+- Nuovi utenti a rischio rilevati
+- Sono stati rilevati nuovi accessi a rischio (in tempo reale)
 - Collegamenti ai report correlati in Identity Protection.
 
-![Messaggio di posta elettronica di riepilogo settimanale](./media/howto-identity-protection-configure-notifications/400.png)
+![Messaggio di posta elettronica di riepilogo settimanale](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
 Per impostazione predefinita, i destinatari includono tutti gli amministratori globali. Gli amministratori globali possono anche aggiungere come destinatari altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza.
 

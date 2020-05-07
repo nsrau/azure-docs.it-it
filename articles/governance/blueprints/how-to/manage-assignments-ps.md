@@ -1,14 +1,14 @@
 ---
 title: Come gestire le assegnazioni con PowerShell
 description: Informazioni su come gestire le assegnazioni di progetto con il modulo di PowerShell ufficiale di Azure Blueprints, AZ. Blueprint.
-ms.date: 09/30/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677434"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863978"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Come gestire le assegnazioni con PowerShell
 
@@ -205,8 +205,7 @@ ResourceGroups    : ResourceGroup
 
 ### <a name="example-2-use-a-json-assignment-definition-file"></a>Esempio 2: usare un file di definizione di assegnazione JSON
 
-Nell'esempio seguente viene creata quasi la stessa assegnazione dell' [esempio 1](#example-1-provide-parameters).
-Anziché passare parametri al cmdlet, nell'esempio viene illustrato l'uso di un file di definizione di assegnazione JSON e del parametro **AssignmentFile** . Inoltre, la proprietà **excludedPrincipals** viene configurata come parte dei **blocchi**. Non esiste un parametro di PowerShell per **excludedPrincipals** e la proprietà può essere configurata solo tramite il file di definizione dell'assegnazione JSON.
+Nell'esempio seguente viene creata quasi la stessa assegnazione dell' [esempio 1](#example-1-provide-parameters). Anziché passare parametri al cmdlet, nell'esempio viene illustrato l'uso di un file di definizione di assegnazione JSON e del parametro **AssignmentFile** . Inoltre, la proprietà **excludedPrincipals** viene configurata come parte dei **blocchi**. Non esiste un parametro di PowerShell per **excludedPrincipals** e la proprietà può essere configurata solo tramite il file di definizione dell'assegnazione JSON.
 
 ```json
 {
@@ -335,7 +334,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Esempio di codice end-to-end
+## <a name="code-example"></a>Esempio di codice
 
 Unendo tutti i passaggi, nell'esempio seguente viene ottenuta la definizione del progetto, quindi viene creata, aggiornata e rimossa un'assegnazione di progetto nella sottoscrizione `{subId}`specifica rappresentata come:
 
