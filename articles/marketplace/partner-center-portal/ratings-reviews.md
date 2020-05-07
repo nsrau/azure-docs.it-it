@@ -1,44 +1,41 @@
 ---
-title: Dashboard ratings and Reviews in Commercial Marketplace Analytics nel centro per i partner
-description: Informazioni su come accedere a una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource.
+title: Classificazioni & esamina il dashboard di analisi nel centro per i partner
+description: Informazioni su come accedere a una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Microsoft AppSource e Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262418"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792922"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Dashboard ratings and Reviews in Commercial Marketplace Analytics
+# <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Classificazioni & esamina il dashboard di analisi nel centro per i partner
 
-Questo articolo fornisce informazioni sulle classificazioni & dashboard di revisioni nel centro per i partner. Questo dashboard consente di visualizzare una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource.
-
-Per accedere alle **classificazioni & Dashboard delle recensioni** negli strumenti di analisi del centro per i partner, aprire il dashboard **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
-
->[!NOTE]
-> Per le definizioni dettagliate della terminologia di analisi, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
-
-## <a name="ratings--reviews"></a>Valutazioni & valutazioni
-
-Man mano che i clienti navigano, eseguono ricerche e acquistano offerte in entrambi i Marketplace, possono lasciare valutazioni e recensioni per le offerte acquisite.
+Questo articolo fornisce informazioni sulle classificazioni & dashboard di revisioni nel centro per i partner. Questo dashboard mostra una visualizzazione consolidata dei suggerimenti dei clienti per le offerte su Microsoft AppSource e Azure Marketplace. Man mano che i clienti navigano, eseguono ricerche e acquistano offerte in entrambi i Marketplace, possono lasciare valutazioni e recensioni per le offerte acquisite.
 
 - I clienti possono inviare una nuova valutazione o rivedere e aggiornare o eliminare una valutazione o una revisione esistente. I clienti possono apportare modifiche solo alle classificazioni e alle revisioni di cui sono proprietari.  
 - Le revisioni vengono pubblicate nella scheda verifiche della pagina di visualizzazione del prodotto dell'offerta in Azure Marketplace o in AppSource. I clienti possono includere il nome o il post in modo anonimo.  
 
-Il **Dashboard valutazioni & rivedere** Visualizza le tendenze e le informazioni dettagliate di questa attività da parte dei clienti. È possibile visualizzare una rappresentazione grafica degli elementi seguenti:
+>[!NOTE]
+> Per le definizioni dettagliate della terminologia di analisi, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
+
+## <a name="access-the-dashboard"></a>Accedere al dashboard
+
+Nel [Dashboard del Marketplace commerciale](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) del centro per i partner espandere la sezione **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** e selezionare **ratings & revisioni**.
+
+Il dashboard Visualizza una rappresentazione grafica delle attività dei clienti seguenti:
 
 - Valutazioni & valutazioni  
 - Esaminare i commenti
 
-Le **schede vetrine del Marketplace** consentono agli editori di visualizzare le metriche dell'offerta separatamente nelle schede AppSource & Azure Marketplace. Per visualizzare specifiche metriche dell'offerta, selezionare l'offerta dall'elenco a discesa offerta.
+Usare le schede **storefront del Marketplace** per visualizzare le metriche dell'offerta Microsoft AppSource e di Azure Marketplace separatamente. Per visualizzare specifiche metriche dell'offerta, selezionare l'offerta dall'elenco a discesa offerta.
 
-
-### <a name="ratings-and-reviews-summary"></a>Riepilogo valutazioni e valutazioni
+### <a name="ratings--reviews-summary"></a>Riepilogo valutazioni &
 
 Nella sezione rating & revisioni riepilogo vengono visualizzate le metriche seguenti per un intervallo di date selezionato:
 

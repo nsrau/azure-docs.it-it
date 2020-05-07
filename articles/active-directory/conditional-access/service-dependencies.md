@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 05/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b0d7816dc83a7c3536e44ff2461d85ea6178ff1
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74380020"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778482"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Che cosa sono le dipendenze del servizio in Azure Active Directory l'accesso condizionale? 
 
 Con i criteri di accesso condizionale, è possibile specificare i requisiti di accesso ai siti Web e ai servizi. Ad esempio, i requisiti di accesso possono includere la richiesta di autenticazione a più fattori o di [dispositivi gestiti](require-managed-devices.md). 
 
-Quando si accede direttamente a un sito o a un servizio, l'effetto di un criterio correlato è in genere facile da valutare. Se, ad esempio, sono stati configurati criteri che richiedono l'autenticazione a più fattori per SharePoint Online, viene applicato l'autenticazione a più fattori per ogni accesso al portale Web di SharePoint. Tuttavia, non è sempre semplice valutare l'effetto di un criterio perché sono presenti app cloud con dipendenze da altre app cloud. Ad esempio, Microsoft teams può fornire l'accesso alle risorse in SharePoint Online. Quindi, quando si accede a Microsoft teams nello scenario corrente, si è anche soggetti ai criteri di autenticazione a più fattori di SharePoint.   
+Quando si accede direttamente a un sito o a un servizio, l'effetto di un criterio correlato è in genere facile da valutare. Se, ad esempio, si dispone di un criterio che richiede l'autenticazione a più fattori per SharePoint Online, viene applicato l'autenticazione a più fattori per ogni accesso al portale Web di SharePoint. Tuttavia, non è sempre semplice valutare l'effetto di un criterio perché sono presenti app cloud con dipendenze da altre app cloud. Ad esempio, Microsoft teams può fornire l'accesso alle risorse in SharePoint Online. Quindi, quando si accede a Microsoft teams nello scenario corrente, si è anche soggetti ai criteri di autenticazione a più fattori di SharePoint. 
 
 ## <a name="policy-enforcement"></a>Imposizione dei criteri 
 
@@ -36,6 +36,8 @@ Il diagramma seguente illustra le dipendenze del servizio MS teams. Le frecce so
 ![Dipendenze del servizio MS Teams](./media/service-dependencies/01.png)
 
 Come procedura consigliata, è consigliabile impostare criteri comuni tra app e servizi correlati, quando possibile. Un comportamento di sicurezza coerente offre la migliore esperienza utente. Ad esempio, l'impostazione di un criterio comune tra Exchange Online, SharePoint Online, Microsoft teams e Skype for business riduce significativamente le richieste impreviste che possono verificarsi da criteri diversi applicati ai servizi downstream. 
+
+Un ottimo modo per eseguire questa operazione con le applicazioni nello stack di Office consiste nell'usare [office 365 (anteprima)](concept-conditional-access-cloud-apps.md#office-365-preview) invece di indirizzare le singole applicazioni.
 
 La tabella seguente elenca le dipendenze del servizio aggiuntive, in cui le app client devono soddisfare  
 
@@ -55,7 +57,7 @@ La tabella seguente elenca le dipendenze del servizio aggiuntive, in cui le app 
 | PowerApps           | Gestione Microsoft Azure (portale e API) | Ad associazione anticipata |
 |                     | Microsoft Azure Active Directory              | Ad associazione anticipata |
 | Progetto             | Dynamics CRM                                | Ad associazione anticipata |
-| Skype for Business Online  | Exchange                                    | Ad associazione anticipata |
+| Skype for Business  | Exchange                                    | Ad associazione anticipata |
 | Visual Studio       | Gestione Microsoft Azure (portale e API) | Ad associazione anticipata |
 | Microsoft Forms     | Exchange                                    | Ad associazione anticipata |
 |                     | SharePoint                                  | Ad associazione anticipata |

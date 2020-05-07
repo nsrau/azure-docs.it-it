@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09012d93a1f9fd24427cb8b3937b3a36cf75d9e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36c7bb426a329a54f333b76e028b884204543014
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834176"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582987"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -34,15 +34,15 @@ Durante il processo di acquisizione della proprietà da parte di un amministrato
 
 ## <a name="internal-admin-takeover"></a>Acquisizione interna della proprietà da parte dell'amministratore
 
-Alcuni prodotti che includono SharePoint e OneDrive, ad esempio Office 365, non supportano l'acquisizione esterna della proprietà. In questo caso oppure se si è un amministratore e si vuole acquisire la proprietà di un tenant non gestito o "shadow" creato da utenti che hanno usato l'iscrizione self-service, è possibile eseguire questa operazione con un'acquisizione interna della proprietà da parte di un amministratore.
+Alcuni prodotti che includono SharePoint e OneDrive, ad esempio Office 365, non supportano l'acquisizione esterna della proprietà. Se si tratta di uno scenario specifico o se si è un amministratore e si desidera acquisire la proprietà di un'organizzazione Azure AD non gestita o "Shadow" creata dagli utenti che hanno usato l'iscrizione self-service, è possibile eseguire questa operazione con un'acquisizione di amministratore interna.
 
-1. Creare un contesto utente nel tenant non gestito tramite l'iscrizione a Power BI. Per semplificare l'esempio, questa procedura presuppone tale percorso.
+1. Creare un contesto utente nell'organizzazione non gestita tramite l'iscrizione a Power BI. Per semplificare l'esempio, questa procedura presuppone tale percorso.
 
 2. Aprire il [sito di Power BI](https://powerbi.com) e selezionare **Inizia gratuitamente**. Immettere un account utente che usa il nome di dominio per l'organizzazione, ad esempio `admin@fourthcoffee.xyz`. Dopo avere immesso il codice di verifica, verificare la disponibilità del codice di conferma nella posta elettronica.
 
 3. Nel messaggio di conferma da Power BI selezionare **Yes, that's me** (Sì, sono io).
 
-4. Accedere al centro di [amministrazione di Microsoft 365](https://portal.office.com/admintakeover) con l'account utente Power bi. Si riceve un messaggio che invita a **diventare l'amministratore** del nome di dominio già verificato nel tenant non gestito. Selezionare **Yes, I want to be the admin** (Sì, voglio essere l'amministratore).
+4. Accedere al centro di [amministrazione di Microsoft 365](https://portal.office.com/admintakeover) con l'account utente Power bi. Viene visualizzato un messaggio che indica di **diventare l'amministratore** del nome di dominio già verificato nell'organizzazione non gestita. Selezionare **Yes, I want to be the admin** (Sì, voglio essere l'amministratore).
   
    ![Primo screenshot per Become the Admin (Diventa l'amministratore)](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -50,35 +50,35 @@ Alcuni prodotti che includono SharePoint e OneDrive, ad esempio Office 365, non 
   
    ![Aggiungere un record TXT per il nome di dominio](./media/domains-admin-takeover/become-admin-txt-record.png)
 
-Quando i record TXT DNS vengono verificati nel registrar del nome di dominio, è possibile gestire il tenant di Azure AD.
+Quando i record TXT DNS vengono verificati presso il registrar, è possibile gestire l'organizzazione Azure AD.
 
-Dopo avere completato i passaggi precedenti, si è l'amministratore globale del tenant Fourth Coffee in Office 365. Per integrare il nome di dominio con gli altri servizi di Azure, è possibile rimuoverlo da Office 365 e aggiungerlo a un tenant gestito diverso in Azure.
+Quando si completano i passaggi precedenti, si è ora l'amministratore globale dell'organizzazione Fourth Coffee in Office 365. Per integrare il nome di dominio con gli altri servizi di Azure, è possibile rimuoverlo da Office 365 e aggiungerlo a un'altra organizzazione gestita in Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Aggiunta del nome di dominio a un tenant gestito in Azure AD
+### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Aggiunta del nome di dominio a un'organizzazione gestita in Azure AD
 
 1. Aprire il [centro di amministrazione Microsoft 365](https://admin.microsoft.com).
 2. Selezionare la scheda **utenti** e creare un nuovo account utente con un nome come *User\@fourthcoffeexyz.onmicrosoft.com* che non usa il nome di dominio personalizzato. 
-3. Assicurarsi che il nuovo account utente abbia privilegi di amministratore globale per il tenant di Azure AD.
+3. Verificare che il nuovo account utente disponga dei privilegi di amministratore globale per l'organizzazione Azure AD.
 4. Aprire la scheda **domini** nell'interfaccia di amministrazione di Microsoft 365, selezionare il nome di dominio e selezionare **Rimuovi**. 
   
    ![Rimuove il nome di dominio da Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
 5. Se in Office 365 sono presenti utenti o gruppi che fanno riferimento al nome di dominio rimosso, devono essere ridenominati nel dominio .onmicrosoft.com. Se si forza l'eliminazione del nome di dominio, tutti gli utenti vengono automaticamente rinominati, in questo esempio, in *fourthcoffeexyz.onmicrosoft.com utente\@*.
   
-6. Accedere all'[interfaccia di amministrazione di Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account amministratore globale per il tenant di Azure AD.
+6. Accedere al centro di [amministrazione di Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account che sia l'amministratore globale dell'organizzazione Azure ad.
   
 7. Selezionare **Nomi di dominio personalizzati** e quindi aggiungere il nome di dominio. Sarà necessario immettere i record TXT DNS per verificare la proprietà del nome di dominio. 
   
    ![dominio verificato come aggiunto al Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Gli utenti di Power BI o del servizio Azure Rights Management con licenze assegnate nel tenant di Office 365 devono salvare i dashboard se il nome di dominio viene rimosso. Devono accedere con un nome utente come *\@User fourthcoffeexyz.onmicrosoft.com* anziché *User\@fourthcoffee. xyz*.
+> Se il nome di dominio viene rimosso, tutti gli utenti del servizio Power BI o Azure Rights Management con licenze assegnate nell'organizzazione di Office 365 devono salvare i dashboard. Devono accedere con un nome utente come *\@User fourthcoffeexyz.onmicrosoft.com* anziché *User\@fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Acquisizione esterna della proprietà da parte dell'amministratore
 
-Se si gestisce già un tenant con i servizi di Azure o Office 365, non è possibile aggiungere un nome di dominio personalizzato se è già verificato in un altro tenant di Azure AD. Dal tenant gestito in Azure AD è tuttavia possibile acquisire esternamente la proprietà di un tenant non gestito come amministratore. La procedura generale segue l'articolo [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md).
+Se si gestisce già un'organizzazione con i servizi di Azure o Office 365, non è possibile aggiungere un nome di dominio personalizzato se è già verificato in un'altra organizzazione Azure AD. Tuttavia, dall'organizzazione gestita in Azure AD è possibile acquisire la proprietà di un'organizzazione non gestita come acquisizione di un amministratore esterno. La procedura generale segue l'articolo [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md).
 
-Quando si verifica la proprietà del nome di dominio, Azure AD lo rimuove dal tenant non gestito e lo sposta nel tenant esistente. L'acquisizione esterna della proprietà di una directory non gestita da parte di un amministratore richiede lo stesso processo convalida di convalida TXT DNS dell'acquisizione interna della proprietà da parte di un amministratore, con la differenza che anche gli elementi seguenti vengono spostati con il nome di dominio:
+Quando si verifica la proprietà del nome di dominio, Azure AD rimuove il nome di dominio dall'organizzazione non gestita e lo sposta nell'organizzazione esistente. L'acquisizione esterna della proprietà di una directory non gestita da parte di un amministratore richiede lo stesso processo convalida di convalida TXT DNS dell'acquisizione interna della proprietà da parte di un amministratore, con la differenza che anche gli elementi seguenti vengono spostati con il nome di dominio:
 
 - Utenti
 - Sottoscrizioni
@@ -100,13 +100,13 @@ I piani di servizio supportati includono:
 
 L'acquisizione di un amministratore esterno non è supportata per alcun servizio con piani di servizio che includono SharePoint, OneDrive o Skype for business. ad esempio, tramite una sottoscrizione gratuita di Office. 
 
-Facoltativamente è possibile usare l'[opzione **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) per rimuovere il nome di dominio dal tenant non gestito e verificarlo nel tenant desiderato. 
+Facoltativamente, è possibile usare l' [opzione **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) per rimuovere il nome di dominio dall'organizzazione non gestita e verificarlo nell'organizzazione desiderata. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Altre informazioni su RMS per utenti singoli
 
-Per [RMS per utenti singoli](/azure/information-protection/rms-for-individuals), quando il tenant non gestito si trova nella stessa area del tenant di cui si è proprietari, anche la [chiave del tenant Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) creata automaticamente e i [modelli di protezione predefiniti](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) vengono spostati con il nome di dominio.
+Per [RMS per utenti singoli](/azure/information-protection/rms-for-individuals), quando l'organizzazione non gestita si trova nella stessa area dell'organizzazione di cui si è proprietari, viene inoltre spostato automaticamente il [Azure Information Protection la chiave dell'organizzazione](/azure/information-protection/plan-implement-tenant-key) e i modelli di [protezione predefiniti](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) con il nome di dominio.
 
-La chiave e i modelli non vengono invece spostati quando il tenant si trova in un'area diversa, Ad esempio, se il tenant non gestito si trova in Europa e l'organizzazione di cui si è proprietari è in America del Nord.
+La chiave e i modelli non vengono spostati quando l'organizzazione non gestita si trova in un'area diversa. Ad esempio, se l'organizzazione non gestita è in Europa e l'organizzazione di cui si è proprietari è in America del Nord.
 
 Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Azure AD per l'apertura di contenuti protetti, non impedisce agli utenti di proteggere a loro volta il contenuto. Se gli utenti hanno protetto il contenuto con la sottoscrizione RMS per utenti singoli e la chiave e i modelli non sono stati spostati, il contenuto non sarà accessibile dopo l'acquisizione del dominio.
 
@@ -115,12 +115,12 @@ Anche se RMS per utenti singoli è progettato per supportare l'autenticazione Az
 
 Cmdlet | Utilizzo
 ------- | -------
-`connect-msolservice` | Quando richiesto, accedere al tenant gestito.
-`get-msoldomain` | Mostra i nomi di dominio associati al tenant corrente.
-`new-msoldomain –name <domainname>` | Aggiunge il nome di dominio al tenant come non verificato. Non sono ancora state eseguite verifiche DNS.
-`get-msoldomain` | Il nome di dominio ora è incluso nell'elenco di nomi di dominio associati al tenant gestito, ma è elencato come **Non verificato**.
+`connect-msolservice` | Quando richiesto, accedere all'organizzazione gestita.
+`get-msoldomain` | Mostra i nomi di dominio associati all'organizzazione corrente.
+`new-msoldomain –name <domainname>` | Aggiunge il nome di dominio all'organizzazione come non verificato (non è stata ancora eseguita alcuna verifica DNS).
+`get-msoldomain` | Il nome di dominio è ora incluso nell'elenco dei nomi di dominio associati all'organizzazione gestita, ma è elencato come non **verificato**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornisce le informazioni da inserire nel nuovo record TXT DNS per il dominio (MS=xxxxx). La verifica potrebbe non essere eseguita immediatamente perché la propagazione del record TXT richiede tempo. Attendere quindi alcuni minuti prima di prendere in considerazione l'opzione **-ForceTakeover**. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se il nome di dominio continua a non essere verificato, è possibile procedere con l'opzione **-ForceTakeover**, che verifica che il record TXT sia stato creato e avvia il processo di acquisizione della proprietà.<li>L'opzione **-ForceTakeover** deve essere aggiunta al cmdlet solo quando si forza l'acquisizione esterna della proprietà da parte dell'amministratore, ad esempio quando il tenant non gestito ha i servizi di Office 365 che bloccano l'acquisizione della proprietà.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se il nome di dominio continua a non essere verificato, è possibile procedere con l'opzione **-ForceTakeover**, che verifica che il record TXT sia stato creato e avvia il processo di acquisizione della proprietà.<li>L'opzione **-ForceTakeover** deve essere aggiunta al cmdlet solo quando si forza l'acquisizione di un amministratore esterno, ad esempio quando l'organizzazione non gestita ha i servizi di Office 365 che bloccano l'acquisizione.
 `get-msoldomain` | Nell'elenco di domini il nome di dominio ora risulta **Verificato**.
 
 > [!NOTE]

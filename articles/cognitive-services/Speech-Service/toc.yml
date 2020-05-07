@@ -426,6 +426,8 @@
               href: faq-voice-assistants.md
     - name: Parola chiave personalizzata
       items:
+        - name: Panoramica delle parole chiave personalizzate
+          href: custom-keyword-overview.md
         - name: Linee guida per la denominazione delle parole chiave personalizzate
           href: speech-devices-sdk-kws-guidelines.md
         - name: Individuazione di parole chiave personalizzate
@@ -519,6 +521,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: Dettagli su Roobo v2
           href: speech-devices-sdk-roobo-v2.md
+    - name: Guide pratiche
+      items:
+        - name: Come configurare un array di microfoni
+          href: how-to-devices-microphone-array-configuration.md
     - name: Guida introduttiva
       items:
         - name: Usare Speech Devices SDK

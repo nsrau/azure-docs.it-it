@@ -4,12 +4,12 @@ description: Questo articolo illustra come aggiornare la configurazione dell'ins
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252363"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744573"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aggiornare le configurazioni dell'insieme di credenziali di servizi di ripristino di Azure usando l'API
 
@@ -21,7 +21,7 @@ L'eliminazione dei backup di un elemento protetto è un'operazione significativa
 
 Tuttavia, esistono scenari in cui questa funzionalità non è necessaria. Un insieme di credenziali di servizi di ripristino di Azure non può essere eliminato se sono presenti elementi di backup, anche quelli eliminati temporaneamente. Questo potrebbe rappresentare un problema se l'insieme di credenziali deve essere eliminato immediatamente. Per, ad esempio, le operazioni di distribuzione ripuliscono spesso le risorse create nello stesso flusso di lavoro. Una distribuzione può creare un insieme di credenziali, configurare i backup per un elemento, eseguire un ripristino di test e quindi procedere con l'eliminazione degli elementi di backup e dell'insieme di credenziali. Se l'eliminazione dell'insieme di credenziali non riesce, l'intera distribuzione potrebbe non riuscire. La disabilitazione dell'eliminazione temporanea è l'unico modo per garantire l'eliminazione immediata.
 
-Di conseguenza, il cliente deve scegliere con attenzione se disabilitare l'eliminazione temporanea per un determinato insieme di credenziali a seconda dello scenario. Per ulteriori informazioni, vedere l' [articolo](backup-azure-security-feature-cloud.md#soft-delete)relativo all'eliminazione temporanea.
+Di conseguenza, il cliente deve scegliere con attenzione se disabilitare l'eliminazione temporanea per un determinato insieme di credenziali a seconda dello scenario. Per ulteriori informazioni, vedere l' [articolo](backup-azure-security-feature-cloud.md)relativo all'eliminazione temporanea.
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Recuperare lo stato di eliminazione temporanea con l'API REST
 
@@ -83,10 +83,10 @@ Per creare un corpo della richiesta vengono usate le seguenti definizioni comuni
 
 Per altri dettagli, vedere [la documentazione dell'API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
 
-|Name  |Obbligatoria  |Type  |Descrizione  |
+|Nome  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
-|eTag     |         |   Stringa      |  eTag facoltativo       |
-|posizione     |  true       |Stringa         |   Posizione risorsa      |
+|eTag     |         |   string      |  eTag facoltativo       |
+|posizione     |  true       |string         |   Posizione risorsa      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |tags     |         | Oggetto        |     Tag delle risorse    |
 

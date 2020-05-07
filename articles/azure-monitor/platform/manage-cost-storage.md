@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8904d584d453cb0945a11b08ad50688aeb1e1fc0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 24d370abc04a79bf1af2e7bf579788a342373363
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207327"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780896"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di monitoraggio di Azure
 
@@ -44,11 +44,13 @@ In tutti i piani tariffari, il volume di dati viene calcolato da una rappresenta
 
 Si noti anche che alcune soluzioni, ad esempio il [Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/), la [gestione della configurazione](https://azure.microsoft.com/pricing/details/automation/) e di [Sentinel di Azure](https://azure.microsoft.com/pricing/details/azure-sentinel/) hanno i propri modelli tariffari. 
 
-### <a name="dedicated-clusters"></a>Cluster dedicati
+### <a name="log-analytics-clusters"></a>Cluster Log Analytics
 
-I cluster dedicati di log di monitoraggio di Azure sono raccolte di aree di lavoro in un singolo cluster gestito di Azure Esplora dati (ADX) per supportare scenari avanzati quali [chiavi gestite dal cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  I cluster dedicati supportano solo un modello di prezzi per la prenotazione della capacità a partire da 1000 GB/giorno con uno sconto del 25% rispetto ai prezzi con pagamento in base al consumo. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. La prenotazione della capacità del cluster ha un periodo di impegno di 31 giorni dopo l'incremento del livello di prenotazione. Durante il periodo di impegno non è possibile ridurre il livello di prenotazione della capacità, ma è possibile aumentarlo in qualsiasi momento. Altre informazioni sulla [creazione di un cluster dedicato](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e sull' [associazione di aree di lavoro](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
+I cluster Log Analytics sono raccolte di aree di lavoro in un singolo cluster di Azure Esplora dati gestito per supportare scenari avanzati quali [chiavi gestite dal cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  I cluster Log Analytics supportano solo un modello di prezzi per la prenotazione della capacità a partire da 1000 GB/giorno con uno sconto del 25% rispetto ai prezzi con pagamento in base al consumo. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. La prenotazione della capacità del cluster ha un periodo di impegno di 31 giorni dopo l'incremento del livello di prenotazione. Durante il periodo di impegno non è possibile ridurre il livello di prenotazione della capacità, ma è possibile aumentarlo in qualsiasi momento. Altre informazioni sulla [creazione di un cluster di log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e sull' [associazione di aree di lavoro](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
 
-Poiché la fatturazione per i dati inseriti viene eseguita a livello di cluster, le aree di lavoro associate a un cluster non hanno più un piano tariffario. Le quantità di dati inseriti da ogni area di lavoro associata a un cluster vengono aggregate per calcolare la fattura giornaliera per il cluster. Si noti che le allocazioni per nodo dal centro sicurezza di Azure vengono applicate a livello di area di lavoro prima di questa aggregazione. La conservazione dei dati viene comunque fatturata a livello di area di lavoro.  
+Il livello di prenotazione della capacità del cluster viene configurato tramite a livello con `Capacity` Azure Resource Manager utilizzando `Sku`il parametro in. `Capacity` È specificato in unità di GB e può avere valori di 1000 GB/giorno o più in incrementi di 100 GB al giorno. Questa operazione è illustrata in dettaglio [qui](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Se il cluster necessita di una prenotazione superiore a 2000 GB/giorno, [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)contattaci all'indirizzo.
+
+Poiché la fatturazione per i dati inseriti viene eseguita a livello di cluster, le aree di lavoro associate a un cluster non hanno più un piano tariffario. Le quantità di dati inseriti da ogni area di lavoro associata a un cluster vengono aggregate per calcolare la fattura giornaliera per il cluster. Si noti che le allocazioni per nodo dal [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/) vengono applicate a livello di area di lavoro prima di questa aggregazione di dati aggregati in tutte le aree di lavoro del cluster. La conservazione dei dati viene comunque fatturata a livello di area di lavoro. Si noti che la fatturazione del cluster viene avviata quando viene creato il cluster, indipendentemente dal fatto che le aree di lavoro siano state associate al cluster. 
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Stima dei costi per la gestione dell'ambiente 
 
@@ -467,7 +469,7 @@ union withsource = tt *
 | where computerName != ""
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
-| join (
+| join kind=leftouter (
     Heartbeat 
     | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
     | where Computer != ""

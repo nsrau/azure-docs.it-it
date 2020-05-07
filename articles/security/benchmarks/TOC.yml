@@ -3,6 +3,7 @@
 - name: Introduzione
   href: introduction.md
 - name: Security Controls
+  expanded: true
   items:
     - name: Panoramica dei controlli di sicurezza di Azure
       href: overview.md
@@ -10,28 +11,30 @@
       href: security-control-network-security.md
     - name: Registrazione e monitoraggio
       href: security-control-logging-monitoring.md
-    - name: Gestione delle identità e controllo di accesso
+    - name: Identità e controllo di accesso
       href: security-control-identity-access-control.md
     - name: Protezione dei dati
       href: security-control-data-protection.md
-    - name: Gestione delle vulnerabilità
+    - name: Gestione vulnerabilità
       href: security-control-vulnerability-management.md
-    - name: Gestione asset e inventario
+    - name: Gestione di asset e inventario
       href: security-control-inventory-asset-management.md
     - name: Configurazione sicura
       href: security-control-secure-configuration.md
     - name: Difesa da malware
       href: security-control-malware-defense.md
-    - name: Ripristino dei dati
+    - name: Recupero dati
       href: security-control-data-recovery.md
     - name: Risposta agli eventi imprevisti
       href: security-control-incident-response.md
     - name: Test di penetrazione ed esercizi Red Team
       href: security-control-penetration-tests-red-team-exercises.md
-- name: Baseline di sicurezza
+- name: Baseline di sicurezza per Azure
   items:
-    - name: Panoramica delle baseline di sicurezza di Azure
+    - name: Panoramica delle baseline di sicurezza per Azure
       href: security-baselines-overview.md
+    - name: Baseline di sicurezza di Gestione API
+      href: ../../api-management/security-baseline.md
     - name: Baseline di sicurezza di Cache di Azure per Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Baseline di sicurezza di Backup
@@ -44,8 +47,12 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Baseline di sicurezza di Esplora dati
       href: /azure/data-explorer/security-baseline
+    - name: Baseline di sicurezza di Databricks
+      href: ../../azure-databricks/security-baseline.md
     - name: Baseline di sicurezza di Hub eventi
       href: ../../event-hubs/security-baseline.md
+    - name: Baseline di sicurezza di Funzioni
+      href: ../../azure-functions/security-baseline.md
     - name: Baseline di sicurezza di HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Baseline di sicurezza di Key Vault

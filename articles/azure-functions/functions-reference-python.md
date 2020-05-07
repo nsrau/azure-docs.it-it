@@ -3,12 +3,12 @@ title: Guida di riferimento per gli sviluppatori Python per Funzioni di Azure
 description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 936d6455f448e0243c7d4de2b9f1b88673a32798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea128fc7c68b49fc14d796e9a3b91a9dbddd9b26
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185983"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780046"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -22,7 +22,7 @@ Funzioni di Azure prevede che una funzione sia un metodo senza stato nello scrip
 
 I dati dei trigger e delle associazioni vengono associati alla funzione tramite gli attributi del metodo `name` usando la proprietà definita nel file *Function. JSON* . Il file _Function. JSON_ seguente, ad esempio, descrive una semplice funzione attivata da una richiesta HTTP `req`denominata:
 
-:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
 In base a questa definizione, `__init__.py` il file che contiene il codice della funzione potrebbe essere simile all'esempio seguente:
 
@@ -77,6 +77,7 @@ La struttura di cartelle consigliata per un progetto di funzioni Python è simil
  | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
+ | - Dockerfile
  tests
 ```
 La cartella principale del progetto\_\_(\_\_app) può contenere i file seguenti:
@@ -86,6 +87,7 @@ La cartella principale del progetto\_\_(\_\_app) può contenere i file seguenti:
 * *host. JSON*: contiene le opzioni di configurazione globali che interessano tutte le funzioni in un'app per le funzioni. Questo file viene pubblicato in Azure. Non tutte le opzioni sono supportate durante l'esecuzione in locale. Per altre informazioni, vedere [host. JSON](functions-host-json.md).
 * *. funcignore*: (facoltativo) dichiara i file che non devono essere pubblicati in Azure.
 * *. gitignore*: (facoltativo) dichiara i file che sono esclusi da un repository git, ad esempio local. Settings. JSON.
+* *Dockerfile*: (facoltativo) usato per la pubblicazione del progetto in un [contenitore personalizzato](functions-create-function-linux-custom-image.md).
 
 Ogni funzione ha il proprio file di codice e il file di configurazione delle associazioni (function.json). 
 
@@ -330,7 +332,7 @@ Per impostazione predefinita, ogni istanza host di funzioni ha un singolo proces
 
 Il FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato dalle funzioni durante la scalabilità orizzontale dell'applicazione per soddisfare la domanda. 
 
-## <a name="context"></a>Context
+## <a name="context"></a>Contesto
 
 Per ottenere il contesto di chiamata di una funzione durante l'esecuzione, includere [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) l'argomento nella firma. 
 

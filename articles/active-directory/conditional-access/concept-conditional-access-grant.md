@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331851"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583205"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -83,7 +83,6 @@ Questa impostazione si applica alle app iOS e Android seguenti:
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft Office
-- Hub Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -102,7 +101,7 @@ Questa impostazione si applica alle app iOS e Android seguenti:
 - Microsoft Yammer
 - Microsoft Whiteboard
 
-**Note**
+**Osservazioni:**
 
 - Le app client approvate supportano la funzionalità di gestione di applicazioni mobili di Intune.
 - Il requisito **Richiedi app client approvata**:
@@ -125,7 +124,7 @@ Questa impostazione è valida solo per le app client seguenti:
 - Microsoft Outlook
 - Microsoft Planner
 
-**Note**
+**Osservazioni:**
 
 - Le app per i criteri di protezione delle app supportano la funzionalità di gestione delle applicazioni mobili di Intune con protezione dei criteri.
 - Richiede i requisiti dei **criteri di protezione delle app** :

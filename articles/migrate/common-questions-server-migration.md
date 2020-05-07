@@ -2,13 +2,13 @@
 title: Domande frequenti sulla migrazione di Azure Migrate server
 description: Risposte alle domande comuni sull'uso della migrazione del server Azure Migrate per eseguire la migrazione dei computer.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 8d4d83791366e153f0fa8b81ae120ca3fd33be2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146047"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744332"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrazione di Azure Migrate server: domande comuni
 
@@ -87,6 +87,10 @@ Il AppNamePrefix da utilizzare in NetQosPolicy è "GatewayWindowsService. exe". 
  
 New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService. exe"-ThrottleRateActionBitsPerSecond 1 MB
 
+## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>È possibile eseguire la migrazione di VM già replicate in Azure? 
+
+Se le macchine virtuali sono già state replicate in Azure con altri mezzi, non è possibile eseguire la migrazione di tali macchine come VM con Azure Migrate migrazione del server. Come soluzione alternativa, è possibile gestire le macchine virtuali come server fisici ed eseguirne la migrazione in base alla [migrazione del server fisico supportata](migrate-support-matrix-physical-migration.md).
+
 ## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Quando si esegue la migrazione di computer come server fisici?
 
 La migrazione di computer come se fossero server fisici è utile in diversi scenari:
@@ -102,7 +106,7 @@ La migrazione di computer come se fossero server fisici è utile in diversi scen
 Sebbene possa trattarsi di un caso d'uso valido, attualmente non è supportato. La distribuzione di due o più appliance per individuare lo stesso set di macchine virtuali causa un problema di servizio in cui la proprietà della macchina virtuale continua a passare tra le due appliance. Questo è il motivo per cui le VM appaiono e scompaiono. In questi casi, per risolvere il problema, è necessario eliminare un'appliance ed eseguire un aggiornamento hardware.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>È necessario VMware vCenter per eseguire la migrazione di macchine virtuali VMware?
-Per eseguire la migrazione di [macchine virtuali VMware](server-migrate-overview.md) con la migrazione senza agente o basata su agenti VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da server vCenter. Se non si dispone di server vCenter, è possibile eseguire la migrazione di macchine virtuali VMware eseguendone la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md)
+Per eseguire la migrazione di [macchine virtuali VMware](server-migrate-overview.md) con la migrazione senza agente o basata su agenti VMware, gli host ESXi in cui si trovano le macchine virtuali devono essere gestiti da server vCenter. Se non si dispone di server vCenter, è possibile eseguire la migrazione di macchine virtuali VMware eseguendone la migrazione come server fisici. [Altre informazioni](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>Passaggi successivi
 

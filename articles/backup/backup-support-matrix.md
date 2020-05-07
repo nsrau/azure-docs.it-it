@@ -3,12 +3,12 @@ title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc817c1833c4c9aedcbc5fa111de694fab715c43
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537322"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801264"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -32,7 +32,7 @@ La tabella seguente descrive le funzionalità degli insiemi di credenziali di se
 --- | ---
 **Insiemi di credenziali nella sottoscrizione** | Fino a 500 insiemi di credenziali di Servizi di ripristino in una sottoscrizione singola.
 **Computer in un insieme di credenziali** | Fino a 1.000 VM di Azure in un unico insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
-**Origini dati** | Le dimensioni massime di una singola [origine dati](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) sono di 54.400 GB. Questo limite non si applica ai backup di macchine virtuali di Azure. Nessun limite si applica alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali.
+**Origini dei dati** | Le dimensioni massime di una singola [origine dati](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) sono di 54.400 GB. Questo limite non si applica ai backup di macchine virtuali di Azure. Nessun limite si applica alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali.
 **Backup in un insieme di credenziali** | **Macchine virtuali di Azure:** Una volta al giorno.<br/><br/>**Computer protetti da DPM/MAB:** Due volte al giorno.<br/><br/> **Computer sottoposti a backup direttamente usando l'agente Mars:** Tre volte al giorno.
 **Backup tra insiemi di credenziali** | Il backup avviene all'interno di un'area.<br/><br/> È necessario un insieme di credenziali in ogni area di Azure che contiene macchine virtuali di cui si vuole eseguire il backup. Non è possibile eseguire il backup in un'altra area.
 **Sposta insiemi di credenziali** | È possibile [spostare](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) gli insiemi di credenziali tra le sottoscrizioni o tra gruppi di risorse nella stessa sottoscrizione. Tuttavia, lo trasferimento di insiemi di credenziali tra aree non è supportato.
@@ -43,7 +43,7 @@ La tabella seguente descrive le funzionalità degli insiemi di credenziali di se
 
 Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:
 
-**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Caratteristiche**
+**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Funzionalità**
 --- | --- | --- | ---
 **Backup diretto di computer Windows con l'agente MARS** | File, cartelle, stato del sistema | Eseguire il backup nell'insieme di credenziali di servizi di ripristino. | Backup tre volte al giorno<br/><br/> Nessun backup compatibile con l'app<br/><br/> Ripristino di file, cartelle, volumi
 **Backup diretto di computer Linux con l'agente MARS** | Backup non supportato
@@ -56,14 +56,14 @@ Ecco cosa è supportato se si vuole eseguire il backup dei computer locali:
 
 **Limite** | **Dettagli**
 --- | ---
-**Dischi di dati delle VM di Azure** | Limite di 16 <br> Per iscriversi all'anteprima privata delle macchine virtuali con più di 16 dischi (massimo 32), scrivere all'indirizzo AskAzureBackupTeam@microsoft.com
+**Dischi di dati delle VM di Azure** | Limite di 16 <br> Per iscriversi all'anteprima limitata delle VM con più di 16 dischi (fino a 32 dischi), scrivici all'indirizzoAskAzureBackupTeam@microsoft.com
 **Dimensioni dei dischi di dati delle VM di Azure** | Le dimensioni del disco singolo possono essere fino a 32 TB e un massimo di 256 TB combinati per tutti i dischi in una macchina virtuale.
 
 ### <a name="azure-vm-backup-options"></a>Opzioni di backup delle VM di Azure
 
 Ecco cosa è supportato se si vuole eseguire il backup di macchine virtuali di Azure:
 
-**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Caratteristiche**
+**Computer** | **Elementi di cui è stato eseguito il backup** | **Posizione** | **Funzionalità**
 --- | --- | --- | ---
 **Backup di macchine virtuali di Azure tramite l'estensione VM** | Intera macchina virtuale | Eseguire il backup nell'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Eseguire il backup una volta al giorno.<br/><br/> Backup compatibile con le app per macchine virtuali Windows; backup coerente con i file per le macchine virtuali Linux. È possibile configurare la coerenza delle app per i computer Linux usando script personalizzati.<br/><br/> Ripristinare una macchina virtuale o un disco.<br/><br/> Non è possibile eseguire il backup di una macchina virtuale di Azure in un percorso locale.
 **Backup di macchine virtuali di Azure con l'agente MARS** | File, cartelle, stato del sistema | Eseguire il backup nell'insieme di credenziali. | Eseguire il backup tre volte al giorno.<br/><br/> Se si vuole eseguire il backup di file o cartelle specifici anziché dell'intera VM, l'agente MARS può essere eseguito insieme all'estensione della macchina virtuale.
@@ -151,7 +151,7 @@ Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforza
 
 | Tipo di gestione di backup | Supportato                                                    | Aree supportate |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Macchina virtuale Azure               | Sì.   Supportato per macchine virtuali e VM crittografate con meno di 4 TB di dischi | Tutte le aree pubbliche di Azure.  |
+| Macchina virtuale di Azure               | Sì.   Supportato per macchine virtuali e VM crittografate con meno di 4 TB di dischi | Tutte le aree pubbliche di Azure.  |
 | Agente MARS/locale | No                                                           | N/D               |
 | /SAP CENTRAL SQL HANA          | No                                                           | N/D               |
 | AFS                    | No                                                           | N/D               |
