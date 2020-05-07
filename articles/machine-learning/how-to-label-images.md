@@ -6,13 +6,13 @@ author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879429"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204322"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura
 
@@ -25,21 +25,24 @@ Dopo che l'amministratore di progetto ha [creato un progetto di etichettatura](h
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* URL del portale di etichettatura per un progetto di etichettatura dei dati in esecuzione
 * Un [account Microsoft](https://account.microsoft.com/account) o un account Azure Active Directory per l'organizzazione e il progetto
+* Accesso a livello di collaboratore all'area di lavoro che contiene il progetto di etichettatura.
 
-> [!NOTE]
-> L'amministratore del progetto può trovare l'URL del portale di etichettatura nella scheda **Dettagli** della pagina **Dettagli del progetto**.
+## <a name="sign-in-to-the-workspace"></a>Accedere all'area di lavoro
 
-## <a name="sign-in-to-the-projects-labeling-portal"></a>Accedere al portale di etichettatura del progetto
+1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com).
 
-Passare all'URL del portale di etichettatura fornito dall'amministratore del progetto. Eseguire l'accesso con l'account di posta elettronica usato dall'amministratore per essere aggiunti al team. Per la maggior parte degli utenti, sarà l'account Microsoft personale. Se il progetto di etichettatura usa Azure Active Directory, questa sarà la modalità di accesso.
+1. Selezionare la sottoscrizione e l'area di lavoro che contiene il progetto di etichettatura.  Ottenere queste informazioni dall'amministratore di progetto.
+
+1. Selezionare **Etichettatura dei dati** sul lato sinistro per trovare il progetto.  
+
+1. Selezionare il nome del progetto nell'elenco.
 
 ## <a name="understand-the-labeling-task"></a>Informazioni sull'attività di etichettatura
 
-Dopo aver eseguito l'accesso, verrà visualizzata la pagina di panoramica del progetto.
+Dopo aver selezionato il progetto, nella parte superiore della pagina selezionare **Etichetta dati**.
 
-Passare a **Visualizza istruzioni dettagliate**. Queste istruzioni sono specifiche del progetto. Descrivono il tipo di dati che verrà usato, come prendere le decisioni e includono altre informazioni pertinenti. Dopo aver letto queste informazioni, tornare nella pagina del progetto e selezionare **Start labeling** (Avvia etichettatura).
+Vengono visualizzate le istruzioni specifiche per il progetto. Descrivono il tipo di dati che verrà usato, come prendere le decisioni e includono altre informazioni pertinenti. Dopo aver letto le informazioni, nella parte superiore della pagina selezionare **Attività**.  In alternativa, nella parte inferiore della pagina selezionare **Avvia etichettatura**.
 
 ## <a name="common-features-of-the-labeling-task"></a>Funzionalità comuni dell'attività di etichettatura
 

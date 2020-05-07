@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9f8697332d34fc044c805db6c6595fdf067ed054
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0abe443521b928dd087e23b5491635b02cd832e8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80127197"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592027"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Esercitazione: Inviare notifiche push in base Location Based con Hub di notifica e i dati spaziali Bing
 
@@ -217,7 +217,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 ## <a name="set-up-the-backend"></a>Configurare il servizio back-end
 
-1. Scaricare l' [esempio di back-end .NET da GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+1. Scaricare l' [esempio di back-end .NET da GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 2. Al termine del download, aprire la cartella `NotifyUsers` e successivamente il file `NotifyUsers.sln` in Visual Studio.
 3. Impostare il progetto `AppBackend` come **Progetto di avvio** e avviarlo.
 

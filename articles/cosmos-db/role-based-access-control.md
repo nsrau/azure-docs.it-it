@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0c7332a42751b35b6ad8ec3f88afb7bc78cc85e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e028e7a5e7e7b8f747d7a1cfb36c553a8113544
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75445093"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583727"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controllo degli accessi in base al ruolo in Azure Cosmos DB
 
@@ -61,6 +61,12 @@ Il provider di risorse Cosmos può essere bloccato per evitare modifiche alle ri
         }
     }
 }
+```
+Se si esporta un modello di Gestione risorse esistente e lo si aggiorna con questa proprietà, è possibile sostituire completamente la funzionalità del modello. Quindi, se non sono inclusi tutti i valori, verranno reimpostati come predefiniti. Un altro modo per disabilitare l'accesso in scrittura ai metadati basato su chiave consiste nell'usare l'interfaccia della riga di comando di Azure, come illustrato nel comando seguente:
+
+```cli
+az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

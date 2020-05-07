@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni su Azure VMware Solut
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: b3643372068df9a5c9ed6d892f8417257eecfe92
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: HT
+ms.openlocfilehash: 6d8e87dd52871b82109ccc794af04244efe95b06
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740460"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854594"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Domande frequenti sull'anteprima della soluzione VMware di Azure (AVS)
 
@@ -54,6 +54,18 @@ Poiché tutti gli ambienti cloud sono dotati di HCX, vSphere 5,5 o versioni succ
 **Qual è l'aspetto del processo di controllo delle modifiche?**
 
 Gli aggiornamenti apportati al servizio stesso seguiranno il processo di gestione delle modifiche standard di Microsoft Azure. I clienti sono responsabili di qualsiasi attività di amministrazione del carico di lavoro e dei processi di gestione delle modifiche associati.
+
+**Qual è la differenza tra la soluzione VMware di Azure e CloudSimple?**
+
+Con la nuova soluzione VMware di Azure, Microsoft e VMware hanno una partnership diretta con il provider di servizi cloud. La nuova soluzione è interamente progettata, compilata e supportata da Microsoft e approvata da VMware. Con l'architettura, le soluzioni sono coerenti con lo stack di tecnologie VMware in esecuzione in un'infrastruttura dedicata di Azure.
+
+**Se sono un cliente esistente della soluzione VMware di Azure, cosa significa questa anteprima?**
+
+Non sono state apportate modifiche alla soluzione VMware di Azure esistente da CloudSimple. Continuiamo a supportare la soluzione in Azure. La soluzione VMware di Azure è supportata dal contratto di servizio [(SLA)](https://aka.ms/CSVMwareSLA). I clienti devono continuare a usare il servizio per i carichi di lavoro di produzione; si tratta di una soluzione disponibile regolata dalle [condizioni di servizio di Microsoft](https://azure.microsoft.com/support/legal/).
+
+**È possibile eseguire la migrazione dalla soluzione VMware di Azure CloudSimple alla nuova soluzione?**
+
+Sì, la soluzione VMware di Azure supporta la migrazione usando strumenti VMware noti, ad esempio HCX. Per i clienti interessati alla migrazione alla nuova soluzione, collaborare con il team di account Microsoft per esplorare le opzioni e il supporto disponibile.
 
 ## <a name="compute-network-and-storage"></a>Calcolo, rete e archiviazione
 
@@ -187,7 +199,7 @@ Per domande generali sui prezzi, vedere la pagina dei [prezzi](https://azure.mic
 
 **Chi supporta AVS?**
 
-Il supporto per AVS viene fornito da Microsoft. Si noti che le linee guida per l'anteprima supportano i parametri con ambito. I dettagli sul supporto per questo servizio specifico durante la fase di anteprima sono disponibili su richiesta al team di account.
+Il supporto per AVS viene fornito da Microsoft. Si noti che, in base alle linee guida di anteprima, si fornirà il supporto per le ore 9.00 dal lunedì al venerdì. È possibile generare un ticket di supporto da [questo collegamento](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **Quali account sono necessari per creare un cloud privato AVS?**
 

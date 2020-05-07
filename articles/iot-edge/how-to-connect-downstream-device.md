@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3113f01341d2a1ec6160cfea3eb9d12d18b8495c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 49a94b8877d46cf95ec8701f470d87e187713f69
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687175"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583301"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -124,7 +124,7 @@ Prima di usare gli esempi a livello di applicazione, preparare due elementi:
 
 * Percorso completo del certificato della CA radice copiato e salvato in una posizione nel dispositivo downstream.
 
-    Ad esempio: `<path>/azure-iot-test-only.root.ca.cert.pem`.
+    Ad esempio, `<path>/azure-iot-test-only.root.ca.cert.pem`
 
 ### <a name="nodejs"></a>NodeJS
 
@@ -185,9 +185,9 @@ Questa sezione presenta un'applicazione di esempio per la connessione a un clien
 
 Questa sezione presenta un'applicazione di esempio per la connessione di un cliente dispositivo Python Azure IoT a un gateway IoT Edge.
 
-1. Ottenere l'esempio per **send_message** dagli [esempi di Azure Internet per dispositivi SDK per Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
-2. Verificare che sia in esecuzione in un contenitore di IoT Edge o in uno scenario di debug, impostare le `EdgeHubConnectionString` variabili `EdgeModuleCACertificateFile` di ambiente e.
-3. Vedere la documentazione dell'SDK per istruzioni su come eseguire l'esempio nel dispositivo.
+1. Ottenere l'esempio per **send_message_downstream** dagli [esempi di Azure Internet per dispositivi SDK per Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
+2. Impostare le `IOTHUB_DEVICE_CONNECTION_STRING` variabili `IOTEDGE_ROOT_CA_CERT_PATH` di ambiente e come specificato nei commenti dello script Python.
+3. Per altre istruzioni su come eseguire l'esempio nel dispositivo, vedere la documentazione dell'SDK.
 
 ## <a name="test-the-gateway-connection"></a>Testare la connessione al gateway
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0af897ca284b1d51867808c2c74496c73e9bdcc3
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266286"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582772"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
 
@@ -100,7 +100,7 @@ Inizialmente, l'utente eredita la licenza solo dal gruppo *E3 Basic Services* , 
 
 ## <a name="managing-new-services-added-to-products"></a>Gestione di nuovi servizi aggiunti ai prodotti
 
-Quando Microsoft aggiunge un nuovo servizio a un piano di licenze del prodotto, viene abilitato per impostazione predefinita in tutti i gruppi a cui è stata assegnata la licenza del prodotto. Gli utenti nel tenant che hanno sottoscritto le notifiche sulle modifiche apportate al prodotto riceveranno in anticipo messaggi di posta elettronica con informazioni sulle nuove aggiunte di servizi.
+Quando Microsoft aggiunge un nuovo servizio a un piano di licenze del prodotto, viene abilitato per impostazione predefinita in tutti i gruppi a cui è stata assegnata la licenza del prodotto. Gli utenti dell'organizzazione che hanno sottoscritto le notifiche relative alle modifiche apportate ai prodotti riceveranno messaggi di posta elettronica in anticipo per informare le future aggiunte al servizio.
 
 Come amministratore, è possibile esaminare tutti i gruppi interessati dalla modifica e scegliere come agire, ad esempio disabilitando il nuovo servizio in ogni gruppo. Se ad esempio sono stati creati gruppi interessati solo ai servizi specifici per la distribuzione, è possibile rivedere tali gruppi e assicurarsi di disabilitare i servizi appena aggiunti.
 
@@ -108,7 +108,7 @@ Ecco un esempio di come potrebbe presentarsi questo processo:
 
 1. È stato inizialmente assegnato il prodotto *Office 365 Enterprise E5* a diversi gruppi. Uno di questi gruppi, denominato *O365 E5 - Exchange only* (O365 E5 - solo Exchange), è progettato in modo da consentire ai membri solo l'uso del servizio *Exchange Online (Piano 2)*.
 
-2. Si riceve una notifica da Microsoft in cui si informa che il prodotto E5 sarà esteso con un nuovo servizio denominato *Microsoft Stream*. Quando il servizio diventa disponibile nel proprio tenant, è possibile eseguire le operazioni seguenti:
+2. Si riceve una notifica da Microsoft in cui si informa che il prodotto E5 sarà esteso con un nuovo servizio denominato *Microsoft Stream*. Quando il servizio diventa disponibile nell'organizzazione, è possibile eseguire le operazioni seguenti:
 
 3. Passare al pannello [**Azure Active Directory > Licenze > Tutti i prodotti**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) e selezionare *Office 365 Enterprise E5*, quindi selezionare **Gruppi con licenza** per visualizzare un elenco di tutti i gruppi con quel prodotto.
 
@@ -128,9 +128,9 @@ Ecco un esempio di come potrebbe presentarsi questo processo:
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Usare PowerShell per determinare gli utenti con licenze ereditate e dirette
 È possibile usare uno script di PowerShell per verificare se gli utenti hanno una licenza assegnata direttamente o ereditata da un gruppo.
 
-1. Eseguire il cmdlet `connect-msolservice` per l'autenticazione e la connessione al tenant.
+1. Eseguire il `connect-msolservice` cmdlet per l'autenticazione e la connessione all'organizzazione.
 
-2. `Get-MsolAccountSku` può essere usato per individuare tutte le licenze del prodotto con provisioning nel tenant.
+2. `Get-MsolAccountSku`può essere usato per individuare tutte le licenze del prodotto di cui è stato effettuato il provisioning nell'organizzazione Azure AD.
 
    ![Schermata del cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

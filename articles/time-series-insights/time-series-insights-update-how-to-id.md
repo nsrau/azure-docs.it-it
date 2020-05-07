@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083521"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838723"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
@@ -27,6 +27,7 @@ La selezione di un ID Time Series appropriato è fondamentale. Scegliere un ID s
 
 > [!IMPORTANT]
 > Gli ID delle serie temporali sono:
+>
 > * Una proprietà con *distinzione tra maiuscole* e minuscole: le lettere e i caratteri vengono usati in ricerche, confronti, aggiornamenti e durante il partizionamento.
 > * Una proprietà non *modificabile* : una volta creata, non può essere modificata.
 
@@ -56,7 +57,7 @@ Negli scenari seguenti viene descritto come selezionare più di una proprietà c
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Esempio 2: ID Time Series con una chiave composta
 
-* È necessario che più proprietà siano univoche nella stessa flotta di asset. 
+* È necessario che più proprietà siano univoche nella stessa flotta di asset.
 * Sei un produttore di Smart Build e Distribuisci sensori in ogni chat room. In ogni stanza, in genere si hanno gli stessi valori per **sensorId**. Esempi sono **sensor1**, **SENSOR2**e **Sensor3**.
 * La compilazione presenta numeri di piano e spazio sovrapposti tra i siti nella proprietà **flrRm**. Questi numeri hanno valori quali **1a**, **2B**e **3A**.
 * Si dispone di una proprietà, **location**, che contiene valori quali **Redmond**, **Barcelona**e **Tokyo**. Per creare l'univocità, è necessario definire le tre proprietà seguenti come chiavi ID della serie temporale: **sensorId**, **flrRm**e **location**.
@@ -72,7 +73,7 @@ Evento RAW di esempio:
 }
 ```
 
-Nella portale di Azure è quindi possibile immettere la chiave composta come indicato di seguito: 
+Nella portale di Azure è quindi possibile immettere la chiave composta come indicato di seguito:
 
 ```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]

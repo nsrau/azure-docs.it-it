@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1f27c7b91a78da8944c23fd353d3b6791b3e015
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74024244"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582565"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Individuazione dell'area di autenticazione principale per le pagine di accesso Azure Active Directory
 
@@ -28,7 +28,7 @@ Si sta cambiando il comportamento di accesso Azure Active Directory (Azure AD) p
 
 In passato, l'individuazione dell'area di autenticazione principale era governata dal dominio fornito al momento dell'accesso o da un criterio di individuazione dell'area di autenticazione principale per alcune applicazioni legacy. Nel comportamento di individuazione, ad esempio, un utente Azure Active Directory potrebbe digitarne il nome utente, ma arriverebbe comunque alla schermata di raccolta delle credenziali dell'organizzazione. Questo errore si verifica quando l'utente specifica correttamente il nome di dominio dell'organizzazione "contoso.com". Questo comportamento non consente la granularità per personalizzare le esperienze per un singolo utente.
 
-Per supportare una gamma più ampia di credenziali e aumentare l'usabilità, il comportamento di ricerca del nome utente di Azure Active Directory durante il processo di accesso è ora aggiornato. Il nuovo comportamento prende decisioni intelligenti leggendo le impostazioni a livello di tenant e utente in base al nome utente immesso nella pagina di accesso. Per ottenere questo possibile, Azure Active Directory verificherà se il nome utente immesso nella pagina di accesso esiste nel dominio specificato o reindirizza l'utente per fornire le credenziali.
+Per supportare una gamma più ampia di credenziali e aumentare l'usabilità, il comportamento di ricerca del nome utente di Azure Active Directory durante il processo di accesso è ora aggiornato. Il nuovo comportamento prende decisioni intelligenti leggendo le impostazioni a livello di organizzazione e a livello di utente in base al nome utente immesso nella pagina di accesso. Per ottenere questo possibile, Azure Active Directory verificherà se il nome utente immesso nella pagina di accesso esiste nel dominio specificato o reindirizza l'utente per fornire le credenziali.
 
 Un ulteriore vantaggio di questo lavoro è la messaggistica degli errori migliorata. Di seguito sono riportati alcuni esempi della messaggistica di errore migliorata quando si accede a un'applicazione che supporta solo Azure Active Directory utenti.
 

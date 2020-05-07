@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255405"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853492"
 ---
 # <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
@@ -152,8 +152,8 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
-|Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)    |Standard_GZRS         |
-|Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) (anteprima)    |Standard_RAGZRS         |
+|Archiviazione con ridondanza della zona geografica (GZRS)    |Standard_GZRS         |
+|Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -195,12 +195,12 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
-|Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)    |Standard_GZRS         |
-|Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) (anteprima)    |Standard_RAGZRS         |
+|Archiviazione con ridondanza della zona geografica (GZRS)    |Standard_GZRS         |
+|Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Modello](#tab/template)
 
-È possibile usare Azure Powershell o l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager per creare un account di archiviazione. Il modello usato in questo articolo sulle procedure è da [Azure Resource Manager modelli di avvio rapido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Per eseguire gli script, selezionare **Prova** per aprire Azure Cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.
+È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello di Gestione risorse per creare un account di archiviazione. Il modello usato in questo articolo sulle procedure è da [Azure Resource Manager modelli di avvio rapido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Per eseguire gli script, selezionare **prova** per aprire il Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

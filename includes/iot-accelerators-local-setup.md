@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere il file
+description: Includere file
 services: iot-accelerators
 author: avneet723
 ms.service: iot-accelerators

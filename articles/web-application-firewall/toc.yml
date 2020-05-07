@@ -63,6 +63,8 @@
           href: ./ag/policy-overview.md
         - name: Panoramica sulla protezione dai bot
           href: ./ag/bot-protection-overview.md
+        - name: Domande frequenti
+          href: ./ag/application-gateway-waf-faq.md
     - name: Frontdoor
       items:
         - name: Regole personalizzate

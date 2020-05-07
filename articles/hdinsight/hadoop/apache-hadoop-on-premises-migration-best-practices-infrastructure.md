@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61d7d2a52f58162d288b1155f9724c7912e451f3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74951514"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780097"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per l'infrastruttura
 
@@ -152,7 +152,7 @@ Per altre informazioni, vedere [Usare i nodi perimetrali vuoti sui cluster Apach
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Usare le funzionalità di aumento e riduzione delle prestazioni dei cluster
 
-HDInsight offre elasticità permettendo di aumentare e ridurre il numero di nodi di lavoro nei cluster. Questa funzionalità consente di ridurre un cluster nelle ore di chiusura o nei fine settimana ed espanderlo durante i picchi delle richieste aziendali. Per altre informazioni, vedi:
+HDInsight offre elasticità permettendo di aumentare e ridurre il numero di nodi di lavoro nei cluster. Questa funzionalità consente di ridurre un cluster nelle ore di chiusura o nei fine settimana ed espanderlo durante i picchi delle richieste aziendali. Per altre informazioni, vedere:
 
 * [Ridimensionare i cluster HDInsight](../hdinsight-scaling-best-practices.md).
 * [Ridimensionare i cluster](../hdinsight-administer-use-portal-linux.md#scale-clusters).
@@ -167,7 +167,7 @@ Rete virtuale di Azure con HDInsight consente di implementare gli scenari seguen
 - Connessione di HDInsight ad archivi dati in una rete virtuale di Azure.
 - Accesso diretto ai servizi Hadoop che non sono disponibili pubblicamente su Internet, ad esempio le API Kafka o l'API Java HBase.
 
-HDInsight può essere aggiunto a una rete virtuale di Azure nuova o esistente. Se HDInsight viene aggiunto a una rete virtuale esistente, i gruppi di sicurezza di rete esistenti e le route definite dall'utente devono essere aggiornati per consentire l'accesso senza restrizioni a [vari indirizzi IP](../hdinsight-management-ip-addresses.md) nel data center di Azure. Assicurarsi inoltre di non bloccare il traffico verso le [porte](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)utilizzate dai servizi HDInsight.
+HDInsight può essere aggiunto a una rete virtuale di Azure nuova o esistente. Se HDInsight viene aggiunto a una rete virtuale esistente, i gruppi di sicurezza di rete esistenti e le route definite dall'utente devono essere aggiornati per consentire l'accesso senza restrizioni a [vari indirizzi IP](../hdinsight-management-ip-addresses.md) nel data center di Azure. Assicurarsi inoltre di non bloccare il traffico verso le [porte](../control-network-traffic.md#required-ports)utilizzate dai servizi HDInsight.
 
 > [!Note]  
 > HDInsight non supporta al momento il tunneling forzato. Il tunneling forzato è un'impostazione di subnet che spinge il traffico Internet in uscita verso un dispositivo per l'ispezione e la registrazione. Occorre quindi rimuovere questa funzionalità prima di installare HDInsight in una subnet oppure si può creare una nuova subnet per HDInsight. HDInsight non supporta la limitazione della connettività di rete in uscita.

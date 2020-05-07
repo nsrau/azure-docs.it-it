@@ -48,7 +48,7 @@ Site Recovery notifica all'utente i componenti scaduti (o prossimi alla scadenza
 
 Le notifiche tramite posta elettronica vengono inviate come indicato di seguito.
 
-**Tempo** | **Frequenza**
+**Time** | **Frequenza**
 --- | ---
 60 giorni prima della scadenza del componente | Una volta bi-settimanale
 Prossimi 53 giorni | Una volta alla settimana

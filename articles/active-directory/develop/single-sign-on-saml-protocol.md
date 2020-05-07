@@ -13,12 +13,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80881283"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853789"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
 
@@ -44,9 +44,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parametro |  | Descrizione |
 | --- | --- | --- |
-| ID | Obbligatoria | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
-| Versione | Obbligatoria | Questo parametro deve essere impostato su **2.0**. |
-| IssueInstant | Obbligatoria | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
+| ID | Necessario | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
+| Versione | Necessario | Questo parametro deve essere impostato su **2.0**. |
+| IssueInstant | Necessario | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
 | AssertionConsumerServiceUrl | Facoltativo | Se specificato, il parametro deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
 | ForceAuthn | Facoltativo | Si tratta di un valore booleano. Se è True, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
 | IsPassive | Facoltativo | È un valore booleano che specifica se Azure AD deve autenticare l'utente in modalità invisibile, senza interazione dell'utente, usando il cookie di sessione, se è disponibile. In questo caso Azure AD tenterà di autenticare l'utente usando il cookie di sessione. |
@@ -95,7 +95,7 @@ Se viene specificato, non includere l'attributo `ProxyCount` e l'elemento `IDPLi
 ### <a name="signature"></a>Firma
 Non includere un elemento `Signature` negli elementi `AuthnRequest` perché Azure AD non supporta le richieste di autenticazione firmate.
 
-### <a name="subject"></a>Oggetto
+### <a name="subject"></a>Subject
 Azure AD ignora l'elemento `Subject` degli elementi `AuthnRequest`.
 
 ## <a name="response"></a>Risposta
@@ -153,12 +153,12 @@ L'elemento `Response` include il risultato della richiesta di autorizzazione. Az
 
 ### <a name="issuer"></a>Issuer
 
-Azure AD imposta l' `Issuer` elemento su `https://login.microsoftonline.com/<TenantIDGUID>/` Where \<TenantIDGUID> è l'ID tenant del tenant Azure ad.
+Azure AD imposta l' `Issuer` elemento su `https://sts.windows.net/<TenantIDGUID>/` Where \<TenantIDGUID> è l'ID tenant del tenant Azure ad.
 
 Ad esempio, una risposta con elemento Issuer può avere un aspetto simile al seguente:
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### <a name="status"></a>Stato
@@ -191,7 +191,7 @@ Oltre a `ID`, `IssueInstant` e `Version`, Azure AD imposta gli elementi seguenti
 Questa impostazione è impostata `https://sts.windows.net/<TenantIDGUID>/`su \<where TENANTIDGUID> è l'ID tenant del tenant del Azure ad.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### <a name="signature"></a>Firma
@@ -206,7 +206,7 @@ Per generare questa firma digitale, Azure AD usa la chiave di firma specificata 
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Oggetto
+#### <a name="subject"></a>Subject
 
 Specifica l'entità oggetto delle istruzioni nell'asserzione. Contiene un elemento `NameID` che rappresenta l'utente autenticato. Il valore `NameID` è un identificatore di destinazione che viene indirizzato solo al provider di servizi destinatario del token. È persistente: può essere revocato, ma mai riassegnato. È anche opaco perché non rivela alcun dettaglio relativo all'utente e non può essere usato come identificatore per le query di attributi.
 

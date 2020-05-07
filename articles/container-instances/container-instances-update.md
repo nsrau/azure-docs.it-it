@@ -3,12 +3,12 @@ title: Aggiornamento del gruppo di contenitori
 description: Informazioni su come aggiornare i contenitori in esecuzione nei gruppi di contenitori in Istanze di Azure Container.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160103"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854442"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di Azure Container
 
@@ -28,7 +28,7 @@ Per aggiornare un gruppo di contenitori esistente:
 * Impostare altre proprietà con i valori specificati in precedenza. Se non si imposta un valore per una proprietà, viene ripristinato il valore predefinito.
 
 > [!TIP]
-> Un [file YAML](/container-instances-container-groups.md#deployment) consente di mantenere la configurazione di distribuzione di un gruppo di contenitori e fornisce un punto di partenza per la distribuzione di un gruppo aggiornato. Se è stato usato un metodo diverso per creare il gruppo, è possibile esportare la configurazione in YAML usando [AZ container Export][az-container-export], 
+> Un [file YAML](container-instances-container-groups.md#deployment) consente di mantenere la configurazione di distribuzione di un gruppo di contenitori e fornisce un punto di partenza per la distribuzione di un gruppo aggiornato. Se è stato usato un metodo diverso per creare il gruppo, è possibile esportare la configurazione in YAML usando [AZ container Export][az-container-export], 
 
 ### <a name="example"></a>Esempio
 

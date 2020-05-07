@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80ca7d8ed89ba0a3b196f1b2b29384c749cf1b22
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: f75e5c856e05cc5ce53598849a7cb11ed059827a
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792548"
+ms.locfileid: "82838859"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -84,8 +84,7 @@ Le distribuzioni di server Linux che non sono approvate da Azure non supportano 
 | OpenLogic | CentOS 7,0 | 7.0 | OpenLogic: CentOS: 7.0: versione più recente | Solo il disco dati |
 | OpenLogic | CentOS 6.8 | 6.8 | OpenLogic: CentOS: 6.8: versione più recente | Solo il disco dati |
 | SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Solo il disco dati |
-| SUSE | SLES Priority 12-SP4 | 12-SP4 | SUSE:SLES-Priority:12-SP4:latest | Solo il disco dati |
-| SUSE | SLES Priority 12-SP3 | 12-SP3 | SUSE:SLES-Priority:12-SP3:latest | Solo il disco dati |
+| SUSE | SLES 12-SP4 | 12-SP4 | SUSE: SLES: 12-SP4: più recente | Solo il disco dati |
 | SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Solo il disco dati |
 
 > [!NOTE]

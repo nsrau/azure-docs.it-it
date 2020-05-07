@@ -3,17 +3,17 @@ title: 'Esercitazione: Creare e gestire i budget di Azure'
 description: Questa esercitazione illustra come pianificare e controllare i costi dei servizi di Azure utilizzati.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/03/2020
+ms.date: 04/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 655194a1335ae258e27dff2c75a370578253794a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605879"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101757"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -156,7 +156,7 @@ L'integrazione del budget con i gruppi di azioni funziona solo per i gruppi di a
 I clienti con contratto Enterprise possono creare e modificare budget a livello di codice usando il modulo Azure PowerShell.  Per scaricare la versione più recente di Azure PowerShell, eseguire il comando seguente:
 
 ```azurepowershell-interactive
-install-module -name AzureRm
+install-module -name Az
 ```
 
 I comandi di esempio seguenti creano un budget.
@@ -164,31 +164,24 @@ I comandi di esempio seguenti creano un budget.
 ```azurepowershell-interactive
 #Sign into Azure Powershell with your account
 
-Connect-AzureRmAccount
+Connect-AzAccount
 
 #Select a subscription to to monitor with a budget
 
-select-AzureRmSubscription -Subscription "Your Subscription"
+select-AzSubscription -Subscription "Your Subscription"
 
 #Create an action group email receiver and corresponding action group
 
-$email1 = New-AzureRmActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
-$ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
+$email1 = New-AzActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
-New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 ## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Creare un budget con un modello di Azure Resource Manager
 
-È possibile creare un budget con un modello di Azure Resource Manager. Il modello consente di creare un budget in un gruppo di risorse. 
-
-Fare clic sull'immagine seguente per accedere al portale di Azure e aprire il modello:
-
-[![Distribuire il modello Crea il budget in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
-
-Per visualizzare un elenco di tutti i parametri del modello e le relative descrizioni, vedere il modello [Crea un budget](https://azure.microsoft.com/resources/templates/create-budget/).
-
+È possibile creare un budget con un modello di Azure Resource Manager. Per usare il modello, vedere [Creare un budget con un modello di Azure Resource Manager](quick-create-budget-template.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
