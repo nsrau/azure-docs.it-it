@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Azure Load Balancer
       href: load-balancer-overview.md
+    - name: Domande frequenti
+      href: load-balancer-faqs.md
 - name: Guida introduttiva
   items:
     - name: Creare il bilanciamento del carico - Portale

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 074a28af8c80c109dbe97306900e8f00618e435a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5512aa1a2538d3336bbcc4f65cad671d52b711a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411692"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610667"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -209,7 +209,7 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 | Se un database contiene uno o più file di dati di dimensioni superiori a 1 TB, la migrazione non riesce | In alcuni casi, potrebbe essere possibile aggirare questo problema compattando i file di grandi dimensioni in modo che siano inferiori a 1 TB. Se si esegue la migrazione di un database usato durante il processo di migrazione, assicurarsi che non ci siano file con dimensioni maggiori di 1 TB. Utilizzare la query seguente per determinare le dimensioni dei file di database. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | database SQL | Istanza gestita di database SQL di Azure attualmente non è supportato con i database con iperscalabilità. |
 | Pool elastici |  I pool elastici non sono attualmente supportati con l'iperscalabilità del database SQL.|
-| La migrazione al livello di servizio Hyperscale è attualmente un'operazione unidirezionale | Dopo aver completato la migrazione di un database a Hyperscale, non è possibile eseguirne la migrazione direttamente a un livello di servizio diverso. Attualmente, l'unico modo per eseguire la migrazione di un database da iperscalabilità a non iperscalare consiste nell'esportare/importare utilizzando un file BACPAC o altre tecnologie di spostamento dei dati (copia bulk, Azure Data Factory, Azure Databricks, SSIS e così via).|
+| La migrazione al livello di servizio Hyperscale è attualmente un'operazione unidirezionale | Dopo aver completato la migrazione di un database a Hyperscale, non è possibile eseguirne la migrazione direttamente a un livello di servizio diverso. Attualmente, l'unico modo per eseguire la migrazione di un database da iperscalabilità a non iperscalare consiste nell'esportare/importare utilizzando un file BACPAC o altre tecnologie di spostamento dei dati (copia bulk, Azure Data Factory, Azure Databricks, SSIS e così via). Esportazione/importazione di BACPAC da portale di Azure, da PowerShell con [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AZSQLDATABASEIMPORT](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), dall'interfaccia della riga di comando di Azure con [AZ SQL DB Export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) e [AZ SQL DB Import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)e dall' [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) non supportata. L'importazione/esportazione di BACPAC per database con iperscala più piccoli (fino a 200 GB) è supportata con SSMS e [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) versione 18,4 e versioni successive. Per i database di dimensioni maggiori, l'esportazione/importazione BACPAC può richiedere molto tempo e potrebbe non riuscire per vari motivi.|
 | Migrazione di database con oggetti in memoria permanenti | L'iperscalabilità supporta solo oggetti in memoria non permanenti (tipi di tabella, SPs e funzioni native).  Prima di eseguire la migrazione di un database al livello di servizio iperscalare, è necessario eliminare e ricreare le tabelle in memoria permanenti e gli altri oggetti come oggetti non in memoria.|
 | Replica geografica  | Non è ancora possibile configurare la replica geografica per l'iperscalabilità del database SQL di Azure. |
 | Copia del database | Non è ancora possibile usare la copia del database per creare un nuovo database in Azure SQL iperscalabile. |

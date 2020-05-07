@@ -3,12 +3,12 @@ title: Matrice di supporto per il backup di condivisioni file di Azure
 description: Fornisce un riepilogo delle impostazioni e delle limitazioni di supporto per il backup di condivisioni file di Azure.
 ms.topic: conceptual
 ms.date: 1/26/2020
-ms.openlocfilehash: 3f154f92d8d094654301bc319003adc22299017b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: b5bfae9454464bc8d11cef3bd346861e13822046
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207990"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838570"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice di supporto per il backup di condivisioni file di Azure
 
@@ -18,9 +18,9 @@ ms.locfileid: "82207990"
 
 Il backup per le condivisioni file di Azure è disponibile nelle aree geografiche seguenti:
 
-| Aree GA | Aree supportate ma non GA                                                      |
+| Aree GA | Aree supportate (come parte dell'anteprima) ma non ancora GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Australia sud-orientale (ASE), Canada centrale (CNC), Stati Uniti centro-occidentali (WCUS), Stati Uniti occidentali 2 (WUS 2), India meridionale (INS), Stati Uniti centro-settentrionali (NCUS), Giappone orientale (JPE), Brasile meridionale (BRS), Sud Asia orientale (SEA), Svizzera occidentale (SZW), Emirati Arabi Uniti centrali (UAC), Norvegia orientale (nè), India occidentale (INW), Australia centrale (ACL)                                                  |Australia orientale (AE), Canada orientale (CE), Asia orientale (EA), Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Giappone occidentale (JPW), India centrale (INC), Corea centrale (KRC), Corea meridionale (KRS), Europa settentrionale (NE), Stati Uniti centro-meridionali (SCUS), Regno Unito meridionale (UKS), Regno Unito occidentale (UKW), Europa occidentale (Microsoft), Stati Uniti occidentali (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), Sudafrica settentrionale (SAN) , Emirati Arabi Uniti settentrionali (UAN), Francia centrale (FRC), Germania settentrionale (GN), Germania centro-occidentale (GWC), Sudafrica occidentale (SAW), Norvegia occidentale (NWW), Svizzera settentrionale (SZN), Stati Uniti centrali (CUS)           |
+| Australia sud-orientale (ASE), Canada centrale (CNC), Stati Uniti centro-occidentali (WCUS), Stati Uniti occidentali 2 (WUS 2), India meridionale (INS), Stati Uniti centro-settentrionali (NCUS), Giappone orientale (JPE), Brasile meridionale (BRS), Sud Asia orientale (SEA), Svizzera occidentale (SZW), Emirati Arabi Uniti centrali (UAC), Norvegia orientale (nè), India occidentale (INW), Australia centrale (ACL), Corea centrale (KRC), Giappone occidentale (JPW), Sudafrica settentrionale (SAN), Regno Unito occidentale (UKW) , Corea meridionale (KRS), Germania settentrionale (GN), Norvegia occidentale (NWW), Sudafrica occidentale (SAW), Svizzera settentrionale (SZN), Germania centro-occidentale (GWC), Emirati Arabi Uniti settentrionali (UAN), Francia centrale (FRC), India centrale (INC), Canada orientale (cloud ed Enterprise), Asia orientale (EA), Australia orientale (AE), Stati Uniti centrali (CUS), Stati Uniti occidentali (WUS)                                                  |  Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Europa settentrionale (NE), Stati Uniti centro-meridionali (SCUS), Regno Unito meridionale (UKS), Europa occidentale (Microsoft), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV)           |
 
 ## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 

@@ -4,13 +4,13 @@ description: Informazioni su come configurare l'autenticazione Azure Active Dire
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 913aac7755e6c4f9a4b42d45933728fcc8840bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190011"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609902"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare il servizio app o l'app funzioni di Azure per usare Azure AD account di accesso
 
@@ -33,7 +33,7 @@ Seguire queste procedure consigliate durante la configurazione dell'app e dell'a
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configurazione con impostazioni rapide
 
 > [!NOTE]
-> L'opzione **Express** non è disponibile per i cloud governativi. 
+> L'opzione **Express** non è disponibile per i cloud governativi.
 
 1. Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app.
 2. Nel percorso di spostamento**a**sinistra selezionare **autenticazione/autorizzazione** > .
@@ -45,9 +45,9 @@ Seguire queste procedure consigliate durante la configurazione dell'app e dell'a
    2. Scegliere una registrazione dell'app esistente e fare clic su **OK**.
 
 3. Selezionare **OK** per registrare l'applicazione dei servizi app in Azure Active Directory. Viene creata una nuova registrazione dell'app.
-   
+
     ![Impostazioni rapide in Azure Active Directory](./media/configure-authentication-provider-aad/express-settings.png)
-   
+
 4. Opzionale Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso autorizzato al contenuto del sito e alle API. È necessario autorizzare gli utenti nel codice dell'app. Per limitare l'accesso alle app solo agli utenti autenticati da Azure Active Directory, impostare l' **azione da eseguire quando la richiesta non viene autenticata** per **accedere con Azure Active Directory**. Quando si imposta questa funzionalità, l'app richiede che tutte le richieste vengano autenticate. Reindirizza anche tutti i Azure Active Directory non autenticati per l'autenticazione.
 
     > [!CAUTION]
@@ -75,8 +75,8 @@ Eseguire la procedura seguente:
 1. Accedere alla [portale di Azure], cercare e selezionare **Servizi app**e quindi selezionare l'app. Prendere nota dell' **URL**dell'app. Verrà usato per configurare la registrazione dell'app Azure Active Directory.
 1. Selezionare **Azure Active Directory** > **registrazioni app** > **nuova registrazione**.
 1. Nella pagina **registra un'applicazione** immettere un **nome** per la registrazione dell'app.
-1. In **URI di reindirizzamento**selezionare **Web** e digitare `<app-url>/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
-1. Selezionare **Create** (Crea).
+1. In **URI di reindirizzamento**selezionare **Web** e digitare `<app-url>/.auth/login/aad/callback`. Ad esempio, `https://contoso.azurewebsites.net/.auth/login/aad/callback`
+1. Selezionare **Crea**.
 1. Dopo la creazione della registrazione dell'app, copiare l'ID **applicazione (client)** e l' **ID directory (tenant)** per un momento successivo.
 1. Selezionare **Autenticazione**. In **concessione implicita**abilitare i **token ID** per consentire gli accessi utente di OpenID Connect dal servizio app.
 1. Opzionale Selezionare **personalizzazione**. In **URL della Home page**immettere l'URL dell'app del servizio app e selezionare **Salva**.
@@ -87,14 +87,14 @@ Eseguire la procedura seguente:
 
 1. Selezionare **Aggiungi un ambito**.
    1. In **nome ambito**immettere *user_impersonation*.
-   1. Nelle caselle di testo immettere il nome dell'ambito di consenso e la descrizione che si desidera che gli utenti visualizzino nella pagina di consenso. Ad esempio, immettere *Accedi all'app*. 
+   1. Nelle caselle di testo immettere il nome dell'ambito di consenso e la descrizione che si desidera che gli utenti visualizzino nella pagina di consenso. Ad esempio, immettere *Accedi all'app*.
    1. Selezionare **Aggiungi ambito**.
 1. Opzionale Per creare un segreto client, selezionare **certificati &** > Secret**nuovo segreto** > client**Aggiungi**. Copiare il valore del segreto client visualizzato nella pagina. Non verrà più visualizzato.
 1. Opzionale Per aggiungere più **URL di risposta**, selezionare **Authentication (autenticazione**).
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Abilitare Azure Active Directory nell'app del servizio app
 
-1. Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app. 
+1. Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app.
 1. Nel riquadro sinistro, in **Impostazioni**, selezionare **autenticazione/autorizzazione** > **.**
 1. Opzionale Per impostazione predefinita, l'autenticazione del servizio app consente l'accesso non autenticato all'app. Per applicare l'autenticazione utente, impostare l' **azione da eseguire quando la richiesta non viene autenticata** per l' **accesso con Azure Active Directory**.
 1. In **Provider di autenticazione** fare clic su **Azure Active Directory**.
@@ -117,11 +117,11 @@ A questo punto si è pronti per usare Azure Active Directory per l'autenticazion
 
 1. Nella [portale di Azure]selezionare **Active Directory** > **registrazioni app** > **nuova registrazione**.
 1. Nella pagina **registra un'applicazione** immettere un **nome** per la registrazione dell'app.
-1. In **URI di reindirizzamento**selezionare **client pubblico (mobile & desktop)** e digitare l'URL `<app-url>/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. In **URI di reindirizzamento**selezionare **client pubblico (mobile & desktop)** e digitare l'URL `<app-url>/.auth/login/aad/callback`. Ad esempio, `https://contoso.azurewebsites.net/.auth/login/aad/callback`
 
     > [!NOTE]
     > Per un'applicazione Microsoft Store, utilizzare invece il [SID del pacchetto](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) come URI.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 1. Dopo la creazione della registrazione dell'app, copiare il valore dell' **ID applicazione (client)**.
 1. Selezionare **autorizzazioni** > **API Aggiungi un'autorizzazione** > **API personali**.
 1. Selezionare la registrazione dell'app creata in precedenza per l'app del servizio app. Se la registrazione dell'app non viene visualizzata, assicurarsi di avere aggiunto l'ambito **user_impersonation** in [creare una registrazione dell'app in Azure ad per l'app del servizio app](#register).

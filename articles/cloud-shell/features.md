@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7490eef7b6203b6bb2623efa4518c7bee5400fb3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521020"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610769"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funzionalità e strumenti per Azure Cloud Shell
 
@@ -27,7 +27,7 @@ ms.locfileid: "80521020"
 
 Azure Cloud Shell viene eseguito su `Ubuntu 16.04 LTS`.
 
-## <a name="features"></a>Caratteristiche
+## <a name="features"></a>Funzionalità
 
 ### <a name="secure-automatic-authentication"></a>Autenticazione automatica sicura
 
@@ -69,10 +69,10 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 
 ## <a name="tools"></a>Strumenti
 
-|Category   |Name   |
+|Categoria   |Nome   |
 |---|---|
 |Strumenti di Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Strumenti di Azure            |[Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) e [interfaccia della riga di comando classica di Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Interfaccia della riga di comando di Funzioni di Azure](https://github.com/Azure/azure-functions-core-tools)<br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Strumenti di Azure            |[Interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli) e [interfaccia della riga di comando classica di Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [Interfaccia della riga di comando di Funzioni di Azure](https://github.com/Azure/azure-functions-core-tools)<br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editor di testo           |codice (editor di Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Controllo del codice sorgente         |git                    |
 |Strumenti di compilazione            |make<br> maven<br> npm<br> pip         |
@@ -80,9 +80,9 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 |Database              |Client MySQL<br> Client PostgreSql<br> [Utilità sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Altri                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
-## <a name="language-support"></a>Supporto delle lingue
+## <a name="language-support"></a>Lingue supportate
 
-|Linguaggio   |Versione   |
+|Lingua   |Versione   |
 |---|---|
 |.NET Core  |2.2.402       |
 |Go         |1.9        |

@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870208"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611399"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -45,11 +45,13 @@ Creare e acquisire un'immagine di VM, quindi usarla come origine per il set di s
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Se si riduce la capacità del set di scalabilità da 20 a 15, quali VM vengono rimosse?
 
-Le macchine virtuali vengono rimosse dal set di scalabilità in modo uniforme tra domini di aggiornamento e domini di errore per ottimizzare la disponibilità. Le VM con ID più elevato vengono rimosse per prime.
+Per impostazione predefinita, le macchine virtuali vengono rimosse dal set di scalabilità in modo uniforme tra le zone di disponibilità (se il set di scalabilità viene distribuito nella configurazione di zona) e i domini di errore per ottimizzare la disponibilità. Le VM con ID più elevato vengono rimosse per prime.
+
+È possibile modificare l'ordine di rimozione della macchina virtuale specificando un [criterio di ridimensionamento](virtual-machine-scale-sets-scale-in-policy.md) per il set di scalabilità.
 
 ### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Cosa accade se successivamente si aumenta la capacità da 15 a 18?
 
-Se si aumenta la capacità a 18, vengono create 3 nuove VM. Ogni volta, l'ID istanza della VM viene ottenuto incrementando il valore più elevato precedente (ad esempio 20, 21, 22). Le VM vengono bilanciate tra domini di errore e domini di aggiornamento.
+Se si aumenta la capacità a 18, vengono create 3 nuove VM. Ogni volta, l'ID istanza della VM viene ottenuto incrementando il valore più elevato precedente (ad esempio 20, 21, 22). Le macchine virtuali sono bilanciate tra domini di errore.
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Quando si usano più estensioni in un set di scalabilità, è possibile imporre una sequenza di esecuzione?
 
@@ -335,13 +337,13 @@ Per altre informazioni, vedere il [Centro protezione Microsoft](https://www.micr
 
 Sì. È possibile vedere alcuni modelli MSI di esempio in modelli di avvio rapido di Azure per [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>Deleting 
+## <a name="deleting"></a>Deleting
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>I blocchi impostati sul posto sulle istanze del set di scalabilità di macchine virtuali vengono rispettati durante l'eliminazione di istanze?
 
-Nel portale di Azure è possibile eliminare una singola istanza o l'eliminazione bulk selezionando più istanze. Se si tenta di eliminare una singola istanza con un blocco sul posto, il blocco viene rispettato e non sarà possibile eliminare l'istanza. Tuttavia, se si selezionano in blocco più istanze e si verifica un blocco per una di queste istanze, i blocchi non verranno rispettati e tutte le istanze selezionate verranno eliminate. 
- 
-Nell'interfaccia della riga di comando di Azure è possibile eliminare una singola istanza. Se si tenta di eliminare una singola istanza con un blocco, il blocco viene rispettato e non sarà possibile eliminare l'istanza. 
+Nel portale di Azure è possibile eliminare una singola istanza o l'eliminazione bulk selezionando più istanze. Se si tenta di eliminare una singola istanza con un blocco sul posto, il blocco viene rispettato e non sarà possibile eliminare l'istanza. Tuttavia, se si selezionano in blocco più istanze e si verifica un blocco per una di queste istanze, i blocchi non verranno rispettati e tutte le istanze selezionate verranno eliminate.
+
+Nell'interfaccia della riga di comando di Azure è possibile eliminare una singola istanza. Se si tenta di eliminare una singola istanza con un blocco, il blocco viene rispettato e non sarà possibile eliminare l'istanza.
 
 ## <a name="extensions"></a>Estensioni
 
@@ -520,7 +522,7 @@ Per distribuire un set di scalabilità di macchine virtuali in una rete virtuale
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>È possibile usare i set di scalabilità con la rete accelerata?
 
-Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio
+Sì. Per usare la rete accelerata, impostare enableAcceleratedNetworking su true nelle impostazioni networkInterfaceConfigurations del set di scalabilità. Ad esempio:
 
 ```json
 "networkProfile": {

@@ -5,23 +5,25 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127910"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612368"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente di Desktop virtuale Windows
 
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Desktop virtuale di Windows è un servizio che consente agli utenti di accedere in modo semplice e sicuro ai propri desktop e RemoteApp virtualizzati. In questo argomento viene illustrata la struttura generale dell'ambiente desktop virtuale di Windows.
-
-## <a name="tenants"></a>Tenant
-
-Il tenant desktop virtuale di Windows è l'interfaccia principale per la gestione dell'ambiente desktop virtuale di Windows. Ogni tenant di desktop virtuale di Windows deve essere associato al Azure Active Directory contenente gli utenti che accederanno all'ambiente. Dal tenant desktop virtuale di Windows, è possibile iniziare a creare pool host per eseguire i carichi di lavoro degli utenti.
 
 ## <a name="host-pools"></a>Pool host
 
@@ -45,12 +47,12 @@ Per impostazione predefinita, ogni volta che si crea un pool host, viene creato 
 
 Per pubblicare le risorse per gli utenti, è necessario assegnarle ai gruppi di app. Quando si assegnano utenti a gruppi di app, tenere presente quanto segue:
 
-- Un utente non può essere assegnato sia a un gruppo di app desktop che a un gruppo di app RemoteApp nello stesso pool host.
+- Un utente può essere assegnato sia a un gruppo di app desktop che a un gruppo di app RemoteApp nello stesso pool host. Tuttavia, gli utenti possono avviare un solo tipo di gruppo di app per sessione. Gli utenti non possono avviare entrambi i tipi di gruppi di app nello stesso momento in un'unica sessione.
 - Un utente può essere assegnato a più gruppi di app nello stesso pool host e il relativo feed sarà un accumulo di entrambi i gruppi di app.
 
-## <a name="tenant-groups"></a>Gruppi tenant
+## <a name="workspaces"></a>Aree di lavoro
 
-Nel desktop virtuale di Windows, il tenant di desktop virtuale di Windows è il punto in cui si verifica la maggior parte delle configurazioni e della configurazione. Il tenant desktop virtuale di Windows contiene i pool host, i gruppi di app e le assegnazioni utente del gruppo di app. Tuttavia, in alcuni casi è necessario gestire contemporaneamente più tenant di desktop virtuali Windows, in particolare se si è un provider di servizi cloud (CSP) o un partner di hosting. In questi casi, è possibile utilizzare un gruppo di tenant desktop virtuale di Windows personalizzato per collocare ogni tenant del desktop virtuale di Windows dei clienti e gestire centralmente l'accesso. Tuttavia, se si gestisce solo un tenant di desktop virtuale Windows singolo, il concetto di gruppo di tenant non si applica ed è possibile continuare a usare e gestire il tenant esistente nel gruppo tenant predefinito.
+Un'area di lavoro è un raggruppamento logico di gruppi di applicazioni nel desktop virtuale di Windows. Ogni gruppo di applicazioni desktop virtuali Windows deve essere associato a un'area di lavoro per consentire agli utenti di visualizzare le app Remote e i desktop pubblicati.  
 
 ## <a name="end-users"></a>Utenti finali
 
@@ -60,9 +62,12 @@ Dopo aver assegnato gli utenti ai gruppi di app, possono connettersi a una distr
 
 Altre informazioni sull'accesso delegato e su come assegnare i ruoli agli utenti all' [accesso delegato nel desktop virtuale di Windows](delegated-access-virtual-desktop.md).
 
-Per informazioni su come configurare il tenant di desktop virtuale Windows, vedere [creare un tenant in un desktop virtuale di Windows](tenant-setup-azure-active-directory.md).
+Per informazioni su come configurare il pool di host per desktop virtuali Windows, vedere [creare un pool host con il portale di Azure](create-host-pools-azure-marketplace.md).
 
 Per informazioni su come connettersi a desktop virtuale di Windows, vedere uno degli articoli seguenti:
 
-- [Connettersi da Windows 10 o Windows 7](connect-windows-7-and-10.md)
-- [Connettersi da un Web browser](connect-web.md)
+- [Connessione con Windows 10 o Windows 7](connect-windows-7-and-10.md)
+- [Connettersi con un Web browser](connect-web.md)
+- [Connettersi con il client Android](connect-android.md)
+- [Connettersi con il client macOS](connect-macos.md)
+- [Connettersi con il client iOS](connect-ios.md)

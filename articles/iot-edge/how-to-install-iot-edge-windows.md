@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113466"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856745"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installare il runtime di Azure IoT Edge in Windows
 
@@ -193,17 +193,21 @@ Esaminare i log del servizio generati negli ultimi cinque minuti. Se è stata ap
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Eseguire un controllo automatizzato per la configurazione e gli errori di rete più comuni.
+Eseguire lo [strumento di risoluzione dei problemi](troubleshoot.md#run-the-check-command) per verificare la configurazione e gli errori di rete più comuni.
 
 ```powershell
 iotedge check
 ```
 
-Elencare i moduli in esecuzione. Dopo una nuova installazione, l'unico modulo che dovrebbe essere in esecuzione è **edgeAgent**. Dopo aver [distribuito i moduli IOT Edge](how-to-deploy-modules-portal.md) per la prima volta, l'altro modulo di sistema, **edgeHub**, si avvierà anche sul dispositivo.
+Fino a quando non si distribuisce il primo modulo per IoT Edge nel dispositivo, il modulo del sistema **$edgeHub** non verrà distribuito nel dispositivo. Di conseguenza, il controllo automatico restituirà un errore per il controllo `Edge Hub can bind to ports on host` della connettività. Questo errore può essere ignorato a meno che non avvenga dopo la distribuzione di un modulo nel dispositivo.
+
+Infine, elencare i moduli in esecuzione:
 
 ```powershell
 iotedge list
 ```
+
+Dopo una nuova installazione, l'unico modulo che dovrebbe essere in esecuzione è **edgeAgent**. Dopo aver [distribuito i moduli IOT Edge](how-to-deploy-modules-portal.md) per la prima volta, l'altro modulo di sistema, **edgeHub**, si avvierà anche sul dispositivo.
 
 ## <a name="manage-module-containers"></a>Gestire i contenitori dei moduli
 

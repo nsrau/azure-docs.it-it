@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 79638f584f1c65b33f23a68f01dbe82878460cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234078"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606892"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protezione dalle minacce nel Centro sicurezza di Azure
 
@@ -34,7 +34,9 @@ Se un avviso viene generato dal centro sicurezza o ricevuto dal centro sicurezza
 > [!TIP]
 > Per abilitare le funzionalità di protezione dalle minacce del Centro sicurezza, è necessario applicare il piano tariffario standard alla sottoscrizione contenente i carichi di lavoro applicabili.
 >
-> La protezione dalle minacce del Centro sicurezza per gli account di archiviazione e i server PaaS SQL/MySQL/PG sono attualmente gli unici carichi di lavoro che possono essere abilitati a livello di risorsa per proteggere i singoli carichi di lavoro di archiviazione/SQL.
+> È possibile abilitare la protezione dalle minacce per gli **account di archiviazione di Azure** a livello di sottoscrizione o di risorsa.
+> È possibile abilitare la protezione dalle minacce per **SQL Server del database SQL di Azure** a livello di sottoscrizione o di risorsa.
+> È possibile abilitare la protezione dalle minacce per il **database di Azure per MariaDB/MySQL/PostgreSQL** solo a livello di risorsa.
 
 
 
@@ -155,7 +157,7 @@ Verranno visualizzati gli avvisi in caso di attività di database sospette, pote
 
 Advanced Threat Protection per il database SQL di Azure e SQL fa parte del pacchetto unificato Advanced [Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) per le funzionalità avanzate di sicurezza di SQL, per i database SQL di Azure, le istanze gestite del database SQL di Azure, i database di Azure SQL data warehouse e i server SQL in macchine virtuali di Azure.
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 * [Come abilitare Advanced Threat Protection per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [Come abilitare Advanced Threat Protection per SQL Server in macchine virtuali di Azure](security-center-iaas-advanced-data.md)
@@ -173,7 +175,7 @@ Questo servizio è disponibile in tutti i cloud pubblici e negli Stati Uniti, ma
 
 Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi del Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/).
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 * [Come abilitare Advanced Threat Protection per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Elenco degli avvisi di protezione dalle minacce per archiviazione di Azure](alerts-reference.md#alerts-azurestorage)
@@ -188,7 +190,7 @@ Per altre informazioni, vedi:
 
 Gli avvisi Azure Cosmos DB vengono generati da tentativi insoliti e potenzialmente dannosi di accesso o di exploit Azure Cosmos DB account.
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 * [Advanced Threat Protection per Azure Cosmos DB (anteprima)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [Elenco di avvisi di protezione dalle minacce per Azure Cosmos DB (anteprima)](alerts-reference.md#alerts-azurecosmos)

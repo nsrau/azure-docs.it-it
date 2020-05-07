@@ -16,12 +16,12 @@ ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4e5da511aa10432f221b6eb86780aa636723290
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3c0b7070502059eee7f87e82812e06095e56d578
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508837"
+ms.locfileid: "82582664"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomi dei prodotti e identificatori dei piani di servizio per le licenze
 
@@ -130,7 +130,7 @@ Quando si gestiscono [le](https://portal.azure.com/#blade/Microsoft_AAD_IAM/Lice
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>Piani di servizio che non possono essere assegnati allo stesso tempo
 
-Alcuni prodotti contengono piani di servizio che non possono essere assegnati allo stesso utente contemporaneamente. Se, ad esempio, si dispone di *office 365 E1* e *Office 365 E3* nel tenant e si tenta di assegnare entrambe le licenze allo stesso utente, l'operazione avrà esito negativo. Il prodotto E3 contiene infatti i seguenti piani di servizio che sono in conflitto con le controparti in E1:
+Alcuni prodotti contengono piani di servizio che non possono essere assegnati allo stesso utente contemporaneamente. Se, ad esempio, si dispone di *office 365 E1* e *Office 365 E3* nell'organizzazione Azure ad e si tenta di assegnare entrambe le licenze allo stesso utente, l'operazione avrà esito negativo. Il prodotto E3 contiene infatti i seguenti piani di servizio che sono in conflitto con le controparti in E1:
 
 -   SharePoint Online (piano 2) in conflitto con SharePoint Online (piano 1).
 -   Exchange Online (piano 2) in conflitto con Exchange Online (piano 1).

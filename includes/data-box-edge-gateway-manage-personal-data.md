@@ -12,13 +12,13 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180788"
 ---
 - **Dettagli dell'ordine**. Quando viene creato un ordine, l'indirizzo di spedizione, l'indirizzo di posta elettronica e le informazioni di contatto dell'utente vengono archiviati nella portale di Azure. Le informazioni salvate includono:
-  - Nome del contatto
+  - Nome contatto
   - Numero di telefono
   - Indirizzo di posta elettronica
   - Indirizzo
   - city
   - CAP Codice postale
-  - State
+  - Stato
   - Paese/provincia/regione
   - Numero di tracciabilità della spedizione
 
