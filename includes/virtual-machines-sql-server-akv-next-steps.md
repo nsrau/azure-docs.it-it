@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 9df08151e4af6e82a775b3ee99dab88134a2f032
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67180097"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82784096"
 ---
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -25,7 +25,7 @@ Gli script Transact-SQL seguenti forniscono esempi per ognuna di queste aree.
 
 ### <a name="prerequisites-for-examples"></a>Prerequisiti per gli esempi
 
-Ogni esempio è basato su due prerequisiti: una chiave asimmetrica dall'insieme di credenziali delle chiavi denominata **CONTOSO_KEY** e una credenziale creata dalla funzionalità di integrazione di AKV denominata **Azure_EKM_TDE_cred**. I comandi Transact-SQL seguenti consentono di configurare questi prerequisiti per l'esecuzione degli esempi.
+Ogni esempio è basato sui due prerequisiti: una chiave asimmetrica dall'insieme di credenziali delle chiavi denominata **CONTOSO_KEY** e una credenziale creata dalla funzionalità di integrazione AKV denominata **Azure_EKM_cred**. I comandi Transact-SQL seguenti consentono di configurare questi prerequisiti per l'esecuzione degli esempi.
 
 ``` sql
 USE master;
@@ -33,7 +33,7 @@ GO
 
 --create credential
 --The <<SECRET>> here requires the <Application ID> (without hyphens) and <Secret> to be passed together without a space between them.
-CREATE CREDENTIAL sysadmin_ekm_cred
+CREATE CREDENTIAL Azure_EKM_cred
     WITH IDENTITY = 'keytestvault', --keyvault
     SECRET = '<<SECRET>>'
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
@@ -41,7 +41,7 @@ FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
 --Map the credential to a SQL login that has sysadmin permissions. This allows the SQL login to access the key vault when creating the asymmetric key in the next step.
 ALTER LOGIN [SQL_Login]
-ADD CREDENTIAL sysadmin_ekm_cred;
+ADD CREDENTIAL Azure_EKM_cred;
 
 
 CREATE ASYMMETRIC KEY CONTOSO_KEY

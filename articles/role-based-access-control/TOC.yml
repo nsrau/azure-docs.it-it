@@ -1,9 +1,9 @@
-- name: Documentazione di Controllo degli accessi in base al ruolo per le risorse di Azure
+- name: Documentazione del controllo degli accessi in base al ruolo di Azure
   href: index.yml
   items: null
 - name: Panoramica
   items:
-    - name: Informazioni sul controllo degli accessi in base al ruolo
+    - name: Che cos'è il controllo degli accessi in base al ruolo di Azure?
       href: overview.md
     - name: Informazioni sui diversi ruoli
       href: rbac-and-directory-admin-roles.md
@@ -74,7 +74,7 @@
           href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
-    - name: Creare ruoli personalizzati
+    - name: Creare o aggiornare i ruoli personalizzati
       items:
         - name: Panoramica
           href: custom-roles.md
@@ -100,7 +100,7 @@
       href: built-in-roles.md
     - name: Operazioni del provider di risorse
       href: resource-provider-operations.md
-    - name: Limiti relativi al controllo degli accessi in base al ruolo
+    - name: Limiti relativi al controllo degli accessi in base al ruolo di Azure
       href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources

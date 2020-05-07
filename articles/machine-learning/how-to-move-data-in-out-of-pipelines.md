@@ -1,7 +1,7 @@
 ---
-title: Dati di input e di output dalle pipeline di ML
+title: Trasferimento di dati in pipeline ML
 titleSuffix: Azure Machine Learning
-description: Preparare, utilizzare e generare dati in pipeline di Azure Machine Learning
+description: Informazioni sull'output & di input dei dati in pipeline di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 3dd1a82bf7fad1f201f5c0f52af944ef44a3fdf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee4fe58c5eb4799651361000dedcc43275aae17e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879765"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791953"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Spostamento di dati in e tra i passaggi della pipeline ML (Python)
 

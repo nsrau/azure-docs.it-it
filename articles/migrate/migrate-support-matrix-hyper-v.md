@@ -3,12 +3,12 @@ title: Supporto per la valutazione di Hyper-V in Azure Migrate
 description: Informazioni sul supporto per la valutazione di Hyper-V con Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67fabebf805e38a6bca5dda6e691c263ee235219
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538172"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744609"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matrice di supporto per la valutazione di Hyper-V
 
@@ -54,7 +54,7 @@ Azure Migrate usa l' [appliance Azure migrate](migrate-appliance.md) per l'indiv
 
 - Informazioni sui [requisiti di appliance](migrate-appliance.md#appliance---hyper-v) per Hyper-V.
 - Informazioni sugli URL necessari all'appliance per accedere ai cloud [pubblici](migrate-appliance.md#public-cloud-urls) e [governativi](migrate-appliance.md#government-cloud-urls) .
-- In Azure per enti pubblici è necessario distribuire l'appliance con lo script.
+- In Azure per enti pubblici è necessario distribuire l'appliance [con lo script](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Accesso alla porta
 

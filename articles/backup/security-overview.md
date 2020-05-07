@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità di sicurezza
 description: Informazioni sulle funzionalità di sicurezza di backup di Azure che consentono di proteggere i dati di backup e soddisfare le esigenze di sicurezza dell'azienda.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585826"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743646"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Panoramica delle funzionalità di sicurezza di backup di Azure
 
@@ -16,9 +16,9 @@ Una delle operazioni più importanti che è possibile eseguire per proteggere i 
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Gestione e controllo dell'identità e dell'accesso utente
 
-Backup di Azure consente di gestire l'accesso con granularità fine tramite il [controllo degli accessi in base al ruolo (RBAC) di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Il controllo degli accessi in base al ruolo consente di separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti necessari per svolgere i propri processi.
+Gli account di archiviazione usati dagli insiemi di credenziali dei servizi di ripristino sono isolati e non è possibile accedervi dagli utenti per eventuali scopi dannosi. L'accesso è consentito solo tramite le operazioni di gestione di backup di Azure, ad esempio il ripristino. Backup di Azure consente di controllare le operazioni gestite tramite un accesso con granularità fine tramite il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). Il controllo degli accessi in base al ruolo consente di separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti necessari per svolgere i propri processi.
 
-Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione dei backup:
+Backup di Azure offre tre [ruoli predefiniti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) per controllare le operazioni di gestione dei backup:
 
 * Collaboratore di backup: per creare e gestire i backup, eccetto l'eliminazione dell'insieme di credenziali di servizi di ripristino e l'accesso ad altri utenti
 * Operatore di backup: tutti gli elementi di un collaboratore tranne la rimozione del backup e la gestione dei criteri
@@ -47,13 +47,13 @@ Il backup di macchine virtuali di Azure richiede lo spostamento dei dati dal dis
 
 La crittografia protegge i dati e consente di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. In Azure, i dati in transito tra archiviazione di Azure e l'insieme di credenziali sono protetti da HTTPS. Questi dati rimangono all'interno della rete backbone di Azure.
 
-* I dati di backup vengono crittografati automaticamente usando chiavi gestite da Microsoft. È anche possibile crittografare le macchine virtuali con dischi gestiti di cui è stato eseguito il backup nell'insieme di credenziali di servizi di ripristino usando [chiavi gestite dal cliente](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys) archiviate nel Azure Key Vault. Non è necessario eseguire alcuna azione esplicita per abilitare la crittografia. Si applica a tutti i carichi di lavoro di cui viene eseguito il backup nell'insieme di credenziali di servizi di ripristino.
+* I dati di backup vengono crittografati automaticamente usando chiavi gestite da Microsoft. È anche possibile crittografare le macchine virtuali con dischi gestiti di cui è stato eseguito il backup nell'insieme di credenziali di servizi di ripristino usando [chiavi gestite dal cliente](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) archiviate nel Azure Key Vault. Non è necessario eseguire alcuna azione esplicita per abilitare la crittografia. Si applica a tutti i carichi di lavoro di cui viene eseguito il backup nell'insieme di credenziali di servizi di ripristino.
 
 * Backup di Azure supporta il backup e il ripristino di macchine virtuali di Azure con i dischi del sistema operativo/dati crittografati con crittografia dischi di Azure (ADE). [Altre informazioni sulle macchine virtuali di Azure crittografate e backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Protezione dei dati di backup da eliminazioni accidentali
 
-Backup di Azure offre funzionalità di sicurezza che consentono di proteggere i dati di backup anche dopo l'eliminazione. Con l'eliminazione temporanea, se l'utente elimina il backup di una macchina virtuale, i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il ripristino di tale elemento di backup senza perdita di dati. Gli altri 14 giorni di conservazione dei dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per il cliente. [Altre informazioni sull'eliminazione](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete)temporanea.
+Backup di Azure offre funzionalità di sicurezza che consentono di proteggere i dati di backup anche dopo l'eliminazione. Con l'eliminazione temporanea, se l'utente elimina il backup di una macchina virtuale, i dati di backup vengono conservati per 14 giorni aggiuntivi, consentendo il ripristino di tale elemento di backup senza perdita di dati. Gli altri 14 giorni di conservazione dei dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per il cliente. [Altre informazioni sull'eliminazione](backup-azure-security-feature-cloud.md)temporanea.
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitoraggio e avvisi di attività sospette
 

@@ -3,12 +3,12 @@ title: Spostare le macchine virtuali di Azure in una nuova sottoscrizione o in u
 description: Usare Azure Resource Manager per spostare le macchine virtuali in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 144888c4a66ef68448ae8bc863f6aef0923dfb69
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160120"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744628"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
 
@@ -29,7 +29,7 @@ Non sono ancora supportati gli scenari seguenti:
 
 Per spostare le macchine virtuali configurate con backup di Azure, è necessario eliminare i punti di ripristino dall'insieme di credenziali.
 
-Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) temporanea è abilitata per la macchina virtuale, non è possibile spostare la macchina virtuale mentre vengono conservati i punti di ripristino. [Disabilitare l'eliminazione](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) temporanea o attendere 14 giorni dopo l'eliminazione dei punti di ripristino.
+Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) temporanea è abilitata per la macchina virtuale, non è possibile spostare la macchina virtuale mentre vengono conservati i punti di ripristino. [Disabilitare l'eliminazione](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) temporanea o attendere 14 giorni dopo l'eliminazione dei punti di ripristino.
 
 ### <a name="portal"></a>Portale
 

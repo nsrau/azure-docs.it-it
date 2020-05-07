@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587176"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744757"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Sentinel di Azure
 
@@ -44,7 +44,7 @@ Oltre ai ruoli di controllo degli accessi in base al ruolo dedicati di Azure Sen
 > I ruoli Log Analytics concedere anche l'accesso in lettura a tutte le risorse di Azure, ma solo le autorizzazioni di scrittura per Log Analytics risorse.
 
 
-Ad esempio, un utente assegnato con i ruoli **Reader di Azure sentinella** e **collaboratore di Azure** (non **collaboratore sentinelle di Azure**) potrà modificare i dati in Sentinel di Azure, anche se dispone solo delle autorizzazioni di **lettura Sentinel** . Se pertanto si desidera concedere le autorizzazioni a un solo in Sentinel di Azure, è necessario rimuovere attentamente le autorizzazioni precedenti di questo utente assicurandosi di non interrompere il ruolo di autorizzazione necessario per un'altra risorsa.
+Ad esempio, un utente assegnato con i ruoli **Reader di Azure sentinella** e **collaboratore di Azure** (non **collaboratore sentinelle di Azure**) potrà modificare i dati in Sentinel di Azure, anche se dispone solo delle autorizzazioni di **lettura Sentinel** . Se pertanto si desidera concedere le autorizzazioni a un utente solo in Sentinel di Azure, è necessario rimuovere attentamente le autorizzazioni precedenti di questo utente assicurandosi che non si interrompa alcun ruolo di autorizzazione necessario per un'altra risorsa.
 
 > [!NOTE]
 >- Azure Sentinel USA PlayBook per la risposta automatica alle minacce. I PlayBook sfruttano le app per la logica di Azure e sono una risorsa di Azure separata. Potrebbe essere necessario assegnare membri specifici del team delle operazioni di sicurezza con l'opzione di usare app per la logica per le operazioni di orchestrazione, automazione e risposta (SOAR) di sicurezza. È possibile usare il ruolo [collaboratore app](../role-based-access-control/built-in-roles.md#logic-app-contributor) per la logica o il ruolo [operatore app](../role-based-access-control/built-in-roles.md#logic-app-operator) per la logica per assegnare autorizzazioni esplicite per l'uso di PlayBook.

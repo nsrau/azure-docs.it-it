@@ -1,6 +1,6 @@
 ---
-title: Aggiungere assegnazioni di ruolo con i modelli RBAC e Azure Resource Manager
-description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando il controllo degli accessi in base al ruolo di Azure (RBAC) e i modelli di Azure Resource Manager.
+title: Aggiungere assegnazioni di ruolo di Azure usando modelli di Azure Resource Manager-RBAC di Azure
+description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando modelli di Azure Resource Manager e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77138292"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735624"
 ---
-# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo usando i modelli RBAC e Azure Resource Manager di Azure
+# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo di Azure usando modelli di Azure Resource Manager
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Oltre a usare Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile assegnare i ruoli usando i [modelli Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). I modelli possono essere usati per distribuire le risorse in modo coerente e ripetuto. Questo articolo descrive come assegnare i ruoli usando i modelli.
 
@@ -66,7 +66,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 ## <a name="add-a-role-assignment"></a>Aggiungi un'assegnazione di ruolo
 
-In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo.
+In controllo degli accessi in base al ruolo di Azure, è possibile aggiungere un'assegnazione di ruolo.
 
 ### <a name="resource-group-without-parameters"></a>Gruppo di risorse (senza parametri)
 

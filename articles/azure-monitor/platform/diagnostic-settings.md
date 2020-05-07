@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: edb34b1456efae4d06465cfa2e64e546f621c6da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681231"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737896"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure
 
@@ -31,7 +31,13 @@ Ogni risorsa di Azure richiede una propria impostazione di diagnostica, che defi
 Una singola impostazione di diagnostica può definire non più di una delle destinazioni. Se si vogliono inviare dati a più tipi specifici di destinazione (ad esempio, due diverse aree di lavoro di Log Analytics), creare più impostazioni. Ogni risorsa può avere al massimo 5 impostazioni di diagnostica.
 
 > [!NOTE]
-> Le [metriche della piattaforma](metrics-supported.md) vengono raccolte automaticamente nelle metriche di monitoraggio di [Azure](data-platform-metrics.md). È possibile usare le impostazioni di diagnostica per raccogliere le metriche per determinati servizi di Azure nei log di monitoraggio di Azure per l'analisi con altri dati di monitoraggio usando le [query di log](../log-query/log-query-overview.md).
+> Le [metriche della piattaforma](metrics-supported.md) vengono raccolte automaticamente nelle metriche di monitoraggio di [Azure](data-platform-metrics.md). È possibile usare le impostazioni di diagnostica per raccogliere le metriche per determinati servizi di Azure nei log di monitoraggio di Azure per l'analisi con altri dati di monitoraggio usando le [query di log](../log-query/log-query-overview.md) con determinate limitazioni. 
+>  
+>  
+> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione. *Ad esempio*: la metrica ' IOReadBytes ' in un blockchain può essere esplorata e mappata in base a un livello per nodo. Tuttavia, quando viene esportato tramite le impostazioni di diagnostica, la metrica esportata rappresenta come tutti i byte letti per tutti i nodi. Inoltre, a causa delle limitazioni interne non tutte le metriche sono esportabili nei log/Log Analytics di monitoraggio di Azure. Per altre informazioni, vedere l' [elenco delle metriche esportabili](metrics-supported-export-diagnostic-settings.md). 
+>  
+>  
+> Per aggirare queste limitazioni per metriche specifiche, è consigliabile estrarle manualmente usando l' [API REST delle metriche](https://docs.microsoft.com/rest/api/monitor/metrics/list) e importarle nei log di monitoraggio di Azure usando l' [API dell'agente di raccolta dati di monitoraggio di Azure](data-collector-api.md).  
 
 ## <a name="destinations"></a>Destinations
 
@@ -78,9 +84,8 @@ Le metriche e i log della piattaforma possono essere inviati alle destinazioni n
      - **AllMetrics** instrada le metriche della piattaforma di una risorsa nell'archivio dei log di Azure, ma in forma di log. Queste metriche vengono in genere inviate solo al database di serie temporali delle metriche di monitoraggio di Azure. Inviarli all'archivio dei log di monitoraggio di Azure (ricercabile tramite Log Analytics) per integrarli in query che effettuano ricerche negli altri log. Questa opzione potrebbe non essere disponibile per tutti i tipi di risorsa. Quando è supportato, le [metriche supportate da monitoraggio di Azure](metrics-supported.md) elencano le metriche raccolte per i tipi di risorse.
 
        > [!NOTE]
-       > L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
-       >
-       > *Ad esempio*: la metrica ' IOReadBytes ' in un blockchain può essere esplorata e mappata in base a un livello per nodo. Tuttavia, quando viene esportato tramite le impostazioni di diagnostica, la metrica esportata rappresenta come tutti i byte letti per tutti i nodi.
+       > Vedere limitatation per la metrica di routing ai log di monitoraggio di Azure più indietro in questo articolo.  
+
 
      - **Log** elenca le diverse categorie disponibili a seconda del tipo di risorsa. Controllare le categorie che si desidera indirizzare a una destinazione.
 
@@ -107,7 +112,7 @@ Le metriche e i log della piattaforma possono essere inviati alle destinazioni n
         >
         > Se, ad esempio, si impostano i criteri di conservazione per *WorkflowRuntime* su 180 giorni e le 24 ore successive lo si imposta su 365 giorni, i log archiviati durante le prime 24 ore verranno eliminati automaticamente dopo 180 giorni, mentre tutti i registri successivi del tipo verranno eliminati automaticamente dopo 365 giorni. Se si modifica il criterio di conservazione in un secondo momento, le prime 24 ore di log rimaneranno per 365 giorni.
 
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e quando questo viene [visualizzato in un'area di lavoro log Analytics](data-ingestion-time.md).
 

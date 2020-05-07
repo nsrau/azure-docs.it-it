@@ -165,8 +165,6 @@
               href: azure-to-azure-about-networking.md
             - name: Personalizzare le configurazioni di rete della VM di Azure di destinazione
               href: azure-to-azure-customize-networking.md
-            - name: Configurare le impostazioni del proxy del servizio di mobilità
-              href: configure-mobility-service-proxy-settings.md
             - name: Configurare il mapping di rete e conservare gli indirizzi IP dopo il failover
               href: azure-to-azure-network-mapping.md
             - name: Esempi di conservazione degli indirizzi IP dopo il failover
@@ -191,6 +189,8 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Configurare il ripristino di emergenza per le macchine virtuali di Azure dopo la migrazione ad Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Abilitare il ripristino di emergenza da zona a zona
+              href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Gestione
           items:
             - name: Aggiornare il servizio Mobility per le VM di Azure
@@ -241,7 +241,7 @@
               href: vmware-azure-set-up-replication.md
             - name: Distribuire il servizio Mobility
               items:
-                - name: Informazioni sull'installazione del servizio Mobility
+                - name: Panoramica e installazione del servizio Mobility
                   href: vmware-physical-mobility-service-overview.md
                 - name: Preparare l'installazione push
                   href: vmware-azure-install-mobility-service.md

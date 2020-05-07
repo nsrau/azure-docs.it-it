@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 600167e529e1ff8cfa65eeb3d0fb6fe26e9466bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137519"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738066"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
 
@@ -95,6 +95,10 @@ Le condizioni seguenti determinano la quantità di dati replicati:
 |L'area di origine ha 1 VM con disco Premium da 1 TB.<br/>Vengono usati solo 20 GB di dati e il resto del disco è vuoto.<br/>Il tipo di disco è Premium con velocità effettiva di 200 MBps.<br/>I dati iniziali sul disco immediatamente dopo il failover erano 15 GB. Sono stati modificati 5 GB di dati dopo il failover. I dati popolati totali sono pertanto di 20 GB| Tempo approssimativo: 30-45 minuti.<br/>Poiché i dati popolati nel disco sono inferiori al 10% delle dimensioni del disco, viene eseguita una replica iniziale completa.<br/>La velocità di trasferimento è approssimativamente il 16% della velocità effettiva, o 32MBps. Quindi, il tempo di trasferimento per applicare le modifiche di 20 GB a 20 GB/32 MBps, circa 11 minuti.<br/>È necessario un tempo di overhead per la scalabilità automatica di Site Recovery, circa 20-30 minuti |
 
 Quando la macchina virtuale viene riprotetta dopo il failback nell'area primaria, ad esempio se la macchina virtuale viene riprotetta dall'area primaria a quella di ripristino di emergenza, la macchina virtuale di destinazione e le NIC associate vengono eliminate.
+
+Quando la macchina virtuale viene riprotetta dall'area di ripristino di emergenza nell'area primaria, non viene eliminata la macchina virtuale primaria precedente e le schede di interfaccia di rete associate.
+
+Quando la macchina virtuale viene riprotetta dopo il failback nell'area primaria, ad esempio se la macchina virtuale viene riprotetta dall'area primaria a quella di ripristino di emergenza, la macchina virtuale di destinazione e le NIC associate vengono eliminate. 
 
 Quando la macchina virtuale viene riprotetta dall'area di ripristino di emergenza nell'area primaria, non viene eliminata la macchina virtuale primaria precedente e le schede di interfaccia di rete associate.
 

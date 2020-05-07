@@ -1,7 +1,7 @@
 ---
 title: Codici di errore dell'evento live di servizi multimediali di Azure | Microsoft Docs
 description: Questo articolo elenca i codici di errore dell'evento Live.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2020
-ms.author: juliako
-ms.openlocfilehash: f9067562f67190b8bc04392f33078d4d3262f986
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/4/2020
+ms.author: inhenkel
+ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77654580"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791052"
 ---
 # <a name="media-services-live-event-error-codes"></a>Codici di errore dell'evento live di servizi multimediali
 
@@ -40,6 +40,7 @@ Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](https://do
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Il timestamp dal codificatore RTMP per FLVTag audio o video non è valido. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | I flussi inseriti dal codificatore in ingresso con framerate hanno superato il numero massimo di 30 fps per la codifica di eventi/canali live.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | I flussi inseriti dal codificatore in ingresso hanno superato le risoluzioni consentite seguenti: 1920X1088 per la codifica di eventi/canali live e 4096 x 2160 per gli eventi/canali live pass-through.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | L'evento Live ha ricevuto una grande quantità di dati audio contemporaneamente o una grande quantità di dati video senza fotogrammi chiave. Il codificatore è stato disconnesso per offrire la possibilità di riprovare con i dati corretti. |
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 

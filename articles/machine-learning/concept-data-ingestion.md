@@ -1,5 +1,5 @@
 ---
-title: Opzioni di inserimento dati
+title: Inserimento di dati & automazione
 titleSuffix: Azure Machine Learning
 description: Informazioni sulle opzioni di inserimento dei dati per il training dei modelli di machine learning.
 services: machine-learning
@@ -10,25 +10,27 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086881"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789862"
 ---
-# <a name="data-ingestion-in-azure-machine-learning"></a>Inserimento di dati in Azure Machine Learning
+# <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opzioni di inserimento dei dati per flussi di lavoro Azure Machine Learning
 
-In questo articolo vengono illustrati i vantaggi e gli svantaggi delle seguenti opzioni di inserimento dei dati disponibili con Azure Machine Learning. 
+In questo articolo vengono illustrati i vantaggi e gli svantaggi delle opzioni di inserimento dei dati disponibili con Azure Machine Learning. 
 
-1. Pipeline di [Azure Data Factory](#use-azure-data-factory)
-2. [SDK Azure Machine Learning Python](#use-the-python-sdk)
+Scegliere tra:
++ Pipeline di [Azure Data Factory](#azure-data-factory) , appositamente create per estrarre, caricare e trasformare i dati
+
++ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), che fornisce una soluzione di codice personalizzata per le attività di inserimento dei dati di base.
+
++ una combinazione di entrambi
 
 L'inserimento dei dati è il processo in cui i dati non strutturati vengono estratti da una o più origini e quindi preparati per il training dei modelli di machine learning. È anche un tempo molto intenso, soprattutto se eseguito manualmente e se si dispone di grandi quantità di dati da più origini. L'automazione di questa operazione consente di liberare risorse e garantisce che i modelli usino i dati più recenti e applicabili.
 
-Azure Data Factory (ADF) è progettato appositamente per estrarre, caricare e trasformare i dati, tuttavia Python SDK consente di sviluppare una soluzione di codice personalizzata per le attività di inserimento dei dati di base. Se non sono necessarie, è anche possibile usare ADF e Python SDK insieme per creare un flusso di lavoro di inserimento dati complessivo che soddisfi le proprie esigenze. 
-
-## <a name="use-azure-data-factory"></a>Usare Azure Data Factory
+## <a name="azure-data-factory"></a>Data factory di Azure
 
 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) offre supporto nativo per il monitoraggio e i trigger dell'origine dati per le pipeline di inserimento dati.  
 
@@ -55,7 +57,7 @@ Questi passaggi e il diagramma seguente illustrano il flusso di lavoro di inseri
     
 Informazioni su come creare una pipeline di inserimento dei dati per Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md).
 
-## <a name="use-the-python-sdk"></a>Usare Python SDK 
+## <a name="azure-machine-learning-python-sdk"></a>SDK Azure Machine Learning Python 
 
 Con [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml)è possibile incorporare le attività di inserimento dei dati in un passaggio della [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md) .
 
@@ -73,5 +75,7 @@ Nel diagramma seguente, la pipeline Azure Machine Learning è costituita da due 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come creare una pipeline di inserimento dati per Machine Learning con [Azure Data Factory](how-to-data-ingest-adf.md)
-* Informazioni su come automatizzare e gestire i cicli di vita di sviluppo delle pipeline di inserimento dei dati con [Azure Pipelines](how-to-cicd-data-ingestion.md).
+Seguire queste procedure:
+* [Creare una pipeline di inserimento dati con Azure Data Factory](how-to-data-ingest-adf.md)
+
+* [Automatizzare e gestire le pipeline di inserimento dei dati con Azure Pipelines](how-to-cicd-data-ingestion.md).

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere o rimuovere assegnazioni di ruolo con RBAC e Azure PowerShell
-description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando il controllo degli accessi in base al ruolo di Azure (RBAC) e Azure PowerShell.
+title: Aggiungere o rimuovere assegnazioni di ruolo di Azure usando Azure PowerShell-RBAC di Azure
+description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando Azure PowerShell e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db6b38f142254fa1812f34674e6a870629713d7e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283212"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735658"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure usando Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Questo articolo descrive come assegnare i ruoli usando Azure PowerShell.
 
@@ -67,7 +67,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## <a name="add-a-role-assignment"></a>Aggiungi un'assegnazione di ruolo
 
-In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo.
+In controllo degli accessi in base al ruolo di Azure, è possibile aggiungere un'assegnazione di ruolo.
 
 ### <a name="user-at-a-resource-group-scope"></a>Utente in un ambito del gruppo di risorse
 
@@ -112,7 +112,7 @@ Per aggiungere un'assegnazione di ruolo usando l'ID del ruolo univoco anziché i
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-L'esempio seguente assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) all' *utente\@Alain example.com* nell'ambito del gruppo di risorse *Pharma-Sales* . Per ottenere l'ID del ruolo univoco, è possibile usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o vedere [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
+L'esempio seguente assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) all' *utente\@Alain example.com* nell'ambito del gruppo di risorse *Pharma-Sales* . Per ottenere l'ID del ruolo univoco, è possibile usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o vedere [ruoli predefiniti di Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -205,7 +205,7 @@ CanDelegate        : False
 
 ## <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
 
-Nel controllo degli accessi in base al ruolo, per rimuovere un accesso, è possibile rimuovere un'assegnazione di ruolo tramite [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
+In controllo degli accessi in base al ruolo di Azure, rimuovere un'assegnazione di ruolo usando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
 L'esempio seguente rimuove l'assegnazione di ruolo *collaboratore macchina virtuale* dall'utente *Alain\@example.com* nel gruppo di risorse *Pharma-Sales* :
 
@@ -225,11 +225,11 @@ Nell'esempio seguente viene rimossa la <role_name> Role da <object_id> nell'ambi
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Se viene visualizzato il messaggio di errore: "le informazioni fornite non sono mappate a un'assegnazione di ruolo", assicurarsi di specificare anche `-Scope` i `-ResourceGroupName` parametri o. Per altre informazioni, vedere [risolvere i problemi relativi a RBAC per le risorse di Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
+Se viene visualizzato il messaggio di errore: "le informazioni fornite non sono mappate a un'assegnazione di ruolo", assicurarsi di specificare anche `-Scope` i `-ResourceGroupName` parametri o. Per altre informazioni, vedere [risolvere i problemi relativi a RBAC di Azure](troubleshooting.md#role-assignments-with-identity-not-found).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Elencare le assegnazioni di ruolo usando RBAC di Azure e Azure PowerShell](role-assignments-list-powershell.md)
-- [Esercitazione: concedere a un gruppo l'accesso alle risorse di Azure usando RBAC e Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Esercitazione: creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Elencare le assegnazioni di ruolo di Azure usando Azure PowerShell](role-assignments-list-powershell.md)
+- [Esercitazione: concedere a un gruppo l'accesso alle risorse di Azure usando Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Esercitazione: creare un ruolo personalizzato di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Gestire le risorse con Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

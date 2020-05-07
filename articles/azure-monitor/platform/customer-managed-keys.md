@@ -1,21 +1,21 @@
 ---
-title: Configurazione della chiave gestita dal cliente di monitoraggio di Azure
+title: Chiave gestita dal cliente di monitoraggio di Azure
 description: Informazioni e procedure per configurare la chiave gestita dal cliente (CMK) per crittografare i dati nelle aree di lavoro Log Analytics usando una chiave di Azure Key Vault.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/12/2020
-ms.openlocfilehash: 25fdb0aefacbdd9c2630a69981a67821ac155786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/04/2020
+ms.openlocfilehash: 64dd56339244364340ea9b78fbbe1e63cf611c44
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758814"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780828"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configurazione della chiave gestita dal cliente di monitoraggio di Azure 
 
-Questo articolo fornisce informazioni generali e procedure per configurare le chiavi gestite dal cliente (CMK) per le aree di lavoro Log Analytics e i componenti di Application Insights. Una volta configurata, tutti i dati inviati alle aree di lavoro o ai componenti vengono crittografati con la chiave Azure Key Vault.
+Questo articolo fornisce informazioni generali e procedure per la configurazione delle chiavi gestite dal cliente (CMK) per le aree di lavoro Log Analytics. Una volta configurata, tutti i dati inviati alle aree di lavoro vengono crittografati con la chiave Azure Key Vault.
 
 Prima della configurazione è consigliabile esaminare [limitazioni e vincoli](#limitations-and-constraints) .
 
@@ -28,12 +28,6 @@ Prima della configurazione è consigliabile esaminare [limitazioni e vincoli](#l
 - La funzionalità CMK viene fornita in un cluster di archiviazione dati dedicato, ovvero un cluster Azure Esplora dati (ADX) e adatto per i clienti che inviano 1 TB al giorno. 
 
 - Il modello di determinazione prezzi CMK non è attualmente disponibile e non è trattato in questo articolo. Nel secondo trimestre dell'anno di calendario (CY) 2020 si prevede un modello di determinazione dei prezzi per il cluster ADX dedicato che verrà applicato alle distribuzioni CMK esistenti.
-
-- Questo articolo descrive la configurazione di CMK per le aree di lavoro Log Analytics. CMK per i componenti Application Insights è supportato anche in questo articolo, mentre le differenze sono elencate nell'appendice.
-
-> [!NOTE]
-> Log Analytics e Application Insights utilizzano la stessa piattaforma di archivio dati e il motore di query.
-> Questi due archivi vengono raggruppati insieme tramite l'integrazione di Application Insights in Log Analytics per creare un singolo archivio di log unificato in monitoraggio di Azure. Questa modifica è prevista per il secondo trimestre dell'anno di calendario 2020. Se non è necessario distribuire CMK per i dati di Application Insights, è consigliabile attendere il completamento del consolidamento poiché tali distribuzioni verranno interrotte dal consolidamento e sarà necessario riconfigurare CMK dopo la migrazione a Log Analytics area di lavoro. Il valore minimo di 1 TB al giorno si applica a livello di cluster e fino al completamento del consolidamento durante il secondo trimestre, Application Insights e Log Analytics richiedono cluster distinti.
 
 ## <a name="customer-managed-key-cmk-overview"></a>Panoramica della chiave gestita dal cliente (CMK)
 
@@ -56,7 +50,7 @@ Monitoraggio di Azure sfrutta l'identità gestita assegnata dal sistema per conc
 3.    Cluster ADX dedicato di monitoraggio di Azure.
 4.    Aree di lavoro del cliente associate alla risorsa *cluster* per la crittografia CMK.
 
-## <a name="encryption-keys-management"></a>Gestione delle chiavi di crittografia
+## <a name="encryption-keys-operation"></a>Operazione sulle chiavi di crittografia
 
 La crittografia dei dati di archiviazione include tre tipi di chiavi:
 
@@ -77,8 +71,6 @@ Sono applicabili le regole seguenti:
 - Archiviazione di Azure usa l'identità gestita associata alla risorsa *cluster* per l'autenticazione e l'accesso ai Azure Key Vault tramite Azure Active Directory.
 
 ## <a name="cmk-provisioning-procedure"></a>Procedura di provisioning CMK
-
-Per Application Insights configurazione CMK, seguire il contenuto dell'appendice per i passaggi 3 e 6.
 
 1. Elenco elementi consentiti per la sottoscrizione: questa funzionalità è necessaria per questa funzionalità di accesso anticipato
 2. Creazione di Azure Key Vault e archiviazione della chiave
@@ -180,9 +172,7 @@ Queste impostazioni sono disponibili tramite l'interfaccia della riga di comando
 
 ### <a name="create-cluster-resource"></a>Crea risorsa *cluster*
 
-Questa risorsa viene usata come connessione di identità intermedia tra il Key Vault e le aree di lavoro del Log Analytics. Dopo aver ricevuto la conferma che le sottoscrizioni sono state inserite nell'elenco elementi consentiti, creare una risorsa *Cluster* log Analytics nell'area in cui si trovano le aree di lavoro. Application Insights e Log Analytics richiedono tipi di risorse *cluster* distinti. Il tipo della risorsa *cluster* viene definito al momento della creazione impostando la proprietà *clusterType* su *LogAnalytics*o *ApplicationInsights*. Il tipo di risorsa cluster non può essere modificato dopo.
-
-Per Application Insights configurazione CMK, seguire il contenuto dell'appendice.
+Questa risorsa viene usata come connessione di identità intermedia tra il Key Vault e le aree di lavoro del Log Analytics. Dopo aver ricevuto la conferma che le sottoscrizioni sono state inserite nell'elenco elementi consentiti, creare una risorsa *Cluster* log Analytics nell'area in cui si trovano le aree di lavoro.
 
 Quando si crea una risorsa *cluster* , è necessario specificare il livello di prenotazione della capacità (SKU). Il livello di prenotazione della capacità può essere compreso tra 1.000 e 2.000 GB al giorno ed è possibile aggiornarlo nei passaggi di 100 in un secondo momento. Se è necessario un livello di prenotazione di capacità superiore a 2.000 GB al giorno, rivolgersi al contatto Microsoft per abilitarlo. Questa proprietà non influisce attualmente sulla fatturazione. una volta introdotto il modello di determinazione dei prezzi per il cluster dedicato, la fatturazione verrà applicata a tutte le distribuzioni CMK esistenti.
 
@@ -191,7 +181,7 @@ Quando si crea una risorsa *cluster* , è necessario specificare il livello di p
 Questa Gestione risorse richiesta è un'operazione asincrona.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -223,7 +213,7 @@ Durante il periodo di accesso iniziale della funzionalità, viene eseguito il pr
 Durante il periodo di accesso iniziale della funzionalità, il provisioning del cluster ADX viene eseguito manualmente dal team del prodotto una volta completati i passaggi precedenti. Usare il canale Microsoft per questo passaggio e fornire la risposta alla risorsa *cluster* . 
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
@@ -350,7 +340,6 @@ Una risposta alla richiesta GET sulla risorsa *cluster* dovrebbe avere un aspett
 ```
 
 ### <a name="workspace-association-to-cluster-resource"></a>Associazione dell'area di lavoro alla risorsa *cluster*
-Per Application Insights configurazione CMK, seguire il contenuto dell'appendice per questo passaggio.
 
 Per eseguire questa operazione, è necessario disporre delle autorizzazioni ' Write ' sia per l'area di lavoro che per la risorsa *cluster* , incluse le azioni seguenti:
 
@@ -445,9 +434,7 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
 - Il Azure Key Vault deve essere configurato come reversibile. Queste proprietà non sono abilitate per impostazione predefinita e devono essere configurate tramite CLI o PowerShell:
 
   - L' [eliminazione](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) temporanea deve essere attivata
-  - La [protezione ripulisce](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) deve essere attivata per prevenire l'eliminazione forzata del segreto/insieme di credenziali anche dopo l'eliminazione temporanea
-
-- Application Insights e Log Analytics richiedono risorse *cluster* separate. Il tipo della risorsa *cluster* viene definito al momento della creazione impostando la proprietà "clusterType" su "LogAnalytics" o "ApplicationInsights". Il tipo di risorsa *cluster* non può essere modificato.
+  - La [protezione ripulisce](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) deve essere attivata per prevenire l'eliminazione forzata del segreto/insieme di credenziali anche dopo l'eliminazione temporanea.
 
 - Lo spostamento di risorse *cluster* in un altro gruppo di risorse o sottoscrizione non è attualmente supportato.
 
@@ -455,9 +442,10 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
 
 - L'associazione dell'area di lavoro alla risorsa *cluster* non riuscirà se è associata a un'altra risorsa *cluster*
 
+
 ## <a name="troubleshooting-and-management"></a>Risoluzione dei problemi e gestione
 
-- Disponibilità Key Vault
+- Considerazioni sulla disponibilità Key Vault
     - Durante il normale funzionamento--archiviazione memorizza nella cache l'AEK per brevi periodi di tempo e torna Key Vault per annullare il wrapping periodicamente.
     
     - Errori di connessione temporanei: l'archiviazione gestisce gli errori temporanei (timeout, errori di connessione, problemi relativi a DNS) consentendo alle chiavi di rimanere nella cache per un breve periodo di tempo e questo supera i piccoli tempi di disponibilità. Le funzionalità di query e inserimento continuano senza interruzioni.
@@ -471,6 +459,8 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
 - Se si tenta di eliminare una risorsa *cluster* associata a un'area di lavoro, l'operazione di eliminazione avrà esito negativo.
 
 - Se si verifica un errore di conflitto durante la creazione di una risorsa *cluster* , è possibile che la risorsa *cluster* sia stata eliminata negli ultimi 14 giorni ed è in un periodo di eliminazione temporanea. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Il nome viene rilasciato dopo il periodo di eliminazione temporanea quando la risorsa *cluster* viene definitivamente eliminata.
+
+- Se si aggiorna la risorsa *cluster* mentre è in corso un'operazione, l'operazione avrà esito negativo.
 
 - Ottenere tutte le risorse *cluster* per un gruppo di risorse:
 
@@ -496,10 +486,10 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
           "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
           },
         "properties": {
-           "KeyVaultProperties": {
-              KeyVaultUri: "https://key-vault-name.vault.azure.net",
-              KeyName: "key-name",
-              KeyVersion: "current-version"
+           "keyVaultProperties": {
+              keyVaultUri: "https://key-vault-name.vault.azure.net",
+              keyName: "key-name",
+              keyVersion: "current-version"
               },
           "provisioningState": "Succeeded",
           "clusterType": "LogAnalytics", 
@@ -527,7 +517,7 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
 
 - Aggiornare la *prenotazione di capacità* nella risorsa *cluster* : quando il volume di dati nelle aree di lavoro associate cambia e si vuole aggiornare il livello di prenotazione della capacità per le considerazioni sulla fatturazione, seguire la [risorsa di aggiornamento *cluster* ](#update-cluster-resource-with-key-identifier-details) e fornire il nuovo valore di capacità. Il livello di prenotazione della capacità può essere compreso tra 1.000 e 2.000 GB al giorno e nei passaggi di 100. Per un livello superiore a 2.000 GB al giorno, raggiungi il contatto Microsoft per abilitarlo.
 
-- Eliminare la risorsa *cluster* : viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino della risorsa *cluster* , inclusi i dati entro 14 giorni, se l'eliminazione è stata accidentale o intenzionale. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Dopo il periodo di eliminazione temporanea, viene rilasciato il nome della risorsa *cluster* , i dati e la risorsa *cluster* vengono eliminati definitivamente e non sono recuperabili. Tutte le aree di lavoro associate vengono deassociate dalla risorsa *cluster* durante l'operazione di eliminazione. I nuovi dati inseriti vengono archiviati nella risorsa di archiviazione Log Analytics condivisa e crittografati con la chiave Microsoft. L'operazione di deassociazione dell'area di lavoro è asincrona.
+- Eliminare la risorsa *cluster* . per eseguire questa operazione, sono necessarie le autorizzazioni ' Write ' per la risorsa *cluster* . Viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino della risorsa *cluster* , inclusi i dati entro 14 giorni, se l'eliminazione è stata accidentale o intenzionale. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Dopo il periodo di eliminazione temporanea, viene rilasciato il nome della risorsa *cluster* , i dati e la risorsa *cluster* vengono eliminati definitivamente e non sono recuperabili. Tutte le aree di lavoro associate vengono deassociate dalla risorsa *cluster* durante l'operazione di eliminazione. I nuovi dati inseriti vengono archiviati nella risorsa di archiviazione Log Analytics condivisa e crittografati con la chiave Microsoft. L'operazione di deassociazione dell'area di lavoro è asincrona.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -540,158 +530,3 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
 
 - Ripristinare la risorsa *cluster* e i dati. una risorsa *cluster* eliminata negli ultimi 14 giorni è in stato di eliminazione temporanea e può essere ripristinata. Questa operazione viene eseguita manualmente dal gruppo di prodotti. Usare il canale Microsoft per le richieste di ripristino.
 
-## <a name="appendix"></a>Appendice
-
-È supportata anche Application Insights chiave gestita dal cliente (CMK), ma è necessario considerare la modifica seguente per pianificare la distribuzione di CMK per i componenti di Application Insight.
-
-Log Analytics e Application Insights utilizzano la stessa piattaforma di archivio dati e il motore di query. Questi due archivi vengono raggruppati insieme tramite l'integrazione di Application Insights in Log Analytics per fornire un singolo archivio di log unificato in monitoraggio di Azure nel secondo trimestre del
-2020. Questa modifica consente di visualizzare i dati dell'applicazione in Log Analytics aree di lavoro ed eseguire query, informazioni dettagliate e altri miglioramenti possibili durante la configurazione di CMK nell'area di lavoro, anche per i dati Application Insights.
-
-> [!NOTE]
-> Se non è necessario distribuire CMK per i dati di Application Insights prima dell'integrazione, è consigliabile attendere con Application Insights CMK, poiché tali distribuzioni verranno interrotte dall'integrazione e sarà necessario riconfigurare CMK dopo la migrazione a Log Analytics area di lavoro. Il valore minimo di 1 TB al giorno si applica a livello di cluster e fino al completamento del consolidamento durante il secondo trimestre, Application Insights e Log Analytics richiedono cluster distinti.
-
-## <a name="application-insights-cmk-configuration"></a>Configurazione di Application Insights CMK
-
-La configurazione di Application Insights CMK è identica alla procedura illustrata in questo articolo, inclusi i vincoli e la risoluzione dei problemi, eccetto i passaggi seguenti:
-
-- Creare una risorsa *cluster*
-- Associare un componente a una risorsa *cluster*
-
-Quando si configura CMK per Application Insights, usare questi passaggi anziché quelli elencati in precedenza.
-
-### <a name="create-a-cluster-resource"></a>Creare una risorsa *cluster*
-
-Questa risorsa viene utilizzata come connessione di identità intermedia tra il Key Vault e i componenti. Dopo aver ricevuto una conferma che le sottoscrizioni sono state inserite nell'elenco elementi consentiti, creare una risorsa *Cluster* log Analytics nell'area in cui si trovano i componenti. Il tipo della risorsa *cluster* viene definito al momento della creazione impostando la proprietà *clusterType* su *LogAnalytics*o *ApplicationInsights*. Deve essere *ApplicationInsights* per Application Insights CMK. L'impostazione *clusterType* non può essere modificata dopo la configurazione.
-
-**Crea**
-
-Questa Gestione risorse richiesta è un'operazione asincrona.
-
-```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-  "identity": {
-    "type": "systemAssigned"
-    },
-  "sku": {
-    "name": "capacityReservation",
-    "Capacity": 1000
-    },
-  "properties": {
-    "clusterType":"ApplicationInsights"
-    },
-  "location": "<region-name>"
-}
-```
-
-**Risposta**
-
-200 OK e intestazione.
-Durante il periodo di accesso iniziale della funzionalità, viene eseguito il provisioning manuale del cluster ADX. Durante il completamento del provisioning del cluster ADX, è possibile controllare lo stato di provisioning in due modi:
-1. Copiare il valore di URL di Azure-AsyncOperation dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
-2. Inviare una richiesta GET sulla risorsa *cluster* ed esaminare il valore *provisioningState* . Viene *ProvisioningAccount* durante il provisioning e il completamento è *riuscito* .
-
-### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associare un componente a una risorsa *cluster* usando i [componenti-crea o aggiorna](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
-
-Per eseguire questa operazione, è necessario disporre delle autorizzazioni ' Write ' sia per il componente che per la risorsa *cluster* , incluse le azioni seguenti:
-
-- Nel componente: Microsoft. Insights/component/Write
-- Nella risorsa *cluster* : Microsoft. OperationalInsights/Clusters/Write
-
-> [!IMPORTANT]
-> Questo passaggio deve essere eseguito solo dopo il provisioning del cluster ADX. Se si associano i componenti e si inseriscono i dati prima del provisioning, i dati inseriti verranno eliminati e non saranno recuperabili.
-> Per verificare che sia stato effettuato il provisioning del cluster ADX, eseguire l'API REST di risorse *cluster* Get e verificare che il valore *provisioningState* sia *succeeded*.
-
-```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
-Authorization: Bearer <token>
-```
-
-**Risposta**
-```json
-{
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "tenant-id",
-    "principalId": "principal-id"
-    },
-  "sku": {
-    "name": "capacityReservation",
-    "capacity": 1000,
-    "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-    },
-  "properties": {
-    "KeyVaultProperties": {
-      KeyVaultUri: "https://key-vault-name.vault.azure.net",
-      KeyName: "key-name",
-      KeyVersion: "current-version"
-      },
-    "provisioningState": "Succeeded",
-    "clusterType": "ApplicationInsights", 
-    "clusterId": "cluster-id"
-    },
-  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-  "name": "cluster-name",
-  "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
-  }
-```
-
-> [!IMPORTANT]
-> Copiare e mantenerne la risposta poiché sarà necessaria nei passaggi successivi.
-
-**Associare un componente**
-
-```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-  "properties": {
-    "clusterDefinitionId": "cluster-id"
-  },
-  "location": "<region-name>",
-  "kind": "<component-type>"
-}
-```
-"clusterDefinitionId" è il valore "clusterId" specificato nella risposta del passaggio precedente.
-L'esempio "Kind" è "Web".
-
-**Risposta**
-
-```json
-{
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
-  "name": "component-name",
-  "type": "Microsoft.Insights/components",
-  "location": "region-name",
-  "tags": "",
-  "kind": "",
-  "properties": {
-    "clusterDefinitionId": "cluster-id"
-    "ApplicationId": "",
-    "AppId": "",
-    "Application_Type": "",
-    "Flow_Type": "",
-    "Request_Source": "",
-    "InstrumentationKey": "",
-    "CreationDate": "",
-    "TenantId": "",
-    "HockeyAppId": "",
-    "HockeyAppToken": "",
-    "provisioningState": "",
-    "SamplingPercentage":,
-    "RetentionInDays":,
-    "ConnectionString": "",
-    "DisableIpMasking":,
-    "ImmediatePurgeDataOn30Days": 
-  }
-}
-```
-"clusterDefinitionId" è l'ID risorsa *cluster* associato a questo componente.
-
-Dopo l'associazione, i dati inviati ai componenti vengono archiviati crittografati con la chiave gestita.

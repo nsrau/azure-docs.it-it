@@ -139,7 +139,7 @@
         - name: Effettuare il provisioning della velocità effettiva per contenitori e database
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Effettuare il provisioning della velocità effettiva - Modalità scalabilità automatica
+        - name: Effettuare il provisioning della velocità effettiva - Scalabilità automatica
           href: provision-throughput-autoscale.md
         - name: Domande frequenti sulla scalabilità automatica
           href: autoscale-faq.md
@@ -916,6 +916,8 @@
           href: how-to-manage-consistency.md
         - name: Configurare i criteri di risoluzione dei conflitti
           href: how-to-manage-conflicts.md
+        - name: Convertire il formato dei token di sessione
+          href: how-to-convert-session-token.md
     - name: Velocità effettiva con provisioning
       items:
         - name: Effettuare il provisioning della velocità effettiva in un contenitore
@@ -1062,7 +1064,7 @@
               href: monitor-server-side-latency.md
             - name: Monitorare l'utilizzo delle unità richiesta
               href: monitor-request-unit-usage.md
-        - name: Usare i log di diagnostica
+        - name: Usare i log di Monitoraggio di Azure
           items:
             - name: Monitorare con i log di diagnostica
               href: cosmosdb-monitor-resource-logs.md

@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come aggiungere un endpoint HTTPS a u
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2b867a65fa11e14cdc3fc3e5c269686fa4d559de
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: b9e1800d07d418ff385f2c5e7af112b170e3fd44
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757171"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780199"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 
@@ -128,7 +128,7 @@ serviceContext =>
                     int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
                     opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
                     {
-                        listenOptions.UseHttps(GetHttpsCertificateFromStore());
+                        listenOptions.UseHttps(FindMatchingCertificateBySubject());
                         listenOptions.NoDelay = true;
                     });
                 })

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere o rimuovere assegnazioni di ruolo per gli utenti esterni con RBAC e il portale di Azure
-description: Informazioni su come concedere l'accesso alle risorse di Azure per gli utenti esterni a un'organizzazione usando il controllo degli accessi in base al ruolo (RBAC) di Azure.
+title: Aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti esterni usando la portale di Azure-RBAC di Azure
+description: Informazioni su come concedere l'accesso alle risorse di Azure per gli utenti esterni a un'organizzazione usando il portale di Azure e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245642"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735760"
 ---
-# <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo per gli utenti Guest esterni usando RBAC di Azure e il portale di Azure
+# <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure
 
-Il [controllo degli accessi in base al ruolo di Azure](overview.md) consente una migliore gestione della sicurezza per le organizzazioni di grandi dimensioni e per le aziende di piccole e medie dimensioni che lavorano con collaboratori esterni, fornitori o freelance che necessitano dell'accesso a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. È possibile utilizzare le funzionalità di [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) per collaborare con utenti Guest esterni ed è possibile utilizzare il controllo degli accessi in base al ruolo per concedere solo le autorizzazioni necessarie agli utenti guest nell'ambiente in uso.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](overview.md) consente una migliore gestione della sicurezza per le organizzazioni di grandi dimensioni e per le aziende di piccole e medie dimensioni che lavorano con collaboratori esterni, fornitori o freelance che necessitano dell'accesso a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. È possibile usare le funzionalità di [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) per collaborare con utenti Guest esterni ed è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere solo le autorizzazioni necessarie per gli utenti guest nell'ambiente in uso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,7 +69,7 @@ Per ulteriori informazioni sul processo di invito, vedere [Azure Active Director
 
 ## <a name="add-a-role-assignment-for-a-guest-user"></a>Aggiungere un'assegnazione di ruolo per un utente Guest
 
-Per concedere l'accesso in RBAC, si crea un'assegnazione di ruolo. Per aggiungere un'assegnazione di ruolo per un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md#add-a-role-assignment) per un utente membro, un gruppo, un'entità servizio o un'identità gestita. Attenersi alla procedura seguente per aggiungere un'assegnazione di ruolo per un utente guest in ambiti diversi.
+Nel controllo degli accessi in base al ruolo di Azure per concedere l'accesso, assegnare un ruolo. Per aggiungere un'assegnazione di ruolo per un utente Guest, seguire la [stessa procedura descritta](role-assignments-portal.md#add-a-role-assignment) per un utente membro, un gruppo, un'entità servizio o un'identità gestita. Attenersi alla procedura seguente per aggiungere un'assegnazione di ruolo per un utente guest in ambiti diversi.
 
 1. Nella portale di Azure fare clic su **tutti i servizi**.
 

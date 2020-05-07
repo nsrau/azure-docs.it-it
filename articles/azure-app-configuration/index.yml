@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 25cff0d0ea007bdd55131ab334a5813344991d0e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 29baead8dbb41b004a9ace8576029c9bd8af3290
+  ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78672135"
+  ms.lasthandoff: 05/05/2020
+  ms.locfileid: "82790780"
 landingContent:
 - title: Informazioni su Configurazione app di Azure
   linkLists:
@@ -76,6 +76,8 @@ landingContent:
     links:
     - text: Integrare una pipeline CI/CD
       url: integrate-ci-cd-pipeline.md
+    - text: Integrare la distribuzione di Kubernetes con Helm
+      url: integrate-kubernetes-deployment-helm.md
   - linkListType: tutorial
     links:
     - text: Usare i riferimenti a Key Vault in un'app ASP.NET Core

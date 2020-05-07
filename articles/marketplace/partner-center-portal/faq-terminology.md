@@ -1,26 +1,24 @@
 ---
-title: Domande frequenti e terminologia per l'analisi del Marketplace commerciale nel centro per i partner
-description: Informazioni su come risolvere le domande frequenti sull'analisi del Marketplace commerciale. Include un dizionario dei dati per la terminologia di analisi.
+title: Domande frequenti sull'analisi del mercato commerciale & terminologia-centro per i partner
+description: Risposte alle domande frequenti sull'analisi del Marketplace commerciale nel centro per i partner. Questo articolo include un dizionario dei dati per la terminologia di analisi.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251827"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791477"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Domande frequenti e terminologia per l'analisi del Marketplace commerciale
+# <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia di analisi del Marketplace commerciale e domande comuni
 
 Questo articolo illustra le domande frequenti sui messaggi di analisi nel centro per i partner e fornisce anche un dizionario di terminologia di analisi.
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
-
-In questa sezione vengono fornite le risposte alle domande più frequenti su **Nessuna analisi disponibile** nel centro per i partner.
+## <a name="common-questions"></a>Domande frequenti
 
 **Non è possibile visualizzare i dati analitici nel centro per i partner. Quando si accede a queste pagine, viene visualizzato il messaggio seguente. Perché?**
 

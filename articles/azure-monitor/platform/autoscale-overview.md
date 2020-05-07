@@ -1,24 +1,23 @@
 ---
-title: Ridimensionamento automatico in macchine virtuali, servizi cloud e app Web
-description: Ridimensionamento automatico in Microsoft Azure. Si applica a Macchine virtuali, set di scalabilità di macchine virtuali, Servizi Cloud e App Web.
+title: Scalabilità automatica in Microsoft Azure
+description: Scalabilità automatica in Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: eeb8b301bf087efa164a7864cdce3a04952f45ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: faf393c01c494538ab647f39e2c4eb1d823d1abd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114148"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791443"
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web
+# <a name="overview-of-autoscale-in-microsoft-azure"></a>Panoramica della scalabilità automatica in Microsoft Azure
 Questo articolo descrive il ridimensionamento automatico di Microsoft Azure e come iniziare a usarlo.  
 
-La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+La scalabilità automatica di monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [servizi cloud](https://azure.microsoft.com/services/cloud-services/), [servizio app-app Web](https://azure.microsoft.com/services/app-service/web/), [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)e [cluster di Azure Esplora dati](https://docs.microsoft.com/azure/data-explorer/).
 
 > [!NOTE]
 > Azure offre due metodi per il ridimensionamento automatico. Una versione precedente del ridimensionamento automatico si applica alle macchine virtuali (set di disponibilità). Questa funzionalità offre supporto limitato ed è consigliabile eseguire la migrazione ai set di scalabilità di macchine virtuali per ottenere un supporto per il ridimensionamento automatico più veloce e affidabile. Questo articolo include un collegamento su come usare la tecnologia precedente.  
->
 >
 
 ## <a name="what-is-autoscale"></a>Informazioni sul ridimensionamento automatico
@@ -87,7 +86,6 @@ Il ridimensionamento automatico, noto come "orizzontale", aumenta o riduce solo 
 
 La scalabilità verticale è invece diversa, perché mantiene lo stesso numero di macchine virtuali, ma le rende più o meno potenti. La potenza è misurata in memoria, velocità della CPU, spazio su disco e così via.  La scalabilità verticale presenta più limitazioni. Tale approccio dipende dalla disponibilità di hardware di dimensioni maggiori, che può raggiungere rapidamente il limite massimo e variare in base all'area. La scalabilità verticale richiede in genere l'arresto e il riavvio di una macchina virtuale.
 
-
 ## <a name="methods-of-access"></a>Metodi di accesso
 È possibile configurare il ridimensionamento automatico tramite:
 
@@ -97,7 +95,7 @@ La scalabilità verticale è invece diversa, perché mantiene lo stesso numero d
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Servizi supportati per il ridimensionamento automatico
-| Servizio | Schema e documenti |
+| Service | Schema e documenti |
 | --- | --- |
 | App Web |[Ridimensionamento di app Web](../../azure-monitor/platform/autoscale-get-started.md) |
 | Servizi cloud |[Ridimensionamento automatico di un servizio cloud](../../cloud-services/cloud-services-how-to-scale-portal.md) |
@@ -106,6 +104,7 @@ La scalabilità verticale è invece diversa, perché mantiene lo stesso numero d
 | Macchine virtuali: set di scalabilità Linux |[Ridimensionamento dei set di scalabilità di macchine virtuali in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Macchine virtuali: esempio Windows |[Configurazione di scalabilità automatica avanzata con modelli di Gestione risorse per set di scalabilità di macchine virtuali](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | Servizio Gestione API|[Ridimensionare automaticamente un'istanza di Gestione API di Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| Cluster di Azure Esplora dati|[Gestire il ridimensionamento del cluster di Azure Esplora dati per soddisfare la richiesta di modifica](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul ridimensionamento automatico, usare le procedure dettagliate per il ridimensionamento automatico elencate in precedenza o vedere le risorse seguenti:

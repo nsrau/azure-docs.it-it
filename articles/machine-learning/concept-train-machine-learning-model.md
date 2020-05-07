@@ -1,5 +1,5 @@
 ---
-title: Metodi di training del modello
+title: Compilare modelli di training &
 titleSuffix: Azure Machine Learning
 description: Informazioni sui diversi metodi che è possibile usare per eseguire il training del modello con Azure Machine Learning. Gli estimatori forniscono un modo semplice per lavorare con i Framework più diffusi, ad esempio Scikit-learn, TensorFlow, keras, PyTorch e Chainer. Machine Learning pipeline semplificano la pianificazione di esecuzioni automatiche, l'uso di ambienti di calcolo eterogenei e il riutilizzo di parti del flusso di lavoro. Le configurazioni di esecuzione forniscono un controllo granulare sulle destinazioni di calcolo in cui viene eseguito il processo di training.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c75c41012928b7bffb61a00a73f314e4c372b154
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79129761"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792344"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 

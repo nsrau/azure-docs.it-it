@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547879"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738049"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande comuni: ripristino di emergenza da Azure ad Azure
 
@@ -194,10 +194,10 @@ Quando si seleziona l'opzione di coerenza tra più **macchine** virtuali, si ind
 Poiché la coerenza tra più macchine virtuali è a elevato utilizzo di CPU, l'abilitazione può influire sulle prestazioni del carico Usare la coerenza tra più macchine virtuali solo se i computer eseguono lo stesso carico di lavoro ed è necessaria la coerenza tra più computer. Se, ad esempio, si dispone di due istanze di SQL Server e di due server Web in un'applicazione, è necessario disporre di coerenza tra più macchine virtuali solo per le istanze di SQL Server.
 
 ### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>È possibile aggiungere una macchina virtuale già replicata a un gruppo di replica?
-
 È possibile aggiungere una macchina virtuale a un nuovo gruppo di replica abilitando la replica. È anche possibile aggiungere una macchina virtuale a un gruppo di replica esistente abilitando la replica. Tuttavia, non è possibile aggiungere una macchina virtuale già replicata a un nuovo gruppo di replica o a un gruppo di replica esistente.
-
+ 
 ## <a name="failover"></a>Failover
+
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Come viene garantita la capacità nell'area di destinazione per le macchine virtuali di Azure?
 

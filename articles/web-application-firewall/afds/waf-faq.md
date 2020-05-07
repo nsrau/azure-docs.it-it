@@ -1,23 +1,23 @@
 ---
-title: Web Application Firewall di Azure-Domande frequenti
+title: Web Application Firewall di Azure nel servizio front-end di Azure-Domande frequenti
 description: Questo articolo fornisce le risposte alle domande frequenti su Web Application Firewall in Azure front door
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314314"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837635"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Domande frequenti sul servizio Web Application Firewall di Azure nel servizio front door di Azure
 
-Questo articolo risponde alle domande più comuni sulle funzionalità e sulle funzionalità di Azure web application firewall (WAF). 
+Questo articolo risponde alle domande più comuni su Web Application Firewall (WAF) di Azure sulle funzionalità e sulle funzionalità del servizio front door di Azure. 
 
 ## <a name="what-is-azure-waf"></a>Che cos'è Azure WAF?
 

@@ -49,7 +49,7 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 
 I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenitori Docker, ognuno dei quali contiene un subset di funzionalità dei servizi disponibili in Servizi cognitivi di Azure:
 
-| Servizio | Piano tariffario supportato | Contenitore | Descrizione |
+| Service | Piano tariffario supportato | Contenitore | Descrizione |
 |---------|----------|----------|-------------|
 |[Rilevamento anomalie][ad-containers] |F0, S0|**Rilevamento anomalie** |L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedi accesso](https://aka.ms/adcontainer)|
 |[Visione artificiale][cv-containers] |F0, S1|**Lettura** |Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese.|

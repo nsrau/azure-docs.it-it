@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368573"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790916"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric Guardrails 
 Quando si distribuisce un cluster di Service Fabric, vengono messi a posto Guardrails, che non riusciranno a eseguire una distribuzione Azure Resource Manager in caso di configurazione del cluster non valida. Nelle sezioni seguenti viene fornita una panoramica dei problemi comuni di configurazione del cluster e dei passaggi necessari per attenuare tali problemi. 
@@ -55,7 +55,7 @@ La sezione seguente contiene un esempio di una mancata corrispondenza di durabil
 }
 ```
 
-### <a name="error-messages"></a>Messaggi di errore
+### <a name="error-messages"></a>messaggi di errore
 * La mancata corrispondenza della durabilità del set di scalabilità di macchine virtuali non corrisponde al livello di durabilità del tipo di nodo Service Fabric corrente
 * La durabilità del set di scalabilità di macchine virtuali non corrisponde al livello di durabilità del tipo di nodo Service Fabric di destinazione
 * La durabilità del set di scalabilità di macchine virtuali corrisponde al livello di durabilità del Service Fabric corrente o al livello di durabilità del tipo di nodo Service Fabric di destinazione 
@@ -70,7 +70,7 @@ Per correggere una mancata corrispondenza di durabilità, indicata da uno dei me
 ### <a name="overview"></a>Panoramica
 Un cluster Service Fabric dispone di una proprietà del [livello di affidabilità](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) che consente di determinare il numero di repliche dei servizi di sistema in esecuzione sul tipo di nodo primario del cluster. Il numero di repliche necessarie determinerà il numero minimo di nodi che devono essere mantenuti nel tipo di nodo primario del cluster. Se il numero di nodi nel tipo di nodo primario scende al di sotto del valore minimo necessario per il livello di affidabilità, il cluster diventerà instabile.  
 
-### <a name="error-messages"></a>Messaggi di errore 
+### <a name="error-messages"></a>messaggi di errore 
 L'operazione di rimozione del nodo di inizializzazione è stata rilevata e verrà rifiutata. 
 * Questa operazione comporterebbe la {0} permanenza solo dei nodi di inizializzazione potenziali nel {1} cluster, mentre sono necessari come minimo.
 * La {0} rimozione dei nodi di {1} inizializzazione da comporterebbe il rallentamento del cluster a causa della perdita del quorum del nodo di inizializzazione. Il numero massimo di nodi di inizializzazione che è possibile rimuovere alla {2}volta è.
@@ -79,7 +79,7 @@ L'operazione di rimozione del nodo di inizializzazione è stata rilevata e verr�
 Verificare che il tipo di nodo primario disponga di macchine virtuali sufficienti per l'affidabilità specificata nel cluster. Non sarà possibile rimuovere una macchina virtuale se il set di scalabilità di macchine virtuali sarà inferiore al numero minimo di nodi per il livello di affidabilità specificato.
 * Se il livello di affidabilità è specificato correttamente, assicurarsi di disporre di un numero sufficiente di nodi nel tipo di nodo primario secondo le esigenze per il livello di affidabilità. 
 * Se il livello di affidabilità non è corretto, avviare una modifica nella risorsa Service Fabric per abbassare il livello di affidabilità prima di avviare qualsiasi operazione del set di scalabilità di macchine virtuali e attenderne il completamento.
-* Se il livello di affidabilità è bronzo, seguire questa [procedura](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) per ridurre normalmente il cluster.
+* Se il livello di affidabilità è bronzo, attenersi alla [procedura seguente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) per ridimensionare il cluster in modo normale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Creare un cluster nelle VM o nei computer che eseguono Windows Server: [Creazione di cluster di Service Fabric per Windows Server](service-fabric-cluster-creation-for-windows-server.md)

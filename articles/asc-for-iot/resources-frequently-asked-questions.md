@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 02736b63b900600c51eda8666aff0117b9307824
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeab1a7dcdf2b12efc268ed0d47834b24d34b87
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310774"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734978"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Centro sicurezza di Azure per IoT: domande frequenti
 
@@ -66,7 +66,7 @@ Il Centro sicurezza di Azure per l'agente Internet offre la copertura delle mina
 
 ## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>Dove si può ottenere il Centro sicurezza di Azure per l'agente sicurezza?
 
-Il Centro sicurezza di Azure per l'agente di sicurezza Internet è open source ed è disponibile su GitHub in versioni di Windows e Linux a 32 https://github.com/Azure/Azure-Security-IoTbit e a 64 bit:.
+Il Centro sicurezza di Azure per l'agente di sicurezza Internet è open source ed è disponibile su GitHub in versioni di Windows e Linux a 32 https://github.com/Azure/Azure-IoT-Securitybit e a 64 bit:.
 
 ## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>Dove viene installato il Centro sicurezza di Azure per l'agente Internet?
 

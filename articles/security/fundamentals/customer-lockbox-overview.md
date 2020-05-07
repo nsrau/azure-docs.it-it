@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77561970"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735437"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
 
@@ -49,7 +49,7 @@ La procedura seguente illustra un flusso di lavoro tipico per una richiesta di C
 
     La richiesta è ora in uno stato di **notifica del cliente** , in attesa dell'approvazione del cliente prima di concedere l'accesso.
 
-7. Presso l'organizzazione del cliente, l'utente che ha il [ruolo di proprietario](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) per la sottoscrizione di Azure riceve un messaggio di posta elettronica da Microsoft per notificare la richiesta di accesso in sospeso. Per Customer Lockbox richieste, questa persona è il responsabile approvazione designato.
+7. Presso l'organizzazione del cliente, l'utente che ha il [ruolo di proprietario](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) per la sottoscrizione di Azure riceve un messaggio di posta elettronica da Microsoft per notificare la richiesta di accesso in sospeso. Per Customer Lockbox richieste, questa persona è il responsabile approvazione designato.
 
     Posta elettronica di esempio:
 
