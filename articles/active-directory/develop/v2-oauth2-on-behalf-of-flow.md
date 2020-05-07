@@ -2,7 +2,7 @@
 title: Microsoft Identity Platform e OAuth 2.0 per conto di Microsoft Flow | Azure
 description: Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso on-behalf-of di OAuth2.0.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f33350dd076d0386c7518c91b77da59c3b09d0dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57497c7bd8cd1d0b46c40b6977079f4a6a2d876f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181512"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82689558"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform e OAuth 2,0, per conto di Microsoft Flow
 
@@ -62,12 +62,12 @@ Quando viene usato un segreto condiviso, una richiesta di token di accesso da se
 
 | Parametro |  | Descrizione |
 | --- | --- | --- |
-| `grant_type` | Obbligatoria | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obbligatoria | ID dell'applicazione (client) che [la pagina portale di Azure-registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
-| `client_secret` | Obbligatoria | Il segreto client generato per l'app nella pagina portale di Azure-Registrazioni app. |
-| `assertion` | Obbligatoria | Valore del token usato nella richiesta.  Questo token deve avere un gruppo di destinatari dell'app che effettua questa richiesta OBO (l'app indicata dal `client-id` campo). |
-| `scope` | Obbligatoria | Elenco di ambiti separato da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes (ambiti](v2-permissions-and-consent.md)). |
-| `requested_token_use` | Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
+| `grant_type` | Necessario | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Necessario | ID dell'applicazione (client) che [la pagina portale di Azure-registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
+| `client_secret` | Necessario | Il segreto client generato per l'app nella pagina portale di Azure-Registrazioni app. |
+| `assertion` | Necessario | Valore del token usato nella richiesta.  Questo token deve avere un gruppo di destinatari dell'app che effettua questa richiesta OBO (l'app indicata dal `client-id` campo). |
+| `scope` | Necessario | Elenco di ambiti separato da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes (ambiti](v2-permissions-and-consent.md)). |
+| `requested_token_use` | Necessario | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
 
 #### <a name="example"></a>Esempio
 
@@ -94,13 +94,13 @@ Una richiesta di token di accesso da servizio a servizio con un certificato cont
 
 | Parametro |  | Descrizione |
 | --- | --- | --- |
-| `grant_type` | Obbligatoria | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obbligatoria |  ID dell'applicazione (client) che [la pagina portale di Azure-registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
-| `client_assertion_type` | Obbligatoria | Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obbligatoria | Asserzione (token Web JSON) che devi creare e firmare con il certificato registrato come credenziali per l'applicazione. Per informazioni sulla registrazione del certificato e il formato dell'asserzione, vedere le [credenziali del certificato](active-directory-certificate-credentials.md). |
-| `assertion` | Obbligatoria | Valore del token usato nella richiesta. |
-| `requested_token_use` | Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
-| `scope` | Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes (ambiti](v2-permissions-and-consent.md)).|
+| `grant_type` | Necessario | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Necessario |  ID dell'applicazione (client) che [la pagina portale di Azure-registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
+| `client_assertion_type` | Necessario | Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Necessario | Asserzione (token Web JSON) che devi creare e firmare con il certificato registrato come credenziali per l'applicazione. Per informazioni sulla registrazione del certificato e il formato dell'asserzione, vedere le [credenziali del certificato](active-directory-certificate-credentials.md). |
+| `assertion` | Necessario | Valore del token usato nella richiesta. |
+| `requested_token_use` | Necessario | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
+| `scope` | Necessario | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes (ambiti](v2-permissions-and-consent.md)).|
 
 Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro `client_secret` che viene sostituito da due parametri: `client_assertion_type` e `client_assertion`.
 

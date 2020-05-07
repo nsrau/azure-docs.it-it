@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188512"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900425"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Amazon usando criteri personalizzati in Azure Active Directory B2C
 
@@ -29,17 +29,16 @@ Questo articolo illustra come abilitare l'accesso per gli utenti da un account A
 - Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
 - Se non si ha già un account Amazon, crearne uno [https://www.amazon.com/](https://www.amazon.com/)all'indirizzo.
 
-## <a name="register-the-application"></a>Registrare l'applicazione
+## <a name="create-an-app-in-the-amazon-developer-console"></a>Creare un'app in Amazon Developer Console
 
-Per abilitare l'accesso per gli utenti da un account Amazon, è necessario creare un'applicazione Amazon.
+Per usare un account Amazon come provider di identità federato in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in [Amazon Developer Services and Technologies](https://developer.amazon.com). Se non si ha già un account Amazon, è possibile iscriversi all' [https://www.amazon.com/](https://www.amazon.com/)indirizzo.
 
-1. Accedere al [Centro sviluppatori Amazon](https://login.amazon.com/) con le credenziali dell'account Amazon.
-2. Se non è già stato fatto, fare clic su **Sign Up**(Iscrizione), seguire la procedura di registrazione per sviluppatori e accettare le condizioni.
-3. Selezionare **Registra nuova applicazione**.
-4. Immettere un **Name**, una **Descrizione** e un **URL dell'informativa sulla Privacy**, quindi fare clic su **Salva**. L'Informativa sulla privacy è una pagina gestita dall'utente che fornisce informazioni sulla privacy per gli utenti.
-5. Nella sezione **Impostazioni Web** copiare i valori dell'**ID client**. Selezionare **Mostra il segreto** per ottenere il segreto client e quindi copiarlo. Sono necessari entrambi per configurare un account Amazon come provider di identità nel tenant. **Client Secret** è un'importante credenziale di sicurezza.
-6. Nella sezione **Impostazioni Web**, selezionare **Modifica**, quindi immettere `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** (Origini JavaScript consentite) e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs** (URL restituiti consentiti). Sostituire `your-tenant-name` con il nome del tenant. Usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
-7. Fare clic su **Salva**.
+> [!NOTE]  
+> Usare gli URL seguenti nel **passaggio 8** seguente, sostituendo `your-tenant-name` con il nome del tenant. Quando si immette il nome del tenant, usare tutte le lettere minuscole, anche se il tenant è definito con lettere maiuscole in Azure AD B2C.
+> - Per le **origini consentite**, immettere`https://your-tenant-name.b2clogin.com` 
+> - Per gli **URL restituiti consentiti**, immettere`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
@@ -54,7 +53,7 @@ Per abilitare l'accesso per gli utenti da un account Amazon, è necessario crear
 7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `AmazonSecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 8. In **Segreto** immettere il segreto client registrato in precedenza.
 9. In **Uso chiave** selezionare `Signature`.
-10. Fare clic su **Crea**.
+10. Scegliere **Crea**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 

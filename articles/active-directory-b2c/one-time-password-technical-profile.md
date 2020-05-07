@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332774"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900387"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico monouso per la password in un Azure AD B2C criteri personalizzati
 
@@ -51,7 +51,7 @@ La prima modalità di questo profilo tecnico consiste nel generare un codice. Di
 
 L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'invio al provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Descrizione |
+| ClaimReferenceId | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | identificatore | Sì | Identificatore per identificare l'utente che deve verificare il codice in un secondo momento. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 
@@ -61,7 +61,7 @@ L'elemento **InputClaimsTransformations** può contenere una raccolta di element
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni generate dal provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Descrizione |
+| ClaimReferenceId | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | otpGenerated | Sì | Il codice generato la cui sessione viene gestita da Azure AD B2C. |
 
@@ -71,7 +71,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 Per configurare la modalità di generazione del codice, è possibile usare le impostazioni seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | CodeExpirationInSeconds | No | Tempo in secondi per la scadenza del codice. Valore minimo `60`:; Massimo: `1200`; Impostazione predefinita `600`:. |
 | CodeLength | No | Lunghezza del codice. Il valore predefinito è `6`. |
@@ -113,7 +113,7 @@ La seconda modalità di questo profilo tecnico consiste nel verificare un codice
 
 L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'invio al provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatoria | Descrizione |
+| ClaimReferenceId | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | identificatore | Sì | Identificatore per identificare l'utente che ha generato in precedenza un codice. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 | otpToVerify | Sì | Codice di verifica fornito dall'utente. |
@@ -130,7 +130,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 Per la modalità di verifica del codice è possibile usare le impostazioni seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | Operazione | Sì | L'operazione da eseguire. Valore possibile: `VerifyCode`. |
 
@@ -139,11 +139,12 @@ Per la modalità di verifica del codice è possibile usare le impostazioni segue
 
 I metadati seguenti possono essere utilizzati per configurare i messaggi di errore visualizzati quando si verifica un errore di verifica del codice. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . È possibile [localizzare](localization-string-ids.md#one-time-password-error-messages)i messaggi di errore.
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | Messaggio da visualizzare all'utente se la sessione di verifica del codice è scaduta. Il codice è scaduto o il codice non è mai stato generato per un identificatore specificato. |
 | UserMessageIfMaxRetryAttempted | No | Messaggio da visualizzare all'utente se è stato superato il numero massimo di tentativi di verifica consentiti. |
 | UserMessageIfInvalidCode | No | Messaggio da visualizzare all'utente se è stato fornito un codice non valido. |
+| UserMessageIfVerificationFailedRetryAllowed | No | Messaggio da visualizzare all'utente se è stato fornito un codice non valido e l'utente è autorizzato a fornire il codice corretto.  |
 |UserMessageIfSessionConflict|No| Messaggio da visualizzare all'utente se il codice non può essere verificato.|
 
 ### <a name="example"></a>Esempio

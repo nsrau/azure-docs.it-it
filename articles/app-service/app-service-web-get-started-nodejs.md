@@ -5,14 +5,12 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-experimental: false
-experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: bcb0ae2457175e7511c3539187d72d48e80baa5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047125"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690785"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure 
 
@@ -23,7 +21,7 @@ Per iniziare a usare il servizio app di Azure, creare un'app Node.js/Express loc
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - [Node.js e npm](https://nodejs.org). Eseguire il comando `node --version` per verificare che Node.js sia installato.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- [Estensione Servizio app di Azure](vscode:extension/ms-azuretools.vscode-azureappservice) per Visual Studio Code.
+- [Estensione Servizio app di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) per Visual Studio Code.
 
 ## <a name="clone-and-run-a-local-nodejs-application"></a>Clonare ed eseguire un'applicazione Node.js locale
 
@@ -45,7 +43,7 @@ Per iniziare a usare il servizio app di Azure, creare un'app Node.js/Express loc
     npm start
     ```
     
-1. Aprire il browser e passare a [http://localhost:1337](http://localhost:1337). Nel browser verrà visualizzato il testo "Hello World!".
+1. Aprire il browser e passare a `http://localhost:1337`. Nel browser verrà visualizzato il testo "Hello World!".
 
 1. Premere **CTRL**+**C** nel terminale per arrestare il server.
 

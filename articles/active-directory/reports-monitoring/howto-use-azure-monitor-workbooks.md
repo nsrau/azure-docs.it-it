@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014373"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690622"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory
 
@@ -42,7 +42,7 @@ Si desidera:
 
 - Ottenere informazioni più approfondite sulle query del log di accesso, la cartella di lavoro indica il numero di utenti a cui è stato concesso o negato l'accesso, nonché il numero di utenti che hanno ignorato i criteri di accesso condizionale durante l'accesso alle risorse.
 
-- Per rispondere a queste domande, Active Directory fornisce cartelle di lavoro per il monitoraggio. Le [cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinano testo, query di analisi, metriche e parametri in report interattivi avanzati.
+- Per rispondere a queste domande, Azure Active Directory fornisce cartelle di lavoro per il monitoraggio. Le [cartelle di lavoro di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinano testo, query di analisi, metriche e parametri in report interattivi avanzati.
 
 
 
@@ -58,7 +58,7 @@ Questo articolo:
 
 Per utilizzare le cartelle di lavoro di monitoraggio, è necessario:
 
-- Un tenant Active Directory con una licenza Premium (P1 o P2). Informazioni su come [ottenere una licenza Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Un tenant Azure Active Directory con una licenza Premium (P1 o P2). Informazioni su come [ottenere una licenza Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - [Area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -101,7 +101,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Azione utente in sospeso
 
-- Operazioni non riuscite
+- Errore
 
 È possibile filtrare ogni tendenza in base alle categorie seguenti:
 
@@ -116,7 +116,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 Per ogni tendenza si ottiene una suddivisione in base alle categorie seguenti:
 
-- Location
+- Percorso
 
     ![Accessi per località](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -203,7 +203,7 @@ Il riepilogo dell'effetto Mostra il numero di utenti o accessi per i quali i cri
 
 Questa cartella di lavoro mostra anche l'effetto dei criteri selezionati suddivisi in base a ognuna delle sei condizioni: 
 - **Stato del dispositivo**
-- **Piattaforma del dispositivo**
+- **Piattaforma per i dispositivi**
 - **App client**
 - **Rischio di accesso**
 - **Posizione**
@@ -225,7 +225,7 @@ Per accedere alla cartella di lavoro per gli accessi tramite i [controlli di con
 
 Questa cartella di lavoro Mostra le tendenze di accesso disabilitate seguenti:
 
-- Richiedere l'autenticazione MFA
+- Richiedi MFA
  
 - Richiedere le condizioni per l'utilizzo
 
@@ -271,7 +271,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 - Azione in sospeso
 
-- Operazioni non riuscite
+- Errore
 
 
 È possibile filtrare ogni tendenza in base alle categorie seguenti:

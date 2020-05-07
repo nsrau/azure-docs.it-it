@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: Da un runbook di Automazione
                   href: automation-onboard-solutions.md
-            - name: Visualizzare il contenuto dei file rilevati
+            - name: Gestire il rilevamento modifiche e l'inventario
               href: change-tracking-file-contents.md
             - name: Gestire la raccolta dell'inventario dalle VM
               href: automation-vm-inventory.md
@@ -230,7 +230,7 @@
           href: updatemgmt-mecmintegration.md
         - name: Configurare il client di Windows Update
           href: automation-configure-windows-update.md
-        - name: Uso di gruppi dinamici
+        - name: Usare i gruppi dinamici
           href: automation-update-management-groups.md
         - name: Eseguire query sui log di Gestione aggiornamenti
           href: automation-update-management-query-logs.md

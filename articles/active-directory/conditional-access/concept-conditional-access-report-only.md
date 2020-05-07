@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295291"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690457"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Che cos'è la modalità solo report di accesso condizionale?
 
@@ -26,7 +26,7 @@ La modalità solo report è un nuovo stato dei criteri di accesso condizionale c
 
 - I criteri di accesso condizionale possono essere abilitati in modalità di sola segnalazione.
 - Durante l'accesso, i criteri in modalità solo report vengono valutati ma non applicati.
-- I risultati vengono registrati nelle schede **accesso condizionale** e **solo report (anteprima)** dei dettagli del log di accesso.
+- I risultati vengono registrati nelle schede **accesso condizionale** e **solo report** dei dettagli del log di accesso.
 - I clienti con una sottoscrizione di monitoraggio di Azure possono monitorare l'effetto dei criteri di accesso condizionale usando la cartella di lavoro delle informazioni dettagliate sull'accesso condizionale.
 
 > [!WARNING]

@@ -3,7 +3,7 @@ title: Credenziali del certificato della piattaforma di identità Microsoft
 titleSuffix: Microsoft identity platform
 description: Questo articolo illustra la registrazione e l'uso delle credenziali del certificato per l'autenticazione dell'applicazione.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 12/18/2019
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d834d37f686279facf0052e3c8f4da3c8d259e0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47a35f70251622674205a28af9b7cc64132d0530
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309682"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690278"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato di autenticazione dell'applicazione Microsoft Identity Platform
 
@@ -94,7 +94,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 Nella registrazione dell'app di Azure per l'applicazione client:
 1. Selezionare **Certificati e segreti**.
 2. Fare clic su **Carica certificato** e selezionare il file di certificato da caricare.
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
   Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza.
 
 ### <a name="updating-the-application-manifest"></a>Aggiornamento del manifesto dell'applicazione

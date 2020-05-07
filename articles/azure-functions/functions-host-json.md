@@ -2,13 +2,13 @@
 title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758844"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690892"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>informazioni di riferimento su host. JSON per funzioni di Azure 2. x e versioni successive 
 
@@ -24,6 +24,8 @@ Il file di metadati *host.json* contiene le opzioni di configurazione globali ch
 Altre opzioni di configurazione delle app per le funzioni sono gestite nelle [impostazioni dell'app](functions-app-settings.md) (per le app distribuite) o nel file [local. Settings. JSON](functions-run-local.md#local-settings-file) (per lo sviluppo locale).
 
 Le configurazioni in host. JSON correlate alle associazioni vengono applicate ugualmente a ogni funzione nell'app per le funzioni. 
+
+È anche possibile [eseguire l'override o applicare le impostazioni per ogni ambiente](#override-hostjson-values) usando le impostazioni dell'applicazione.
 
 ## <a name="sample-hostjson-file"></a>File di esempio host.json
 
@@ -375,7 +377,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 |lockAcquisitionTimeout|00:01:00|La quantità massima di tempo per cui il runtime tenterà di acquisire un blocco.| 
 |lockAcquisitionPollingInterval|n/d|L'intervallo tra i tentativi di acquisizione di un blocco.| 
 
-## <a name="version"></a>Versione
+## <a name="version"></a>version
 
 Questo valore indica la versione dello schema di host. JSON. La stringa `"version": "2.0"` di versione è obbligatoria per un'app per le funzioni destinata al runtime v2 o a una versione successiva. Nessuna modifica dello schema host. JSON tra V2 e V3.
 
@@ -386,6 +388,23 @@ Un set di [directory codice condivise](functions-reference-csharp.md#watched-dir
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="override-hostjson-values"></a>Eseguire l'override dei valori host. JSON
+
+Potrebbero essere presenti istanze in cui si desidera configurare o modificare impostazioni specifiche in un file host. JSON per un ambiente specifico, senza modificare il file host. JSON.  È possibile eseguire l'override di valori specifici di host. JSON creando un valore equivalente come impostazione dell'applicazione. Quando il runtime trova un'impostazione dell'applicazione nel formato `AzureFunctionsJobHost__path__to__setting`, esegue l'override dell'impostazione host. JSON equivalente presente `path.to.setting` in in JSON. Se espressa come impostazione dell'applicazione, il punto (`.`) usato per indicare la gerarchia JSON viene sostituito da un doppio carattere di`__`sottolineatura (). 
+
+Si immagini, ad esempio, di voler disabilitare il campionamento di Application Insight durante l'esecuzione in locale. Se è stato modificato il file host. JSON locale per disabilitare Application Insights, è possibile che questa modifica venga inserita nell'app di produzione durante la distribuzione. Il modo più sicuro per eseguire questa operazione consiste nel creare invece un'impostazione `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` dell'applicazione `local.settings.json` come nel file. È possibile visualizzarlo nel file seguente `local.settings.json` , che non viene pubblicato:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
 }
 ```
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082595"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901291"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Domande frequenti su crittografia dischi di Azure per macchine virtuali Windows
 
@@ -21,7 +21,7 @@ Questo articolo fornisce le risposte alle domande frequenti su crittografia disc
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>Che cos'è crittografia dischi di Azure per le macchine virtuali Windows?
 
-Crittografia dischi di Azure per macchine virtuali Windows utilizza la funzionalità BitLocker di Windows per fornire la crittografia completa del disco del sistema operativo e dei dischi dati. Fornisce inoltre la crittografia del disco di risorse temporaneo quando il [parametro VolumeType è all](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Il contenuto fluisce crittografato dalla macchina virtuale al back-end di archiviazione. Fornendo quindi la crittografia end-to-end con una chiave gestita dal cliente.
+Crittografia dischi di Azure per macchine virtuali Windows utilizza la funzionalità BitLocker di Windows per fornire la crittografia completa del disco del sistema operativo e dei dischi dati. Fornisce inoltre la crittografia del disco temporaneo quando il [parametro VolumeType è all](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Il contenuto fluisce crittografato dalla macchina virtuale al back-end di archiviazione. Fornendo quindi la crittografia end-to-end con una chiave gestita dal cliente.
  
 Vedere [macchine virtuali e sistemi operativi supportati](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
@@ -61,7 +61,7 @@ La crittografia lato server di archiviazione crittografa i dischi gestiti di Azu
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>In che modo crittografia dischi di Azure è diversa dalla crittografia lato server di archiviazione con chiave gestita dal cliente e quando è consigliabile usare ogni soluzione?
 
-Crittografia dischi di Azure fornisce la crittografia end-to-end per il disco del sistema operativo, i dischi dati e il disco di risorse temporaneo con una chiave gestita dal cliente.
+Crittografia dischi di Azure fornisce la crittografia end-to-end per il disco del sistema operativo, i dischi dati e il disco temporaneo con una chiave gestita dal cliente.
 
 - Se i requisiti includono la crittografia di tutte le versioni precedenti e della crittografia end-to-end, usare crittografia dischi di Azure. 
 - Se i requisiti includono la crittografia dei soli dati inattivi con la chiave gestita dal cliente, usare la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md). Non è possibile crittografare un disco con crittografia dischi di Azure e la crittografia lato server di archiviazione con chiavi gestite dal cliente.
@@ -129,9 +129,6 @@ Crittografia dischi di Azure seleziona il metodo di crittografia in BitLocker in
 \*AES 256 bit con diffusione non è supportato in Windows 2012 e versioni successive.
 
 Per determinare la versione del sistema operativo Windows, eseguire lo strumento "winver" nella macchina virtuale.
-
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se si utilizzano EncryptFormatAll e vengono specificati tutti i tipi di volume, verranno cancellati i dati sulle unità dati già crittografati?
-No, i dati non verranno cancellati da unità dati che sono già crittografate usando Crittografia dischi di Azure. Analogamente al modo in cui EncryptFormatAll non crittografa nuovamente l'unità del sistema operativo, non riapplica la crittografia all'unità dati già crittografata. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>È possibile eseguire il backup e il ripristino di una VM crittografata? 
 

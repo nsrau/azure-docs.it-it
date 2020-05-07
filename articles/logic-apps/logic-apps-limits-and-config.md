@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/17/2020
-ms.openlocfilehash: c650cfcbfeddaa83d8bf3127024ac77b93456a57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 807949d7ed0c68edd44fba95109f118e97c59b5a
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683156"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901257"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -23,7 +23,7 @@ Questo articolo include informazioni dettagliate sui limiti e sulla configurazio
 
 Ecco i limiti per una singola definizione di app per la logica:
 
-| Name | Limite | Note |
+| Nome | Limite | Note |
 | ---- | ----- | ----- |
 | Azioni per flusso di lavoro | 500 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
 | Livello di annidamento consentito per le azioni | 8 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
@@ -37,7 +37,6 @@ Ecco i limiti per una singola definizione di app per la logica:
 | Lunghezza di `description` | 256 caratteri | |
 | Massimo per `parameters` | 50 | |
 | Massimo per `outputs` | 10 | |
-||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -45,7 +44,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Durata esecuzione | 90 giorni | 366 giorni | La durata dell'esecuzione viene calcolata usando l'ora di inizio dell'esecuzione e il limite specificato *all'ora di inizio* dall'impostazione del flusso di lavoro, la [**conservazione della cronologia di esecuzione in giorni**](#change-duration). <p><p>Per modificare il limite predefinito, ovvero 90 giorni, vedere la pagina relativa alla [durata dell'esecuzione delle modifiche](#change-duration). |
 | Eseguire la conservazione nell'archiviazione | 90 giorni | 366 giorni | La conservazione di esecuzione viene calcolata usando l'ora di inizio di un'esecuzione e il limite specificato nell' *ora corrente* dall'impostazione del flusso di lavoro, la [**conservazione della cronologia di esecuzione in giorni**](#change-retention). Se un'esecuzione viene completata o si verifica il timeout, il calcolo della conservazione usa sempre l'ora di inizio dell'esecuzione. Quando la durata di un'esecuzione supera il limite di conservazione *corrente* , l'esecuzione viene rimossa dalla cronologia delle esecuzioni. <p><p>Se si modifica questa impostazione, il limite corrente viene sempre usato per il calcolo della conservazione, indipendentemente dal limite precedente. Se, ad esempio, si riduce il limite di conservazione da 90 a 30 giorni, un'esecuzione di 60 giorni prima viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 giorni a 60 giorni, un'esecuzione che rimane per 20 giorni rimane nella cronologia delle esecuzioni per altri 40 giorni. <p><p>Per modificare il limite predefinito, ovvero 90 giorni, vedere la pagina relativa alla [conservazione dell'esecuzione delle modifiche nell'archiviazione](#change-retention). |
@@ -82,7 +81,7 @@ Per modificare il limite predefinito per la durata dell'esecuzione ed eseguire l
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Name | Limite | Note |
+| Nome | Limite | Note |
 | ---- | ----- | ----- |
 | Concorrenza di trigger | -Illimitato quando il controllo della concorrenza è disattivato <p><p>-25 è il limite predefinito quando il controllo della concorrenza è attivato, che non può essere annullato dopo l'abilitazione della concorrenza. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>**Nota**: quando la concorrenza è attivata, il limite di SplitOn viene ridotto a 100 elementi per la suddivisione in [batch delle matrici](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | -Senza concorrenza, il numero minimo di esecuzioni in attesa è 1, mentre il numero massimo è 50. <p><p>-Con la concorrenza, il numero minimo di esecuzioni in attesa è 10 più il numero di esecuzioni simultanee (concorrenza dei trigger). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
@@ -100,7 +99,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 ### <a name="multi-tenant-logic-apps-service"></a>Servizio app per la logica multi-tenant
 
-| Name | Limite | Note |
+| Nome | Limite | Note |
 | ---- | ----- | ----- |
 | Azione: esecuzioni per 5 minuti | 100.000 è il limite predefinito, ma 300.000 è il limite massimo. | Per modificare il limite predefinito, vedere [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (Eseguire l'app per la logica in modalità di velocità effettiva elevata), attualmente in anteprima. In alternativa, è possibile distribuire il carico di lavoro tra più app per la logica in base alle esigenze. |
 | Azione: chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
@@ -114,7 +113,7 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 Di seguito sono riportati i limiti di velocità effettiva per lo [SKU Premium ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-| Name | Limite | Note |
+| Nome | Limite | Note |
 |------|-------|-------|
 | Limite esecuzione unità di base | Limitazione del sistema quando la capacità dell'infrastruttura raggiunge il 80% | In sono disponibili ~ 4.000 esecuzioni di azioni al minuto, ovvero ~ 160 milioni esecuzioni di azioni al mese | |
 | Limite di esecuzione delle unità di scala | Limitazione del sistema quando la capacità dell'infrastruttura raggiunge il 80% | Ogni unità di scala può fornire circa 2.000 esecuzioni di azioni aggiuntive al minuto, ovvero ~ 80 milioni altre esecuzioni di azioni al mese | |
@@ -142,7 +141,7 @@ Ecco i limiti per una singola chiamata HTTP in uscita o in ingresso:
 
 Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto di richieste di webhook e di conseguenza il timeout per queste operazioni può essere più prolungato rispetto a questi limiti. Per altre informazioni, vedere i dettagli tecnici per il connettore specifico e anche [Trigger e azioni dei flussi di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Richiesta in uscita | 120 secondi <br>(2 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in uscita includono chiamate effettuate da trigger HTTP. <p><p>**Suggerimento**: per le operazioni a esecuzione prolungata, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
 | Richiesta in ingresso | 120 secondi <br>(2 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in ingresso includono chiamate ricevute da trigger di richiesta e trigger di webhook. <p><p>**Nota**: affinché il chiamante originale ottenga la risposta, tutti i passaggi della risposta devono terminare entro il limite, a meno che non venga chiamata un'altra app per la logica come flusso di lavoro annidato. Per altre informazioni, vedere [Chiamare, attivare o annidare app per la logica](../logic-apps/logic-apps-http-endpoint.md). |
@@ -152,15 +151,15 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 #### <a name="message-size"></a>Dimensioni dei messaggi
 
-| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
-| Dimensioni dei messaggi | 100 MB | 200 MB | ISE: i connettori con etichetta usano il limite ISE, non i limiti del connettore non ISE. <p><p>Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. |
-| Dimensione dei messaggi con la divisione in blocchi | 1 GB | 5 GB | Questo limite si applica alle azioni che supportano in modo nativo la suddivisione in blocchi o consentono di abilitare la suddivisione in blocchi nella configurazione di Runtime. <p><p>Per l'ambiente del servizio di integrazione, il motore delle app per la logica supporta questo limite, ma i connettori hanno limiti di suddivisione in blocchi fino al limite del motore. ad esempio, vedere le informazioni [di riferimento sulle API del connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblob/). Per altre informazioni sulla suddivisione in blocchi, vedere [gestire messaggi di grandi dimensioni con la suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). |
+| Dimensioni dei messaggi | 100 MB | 200 MB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. <p><p>-I connettori, ad esempio AS2, X12 ed EDIFACT, presentano [limiti di messaggi B2B](#b2b-protocol-limits). <br>-I connettori ISE usano il limite ISE, non i limiti del connettore non ISE. |
+| Dimensione dei messaggi con la divisione in blocchi | 1 GB | 5 GB | Questo limite si applica alle azioni che supportano in modo nativo la suddivisione in blocchi o consentono di abilitare la suddivisione in blocchi nella configurazione di Runtime. <p><p>Se si usa ISE, il motore delle app per la logica supporta questo limite, ma i connettori hanno limiti di suddivisione in blocchi fino al limite del motore. ad esempio, vedere le informazioni di [riferimento sulle API del connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblob/). Per altre informazioni sulla suddivisione in blocchi, vedere [gestire messaggi di grandi dimensioni con la suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Limiti dei caratteri
 
-| Name | Note |
+| Nome | Note |
 |------|-------|
 | Limite per la valutazione delle espressioni | 131.072 caratteri | Le espressioni `@concat()`, `@base64()` e `@string()` non possono superare questo limite. |
 | Limite di caratteri URL richiesta | 16.384 caratteri |
@@ -170,11 +169,23 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 #### <a name="retry-policy"></a>Criteri di ripetizione
 
-| Name | Limite | Note |
+| Nome | Limite | Note |
 | ---- | ----- | ----- |
 | Tentativi | 90 | Il valore predefinito è 4. Per modificare il valore predefinito, usare il [parametro dei criteri di ripetizione](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Intervallo massimo tra i tentativi | 1 giorno | Per modificare il valore predefinito, usare il [parametro dei criteri di ripetizione](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Intervallo minimo tra i tentativi | 5 secondi | Per modificare il valore predefinito, usare il [parametro dei criteri di ripetizione](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+||||
+
+<a name="authentication-limits"></a>
+
+### <a name="authentication-limits"></a>Limiti di autenticazione
+
+Ecco i limiti per un'app per la logica che inizia con un trigger di richiesta e Abilita [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) per autorizzare le chiamate in ingresso al trigger di richiesta:
+
+| Nome | Limite | Note |
+| ---- | ----- | ----- |
+| Criteri di autorizzazione Azure AD | 5 | |
+| Attestazioni per criterio di autorizzazione | 10 | |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -183,7 +194,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 Limiti per i connettori personalizzati che è possibile creare da API Web.
 
-| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Numero di connettori personalizzati | 1.000 per ogni sottoscrizione di Azure | 1.000 per ogni sottoscrizione di Azure ||
 | Numero di richieste al minuto per un connettore personalizzato | 500 richieste al minuto per connessione | 2.000 richieste al minuto per *connettore personalizzato* ||
@@ -193,7 +204,7 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 
 ## <a name="managed-identities"></a>Identità gestite
 
-| Name | Limite |
+| Nome | Limite |
 |------|-------|
 | Identità gestite per app per la logica | Identità assegnata dal sistema o 1 identità assegnata dall'utente |
 | Numero di app per la logica con identità gestita in una sottoscrizione di Azure per area | 250 |
@@ -269,7 +280,7 @@ Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/
 
 Di seguito sono riportati i limiti delle dimensioni dei messaggi applicabili ai protocolli B2B:
 
-| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
+| Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | AS2 | v2-100 MB<br>V1-50 MB | V2-200 MB <br>V1-50 MB | Applicabile alla decodifica e alla codifica |
 | X12 | 50 MB | 50 MB | Applicabile alla decodifica e alla codifica |
@@ -350,7 +361,7 @@ Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio app per 
 | Regno Unito meridionale | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Regno Unito occidentale | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | Stati Uniti centro-occidentali | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
-| Europa occidentale | 13.95.155.53, 52.174.54.218, 52.174.49.6, 52.174.49.6 |
+| Europa occidentale | 13.95.155.53, 52.174.54.218, 52.174.49.6 |
 | India occidentale | 104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.157.237 |
 | Stati Uniti occidentali | 52.160.90.237, 138.91.188.137, 13.91.252.184, 157.56.160.212 |
 | Stati Uniti occidentali 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |

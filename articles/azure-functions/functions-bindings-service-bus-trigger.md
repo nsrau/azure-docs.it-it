@@ -6,16 +6,16 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273557"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690715"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Trigger del bus di servizio di Azure per funzioni di Azure
 
-Usare il trigger di bus di servizio per rispondere a messaggi da una coda o da un argomento del bus di servizio.
+Usare il trigger di bus di servizio per rispondere a messaggi da una coda o da un argomento del bus di servizio. A partire dalla versione dell'estensione 3.1.0, è possibile attivare un argomento o una coda abilitata per la sessione.
 
 Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](functions-bindings-service-bus-output.md).
 
@@ -222,7 +222,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare gli attri
   }
   ```
 
-  È possibile impostare la `Connection` proprietà per specificare il nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare, come illustrato nell'esempio seguente:
+  Poiché la `Connection` proprietà non è definita, funzioni Cerca un'impostazione dell'app `AzureWebJobsServiceBus`denominata, che è il nome predefinito per la stringa di connessione del bus di servizio. È anche possibile impostare la `Connection` proprietà per specificare il nome di un'impostazione dell'applicazione che contiene la stringa di connessione del bus di servizio da usare, come illustrato nell'esempio seguente:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -354,21 +354,24 @@ Il valore `maxAutoRenewDuration` può essere configurato in *host.json*, che ese
 
 ## <a name="message-metadata"></a>Metadati del messaggio
 
-Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste proprietà sono membri della classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) .
+Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste proprietà sono membri della classe [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) .
 
 |Proprietà|Type|Descrizione|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|Il numero di recapiti.|
-|`DeadLetterSource`|`string`|La coda di messaggi non recapitabili.|
-|`ExpiresAtUtc`|`DateTime`|L'ora di scadenza in formato UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|Il tempo di accodamento in formato UTC.|
-|`MessageId`|`string`|Valore definito dall'utente che il bus di servizio può usare per identificare i messaggi duplicati, se abilitato.|
 |`ContentType`|`string`|Identificatore del tipo di contenuto utilizzato dal mittente e dal destinatario per la logica specifica dell'applicazione.|
-|`ReplyTo`|`string`|La risposta all'indirizzo della coda.|
-|`SequenceNumber`|`Int64`|Il numero univoco assegnato a un messaggio dal bus di servizio.|
-|`To`|`string`|L'indirizzo di destinazione.|
-|`Label`|`string`|Etichetta specifica dell'applicazione.|
 |`CorrelationId`|`string`|L'ID di correlazione.|
+|`DeadLetterSource`|`string`|La coda di messaggi non recapitabili.|
+|`DeliveryCount`|`Int32`|Il numero di recapiti.|
+|`EnqueuedTimeUtc`|`DateTime`|Il tempo di accodamento in formato UTC.|
+|`ExpiresAtUtc`|`DateTime`|L'ora di scadenza in formato UTC.|
+|`Label`|`string`|Etichetta specifica dell'applicazione.|
+|`MessageId`|`string`|Valore definito dall'utente che il bus di servizio può usare per identificare i messaggi duplicati, se abilitato.|
+|`MessageReceiver`|`MessageReceiver`|Ricevitore del messaggio del bus di servizio. Può essere usato per abbandonare, completare o DeadLetter il messaggio.|
+|`MessageSession`|`MessageSession`|Destinatario del messaggio specifico per le code e gli argomenti abilitati per la sessione.|
+|`ReplyTo`|`string`|La risposta all'indirizzo della coda.|
+|`SequenceNumber`|`long`|Il numero univoco assegnato a un messaggio dal bus di servizio.|
+|`To`|`string`|L'indirizzo di destinazione.|
+|`UserProperties`|`IDictionary<string, object>`|Proprietà impostate dal mittente.|
 
 Vedere gli [esempi di codice](#example) che usano queste proprietà in precedenza in questo articolo.
 
