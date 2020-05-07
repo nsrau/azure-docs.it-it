@@ -1,20 +1,20 @@
 ---
-title: API di onboarding per app di Azure nel Marketplace commerciale
-description: Prerequisiti API per le app di Azure nel Marketplace commerciale nel centro per i partner Microsoft.
+title: API di invio del centro per i partner per l'onboarding delle app di Azure nel Marketplace commerciale Microsoft
+description: Informazioni sui prerequisiti per l'uso dell'API di invio del centro per i partner per le app di Azure nel Marketplace commerciale nel centro per i partner Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279760"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744886"
 ---
-# <a name="api-for-onboarding-azure-apps-in-partner-center"></a>API per l'onboarding delle app di Azure nel centro per i partner
+# <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API di invio del centro per i partner per caricare le app di Azure nel centro per i partner
 
 Usare l' *API di invio del centro* per i partner per eseguire query a livello di codice, creare invii per e pubblicare offerte di Azure.  Questa API è utile se l'account gestisce molte offerte e si vuole automatizzare e ottimizzare il processo di invio per queste offerte.
 
@@ -70,3 +70,8 @@ Per il valore *tenant_id* nei parametri `POST URI` e *client_id* e *CLIENT_SECRE
 Una volta che si dispone di un token di accesso Azure AD, è possibile chiamare i metodi nell'API di invio del centro per i partner. Per creare o aggiornare gli invii, in genere si chiamano più metodi nell'API di invio del centro per i partner in un ordine specifico. Per informazioni su ogni scenario e sulla sintassi di ogni metodo, vedere l'API di inserimento.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Informazioni su come creare un [Asset tecnico per la creazione di una macchina virtuale di Azure](create-azure-container-technical-assets.md)
+* Learn Hoe per creare un' [offerta di contenitore di Azure](create-azure-container-offer.md)

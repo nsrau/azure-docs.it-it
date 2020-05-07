@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 022c6360b97c7c27887ff5d2f6460f69cb8126c6
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457298"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778465"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: app Cloud o azioni
 
@@ -71,7 +71,7 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle ap
 
 Office 365 fornisce servizi di produttività e collaborazione basati sul cloud come Exchange, SharePoint e Microsoft teams. I servizi cloud di Office 365 sono profondamente integrati per garantire esperienze uniformi e collaborative. Questa integrazione può causare confusione quando si creano criteri perché alcune app, ad esempio i team Microsoft, presentano dipendenze da altri utenti, ad esempio SharePoint o Exchange.
 
-L'app Office 365 (anteprima) consente di utilizzare tutti i servizi in una sola volta. È consigliabile usare la nuova app Office 365 (anteprima), anziché fare riferimento a singole app cloud. La definizione di questo gruppo di applicazioni consente di evitare problemi che possono verificarsi a causa di criteri e dipendenze non coerenti.
+L'app Office 365 (anteprima) consente di utilizzare tutti i servizi in una sola volta. È consigliabile usare la nuova app Office 365 (anteprima), anziché fare riferimento a singole app cloud per evitare problemi con le [dipendenze del servizio](service-dependencies.md). La definizione di questo gruppo di applicazioni consente di evitare problemi che possono verificarsi a causa di criteri e dipendenze non coerenti.
 
 Gli amministratori possono scegliere di escludere app specifiche dai criteri se desiderano includere l'app di Office 365 (anteprima) ed escludere le app specifiche di loro scelta nei criteri.
 

@@ -1,20 +1,20 @@
 ---
-title: Analisi per il Marketplace commerciale nel centro per i partner
-description: Panoramica sull'accesso ai report analitici per monitorare le vendite, valutare le prestazioni e ottimizzare le offerte del Marketplace.
+title: Analisi per Microsoft Commercial Marketplace nel centro per i partner
+description: Informazioni su come accedere ai report analitici per monitorare le vendite, valutare le prestazioni e ottimizzare le offerte del Marketplace nel centro per i partner Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 41b9c5244ce9d468d9bf0fb7bafa719b4e6f55ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c406efd30e891c8ca69481299801e7309cdff81
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262282"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744916"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analisi per il Marketplace commerciale nel centro per i partner
+# <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Accedere ai report analitici per il Marketplace commerciale nel centro per i partner
 
 Informazioni su come accedere ai report analitici nel centro per i partner Microsoft per monitorare le vendite, valutare le prestazioni e ottimizzare le offerte nel Marketplace. In qualità di partner, è possibile monitorare gli elenchi di offerte usando i grafici di visualizzazione e analisi dei dati supportati dal centro per i partner e trovare i modi per ottimizzare le vendite. Gli strumenti di analisi migliorati consentono di agire sui risultati delle prestazioni e di mantenere relazioni migliori con i clienti e i rivenditori.
 

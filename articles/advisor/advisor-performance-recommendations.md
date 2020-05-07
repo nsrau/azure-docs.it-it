@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor
 description: Usare Advisor per ottimizzare le prestazioni delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443048"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787941"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor
 
@@ -28,6 +28,10 @@ Advisor fornisce una visualizzazione coerente e consolidata dei consigli per tut
 > Per ottenere consigli, è necessario che un database sia stato in uso per circa una settimana, nel corso della quale deve essersi verificata attività coerente. Advisor per database SQL può essere più facilmente ottimizzato per modelli di query coerenti anziché picchi irregolari casuali di attività.
 
 Per ulteriori informazioni su SQL Advisor per database, vedere [sql Advisor per database](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+
+## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Aggiornare la libreria client di archiviazione alla versione più recente per migliorare l'affidabilità e le prestazioni
+
+La versione più recente di della libreria client di archiviazione/dell'SDK contiene correzioni per i problemi segnalati dai clienti e identificati in modo proattivo tramite il processo di controllo qualità. La versione più recente offre anche l'ottimizzazione dell'affidabilità e delle prestazioni, oltre a nuove funzionalità che consentono di migliorare l'esperienza complessiva con Archiviazione di Azure. Advisor fornisce le indicazioni e i passaggi necessari per eseguire l'aggiornamento alla versione più recente dell'SDK se si dispone di una versione non aggiornata. Le indicazioni sono per le lingue supportate, ovvero C++ e .NET.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Migliorare affidabilità e prestazioni di Servizi app
 
@@ -73,6 +77,26 @@ Eseguire la migrazione del modello di distribuzione dell'account di archiviazion
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Progettare gli account di archiviazione per evitare di raggiungere il limite massimo di sottoscrizioni
 
 Un'area di Azure può supportare un massimo di 250 account di archiviazione per sottoscrizione. Una volta raggiunto il limite, non sarà possibile creare altri account di archiviazione in tale combinazione di area/sottoscrizione. Advisor verificherà le sottoscrizioni e le raccomandazioni sulla superficie per la progettazione per un minor numero di account di archiviazione per qualsiasi valore vicino al raggiungimento del limite massimo.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>Prendere in considerazione l'aumento delle dimensioni dello SKU del gateway VNet per l'uso di P2S elevato
+
+Ogni SKU del gateway può supportare solo un numero specificato di connessioni P2S simultanee. Se il numero di connessioni è vicino al limite del gateway, i tentativi aggiuntivi di connessione potrebbero non riuscire. L'aumento delle dimensioni del gateway consentirà di supportare più utenti P2S simultanei. Advisor fornisce consigli e procedure da eseguire per questa operazione.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Prendere in considerazione la possibilità di aumentare le dimensioni dello SKU del gateway VNet per soddisfare la CPU elevata
+
+In un carico di traffico elevato, il gateway VPN può eliminare i pacchetti a causa di CPU elevata. È consigliabile aggiornare lo SKU del gateway VPN poiché la VPN è stata eseguita in modo coerente. L'aumento delle dimensioni del gateway VPN garantisce che le connessioni non vengano eliminate a causa della CPU elevata. Advisor provdes raccomandazione per risolvere questo problema in modo proattivo. 
+
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Aumentare le dimensioni del batch durante il caricamento per massimizzare la velocità effettiva del carico, la compressione dei dati e le prestazioni
+
+Advisor può rilevare che è possibile aumentare le prestazioni e la velocità effettiva del carico aumentando le dimensioni del batch durante il caricamento nel database. È possibile prendere in considerazione l'uso dell'istruzione COPY. Se non è possibile usare l'istruzione COPY, provare ad aumentare le dimensioni del batch quando si usano le utilità di caricamento, ad esempio l'API SQLBulkCopy o BCP, una regola empirica corretta è una dimensione di batch compresa tra 100.000 e 1 milione di righe. Ciò aumenta la velocità effettiva del carico, la compressione dei dati e le prestazioni delle query.
+
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Condividere il percorso dell'account di archiviazione nella stessa area per ridurre al minimo la latenza durante il caricamento
+
+Advisor è in grado di rilevare che si sta caricando da un'area diversa dal pool SQL. È consigliabile prendere in considerazione il caricamento da un account di archiviazione che si trova all'interno della stessa area del pool SQL per ridurre al minimo la latenza durante il caricamento dei dati. Ciò consente di ridurre al minimo la latenza e migliorare le prestazioni di caricamento.
+
+## <a name="unsupported-kubernetes-version-is-detected"></a>È stata rilevata una versione non supportata di Kubernetes
+
+Advisor può rilevare se viene rilevata una versione di Kubernetes non supportata. Il suggerimento consente di garantire che il cluster Kubernetes sia in esecuzione con una versione supportata.
 
 ## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Ottimizzare le prestazioni dei server Azure MySQL, Azure PostgreSQL e Azure MariaDB 
 
