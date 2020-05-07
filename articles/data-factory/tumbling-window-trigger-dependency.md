@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbcbb19530aebe777a91cbe4c5487e1b50ace2e5
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418797"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559778"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creare una dipendenza del trigger di finestra a cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,10 @@ ms.locfileid: "81418797"
 Questo articolo descrive la procedura per creare una dipendenza del trigger di finestra a cascata. Per informazioni più specifiche ed esempi sui trigger di finestra a cascata, vedere [Procedura per creare un trigger di finestra a cascata](how-to-create-tumbling-window-trigger.md).
 
 Per creare una catena di dipendenze e accertarsi che un trigger venga eseguito solo dopo la corretta esecuzione di un altro trigger nella data factory, usare questa funzionalità avanzata per creare una dipendenza in una finestra a cascata.
+
+Per una dimostrazione su come creare pipeline dipendenti nel Azure Data Factory usando il trigger di finestra a cascata, guardare il video seguente:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Creare una dipendenza nell'interfaccia utente di Data Factory
 
@@ -75,14 +79,14 @@ Un trigger di finestra a cascata con una dipendenza presenta le proprietà segue
 
 La tabella seguente fornisce l'elenco degli attributi necessari per definire una dipendenza in una finestra a cascata.
 
-| **Nome proprietà** | **Descrizione**  | **Type** | **Richiesto** |
+| **Nome proprietà** | **Descrizione**  | **Tipo** | **Richiesto** |
 |---|---|---|---|
 | type  | Tutti i trigger presenti in una finestra a cascata vengono visualizzati nell'elenco a tendina. Scegliere il trigger da cui dipendere.  | TumblingWindowTriggerDependencyReference o SelfDependencyTumblingWindowTriggerReference | Sì |
 | offset | Scostamento del trigger delle dipendenze. Fornire un valore nel formato di intervallo di tempo ed entrambi gli offset negativi e positivi sono consentiti. Questa proprietà è obbligatoria se il trigger dipende da se stesso e in tutti gli altri casi è facoltativo. L'auto-dipendenza deve avere sempre uno scostamento negativo. Se non viene specificato alcun valore, la finestra è uguale a quella del trigger. | TimeSpan<br/>(hh:mm:ss) | Dipendenza autonoma: Sì<br/>Altro: No |
 | size | Dimensione della finestra a cascata di dipendenze. Fornire un valore TimeSpan positivo. Questa proprietà è facoltativa. | TimeSpan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
-> Un trigger di finestra a cascata può dipendere da un massimo di altri due trigger.
+> Un trigger di finestra a cascata può dipendere da un massimo di cinque altri trigger.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Proprietà di auto-dipendenza in una finestra a cascata
 
@@ -147,10 +151,6 @@ Un processo di elaborazione dei dati di telemetria giornaliero a seconda di un a
 Un processo giornaliero senza interruzioni nei flussi di output del processo:
 
 ![Esempio di dipendenza autonoma](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Esempio di dipendenza autonoma")
-
-Per una dimostrazione su come creare pipeline dipendenti nel Azure Data Factory usando il trigger di finestra a cascata, guardare il video seguente:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Monitorare le dipendenze
 

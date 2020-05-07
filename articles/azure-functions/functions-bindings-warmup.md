@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a6f97f45ec1adaa42d1f17a1916af137845392
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77167323"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560001"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
 
@@ -240,7 +240,7 @@ Non viene fornita alcuna informazione aggiuntiva a una funzione attivata da risc
 ## <a name="trigger---limits"></a>Trigger - Limiti
 
 * Il trigger riscaldamento è disponibile solo per le app in esecuzione nel [piano Premium](./functions-premium-plan.md).
-* Il trigger di riscaldamento viene chiamato solo durante le operazioni di scalabilità verticale, non durante i riavvii o altre startup senza scalabilità. È necessario assicurarsi che la logica possa caricare tutte le dipendenze necessarie senza usare il trigger di riscaldamento. Il caricamento lazy è un modello valido per ottenere questo risultato.
+* Il trigger riscaldamento viene chiamato solo durante le operazioni di scalabilità orizzontale, non durante i riavvii o altre startup senza scalabilità. È necessario assicurarsi che la logica possa caricare tutte le dipendenze necessarie senza usare il trigger di riscaldamento. Il caricamento lazy è un modello valido per ottenere questo risultato.
 * Non è possibile richiamare il trigger riscaldamento una volta che un'istanza è già in esecuzione.
 * Per ogni app per le funzioni può essere presente una sola funzione di trigger di riscaldamento.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262877"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592044"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Ricerca dei termini parziali e modelli con caratteri speciali (carattere jolly, Regex, Patterns)
 
@@ -24,7 +24,7 @@ La ricerca parziale e dei criteri può essere problematica se l'indice non prese
 La soluzione consiste nel richiamare un analizzatore che conserva una stringa completa, inclusi spazi e caratteri speciali, se necessario, in modo che sia possibile trovare una corrispondenza con termini e modelli parziali. La creazione di un campo aggiuntivo per una stringa intatta, più l'uso di un analizzatore che conserva il contenuto, costituisce la base della soluzione.
 
 > [!TIP]
-> Familiarità con le API REST e REST? [Scaricare la raccolta degli esempi di query](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) per eseguire una query su termini parziali e caratteri speciali descritti in questo articolo.
+> Familiarità con le API REST e REST? [Scaricare la raccolta degli esempi di query](https://github.com/Azure-Samples/azure-search-postman-samples/) per eseguire una query su termini parziali e caratteri speciali descritti in questo articolo.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Che cos'è la ricerca parziale in Azure ricerca cognitiva
 

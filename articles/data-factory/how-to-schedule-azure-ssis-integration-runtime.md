@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 50ff0afe13b5b098fbc8d9fbeefba295a6217192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606079"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584016"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare Azure-SSIS Integration Runtime in base a una pianificazione
 
@@ -117,7 +117,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
     1. Per **Ruolo**, selezionare **Collaboratore**. 
     2. In **Assegna accesso a** selezionare **Utente, gruppo o entità servizio di Azure AD**. 
     3. In **Seleziona** cercare il nome di ADF e selezionarlo. 
-    4. Fare clic su **Save**.
+    4. Fare clic su **Salva**.
     
    ![Assegnazione del ruolo all'identità gestita di ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -353,7 +353,7 @@ La sezione seguente descrive la procedura per creare un runbook di PowerShell. L
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Creare pianificazioni per consentire al runbook di avviare o arrestare Azure-SSIS IR
 
-Nella sezione precedente è stato creato un runbook di Automazione di Azure capace di avviare o arrestare Azure-SSIS IR. In questa sezione verranno create due pianificazioni per il runbook. Quando si configura la prima pianificazione, è necessario specificare **START** per **OPERATION**. Analogamente, quando si configura la seconda pianificazione, è necessario specificare **STOP** per **OPERATION**. Per informazioni dettagliate sulla procedura di creazione delle pianificazioni, vedere l'articolo [Creazione di una pianificazione](../automation/shared-resources/schedules.md#creating-a-schedule).
+Nella sezione precedente è stato creato un runbook di Automazione di Azure capace di avviare o arrestare Azure-SSIS IR. In questa sezione verranno create due pianificazioni per il runbook. Quando si configura la prima pianificazione, è necessario specificare **START** per **OPERATION**. Analogamente, quando si configura la seconda pianificazione, è necessario specificare **STOP** per **OPERATION**. Per informazioni dettagliate sulla procedura di creazione delle pianificazioni, vedere l'articolo [Creazione di una pianificazione](../automation/shared-resources/schedules.md#create-a-schedule).
 
 1. Nella finestra **Runbook** selezionare **Pianificazioni** e quindi **+ Aggiungi pianificazione** sulla barra degli strumenti. 
 

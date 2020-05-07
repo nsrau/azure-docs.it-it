@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74027100"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582884"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Esercitazione: Aggiungere o rimuovere membri di un gruppo automaticamente
 
-In Azure Active Directory (Azure AD) è possibile aggiungere o rimuovere automaticamente utenti in gruppi di sicurezza o gruppi di Office 365, per non doverlo fare sempre manualmente. Ogni volta che una o più proprietà di un utente o un dispositivo cambiano, Azure AD valuta tutte le regole del gruppo dinamico nel tenant per determinare se la modifica comporta l'aggiunta o la rimozione di membri.
+In Azure Active Directory (Azure AD) è possibile aggiungere o rimuovere automaticamente utenti in gruppi di sicurezza o gruppi di Office 365, per non doverlo fare sempre manualmente. Ogni volta che una o più proprietà di un utente o un dispositivo cambiano, Azure AD valuta tutte le regole del gruppo dinamico nell'organizzazione di Azure AD per determinare se la modifica comporta l'aggiunta o la rimozione di membri.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -33,17 +33,17 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Questa funzionalità richiede una licenza di Azure AD Premium per l'amministratore globale del tenant. Se non si possiede questa licenza, in Azure AD selezionare **Licenze** > **Prodotti** > **Prova/Acquista**.
+Questa funzionalità richiede una licenza di Azure AD Premium per l'amministratore globale dell'organizzazione. Se non si possiede questa licenza, in Azure AD selezionare **Licenze** > **Prodotti** > **Prova/Acquista**.
 
-Non è necessario assegnare licenze agli utenti perché possano essere membri di gruppi dinamici. È necessario solo il numero minimo di licenze di Azure AD Premium P1 disponibili nel tenant per poter gestire tali utenti. 
+Non è necessario assegnare licenze agli utenti perché possano essere membri di gruppi dinamici. Per poter gestire tali utenti, è sufficiente il numero minimo di licenze di Azure AD Premium P1 disponibili nell'organizzazione. 
 
 ## <a name="create-a-group-of-guest-users"></a>Creare un gruppo di utenti guest
 
 Prima di tutto, è necessario creare un gruppo per gli utenti guest che fanno tutti parte di un'unica società partner. Poiché per questi utenti sono necessarie licenze speciali, è spesso più pratico creare un gruppo a questo scopo.
 
-1. Accedere al portale di Azure (https://portal.azure.com) con un account di amministratore globale per il tenant.
+1. Accedere al portale di Azure (https://portal.azure.com) ) con un account di amministratore globale per l'organizzazione.
 2. Selezionare **Azure Active Directory** > **Gruppi** > **Nuovo gruppo**.
    ![selezionare il comando per avviare un nuovo gruppo](./media/groups-dynamic-tutorial/new-group.png)
 3. Nel pannello **Gruppo**:
@@ -80,7 +80,7 @@ Dopo aver creato il nuovo gruppo, è possibile applicare le licenze necessarie p
 
 ## <a name="remove-guests-from-all-users-group"></a>Rimuovere utenti guest dal gruppo Tutti gli utenti
 
-In alcuni casi, il piano amministrativo finale può prevedere l'assegnazione di tutti gli utenti guest ai rispettivi gruppi per società. È anche possibile modificare il gruppo **Tutti gli utenti** in modo che sia riservato solo agli utenti membro nel tenant. È quindi possibile usarlo per assegnare app e licenze specifiche dell'organizzazione principale.
+In alcuni casi, il piano amministrativo finale può prevedere l'assegnazione di tutti gli utenti guest ai rispettivi gruppi per società. È anche possibile modificare il gruppo **Tutti gli utenti** in modo che sia riservato solo agli utenti membro nell'organizzazione. È quindi possibile usarlo per assegnare app e licenze specifiche dell'organizzazione principale.
 
    ![Modificare il gruppo Tutti gli utenti per limitarlo solo agli utenti membro](./media/groups-dynamic-tutorial/all-users-edit.png)
 
@@ -88,7 +88,7 @@ In alcuni casi, il piano amministrativo finale può prevedere l'assegnazione di 
 
 **Per rimuovere il gruppo degli utenti guest**
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per il tenant.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per l'organizzazione.
 2. Selezionare **Azure Active Directory** > **Gruppi**. Selezionare il gruppo **Guest users Contoso**, selezionare i puntini di sospensione (...) e quindi **Elimina**. Quando il gruppo viene eliminato, vengono rimosse tutte le licenze assegnate.
 
 **Per ripristinare il gruppo Tutti gli utenti**

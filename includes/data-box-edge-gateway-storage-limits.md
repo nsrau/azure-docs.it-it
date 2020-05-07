@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 94fe099984fae77c65658d7085a8540ff4f2448b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51fde73565c9c4cdb21e998b8d43d303ceef062e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67180603"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561374"
 ---
-Questa sezione descrive i limiti del servizio Archiviazione di Azure e le convenzione di denominazione necessarie per File di Azure, BLOB in blocchi di Azure e BLOB di pagine di Azure, come applicabili al servizio Data Box Gateway/Data Box Edge. Esaminare attentamente i limiti di archiviazione e seguire tutte le raccomandazioni.
+Questa sezione descrive i limiti per il servizio di archiviazione di Azure e le convenzioni di denominazione necessarie per File di Azure, BLOB in blocchi di Azure e BLOB di pagine di Azure, come applicabile al servizio Azure Stack Edge/Data Box Gateway. Esaminare attentamente i limiti di archiviazione e seguire tutte le raccomandazioni.
 
 Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le procedure consigliate per la denominazione di condivisioni, contenitori e file, vedere:
 
@@ -20,4 +20,4 @@ Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le p
 - [Convenzioni di BLOB in blocchi e BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Se sono presenti file o directory che superano i limiti del servizio Archiviazione di Azure o che non sono conformi alle convenzioni di denominazione di BLOB o File di Azure, tali file o directory non vengono inseriti in Archiviazione di Azure tramite il servizio Data Box Gateway/Data Box Edge.
+> Se sono presenti file o directory che superano i limiti del servizio di archiviazione di Azure o non sono conformi alle convenzioni di denominazione File di Azure/BLOB, questi file o directory non vengono inseriti in archiviazione di Azure tramite il servizio Azure Stack Edge/Data Box Gateway.

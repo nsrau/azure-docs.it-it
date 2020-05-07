@@ -10,23 +10,23 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253065"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582703"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory
 
 In questo articolo viene illustrata l'assegnazione delle licenze dei prodotti a un gruppo di utenti e la verifica della corretta concessione della licenza in Azure Active Directory (Azure AD).
 
-In questo esempio il tenant contiene un gruppo di sicurezza denominato **HR Department**. Il gruppo include tutti i membri del reparto Risorse umane, circa 1.000 utenti. Si vogliono assegnare licenze di Office 365 Enterprise E3 all'intero reparto. Il servizio Enterprise Yammer incluso nel prodotto deve essere temporaneamente disattivato finché il reparto è pronto per iniziare a usarlo. Si prevede anche di distribuire le licenze Enterprise Mobility + Security allo stesso gruppo di utenti.
+In questo esempio, l'organizzazione Azure AD contiene un gruppo di sicurezza denominato **reparto risorse umane**. Il gruppo include tutti i membri del reparto Risorse umane, circa 1.000 utenti. Si vogliono assegnare licenze di Office 365 Enterprise E3 all'intero reparto. Il servizio Enterprise Yammer incluso nel prodotto deve essere temporaneamente disattivato finché il reparto è pronto per iniziare a usarlo. Si prevede anche di distribuire le licenze Enterprise Mobility + Security allo stesso gruppo di utenti.
 
 > [!NOTE]
 > Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà relativa alla località di utilizzo per l'utente.
@@ -37,7 +37,7 @@ In questo esempio il tenant contiene un gruppo di sicurezza denominato **HR Depa
 
 1. Accedere all'interfaccia di [**amministrazione di Azure ad**](https://aad.portal.azure.com) con un account di amministratore delle licenze. Per gestire le licenze, l'account deve essere un amministratore di licenze, un amministratore utente o un amministratore globale.
 
-1. Selezionare **licenze** per aprire una pagina in cui è possibile visualizzare e gestire tutti i prodotti con licenza nel tenant.
+1. Selezionare **licenze** per aprire una pagina in cui è possibile visualizzare e gestire tutti i prodotti con licenza nell'organizzazione.
 
 1. In **tutti i prodotti**selezionare Office 365 Enterprise E5 e Enterprise Mobility + Security E3 selezionando i nomi dei prodotti. Per avviare l'assegnazione, selezionare **assegna** nella parte superiore della pagina.
 

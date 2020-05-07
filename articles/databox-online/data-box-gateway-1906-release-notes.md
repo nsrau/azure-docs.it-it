@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 69c905176a5beb1c7d442cd5f1a69161cd520c5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f4633a3fcafcb2b3151270715036e7940eb1c91
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71099486"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561839"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1906-release-notes"></a>Note sulla versione di Azure Data Box Edge e Azure Data Box Gateway 1906
 
-Le seguenti note sulla versione identificano i problemi critici aperti e i problemi risolti per la versione 1906 per Azure Data Box Edge e Azure Data Box Gateway.
+Le seguenti note sulla versione identificano i problemi critici aperti e i problemi risolti per la versione 1906 per Azure Data Box Edge e Azure Data Box Gateway. 
 
 Le note sulla versione vengono aggiornate continuamente e i problemi che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire il Data Box Edge/Data Box Gateway, esaminare attentamente le informazioni contenute nelle note sulla versione.
 
@@ -31,8 +31,8 @@ Questa versione corrisponde alle versioni del software:
 
 ## <a name="whats-new"></a>Novità
 
-- **Correzione di bug nel flusso di lavoro di gestione delle chiavi di ripristino** : nella versione precedente si è verificato un bug a causa del quale la chiave di ripristino non è stata applicata. Tale bug è stato risolto in questa versione. Si consiglia vivamente di applicare questo aggiornamento poiché la chiave di ripristino consente di ripristinare i dati nel dispositivo, nel caso in cui il dispositivo non si avvii. Per ulteriori informazioni, vedere come [salvare la chiave di ripristino durante la distribuzione di data box Edge o data box gateway](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
-- **Miglioramenti della registrazione di Field Programmable Gate Array (FPGA)** : è stata avviata la versione 1905, i miglioramenti della registrazione e degli avvisi correlati a FPGA. Questo continua a essere un aggiornamento necessario per Data Box Edge se si usa la funzionalità di calcolo Edge con l'FPGA. Per altre informazioni, vedere come [trasformare i dati con il calcolo Edge nel data box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Correzione di bug nel flusso di lavoro di gestione delle chiavi di ripristino** : nella versione precedente si è verificato un bug a causa del quale la chiave di ripristino non è stata applicata. Tale bug è stato risolto in questa versione. Si consiglia vivamente di applicare questo aggiornamento poiché la chiave di ripristino consente di ripristinare i dati nel dispositivo, nel caso in cui il dispositivo non si avvii. Per ulteriori informazioni, vedere come [salvare la chiave di ripristino durante la distribuzione di data box Edge o data box gateway](azure-stack-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
+- **Miglioramenti della registrazione di Field Programmable Gate Array (FPGA)** : è stata avviata la versione 1905, i miglioramenti della registrazione e degli avvisi correlati a FPGA. Questo continua a essere un aggiornamento necessario per Data Box Edge se si usa la funzionalità di calcolo Edge con l'FPGA. Per altre informazioni, vedere come [trasformare i dati con il calcolo Edge nel data box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## <a name="known-issues-in-ga-release"></a>Problemi noti nella versione GA
 
@@ -42,4 +42,4 @@ Non sono stati rilasciati nuovi problemi per questa versione. Tutti i problemi r
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Preparare la distribuzione di Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-- [Preparare la distribuzione di Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Preparare la distribuzione di Azure Data Box Edge](azure-stack-edge-deploy-prep.md)

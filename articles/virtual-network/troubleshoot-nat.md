@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: allensu
-ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396097"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508429"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Risolvere i problemi di connettività del servizio NAT di rete virtuale di Azure
 
@@ -78,8 +78,8 @@ _**Soluzione:**_ ridimensionare la connettività in uscita come indicato di segu
 
 | Scenario | Evidenza |Strategia di riduzione del rischio |
 |---|---|---|
-| Si riscontra una contesa per le porte SNAT e l'esaurimento delle porte SNAT durante i periodi di utilizzo elevato. | La categoria "Non riuscita" per la [metrica](nat-metrics.md) Connessioni SNAT in Monitoraggio di Azure mostra gli errori temporanei o persistenti nel tempo e il volume elevato di connessioni.  | Determinare se è possibile aggiungere risorse indirizzo IP pubblico o risorse prefisso IP pubblico aggiuntive. Questa aggiunta garantirà fino a un totale di 16 indirizzi IP per il gateway NAT, fornirà un inventario più esteso per le porte SNAT disponibili (64.000 per indirizzo IP) e consentirà di dimensionare ulteriormente lo scenario.|
-| Sono già stati assegnati 16 indirizzi IP e si riscontra ancora l'esaurimento delle porte SNAT. | Il tentativo di aggiungere un altro indirizzo IP non riesce. Il numero totale di indirizzi IP delle risorse di indirizzi IP pubblici o di prefissi IP pubblici supera il totale di 16. | Distribuire l'ambiente dell'applicazione tra più subnet e specificare una risorsa gateway NAT per ogni subnet.  Rivalutare il modello o i modelli di progettazione per l'ottimizzazione in base alle [indicazioni](#design-patterns) precedenti. |
+| Si riscontra una contesa per le porte SNAT e l'esaurimento delle porte SNAT durante i periodi di utilizzo elevato. | La categoria "Non riuscita" per la [metrica](nat-metrics.md) Connessioni SNAT in Monitoraggio di Azure mostra gli errori temporanei o persistenti nel tempo e il volume elevato di connessioni.  | Determinare se è possibile aggiungere risorse indirizzo IP pubblico o risorse prefisso di indirizzo IP pubblico aggiuntive. Questa aggiunta garantirà fino a un totale di 16 indirizzi IP per il gateway NAT, fornirà un inventario più esteso per le porte SNAT disponibili (64.000 per indirizzo IP) e consentirà di dimensionare ulteriormente lo scenario.|
+| Sono già stati assegnati 16 indirizzi IP e si riscontra ancora l'esaurimento delle porte SNAT. | Il tentativo di aggiungere un altro indirizzo IP non riesce. Il numero totale di indirizzi IP delle risorse indirizzo IP pubblico o delle risorse prefisso di indirizzo IP pubblico supera il totale di 16. | Distribuire l'ambiente dell'applicazione tra più subnet e specificare una risorsa gateway NAT per ogni subnet.  Rivalutare il modello o i modelli di progettazione per l'ottimizzazione in base alle [indicazioni](#design-patterns) precedenti. |
 
 >[!NOTE]
 >È importante comprendere la causa dell'esaurimento delle porte SNAT. Assicurarsi di usare i modelli corretti per gli scenari affidabili e scalabili.  L'aggiunta di più porte SNAT a uno scenario senza aver compreso la causa della domanda deve essere l'ultima eventualità. Se non si comprende il motivo per cui lo scenario fa pressione sull'inventario di porte SNAT, l'aggiunta di più porte SNAT mediante l'aggiunta di altri indirizzi IP ritarderà solamente lo stesso errore di esaurimento man mano che le prestazioni dell'applicazione aumentano.  È possibile che si stiano mascherando altre inefficienze e anti-pattern.
@@ -101,17 +101,25 @@ La tabella seguente può essere usata come punto di partenza per gli strumenti d
 
 I problemi di connettività di [NAT di rete virtuale](nat-overview.md) possono essere dovuti a diversi motivi:
 
+* Errori permanenti dovuti a errori di configurazione
 * [Esaurimento SNAT](#snat-exhaustion) temporaneo o persistente del gateway NAT
 * Errori temporanei nell'infrastruttura di Azure 
 * Errori temporanei nel percorso tra Azure e la destinazione Internet pubblica 
-* Errori temporanei o persistenti nella destinazione Internet pubblica.
+* Errori temporanei o persistenti nella destinazione Internet pubblica
 
-Usare strumenti come i seguenti per verificare la connettività. [Il ping ICMP non è supportato](#icmp-ping-is-failing).
+Usare strumenti come i seguenti per verificare la connettività [Il ping ICMP non è supportato](#icmp-ping-is-failing).
 
 | Sistema operativo | Test di connessione TCP generico | Test del livello dell'applicazione TCP | UDP |
 |---|---|---|---|
 | Linux | nc (test di connessione generico) | curl (test del livello dell'applicazione TCP) | specifico dell'applicazione |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) di PowerShell | specifico dell'applicazione |
+
+#### <a name="configuration"></a>Configurazione
+
+Verificare quindi quanto segue:
+1. La risorsa gateway NAT include almeno una risorsa indirizzo IP pubblico o una risorsa prefisso di indirizzo IP pubblico? Per consentire la connettività in uscita, al gateway NAT deve essere associato almeno un indirizzo IP.
+2. La subnet della rete virtuale è configurata per l'uso del gateway NAT?
+3. Si usa la route definita dall'utente e si esegue l'override della destinazione?  Le risorse gateway NAT diventano la route predefinita (0/0) nelle subnet configurate.
 
 #### <a name="snat-exhaustion"></a>Esaurimento SNAT
 

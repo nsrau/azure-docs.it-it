@@ -4,14 +4,15 @@ description: Modificare le risorse di memoria, disco e CPU del gruppo di server 
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 3/16/2020
-ms.openlocfilehash: fa48ca287c248155a0271b5134be782d8db1c785
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8e8e1672f754e843a3bd1c75d496599d31e5f11
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063108"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584009"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Ridimensionare un gruppo di server di scalabilità (CITUS)
 
@@ -41,7 +42,7 @@ La `rebalance_table_shards` funzione ribilancia [tutte le tabelle nel gruppo di]
 ## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentare o ridurre Vcore nei nodi
 
 > [!NOTE]
-> Questa funzionalità è attualmente disponibile in anteprima. Per richiedere una modifica in Vcore per i nodi del gruppo di server, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Questa funzionalità è attualmente in anteprima. Per richiedere una modifica in Vcore per i nodi del gruppo di server, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Oltre ad aggiungere nuovi nodi, è possibile aumentare le capacità dei nodi esistenti. La regolazione della capacità di calcolo verso l'alto e verso il basso può essere utile per gli esperimenti sulle prestazioni, nonché per le modifiche a breve o a lungo termine delle richieste di traffico.
 

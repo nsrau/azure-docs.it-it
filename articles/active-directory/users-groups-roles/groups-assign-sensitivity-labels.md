@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329733"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582945"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Assegnare etichette di riservatezza ai gruppi di Office 365 in Azure Active Directory (anteprima)
 
@@ -112,10 +112,10 @@ Dopo aver abilitato questa funzionalità, le classificazioni "classiche" per i g
 
 L'opzione etichetta riservatezza viene visualizzata solo per i gruppi quando vengono soddisfatte tutte le condizioni seguenti:
 
-1. Le etichette vengono pubblicate nel centro di conformità Microsoft 365 per questo tenant.
+1. Le etichette vengono pubblicate nel centro di conformità Microsoft 365 per questa organizzazione Azure AD.
 1. La funzionalità è abilitata, EnableMIPLabels è impostato su true in PowerShell.
 1. Il gruppo è un gruppo di Office 365.
-1. Il tenant dispone di una licenza attiva Azure Active Directory Premium P1.
+1. L'organizzazione dispone di una licenza attiva Azure Active Directory Premium P1.
 1. L'utente corrente che ha eseguito l'accesso dispone di privilegi sufficienti per assegnare le etichette. È necessario che l'utente sia un amministratore globale, un amministratore del gruppo o il proprietario del gruppo.
 
 Verificare che tutte le condizioni siano soddisfatte per poter assegnare etichette a un gruppo.

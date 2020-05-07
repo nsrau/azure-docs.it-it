@@ -37,7 +37,7 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 Nelle configurazioni Advanced hive-log4j, il parametro *log4j. appender. RFA. MaxBackupIndex* viene omesso. Causa la generazione infinita di file di log.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 1. Passare a hive Component Summary (Riepilogo componenti hive) nel portale `Configs` di Ambari e fare clic sulla scheda.
 

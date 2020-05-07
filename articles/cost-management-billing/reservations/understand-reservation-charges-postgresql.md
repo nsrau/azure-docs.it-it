@@ -1,20 +1,17 @@
 ---
-title: Come viene applicato uno sconto per la prenotazione a un server singolo di Database di Azure per PostgreSQL
-description: Come viene applicato uno sconto per la prenotazione a un server singolo di Database di Azure per PostgreSQL
+title: Informazioni sullo sconto per la prenotazione - Server singolo di Database di Azure per PostgreSQL
+description: Informazioni su come viene applicato uno sconto per la prenotazione a un server singolo di Database di Azure per PostgreSQL.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e01b35bc540045bc272484159380f8a11e5a6c48
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199297"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509398"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Come viene applicato uno sconto per la prenotazione a un server singolo di Database di Azure per PostgreSQL
 
@@ -44,5 +41,6 @@ Per il resto di questi esempi, si supponga che la capacità riservata del server
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+## <a name="next-steps"></a>Passaggi successivi
+
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

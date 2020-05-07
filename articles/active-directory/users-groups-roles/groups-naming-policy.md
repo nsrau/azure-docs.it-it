@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9018228ec685d69fb03dfbc23de530e1bb8abb4f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497888"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582855"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione nei gruppi di Office 365 in Azure Active Directory
 
-Per applicare convenzioni di denominazione coerenti per i gruppi di Office 365 creati o modificati dagli utenti, configurare criteri di denominazione dei gruppi per i tenant in Azure Active Directory (Azure AD). Ad esempio, è possibile usare i criteri di denominazione per comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo. È anche possibile utilizzare i criteri di denominazione per agevolare la categorizzazione dei gruppi nella Rubrica. È possibile utilizzare i criteri per bloccare l'uso di parole specifiche nei nomi dei gruppi e negli alias.
+Per applicare convenzioni di denominazione coerenti per i gruppi di Office 365 creati o modificati dagli utenti, configurare i criteri di denominazione dei gruppi per le organizzazioni in Azure Active Directory (Azure AD). Ad esempio, è possibile usare i criteri di denominazione per comunicare la funzione, l'appartenenza, l'area geografica o il creatore di un gruppo. È anche possibile utilizzare i criteri di denominazione per agevolare la categorizzazione dei gruppi nella Rubrica. È possibile utilizzare i criteri per bloccare l'uso di parole specifiche nei nomi dei gruppi e negli alias.
 
 > [!IMPORTANT]
 > Per usare Azure AD i criteri di denominazione per i gruppi di Office 365 è necessario disporre di una licenza di Azure Active Directory Premium P1 o Azure AD Basic licenza EDU per ogni utente univoco membro di uno o più gruppi di Office 365.
@@ -42,7 +42,7 @@ Quando vengono configurati i criteri di denominazione dei gruppi, i criteri verr
 
 ### <a name="prefix-suffix-naming-policy"></a>Criteri di denominazione prefisso-suffisso
 
-La struttura generale della convenzione di denominazione è "Prefisso[NomeGruppo]Suffisso. Benché sia possibile definire più prefissi e suffissi, ci può essere una sola istanza di [NomeGruppo] nell'impostazione. I prefissi o i suffissi possono essere stringhe fisse o attributi utente, ad esempio \[Reparto\], che vengono sostituiti in base all'utente che crea il gruppo. Il numero massimo di caratteri consentito per le stringhe di prefisso e suffisso combinati è di 53 caratteri. 
+La struttura generale della convenzione di denominazione è "Prefisso[NomeGruppo]Suffisso. Benché sia possibile definire più prefissi e suffissi, ci può essere una sola istanza di [NomeGruppo] nell'impostazione. I prefissi o i suffissi possono essere stringhe fisse o attributi utente, ad esempio \[Reparto\], che vengono sostituiti in base all'utente che crea il gruppo. Il numero totale consentito di caratteri per le stringhe di prefisso e suffisso, incluso il nome del gruppo, è 53 caratteri. 
 
 I prefissi e i suffissi possono contenere caratteri speciali supportati nel nome e nell'alias del gruppo. I caratteri di prefisso o suffisso che non sono supportati nell'alias del gruppo sono comunque applicati al nome del gruppo, ma vengono rimossi dall'alias del gruppo. A causa di questa restrizione, i prefissi e i suffissi applicati al nome del gruppo potrebbero essere diversi da quelli applicati all'alias del gruppo. 
 
@@ -69,17 +69,17 @@ Regole dell'elenco di parole bloccate:
 
 ### <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
 
-Per configurare i criteri di denominazione, è necessario uno dei ruoli folowing:
+Per configurare i criteri di denominazione, è necessario uno dei seguenti ruoli:
 - Amministratore globale
 - Amministratore del gruppo
-- Amministratore degli utenti
+- Amministratore utenti
 
 Alcuni amministratori possono essere esentati da questi criteri, in tutti i carichi di lavoro di gruppo e gli endpoint, per permettere loro di creare gruppi utilizzando le parole bloccate e convenzioni di denominazione personalizzate. Di seguito è riportato l'elenco dei ruoli di amministratore esentati dai criteri di denominazione dei gruppi.
 
 - Amministratore globale
 - Supporto di livello 1 partner
 - Supporto di livello 2 partner
-- Amministratore degli utenti
+- Amministratore utenti
 - Writer di directory
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configurare i criteri di denominazione in portale di Azure
@@ -138,7 +138,7 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
 
    Nella schermata **Accedi all'account** che viene aperta, immettere account e password amministratore per connettersi al servizio e selezionare **Accedi**.
 
-1. Seguire i passaggi in [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md) per creare impostazioni di gruppo per questo tenant.
+1. Per [configurare le impostazioni](groups-settings-cmdlets.md) di gruppo per la creazione di impostazioni di gruppo per l'organizzazione, attenersi alla procedura descritta in Azure Active Directory cmdlet.
 
 ### <a name="view-the-current-settings"></a>Visualizzare le impostazioni correnti
 

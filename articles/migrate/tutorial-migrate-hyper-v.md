@@ -6,12 +6,12 @@ ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 6b9732aab9e3fe0d26b4c572efe87c3a9d3e29f6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 3b68531319e83eece11833dba475020060e280b6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535350"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583328"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Eseguire la migrazione di VM Hyper-V ad Azure 
 
@@ -40,7 +40,7 @@ Prima di iniziare questa esercitazione, è necessario:
 1. [Rivedere](hyper-v-migration-architecture.md) l'architettura di migrazione di Hyper-V.
 2. [Esaminare](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) requisiti dell'host Hyper-V e gli URL di Azure a cui devono accedere gli host Hyper-V.
 3. [Esaminare](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) i requisiti delle macchine virtuali Hyper-V di cui eseguire la migrazione. Le macchine virtuali Hyper-V devono essere conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
-2. È consigliabile completare le esercitazioni precedenti di questa serie. La [prima esercitazione](tutorial-prepare-hyper-v.md) di questa serie mostra configurare Azure e Hyper-V per la migrazione. La seconda esercitazione illustra come [valutare le macchine virtuali Hyper-V] (tutorial-assess-hyper-v.md) prima della migrazione, usando lo strumento Valutazione server di Azure Migrate. 
+2. È consigliabile completare le esercitazioni precedenti di questa serie. La [prima esercitazione](tutorial-prepare-hyper-v.md) di questa serie mostra configurare Azure e Hyper-V per la migrazione. La seconda esercitazione illustra come [valutare le macchine virtuali Hyper-V](tutorial-assess-hyper-v.md) prima della migrazione, usando lo strumento Valutazione server di Azure Migrate. 
     > [!NOTE]
     > Benché sia consigliabile provare una valutazione, non è necessario farlo prima di eseguire la migrazione delle macchine virtuali.
     > Per la migrazione di macchine virtuali Hyper-V, lo strumento Migrazione server di Azure Migrate esegue agenti software (provider Microsoft Azure Site Recovery e agente di Servizi di ripristino di Microsoft Azure) negli host Hyper-V o nei nodi del cluster, per orchestrare e replicare i dati in Azure Migrate. Per la migrazione di Hyper-V non viene usata l'[appliance di Azure Migrate](migrate-appliance.md).

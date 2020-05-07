@@ -3,12 +3,12 @@ title: Archiviare i grafici Helm
 description: Informazioni su come archiviare i grafici Helm per le applicazioni Kubernetes usando repository in Azure Container Registry
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cf9f9667438519443f857e43c0bbc94d6c239e0a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399381"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583336"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Eseguire il push e il pull di grafici Helm in un registro contenitori di Azure
 
@@ -31,8 +31,7 @@ Per archiviare, gestire e installare i grafici Helm, è possibile usare un clien
 ### <a name="additional-information"></a>Informazioni aggiuntive
 
 * Per la maggior parte degli scenari, è consigliabile usare il flusso di `helm chart` lavoro Helm 3 con comandi nativi per gestire i grafici come elementi OCI.
-* È possibile usare i comandi dell'interfaccia della riga di comando e il flusso di lavoro di [AZ ACR Helm][az-acr-helm] Azure con il client e i grafici Helm 3. Tuttavia, alcuni comandi, ad `az acr helm list` esempio, non sono compatibili con i grafici Helm 3.
-* A partire da Helm 3, i comandi [AZ ACR Helm][az-acr-helm] sono supportati principalmente per la compatibilità con il client Helm 2 e il formato grafico. Lo sviluppo futuro di questi comandi non è attualmente pianificato.
+* A partire da Helm 3, i comandi [AZ ACR Helm][az-acr-helm] sono supportati per la compatibilità con il client Helm 2 e il formato grafico. Lo sviluppo futuro di questi comandi non è attualmente pianificato. Vedere la [Roadmap sul prodotto](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
 
 ## <a name="use-the-helm-3-client"></a>Usare il client Helm 3
 

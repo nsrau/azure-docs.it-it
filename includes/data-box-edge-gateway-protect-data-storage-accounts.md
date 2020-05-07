@@ -4,16 +4,16 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 8840e6649058837207c75dbdf7baa5c0b11ef387
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ac9865afe37916f1777d92eab8637884eba0c08
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75467080"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562126"
 ---
 Il dispositivo è associato a un account di archiviazione usato come destinazione per i dati in Azure. L'accesso all'account di archiviazione è controllato dalla sottoscrizione e dalle chiavi di accesso alle archiviazioni a 2 512 bit associate a tale account di archiviazione.
 
-Una delle chiavi viene usata per l'autenticazione quando il dispositivo Data Box Edge accede all'account di archiviazione. L'altra chiave viene mantenuta in riserva, quindi è possibile ruotare periodicamente le chiavi.
+Una delle chiavi viene usata per l'autenticazione quando il dispositivo Azure Stack Edge accede all'account di archiviazione. L'altra chiave viene mantenuta in riserva, quindi è possibile ruotare periodicamente le chiavi.
 
 Per motivi di sicurezza, molti data center richiedono la rotazione delle chiavi. Per la rotazione delle chiavi, è opportuno seguire queste procedure consigliate:
 

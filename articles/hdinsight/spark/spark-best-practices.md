@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 424a0cfd02cfce9fb87bc3e21d7b067740df8218
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: HT
+ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509415"
+ms.locfileid: "82562339"
 ---
 # <a name="apache-spark-guidelines"></a>Linee guida per Apache Spark
 
@@ -30,8 +30,8 @@ Questo articolo fornisce diverse linee guida per l'uso di Apache Spark in Azure 
 | Invio di processi remoti con Livio | [Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark](./apache-spark-livy-rest-interface.md) |
 |[Apache Oozie](../hdinsight-use-oozie-linux-mac.md)|Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Hadoop.|
 |[Apache Livy](./apache-spark-livy-rest-interface.md)|È possibile usare Livy per l'esecuzione interattiva di shell Spark o per inviare processi batch da eseguire su Spark.|
-|[Azure Data Factory per Apache Spark](/../data-factory/transform-data-using-spark.md)|L'attività Spark in una pipeline di Data Factory esegue un programma Spark nel proprio o [cluster HDInsight su richiesta.|
-|[Azure Data Factory per Apache Hive](/../data-factory/transform-data-using-hadoop-hive.md)|L'attività hive di HDInsight in una pipeline Data Factory esegue query hive nel cluster HDInsight personalizzato o su richiesta.|
+|[Azure Data Factory per Apache Spark](../../data-factory/transform-data-using-spark.md)|L'attività Spark in una pipeline di Data Factory esegue un programma Spark nel proprio o [cluster HDInsight su richiesta.|
+|[Azure Data Factory per Apache Hive](../../data-factory/transform-data-using-hadoop-hive.md)|L'attività hive di HDInsight in una pipeline Data Factory esegue query hive nel cluster HDInsight personalizzato o su richiesta.|
 
 ## <a name="how-do-i-monitor-and-debug-spark-jobs"></a>Ricerca per categorie monitorare ed eseguire il debug dei processi Spark?
 

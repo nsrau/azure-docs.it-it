@@ -1,23 +1,23 @@
 ---
-title: Modalità di accesso, alimentazione e connettività del dispositivo Azure Data Box Gateway
-description: Descrive come gestire l'accesso, l'avvio/arresto e la modalità di connessione per il dispositivo Azure Data Box Gateway che permette di trasferire dati in Azure
+title: Modalità di accesso, alimentazione e connettività del dispositivo Azure Stack Edge | Microsoft Docs
+description: Viene descritto come gestire l'accesso, l'alimentazione e la modalità di connettività per il dispositivo Azure Stack Edge che consente di trasferire i dati in Azure
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: gateway
+ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
+ms.openlocfilehash: 939296b1cf606401a801dd72eccbad23da766018
 ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561358"
+ms.locfileid: "82569615"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per il Azure Data Box Gateway
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per il Azure Stack Edge
 
-Questo articolo descrive come gestire l'accesso, l'avvio/arresto e la modalità di connessione per Azure Data Box Gateway. Queste operazioni vengono eseguite tramite l'interfaccia utente Web locale o il portale di Azure. 
+Questo articolo descrive come gestire l'accesso, la potenza e la modalità di connettività per il Azure Stack Edge. Queste operazioni vengono eseguite tramite l'interfaccia utente Web locale o il portale di Azure.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -26,9 +26,10 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Gestire la modalità di connessione
 > * Gestire l'avvio/arresto
 
+
 ## <a name="manage-device-access"></a>Gestire l'accesso al dispositivo
 
-L'accesso al dispositivo Data Box Gateway è controllato dall'uso di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente Web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
+L'accesso al dispositivo Azure Stack Edge è controllato dall'uso di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente Web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
 
 ### <a name="change-device-password"></a>Modificare la password del dispositivo
 
@@ -37,9 +38,9 @@ Per modificare la password del dispositivo, attenersi alla seguente procedura ne
 1. Nell'interfaccia utente Web locale passare a **Manutenzione > Modifica password**.
 2. Immettere la password corrente e quindi quella nuova. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Confermare la nuova password.
 
-    ![Cambia password](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
+    ![Cambia password](media/azure-stack-edge-manage-access-power-connectivity-mode/change-password-1.png)
 
-3. Fare clic su **Cambia password**.
+3. Selezionare **Modifica password**.
  
 ### <a name="reset-device-password"></a>Reimposta la password del dispositivo
 
@@ -47,25 +48,25 @@ Il flusso di lavoro di reimpostazione non richiede che l'utente ricordi la vecch
 
 1. Nel portale di Azure passare a **Panoramica > Reimposta password amministratore**.
 
-    ![Reimposta password](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Reimposta password](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
- 
-2. Immettere la nuova password e quindi confermarla. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Fare clic su **Reimposta**.
 
-    ![Reimposta password](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+2. Immettere la nuova password e quindi confermarla. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Selezionare **Reimposta**.
+
+    ![Reimposta password](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gestire l'accesso alle risorse
 
-Per creare il Azure Stack Edge/Data Box Gateway, l'hub Internet e la risorsa di archiviazione di Azure, è necessario disporre delle autorizzazioni come collaboratore o superiore a livello di gruppo di risorse. È anche necessario registrare i provider di risorse corrispondenti. Per tutte le operazioni che coinvolgono la chiave di attivazione e le credenziali, sono necessarie anche le autorizzazioni per Azure Active Directory API Graph. Questi elementi sono descritti nelle sezioni seguenti.
+Per creare il Azure Stack Edge/Data Box Gateway, l'hub Internet e la risorsa di archiviazione di Azure, è necessario disporre delle autorizzazioni come collaboratore o superiore a livello di gruppo di risorse. È anche necessario registrare i provider di risorse corrispondenti. Per tutte le operazioni che coinvolgono la chiave di attivazione e le credenziali, sono necessarie anche le autorizzazioni per l'API Microsoft Graph. Questi elementi sono descritti nelle sezioni seguenti. 
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gestisci autorizzazioni API Microsoft Graph
 
-Quando si genera la chiave di attivazione per il dispositivo Azure Stack Edge o si eseguono operazioni che richiedono credenziali, è necessario disporre delle autorizzazioni per Microsoft Graph API. Le operazioni che richiedono credenziali potrebbero essere:
+Quando si genera la chiave di attivazione per il dispositivo Azure Stack Edge o si eseguono operazioni che richiedono credenziali, è necessario disporre delle autorizzazioni per Azure Active Directory API Graph. Le operazioni che richiedono credenziali potrebbero essere:
 
 -  Creazione di una condivisione con un account di archiviazione associato.
 -  Creazione di un utente che può accedere alle condivisioni nel dispositivo.
 
-È necessario avere `User` accesso al tenant di Active Directory, perché è necessario poterlo `Read all directory objects`. Non è possibile essere un utente guest perché non dispongono delle autorizzazioni `Read all directory objects`per. Se si è un Guest, le operazioni come la generazione di una chiave di attivazione, la creazione di una condivisione nel dispositivo Azure Stack Edge, la creazione di un utente avranno tutti esito negativo.
+È necessario avere `User` accesso al tenant di Active Directory, perché è necessario poterlo `Read all directory objects`. Non è possibile essere un utente guest perché non dispongono delle autorizzazioni `Read all directory objects`per. Se si è un Guest, le operazioni, ad esempio la generazione di una chiave di attivazione, la creazione di una condivisione sul dispositivo Azure Stack Edge, la creazione di un utente, la configurazione del ruolo di calcolo Edge e la reimpostazione della password del dispositivo avranno esito negativo.
 
 Per altre informazioni su come fornire l'accesso agli utenti per Microsoft Graph API, vedere [Microsoft Graph le autorizzazioni di riferimento](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -98,9 +99,11 @@ Per altre informazioni su come registrare un provider di risorse, vedere [risolv
 
 ## <a name="manage-connectivity-mode"></a>Gestire la modalità di connessione
 
-Oltre alla modalità normale predefinita, il dispositivo può anche essere eseguito in modalità parzialmente disconnessa o disconnessa. Ognuna di queste modalità viene descritta di seguito:
+Oltre alla modalità predefinita con connessione completa, il dispositivo può essere eseguito anche in modalità parzialmente connessa o completamente disconnessa. Ognuna di queste modalità viene descritta di seguito:
 
-- **Parzialmente disconnesso**: in questa modalità il dispositivo non può caricare dati nelle condivisioni, ma può essere gestito tramite il portale di Azure.
+- **Completamente connesso** : questa è la normale modalità predefinita in cui il dispositivo funziona. In questa modalità sono abilitati sia il caricamento del cloud che il download dei dati. Per gestire il dispositivo, è possibile usare il portale di Azure o l'interfaccia utente Web locale.
+
+- **Parzialmente disconnesso** : in questa modalità, il dispositivo non è in grado di caricare o scaricare dati di condivisione, tuttavia può essere gestito tramite il portale di Azure.
 
     Questa modalità viene in genere usata in caso di rete satellitare a consumo e l'obiettivo consiste nel ridurre al minimo il consumo di larghezza di banda di rete. Può comunque avvenire un uso di rete minimo per le operazioni di monitoraggio del dispositivo.
 
@@ -111,25 +114,24 @@ Oltre alla modalità normale predefinita, il dispositivo può anche essere esegu
 Per modificare la modalità del dispositivo, completare questi passaggi:
 
 1. Nell'interfaccia utente Web locale del dispositivo passare a **Configurazione > Impostazioni del cloud**.
-2. Disabilitare **Cloud upload and download** (Caricamento e download nel cloud).
-3. Per eseguire il dispositivo in modalità parzialmente disconnessa, attivare **Azure portal management** (Gestione portale di Azure).
+2. Nell'elenco a discesa selezionare la modalità in cui si vuole usare il dispositivo. È possibile scegliere tra **completamente connesso**, **parzialmente connesso**e **completamente disconnesso**. Per eseguire il dispositivo in modalità parzialmente disconnessa, attivare **Azure portal management** (Gestione portale di Azure).
 
-    ![Modalità di connessione](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
+    ![Modalità di connessione](media/azure-stack-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  
-4. Per eseguire il dispositivo in modalità parzialmente disconnessa, disabilitare **Azure portal management** (Gestione portale di Azure). A questo punto, il dispositivo può essere gestito solo tramite l'interfaccia utente Web locale.
-
-    ![Modalità di connessione](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
-
 ## <a name="manage-power"></a>Gestire l'avvio/arresto
 
-È possibile arrestare o riavviare il dispositivo virtuale tramite l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline le condivisioni sull'host e quindi il dispositivo. Questa operazione riduce al minimo il rischio di danneggiamento dei dati.
+È possibile arrestare o riavviare il dispositivo fisico usando l'interfaccia utente Web locale. Prima di riavviare, è consigliabile portare offline le condivisioni sul server dati e quindi sul dispositivo. Questa operazione riduce al minimo il rischio di danneggiamento dei dati.
 
 1. Nell'interfaccia utente Web locale passare a **Manutenzione > Power settings** (Impostazioni di alimentazione).
-2. Fare clic su **Arresta** o **Riavvia** in base all'operazione desiderata.
+2. Selezionare **Arresta** o **Riavvia** a seconda delle operazioni che si intende eseguire.
 
-    ![Impostazioni di risparmio energia](media/data-box-gateway-manage-access-power-connectivity-mode/shut-down-restart-1.png)
+    ![Impostazioni di risparmio energia](media/azure-stack-edge-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
-3. Quando viene richiesta una conferma, fare clic su **Sì** per continuare.
+3. Quando viene richiesta la conferma, selezionare **Sì** per continuare.
 
 > [!NOTE]
-> Se si arresta il dispositivo virtuale, è necessario avviare il dispositivo tramite la gestione dell'hypervisor.
+> Se si arresta il dispositivo fisico, sarà necessario premere il pulsante di alimentazione sul dispositivo per accenderlo.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Vedere le informazioni su come [gestire le condivisioni](azure-stack-edge-manage-shares.md).

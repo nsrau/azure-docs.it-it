@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f969c3bc6f546025b3bbe5826181efdfa69be0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b827c2e949502ad8bd19378a84ea89947929459d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76983638"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509364"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con DocuSign
 
@@ -45,7 +45,7 @@ In questa esercitazione verranno eseguiti la configurazione e il test dell'acces
 
 * DocuSign supporta l'accesso SSO avviato da provider di servizi (SP).
 
-* DocuSign supporta il provisioning utenti *JIT*.
+* DocuSign supporta il provisioning utenti **JIT**.
 
 * DocuSign supporta il [provisioning utenti automatico](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
 * Dopo aver configurato DocuSign, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
@@ -87,12 +87,20 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    a. Nella casella di testo **URL di accesso** immettere un URL nel formato seguente: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+    a. Nella casella di testo **URL di accesso** immettere un URL nel formato seguente:
 
-    b. Nella casella di testo **Identificatore (ID entità)** immettere un URL nel formato seguente: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+
+    b. Nella casella di testo **Identificatore (ID entità)** immettere un URL nel formato seguente:
+
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+
+    c. Nella casella di testo **URL di risposta** immettere un URL nel formato seguente:
+    
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
 
     > [!NOTE]
-    > Questi valori tra parentesi angolari sono segnaposto. Sostituirli i valori effettivi dell'URL e dell'identificatore di accesso. Per informazioni dettagliate, vedere la sezione relativa a "View SAML 2.0 Endpoints" (Visualizza endpoint SAML 2.0) più avanti in questa esercitazione.
+    > Questi valori tra parentesi angolari sono segnaposto. Sostituirli con i valori effettivi dell'URL di accesso, dell'identificatore e dell'URL di risposta. Per informazioni dettagliate, vedere la sezione relativa a "View SAML 2.0 Endpoints" (Visualizza endpoint SAML 2.0) più avanti in questa esercitazione.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** . Selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -109,7 +117,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere **B. Simon**.  
+   1. Nel campo **Nome** immettere **B.Simon**.  
    1. Nel campo **Nome utente** immettere `<username>@<companydomain>.<extension>`. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Selezionare **Create** (Crea).
@@ -206,20 +214,23 @@ In questa sezione si concederà a B.Simon l'accesso a DocuSign in modo che quest
        ![Identity Providers/Endpoints (Provider di identità/Endpoint)][59]
 
     l. Nella sezione **View SAML 2.0 Endpoints** (Visualizza endpoint SAML 2.0) del portale di amministrazione di DocuSign seguire questa procedura:
-       1. Copiare il valore di **Service Provider Issuer URL** (URL autorità di certificazione provider di servizi) e quindi incollarlo nella casella **Identificatore** nella sezione **Configurazione SAML di base** del portale di Azure.
-
-       1. Copiare il valore di **Service Provider Login URL** (URL di accesso provider di servizi) e quindi incollarlo nella casella **URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
-
-       1. Selezionare **Chiudi**.
 
        ![View SAML 2.0 Endpoints (Visualizza endpoint SAML 2.0)][60]
+       
+       1. Copiare il valore di **Service Provider Issuer URL** (URL autorità di certificazione provider di servizi) e quindi incollarlo nella casella **Identificatore** nella sezione **Configurazione SAML di base** del portale di Azure.
+       
+       1. Copiare il valore di **Service Provider Assertion Consumer Service URL** (URL del servizio consumer di asserzione del provider di servizi) e quindi incollarlo nella casella **URL di risposta** nella sezione **Configurazione SAML di base** del portale di Azure.
+       
+       1. Copiare il valore di **Service Provider Login URL** (URL di accesso provider di servizi) e quindi incollarlo nella casella **URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure. Alla fine dell**URL di accesso del provider di servizi** si otterrà il valore di IDPID.
+
+       1. Selezionare **Chiudi**.
 
 ### <a name="create-docusign-test-user"></a>Creare l'utente di test di DocuSign
 
 In questa sezione viene creato un utente di nome B.Simon in DocuSign. DocuSign supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in DocuSign, ne viene creato uno nuovo dopo l'autenticazione.
 
->[!Note]
->Per creare un utente manualmente, contattare il [team di supporto di DocuSign](https://support.docusign.com/).
+> [!Note]
+> Per creare un utente manualmente, contattare il [team di supporto di DocuSign](https://support.docusign.com/).
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

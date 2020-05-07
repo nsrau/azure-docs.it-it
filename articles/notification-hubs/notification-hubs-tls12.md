@@ -10,20 +10,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a87f3563b995081de8e7cbb4b4499718f77b02ff
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885753"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583258"
 ---
 # <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-Per garantire un livello di sicurezza superiore, hub di notifica Disabilita il supporto per le versioni di TLS 1,0 e 1,1 il 31 maggio 2020 (esteso dal 30 aprile 2020). Questi protocolli meno recenti forniscono una crittografia debole e sono vulnerabili agli attacchi di bestia e barboncino. Le applicazioni distribuite nei dispositivi in cui è in esecuzione Android versione 5 o versioni successive, o iOS versione 5 o successive, non sono interessate da questa modifica perché i sistemi operativi supportano TLS 1,2 e il client e il server negozieranno la versione del protocollo con la massima supporto reciprocamente supportata al momento della connessione.
+Per garantire un livello di sicurezza superiore, hub di notifica Disabilita il supporto per le versioni di TLS 1,0 e 1,1 il **31 dicembre 2020** (esteso dal 30 aprile 2020). Questi protocolli meno recenti forniscono una crittografia debole e sono vulnerabili agli attacchi di bestia e barboncino. Le applicazioni distribuite nei dispositivi in cui è in esecuzione Android versione 5 o versioni successive, o iOS versione 5 o successive, non sono interessate da questa modifica perché i sistemi operativi supportano TLS 1,2 e il client e il server negozieranno la versione del protocollo con la massima supporto reciprocamente supportata al momento della connessione.
 
 Si consiglia di rivedere tutte le applicazioni che usano Hub di notifica di Azure per assicurarsi che usino le librerie e gli stack TLS più idonei che supportano TLS 1,2.
 

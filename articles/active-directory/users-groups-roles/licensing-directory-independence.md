@@ -1,7 +1,7 @@
 ---
 title: Caratteristiche dell'interazione con più tenant-Azure AD | Microsoft Docs
-description: Informazioni sui tenant di Azure Active Directory come organizzazioni completamente indipendenti
-services: active-tenant
+description: Informazioni sull'indipendenza dei dati delle organizzazioni Azure Active Directory
+services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 175d9ce7db1657e0e654f46adaf8a8d8ef28c25e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbe7b0211775e59504443d30fa253cfa14af13b1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878120"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582752"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Informazioni sul modo in cui interagiscono più organizzazioni di Azure Active Directory
 
-In Azure Active Directory (Azure AD) ogni tenant è un'organizzazione completamente indipendente, ovvero un peer logicamente indipendente dalle altre organizzazioni di Azure AD gestite dall'utente. Questa indipendenza tra le organizzazioni include l'indipendenza delle risorse, l'indipendenza amministrativa e l'indipendenza della sincronizzazione. Non esiste alcuna relazione padre-figlio tra le organizzazioni.
+In Azure Active Directory (Azure AD), ogni organizzazione Azure AD è completamente indipendente, ovvero un peer logicamente indipendente dalle altre organizzazioni Azure AD gestite dall'utente. Questa indipendenza tra le organizzazioni include l'indipendenza delle risorse, l'indipendenza amministrativa e l'indipendenza della sincronizzazione. Non esiste alcuna relazione padre-figlio tra le organizzazioni.
 
 ## <a name="resource-independence"></a>Indipendenza delle risorse.
 
