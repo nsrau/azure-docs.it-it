@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203149"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790480"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
 
 Gestione API di Azure supporta la distribuzione in più aree, che consente agli editori di API di distribuire un singolo servizio gestione API di Azure in qualsiasi numero di aree di Azure supportate. La funzionalità in più aree consente di ridurre la latenza delle richieste percepita dai consumer di API distribuiti geograficamente e di migliorare la disponibilità del servizio se un'area è offline.
 
-Un nuovo servizio gestione API di Azure contiene inizialmente una sola [unità][unit] in una singola area di Azure, ovvero l'area primaria. È possibile aggiungere aree aggiuntive alle aree primarie o secondarie. Un componente gateway di gestione API viene distribuito in ogni area primaria e secondaria selezionata. Le richieste API in ingresso vengono indirizzate automaticamente all'area più vicina. Se un'area passa alla modalità offline, le richieste API verranno indirizzate automaticamente intorno all'area non riuscita al gateway successivo più vicino.
+Un nuovo servizio gestione API di Azure contiene inizialmente una sola [unità][unit] in una singola area di Azure, ovvero l'area primaria. È possibile aggiungere unità aggiuntive alle aree primarie o secondarie. Un componente gateway di gestione API viene distribuito in ogni area primaria e secondaria selezionata. Le richieste API in ingresso vengono indirizzate automaticamente all'area più vicina. Se un'area passa alla modalità offline, le richieste API verranno indirizzate automaticamente intorno all'area non riuscita al gateway successivo più vicino.
 
 > [!NOTE]
 > Solo il componente gateway di gestione API viene distribuito in tutte le aree. Il componente di gestione dei servizi e il portale per sviluppatori sono ospitati solo nell'area primaria. Pertanto, in caso di interruzione dell'area primaria, l'accesso al portale per sviluppatori e la possibilità di modificare la configurazione, ad esempio l'aggiunta di API, l'applicazione di criteri, saranno compromessi fino a quando l'area primaria non tornerà online. Mentre l'area primaria è disponibile offline, le aree secondarie continueranno a gestire il traffico API usando la configurazione più recente disponibile.

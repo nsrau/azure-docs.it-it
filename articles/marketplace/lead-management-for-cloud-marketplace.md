@@ -7,24 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6f93e00cb9f840b27578eb9a5b0c6a2cab1ac525
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160546"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789845"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestione dei lead per il Marketplace commerciale
 
-
 I clienti costituiscono il fulcro di qualsiasi attività valida. Nella trasformazione delle acquisizioni di prodotti odierni, i marketers devono concentrarsi sulla connessione diretta ai clienti e sulla creazione di una relazione. Ecco perché la generazione di lead di alta qualità è uno strumento fondamentale per il ciclo di vendita. Dopo aver elencato l'offerta nel centro per i [partner](https://partner.microsoft.com/), sono disponibili strumenti che consentono di ricevere le informazioni di contatto dei clienti a livello di codice immediatamente dopo che un cliente esprime interesse o distribuisce il prodotto nel Marketplace. 
-
-
 
 ## <a name="what-are-leads-in-the-marketplace"></a>Che cosa sono i lead nel marketplace?
 
 I lead provengono dai clienti che manifestano interesse per i prodotti o li distribuiscono dal Marketplace. Se il prodotto è elencato in Azure Marketplace o in AppSource, sarà possibile ricevere Lead dai clienti una volta configurati correttamente dal CRM ai propri elenchi nel centro per i partner. 
-
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Come connettere il sistema CRM con il centro per i partner
 
@@ -48,7 +44,7 @@ Una volta configurate correttamente la destinazione dei lead e aver premuto Pubb
 
 Una volta completata la configurazione tecnica, è necessario incorporare questi lead nelle vendite correnti & strategia di marketing e processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Segnalaci se sei interessato a inviare commenti e suggerimenti per consentire al tuo team di vendita di ottenere una maggiore successo con i lead del Marketplace.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Errori comuni di configurazione del lead durante la pubblicazione nel centro per i partner
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>Errori comuni di configurazione del lead durante la pubblicazione nel centro per i partner
 
 **Non è stato possibile salvare il lead in Dynamics CRM. Verificare le impostazioni dell'account Dynamics CRM. LastCRMError: non è possibile accedere a Dynamics CRM, LastCRMException:** 
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 24d370abc04a79bf1af2e7bf579788a342373363
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: 601f1c224d6e1d756c27dc2478951682ce6bb4fd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780896"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854756"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di monitoraggio di Azure
 
@@ -312,7 +312,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>Volume di dati per computer
 
-Il `Usage` tipo di dati non include informazioni a livello completo. Per visualizzare le **dimensioni** dei dati inseriti per computer, utilizzare la `_BilledSize` [proprietà](log-standard-properties.md#_billedsize), che fornisce la dimensione in byte:
+Il `Usage` tipo di dati non include informazioni a livello di computer. Per visualizzare le **dimensioni** dei dati inseriti per computer, utilizzare la `_BilledSize` [proprietà](log-standard-properties.md#_billedsize), che fornisce la dimensione in byte:
 
 ```kusto
 union withsource = tt * 

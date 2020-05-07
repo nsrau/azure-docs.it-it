@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come aumentare e ridurre il numero di
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251807"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788822"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: ridimensionare un cluster di Service Fabric in Azure
 
@@ -84,7 +84,7 @@ La scalabilità orizzontale modifica il numero di nodi nel cluster. Con la scala
 
 Aggiornando quindi il valore di *nt1InstanceCount* si modifica il numero di nodi nel secondo tipo di nodo.  Tenere presente che non è possibile scalare orizzontalmente un tipo di nodo aggiungendo più di 100 nodi.  I tipi di nodo non primari che eseguono carichi di lavoro di produzione con stato devono contenere sempre cinque o più nodi. I tipi di nodo non primari che eseguono carichi di lavoro di produzione senza stato devono contenere sempre due o più nodi.
 
-Se si ridimensiona un tipo di nodo con il [livello di durabilità][durability] Bronze rimuovendo alcuni nodi, è necessario [rimuovere manualmente lo stato di tali nodi](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Per il livello di durabilità Silver e Gold, questi passaggi vengono eseguiti automaticamente dalla piattaforma.
+Se si ridimensiona un tipo di nodo con il [livello di durabilità][durability] Bronze rimuovendo alcuni nodi, è necessario [rimuovere manualmente lo stato di tali nodi](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Per il livello di durabilità Silver e Gold, questi passaggi vengono eseguiti automaticamente dalla piattaforma.
 
 ### <a name="deploy-the-updated-template"></a>Distribuire il modello aggiornato
 Salvare le modifiche nei file *template.json* e *parameters.json*.  Per distribuire il modello aggiornato, eseguire il comando seguente:

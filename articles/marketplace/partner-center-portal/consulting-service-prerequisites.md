@@ -1,18 +1,18 @@
 ---
-title: Prerequisiti di Azure e Dynamics 365 Consulting Service-Azure Marketplace
-description: Prerequisiti per un'offerta del servizio di consulenza Azure o Dynamics 365 nel centro per i partner
+title: Prerequisiti di Azure e Dynamics 365 Consulting Service
+description: Prerequisiti per un'offerta del servizio di consulenza Azure o Dynamics 365 in Microsoft Commercial Marketplace
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: mingshen
-ms.openlocfilehash: fca40e1beb3e3c7bf03682511447539be2702f93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af272968ec81671e38db0a6cc52b4baf51c94a80
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80874688"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789641"
 ---
 # <a name="consulting-service-prerequisites"></a>Prerequisiti dei servizi di consulenza
 
@@ -23,9 +23,9 @@ Per informazioni sull'offerta del servizio di consulenza, inclusi i requisiti pe
 
 | Argomento del servizio di consulenza | Prodotto primario da selezionare nel centro per i partner | Requisito |
 |---------|---------|---------|
-| Prodotti di Azure | Azure | L'offerta deve elencare almeno una delle seguenti competenze pienamente ottenute: <ul><li>Sviluppo applicazioni</li><li>Integrazione di applicazioni</li><li>Gestione del ciclo di vita delle applicazioni</li><li>Piattaforma cloud</li><li>Analisi dei dati</li><li>Data center</li><li>Piattaforma dati</li><li>DevOps|
-| Dynamics 365 Sales <br> Marketing di Dynamics 365 <br> Servizio clienti di Dynamics 365 <br> Servizio campo Dynamics 365 <br> Risorse umane di Dynamics 365 | Applicazioni Customer Engagement | Deve essere Gold o Silver Certified nell'opzione relativa alla [competenza del Business Applications cloud](https://partner.microsoft.com/membership/cloud-business-applications-competency) per il coinvolgimento dei clienti oppure avere un'offerta di co-selling per il prodotto principale a cui è correlato il servizio. |
-| Dynamics 365 Finance <br> Gestione della supply chain di Dynamics 365 <br> Commerce di Dynamics 365 <br> Risorse umane di Dynamics 365 <br> Automazione del servizio di progetto Dynamics 365 | Applicazioni Finance e operative | Deve essere Gold o Silver Certified nel [Cloud Business Applications la competenza](https://partner.microsoft.com/membership/cloud-business-applications-competency) per le operazioni unificate oppure avere un'offerta di co-selling per il prodotto principale a cui è correlato il servizio. |
+| Prodotti di Azure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Azure | L'offerta deve elencare almeno una delle seguenti competenze pienamente ottenute: <ul><li>Sviluppo applicazioni</li><li>Integrazione di applicazioni</li><li>Gestione del ciclo di vita delle applicazioni</li><li>Piattaforma cloud</li><li>Analisi dei dati</li><li>Data center</li><li>Piattaforma dati</li><li>DevOps|
+| Dynamics 365 Sales<br/> Marketing di Dynamics 365<br/> Servizio clienti di Dynamics 365<br/> Servizio campo Dynamics 365<br/> Risorse umane di Dynamics 365 | Applicazioni Customer Engagement | Deve essere Gold o Silver Certified nell'opzione relativa alla [competenza del Business Applications cloud](https://partner.microsoft.com/membership/cloud-business-applications-competency) per il coinvolgimento dei clienti oppure avere un'offerta di co-selling per il prodotto principale a cui è correlato il servizio. |
+| Dynamics 365 Finance<br/> Gestione della supply chain di Dynamics 365<br/>Commerce di Dynamics 365<br/> Risorse umane di Dynamics 365<br/>Automazione del servizio di progetto Dynamics 365 | Applicazioni Finance e operative | Deve essere Gold o Silver Certified nel [Cloud Business Applications la competenza](https://partner.microsoft.com/membership/cloud-business-applications-competency) per le operazioni unificate oppure avere un'offerta di co-selling per il prodotto principale a cui è correlato il servizio. |
 | Dynamics 365 per Customer Insights | Dynamics 365 per Customer Insights | Deve avere almeno un'implementazione in produzione corretta di [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) con almeno cinque misure e cinque segmenti oppure disporre di un'offerta di co-selling per il prodotto primario a cui è correlato il servizio. |
 | Dynamics 365 Business Central | Dynamics 365 Business Central | Deve essere certificata Gold o Silver nella [competenza per la pianificazione delle risorse aziendali](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e servire almeno tre clienti oppure avere pubblicato un'applicazione business Central in Microsoft AppSource o avere un'offerta di co-selling per il prodotto principale a cui è correlato il servizio. |
 | Power BI | Power BI | Deve essere elencato nella [presentazione Power bi partner](https://powerbi.microsoft.com/partner-showcase/)oppure avere un'offerta di co-selling per il prodotto principale a cui è correlato il servizio.|

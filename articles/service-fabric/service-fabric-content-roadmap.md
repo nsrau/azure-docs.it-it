@@ -3,12 +3,12 @@ title: Scopri di più su Azure Service Fabric
 description: Informazioni sui concetti di base e sulle aree principali di Azure Service Fabric. Offre una panoramica approfondita di Service Fabric e della creazione di microservizi.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458157"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791851"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Informazioni su Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.  Service Fabric ha una struttura molto estesa e richiede un apprendimento completo.  Questo articolo offre un riepilogo di Service Fabric e descrive i concetti di base, i modelli di programmazione, il ciclo di vita dell'applicazione, i test, i cluster e il monitoraggio dell'integrità. Leggere [Panoramica](service-fabric-overview.md) e [Cosa sono i microservizi?](service-fabric-overview-microservices.md) per la presentazione di Service Fabric e per informazioni su come usarlo per creare microservizi. Questo articolo non offre un elenco completo dei contenuti ma include collegamenti ad articoli di panoramica e introduttivi su tutte le aree di Service Fabric. 
@@ -136,7 +136,7 @@ Gli scenari di sicurezza del cluster sono:
 Per altre informazioni, vedere [Proteggere un cluster](service-fabric-cluster-security.md).
 
 ### <a name="scaling"></a>Scalabilità
-Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancerà le repliche e istanze di partizione sul nuovo e maggiore numero di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo. È possibile scalare i cluster in Azure [manualmente](service-fabric-cluster-scale-up-down.md) o [a livello di codice](service-fabric-cluster-programmatic-scaling.md). I cluster autonomi possono essere scalati [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
+Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancerà le repliche e istanze di partizione sul nuovo e maggiore numero di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo. È possibile scalare i cluster in Azure [manualmente](service-fabric-cluster-scale-in-out.md) o [a livello di codice](service-fabric-cluster-programmatic-scaling.md). I cluster autonomi possono essere scalati [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### <a name="cluster-upgrades"></a>Aggiornamenti dei cluster
 Periodicamente vengono rilasciate nuove versioni del runtime di Service Fabric. Eseguire gli aggiornamenti del runtime o dell'infrastruttura nel cluster in modo che sia sempre in esecuzione una [versione supportata](service-fabric-support.md). Oltre agli aggiornamenti dell'infrastruttura, è possibile aggiornare anche la configurazione del cluster, ad esempio i certificati o le porte delle applicazioni.

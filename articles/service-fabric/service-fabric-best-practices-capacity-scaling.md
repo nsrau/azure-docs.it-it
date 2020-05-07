@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258993"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791868"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Pianificazione della capacità e scalabilità per Azure Service Fabric
 
@@ -68,13 +68,13 @@ Con le proprietà dei nodi e i vincoli di posizionamento dichiarati, eseguire i 
 1. Da PowerShell eseguire `Disable-ServiceFabricNode` con lo scopo `RemoveNode` di disabilitare il nodo che si intende rimuovere. Rimuovere il tipo di nodo con il numero più alto. Se, ad esempio, si dispone di un cluster a sei nodi, rimuovere l'istanza di macchina virtuale "MyNodeType_5".
 2. Eseguire `Get-ServiceFabricNode` per assicurarsi che il nodo sia disabilitato. In caso contrario, attendere la disabilitazione del nodo. Questa operazione potrebbe richiedere un paio di ore per ogni nodo. Non continuare finché il nodo non risulta disabilitato.
 3. Ridurre il numero di macchine virtuali di uno in quel tipo di nodo. L'istanza di macchina virtuale con il numero più alto verrà rimossa.
-4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Ripetere i passaggi da 1 a 3 in base alle esigenze, ma mai ridimensionare il numero di istanze nei tipi di nodo primari minori rispetto a quanto garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 5. Quando tutte le macchine virtuali non sono più disponibili (rappresentate come "inattive"), l'infrastruttura:/System/InfrastructureService/[nome nodo] mostrerà uno stato di errore. Quindi, è possibile aggiornare la risorsa cluster per rimuovere il tipo di nodo. È possibile usare la distribuzione del modello ARM o modificare la risorsa cluster tramite [Azure Resource Manager](https://resources.azure.com). Verrà avviato un aggiornamento del cluster che rimuoverà il servizio Fabric:/System/InfrastructureService/[tipo di nodo] in stato di errore.
  6. Al termine di questa operazione, è possibile eliminare il VMScaleSet. i nodi vengono comunque visualizzati come "inattivo" da Service Fabric Explorer vista. L'ultimo passaggio consiste nel pulirli con `Remove-ServiceFabricNodeState` il comando.
 
 ## <a name="horizontal-scaling"></a>Scalabilità orizzontale
 
-La scalabilità orizzontale può essere eseguita [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) o [a livello di codice](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+La scalabilità orizzontale può essere eseguita [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out) o [a livello di codice](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
 > Se si sta eseguendo il ridimensionamento di un tipo di nodo con durabilità Silver o Gold, la scalabilità sarà lenta.
@@ -103,7 +103,7 @@ Per eseguire la scalabilità orizzontale manualmente, aggiornare la capacità ne
 
 La scalabilità in richiede una maggiore considerazione rispetto alla scalabilità orizzontale. Per esempio:
 
-* Service Fabric i servizi di sistema vengono eseguiti nel tipo di nodo primario del cluster. Non arrestare né ridurre mai il numero di istanze in questo tipo di nodo per evitare di avere un numero di istanze inferiore a quello garantito dal livello di affidabilità. 
+* Service Fabric i servizi di sistema vengono eseguiti nel tipo di nodo primario del cluster. Non arrestare mai o ridimensionare il numero di istanze per quel tipo di nodo in modo da avere un numero di istanze inferiore rispetto a quello garantito dal livello di affidabilità. 
 * Per un servizio con stato, è necessario un certo numero di nodi sempre disponibili per mantenere la disponibilità e mantenere lo stato del servizio. Come minimo, è necessario un numero di nodi uguale al numero di set di repliche di destinazione della partizione o del servizio.
 
 Per ridurre il numero di istanze, seguire questi passaggi:
@@ -111,7 +111,7 @@ Per ridurre il numero di istanze, seguire questi passaggi:
 1. Da PowerShell eseguire `Disable-ServiceFabricNode` con lo scopo `RemoveNode` di disabilitare il nodo che si intende rimuovere. Rimuovere il tipo di nodo con il numero più alto. Se, ad esempio, si dispone di un cluster a sei nodi, rimuovere l'istanza di macchina virtuale "MyNodeType_5".
 2. Eseguire `Get-ServiceFabricNode` per assicurarsi che il nodo sia disabilitato. In caso contrario, attendere la disabilitazione del nodo. Questa operazione potrebbe richiedere un paio di ore per ogni nodo. Non continuare finché il nodo non risulta disabilitato.
 3. Ridurre il numero di macchine virtuali di uno in quel tipo di nodo. L'istanza di macchina virtuale con il numero più alto verrà rimossa.
-4. Ripetere i passaggi da 1 a 3 in base alle esigenze finché non si esegue il provisioning della capacità desiderata. Non ridurre il numero di istanze nei tipi di nodo primari a un valore inferiore a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Ripetere i passaggi da 1 a 3 in base alle esigenze finché non si esegue il provisioning della capacità desiderata. Non ridimensionare il numero di istanze nei tipi di nodo primario a un livello inferiore rispetto a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
 Per applicare la scalabilità manuale, aggiornare la capacità nella proprietà SKU della risorsa del [set di scalabilità di macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) desiderata.
 
@@ -166,7 +166,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Quando si riduce un cluster, l'istanza di nodo/VM rimossa verrà visualizzata in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti che è possibile osservare in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). È possibile scegliere:
+> Quando si esegue la scalabilità in un cluster, l'istanza di nodo/VM rimossa verrà visualizzata in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti che è possibile osservare in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer). È possibile scegliere:
 > * Chiamare il [comando Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con il nome del nodo appropriato.
 > * Distribuire il [Service Fabric applicazione di supporto per la scalabilità](https://github.com/Azure/service-fabric-autoscale-helper/) automatica nel cluster. Questa applicazione garantisce che i nodi con scalabilità orizzontale vengano cancellati dal Service Fabric Explorer.
 

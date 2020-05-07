@@ -4,12 +4,12 @@ description: "Informazioni sull'aggiornamento della versione o della configurazi
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
-ms.openlocfilehash: 6897854820339fc78dd9083c82147dce95ab68b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d92ac90e0e41d534231bafbe991a05764dbee07d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258655"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789556"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Aggiornamento di un cluster di Azure Service Fabric
 
@@ -105,7 +105,7 @@ Patch Orchestration Application (POA) è un'applicazione Service Fabric che auto
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come personalizzare alcune [impostazioni dei cluster di Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Informazioni su come [aumentare o ridurre le istanze del cluster](service-fabric-cluster-scale-up-down.md)
+* Informazioni su come [aumentare o ridurre le istanze del cluster](service-fabric-cluster-scale-in-out.md)
 * Informazioni sugli [aggiornamenti delle applicazioni](service-fabric-application-upgrade.md)
 
 <!--Image references-->

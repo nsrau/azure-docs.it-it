@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75376937"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791817"
 ---
 # <a name="monitoring-the-cluster"></a>Monitoraggio del cluster
 
@@ -74,7 +74,7 @@ Se è necessario contattare il supporto Microsoft per assistenza con il cluster 
 
 ## <a name="measuring-performance"></a>Misurazione delle prestazioni
 
-La misurazione delle prestazioni del cluster consentirà di comprenderne la capacità di gestire il carico e prendere decisioni in merito al ridimensionamento del cluster. Vedere altre informazioni sul ridimensionamento di un cluster [in Azure](service-fabric-cluster-scale-up-down.md) o [in locale](service-fabric-cluster-windows-server-add-remove-nodes.md). I dati sulle prestazioni sono utili anche rispetto alle azioni eseguite dall'utente oppure dalle applicazioni e dai servizi, per la futura analisi dei log. 
+La misurazione delle prestazioni del cluster consentirà di comprenderne la capacità di gestire il carico e prendere decisioni in merito al ridimensionamento del cluster. Vedere altre informazioni sul ridimensionamento di un cluster [in Azure](service-fabric-cluster-scale-in-out.md) o [in locale](service-fabric-cluster-windows-server-add-remove-nodes.md). I dati sulle prestazioni sono utili anche rispetto alle azioni eseguite dall'utente oppure dalle applicazioni e dai servizi, per la futura analisi dei log. 
 
 Per un elenco dei contatori delle prestazioni da raccogliere quando si usa Service Fabric, vedere l'articolo relativo ai [contatori delle prestazioni in Service Fabric](service-fabric-diagnostics-event-generation-perf.md).
 

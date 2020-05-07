@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560959"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790882"
 ---
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
@@ -29,19 +29,6 @@ Per IoT Central, questo articolo descrive:
 - Procedura per la gestione dell'applicazione.
 - Funzionalità Azure IoT Edge in IoT Central.
 - Come connettere i dispositivi con runtime Azure IoT Edge alla propria applicazione.
-
-## <a name="known-issues"></a>Problemi noti
-
-- L'esportazione dati continua non supporta il formato Avro (incompatibilità).
-- GeoJSON non è attualmente supportato.
-- La tessera mappa non è attualmente supportato.
-- I processi non supportano i tipi complessi.
-- I tipi di schema della matrice non sono supportati.
-- Sono supportati solo l'SDK per dispositivi C e gli SDK per dispositivi e servizi Node.js.
-- IoT Central è attualmente disponibile nelle località seguenti: Stati Uniti, Europa, Asia Pacifico, Australia, Regno Unito e Giappone.
-- Non è possibile usare il modello di applicazione **Applicazione personalizzata (legacy)** nelle località Regno Unito e Giappone.
-- I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
-- Il supporto per [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md) è in anteprima ed è disponibile solo in alcune aree selezionate.
 
 ## <a name="personas"></a>Utenti tipo
 
@@ -152,7 +139,7 @@ Gli amministratori gestiscono l'accesso all'applicazione con [regole e autorizza
 
 Con qualsiasi soluzione IoT progettata per operare su larga scala, è importante adottare un approccio strutturato alla gestione dei dispositivi. Non è sufficiente connettere i dispositivi al cloud, ma è necessario che rimangano connessi e integri. Un operatore può usare le funzionalità di IoT Central seguenti per gestire i dispositivi in tutto il ciclo di vita dell'applicazione:
 
-### <a name="dashboards"></a>Dashboard 
+### <a name="dashboards"></a>Dashboard
 
 I [dashboard](./howto-set-up-template.md#generate-default-views) predefiniti forniscono un'interfaccia utente personalizzabile per monitorare l'integrità e i dati di telemetria dei dispositivi. È possibile iniziare con un dashboard predefinito in un [modello di applicazione](howto-use-app-templates.md) o creare dashboard personalizzati in base alle esigenze degli operatori. È possibile condividere i dashboard con tutti gli utenti dell'applicazione o mantenerli privati.
 
@@ -193,6 +180,18 @@ Creare soluzioni IoT come:
 ## <a name="quotas"></a>Quote
 
 Le quote predefinite di ogni sottoscrizione di Azure possono influire sull'ambito della soluzione IoT. Attualmente, IoT Central limita il numero di applicazioni distribuibili in una sottoscrizione a 10. Se è necessario aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
+
+## <a name="known-issues"></a>Problemi noti
+
+- L'esportazione dati continua non supporta il formato Avro (incompatibilità).
+- GeoJSON non è attualmente supportato.
+- La tessera mappa non è attualmente supportato.
+- I tipi di schema della matrice non sono supportati.
+- Sono supportati solo l'SDK per dispositivi C e gli SDK per dispositivi e servizi Node.js.
+- IoT Central è attualmente disponibile nelle località seguenti: Stati Uniti, Europa, Asia Pacifico, Australia, Regno Unito e Giappone.
+- Non è possibile usare il modello di applicazione **Applicazione personalizzata (legacy)** nelle località Regno Unito e Giappone.
+- I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
+- Il supporto per [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md) è in anteprima ed è disponibile solo in alcune aree selezionate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,46 +3,45 @@ title: Elenco di aggiornamenti applicati al sistema operativo guest di Azure | M
 description: Elenco di aggiornamenti applicati alle versioni del sistema operativo guest
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/17/2020
-ms.author: raiye
-ms.openlocfilehash: a271eca3c3b6e7cd364f2bc87f2e15006874fa08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/4/2020
+ms.author: yohaddad
+ms.openlocfilehash: e74bccbd7465a8f0e0d2da0a672a88c7d70d666f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617695"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791562"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
 ## <a name="april-2020-guest-os"></a>Sistema operativo guest di aprile 2020
 
->[!NOTE]
->Il sistema operativo guest di aprile è attualmente in fase di implementazione in macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di aprile. L'elenco è soggetto a variazioni.
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-04  |  [4550965]  |  Windows Security  | 2.97 | 14 aprile, 2020 |
-|  Rel 20-04  |  [4550905]  |  Internet Explorer  | 2,97, 3,84, 4,77 | 14 aprile, 2020 |
-|  Rel 20-04  |  [4550971]  |  Windows Security  | 3,84 | 14 aprile, 2020 |
-|  Rel 20-04  |  [4550970]  |  Windows Security  | 4,77 | 14 aprile, 2020 |
-|  Rel 20-04  |  [4550929]  |  Aggiornamento cumulativo più recente (LCU)  | 5,42 | 14 aprile, 2020 |
-|  Rel 20-04  |  [4549949]  |  Aggiornamento cumulativo più recente (LCU)  | 6,18 | 14 aprile, 2020 |
-|  Rel 20-04  |  [4540688]  |  Rollup mensile  | 2.97 | 10 mar 2020 |
-|  Rel 20-04  |  [4550735]  |  Aggiornamento dello stack di manutenzione  | 2.97 | 10 mar 2020 |
-|  Rel 20-04  |  [4540726]  |  Aggiornamento dello stack di manutenzione  | 3,84 | 10 mar 2020 |
-|  Rel 20-04  |  [4541510]  |  Rollup mensile  | 3,84 | 10 mar 2020 |
-|  Rel 20-04  |  [4541509]  |  Rollup mensile  | 4,77 | 10 mar 2020 |
-|  Rel 20-04  |  [4540725]  |  Aggiornamento dello stack di manutenzione  | 4,77 | 10 mar 2020 |
-|  Rel 20-04  |  [4540723]  |  Aggiornamento dello stack di manutenzione  | 5,42 | 10 mar 2020 |
-|  Rel 20-04  |  [4539571]  |  Aggiornamento dello stack di manutenzione  | 6,18 | 10 mar 2020 |
+|  Rel 20-04   |  [4550965]  |  Windows Security   |  [2,97]  |  14 aprile, 2020  |
+|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2,97], [3,84], [4,77]  |  14 aprile, 2020  |
+|  Rel 20-04   |  [4550971]  |  Windows Security   |  [3,84]  |  14 aprile, 2020  |
+|  Rel 20-04   |  [4550970]  |  Windows Security   |  [4,77]  |  14 aprile, 2020  |
+|  Rel 20-04   |  [4550929]  |  Aggiornamento cumulativo più recente (LCU)   |  [5,42]  |  14 aprile, 2020  |
+|  Rel 20-04   |  [4549949]  |  Aggiornamento cumulativo più recente (LCU)   |  [6,18]  |  14 aprile, 2020  |
+|  Rel 20-04   |  [4540688]  |  Rollup mensile   |  [2,97]  |  10 mar 2020  |
+|  Rel 20-04   |  [4550735]  |  Aggiornamento dello stack di manutenzione   |  [2,97]  |  10 mar 2020  |
+|  Rel 20-04   |  [4540726]  |  Aggiornamento dello stack di manutenzione   |  [3,84]  |  10 mar 2020  |
+|  Rel 20-04   |  [4541510]  |  Rollup mensile   |  [3,84]  |  10 mar 2020  |
+|  Rel 20-04   |  [4541509]  |  Rollup mensile   |  [4,77]  |  10 mar 2020  |
+|  Rel 20-04   |  [4540725]  |  Aggiornamento dello stack di manutenzione   |  [4,77]  |  10 mar 2020  |
+|  Rel 20-04   |  [4540723]  |  Aggiornamento dello stack di manutenzione   |  [5,42]  |  10 mar 2020  |
+|  Rel 20-04   |  [4539571]  |  Aggiornamento dello stack di manutenzione   |  [6,18]  |  10 mar 2020  |
+
 
 [4550965]: https://support.microsoft.com/kb/4550965
 [4550905]: https://support.microsoft.com/kb/4550905
@@ -58,6 +57,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4540725]: https://support.microsoft.com/kb/4540725
 [4540723]: https://support.microsoft.com/kb/4540723
 [4539571]: https://support.microsoft.com/kb/4539571
+[2,97]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,84]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,42]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,18]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="march-2020-guest-os"></a>Sistema operativo guest di marzo 2020
@@ -326,8 +330,8 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | --- | --- | --- | --- | --- |
 |  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2,90], [3,77], [4,70]  |  10 settembre 2019  |
 |  Rel 19-09   |  [4516115]  |  Lampeggiante   |  [2,90], [3,77], [4,70], [5,35], [6,11]  |  10 settembre 2019  |
-|  Rel 19-09   |  [4512578]  |  Aggiornamento cumulativo più recente   |  [6.11]  |  10 settembre 2019  |
-|  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 e 4.7.2   |  [6.11]  |  10 settembre 2019  |
+|  Rel 19-09   |  [4512578]  |  Aggiornamento cumulativo più recente   |  [6,11]  |  10 settembre 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 e 4.7.2   |  [6,11]  |  10 settembre 2019  |
 |  Rel 19-09   |  [4516044]  |  Aggiornamento cumulativo più recente   |  [5,35]  |  10 settembre 2019  |
 |  Rel 19-09   |  [4516064]  |  Windows Security   |  [4,70]  |  10 settembre 2019  |
 |  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4,70]  |  10 settembre 2019  |
@@ -355,7 +359,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
-[6.11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[6,11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 [5,35]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
 [4,70]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
 [3,77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases

@@ -125,6 +125,10 @@
           href: functions-reference-python.md
         - name: TypeScript
           href: 'functions-reference-node.md#typescript'
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Diagnostica
       href: functions-diagnostics.md
     - name: Costi del piano a consumo

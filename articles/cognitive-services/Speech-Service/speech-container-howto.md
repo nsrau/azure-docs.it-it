@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 53110875596830f63a946c1263bdbff3711366bf
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: efca7eceae74416945c568268edfe0b13a21861a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653146"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856422"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
@@ -26,10 +26,10 @@ I contenitori di sintesi vocale consentono ai clienti di creare un'architettura 
 > [!IMPORTANT]
 > Tutti i contenitori di riconoscimento vocale sono attualmente offerti come parte di un' [anteprima pubblica "gestita"](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Verrà creato un annuncio quando i contenitori di riconoscimento vocale sono in stato di disponibilità generale.
 
-| Funzione | Funzionalità | Ultima versione |
+| Function | Funzionalità | Ultima versione |
 |--|--|--|
 | Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.2.0 |
-| Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.1.1 |
+| Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.2.0 |
 | Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.3.0 |
 | Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.3.0 |
 

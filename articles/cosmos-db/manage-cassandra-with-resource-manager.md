@@ -4,243 +4,54 @@ description: Usare i modelli di Azure Resource Manager per creare e configurare 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: ff75597bece386635195a84572a9f07b04d9c60f
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: f16dec74b15f4945b54fe1423835fd8f5c8d96f1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82200812"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791273"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Gestire Azure Cosmos DB API Cassandra risorse tramite modelli Azure Resource Manager
 
-Questo articolo descrive come eseguire diverse operazioni per automatizzare la gestione degli account Azure Cosmos DB, dei database e dei contenitori usando i modelli Azure Resource Manager. Questo articolo contiene esempi solo per gli account API Cassandra, per trovare esempi per altri account di tipo API, vedere: usare Azure Resource Manager modelli con l'API Azure Cosmos DB per [SQL](manage-sql-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), articoli di [tabella](manage-table-with-resource-manager.md) .
+Questo articolo illustra come usare i modelli di Azure Resource Manager per distribuire e gestire gli account di Azure Cosmos DB, gli spazi e le tabelle.
 
-## <a name="create-azure-cosmos-account-keyspace-and-table"></a>Creare un account Azure Cosmos, spazio di spazio e tabella<a id="create-resource"></a>
+Questo articolo contiene esempi solo per gli account API Cassandra, per trovare esempi per altri account di tipo API, vedere: usare Azure Resource Manager modelli con l'API Azure Cosmos DB per [SQL](manage-sql-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), articoli di [tabella](manage-table-with-resource-manager.md) .
 
-Creare Azure Cosmos DB risorse usando un modello di Azure Resource Manager. Questo modello creerà un account Azure Cosmos per API Cassandra con due tabelle che condividono la velocità effettiva 400 ur/s a livello di spazio dei nomi. Copiare il modello e distribuirlo come illustrato di seguito oppure visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) e distribuire dal portale di Azure. È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il `--template-file` parametro.
+> [!IMPORTANT]
+>
+> * I nomi degli account sono limitati a 44 caratteri, tutti minuscoli.
+> * Per modificare i valori di velocità effettiva, ridistribuire il modello con ur/sec aggiornati.
+> * Quando si aggiungono o si rimuovono percorsi in un account Azure Cosmos, non è possibile modificare contemporaneamente altre proprietà. Queste operazioni devono essere eseguite separatamente.
 
-> [!NOTE]
-> I nomi degli account devono essere minuscoli e 44 o un numero inferiore di caratteri.
-> Per aggiornare ur/s, inviare nuovamente il modello con i valori di proprietà della velocità effettiva aggiornati.
+Per creare una delle risorse Azure Cosmos DB di seguito, copiare il modello di esempio seguente in un nuovo file JSON. Facoltativamente, è possibile creare un file JSON dei parametri da usare quando si distribuiscono più istanze della stessa risorsa con nomi e valori diversi. Sono disponibili diversi modi per distribuire Azure Resource Manager modelli, tra cui [portale di Azure](../azure-resource-manager/templates/deploy-portal.md), l'interfaccia della riga di comando di [Azure](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
-```json
-{
-"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-"contentVersion": "1.0.0.0",
-"parameters": {
-    "accountName": {
-        "type": "string",
-        "defaultValue": "",
-        "metadata": {
-            "description": "Cosmos DB account name, max length 44 characters"
-        }
-    },
-    "location": {
-        "type": "string",
-        "defaultValue": "[resourceGroup().location]",
-        "metadata": {
-            "description": "Location for the Cosmos DB account."
-        }
-    },
-    "primaryRegion":{
-        "type":"string",
-        "metadata": {
-            "description": "The primary replica region for the Cosmos DB account."
-        }
-    },
-    "secondaryRegion":{
-        "type":"string",
-        "metadata": {
-          "description": "The secondary replica region for the Cosmos DB account."
-      }
-    },
-    "defaultConsistencyLevel": {
-        "type": "string",
-        "defaultValue": "Session",
-        "allowedValues": [ "Eventual", "ConsistentPrefix", "Session", "BoundedStaleness", "Strong" ],
-        "metadata": {
-            "description": "The default consistency level of the Cosmos DB account."
-        }
-    },
-    "maxStalenessPrefix": {
-        "type": "int",
-        "defaultValue": 100000,
-        "minValue": 10,
-        "maxValue": 1000000,
-        "metadata": {
-            "description": "Max stale requests. Required for BoundedStaleness. Valid ranges, Single Region: 10 to 1000000. Multi Region: 100000 to 1000000."
-        }
-    },
-    "maxIntervalInSeconds": {
-        "type": "int",
-        "defaultValue": 300,
-        "minValue": 5,
-        "maxValue": 86400,
-        "metadata": {
-            "description": "Max lag time (seconds). Required for BoundedStaleness. Valid ranges, Single Region: 5 to 84600. Multi Region: 300 to 86400."
-        }
-    },
-    "automaticFailover": {
-        "type": "bool",
-        "defaultValue": true,
-        "allowedValues": [ true, false ],
-        "metadata": {
-            "description": "Enable automatic failover for regions"
-        }
-    },
-    "keyspaceName": {
-        "type": "string",
-        "defaultValue": "Keyspace1",
-        "metadata": {
-            "description": "The name for the Cassandra Keyspace"
-        }
-    },
-    "tableName": {
-        "type": "string",
-        "defaultValue": "Table1",
-        "metadata": {
-            "description": "The name for the Cassandra table"
-        }
-    },
-    "throughput": {
-        "type": "int",
-        "defaultValue": 400,
-        "minValue": 400,
-        "maxValue": 1000000,
-        "metadata": {
-            "description": "The throughput for the Cassandra table"
-        }
-    }
-},
-"variables": {
-    "accountName": "[toLower(parameters('accountName'))]",
-    "consistencyPolicy": {
-        "Eventual": {
-            "defaultConsistencyLevel": "Eventual"
-        },
-        "ConsistentPrefix": {
-            "defaultConsistencyLevel": "ConsistentPrefix"
-        },
-        "Session": {
-            "defaultConsistencyLevel": "Session"
-        },
-        "BoundedStaleness": {
-            "defaultConsistencyLevel": "BoundedStaleness",
-            "maxStalenessPrefix": "[parameters('maxStalenessPrefix')]",
-            "maxIntervalInSeconds": "[parameters('maxIntervalInSeconds')]"
-        },
-        "Strong": {
-            "defaultConsistencyLevel": "Strong"
-        }
-    },
-    "locations":
-    [
-        {
-            "locationName": "[parameters('primaryRegion')]",
-            "failoverPriority": 0,
-            "isZoneRedundant": false
-        },
-        {
-            "locationName": "[parameters('secondaryRegion')]",
-            "failoverPriority": 1,
-            "isZoneRedundant": false
-        }
-    ]
-},
-"resources":
-[
-    {
-        "type": "Microsoft.DocumentDB/databaseAccounts",
-        "name": "[variables('accountName')]",
-        "apiVersion": "2020-03-01",
-        "location": "[parameters('location')]",
-        "kind": "GlobalDocumentDB",
-        "properties": {
-            "capabilities": [{ "name": "EnableCassandra" }],
-            "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
-            "locations": "[variables('locations')]",
-            "databaseAccountOfferType": "Standard",
-            "enableAutomaticFailover": "[parameters('automaticFailover')]"
-        }
-    },
-    {
-        "type": "Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces",
-        "name": "[concat(variables('accountName'), '/', parameters('keyspaceName'))]",
-        "apiVersion": "2020-03-01",
-        "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/', variables('accountName'))]" ],
-        "properties":{
-            "resource":{
-                "id": "[parameters('keyspaceName')]"
-            }
-        }
-    },
-    {
-        "type": "Microsoft.DocumentDb/databaseAccounts/cassandraKeyspaces/tables",
-        "name": "[concat(variables('accountName'), '/', parameters('keyspaceName'), '/', parameters('tableName'))]",
-        "apiVersion": "2020-03-01",
-        "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces', variables('accountName'), parameters('keyspaceName'))]" ],
-        "properties":
-        {
-            "resource":{
-                "id":  "[parameters('tableName')]",
-                "schema": {
-                    "columns": [
-                        { "name": "loadid", "type": "uuid" },
-                        { "name": "machine", "type": "uuid" },
-                        { "name": "cpu", "type": "int" },
-                        { "name": "mtime", "type": "int" },
-                        { "name": "load", "type": "float" }
-                    ],
-                    "partitionKeys": [
-                        { "name": "machine" },
-                        { "name": "cpu" },
-                        { "name": "mtime" }
-                    ],
-                    "clusterKeys": [
-                        { "name": "loadid", "orderBy": "asc" }
-                    ]
-                },
-                "options": { "throughput": "[parameters('throughput')]" }
-            }
-        }
-    }
-]
-}
-```
+<a id="create-autoscale"></a>
 
-## <a name="deploy-with-the-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
+## <a name="azure-cosmos-account-for-cassandra-with-autoscale-provisioned-throughput"></a>Account Azure Cosmos per Cassandra con scalabilità automatica con provisioning della velocità effettiva
 
-Per distribuire il modello di Azure Resource Manager usando l'interfaccia della riga di comando di Azure, **copiare** lo script e selezionare **prova** per aprirlo Azure cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse sulla shell, quindi scegliere **Incolla**:
+Questo modello consente di creare un account Azure Cosmos in due aree con le opzioni per la coerenza e il failover, con uno spazio e una tabella configurati per la velocità effettiva di ridimensionamento automatico. Questo modello è disponibile anche per la distribuzione con un clic dalla raccolta di modelli di avvio rapido di Azure.
 
-```azurecli-interactive
+[![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra-autosscale%2Fazuredeploy.json)
 
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the location (i.e. westus2): ' location
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
-read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
-read -p 'Enter the keyspace name: ' keyspaceName
-read -p 'Enter the table name: ' tableName
-read -p 'Enter the throughput: ' throughput
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-cassandra-autoscale/azuredeploy.json":::
 
-az group create --name $resourceGroupName --location $location
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra/azuredeploy.json \
-   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion keyspaceName=$keyspaceName \
-   tableName=$tableName throughput=$throughput
+<a id="create-manual"></a>
 
-az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
-```
+## <a name="azure-cosmos-account-for-cassandra-with-standard-manual-provisioned-throughput"></a>Account Azure Cosmos per Cassandra con velocità effettiva con provisioning standard (manuale)
 
-Il `az cosmosdb show` comando Mostra l'account Azure Cosmos appena creato dopo che è stato effettuato il provisioning. Se si sceglie di usare una versione installata localmente dell'interfaccia della riga di comando di Azure invece di usare Cloud Shell, vedere l'articolo dell'interfaccia della riga di comando di [Azure](/cli/azure/) .
+Questo modello consente di creare un account Azure Cosmos in due aree con le opzioni per la coerenza e il failover, con uno spazio e una tabella configurati per la velocità effettiva standard. Questo modello è disponibile anche per la distribuzione con un clic dalla raccolta di modelli di avvio rapido di Azure.
+
+[![Distribuzione in Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra%2Fazuredeploy.json)
+
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre risorse:
 
-- [Documentazione di Azure Resource Manager](/azure/azure-resource-manager/)
-- [Schema del provider di risorse Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
-- [Modelli di avvio rapido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [Risolvere gli errori comuni di distribuzione di Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)
+* [Documentazione di Azure Resource Manager](/azure/azure-resource-manager/)
+* [Schema del provider di risorse Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
+* [Modelli di avvio rapido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [Risolvere gli errori comuni di distribuzione di Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)

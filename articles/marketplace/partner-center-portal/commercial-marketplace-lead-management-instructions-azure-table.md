@@ -1,24 +1,24 @@
 ---
-title: Configurare Microsoft Commercial Marketplace Lead Management con una tabella di Azure
-description: Informazioni su come usare una tabella di Azure per gestire lead da Microsoft AppSource e Azure Marketplace.
+title: Gestione dei lead con archiviazione tabelle di Azure-Microsoft Commercial Marketplace
+description: Informazioni su come usare l'archiviazione tabelle di Azure per configurare lead per Microsoft AppSource e Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 9814b03e348fc807c04364afbf027369f917670a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131135"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791018"
 ---
-# <a name="configure-lead-management-by-using-an-azure-table"></a>Configurare la gestione dei lead con una tabella di Azure
+# <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usare l'archiviazione tabelle di Azure per gestire i lead del Marketplace commerciale
 
-Se il sistema CRM (Customer Relationship Management) non è supportato in modo esplicito nel centro per i partner per ricevere Microsoft AppSource e i lead di Azure Marketplace, è possibile usare una tabella di Azure per gestire questi lead. È quindi possibile scegliere di esportare i dati e importarli nel sistema CRM. Le istruzioni riportate in questo articolo illustrano il processo di creazione di un account di archiviazione di Azure e di una tabella di Azure con tale account. Inoltre, è possibile creare un nuovo flusso usando Power Automate per inviare una notifica tramite posta elettronica quando l'offerta riceve un lead.
+Se il sistema CRM (Customer Relationship Management) non è supportato in modo esplicito nel centro per i partner per ricevere Microsoft AppSource e i lead di Azure Marketplace, è possibile usare l'archiviazione tabelle di Azure per gestire questi lead. È quindi possibile scegliere di esportare i dati e importarli nel sistema CRM. Questo articolo illustra come creare un account di archiviazione di Azure e una tabella con tale account. Inoltre, è possibile creare un nuovo flusso usando Power Automate per inviare una notifica tramite posta elettronica quando l'offerta riceve un lead.
 
-## <a name="configure-an-azure-table"></a>Configurare una tabella di Azure
+## <a name="configure-an-azure-storage-account"></a>Configurare un account di archiviazione di Azure
 
 1. Se non si ha un account Azure, è possibile [creare un account di prova gratuito](https://azure.microsoft.com/pricing/free-trial/).
 1. Quando l'account Azure è attivo, accedere al [portale di Azure](https://portal.azure.com).
@@ -32,7 +32,11 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
         Per altre informazioni sugli account di archiviazione, vedere [esercitazione introduttiva](https://docs.microsoft.com/azure/storage/). Per altre informazioni sui prezzi di archiviazione, vedere [prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Attendere fino a quando non viene eseguito il provisioning dell'account di archiviazione. Questo processo richiede in genere alcuni minuti. Accedere quindi all'account di archiviazione dalla **Home** page del portale di Azure selezionando **Visualizza tutte le risorse**. È anche possibile selezionare **tutte le risorse** dalla barra dei menu a sinistra del portale di Azure.
+1. Attendere fino a quando non viene eseguito il provisioning dell'account di archiviazione. Questo processo richiede in genere alcuni minuti. 
+
+## <a name="create-a-table-in-your-storage-account"></a>Creare una tabella nell'account di archiviazione
+
+1. Dalla **Home** page del portale di Azure selezionare **Visualizza tutte le risorse** per accedere all'account di archiviazione. È anche possibile selezionare **tutte le risorse** dalla barra dei menu a sinistra del portale di Azure.
 
     ![Accedere all'account di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -52,13 +56,13 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
     È possibile usare [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) o qualsiasi altro strumento per visualizzare i dati nella tabella di archiviazione. È anche possibile esportare i dati nella tabella di Azure. 
 
-## <a name="optional-use-power-automate-with-an-azure-table"></a>Opzionale Usare Power automatizzate con una tabella di Azure 
+## <a name="optional-use-power-automate-to-get-lead-notifications"></a>Opzionale Usare Power automatizzate per ottenere le notifiche lead
 
-È possibile usare [Power automatici](https://docs.microsoft.com/flow/) per automatizzare le notifiche ogni volta che un lead viene aggiunto a una tabella di Azure. Se non si dispone di un account, è possibile [iscriversi per ottenere un account gratuito](https://flow.microsoft.com/).
+È possibile usare [Power automatici](https://docs.microsoft.com/flow/) per automatizzare le notifiche ogni volta che un lead viene aggiunto alla tabella di archiviazione di Azure. Se non si dispone di un account, è possibile [iscriversi per ottenere un account gratuito](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Esempio di notifica di cliente potenziale
 
-Usare questo esempio come guida per creare un semplice flusso per l’invio automatico di una notifica di posta elettronica quando un nuovo cliente potenziale viene aggiunto a una tabella di Azure. In questo esempio viene impostata una ricorrenza per l'invio di informazioni sui lead ogni ora se l'archivio tabelle viene aggiornato.
+Nell'esempio viene creato un flusso che invia automaticamente una notifica di posta elettronica quando viene aggiunto un nuovo lead all'archiviazione tabelle di Azure. In questo esempio viene impostata una ricorrenza per l'invio di informazioni sui lead ogni ora se l'archivio tabelle viene aggiornato.
 
 1. Accedere all'account Power automatizzate.
 1. Sulla barra a sinistra selezionare **flussi personali**.
@@ -89,21 +93,21 @@ Usare questo esempio come guida per creare un semplice flusso per l’invio auto
    >[!TIP] 
    >È possibile controllare il flusso in qualsiasi momento per verificare che ogni passaggio sia configurato correttamente. Per controllare il flusso, selezionare **controllo del flusso** dalla barra dei menu di **Flow** .
 
-   Nel prossimo set di passaggi verrà stabilita la connessione alla tabella di Azure e si configurerà la logica di elaborazione per gestire i nuovi lead.
+   Nei passaggi successivi verrà stabilita la connessione alla tabella e la logica di elaborazione per gestire i nuovi lead.
 
-1. Dopo il passaggio 8, selezionare **+ nuovo passaggio**. Cercare quindi **Ottieni entità** nella finestra **Scegli un'azione** .
+1. Selezionare **+ nuovo passaggio**. Cercare quindi **Ottieni entità** nella finestra **Scegli un'azione** .
 1. In **azioni**selezionare **Ottieni entità (archiviazione tabelle di Azure)**.
 1. Nella finestra **archiviazione tabelle di Azure** specificare le informazioni per le caselle seguenti e selezionare **Crea**:
 
-    * **Nome connessione**: fornire un nome significativo per la connessione che si sta stabilendo tra questo flusso e la tabella di Azure.
-    * **Nome dell'account di archiviazione**: specificare il nome dell'account di archiviazione per la tabella di Azure. È possibile trovare questo nome nella pagina **chiavi di accesso** dell'account di archiviazione.
-    * **Chiave di archiviazione condivisa**: specificare il valore della chiave per l'account di archiviazione per la tabella di Azure. È possibile trovare questo valore nella pagina **chiavi di accesso** dell'account di archiviazione.
+    * **Nome connessione**: fornire un nome significativo per la connessione che si sta stabilendo tra questo flusso e la tabella.
+    * **Nome dell'account di archiviazione**: specificare il nome dell'account di archiviazione per la tabella. È possibile trovare questo nome nella pagina **chiavi di accesso** dell'account di archiviazione.
+    * **Chiave di archiviazione condivisa**: specificare il valore della chiave per l'account di archiviazione per la tabella. È possibile trovare questo valore nella pagina **chiavi di accesso** dell'account di archiviazione.
 
       ![Finestra di archiviazione tabelle di Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
    Dopo aver selezionato **Crea**, viene visualizzata la finestra **Ottieni entità** . Qui, selezionare **Mostra opzioni avanzate**e specificare le informazioni per le caselle seguenti:
 
-   * **Tabella**: selezionare il nome dell'archiviazione tabelle di Azure (dal passaggio 6 delle istruzioni nella sezione "configurare una tabella di Azure"). La figura seguente mostra la richiesta di selezione della tabella "marketplaceleads" per questo esempio.
+   * **Tabella**: selezionare il nome della tabella da [creare una tabella](#create-a-table-in-your-storage-account). La figura seguente mostra la richiesta di selezione della tabella "marketplaceleads" per questo esempio.
 
      ![Ottenere la finestra entità](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
@@ -177,9 +181,18 @@ Se non si ricevono notifiche di posta elettronica di lead, significa che non son
 Quando si è pronti per configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione, seguire questa procedura.
 
 1. Passare alla pagina di **installazione dell'offerta** per l'offerta.
+
 1. Selezionare **Connetti** nella sezione **gestione dei lead** .
-1. Nella finestra popup **Dettagli connessione** selezionare **tabella di Azure** per la **destinazione principale**. Incollare la stringa di connessione dall'account di archiviazione di Azure creato seguendo i passaggi precedenti nella casella **stringa di connessione dell'account di archiviazione** .
+     ![Gestione dei clienti potenziali](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+
+1. Nella finestra popup **Dettagli connessione** selezionare **tabella di Azure** per la **destinazione principale**. 
+     ![Gestione dei lead, dettagli della connessione](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
+
+1. Incollare la stringa di connessione dall'account di archiviazione di Azure creato seguendo i passaggi precedenti nella casella **stringa di connessione dell'account di archiviazione** .
+     ![Gestione lead, account di archiviazione dettagli connessione](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
+
 1. **Email di contatto**: fornire i messaggi di posta elettronica per gli utenti della società che devono ricevere notifiche tramite posta elettronica quando viene ricevuto un nuovo lead. È possibile specificare più messaggi di posta elettronica separandoli con punti e virgola.
+
 1. Selezionare **OK**.
 
 Per assicurarsi di avere effettuato la connessione a una destinazione principale, selezionare il pulsante **convalida** . In caso di esito positivo, sarà presente un lead di test nella destinazione principale.
@@ -188,10 +201,3 @@ Per assicurarsi di avere effettuato la connessione a una destinazione principale
 >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta.
 
 Quando vengono generati i lead, Microsoft invia lead alla tabella di Azure. Se è stato configurato un flusso, verrà inviato anche un messaggio di posta elettronica all'indirizzo di posta elettronica configurato.
-
-![Lead management (Gestione di clienti potenziali)](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
-
-![Gestione dei lead, dettagli della connessione](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
-
-![Gestione lead, account di archiviazione dettagli connessione](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
-

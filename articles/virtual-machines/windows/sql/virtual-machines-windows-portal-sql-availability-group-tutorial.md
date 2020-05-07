@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5494b1a7590e87bac9f8ffeaeef8f1da791fd6e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060187"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791137"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Esercitazione: configurare manualmente il gruppo di disponibilità in Azure SQL Server VM
 
@@ -348,7 +348,7 @@ A questo punto, è presente un gruppo di disponibilità con repliche in due ista
 
 Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico contiene gli indirizzi IP per i listener del gruppo di disponibilità e per il cluster di failover di Windows Server. Questa sezione è un riepilogo della creazione del servizio di bilanciamento del carico nel portale di Azure.
 
-Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load Balancer Basic. Il Load Balancer Standard ha più funzionalità rispetto al Load Balancer Basic. Per un gruppo di disponibilità, il Load Balancer Standard è obbligatorio se si usa una zona di disponibilità (invece di un Set di disponibilità). Per altre informazioni sulla differenza tra i tipi di bilanciamento del carico, vedere [Confronto tra gli SKU di Load Balancer](../../../load-balancer/concepts-limitations.md#skus).
+Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load Balancer Basic. Il Load Balancer Standard ha più funzionalità rispetto al Load Balancer Basic. Per un gruppo di disponibilità, il Load Balancer Standard è obbligatorio se si usa una zona di disponibilità (invece di un Set di disponibilità). Per informazioni dettagliate sulla differenza tra gli SKU del servizio di bilanciamento del carico, vedere [Load Balancer confronto tra SKU](../../../load-balancer/skus.md).
 
 1. Nel portale di Azure andare al gruppo di risorse in cui si trovano le istanze di SQL Server e fare clic su **+ Aggiungi**.
 1. Cercare **Load Balancer**. Scegliere il servizio di bilanciamento del carico pubblicato da Microsoft.
@@ -361,12 +361,12 @@ Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load 
    | Impostazione | Campo |
    | --- | --- |
    | **Nome** |Usare un nome in formato testo per il servizio di bilanciamento del carico, ad esempio **sqlLB**. |
-   | **Type** |Interno |
+   | **Tipo** |Interno |
    | **Rete virtuale** |Usare il nome della rete virtuale di Azure. |
    | **Subnet** |Usare il nome della subnet in cui si trova la macchina virtuale.  |
    | **Assegnazione indirizzi IP** |Statico |
    | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. Usare questo indirizzo per il listener del gruppo di disponibilità. Si noti che questo indirizzo è diverso dall'indirizzo IP del cluster.  |
-   | **Sottoscrizione** |Usare la stessa sottoscrizione della macchina virtuale. |
+   | **Abbonamento** |Usare la stessa sottoscrizione della macchina virtuale. |
    | **Posizione** |Usare la stessa posizione della macchina virtuale. |
 
    Il pannello del portale di Azure dovrebbe essere simile al seguente:

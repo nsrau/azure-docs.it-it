@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dcadfcb4c2f8e6bc371b0a70b917c8c1e218fba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b990db39ffe0623b50a2cfc728da61bc51bdd4da
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679502"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855353"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integrazione del controllo del codice sorgente in Automazione di Azure - Legacy
 
@@ -63,7 +63,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
      | **Parametro** | **Valore** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
-     | `Type`  |Stringa |
+     | `Type`  |string |
      | `Value` |{"Branch":\<*Nome del ramo*>,"RunbookFolderPath":\<*Percorso della cartella del runbook*>,"ProviderType":\<* con valore 1 per GitHub*>,"Repository":\<*Nome del repository*>,"Username":\<*Nome utente di GitHub*>} |
 
    * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene il valore sicuro crittografato di OAuthToken.  
@@ -102,7 +102,7 @@ L'archiviazione del runbook consente di effettuare il push delle modifiche appor
    > [!NOTE]
    > I runbook di controllo del codice sorgente sono runbook di automazione speciali che non è possibile visualizzare o modificare. Anche se non compaiono nell'elenco di runbook, i processi di sincronizzazione vengono visualizzati nell'elenco dei processi.
 
-5. Il nome del runbook modificato viene inviato come parametro di input per il runbook archiviato. È possibile [visualizzare i dettagli del processo](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) espandendo Runbook nella pagina sincronizzazione repository.  
+5. Il nome del runbook modificato viene inviato come parametro di input per il runbook archiviato. È possibile [visualizzare i dettagli del processo](automation-runbook-execution.md#job-statuses) espandendo Runbook nella pagina sincronizzazione repository.  
 
     ![Finestra che mostra l'input per un processo di sincronizzazione](media/source-control-integration-legacy/automation-CheckinInput.png)
 6. Aggiornare il repository GitHub al termine del processo per visualizzare le modifiche.  Nel repository dovrebbe essere presente un commit con un messaggio di commit: **aggiornato *nome Runbook* in automazione di Azure.**  

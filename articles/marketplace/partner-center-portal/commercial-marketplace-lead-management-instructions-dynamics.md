@@ -1,18 +1,18 @@
 ---
-title: Gestione dei lead per il coinvolgimento dei clienti in Dynamics 365 | Azure Marketplace
-description: Configurare la gestione dei lead per Dynamics 365 Customer Engagement.
+title: Gestione dei lead per Dynamics 365 Customer Engagement-Marketplace commerciale Microsoft
+description: Informazioni su come configurare il coinvolgimento dei clienti di Dynamics 365 per gestire lead da Microsoft AppSource e Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131050"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791001"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurare la gestione dei lead per Dynamics 365 Customer Engagement
 
@@ -23,12 +23,12 @@ Questo articolo descrive come configurare Dynamics 365 Customer Engagement (deno
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare i passaggi descritti in questo articolo, sono necessarie le autorizzazioni utente seguenti. È necessario:
+Per completare i passaggi descritti in questo articolo, sono necessarie le autorizzazioni utente seguenti:
 
-* Essere un amministratore nell'istanza di Dynamics 365 customer engagement per poter installare una soluzione e seguire queste istruzioni.
-* Essere un amministratore tenant per creare un nuovo account di servizio per il servizio lead usato per inviare lead dalle offerte del Marketplace commerciale.
-* Avere accesso al portale di amministrazione di Office 365.
-* Hanno accesso all'portale di Azure.
+* Diritti di amministratore per l'istanza di Dynamics 365 customer engagement per poter installare una soluzione.
+* Diritti di amministratore del tenant per creare un nuovo account di servizio per il servizio lead usato per inviare lead dalle offerte del Marketplace commerciale.
+* Accesso al portale di amministrazione di Office 365.
+* Accesso al portale di Azure.
 
 ## <a name="install-the-solution"></a>Installare la soluzione
 

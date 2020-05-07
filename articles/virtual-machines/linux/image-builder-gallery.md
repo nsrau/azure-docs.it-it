@@ -4,15 +4,16 @@ description: Creare immagini di VM Linux con Azure Image Builder e la raccolta d
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: bf1dca61ec6b39e52d4f76c1c77cd3def6973ab8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: danis
+ms.openlocfilehash: 196f7b41a9d7eb5da1b2cf52a38917c34905d7bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945000"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791511"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Anteprima: creare un'immagine Linux e distribuirla in una raccolta di immagini condivise 
 
@@ -202,7 +203,7 @@ Si noterà che l'immagine è stata personalizzata con un *messaggio del giorno* 
 *******************************************************
 ```
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se si vuole provare a ripersonalizzare la versione dell'immagine per creare una nuova versione della stessa immagine, ignorare i passaggi successivi e passare a [usare il generatore di immagini di Azure per creare un'altra versione](image-builder-gallery-update-image-version.md)dell'immagine.
 
