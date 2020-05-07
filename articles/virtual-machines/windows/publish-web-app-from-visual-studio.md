@@ -10,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: abf0570ee9f01a2378e8c0370cfc3ba5fecc7406
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82098233"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583357"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 
@@ -24,7 +24,7 @@ Questo documento descrive come pubblicare un'applicazione Web ASP.NET in una mac
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtuale di Azure, la macchina virtuale deve essere configurata correttamente.
 
-- Il computer deve essere configurato per eseguire un'applicazione Web ASP.NET e deve essere installato WebDeploy.
+- Il computer deve essere configurato per eseguire un'applicazione Web ASP.NET ed è installato WebDeploy. Per altre informazioni, vedere [creare una VM ASP.NET con WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - Per la macchina virtuale deve essere configurato un nome DNS. Per altre informazioni, vedere [Creare un nome di dominio completo nel portale di Azure per una macchina virtuale Windows](portal-create-fqdn.md).
 

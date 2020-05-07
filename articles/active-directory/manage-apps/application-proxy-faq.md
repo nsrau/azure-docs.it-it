@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990906"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583077"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -95,6 +95,10 @@ Se i server del connettore e l'account del servizio dell'applicazione Web si tro
 
 Se i server del connettore e l'account del servizio dell'applicazione Web si trovano in domini diversi, viene utilizzata la delega basata sulle risorse. Le autorizzazioni di delega sono configurate nel server Web di destinazione e nell'account del servizio dell'applicazione Web. Questo metodo di delega vincolata è relativamente nuovo. Il metodo è stato introdotto in Windows Server 2012, che supporta la delega tra domini consentendo al proprietario della risorsa (servizio Web) di controllare quali account del computer e del servizio possono delegare. Non è disponibile alcuna interfaccia utente per semplificare questa configurazione, quindi è necessario usare PowerShell.
 Per ulteriori informazioni, vedere il white paper informazioni sulla [delega vincolata Kerberos con proxy di applicazione](https://aka.ms/kcdpaper).
+
+### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>L'autenticazione NTLM funziona con Azure AD proxy di applicazione?
+
+Non è possibile usare l'autenticazione NTLM come metodo di pre-autenticazione o Single Sign-On. L'autenticazione NTLM può essere utilizzata solo quando è possibile negoziare direttamente tra il client e l'applicazione Web pubblicata. L'utilizzo dell'autenticazione NTLM comporta in genere la visualizzazione di un messaggio di richiesta di accesso nel browser.
 
 ## <a name="pass-through-authentication"></a>Autenticazione pass-through
 

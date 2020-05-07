@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: feae75b1fbb832f833a01fa20ce07962ab5c484f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60755349"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561459"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda in Azure Data Box Gateway  
 
@@ -44,7 +44,7 @@ Seguire questa procedura nel portale di Azure per aggiungere un utente.
    2. Se questa pianificazione verrà eseguita tutto il giorno, sarà possibile selezionare l'opzione **Tutto il giorno**. 
    3. Per **Velocità larghezza di banda** si intende la larghezza di banda espressa in megabit al secondo (Mbps) usata dal dispositivo nelle operazioni che coinvolgono il cloud (sia caricamento sia download). Specificare un numero compreso tra 1 e 1000 per questo campo. 
    4. Selezionare una larghezza di banda **Senza limiti** se non si vuole limitare la data di caricamento e download. 
-   5. Fare clic su **Aggiungi**.
+   5. Scegliere **Aggiungi**.
 
       ![Fare clic su Aggiungi utente](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
@@ -84,4 +84,4 @@ Usare la procedura seguente per eliminare una pianificazione della larghezza di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [gestire la larghezza di banda](data-box-gateway-manage-bandwidth-schedules.md).
+- Informazioni su come [gestire la larghezza di banda](data-box-gateway-manage-bandwidth-schedules.md). 

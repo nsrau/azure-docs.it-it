@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29ce845fa3239dd48ff2ff0480beff08cf704b30
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74269440"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591687"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Elenco delle risorse di archiviazione di Azure in C++
 
@@ -62,7 +62,7 @@ La risposta per un'operazione elenco segmentato include:
 * *_segment*che contiene il set di risultati restituiti per una singola chiamata all'elenco API.
 * *continuation_token* che viene passato alla chiamata successiva per ottenere la pagina successiva dei risultati. Quando non sono presenti ulteriori risultati da restituire, il token di continuazione è nullo.
 
-Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un contenitore può essere simile al seguente frammento di codice. Il codice è disponibile nei nostri [esempi](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+Ad esempio, una chiamata tipica per ottenere un elenco di tutti i BLOB in un contenitore può essere simile al seguente frammento di codice. Il codice è disponibile nei nostri [esempi](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
 ```cpp
 // List blobs in the blob container
@@ -185,7 +185,7 @@ Le API ad elenco lazy sono incluse nella libreria client di archiviazione per C+
 
 ## <a name="conclusion"></a>Conclusioni
 
-In questo articolo, abbiamo parlato di diversi overload per elencare le API per vari oggetti nella libreria Client di archiviazione per C++. Per riepilogare:
+In questo articolo, abbiamo parlato di diversi overload per elencare le API per vari oggetti nella libreria Client di archiviazione per C++. Per concludere:
 
 * Le API asincrone sono fortemente consigliate in più scenari di threading.
 * L’elenco segmentato è consigliabile per la maggior parte degli scenari.

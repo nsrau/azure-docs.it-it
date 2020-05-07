@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/13/2020
-ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415940"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598165"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gestire app per la logica nella portale di Azure
 
@@ -58,7 +58,7 @@ Per trovare e aprire l'app per la logica, seguire questa procedura:
    * **ID risorsa**
    * **Gruppo di risorse**
    * **Posizione**
-   * **Type** 
+   * **Tipo** 
    * **Nome sottoscrizione**
    * **ID sottoscrizione**
    * **Endpoint di accesso**
@@ -145,6 +145,10 @@ L'eliminazione dell'app per la logica influiscono sulle istanze del flusso di la
 * Tutte le esecuzioni in corso e in sospeso continuano fino a quando non vengono completate. A seconda del numero di queste esecuzioni, questo processo potrebbe richiedere del tempo.
 
 * Il motore delle app per la logica non creerà né eseguirà nuove istanze del flusso di lavoro.
+
+> [!NOTE]
+> Se si elimina e si ricrea un'app per la logica figlio, è necessario salvare di nuovo l'app per la logica padre. L'app figlio ricreata avrà metadati diversi.
+> Se non si salva di nuovo l'app per la logica padre dopo aver ricreato l'elemento figlio, le chiamate all'app per la logica figlio avranno esito negativo con un errore di "non autorizzato". Questo comportamento si applica alle app per la logica padre-figlio, ad esempio quelle che usano gli artefatti negli account di integrazione o chiamano funzioni di Azure.
 
 <a name="delete-single-logic-app"></a>
 

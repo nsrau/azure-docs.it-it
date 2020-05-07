@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b1f4feab9587fb77089be265801c71f5b23b26ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146786"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580639"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
 
@@ -70,10 +70,10 @@ Questo articolo illustra come connettersi a un file system locale come descritto
 
    | Proprietà | Obbligatoria | valore | Descrizione |
    | -------- | -------- | ----- | ----------- |
-   | **Nome connessione** | Sì | <*Nome connessione*> | Il nome da assegnare alla connessione |
-   | **Cartella radice** | Sì | <*nome-cartella-radice*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>ad esempio `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. |
+   | **Connection Name (Nome connessione)** | Sì | <*Nome connessione*> | Il nome da assegnare alla connessione |
+   | **Cartella radice** | Sì | <*nome-cartella-radice*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. |
    | **Tipo di autenticazione** | No | <*tipo di autenticazione*> | Tipo di autenticazione usato dal file system: **Windows** |
-   | **Nome utente** | Sì | <*domain*>\\<*nome utente* dominio> | Il nome utente per il computer in cui è presente il file system |
+   | **Nome utente** | Sì | <*domain*>\\<*nome utente* dominio> <p>-oppure- <p><*local-computer*>\\<*nome utente* del computer locale> | Nome utente del computer in cui è presente la cartella file system. <p>Se la cartella file System si trova nello stesso computer del gateway dati locale, è possibile usare <>\\<*nome utente* *del computer locale*>. |
    | **Password** | Sì | <*password*> | La password per il computer in cui è presente il file system |
    | **Gateway** | Sì | <*installato-Gateway-Name*> | Il nome del gateway installato in precedenza |
    |||||

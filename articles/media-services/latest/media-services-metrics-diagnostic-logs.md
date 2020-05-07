@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585284"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559536"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica tramite monitoraggio di Azure
 
@@ -63,7 +63,7 @@ Sono supportate le metriche seguenti per gli [endpoint di streaming](https://doc
 |Nome metrica|Nome visualizzato|Descrizione|
 |---|---|---|
 |Requests|Requests|Specifica il numero totale di richieste HTTP gestite dall'endpoint di streaming.|
-|Egress|Egress|Numero totale di byte in uscita. Ad esempio, byte trasmessi dall'endpoint di streaming.|
+|Egress|Egress|Byte in uscita totali al minuto per endpoint di streaming.|
 |SuccessE2ELatency|Latenza end-to-end riuscita|Durata del periodo di tempo durante il quale l'endpoint di streaming ha ricevuto la richiesta al momento dell'invio dell'ultimo byte della risposta.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>Perché si vuole usare la metrica?
@@ -92,7 +92,7 @@ Servizi multimediali supporta i log di diagnostica seguenti:
 
 ### <a name="key-delivery"></a>Distribuzione delle chiavi
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |Richiesta del servizio di distribuzione delle chiavi|Log che mostrano le informazioni della richiesta del servizio di distribuzione delle chiavi. Per ulteriori informazioni, vedere [schemi](media-services-diagnostic-logs-schema.md).|
 

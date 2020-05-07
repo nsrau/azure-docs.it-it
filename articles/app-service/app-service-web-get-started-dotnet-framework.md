@@ -5,12 +5,12 @@ ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 04/21/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 47a5cf2586b8146a68772962c60dc0dbdbb7e2fe
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 056c96807fed7d5acca85635440c8fe4d989c933
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768840"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592393"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creare un'app Web del framework ASP.NET in Azure
 
@@ -138,6 +138,8 @@ Il nome dell'app specificato nella pagina **Servizio app - Crea nuovo** viene us
    ![Panoramica del servizio app nel portale di Azure](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
 
    Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
+
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

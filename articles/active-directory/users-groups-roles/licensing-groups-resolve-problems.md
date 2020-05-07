@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025703"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582689"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -100,7 +100,7 @@ Per risolvere questo problema, rimuovere gli utenti da percorsi non supportati d
 
 ## <a name="duplicate-proxy-addresses"></a>Indirizzi proxy duplicati
 
-Se si usa Exchange Online, alcuni utenti nel tenant potrebbero non essere configurati correttamente con lo stesso valore di indirizzo proxy. Quando il sistema di gestione delle licenze basato su gruppo tenta di assegnare una licenza a un utente di questo tipo, l'operazione non riesce e viene visualizzato il messaggio "Indirizzo proxy è già in uso".
+Se si usa Exchange Online, alcuni utenti dell'organizzazione potrebbero non essere configurati correttamente con lo stesso valore di indirizzo proxy. Quando il sistema di gestione delle licenze basato su gruppo tenta di assegnare una licenza a un utente di questo tipo, l'operazione non riesce e viene visualizzato il messaggio "Indirizzo proxy è già in uso".
 
 > [!TIP]
 > Per verificare se esiste un indirizzo proxy duplicato, eseguire il seguente cmdlet di PowerShell con Exchange Online:

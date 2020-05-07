@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77559234"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582957"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 
@@ -41,7 +41,7 @@ Quando viene creata la directory, il nome di dominio iniziale, ad esempio "conto
 
 È possibile modificare il nome di dominio primario per la directory impostando qualsiasi dominio personalizzato verificato e non federato. La modifica del dominio primario per la directory non modificherà i nomi utente degli utenti esistenti.
 
-## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Aggiungere nomi di dominio personalizzati al tenant di Azure AD
+## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Aggiungere nomi di dominio personalizzati all'organizzazione Azure AD
 
 È possibile aggiungere fino a 900 nomi di dominio gestiti. Se si configurano tutti i domini per la federazione con un'istanza locale di Active Directory, è possibile aggiungere fino a 450 nomi di dominio in ogni directory.
 
@@ -72,7 +72,7 @@ Per eliminare un nome di dominio personalizzato, è prima necessario assicurarsi
 Per chiamare **ForceDelete** nel portale di Azure, è necessario verificare che siano presenti meno di 1000 riferimenti al nome di dominio e aggiornare o rimuovere nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/) tutti i riferimenti in cui il servizio di provisioning è Exchange. Ciò include gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica di Exchange. Per altre informazioni, vedere l'articolo relativo alla [rimozione dei gruppi di sicurezza abilitati alla posta elettronica](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). L'operazione **ForceDelete** non riesce, inoltre, in presenza di una delle condizioni seguenti:
 
 * Si è acquistato un dominio tramite servizi di sottoscrizione di domini di Office 365
-* Si amministra come partner per conto del tenant di un altro cliente
+* L'utente è un partner che gestisce per conto di un'altra organizzazione del cliente
 
 L'operazione **ForceDelete** include le azioni seguenti:
 

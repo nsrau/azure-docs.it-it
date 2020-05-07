@@ -3,12 +3,12 @@ title: Risolvere i problemi del backup delle condivisioni file di Azure
 description: Questo articolo contiene informazioni per la risoluzione dei problemi che si verificano quando si proteggono le condivisioni file di Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100057"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562084"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Risolvere i problemi durante il backup delle condivisioni file di Azure
 
@@ -25,6 +25,7 @@ Questo articolo fornisce informazioni per la risoluzione dei problemi che si ver
   >le condivisioni file di un account di archiviazione possono essere protette solo con un unico insieme di credenziali di Servizi di ripristino. È possibile usare [questo script](scripts/backup-powershell-script-find-recovery-services-vault.md) per trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione.
 
 - Assicurarsi che la condivisione file non sia presente in uno degli account di archiviazione non supportati. Per trovare gli account di archiviazione supportati, è possibile fare riferimento alla [matrice di supporto per il backup di condivisioni file di Azure](azure-file-share-support-matrix.md) .
+- Controllare le impostazioni del firewall dell'account di archiviazione per assicurarsi che sia abilitata l'opzione di consentire ai servizi Microsoft attendibili di accedere all'account di archiviazione.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Un errore visualizzato nel portale indica che non è possibile individuare gli account di archiviazione
 

@@ -12,48 +12,46 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535775"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583094"
 ---
 # <a name="supported-account-types"></a>Tipi di account supportati
 
-Questo articolo illustra i tipi di account (talvolta denominati destinatari) supportati nelle applicazioni.
+Questo articolo illustra i tipi di account (talvolta chiamati *destinatari*) supportati nelle applicazioni della piattaforma Microsoft Identity.
 
 <!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
-## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Tipi di account supportati nelle applicazioni Microsoft Identity Platform
+## <a name="account-types-in-the-public-cloud"></a>Tipi di account nel cloud pubblico
 
-Nel cloud pubblico di Microsoft Azure la maggior parte dei tipi di app può consentire l'accesso degli utenti con qualsiasi destinatario:
+Nel cloud pubblico Microsoft Azure, la maggior parte dei tipi di app può accedere agli utenti con tutti i destinatari:
 
-- Se si sta scrivendo un'applicazione line-of-business, è possibile consentire l'accesso degli utenti dell'organizzazione. Tale applicazione a volte è chiamata **tenant singolo**.
-- I fornitori di software indipendente possono scrivere un'applicazione che consente l'accesso degli utenti:
+- Se si sta scrivendo un'applicazione line-of-business (LOB), è possibile accedere agli utenti nella propria organizzazione. Tale applicazione è talvolta denominata *single-tenant*.
+- Se si è un ISV, è possibile scrivere un'applicazione per l'accesso degli utenti:
 
-  - In qualsiasi organizzazione. Tale applicazione a volte è chiamata applicazione Web **multi-tenant**. Si potrebbe sentir dire che gli utenti possono accedere con gli account aziendali o dell'istituto di istruzione.
-  - Con l'account aziendale o dell'istituto di istruzione oppure con l'account Microsoft personale.
-  - Solo con l'account Microsoft personale.
-    > [!NOTE]
-    > Microsoft Identity Platform attualmente supporta solo gli account Microsoft personali tramite la registrazione di un'app per gli **account personali Microsoft aziendali o dell'istituto di istruzione**, quindi è necessario limitare l'accesso nel codice dell'applicazione specificando un'autorità di Azure AD quando si compila l'applicazione, ad esempio `https://login.microsoftonline.com/consumers`.
+  - In qualsiasi organizzazione. Tale applicazione è detta applicazione Web *multi-tenant* . Si noterà a volte che l'utente esegue l'accesso agli utenti con account aziendali o dell'Istituto di istruzione.
+  - Con gli account Microsoft aziendali o dell'Istituto di istruzione o personali.
+  - Con solo account Microsoft personali.
+    
+- Se si sta scrivendo un'applicazione business-to-consumer, è anche possibile accedere agli utenti con le proprie identità social, usando Azure Active Directory B2C (Azure AD B2C).
 
-- Se si sta scrivendo un'applicazione Business to Consumer, è anche possibile consentire l'accesso per gli utenti con le identità dei social network, usando Azure AD B2C.
-
-## <a name="certain-authentication-flows-dont-support-all-the-account-types"></a>Alcuni flussi di autenticazione non supportano tutti i tipi di account
+## <a name="account-type-support-in-authentication-flows"></a>Supporto del tipo di conto nei flussi di autenticazione
 
 Alcuni tipi di account non possono essere usati con determinati flussi di autenticazione. Ad esempio, nelle applicazioni desktop, UWP o daemon:
 
-- Le applicazioni daemon possono essere usate solo con le organizzazioni di Azure Active Directory. Non ha senso provare a usare applicazioni daemon per modificare gli account personali Microsoft. Il consenso amministratore non verrà mai concesso.
-- È possibile solo usare il flusso di autenticazione integrata di Windows con gli account aziendali o dell'istituto di istruzione (nella propria organizzazione o in qualsiasi organizzazione). In realtà, l'autenticazione integrata di Windows può essere usata solo con gli account di dominio ed è necessario che i computer siano aggiunti a un dominio o ad Azure AD. Questo flusso non ha senso per gli account Microsoft personali.
-- La [concessione della password del proprietario della risorsa](./v2-oauth-ropc.md) (nome utente/password) non può essere usata con gli account Microsoft personali. In effetti, gli account Microsoft personali richiedono il consenso utente per l'accesso alle risorse personali a ogni sessione di accesso. Per questo motivo tale comportamento non è compatibile con i flussi non interattivi.
-- Il flusso di codice del dispositivo non funziona ancora con gli account Microsoft personali.
+- Le applicazioni daemon possono essere usate solo con Azure AD organizzazioni. Non ha senso provare a usare le applicazioni daemon per modificare gli account personali di Microsoft. Il consenso dell'amministratore non verrà mai concesso.
+- È possibile usare il flusso di autenticazione integrata di Windows solo con account aziendali o dell'Istituto di istruzione (nell'organizzazione o in qualsiasi organizzazione). L'autenticazione integrata di Windows funziona con gli account di dominio e richiede che i computer siano aggiunti a un dominio o Azure AD Uniti in join. Questo flusso non ha senso per gli account Microsoft personali.
+- La [concessione delle credenziali password del proprietario della risorsa](./v2-oauth-ropc.md) (nome utente/password) non può essere usata con gli account Microsoft personali. Per gli account Microsoft personali è necessario che l'utente acconsente all'accesso alle risorse personali a ogni sessione di accesso. Questo è il motivo per cui questo comportamento non è compatibile con i flussi non interattivi.
+- Il flusso del codice del dispositivo non funziona con account Microsoft personali.
 
-## <a name="supported-account-types-in-national-clouds"></a>Tipi di account supportati nei cloud nazionali
+## <a name="account-types-in-national-clouds"></a>Tipi di conto nei cloud nazionali
 
- Le app possono anche consentire l'accesso per gli utenti nei [cloud nazionali](authentication-national-cloud.md). Gli account personali Microsoft, tuttavia, non sono supportati in questi cloud (in base alla definizione di tali cloud). Ecco perché i tipi di account supportati sono limitati, per questi cloud, alla propria organizzazione (tenant singolo) o a qualsiasi organizzazione (applicazioni multi-tenant).
+Le app possono anche consentire l'accesso per gli utenti nei [cloud nazionali](authentication-national-cloud.md). Tuttavia, gli account personali Microsoft non sono supportati in questi cloud. Ecco perché i tipi di account supportati sono ridotti, per questi cloud, per l'organizzazione (tenant singolo) o per qualsiasi organizzazione (applicazioni multi-tenant).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla [tenancy in Azure Active Directory](./single-and-multi-tenant-apps.md)
-- Altre informazioni sui [cloud nazionali](./authentication-national-cloud.md)
+- Scopri di più sull' [affitto in Azure Active Directory](./single-and-multi-tenant-apps.md).
+- Scopri di più sui [cloud nazionali](./authentication-national-cloud.md).

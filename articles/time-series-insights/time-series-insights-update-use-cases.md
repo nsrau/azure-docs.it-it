@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 50ac2a728750c6b01dfc57fa7e20df25c856395a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93813dfaecf40fcb5cab0856d013fb890118886c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77087384"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580674"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casi d'uso di Anteprima di Azure Time Series Insights
 
@@ -42,13 +42,13 @@ Esplorare e analizzare immediatamente miliardi di eventi per rilevare anomalie e
 
 La maggior parte dei clienti accetta che la quantità minima di tempo necessaria per ottenere informazioni è una delle funzionalità principali di Time Series Insights:
 
-* Time Series Insights non richiede di preparare i dati in anticipo. 
-* Funziona rapidamente per connettersi a miliardi di eventi nell'hub Azure Internet o nelle istanze di hub eventi di Azure in pochi minuti. 
+* Time Series Insights non richiede di preparare i dati in anticipo.
+* Funziona rapidamente per connettersi a miliardi di eventi nell'hub Azure Internet o nelle istanze di hub eventi di Azure in pochi minuti.
 * Dopo aver stabilito la connessione, è possibile visualizzare e analizzare immediatamente miliardi di eventi per rilevare anomalie e individuare tendenze nascoste nei dati.
 
 Time Series Insights è intuitivo e semplice da usare. È possibile interagire con i dati senza scrivere nemmeno una riga di codice. Non c'è neanche un nuovo linguaggio da apprendere, sebbene Time Series Insights fornisca un linguaggio di query granulare basato su testo per utenti avanzati che hanno familiarità con SQL. Offre anche funzionalità di esplorazione tramite selezione e clic per gli utenti non esperti.
 
-I clienti possono sfruttare la velocità per diagnosticare rapidamente i problemi relativi agli asset. Possono eseguire l'analisi del DevOps per ottenere la causa radice di un bug in una soluzione Internet delle cose. Consentono inoltre di identificare le aree da contrassegnare per un'analisi più approfondita come parte delle iniziative data science. 
+I clienti possono sfruttare la velocità per diagnosticare rapidamente i problemi relativi agli asset. Possono eseguire l'analisi del DevOps per ottenere la causa radice di un bug in una soluzione Internet delle cose. Consentono inoltre di identificare le aree da contrassegnare per un'analisi più approfondita come parte delle iniziative data science.
 
 Esistono tre modi principali per interagire con i dati archiviati in Time Series Insights:
 

@@ -1,20 +1,17 @@
 ---
-title: Come viene applicato uno sconto per la prenotazione a Database di Azure per MySQL
-description: Come viene applicato uno sconto per la prenotazione a Database di Azure per MySQL
+title: Informazioni sullo sconto per la prenotazione - Database di Azure per MySQL
+description: Informazioni su come viene applicato uno sconto per la prenotazione a Database di Azure per i server MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: ed067e4bbde737cb08afe7c9429854e54e2ef3d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e47153b24234480ee52847f07e723c02fabb3113
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199314"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509432"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Come viene applicato uno sconto per la prenotazione a Database di Azure per MySQL
 
@@ -44,5 +41,6 @@ Per gli altri esempi, si presuppone che la capacità riservata di Database di Az
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+## <a name="next-steps"></a>Passaggi successivi
+
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

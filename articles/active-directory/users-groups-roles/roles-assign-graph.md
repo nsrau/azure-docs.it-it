@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c93c8e354c7c02c6a085c2baa8fd664faaf1f64
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77559148"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582626"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Assegnare ruoli di amministratore personalizzati usando l'API Microsoft Graph in Azure Active Directory 
 
@@ -26,7 +26,7 @@ ms.locfileid: "77559148"
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Connettersi al tenant di Azure AD usando un account amministratore globale o un amministratore di identità con privilegi per assegnare o rimuovere i ruoli.
+Connettersi all'organizzazione Azure AD usando un account amministratore globale o un amministratore di identità con privilegi per assegnare o rimuovere i ruoli.
 
 ## <a name="post-operations-on-roleassignment"></a>Operazioni POST su RoleAssignment
 

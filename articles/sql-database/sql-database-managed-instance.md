@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65bce50665b6dd99662e99ca57569f906f3af208
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879072"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598539"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -46,7 +46,7 @@ L'istanza gestita combina le migliori funzionalità disponibili sia nel database
 | --- | --- |
 |Acquisto e gestione di hardware non necessari <br>Nessun sovraccarico per la gestione dell'infrastruttura sottostante <br>Provisioning rapido e scalabilità del servizio <br>Applicazione automatica di patch e aggiornamento della versione <br>Integrazione con altri servizi dati PaaS |Contratto di servizio relativo al tempo di attività 99,99%  <br>[Disponibilità elevata](sql-database-high-availability.md) integrata <br>Dati protetti con [backup automatici](sql-database-automated-backups.md) <br>Periodo di conservazione dei backup configurabile dal cliente <br>[Backup](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) avviati dall'utente <br>Funzionalità di [ripristino temporizzato di un database](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Sicurezza e conformità** | **Gestione**|
-|Ambiente isolato ([integrazione della rete virtuale](sql-database-managed-instance-connectivity-architecture.md), servizio a tenant singolo, calcolo e archiviazione dedicati) <br>[Transparent Data Encryption (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticazione di Azure AD](sql-database-aad-authentication.md), supporto di Single Sign-On <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entità di Azure AD server (account di accesso)</a>  <br>Soddisfa gli standard di conformità del database SQL di Azure <br>[Controllo SQL](sql-database-managed-instance-auditing.md) <br>[Protezione avanzata dalle minacce](sql-database-managed-instance-threat-detection.md) |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati
+|Ambiente isolato ([integrazione della rete virtuale](sql-database-managed-instance-connectivity-architecture.md), servizio a tenant singolo, calcolo e archiviazione dedicati) <br>[Transparent Data Encryption (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticazione di Azure AD](sql-database-aad-authentication.md), supporto di Single Sign-On <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entità di Azure AD server (account di accesso)</a>  <br>Soddisfa gli standard di conformità del database SQL di Azure <br>[Controllo SQL](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati
 
 > [!IMPORTANT]
 > Il database SQL di Azure (tutte le opzioni di distribuzione) è stato certificato rispetto a una serie di standard di conformità. Per ulteriori informazioni, vedere la [Microsoft Azure Centro protezione](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
@@ -144,7 +144,7 @@ Inoltre, la gestione delle istanze può includere anche una delle operazioni sui
 
 Nella tabella seguente sono riepilogate le operazioni e le durate generali tipiche:
 
-|Category  |Operazione  |Segmento con esecuzione prolungata  |Durata stimata  |
+|Categoria  |Operazione  |Segmento con esecuzione prolungata  |Durata stimata  |
 |---------|---------|---------|---------|
 |**Distribuzione** |Prima istanza in una subnet vuota|Creazione di un cluster virtuale|90% di operazioni completate tra 4 ore|
 |Distribuzione |Prima istanza di un'altra generazione di hardware in una subnet non vuota (ad esempio, la prima istanza di generazione 5 in una subnet con istanze di generazione 4)|Creazione di un cluster virtuale *|90% di operazioni completate tra 4 ore|
@@ -167,25 +167,37 @@ Nella tabella seguente sono riepilogate le operazioni e le durate generali tipic
 
 \*\*\*12 ore è la configurazione corrente, ma potrebbe cambiare in futuro, quindi non assumere una dipendenza difficile. Se è necessario eliminare un cluster virtuale in precedenza (per rilasciare la subnet, ad esempio), vedere [eliminare una subnet dopo l'eliminazione di un'istanza gestita di database SQL di Azure](sql-database-managed-instance-delete-virtual-cluster.md).
 
-### <a name="instance-availability-during-management"></a>Disponibilità dell'istanza durante la gestione
+### <a name="instance-availability-during-management-operations"></a>Disponibilità dell'istanza durante le operazioni di gestione
 
-Le istanze gestite non sono disponibili per le applicazioni client durante le operazioni di distribuzione ed eliminazione.
+L'istanza gestita non è disponibile per le applicazioni client durante le operazioni di distribuzione ed eliminazione.
 
-Le istanze gestite sono disponibili durante le operazioni di aggiornamento, ma si verifica un breve tempo di inattività causato dal failover che si verifica alla fine degli aggiornamenti che in genere durano fino a 10 secondi. L'eccezione è rappresentata dall'aggiornamento dello spazio di archiviazione riservato in per utilizzo generico livello di servizio che non comporta il failover né influisce sulla disponibilità dell'istanza.
-
-> [!IMPORTANT]
-> La durata di un failover può variare in modo significativo in caso di transazioni a esecuzione prolungata che si verificano nei database a causa del [tempo di recupero prolungato](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Non è quindi consigliabile ridimensionare le risorse di calcolo o di archiviazione dell'istanza gestita di database SQL di Azure o per modificare il livello di servizio contemporaneamente con le transazioni a esecuzione prolungata (importazione di dati, processi di elaborazione dei dati, ricompilazione dell'indice e così via). Il failover del database che verrà eseguito al termine dell'operazione Annulla le transazioni in corso e genera tempi di ripristino prolungati.
+Istanza gestita è disponibile durante le operazioni di aggiornamento, ad eccezione di un breve tempo di inattività causato dal failover che si verifica alla fine dell'aggiornamento. In genere, dura fino a 10 secondi anche in caso di transazioni a esecuzione prolungata interrotte, grazie al [recupero accelerato del database](sql-database-accelerated-database-recovery.md).
 
 > [!TIP]
 > L'aggiornamento dello spazio di archiviazione riservato in per utilizzo generico livello di servizio non comporta il failover né influisce sulla disponibilità dell'istanza.
 
-Il [recupero accelerato del database](sql-database-accelerated-database-recovery.md) non è attualmente disponibile per le istanze gestite del database SQL di Azure. Una volta abilitata, questa funzionalità ridurrà significativamente la variabilità del tempo di failover, anche in caso di transazioni a esecuzione prolungata.
+> [!IMPORTANT]
+> Non è consigliabile ridimensionare le risorse di calcolo o di archiviazione dell'istanza gestita di database SQL di Azure o per modificare il livello di servizio contemporaneamente con le transazioni a esecuzione prolungata (importazione di dati, processi di elaborazione dei dati, ricompilazione dell'indice e così via). Il failover del database che verrà eseguito al termine dell'operazione cancellerà tutte le transazioni in corso.
+
+
+### <a name="management-operations-cross-impact"></a>Effetti incrociati sulle operazioni di gestione
+
+Le operazioni di gestione di istanze gestite possono influire su altre operazioni di gestione delle istanze posizionate all'interno dello stesso cluster virtuale. Sono incluse le seguenti:
+
+- **Le operazioni di ripristino con esecuzione prolungata** in un cluster virtuale manterranno un'altra operazione di creazione o ridimensionamento dell'istanza nella stessa subnet.<br/>**Esempio:** se è presente un'operazione di ripristino a esecuzione prolungata ed è presente una richiesta di creazione o ridimensionamento nella stessa subnet, la richiesta richiederà più tempo perché attenderà il completamento dell'operazione di ripristino prima di continuare.
+    
+- La creazione o l'operazione di **ridimensionamento di un'istanza successiva** viene messa in attesa dalla creazione o dalla scala dell'istanza avviata in precedenza che ha avviato il ridimensionamento del cluster virtuale.<br/>**Esempio:** se sono presenti più richieste di creazione e/o scalabilità nella stessa subnet nello stesso cluster virtuale e una di esse avvia il ridimensionamento di un cluster virtuale, tutte le richieste inviate 5 + minuti dopo quella che ha richiesto il ridimensionamento del cluster virtuale avranno più tempo del previsto perché queste richieste dovranno attendere il completamento del ridimensionamento prima di riprendere.
+
+- **Le operazioni di creazione/ridimensionamento inviate in un intervallo di 5 minuti** verranno eseguite in batch ed eseguite in parallelo.<br/>**Esempio:** Verrà eseguito un solo ridimensionamento del cluster virtuale per tutte le operazioni inviate in un intervallo di 5 minuti (misurazione dal momento dell'esecuzione della prima richiesta di operazione). Se un'altra richiesta viene inviata più di 5 minuti dopo l'invio del primo, attende il completamento del ridimensionamento del cluster virtuale prima che l'esecuzione venga avviata.
+
+> [!IMPORTANT]
+> Le operazioni di gestione messe in attesa a causa di un'altra operazione in corso verranno riavviate automaticamente una volta soddisfatte le condizioni per continuare. Non è necessaria alcuna azione dell'utente per riprendere temporaneamente l'operazione di gestione sospesa.
 
 ### <a name="canceling-management-operations"></a>Annullamento di operazioni di gestione
 
 Nella tabella seguente è riepilogata la possibilità di annullare operazioni di gestione specifiche e le durate generali tipiche:
 
-Category  |Operazione  |Annullabile  |Durata stimata annullamento  |
+Categoria  |Operazione  |Annullabile  |Durata stimata annullamento  |
 |---------|---------|---------|---------|
 |Distribuzione |Creazione di istanze |No |  |
 |Aggiornamento |Scalabilità verticale/orizzontale di archiviazione dell'istanza (per utilizzo generico) |No |  |
@@ -255,7 +267,7 @@ Viene introdotta una nuova sintassi per creare Azure AD entità server (account 
 
 L'opzione di distribuzione dell'istanza gestita consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione in Azure Active Directory](sql-database-aad-authentication.md). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory supporta l'[autenticazione a più fattori](sql-database-ssms-mfa-authentication-configure.md) (MFA) per una maggiore sicurezza di dati e applicazioni, supportando allo stesso tempo un processo di accesso singolo.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 Per autenticazione dell'istanza gestita si intende il modo in cui l'utente dimostra la propria identità durante la connessione al database. Il database SQL supporta due tipi di autenticazione:  
 

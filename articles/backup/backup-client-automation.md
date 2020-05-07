@@ -3,12 +3,12 @@ title: Usare PowerShell per eseguire il backup di Windows Server in Azure
 description: Questo articolo illustra come usare PowerShell per la configurazione di backup di Azure in Windows Server o un client Windows e la gestione di backup e ripristino.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 3b9bcf8e777244cec11383619d145e3a99ff46d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fde81aba5a2b74ce25c8f3cd70dc24df6f566420
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193021"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597978"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
 
@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 Le opzioni disponibili includono:
 
-| Opzione | Dettagli | Impostazione predefinita |
+| Opzione | Dettagli | Predefinito |
 | --- | --- | --- |
 | /q |Installazione non interattiva |- |
 | /p:"location" |Percorso della cartella di installazione per l'agente di Backup di Azure. |C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure |
@@ -209,7 +209,12 @@ Server properties updated successfully.
 
 I dati di backup inviati a Backup di Azure vengono crittografati per proteggere la riservatezza dei dati. La passphrase di crittografia è la "password" per decrittografare i dati in fase di ripristino.
 
-È necessario generare un pin di sicurezza selezionando **genera**, in **Impostazioni** > **Proprietà** > **pin di sicurezza** nella sezione dell'insieme di credenziali dei **servizi di ripristino** del portale di Azure. Usare quindi come `generatedPIN` nel comando:
+È necessario generare un pin di sicurezza selezionando **genera**, in **Impostazioni** > **Proprietà** > **pin di sicurezza** nella sezione dell'insieme di credenziali dei **servizi di ripristino** del portale di Azure. 
+
+>[!NOTE]
+> Il PIN di sicurezza può essere generato solo tramite il portale di Azure.
+
+Usare quindi come `generatedPIN` nel comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force

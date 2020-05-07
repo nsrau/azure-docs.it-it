@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 55fbe4ae383e5275d185e2a03224e77660a01ef5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bb8d91d141997a7dd466d247ddcb0bd364e1c80
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382503"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559864"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -18,7 +18,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 
 | Spazio dei nomi del provider di risorse | Servizio di Azure |
 | --------------------------- | ------------- |
-| Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
+| Microsoft.AAD | [Servizi di dominio Azure Active Directory](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
 | Microsoft.ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
@@ -61,7 +61,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft. CustomerLockbox | Customer Lockbox per Microsoft Azure |
 | Microsoft. CustomProviders | [Provider personalizzati di Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
-| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/data-box-edge-overview.md) |
+| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft.DataCatalog | [Data Catalog](/azure/data-catalog/) |
 | Microsoft.DataFactory | [Data Factory](/azure/data-factory/) |
@@ -115,7 +115,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft. MixedReality | [Ancoraggi nello spazio di Azure](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Gateway applicazione](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall di Azure](../../firewall/index.yml)<br />[Servizio Frontdoor di Azure](../../frontdoor/index.yml)<br />[Collegamento privato di Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Gestione traffico](../../traffic-manager/index.yml)<br />[Rete virtuale](../../virtual-network/index.yml)<br />[Rete WAN virtuale](../../virtual-wan/index.yml)<br />[Gateway VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Gateway applicazione](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS di Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall di Azure](../../firewall/index.yml)<br />[Servizio Frontdoor di Azure](../../frontdoor/index.yml)<br />[Collegamento privato di Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Gestione traffico](../../traffic-manager/index.yml)<br />[Rete virtuale](../../virtual-network/index.yml)<br />[Rete WAN virtuale](../../virtual-wan/index.yml)<br />[Gateway VPN](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.NotificationHubs | [Hub di notifica](../../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
@@ -145,9 +145,9 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Solutions | [Applicazioni gestite di Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Database SQL di Azure](../../sql-database/index.yml)<br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server in Macchine virtuali di Azure](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
-| Microsoft.Storage | [Archiviazione](../../storage/index.yml) |
+| Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft. StorageCache | [Cache HPC di Azure](/azure/hpc-cache/) |
-| Microsoft.StorageSync | [Archiviazione](../../storage/index.yml) |
+| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Analisi di flusso di Azure](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |

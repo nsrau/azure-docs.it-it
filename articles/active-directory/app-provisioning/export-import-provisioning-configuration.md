@@ -1,50 +1,54 @@
 ---
-title: Esportare la configurazione del provisioning ed eseguire il rollback a uno stato valido noto per il ripristino di emergenza. | Microsoft Docs
+title: Esportare la configurazione del provisioning ed eseguire il rollback a uno stato valido noto per il ripristino di emergenza
 description: Informazioni su come esportare la configurazione del provisioning ed eseguire il rollback a uno stato valido noto per il ripristino di emergenza.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.subservice: app-provisioning
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acc14cf9fc544a15dfb9ac4ffd74e5ed0ac56108
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051303"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593761"
 ---
-# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Esportare la configurazione del provisioning ed eseguire il rollback a uno stato valido noto
+# <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procedura: esportare la configurazione del provisioning ed eseguire il rollback a uno stato valido noto
+
+In questo articolo si apprenderà come:
+
+- Esportare e importare la configurazione di provisioning dal portale di Azure
+- Esportare e importare la configurazione di provisioning tramite l'API Microsoft Graph
 
 ## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Esportare e importare la configurazione di provisioning dal portale di Azure
 
-### <a name="how-can-i-export-my-provisioning-configuration"></a>Come è possibile esportare la configurazione di provisioning?
+### <a name="export-your-provisioning-configuration"></a>Esportare la configurazione del provisioning
+
 Per esportare la configurazione:
+
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
-2. Nel riquadro **Azure Active Directory** selezionare **applicazioni aziendali** e scegliere l'applicazione.
-3. Nel riquadro di spostamento a sinistra selezionare **provisioning**. Dalla pagina di configurazione del provisioning, fare clic su **mapping attributi**, quindi su **Mostra opzioni avanzate**e infine **esaminare lo schema**. Verrà visualizzata l'Editor schemi. 
-5. Fare clic su download nella barra dei comandi nella parte superiore della pagina per scaricare lo schema.
+1. Nel riquadro **Azure Active Directory** selezionare **applicazioni aziendali** e scegliere l'applicazione.
+1. Nel riquadro di spostamento a sinistra selezionare **provisioning**. Dalla pagina di configurazione del provisioning, fare clic su **mapping attributi**, quindi su **Mostra opzioni avanzate**e infine **esaminare lo schema**. Verrà visualizzata l'Editor schemi.
+1. Fare clic su download nella barra dei comandi nella parte superiore della pagina per scaricare lo schema.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Ripristino di emergenza: eseguire il rollback a uno stato valido noto
-L'esportazione e il salvataggio della configurazione consentono di eseguire il rollback a una versione precedente della configurazione. Si consiglia di esportare la configurazione del provisioning e di salvarla per un uso successivo in qualsiasi momento in cui si apportino una modifica ai mapping degli attributi o ai filtri di ambito. È sufficiente aprire il file JSON che è stato scaricato nei passaggi precedenti, copiare l'intero contenuto del file JSON, sostituire l'intero contenuto del payload JSON nell'Editor schemi e quindi salvare. Se è presente un ciclo di provisioning attivo, questo verrà completato e il ciclo successivo utilizzerà lo schema aggiornato. Il ciclo successivo sarà anche un ciclo iniziale, che rivaluterà tutti gli utenti e i gruppi in base alla nuova configurazione. Quando si esegue il rollback a una configurazione precedente, tenere presente quanto segue:
-* Gli utenti verranno valutati di nuovo per determinare se devono essere nell'ambito. Se i filtri di ambito sono stati modificati, un utente non è presente nell'ambito, più saranno disabilitati. Sebbene questo sia il comportamento desiderato nella maggior parte dei casi, è possibile che si desideri impedire questa operazione e utilizzare la funzionalità [Ignora eliminazioni dell'ambito](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
-* Se si modifica la configurazione del provisioning, il servizio viene riavviato e viene attivato un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
+L'esportazione e il salvataggio della configurazione consentono di eseguire il rollback a una versione precedente della configurazione. Si consiglia di esportare la configurazione del provisioning e di salvarla per un uso successivo in qualsiasi momento in cui si apportino una modifica ai mapping degli attributi o ai filtri di ambito. È sufficiente aprire il file JSON che è stato scaricato nei passaggi precedenti, copiare l'intero contenuto del file JSON, sostituire l'intero contenuto del payload JSON nell'Editor schemi e quindi salvare. Se è presente un ciclo di provisioning attivo, questo verrà completato e il ciclo successivo utilizzerà lo schema aggiornato. Il ciclo successivo sarà anche un ciclo iniziale, che rivaluterà tutti gli utenti e i gruppi in base alla nuova configurazione. Quando si esegue il rollback a una configurazione precedente, tenere presente quanto segue:
+
+- Gli utenti verranno valutati di nuovo per determinare se devono essere nell'ambito. Se i filtri di ambito sono stati modificati, un utente non è presente nell'ambito, più saranno disabilitati. Sebbene questo sia il comportamento desiderato nella maggior parte dei casi, è possibile che si desideri impedire questa operazione e utilizzare la funzionalità [Ignora eliminazioni dell'ambito](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
+- Se si modifica la configurazione del provisioning, il servizio viene riavviato e viene attivato un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Esportare e importare la configurazione di provisioning tramite l'API Microsoft Graph
-È possibile usare l'API Microsoft Graph e Esplora Microsoft Graph per esportare i mapping degli attributi e lo schema del provisioning degli utenti in un file JSON e importarli di nuovo in Azure AD. È anche possibile usare i passaggi acquisiti qui per creare un backup della configurazione del provisioning. 
+
+È possibile usare l'API Microsoft Graph e Esplora Microsoft Graph per esportare i mapping degli attributi e lo schema del provisioning degli utenti in un file JSON e importarli di nuovo in Azure AD. È anche possibile usare i passaggi acquisiti qui per creare un backup della configurazione del provisioning.
 
 ### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passaggio 1: recuperare l'ID dell'entità servizio dell'app di provisioning (ID oggetto)
 
-1. Avviare il [portale di Azure](https://portal.azure.com)e passare alla sezione proprietà dell'applicazione di provisioning. Se ad esempio si vuole esportare la *giornata lavorativa nel mapping di un'applicazione di provisioning utenti ad* , passare alla sezione proprietà dell'app. 
+1. Avviare il [portale di Azure](https://portal.azure.com)e passare alla sezione proprietà dell'applicazione di provisioning. Se ad esempio si vuole esportare la *giornata lavorativa nel mapping di un'applicazione di provisioning utenti ad* , passare alla sezione proprietà dell'app.
 1. Nella sezione delle proprietà dell'app di provisioning, copiare il valore GUID associato al campo *Object ID* (ID oggetto). Questo valore viene anche chiamato **ServicePrincipalId** dell'app e verrà usato nelle operazioni di Microsoft Graph Explorer.
 
    ![ID entità Servizio app Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
@@ -93,10 +97,10 @@ In Microsoft Graph Explorer, eseguire la query PUT seguente, sostituendo [servic
 
 Nella scheda "Corpo della richiesta" copiare il contenuto del file dello schema JSON.
 
-   [![Corpo della richiesta](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
+   [![Request Body](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
 
 Nella scheda "Richiesta delle intestazioni" aggiungere l'attributo di intestazione Content-Type con valore "application/json"
 
    [![Intestazioni della richiesta](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-Fare clic sul pulsante "Run Query" (Esegui Query) per importare il nuovo schema.
+Selezionare **Esegui query** per importare il nuovo schema.

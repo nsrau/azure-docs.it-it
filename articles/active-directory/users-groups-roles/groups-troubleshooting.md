@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f685ac63e3b4a8cf466be4eb4561472fb084d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74026551"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582725"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Risolvere i problemi relativi ai gruppi
 
@@ -43,7 +43,7 @@ Per disabilitare la creazione di gruppi per gli utenti non amministratori in Pow
    ```
 
 <br/>**È stato ricevuto un errore massimo di gruppi consentiti durante il tentativo di creare un gruppo dinamico in PowerShell**<br/>
-Se viene visualizzato un messaggio in PowerShell che indica _criteri di gruppo dinamici numero massimo di gruppi consentiti raggiunto_, significa che è stato raggiunto il limite massimo per i gruppi dinamici nel tenant. Il numero massimo di gruppi dinamici per tenant è 5.000.
+Se viene visualizzato un messaggio in PowerShell che indica _criteri di gruppo dinamici numero massimo di gruppi consentiti raggiunto_, significa che è stato raggiunto il limite massimo per i gruppi dinamici nell'organizzazione. Il numero massimo di gruppi dinamici per organizzazione è 5.000.
 
 Per creare nuovi gruppi dinamici, è necessario innanzitutto eliminare alcuni gruppi dinamici esistenti. Non è possibile aumentare il limite.
 
@@ -53,7 +53,7 @@ Per creare nuovi gruppi dinamici, è necessario innanzitutto eliminare alcuni gr
 1. Verificare i valori per gli attributi utente o dispositivo nella regola. Verificare che siano presenti utenti che soddisfano la regola. Per i dispositivi, controllare le proprietà del dispositivo per assicurarsi che tutti gli attributi sincronizzati includano i valori previsti.<br/>
 2. Verificare lo stato di elaborazione dell'appartenenza per verificare che sia stato completato. È possibile controllare lo [stato di elaborazione dell'appartenenza](groups-create-rule.md#check-processing-status-for-a-rule) e la data dell'ultimo aggiornamento nella pagina **Panoramica** del gruppo.
 
-Se non vengono rilevati problemi, attendere il popolamento del gruppo. A seconda delle dimensioni del tenant, potrebbero essere necessarie fino a 24 ore per eseguire il popolamento per la prima volta o dopo una modifica di una regola.
+Se non vengono rilevati problemi, attendere il popolamento del gruppo. A seconda delle dimensioni dell'organizzazione Azure AD, il gruppo può richiedere fino a 24 ore per il popolamento per la prima volta o dopo una modifica della regola.
 
 **È stata configurata una regola, ma i membri esistenti della regola sono stati rimossi**<br/>Si tratta di un comportamento previsto. I membri esistenti del gruppo vengono rimosse quando una regola viene abilitata o modificata. Gli utenti restituiti dalla valutazione della regola vengono aggiunti come membri al gruppo.
 
@@ -74,7 +74,7 @@ Attualmente, non è possibile attivare automaticamente il gruppo da elaborare su
 
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
-* [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
+* [Gestione dell'accesso alle risorse con gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Informazioni su Azure Active Directory](../fundamentals/active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

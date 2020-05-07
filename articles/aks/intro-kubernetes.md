@@ -5,18 +5,18 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f78b65169899107bcd4626bbed65bd4fddd8af43
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c36d651fde4c10157979e12fda12604153aefdfc
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77595451"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561880"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
 
 Il servizio Azure Kubernetes semplifica la distribuzione di un cluster Kubernetes gestito in Azure. servizio Azure Kubernetes riduce la complessità e i costi operativi di gestione di Kubernetes, affidando la maggior parte di queste attività ad Azure. Come servizio Kubernetes ospitato, Azure gestisce attività critiche quali il monitoraggio dell'integrità e la manutenzione per l'utente. I master di Kubernetes sono gestiti da Azure. È possibile gestire solo i nodi agente. servizio Azure Kubernetes è gratuito in quanto servizio Kubernetes gestito: si paga solo per i nodi dell'agente all'interno dei cluster e non per i master.
 
-È possibile creare un cluster servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o mediante opzioni di distribuzione basate su modello come i modelli di Gestione risorse e Terraform. Quando si distribuisce un cluster servizio Azure Kubernetes, il master Kubernetes e tutti i nodi vengono distribuiti e configurati automaticamente. Durante il processo di distribuzione è anche possibile configurare caratteristiche aggiuntive come funzionalità di rete avanzate, integrazione di Azure Active Directory e monitoraggio. Il supporto per i contenitori Windows Server nel servizio Azure Kubernetes è attualmente in anteprima.
+È possibile creare un cluster servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o mediante opzioni di distribuzione basate su modello come i modelli di Gestione risorse e Terraform. Quando si distribuisce un cluster servizio Azure Kubernetes, il master Kubernetes e tutti i nodi vengono distribuiti e configurati automaticamente. Durante il processo di distribuzione è anche possibile configurare caratteristiche aggiuntive come funzionalità di rete avanzate, integrazione di Azure Active Directory e monitoraggio. I contenitori di Windows Server sono supportati nel servizio Azure Kubernetes.
 
 Per altre informazioni sulle nozioni di base di Kubernetes, vedere [Concetti di base di Kubernetes per il servizio Azure Kubernetes][concepts-clusters-workloads].
 
@@ -44,7 +44,7 @@ Per altre informazioni, vedere [Monitorare l'integrità dei contenitori del serv
 
 ## <a name="clusters-and-nodes"></a>Cluster e nodi
 
-I nodi di servizio Azure Kubernetes sono eseguiti in macchine virtuali di Azure. È possibile connettere una risorsa di archiviazione a nodi e pod, aggiornare i componenti cluster e usare GPU. Il servizio Azure Kubernetes supporta i cluster Kubernetes che eseguono più pool di nodi per supportare sistemi operativi misti e contenitori Windows Server (attualmente in anteprima). I nodi Linux eseguono un'immagine del sistema operativo Ubuntu personalizzata e i nodi Windows Server eseguono un'immagine del sistema operativo Windows Server 2019 personalizzata.
+I nodi di servizio Azure Kubernetes sono eseguiti in macchine virtuali di Azure. È possibile connettere una risorsa di archiviazione a nodi e pod, aggiornare i componenti cluster e usare GPU. Il servizio Azure Kubernetes supporta i cluster Kubernetes che eseguono più pool di nodi per supportare sistemi operativi misti e contenitori Windows Server. I nodi Linux eseguono un'immagine del sistema operativo Ubuntu personalizzata e i nodi Windows Server eseguono un'immagine del sistema operativo Windows Server 2019 personalizzata.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Ridimensionamento dei nodi del cluster e dei pod
 
@@ -88,7 +88,7 @@ Per iniziare a usare il traffico in ingresso, vedere [Routing di applicazioni HT
 
 ## <a name="development-tooling-integration"></a>Integrazione di strumenti di sviluppo
 
-Kubernetes dispone di un ricco ecosistema di strumenti di sviluppo e di gestione, come Helm, Draft e l'estensione di Kubernetes per Visual Studio Code. Questi strumenti funzionano perfettamente con servizio Azure Kubernetes.
+Kubernetes include un ricco ecosistema di strumenti di sviluppo e di gestione, come Helm e l'estensione di Kubernetes per Visual Studio Code. Questi strumenti funzionano perfettamente con servizio Azure Kubernetes.
 
 Inoltre, Azure Dev Spaces offre un'esperienza di sviluppo Kubernetes rapida e iterativa per i team. Con una configurazione minima è possibile eseguire i contenitori ed effettuarne il debug direttamente in servizio Azure Kubernetes. Per iniziare, vedere[Azure Dev Spaces][azure-dev-spaces].
 

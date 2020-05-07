@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189365"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592061"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -74,27 +74,38 @@ Impatto della modifica del numero di nodi dati per ogni tipo di cluster supporta
 
 * Apache Storm
 
-    È possibile aggiungere o rimuovere facilmente i nodi dati mentre Storm è in esecuzione. Tuttavia, dopo il corretto completamento dell'operazione di ridimensionamento, è necessario ribilanciare la topologia.
-
-    A tale scopo, è possibile scegliere tra due opzioni:
+    È possibile aggiungere o rimuovere facilmente i nodi dati mentre Storm è in esecuzione. Tuttavia, dopo il corretto completamento dell'operazione di ridimensionamento, è necessario ribilanciare la topologia. Il ribilanciamento consente alla topologia di modificare [le impostazioni di parallelismo](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) in base al nuovo numero di nodi nel cluster. Per ribilanciare le topologie in esecuzione, usare una delle opzioni seguenti:
 
   * Interfaccia utente Web di Storm
+
+    usare la procedura seguente per ribilanciare una topologia usando l'interfaccia utente Storm.
+
+    1. Aprire `https://CLUSTERNAME.azurehdinsight.net/stormui` nel Web browser, dove `CLUSTERNAME` è il nome del cluster Storm. Se richiesto, immettere il nome amministratore (admin) del cluster HDInsight e la password specificata durante la creazione del cluster.
+
+    1. Selezionare la topologia da ribilanciare e quindi fare clic sul pulsante **Rebalance** (Ribilancia). Immettere il ritardo prima che venga eseguita l'operazione di ribilanciamento.
+
+        ![Ribilanciamento di HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * Interfaccia della riga di comando (CLI)
 
-    Per ulteriori informazioni, vedere [Apache Storm documentazione](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    connettersi al server e usare il comando seguente per ribilanciare una topologia:
 
-    L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![Ribilanciamento di HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    È anche possibile specificare parametri per eseguire l'override degli hint di parallelismo forniti in origine dalla topologia. Il codice seguente, ad esempio, consente di riconfigurare la `mytopology` topologia a 5 processi di lavoro, 3 esecutori per il componente blu-beccuccio e 10 esecutori per il componente del Bolt giallo.
 
-    Ecco un esempio di comando dell'interfaccia della riga di comando per bilanciare di nuovo la topologia di Storm:
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    è consigliabile ribilanciare le repliche di una partizione dopo le operazioni di ridimensionamento. Per altre informazioni, vedere il documento [Disponibilità elevata dei dati con Apache Kafka in HDInsight](./kafka/apache-kafka-high-availability.md).
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Come ridimensionare in modo sicuro un cluster
 
@@ -252,3 +263,8 @@ I server di area vengono bilanciati automaticamente entro pochi minuti dopo il c
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ridimensionare automaticamente i cluster Azure HDInsight](hdinsight-autoscale-clusters.md)
+
+Per informazioni specifiche sul ridimensionamento del cluster HDInsight, vedere:
+
+* [Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Gestire cluster di Apache Hadoop in HDInsight usando l'interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md#scale-clusters)

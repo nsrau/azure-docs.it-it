@@ -1,27 +1,25 @@
 ---
-title: Riferimento all'attributo giorni lavorativi | Microsoft Docs
+title: Informazioni di riferimento sugli attributi di Workday
 description: Informazioni sugli attributi di SuccessFactors supportati dal provisioning basato su SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
-ms.openlocfilehash: 61f374c3fbc15e78784fe30c4e66ea109537727d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: b0acb058e7e58656257d55f82f5dd02a8ae7d9c3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112882"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593064"
 ---
 # <a name="workday-attribute-reference"></a>Informazioni di riferimento sugli attributi di Workday
+
 In questa sezione viene fornito un elenco di attributi che è possibile recuperare dalla giornata lavorativa utilizzando le query XPATH. In base alla versione dell'API dei servizi Web della giornata lavorativa, si prevede di usare, fare riferimento alla sezione appropriata. 
 
 ## <a name="xpath-values-for-workday-web-services-wws-api-v211"></a>Valori XPATH per l'API dei servizi Web giorni lavorativi (WWS) v 21.1
@@ -29,7 +27,7 @@ In questa sezione viene fornito un elenco di attributi che è possibile recupera
 
 La tabella seguente acquisisce l'elenco degli attributi della giornata lavorativa e le espressioni XPATH corrispondenti che vengono spedite insieme al connettore app per il provisioning in ingresso della giornata lavorativa. 
 
-| \# | Name                                  | Espressione dell'API giorni lavorativi                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Nome                                  | Espressione dell'API giorni lavorativi                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Attivo                                | WD: Worker/WD:\_Worker data/WD\_: Employment data/\_WD\_: Worker data/WD: Active/Text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | WD: Worker/WD:\_Worker data/WD\_: Employment data/\_WD: position data/\_WD\_:\_Business site summary data/\_WD: Address data/\_WD\_:\[@wd:Typeaddress line data\_=\_' Address\]line 2'/text\(\)                                                                                                                                                                                                                             |
@@ -117,7 +115,7 @@ La tabella seguente acquisisce l'elenco degli attributi della giornata lavorativ
 Se si usa un'API WWS v 30 e versioni successive, prima di attivare il processo di provisioning, aggiornare le **espressioni API XPath** in **mapping degli attributi-> opzioni avanzate-> elenco degli attributi per la giornata lavorativa** per usare i valori elencati di seguito. Per configurare XPATH aggiuntivi, vedere la sezione [esercitazione: gestione della configurazione](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
-| \# | Name                                  | Espressione API XPATH giorni lavorativi                                                                                                                                                                                                                                                                                                                                                |
+| \# | Nome                                  | Espressione API XPATH giorni lavorativi                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Attivo                                | WD: Worker/WD:\_Worker data/WD\_: Employment data/\_WD\_: Worker data/WD: Active/Text\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | WD: Worker/WD:\_Worker data/WD\_: Employment data/\_WD\_:\[@wd:Primary\_Worker Job\]data Job =\_1/WD.: position data\_/\_WD\_: Business site summary data\_/WD: Address data\_/\_WD\[@wd:Type: address line\_data\_='\]address line 2'/text\(\)                                                                                                                                                            |
