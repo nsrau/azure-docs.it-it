@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: af4e33e2653aebe5d1c979aa314463e4beb7b0d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233398"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594322"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Trasformazione Ricerca nel flusso di dati di mapping
 
@@ -33,7 +33,7 @@ Una trasformazione ricerca è simile a una left outer join. Tutte le righe del f
 
 **Corrisponde a più righe:** Se abilitata, una riga con più corrispondenze nel flusso primario restituirà più righe. In caso contrario, verrà restituita una sola riga in base alla condizione ' match on '.
 
-**Corrispondenza in:** Visibile solo se è abilitata la corrispondenza di più righe. Scegliere se trovare la corrispondenza con qualsiasi riga, la prima corrispondenza o l'ultima corrispondenza. Ogni riga è consigliata perché esegue il più velocemente. Se la prima riga o l'ultima riga è selezionata, sarà necessario specificare le condizioni di ordinamento.
+**Corrispondenza in:** Visibile solo se non è selezionata l'opzione ' trova più righe '. Scegliere se trovare la corrispondenza con qualsiasi riga, la prima corrispondenza o l'ultima corrispondenza. Ogni riga è consigliata perché esegue il più velocemente. Se la prima riga o l'ultima riga è selezionata, sarà necessario specificare le condizioni di ordinamento.
 
 **Condizioni di ricerca:** Consente di scegliere le colonne su cui eseguire la corrispondenza. Se viene soddisfatta la condizione di uguaglianza, le righe verranno considerate corrispondenti. Passare il puntatore del mouse e selezionare "calcolata colonna" per estrarre un valore utilizzando il [linguaggio delle espressioni del flusso di dati](data-flow-expression-functions.md).
 

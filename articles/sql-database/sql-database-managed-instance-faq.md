@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364158"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598488"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti sull'istanza gestita di database SQL
 
@@ -94,7 +94,13 @@ Il cambio automatico online tra le generazioni hardware è possibile se entrambe
 
 Si tratta di un'operazione a esecuzione prolungata perché verrà effettuato il provisioning di una nuova istanza gestita in background e i database trasferiti automaticamente tra la vecchia e la nuova istanza con un failover rapido alla fine del processo. 
 
+**Cosa accade se entrambe le generazioni hardware non sono supportate nella stessa area?**
+
 Se entrambe le generazioni hardware non sono supportate nella stessa area, la modifica della generazione hardware è possibile, ma deve essere eseguita manualmente. A tale scopo, è necessario effettuare il provisioning di una nuova istanza nell'area in cui è disponibile la generazione hardware desiderata e eseguire manualmente il backup e il ripristino dei dati tra la vecchia e la nuova istanza.
+
+**Cosa accade se non sono disponibili indirizzi IP sufficienti per eseguire l'operazione di aggiornamento?**
+
+Se nella subnet non è disponibile un numero sufficiente di indirizzi IP in cui viene effettuato il provisioning dell'istanza gestita, sarà necessario creare una nuova subnet e una nuova istanza gestita al suo interno. Si consiglia inoltre di creare una nuova subnet con più indirizzi IP alocated, in modo che le operazioni di aggiornamento future evitino situazioni simili (per le dimensioni della subnet di tipo, verificare [come determinare le dimensioni della subnet VNET](sql-database-managed-instance-determine-size-vnet-subnet.md). Dopo il provisioning di una nuova istanza, è possibile eseguire manualmente il backup e il ripristino dei dati tra la vecchia e la nuova istanza o eseguire il [ripristino temporizzato](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell)tra istanze. 
 
 
 ## <a name="tune-performance"></a>Ottimizzare le prestazioni

@@ -2,13 +2,13 @@
 title: Distribuire le risorse nella sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 80fe451f696480ec24b3d8eced64941de9492fef
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604997"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610820"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -20,6 +20,7 @@ Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della
 
 È possibile distribuire i tipi di risorse seguenti a livello di sottoscrizione:
 
+* [progetti](/azure/templates/microsoft.blueprint/blueprints)
 * [bilanci](/azure/templates/microsoft.consumption/budgets)
 * [distribuzioni](/azure/templates/microsoft.resources/deployments) : per i modelli annidati che vengono distribuiti ai gruppi di risorse.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
@@ -244,11 +245,11 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
 }
 ```
 
-## <a name="create-policies"></a>Creare criteri
+## <a name="azure-policy"></a>Criteri di Azure
 
-### <a name="assign-policy"></a>Assegnare un criterio
+### <a name="assign-policy-definition"></a>Assegnare la definizione dei criteri
 
-L'esempio seguente assegna una definizione di criteri esistente alla sottoscrizione. Se i criteri accettano parametri, specificarli come oggetto. Se non accettano parametri, usare l'oggetto vuoto predefinito.
+L'esempio seguente assegna una definizione di criteri esistente alla sottoscrizione. Se la definizione del criterio accetta parametri, fornirli come oggetto. Se la definizione dei criteri non accetta parametri, usare l'oggetto vuoto predefinito.
 
 ```json
 {
@@ -285,7 +286,7 @@ L'esempio seguente assegna una definizione di criteri esistente alla sottoscrizi
 Per distribuire questo modello con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -312,9 +313,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### <a name="define-and-assign-policy"></a>Definire e assegnare criteri
+### <a name="create-and-assign-policy-definitions"></a>Creazione e assegnazione di definizioni di criteri
 
-È possibile [definire](../../governance/policy/concepts/definition-structure.md) e assegnare criteri nello stesso modello.
+È possibile [definire](../../governance/policy/concepts/definition-structure.md) e assegnare una definizione di criteri nello stesso modello.
 
 ```json
 {
@@ -357,7 +358,7 @@ New-AzSubscriptionDeployment `
 }
 ```
 
-Per creare la definizione di criteri nella sottoscrizione e applicarla alla sottoscrizione, usare il comando seguente dell'interfaccia della riga di comando:
+Per creare la definizione dei criteri nella sottoscrizione e assegnarla alla sottoscrizione, usare il comando dell'interfaccia della riga di comando seguente:
 
 ```azurecli
 az deployment sub create \
@@ -373,6 +374,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## <a name="azure-blueprints"></a>Azure Blueprint
+
+### <a name="create-blueprint-definition"></a>Crea definizione progetto
+
+È possibile [creare](../../governance/blueprints/tutorials/create-from-sample.md) una definizione di progetto da un modello.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+Per creare la definizione del progetto nella sottoscrizione, usare il comando dell'interfaccia della riga di comando seguente:
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+Per distribuire questo modello con PowerShell, usare:
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## <a name="template-samples"></a>Esempi di modelli

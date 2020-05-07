@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ef355361516264db95a333dde8a117819ca1a661
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 92529c2d60b32e9c8b57b897008b5333adc2a4d4
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203693"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594968"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
@@ -135,7 +135,7 @@ I clienti possono accedere alle metriche della CPU/memoria a livello di nodo usa
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual è la configurazione dell'utilità di pianificazione Pod predefinita per ARO?
 
-ARO usa l'utilità di pianificazione predefinita fornita in OpenShift. Sono disponibili un paio di meccanismi aggiuntivi che non sono supportati in ARO. Per altri dettagli, vedere la [documentazione dell'utilità di pianificazione predefinita](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) e la [documentazione dell'utilità di pianificazione master](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) .
+ARO usa l'utilità di pianificazione predefinita fornita in OpenShift. Sono disponibili un paio di meccanismi aggiuntivi che non sono supportati in ARO. Per altri dettagli, vedere la [documentazione dell'utilità di pianificazione predefinita](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) e la [documentazione dell'utilità di pianificazione master](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json) .
 
 La pianificazione avanzata/personalizzata non è attualmente supportata. Per altri dettagli, vedere la [documentazione relativa alla pianificazione](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) .
 

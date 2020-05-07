@@ -16,12 +16,13 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049725"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610446"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -31,7 +32,7 @@ Azure AD Connect usa l'autenticazione moderna con la libreria ADAL per l'autenti
 
 Questo articolo illustra in che modo Fabrikam si connette ad Azure AD tramite il proxy. Il server proxy è denominato fabrikamproxy e usa la porta 8080.
 
-Prima di tutto è necessario verificare che [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) sia configurato correttamente.  
+Prima di tutto è necessario verificare che [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) sia configurato correttamente.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -58,25 +59,24 @@ L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Co
 Di seguito sono riportati i problemi più comuni che vengono visualizzati nell'Installazione guidata.
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>L'Installazione guidata non è stata configurata correttamente
-Questo errore viene visualizzato quando la procedura guidata non riesce a raggiungere il proxy.  
+Questo errore viene visualizzato quando la procedura guidata non riesce a raggiungere il proxy.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Se viene visualizzato questo errore, verificare che [machine.config](how-to-connect-install-prerequisites.md#connectivity) sia stato configurato correttamente.
 * Se il file è corretto, seguire i passaggi in [Verificare la connettività del proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
 
 ### <a name="a-microsoft-account-is-used"></a>Viene usato un account Microsoft
-Se si usa un **account Microsoft** anziché un account **dell'istituto di istruzione o dell'organizzazione**, viene visualizzato un errore generico.  
+Se si usa un **account Microsoft** anziché un account **dell'istituto di istruzione o dell'organizzazione**, viene visualizzato un errore generico.
 ![Viene usato un account Microsoft](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>L'endpoint MFA non è raggiungibile
-Questo errore viene visualizzato se l' **https://secure.aadcdn.microsoftonline-p.com** endpoint non è raggiungibile e l'amministratore globale dispone dell'autenticazione a più fattori abilitata.  
+Questo errore viene visualizzato se l' **https://secure.aadcdn.microsoftonline-p.com** endpoint non è raggiungibile e l'amministratore globale dispone dell'autenticazione a più fattori abilitata.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Se viene visualizzato questo errore, verificare che l'endpoint **secure.aadcdn.microsoftonline-p.com** sia stato aggiunto al proxy.
 
 ### <a name="the-password-cannot-be-verified"></a>La password non può essere verificata
-Se l'Installazione guidata riesce a connettersi ad Azure AD, ma non è possibile verificare la password, viene visualizzato questo errore:  
-![Password non valida.](./media/tshoot-connect-connectivity/badpassword.png)
+Se l'installazione guidata riesce a connettersi a Azure AD, ma non è possibile verificare la password, viene visualizzato questo errore: ![password errata.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere a `https://login.microsoftonline.com` da un computer diverso dal server di Azure AD Connect e verificare che l'account sia utilizzabile.
 
@@ -186,7 +186,7 @@ L'autenticazione ha avuto esito positivo, ma Azure AD PowerShell ha un problema 
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>È necessario il ruolo di amministratore globale di Azure AD
-Utente autenticato correttamente. All'utente non è stato assegnato il ruolo di amministratore globale. In [questo modo è possibile assegnare il ruolo di amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) all'utente. 
+Utente autenticato correttamente. All'utente non è stato assegnato il ruolo di amministratore globale. In [questo modo è possibile assegnare il ruolo di amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) all'utente.
 
 <div id="privileged-identity-management">
 <!--
@@ -224,7 +224,7 @@ Visualizzata come un errore imprevisto nell'Installazione guidata, può verifica
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Procedure di risoluzione dei problemi per le versioni precedenti.
 L'Assistente per l'accesso è stato ritirato a partire dalle versioni con numero di build 1.1.105.0, rilasciata nel mese di febbraio 2016. Questa sezione e la configurazione non dovrebbero essere più necessarie, ma vengono conservate come riferimento.
 
-Per consentire il funzionamento dell'Assistente per l'accesso, è necessario configurare winhttp Questa configurazione può essere eseguita con [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+Per consentire il funzionamento dell'Assistente per l'accesso, è necessario configurare winhttp Questa configurazione può essere eseguita con [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
 ![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>L'Assistente per l'accesso non è stato configurato correttamente

@@ -16,18 +16,19 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: has-adal-ref
+ms.openlocfilehash: 13c3a7f8376d4c852a74be75e323c6bb042b5407
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048424"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610990"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurare un'applicazione OpenID/OAuth dalla raccolta di app di Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processo per aggiungere un'applicazione OpenID dalla raccolta
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro sinistro. 
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png))
 
@@ -61,17 +62,17 @@ Il flusso di accesso di base include i passaggi seguenti:
 
 ![Flusso di autenticazione con OpenID Connect](./media/openidoauth-tutorial/authenticationflow.png)
 
-### <a name="multitenant-application"></a>Applicazione multi-tenant 
-Un'applicazione multi-tenant è destinata all'uso in molte organizzazioni, non solo in una. Si tratta generalmente di applicazioni SaaS (Software-as-a-Service) scritte da un fornitore di software indipendente (ISV). 
+### <a name="multitenant-application"></a>Applicazione multi-tenant
+Un'applicazione multi-tenant è destinata all'uso in molte organizzazioni, non solo in una. Si tratta generalmente di applicazioni SaaS (Software-as-a-Service) scritte da un fornitore di software indipendente (ISV).
 
-Le applicazioni multi-tenant devono essere sottoposte a provisioning in ogni directory in cui verranno usate. Per la registrazione, richiedono il consenso dell'utente o dell'amministratore. Questo processo di consenso inizia quando un'applicazione viene registrata nella directory e può accedere all'API Graph o magari a un'altra API Web. Quando un utente o un amministratore di un'altra organizzazione esegue l'accesso per usare l'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione. 
+Le applicazioni multi-tenant devono essere sottoposte a provisioning in ogni directory in cui verranno usate. Per la registrazione, richiedono il consenso dell'utente o dell'amministratore. Questo processo di consenso inizia quando un'applicazione viene registrata nella directory e può accedere all'API Graph o magari a un'altra API Web. Quando un utente o un amministratore di un'altra organizzazione esegue l'accesso per usare l'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione.
 
 L'utente o l'amministratore può a questo punto fornire il consenso all'applicazione. Il consenso conferisce all'applicazione l'accesso ai dati indicati e la registra nella directory.
 
 > [!NOTE]
 > Se l'applicazione viene resa disponibile agli utenti in più directory, è necessario un meccanismo per determinare il tenant attivo. Un'applicazione a tenant singolo deve cercare un utente solo nella propria directory. Un'applicazione multi-tenant deve identificare un utente specifico in tute le directory in Azure AD.
-> 
-> A questo scopo, Azure AD offre un endpoint di autenticazione comune in cui qualsiasi applicazione multi-tenant può indirizzare le richieste di accesso, invece di un endpoint specifico di un tenant. Questo endpoint è `https://login.microsoftonline.com/common` per tutte le directory di Azure AD. Un endpoint specifico del tenant può essere ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
+>
+> A questo scopo, Azure AD offre un endpoint di autenticazione comune in cui qualsiasi applicazione multi-tenant può indirizzare le richieste di accesso, invece di un endpoint specifico di un tenant. Questo endpoint è `https://login.microsoftonline.com/common` per tutte le directory di Azure AD. Un endpoint specifico del tenant può essere ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com`.
 >
 > L'endpoint comune è importante da considerare quando si sviluppa l'applicazione. È necessaria la logica richiesta per gestire più tenant durante l'accesso, la disconnessione e la convalida del token.
 
@@ -80,9 +81,9 @@ Per impostazione predefinita, Azure AD promuove le applicazioni multi-tenant. È
 ## <a name="consent-framework"></a>Framework di consenso
 
 È possibile usare il framework di consenso di Azure AD per sviluppare applicazioni client Web multi-tenant e native. Queste applicazioni consentono l'accesso da parte degli account utente da un tenant di Azure AD diverso da quello in cui l'applicazione è registrata. Potrebbe dover accedere anche ad API Web, ad esempio:
-- L'API Graph di Microsoft per accedere ad Azure AD, Intune e ai servizi di Office 365. 
+- L'API Graph di Microsoft per accedere ad Azure AD, Intune e ai servizi di Office 365.
 - Altre API di servizi Microsoft.
-- API Web personalizzate. 
+- API Web personalizzate.
 
 Il framework è basato sulla possibilità per un utente o un amministratore di fornire il consenso alla richiesta di registrazione di un'applicazione nella propria directory, che può comportare l'accesso a dati di directory. Una volta ottenuto il consenso, l'applicazione client può chiamare l'API Graph di Microsoft per conto dell'utente e usare le informazioni nel modo necessario.
 
@@ -146,7 +147,7 @@ In qualità di amministratore, è possibile inoltre consentire le autorizzazioni
 
 Le autorizzazioni solo app richiedono il consenso dell'amministratore del tenant. Se l'applicazione richiede un'autorizzazione solo per app e un utente tenta di accedere all'applicazione, viene visualizzato un messaggio di errore che informa che l'utente non è in grado di fornire il consenso.
 
-Se l'applicazione usa autorizzazioni che richiedono il consenso dell'amministratore, è necessario che sia presente un movimento, ad esempio un pulsante o un collegamento, con cui l'amministratore può avviare l'azione. La richiesta inviata dall'applicazione per questa azione è la richiesta di autorizzazione OAuth2/OpenID Connect standard, che include anche il parametro *prompt=admin_consent* della stringa di query. 
+Se l'applicazione usa autorizzazioni che richiedono il consenso dell'amministratore, è necessario che sia presente un movimento, ad esempio un pulsante o un collegamento, con cui l'amministratore può avviare l'azione. La richiesta inviata dall'applicazione per questa azione è la richiesta di autorizzazione OAuth2/OpenID Connect standard, che include anche il parametro *prompt=admin_consent* della stringa di query.
 
 Dopo che l'amministratore ha fornito il consenso e l'entità servizio è stata creata nel tenant del cliente, le successive richieste di accesso non richiedono il parametro *prompt=admin_consent*. Poiché l'amministratore ha deciso che le autorizzazioni richieste sono accettabili, a nessun altro utente nel tenant viene richiesto il consenso da questo punto in poi.
 

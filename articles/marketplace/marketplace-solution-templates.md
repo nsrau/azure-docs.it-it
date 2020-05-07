@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 6533fa930716552c91fffd13b196bdbf78158816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4cce509b8f4db7549a05eccc3127d2c437f9c037
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084856"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594577"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-requirements"></a>Applicazioni Azure: modello di soluzione che offre requisiti per la pubblicazione
 
@@ -27,12 +27,12 @@ La chiamata all'azione visualizzata da un utente per questo tipo di offerta è "
 
 ## <a name="requirements-for-solution-template-offers"></a>Requisiti per le offerte del modello di soluzione
 
-| **Requirements** | **Dettagli**  |
+| **Requisiti** | **Dettagli**  |
 | ---------------  | -----------  |
 |Fatturazione e misurazione    |  Le offerte per i modelli di soluzione non sono offerte da transazioni, ma possono essere usate per distribuire le offerte di macchine virtuali a pagamento fatturate tramite Microsoft Commercial Marketplace. Le risorse distribuite dal modello ARM della soluzione verranno sottoposte a provisioning nella sottoscrizione di Azure del cliente. Le macchine virtuali con pagamento in base al consumo (consumo) verranno sottoposte a transazione con il cliente tramite Microsoft, fatturate tramite la sottoscrizione di Azure del cliente.<br/> Nel caso del modello BYOL (Bring Your Own License), mentre Microsoft addebiterà i costi di infrastruttura sostenuti nella sottoscrizione del cliente, le transazioni relative alle tariffe delle licenze software verranno effettuate direttamente con il cliente.   |
-|Disco rigido virtuale (VHD) compatibile con Azure  |   Le macchine virtuali devono essere compilate in Windows o Linux. Per altre informazioni, vedi: <ul> <li>[Creare un'offerta di applicazione Azure](./partner-center-portal/create-new-azure-apps-offer.md)(per i dischi rigidi virtuali di Windows)</li><li>[Distribuzioni Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (per dischi rigidi virtuali Linux).</li></ul> |
+|Disco rigido virtuale (VHD) compatibile con Azure  |   Le macchine virtuali devono essere compilate in Windows o Linux. Per altre informazioni, vedere: <ul> <li>[Creare un'offerta di applicazione Azure](./partner-center-portal/create-new-azure-apps-offer.md)(per i dischi rigidi virtuali di Windows)</li><li>[Distribuzioni Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (per dischi rigidi virtuali Linux).</li></ul> |
 | Attribuzione dell'utilizzo da parte dei clienti | L'abilitazione dell'attribuzione dell'utilizzo da parte del cliente è necessaria in tutti i modelli di soluzione pubblicati in Azure Marketplace. Per altre informazioni sull'attribuzione dell'utilizzo da parte del cliente e su come abilitarla, vedere [Attribuzione dell'utilizzo da parte del cliente dei partner di Azure](./azure-partner-customer-usage-attribution.md).  |
-| Usare Managed Disks | [Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) è l'opzione predefinita per i dischi salvati in permanenza di macchine virtuali IaaS in Azure. È necessario usare Managed Disks nei modelli di soluzione. <br> <br> 1. seguire le [istruzioni](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) e gli [esempi](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) per usare Managed disks nei modelli ARM di Azure per aggiornare i modelli di soluzione. <br> <br> 2. seguire le istruzioni riportate di seguito per importare il VHD sottostante del Managed Disks in un account di archiviazione per pubblicare il disco rigido virtuale come immagine nel Marketplace: <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
+| Usare Managed Disks | [Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) è l'opzione predefinita per i dischi salvati in permanenza di macchine virtuali IaaS in Azure. È necessario usare Managed Disks nei modelli di soluzione. <br> <br> 1. seguire le [istruzioni](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) e gli [esempi](https://github.com/Azure/azure-quickstart-templates) per usare Managed disks nei modelli ARM di Azure per aggiornare i modelli di soluzione. <br> <br> 2. seguire le istruzioni riportate di seguito per importare il VHD sottostante del Managed Disks in un account di archiviazione per pubblicare il disco rigido virtuale come immagine nel Marketplace: <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

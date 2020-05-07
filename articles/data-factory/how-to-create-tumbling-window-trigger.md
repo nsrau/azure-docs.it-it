@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414423"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592078"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creare un trigger per l'esecuzione di una pipeline in una finestra a cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -94,11 +94,11 @@ Una finestra a cascata ha le proprietà del tipo di trigger seguenti:
 
 La tabella seguente fornisce una panoramica generale degli elementi JSON principali correlati alla ricorrenza e alla pianificazione di un trigger di finestra a cascata:
 
-| Elemento JSON | Descrizione | Type | Valori consentiti | Obbligatoria |
+| Elemento JSON | Descrizione | Type | Valori consentiti | Necessario |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Tipo di trigger. Il tipo è il valore fisso "TumblingWindowTrigger". | Stringa | "TumblingWindowTrigger" | Sì |
-| **runtimeState** | Stato attuale del runtime del trigger.<br/>**Nota**: questo elemento è \<readOnly>. | Stringa | "Started", "Stopped", "Disabled" | Sì |
-| **frequenza** | Stringa che rappresenta l'unità di frequenza (minuti o ore) con cui si ripete il trigger. Se i valori di data di **startTime** sono più granulari del valore di **frequency**, le date di **startTime** sono considerate quando vengono calcolati i limiti della finestra. Ad esempio, se il valore di **frequency** è ogni ora e il valore di **startTime** è 2017-09-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Stringa | "minute", "hour"  | Sì |
+| **type** | Tipo di trigger. Il tipo è il valore fisso "TumblingWindowTrigger". | string | "TumblingWindowTrigger" | Sì |
+| **runtimeState** | Stato attuale del runtime del trigger.<br/>**Nota**: questo elemento è \<readOnly>. | string | "Started", "Stopped", "Disabled" | Sì |
+| **frequenza** | Stringa che rappresenta l'unità di frequenza (minuti o ore) con cui si ripete il trigger. Se i valori di data di **startTime** sono più granulari del valore di **frequency**, le date di **startTime** sono considerate quando vengono calcolati i limiti della finestra. Ad esempio, se il valore di **frequency** è ogni ora e il valore di **startTime** è 2017-09-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | Sì |
 | **interval** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "hour", il trigger si ripete ogni 3 ore. <br/>**Nota**: l'intervallo minimo della finestra è 5 minuti. | Integer | Numero intero positivo. | Sì |
 | **startTime**| Prima occorrenza, che può essere nel passato. Il primo intervallo di trigger è (**startTime**, **startTime** + **interval**). | Datetime | Valore DateTime. | Sì |
 | **endTime**| Ultima occorrenza, che può essere nel passato. | Datetime | Valore DateTime. | Sì |
@@ -106,9 +106,12 @@ La tabella seguente fornisce una panoramica generale degli elementi JSON princip
 | **maxConcurrency** | Il numero di esecuzioni di trigger simultanee che vengono generate per le finestre che sono pronte. Ad esempio, per recuperare le informazioni relative alle esecuzioni ogni ora per i risultati del giorno prima in 24 finestre. Se **maxConcurrency** = 10, gli eventi di attivazione vengono generati solo per le prime 10 finestre (00:00-01:00 - 09:00-10:00). Al termine delle prime 10 esecuzioni di pipeline attivate, le esecuzioni di trigger vengono generate per le 10 finestre successive (10:00-11:00 - 19:00-20:00). Continuando con questo esempio di **maxConcurrency** = 10, se sono pronte 10 finestre, ci sono 10 esecuzioni di pipeline totali. Se c'è solo una finestra pronta, è disponibile solo un'esecuzione di pipeline. | Integer | Numero intero compreso tra 1 e 50. | Sì |
 | **retryPolicy: Count** | Numero di tentativi prima che l'esecuzione della pipeline venga contrassegnata come "Non riuscita".  | Integer | Numero intero, in cui il valore predefinito è 0 (nessun tentativo). | No |
 | **retryPolicy: intervalInSeconds** | Ritardo tra i tentativi di ripetizione specificato in secondi. | Integer | Numero di secondi, in cui il valore predefinito è 30. | No |
-| **dependsOn: tipo** | Tipo di TumblingWindowTriggerReference. Obbligatorio se è impostata una dipendenza. | Stringa |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
+| **dependsOn: tipo** | Tipo di TumblingWindowTriggerReference. Obbligatorio se è impostata una dipendenza. | string |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | No |
 | **dependsOn: dimensioni** | Dimensione della finestra a cascata delle dipendenze. | TimeSpan<br/>(hh:mm:ss)  | Valore TimeSpan positivo in cui il valore predefinito è la dimensione della finestra del trigger figlio  | No |
 | **dependsOn: offset** | Offset del trigger di dipendenza. | TimeSpan<br/>(hh:mm:ss) |  Valore TimeSpan che deve essere negativo in una dipendenza indipendente. Se non viene specificato alcun valore, la finestra è uguale a quella del trigger. | Dipendenza autonoma: Sì<br/>Altro: No  |
+
+> [!NOTE]
+> Dopo la pubblicazione di un trigger di finestra a cascata, non è possibile modificare l' **intervallo** e la **frequenza** .
 
 ### <a name="windowstart-and-windowend-system-variables"></a>Variabili di sistema WindowStart e WindowEnd
 

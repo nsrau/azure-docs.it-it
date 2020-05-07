@@ -4,12 +4,12 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7cf437c6b20ea6b688e8e93e401cf71ef0260888
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705429"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597655"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -24,7 +24,7 @@ Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzional
 * Supporta dimensioni del disco fino a 32 TB. Il ridimensionamento dei dischi non è consigliato da backup di Azure.
 * Supporta SDD Standard dischi insieme a dischi HDD Standard e dischi di SSD Premium.
 * Possibilità di usare gli account di archiviazione originali di macchine virtuali non gestite (per disco) durante il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
-* Per il backup delle macchine virtuali che usano archiviazione Premium, con il ripristino immediato è consigliabile allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup.
+* Per il backup delle macchine virtuali che usano dischi Premium non gestiti negli account di archiviazione, con il ripristino istantaneo è consigliabile allocare il *50%* di spazio disponibile dello spazio di archiviazione totale allocato, che è necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup.
 
 ## <a name="whats-new-in-this-feature"></a>Novità di questa funzionalità
 

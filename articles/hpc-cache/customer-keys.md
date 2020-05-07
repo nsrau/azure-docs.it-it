@@ -4,14 +4,14 @@ description: Come usare Azure Key Vault con la cache HPC di Azure per controllar
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: f8a8b8dfedd9c4ac0590dc91e5cdced50d2be6ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d10241b8395c33767ffeeb550d9d8060bde3ce3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195078"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597740"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Usare le chiavi di crittografia gestite dal cliente per la cache HPC di Azure
 
@@ -20,11 +20,7 @@ ms.locfileid: "82195078"
 > [!NOTE]
 > Tutti i dati archiviati in Azure, inclusi i dischi della cache, vengono crittografati a riposo usando chiavi gestite da Microsoft per impostazione predefinita. Se si vogliono gestire le chiavi usate per crittografare i dati, è necessario seguire la procedura descritta in questo articolo.
 
-Questa funzionalità è disponibile solo nelle aree di Azure seguenti:
-
-* Stati Uniti orientali
-* Stati Uniti centro-meridionali
-* Stati Uniti occidentali 2
+Questa funzionalità è disponibile solo in alcune aree di Azure in cui è disponibile cache HPC di Azure. Per informazioni dettagliate, vedere l'elenco di [disponibilità dell'area](hpc-cache-overview.md#region-availability) .
 
 Per abilitare la crittografia della chiave gestita dal cliente per la cache HPC di Azure, è necessario eseguire tre passaggi:
 
@@ -71,7 +67,7 @@ Al momento della creazione della cache è necessario specificare un insieme di c
 Per informazioni dettagliate, leggere la [documentazione Azure Key Vault](../key-vault/key-vault-overview.md) .
 
 > [!NOTE]
-> Il Azure Key Vault deve usare la stessa sottoscrizione e trovarsi nella stessa area della cache HPC di Azure. Usare una delle aree supportate elencate all'inizio di questo articolo.
+> Il Azure Key Vault deve usare la stessa sottoscrizione e trovarsi nella stessa area della cache HPC di Azure. Assicurarsi che l'area scelta [supporti la funzionalità chiavi gestite dal cliente](hpc-cache-overview.md#region-availability).
 
 ## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. creare la cache con chiavi gestite dal cliente abilitate
 

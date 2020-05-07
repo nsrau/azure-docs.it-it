@@ -1,26 +1,21 @@
 ---
-title: Sincronizzare gli attributi Azure AD per il mapping | Microsoft Docs
+title: Sincronizzare gli attributi Azure AD per il mapping
 description: Informazioni su come sincronizzare gli attributi dalla Active Directory locale a Azure AD. Quando si configura il provisioning utenti in app SaaS, usare la funzionalità di estensione della directory per aggiungere gli attributi di origine che non sono sincronizzati per impostazione predefinita.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: mimart
-ms.custom: ''
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09d1efaf54bee65bd3274987e68e643f887baade
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b51d74d188f8f1c99f2075000e8fd91e70a81a4
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522272"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593149"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronizzare un attributo dal Active Directory locale a Azure AD per il provisioning in un'applicazione
 

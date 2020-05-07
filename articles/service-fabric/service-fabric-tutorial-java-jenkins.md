@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 74c412ad4c62a5821890aa5602b521f3f63da925
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75376653"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594764"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Esercitazione: Configurare un ambiente Jenkins per abilitare CI/CD per un'applicazione Java in Service Fabric
 
@@ -85,7 +85,7 @@ In questa serie di esercitazioni si apprenderà come:
 
    a. Nella sezione generale selezionare la casella di controllo associata a **GitHub project** (Progetto GitHub) e specificare l'URL del progetto GitHub. Questo URL ospita l'applicazione Java di Service Fabric da integrare con il flusso di integrazione continua e di distribuzione continua di Jenkins, ad esempio ``https://github.com/testaccount/dev_test``.
 
-   b. Nella sezione **Source Code Management** (Gestione del codice sorgente) selezionare **Git**. Specificare l'URL del repository che ospita l'applicazione Java di Service Fabric che si vuole integrare nel flusso di integrazione continua e di distribuzione continua di Jenkins, ad esempio *https://github.com/testaccount/dev_test.git* . Qui è anche possibile specificare il ramo da compilare, ad esempio **/master**.
+   b. Nella sezione **Source Code Management** (Gestione del codice sorgente) selezionare **Git**. Specificare l'URL del repository che ospita l'applicazione Java di Service Fabric che si vuole integrare nel flusso di integrazione continua e di distribuzione continua di Jenkins, ad esempio *`https://github.com/testaccount/dev_test.git`* . Qui è anche possibile specificare il ramo da compilare, ad esempio **/master**.
 
 1. Configurare *GitHub*, che ospita il repository, in modo che possa comunicare con Jenkins. Eseguire la procedura descritta di seguito:
 

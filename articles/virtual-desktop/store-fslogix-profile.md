@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 71ba24784dee7771acbe19bf0261c7dc02478b24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bb315991846b115070854b6e81caf16232fef6b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127527"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607182"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opzioni di archiviazione per i contenitori del profilo FSLogix in desktop virtuale di Windows
 
@@ -25,7 +25,7 @@ Le tabelle seguenti confrontano le soluzioni di archiviazione offerte da archivi
 
 ## <a name="azure-platform-details"></a>Dettagli della piattaforma Azure
 
-|Caratteristiche|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
+|Funzionalità|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
 |--------|-----------|------------------|---------------------|
 |Caso d'uso|Scopo generico|Prestazioni o migrazione ultra da NetApp locale|Multipiattaforma|
 |Servizio piattaforma|Sì, soluzione nativa di Azure|Sì, soluzione nativa di Azure|No, self-Managed|
@@ -38,7 +38,7 @@ Le tabelle seguenti confrontano le soluzioni di archiviazione offerte da archivi
 
 ## <a name="azure-management-details"></a>Dettagli sulla gestione di Azure
 
-|Caratteristiche|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
+|Funzionalità|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
 |--------|-----------|------------------|---------------------|
 |Accesso|Cloud, locale e ibrido (sincronizzazione file di Azure)|Cloud, locale (tramite ExpressRoute)|Cloud, locale|
 |Backup|Integrazione di snapshot di backup di Azure|Snapshot Azure NetApp Files|Integrazione di snapshot di backup di Azure|
@@ -57,4 +57,4 @@ Se si è pronti per creare i propri contenitori di profili FSLogix, iniziare con
 - [Creare un contenitore di profili FSLogix per un pool host usando i file NetApp di Azure](create-fslogix-profile-container.md)
 - Le istruzioni in [distribuire una file server con scalabilità orizzontale spazi di archiviazione diretta a due nodi per l'archiviazione UPD in Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) si applicano anche quando si usa un contenitore di profili FSLogix anziché un disco del profilo utente
 
-È anche possibile iniziare dall'inizio e configurare la propria soluzione desktop virtuale Windows in [creare un tenant in un desktop virtuale di Windows](tenant-setup-azure-active-directory.md).
+È anche possibile iniziare dall'inizio e configurare la propria soluzione desktop virtuale Windows in [creare un tenant in un desktop virtuale di Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

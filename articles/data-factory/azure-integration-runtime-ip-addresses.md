@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: b0ba47ff28208bce1a6fa6ec300a261d788167de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3fae34d0bb1aaaa2471f1cc9fd55ef9b4b73dfd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415606"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594305"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Indirizzi IP di Azure Integration Runtime
 
@@ -25,7 +25,7 @@ ms.locfileid: "81415606"
 Gli indirizzi IP usati da Azure Integration Runtime dipendono dall'area in cui si trova il runtime di integrazione di Azure. *Tutto* I runtime di integrazione di Azure che si trovano nella stessa area utilizzano gli stessi intervalli di indirizzi IP.
 
 > [!IMPORTANT]  
-> I flussi di dati non utilizzano attualmente questi indirizzi IP. 
+> I flussi di dati non supportano l'uso di intervalli IP fissi.
 >
 > È possibile usare questi intervalli IP per le esecuzioni di spostamento dati, pipeline ed attività esterne. Questi intervalli IP possono essere usati per l'inserimento nell'elenco elementi consentiti in archivi dati/gruppi di sicurezza di rete (NSG)/firewall per l'accesso in ingresso dal runtime di integrazione di Azure. 
 
@@ -33,7 +33,7 @@ Gli indirizzi IP usati da Azure Integration Runtime dipendono dall'area in cui s
 
 Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazione di Azure nell'area specifica di Azure in cui si trovano le risorse:
 
-|                | Area              | Indirizzi IP                                                 |
+|                | Region              | Indirizzi IP                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
 | Asia           | Asia orientale           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
 | &nbsp;         | Asia sud-orientale      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |

@@ -1,21 +1,21 @@
 ---
-title: Libreria del processore del feed delle modifiche in Azure Cosmos DB
-description: Informazioni su come usare la libreria del processore dei feed delle modifiche Azure Cosmos DB per leggere il feed delle modifiche, i componenti del processore del feed delle modifiche
-author: markjbrown
-ms.author: mjbrown
+title: Processore dei feed di modifiche in Azure Cosmos DB
+description: Informazioni su come usare il processore di feed di modifiche Azure Cosmos DB per leggere il feed delle modifiche, i componenti del processore del feed delle modifiche
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 4/29/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273315"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594152"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB
 
 Il processore del feed delle modifiche fa parte del [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Semplifica il processo di lettura del feed delle modifiche e la distribuzione efficace dell'elaborazione degli eventi tra più consumer.
 
@@ -23,13 +23,13 @@ Il vantaggio principale della libreria del processore dei feed delle modifiche �
 
 ## <a name="components-of-the-change-feed-processor"></a>Componenti del processore del feed delle modifiche
 
-Sono disponibili quattro componenti principali per l'implementazione del processore del feed delle modifiche: 
+Sono disponibili quattro componenti principali per l'implementazione del processore del feed delle modifiche:
 
 1. **Contenitore monitorato:** il contenitore monitorato include i dati da cui viene generato il feed di modifiche. Eventuali inserimenti e aggiornamenti del contenitore monitorati vengono riflessi nel feed delle modifiche del contenitore.
 
-1. **Il contenitore lease:** Il contenitore lease funge da archiviazione dello stato e coordina l'elaborazione del feed delle modifiche tra più thread di lavoro. Il contenitore lease può essere archiviato nello stesso account del contenitore monitorato o in un account separato. 
+1. **Il contenitore lease:** Il contenitore lease funge da archiviazione dello stato e coordina l'elaborazione del feed delle modifiche tra più thread di lavoro. Il contenitore lease può essere archiviato nello stesso account del contenitore monitorato o in un account separato.
 
-1. **Host:** Un host è un'istanza dell'applicazione che utilizza il processore del feed delle modifiche per restare in ascolto delle modifiche. Più istanze con la stessa configurazione di lease possono essere eseguite in parallelo, ma ogni istanza deve avere un **nome di istanza**diverso. 
+1. **Host:** Un host è un'istanza dell'applicazione che utilizza il processore del feed delle modifiche per restare in ascolto delle modifiche. Più istanze con la stessa configurazione di lease possono essere eseguite in parallelo, ma ogni istanza deve avere un **nome di istanza**diverso.
 
 1. **Il delegato:** Il delegato è il codice che definisce le operazioni che lo sviluppatore desidera eseguire con ogni batch di modifiche lette dal processore del feed delle modifiche. 
 
@@ -65,7 +65,11 @@ Il normale ciclo di vita di un'istanza dell'host è:
 
 ## <a name="error-handling"></a>Gestione degli errori
 
-Il processore del feed delle modifiche è resiliente agli errori del codice utente. Ciò significa che se l'implementazione del delegato presenta un'eccezione non gestita (passaggio #4), il thread che elabora tale batch di modifiche verrà arrestato e verrà creato un nuovo thread. Il nuovo thread verificherà quale sia l'ultimo punto nel tempo dell'archivio di lease per l'intervallo di valori della chiave di partizione e il riavvio da tale intervallo, inviando efficacemente lo stesso batch di modifiche al delegato. Questo comportamento continuerà fino a quando il delegato non elabora correttamente le modifiche ed è il motivo per cui il processore del feed delle modifiche ha una garanzia di "almeno una volta", perché se il codice del delegato genera, il batch verrà ritentato.
+Il processore del feed delle modifiche è resiliente agli errori del codice utente. Ciò significa che se l'implementazione del delegato presenta un'eccezione non gestita (passaggio #4), il thread che elabora tale batch di modifiche verrà arrestato e verrà creato un nuovo thread. Il nuovo thread verificherà quale sia l'ultimo punto nel tempo dell'archivio di lease per l'intervallo di valori della chiave di partizione e il riavvio da tale intervallo, inviando efficacemente lo stesso batch di modifiche al delegato. Questo comportamento continuerà fino a quando il delegato non elabora correttamente le modifiche ed è il motivo per cui il processore del feed delle modifiche ha una garanzia "almeno una volta", perché se il codice del delegato genera un'eccezione, il batch verrà ritentato.
+
+Per evitare che il processore del feed di modifiche venga bloccato continuamente ritentando lo stesso batch di modifiche, è necessario aggiungere la logica nel codice del delegato per scrivere documenti, in caso di eccezione, in una coda di messaggi non recapitabili. Questa progettazione garantisce che sia possibile tenere traccia delle modifiche non elaborate continuando comunque a elaborare le modifiche future. La coda dei messaggi non recapitabili potrebbe essere semplicemente un altro contenitore Cosmos. L'archivio dati esatto non è rilevante, semplicemente le modifiche non elaborate sono persistenti.
+
+Inoltre, è possibile usare lo strumento di [stima del feed delle modifiche](how-to-use-change-feed-estimator.md) per monitorare lo stato di avanzamento delle istanze del processore del feed delle modifiche durante la lettura del feed di modifiche. Oltre a monitorare se il processore del feed delle modifiche viene bloccato continuamente ritentando lo stesso batch di modifiche, è anche possibile comprendere se il processore del feed delle modifiche è in ritardo a causa di risorse disponibili come CPU, memoria e larghezza di banda di rete.
 
 ## <a name="dynamic-scaling"></a>Scalabilità dinamica
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313763"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594135"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -91,7 +91,7 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
 
 - Configurare ACLing IP per i back-end in modo che accettino il traffico dallo spazio degli indirizzi IP back-end di Azure front door e dai servizi di infrastruttura di Azure. Vedere i dettagli dell'indirizzo IP seguente per ACLing il back-end:
  
-    - Vedere la sezione *AzureFrontDoor. backend* negli [intervalli IP e nei tag del servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) per l'intervallo di indirizzi IP del back-end IPv4 di front-end oppure è possibile usare anche il tag di servizio *AzureFrontDoor. backend* nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o con il firewall di [Azure](https://docs.microsoft.com/azure/firewall/service-tags).
+    - Vedere la sezione *AzureFrontDoor. backend* negli [intervalli IP di Azure e nei tag del servizio](https://www.microsoft.com/download/details.aspx?id=56519) per l'intervallo di indirizzi IP del back-end IPv4 di front-end oppure è possibile usare anche il tag di servizio *AzureFrontDoor. backend* nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
     - Lo spazio IP del back-end **IPv6** dello sportello anteriore mentre è incluso nel tag del servizio non è elencato nel file JSON degli intervalli IP di Azure. Se si sta cercando un intervallo di indirizzi IPv6 esplicito, è attualmente limitato a`2a01:111:2050::/44`
     - Servizi di [infrastruttura di base](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) di Azure tramite indirizzi IP host virtualizzati: `168.63.129.16` e`169.254.169.254`
 

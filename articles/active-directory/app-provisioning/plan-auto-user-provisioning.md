@@ -10,14 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
 ms.author: martinco
-ms.reviewer: arvindha
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d2f284fddfc49632e467adbf5877856b40a81dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvindha, celested
+ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522411"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593540"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -72,7 +71,7 @@ Questo articolo usa i termini seguenti:
 | Webinar on demand| [Gestire le applicazioni aziendali con Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Informazioni su come Azure AD possibile ottenere l'accesso Single Sign-on alle applicazioni SaaS aziendali e procedure consigliate per il controllo dell'accesso. |
 | Video| [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Come distribuire il provisioning utenti in Active Directory di Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrazione di Salesforce con Azure AD: come automatizzare il provisioning degli utenti](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Corsi online| SkillUp online: [gestione delle identità](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Informazioni su come integrare Azure AD con molte applicazioni SaaS e proteggere l'accesso degli utenti a tali applicazioni. |
-| Pubblicazioni| [Autenticazione moderna con Azure Active Directory per le applicazioni Web (riferimento per gli sviluppatori) 1 ° edizione](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Si tratta di una guida autorevole e approfondita per la creazione di soluzioni di autenticazione Active Directory per questi nuovi ambienti. |
+| Documentazione| [Autenticazione moderna con Azure Active Directory per le applicazioni Web (riferimento per gli sviluppatori) 1 ° edizione](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Si tratta di una guida autorevole e approfondita per la creazione di soluzioni di autenticazione Active Directory per questi nuovi ambienti. |
 | Esercitazioni| Vedere l' [elenco delle esercitazioni sull'integrazione di app Saas con Azure ad](../saas-apps/tutorial-list.md). |
 | Domande frequenti| [Domande frequenti](../app-provisioning/user-provisioning.md) sul provisioning utenti automatizzato |
 

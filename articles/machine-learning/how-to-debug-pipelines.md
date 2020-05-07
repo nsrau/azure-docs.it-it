@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257216"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594627"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,11 +88,11 @@ La tabella seguente contiene problemi comuni durante lo sviluppo di pipeline, co
 
 La tabella seguente fornisce informazioni per diverse opzioni di debug per le pipeline. Non si tratta di un elenco esaustivo, perché esistono altre opzioni oltre a Azure Machine Learning, Python e OpenCensus.
 
-| Libreria                    | Tipo   | Esempio                                                          | Destination                                  | Risorse                                                                                                                                                                                                                                                                                                                    |
+| Libreria                    | Type   | Esempio                                                          | Destination                                  | Risorse                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | Metrica | `run.log(name, val)`                                             | Interfaccia utente del portale di Azure Machine Learning             | [Come tenere traccia degli esperimenti](how-to-track-experiments.md#available-metrics-to-track)<br>[Classe azureml. Core. Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Stampa/registrazione Python    | File di log    | `print(val)`<br>`logging.info(message)`                          | Log driver, progettazione Azure Machine Learning | [Come tenere traccia degli esperimenti](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registrazione Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| Python OpenCensus          | File di log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-TRACES                | [Debug delle pipeline in Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Esportatori di Monitoraggio di Azure per OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook per la registrazione di Python](https://docs.python.org/3/howto/logging-cookbook.html) |
+| Stampa/registrazione Python    | Registro    | `print(val)`<br>`logging.info(message)`                          | Log driver, progettazione Azure Machine Learning | [Come tenere traccia degli esperimenti](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registrazione Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Python OpenCensus          | Registro    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-TRACES                | [Debug delle pipeline in Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Esportatori di Monitoraggio di Azure per OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook per la registrazione di Python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Esempio di opzioni di registrazione
 
@@ -128,28 +128,32 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Debug e risoluzione dei problemi in Azure Machine Learning Designer (anteprima)
 
-In questa sezione viene fornita una panoramica su come risolvere i problemi relativi alle pipeline nella finestra di progettazione.
-Per le pipeline create nella finestra di progettazione, è possibile trovare i **file di log** nella pagina Creazione e modifica o nella pagina Dettagli esecuzione pipeline.
+In questa sezione viene fornita una panoramica su come risolvere i problemi relativi alle pipeline nella finestra di progettazione. Per le pipeline create nella finestra di progettazione, è possibile trovare il file **70_driver_log** nella pagina Creazione e modifica o nella pagina Dettagli esecuzione pipeline.
 
-### <a name="access-logs-from-the-authoring-page"></a>Accedere ai log dalla pagina Creazione e modifica
+### <a name="get-logs-from-the-authoring-page"></a>Ottenere i log dalla pagina Creazione e modifica
 
-Quando si invia un'esecuzione della pipeline e si rimane nella pagina di creazione, è possibile trovare i file di log generati per ogni modulo.
+Quando si invia un'esecuzione della pipeline e si rimane nella pagina di creazione, è possibile trovare i file di log generati per ogni modulo al termine dell'esecuzione di ogni modulo.
 
-1. Selezionare un modulo nell'area di disegno di creazione.
+1. Selezionare un modulo che ha terminato l'esecuzione nell'area di disegno di creazione.
 1. Nel riquadro destro del modulo andare alla scheda **output + log** .
-1. Selezionare il file `70_driver_log.txt`di log.
+1. Espandere il riquadro destro e selezionare il file **70_driver_log. txt** per visualizzare il file nel browser. È anche possibile scaricare i log localmente.
 
-    ![Creazione di log del modulo della pagina](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![Riquadro di output espanso nella finestra di progettazione](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="access-logs-from-pipeline-runs"></a>Log di accesso da esecuzioni di pipeline
+### <a name="get-logs-from-pipeline-runs"></a>Ottenere i log dalle esecuzioni di pipeline
 
-È anche possibile trovare i file di log di esecuzioni specifiche nella pagina dei dettagli dell'esecuzione della pipeline nelle sezioni **pipeline** o **esperimenti** .
+È anche possibile trovare i file di log per esecuzioni specifiche nella pagina dei dettagli dell'esecuzione della pipeline, disponibile nella sezione **pipeline** o **esperimenti** di studio.
 
 1. Consente di selezionare un'esecuzione di pipeline creata nella finestra di progettazione.
-    ![Pagina esecuzione pipeline](./media/how-to-debug-pipelines/pipelinerun-04.png)
+
+    ![Pagina esecuzione pipeline](./media/how-to-debug-pipelines/designer-pipelines.png)
+
 1. Selezionare un modulo nel riquadro di anteprima.
 1. Nel riquadro destro del modulo andare alla scheda **output + log** .
-1. Selezionare il file `70_driver_log.txt`di log.
+1. Espandere il riquadro destro per visualizzare il file **70_driver_log. txt** nel browser oppure selezionare il file per scaricare i log localmente.
+
+> [!IMPORTANT]
+> Per aggiornare una pipeline dalla pagina dei dettagli dell'esecuzione della pipeline, è necessario **clonare** l'esecuzione della pipeline in una nuova bozza della pipeline. Un'esecuzione di pipeline è uno snapshot della pipeline. È simile a un file di log e non può essere modificato. 
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Debug e risoluzione dei problemi in Application Insights
 Per altre informazioni sull'uso della libreria Python di OpenCensus in questo modo, vedere questa guida: [eseguire il debug e risolvere i problemi delle pipeline di Machine Learning in Application Insights](how-to-debug-pipelines-application-insights.md)
@@ -171,7 +175,7 @@ In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del cod
 
 Per altre informazioni sull'uso di una rete virtuale di Azure con Azure Machine Learning, vedere [proteggere i processi di sperimentazione e inferenza di Azure ml in una rete virtuale di Azure](how-to-enable-virtual-network.md).
 
-### <a name="how-it-works"></a>Come funziona
+### <a name="how-it-works"></a>Funzionamento
 
 I passaggi della pipeline di ML eseguono script Python. Questi script vengono modificati per eseguire le azioni seguenti:
     

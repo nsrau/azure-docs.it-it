@@ -2,52 +2,17 @@
 title: includere il file
 description: File di inclusione
 services: virtual-machines
-author: roygara
+author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/29/2020
-ms.author: rogarana
+ms.date: 04/27/2020
+ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 84736b7f1dcdf8b186fddbced5dd773e008c0dd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39cc37293ecb0e900a9a88d5aa00863f3e450400
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887418"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594444"
 ---
-L'espansione del disco è supportata per le unità SSD Premium. L'espansione è supportata in qualsiasi dimensione di dischi SSD Premium <= 512 GiB (P20 o di seguito). Queste dimensioni del disco supportano il proporziono al massimo sforzo e utilizzano un sistema di credito per gestire il picchio. I crediti si accumulano in un bucket di espansione ogni volta che il traffico del disco è al di sotto dell'obiettivo di prestazioni con provisioning per le dimensioni del disco e utilizza crediti quando il traffico supera la destinazione. Il traffico su disco viene monitorato in base a IOPS e larghezza di banda nella destinazione sottoposta a provisioning. L'espansione del disco non esclude le limitazioni delle dimensioni delle macchine virtuali (VM) per IOPS o velocità effettiva.
-
-Per impostazione predefinita, l'espansione del disco è abilitata nelle nuove distribuzioni delle dimensioni dei dischi che la supportano. Le dimensioni dei dischi esistenti, se supportano la modalità di espansione del disco, possono consentire l'espansione tramite uno dei metodi seguenti:
-
-- Scollegare e riconnettere il disco.
-- Arrestare e avviare la macchina virtuale.
-
-## <a name="burst-states"></a>Stati di espansione
-
-Tutte le dimensioni del disco applicabili a impulsi iniziano con un bucket di credito a espansione completa quando il disco è collegato a una macchina virtuale. La durata massima dell'espansione è determinata dalla dimensione del bucket di credito di espansione. È possibile accumulare solo crediti inutilizzati fino alle dimensioni del bucket di credito. In qualsiasi momento, il bucket di credito con picchi di disco può trovarsi in uno dei tre stati seguenti: 
-
-- Accumulo, quando il traffico del disco sta utilizzando meno della destinazione di prestazioni con provisioning. È possibile accumulare il credito se il traffico su disco è superiore a IOPS o destinazioni della larghezza di banda o entrambi. È comunque possibile accumulare crediti di i/o quando si utilizza una larghezza di banda completa del disco, viceversa.  
-
-- In declino, quando il traffico del disco utilizza un numero di volte superiore rispetto alla destinazione di prestazioni con provisioning. Il traffico di espansione utilizzerà in modo indipendente i crediti da IOPS o larghezza di banda. 
-
-- Costante rimanente, quando il traffico del disco è esattamente in corrispondenza della destinazione di prestazioni con provisioning. 
-
-Nella tabella riportata di seguito vengono riepilogate le dimensioni dei dischi che forniscono il supporto per l'espansione in sequenza con le specifiche di espansione.
-
-## <a name="regional-availability"></a>Disponibilità a livello di area
-
-L'espansione del disco è disponibile in tutte le aree nel cloud pubblico.
-
-## <a name="disk-sizes"></a>Dimensione disco
-
-[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
-
-## <a name="example-scenarios"></a>Scenari di esempio
-
-Per fornire un'idea più approfondita del funzionamento, ecco alcuni scenari di esempio:
-
-- Uno scenario comune che può trarre vantaggio dall'espansione del disco è l'avvio più veloce delle macchine virtuali e l'avvio dell'applicazione nei dischi del sistema operativo. Come esempio, usare una VM Linux con un'immagine del sistema operativo 8 GiB. Se si usa un disco P2 come disco del sistema operativo, la destinazione di cui è stato effettuato il provisioning è 120 IOPS e 25 MiB. Quando viene avviata la macchina virtuale, il disco del sistema operativo carica i file di avvio. Con l'introduzione dell'espansione, è possibile leggere la massima velocità di espansione di 3500 IOPS e 170 MiB, accelerando il tempo di caricamento di almeno 6x. Dopo l'avvio della macchina virtuale, il livello di traffico sul disco del sistema operativo è in genere basso, perché la maggior parte delle operazioni sui dati da parte dell'applicazione avverrà sui dischi dati collegati. Se il traffico è inferiore alla destinazione di cui è stato effettuato il provisioning, si accumuleranno crediti.
-
-- Se si ospita un ambiente desktop virtuale remoto, ogni volta che un utente attivo avvia un'applicazione come AutoCAD, il traffico verso il disco del sistema operativo aumenta in modo significativo. In questo caso, il traffico di espansione utilizzerà crediti accumulati, consentendo di superare la destinazione di cui è stato effettuato il provisioning e di avviare l'applicazione molto più velocemente.
-
-- Un disco P1 ha una destinazione con provisioning di 120 IOPS e 25 MiB. Se il traffico effettivo sul disco è 100 IOPS e 20 MiB nell'intervallo di 1 secondo precedente, i 20 IOs e 5 MB non usati vengono accreditati nel bucket di espansione del disco. I crediti nel bucket di espansione possono essere usati in un secondo momento quando il traffico supera la destinazione di cui è stato effettuato il provisioning, fino al limite massimo di picchi. Il limite massimo di impulsi definisce il limite di traffico del disco anche se sono presenti crediti di espansione da utilizzare. In questo caso, anche se si dispone di 10.000 IOs nel bucket di credito, un disco P1 non può emettere più del picco massimo di 3.500 IO al secondo.  
+In Azure è possibile aumentare le prestazioni di IOPS di archiviazione su disco e le prestazioni di MB/s a cui si fa riferimento come il potenziamento delle macchine virtuali e dei dischi. Questa operazione è utile in molti scenari, ad esempio la gestione del traffico del disco imprevisto o l'elaborazione dei processi batch. È possibile sfruttare in modo efficace le macchine virtuali e l'espansione a livello di disco per ottenere una linea di base e prestazioni eccezionali sia nella macchina virtuale che nel disco. In questo modo è possibile ottenere prestazioni ottimali di base e migliorare le prestazioni sia nella macchina virtuale che nel disco.

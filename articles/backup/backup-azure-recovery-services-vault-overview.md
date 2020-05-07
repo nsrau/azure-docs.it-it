@@ -3,12 +3,12 @@ title: Panoramica degli insiemi di credenziali di Servizi di ripristino
 description: Una panoramica e un confronto tra gli insiemi di credenziali di Servizi di ripristino e gli insiemi di credenziali di Backup di Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436952"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597952"
 ---
 # <a name="recovery-services-vaults-overview"></a>Panoramica di insiemi di credenziali di Servizi di ripristino
 
@@ -79,6 +79,14 @@ Le sezioni seguenti contengono collegamenti ad articoli che spiegano come usare 
 ### <a name="secure-the-vault"></a>Proteggere l'insieme di credenziali
 
 - [Protezione dei dati di backup cloud negli insiemi di credenziali di Servizi di ripristino](backup-azure-security-feature.md)
+
+## <a name="azure-advisor"></a>Azure Advisor
+
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) è un consulente cloud personalizzato che consente di ottimizzare l'uso di Azure. Analizza l'utilizzo di Azure e fornisce indicazioni tempestive per ottimizzare e proteggere le distribuzioni. Fornisce consigli in quattro categorie: disponibilità elevata, sicurezza, prestazioni e costi.
+
+Azure Advisor fornisce le [raccomandazioni](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) orarie per le macchine virtuali di cui non è stato eseguito il backup, quindi non è possibile eseguire il backup di macchine virtuali importanti. È anche possibile controllare le raccomandazioni eseguendone la ripetizione.  È possibile fare clic sull'indicazione e abilitare il backup sulle VM inline specificando l'insieme di credenziali (in cui verranno archiviati i backup) e i criteri di backup (pianificazione dei backup e conservazione delle copie di backup).
+
+![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

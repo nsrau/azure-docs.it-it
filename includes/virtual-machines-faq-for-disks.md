@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80522699"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595298"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -120,7 +120,7 @@ No. Questa funzionalità non è supportata attualmente in quanto è presente un 
 No. Non è possibile aggiornare la proprietà del nome del computer. La nuova VM eredita la proprietà dalla VM padre usata per creare il disco del sistema operativo. 
 
 **Dove si possono trovare modelli di Azure Resource Manager di esempio per creare macchine virtuali con dischi gestiti?**
-* [Elenco di modelli che usano Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [Elenco di modelli che usano Managed Disks](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **Quando si crea un disco da un BLOB, è presente una relazione continua con il BLOB di origine?**

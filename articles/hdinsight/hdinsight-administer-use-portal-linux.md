@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/23/2020
-ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/24/2020
+ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232888"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598499"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 
@@ -45,7 +45,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
 | Item| Descrizione |
 |---|---|
-|Sposta|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
+|Spostamento|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
 |Elimina|elimina il cluster. |
 |Aggiorna|Aggiorna la vista.|
 
@@ -60,7 +60,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
     |Controllo di accesso (IAM)|usa le assegnazioni di ruolo.  Vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).|
     |Tag|consente di impostare coppie chiave/valore per definire una tassonomia personalizzata dei servizi cloud. Ad esempio, è possibile creare una chiave denominata **progetto**e usare un valore comune per tutti i servizi associati a un progetto specifico.|
     |Diagnostica e risoluzione dei problemi|visualizza informazioni sulla risoluzione dei problemi.|
-    |Avvio rapido|visualizza informazioni utili per iniziare a usare HDInsight.|
+    |Guida introduttiva|visualizza informazioni utili per iniziare a usare HDInsight.|
     |Strumenti|informazioni della Guida per gli strumenti correlati a HDInsight.|
 
   - **Menu Impostazioni**  
@@ -72,7 +72,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
     |Accesso SSH + cluster|visualizza le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH). Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
     |Data Lake Storage Gen1|consente di configurare l'accesso a Data Lake Storage Gen1.  Vedere [Guida introduttiva: impostare i cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Account di archiviazione|visualizza gli account di archiviazione e le chiavi. Gli account di archiviazione vengono configurati durante il processo di creazione dei cluster.|
-    |Applicazioni|consente di aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).|
+    |APPLICAZIONI|consente di aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).|
     |Azioni script|esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).|
     |Metastore esterni|visualizza i metastore [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). I metastore possono essere configurati solo durante il processo di creazione dei cluster.|
     |Partner HDInsight|consente di aggiungere/rimuovere il partner HDInsight corrente.|
@@ -219,13 +219,19 @@ La password viene modificata in tutti i nodi del cluster.
 4. Nella pagina **azioni script** selezionare **Invia nuova**.
 5. Nella pagina **Invia azione script** immettere le informazioni seguenti:
 
-   | Campo | Valore |
+> [!NOTE]
+> Le password SSH non possono contenere i caratteri seguenti:
+> ```
+> " ' ` / \ < % ~ | $ & ! 
+> ```
+
+   | Campo | valore |
    | --- | --- |
    | Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
-   | Name |"Modifica credenziali SSH" |
+   | Nome |"Modifica credenziali SSH" |
    | URI script Bash |URI del file changecredentials.sh |
    | Tipi di nodo: (Head, Worker, Nimbus, Supervisor o Zookeeper). |✓ per tutti i tipi di nodo elencati |
-   | Parametri |Immettere il nome utente SSH e la nuova password. Deve essere presente uno spazio tra il nome utente e la password. I caratteri seguenti non sono supportati nelle password ssh: "''/\ <% ~ | $ &
+   | Parametri |Immettere il nome utente SSH e la nuova password. Deve essere presente uno spazio tra il nome utente e la password. |
    | Salvare questa azione script... |Lasciare questo campo vuoto. |
 
 6. Selezionare **Crea** per applicare lo script. Al termine dello script, è possibile connettersi al cluster usando SSH con le nuove credenziali.
