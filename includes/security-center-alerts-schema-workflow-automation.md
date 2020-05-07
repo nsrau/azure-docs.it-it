@@ -60,23 +60,23 @@ ms.locfileid: "80272829"
 
 |Campo|Tipo di dati|Descrizione|
 |----|----|----|
-|**AlertDisplayName**|Stringa|Nome visualizzato dell'avviso.|
-|**AlertType**|Stringa|Tipo di avviso. Gli avvisi dello stesso tipo devono avere lo stesso valore. Questo campo è una stringa con chiave che rappresenta il tipo di avviso e non di un'istanza di avviso. Tutte le istanze di avviso dalla stessa logica/analitica di rilevamento devono avere lo stesso valore per il tipo di avviso.|
-|**CompromisedEntity**|Stringa|Nome visualizzato della risorsa più correlata a questo avviso.|
-|**Descrizione**|Stringa|Descrizione dell'avviso.|
+|**AlertDisplayName**|string|Nome visualizzato dell'avviso.|
+|**AlertType**|string|Tipo di avviso. Gli avvisi dello stesso tipo devono avere lo stesso valore. Questo campo è una stringa con chiave che rappresenta il tipo di avviso e non di un'istanza di avviso. Tutte le istanze di avviso dalla stessa logica/analitica di rilevamento devono avere lo stesso valore per il tipo di avviso.|
+|**CompromisedEntity**|string|Nome visualizzato della risorsa più correlata a questo avviso.|
+|**Descrizione**|string|Descrizione dell'avviso.|
 |**EndTimeUtc**|Datetime|Ora dell'ultimo evento o attività inclusa nell'avviso.  Il campo deve essere una stringa conforme al formato ISO8601, incluse le informazioni del fuso orario UTC.|
 |**Entities**|IEnumerable (IEntity)|Elenco di entità correlate all'avviso. Questo elenco può avere una combinazione di entità di tipi diversi. Il tipo di entità può essere uno qualsiasi dei tipi definiti nella sezione Entities. È anche possibile inviare entità non incluse nell'elenco seguente, ma non è garantito che vengano elaborate (la convalida dell'avviso non avrà esito negativo con i nuovi tipi di entità).|
 |**ExtendedProperties**|Dictionary (String, String)|I provider potrebbero (facoltativamente) includere qui i campi personalizzati.|
 |**Finalità**|Enum|Finalità correlate alla catena di uccisione alla base dell'avviso. Per un elenco dei valori supportati e spiegazioni degli Intent della catena di uccisione del Centro sicurezza di Azure, vedere [Intentions](../articles/security-center/alerts-reference.md#intentions).<br/>Questo campo può avere più valori (separati da virgola).|
 |**Evento imprevisto**|Bool|Questo campo determina se l'avviso è un evento imprevisto, ovvero un raggruppamento composto di diversi avvisi, o un singolo avviso. Il valore predefinito per il campo è' false ' (ovvero è un singolo avviso).|
 |**ProcessingEndTime**|Datetime|Il momento in cui l'avviso è stato accessibile all'utente finale nel prodotto originale che contiene l'avviso.|
-|**ProductName**|Stringa|Nome del prodotto che ha pubblicato questo avviso (Centro sicurezza di Azure, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS e così via).|
+|**ProductName**|string|Nome del prodotto che ha pubblicato questo avviso (Centro sicurezza di Azure, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS e così via).|
 |**Correzione**|Elenco<String>|Elementi di azione manuali da eseguire per correggere l'avviso.|
 |**ResourceIdentifiers**|List (identificatori di risorsa)|Identificatori di risorsa per questo avviso che possono essere usati per indirizzare l'avviso al gruppo di esposizione del prodotto appropriato (tenant, area di lavoro, sottoscrizione e così via). Possono essere presenti più identificatori di tipo diverso per ogni avviso.|
 |**Gravità**|Enum|Gravità dell'avviso come riportato dal provider. Valori possibili: Informational, low, medium e High.|
 |**StartTimeUtc**|Datetime|Ora del primo evento o attività inclusa nell'avviso. Il campo deve essere una stringa conforme al formato ISO8601, incluse le informazioni del fuso orario UTC.|
-|**Stato**|Enum|Stato del ciclo di vita dell'avviso.<br/>Gli stati supportati sono: New, resolved, unmissed, Unknown.<br/>A un avviso che specifica un valore diverso dalle opzioni supportate viene assegnato lo stato "Unknown".<br/>A un avviso che non specifica un valore viene assegnato lo stato ' New '.|
-|**SystemAlertId**|Stringa|Identificatore dell'avviso.|
+|**Status**|Enum|Stato del ciclo di vita dell'avviso.<br/>Gli stati supportati sono: New, resolved, unmissed, Unknown.<br/>A un avviso che specifica un valore diverso dalle opzioni supportate viene assegnato lo stato "Unknown".<br/>A un avviso che non specifica un valore viene assegnato lo stato ' New '.|
+|**SystemAlertId**|string|Identificatore dell'avviso.|
 |**TimeGenerated**|Datetime|Ora in cui l'avviso è stato generato dal provider di avvisi. Se non vengono segnalati da provider di avvisi interni, un prodotto può scegliere di assegnare il tempo che è stato ricevuto per l'elaborazione da parte del prodotto.  Il campo deve essere una stringa conforme al formato ISO8601, incluse le informazioni del fuso orario UTC.|
-|**NomeFornitore**|Stringa|Nome del fornitore che genera l'avviso.|
+|**NomeFornitore**|string|Nome del fornitore che genera l'avviso.|
 |||
