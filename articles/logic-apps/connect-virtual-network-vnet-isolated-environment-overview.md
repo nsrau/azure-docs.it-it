@@ -3,15 +3,15 @@ title: Accedere alle reti virtuali di Azure
 description: Panoramica su come gli ambienti di Integration Services (ISEs) consentono alle app per la logica di accedere alle reti virtuali di Azure (reti virtuali)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
+ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127257"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734918"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -111,16 +111,18 @@ Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/
 
 ## <a name="ise-endpoint-access"></a>Accesso endpoint ISE
 
-Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni o esterni. La selezione determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale.
-
-Questi endpoint influiscono anche sul modo in cui è possibile accedere agli input e agli output nella cronologia di esecuzione delle app per la logica.
-
-* **Interno**: endpoint privati che consentono chiamate a app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output delle app per la logica nella cronologia di esecuzione *solo dall'interno della rete virtuale*
-
-* **External**: endpoint pubblici che consentono chiamate a app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output delle app per la logica nella cronologia di esecuzione *dall'esterno della rete virtuale*. Se si usano i gruppi di sicurezza di rete (gruppi), assicurarsi che siano configurati con regole in ingresso per consentire l'accesso agli input e agli output della cronologia di esecuzione. Per altre informazioni, vedere [abilitare l'accesso per ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni o esterni. La selezione determina se i trigger di richiesta o webhook nelle app per la logica in ISE possono ricevere chiamate dall'esterno della rete virtuale. Questi endpoint influiscono anche sul modo in cui è possibile accedere agli input e agli output dalla cronologia delle esecuzioni delle app per la logica.
 
 > [!IMPORTANT]
-> L'opzione endpoint di accesso è disponibile solo alla creazione di ISE e non può essere modificata in un secondo momento.
+> È possibile selezionare l'endpoint di accesso solo durante la creazione di ISE e non è possibile modificare questa opzione in un secondo momento.
+
+* **Interno**: gli endpoint privati consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica solo dall'interno della rete virtuale*. Assicurarsi di disporre della connettività di rete tra gli endpoint privati e il computer da cui si vuole accedere alla cronologia delle esecuzioni. Ad esempio, il computer client può esistere all'interno della rete virtuale di ISE o in una rete virtuale connessa alla rete virtuale di ISE, ad esempio tramite il peering o una rete privata virtuale.
+
+* **External**: gli endpoint pubblici consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica dall'esterno della rete virtuale*. Se si usano i gruppi di sicurezza di rete (gruppi), assicurarsi che siano configurati con regole in ingresso per consentire l'accesso agli input e agli output della cronologia di esecuzione. Per altre informazioni, vedere [abilitare l'accesso per ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+
+Per determinare se ISE usa un endpoint di accesso interno o esterno, nel menu di ISE, in **Impostazioni**, selezionare **Proprietà**e trovare la proprietà **endpoint di accesso** :
+
+![Trovare l'endpoint di accesso ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

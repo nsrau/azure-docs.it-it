@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641358"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733661"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
@@ -84,7 +84,7 @@ Seguire questa procedura per eseguire con privilegi elevati l'accesso per un amm
 
 1. Apportare le modifiche necessarie per cui sono richiesti privilegi elevati.
 
-    Per informazioni sull'assegnazione dei ruoli, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md). Se si usa Azure AD Privileged Identity Management (PIM), vedere [Individuare le risorse di Azure per la gestione in PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) oppure [Assegnare i ruoli delle risorse di Azure in PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Per informazioni sull'assegnazione dei ruoli, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-portal.md). Se si usa Azure AD Privileged Identity Management (PIM), vedere [Individuare le risorse di Azure per la gestione in PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) oppure [Assegnare i ruoli delle risorse di Azure in PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati
 
@@ -321,5 +321,5 @@ Quando si chiama `elevateAccess`, si crea un'assegnazione di ruolo per se stessi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Comprendere i diversi ruoli in Azure](rbac-and-directory-admin-roles.md)
-- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'API REST](role-assignments-rest.md)
+- [Informazioni sui diversi ruoli](rbac-and-directory-admin-roles.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](role-assignments-rest.md)

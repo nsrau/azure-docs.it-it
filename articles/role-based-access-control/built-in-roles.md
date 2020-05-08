@@ -15,12 +15,12 @@ ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: b5ba4b84fcd9c1722e8ab2f4031ec1551357e406
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838740"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869985"
 ---
 # <a name="azure-built-in-roles"></a>Ruoli predefiniti di Azure
 
@@ -34,7 +34,7 @@ La tabella seguente fornisce una breve descrizione e l'ID univoco di ogni ruolo 
 
 
 > [!div class="mx-tableFixed"]
-> | Ruolo predefinito | Descrizione | ID |
+> | Ruolo predefinito | Description | ID |
 > | --- | --- | --- |
 > | **Generalee** |  |  |
 > | [Collaboratore](#contributor) | Consente di gestire tutto tranne che per concedere l'accesso alle risorse. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -156,7 +156,7 @@ La tabella seguente fornisce una breve descrizione e l'ID univoco di ogni ruolo 
 > | [Lab Creator (Creatore di lab)](#lab-creator) | Consente di creare, gestire ed eliminare i lab gestiti con gli account di Azure Lab. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Monitoraggio** |  |  |
 > | [Collaboratore componente di Application Insights](#application-insights-component-contributor) | È in grado di gestire i componenti di Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
-> | [Debugger di snapshot di Application Insights](#application-insights-snapshot-debugger) | Concede l'autorizzazione utente per visualizzare e scaricare gli snapshot di debug raccolti con Application Insights Snapshot Debugger. Si noti che queste autorizzazioni non sono incluse nei ruoli [Proprietario](#owner) e [Collaboratore](#contributor). | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | [Debugger di snapshot di Application Insights](#application-insights-snapshot-debugger) | Concede l'autorizzazione utente per visualizzare e scaricare gli snapshot di debug raccolti con Application Insights Snapshot Debugger. Si noti che queste autorizzazioni non sono incluse nei ruoli [Proprietario](#owner) e [Collaboratore](#contributor). Quando si assegnano agli utenti il ruolo Application Insights Snapshot Debugger, è necessario concedere il ruolo direttamente all'utente. Il ruolo non viene riconosciuto quando viene aggiunto a un ruolo personalizzato. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Collaboratore al monitoraggio](#monitoring-contributor) | Può leggere tutti i dati del monitoraggio e modificare le impostazioni di monitoraggio. Vedere anche [Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Autore delle metriche di monitoraggio](#monitoring-metrics-publisher) | Abilitare la pubblicazione di metriche nelle risorse di Azure | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | [Lettore di monitoraggio](#monitoring-reader) | Può leggere tutti i dati del monitoraggio (metriche, log e così via). Vedere anche [Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
@@ -6083,7 +6083,7 @@ Consente di creare, gestire ed eliminare i lab gestiti con gli account di Azure 
 }
 ```
 
-## <a name="monitor"></a>Monitoraggio
+## <a name="monitor"></a>Monitorare
 
 
 ### <a name="application-insights-component-contributor"></a>Collaboratore componente di Application Insights
@@ -6144,7 +6144,7 @@ Consente di creare, gestire ed eliminare i lab gestiti con gli account di Azure 
 
 ### <a name="application-insights-snapshot-debugger"></a>Debugger di snapshot di Application Insights
 
-Concede l'autorizzazione utente per visualizzare e scaricare gli snapshot di debug raccolti con Application Insights Snapshot Debugger. Si noti che queste autorizzazioni non sono incluse nei ruoli [Proprietario](#owner) e [Collaboratore](#contributor).
+Concede l'autorizzazione utente per visualizzare e scaricare gli snapshot di debug raccolti con Application Insights Snapshot Debugger. Si noti che queste autorizzazioni non sono incluse nei ruoli [Proprietario](#owner) e [Collaboratore](#contributor). Quando si assegnano agli utenti il ruolo Application Insights Snapshot Debugger, è necessario concedere il ruolo direttamente all'utente. Il ruolo non viene riconosciuto quando viene aggiunto a un ruolo personalizzato. 
 
 > [!div class="mx-tableFixed"]
 > |  |  |

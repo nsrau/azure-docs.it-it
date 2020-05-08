@@ -7,18 +7,20 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131262"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983075"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Risolvere i problemi di Web Application Firewall (WAF) per il gateway applicazione Azure
 
 Se le richieste che devono passare attraverso il Web Application Firewall (WAF) sono bloccate, è possibile eseguire alcune operazioni.
 
 Prima di tutto, assicurarsi di aver letto la [Panoramica di WAF](ag-overview.md) e i documenti di [configurazione di WAF](application-gateway-waf-configuration.md) . Assicurarsi anche di aver abilitato il [monitoraggio di WAF](../../application-gateway/application-gateway-diagnostics.md) . questi articoli spiegano come funzionano le funzioni WAF, il funzionamento dei set di regole WAF e come accedere ai log WAF.
+
+I set di regole OWASP sono progettati per essere estremamente rigorosi e devono essere ottimizzati per soddisfare le esigenze specifiche dell'applicazione o dell'organizzazione mediante WAF. Si tratta di un comportamento normale e in realtà previsto in molti casi, per creare esclusioni, regole personalizzate e persino disabilitare regole che potrebbero causare problemi o falsi positivi. Per i criteri per sito e per URI è possibile che queste modifiche influiscano solo su siti/URI specifici, quindi le modifiche non devono avere effetto su altri siti che potrebbero non essere in esecuzione negli stessi problemi. 
 
 ## <a name="understanding-waf-logs"></a>Informazioni sui log di WAF
 

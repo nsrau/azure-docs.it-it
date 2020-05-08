@@ -1,37 +1,32 @@
 ---
-title: Limitazione dell'accesso con una rete virtuale
-description: Consentire l'accesso a un registro contenitori di Azure solo da risorse in una rete virtuale di Azure o da intervalli di indirizzi IP pubblici.
+title: Limitazione dell'accesso tramite un endpoint del servizio
+description: Limitare l'accesso a un registro contenitori di Azure usando un endpoint di servizio in una rete virtuale di Azure
 ms.topic: article
-ms.date: 07/01/2019
-ms.openlocfilehash: a6b89b074c25ea0948597ede7e5681b100c7f429
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: da5ab67d6658d8760565353e2a690c53d862d0ed
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74454338"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982582"
 ---
-# <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Limitare l'accesso a un registro contenitori di Azure usando una rete virtuale di Azure o regole del firewall
+# <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Limitare l'accesso a un registro contenitori usando un endpoint di servizio in una rete virtuale di Azure
 
-[Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) offre reti private e sicure per le risorse di Azure e locali. Limitando l'accesso al registro contenitori di Azure privato da una rete virtuale di Azure, è possibile garantire che solo le risorse nella rete virtuale accedano al registro di sistema. Per gli scenari cross-premise, è anche possibile configurare le regole del firewall per consentire l'accesso al registro di sistema solo da indirizzi IP specifici.
+[Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) offre reti private e sicure per le risorse di Azure e locali. Un [endpoint del servizio](../virtual-network/virtual-network-service-endpoints-overview.md) consente di proteggere l'indirizzo IP pubblico del registro contenitori solo per la rete virtuale. Questo endpoint fornisce al traffico una route ottimale alla risorsa tramite la rete backbone di Azure. Con ogni richiesta vengono anche trasmesse le identità della rete virtuale e della subnet.
 
-Questo articolo illustra due scenari per configurare le regole di accesso alla rete in ingresso in un registro contenitori: da una macchina virtuale distribuita in una rete virtuale o da un indirizzo IP pubblico della macchina virtuale.
+Questo articolo illustra come configurare un endpoint di servizio del registro contenitori (anteprima) in una rete virtuale. 
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
->
+> Azure Container Registry ora supporta il [collegamento privato di Azure](container-registry-private-link.md), consentendo l'immissione di endpoint privati da una rete virtuale in un registro. Gli endpoint privati sono accessibili dall'interno della rete virtuale, usando indirizzi IP privati. È consigliabile usare endpoint privati anziché gli endpoint di servizio nella maggior parte degli scenari di rete.
 
-Se invece è necessario configurare regole di accesso per le risorse per raggiungere un registro contenitori da dietro un firewall, vedere [configurare le regole per accedere a un registro contenitori di Azure dietro un firewall](container-registry-firewall-access-rules.md).
-
+La configurazione di un endpoint del servizio Registro di sistema è disponibile nel livello di servizio Registro contenitori **Premium** . Per informazioni sui limiti e i livelli di servizio del registro di sistema, vedere [livelli di container Registry di Azure](container-registry-skus.md).
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
-* Solo un registro contenitori **Premium** può essere configurato con regole di accesso alla rete. Per informazioni sui livelli di servizio del registro di sistema, vedere [sku container Registry di Azure](container-registry-skus.md). 
-
-* Solo un cluster di [Servizi Kubernetes di Azure](../aks/intro-kubernetes.md) o una [macchina virtuale](../virtual-machines/linux/overview.md) di Azure può essere usato come host per accedere a un registro contenitori in una rete virtuale. *Altri servizi di Azure, incluse le istanze di contenitore di Azure, non sono attualmente supportati.*
-
-* Le operazioni delle [attività ACR](container-registry-tasks-overview.md) non sono attualmente supportate in un registro contenitori a cui si accede in una rete virtuale.
-
-* Ogni registro supporta un massimo di 100 regole della rete virtuale.
+* Lo sviluppo futuro di endpoint di servizio per Container Registry di Azure non è attualmente pianificato. È invece consigliabile usare [endpoint privati](container-registry-private-link.md) .
+* Non è possibile usare la portale di Azure per configurare gli endpoint di servizio in un registro.
+* Per accedere a un registro contenitori tramite un endpoint del servizio, è possibile usare solo un cluster di [Servizi Kubernetes](../aks/intro-kubernetes.md) di Azure o una [macchina virtuale](../virtual-machines/linux/overview.md) di Azure come host. *Altri servizi di Azure, incluse le istanze di contenitore di Azure, non sono supportati.*
+* Ogni registro supporta un massimo di 100 regole di accesso alla rete.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +34,7 @@ Se invece è necessario configurare regole di accesso per le risorse per raggiun
 
 * Se non si ha già un registro contenitori, crearne uno (SKU Premium obbligatorio) ed effettuare il push di un' `hello-world` immagine di esempio, ad esempio dall'hub docker. Ad esempio, usare l' [portale di Azure][quickstart-portal] o l' [interfaccia][quickstart-cli] della riga di comando di Azure per creare un registro. 
 
-* Se si vuole limitare l'accesso al registro di sistema usando una rete virtuale in un'altra sottoscrizione di Azure, è necessario registrare il provider di risorse per Container Registry di Azure nella sottoscrizione. Ad esempio:
+* Se si vuole limitare l'accesso al registro di sistema usando un endpoint di servizio in un'altra sottoscrizione di Azure, registrare il provider di risorse per Container Registry di Azure nella sottoscrizione. Ad esempio:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -47,80 +42,9 @@ Se invece è necessario configurare regole di accesso per le risorse per raggiun
   az provider register --namespace Microsoft.ContainerRegistry
   ``` 
 
-## <a name="about-network-rules-for-a-container-registry"></a>Informazioni sulle regole di rete per un registro contenitori
+[!INCLUDE [Set up Docker-enabled VM](../../includes/container-registry-docker-vm-setup.md)]
 
-Per impostazione predefinita, un registro contenitori di Azure accetta connessioni su Internet dagli host in qualsiasi rete. Con una rete virtuale, è possibile consentire solo a risorse di Azure, ad esempio un cluster AKS o una macchina virtuale di Azure, di accedere in modo sicuro al registro di sistema, senza superare un limite di rete. È anche possibile configurare le regole del firewall di rete per consentire solo specifici intervalli di indirizzi IP Internet pubblici. 
-
-Per limitare l'accesso a un registro, modificare prima l'azione predefinita del registro di sistema in modo da negare tutte le connessioni di rete. Quindi, aggiungere le regole di accesso alla rete. I client che hanno concesso l'accesso tramite le regole di rete devono continuare a eseguire l' [autenticazione nel registro contenitori](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) ed essere autorizzati ad accedere ai dati.
-
-### <a name="service-endpoint-for-subnets"></a>Endpoint servizio per le subnet
-
-Per consentire l'accesso da una subnet in una rete virtuale, è necessario aggiungere un [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) per il servizio container Registry di Azure. 
-
-I servizi multi-tenant, come Azure Container Registry, usano un unico set di indirizzi IP per tutti i clienti. Un endpoint di servizio assegna un endpoint per accedere a un registro. Questo endpoint fornisce al traffico una route ottimale alla risorsa tramite la rete backbone di Azure. Con ogni richiesta vengono anche trasmesse le identità della rete virtuale e della subnet.
-
-### <a name="firewall-rules"></a>Regole del firewall
-
-Per le regole di rete IP, specificare gli intervalli di indirizzi Internet consentiti usando la notazione CIDR, ad esempio *16.17.18.0/24* o un singolo indirizzo IP come *16.17.18.19*. Le regole di rete IP sono consentite solo per indirizzi IP Internet *pubblici* . Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'RFC 1918) non sono consentiti nelle regole IP.
-
-## <a name="create-a-docker-enabled-virtual-machine"></a>Creare una macchina virtuale abilitata per Docker
-
-Per questo articolo, usare una VM Ubuntu abilitata per Docker per accedere a un registro contenitori di Azure. Per usare l'autenticazione Azure Active Directory per il registro di sistema, installare anche l'interfaccia della riga di comando di [Azure][azure-cli] nella macchina virtuale. Se si dispone già di una macchina virtuale di Azure, ignorare questo passaggio di creazione.
-
-È possibile usare lo stesso gruppo di risorse per la macchina virtuale e il registro contenitori. Questa configurazione semplifica la pulizia alla fine, ma non è obbligatoria. Se si sceglie di creare un gruppo di risorse separato per la macchina virtuale e la rete virtuale, eseguire il comando [AZ Group create][az-group-create]. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *westcentralus* :
-
-```azurecli
-az group create --name myResourceGroup --location westus
-```
-
-Distribuire ora una macchina virtuale di Azure Ubuntu predefinita con [AZ VM create][az-vm-create]. L'esempio seguente crea una macchina virtuale denominata *myDockerVM*:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys
-```
-
-Per creare la macchina virtuale sono necessari alcuni minuti. Dopo aver eseguito il comando, prendere nota del `publicIpAddress` visualizzato dall'interfaccia della riga di comando di Azure. Usare questo indirizzo per stabilire connessioni SSH alla macchina virtuale e, facoltativamente, per configurare le regole del firewall in un secondo momento.
-
-### <a name="install-docker-on-the-vm"></a>Installare Docker nella macchina virtuale
-
-Una volta che la macchina virtuale è in esecuzione, stabilire una connessione SSH alla macchina virtuale. Sostituire *publicIpAddress* con l'indirizzo IP pubblico della macchina virtuale.
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-Eseguire il comando seguente per installare Docker nella VM Ubuntu:
-
-```bash
-sudo apt install docker.io -y
-```
-
-Dopo l'installazione, eseguire il comando seguente per verificare la corretta esecuzione di Docker nella macchina virtuale:
-
-```bash
-sudo docker run -it hello-world
-```
-
-Output:
-
-```
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-[...]
-```
-
-### <a name="install-the-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
-
-Seguire i passaggi descritti in [Installare l'interfaccia della riga di comando di Azure con APT](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) per installare l'interfaccia della riga di comando di Azure nella macchina virtuale Ubuntu. Per questo articolo, assicurarsi di installare la versione 2.0.58 o successiva.
-
-Uscire dalla connessione SSH.
-
-## <a name="allow-access-from-a-virtual-network"></a>Consentire l'accesso da una rete virtuale
+## <a name="configure-network-access-for-registry"></a>Configurare l'accesso alla rete per il registro di sistema
 
 In questa sezione configurare il registro contenitori per consentire l'accesso da una subnet in una rete virtuale di Azure. Vengono forniti i passaggi equivalenti usando l'interfaccia della riga di comando di Azure e portale di Azure.
 
@@ -131,7 +55,9 @@ In questa sezione configurare il registro contenitori per consentire l'accesso d
 Quando si crea una VM, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Ad esempio, se si specifica il nome della macchina virtuale *myDockerVM*, il nome di rete virtuale predefinito è *myDockerVMVNET*, con una subnet denominata *myDockerVMSubnet*. Verificare questa impostazione nel portale di Azure o usando il comando [AZ Network VNET list][az-network-vnet-list] :
 
 ```azurecli
-az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
+az network vnet list \
+  --resource-group myResourceGroup \
+  --query "[].{Name: name, Subnet: subnets[0].name}"
 ```
 
 Output:
@@ -185,117 +111,10 @@ az acr update --name myContainerRegistry --default-action Deny
 Usare il comando [AZ ACR Network-rule add][az-acr-network-rule-add] per aggiungere una regola di rete al registro di sistema che consente l'accesso dalla subnet della VM. Sostituire il nome del registro contenitori e l'ID risorsa della subnet nel comando seguente: 
 
  ```azurecli
-az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
+az acr network-rule add \
+  --name mycontainerregistry \
+  --subnet <subnet-resource-id>
 ```
-
-Continuare a [verificare l'accesso al registro di sistema](#verify-access-to-the-registry).
-
-### <a name="allow-access-from-a-virtual-network---portal"></a>Consentire l'accesso da una rete virtuale-portale
-
-#### <a name="add-service-endpoint-to-subnet"></a>Aggiungi endpoint servizio alla subnet
-
-Quando si crea una VM, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Ad esempio, se si specifica il nome della macchina virtuale *myDockerVM*, il nome di rete virtuale predefinito è *myDockerVMVNET*, con una subnet denominata *myDockerVMSubnet*.
-
-Per aggiungere un endpoint di servizio per Container Registry di Azure a una subnet:
-
-1. Nella casella di ricerca nella parte superiore del [portale di Azure][azure-portal]immettere *reti virtuali*. Selezionare **Reti virtuali** quando viene visualizzato nei risultati della ricerca.
-1. Dall'elenco di reti virtuali selezionare la rete virtuale in cui è distribuita la macchina virtuale, ad esempio *myDockerVMVNET*.
-1. In **Impostazioni**selezionare **Subnet**.
-1. Selezionare la subnet in cui è distribuita la macchina virtuale, ad esempio *myDockerVMSubnet*.
-1. In **endpoint servizio**selezionare **Microsoft. ContainerRegistry**.
-1. Selezionare **Salva**.
-
-![Aggiungi endpoint servizio alla subnet][acr-subnet-service-endpoint] 
-
-#### <a name="configure-network-access-for-registry"></a>Configurare l'accesso alla rete per il registro di sistema
-
-Per impostazione predefinita, un registro contenitori di Azure consente le connessioni da host in qualsiasi rete. Per limitare l'accesso alla rete virtuale:
-
-1. Nel portale passare al registro contenitori.
-1. In **Impostazioni**selezionare **firewall e reti virtuali**.
-1. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da **reti selezionate**. 
-1. Selezionare **Aggiungi rete virtuale esistente**e selezionare la rete virtuale e la subnet configurate con un endpoint del servizio. Selezionare **Aggiungi**.
-1. Selezionare **Salva**.
-
-![Configurare la rete virtuale per il registro contenitori][acr-vnet-portal]
-
-Continuare a [verificare l'accesso al registro di sistema](#verify-access-to-the-registry).
-
-## <a name="allow-access-from-an-ip-address"></a>Consenti accesso da un indirizzo IP
-
-In questa sezione configurare il registro contenitori per consentire l'accesso da un intervallo o un indirizzo IP specifico. Vengono forniti i passaggi equivalenti usando l'interfaccia della riga di comando di Azure e portale di Azure.
-
-### <a name="allow-access-from-an-ip-address---cli"></a>Consentire l'accesso da un indirizzo IP-CLI
-
-#### <a name="change-default-network-access-to-registry"></a>Modificare l'accesso di rete predefinito al registro di sistema
-
-Se non è già stato fatto, aggiornare la configurazione del registro di sistema per negare l'accesso per impostazione predefinita. Sostituire il nome del registro di sistema con il comando [AZ ACR Update][az-acr-update] seguente:
-
-```azurecli
-az acr update --name myContainerRegistry --default-action Deny
-```
-
-#### <a name="remove-network-rule-from-registry"></a>Rimuovere la regola di rete dal registro di sistema
-
-Se in precedenza è stata aggiunta una regola di rete per consentire l'accesso dalla subnet della VM, rimuovere l'endpoint del servizio e la regola di rete della subnet. Sostituire il nome del registro contenitori e l'ID risorsa della subnet recuperata in un passaggio precedente del comando [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] : 
-
-```azurecli
-# Remove service endpoint
-
-az network vnet subnet update \
-  --name myDockerVMSubnet \
-  --vnet-name myDockerVMVNET \
-  --resource-group myResourceGroup \
-  --service-endpoints ""
-
-# Remove network rule
-
-az acr network-rule remove --name mycontainerregistry --subnet <subnet-resource-id>
-```
-
-#### <a name="add-network-rule-to-registry"></a>Aggiungi regola di rete al registro di sistema
-
-Usare il comando [AZ ACR Network-rule add][az-acr-network-rule-add] per aggiungere una regola di rete al registro di sistema che consenta l'accesso dall'indirizzo IP della macchina virtuale. Sostituire il nome del registro contenitori e l'indirizzo IP pubblico della macchina virtuale con il comando seguente.
-
-```azurecli
-az acr network-rule add --name mycontainerregistry --ip-address <public-IP-address>
-```
-
-Continuare a [verificare l'accesso al registro di sistema](#verify-access-to-the-registry).
-
-### <a name="allow-access-from-an-ip-address---portal"></a>Consentire l'accesso da un indirizzo IP-portale
-
-#### <a name="remove-existing-network-rule-from-registry"></a>Rimuovi regola di rete esistente dal registro di sistema
-
-Se in precedenza è stata aggiunta una regola di rete per consentire l'accesso dalla subnet della VM, rimuovere la regola esistente. Ignorare questa sezione se si vuole accedere al registro di sistema da una macchina virtuale diversa.
-
-* Aggiornare le impostazioni della subnet per rimuovere l'endpoint del servizio della subnet per Azure Container Registry. 
-
-  1. Nella [portale di Azure][azure-portal]passare alla rete virtuale in cui è distribuita la macchina virtuale.
-  1. In **Impostazioni**selezionare **Subnet**.
-  1. Selezionare la subnet in cui è distribuita la macchina virtuale.
-  1. In **endpoint servizio**rimuovere la casella di controllo per **Microsoft. ContainerRegistry**. 
-  1. Selezionare **Salva**.
-
-* Rimuovere la regola di rete che consente alla subnet di accedere al registro di sistema.
-
-  1. Nel portale passare al registro contenitori.
-  1. In **Impostazioni**selezionare **firewall e reti virtuali**.
-  1. In **reti virtuali**selezionare il nome della rete virtuale e quindi fare clic su **Rimuovi**.
-  1. Selezionare **Salva**.
-
-#### <a name="add-network-rule-to-registry"></a>Aggiungi regola di rete al registro di sistema
-
-1. Nel portale passare al registro contenitori.
-1. In **Impostazioni**selezionare **firewall e reti virtuali**.
-1. Se non è già stato fatto, scegliere di consentire l'accesso dalle **reti selezionate**. 
-1. In **reti virtuali**assicurarsi che non sia selezionata alcuna rete.
-1. In **Firewall**immettere l'indirizzo IP pubblico di una macchina virtuale. In alternativa, immettere un intervallo di indirizzi nella notazione CIDR che contiene l'indirizzo IP della macchina virtuale.
-1. Selezionare **Salva**.
-
-![Configurare la regola del firewall per il registro contenitori][acr-vnet-firewall-portal]
-
-Continuare a [verificare l'accesso al registro di sistema](#verify-access-to-the-registry).
 
 ## <a name="verify-access-to-the-registry"></a>Verificare l'accesso al registro di sistema
 
@@ -313,7 +132,7 @@ docker pull mycontainerregistry.azurecr.io/hello-world:v1
 
 Docker esegue correttamente il pull dell'immagine nella macchina virtuale.
 
-Questo esempio dimostra che è possibile accedere al registro contenitori privato tramite la regola di accesso alla rete. Non è tuttavia possibile accedere al registro di sistema da un host di accesso diverso in cui non è configurata una regola di accesso alla rete. Se si tenta di eseguire l'accesso da un altro `az acr login` host usando `docker login` il comando o il comando, l'output sarà simile al seguente:
+Questo esempio dimostra che è possibile accedere al registro contenitori privato tramite la regola di accesso alla rete. Non è tuttavia possibile accedere al registro di sistema da un host di accesso in cui non è configurata una regola di accesso alla rete. Se si tenta di eseguire l'accesso da un altro `az acr login` host usando `docker login` il comando o il comando, l'output sarà simile al seguente:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
@@ -330,7 +149,7 @@ Per ripristinare il registro di sistema in modo da consentire l'accesso per impo
 Per visualizzare un elenco di regole di rete configurate per il registro, eseguire il comando [AZ ACR Network-Rule list][az-acr-network-rule-list] seguente:
 
 ```azurecli
-az acr network-rule list--name mycontainerregistry 
+az acr network-rule list --name mycontainerregistry 
 ```
 
 Per ogni regola configurata, eseguire il comando [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] per rimuoverlo. Ad esempio:
@@ -342,12 +161,6 @@ az acr network-rule remove \
   --name mycontainerregistry \
   --subnet /subscriptions/ \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
-
-# Remove a rule that allows access for an IP address or CIDR range such as 23.45.1.0/24.
-
-az acr network-rule remove \
-  --name mycontainerregistry \
-  --ip-address 23.45.1.0/24
 ```
 
 #### <a name="allow-access"></a>Consentire l'accesso
@@ -356,15 +169,6 @@ Sostituire il nome del registro di sistema con il comando [AZ ACR Update][az-acr
 ```azurecli
 az acr update --name myContainerRegistry --default-action Allow
 ```
-
-### <a name="restore-default-registry-access---portal"></a>Ripristinare l'accesso predefinito al registro di sistema-portale
-
-
-1. Nel portale passare al registro contenitori e selezionare **firewall e reti virtuali**.
-1. In **reti virtuali**selezionare ogni rete virtuale e quindi fare clic su **Rimuovi**.
-1. In **Firewall**selezionare ogni intervallo di indirizzi, quindi selezionare l'icona Elimina.
-1. In **Consenti accesso da**selezionare **tutte le reti**. 
-1. Selezionare **Salva**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -378,17 +182,14 @@ Per pulire le risorse nel portale, passare al gruppo di risorse myResourceGroup.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Sebbene brevemente, questo articolo ha illustrato diverse risorse di rete virtuale e funzionalità. La documentazione di Rete virtuale di Azure descrive in modo esteso gli argomenti seguenti:
+* Per limitare l'accesso a un registro usando un endpoint privato in una rete virtuale, vedere [configurare il collegamento privato di Azure per un registro contenitori di Azure](container-registry-private-link.md).
+* Se è necessario configurare regole di accesso al registro di sistema da dietro un firewall client, vedere [configurare le regole per accedere a un registro contenitori di Azure dietro un firewall](container-registry-firewall-access-rules.md).
 
-* [Rete virtuale](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
-* [Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
-* [Endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 <!-- IMAGES -->
 
 [acr-subnet-service-endpoint]: ./media/container-registry-vnet/acr-subnet-service-endpoint.png
-[acr-vnet-portal]: ./media/container-registry-vnet/acr-vnet-portal.png
-[acr-vnet-firewall-portal]: ./media/container-registry-vnet/acr-vnet-firewall-portal.png
+
 
 <!-- LINKS - External -->
 [aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/

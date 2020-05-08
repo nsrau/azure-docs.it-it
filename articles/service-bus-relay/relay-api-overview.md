@@ -1,7 +1,7 @@
 ---
 title: Panoramica delle API di Inoltro di Azure | Documentazione Microsoft
 description: Questo articolo fornisce una panoramica delle API di inoltro di Azure disponibili (.NET Standard, .NET Framework, node. js e così via)
-services: event-hubs
+services: service-bus-relay
 documentationcenter: na
 author: spelluru
 manager: timlt
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad7226b5c5badfddf9f436a1229a48f729485821
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76513967"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983126"
 ---
 # <a name="available-relay-apis"></a>API di Inoltro disponibili
 
@@ -43,13 +43,13 @@ I runtime in un ecosistema .NET sono vari, pertanto sono presenti più librerie 
 
 La libreria .NET Framework supporta solo il modello di programmazione WCF e si basa su un protocollo binario proprietario basato sul trasporto `net.tcp` WCF. Questo protocollo e la libreria vengono mantenuti per compatibilità con le versioni precedenti con le applicazioni esistenti.
 
-La libreria .NET Standard è basata sulla definizione del protocollo aperto per l'inoltro di Connessioni ibride che si basa su HTTP e WebSocket. La libreria supporta un'astrazione di flusso tramite Websocket e un semplice movimento dell'API richiesta-risposta per rispondere alle richieste HTTP. L'esempio di [API Web](https://github.com/Azure/azure-relay-dotnet) illustra come integrare Connessioni ibride con ASP.NET Core per servizi Web.
+La libreria .NET Standard è basata sulla definizione del protocollo aperto per l'inoltro di Connessioni ibride che si basa su HTTP e WebSocket. La libreria supporta un'astrazione del flusso su WebSocket e una semplice azione API di richiesta-risposta per rispondere alle richieste HTTP. L'esempio di [API Web](https://github.com/Azure/azure-relay-dotnet) illustra come integrare Connessioni ibride con ASP.NET Core per servizi Web.
 
 #### <a name="nodejs"></a>Node.js
 
 I moduli di Connessioni ibride elencati nella tabella precedente sostituiscono o modificano i moduli Node.js esistenti, con implementazioni alternative in ascolto sul servizio Inoltro di Azure anziché nello stack di rete locale.
 
-Il modulo `hyco-https` modifica e sostituisce parzialmente i moduli di base Node.js `http` e `https`, fornendo un'implementazione del listener HTTPS compatibile con molti moduli e applicazioni Node.js esistenti che si basano su questi moduli principali.
+Il `hyco-https` modulo modifica e sostituisce parzialmente i moduli `http` node. js di base e `https`fornisce un'implementazione del listener HTTPS compatibile con molti moduli Node. js esistenti e applicazioni che si basano su questi moduli di base.
 
 I moduli `hyco-ws` e `hyco-websocket` modificano gli ormai diffusi moduli `ws` e `websocket` per Node.js, fornendo implementazioni del listener alternative che consentono a moduli e applicazioni basati su uno dei moduli di funzionare dietro l'inoltro di Connessioni ibride.
 

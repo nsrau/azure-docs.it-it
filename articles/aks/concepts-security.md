@@ -3,13 +3,13 @@ title: Concetti - Sicurezza nei servizi Azure Kubernetes
 description: Informazioni sulla sicurezza nel servizio Azure Kubernetes, inclusi comunicazione master e tra nodi, criteri di rete e segreti di Kubernetes.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 1960d18396f47b3dbdd51a50ec4241be5ebe4ff1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/08/2020
+ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206630"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981392"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -27,7 +27,9 @@ Questo articolo introduce i principali concetti per proteggere le applicazioni n
 
 Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster AKS ha un Master Kubernetes dedicato a tenant singolo per fornire il server API, l'utilità di pianificazione e così via. Questo Master è gestito e gestito da Microsoft.
 
-Per impostazione predefinita, il server API Kubernetes utilizza un indirizzo IP pubblico e un nome di dominio completo (FQDN). È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per altre informazioni, vedere [Integrazione di Azure AD con il servizio Azure Kubernetes][aks-aad].
+Per impostazione predefinita, il server API Kubernetes utilizza un indirizzo IP pubblico e un nome di dominio completo (FQDN). È possibile limitare l'accesso all'endpoint del server API usando [intervalli di indirizzi IP autorizzati][authorized-ip-ranges]. È anche possibile creare un [cluster completamente privato][private-clusters] per limitare l'accesso al server API alla rete virtuale.
+
+È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per altre informazioni, vedere [Integrazione di Azure AD con il servizio Azure Kubernetes][aks-aad].
 
 ## <a name="node-security"></a>Sicurezza dei nodi
 
@@ -65,6 +67,10 @@ Per la connettività e sicurezza con le reti locali, è possibile distribuire il
 ### <a name="azure-network-security-groups"></a>Gruppi di sicurezza di rete di Azure
 
 Per filtrare il flusso del traffico nelle reti virtuali, Azure usa le regole dei gruppi di sicurezza di rete. Queste regole definiscono gli intervalli IP, le porte e i protocolli di origine e di destinazione a cui è consentito o negato l'accesso alle risorse. Vengono create regole predefinite per consentire il traffico TLS al server dell'API Kubernetes. Quando si creano servizi con servizi di bilanciamento del carico, mapping delle porte o route in ingresso, il servizio Azure Kubernetes modifica automaticamente il gruppo di sicurezza di rete per trasmettere il traffico in modo appropriato.
+
+### <a name="kubernetes-network-policy"></a>Criteri di rete Kubernetes
+
+Per limitare il traffico di rete tra i Pod nel cluster, AKS offre supporto per i [criteri di rete Kubernetes][network-policy]. Con i criteri di rete è possibile scegliere di consentire o negare percorsi di rete specifici all'interno del cluster in base agli spazi dei nomi e ai selettori di etichette.
 
 ## <a name="kubernetes-secrets"></a>Segreti di Kubernetes
 
@@ -104,3 +110,6 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[authorized-ip-ranges]: api-server-authorized-ip-ranges.md
+[private-clusters]: private-clusters.md
+[network-policy]: use-network-policies.md

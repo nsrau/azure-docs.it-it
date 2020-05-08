@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7184a6b85e93c41dfe914813301a4b1a0c88f2cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b0a3387fe34a0e1c15109aec877c0654fc1a5b0
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75887683"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869998"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Creare contenitori con una chiave di partizione grande
 
@@ -35,7 +35,7 @@ Per creare un contenitore con supporto di chiavi di partizione di grandi dimensi
 
 Per creare un contenitore con una chiave di partizione di grandi dimensioni usando .NET SDK, `PartitionKeyDefinitionVersion.V2` specificare la proprietà. Nell'esempio seguente viene illustrato come specificare la proprietà Version all'interno dell'oggetto PartitionKeyDefinition e impostarla su PartitionKeyDefinitionVersion. v2.
 
-### <a name="v3-net-sdk"></a>.NET SDK V3
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 await database.CreateContainerAsync(
@@ -45,7 +45,7 @@ await database.CreateContainerAsync(
     })
 ```
 
-### <a name="v2-net-sdk"></a>SDK .NET v2
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -61,6 +61,7 @@ database,
          },
       new RequestOptions { OfferThroughput = 400 });
 ```
+---
 
 ## <a name="supported-sdk-versions"></a>Versioni di SDK supportate
 

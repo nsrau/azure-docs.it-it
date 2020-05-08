@@ -16,13 +16,166 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 545bcd1fa521b945d822b7eb69945cf381bf480a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77918666"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982973"
 ---
+# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite una condivisione file in Azure
+
+> ![Windows][Logo_Windows] Windows
+>
+
+Windows Server Failover Clustering è alla base di un'istallazione ASCS/SCS di SAP a disponibilità elevata e di un sistema DBMS in Windows.
+
+Un cluster di failover è un gruppo di 1 + n server (nodi) indipendenti che funzionano insieme per aumentare la disponibilità di applicazioni e servizi. Se si verifica un errore in un nodo, Windows Server Failover Clustering calcola il numero di errori che possono verificarsi e mantiene un cluster integro per fornire applicazioni e servizi. A questo scopo è possibile scegliere tra diverse modalità quorum per ottenere il clustering di failover.
+
+## <a name="prerequisites"></a>Prerequisiti
+Prima di svolgere le attività descritte in questo articolo, leggere l'articolo seguente:
+
+* [Scenari e architettura di disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver][sap-high-availability-architecture-scenarios]
+
+> [!IMPORTANT]
+> Il clustering di istanze ASCS/SCS di SAP tramite con condivisione file è supportato per SAP NetWeaver 7.40 (e versioni successive) con kernel SAP versione 7.49 o versione successiva.
+>
+
+
+## <a name="windows-server-failover-clustering-in-azure"></a>Windows Server Failover Clustering in Azure
+
+Rispetto alle distribuzioni bare metal o di cloud privato sono necessari passaggi aggiuntivi per configurare il clustering di failover Windows Server in Macchine virtuali di Microsoft Azure. Quando si crea un cluster, è necessario impostare diversi indirizzi IP e nomi host virtuali per l'istanza ASCS/SCS di SAP.
+
+### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Risoluzione dei nomi in Azure e nome host virtuale del cluster
+
+La piattaforma cloud di Azure non consente di configurare indirizzi IP virtuali, ad esempio indirizzi IP mobili. È necessaria una soluzione alternativa per configurare un indirizzo IP virtuale per poter raggiungere la risorsa cluster nel cloud. 
+
+Il servizio Azure Load Balancer include un servizio di *bilanciamento del carico interno* per Azure. Con il servizio di bilanciamento del carico interno, i client raggiungono il cluster tramite l'indirizzo IP virtuale del cluster. 
+
+È necessario distribuire il servizio di bilanciamento del carico interno nel gruppo di risorse che contiene i nodi del cluster. Configurare quindi tutte le necessarie regole di port forwarding usando le porte probe del servizio di bilanciamento del carico interno. I client possono connettersi tramite il nome host virtuale. Il server DNS risolve l'indirizzo IP del cluster. Il servizio di bilanciamento del carico interno gestisce il port forwarding al nodo attivo del cluster.
+
+![Figura 1: Configurazione di Windows Server Failover Clustering in Azure senza disco condiviso][sap-ha-guide-figure-1001]
+
+_**Figura 1:** Configurazione di Windows Server Failover Clustering in Azure senza disco condiviso_
+
+## <a name="sap-ascsscs-ha-with-file-share"></a>ASCS/SCS di SAP a disponibilità elevata con condivisione file
+
+SAP ha sviluppato un nuovo approccio e un'alternativa per i dischi condivisi del cluster per il clustering di un'istanza ASCS/SCS di SAP in un cluster di failover di Windows. Invece di usare i dischi condivisi del cluster, è possibile usare una condivisione file SMB per distribuire i file di host globale SAP.
+
+> [!NOTE]
+> Una condivisione file SMB è un'alternativa all'uso dei dischi condivisi del cluster per il clustering delle istanze ASCS/SCS di SAP.  
+>
+
+Questa architettura è specifica nei modi seguenti:
+
+* I servizi centrali SAP, con la propria struttura di file e i propri processi di messaggistica e accodamento, sono separati dai file dell'host globale SAP.
+* I servizi centrali SAP vengono eseguiti in un'istanza ASCS/SCS di SAP.
+* L'istanza ASCS/SCS di SAP è inclusa in un cluster ed è possibile accedervi usando il nome dell'host virtuale \<nome host virtuale ASCS/SCS\>.
+* I file globali SAP vengono memorizzati nella condivisione file SMB ed è possibile accedervi usando il nome dell'host \<host globale SAP\>: \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+* L'istanza ASCS/SCS di SAP viene installata in un disco locale in entrambi i nodi del cluster.
+* Il nome di rete \<nome host virtuale ASCS/SCS\> è diverso dall'&lt;host globale SAP&gt;.
+
+![Figure 2: Architettura a disponibilità elevata ASCS/SCS di SAP con condivisione file SMB][sap-ha-guide-figure-8004]
+
+_**Figura 2:** Nuova architettura a disponibilità elevata ASCS/SCS di SAP con una condivisione file SMB_
+
+Prerequisiti per una condivisione file SMB:
+
+* Protocollo SMB 3.0 (o versione successiva).
+* Possibilità di impostare elenchi di controllo di accesso di Active Directory (ACL) per gruppi di utenti di Active Directory e l'oggetto computer `computer$`.
+* La condivisione file deve essere abilitata per la disponibilità elevata:
+    * I dischi usati per archiviare i file non devono essere un singolo punto di guasto.
+    * Il tempo di inattività del server o della macchina virtuale non causa tempi di inattività nella condivisione file.
+
+Il ruolo cluster \<SID\> di SAP non contiene dischi condivisi nel cluster o una risorsa di cluster generica con condivisione file generica.
+
+
+![Figura 3: Risorse ruolo cluster \<SID\> di SAP per l'uso di una condivisione file][sap-ha-guide-figure-8005]
+
+_**Figura 3:** Risorse ruolo cluster &lt;SID&gt; di SAP per l'uso di una condivisione file_
+
+
+## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Condivisioni file di tipo scale-out con Spazi di archiviazione diretta in Azure come condivisione file SAPMNT
+
+È possibile usare una condivisione file di tipo scale-out per ospitare e proteggere i file dell'host globale SAP. Una condivisione file di tipo scale-out offre un servizio di condivisione file SAPMNT a disponibilità elevata.
+
+![Figura 4: Condivisione file di tipo scale-out usata per proteggere i file dell'host globale SAP][sap-ha-guide-figure-8006]
+
+_**Figura 4:** Condivisione file di tipo scale-out usata per proteggere i file dell'host globale SAP_
+
+> [!IMPORTANT]
+> Le condivisioni file di tipo scale-out sono completamente supportate nel cloud di Microsoft Azure e negli ambienti locali.
+>
+
+Una condivisione file di tipo scale-out offre una condivisione file SAPMNT a disponibilità elevata e a scalabilità orizzontale.
+
+Il servizio Spazi di archiviazione diretta viene usato come disco condiviso per una condivisione file di tipo scale-out. È possibile usare Spazi di archiviazione diretta per creare spazi di archiviazione scalabili e a disponibilità elevata che usano server con risorse di archiviazione locali. Lo spazio di archiviazione condiviso usato per una condivisione file di tipo scale-out, come per i file dell'host globale SAP, non è un singolo punto di errore.
+
+Quando si sceglie Spazi di archiviazione diretta, prendere in considerazione i casi d'uso seguenti:
+
+- Le macchine virtuali usate per compilare il cluster di Spazi di archiviazione diretta devono essere distribuite in un set di disponibilità di Azure.
+- Per il ripristino di emergenza di un cluster di Spazi di archiviazione diretta, è possibile usare [Azure Site Recovery Services](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- Non è supportata l'estensione del cluster con spazio di archiviazione diretta tra zone di disponibilità di Azure diversi.
+
+### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Prerequisiti SAP per le condivisioni file di tipo scale-out in Azure
+
+Per usare una condivisione file di tipo scale-out, il sistema deve soddisfare i requisiti seguenti:
+
+* Almeno due nodi del cluster per una condivisione file di tipo scale-out.
+* Ogni nodo deve avere almeno due dischi locali.
+* Per motivi di prestazioni, è necessario usare la *resilienza del mirroring*:
+    * Mirroring a due vie per una condivisione file di tipo scale-out con due nodi del cluster.
+    * Mirroring a tre vie per una condivisione file di tipo scale-out con tre o più nodi del cluster.
+* È consigliabile usare tre o più nodi del cluster per una condivisione file di tipo scale-out, con il mirroring a tre vie.
+    Questa configurazione offre una maggiore scalabilità e una maggiore resilienza di archiviazione rispetto alla configurazione della condivisione file di tipo scale-out con due nodi del cluster e il mirroring a due vie.
+* È necessario usare dischi Premium di Azure.
+* È consigliabile usare Azure Managed Disks.
+* È consigliabile formattare i volumi con Resilient File System (ReFS).
+    * Per altre informazioni, vedere [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] (SAP Note 1869038 - Supporto SAP per file system a ReFS) e il capitolo [Scelta del numero di volumi da creare][planning-volumes-s2d-choosing-filesystem] nell'articolo Pianificazione dei volumi in Spazi di archiviazione diretta.
+    * Assicurarsi di installare l'[aggiornamento cumulativo Microsoft KB4025334][kb4025334].
+* È possibile usare le dimensioni delle VM di Azure DS-Series o DSv2-Series.
+* Per ottenere prestazioni di rete di buon livello tra le macchine virtuali, necessari per la sincronizzazione dei dischi di Spazi di archiviazione diretta, usare un tipo di macchina virtuale che abbia almeno una larghezza di banda "alta".
+    Per altre informazioni, vedere le specifiche [DSv2-Series][dv2-series] e [DS-Series][ds-series].
+* È consigliabile riservare capacità non allocata nel pool di archiviazione. Se si lascia capacità non allocata nel pool di archiviazione, si lascia ai volumi lo spazio per il ripristino "sul posto" nel caso in cui un'unità si guasti. Questo approccio migliora le prestazioni e la sicurezza dei dati.  Per altre informazioni, vedere [Scelta delle dimensioni dei volumi][choosing-the-size-of-volumes-s2d].
+* Non è necessario configurare il servizio di bilanciamento del carico interno di Azure per il nome di rete della condivisione file di tipo scale-out, ad esempio per \<host globale SAP\>. Questa configurazione viene eseguita per il \<nome host virtuale ASCS/SCS\> dell'istanza ASCS/SCS di SAP o per il sistema DBMS. Una condivisione file di tipo scale-out scala orizzontalmente il carico su tutti i nodi del cluster. \<Host globale SAP\> Usa l'indirizzo IP locale per tutti i nodi del cluster.
+
+
+> [!IMPORTANT]
+> Non è possibile rinominare la condivisione file SAPMNT, che punta all'\<host globale SAP\>. SAP supporta solo il nome di condivisione "sapmnt".
+>
+> Per altre informazioni, vedere [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395] (SAP Note 2492395 - È possibile modificare il nome di condivisione sapmnt?)
+
+### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurare le istanze ASCS/SCS di SAP e una condivisione file di tipo scale-out in due cluster
+
+È possibile distribuire istanze ASCS/SCS di SAP in un unico cluster, con i rispettivi ruoli cluster \<SID\> SAP. In questo caso, si configura la condivisione file di tipo scale-out in un altro cluster, con un altro ruolo cluster.
+
+> [!IMPORTANT]
+>In questo scenario l'istanza ASCS/SCS di SAP è configurata per accedere all'host globale SAP usando il percorso UNC \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+>
+
+![Figura 5: Istanza SAP ASCS/SCS e condivisione file di tipo scale-out distribuite in due cluster][sap-ha-guide-figure-8007]
+
+_**Figura 5:** Istanza ASCS/SCS di SAP e condivisione file di tipo scale-out distribuite in due cluster_
+
+> [!IMPORTANT]
+> Nel cloud di Azure ogni cluster usato per SAP e le condivisioni file di scalabilità orizzontale deve essere distribuito nel proprio set di disponibilità di Azure o tra zone di disponibilità di Azure. In questo modo viene garantita la distribuzione delle VM del cluster nell'infrastruttura di Azure sottostante. Le distribuzioni di zone di disponibilità sono supportate con questa tecnologia.
+>
+
+## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Condivisione file generica con SIOS DataKeeper come dischi condivisi del cluster
+
+
+La condivisione file generica è un'altra opzione che si può usare ottenere una condivisione file a disponibilità elevata.
+
+In questo caso è possibile usare una soluzione SIOS di terze parti come disco condiviso del cluster.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Preparazione dell'infrastruttura di Azure per la disponibilità elevata di SAP con il cluster di failover Windows e la condivisione file per l'istanza ASCS/SCS di SAP][sap-high-availability-infrastructure-wsfc-file-share]
+* [Installazione della disponibilità elevata di SAP NetWeaver nel cluster di failover Windows e nei dischi condivisi per l'istanza ASCS/SCS di SAP in Azure][sap-high-availability-installation-wsfc-shared-disk]
+* [Distribuire un file server di scalabilità orizzontale di Spazi di archiviazione diretta a due nodi per l'archiviazione di dischi profili utente in Azure][deploy-sofs-s2d-in-azure]
+* [Spazi di archiviazione diretta in Windows Server 2016][s2d-in-win-2016]
+* [Approfondimento sui volumi in Spazi di archiviazione diretta][deep-dive-volumes-in-s2d]
+
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -202,156 +355,3 @@ ms.locfileid: "77918666"
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 [1869038]:https://launchpad.support.sap.com/#/notes/1869038 
-
-# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite una condivisione file in Azure
-
-> ![Windows][Logo_Windows] Windows
->
-
-Windows Server Failover Clustering è alla base di un'istallazione ASCS/SCS di SAP a disponibilità elevata e di un sistema DBMS in Windows.
-
-Un cluster di failover è un gruppo di 1 + n server (nodi) indipendenti che funzionano insieme per aumentare la disponibilità di applicazioni e servizi. Se si verifica un errore in un nodo, Windows Server Failover Clustering calcola il numero di errori che possono verificarsi e mantiene un cluster integro per fornire applicazioni e servizi. A questo scopo è possibile scegliere tra diverse modalità quorum per ottenere il clustering di failover.
-
-## <a name="prerequisites"></a>Prerequisiti
-Prima di svolgere le attività descritte in questo articolo, leggere l'articolo seguente:
-
-* [Scenari e architettura di disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver][sap-high-availability-architecture-scenarios]
-
-> [!IMPORTANT]
-> Il clustering di istanze ASCS/SCS di SAP tramite con condivisione file è supportato per SAP NetWeaver 7.40 (e versioni successive) con kernel SAP versione 7.49 o versione successiva.
->
-
-
-## <a name="windows-server-failover-clustering-in-azure"></a>Windows Server Failover Clustering in Azure
-
-Rispetto alle distribuzioni bare metal o di cloud privato sono necessari passaggi aggiuntivi per configurare il clustering di failover Windows Server in Macchine virtuali di Microsoft Azure. Quando si crea un cluster, è necessario impostare diversi indirizzi IP e nomi host virtuali per l'istanza ASCS/SCS di SAP.
-
-### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Risoluzione dei nomi in Azure e nome host virtuale del cluster
-
-La piattaforma cloud di Azure non consente di configurare indirizzi IP virtuali, ad esempio indirizzi IP mobili. È necessaria una soluzione alternativa per configurare un indirizzo IP virtuale per poter raggiungere la risorsa cluster nel cloud. 
-
-Il servizio Azure Load Balancer include un servizio di *bilanciamento del carico interno* per Azure. Con il servizio di bilanciamento del carico interno, i client raggiungono il cluster tramite l'indirizzo IP virtuale del cluster. 
-
-È necessario distribuire il servizio di bilanciamento del carico interno nel gruppo di risorse che contiene i nodi del cluster. Configurare quindi tutte le necessarie regole di port forwarding usando le porte probe del servizio di bilanciamento del carico interno. I client possono connettersi tramite il nome host virtuale. Il server DNS risolve l'indirizzo IP del cluster. Il servizio di bilanciamento del carico interno gestisce il port forwarding al nodo attivo del cluster.
-
-![Figura 1: Configurazione di Windows Server Failover Clustering in Azure senza disco condiviso][sap-ha-guide-figure-1001]
-
-_**Figura 1:** Configurazione di Windows Server Failover Clustering in Azure senza disco condiviso_
-
-## <a name="sap-ascsscs-ha-with-file-share"></a>ASCS/SCS di SAP a disponibilità elevata con condivisione file
-
-SAP ha sviluppato un nuovo approccio e un'alternativa per i dischi condivisi del cluster per il clustering di un'istanza ASCS/SCS di SAP in un cluster di failover di Windows. Invece di usare i dischi condivisi del cluster, è possibile usare una condivisione file SMB per distribuire i file di host globale SAP.
-
-> [!NOTE]
-> Una condivisione file SMB è un'alternativa all'uso dei dischi condivisi del cluster per il clustering delle istanze ASCS/SCS di SAP.  
->
-
-Questa architettura è specifica nei modi seguenti:
-
-* I servizi centrali SAP, con la propria struttura di file e i propri processi di messaggistica e accodamento, sono separati dai file dell'host globale SAP.
-* I servizi centrali SAP vengono eseguiti in un'istanza ASCS/SCS di SAP.
-* L'istanza ASCS/SCS di SAP è inclusa in un cluster ed è possibile accedervi usando il nome dell'host virtuale \<nome host virtuale ASCS/SCS\>.
-* I file globali SAP vengono memorizzati nella condivisione file SMB ed è possibile accedervi usando il nome dell'host \<host globale SAP\>: \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
-* L'istanza ASCS/SCS di SAP viene installata in un disco locale in entrambi i nodi del cluster.
-* Il nome di rete \<nome host virtuale ASCS/SCS\> è diverso dall'&lt;host globale SAP&gt;.
-
-![Figure 2: Architettura a disponibilità elevata ASCS/SCS di SAP con condivisione file SMB][sap-ha-guide-figure-8004]
-
-_**Figura 2:** Nuova architettura a disponibilità elevata ASCS/SCS di SAP con una condivisione file SMB_
-
-Prerequisiti per una condivisione file SMB:
-
-* Protocollo SMB 3.0 (o versione successiva).
-* Possibilità di impostare elenchi di controllo di accesso di Active Directory (ACL) per gruppi di utenti di Active Directory e l'oggetto computer `computer$`.
-* La condivisione file deve essere abilitata per la disponibilità elevata:
-    * I dischi usati per archiviare i file non devono essere un singolo punto di guasto.
-    * Il tempo di inattività del server o della macchina virtuale non causa tempi di inattività nella condivisione file.
-
-Il ruolo cluster \<SID\> di SAP non contiene dischi condivisi nel cluster o una risorsa di cluster generica con condivisione file generica.
-
-
-![Figura 3: Risorse ruolo cluster \<SID\> di SAP per l'uso di una condivisione file][sap-ha-guide-figure-8005]
-
-_**Figura 3:** Risorse ruolo cluster &lt;SID&gt; di SAP per l'uso di una condivisione file_
-
-
-## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Condivisioni file di tipo scale-out con Spazi di archiviazione diretta in Azure come condivisione file SAPMNT
-
-È possibile usare una condivisione file di tipo scale-out per ospitare e proteggere i file dell'host globale SAP. Una condivisione file di tipo scale-out offre un servizio di condivisione file SAPMNT a disponibilità elevata.
-
-![Figura 4: Condivisione file di tipo scale-out usata per proteggere i file dell'host globale SAP][sap-ha-guide-figure-8006]
-
-_**Figura 4:** Condivisione file di tipo scale-out usata per proteggere i file dell'host globale SAP_
-
-> [!IMPORTANT]
-> Le condivisioni file di tipo scale-out sono completamente supportate nel cloud di Microsoft Azure e negli ambienti locali.
->
-
-Una condivisione file di tipo scale-out offre una condivisione file SAPMNT a disponibilità elevata e a scalabilità orizzontale.
-
-Il servizio Spazi di archiviazione diretta viene usato come disco condiviso per una condivisione file di tipo scale-out. È possibile usare Spazi di archiviazione diretta per creare spazi di archiviazione scalabili e a disponibilità elevata che usano server con risorse di archiviazione locali. Lo spazio di archiviazione condiviso usato per una condivisione file di tipo scale-out, come per i file dell'host globale SAP, non è un singolo punto di errore.
-
-Quando si sceglie Spazi di archiviazione diretta, prendere in considerazione i casi d'uso seguenti:
-
-- Le macchine virtuali usate per compilare il cluster di Spazi di archiviazione diretta devono essere distribuite in un set di disponibilità di Azure.
-- Per il ripristino di emergenza di un cluster di Spazi di archiviazione diretta, è possibile usare [Azure Site Recovery Services](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
-- Non è supportata l'estensione del cluster con spazio di archiviazione diretta tra zone di disponibilità di Azure diversi.
-
-### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Prerequisiti SAP per le condivisioni file di tipo scale-out in Azure
-
-Per usare una condivisione file di tipo scale-out, il sistema deve soddisfare i requisiti seguenti:
-
-* Almeno due nodi del cluster per una condivisione file di tipo scale-out.
-* Ogni nodo deve avere almeno due dischi locali.
-* Per motivi di prestazioni, è necessario usare la *resilienza del mirroring*:
-    * Mirroring a due vie per una condivisione file di tipo scale-out con due nodi del cluster.
-    * Mirroring a tre vie per una condivisione file di tipo scale-out con tre o più nodi del cluster.
-* È consigliabile usare tre o più nodi del cluster per una condivisione file di tipo scale-out, con il mirroring a tre vie.
-    Questa configurazione offre una maggiore scalabilità e una maggiore resilienza di archiviazione rispetto alla configurazione della condivisione file di tipo scale-out con due nodi del cluster e il mirroring a due vie.
-* È necessario usare dischi Premium di Azure.
-* È consigliabile usare Azure Managed Disks.
-* È consigliabile formattare i volumi con Resilient File System (ReFS).
-    * Per altre informazioni, vedere [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] (SAP Note 1869038 - Supporto SAP per file system a ReFS) e il capitolo [Scelta del numero di volumi da creare][planning-volumes-s2d-choosing-filesystem] nell'articolo Pianificazione dei volumi in Spazi di archiviazione diretta.
-    * Assicurarsi di installare l'[aggiornamento cumulativo Microsoft KB4025334][kb4025334].
-* È possibile usare le dimensioni delle VM di Azure DS-Series o DSv2-Series.
-* Per ottenere prestazioni di rete di buon livello tra le macchine virtuali, necessari per la sincronizzazione dei dischi di Spazi di archiviazione diretta, usare un tipo di macchina virtuale che abbia almeno una larghezza di banda "alta".
-    Per altre informazioni, vedere le specifiche [DSv2-Series][dv2-series] e [DS-Series][ds-series].
-* È consigliabile riservare capacità non allocata nel pool di archiviazione. Se si lascia capacità non allocata nel pool di archiviazione, si lascia ai volumi lo spazio per il ripristino "sul posto" nel caso in cui un'unità si guasti. Questo approccio migliora le prestazioni e la sicurezza dei dati.  Per altre informazioni, vedere [Scelta delle dimensioni dei volumi][choosing-the-size-of-volumes-s2d].
-* Non è necessario configurare il servizio di bilanciamento del carico interno di Azure per il nome di rete della condivisione file di tipo scale-out, ad esempio per \<host globale SAP\>. Questa configurazione viene eseguita per il \<nome host virtuale ASCS/SCS\> dell'istanza ASCS/SCS di SAP o per il sistema DBMS. Una condivisione file di tipo scale-out scala orizzontalmente il carico su tutti i nodi del cluster. \<Host globale SAP\> Usa l'indirizzo IP locale per tutti i nodi del cluster.
-
-
-> [!IMPORTANT]
-> Non è possibile rinominare la condivisione file SAPMNT, che punta all'\<host globale SAP\>. SAP supporta solo il nome di condivisione "sapmnt".
->
-> Per altre informazioni, vedere [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395] (SAP Note 2492395 - È possibile modificare il nome di condivisione sapmnt?)
-
-### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurare le istanze ASCS/SCS di SAP e una condivisione file di tipo scale-out in due cluster
-
-È possibile distribuire istanze ASCS/SCS di SAP in un unico cluster, con i rispettivi ruoli cluster \<SID\> SAP. In questo caso, si configura la condivisione file di tipo scale-out in un altro cluster, con un altro ruolo cluster.
-
-> [!IMPORTANT]
->In questo scenario l'istanza ASCS/SCS di SAP è configurata per accedere all'host globale SAP usando il percorso UNC \\\\&lt;host globale SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
->
-
-![Figura 5: Istanza SAP ASCS/SCS e condivisione file di tipo scale-out distribuite in due cluster][sap-ha-guide-figure-8007]
-
-_**Figura 5:** Istanza ASCS/SCS di SAP e condivisione file di tipo scale-out distribuite in due cluster_
-
-> [!IMPORTANT]
-> Nel cloud di Azure ogni cluster usato per SAP e le condivisioni file di scalabilità orizzontale deve essere distribuito nel proprio set di disponibilità di Azure o tra zone di disponibilità di Azure. In questo modo viene garantita la distribuzione delle VM del cluster nell'infrastruttura di Azure sottostante. Le distribuzioni di zone di disponibilità sono supportate con questa tecnologia.
->
-
-## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Condivisione file generica con SIOS DataKeeper come dischi condivisi del cluster
-
-
-La condivisione file generica è un'altra opzione che si può usare ottenere una condivisione file a disponibilità elevata.
-
-In questo caso è possibile usare una soluzione SIOS di terze parti come disco condiviso del cluster.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-* [Preparazione dell'infrastruttura di Azure per la disponibilità elevata di SAP con il cluster di failover Windows e la condivisione file per l'istanza ASCS/SCS di SAP][sap-high-availability-infrastructure-wsfc-file-share]
-* [Installazione della disponibilità elevata di SAP NetWeaver nel cluster di failover Windows e nei dischi condivisi per l'istanza ASCS/SCS di SAP in Azure][sap-high-availability-installation-wsfc-shared-disk]
-* [Distribuire un file server di scalabilità orizzontale di Spazi di archiviazione diretta a due nodi per l'archiviazione di dischi profili utente in Azure][deploy-sofs-s2d-in-azure]
-* [Spazi di archiviazione diretta in Windows Server 2016][s2d-in-win-2016]
-* [Approfondimento sui volumi in Spazi di archiviazione diretta][deep-dive-volumes-in-s2d]

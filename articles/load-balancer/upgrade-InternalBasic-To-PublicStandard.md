@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df7b8e6243bc45b5d5bdd8a9a72e81b0946454ff
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770409"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858404"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Aggiornare Load Balancer interno di Azure-connessione in uscita necessaria
-[Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Poiché il Load Balancer interno standard non fornisce una connessione in uscita, viene fornita una soluzione per creare un Load Balancer pubblico standard.
+[Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/skus#skus). Poiché il Load Balancer interno standard non fornisce una connessione in uscita, viene fornita una soluzione per creare un Load Balancer pubblico standard.
 
 In un aggiornamento sono disponibili quattro fasi:
 

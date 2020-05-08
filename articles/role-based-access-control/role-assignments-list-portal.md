@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735726"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983024"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di ruolo di Azure usando il portale di Azure
 
@@ -32,7 +32,9 @@ ms.locfileid: "82735726"
 
 Il modo più semplice per visualizzare i ruoli assegnati a un utente o a un gruppo in una sottoscrizione consiste nell'usare il riquadro **risorse di Azure** .
 
-1. Nella portale di Azure fare clic su **tutti i servizi** , quindi selezionare **utenti** o **gruppi**.
+1. Nella portale di Azure selezionare tutti i **Servizi** dal menu portale di Azure.
+
+1. Selezionare **Azure Active Directory** , quindi selezionare **utenti** o **gruppi**.
 
 1. Fare clic sull'utente o sul gruppo per il quale si desidera elencare le assegnazioni di ruolo.
 

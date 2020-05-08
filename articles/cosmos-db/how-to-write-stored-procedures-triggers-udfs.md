@@ -1,17 +1,17 @@
 ---
 title: Scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 description: Informazioni su come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.author: tisande
+ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441726"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982293"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 
@@ -21,15 +21,12 @@ Per chiamare una stored procedure, un trigger e le funzioni definite dall'utente
 
 > [!NOTE]
 > Per i contenitori partizionati, quando si esegue una stored procedure, è necessario specificare un valore della chiave di partizione nelle opzioni di richiesta. Le stored procedure hanno sempre come ambito una chiave di partizione. Gli elementi con un valore della chiave di partizione diverso non saranno visibili alla stored procedure. Questo vale anche per i trigger.
-
 > [!Tip]
 > Cosmos supporta la distribuzione di contenitori con stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni [, vedere creare un contenitore Azure Cosmos DB con funzionalità lato server.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Come scrivere stored procedure
 
 Le stored procedure vengono scritte in JavaScript, e possono creare, aggiornare, leggere, eseguire una query ed eliminare elementi all'interno di un contenitore di Azure Cosmos. Le stored procedure vengono registrate per ogni raccolta e funzionano in qualsiasi documento o allegato presente nella raccolta.
-
-**Esempio**
 
 Ecco una semplice stored procedure che restituisce una risposta "Hello World".
 
@@ -51,7 +48,7 @@ Una volta scritta, la stored procedure deve essere registrata con una raccolta. 
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Creare un elemento usando una stored procedure
 
-Quando si crea un elemento usando stored procedure, l'elemento viene inserito nel contenitore Azure Cosmos e viene restituito un ID per l'elemento appena creato. La creazione di un elemento è un'operazione asincrona e dipende dalle funzioni di callback JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per il valore restituito (in questo caso, l'oggetto creato). All'interno del callback, è possibile gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di Azure Cosmos DB genererà un errore. 
+Quando si crea un elemento usando stored procedure, l'elemento viene inserito nel contenitore Azure Cosmos e viene restituito un ID per l'elemento appena creato. La creazione di un elemento è un'operazione asincrona e dipende dalle funzioni di callback JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per il valore restituito (in questo caso, l'oggetto creato). All'interno del callback, è possibile gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di Azure Cosmos DB genererà un errore.
 
 La stored procedure include anche un parametro per impostare la descrizione, cioè un valore booleano. Quando il parametro è impostato su true e la descrizione non è presente, la stored procedure genererà un'eccezione. In caso contrario, il resto della stored procedure rimane in esecuzione.
 
@@ -73,7 +70,7 @@ function createToDoItem(itemToCreate) {
 }
 ```
 
-### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrice come parametri di input per la stored procedure 
+### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrice come parametri di input per la stored procedure
 
 Quando si definisce una stored procedure nel portale di Azure, i parametri di input vengono sempre inviati sotto forma di stringa alla stored procedure. Anche se si passa una matrice di stringhe come input, la matrice viene convertita in stringa e inviata alla stored procedure. Per aggirare questo problema, è possibile definire una funzione all'interno della stored procedure che analizzi la stringa come matrice. Il codice seguente illustra come analizzare un parametro di input di stringa sotto forma di matrice:
 
@@ -102,12 +99,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 
-    {     
+    var filterQuery =
+    {
         'query' : 'SELECT * FROM Players p where p.id = @playerId1',
         'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
     };
-            
+
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -115,10 +112,10 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 
-            {     
+            var filterQuery2 =
+            {
                 'query' : 'SELECT * FROM Players p where p.id = @playerId2',
-                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}]
             };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
@@ -208,6 +205,56 @@ function bulkImport(items) {
             tryCreate(items[count], callback);
         }
     }
+}
+```
+
+### <a name="async-await-with-stored-procedures"></a><a id="async-promises"></a>Await asincrono con stored procedure
+
+Di seguito è riportato un esempio di stored procedure che usa async-await con le promesse usando una funzione helper. Il stored procedure esegue una query per un elemento e lo sostituisce.
+
+```javascript
+function async_sample() {
+    const ERROR_CODE = {
+        NotAccepted: 429
+    };
+
+    const asyncHelper = {
+        queryDocuments(sqlQuery, options) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.queryDocuments(__.getSelfLink(), sqlQuery, options, (err, feed, options) => {
+                    if (err) reject(err);
+                    resolve({ feed, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        },
+
+        replaceDocument(doc) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.replaceDocument(doc._self, doc, (err, result, options) => {
+                    if (err) reject(err);
+                    resolve({ result, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        }
+    };
+
+    async function main() {
+        let continuation;
+        do {
+            let { feed, options } = await asyncHelper.queryDocuments("SELECT * from c", { continuation });
+
+            for (let doc of feed) {
+                doc.newProp = 1;
+                await asyncHelper.replaceDocument(doc);
+            }
+
+            continuation = options.continuation;
+        } while (continuation);
+    }
+
+    main().catch(err => getContext().abort(err));
 }
 ```
 

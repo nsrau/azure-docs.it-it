@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentazione di Controllo degli accessi in base al ruolo per le risorse di Azure
-summary: Il controllo degli accessi in base al ruolo è un sistema che consente di gestire in modo granulare l'accesso per le risorse di Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
+title: Documentazione del controllo degli accessi in base al ruolo di Azure
+summary: Il controllo degli accessi in base al ruolo di Azure è un sistema che consente di gestire in modo granulare l'accesso alle risorse di Azure. Usando il controllo degli accessi in base al ruolo di Azure, è possibile separare le mansioni all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il loro lavoro.
 metadata:
-  title: Documentazione sul controllo degli accessi in base al ruolo per le risorse di Azure
-  description: Informazioni sul controllo degli accessi in base al ruolo per la gestione degli utenti autorizzati ad accedere alle risorse di Azure, delle operazioni che possono eseguire su tali risorse e delle aree a cui hanno accesso.
+  title: Documentazione del controllo degli accessi in base al ruolo di Azure
+  description: Informazioni sul controllo degli accessi in base al ruolo di Azure per la gestione degli utenti autorizzati ad accedere alle risorse di Azure, delle operazioni che possono eseguire su tali risorse e delle aree a cui hanno accesso.
   services: role-based-access-control
   ms.service: role-based-access-control
   ms.subservice: na
@@ -11,19 +11,19 @@ metadata:
   ms.collection: na
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/26/2019
-  ms.openlocfilehash: e947b1ab685bcc1da5d3895e49c07d1ff56c0937
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 04/30/2020
+  ms.openlocfilehash: b2661936d82f8d167ec2ef466effcd84d0a972dd
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70968304"
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82733482"
 landingContent:
-- title: Informazioni sul controllo degli accessi in base al ruolo per le risorse di Azure
+- title: Informazioni sul controllo degli accessi in base al ruolo di Azure
   linkLists:
   - linkListType: overview
     links:
-    - text: Informazioni sul controllo degli accessi in base al ruolo
+    - text: Che cos'è il controllo degli accessi in base al ruolo di Azure?
       url: overview.md
     - text: Informazioni sui diversi ruoli
       url: rbac-and-directory-admin-roles.md
@@ -45,7 +45,7 @@ landingContent:
       url: tutorial-role-assignments-group-powershell.md
   - linkListType: learn
     links:
-    - text: Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo
+    - text: Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo di Azure
       url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
 - title: Gestire l'accesso
   linkLists:
@@ -63,12 +63,16 @@ landingContent:
       url: role-assignments-rest.md
     - text: Modello
       url: role-assignments-template.md
-- title: Creare ruoli personalizzati
+- title: Creare o aggiornare i ruoli personalizzati
   linkLists:
   - linkListType: overview
     links:
     - text: Ruoli personalizzati
       url: custom-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un ruolo personalizzato - Portale
+      url: custom-roles-portal.md
   - linkListType: tutorial
     links:
     - text: Creare un ruolo personalizzato - PowerShell

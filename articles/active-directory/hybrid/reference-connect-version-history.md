@@ -12,12 +12,12 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112202"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981987"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -47,6 +47,17 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 >Se è stata abilitata Azure AD Connect per la sincronizzazione, si inizierà automaticamente a ricevere notifiche di integrità che segnalano eventuali deprecazioni imminenti quando si esegue una delle versioni precedenti.
 >
 >Per ulteriori informazioni su come aggiornare Azure AD Connect alla versione più recente, fare riferimento a [questo articolo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+
+## <a name="15300"></a>1.5.30.0
+
+### <a name="release-status"></a>Stato della versione
+05/07/2020: rilasciato per il download
+
+### <a name="fixed-issues"></a>Problemi risolti
+- È stato risolto un problema per cui i domini non selezionati venivano selezionati erroneamente dall'interfaccia utente della procedura guidata.
+- È stato risolto un problema nel modulo ADSyncConfig di PowerShell, in cui richiamare il comando DSACLS usato in tutti i cmdlet Set-ADSync * per le autorizzazioni provocherebbe uno dei seguenti errori:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -105,6 +116,7 @@ Questa build di hotfix corregge un problema relativo a Build 1.5.18.0 se è abil
 - È stato risolto un problema relativo alla creazione dell'account di sincronizzazione Azure Active Directory in cui l'abilitazione di estensioni di directory o pH potrebbe non riuscire perché l'account non è stato propagato in tutte le repliche del servizio prima di tentare l'uso 
 - Correzione di un bug nell'utilità di compressione degli errori di sincronizzazione che non gestiva correttamente i caratteri surrogati. 
 - Correzione di un bug nell'aggiornamento automatico che lasciava il server nello stato di sospensione dell'utilità di pianificazione. 
+- Correzione di un bug nella pagina di filtro del dominio/unità organizzativa che rimuoverebbe i profili di esecuzione di un dominio semplicemente espandendo parzialmente l'albero del dominio senza apportare alcuna modifica.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Stato della versione
@@ -554,18 +566,18 @@ Bloccare l'accesso all'account di Active Directory Domain Services implementando
 *   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 *   Assegnare le autorizzazioni specifiche seguenti:
 
-Tipo     | Name                          | Accesso               | Si applica a
+Tipo     | Nome                          | Accesso               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
-Allow    | SYSTEM                        | Controllo completo         | Questo oggetto  |
-Allow    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
-Allow    | Domain Admins                 | Controllo completo         | Questo oggetto  |
-Allow    | Administrators                | Controllo completo         | Questo oggetto  |
-Allow    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
-Allow    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
-Allow    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
-Allow    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
-Allow    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
-Allow    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
+Consenti    | SYSTEM                        | Controllo completo         | Questo oggetto  |
+Consenti    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
+Consenti    | Domain Admins                 | Controllo completo         | Questo oggetto  |
+Consenti    | Administrators                | Controllo completo         | Questo oggetto  |
+Consenti    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
+Consenti    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
+Consenti    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
+Consenti    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
+Consenti    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
+Consenti    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
 
 Per restringere le impostazioni per l'account di Active Directory Domain Services è possibile eseguire [questo script di PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Lo script di PowerShell consentirà di assegnare le autorizzazioni indicate sopra all'account di Active Directory Domain Services.
 

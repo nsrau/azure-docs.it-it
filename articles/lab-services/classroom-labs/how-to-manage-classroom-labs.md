@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed1c2f14ca5a791743a95cc50e5af0c29c74fefe
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257743"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983313"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -99,14 +99,15 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 
 ### <a name="vm-sizes"></a>Dimensioni delle macchine virtuali  
 
-| Dimensioni | Core | RAM | Descrizione | 
+| Dimensione | Core | RAM | Descrizione | 
 | ---- | ----- | --- | ----------- | 
 | Piccolo | 2 | 3,5 GB | Queste dimensioni sono ideali per la riga di comando, l'apertura del Web browser, i server Web con traffico ridotto, i database di piccole e medie dimensioni. |
 | Medio | 4 | 7 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi | 
 | Media (virtualizzazione annidata) | 4 | 16 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi. Questa dimensione supporta anche la virtualizzazione nidificata. <p>Questa dimensione può essere usata in scenari in cui ogni studente necessita di più macchine virtuali. Gli insegnanti possono usare la virtualizzazione annidata per configurare alcune macchine virtuali nidificate di piccole dimensioni all'interno della macchina virtuale. </p> |
-| large | 8 | 32 GB | Queste dimensioni sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. Questa dimensione supporta anche la virtualizzazione nidificata |  
-| GPU piccola (visualizzazione) | 6 | 56 GB | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. | 
 | GPU piccola (calcolo) | 6 | 56 GB | Queste dimensioni sono ideali per applicazioni a elevato utilizzo di calcolo e di rete, ad esempio le applicazioni di intelligenza artificiale e Deep Learning. | 
+| GPU piccola (visualizzazione) | 6 | 56 GB | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. | 
+| large | 8 | 16 GB | Queste dimensioni sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. |
+| Grande (virtualizzazione annidata) | 8 | 32 GB | Queste dimensioni sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. Questa dimensione supporta anche la virtualizzazione nidificata. |  
 | GPU media (visualizzazione) | 12 | 112 GB | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. | 
 
 > [!NOTE]

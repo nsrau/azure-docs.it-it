@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537679"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858575"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Abilitare e creare condivisioni file di grandi dimensioni
 
@@ -26,8 +26,9 @@ Quando si abilitano condivisioni file di grandi dimensioni nell'account di archi
 
 ## <a name="restrictions"></a>Restrizioni
 
-Per il momento, è possibile usare l'archiviazione con ridondanza locale (con ridondanza locale) o l'archiviazione con ridondanza della zona (ZRS) in account abilitati per la condivisione file di grandi dimensioni. Non è possibile usare l'archiviazione con ridondanza geografica (GZRS), l'archiviazione con ridondanza geografica (GRS) o l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
-L'abilitazione di condivisioni file di grandi dimensioni in un account è un processo irreversibile. Dopo averla abilitata, non sarà possibile convertire l'account in GZRS, GRS o RA-GRS.
+Per il momento, è possibile usare l'archiviazione con ridondanza locale (con ridondanza locale) o l'archiviazione con ridondanza della zona (ZRS) in account abilitati per la condivisione file di grandi dimensioni. Non è possibile usare archiviazione con ridondanza geografica (GZRS), archiviazione con ridondanza geografica (GRS), archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) o archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS).
+
+L'abilitazione di condivisioni file di grandi dimensioni in un account è un processo irreversibile. Dopo averla abilitata, non sarà possibile convertire l'account in GZRS, GRS, RA-GRS o RA-GZRS.
 
 ## <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
 
@@ -59,7 +60,7 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 
     ![Screenshot con il pulsante di opzione "Enabled" in un nuovo account di archiviazione nel portale di Azure](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="cli"></a>CLI
 
@@ -68,7 +69,7 @@ Installare prima [di tutto la versione più recente dell'interfaccia della riga 
 Per creare un account di archiviazione con condivisioni file di grandi dimensioni abilitata, usare il comando seguente. Sostituire `<yourStorageAccountName>`, `<yourResourceGroup>`e `<yourDesiredRegion>` con le informazioni.
 
 ```azurecli-interactive
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
@@ -79,13 +80,13 @@ Installare prima [di tutto la versione più recente di PowerShell](https://docs.
 Per creare un account di archiviazione con condivisioni file di grandi dimensioni abilitata, usare il comando seguente. Sostituire `<yourStorageAccountName>`, `<yourResourceGroup>`e `<yourDesiredRegion>` con le informazioni.
 
 ```powershell
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Abilita condivisioni di file di grandi dimensioni in un account esistente
 
-È anche possibile abilitare condivisioni file di grandi dimensioni per gli account esistenti. Se si abilitano condivisioni file di grandi dimensioni, non sarà possibile eseguire la conversione in GZRS, GRS o RA-GRS. L'abilitazione di condivisioni file di grandi dimensioni è irreversibile in questo account di archiviazione.
+È anche possibile abilitare condivisioni file di grandi dimensioni per gli account esistenti. Se si abilitano condivisioni file di grandi dimensioni, non sarà possibile eseguire la conversione in GZRS, GRS, RA-GRS o RA-GZRS. L'abilitazione di condivisioni file di grandi dimensioni è irreversibile in questo account di archiviazione.
 
 ### <a name="portal"></a>Portale
 

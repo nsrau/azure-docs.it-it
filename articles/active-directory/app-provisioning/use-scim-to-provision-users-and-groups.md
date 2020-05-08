@@ -2,28 +2,23 @@
 title: Sviluppare un endpoint SCIM per il provisioning degli utenti nelle app da Azure AD
 description: System for Cross-Domain Identity Management (SCIM) standardizza il provisioning utenti automatico. Informazioni su come sviluppare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e avviare l'automazione del provisioning di utenti e gruppi nelle applicazioni cloud.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65bbb35d041a48e68d01a50e88e42fbeb73f2ea6
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229919"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864284"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning degli utenti con Azure AD
 
 Gli sviluppatori di applicazioni possono usare l'API di gestione degli utenti di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi tra l'applicazione e Azure AD. Questo articolo descrive come creare un endpoint SCIM e integrarsi con il servizio di provisioning di Azure AD. La specifica SCIM fornisce uno schema utente comune per il provisioning. Se usato in combinazione con gli standard di federazione come SAML o OpenID Connect, SCIM offre agli amministratori una soluzione end-to-end basata sugli standard per la gestione degli accessi.
 
@@ -1124,7 +1119,7 @@ Verificare la conformità ai requisiti sopra riportati con il provider dell'appl
 > [!IMPORTANT]
 > Il Azure AD implementazione di SCIM si basa sul servizio di provisioning utenti Azure AD, progettato per consentire agli utenti di sincronizzare costantemente gli utenti tra Azure AD e l'applicazione di destinazione e implementa un set molto specifico di operazioni standard. È importante comprendere questi comportamenti per comprendere il comportamento del client di Azure AD SCIM. Per ulteriori informazioni, vedere la sezione [cicli di provisioning: iniziale e incrementale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](how-provisioning-works.md).
 
-### <a name="getting-started"></a>Guida introduttiva
+### <a name="getting-started"></a>Introduzione
 
 Le applicazioni che supportano il profilo SCIM descritto in questo articolo possono essere connesse ad Azure Active Directory usando la funzionalità "Applicazione non nella raccolta" nella raccolta di applicazioni di Azure AD. Una volta stabilita la connessione, Azure AD esegue un processo di sincronizzazione ogni 40 minuti in cui interroga l'endpoint SCIM dell'applicazione in merito agli utenti e ai gruppi assegnati e li crea o li modifica in base alle istruzioni di assegnazione.
 
@@ -1200,8 +1195,8 @@ La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazion
 [!NOTE] Non è consigliabile lasciare vuoto il campo token nell'interfaccia utente dell'app personalizzata per la configurazione del provisioning di Azure AD. Il token generato è disponibile principalmente a scopo di test.
 
 **Flusso di concessione del codice di autorizzazione OAuth:** Il servizio di provisioning supporta la [concessione del codice di autorizzazione](https://tools.ietf.org/html/rfc6749#page-24). Dopo aver inviato la richiesta di pubblicazione dell'app nella raccolta, il Team collaborerà con l'utente per raccogliere le informazioni seguenti:
-*  URL autorizzazione: URL del client per ottenere l'autorizzazione dal proprietario della risorsa tramite il reindirizzamento dell'agente utente. L'utente viene reindirizzato a questo URL per autorizzare l'accesso. 
-*  URL di scambio di token: URL del client per scambiare una concessione di autorizzazione per un token di accesso, in genere con l'autenticazione client.
+*  URL autorizzazione: URL del client per ottenere l'autorizzazione dal proprietario della risorsa tramite il reindirizzamento dell'agente utente. L'utente viene reindirizzato a questo URL per autorizzare l'accesso. Si noti che questo URL non è attualmente configurabile per ogni tenant.
+*  URL di scambio di token: URL del client per scambiare una concessione di autorizzazione per un token di accesso, in genere con l'autenticazione client. Si noti che questo URL non è attualmente configurabile per ogni tenant.
 *  ID client: il server di autorizzazione rilascia al client registrato un identificatore client, ovvero una stringa univoca che rappresenta le informazioni di registrazione fornite dal client.  L'identificatore client non è un segreto. viene esposto al proprietario della risorsa e **non deve** essere usato da solo per l'autenticazione client.  
 *  Segreto client: il segreto client è un segreto generato dal server di autorizzazione. Deve essere un valore univoco noto solo al server di autorizzazione. 
 

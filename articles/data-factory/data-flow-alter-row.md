@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/20/2020
-ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729129"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982650"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Trasformazione alter Row nel flusso di dati del mapping
 
@@ -24,6 +24,8 @@ Utilizzare la trasformazione alter Row per impostare i criteri INSERT, DELETE, U
 ![Alter Row-impostazioni](media/data-flow/alter-row1.png "Alter Row-impostazioni")
 
 Le trasformazioni alter Row funzioneranno solo sui sink di database o CosmosDB nel flusso di dati. Le azioni assegnate alle righe (Insert, Update, DELETE, Upsert) non vengono eseguite durante le sessioni di debug. Eseguire un'attività Esegui flusso di dati in una pipeline per applicare i criteri alter Row nelle tabelle di database.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 
 ## <a name="specify-a-default-row-policy"></a>Specificare un criterio di riga predefinito
 
@@ -54,6 +56,20 @@ Il comportamento predefinito è consentire solo gli inserimenti. Per consentire 
 > Se inserimenti, aggiornamenti o Upsert modifica lo schema della tabella di destinazione nel sink, il flusso di dati avrà esito negativo. Per modificare lo schema di destinazione nel database, scegliere **ricrea tabella** come azione tabella. Verrà eliminata e ricreata la tabella con la nuova definizione dello schema.
 
 La trasformazione sink richiede una singola chiave o una serie di chiavi per l'identificazione univoca delle righe nel database di destinazione. Per i sink SQL, impostare le chiavi nella scheda Impostazioni sink. Per CosmosDB, impostare la chiave di partizione nelle impostazioni e impostare anche il campo di sistema CosmosDB "ID" nel mapping del sink. Per CosmosDB, è obbligatorio includere la colonna di sistema "ID" per gli aggiornamenti, Upsert ed eliminazioni.
+
+## <a name="merges-and-upserts-with-azure-sql-database-and-synapse"></a>Merge e Upsert con il database SQL di Azure e la sinapsi
+
+I flussi di dati ADF supportano le unioni con il database SQL di Azure e il pool di database sinapsi (data warehouse) con l'opzione Upsert.
+
+Tuttavia, è possibile che si verifichino scenari in cui lo schema del database di destinazione utilizza la proprietà Identity delle colonne chiave. Con ADF è necessario identificare le chiavi che si utilizzeranno per trovare la corrispondenza con i valori di riga per gli aggiornamenti e Upsert. Tuttavia, se per la colonna di destinazione è impostata la proprietà Identity e si utilizza il criterio Upsert, il database di destinazione non consentirà di scrivere nella colonna. È inoltre possibile che si verifichino errori quando si tenta di eseguire il Upsert sulla colonna di distribuzione di una tabella distribuita.
+
+Ecco alcuni modi per risolvere il problema:
+
+1. Passare alle impostazioni di trasformazione del sink e impostare "Ignora scrittura colonne chiave". Questo consentirà a ADF di non scrivere la colonna selezionata come valore chiave per il mapping.
+
+2. Se tale colonna chiave non è la colonna che causa il problema per le colonne Identity, è possibile utilizzare l'opzione SQL di pre-elaborazione della trasformazione sink ```SET IDENTITY_INSERT tbl_content ON```:. Quindi, disattivarla con la proprietà SQL di post-elaborazione ```SET IDENTITY_INSERT tbl_content OFF```:.
+
+3. Sia per il caso di identità che per la colonna di distribuzione, è possibile cambiare la logica da Upsert a utilizzando una condizione di aggiornamento separata e una condizione di inserimento separata utilizzando una trasformazione Suddivisione condizionale. In questo modo, è possibile impostare il mapping sul percorso di aggiornamento per ignorare il mapping delle colonne chiave.
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 

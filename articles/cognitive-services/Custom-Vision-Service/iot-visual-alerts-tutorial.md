@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d94f557ddd946d20020825e2bbb6babbd67d3af3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769881"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734332"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Esercitazione: Usare Visione personalizzata con un dispositivo IoT per segnalare gli stati visivi
 
@@ -62,7 +62,7 @@ I file seguenti gestiscono la modalità di funzionamento principale dell'app.
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Questo codice controlla il comportamento dell'interfaccia utente XAML. Contiene il codice di elaborazione degli stati.|
 | [CustomVision\CustomVisionServiceWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionServiceWrapper.cs) | Questa classe è un wrapper che gestisce l'integrazione con il servizio Visione personalizzata.|
 | [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | Questa classe è un wrapper che gestisce l'integrazione con Windows ML per il caricamento del modello ONNX e l'assegnazione di punteggi rispetto a tale modello.|
-| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IotHubWrapper.cs) | Questa classe è un wrapper che gestisce l'integrazione con l'hub IoT per caricare i risultati dei punteggi in Azure.|
+| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IoTHubWrapper.cs) | Questa classe è un wrapper che gestisce l'integrazione con l'hub IoT per caricare i risultati dei punteggi in Azure.|
 
 ## <a name="set-up-the-visual-alerts-app"></a>Configurare l'app Visual Alerts
 
@@ -90,7 +90,7 @@ Quando viene eseguita per la prima volta, l'app non avrà alcuna conoscenza degl
 
 Per configurare un modello, è necessario impostare l'app sullo stato **Capturing Training Images** (Acquisizione delle immagini di training). Eseguire uno dei passaggi seguenti:
 * Se si esegue l'app sul PC, usare il pulsante nell'angolo in alto a destra dell'interfaccia utente.
-* Se si esegue l'app su un dispositivo IoT, chiamare il metodo `EnterLearningMode` sul dispositivo tramite l'hub IoT. Il metodo può essere chiamato tramite la voce corrispondente al dispositivo nel menu dell'hub IoT nel portale di Azure oppure con uno strumento, ad esempio [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Se si esegue l'app su un dispositivo IoT, chiamare il metodo `EnterLearningMode` sul dispositivo tramite l'hub IoT. Il metodo può essere chiamato tramite la voce corrispondente al dispositivo nel menu dell'hub IoT nel portale di Azure oppure con uno strumento, ad esempio [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp).
  
 Quando l'app passa allo stato **Capturing Training Images** (Acquisizione delle immagini di training), acquisisce circa due immagini al secondo fino a raggiungere il numero di immagini preimpostato. Per impostazione predefinita corrisponde a 30 immagini, ma si può impostare questo parametro passando il numero desiderato come argomento al metodo `EnterLearningMode` dell'hub IoT. 
 
