@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 292c86107ff6d57aa020af746674ed40a7ec39d0
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: 611e8441fab56114ca010d0b555c9ed156ae9d40
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836598"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855068"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Risolvere i problemi della soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -104,7 +104,7 @@ Esaminare l'elenco seguente per le possibili soluzioni per il problema:
 
 * Verificare di aver configurato correttamente una pianificazione per la soluzione avvio/arresto di macchine virtuali durante gli orari di indisponibilità. Per informazioni su come configurare una pianificazione, vedere [pianificazioni](../automation-schedules.md).
 
-* Controllare i [flussi del processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Cercare i processi da uno dei seguenti manuali operativi:
+* Controllare i [flussi del processo](../automation-runbook-execution.md#job-statuses) per individuare eventuali errori. Cercare i processi da uno dei seguenti manuali operativi:
 
   * **AutoStop_CreateAlert_Child**
   * **AutoStop_CreateAlert_Parent**
@@ -157,7 +157,7 @@ Esaminare l'elenco seguente per individuare possibili soluzioni al problema o po
 
 * Per avviare e arrestare le macchine virtuali, l'account RunAs per l'account di automazione deve avere le autorizzazioni appropriate per la macchina virtuale. Per informazioni su come controllare le autorizzazioni per una risorsa, vedere [Guida introduttiva: visualizzare i ruoli assegnati a un utente usando il portale di Azure](../../role-based-access-control/check-access.md). È necessario fornire l'ID applicazione per l'entità servizio usata dall'account RunAs. È possibile recuperare questo valore passando all'account di automazione nella portale di Azure. Selezionare account **RunAs** in **Impostazioni account** e selezionare l'account RunAs appropriato.
 * Se si verifica un problema durante l'avvio o la deallocazione della macchina virtuale, potrebbe essersi verificato un problema nella macchina virtuale. Gli esempi sono un aggiornamento che viene applicato quando la macchina virtuale tenta di arrestarsi, un servizio che si blocca e altro ancora. Passare alla risorsa VM e controllare i **log attività** per verificare se sono presenti errori nei log. È anche possibile tentare di accedere alla macchina virtuale per verificare se sono presenti errori nei log eventi. Per altre informazioni sulla risoluzione dei problemi della VM, vedere [risoluzione dei problemi relativi alle macchine virtuali di Azure](../../virtual-machines/troubleshooting/index.yml).
-* Controllare i [flussi del processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **processi** in **automazione processi**.
+* Controllare i [flussi del processo](../automation-runbook-execution.md#job-statuses) per individuare eventuali errori. Nel portale passare all'account di automazione e selezionare **processi** in **automazione processi**.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Scenario: il Runbook personalizzato non riesce ad avviare o arrestare le macchine virtuali
 
@@ -174,7 +174,7 @@ Le cause dell'errore possono essere molteplici. Passare all'account di automazio
 È consigliabile:
 
 * Usare la [soluzione avvia/arresta macchine virtuali durante le ore](../automation-solution-vm-management.md) di indisponibilità per avviare e arrestare le macchine virtuali in automazione di Azure. Questa soluzione è stata creata da Microsoft. 
-* Tenere presente che Microsoft non supporta manuali operativi personalizzati. È possibile trovare una soluzione per il Runbook personalizzato dalla [risoluzione dei problemi di Runbook](runbooks.md). Controllare i [flussi del processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. 
+* Tenere presente che Microsoft non supporta manuali operativi personalizzati. È possibile trovare una soluzione per il Runbook personalizzato dalla [risoluzione dei problemi di Runbook](runbooks.md). Controllare i [flussi del processo](../automation-runbook-execution.md#job-statuses) per individuare eventuali errori. 
 
 ## <a name="scenario-vms-dont-start-or-stop-in-the-correct-sequence"></a><a name="dont-start-stop-in-sequence"></a>Scenario: le macchine virtuali non vengono avviate o arrestate nella sequenza corretta
 
@@ -231,7 +231,7 @@ Spesso gli errori possono essere causati dall'uso di una versione vecchia e non 
 
 ### <a name="resolution"></a>Soluzione
 
-Per risolvere molti errori, rimuovere e [aggiornare la soluzione avvio/arresto di macchine virtuali durante gli orari](../automation-solution-vm-management.md#update-the-solution)di indisponibilità. È anche possibile controllare i [flussi del processo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) per individuare eventuali errori. 
+Per risolvere molti errori, rimuovere e [aggiornare la soluzione avvio/arresto di macchine virtuali durante gli orari](../automation-solution-vm-management.md#update-the-solution)di indisponibilità. È anche possibile controllare i [flussi del processo](../automation-runbook-execution.md#job-statuses) per individuare eventuali errori. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942987"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858808"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduzione agli archivi conoscenze in Ricerca cognitiva di Azure
 
@@ -25,6 +25,10 @@ L'archivio delle informazioni è una funzionalità di Azure ricerca cognitiva ch
 Se in passato sono state usate competenze cognitive, si sa già che *skillsets* sposta un documento attraverso una sequenza di arricchimenti. Il risultato può essere rappresentato da un indice di ricerca o (novità in questa anteprima) da proiezioni in un archivio conoscenze. I due output, l'indice di ricerca e l'archivio delle informazioni, sono prodotti della stessa pipeline. derivato dagli stessi input, ma risultante nell'output strutturato, archiviato e usato in modi molto diversi.
 
 Fisicamente, un archivio conoscenze è una [risorsa di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), ad esempio una risorsa di archiviazione tabelle di Azure, di archiviazione BLOB di Azure o entrambe. Qualsiasi strumento o processo in grado di connettersi ad archiviazione di Azure può usare il contenuto di un archivio conoscenze.
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
+
 
 ![Archivio conoscenze nel diagramma della pipeline](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Archivio conoscenze nel diagramma della pipeline")
 
@@ -46,6 +50,10 @@ Di seguito vengono elencati i vantaggi del knowledge store:
 > Nuove funzionalità di intelligenza artificiale e competenze cognitive? Ricerca cognitiva di Azure si integra con le funzionalità Visione artificiale e Lingua di Servizi cognitivi per estrarre e arricchire i dati di origine tramite il Riconoscimento ottico dei caratteri (OCR) su file di immagine, riconoscimento di entità ed estrazione di frasi chiave da file di testo e altro ancora. Per altre informazioni, vedere [Arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure](cognitive-search-concept-intro.md).
 
 ## <a name="physical-storage"></a>Archiviazione fisica
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=455&end=542]
+
 
 L'espressione fisica di un archivio informazioni viene articolata tramite l' `projections` elemento di una `knowledgeStore` definizione in un skillt. La proiezione definisce una struttura dell'output in modo che corrisponda all'utilizzo previsto.
 
@@ -131,7 +139,7 @@ Una volta che gli arricchimenti sono presenti nell'archiviazione, è possibile u
 
 <a name="kstore-rest-api"></a>
 
-## <a name="api-reference"></a>API (riferimento)
+## <a name="api-reference"></a>Informazioni di riferimento sulle API
 
 La versione `2019-05-06-Preview` dell'API REST fornisce l'archivio delle informazioni tramite definizioni aggiuntive in skillsets. Per informazioni dettagliate su come chiamare le API, vedere l'articolo relativo alla [creazione di un archivio informazioni con il post](knowledge-store-create-rest.md) .
 

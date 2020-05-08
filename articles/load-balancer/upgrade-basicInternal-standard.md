@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770380"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858358"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Aggiornare Load Balancer interno di Azure-nessuna connessione in uscita necessaria
-[Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/skus#skus).
 
 Questo articolo presenta uno script di PowerShell che consente di creare un Load Balancer Standard con la stessa configurazione del Load Balancer di base insieme alla migrazione del traffico da Load Balancer di base a Load Balancer Standard.
 
@@ -33,6 +33,17 @@ Questo articolo presenta uno script di PowerShell che consente di creare un Load
 * Lo script supporta solo l'aggiornamento interno del Load Balancer in cui non è richiesta alcuna connessione in uscita. Se è necessaria una [connessione in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) per alcune macchine virtuali, fare riferimento a questa [pagina](upgrade-InternalBasic-To-PublicStandard.md) per istruzioni. 
 * Se il servizio di bilanciamento del carico standard viene creato in un'area diversa, non sarà possibile associare le macchine virtuali esistenti nell'area precedente alla Load Balancer Standard appena creata. Per ovviare a questa limitazione, assicurarsi di creare una nuova macchina virtuale nella nuova area.
 * Se il Load Balancer non dispone di alcuna configurazione IP front-end o di un pool back-end, probabilmente si verifica un errore durante l'esecuzione dello script. Verificare che non siano vuoti.
+
+## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Modificare il metodo di allocazione IP in statico per la configurazione IP front-end (ignorare questo passaggio se è già statico)
+
+1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse**e quindi selezionare il Load Balancer di base dall'elenco delle risorse.
+
+2. In **Impostazioni**selezionare **configurazione IP**front-end e selezionare la prima configurazione IP front-end. 
+
+3. Per **assegnazione**selezionare **static**
+
+4. Ripetere il passaggio 3 per tutte le configurazioni IP front-end del Load Balancer di base.
+
 
 ## <a name="download-the-script"></a>Scaricare lo script
 

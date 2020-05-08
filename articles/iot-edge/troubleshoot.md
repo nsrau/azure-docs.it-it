@@ -8,12 +8,12 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 046792d9eacf8a29897d86119fb6468d9c94e483
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780029"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858589"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Risolvere i problemi del dispositivo IoT Edge
 
@@ -22,6 +22,9 @@ Se si verificano problemi durante l'esecuzione di Azure IoT Edge nell'ambiente i
 ## <a name="run-the-check-command"></a>Eseguire il comando ' check '
 
 Il primo passaggio per la risoluzione dei problemi di IoT Edge deve essere `check` quello di usare il comando, che esegue una raccolta di test di configurazione e connettività per i problemi comuni. Il `check` comando è disponibile in [Release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) e versioni successive.
+
+>[!NOTE]
+>Lo strumento per la risoluzione dei problemi non può eseguire controlli di connettività se il dispositivo IoT Edge è dietro a un server proxy.
 
 È possibile eseguire il `check` comando come indicato di seguito o includere `--help` il flag per visualizzare un elenco completo delle opzioni:
 
@@ -39,9 +42,9 @@ iotedge check
 
 Lo strumento di risoluzione dei problemi esegue molti controlli ordinati nelle tre categorie seguenti:
 
-* Controlli di configurazione: esamina i dettagli che potrebbero impedire la connessione dei dispositivi IoT Edge al cloud, inclusi i problemi con *config. YAML* e il motore di gestione dei contenitori.
-* Controlli della connessione: verifica che il runtime di IoT Edge possa accedere alle porte sul dispositivo host e che tutti i componenti IoT Edge possano connettersi all'hub Internet.
-* Controlli di conformità per la produzione: Cerca le procedure consigliate per la produzione, ad esempio lo stato dei certificati dell'autorità di certificazione (CA) del dispositivo e la configurazione del file di registro del modulo.
+* I *controlli di configurazione* esaminano i dettagli che potrebbero impedire la connessione dei dispositivi IOT Edge al cloud, inclusi i problemi con *config. YAML* e il motore di gestione dei contenitori.
+* I *controlli di connessione* verificano che il runtime di IOT Edge possa accedere alle porte sul dispositivo host e che tutti i componenti IOT Edge possano connettersi all'hub Internet. Questo set di controlli restituisce errori se il dispositivo IoT Edge si trova dietro un proxy.
+* I *controlli di conformità* per la produzione cercano le procedure consigliate per la produzione, ad esempio lo stato dei certificati dell'autorità di certificazione (CA) del dispositivo e la configurazione del file di registro del modulo.
 
 Per informazioni su ognuno dei controlli diagnostici eseguiti da questo strumento, incluse le operazioni da eseguire se viene visualizzato un errore o un avviso, vedere [IOT Edge risolvere i problemi relativi ai controlli](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
@@ -132,6 +135,20 @@ In Windows:
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog -StartTime ([datetime]::Now.AddMinutes(-5))
    ```
+
+* Visualizzare i log più dettagliati di IoT Edge Security Manager:
+
+  * Aggiungere una variabile di ambiente a livello di sistema:
+
+      ```powershell
+      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "edgelet=debug", [EnvironmentVariableTarget]::Machine)
+      ```
+
+  * Riavviare il daemon di sicurezza di IoT Edge:
+
+      ```powershell
+      Restart-Service iotedge
+      ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se IoT Edge Security Manager non è in esecuzione, verificare il file di configurazione YAML
 

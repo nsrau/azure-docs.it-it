@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: b3b235833e794e48ae655d184bf938effc0d7ac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f117f1518211680c4ea1f5ac51ecf0e44396a133
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768387"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856757"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 
@@ -69,7 +69,7 @@ Il passaggio successivo consiste nella creazione di un runbook in Automazione di
 Per creare un nuovo runbook di Automazione di Azure, seguire questa procedura:
 
 1. Accedere all'account di automazione di Azure creato nel passaggio precedente.
-1. Nel riquadro account di automazione fare clic sulla voce di menu "**manuali operativi**" sul lato sinistro per creare un nuovo Runbook di automazione di Azure con lo script di PowerShell. Per altre informazioni sulla creazione di runbook di automazione, vedere [Creazione di un nuovo runbook](../automation/manage-runbooks.md#creating-a-runbook).
+1. Nel riquadro account di automazione fare clic sulla voce di menu "**manuali operativi**" sul lato sinistro per creare un nuovo Runbook di automazione di Azure con lo script di PowerShell. Per altre informazioni sulla creazione di manuali operativi di automazione, vedere [creare un nuovo Runbook](../automation/manage-runbooks.md#create-a-runbook).
 1. Per aggiungere un nuovo Runbook, fare clic sull'opzione di menu "**+ Aggiungi Runbook**" e quindi fare clic su "**creazione rapida-crea una nuova Runbook**".
 1. Nel riquadro Runbook digitare il nome della Runbook (ai fini di questo esempio viene usato "**AutomaticTuningEmailAutomation**"), selezionare il tipo di Runbook come **PowerShell** e scrivere una descrizione di questo Runbook per descriverne lo scopo.
 1. Fare clic sul pulsante **Crea** per completare la creazione di un nuovo Runbook.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14d1f042240fd045925afe1725b32ddade490dfe
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052404"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858553"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -123,7 +123,7 @@ Le intestazioni della richiesta includono:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Testo della richiesta
+## <a name="request-body"></a>Corpo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un oggetto JSON con una proprietà di stringa denominata `Text`, che rappresenta la stringa da tradurre.
 
@@ -202,11 +202,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Esito positivo.</td>
+    <td>Operazione completata.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query non è presente o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -363,7 +363,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Action</th>
+  <th>Azione</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
@@ -454,6 +454,14 @@ La risposta è:
 
 ### <a name="obtain-alignment-information"></a>Ottenere informazioni sull'allineamento
 
+L'allineamento viene restituito come un valore di stringa nel formato seguente per ogni parola dell'origine. Le informazioni per ogni parola sono separate da uno spazio, incluse le lingue non separate da spazi (script), ad esempio il cinese:
+
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+
+Stringa di allineamento di esempio: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+In altre parole, i due punti separano l'indice iniziale e finale, il trattino separa le lingue e uno spazio separa le parole. Una parola può essere allineata con nessuna, una o più parole nell'altra lingua e le parole allineate potrebbero non essere contigue. Quando non è disponibile alcuna informazione di allineamento, l'elemento Allineamento sarà vuoto. In questo caso il metodo non restituisce alcun errore.
+
 Per ricevere informazioni sull'allineamento, specificare `includeAlignment=true` nella stringa di query.
 
 ```curl
@@ -483,9 +491,10 @@ Il recupero delle informazioni di allineamento è una funzionalità sperimentale
 
 * L'allineamento non è disponibile per il testo in formato HTML, ad esempio textType = HTML
 * L'allineamento viene restituito solo per un subset delle coppie di lingue:
-  - dall'inglese verso qualsiasi altra lingua;
-  - da qualsiasi altra lingua verso l'inglese, ad eccezione di cinese semplificato, cinese tradizionale e lettone verso l'inglese;
+  - Da inglese a/da qualsiasi altra lingua, ad eccezione del cinese tradizionale, cantonese (tradizionale) o serbo (alfabeto cirillico).
   - da giapponese e coreano o da coreano a giapponese.
+  - da giapponese a cinese semplificato e cinese semplificato in giapponese. 
+  - dal cinese semplificato al cinese tradizionale e cinese tradizionale al cinese semplificato. 
 * Non si riceveranno informazioni sull'allineamento se la frase è una traduzione predefinita. Un esempio di traduzione predefinita è "Questo è un test", "Ti amo" e altre frasi usate frequentemente.
 * L'allineamento non è disponibile quando si applica uno degli approcci per impedire la traduzione come descritto [qui](../prevent-translation.md) .
 
@@ -515,7 +524,7 @@ La risposta è:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Tradurre con un dizionario dinamico
 
-Se si conosce già la traduzione che si vuole applicare a una parola o una frase, è possibile specificarla come markup all'interno della richiesta. Il dizionario dinamico è sicuro solo per nomi composti come nomi propri e nomi di prodotto.
+Se si conosce già la traduzione che si vuole applicare a una parola o una frase, è possibile specificarla come markup all'interno della richiesta. Il dizionario dinamico è sicuro solo per i sostantivi appropriati, ad esempio nomi personali e nomi di prodotto.
 
 Il markup da specificare usa la sintassi seguente.
 

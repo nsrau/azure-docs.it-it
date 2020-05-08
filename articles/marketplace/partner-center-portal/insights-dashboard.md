@@ -1,22 +1,22 @@
 ---
-title: Dashboard di Marketplace Insights in Commercial Marketplace Analytics nel centro per i partner
-description: Accedi a un riepilogo di analisi Web del Marketplace, che consente agli editori di misurare il coinvolgimento dei clienti in AppSource e nelle vetrine di Azure Marketplace.
+title: Informazioni dettagliate sul Marketplace-Marketplace commerciale Microsoft
+description: Accedi a un riepilogo di analisi Web del Marketplace, che consente di misurare il coinvolgimento dei clienti in Microsoft AppSource e in Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cecff7347189c5e5b964e10439297bce405810b7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251708"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857913"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di Marketplace Insights in analisi del Marketplace commerciale
+# <a name="marketplace-insights-dashboard-in-partner-center"></a>Dashboard di Marketplace Insights nel centro per i partner
 
-Questo articolo fornisce informazioni sul dashboard di Marketplace Insights nel centro per i partner. Questo dashboard Visualizza un riepilogo di analisi Web del Marketplace, che consente agli editori di misurare il coinvolgimento dei clienti per le rispettive pagine dei dettagli del prodotto elencate nelle vetrine del Marketplace: AppSource e Azure Marketplace.
+Questo articolo fornisce informazioni sul dashboard di Marketplace Insights nel centro per i partner. Questo dashboard Visualizza un riepilogo di analisi Web del Marketplace, che consente agli editori di misurare il coinvolgimento dei clienti per le rispettive pagine dei dettagli del prodotto elencate nelle vetrine del Marketplace: Microsoft AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Dashboard Informazioni dettagliate sul marketplace
 
