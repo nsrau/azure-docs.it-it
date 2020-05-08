@@ -1,25 +1,27 @@
 ---
-title: Microsoft Commercial Marketplace Lead Management con HTTPS
-description: Configurare la gestione dei lead di Microsoft Commercial Marketplace per un endpoint HTTPS.
+title: Gestione dei lead con un endpoint HTTPS-Marketplace commerciale Microsoft
+description: Informazioni su come usare Power automatici e un endpoint HTTPS per gestire i lead da Microsoft AppSource e Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133744"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790984"
 ---
-# <a name="configure-lead-management-by-using-an-https-endpoint"></a>Configurare la gestione dei lead tramite un endpoint HTTPS
+# <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Usare un endpoint HTTPS per gestire i lead del Marketplace commerciale
+
+Se il sistema CRM (Customer Relationship Management) non è supportato in modo esplicito nel centro per i partner per ricevere Microsoft AppSource e i lead di Azure Marketplace, è possibile usare un endpoint HTTPS in [Power automatizzate](https://powerapps.microsoft.com/automate-processes/) per gestire questi lead. Con un endpoint HTTPS, i lead del Marketplace commerciale possono essere inviati come notifica tramite posta elettronica oppure possono essere scritti in un sistema CRM supportato da Power Automate.
+
+Questo articolo illustra come creare un nuovo flusso in Power automatizzate per generare l'URL HTTP POST che verrà usato per configurare i lead nel centro per i partner. Include anche i passaggi per testare il flusso con il [post](https://www.getpostman.com/downloads/).
 
 >[!NOTE]
->Il connettore Power automatizzate usato in queste istruzioni richiede una sottoscrizione a pagamento per l'automazione dell'energia elettrica. Prima di seguire le istruzioni riportate in questo articolo, assicurarsi di tenere conto di questo problema.
-
-Se il sistema CRM (Customer Relationship Management) non è supportato in modo esplicito nel centro per i partner per ricevere Microsoft AppSource e i lead di Azure Marketplace, è possibile usare un endpoint HTTPS in Power automatizzate per gestire questi lead. Con un endpoint HTTPS, questi lead possono essere inviati come notifica tramite posta elettronica oppure possono essere scritti in un sistema CRM supportato da Power Automate. Le istruzioni riportate in questo articolo illustrano il processo di base per creare un nuovo flusso usando Power Automate, che genera l'URL http post che verrà immesso nel portale di pubblicazione per il campo dell'**URL dell'endpoint HTTPS** per la **gestione** > dei lead. Sono inoltre incluse istruzioni su come testare il flusso con l'ausilio di uno strumento denominato [post](https://www.getpostman.com/downloads/), disponibile online.
+>Il connettore Power automatizzate usato in queste istruzioni richiede una sottoscrizione a pagamento per l'automazione dell'energia elettrica. Prima di configurare questo flusso, assicurarsi di tenere conto di questa operazione.
 
 ## <a name="create-a-flow-by-using-power-automate"></a>Creare un flusso usando Power Automate
 
@@ -27,22 +29,24 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
 1. Accedere e selezionare **flussi personali** nel menu.
 
-1. Selezionare **+ automatizzato--da zero**.
+    ![Accedi ai flussi](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-    ![Flussi personali + automatizzato--da zero](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+1. In **+ nuovo**selezionare **+ Instant (da zero)**.
 
-1. Nella finestra **Compila un flusso automatizzato** selezionare **Ignora**. 
+    ![Flussi personali + automatizzato--da zero](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-    ![Pulsante per la creazione di una finestra di flusso automatica](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+1. Assegnare un nome al flusso e quindi in **scegliere come attivare questo flusso**, selezionare **quando viene ricevuta una richiesta http**.
 
-1. Nel campo **Cerca connettori e trigger** immettere **richiesta** per trovare il connettore della richiesta.
-1. In **Trigger** selezionare **Alla ricezione di una richiesta HTTP**. 
+    ![Pulsante per la creazione di una finestra di flusso automatica](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-    ![Menu trigger](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+1. Fare clic sul passaggio del flusso per espanderlo.
 
-1. Nella finestra **quando viene ricevuta una richiesta http** , copiare e incollare lo schema JSON seguente nella casella di testo **dello schema JSON del corpo della richiesta** . Questo schema viene usato da Microsoft per contenere i dati dei lead.
+    ![Espandere il passaggio del flusso](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-    ![Casella di testo dello schema JSON del corpo della richiesta](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+1. Usare uno dei metodi seguenti per configurare lo **schema JSON del corpo della richiesta**:
+
+    - Copiare lo schema JSON nella casella di testo **dello schema JSON del corpo della richiesta** .
+    - Selezionare **Usare il payload di esempio per generare lo schema**. Nella casella di testo **immettere o incollare un payload JSON di esempio** incollare nell'esempio JSON. Selezionare **Fine** per creare lo schema.
 
     **Schema JSON**
 
@@ -103,6 +107,26 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
     }
     ```
 
+    **Esempio JSON**
+    
+    ```json
+    {
+      "UserDetails": {
+        "FirstName": "Some",
+        "LastName": "One",
+        "Email": "someone@contoso.com",
+        "Phone": "16175555555",
+        "Country": "USA",
+        "Company": "Contoso",
+        "Title": "Esquire"
+     },
+      "LeadSource": "AzureMarketplace",
+      "ActionCode": "INS",
+      "OfferTitle": "Test Microsoft",
+      "Description": "Test run through Power Automate"
+    }
+    ```
+
 >[!NOTE]
 >A questo punto della configurazione è possibile scegliere di connettersi a un sistema CRM o configurare una notifica di posta elettronica. Seguire le istruzioni rimanenti in base alla scelta effettuata.
 
@@ -157,7 +181,7 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
 ### <a name="testing"></a>Test
 
-È possibile verificare che tutto funzioni come previsto usando uno strumento denominato [post](https://app.getpostman.com/app/download/win64), che può essere scaricato online. Questo strumento è disponibile per Windows. 
+È possibile testare la configurazione con [postazione](https://app.getpostman.com/app/download/win64). Per Windows è disponibile un download online del post. 
 
 1. Avviare il post e selezionare **nuova** > **richiesta** per configurare lo strumento di test. 
 
@@ -201,10 +225,18 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
 
 Quando si è pronti per configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione, seguire questa procedura.
 
-1. Passare alla pagina di **installazione dell'offerta** per l'offerta.
-1. Selezionare **Connetti** nella sezione **gestione dei lead** .
+1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/home).
+
+1. Selezionare l'offerta e passare alla scheda **installazione offerta** .
+
+1. Nella sezione **Lead Management** selezionare **Connect**. 
+    ![Pulsante Connetti Gestione lead](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+
 1. Nella finestra popup **Dettagli connessione** selezionare **endpoint HTTPS** per la **destinazione principale**. Incollare l'URL HTTP POST dal flusso creato seguendo i passaggi precedenti nel campo **URL endpoint HTTPS** .
+    ![Indirizzo di posta elettronica contatto dettagli connessione](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+
 1. In **Contact email**immettere gli indirizzi di posta elettronica per gli utenti della società che devono ricevere notifiche tramite posta elettronica quando viene ricevuto un nuovo lead. È possibile specificare più messaggi di posta elettronica separandoli con un punto e virgola.
+
 1. Selezionare **OK**.
 
 Per assicurarsi di avere effettuato la connessione a una destinazione principale, selezionare il pulsante **convalida** . In caso di esito positivo, sarà presente un lead di test nella destinazione principale.
@@ -213,10 +245,3 @@ Per assicurarsi di avere effettuato la connessione a una destinazione principale
 >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta.
 
 Quando vengono generati i lead, Microsoft invia lead al flusso. I lead vengono indirizzati al sistema CRM o all'indirizzo di posta elettronica configurati.
-
-![Pulsante Connetti Gestione lead](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
-
-![Destinazione lead dettagli connessione](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
-
-![Indirizzo di posta elettronica contatto dettagli connessione](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
-

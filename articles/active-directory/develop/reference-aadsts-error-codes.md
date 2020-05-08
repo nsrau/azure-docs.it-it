@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a962709638391887eaa275f059bf4ceae9218b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec1e7e9aa84c01cd62836f3c09f22cdb143817a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406981"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611331"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore Autenticazione di Azure AD e autorizzazione
 
@@ -72,9 +72,9 @@ Il `error` campo presenta diversi valori possibili: esaminare i collegamenti all
 | `temporarily_unavailable` | Il server è temporaneamente troppo occupato per gestire la richiesta. | ripetere la richiesta. L'applicazione client può spiegare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 
 ## <a name="lookup-current-error-code-information"></a>Ricerca informazioni sul codice di errore corrente
-I codici di errore e i messaggi sono soggetti a modifiche.  Per informazioni aggiornate, vedere la pagina per trovare le descrizioni `https://login.microsoftonline.com/error` degli errori AADSTS, le correzioni e alcune soluzioni alternative suggerite.  
+I codici di errore e i messaggi sono soggetti a modifiche.  Per informazioni aggiornate, vedere la pagina per trovare le descrizioni [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) degli errori AADSTS, le correzioni e alcune soluzioni alternative suggerite.  
 
-Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, ad esempio, è stato ricevuto il codice di errore "AADSTS16000", eseguire `https://login.microsoftonline.com/error` una ricerca per "16000".  È anche possibile collegarsi direttamente a un errore specifico aggiungendo il numero di codice di errore all'URL `https://login.microsoftonline.com/error?code=16000`:.
+Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, ad esempio, è stato ricevuto il codice di errore "AADSTS16000", eseguire [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) una ricerca per "16000".  È anche possibile collegarsi direttamente a un errore specifico aggiungendo il numero di codice di errore all'URL [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000):.
 
 ## <a name="aadsts-error-codes"></a>Codici di errore AADSTS
 
@@ -189,6 +189,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS65001 | DelegationDoesNotExist: l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. |
 | AADSTS65004 | UserDeclinedConsent: l'utente ha rifiutato il consenso per l'accesso all'app. Chiedere all'utente di riprovare ad accedere e fornire il consenso per l'app.|
 | AADSTS65005 | MisconfiguredApplication: l'elenco di accesso alle risorse necessarie per l'applicazione non contiene app individuabili dalla risorsa, l'app client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o di risorsa non trovata. Se l'app supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la risoluzione elencata per SAML usando il collegamento seguente:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS650052 | L'app deve accedere a un servizio `(\"{name}\")` che l'organizzazione `\"{organization}\"` non ha sottoscritto o abilitato. Contattare l'amministratore IT per verificare la configurazione delle sottoscrizioni del servizio. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant: autenticazione non riuscita. Il token di aggiornamento non è valido. Errore dovuto ai motivi seguenti:<ul><li>L'intestazione di associazione di token è vuota</li><li>L'hash di associazione di token non corrisponde</li></ul> |
 | AADSTS70001 | UnauthorizedClient: l'applicazione è disabilitata. |
@@ -206,6 +207,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS75001 | BindingSerializationError: si è verificato un errore durante l'associazione di messaggi SAML. |
 | AADSTS75003 | UnsupportedBindingError: l'app ha restituito un errore relativo a un'associazione non supportata (la risposta del protocollo SAML non può essere inviata tramite associazioni diverse da HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid: Azure AD non supporta la richiesta di SAML inviata dall'app per SSO. |
+| AADSTS7500514 | Impossibile trovare un tipo supportato di risposta SAML. I tipi di risposta supportati sono ' Response ' (nello spazio dei nomi XML ' urn: Oasis: Names: TC: SAML: 2.0: Protocol ') o ' Assertion ' (nello spazio dei nomi XML ' urn: Oasis: Names: TC: SAML: 2.0: Assertion '). Errore dell'applicazione: lo sviluppatore gestirà questo errore.|
 | AADSTS75008 | RequestDeniedError: la richiesta inviata dall'app è stata negata perché la richiesta SAML contiene una destinazione imprevista. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims: il metodo di autenticazione usato dall'utente per il servizio non corrisponde al metodo di autenticazione richiesto. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy: la richiesta di autenticazione SAML2 contiene un elemento NameIdPolicy non valido. |
@@ -311,6 +313,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS700020 | InteractionRequired: la concessione dell'accesso richiede l'interazione. |
 | AADSTS700022 | InvalidMultipleResourcesScope: il valore specificato per l'ambito del parametro di input non è valido perché contiene più di una risorsa. |
 | AADSTS700023 | InvalidResourcelessScope: il valore specificato per l'ambito del parametro di input non è valido quando è necessario un token di accesso. |
+| AADSTS7000215 | Viene fornito un segreto client non valido. Errore dello sviluppatore: l'app sta provando a eseguire l'accesso senza i parametri di autenticazione necessari o corretti.|
 | AADSTS7000222| InvalidClientSecretExpiredKeysProvided: le chiavi segrete del client specificate sono scadute. Visitare il portale di Azure per creare nuove chiavi per l'app o prendere in considerazione l'uso delle credenziali del certificato per una maggiore sicurezza:https://aka.ms/certCreds |
 | AADSTS700005 | Il codice di autorizzazione fornito da InvalidGrantRedeemAgainstWrongTenant è progettato per essere usato con altri tenant, quindi rifiutato. Il codice di autorizzazione di OAuth2 deve essere riscattato rispetto allo stesso tenant per cui è stato acquisito (/Common o/{tenant-ID} in base alle esigenze) |
 | AADSTS1000000 | UserNotBoundError: l'API di associazione richiede che l'utente di Azure AD esegua l'autenticazione anche con un provider di identità esterno e questa autenticazione non è stata ancora eseguita. |

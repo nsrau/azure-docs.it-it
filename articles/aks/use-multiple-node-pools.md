@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di nodi multipli per un 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259086"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610922"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -722,24 +722,67 @@ az group deployment create \
 
 L'aggiornamento del cluster AKS potrebbe richiedere alcuni minuti in base alle impostazioni del pool di nodi e alle operazioni definite nel modello di Gestione risorse.
 
-## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Assegnare un indirizzo IP pubblico per nodo per un pool di nodi (anteprima)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Assegnare un indirizzo IP pubblico per nodo per i pool di nodi (anteprima)
 
 > [!WARNING]
-> Durante l'anteprima dell'assegnazione di un indirizzo IP pubblico per nodo, non può essere usato con lo *SKU Load Balancer standard in AKS* a causa di possibili regole del servizio di bilanciamento del carico in conflitto con il provisioning delle macchine virtuali. A causa di questa limitazione, i pool di agenti di Windows non sono supportati con questa funzionalità di anteprima. Durante l'anteprima è necessario usare lo *SKU Basic Load Balancer* se è necessario assegnare un indirizzo IP pubblico per ogni nodo.
+> Per usare la funzionalità IP pubblico per nodo, è necessario installare l'estensione di anteprima dell'interfaccia della riga di comando 0.4.43 o versione successiva.
 
 I nodi AKS non richiedono indirizzi IP pubblici per la comunicazione. Tuttavia, gli scenari possono richiedere che i nodi in un pool di nodi ricevano indirizzi IP pubblici dedicati. Uno scenario comune è per i carichi di lavoro di gioco, in cui una console deve effettuare una connessione diretta a una macchina virtuale cloud per ridurre al minimo gli hop. Questo scenario può essere eseguito su AKS registrandosi per una funzionalità di anteprima, IP pubblico del nodo (anteprima).
 
-Eseguire la registrazione per la funzionalità IP pubblico del nodo eseguendo il comando seguente dell'interfaccia della riga di comando di Azure.
+Per installare e aggiornare la versione più recente dell'estensione AKS-Preview, usare i seguenti comandi dell'interfaccia della riga di comando di Azure:
+
+```azurecli
+az extension add --name aks-preview
+az extension update --name aks-preview
+az extension list
+```
+
+Eseguire la registrazione per la funzionalità IP pubblico node con il comando dell'interfaccia della riga di comando di Azure seguente:
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
+Potrebbero essere necessari alcuni minuti prima che la funzionalità venga registrata.  È possibile controllare lo stato con il comando seguente:
 
-Al termine della registrazione, distribuire un modello di Azure Resource Manager seguendo le stesse istruzioni [precedenti](#manage-node-pools-using-a-resource-manager-template) e aggiungere la proprietà `enableNodePublicIP` booleana a agentPoolProfiles. Impostare il valore su `true` come per impostazione predefinita viene impostato come `false` se non fosse specificato. 
+```azurecli-interactive
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
+```
 
-Questa proprietà è una proprietà solo in fase di creazione e richiede una versione API minima di 2019-06-01. Questo può essere applicato ai pool di nodi di Linux e Windows.
+Una volta completata la registrazione, creare un nuovo gruppo di risorse.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+```azurecli-interactive
+az group create --name myResourceGroup2 --location eastus
+```
+
+Creare un nuovo cluster AKS e alleghi un IP pubblico per i nodi. Ognuno dei nodi nel pool di nodi riceve un indirizzo IP pubblico univoco. È possibile verificarlo esaminando le istanze del set di scalabilità di macchine virtuali.
+
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+Per i cluster AKS esistenti, è anche possibile aggiungere un nuovo pool di nodi e alleghi un IP pubblico per i nodi.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
+
+> [!Important]
+> Durante l'anteprima, il servizio metadati dell'istanza di Azure non supporta attualmente il recupero di indirizzi IP pubblici per lo SKU di VM di livello standard. A causa di questa limitazione, non è possibile usare i comandi kubectl per visualizzare gli indirizzi IP pubblici assegnati ai nodi. Tuttavia, gli indirizzi IP vengono assegnati e funzionano come previsto. Gli indirizzi IP pubblici per i nodi sono collegati alle istanze nel set di scalabilità di macchine virtuali.
+
+È possibile individuare gli indirizzi IP pubblici per i nodi in diversi modi:
+
+* Usare il comando dell'interfaccia della riga di comando di Azure [AZ vmss list-instance-public-IPS][az-list-ips]
+* Usare i [comandi di PowerShell o bash][vmss-commands]. 
+* È anche possibile visualizzare gli indirizzi IP pubblici nel portale di Azure visualizzando le istanze nel set di scalabilità di macchine virtuali.
+
+> [!Important]
+> Il [gruppo di risorse del nodo][node-resource-group] contiene i nodi e i relativi indirizzi IP pubblici. Usare il gruppo di risorse nodo quando si eseguono i comandi per trovare gli indirizzi IP pubblici per i nodi.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 In questo articolo è stato creato un cluster AKS che include nodi basati su GPU. Per ridurre i costi non necessari, è consigliabile eliminare il *gpunodepool*o l'intero cluster AKS.
 
@@ -753,6 +796,12 @@ Per eliminare il cluster, usare il comando [AZ Group Delete][az-group-delete] pe
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+È anche possibile eliminare il cluster aggiuntivo creato per lo scenario IP pubblico per i pool di nodi.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -795,3 +844,7 @@ Per creare e usare pool di nodi contenitore di Windows Server, vedere [creare un
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md
+[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips

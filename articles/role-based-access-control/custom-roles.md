@@ -1,6 +1,6 @@
 ---
-title: Ruoli personalizzati per le risorse di Azure | Microsoft Docs
-description: Informazioni su come creare i ruoli personalizzati con il controllo degli accessi in base al ruolo per la gestione degli accessi specifica per le risorse di Azure.
+title: Ruoli personalizzati di Azure-RBAC di Azure
+description: Informazioni su come creare ruoli personalizzati di Azure con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per la gestione degli accessi con granularità fine delle risorse di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9454962e210781559f2fdceb1c36f499c4ae8ff7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5030fb50313e1db2173990c55930c22fdf58f559
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062180"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734791"
 ---
-# <a name="custom-roles-for-azure-resources"></a>Ruoli personalizzati per le risorse di Azure
+# <a name="azure-custom-roles"></a>Ruoli personalizzati di Azure
 
 > [!IMPORTANT]
 > L'aggiunta di un gruppo `AssignableScopes` di gestione a è attualmente in fase di anteprima.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Analogamente ai ruoli predefiniti, è possibile assegnare ruoli personalizzati a utenti, gruppi ed entità servizio in ambito gruppo di gestione, sottoscrizione e gruppo di risorse.
+Se i [ruoli predefiniti di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Analogamente ai ruoli predefiniti, è possibile assegnare ruoli personalizzati a utenti, gruppi ed entità servizio in ambito gruppo di gestione, sottoscrizione e gruppo di risorse.
 
-I ruoli personalizzati possono essere condivisi tra sottoscrizioni che considerano attendibile la stessa directory Azure AD. È previsto un limite di **5.000** ruoli personalizzati per ogni directory. (Per Azure Germania e Azure Cina 21Vianet, il limite è 2.000 ruoli personalizzati). I ruoli personalizzati possono essere creati usando il portale di Azure (anteprima), Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
+I ruoli personalizzati possono essere condivisi tra sottoscrizioni che considerano attendibile la stessa directory Azure AD. È previsto un limite di **5.000** ruoli personalizzati per ogni directory. (Per Azure Germania e Azure Cina 21Vianet, il limite è 2.000 ruoli personalizzati). I ruoli personalizzati possono essere creati usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
 ## <a name="custom-role-example"></a>Esempio di ruolo personalizzato
 
@@ -75,7 +75,7 @@ Al termine della creazione, il ruolo personalizzato viene visualizzato nel porta
 
 1. Decidere come si vuole creare il ruolo personalizzato
 
-    È possibile creare ruoli personalizzati usando [portale di Azure](custom-roles-portal.md) (anteprima), [Azure PowerShell](custom-roles-powershell.md), l'interfaccia della riga di comando di [Azure](custom-roles-cli.md)o l' [API REST](custom-roles-rest.md).
+    È possibile creare ruoli personalizzati usando [portale di Azure](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), l'interfaccia della riga di comando di [Azure](custom-roles-cli.md)o l' [API REST](custom-roles-rest.md).
 
 1. Determinare le autorizzazioni necessarie
 
@@ -89,7 +89,7 @@ Al termine della creazione, il ruolo personalizzato viene visualizzato nel porta
 
     Una volta creato il ruolo personalizzato, è necessario testarlo per verificare che funzioni nel modo previsto. Se occorre apportare delle modifiche, è possibile aggiornare il ruolo personalizzato.
 
-Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [Esercitazione: creare un ruolo personalizzato con Azure PowerShell](tutorial-custom-role-powershell.md) o [Esercitazione: creare un ruolo personalizzato con l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md).
+Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [esercitazione: creare un ruolo personalizzato di Azure con Azure PowerShell](tutorial-custom-role-powershell.md) o [esercitazione: creare un ruolo personalizzato di Azure con l'interfaccia](tutorial-custom-role-cli.md)della riga di comando di Azure.
 
 ## <a name="custom-role-properties"></a>Proprietà del ruolo personalizzato
 
@@ -131,6 +131,6 @@ Nell'elenco seguente vengono descritti i limiti per i ruoli personalizzati.
 Per altre informazioni sui ruoli personalizzati e sui gruppi di gestione, vedere [organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare o aggiornare i ruoli personalizzati di Azure usando il portale di Azure (anteprima)](custom-roles-portal.md)
-- [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md)
-- [Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure](troubleshooting.md)
+- [Creare o aggiornare i ruoli personalizzati di Azure usando il portale di Azure](custom-roles-portal.md)
+- [Informazioni sulle definizioni dei ruoli di Azure](role-definitions.md)
+- [Risolvere i problemi relativi a RBAC di Azure](troubleshooting.md)

@@ -2,15 +2,15 @@
 title: Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
 description: Questo documento illustra come creare una funzione di Azure con TrackAvailability () che verrà eseguito periodicamente in base alla configurazione specificata nella funzione TimerTrigger. I risultati di questo test verranno inviati alla risorsa Application Insights, in cui sarà possibile eseguire una query e inviare un avviso sui dati dei risultati di disponibilità. I test personalizzati consentiranno di scrivere test di disponibilità più complessi rispetto a quanto possibile tramite l'interfaccia utente del portale, monitorare un'app all'interno della VNET di Azure, modificare l'indirizzo dell'endpoint o creare un test di disponibilità se non è disponibile nella propria area.
 ms.topic: conceptual
-author: morgangrobin
-ms.author: mogrobin
-ms.date: 11/22/2019
-ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/04/2020
+ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665800"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791111"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creare ed eseguire test di disponibilità personalizzati con funzioni di Azure
 
@@ -160,12 +160,10 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 Per assicurarsi che tutto funzioni, è possibile esaminare il grafico nella scheda disponibilità della risorsa Application Insights.
 
 > [!NOTE]
-> Se è stata implementata la logica di business personalizzata in runAvailabilityTest. CSX, i risultati visualizzati come negli screenshot riportati di seguito, se non sono stati visualizzati, si otterranno risultati non riusciti.
+> Se è stata implementata la logica di business personalizzata in runAvailabilityTest. CSX, i risultati visualizzati come negli screenshot riportati di seguito, se non sono stati visualizzati, si otterranno risultati non riusciti. I test creati `TrackAvailability()` con verranno visualizzati con **Custom** accanto al nome del test.
 
 >[!div class="mx-imgBorder"]
->![Scheda disponibilità con risultati riusciti](media/availability-azure-functions/availtab.png)
-
-Quando si configura il test con funzioni di Azure, si noterà che, a differenza dell'uso di **Aggiungi test** nella scheda disponibilità, il nome del test non verrà visualizzato e non sarà possibile interagire con esso. I risultati vengono visualizzati, ma si ottiene una visualizzazione di riepilogo invece della stessa visualizzazione dettagliata ottenuta quando si crea un test di disponibilità tramite il portale.
+>![Scheda disponibilità con risultati riusciti](media/availability-azure-functions/availability-custom.png)
 
 Per visualizzare i dettagli della transazione end-to-end, selezionare **esito positivo** o **negativo** in drill into, quindi selezionare un esempio. È anche possibile ottenere i dettagli della transazione end-to-end selezionando un punto dati nel grafico.
 
