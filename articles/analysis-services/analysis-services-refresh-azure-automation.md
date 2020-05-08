@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572360"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871308"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
@@ -105,7 +105,7 @@ Questa configurazione può essere configurata nel modo seguente:
 
     ![Configura pianificazione](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Fare clic su **Crea**.
+3. Scegliere **Crea**.
 
 4. Immettere i parametri per la pianificazione. Questi verranno usati ogni volta che il Runbook viene attivato. Il parametro **WEBHOOKDATA** deve essere lasciato vuoto durante l'esecuzione tramite una pianificazione.
 
@@ -144,7 +144,7 @@ L' **URL** è l'URL creato dal webhook.
 Il **corpo** è un documento JSON che deve contenere le proprietà seguenti:
 
 
-|Proprietà  |valore  |
+|Proprietà  |Value  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nome del database di Azure Analysis Services <br/> Esempio: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https:\//westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/         |
@@ -173,7 +173,7 @@ Una macchina virtuale di Azure con un indirizzo IP pubblico statico può essere 
 > [!IMPORTANT]
 > Verificare che l'indirizzo IP pubblico della macchina virtuale sia configurato come statico.
 >
->Per altre informazioni sulla configurazione di ruoli di lavoro ibridi di automazione di Azure, vedere [automatizzare le risorse nel Data Center o nel cloud usando il ruolo di lavoro ibrido per Runbook](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>Per altre informazioni sulla configurazione dei ruoli di lavoro ibridi di automazione di Azure, vedere [Hybrid Runbook Worker Installation](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
 Una volta configurato un ruolo di lavoro ibrido, creare un webhook, come descritto nella sezione [utilizzare con data factory](#consume-with-data-factory).  L'unica differenza consiste nel selezionare l'opzione **Esegui in** > un ruolo di**lavoro ibrido** durante la configurazione del webhook.
 

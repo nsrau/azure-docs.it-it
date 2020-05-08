@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: ee4fe58c5eb4799651361000dedcc43275aae17e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.custom: contperfq4
+ms.openlocfilehash: 233361fb238342cde3c692174e85fb57f69979b1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791953"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858462"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Spostamento di dati in e tra i passaggi della pipeline ML (Python)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I dati sono centrali per le pipeline di machine learning. Questo articolo fornisce il codice per l'importazione, la trasformazione e lo stato di trasferimento dei dati tra i passaggi in una pipeline Azure Machine Learning. Per una panoramica del funzionamento dei dati in Azure Machine Learning, vedere [accedere ai dati nei servizi di archiviazione di Azure](how-to-access-data.md). Per i vantaggi e la struttura delle pipeline di Azure Machine Learning, vedere [che cosa sono le pipeline Azure Machine Learning?](concept-ml-pipelines.md).
+Questo articolo fornisce il codice per l'importazione, la trasformazione e lo stato di trasferimento dei dati tra i passaggi in una pipeline Azure Machine Learning. Per una panoramica del funzionamento dei dati in Azure Machine Learning, vedere [accedere ai dati nei servizi di archiviazione di Azure](how-to-access-data.md). Per i vantaggi e la struttura delle pipeline di Azure Machine Learning, vedere [che cosa sono le pipeline Azure Machine Learning?](concept-ml-pipelines.md).
 
 In questo articolo verranno illustrate le attività seguenti:
 

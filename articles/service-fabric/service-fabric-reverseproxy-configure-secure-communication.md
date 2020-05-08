@@ -1,23 +1,21 @@
 ---
 title: Comunicazione protetta del proxy inverso di Azure Service Fabric
 description: Configurare il proxy inverso per abilitare la comunicazione end-to-end sicura in un'applicazione Service Fabric di Azure.
-author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
-ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617118"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858533"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Connettersi a un servizio protetto con il proxy inverso
 
 In questo articolo viene spiegato come stabilire una connessione protetta tra il proxy inverso e i servizi, abilitando un canale protetto end-to-end. Per altre informazioni sul proxy inverso, vedere [Proxy inverso in Azure Service Fabric](service-fabric-reverseproxy.md)
 
-La connessione ai servizi protetti è supportata solo quando il proxy inverso è configurato per l'ascolto su HTTPS. Questo articolo presuppone che questo sia il caso specifico.
-Per configurare il proxy inverso in Service Fabric, fare riferimento a [Configurare il proxy inverso in Azure Service Fabric](service-fabric-reverseproxy-setup.md).
+> [!IMPORTANT]
+> La connessione ai servizi protetti è supportata solo quando il proxy inverso è configurato per l'ascolto su HTTPS. Questo articolo presuppone che questo sia il caso specifico. Per configurare il proxy inverso in Service Fabric, fare riferimento a [Configurare il proxy inverso in Azure Service Fabric](service-fabric-reverseproxy-setup.md).
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Stabilire una connessione protetta tra il proxy inverso e i servizi 
 
@@ -180,10 +178,10 @@ Questo è il comportamento predefinito.
 
 2. Quando **ForwardClientCertificate** è impostato su **true**, il proxy inverso richiede il certificato del client durante l'handshake TLS con il client.
 I dati del certificato client verranno quindi inviati in un'intestazione HTTP personalizzata denominata **X-Client-Certificate**. Il valore dell'intestazione è la stringa in formato PEM con codifica base64 del certificato del client. Il servizio può eseguire correttamente o meno la richiesta con il codice di stato appropriato dopo aver esaminato i dati del certificato.
-Se il client non presenta un certificato, il proxy inverso inoltra un'intestazione vuota e il caso viene gestito dal servizio.
+Se il client non presenta un certificato, il proxy inverso trasmette un'intestazione vuota e consente al servizio di gestire il caso.
 
 > [!NOTE]
-> Il proxy inverso è un semplice server d'inoltro, pertanto non esegue alcuna convalida del certificato del client.
+> Il proxy inverso agisce solo come servizio di inoltro. pertanto non esegue alcuna convalida del certificato del client.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
