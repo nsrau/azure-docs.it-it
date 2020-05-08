@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201313"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801689"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -78,30 +78,35 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
 
 |Problema  |Data di individuazione  |Stato  |Data di risoluzione  |
 |---------|---------|---------|---------|
-|[Autorizzazioni per il gruppo di risorse non applicate a Istanza gestita](#permissions-on-resource-group-not-applied-to-managed-instance)|2020 feb|Con soluzione alternativa||
-|[Limitazione del failover manuale tramite il portale per i gruppi di failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Gennaio 2020|Con soluzione alternativa||
-|[Per i ruoli SQL Agent sono necessarie autorizzazioni EXECUTE esplicite per gli account di accesso non sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|2019 dicembre|Con soluzione alternativa||
+|[Agent non risponde dopo la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020 maggio|Attenuato automaticamente| |
+|[Autorizzazioni per il gruppo di risorse non applicate a Istanza gestita](#permissions-on-resource-group-not-applied-to-managed-instance)|2020 feb|Con soluzione alternativa| |
+|[Limitazione del failover manuale tramite il portale per i gruppi di failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Gennaio 2020|Con soluzione alternativa| |
+|[Per i ruoli SQL Agent sono necessarie autorizzazioni EXECUTE esplicite per gli account di accesso non sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|2019 dicembre|Con soluzione alternativa| |
 |[I processi di SQL Agent possono essere interrotti dal riavvio del processo di Agent](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|2019 dicembre|Risolto|Mar 2020|
-|[Gli account di accesso e gli utenti di AAD non sono supportati in SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|2019 novembre|Nessuna soluzione alternativa||
-|[I limiti di memoria di OLTP in memoria non vengono applicati](#in-memory-oltp-memory-limits-are-not-applied)|2019 ottobre|Con soluzione alternativa||
-|[Errore errato restituito durante il tentativo di rimozione di un file non vuoto](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|2019 ottobre|Con soluzione alternativa||
-|[Modificare il livello di servizio e le operazioni di creazione istanza sono bloccate dal ripristino del database in corso](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|2019 Sep|Con soluzione alternativa||
-|[Potrebbe essere necessario riconfigurare Resource Governor business critical livello di servizio dopo il failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|2019 Sep|Con soluzione alternativa||
-|[È necessario inizializzare nuovamente le finestre di dialogo Service Broker tra database dopo l'aggiornamento del livello di servizio](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|2019 agosto|Con soluzione alternativa||
-|[L'impersonificazione dei tipi di accesso Azure AD non è supportata](#impersonification-of-azure-ad-login-types-is-not-supported)|2019 luglio|Nessuna soluzione alternativa||
-|[@queryil parametro non è supportato in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|2019 aprile|Nessuna soluzione alternativa||
-|[La replica transazionale deve essere riconfigurata dopo il failover geografico](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Nessuna soluzione alternativa||
-|[Il database temporaneo viene usato durante l'operazione di ripristino](#temporary-database-is-used-during-restore-operation)||Con soluzione alternativa||
-|[La struttura e il contenuto di TEMPDB vengono ricreati](#tempdb-structure-and-content-is-re-created)||Nessuna soluzione alternativa||
-|[Superamento dello spazio di archiviazione con file di database di piccole dimensioni](#exceeding-storage-space-with-small-database-files)||Con soluzione alternativa||
-|[Valori GUID visualizzati al posto dei nomi di database](#guid-values-shown-instead-of-database-names)||Con soluzione alternativa||
-|[I log degli errori non sono salvati in stato permanente](#error-logs-arent-persisted)||Nessuna soluzione alternativa||
+|[Gli account di accesso e gli utenti di AAD non sono supportati in SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|2019 novembre|Nessuna soluzione alternativa| |
+|[I limiti di memoria di OLTP in memoria non vengono applicati](#in-memory-oltp-memory-limits-are-not-applied)|2019 ottobre|Con soluzione alternativa| |
+|[Errore errato restituito durante il tentativo di rimozione di un file non vuoto](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|2019 ottobre|Con soluzione alternativa| |
+|[Modificare il livello di servizio e le operazioni di creazione istanza sono bloccate dal ripristino del database in corso](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|2019 Sep|Con soluzione alternativa| |
+|[Potrebbe essere necessario riconfigurare Resource Governor business critical livello di servizio dopo il failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|2019 Sep|Con soluzione alternativa| |
+|[È necessario inizializzare nuovamente le finestre di dialogo Service Broker tra database dopo l'aggiornamento del livello di servizio](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|2019 agosto|Con soluzione alternativa| |
+|[L'impersonificazione dei tipi di accesso Azure AD non è supportata](#impersonification-of-azure-ad-login-types-is-not-supported)|2019 luglio|Nessuna soluzione alternativa| |
+|[@queryil parametro non è supportato in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|2019 aprile|Nessuna soluzione alternativa| |
+|[La replica transazionale deve essere riconfigurata dopo il failover geografico](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Nessuna soluzione alternativa| |
+|[Il database temporaneo viene usato durante l'operazione di ripristino](#temporary-database-is-used-during-restore-operation)||Con soluzione alternativa| |
+|[La struttura e il contenuto di TEMPDB vengono ricreati](#tempdb-structure-and-content-is-re-created)||Nessuna soluzione alternativa| |
+|[Superamento dello spazio di archiviazione con file di database di piccole dimensioni](#exceeding-storage-space-with-small-database-files)||Con soluzione alternativa| |
+|[Valori GUID visualizzati al posto dei nomi di database](#guid-values-shown-instead-of-database-names)||Con soluzione alternativa| |
+|[I log degli errori non sono salvati in stato permanente](#error-logs-arent-persisted)||Nessuna soluzione alternativa| |
 |[L'ambito della transazione su due database all'interno della stessa istanza non è supportato](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Con soluzione alternativa|Mar 2020|
-|[I moduli CLR e i server collegati talvolta non possono fare riferimento a un indirizzo IP locale](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Con soluzione alternativa||
-|Coerenza del database non verificata con DBCC CHECKDB dopo il ripristino del database dall'archiviazione BLOB di Azure.||Risolto|2019 novembre|
-|Il ripristino temporizzato del database dal livello business critical al livello per utilizzo generico non riuscirà se il database di origine contiene oggetti OLTP in memoria.||Risolto|2019 ottobre|
-|Posta elettronica database funzionalità con server di posta elettronica esterni (non Azure) tramite connessione protetta||Risolto|2019 ottobre|
-|Database indipendenti non supportati nell'istanza gestita||Risolto|2019 agosto|
+|[I moduli CLR e i server collegati talvolta non possono fare riferimento a un indirizzo IP locale](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Con soluzione alternativa| |
+|Coerenza del database non verificata con DBCC CHECKDB dopo il ripristino del database dall'archiviazione BLOB di Azure.| |Risolto|2019 novembre|
+|Il ripristino temporizzato del database dal livello business critical al livello per utilizzo generico non riuscirà se il database di origine contiene oggetti OLTP in memoria.| |Risolto|2019 ottobre|
+|Posta elettronica database funzionalità con server di posta elettronica esterni (non Azure) tramite connessione protetta| |Risolto|2019 ottobre|
+|Database indipendenti non supportati nell'istanza gestita| |Risolto|2019 agosto|
+
+### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agent non risponde dopo la modifica, la disabilitazione o l'abilitazione di processi esistenti
+
+In alcune circostanze, la modifica di un processo esistente, la disabilitazione o l'abilitazione di un processo può causare la mancata risposta da parte dell'agente. Il problema viene risolto automaticamente al momento del rilevamento, con conseguente riavvio del processo dell'agente.
 
 ### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Autorizzazioni per il gruppo di risorse non applicate all'istanza gestita
 

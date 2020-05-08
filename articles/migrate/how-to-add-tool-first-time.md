@@ -3,17 +3,26 @@ title: Aggiungere uno strumento di valutazione/migrazione in Azure Migrate
 description: Viene descritto come creare un progetto Azure Migrate e aggiungere uno strumento di valutazione/migrazione.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537730"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901173"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Aggiungere uno strumento di valutazione/migrazione per la prima volta
 
 Questo articolo descrive come aggiungere uno strumento di valutazione o migrazione a un progetto di [Azure migrate](migrate-overview.md) per la prima volta.  
 Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce strumenti di Azure Migrate per la valutazione e la migrazione, nonché altri strumenti e [offerte](migrate-services-overview.md#isv-integration) di fornitori di software indipendenti (ISV). 
+
+## <a name="check-permissions-to-create-project"></a>Controllare le autorizzazioni per creare il progetto
+
+Se non è ancora stato creato un progetto di Azure Migrate, verificare di avere le autorizzazioni corrette.
+
+1. Nel portale di Azure aprire la sottoscrizione e selezionare **Controllo di accesso (IAM)** .
+2. In Verifica l'accesso trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni. È necessario avere le autorizzazioni di Collaboratore o Proprietario.
+    - Se è appena stato creato un account Azure gratuito, si è proprietari della propria sottoscrizione.
+    - Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare il ruolo.
 
 ## <a name="create-a-project-and-add-a-tool"></a>Creare un progetto e aggiungere uno strumento
 
@@ -66,4 +75,6 @@ In alcuni casi, potrebbe essere necessario creare progetti di Azure Migrate aggi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come aggiungere altri strumenti di [valutazione](how-to-assess.md) e [migrazione](how-to-migrate.md) . 
+- Introduzione a [Azure migrate: server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool)o [Azure migrate: migrazione del server](migrate-services-overview.md#azure-migrate-server-migration-tool).
+- Se è stato aggiunto uno strumento ISV o Mover, [esaminare i passaggi](prepare-isv-movere.md) per preparare il collegamento dello strumento a Azure migrate.
+- Informazioni su come aggiungere altri strumenti di [valutazione](how-to-assess.md) e [migrazione](how-to-migrate.md) . 

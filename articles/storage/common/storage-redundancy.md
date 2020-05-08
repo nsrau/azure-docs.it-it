@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f4fff7c8865a59b916755a69a98448a1684da229
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853322"
+ms.locfileid: "82872007"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -103,6 +103,18 @@ L'archiviazione con ridondanza geografica (GZRS) combina la disponibilità eleva
 Con un account di archiviazione GZRS, è possibile continuare a leggere e scrivere dati se una zona di disponibilità diventa non disponibile o non è recuperabile. Inoltre, i dati sono anche durevoli in caso di un'interruzione completa dell'area o di un'emergenza in cui l'area primaria non è recuperabile. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno.
 
 Solo gli account di archiviazione per utilizzo generico V2 supportano GZRS e RA-GZRS. Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md). I BLOB in blocchi, i BLOB di pagine (ad eccezione dei dischi VHD), i file, le tabelle e le code sono supportati da GZRS e RA-GZRS. GZRS e RA-GZRS sono disponibili in tutte le aree di Azure.
+
+GZRS e RA-GZRS sono supportati nelle aree seguenti:
+
+- Asia sudorientale
+- Europa settentrionale
+- Europa occidentale
+- Giappone orientale
+- Regno Unito meridionale
+- Stati Uniti centrali
+- Stati Uniti orientali
+- Stati Uniti orientali 2
+- Stati Uniti occidentali 2
 
 Per informazioni sui prezzi, vedere Dettagli prezzi per [BLOB](https://azure.microsoft.com/pricing/details/storage/blobs), [file](https://azure.microsoft.com/pricing/details/storage/files/), [Code](https://azure.microsoft.com/pricing/details/storage/queues/)e [tabelle](https://azure.microsoft.com/pricing/details/storage/tables/).
 

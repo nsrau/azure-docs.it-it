@@ -2,7 +2,7 @@
 title: Personalizzare le attività di analisi del codice di sicurezza Microsoft
 titleSuffix: Azure
 description: Questo articolo descrive la personalizzazione delle attività nell'estensione Microsoft Security Code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499996"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871883"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurare e personalizzare le attività di compilazione
 
@@ -91,7 +91,8 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
 ![Configurazione dell'attività di compilazione di Credential scanner](./media/security-tools/3-taskdetails.png)
 
 Le opzioni disponibili includono:
-
+  - **Nome visualizzato**: nome dell'attività DevOps di Azure. Il valore predefinito è eseguire Credential scanner
+  - **Versione principale dello strumento**: i valori disponibili includono **CredScan V2**, **CredScan V1**. Si consiglia ai clienti di usare la versione **CredScan V2** .
   - **Formato di output**: i valori disponibili includono **TSV**, **CSV**, **Sarif**e **PREfast**.
   - **Versione dello strumento**: è consigliabile selezionare **più recente**.
   - **Cartella di analisi**: la cartella del repository da analizzare.
@@ -193,7 +194,7 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
 - **Tipo di artefatto**: a seconda della selezione, è possibile pubblicare i log nel Azure DevOps server o in un file condiviso accessibile all'agente di compilazione.
 - **Strumenti**: è possibile scegliere di mantenere i log per strumenti specifici oppure è possibile selezionare **tutti gli strumenti** per mantenere tutti i log.
 
-Per informazioni sulla configurazione YAML per questa attività, vedere i [registri di sicurezza della pubblicazione opzioni YAML](yaml-configuration.md#publish-security-analysis-logs-task)
+Per informazioni sulla configurazione YAML per questa attività, vedere la pagina relativa alla [pubblicazione dei registri di sicurezza opzioni YAML](yaml-configuration.md#publish-security-analysis-logs-task)
 
 ## <a name="security-report-task"></a>Attività report di sicurezza
 
@@ -218,7 +219,7 @@ Per informazioni dettagliate sulla configurazione delle attività, vedere la sch
 - **Report**: è possibile scrivere facoltativamente i risultati che causano l'interruzioni di compilazione. I risultati vengono scritti nella finestra della console di Azure DevOps e nel file di log.
 - **Opzioni avanzate**: se non sono presenti registri per uno degli strumenti selezionati, è possibile scegliere di registrare un avviso o un errore. Se si registra un errore, l'attività ha esito negativo.
 
-Per informazioni sulla configurazione YAML per questa attività, consultare le [Opzioni YAML di post-analisi](yaml-configuration.md#post-analysis-task)
+Per informazioni sulla configurazione YAML per questa attività, vedere le [Opzioni YAML di post-analisi](yaml-configuration.md#post-analysis-task)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

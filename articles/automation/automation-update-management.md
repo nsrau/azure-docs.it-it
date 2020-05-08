@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2c53993d9e71e7dab1f88b3b980273f62fedb63
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: ca5d8c35aea06143e058aade473282a038212605
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787312"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872160"
 ---
 # <a name="update-management-in-azure-automation"></a>Gestione aggiornamenti in automazione di Azure
 
@@ -27,6 +27,9 @@ ms.locfileid: "82787312"
 > Gestione aggiornamenti richiede il collegamento di un'area di lavoro Log Analytics all'account di automazione. Per un elenco definitivo delle aree supportate, vedere [mapping dell'area di lavoro di Azure](how-to/region-mappings.md). I mapping dell'area non influiscono sulla possibilità di gestire le macchine virtuali in un'area separata dall'account di automazione.
 
 È disponibile un [modello di Azure Resource Manager](automation-update-management-deploy-template.md) per semplificare la distribuzione di gestione aggiornamenti a un account di automazione nuovo o esistente e log Analytics area di lavoro nella sottoscrizione.
+
+> [!NOTE]
+> Non è possibile usare un computer configurato con Gestione aggiornamenti per eseguire script personalizzati da automazione di Azure. Questo computer può eseguire solo lo script di aggiornamento firmato da Microsoft. 
 
 ## <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -163,7 +166,7 @@ Per ulteriori informazioni sugli aggiornamenti dei Management Pack, vedere [conn
 
 La tabella seguente descrive le origini connesse supportate da Gestione aggiornamenti:
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | Description |
 | --- | --- | --- |
 | Agenti di Windows |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
@@ -194,7 +197,7 @@ Per i computer Windows, è necessario consentire il traffico anche a tutti gli e
 
 Per i computer Red Hat Linux, vedere [indirizzi IP per i server per la distribuzione di contenuti di RHUI per gli](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) endpoint richiesti. Per altre distribuzioni Linux, vedere la documentazione del provider.
 
-Per altre informazioni sulle porte necessarie per il ruolo di lavoro ibrido per Runbook, vedere [porte del ruolo di lavoro ibrido](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+Per altre informazioni sulle porte necessarie per il ruolo di lavoro ibrido per Runbook, vedere [indirizzi gestione aggiornamenti per il ruolo di lavoro ibrido per Runbook](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
 Si consiglia di utilizzare gli indirizzi elencati durante la definizione delle eccezioni. Per gli indirizzi IP è possibile scaricare [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato settimanalmente e riflette gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
 
@@ -204,7 +207,7 @@ Seguire le istruzioni riportate in [connettere i computer senza accesso a Intern
 
 La tabella seguente definisce le classificazioni che Gestione aggiornamenti supporta per gli aggiornamenti di Windows. 
 
-|Classificazione  |Descrizione  |
+|Classificazione  |Description  |
 |---------|---------|
 |Aggiornamenti critici     | Un aggiornamento per un problema specifico che risolve un bug critico non correlato alla sicurezza.        |
 |Aggiornamenti per la sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
@@ -217,7 +220,7 @@ La tabella seguente definisce le classificazioni che Gestione aggiornamenti supp
 
 La tabella successiva definisce le classificazioni supportate per gli aggiornamenti di Linux.
 
-|Classificazione  |Descrizione  |
+|Classificazione  |Description  |
 |---------|---------|
 |Aggiornamenti critici e della sicurezza     | Aggiornamenti per un problema specifico o specifico del prodotto, correlato alla sicurezza.         |
 |Altri aggiornamenti     | Tutti gli altri aggiornamenti che non sono critici per natura o che non sono aggiornamenti della sicurezza.        |

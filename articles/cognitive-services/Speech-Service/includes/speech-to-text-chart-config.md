@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 05/05/2020
 ms.author: trbye
-ms.openlocfilehash: 267c2fb72b38053429019746a573c740d812c38c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 85c4e0641e1989ddea6c8aa8b8a8895a966a5ddb
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608379"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82875987"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Sintesi vocale (Sottografico: grafici/speechToText)
 
@@ -43,7 +43,7 @@ Per eseguire l'override del grafico "Umbrella", aggiungere `speechToText.` il pr
 
 #### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>Analisi dei sentimenti (grafico secondario: grafici/speechToText)
 
-A partire da v 2.2.0 del contenitore di sintesi vocale, i parametri seguenti vengono usati per l'analisi dei sentimenti usando il API Analisi del testo.
+A partire da v 2.2.0 del contenitore riconoscimento vocale e v 0.2.0 del grafico Helm, i parametri seguenti vengono usati per l'analisi dei sentimenti usando il API Analisi del testo.
 
 |Parametro|Descrizione|Valori|Predefinito|
 | --- | --- | --- | --- |

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/06/2020
 ms.author: jgao
-ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 5b938e2072daec56261e529ab8a2a8b15b55d143
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610803"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872330"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -304,8 +304,8 @@ Per visualizzare la risorsa deploymentScripts nel portale, selezionare **Mostra 
 
 Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un account di archiviazione e un'istanza di contenitore. Sono disponibili le opzioni per specificare un account di archiviazione esistente. in caso contrario, l'account di archiviazione insieme all'istanza del contenitore viene creato automaticamente dal servizio script. Requisiti per l'uso di un account di archiviazione esistente:
 
-- I tipi di account di archiviazione supportati sono: account per utilizzo generico V2, account per utilizzo generico V1 e account di archiviazione. Per altre informazioni, vedere [tipi di account di archiviazione](../../storage/common/storage-account-overview.md).
-- Le regole del firewall dell'account di archiviazione devono essere disattivate. Vedere [configurare i firewall e la rete virtuale di archiviazione di Azure](../../storage/common/storage-network-security.md)
+- I tipi di account di archiviazione supportati sono: account per utilizzo generico V2, per utilizzo generico V1 e filestorage. Solo filestorage supporta lo SKU Premium. Per altre informazioni, vedere [tipi di account di archiviazione](../../storage/common/storage-account-overview.md).
+- Le regole del firewall dell'account di archiviazione non sono ancora supportate. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../../storage/common/storage-network-security.md).
 - L'identità gestita assegnata dall'utente dello script di distribuzione deve avere le autorizzazioni per gestire l'account di archiviazione, che include le condivisioni file di lettura, creazione ed eliminazione.
 
 Per specificare un account di archiviazione esistente, aggiungere il codice JSON seguente all'elemento Property `Microsoft.Resources/deploymentScripts`di:
@@ -316,6 +316,16 @@ Per specificare un account di archiviazione esistente, aggiungere il codice JSON
   "storageAccountKey": "myKey"
 },
 ```
+
+- **storageAccountName**: specificare il nome dell'account di archiviazione.
+- **storageAccountKey "**: specificare una delle chiavi dell'account di archiviazione. Per recuperare la chiave [`listKeys()`](./template-functions-resource.md#listkeys) , è possibile usare la funzione. Ad esempio:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
 
 Per [Sample templates](#sample-templates) un esempio di definizione completo `Microsoft.Resources/deploymentScripts` , vedere modelli di esempio.
 
@@ -336,7 +346,7 @@ Il ciclo di vita di queste risorse è controllato dalle seguenti proprietà nel 
 - **retentionInterval**: specificare l'intervallo di tempo durante il quale verrà mantenuta una risorsa di script e dopo la scadenza e l'eliminazione.
 
 > [!NOTE]
-> Non è consigliabile usare le risorse dello script di distribuzione per altri scopi.
+> Non è consigliabile usare l'account di archiviazione e l'istanza di contenitore generati dal servizio script per altri scopi. Le due risorse potrebbero essere rimosse a seconda del ciclo di vita dello script.
 
 ## <a name="run-script-more-than-once"></a>Esegui script più di una volta
 

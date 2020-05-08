@@ -1,32 +1,21 @@
 ---
 title: Aggiungere strumenti di migrazione in Azure Migrate
 description: Informazioni su come aggiungere strumenti di migrazione in Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.manager: carmonm
 ms.topic: article
-ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/26/2020
+ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185970"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901458"
 ---
 # <a name="add-migration-tools"></a>Aggiungere strumenti di migrazione
 
 Questo articolo descrive come aggiungere strumenti di migrazione in [Azure migrate](migrate-overview.md).
 
-Azure Migrate offre un hub di strumenti per la valutazione e la migrazione ad Azure. Sono inclusi strumenti nativi, strumenti forniti da altri servizi di Azure e offerte di fornitori di software indipendenti (ISV) di terze parti.
-
-Se si vuole aggiungere uno strumento di migrazione e non è stato ancora configurato un progetto di Azure Migrate, seguire questo [articolo](how-to-add-tool-first-time.md).
-
-
-
-## <a name="selecting-an-isv-tool"></a>Selezione di uno strumento ISV
-
-Se si sceglie uno [strumento ISV](migrate-services-overview.md#isv-integration) per la migrazione, è possibile iniziare con una licenza o iscriversi per ottenere una versione di valutazione gratuita, in base ai criteri ISV. In ogni strumento è disponibile un'opzione per connettersi ad Azure Migrate. Distribuire lo strumento e seguire le istruzioni e la documentazione dello strumento per connettere l'area di lavoro dello strumento con Azure Migrate. 
+- Se si vuole aggiungere uno strumento di migrazione e non è stato ancora configurato un progetto di Azure Migrate, seguire questo [articolo](how-to-add-tool-first-time.md).
+- Se è stato aggiunto uno strumento ISV per la migrazione, [attenersi alla procedura](prepare-isv-movere.md)per prepararsi a usare lo strumento.
 
 ## <a name="select-a-migration-scenario"></a>Selezionare uno scenario di migrazione
 

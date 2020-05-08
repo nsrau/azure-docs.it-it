@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: b4e7d827536245a22d168c7d9923c2e5b82830b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 112dbea4ef54c5923c586b87be9770c2e91befd2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111794"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901439"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 > [!NOTE]
@@ -100,7 +100,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | India centrale        | 104.211.96.159     |
 | India meridionale          | 104.211.224.146    |
 | India occidentale           | 104.211.160.80     |
-| Giappone orientale           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Giappone orientale           | 13.78.61.196, 40.79.184.8, 191.237.240.43, 40.79.192.5 | 
 | Giappone occidentale           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Corea centrale        | 52.231.32.42       |
 | Corea meridionale          | 52.231.200.86      |

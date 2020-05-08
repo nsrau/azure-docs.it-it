@@ -8,29 +8,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4538c1d15aeae624f5d73e9985448bda2fd8f1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3149d45f50c53209e3be6be6688c9c2ce8fb0555
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188461"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900370"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Amazon tramite Azure Active Directory B2C
 
-## <a name="create-an-amazon-application"></a>Creare un'applicazione Amazon
+## <a name="create-an-app-in-the-amazon-developer-console"></a>Creare un'app in Amazon Developer Console
 
-Per usare un account Amazon come [provider di identità](authorization-code-flow.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account Amazon, è possibile iscriversi [https://www.amazon.com/](https://www.amazon.com/)a.
+Per usare un account Amazon come provider di identità federato in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in [Amazon Developer Services and Technologies](https://developer.amazon.com). Se non si ha già un account Amazon, è possibile iscriversi all' [https://www.amazon.com/](https://www.amazon.com/)indirizzo.
 
-1. Accedere al [Centro sviluppatori Amazon](https://login.amazon.com/) con le credenziali dell'account Amazon.
-1. Se non è già stato fatto, fare clic su **Sign Up**(Iscrizione), seguire la procedura di registrazione per sviluppatori e accettare le condizioni.
-1. Selezionare **Registra nuova applicazione**.
-1. Immettere un **Name**, una **Descrizione** e un **URL dell'informativa sulla Privacy**, quindi fare clic su **Salva**. L'Informativa sulla privacy è una pagina gestita dall'utente che fornisce informazioni sulla privacy per gli utenti.
-1. Nella sezione **Impostazioni Web** copiare i valori dell'**ID client**. Selezionare **Mostra il segreto** per ottenere il segreto client e quindi copiarlo. Sono necessari entrambi per configurare un account Amazon come provider di identità nel tenant. **Client Secret** è un'importante credenziale di sicurezza.
-1. Nella sezione **Impostazioni Web**, selezionare **Modifica**, quindi immettere `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** (Origini JavaScript consentite) e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs** (URL restituiti consentiti). Sostituire `your-tenant-name` con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
-1. Fare clic su **Salva**.
+> [!NOTE]  
+> Usare gli URL seguenti nel **passaggio 8** seguente, sostituendo `your-tenant-name` con il nome del tenant. Quando si immette il nome del tenant, usare tutte le lettere minuscole, anche se il tenant è definito con lettere maiuscole in Azure AD B2C.
+> - Per le **origini consentite**, immettere`https://your-tenant-name.b2clogin.com` 
+> - Per gli **URL restituiti consentiti**, immettere`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Configurare un account Amazon come provider di identità
 
