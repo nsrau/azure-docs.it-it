@@ -9,42 +9,45 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 6983a2ac7ab5fafcb00aee0b72221a8540ea1668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b4467128fae3fd71a6e588e3c05d287c153e168
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678984"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927888"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Risolvere i problemi dell'agente di Windows Update
 
-Ci possono essere diversi motivi per cui il computer non viene visualizzato come pronto (integro) in Gestione aggiornamenti. In Gestione aggiornamenti, è possibile verificare l'integrità di un agente di lavoro ibrido per Runbook per determinare il problema sottostante. Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per i computer Azure dalla portale di Azure e dai computer non Azure nello [scenario offline](#troubleshoot-offline).
-
-Di seguito sono riportati i tre stati di conformità per un computer:
+Ci possono essere diversi motivi per cui il computer non viene visualizzato come pronto (integro) in Gestione aggiornamenti. È possibile verificare l'integrità di un agente di lavoro ibrido per Runbook Windows per determinare il problema sottostante. Di seguito sono riportati i tre stati di conformità per un computer:
 
 * Pronto: il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato meno di un'ora fa.
 * Disconnesso: il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato più di un'ora fa.
-* Non configurato: il ruolo di lavoro ibrido per Runbook non è stato trovato o non ha completato l'onboarding.
+* Non configurato: il ruolo di lavoro ibrido per Runbook non è stato trovato o non è stato completato il caricamento.
 
 > [!NOTE]
 > È possibile che si verifichi un lieve ritardo tra il portale di Azure visualizzato e lo stato corrente di un computer.
 
+Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per i computer Azure dalla portale di Azure e da computer non Azure nello [scenario offline](#troubleshoot-offline). Lo strumento di risoluzione dei problemi include ora i controlli per Windows Server Update Services (WSUS) e per le chiavi di download e di installazione.
+
+> [!NOTE]
+> Lo script di risoluzione dei problemi non instrada attualmente il traffico attraverso un server proxy, se ne è stato configurato uno.
+
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina Troubleshoot Update Agent (Risoluzione dei problemi dell'agente di aggiornamento). Per i computer non Azure, il collegamento riporta a questo articolo. Vedere le [istruzioni offline](#troubleshoot-offline) per risolvere i problemi relativi a un computer non Azure.
+Per le macchine virtuali di Azure, è possibile avviare la pagina **risoluzione dei problemi dell'agente di aggiornamento** selezionando il collegamento **risoluzione dei problemi** nella colonna **conformità agente di aggiornamento** nel portale. Per i computer non Azure, il collegamento riporta a questo articolo. Vedere le [istruzioni offline](#troubleshoot-offline) per risolvere i problemi relativi a un computer non Azure.
 
-![Aggiornare l'elenco di gestione delle macchine virtuali](../media/update-agent-issues/vm-list.png)
+![Screenshot dell'elenco di Gestione aggiornamenti di macchine virtuali](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > Per verificare l'integrità del ruolo di lavoro ibrido per Runbook, la macchina virtuale deve essere in esecuzione. Se la macchina virtuale non è in esecuzione, viene visualizzato il pulsante **Avvia macchina virtuale**.
 
-Nella pagina Risoluzione dei problemi dell'agente di aggiornamento fare clic su **Esegui controlli** per avviare la risoluzione dei problemi. Lo strumento di risoluzione dei problemi usa il [comando Run](../../virtual-machines/windows/run-command.md) per eseguire uno script nel computer per verificare le dipendenze. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
+Nella pagina **Risoluzione dei problemi dell'agente di aggiornamento** fare clic su **Esegui controlli** per avviare la risoluzione dei problemi. Lo strumento di risoluzione dei problemi usa il [comando Run](../../virtual-machines/windows/run-command.md) per eseguire uno script nel computer, per verificare le dipendenze. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
 
-![Pagina Risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/troubleshoot-page.png)
+![Screenshot della pagina risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/troubleshoot-page.png)
 
 I risultati vengono visualizzati nella pagina quando sono pronti. Le sezioni dei controlli mostrano il contenuto di ogni controllo.
 
-![Controlli di risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/update-agent-checks.png)
+![Screenshot della risoluzione dei problemi dei controlli degli agenti di aggiornamento](../media/update-agent-issues/update-agent-checks.png)
 
 ## <a name="prerequisite-checks"></a>Controlli dei prerequisiti
 
@@ -54,7 +57,7 @@ Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per Run
 
 |Sistema operativo  |Note  |
 |---------|---------|
-|Windows Server 2012 e versioni successive |È necessario .NET Framework 4,6 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5,1 è obbligatorio.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2012 e versioni successive |È necessario .NET Framework 4,6 o versione successiva. ([Scaricare il .NET Framework](/dotnet/framework/install/guide-for-developers)).<br/> Windows PowerShell 5,1 è obbligatorio.  ([Scaricare Windows Management Framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616)).        |
 
 ### <a name="net-462"></a>.NET 4.6.2
 
@@ -62,11 +65,11 @@ Il controllo .NET Framework verifica che nel sistema sia installato almeno [.NET
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-Il controllo WMF verifica che il sistema disponga della versione richiesta di Windows Management Framework (WMF)- [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
+Il controllo WMF verifica che il sistema disponga della versione richiesta di Windows Management Framework (WMF): [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
-Questo controllo determina se si usa TLS 1.2 per crittografare le comunicazioni. TLS 1.0 non è più supportato dalla piattaforma. È consigliabile che i client usino TLS 1.2 per comunicare con Gestione aggiornamenti.
+Questo controllo determina se si usa TLS 1.2 per crittografare le comunicazioni. TLS 1.0 non è più supportato dalla piattaforma. Usare TLS 1,2 per comunicare con Gestione aggiornamenti.
 
 ## <a name="connectivity-checks"></a>Controlli della connettività
 
@@ -98,13 +101,13 @@ Per altre informazioni su questo evento, vedere la [guida alla risoluzione dei p
 
 ## <a name="access-permissions-checks"></a>Controlli sulle autorizzazioni di accesso
 
-### <a name="machinekeys-folder-access"></a>Accesso alla cartella MachineKeys
+### <a name="crypto-folder-access"></a>Accesso alla cartella Crypto
 
-Il controllo dell'accesso alla cartella Crypto determina se l'account sistema locale ha accesso a C:\ProgramData\Microsoft\Crypto\RSA.
+Il controllo dell'accesso alla cartella Crypto determina se l'account di sistema locale può accedere a C:\ProgramData\Microsoft\Crypto\RSA.
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Risolvere i problemi offline
 
-È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è disponibile in PowerShell Gallery. Per eseguire lo script è necessario che sia installato WMF 4,0 o versione successiva. Per scaricare la versione più recente di PowerShell, vedere [installazione di diverse versioni di PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+È possibile usare lo strumento di risoluzione dei problemi in un ruolo di lavoro ibrido per Runbook offline, eseguendo lo script localmente. Ottenere lo script seguente dalla PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Per eseguire lo script, è necessario che sia installato WMF 4,0 o versione successiva. Per scaricare la versione più recente di PowerShell, vedere [installazione di diverse versioni di PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
 
 L'output di questo script è simile al seguente:
 
@@ -202,4 +205,4 @@ CheckResultMessageArguments : {}
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come risolvere altri problemi dei ruoli di lavoro ibridi per runbook, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook](hybrid-runbook-worker.md).
+[Risolvere i problemi di ruoli di lavoro ibridi per runbook](hybrid-runbook-worker.md)

@@ -1,0 +1,36 @@
+### YamlMime:Landing
+title: Documentazione della soluzione Azure VMware (AVS)
+summary: Informazioni su come usare la soluzione VMware di Azure (AVS) per distribuire un cloud privato VMware in Azure
+metadata:
+  title: Documentazione della soluzione Azure VMware (AVS)
+  description: Informazioni su come usare la soluzione VMware di Azure (AVS) per distribuire un cloud privato VMware in Azure
+  ms.service: azure-vmware
+  ms.topic: landing-page
+  author: dikamath
+  ms.author: dikamath
+  ms.date: 05/04/2020
+  ms.openlocfilehash: 2ae8f6bc5257dc4d7383516201912c504c4d6038
+  ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 05/04/2020
+  ms.locfileid: "82739451"
+landingContent:
+- title: Informazioni sulla soluzione Azure VMware (AVS)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è la soluzione Azure VMware (AVS)?
+      url: introduction.md
+  - linkListType: get-started
+    links:
+    - text: Elenco di controllo per la rete
+      url: tutorial-network-checklist.md
+  - linkListType: tutorial
+    links:
+    - text: Creare un cloud privato AVS
+      url: tutorial-create-private-cloud.md
+    - text: Configurare le impostazioni di rete
+      url: tutorial-configure-networking.md
+    - text: Accedere al cloud privato
+      url: tutorial-access-private-cloud.md

@@ -2,17 +2,17 @@
 title: Pulsante Deploy to Azure per la distribuzione in Azure
 description: Usare il pulsante per distribuire modelli di Azure Resource Manager da un repository GitHub.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 88436eac970b252d7b0bc7bccee4131e06e9e0cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77109040"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744099"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub
 
-Questo articolo descrive come usare il pulsante **Distribuisci in Azure** per distribuire i modelli da un repository GitHub. È possibile aggiungere il pulsante direttamente al file README.md nel repository GitHub o a una pagina Web che fa riferimento al repository.
+Questo articolo descrive come usare il pulsante **Distribuisci in Azure** per distribuire i modelli da un repository GitHub. È possibile aggiungere il pulsante direttamente al file README.md nel repository GitHub o a una pagina Web che fa riferimento al repository. Questo metodo supporta solo la distribuzione a livello di gruppo di risorse.
 
 ## <a name="use-common-image"></a>Usa immagine comune
 

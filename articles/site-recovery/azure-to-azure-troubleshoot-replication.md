@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 8cba02d3c7d1e649853570b199b646b1c4dcce2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667408"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901343"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Risolvere i problemi di replica in Azure VM Recovery
 
@@ -41,7 +41,7 @@ Se si seleziona l'evento, si dovrebbero vedere le informazioni esatte del disco:
 
 La tabella seguente indica i limiti di Azure Site Recovery. Questi limiti sono basati sui test, ma non possono coprire tutte le possibili combinazioni di input/output (I/O) delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni.
 
-Esistono due limiti da considerare: la varianza dei dati per disco e la varianza dei dati per ogni macchina virtuale. Viene ora esaminato il disco P20 Premium nella tabella seguente per un esempio. Per una singola macchina virtuale, Site Recovery possibile gestire 5 MB/s di varianza per disco con un massimo di cinque dischi di questo tipo. Site Recovery ha un limite di 25 MB/s di varianza totale per macchina virtuale.
+Esistono due limiti da considerare: la varianza dei dati per disco e la varianza dei dati per ogni macchina virtuale. Viene ora esaminato il disco P20 Premium nella tabella seguente per un esempio. Per una singola macchina virtuale, Site Recovery possibile gestire 5 MB/s di varianza per disco con un massimo di cinque dischi di questo tipo. Site Recovery ha un limite di 54 MB/s di varianza totale per macchina virtuale.
 
 **Destinazione archiviazione di replica** | **Dimensione media I/O per disco di origine** |**Varianza media dei dati per disco di origine** | **Varianza totale giornaliera dei dati per disco di origine**
 ---|---|---|---

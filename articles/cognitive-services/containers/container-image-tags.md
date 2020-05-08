@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 786fde90e1bcf47e08857c26235a27862c5b3d75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 850d7b9732ad547d502b042e7eaad5d3b471030e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878766"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926001"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Tag dell'immagine del contenitore di servizi cognitivi di Azure
 
@@ -106,6 +106,7 @@ Questa immagine del contenitore include i tag seguenti:
 | Tag immagine            | Note |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
 | `2.0.2-amd64-preview` |       |
@@ -131,6 +132,46 @@ Questa immagine del contenitore include i tag seguenti:
 | Tag immagine                  | Note                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `2.2.0-amd64-ar-ae-preview` | Immagine del contenitore con `ar-AE` le impostazioni locali. |
+| `2.2.0-amd64-ar-eg-preview` | Immagine del contenitore con `ar-EG` le impostazioni locali. |
+| `2.2.0-amd64-ar-kw-preview` | Immagine del contenitore con `ar-KW` le impostazioni locali. |
+| `2.2.0-amd64-ar-qa-preview` | Immagine del contenitore con `ar-QA` le impostazioni locali. |
+| `2.2.0-amd64-ar-sa-preview` | Immagine del contenitore con `ar-SA` le impostazioni locali. |
+| `2.2.0-amd64-ca-es-preview` | Immagine del contenitore con `ca-ES` le impostazioni locali. |
+| `2.2.0-amd64-da-dk-preview` | Immagine del contenitore con `da-DK` le impostazioni locali. |
+| `2.2.0-amd64-de-de-preview` | Immagine del contenitore con `de-DE` le impostazioni locali. |
+| `2.2.0-amd64-en-au-preview` | Immagine del contenitore con `en-AU` le impostazioni locali. |
+| `2.2.0-amd64-en-ca-preview` | Immagine del contenitore con `en-CA` le impostazioni locali. |
+| `2.2.0-amd64-en-gb-preview` | Immagine del contenitore con `en-GB` le impostazioni locali. |
+| `2.2.0-amd64-en-in-preview` | Immagine del contenitore con `en-IN` le impostazioni locali. |
+| `2.2.0-amd64-en-nz-preview` | Immagine del contenitore con `en-NZ` le impostazioni locali. |
+| `2.2.0-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
+| `2.2.0-amd64-es-es-preview` | Immagine del contenitore con `es-ES` le impostazioni locali. |
+| `2.2.0-amd64-es-mx-preview` | Immagine del contenitore con `es-MX` le impostazioni locali. |
+| `2.2.0-amd64-fi-fi-preview` | Immagine del contenitore con `fi-FI` le impostazioni locali. |
+| `2.2.0-amd64-fr-ca-preview` | Immagine del contenitore con `fr-CA` le impostazioni locali. |
+| `2.2.0-amd64-fr-fr-preview` | Immagine del contenitore con `fr-FR` le impostazioni locali. |
+| `2.2.0-amd64-gu-in-preview` | Immagine del contenitore con `gu-IN` le impostazioni locali. |
+| `2.2.0-amd64-hi-in-preview` | Immagine del contenitore con `hi-IN` le impostazioni locali. |
+| `2.2.0-amd64-it-it-preview` | Immagine del contenitore con `it-IT` le impostazioni locali. |
+| `2.2.0-amd64-ja-jp-preview` | Immagine del contenitore con `ja-JP` le impostazioni locali. |
+| `2.2.0-amd64-ko-kr-preview` | Immagine del contenitore con `ko-KR` le impostazioni locali. |
+| `2.2.0-amd64-mr-in-preview` | Immagine del contenitore con `mr-IN` le impostazioni locali. |
+| `2.2.0-amd64-nb-no-preview` | Immagine del contenitore con `nb-NO` le impostazioni locali. |
+| `2.2.0-amd64-nl-nl-preview` | Immagine del contenitore con `nl-NL` le impostazioni locali. |
+| `2.2.0-amd64-pl-pl-preview` | Immagine del contenitore con `pl-PL` le impostazioni locali. |
+| `2.2.0-amd64-pt-br-preview` | Immagine del contenitore con `pt-BR` le impostazioni locali. |
+| `2.2.0-amd64-pt-pt-preview` | Immagine del contenitore con `pt-PT` le impostazioni locali. |
+| `2.2.0-amd64-ru-ru-preview` | Immagine del contenitore con `ru-RU` le impostazioni locali. |
+| `2.2.0-amd64-sv-se-preview` | Immagine del contenitore con `sv-SE` le impostazioni locali. |
+| `2.2.0-amd64-ta-in-preview` | Immagine del contenitore con `ta-IN` le impostazioni locali. |
+| `2.2.0-amd64-te-in-preview` | Immagine del contenitore con `te-IN` le impostazioni locali. |
+| `2.2.0-amd64-th-th-preview` | Immagine del contenitore con `th-TH` le impostazioni locali. |
+| `2.2.0-amd64-tr-tr-preview` | Immagine del contenitore con `tr-TR` le impostazioni locali. |
+| `2.2.0-amd64-zh-cn-preview` | Immagine del contenitore con `zh-CN` le impostazioni locali. |
+| `2.2.0-amd64-zh-hk-preview` | Immagine del contenitore con `zh-HK` le impostazioni locali. |
+| `2.2.0-amd64-zh-tw-preview` | Immagine del contenitore con `zh-TW` le impostazioni locali. |
+| `2.1.1-amd64-en-us-preview` | Immagine del contenitore con `en-US` le impostazioni locali. |
 | `2.1.1-amd64-ar-ae-preview` | Immagine del contenitore con `ar-AE` le impostazioni locali. |
 | `2.1.1-amd64-ar-eg-preview` | Immagine del contenitore con `ar-EG` le impostazioni locali. |
 | `2.1.1-amd64-ar-kw-preview` | Immagine del contenitore con `ar-KW` le impostazioni locali. |

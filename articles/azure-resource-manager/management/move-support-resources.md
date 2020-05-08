@@ -3,12 +3,12 @@ title: Spostamento del supporto dell'operazione per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: a92da04f5b883661d53fd291dc72351a1c4eafb1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 45450b21b1cd3236712043629f433c2c5fe20f80
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610837"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900985"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 Questo articolo indica se un tipo di risorsa di Azure supporta l'operazione di spostamento. Vengono inoltre fornite informazioni sulle condizioni speciali da considerare quando si trasferisce una risorsa.
@@ -1252,7 +1252,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | aree di lavoro | Sì | Sì |
 
 > [!IMPORTANT]
-> Verificare che il passaggio alla nuova sottoscrizione non superi le [quote di sottoscrizione](azure-subscription-service-limits.md#azure-monitor-limits).
+> Verificare che il passaggio a una nuova sottoscrizione non superi le [quote di sottoscrizione](azure-subscription-service-limits.md#azure-monitor-limits).
+
+> [!IMPORTANT]
+> Non è possibile spostare le aree di lavoro con un account di automazione collegato. Prima di iniziare un'operazione di spostamento, assicurarsi di scollegare tutti gli account di automazione.   
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 

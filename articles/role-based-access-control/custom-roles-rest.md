@@ -1,6 +1,6 @@
 ---
-title: Creare o aggiornare i ruoli personalizzati per le risorse di Azure con l'API REST
-description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo (RBAC) per le risorse di Azure usando l'API REST.
+title: Creare o aggiornare i ruoli personalizzati di Azure usando l'API REST-RBAC di Azure
+description: Informazioni su come elencare, creare, aggiornare o eliminare i ruoli personalizzati di Azure usando l'API REST e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bc96dc9a8e541cfd827ba5f5abe35c13f2d2462
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062197"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734094"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'API REST
+# <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Creare o aggiornare i ruoli personalizzati di Azure usando l'API REST
 
 > [!IMPORTANT]
 > L'aggiunta di un gruppo `AssignableScopes` di gestione a è attualmente in fase di anteprima.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare i ruoli personalizzati usando l'API REST.
+Se i [ruoli predefiniti di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare i ruoli personalizzati usando l'API REST.
 
 ## <a name="list-custom-roles"></a>Elencare ruoli personalizzati
 
@@ -61,7 +61,7 @@ Per elencare i ruoli personalizzati in un ambito, usare l'API REST per l' [elenc
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -88,7 +88,7 @@ Per ottenere informazioni su un ruolo personalizzato in base al nome visualizzat
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -117,7 +117,7 @@ Per ottenere informazioni su un ruolo personalizzato in base al relativo identif
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -171,7 +171,7 @@ Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -189,7 +189,7 @@ Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create 
 
 1. Nella proprietà `notActions` aggiungere le operazioni escluse dalle `actions` consentite.
 
-1. Nelle proprietà `roleName` e `description` specificare un nome e una descrizione univoci per il ruolo. Per altre informazioni sulle proprietà, vedere [Ruoli personalizzati](custom-roles.md).
+1. Nelle proprietà `roleName` e `description` specificare un nome e una descrizione univoci per il ruolo. Per altre informazioni sulle proprietà, vedere [ruoli personalizzati di Azure](custom-roles.md).
 
     Di seguito è illustrato un esempio di corpo della richiesta:
 
@@ -240,7 +240,7 @@ Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Cre
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -330,7 +330,7 @@ Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Dele
 1. All'interno dell'URI sostituire *{scope}* con l'ambito in cui si vuole eliminare il ruolo personalizzato.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | Tipo |
+    > | Scope | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -340,6 +340,6 @@ Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Dele
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
-- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'API REST](role-assignments-rest.md)
+- [Ruoli personalizzati di Azure](custom-roles.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](role-assignments-rest.md)
 - [Informazioni di riferimento sull'API REST di Azure](/rest/api/azure/)

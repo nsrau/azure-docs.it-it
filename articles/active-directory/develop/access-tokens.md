@@ -1,29 +1,30 @@
 ---
-title: Informazioni di riferimento sui token di accesso della piattaforma Microsoft Identity | Azure
+title: Token di accesso della piattaforma Microsoft Identity | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni sui token di accesso emessi dagli endpoint Azure AD v 1.0 e Microsoft Identity Platform (v 2.0).
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ed583abc8f60f3d367bf75254807e3f28cd0f1c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dedaf5214305003bf302c7c74466adb84c42b2f4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309719"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926800"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso della piattaforma Microsoft Identity
 
-I token di accesso consentono ai client di chiamare in modo sicuro le API protette da Azure. I token di accesso della piattaforma Microsoft Identity sono [token JWT](https://tools.ietf.org/html/rfc7519), oggetti JSON con codifica Base64 firmati da Azure. I client devono trattare i token di accesso come stringhe opache, in quanto i contenuti dei token sono destinati solo alla risorsa. A scopo di convalida e debug, gli sviluppatori possono decodificare i token JWT usando un sito come [jwt.ms](https://jwt.ms). Il client può ottenere un token di accesso dall'endpoint v 1.0 o dall'endpoint 2.0 usando un'ampia gamma di protocolli.
+I token di accesso consentono ai client di chiamare in modo sicuro le API protette. I token di accesso della piattaforma Microsoft Identity sono [token JWT](https://tools.ietf.org/html/rfc7519), oggetti JSON con codifica Base64 firmati dalla piattaforma di identità Microsoft. I client devono trattare i token di accesso come stringhe opache, in quanto i contenuti dei token sono destinati solo alla risorsa. Ai fini della convalida e del debug, gli sviluppatori possono decodificare token JWT (token Web JSON) usando un sito come [JWT.ms](https://jwt.ms). Il client può ottenere un token di accesso dall'endpoint v 1.0 o dall'endpoint 2.0 usando un'ampia gamma di protocolli.
 
-Quando il client richiede un token di accesso, Azure AD restituisce anche alcuni metadati relativi al token di accesso per l'utilizzo dell'app. Queste informazioni includono l'ora di scadenza del token di accesso e gli ambiti per cui è valido. Questi dati consentono all'app di eseguire la memorizzazione intelligente nella cache dei token di accesso senza la necessità di analizzare il token di accesso stesso.
+Quando il client richiede un token di accesso, la piattaforma di identità Microsoft restituisce anche alcuni metadati relativi al token di accesso per l'utilizzo dell'app. Queste informazioni includono l'ora di scadenza del token di accesso e gli ambiti per cui è valido. Questi dati consentono all'app di eseguire la memorizzazione intelligente nella cache dei token di accesso senza la necessità di analizzare il token di accesso stesso.
 
 Se l'applicazione è una risorsa (API Web) a cui i client possono richiedere l'accesso, i token di accesso forniscono informazioni utili per l'autenticazione e l'autorizzazione, ad esempio utente, client, autorità emittente, autorizzazioni e molto altro.
 
@@ -55,7 +56,7 @@ Visualizzare questo token v2.0 in [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAi
 
 ## <a name="claims-in-access-tokens"></a>Attestazioni nei token di accesso
 
-I token JWT sono suddivisi in tre parti:
+I token Web JSON (token JWT) sono suddivisi in tre parti:
 
 * **Intestazione**: fornisce informazioni su come [convalidare il token](#validating-tokens), incluse informazioni sul tipo di token e su come è stato firmato.
 * **Payload**: contiene tutti i dati importanti relativi all'utente o all'app che sta cercando di chiamare il servizio.

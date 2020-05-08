@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
-description: Informazioni sulle assegnazioni di rifiuto nel controllo degli accessi in base al ruolo per le risorse di Azure.
+title: Informazioni sulle assegnazioni di rifiuto di Azure-RBAC di Azure
+description: Informazioni sulle assegnazioni di rifiuto di Azure nel controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372477"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733772"
 ---
-# <a name="understand-deny-assignments-for-azure-resources"></a>Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
+# <a name="understand-azure-deny-assignments"></a>Informazioni sulle assegnazioni di rifiuto di Azure
 
 Simile a un'assegnazione di ruolo, un'*assegnazione di rifiuto* allega un set di azioni di rifiuto a un utente, gruppo o entità servizio in un determinato ambito con lo scopo di rifiutare l'accesso. Le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso.
 
@@ -57,12 +57,12 @@ Le assegnazioni di negazione seguono un modello simile a quello delle assegnazio
 > | Proprietà | Obbligatoria | Type | Descrizione |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Sì | string | Il nome visualizzato dell'assegnazione di rifiuto. I nomi devono essere univoci per un determinato ambito. |
-> | `Description` | No | Stringa | La descrizione dell'assegnazione di rifiuto. |
+> | `Description` | No | string | La descrizione dell'assegnazione di rifiuto. |
 > | `Permissions.Actions` | Almeno un Actions o un DataActions | String[] | Una matrice di stringhe che specifica le operazioni di gestione a cui l'assegnazione di rifiuto blocca l'accesso. |
 > | `Permissions.NotActions` | No | String[] | Una matrice di stringhe che specifica le operazioni di gestione da escludere nell'assegnazione di rifiuto. |
 > | `Permissions.DataActions` | Almeno un Actions o un DataActions | String[] | Una matrice di stringhe che specifica le operazioni dati a cui l'assegnazione di rifiuto blocca l'accesso. |
 > | `Permissions.NotDataActions` | No | String[] | Una matrice di stringhe che specifica le operazioni dati da escludere nell'assegnazione di rifiuto. |
-> | `Scope` | No | Stringa | Una stringa che specifica l'ambito a cui si applica l'assegnazione di rifiuto. |
+> | `Scope` | No | string | Una stringa che specifica l'ambito a cui si applica l'assegnazione di rifiuto. |
 > | `DoNotApplyToChildScopes` | No | Boolean | Specifica se l'assegnazione di rifiuto è valida per gli ambiti figlio. Il valore predefinito è False. |
 > | `Principals[i].Id` | Sì | String[] | Una matrice degli ID oggetto entità di Azure AD (utente, gruppo, entità servizio o identità gestita) a cui si applica l'assegnazione di rifiuto. Impostare un GUID vuoto `00000000-0000-0000-0000-000000000000` per rappresentare tutte le entità. |
 > | `Principals[i].Type` | No | String[] | Matrice di tipi di oggetti rappresentati da entità [i]. ID. impostare su `SystemDefined` per rappresentare tutte le entità. |
@@ -90,4 +90,4 @@ Tutte le entità possono essere combinate `ExcludePrincipals` con per negare l'a
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esercitazione: proteggere nuove risorse con i blocchi delle risorse dei progetti di Azure](../governance/blueprints/tutorials/protect-new-resources.md)
-* [Elencare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure](deny-assignments-portal.md)
+* [Elencare le assegnazioni di Azure Deny usando il portale di Azure](deny-assignments-portal.md)

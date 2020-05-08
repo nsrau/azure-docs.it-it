@@ -3,12 +3,12 @@ title: Esecuzione rapida dell'attività con modello
 description: Accodare un'attività ACR eseguita per compilare un'immagine usando un modello di Azure Resource Manager
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 6e85e4a3d10ea34d71efde959aa7d179eba69e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196530"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927769"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Eseguire attività ACR usando modelli di Gestione risorse
 
@@ -139,7 +139,7 @@ A scopo dimostrativo, creare un registro contenitori separato come registro di b
 
 ### <a name="create-new-dockerfile"></a>Crea nuovo Dockerfile
 
-Creare un Dockerfile che esegue il pull dell'immagine di base dal registro di sistema di base. Eseguire la procedura seguente nel fork locale del repository GitHub, ad esempio https://github.com/myGitHubID/acr-build-helloworld-node.git*.
+Creare un Dockerfile che esegue il pull dell'immagine di base dal registro di sistema di base. Eseguire la procedura seguente nel fork locale del repository GitHub, ad esempio `https://github.com/myGitHubID/acr-build-helloworld-node.git`.
 
 1. Nell'interfaccia utente di GitHub selezionare **Crea nuovo file**.
 1. Denominare il file *Dockerfile-test* e incollare il contenuto seguente. Sostituire il nome del registro di sistema per *mybaseregistry*.

@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
-ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678053"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82925423"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registrare un'app di Azure AD
 
@@ -36,7 +36,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 
 ### <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 
-Se si desidera ottenere le `family_name` attestazioni `given_name` e da Azure ad, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente di portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [How to provide optional Claims to your Azure ad app](/active-directory/develop/active-directory-optional-claims.md).
+Se si desidera ottenere le `family_name` attestazioni `given_name` e da Azure ad, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente di portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [How to provide optional Claims to your Azure ad app](/azure/active-directory/develop/active-directory-optional-claims).
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
 1. Nella sezione **Gestisci** selezionare **registrazioni app**.
@@ -45,4 +45,4 @@ Se si desidera ottenere le `family_name` attestazioni `given_name` e da Azure ad
 1. Selezionare **Aggiungi attestazione facoltativa**.
 1. Per il **tipo di token**selezionare **ID**.
 1. Selezionare le attestazioni facoltative da `family_name` aggiungere `given_name`, e.
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.

@@ -10,12 +10,12 @@ author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: 98f7edac5bbec7a88999c728b2e4db8be7a3d2b5
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: ad384896301e809940f6e99df2f5562cfdb6a6fe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891353"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927582"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Come selezionare gli algoritmi per Azure Machine Learning
 
@@ -148,6 +148,6 @@ La selezione delle caratteristiche si riferisce al processo di applicazione dei 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - [Altre informazioni su Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
+ - [Altre informazioni su Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri)
  - Per le descrizioni di tutti gli algoritmi di machine learning disponibili in Azure Machine Learning Designer, vedere la pagina relativa al [riferimento al modulo e all'algoritmo di machine learning designer](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
- - Per esplorare la relazione tra Deep Learning, Machine Learning e intelligenza artificiale, vedere [Deep Learning e Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)
+ - Per esplorare la relazione tra Deep Learning, Machine Learning e intelligenza artificiale, vedere [Deep Learning e Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)
