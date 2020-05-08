@@ -1,34 +1,34 @@
 ### YamlMime:Landing
-title: Documentazione sui benchmark di sicurezza di Azure
+title: Documentazione di Azure Security Benchmark
 summary: Informazioni su come proteggere le soluzioni cloud in Azure con procedure consigliate e linee guida.
 metadata:
-  title: Benchmark di sicurezza di Azure
-  description: Il benchmark dei controlli di sicurezza di Azure contiene raccomandazioni che consentono di migliorare la sicurezza delle applicazioni e dei dati in Azure.
+  title: Azure Security Benchmark
+  description: Azure Security Benchmark contiene raccomandazioni che consentono di migliorare la sicurezza delle applicazioni e dei dati in Azure.
   services: security
   ms.service: security
   ms.subservice: fundamentals
-  ms.custom: security-baselines
+  ms.custom: security-benchmark
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: c2b36e098314af78ca3d6f28534c3d3e97697363
-  ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+  ms.openlocfilehash: 7cebc4fb6e676470b46a52cf1ea62e0990e708e9
+  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/15/2020
-  ms.locfileid: "81393829"
+  ms.lasthandoff: 04/30/2020
+  ms.locfileid: "82607750"
 landingContent:
-- title: Informazioni sul benchmark di sicurezza di Azure
+- title: Informazioni su Azure Security Benchmark
   linkLists:
   - linkListType: overview
     links:
-    - text: Introduzione al benchmark di sicurezza di Azure
+    - text: Introduzione ad Azure Security Benchmark
       url: introduction.md
     - text: Panoramica dei controlli di sicurezza di Azure
       url: overview.md
-- title: Security Controls
+- title: Controlli di sicurezza
   linkLists:
   - linkListType: overview
     links:
@@ -36,11 +36,11 @@ landingContent:
       url: security-control-network-security.md
     - text: Registrazione e monitoraggio
       url: security-control-logging-monitoring.md
-    - text: Gestione delle identità e controllo di accesso
+    - text: Identità e controllo di accesso
       url: security-control-identity-access-control.md
     - text: Protezione dei dati
       url: security-control-data-protection.md
-    - text: Gestione delle vulnerabilità
+    - text: Gestione vulnerabilità
       url: security-control-vulnerability-management.md
     - text: Altre informazioni
       url: security-control-inventory-asset-management.md

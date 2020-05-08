@@ -4,12 +4,12 @@ description: Scalabilità automatica in Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: faf393c01c494538ab647f39e2c4eb1d823d1abd
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: 08b39fce046ea9dee02ddf6ffe34971b81c3b5b7
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791443"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928704"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Panoramica della scalabilità automatica in Microsoft Azure
 Questo articolo descrive il ridimensionamento automatico di Microsoft Azure e come iniziare a usarlo.  
@@ -105,7 +105,8 @@ La scalabilità verticale è invece diversa, perché mantiene lo stesso numero d
 | Macchine virtuali: esempio Windows |[Configurazione di scalabilità automatica avanzata con modelli di Gestione risorse per set di scalabilità di macchine virtuali](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | Servizio Gestione API|[Ridimensionare automaticamente un'istanza di Gestione API di Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 | Cluster di Azure Esplora dati|[Gestire il ridimensionamento del cluster di Azure Esplora dati per soddisfare la richiesta di modifica](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
-
+| Servizio app di Azure |[Ridimensionare un'app nel servizio app Azure](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
+| App per la logica |[Aggiunta della capacità di Integration Services Environment (ISE)](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul ridimensionamento automatico, usare le procedure dettagliate per il ridimensionamento automatico elencate in precedenza o vedere le risorse seguenti:
 

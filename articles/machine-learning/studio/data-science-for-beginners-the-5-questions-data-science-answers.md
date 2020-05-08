@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204444"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930149"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 La serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) offre in cinque brevi video una rapida introduzione all'analisi scientifica dei dati offerta da un esperto in materia. Questi video sono basilari, ma utili per chi è interessato a eseguire l'analisi scientifica dei dati oppure lavora con addetti a questa operazione.
@@ -136,4 +136,4 @@ Ecco, queste sono le 5 domande a cui l'analisi scientifica dei dati per principi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
-* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

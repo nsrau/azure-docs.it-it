@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80da8d2880509a8ed6a2af8cb181b3bc2c281c09
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393113"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930574"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -119,7 +119,7 @@ Quando si usa [Load Balancer Standard con le zone di disponibilità](load-balanc
 
 ### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>Mascheramento delle porte SNAT (PAT)
 
-Quando una risorsa pubblica di Load Balancer è associata alle istanze VM, ogni origine di connessione in uscita viene riscritta. L'origine viene riscritta dallo spazio dell'indirizzo IP privato della rete virtuale all'indirizzo IP pubblico front-end del bilanciamento del carico. Nello spazio degli indirizzi IP pubblici, le 5 tuple del flusso (indirizzo IP di origine, porta di origine, protocollo di trasporto IP, indirizzo IP di destinazione, porta di destinazione) devono essere univoche.  Il mascheramento delle porte SNAT è utilizzabile con i protocolli TCP o UDP IP.
+Quando una risorsa Load Balancer pubblica è associata a istanze di VM, che non hanno indirizzi IP pubblici dedicati, ogni origine della connessione in uscita viene riscritta. L'origine viene riscritta dallo spazio dell'indirizzo IP privato della rete virtuale all'indirizzo IP pubblico front-end del bilanciamento del carico. Nello spazio degli indirizzi IP pubblici, le 5 tuple del flusso (indirizzo IP di origine, porta di origine, protocollo di trasporto IP, indirizzo IP di destinazione, porta di destinazione) devono essere univoche. Il mascheramento delle porte SNAT è utilizzabile con i protocolli TCP o UDP IP.
 
 Per ottenere ciò vengono usate porte temporanee (porte SNAT) dopo la riscrittura dell'indirizzo IP di origine privato, perché più flussi hanno origine da un singolo indirizzo IP pubblico. L'algoritmo SNAT per il mascheramento delle porte alloca in modo diverso le porte SNAT per il protocollo UDP rispetto al protocollo TCP.
 
@@ -147,7 +147,7 @@ Per informazioni sui modelli per la mitigazione delle condizioni che portano com
 
 ### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>Preallocazione di porte temporanee per il mascheramento delle porte SNAT (PAT)
 
-Azure usa un algoritmo per determinare il numero di porte SNAT preallocate disponibili in base alla dimensione del pool back-end quando si usa il mascheramento delle porte SNAT ([PAT](#pat)). Le porte SNAT sono porte temporanee disponibili per un particolare indirizzo di origine IP pubblico.
+Azure usa un algoritmo per determinare il numero di porte SNAT preallocate disponibili in base alla dimensione del pool back-end quando si usa il mascheramento delle porte SNAT ([PAT](#pat)). Le porte SNAT sono porte temporanee disponibili per un particolare indirizzo di origine IP pubblico. Per ogni indirizzo IP pubblico associato a un servizio di bilanciamento del carico sono disponibili 64.000 porte come porte SNAT per ogni protocollo di trasporto IP.
 
 Lo stesso numero di porte SNAT viene allocato rispettivamente per UDP e TCP e utilizzato indipendentemente per ogni protocollo di trasporto IP.  Tuttavia, l'uso delle porte SNAT è diverso a seconda che il flusso sia UDP o TCP.
 
@@ -193,11 +193,14 @@ Le allocazioni delle porte SNAT sono specifiche del protocollo di trasporto IP (
 Questa sezione è stata pensata per attenuare i problemi relativi all'esaurimento SNAT e che possono verificarsi con le connessioni in uscita in Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Gestione dell'esaurimento delle porte SNAT (PAT)
-Le [porte](#preallocatedports) temporanee usate per [Pat](#pat) sono una risorsa esauribile, come descritto in [macchina virtuale autonoma senza un indirizzo IP pubblico](#defaultsnat) e una [macchina virtuale con carico bilanciato senza indirizzo IP pubblico](#lb). È possibile monitorare l'utilizzo delle porte temporanee e confrontarsi con l'allocazione corrente per determinare il rischio di o per confermare SNAT exhuastion con [questa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guida.
+Le [porte](#preallocatedports) temporanee usate per [Pat](#pat) sono una risorsa esauribile, come descritto in [macchina virtuale autonoma senza un indirizzo IP pubblico](#defaultsnat) e una [macchina virtuale con carico bilanciato senza indirizzo IP pubblico](#lb). È possibile monitorare l'utilizzo delle porte temporanee e confrontarsi con l'allocazione corrente per determinare il rischio di o per confermare l'esaurimento SNAT con [questa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guida.
 
 Sono disponibili diverse opzioni di mitigazione generali, se si è certi che verranno avviate numerose connessioni in uscita TCP o UDP allo stesso indirizzo IP e alla stessa porta di destinazione e se si riscontrano connessioni in uscita con errore o se il supporto tecnico ha comunicato il possibile esaurimento delle porte SNAT ([porte temporanee](#preallocatedports) preallocate usate da [PAT](#pat)). Esaminare queste opzioni e scegliere quella disponibile e ottimale per lo scenario specifico. È possibile che una o più opzioni risultino utili per gestire questo scenario.
 
 In caso di problemi a comprendere il comportamento delle connessioni in uscita, è possibile usare le statistiche dello stack IP (netstat) o può essere utile osservare i comportamenti di connessione tramite le acquisizioni di pacchetti. È possibile eseguire queste acquisizioni di pacchetti nel sistema operativo guest dell'istanza o usare [Network Watcher per l'acquisizione dei pacchetti](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
+
+#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Allocare manualmente le porte SNAT per ottimizzare le porte SNAT per macchina virtuale
+Come definito nelle [porte preallocate](#preallocatedports), il servizio di bilanciamento del carico alloca automaticamente le porte in base al numero di macchine virtuali nel back-end. Per impostazione predefinita, questa operazione viene eseguita in modo conservativo per garantire la scalabilità. Se si conosce il numero massimo di macchine virtuali disponibili nel back-end, è possibile allocare manualmente le porte SNAT configurando questo in ogni regola in uscita. Ad esempio, se si è certi di disporre di un massimo di 10 macchine virtuali, è possibile allocare 6.400 porte SNAT per macchina virtuale anziché l'impostazione predefinita 1.024. 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modificare l'applicazione per riutilizzare le connessioni 
 È possibile ridurre la richiesta di porte temporanee usate per SNAT usando di nuovo le connessioni nell'applicazione. Ciò vale soprattutto per i protocolli HTTP/1.1, in cui il riutilizzo della connessione è automatico. Altri protocolli che usano HTTP come trasporto, ad esempio REST, possono trarne vantaggio a loro volta. 

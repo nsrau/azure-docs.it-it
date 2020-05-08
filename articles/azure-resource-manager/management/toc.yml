@@ -4,6 +4,11 @@
   items:
     - name: Informazioni su Resource Manager
       href: overview.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Sottoscrizione e limiti dei servizi

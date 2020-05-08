@@ -4,20 +4,20 @@ description: È utile essere in grado di configurare l'account utente con cui si
 ms.topic: article
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111743"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980287"
 ---
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
+
 > [!NOTE] 
 > Gli account utente descritti in questo articolo sono diversi dagli account utente usati per la Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza. 
 >
 > Per connettersi a un nodo che esegue la configurazione della macchina virtuale Linux tramite SSH, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Per connettersi ai nodi che eseguono Windows tramite RDP, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Per connettersi a un nodo che esegue la configurazione del servizio cloud tramite RDP, vedere [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
-
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
 
 In Azure Batch un'attività viene sempre eseguita con un account utente. Per impostazione predefinita, le attività vengono eseguite con account utente standard, senza le autorizzazioni di amministratore perché le impostazioni predefinite dell'account utente in genere sono sufficienti. Per determinati scenari, tuttavia, è utile essere in grado di configurare l'account utente con cui si intende eseguire un'attività. Questo articolo illustra i tipi di account utente e il modo in cui è possibile configurarli per lo scenario in uso.
 
