@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/2/2020
+ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: fcbaabac0961f1269a929fb4a56f81ac282bae29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80619156"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857302"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -124,7 +124,7 @@ In alternativa, è possibile scambiare la chiave privata con un token di accesso
 
 | Tipo di risorsa     | URL servizio di autenticazione                                |
 |-----------------|-----------------------------------------------------------|
-| Global          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Globale          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 | Regione o multiservizio | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 Di seguito sono riportati esempi di richieste per ottenere un token con una chiave privata:
@@ -147,7 +147,7 @@ Un token di autenticazione è valido per 10 minuti. Il token deve essere riutili
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale
 
-Il servizio Translator è ora disponibile con le funzionalità di rete virtuale in`WestUS2`aree `EastUS`limitate `SouthCentralUS`( `WestUS`, `Central US EUAP`, `global`,,,). Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Il servizio Translator è ora disponibile con le funzionalità di rete virtuale in`WestUS2`aree `EastUS`limitate `SouthCentralUS`( `WestUS`, `CentralUSEUAP`, `global`,,,). Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Una volta attivata questa funzionalità, è necessario usare l'endpoint personalizzato per chiamare l'API di conversione. Non è possibile usare l'endpoint di conversione globale ("api.cognitive.microsofttranslator.com") e non è possibile eseguire l'autenticazione con un token di accesso.
 

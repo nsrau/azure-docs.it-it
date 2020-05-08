@@ -7,20 +7,17 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 97f08bf0f89fdb65f0ffef7d18557f210e45a8d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101009"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890817"
 ---
-# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains-preview"></a>Configurare gli endpoint privati per gli argomenti o i domini di griglia di eventi di Azure (anteprima)
+# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurare gli endpoint privati per gli argomenti o i domini di griglia di eventi di Azure
 È possibile usare [endpoint privati](../private-link/private-endpoint-overview.md) per consentire l'ingresso di eventi direttamente dalla rete virtuale agli argomenti e ai domini in modo sicuro tramite un [collegamento privato](../private-link/private-link-overview.md) senza passare attraverso la rete Internet pubblica. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet per l'argomento o il dominio. Per informazioni più concettuali, vedere [sicurezza di rete](network-security.md).
 
 Questo articolo descrive come configurare endpoint privati per argomenti o domini.
-
-> [!IMPORTANT]
-> La funzionalità endpoint privati è disponibile per argomenti e domini solo nel livello Premium. Per eseguire l'aggiornamento dal livello Basic al livello Premium, vedere l'articolo relativo all'aggiornamento del piano [tariffario](update-tier.md) . 
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure 
 In questa sezione viene illustrato come utilizzare il portale di Azure per creare un endpoint privato per un argomento o un dominio.
@@ -205,7 +202,7 @@ Ecco uno script di esempio che crea le risorse di Azure seguenti:
 - Resource group
 - Rete virtuale
 - Subnet nella rete virtuale
-- Argomento di griglia di eventi di Azure (livello Premium)
+- Argomento di griglia di eventi di Azure
 - Endpoint privato per l'argomento
 
 > [!NOTE]
@@ -254,8 +251,7 @@ az network vnet subnet update \
 az eventgrid topic create \
     --resource-group $resourceGroupName \
     --name $topicName \
-    --location $location \
-    --sku "Premium" 
+    --location $location
 
 # verify that the topic was created.
 az eventgrid topic show \
@@ -369,7 +365,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
 Invoke-RestMethod -Method 'Put'  `

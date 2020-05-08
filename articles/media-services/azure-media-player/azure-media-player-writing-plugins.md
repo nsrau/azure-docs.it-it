@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727112"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857398"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Scrittura di plug-in per Azure Media Player #
 
@@ -87,7 +87,7 @@ Per ispirare altri esempi sulla creazione di un plug-in, vedere la [raccolta](az
 
 ### <a name="plugin-gallery"></a>Raccolta di plug-in ###
 
-La [raccolta di plug](http//:aka.ms/ampplugins) -in include diversi plug-in che la community ha già contribuito per funzionalità come marcatori di linee temporali, zoom, analisi e altro ancora. La pagina fornisce gli accessi ai plug-in e le istruzioni su come configurarla, oltre a una demo che mostra il plug-in in azione. Se si crea un plug-in interessante che si ritiene debba essere incluso nella raccolta, è possibile inviarlo per poterlo estrarre.
+La [raccolta di plug](https://aka.ms/ampplugins) -in include diversi plug-in che la community ha già contribuito per funzionalità come marcatori di linee temporali, zoom, analisi e altro ancora. La pagina fornisce gli accessi ai plug-in e le istruzioni su come configurarla, oltre a una demo che mostra il plug-in in azione. Se si crea un plug-in interessante che si ritiene debba essere incluso nella raccolta, è possibile inviarlo per poterlo estrarre.
 
 ## <a name="next-steps"></a>Passaggi successivi ##
 

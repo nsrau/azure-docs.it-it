@@ -1,5 +1,5 @@
 ---
-title: Riepiloghi di pagamento-Azure Marketplace
+title: Report sui pagamenti-Marketplace commerciale Microsoft
 description: I report sui riconoscimenti visualizzano i dettagli relativi ai soldi ottenuti con l'offerta, inclusa la quantità di pagamenti e la data di pagamento.
 author: mingshen
 ms.author: mingshen
@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 40f8ca1cdbdf44639b009792c71cbf9fd55d8841
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: 0380330c2cfd4b0a72dcc158a0d6e051d5547b31
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779832"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857011"
 ---
-# <a name="payout-summaries"></a>Riepiloghi sui pagamenti
+# <a name="payout-summaries"></a>Riepiloghi proventi
 
 Il riepilogo dei pagamenti Mostra i dettagli relativi al denaro guadagnato con Microsoft. Sono visualizzate anche indicazioni su quando riceverai i pagamenti e sulle modalità di pagamento.
 
@@ -243,4 +243,4 @@ La cronologia delle transazioni prima del 1 2019 luglio viene gestita separatame
 
 ## <a name="next-step"></a>passaggio successivo
 
-- [Dettagli dei criteri di pagamento](./payout-policy-details.md)
+- [Dettagli dei criteri dei proventi](./payout-policy-details.md)

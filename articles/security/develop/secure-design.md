@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461719"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857167"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in Azure
 In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si progettano applicazioni per il cloud. Vengono analizzate le risorse di formazione e le domande e i concetti di sicurezza da prendere in considerazione durante i requisiti e le fasi di progettazione di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per progettare un'applicazione più protetta.
@@ -153,7 +153,7 @@ Modellazione della progettazione dell'applicazione ed enumerazione delle minacce
 
 | Threat | Proprietà di sicurezza | Mitigazione potenziale della piattaforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Spoofing               | Autenticazione        | [Richiedere connessioni HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Spoofing               | Authentication        | [Richiedere connessioni HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manomissione              | Integrità             | Convalidare i certificati SSL/TLS. Le applicazioni che usano SSL/TLS devono verificare completamente i certificati X. 509 delle entità a cui si connettono. Usare i certificati Azure Key Vault per [gestire i certificati X509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Ripudio            | Non ripudio       | Abilitazione del [monitoraggio e diagnostica](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) di Azure.|
 | Divulgazione di informazioni | Riservatezza       | Crittografare i [dati](../fundamentals/encryption-atrest.md) sensibili inattivi e [in transito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
@@ -222,11 +222,11 @@ Uno sviluppatore di software necessita di diritti di amministratore di dominio? 
 Assicurarsi che l'applicazione applichi il [privilegio minimo](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) per tutti i modelli di accesso.
 
 > [!NOTE]
->  Le regole del privilegio minimo devono essere valide per il software e per gli utenti che creano il software. Gli sviluppatori di software possono essere un grosso rischio per la sicurezza IT se hanno un accesso troppo elevato. Le conseguenze possono essere gravi se uno sviluppatore ha finalità dannose o ha un accesso troppo elevato. Si consiglia di applicare le regole con privilegi minimi agli sviluppatori durante tutto il ciclo di vita di sviluppo.
+> Le regole del privilegio minimo devono essere valide per il software e per gli utenti che creano il software. Gli sviluppatori di software possono essere un grosso rischio per la sicurezza IT se hanno un accesso troppo elevato. Le conseguenze possono essere gravi se uno sviluppatore ha finalità dannose o ha un accesso troppo elevato. Si consiglia di applicare le regole con privilegi minimi agli sviluppatori durante tutto il ciclo di vita di sviluppo.
 
 #### <a name="implement-just-in-time-access"></a>Implementare l'accesso just-in-Time
 
-Implementare l'accesso JIT ( *just-in-Time* ) per ridurre ulteriormente il tempo di esposizione dei privilegi. Usare [Azure ad Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) per:
+Implementare l'accesso JIT ( *just-in-Time* ) per ridurre ulteriormente il tempo di esposizione dei privilegi. Usare [Azure ad Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) per:
 
 - Fornire agli utenti le autorizzazioni necessarie solo per JIT.
 - Assegnare i ruoli per un periodo di tempo ridotto sapendo che i privilegi vengono revocati automaticamente.

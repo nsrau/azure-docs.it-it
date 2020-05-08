@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299397"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857280"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
 
@@ -61,6 +61,9 @@ Tutti i dati privati che devono essere salvati in modo permanente da analisi di 
 Vengono archiviati anche i dettagli della connessione delle risorse, usati dal processo di analisi di flusso. Crittografare l'account di archiviazione per proteggere tutti i dati. 
 
 Per soddisfare gli obblighi di conformità in qualsiasi settore o ambiente regolamentato, è possibile leggere altre informazioni sulle [offerte di conformità di Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="known-issues"></a>Problemi noti
+Si verifica un problema noto in cui un processo che usa la chiave gestita dal cliente si verifica in caso di errori quando si usa l'identità gestita per l'autenticazione a qualsiasi input o output. Viene elaborata una correzione per questo problema che diventerà disponibile a breve. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

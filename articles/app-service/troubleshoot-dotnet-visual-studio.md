@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280053"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891063"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -614,7 +614,7 @@ Questo articolo ha illustrato come Visual Studio semplifica la visualizzazione d
 Per altre informazioni sulla risoluzione dei problemi di app nel Servizio app di Azure, consultare le risorse seguenti:
 
 * [Come monitorare le app](web-sites-monitor.md)
-* [Analisi delle perdite di memoria nel Servizio app di Azure con Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Post del blog di Microsoft ALM sulle funzionalità di Visual Studio per l'analisi dei problemi relativi alla memoria gestita.
+* [Analisi delle perdite di memoria nel Servizio app di Azure con Visual Studio 2013](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/). Post del blog di Microsoft ALM sulle funzionalità di Visual Studio per l'analisi dei problemi relativi alla memoria gestita.
 * [Strumenti online del Servizio app di Azure che è necessario conoscere](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Post del blog di Amit Apple.
 
 Per informazioni su specifiche domande relative alla risoluzione dei problemi, avviare un thread in uno dei forum seguenti:
@@ -678,7 +678,7 @@ Per ulteriori informazioni sull'analisi dei log del server Web, vedere le risors
   Strumento per la visualizzazione di dati nei log del server Web (file con estensione*log* ).
 * [Risoluzione dei problemi relativi alle prestazioni di IIS o degli errori dell'applicazione tramite LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    Introduzione allo strumento Log Parser, che è possibile utilizzare per analizzare i log del server Web.
-* [Post di blog di Robert McMurray sull'uso di Log Parser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Post di blog di Robert McMurray sull'uso di Log Parser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [Codice di stato HTTP in IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisi dei log di traccia delle richieste non riuscite

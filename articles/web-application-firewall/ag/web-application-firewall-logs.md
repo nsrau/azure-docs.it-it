@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 4bc2aa055c40fb33edade8f7815311e392633885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bca41effc4e9834f8c76308556facb0681717cd
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133875"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888885"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Log delle risorse per il Web Application Firewall di Azure
 
@@ -305,7 +305,7 @@ I [log di Monitoraggio di Azure](../../azure-monitor/insights/azure-networking-a
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Visualizzare i log contatori ed eventi usando i [log di Monitoraggio di Azure](../../azure-monitor/insights/azure-networking-analytics.md).
-* Post di blog [Visualize your Azure activity log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizzare il log attività di Azure con Power BI).
+* Post di blog [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) (Visualizzare il log attività di Azure con Power BI).
 * Post di blog [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Visualizzare e analizzare i log attività di Azure in Power BI e altre opzioni).
 
 [1]: ../media/web-application-firewall-logs/figure1.png

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c171c1bab99e4e3748267308745ee66631ed08d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451670"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888969"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteggere i dati sensibili e archiviare le chiavi di crittografia in Azure Key Vault
 
@@ -192,11 +192,11 @@ Questa esercitazione illustra come archiviare le chiavi nell'insieme di credenzi
 
 È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Riepilogo](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
+![Summary](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Confermare le azioni della procedura guidata
 
@@ -621,4 +621,4 @@ Dopo avere creato un database che usa la crittografia sempre attiva, è possibil
 - [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Crittografia SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Procedura guidata Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog sulla Crittografia sempre attiva](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+- [Blog sulla Crittografia sempre attiva](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

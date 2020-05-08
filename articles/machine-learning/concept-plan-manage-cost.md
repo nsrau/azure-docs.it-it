@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 67b703f0079e26d01330d52d170f99699480fad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196387"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856991"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
 
@@ -90,7 +90,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 Analogamente ad altre risorse di calcolo di Azure, AmlCompute viene fornita con una configurazione intrinseca di [quota (o limite)](how-to-manage-quotas.md#azure-machine-learning-compute). Questa quota è per famiglia di VM (ad esempio, serie dv2, serie NCv3) e varia in base all'area per ogni sottoscrizione. Le sottoscrizioni iniziano con impostazioni predefinite minime, ma è possibile usare questa impostazione per controllare la quantità di risorse Amlcompute disponibili per la creazione di una sottoscrizione. 
 
-Configurare anche la [quota a livello di area di lavoro per famiglia di VM](/how-to-manage-quotas.md#workspace-level-quota), per ogni area di lavoro in una sottoscrizione. In questo modo è possibile avere un controllo più granulare sui costi che ogni area di lavoro potrebbe potenzialmente sostenere e limitare alcune famiglie di macchine virtuali. 
+Configurare anche la [quota a livello di area di lavoro per famiglia di VM](how-to-manage-quotas.md#workspace-level-quota), per ogni area di lavoro in una sottoscrizione. In questo modo è possibile avere un controllo più granulare sui costi che ogni area di lavoro potrebbe potenzialmente sostenere e limitare alcune famiglie di macchine virtuali. 
 
 Per impostare le quote a livello di area di lavoro, iniziare dall' [portale di Azure](https://portal.azure.com).  Selezionare un'area di lavoro nella sottoscrizione e selezionare **utilizzi + quote** nel riquadro sinistro. Selezionare quindi la scheda **Configura quote** per visualizzare le quote. Per impostare questa quota, è necessario disporre dei privilegi nell'ambito della sottoscrizione, poiché si tratta di un'impostazione che interessa più aree di lavoro.
 
