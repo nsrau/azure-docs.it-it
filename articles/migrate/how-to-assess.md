@@ -1,31 +1,21 @@
 ---
 title: Aggiungere strumenti di valutazione in Azure Migrate
 description: Informazioni su come aggiungere strumenti di valutazione in Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.manager: carmonm
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 04/26/2020
+ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185903"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901045"
 ---
 # <a name="add-assessment-tools"></a>Aggiungere strumenti di valutazione
 
-Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migrate](migrate-overview.md).
+Questo articolo descrive come aggiungere strumenti di valutazione in [Azure migrate](migrate-overview.md). 
 
-Azure Migrate offre un hub di strumenti per la valutazione e la migrazione ad Azure. Sono inclusi strumenti di Azure Migrate, nonché altri strumenti e offerte di fornitori di software indipendenti (ISV).
-
-Se si vuole aggiungere uno strumento di valutazione e non si dispone ancora di un progetto di Azure Migrate, seguire questo [articolo](how-to-add-tool-first-time.md).
-
-## <a name="select-a-tool"></a>Selezionare uno strumento
-
-Se si sceglie uno strumento non Azure Migrate per la valutazione, iniziare con una licenza o iscriversi per ottenere una versione di valutazione gratuita, in base ai criteri degli strumenti. Gli strumenti hanno un'opzione per connettersi a Azure Migrate. Seguire le istruzioni e la documentazione per connettere lo strumento a Azure Migrate. [Altre](migrate-services-overview.md) informazioni sugli strumenti di.
-
+- Se si vuole aggiungere uno strumento di valutazione e non si dispone ancora di un progetto di Azure Migrate, seguire questo [articolo](how-to-add-tool-first-time.md).
+- Se è stato aggiunto uno strumento ISV, o Mover, per la valutazione, [seguire la procedura](prepare-isv-movere.md)per prepararsi a usare lo strumento.
 
 ## <a name="select-an-assessment-scenario"></a>Selezionare uno scenario di valutazione
 

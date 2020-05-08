@@ -4,7 +4,7 @@ description: Questa esercitazione illustra come implementare i flag di funzional
 services: azure-app-configuration
 documentationcenter: ''
 author: mrm9084
-manager: zhenlwa
+manager: zhenlan
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
-ms.openlocfilehash: d519ac44d617f725aa9b3d3f11671122bd9477bc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d924975d852320fcddd5ae988f1d52f10d366f81
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78944320"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790746"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Esercitazione: Usare i flag di funzionalità in un'app Spring Boot
 

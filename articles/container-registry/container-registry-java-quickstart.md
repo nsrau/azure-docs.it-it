@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 62d63b24baab204cb029565b109ea2de768e1d80
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 561c45bd13648f5f17273b478f320e9fd3d71331
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78165087"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857599"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Guida introduttiva: Creare ed eseguire il push di immagini del contenitore Java in Registro Azure Container
 
@@ -94,6 +94,9 @@ Successivamente, si creerà un gruppo di risorse di Azure e la propria istanza d
 
 Infine, si aggiornerà la configurazione del progetto e si userà il prompt dei comandi per creare e distribuire l'immagine.
 
+> [!NOTE]
+> Per accedere al registro contenitori di Azure appena creato, è necessario che il daemon Docker sia in esecuzione. Per installare Docker nel computer, vedere la [documentazione ufficiale di Docker](https://docs.docker.com/install/).
+
 1. Accedere alla propria istanza di Registro Azure Container dall'interfaccia della riga di comando di Azure con il comando seguente. Assicurarsi di sostituire il segnaposto con il nome del registro.
 
    ```azurecli
@@ -105,13 +108,13 @@ Infine, si aggiornerà la configurazione del progetto e si userà il prompt dei 
 
 1. Passare alla directory del progetto completato per l'applicazione Spring Boot (ad esempio, "*C:\SpringBoot\gs-spring-boot-docker\complete*" o " */users/robert/SpringBoot/gs-spring-boot-docker/complete*") e aprire il file *pom.xml* con un editor di testo.
 
-1. Aggiornare la raccolta `<properties>` nel file *pom.xml* con il codice XML seguente. Sostituire il segnaposto con il nome del registro e aggiornare il valore di `<jib-maven-plugin.version>` con la versione più recente di [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Aggiornare la raccolta `<properties>` nel file *pom.xml* con il codice XML seguente. Sostituire il segnaposto con il nome del registro e aggiornare una proprietà `<jib-maven-plugin.version>` con il valore `2.2.0` oppure una versione più recente di [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
       <docker.image.prefix><your registry name>.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>1.8.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
+      <jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
    </properties>
    ```
 
@@ -136,7 +139,7 @@ Infine, si aggiornerà la configurazione del progetto e si userà il prompt dei 
 1. Passare alla directory del progetto completato per l'applicazione Spring Boot ed eseguire questo comando per creare l'immagine ed eseguire il push dell'immagine nel registro:
 
    ```bash
-   mvn compile jib:build
+   az acr login && mvn compile jib:build
    ```
 
 > [!NOTE]
@@ -148,7 +151,7 @@ Infine, si aggiornerà la configurazione del progetto e si userà il prompt dei 
 Congratulazioni! È ora disponibile un'app Java in contenitori basata su una versione di JDK supportata da Azure e di cui è stato eseguito il push in Registro Azure Container. È possibile testare l'immagine distribuendola in Servizio app di Azure oppure eseguendone il pull in locale con il comando (sostituendo il segnaposto):
 
 ```bash
-docker pull <your registry name>.azurecr.io/gs-spring-boot-docker:v1
+docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -163,7 +166,7 @@ Per altre versioni delle immagini di base Java supportate da Microsoft ufficialm
 Per altre informazioni su Spring e Azure, passare al centro di documentazione di Spring in Azure.
 
 > [!div class="nextstepaction"]
-> [Spring in Azure](/azure/java/spring-framework)
+> [Spring in Azure](/azure/developer/java/spring-framework)
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -173,5 +176,5 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Uso di Azure DevOps e Java](/azure/devops/java)
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker) (Introduzione a Spring Boot in Docker)
 * [Spring Initializr](https://start.spring.io)
-* [Distribuire un'applicazione Spring Boot nel servizio app di Azure](/azure/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
+* [Distribuire un'applicazione Spring Boot nel servizio app di Azure](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
 * [Uso di un'immagine Docker personalizzata per App Web di Azure in Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: cf9fa48019ab88190175131b27f4a40e29eb5ed0
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 0db91f3c661ebd3087a4389f4112a7214c992227
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801723"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925950"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 <p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Iniziare</a></span><span class="has-padding-small">a risolvere rapidamente il problema usando l'agente virtuale per eseguire la <b>diagnostica automatica.</b> </span> Informativa <sub>sulla privacy</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
@@ -132,11 +132,15 @@ Se è configurato un servizio di bilanciamento del carico interno in una rete vi
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Motivo: non è possibile modificare la porta back-end per una regola di bilanciamento del carico usata da un probe di integrità per il servizio di bilanciamento del carico a cui fa riferimento il set di scalabilità di macchine virtuali.
 **Risoluzione** dei problemi Per modificare la porta, è possibile rimuovere il probe di integrità aggiornando il set di scalabilità di macchine virtuali, aggiornare la porta e quindi configurare di nuovo il probe di integrità.
 
+## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>Sintomo: il traffico ridotto passa ancora attraverso il servizio di bilanciamento del carico dopo aver rimosso le macchine virtuali dal pool back-end del servizio di bilanciamento del carico. 
+### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>Motivo: le macchine virtuali rimosse dal pool back-end non devono più ricevere traffico. La piccola quantità di traffico di rete potrebbe essere correlata ad archiviazione, DNS e altre funzioni in Azure. 
+Per verificare, è possibile eseguire una traccia di rete. Il nome di dominio completo usato per gli account di archiviazione BLOB è elencato nelle proprietà di ogni account di archiviazione.  Da una macchina virtuale all'interno della sottoscrizione di Azure, è possibile eseguire un comando nslookup per determinare l'indirizzo IP di Azure assegnato a tale account di archiviazione.
+
 ## <a name="additional-network-captures"></a>Altre acquisizioni di rete
 Se si decide di aprire un caso di supporto, raccogliere le informazioni seguenti per una soluzione più rapida. Scegliere una singola macchina virtuale back-end per eseguire questi test:
 - Usare Psping da una delle macchine virtuali back-end all'interno della rete virtuale per testare la risposta della porta probe, ad esempio psping 10.0.0.4:3389, e registrare i risultati. 
 - Se non si ricevono risposte in questi test di ping, eseguire una traccia Netsh simultanea nella macchina virtuale back-end e nella macchina virtuale di test della rete virtuale mentre si esegue PsPing, quindi arrestare la traccia Netsh. 
-  
+ 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).

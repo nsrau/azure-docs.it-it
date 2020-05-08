@@ -1,18 +1,18 @@
 ---
-title: API del servizio di misurazione del Marketplace-domande frequenti | Azure Marketplace
-description: Creare l'utilizzo di un'offerta SaaS in Azure Marketplace.
+title: Domande frequenti sulle API del servizio di misurazione-Marketplace commerciale Microsoft
+description: Domande frequenti sulle API del servizio di misurazione per le offerte SaaS in Microsoft AppSource e in Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 9a1493790969c4d34d7d41572dff6e15d16d2a19
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: eb27089777baaaa7a29e020318fbc7635792af2d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735454"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857891"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>API del servizio di misurazione di Marketplace - domande frequenti
 

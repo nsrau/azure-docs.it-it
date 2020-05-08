@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/04/2020
 tags: connectors
-ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656294"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900941"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in app per la logica di Azure
 
@@ -22,10 +22,13 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'az
 * Attiva un flusso di lavoro quando si verifica un evento del webhook esterno.
 * Ricevere e rispondere a una chiamata HTTPS da un'altra app per la logica.
 
+Il trigger request supporta [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) per autorizzare le chiamate in ingresso all'app per la logica. Per altre informazioni sull'abilitazione di questa autenticazione, vedere [proteggere l'accesso e i dati in app per la logica di Azure-abilitare Azure ad autenticazione OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+
 > [!NOTE]
-> Il trigger request supporta *solo* Transport Layer Security (TLS) 1,2 per le chiamate in ingresso. Le chiamate in uscita continuano a supportare TLS 1,0, 1,1 e 1,2. Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione del problema TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Il trigger request supporta *solo* Transport Layer Security (TLS) 1,2 per le chiamate in ingresso. Le chiamate in uscita supportano TLS 1,0, 1,1 e 1,2. Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione del problema TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Se vengono visualizzati errori di handshake TLS, assicurarsi di usare TLS 1,2. Per le chiamate in ingresso, di seguito sono riportati i pacchetti di crittografia supportati:
+> Se si verificano errori di handshake TLS, assicurarsi di usare TLS 1,2. 
+> Per le chiamate in ingresso, di seguito sono riportati i pacchetti di crittografia supportati:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -46,7 +49,7 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'az
 
 ## <a name="add-request-trigger"></a>Aggiungi trigger di richiesta
 
-Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che può ricevere *solo* le richieste HTTPS in ingresso. Quando si verifica questo evento, il trigger viene attivato ed esegue l'app per la logica. Per altre informazioni sulla definizione JSON sottostante del trigger e su come chiamare questo trigger, vedere il [tipo di trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
+Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che può ricevere *solo* le richieste HTTPS in ingresso. Quando si verifica questo evento, il trigger viene attivato ed esegue l'app per la logica.
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
@@ -58,7 +61,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
    |---------------|--------------------|----------|-------------|
    | **URL POST HTTP** | {none} | Sì | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
    | **Schema JSON del corpo della richiesta** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
@@ -157,7 +160,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 1. Per specificare altre proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
    |---------------|--------------------|----------|-------------|
    | **Metodo** | `method` | No | Metodo che la richiesta in ingresso deve usare per chiamare l'app per la logica |
    | **Percorso relativo** | `relativePath` | No | Percorso relativo del parametro che l'URL dell'endpoint dell'app per la logica può accettare |
@@ -177,19 +180,23 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto. Supponendo che il flusso `504 GATEWAY TIMEOUT` di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta dopo che questo tempo viene superato, l'app per la logica restituisce al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, l' `202 ACCEPTED` app per la logica restituisce immediatamente una risposta al chiamante.
 
-1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**. 
+1. Al termine, salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
    Questo passaggio genera l'URL da usare per l'invio della richiesta che attiva l'app per la logica. Per copiare questo URL, selezionare l'icona di copia accanto all'URL.
 
    ![URL da usare per l'attivazione dell'app per la logica](./media/connectors-native-reqres/generated-url.png)
 
-1. Per attivare l'app per la logica, inviare un POST HTTP all'URL generato. Ad esempio, è possibile usare uno strumento come [postazione](https://www.getpostman.com/).
+1. Per attivare l'app per la logica, inviare un POST HTTP all'URL generato.
+
+   Ad esempio, è possibile usare uno strumento come [subpost](https://www.getpostman.com/) per inviare il post http. Se è stata [abilitata Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure ad OAuth) per autorizzare le chiamate in ingresso al trigger di richiesta, chiamare il trigger usando un [URL di firma di accesso condiviso (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) o usando un token di autenticazione, ma non è possibile usare entrambi. Il token di autenticazione deve specificare `Bearer` il tipo nell'intestazione dell'autorizzazione. Per altre informazioni, vedere [proteggere l'accesso e i dati in app per la logica di Azure-accesso ai trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+
+Per altre informazioni sulla definizione JSON sottostante del trigger e su come chiamare questo trigger, vedere questi argomenti, [richiedere il tipo di trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chiamare, attivare o annidare flussi di lavoro con endpoint HTTP in app per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 ### <a name="trigger-outputs"></a>Output dei trigger
 
 Di seguito sono riportate altre informazioni sugli output del trigger di richiesta:
 
-| Nome proprietà JSON | Tipo di dati | Descrizione |
+| Nome proprietà JSON | Tipo di dati | Description |
 |--------------------|-----------|-------------|
 | `headers` | Oggetto | Oggetto JSON che descrive le intestazioni della richiesta |
 | `body` | Oggetto | Oggetto JSON che descrive il contenuto del corpo dalla richiesta |
@@ -244,7 +251,7 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto.
 
    Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta. 
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
    |---------------|--------------------|----------|-------------|
    | **Codice di stato** | `statusCode` | Sì | Codice di stato da restituire nella risposta |
    | **Headers** | `headers` | No | Oggetto JSON che descrive una o più intestazioni da includere nella risposta |
