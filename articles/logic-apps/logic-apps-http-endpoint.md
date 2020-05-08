@@ -1,30 +1,30 @@
 ---
 title: Chiamare, attivare o annidare app per la logica
-description: Configurare endpoint HTTP per chiamare, attivare o annidare flussi di lavoro di app per la logica in app per la logica di Azure
+description: Configurare endpoint HTTPS per chiamare, attivare o annidare flussi di lavoro di app per la logica in app per la logica di Azure
 services: logic-apps
 ms.workload: integration
-ms.reviewer: klam, jehollan, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2019
-ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191343"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983763"
 ---
-# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTP in app per la logica di Azure
+# <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTPS in app per la logica di Azure
 
-Per fare in modo che l'app per la logica richiamabile tramite un URL in modo che l'app per la logica possa ricevere le richieste in ingresso da altri servizi, è possibile esporre in modo nativo un endpoint HTTP sincrono come trigger nell'app per la logica. Quando si configura questa funzionalità, è anche possibile annidare l'app per la logica all'interno di altre app per la logica, che consente di creare un modello di endpoint richiamabili.
+Per fare in modo che l'app per la logica richiamabile tramite un URL in modo che l'app per la logica possa ricevere le richieste in ingresso da altri servizi, è possibile esporre in modo nativo un endpoint HTTPS sincrono come trigger nell'app per la logica. Quando si configura questa funzionalità, è anche possibile annidare l'app per la logica all'interno di altre app per la logica, che consente di creare un modello di endpoint richiamabili.
 
-Per configurare un endpoint HTTP, è possibile usare uno di questi tipi di trigger, che consentono alle app per la logica di ricevere le richieste in ingresso:
+Per configurare un endpoint chiamabile, è possibile usare uno di questi tipi di trigger, che consentono alle app per la logica di ricevere le richieste in ingresso:
 
 * [Richiesta](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
-* Trigger del connettore gestito che hanno il [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e possono ricevere richieste HTTP in ingresso
+* Trigger del connettore gestito che hanno il [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e possono ricevere le richieste HTTPS in ingresso
 
 > [!NOTE]
-> In questi esempi viene usato il trigger request, ma è possibile usare qualsiasi trigger basato su richiesta HTTP presente nell'elenco precedente. Tutti i principi si applicano in modo identico a questi altri tipi di trigger.
+> In questi esempi viene usato il trigger request, ma è possibile usare qualsiasi trigger HTTPS basato su richiesta presente nell'elenco precedente. Tutti i principi si applicano in modo identico a questi altri tipi di trigger.
 
 Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la](../logic-apps/logic-apps-overview.md) logica di Azure e [avvio rapido: creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -32,13 +32,13 @@ Se non si ha familiarità con le app per la logica, vedere informazioni sulle [a
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* App per la logica in cui si vuole configurare l'endpoint HTTP come trigger. È possibile iniziare con un'app per la logica vuota o un'app per la logica esistente in cui si vuole sostituire il trigger corrente. Questo esempio inizia con un'app per la logica vuota.
+* App per la logica in cui si vuole usare il trigger per creare l'endpoint richiamabile. È possibile iniziare con un'app per la logica vuota o un'app per la logica esistente in cui si vuole sostituire il trigger corrente. Questo esempio inizia con un'app per la logica vuota.
 
 ## <a name="create-a-callable-endpoint"></a>Creare un endpoint chiamabile
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare e aprire un'app per la logica vuota nella finestra di progettazione dell'app per la logica.
 
-   Questo esempio usa il trigger request, ma è possibile usare qualsiasi trigger in grado di ricevere richieste HTTP in ingresso. Tutti i principi si applicano in modo identico a questi trigger. Per altre informazioni sul trigger di richiesta, vedere [ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure](../connectors/connectors-native-reqres.md).
+   Questo esempio usa il trigger request, ma è possibile usare qualsiasi trigger in grado di ricevere le richieste HTTPS in ingresso. Tutti i principi si applicano in modo identico a questi trigger. Per altre informazioni sul trigger di richiesta, vedere [ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure](../connectors/connectors-native-reqres.md).
 
 1. Nella casella di ricerca selezionare **predefinito**. Nella casella di ricerca immettere `request` come filtro. Dall'elenco trigger selezionare **quando viene ricevuta una richiesta http**.
 
@@ -100,91 +100,165 @@ Se non si ha familiarità con le app per la logica, vedere informazioni sulle [a
 
 1. Salvare l'app per la logica.
 
-   La casella **http post in questo URL** Mostra ora l'URL di callback generato che altri servizi possono usare per chiamare e attivare l'app per la logica. Questo URL include una chiave di firma di accesso condiviso, che viene usata per l'autenticazione nei parametri di query, ad esempio:
+   La casella **URL post http** Mostra ora l'URL di callback generato che altri servizi possono usare per chiamare e attivare l'app per la logica. Questo URL include i parametri di query che specificano una chiave di firma di accesso condiviso (SAS), che viene usata per l'autenticazione.
 
    ![URL di callback generato per endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   È anche possibile ottenere l'URL dell'endpoint HTTP dal riquadro di **Panoramica** dell'app per la logica.
+1. Per copiare l'URL di callback, sono disponibili le opzioni seguenti:
 
-   1. Scegliere **Panoramica**dal menu dell'app per la logica.
+   * A destra della casella **URL http post** selezionare **Copia URL** (icona copia file).
 
-   1. Nella sezione **Riepilogo** selezionare **Visualizza cronologia trigger**.
+   * Eseguire la chiamata POST:
 
-      ![Ottenere l'URL dell'endpoint HTTP GET dal portale di Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+     `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
-   1. In **URL callback [post]** copiare l'URL:
+   * Copiare l'URL di callback dal riquadro di **Panoramica** dell'app per la logica.
 
-      ![Copia l'URL dell'endpoint HTTP da portale di Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url.png)
+     1. Scegliere **Panoramica**dal menu dell'app per la logica.
 
-      Oppure è possibile ottenere l'URL mediante questa chiamata:
+     1. Nella sezione **Riepilogo** selezionare **Visualizza cronologia trigger**.
 
-      ```http
-      POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01
-      ```
+        ![Ottenere l'URL dell'endpoint da portale di Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-<a name="set-method"></a>
+     1. In **URL callback [post]** copiare l'URL:
 
-## <a name="set-expected-http-method"></a>Imposta il metodo HTTP previsto
+        ![Copia l'URL dell'endpoint da portale di Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
-Per impostazione predefinita il trigger Request prevede una richiesta HTTP POST. Tuttavia, è possibile specificare un metodo diverso da prevedere, ma solo un metodo.
+<a name="select-method"></a>
+
+## <a name="select-expected-request-method"></a>Seleziona metodo di richiesta previsto
+
+Per impostazione predefinita, il trigger di richiesta prevede una richiesta POST. È possibile specificare un metodo diverso da prevedere, ma solo un singolo metodo.
 
 1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Metodo**, che aggiunge questa proprietà al trigger.
 
    ![Aggiungere la proprietà "Method" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
-1. Dall'elenco **Metodo** selezionare un altro metodo previsto dal trigger. In alternativa, è possibile specificare un metodo personalizzato.
+1. Dall'elenco **Metodo** selezionare il metodo che deve essere previsto dal trigger. In alternativa, è possibile specificare un metodo personalizzato.
 
-   Ad esempio, selezionare il metodo **Get** per poter testare l'URL dell'endpoint HTTP in un secondo momento.
+   Ad esempio, selezionare il metodo **Get** per poter testare l'URL dell'endpoint in un secondo momento.
 
-   ![Selezionare il metodo HTTP da usare per il trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+   ![Selezionare il metodo di richiesta previsto dal trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## <a name="accept-parameters-in-endpoint-url"></a>Accetta parametri nell'URL dell'endpoint
 
-Quando si vuole che l'URL dell'endpoint accetti parametri, specificare il percorso relativo nel trigger. È anche necessario impostare in modo esplicito [il metodo previsto dalla](#set-method) richiesta HTTP.
+Quando si vuole che l'URL dell'endpoint accetti valori di parametro tramite l'URL dell'endpoint, sono disponibili le opzioni seguenti:
+
+* [Accettare i valori tramite i parametri Get](#get-parameters) o URL.
+
+  Questi valori vengono passati come coppie nome-valore quando si invia la richiesta all'URL dell'endpoint. Per questa opzione, è necessario usare il metodo GET nel trigger di richiesta. In un'azione successiva, è possibile ottenere i valori dei parametri come output del trigger tramite `triggerOutputs()` la funzione in un'espressione.
+
+* [Accettare i valori tramite un percorso relativo](#relative-path) per i parametri nel trigger di richiesta.
+
+  Questi valori vengono passati quando si invia la richiesta all'URL dell'endpoint. È anche necessario selezionare in modo esplicito [il metodo](#select-method) previsto dal trigger. In un'azione successiva, è possibile ottenere i valori dei parametri come output del trigger facendo riferimento direttamente a questi output.
+
+<a name="get-parameters"></a>
+
+### <a name="accept-values-through-get-parameters"></a>Accetta valori tramite parametri GET
+
+1. Nel trigger di richiesta aprire l' **elenco Aggiungi nuovo parametro**, aggiungere la proprietà del **Metodo** al trigger e selezionare il metodo **Get** .
+
+   Per altre informazioni, vedere [selezionare il metodo di richiesta previsto](#select-method).
+
+1. Nel trigger request aggiungere l'azione in cui si desidera utilizzare il valore del parametro. Per questo esempio, aggiungere l'azione di **risposta** .
+
+   1. Nel trigger richiesta selezionare **nuovo passaggio** > **Aggiungi un'azione**.
+   
+   1. Nella casella di ricerca di **Scegliere un'azione** immettere `response` come filtro. Nell'elenco azioni selezionare l'azione **risposta** .
+
+1. Per compilare l' `triggerOutputs()` espressione che recupera il valore del parametro, attenersi alla procedura seguente:
+
+   1. Fare clic all'interno della proprietà **Body** dell'azione di risposta in modo che venga visualizzato l'elenco di contenuto dinamico e selezionare **Expression**.
+
+   1. Nella casella **espressione** immettere questa espressione, sostituendo `parameter-name` con il nome del parametro, quindi fare clic su **OK**.
+
+      `triggerOutputs()['queries']['parameter-name']`
+
+      ![Aggiungere l'espressione "triggerOutputs ()" da attivare](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
+
+      Nella proprietà **Body** l'espressione viene risolta nel `triggerOutputs()` token.
+
+      ![Espressione "triggerOutputs ()" risolta](./media/logic-apps-http-endpoint/trigger-outputs-expression-token.png)
+
+      Se si salva l'app per la logica, uscire dalla finestra di progettazione e tornare alla finestra di progettazione, il token Visualizza il nome del parametro specificato, ad esempio:
+
+      ![Espressione risolta per il nome del parametro](./media/logic-apps-http-endpoint/resolved-expression-parameter-token.png)
+
+      Nella visualizzazione codice la proprietà **Body** viene visualizzata nella definizione dell'azione di risposta, come indicato di seguito:
+
+      `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
+
+      Si supponga, ad esempio, di voler passare un valore per un parametro denominato `postalCode`. La proprietà **Body** specifica la stringa, `Postal Code: ` con uno spazio finale, seguita dall'espressione corrispondente:
+
+      ![Aggiungere l'espressione "triggerOutputs ()" di esempio da attivare](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
+
+1. Per testare l'endpoint chiamabile, copiare l'URL di callback dal trigger di richiesta e incollare l'URL in un'altra finestra del browser. Nell'URL aggiungere il nome e il valore del parametro dopo il punto interrogativo`?`() all'URL nel formato seguente e premere INVIO.
+
+   `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
+
+   `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+   Il browser restituisce una risposta con il testo seguente:`Postal Code: 123456`
+
+   ![Risposta dall'invio della richiesta all'URL callback](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+1. Per inserire il nome e il valore del parametro in una posizione diversa all'interno dell'URL, assicurarsi di utilizzare la`&`e commerciale () come prefisso, ad esempio:
+
+   `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
+
+   Questo esempio mostra l'URL di callback con il nome e il valore `postalCode=123456` del parametro di esempio in posizioni diverse all'interno dell'URL:
+
+   * 1 ° posizione:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+   * seconda posizione:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+<a name="relative-path"></a>
+
+### <a name="accept-values-through-a-relative-path"></a>Accetta valori tramite un percorso relativo
 
 1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **percorso relativo**, che aggiunge questa proprietà al trigger.
 
    ![Aggiungere la proprietà "percorso relativo" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. Nella proprietà **percorso relativo** specificare il percorso relativo del parametro nello schema JSON che si desidera venga accettato dall'URL, ad esempio `address/{postalCode}`.
+1. Nella proprietà **percorso relativo** specificare il percorso relativo del parametro nello schema JSON che si desidera venga accettato dall'URL, ad esempio `/address/{postalCode}`.
 
    ![Specificare il percorso relativo per il parametro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
-1. Per usare il parametro, trovare e aggiungere un'azione di **risposta** all'app per la logica.
+1. Nel trigger request aggiungere l'azione in cui si desidera utilizzare il valore del parametro. Per questo esempio, aggiungere l'azione di **risposta** .
 
    1. Nel trigger richiesta selezionare **nuovo passaggio** > **Aggiungi un'azione**.
 
-   1. Nella casella di ricerca di **Scegliere un'azione** immettere `response` come filtro.
-
-   1. Nell'elenco azioni selezionare l'azione **risposta** .
+   1. Nella casella di ricerca di **Scegliere un'azione** immettere `response` come filtro. Nell'elenco azioni selezionare l'azione **risposta** .
 
 1. Nella proprietà **Body** dell'azione di risposta includere il token che rappresenta il parametro specificato nel percorso relativo del trigger.
 
    Si supponga, ad esempio, di voler restituire `Postal Code: {postalCode}`l'azione di risposta.
 
-   Nella proprietà **Body** immettere `Postal Code: ` con uno spazio finale. Dall'elenco di contenuto dinamico visualizzato selezionare il token **Cap** .
+   1. Nella proprietà **Body** immettere `Postal Code: ` con uno spazio finale. Mantenere il cursore all'interno della casella di modifica in modo che l'elenco di contenuto dinamico rimanga aperto.
 
-   ![Aggiungere il parametro specificato al corpo della risposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+   1. Nell'elenco contenuto dinamico, nella sezione **quando viene ricevuta una richiesta http** , selezionare il token **Cap** .
 
-   La proprietà **Body** include ora il parametro selezionato:
+      ![Aggiungere il parametro specificato al corpo della risposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
-   ![Esempio di corpo della risposta con parametro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+      La proprietà **Body** include ora il parametro selezionato:
+
+      ![Esempio di corpo della risposta con parametro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 1. Salvare l'app per la logica.
 
-    L'URL dell'endpoint HTTP include ora il percorso relativo, ad esempio:
+   Nel trigger di richiesta, l'URL di callback viene aggiornato e ora include il percorso relativo, ad esempio:
 
-    ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
-    ```
+   `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. Per testare l'endpoint HTTP, copiare e incollare l'URL aggiornato in un'altra finestra del browser, ma sostituire `{postalCode}` con `123456` e premere Invio.
+1. Per testare l'endpoint richiamabile, copiare l'URL di callback aggiornato dal trigger di richiesta, incollare l'URL in un'altra `{postalCode}` finestra del browser, `123456`sostituire l'URL con e premere INVIO.
 
-   Il browser Mostra questo testo:`Postal Code: 123456`
+   Il browser restituisce una risposta con il testo seguente:`Postal Code: 123456`
 
-## <a name="call-logic-app-through-http-endpoint"></a>Chiamare l'app per la logica tramite endpoint HTTP
+   ![Risposta dall'invio della richiesta all'URL callback](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-Dopo aver creato l'endpoint HTTP, è possibile attivare l'app per la logica inviando `POST` una richiesta HTTP all'URL completo dell'endpoint. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
+## <a name="call-logic-app-through-endpoint-url"></a>Chiamare l'app per la logica tramite l'URL dell'endpoint
+
+Dopo aver creato l'endpoint, è possibile attivare l'app per la logica inviando `POST` una richiesta HTTPS all'URL completo dell'endpoint. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
 
 <a name="generated-tokens"></a>
 
@@ -261,7 +335,7 @@ Per accedere in modo `body` specifico alla proprietà, è possibile usare l' [ `
 
 ## <a name="respond-to-requests"></a>Rispondere alle richieste
 
-A volte si vuole rispondere a determinate richieste che attivano l'app per la logica restituendo contenuto al chiamante. Per costruire il codice di stato, l'intestazione e il corpo per la risposta, usare l'azione di risposta. Questa azione può trovarsi in qualsiasi punto nell'app per la logica, non solo alla fine del flusso di lavoro. Se l'app per la logica non include un'azione di risposta, l'endpoint HTTP risponde *immediatamente* con lo stato **accettato 202** .
+A volte si vuole rispondere a determinate richieste che attivano l'app per la logica restituendo contenuto al chiamante. Per costruire il codice di stato, l'intestazione e il corpo per la risposta, usare l'azione di risposta. Questa azione può trovarsi in qualsiasi punto nell'app per la logica, non solo alla fine del flusso di lavoro. Se l'app per la logica non include un'azione di risposta, l'endpoint risponde *immediatamente* con lo stato **202 accettato** .
 
 Affinché il chiamante originale ottenga correttamente la risposta, tutti i passaggi necessari per la risposta devono terminare entro il [limite di timeout della richiesta](./logic-apps-limits-and-config.md) , a meno che l'app per la logica attivata non venga chiamata come app per la logica annidata. Se non viene restituita alcuna risposta entro questo limite, la richiesta in ingresso scade e riceve la risposta di **timeout del Client 408** .
 
@@ -271,14 +345,14 @@ Per le app per la logica annidate, l'app per la logica padre continua ad attende
 
 Nel corpo della risposta è possibile includere più intestazioni e qualsiasi tipo di contenuto. Ad esempio, l'intestazione della risposta specifica che il tipo di contenuto della risposta `application/json` è e che il corpo contiene valori per `town` le `postalCode` proprietà e, in base allo schema JSON descritto in precedenza in questo argomento per il trigger request.
 
-![Fornire il contenuto della risposta per l'azione di risposta HTTP](./media/logic-apps-http-endpoint/content-for-response-action.png)
+![Fornire il contenuto della risposta per l'azione di risposta HTTPS](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Le risposte hanno le seguenti proprietà:
 
 | Proprietà (visualizzazione) | Property (JSON) | Descrizione |
 |--------------------|-----------------|-------------|
-| **Codice di stato** | `statusCode` | Codice di stato HTTP da utilizzare nella risposta per la richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
-| **Headers** | `headers` | Una o più intestazioni da includere nella risposta |
+| **Codice di stato** | `statusCode` | Codice di stato HTTPS da usare nella risposta per la richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
+| **Intestazioni** | `headers` | Una o più intestazioni da includere nella risposta |
 | **Corpo** | `body` | Oggetto Body che può essere una stringa, un oggetto JSON o anche contenuto binario a cui si fa riferimento da un passaggio precedente |
 ||||
 
@@ -314,9 +388,9 @@ Per visualizzare la definizione JSON per l'azione di risposta e la definizione J
 > * La chiave di accesso condiviso viene visualizzata nell'URL.
 > * Non è possibile gestire i criteri di contenuto di sicurezza a causa di domini condivisi in app per la logica di Azure.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>D: È possibile configurare ulteriormente gli endpoint HTTP?
+#### <a name="q-can-i-configure-callable-endpoints-further"></a>D: è possibile configurare ulteriormente gli endpoint chiamabili?
 
-**R**: Sì, gli endpoint HTTP supportano una configurazione più avanzata tramite [gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
+**R**: Sì, gli endpoint HTTPS supportano una configurazione più avanzata tramite [gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
 
 * [Impostare il metodo della richiesta](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Modificare i segmenti dell'URL della richiesta](../api-management/api-management-transformation-policies.md#RewriteURL)

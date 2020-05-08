@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049801"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982038"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory
 Usare il logo e combinazioni colori personalizzate dell'azienda per offrire un aspetto coerente per le pagine di accesso di Azure Active Directory (Azure AD). La pagina di accesso viene visualizzata quando si accede alle applicazioni basate sul Web dell'organizzazione, come Office 365, che usano Azure AD come provider di identità.
@@ -52,9 +52,9 @@ La personalizzazione personalizzata non verrà visualizzata immediatamente quand
 
         - **Linguaggio.** La lingua viene impostata automaticamente come predefinita e non può essere cambiata.
         
-        - **Immagine di sfondo della pagina di accesso.** Selezionare un file di immagine .png o .jpg da visualizzare come sfondo per le pagine di accesso. 
+        - **Immagine di sfondo della pagina di accesso.** Selezionare un file di immagine .png o .jpg da visualizzare come sfondo per le pagine di accesso. L'immagine verrà ancorata al centro del browser e verrà ridimensionata fino alla dimensione dello spazio visualizzabile. Non è possibile selezionare un'immagine di dimensioni maggiori di 1920x1080 pixel o con una dimensione di file superiore a 300 KB.
         
-            L'immagine non può essere più grande di 1920x1080 pixel e deve avere una dimensione del file inferiore a 300 kB.
+            È consigliabile usare le immagini senza uno stato attivo, ad esempio, una casella bianca opaca viene visualizzata al centro dello schermo e può coprire qualsiasi parte dell'immagine in base alle dimensioni dello spazio visualizzabile.
 
         - **Logo del banner.** Selezionare una versione .png o .jpg del logo da visualizzare nella pagina di accesso dopo che l'utente ha inserito un nome utente nella pagina del portale **My Apps (Le mie applicazioni)**.
             
@@ -62,7 +62,7 @@ La personalizzazione personalizzata non verrà visualizzata immediatamente quand
 
         - **Hint nome utente.** Digitare il testo di suggerimento visualizzato agli utenti qualora non ricordino il loro nome utente. Questo testo deve essere Unicode, senza collegamenti o codice e non può superare i 64 caratteri. Se gli utenti guest accedono all'app, è consigliabile non aggiungere questo hint.
 
-        - **Testo della pagina di accesso.** Digitare il testo visualizzato in fondo alla pagina di accesso. Questo testo può essere usato per comunicare informazioni aggiuntive, ad esempio il numero di telefono dell'help desk o una nota legale. Questo testo deve essere in formato Unicode e non superare i 256 caratteri. È consigliabile, inoltre, non includere collegamenti o tag HTML.
+        - **Testo della pagina di accesso.** Digitare il testo visualizzato in fondo alla pagina di accesso. Questo testo può essere usato per comunicare informazioni aggiuntive, ad esempio il numero di telefono dell'help desk o una nota legale. Questo testo deve essere in formato Unicode e non superare i 256 caratteri.
 
     - **Impostazioni avanzate**
             

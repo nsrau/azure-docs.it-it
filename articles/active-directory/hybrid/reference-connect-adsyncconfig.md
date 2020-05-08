@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60381196"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982004"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncConfig
 La documentazione seguente fornisce informazioni di riferimento sul modulo di PowerShell ADSyncConfig.psm1 incluso in Azure AD Connect.
@@ -59,25 +59,24 @@ Esegue una ricerca in AD a partire dal parametro SearchBase e restituisce tutti 
 ### <a name="examples"></a>ESEMPI
 
 #### <a name="example-1"></a>ESEMPIO 1
+Trovare oggetti con ereditarietà disabilitata nel dominio ' Contoso ' (per impostazione predefinita restituisce solo gli oggetti ' organizationalUnit ')
 ```
-Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
+```
 
 #### <a name="example-2"></a>ESEMPIO 2
+Trovare oggetti ' User ' con ereditarietà disabilitata nel dominio ' Contoso '
 ```
-Find 'user' objects with disabled inheritance in 'Contoso' domain
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
+```
 
 #### <a name="example-3"></a>ESEMPIO 3
+Trovare tutti i tipi di oggetti con ereditarietà disabilitata in un'unità organizzativa
 ```
-Find all types of objects with disabled inheritance in a OU
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+
 
 ### <a name="parameters"></a>PARAMETERS
 

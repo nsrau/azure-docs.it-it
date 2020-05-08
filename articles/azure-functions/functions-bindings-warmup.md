@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 72a6f97f45ec1adaa42d1f17a1916af137845392
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560001"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982242"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
 
@@ -132,7 +132,6 @@ Ecco il codice JavaScript:
 ```javascript
 module.exports = async function (context, warmupContext) {
     context.log('Function App instance is warm 🌞🌞🌞');
-    context.done();
 };
 ```
 

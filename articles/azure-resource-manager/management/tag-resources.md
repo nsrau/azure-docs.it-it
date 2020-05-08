@@ -2,13 +2,13 @@
 title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizzazione logica
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255125"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864488"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
@@ -591,7 +591,9 @@ Ai tag si applicano le limitazioni seguenti:
 * I nomi dei tag non possono contenere i caratteri seguenti: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Attualmente le zone DNS di Azure e i servizi di gestione traffico non consentono l'uso di spazi nel tag.
+   > Attualmente, le zone DNS di Azure e i servizi di gestione traffico non consentono l'uso di spazi nel tag.
+   >
+   > La porta anteriore di Azure non supporta l' `#` uso di nel nome del tag.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

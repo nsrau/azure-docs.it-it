@@ -1,5 +1,5 @@
 ---
-title: Guida alla pubblicazione di Microsoft Commercial Marketplace per tipo di offerta
+title: Guida alla pubblicazione per tipo di offerta-Marketplace commerciale Microsoft
 description: Questo articolo descrive i tipi di offerta disponibili in Microsoft Commercial Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,22 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6521f19ea566719fee39c238adda8e3a068e2c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b39cbab71808aaf09f7dc38b3be77f6f35ab598
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419290"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982684"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guida alla pubblicazione per tipo di offerta
 
-Dopo aver [scelto un'opzione di pubblicazione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), è possibile selezionare il tipo di offerta che verrà usato per presentare l'offerta.
+Questo articolo descrive i tipi di offerta disponibili nel Marketplace commerciale. Il *tipo di offerta* definisce la struttura dell'offerta, che include metadati, elementi e altri contenuti usati per presentare l'offerta nel marketplace.
 
- Il *tipo di offerta* definisce la struttura dell'offerta, che include metadati, elementi e altri contenuti usati per presentare l'offerta nel marketplace.
+Prima di poter creare un'offerta e dopo aver scelto [un'opzione di pubblicazione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), è necessario scegliere un tipo di offerta che verrà usato per presentare l'offerta. Il tipo di offerta corrisponde al tipo di soluzione, app o servizio da pubblicare, nonché all'allineamento a prodotti e servizi Microsoft.
 
-Prima di creare un'offerta, è necessario sceglierne il tipo. Il tipo di offerta corrisponde al tipo di soluzione, app o servizio da pubblicare, nonché all'allineamento a prodotti e servizi Microsoft.
-
-Un singolo tipo di offerta può essere configurato in modo diverso per abilitare diverse opzioni di pubblicazione, chiamate a azioni, provisioning o prezzi. L'opzione di pubblicazione e la configurazione del tipo di offerta si allineano anche ai requisiti tecnici e di idoneità.
+Un unico tipo di offerta può essere configurato in modi diversi per abilitare diverse opzioni di pubblicazione, chiamate a azioni, provisioning o prezzi. L'opzione di pubblicazione e la configurazione del tipo di offerta si allineano anche ai requisiti tecnici e di idoneità.
 
 Prima di creare l'offerta, esaminare la vetrina, i requisiti di idoneità del tipo di offerta e i requisiti tecnici di pubblicazione.
 
@@ -35,7 +33,7 @@ Nella tabella seguente sono elencati i tipi di offerte di Azure Marketplace.
 | [**Macchine virtuali**](./marketplace-virtual-machines.md) | Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente. |
 | [**Modelli di soluzioni**](./marketplace-solution-templates.md) | Usare il tipo di offerta modello di soluzione (noto anche come applicazione Azure) quando la soluzione richiede un'automazione aggiuntiva per la distribuzione e la configurazione oltre a una singola macchina virtuale. I modelli di soluzione possono usare molti tipi diversi di risorse di Azure, tra cui, tra le altre, le macchine virtuali.  |
 | [**Applicazioni gestite**](./marketplace-managed-apps.md) | Usare l'app di Azure: tipo di offerta di app gestita quando sono necessarie le condizioni seguenti: <br> <ul> <li> Si distribuisce una soluzione basata su sottoscrizione per i clienti che usano una macchina virtuale o un'intera soluzione basata su IaaS. </li> <li>L'utente o il cliente richiedono che la soluzione venga gestita da un partner. </li> <ul> |
-| [**Applicazioni SaaS**](./marketplace-saas-applications-technical-publishing-guide.md) | Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione. |
+| [**Applicazioni SaaS**](./partner-center-portal/create-new-saas-offer.md) | Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione. |
 | [**Offerte di contenitori**](./marketplace-containers.md) | Usare il tipo di offerta Contenitore quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come un servizio Azure Container basato su Kubernetes. |
 | [**Moduli Azure IoT Edge**](./iot-edge-module.md) | I moduli di Azure IoT Edge sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere i servizi di Microsoft, ad esempio analisi di flusso, servizi di terze parti o il codice specifico per la soluzione. |
 | [**Servizi di consulenza**](./consulting-services.md) | I servizi di consulenza consentono di connettere i clienti con servizi per supportare ed estendere l'uso dei servizi di Azure, Dynamics 365 o Power Suite.|

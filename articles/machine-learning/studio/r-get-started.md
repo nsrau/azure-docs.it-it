@@ -9,41 +9,37 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209503"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982191"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introduzione a Azure Machine Learning Studio (classico) in R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-Questa esercitazione consente di iniziare a estendere Azure Machine Learning Studio (classico) usando il linguaggio di programmazione R. Seguire questa esercitazione sulla programmazione R per creare, testare ed eseguire codice R in studio (classico). Quando si esegue l'esercitazione, si creerà una soluzione di previsione completa usando il linguaggio R in studio (classico).  
+Questa esercitazione illustra come usare ML Studio (classico) per creare, testare ed eseguire codice R. Alla fine, sarà presente una soluzione di previsione completa.  
 
-Azure Machine Learning Studio (classico) contiene molti moduli avanzati di machine learning e di manipolazione dei dati. Il potente linguaggio R è stato definito come la lingua franca dell'analisi. Fortunatamente, le analisi e la manipolazione dei dati in studio (classico) possono essere estese usando R. Questa combinazione fornisce la scalabilità e la facilità di distribuzione di studio (classico) con la flessibilità e l'analisi approfondita di R.
+> [!div class="checklist"]
+> * Creare codice per la pulizia e la trasformazione dei dati.
+> * Analizzare le correlazioni tra diverse variabili del set di dati.
+> * Creare un modello di previsione delle serie temporali stagionali per la produzione di latte.
 
-### <a name="forecasting-and-the-dataset"></a>Previsione e set di dati
 
-La previsione è un metodo analitico molto utile e ampiamente distribuito. Viene comunemente usata per vari scopi, dalla previsione di vendita di articoli stagionali alla definizione dei livelli di scorte ottimali, fino alla previsione di variabili macroeconomiche. In genere, inoltre, viene eseguita con modelli in serie temporale.
+Azure Machine Learning Studio (classico) contiene molti moduli avanzati di machine learning e di manipolazione dei dati. Con il linguaggio di programmazione R, questa combinazione fornisce la scalabilità e la facilità di distribuzione di studio (classico) con la flessibilità e l'analisi approfondita di R.
 
-I dati delle serie temporali sono dati i cui valori contengono un indice temporale, che può essere regolare, ad esempio ogni minuto od ogni mese, o irregolare. Sui dati in serie temporale si basano i modelli in serie temporale. Il linguaggio di programmazione R contiene un'architettura flessibile ed estese funzioni di analisi per i dati in serie temporale.
+La previsione è un metodo analitico molto utile e ampiamente distribuito. Viene comunemente usata per vari scopi, dalla previsione di vendita di articoli stagionali alla definizione dei livelli di scorte ottimali, fino alla previsione di variabili macroeconomiche. In genere, inoltre, viene eseguita con modelli in serie temporale. I dati delle serie temporali sono dati i cui valori contengono un indice temporale, che può essere regolare, ad esempio ogni minuto od ogni mese, o irregolare. Sui dati in serie temporale si basano i modelli in serie temporale. Il linguaggio di programmazione R contiene un'architettura flessibile ed estese funzioni di analisi per i dati in serie temporale.
 
-In questa guida si lavorerà con i dati relativi alla produzione casearia in California e ai prezzi. Questi dati includono informazioni mensili sulla produzione di diversi prodotti caseari e il prezzo del latte intero, un materia prima di riferimento.
+## <a name="get-the-data"></a>Ottenere i dati
+
+In questa esercitazione vengono usati i dati relativi alla produzione casearia in California e ai prezzi, che includono informazioni mensili sulla produzione di diversi prodotti caseari e sul prezzo del grasso del latte, un prodotto di benchmark.
 
 I dati usati in questo articolo, insieme agli script R, possono essere scaricati da [MachineLearningSamples-Notebooks/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). I dati nel file `cadairydata.csv` sono stati originariamente sintetizzati dalle informazioni disponibili presso la University of Wisconsin [https://dairymarkets.com](https://dairymarkets.com)all'indirizzo.
 
-### <a name="organization"></a>Organization
 
-In questo articolo verrà illustrato come creare, testare ed eseguire le analisi e la manipolazione dei dati codice R nell'ambiente Azure Machine Learning Studio (classico).  
-
-* Si esamineranno innanzitutto le nozioni di base sull'uso del linguaggio R nell'ambiente Azure Machine Learning Studio (classico).
-* Si procede quindi alla discussione di diversi aspetti di I/O per i dati, il codice R e la grafica nell'ambiente Azure Machine Learning Studio (classico).
-* In seguito, verrà creata la prima parte della soluzione di previsione tramite la compilazione di codice per la pulizia e la trasformazione dei dati.
-* Con i dati preparati verrà eseguita un'analisi delle correlazioni tra più variabili nel set di dati.
-* Infine, verrà creato un modello di previsione in serie temporale (stagionale) per la produzione di latte.
 
 ## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Interagire con il linguaggio R in Machine Learning Studio (versione classica)
 
@@ -143,7 +139,7 @@ Questa sezione descrive come eseguire l'input e l'output di dati nel modulo [Exe
 
 Il codice completo per questa sezione è in [MachineLearningSamples-Notebooks/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
-### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Caricare e controllare i dati in Machine Learning Studio (versione classica)
+### <a name="load-and-check-data"></a>Caricare e controllare i dati 
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Caricare il set di dati
 

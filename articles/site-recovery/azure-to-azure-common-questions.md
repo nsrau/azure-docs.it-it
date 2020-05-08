@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738049"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983279"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande comuni: ripristino di emergenza da Azure ad Azure
 
@@ -100,6 +100,10 @@ No, Site Recovery non richiede la connettività Internet. Ma richiede l'accesso 
 Sì, è possibile replicare l'applicazione e mantenete la configurazione del ripristino di emergenza in un gruppo di risorse separato.
 
 Se, ad esempio, l'applicazione include l'applicazione, il database e il Web di ogni livello in un gruppo di risorse distinto, è necessario selezionare la [procedura guidata di replica](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) tre volte per proteggere tutti i livelli. Site Recovery eseguirà la replica di questi tre livelli in tre gruppi di risorse diversi.
+
+### <a name="can-i-move-storage-accounts-across-resource-groups"></a>È possibile spostare gli account di archiviazione tra gruppi di risorse?
+
+No, questo scenario non è supportato. Tuttavia, se si spostano accidentalmente gli account di archiviazione in un gruppo di risorse diverso ed eliminare il gruppo di risorse originale, è possibile creare un nuovo gruppo di risorse con lo stesso nome del gruppo di risorse precedente, quindi spostare l'account di archiviazione in questo gruppo di risorse.
 
 ## <a name="replication-policy"></a>Criteri di replica
 
@@ -285,7 +289,7 @@ Dipende dalla situazione. Se la macchina virtuale dell'area di origine esiste, v
 
 Dopo la riprotezione, il failback richiede circa la stessa quantità di tempo necessaria per eseguire il failover dall'area primaria a un'area secondaria.
 
-## <a name="capacity"></a><a name="capacity"></a>Capacity
+## <a name="capacity"></a><a name="capacity"></a>Capacità
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Come viene garantita la capacità nell'area di destinazione per le macchine virtuali di Azure?
 
