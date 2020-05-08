@@ -4,12 +4,12 @@ description: Verifica delle operazioni personalizzate con Azure Application Insi
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276101"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690856"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -38,7 +38,7 @@ Di seguito è illustrato come si può tenere traccia di queste operazioni.
 A un livello elevato, l'attività consiste nel creare `RequestTelemetry` e impostare le proprietà note. Al termine dell'operazione, tenere traccia dei dati di telemetria. L'esempio seguente illustra questa attività.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Richiesta HTTP nell'app con self-hosting Owin
-In questo esempio il contesto della traccia viene propagato in base al [protocollo HTTP per la correlazione](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Si deve prevedere di ricevere le intestazioni descritte qui.
+In questo esempio il contesto della traccia viene propagato in base al [protocollo HTTP per la correlazione](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Si deve prevedere di ricevere le intestazioni descritte qui.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -117,7 +117,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 Il protocollo HTTP per la correlazione dichiara inoltre l’intestazione `Correlation-Context`. Tuttavia, è omesso qui per motivi di semplicità.
 
 ## <a name="queue-instrumentation"></a>Strumentazione della coda
-Sebbene esistano il [contesto di traccia W3C](https://www.w3.org/TR/trace-context/) e il [protocollo HTTP per la correlazione](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) per passare i dettagli della correlazione con la richiesta HTTP, ogni protocollo di coda deve definire la modalità di passaggio degli stessi dettagli lungo il messaggio della coda. Alcuni protocolli di accodamento, ad esempio AMQP, consentono il passaggio di metadati aggiuntivi, mentre altri, ad esempio quello della coda di archiviazione di Azure, richiedono la codifica del contesto nel payload dei messaggi.
+Sebbene esistano il [contesto di traccia W3C](https://www.w3.org/TR/trace-context/) e il [protocollo HTTP per la correlazione](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) per passare i dettagli della correlazione con la richiesta HTTP, ogni protocollo di coda deve definire la modalità di passaggio degli stessi dettagli lungo il messaggio della coda. Alcuni protocolli di accodamento, ad esempio AMQP, consentono il passaggio di metadati aggiuntivi, mentre altri, ad esempio quello della coda di archiviazione di Azure, richiedono la codifica del contesto nel payload dei messaggi.
 
 > [!NOTE]
 > * **La traccia tra componenti non è ancora supportata per le code** Con HTTP, se il producer e il consumer inviano dati di telemetria a diverse risorse Application Insights, l'esperienza di diagnostica delle transazioni e la mappa delle applicazioni mostrano le transazioni e la mappa end-to-end In caso di code non è ancora supportata. 
@@ -346,7 +346,7 @@ Quando si instrumenta l'eliminazione di un messaggio, assicurarsi di impostare g
 
 ### <a name="dependency-types"></a>Tipi di dipendenza
 
-Application Insights usa il tipo di dipendenza per le esperienze dell'interfaccia utente di penna. Per le code, riconosce i tipi seguenti `DependencyTelemetry` di che migliorano l' [esperienza di diagnostica delle transazioni](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights usa il tipo di dipendenza per personalizzare le esperienze dell'interfaccia utente. Per le code, riconosce i tipi seguenti `DependencyTelemetry` di che migliorano l' [esperienza di diagnostica delle transazioni](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue`per le code di archiviazione di Azure
 - `Azure Event Hubs`per hub eventi di Azure
 - `Azure Service Bus`per il bus di servizio di Azure
@@ -482,4 +482,4 @@ Ogni operazione di Application Insights (richiesta o dipendenza) `Activity` impl
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](../../azure-monitor/app/data-model.md).
 - Segnalare [metriche ed eventi](../../azure-monitor/app/api-custom-events-metrics.md) personalizzati ad Application Insights.
 - Estrarre la [configurazione](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) standard di una raccolta di proprietà di contesto.
-- Vedere [System.Diagnostics.Activity User Guide](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) (Guida dell'utente di System.Diagnostics.Activity) per informazioni su come correlare i dati di telemetria.
+- Vedere [System.Diagnostics.Activity User Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) (Guida dell'utente di System.Diagnostics.Activity) per informazioni su come correlare i dati di telemetria.

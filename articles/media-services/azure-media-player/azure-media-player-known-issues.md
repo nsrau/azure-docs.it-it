@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727216"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692251"
 ---
 # <a name="known-issues"></a>Problemi noti #
 
@@ -46,9 +46,10 @@ La versione corrente presenta i seguenti problemi noti:
 
 - Nella finestra DVR del contenuto attivo, quando il contenuto termina la sequenza temporale continuerà a crescere fino alla ricerca dell'area o fino alla fine della presentazione.
 - Le presentazioni in tempo reale in Firefox con MSE abilitato hanno problemi
-- Gli asset che sono solo audio o video non verranno riprodotti tramite la tecnologia AzureHtml5JS.
-  - Per riprodurre asset senza audio o video, è possibile eseguire questa operazione inserendo audio o video vuoti usando lo [strumento di esplorazione di servizi multimediali di Azure](https://aka.ms/amse)
-    - Le istruzioni su come inserire audio invisibile all'utente sono disponibili [qui](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+
+- Gli asset che sono solo audio non verranno riprodotti tramite la tecnologia AzureHtml5JS.
+  - Per riprodurre asset senza audio, è possibile eseguire questa operazione inserendo un audio vuoto usando lo [strumento di esplorazione di servizi multimediali di Azure](https://aka.ms/amse)
+  - Le istruzioni su come inserire audio invisibile all'utente sono disponibili [qui](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
 ## <a name="flash"></a>Lampeggiante ##
 

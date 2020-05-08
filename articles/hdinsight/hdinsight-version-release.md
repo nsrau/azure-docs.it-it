@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: d0fd9999abc4a67ded0f66977e1a3ba5310c87be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 466c47492de9c2fc86f309f4cb74df1ff5411dcb
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383039"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929299"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Panoramica di HDInsight 4.0
 
@@ -93,8 +93,12 @@ Non esiste alcun percorso di aggiornamento supportato da versioni precedenti di 
 * HDInsight 4,0 non supporta Apache Storm.
 * La vista Hive non è più disponibile in HDInsight 4.0.
 * L'interprete della shell in Apache Zeppelin non è supportato nei cluster Spark e Interactive query.
-* Non è possibile *disabilitare* LLAP in un cluster Spark-LLAP. È possibile disattivare solo LLAP.
-* Azure Data Lake Storage Gen2 non può salvare Jupyter notebook in un cluster Spark.
+* Non è possibile *disabilitare* LLAP in un cluster Spark-LLAP. È possibile solo disattivare LLAP.
+* Azure Data Lake Storage Gen2 non può salvare i notebook Jupyter in un cluster Spark.
+* Apache Pig viene eseguito in Tez per impostazione predefinita, ma è possibile modificarlo in MapReduce
+* L'integrazione di Spark SQL Ranger per la sicurezza di righe e colonne è deprecata
+* Spark 2,4 e Kafka 2,1 sono disponibili in HDInsight 4,0, quindi Spark 2,3 e Kafka 1,1 non sono più supportati. È consigliabile usare Spark 2,4 & Kafka 2,3 e versioni successive in HDInsight 4,0.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

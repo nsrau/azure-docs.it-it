@@ -3,12 +3,13 @@ title: Autenticare i servizi Azure Batch con Azure Active Directory
 description: Batch supporta Azure AD per l'autenticazione dal servizio Batch. Informazioni su come eseguire l'autenticazione in uno dei due modi.
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116180"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608473"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -35,9 +36,9 @@ Per eseguire l'autenticazione con Azure AD, usare l'endpoint con l'ID tenant, ov
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-> [!NOTE] 
-> L'endpoint specifico per il tenant è obbligatorio quando si esegue l'autenticazione tramite un'entità servizio. 
-> 
+> [!NOTE]
+> L'endpoint specifico per il tenant è obbligatorio quando si esegue l'autenticazione tramite un'entità servizio.
+>
 > L'endpoint specifico del tenant è facoltativo quando si esegue l'autenticazione usando l'autenticazione integrata, ma è consigliabile usarlo. Tuttavia, è anche possibile usare l'endpoint di Azure AD comune. L'endpoint comune consente di usare un'interfaccia di raccolta di credenziali generiche quando non è disponibile un tenant specifico. L'endpoint comune è `https://login.microsoftonline.com/common`.
 >
 >
@@ -126,7 +127,7 @@ Per eseguire l'autenticazione con un'entità servizio, è necessario assegnare i
 1. Nella sezione **Impostazioni** dell'account batch selezionare **controllo di accesso (IAM)**.
 1. Selezionare la scheda **Assegnazioni di ruolo**.
 1. Selezionare **Aggiungi assegnazione ruolo**.
-1. Dall'elenco a discesa **Ruolo** scegliere il ruolo *Collaboratore* o *Lettore* per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).  
+1. Dall'elenco a discesa **Ruolo** scegliere il ruolo *Collaboratore* o *Lettore* per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 1. Nel campo **Seleziona** immettere il nome dell'applicazione. Selezionare l'applicazione dall'elenco e quindi fare clic su **Salva**.
 
 L'applicazione dovrebbe ora essere visualizzata nelle impostazioni di controllo di accesso con un ruolo con controllo degli accessi in base al ruolo assegnato.
@@ -209,7 +210,7 @@ L'ID tenant identifica il tenant di Azure AD che offre servizi di autenticazione
 Gli esempi di codice in questa sezione illustrano come eseguire l'autenticazione con Azure AD mediante l'autenticazione integrata e con un'entità servizio. La maggior parte di questi esempi di codice usa .NET, ma i concetti sono simili anche per altri linguaggi.
 
 > [!NOTE]
-> Un token di autenticazione di Azure AD scade dopo un'ora. Quando si usa un oggetto **BatchClient** di lunga durata, è consigliabile recuperare un token da ADAL a ogni richiesta per assicurarsi di avere sempre un token valido. 
+> Un token di autenticazione di Azure AD scade dopo un'ora. Quando si usa un oggetto **BatchClient** di lunga durata, è consigliabile recuperare un token da ADAL a ogni richiesta per assicurarsi di avere sempre un token valido.
 >
 >
 > A tale scopo, in .NET scrivere un metodo che recuperi il token da Azure AD e passi tale metodo a un oggetto **BatchTokenCredentials** come delegato. Il metodo delegato verrà chiamato a ogni richiesta al servizio Batch per garantire che venga fornito un token valido. Per impostazione predefinita, ADAL memorizza i token nella cache, quindi un nuovo token viene recuperato da Azure AD solo quando necessario. Per altre informazioni sui token in Azure AD, vedere [Scenari di autenticazione per Azure AD][aad_auth_scenarios].
@@ -266,9 +267,9 @@ public static async Task<string> GetAuthenticationTokenAsync()
     var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri, 
-                                                        ClientId, 
-                                                        new Uri(RedirectUri), 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri,
+                                                        ClientId,
+                                                        new Uri(RedirectUri),
                                                         new PlatformParameters(PromptBehavior.Auto));
 
     return authResult.AccessToken;
@@ -307,7 +308,7 @@ Fare riferimento all'endpoint di Azure AD nel codice, che include l'ID tenant. Q
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Riferimento all'endpoint delle risorse per il servizio Batch:  
+Riferimento all'endpoint delle risorse per il servizio Batch:
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -372,7 +373,7 @@ Quando si usa un'entità servizio, è necessario specificare l'ID tenant. Per re
 TENANT_ID = "<tenant-id>"
 ```
 
-Riferimento all'endpoint delle risorse per il servizio Batch:  
+Riferimento all'endpoint delle risorse per il servizio Batch:
 
 ```python
 RESOURCE = "https://batch.core.windows.net/"

@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 2a68a50a5d15b9f38407c19494a39a14abfa0a5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd67c3b7eed6b3ce3730bd48cda69d85aa276df4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432073"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930591"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint servizio di rete virtuale per Azure Key Vault
 
@@ -79,6 +79,7 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 |Hub eventi di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Bus di servizio di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Importazione/Esportazione di Azure| [Usare chiavi gestite dal cliente in Azure Key Vault per il servizio di importazione/esportazione](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Registro Azure Container|[Crittografia del registro di sistema con chiavi gestite dal cliente](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]
 > L'utente deve impostare i criteri di accesso pertinenti per Key Vault in modo da consentire ai servizi corrispondenti di ottenere l'accesso a Key Vault.

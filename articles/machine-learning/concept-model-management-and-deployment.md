@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314301"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929758"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -153,7 +153,7 @@ Azure ML offre la possibilità di tenere traccia dell'audit trail end-to-end di 
 - L' [interpretazione](how-to-machine-learning-interpretability.md) consente di spiegare i modelli, rispettare la conformità alle normative e comprendere il modo in cui i modelli arrivano a un risultato per l'input specificato.
 - La cronologia di esecuzione di Azure ML archivia uno snapshot del codice, dei dati e dei calcoli usati per il training di un modello.
 - Il registro di sistema del modello di Azure ML acquisisce tutti i metadati associati al modello (che sperimentano il training, la posizione in cui vengono distribuiti, se le distribuzioni sono integre).
-- L' [integrazione con griglia di eventi di Azure](concept-event-grid-integration.md) consente di agire sugli eventi nel ciclo di vita di ml. Ad esempio, la registrazione del modello, la distribuzione, la deviazione dati e gli eventi di training (esecuzione).
+- L' [integrazione con Azure](how-to-use-event-grid.md) consente di agire sugli eventi nel ciclo di vita di ml. Ad esempio, la registrazione del modello, la distribuzione, la deviazione dati e gli eventi di training (esecuzione).
 
 > [!TIP]
 > Sebbene alcune informazioni sui modelli e i set di dati vengano acquisiti automaticamente, è possibile aggiungere altre informazioni usando i __tag__. Quando si cercano i modelli e i set di impostazioni registrati nell'area di lavoro, è possibile usare i tag come filtro.

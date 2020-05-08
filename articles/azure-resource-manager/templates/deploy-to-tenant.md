@@ -3,12 +3,12 @@ title: Distribuire le risorse nel tenant
 description: Viene descritto come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460263"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930064"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creare risorse a livello di tenant
 
@@ -19,6 +19,7 @@ Con la maturità dell'organizzazione, potrebbe essere necessario definire e asse
 È possibile distribuire i tipi di risorse seguenti a livello di tenant:
 
 * [distribuzioni](/azure/templates/microsoft.resources/deployments) : per i modelli annidati che vengono distribuiti in gruppi di gestione o sottoscrizioni.
+* managementGroups
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -103,13 +104,13 @@ Per le distribuzioni tenant, è necessario tenere presenti alcune considerazioni
 * Usare la funzione [tenantResourceId ()](template-functions-resource.md#tenantresourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di tenant.
 
   Ad esempio, per ottenere l'ID risorsa per una definizione dei criteri, usare:
-  
+
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
-  
+
   Il formato dell'ID risorsa restituito è il seguente:
-  
+
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```

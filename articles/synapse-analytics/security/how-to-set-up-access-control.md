@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606015"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692622"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro sinapsi (anteprima)
 
@@ -165,9 +165,22 @@ Sinapsi studio si comporterà in modo diverso in base ai ruoli utente. Alcuni el
 | Gestire Hub/servizi collegati | YES | YES | YES |
 | Gestire il controllo dell'hub/accesso (assegnare utenti ai ruoli dell'area di lavoro sinapsi) | YES | NO | NO |
 | Gestisci runtime di integrazione/Hub | YES | YES | YES |
+| Usare l'hub di monitoraggio | YES | YES | YES |
+| Monitorare le esecuzioni di hub/orchestrazione/pipeline  | YES | NO | NO |
+| Monitorare le esecuzioni di hub/orchestrazione/trigger  | YES | NO | NO |
+| Monitorare i runtime di hub/orchestrazione/integrazione  | YES | YES | YES |
+| Monitorare le applicazioni Hub/Activities/Spark | YES | YES | NO  |
+| Monitoraggio di hub/attività/richieste SQL | YES | NO | YES |
+| Monitorare Hub/attività/pool Spark | YES | YES | NO  |
+| Hub di monitoraggio/trigger | YES | NO | NO |
+| Gestire Hub/servizi collegati | YES | YES | YES |
+| Gestire il controllo dell'hub/accesso (assegnare utenti ai ruoli dell'area di lavoro sinapsi) | YES | NO | NO |
+| Gestisci runtime di integrazione/Hub | YES | YES | YES |
+
 
 > [!NOTE]
-> [1] l'accesso ai dati nei contenitori dipende dal controllo di accesso in ADLSGen2 [2] le tabelle SQL e le tabelle Spark archiviano i dati in ADLSGen2 e l'accesso richiede le autorizzazioni appropriate per ADLSGen2.
+> [1] l'accesso ai dati nei contenitori dipende dal controllo di accesso in ADLSGen2. </br>
+> [2] le tabelle SQL e le tabelle Spark archiviano i dati in ADLSGen2 e l'accesso richiede le autorizzazioni appropriate in ADLSGen2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

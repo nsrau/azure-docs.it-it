@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 069d2a153e307ed94032ce1d980f26521969fc56
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: a769b5584abbd6da89ccb6032e5f0c5ac8ea1cb1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508344"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930523"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare Multi-Factor Authentication di Azure per desktop virtuale Windows
 
@@ -39,19 +39,24 @@ Ecco gli elementi necessari per iniziare:
 In questa sezione viene illustrato come creare un criterio di accesso condizionale che richiede l'autenticazione a più fattori quando ci si connette al desktop virtuale di Windows.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare a **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
-1. Selezionare **Nuovi criteri**.
-1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
-1. In **Assegnazioni** selezionare **Utenti e gruppi**.
-   1. In **Includi**selezionare **Seleziona utenti e gruppi** > **utenti e** gruppi > scegliere il gruppo creato nella fase prerequisiti.
-   1. Seleziona **Chiudi**.
-1. In **app Cloud o azioni** > **Includi**selezionare **Seleziona app**.
-   1. Scegliere **desktop virtuale Windows** e **client desktop virtuale di Windows** **, quindi selezionare** **fine**.
-   ![Screenshot della pagina app o azioni cloud. Il desktop virtuale Windows e le app client desktop virtuali Windows sono evidenziate in rosso.](media/cloud-apps-enterprise-selected.png)
-1. In **controllo** > di accesso**concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
-1. In **Access controls** > **sessione**controlli di accesso selezionare **frequenza**di accesso, impostare il valore su **1** e unità su **ore**, quindi **selezionare**.
-1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
-1. Selezionare **Crea** per abilitare i criteri.
+2. Passare a **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
+3. Selezionare **Nuovi criteri**.
+4. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
+5. In **Assegnazioni** selezionare **Utenti e gruppi**.
+   - In **Includi**selezionare **Seleziona utenti e gruppi** > **utenti e** gruppi > scegliere il gruppo creato nella fase prerequisiti.
+   - Seleziona **Chiudi**.
+6. In **app Cloud o azioni** > **Includi**selezionare **Seleziona app**.
+   - Scegliere **desktop virtuale Windows** (ID app 9cdead84-A844-4324-93f2-b2e6bb768d07), quindi **selezionare**, quindi fare clic su **fine**.
+   
+     ![Screenshot della pagina app o azioni cloud. Il desktop virtuale Windows e le app client desktop virtuali Windows sono evidenziate in rosso.](media/cloud-apps-enterprise.png)
+
+     >[!NOTE]
+     >Per trovare l'ID app dell'app che si vuole selezionare, passare ad **applicazioni aziendali** e selezionare **applicazioni Microsoft** dal menu a discesa tipo di applicazione.
+
+7. In **controllo** > di accesso**concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
+8. In **Access controls** > **sessione**controlli di accesso selezionare **frequenza**di accesso, impostare il valore su **1** e unità su **ore**, quindi selezionare **Seleziona**.
+9. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
+10. Selezionare **Crea** per abilitare i criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

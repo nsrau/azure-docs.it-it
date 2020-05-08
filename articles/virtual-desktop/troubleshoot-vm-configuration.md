@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/03/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127593"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607249"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
+
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+>
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
@@ -25,10 +31,10 @@ Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunit
 
 ## <a name="vms-are-not-joined-to-the-domain"></a>Le macchine virtuali non sono unite in join al dominio
 
-Se si verificano problemi durante l'aggiunta di macchine virtuali al dominio, seguire queste istruzioni.
+Se si verificano problemi durante l'aggiunta di macchine virtuali (VM) al dominio, seguire queste istruzioni.
 
 - Aggiungere la VM manualmente usando il processo in [aggiungere una macchina virtuale Windows Server a un dominio gestito](../active-directory-domain-services/join-windows-vm.md) o usando il [modello di aggiunta al dominio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
-- Provare a eseguire il ping del nome di dominio dalla riga di comando nella macchina virtuale.
+- Provare a eseguire il ping del nome di dominio da una riga di comando nella macchina virtuale.
 - Esaminare l'elenco dei messaggi di errore di aggiunta a un dominio nella [sezione risoluzione dei problemi di aggiunta al dominio](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx)
 
 ### <a name="error-incorrect-credentials"></a>Errore: credenziali non corrette
@@ -77,7 +83,7 @@ Se si verificano problemi durante l'aggiunta di macchine virtuali al dominio, se
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Il caricatore di avvio di Windows Virtual Desktop Agent e Windows Virtual Desktop non sono installati
 
-Il modo consigliato per eseguire il provisioning di macchine virtuali consiste nell'usare il modello di Azure Resource Manager **creare ed effettuare il provisioning del pool di host** Il modello installa automaticamente l'agente desktop virtuale di Windows e il caricatore di avvio dell'agente desktop virtuale di Windows.
+Il modo consigliato per eseguire il provisioning delle macchine virtuali consiste nell'usare il modello di creazione portale di Azure. Il modello installa automaticamente l'agente desktop virtuale di Windows e il caricatore di avvio dell'agente desktop virtuale di Windows.
 
 Seguire queste istruzioni per confermare che i componenti sono installati e per verificare la presenza di messaggi di errore.
 
@@ -96,8 +102,8 @@ Seguire queste istruzioni per confermare che i componenti sono installati e per 
 **Correzione 2:** Confermare gli elementi nell'elenco seguente.
 
 - Assicurarsi che l'account non disponga dell'autenticazione a più fattori.
-- Verificare che il nome del tenant sia accurato e che il tenant esista nel desktop virtuale di Windows.
-- Verificare che l'account disponga almeno delle autorizzazioni di collaboratore Servizi Desktop remoto.
+- Verificare che il nome del pool host sia accurato e che il pool host esista nel desktop virtuale di Windows.
+- Verificare che l'account disponga almeno delle autorizzazioni di collaboratore per la sottoscrizione o il gruppo di risorse di Azure.
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Errore: autenticazione non riuscita. errore in C:\Windows\Temp\ScriptLog.log
 
@@ -106,16 +112,16 @@ Seguire queste istruzioni per confermare che i componenti sono installati e per 
 **Correzione:** Confermare gli elementi nell'elenco seguente.
 
 - Registrare manualmente le VM con il servizio desktop virtuale di Windows.
-- Verificare che l'account utilizzato per la connessione a desktop virtuale Windows disponga delle autorizzazioni per il tenant per la creazione di pool host.
+- Verificare che l'account utilizzato per la connessione a desktop virtuale Windows disponga delle autorizzazioni per la sottoscrizione o il gruppo di risorse di Azure per creare pool host.
 - Verificare che l'account non disponga dell'autenticazione a più fattori.
 
 ## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>L'agente desktop virtuale Windows non viene registrato con il servizio desktop virtuale di Windows
 
-Quando l'agente desktop virtuale di Windows viene installato per la prima volta nelle VM host sessione (manualmente o tramite il modello di Azure Resource Manager e PowerShell DSC), fornisce un token di registrazione. Nella sezione seguente vengono illustrati i problemi relativi alla risoluzione dei problemi applicabili all'agente desktop virtuale di Windows e al token.
+Quando l'agente desktop virtuale di Windows viene installato per la prima volta nelle VM host sessione (manualmente o tramite il modello di Azure Resource Manager e PowerShell DSC), fornisce un token di registrazione. Nella sezione seguente vengono illustrati i problemi relativi alla risoluzione dei problemi relativi all'agente desktop virtuale di Windows e al token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Errore: lo stato archiviato nel cmdlet Get-RdsSessionHost Mostra lo stato non disponibile
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Errore: lo stato archiviato nel cmdlet Get-AzWvdSessionHost Mostra lo stato non disponibile
 
-![Il cmdlet Get-RdsSessionHost Mostra lo stato come non disponibile.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Il cmdlet Get-AzWvdSessionHost Mostra lo stato come non disponibile.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Motivo:** L'agente non è in grado di eseguire l'aggiornamento a una nuova versione.
 
@@ -128,17 +134,17 @@ Quando l'agente desktop virtuale di Windows viene installato per la prima volta 
 5. Completare l'installazione guidata di.
 6. Aprire Task Manager e avviare il servizio RDAgentBootLoader.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Errore: la voce del registro di sistema di Windows Virtual Desktop Agent ha registrato un valore pari a 0
+## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Errore: la voce del registro di sistema di Windows Virtual Desktop Agent ha registrato un valore pari a 0
 
 **Motivo:** Il token di registrazione è scaduto o è stato generato con un valore di scadenza pari a 999999.
 
 **Correzione:** Per correggere l'errore del registro di sistema di Agent, seguire queste istruzioni.
 
-1. Se è già presente un token di registrazione, rimuoverlo con Remove-RDSRegistrationInfo.
-2. Generare un nuovo token con RDS-NewRegistrationInfo.
-3. Verificare che il parametro-ExpriationHours sia impostato su 72 (il valore massimo è 99999).
+1. Se è già presente un token di registrazione, rimuoverlo con Remove-AzWvdRegistrationInfo. 
+2. Eseguire il cmdlet **New-AzWvdRegistrationInfo** per generare un nuovo token. 
+3. Verificare che il parametro *-ExpriationTime* sia impostato su 3 giorni.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Errore: l'agente desktop virtuale di Windows non segnala un heartbeat durante l'esecuzione di Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Errore: l'agente desktop virtuale di Windows non segnala un heartbeat durante l'esecuzione di Get-AzWvdSessionHost
 
 **Cause 1:** Il servizio RDAgentBootLoader è stato arrestato.
 
@@ -180,7 +186,7 @@ Lo stack side-by-side di desktop virtuale Windows viene installato automaticamen
 
 Esistono tre modi principali per installare o abilitare lo stack affiancato nelle macchine virtuali del pool host della sessione:
 
-- Con il Azure Resource Manager **creare ed effettuare il provisioning di un nuovo modello di pool host per desktop virtuali Windows**
+- Con il modello di creazione portale di Azure
 - Con l'inclusione e l'abilitazione nell'immagine master
 - Installato o abilitato manualmente in ogni macchina virtuale (o con estensioni/PowerShell)
 
@@ -209,13 +215,7 @@ Esaminare le voci del registro di sistema elencate di seguito e verificare che i
 **Correzione:** Seguire queste istruzioni per installare lo stack affiancato nella macchina virtuale host sessione.
 
 1. Usare Remote Desktop Protocol (RDP) per accedere direttamente alla macchina virtuale host sessione come amministratore locale.
-2. Scaricare e importare [il modulo PowerShell per desktop virtuale Windows](/powershell/windows-virtual-desktop/overview/) da usare nella sessione di PowerShell, se non è già stato fatto, quindi eseguire questo cmdlet per accedere al proprio account:
-
-    ```powershell
-    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-    ```
-
-3. Installare lo stack affiancato usando [creare un pool di host con PowerShell](create-host-pools-powershell.md).
+2. Installare lo stack affiancato usando [creare un pool di host con PowerShell](create-host-pools-powershell.md).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Come correggere lo stack side-by-side di un desktop virtuale di Windows che funziona correttamente
 
@@ -339,7 +339,7 @@ Ridistribuire il sistema operativo host con la versione più recente dell'immagi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
-- Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente desktop virtuale Windows, vedere [creazione di tenant e pool host](troubleshoot-set-up-issues.md).
+- Per risolvere i problemi durante la creazione di un pool host in un ambiente desktop virtuale Windows, vedere la pagina relativa alla [creazione di ambienti e pool host](troubleshoot-set-up-issues.md).
 - Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
 - Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection.md).
 - Per risolvere i problemi relativi ai client di Desktop remoto, vedere [risoluzione dei problemi del client di desktop remoto](troubleshoot-client.md)

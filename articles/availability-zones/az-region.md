@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: ba646fbb6f08dab712ee6184c7be3aef2a1dae45
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 79b8ed6d2ccb167501c280feaede3361cb2a88f1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209549"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609613"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Aree che supportano zone di disponibilità in Azure
 
@@ -33,7 +33,7 @@ I servizi disponibili in ogni area, insieme alla prossima roadmap per la disponi
 | Set di scalabilità di macchine virtuali      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | ILB ambienti del servizio app Azure | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Servizio Azure Kubernetes        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Archiviazione**   |            |              |           |           |                |              |          |             |            |                |                |
+| **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Archiviazione con ridondanza della zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | **Funzionalità di rete**                     |            |              |           |           |                |              |          |             |            |                |                |
@@ -47,7 +47,7 @@ I servizi disponibili in ogni area, insieme alla prossima roadmap per la disponi
 | Esplora dati di Azure                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
 | Database SQL                    | &#10003;   | &#10003;     | &#10003;  | &#10003; (anteprima) | &#10003;       | &#10003; (anteprima)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
 | Cache Redis di Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; | &#10003; |       |     | &#10003; |  &#10003;   |            | &#10003;       |                |
+| Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |       | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;    |
 | **Analisi**                       |            |              |           |           |                |              |          |             |            |                |                |
 | Hub eventi                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |                |
 | **Integrazione**                     |            |              |           |           |                |              |          |             |            |                |                |

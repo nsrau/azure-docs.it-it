@@ -3,17 +3,17 @@ title: Gestione del ciclo di vita di archiviazione di Azure
 description: Informazioni su come creare regole dei criteri del ciclo di vita per la transizione dei dati da livelli di archiviazione ad accesso frequente a livelli di archiviazione ad accesso sporadico e archivio.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/21/2019
+ms.date: 04/24/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598307"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692138"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -24,7 +24,7 @@ I criteri di gestione del ciclo di vita consentono di eseguire queste operazioni
 - Spostare i BLOB a un livello di archiviazione ad accesso più sporadico (da frequente a sporadico, da frequente ad archivio o da sporadico ad archivio) per ottimizzare costi e prestazioni
 - Eliminare i BLOB al termine del ciclo di vita
 - Definire le regole da eseguire una volta al giorno a livello di account di archiviazione
-- Applicare regole ai contenitori o a un sottoinsieme di BLOB (usando i prefissi come filtri)
+- Applicare regole a contenitori o a un subset di BLOB (usando i prefissi dei nomi o i [tag degli indici BLOB](storage-manage-find-blobs.md) come filtri)
 
 Si consideri uno scenario in cui i dati ottengono un accesso frequente durante le fasi iniziali del ciclo di vita, ma solo occasionalmente dopo due settimane. Oltre il primo mese, l'accesso al set di dati è raro. In questo scenario è consigliabile l'archiviazione ad accesso frequente durante le fasi iniziali. L'archiviazione ad accesso sporadico è più appropriata per l'accesso occasionale. Storage Archive è l'opzione del livello migliore dopo le età dei dati in un mese. Grazie alla regolazione dei livelli di archiviazione in base alla validità dei dati, è possibile progettare le opzioni di archiviazione meno costose per le proprie esigenze. Per realizzare questa transizione, sono disponibili regole dei criteri di gestione del ciclo di vita per spostare i dati a livelli di archiviazione ad accesso più sporadico.
 
@@ -202,7 +202,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ---
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Criteri di
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -232,9 +232,9 @@ Un criterio è una raccolta di regole:
 
 Ogni regola all'interno del criterio presenta diversi parametri:
 
-| Nome parametro | Tipo di parametro | Note | Obbligatoria |
+| Nome parametro | Tipo di parametro | Note | Necessario |
 |----------------|----------------|-------|----------|
-| `name`         | Stringa |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
+| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
 | `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
 | `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True |
 | `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
@@ -292,7 +292,11 @@ I filtri includono:
 | Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Sì |
-| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire un massimo di 10 prefissi. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si desidera trovare la corrispondenza di tutti i `https://myaccount.blob.core.windows.net/container1/foo/...` BLOB in per una regola, prefixMatch `container1/foo`è. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione.  | No |
+| prefixMatch | Matrice di stringhe per i prefissi da confrontare. Ogni regola può definire un massimo di 10 prefissi. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si desidera trovare la corrispondenza di tutti i `https://myaccount.blob.core.windows.net/container1/foo/...` BLOB in per una regola, prefixMatch `container1/foo`è. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione.  | No |
+| blobIndexMatch | Matrice di valori del dizionario costituito da condizioni di chiave e valore del tag di indice BLOB da confrontare. Ogni regola può definire fino a 10 condizioni di tag di indice BLOB. Se ad esempio si desidera trovare la corrispondenza di tutti i `Project = Contoso` BLOB `https://myaccount.blob.core.windows.net/` con in per una regola, blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}`è. | Se non si definisce blobIndexMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione. | No |
+
+> [!NOTE]
+> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Francia centrale** e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Azioni della regola
 
@@ -300,11 +304,11 @@ Le azioni vengono applicate ai BLOB filtrati quando viene soddisfatta la condizi
 
 La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazione di BLOB e l'eliminazione di snapshot BLOB. Definire almeno un'azione per ogni regola sui BLOB o sugli snapshot dei BLOB.
 
-| Action        | BLOB di base                                   | Snapshot      |
+| Azione        | BLOB di base                                   | Snapshot      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportato |
-| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportato |
-| Elimina        | Supportato                                   | Supportato     |
+| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportate |
+| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportate |
+| eliminare        | Supportato                                   | Supportato     |
 
 >[!NOTE]
 >Se nello stesso BLOB è stata definita più di un'azione, la gestione del ciclo di vita applica al BLOB l'azione meno costosa. Ad esempio, l'azione `delete` è meno costosa dell'azione `tierToArchive`. L'azione `tierToArchive` è meno costosa dell'azione `tierToCool`.
@@ -405,6 +409,42 @@ Si prevede che alcuni dati scadano giorni o mesi dopo la creazione. È possibile
 }
 ```
 
+### <a name="delete-data-with-blob-index-tags"></a>Eliminare dati con tag di indice BLOB
+Alcuni dati devono essere scaduti solo se contrassegnati in modo esplicito per l'eliminazione. È possibile configurare i criteri di gestione del ciclo di vita in modo che scadano i dati contrassegnati con gli attributi chiave/valore dell'indice BLOB. L'esempio seguente illustra un criterio che elimina tutti i BLOB in blocchi `Project = Contoso`contrassegnati con. Per altre informazioni sull'indice BLOB, vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md).
+
+```json
+{
+    "rules": [
+        {
+            "enabled": true,
+            "name": "DeleteContosoData",
+            "type": "Lifecycle",
+            "definition": {
+                "actions": {
+                    "baseBlob": {
+                        "delete": {
+                            "daysAfterModificationGreaterThan": 0
+                        }
+                    }
+                },
+                "filters": {
+                    "blobIndexMatch": [
+                        {
+                            "name": "Project",
+                            "op": "==",
+                            "value": "Contoso"
+                        }
+                    ],
+                    "blobTypes": [
+                        "blockBlob"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 ### <a name="delete-old-snapshots"></a>Eliminare gli snapshot precedenti
 
 Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo di vita vengono spesso usati gli snapshot per tenere traccia delle versioni precedenti dei dati. È possibile creare criteri che eliminino gli snapshot precedenti in base al tempo trascorso. Il tempo trascorso per lo snapshot viene determinato valutando la sua data/ora di creazione. Questa regola dei criteri elimina gli snapshot dei BLOB in blocchi all'interno del contenitore `activedata` per i quali sono trascorsi 90 giorni o più dalla creazione.
@@ -448,3 +488,7 @@ Quando un BLOB viene spostato da un livello di accesso a un altro, l'ora dell'Ul
 Informazioni su come recuperare i dati dopo l'eliminazione accidentale:
 
 - [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../blobs/storage-blob-soft-delete.md)
+
+Informazioni su come gestire e trovare i dati con l'indice BLOB:
+
+- [Gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB](storage-manage-find-blobs.md)

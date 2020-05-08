@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/14/2020
-ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80395776"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731901"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -59,14 +59,13 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 
 ### <a name="troubleshooting"></a>Risoluzione dei problemi
 
-È necessario disporre delle autorizzazioni ' Log Analytics Contributor ' per eliminare Log Analytics area di lavoro.<br>
-Se viene ricevuto un messaggio di errore che*indica che il nome dell'area di lavoro è già in uso*quando si crea un'area di lavoro, è possibile che:
+Per eliminare un'area di lavoro, è necessario disporre almeno delle autorizzazioni *log Analytics collaboratore* .<br>
+Se viene ricevuto un messaggio di errore, *il nome dell'area di lavoro è già in uso o in* *conflitto* durante la creazione di un'area di lavoro, a partire da:
 * Il nome dell'area di lavoro non è disponibile e viene usato da un utente dell'organizzazione o da un altro cliente.
-* L'area di lavoro è stata eliminata negli ultimi 14 giorni e il nome è rimasto riservato per il periodo di eliminazione temporanea. Per eseguire l'override dell'eliminazione temporanea ed eliminare immediatamente l'area di lavoro e creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:<br>
+* L'area di lavoro è stata eliminata negli ultimi 14 giorni e il nome è rimasto riservato per il periodo di eliminazione temporanea. Per eseguire l'override dell'eliminazione temporanea ed eliminare definitivamente l'area di lavoro per creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:<br>
    1. [Ripristinare](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) l'area di lavoro.
    2. [Eliminare definitivamente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) l'area di lavoro.
    3. Creare una nuova area di lavoro usando lo stesso nome dell'area di lavoro.
-
 
 ## <a name="permanent-workspace-delete"></a>Eliminazione permanente dell'area di lavoro
 Il metodo di eliminazione temporanea potrebbe non rientrare in alcuni scenari, ad esempio sviluppo e test, in cui è necessario ripetere una distribuzione con le stesse impostazioni e il nome dell'area di lavoro. In questi casi è possibile eliminare definitivamente l'area di lavoro e "eseguire l'override" del periodo di eliminazione temporanea. L'operazione di eliminazione dell'area di lavoro permanente rilascia il nome dell'area di lavoro ed è possibile creare una nuova area di lavoro con lo stesso nome.
@@ -96,12 +95,7 @@ Dove ' eyJ0eXAiOiJKV1Qi.. .' rappresenta il token di autorizzazione completo.
 
 Se si dispone delle autorizzazioni di collaboratore per la sottoscrizione e il gruppo di risorse in cui l'area di lavoro è stata associata prima dell'operazione di eliminazione temporanea, è possibile ripristinarla durante il periodo di eliminazione temporanea, inclusi i dati, la configurazione e gli agenti connessi. Dopo il periodo di eliminazione temporanea, l'area di lavoro non è reversibile e assegnata per l'eliminazione permanente. I nomi delle aree di lavoro eliminate vengono conservati durante il periodo di eliminazione temporanea e non possono essere usati quando si tenta di creare una nuova area di lavoro.  
 
-Per ripristinare un'area di lavoro, è possibile ricrearla usando i metodi di creazione dell'area di lavoro seguenti: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o l' [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) , purché le proprietà seguenti vengano popolate con i dettagli dell'area di lavoro eliminati:
-
-* ID sottoscrizione
-* Nome del gruppo di risorse
-* Nome dell'area di lavoro
-* Region
+È possibile ripristinare l'area di lavoro creando un'area di lavoro con i dettagli dell'area di lavoro eliminata, tra cui *ID sottoscrizione*, *nome del gruppo di risorse*, nome dell'area di *lavoro* e *area*. Se anche il gruppo di risorse è stato eliminato e non esiste, creare un gruppo di risorse con lo stesso nome usato prima dell'eliminazione, quindi creare un'area di lavoro usando uno dei metodi seguenti: [portale di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o l' [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell

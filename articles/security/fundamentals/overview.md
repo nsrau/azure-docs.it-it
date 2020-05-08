@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461685"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731699"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -95,7 +95,7 @@ I log di monitoraggio di Azure possono essere uno strumento utile per analisi fo
 Il [Centro sicurezza](../../security-center/security-center-intro.md) consente di prevenire, rilevare e rispondere alle minacce con maggiore visibilità e controllo sulla sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 Inoltre, il Centro sicurezza aiuta a usare le operazioni di sicurezza fornendo un unico dashboard che presenta avvisi e indicazioni su cui è possibile agire immediatamente. Spesso è possibile correggere i problemi con un solo clic nella console del Centro sicurezza.
-## <a name="applications"></a>Applicazioni
+## <a name="applications"></a>APPLICAZIONI
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle applicazioni e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analisi delle vulnerabilità delle applicazioni Web
@@ -266,16 +266,16 @@ Gestione traffico offre diversi metodi di routing del traffico per soddisfare le
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni. Si tratta di un servizio di bilanciamento del carico di livello 4 (TCP, UDP) che distribuisce il traffico in ingresso tra istanze integre di servizi definiti in un set con carico bilanciato. Azure Load Balancer può essere configurato per:
 
--   Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali. Questa configurazione è nota come [bilanciamento del carico Internet tra più macchine virtuali o servizi](../../load-balancer/concepts-limitations.md#publicloadbalancer).
+-   Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali. Questa configurazione è nota come [bilanciamento del carico pubblico](../../load-balancer/components.md#frontend-ip-configurations).
 
--   Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. Questa configurazione è nota come [bilanciamento del carico interno](../../load-balancer/concepts-limitations.md#internalloadbalancer).
+-   Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. Questa configurazione è nota come [bilanciamento del carico interno](../../load-balancer/components.md#frontend-ip-configurations).
 
 - Inoltrare il traffico esterno a una macchina virtuale specifica
 
 ### <a name="internal-dns"></a>DNS interno
 È possibile gestire l'elenco dei server DNS usati in una rete virtuale nel portale di gestione o nel file di configurazione di rete. Il cliente può aggiungere fino a 12 server DNS per ogni rete virtuale. Quando si specificano i server DNS, è importante verificare che i server DNS del cliente siano elencati nell'ordine corretto per l'ambiente specifico. Gli elenchi dei server DNS non supportano il round robin. Vengono usati nell'ordine in cui sono specificati. Se il primo server DNS nell'elenco è raggiungibile, il client usa tale server DNS indipendentemente dal fatto che funzioni correttamente o meno. Per modificare l'ordine dei server DNS per la rete virtuale del cliente, rimuovere i server DNS dall'elenco e aggiungerli nuovamente nell'ordine desiderato. Il sistema DNS supporta l'aspetto della disponibilità della triade di sicurezza "riservatezza, integrità e disponibilità".
 
-### <a name="azure-dns"></a>Azure DNS
+### <a name="azure-dns"></a>DNS di Azure
 Il sistema [DNS (Domain Name System)](https://technet.microsoft.com/library/bb629410.aspx) è responsabile della conversione (o risoluzione) del nome di un servizio o sito Web nel relativo indirizzo IP. [DNS di Azure](../../dns/dns-overview.md) è un servizio di hosting per i domini DNS, che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure. Il sistema DNS supporta l'aspetto della disponibilità della triade di sicurezza "riservatezza, integrità e disponibilità".
 
 ### <a name="azure-monitor-logs-nsgs"></a>Log di monitoraggio di Azure gruppi

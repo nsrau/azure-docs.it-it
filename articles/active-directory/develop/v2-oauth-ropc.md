@@ -3,7 +3,7 @@ title: Accesso con la concessione delle credenziali password del proprietario de
 titleSuffix: Microsoft identity platform
 description: Supportare i flussi di autenticazione senza browser usando la concessione delle credenziali password del proprietario della risorsa (ROPC).
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26b3cb343aba2d45d5a14944a7f8856715bca100
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868660"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690092"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Credenziali della password del proprietario della risorsa OAuth 2,0 e della piattaforma di identità Microsoft
 
@@ -66,11 +66,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametro | Condizione | Descrizione |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
-| `client_id` | Obbligatoria | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. |
-| `grant_type` | Obbligatoria | Il valore deve essere impostato su `password`. |
-| `username` | Obbligatoria | Indirizzo di posta elettronica dell'utente |
-| `password` | Obbligatoria | Password dell'utente. |
+| `tenant` | Necessario | Il tenant della directory in cui si desidera registrare l'utente. Può essere fornito nel formato di nome descrittivo o GUID. Questo parametro non può essere impostato su `common` oppure `consumers`, ma può essere impostato su `organizations`. |
+| `client_id` | Necessario | ID dell'applicazione (client) che la pagina [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) assegnata all'app. |
+| `grant_type` | Necessario | Il valore deve essere impostato su `password`. |
+| `username` | Necessario | Indirizzo di posta elettronica dell'utente |
+| `password` | Necessario | Password dell'utente. |
 | `scope` | Consigliato | Un elenco delimitato da spazi di [ambiti](v2-permissions-and-consent.md), o privilegi, richiesti dall'app. In un flusso interattivo, l'amministratore o l'utente deve dare il consenso in anticipo a questi ambiti. |
 | `client_secret`| A volte obbligatorio | Se l'app è un client pubblico, non è `client_secret` possibile `client_assertion` includere o.  Se l'app è un client riservato, è necessario includerla. |
 | `client_assertion` | A volte obbligatorio | Formato diverso di `client_secret`, generato utilizzando un certificato.  Per ulteriori informazioni, vedere [credenziali del certificato](active-directory-certificate-credentials.md) . |
@@ -92,7 +92,7 @@ Nell'esempio seguente viene illustrata una risposta di token di esito positivo:
 
 | Parametro | Format | Descrizione |
 | --------- | ------ | ----------- |
-| `token_type` | Stringa | Sempre impostato su `Bearer`. |
+| `token_type` | string | Sempre impostato su `Bearer`. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per i quali è valido il token di accesso. |
 | `expires_in`| INT | Numero di secondi durante i quali è valido il token di accesso incluso. |
 | `access_token`| Stringa opaca | Rilasciato per gli [ambiti](v2-permissions-and-consent.md) richiesti. |
