@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c42637dda9d1a413c0521ea2d7565a63ca58e81
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209146"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858295"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
@@ -71,7 +71,7 @@ La sezione seguente è una panoramica del processo di failover e illustra come c
 
 ![1][]
 
-### <a name="setup"></a>Configurazione
+### <a name="setup"></a>Installazione
 
 È prima di tutto necessario creare uno spazio dei nomi primario o usarne uno esistente e creare un nuovo spazio dei nomi secondario, quindi associare i due spazi dei nomi. L'associazione fornisce un alias che può essere usato per la connessione. Poiché si usa un alias, non è necessario modificare le stringhe di connessione. È possibile aggiungere solo nuovi spazi dei nomi all'associazione di failover. Infine, è necessario aggiungere funzionalità di monitoraggio per rilevare i casi in cui è necessario un failover. Nella maggior parte dei casi, il servizio fa parte di un ecosistema di grandi dimensioni, quindi i failover automatici sono raramente possibili, in quanto molto spesso i failover devono essere eseguiti in sincronizzazione con il sottosistema o l'infrastruttura rimanente.
 
@@ -138,7 +138,7 @@ Usando il portale di Azure, è possibile abilitare le zone di disponibilità sol
 ## <a name="next-steps"></a>Passaggi successivi
 
 * L'[esempio disponibile in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) illustra in dettaglio un semplice flusso di lavoro per la creazione di un'associazione geografica e l'avvio di un failover per uno scenario di ripristino di emergenza.
-* Nella [informazioni di riferimento sulle API del servizio REST](/rest/api/eventhub/disasterrecoveryconfigs) sono descritte le API che consentono di eseguire la configurazione del ripristino di emergenza geografico.
+* Nella [informazioni di riferimento sulle API del servizio REST](/rest/api/eventhub/) sono descritte le API che consentono di eseguire la configurazione del ripristino di emergenza geografico.
 
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b020cbd15ba17609b7a476ccda9b1e814405341e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668558"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858789"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -284,7 +284,7 @@ Per accedere all'archiviazione ridondante, è necessaria l'archiviazione con rid
 
 **Per un account di archiviazione replicato (ad esempio l'archiviazione con ridondanza della zona, l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura), come è possibile accedere ai dati archiviati nell'area secondaria?**
 
--   Se si usa l'archiviazione con ridondanza della zona o l'archiviazione con ridondanza geografica, non è possibile accedere ai dati nell'area secondaria a meno che non si avvii un failover in tale area. Per altre informazioni sul processo di failover, consultare [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md) (Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure).
+-   Se si usa l'archiviazione con ridondanza della zona o l'archiviazione con ridondanza geografica, non è possibile accedere ai dati nell'area secondaria a meno che non si avvii un failover in tale area. Per altre informazioni sul processo di failover, vedere [ripristino di emergenza e failover dell'account di archiviazione](storage-disaster-recovery-guidance.md).
 
 -   Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Utilizzare una delle seguenti modalità:  
 

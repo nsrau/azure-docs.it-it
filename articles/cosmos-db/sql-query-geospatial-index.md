@@ -4,14 +4,14 @@ description: Indicizzare i dati spaziali con Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137904"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839207"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indicizzare i dati geospaziali con Azure Cosmos DB
 
@@ -28,11 +28,17 @@ Se si specifica un criterio di indicizzazione che include l'indice spaziale per/
 
 ## <a name="modifying-geospatial-data-type"></a>Modifica del tipo di dati geospaziali
 
-Nel contenitore, specifica il `geospatialConfig` modo in cui verranno indicizzati i dati geospaziali. È necessario specificarne `geospatialConfig` uno per ogni contenitore, ovvero Geography o Geometry. Se non specificato, per `geospatialConfig` impostazione predefinita viene impostato il tipo di dati geography. Quando si modifica la `geospatialConfig`, tutti i dati geospaziali esistenti nel contenitore verranno reindicizzati.
+Nel contenitore la **configurazione geospaziale** specifica come verranno indicizzati i dati spaziali. Specificare una **configurazione geospaziale** per ogni contenitore, ovvero Geography o Geometry.
 
-> [!NOTE]
-> Azure Cosmos DB attualmente supporta le modifiche apportate a geospatialConfig in .NET SDK solo nelle versioni 3,6 e successive.
->
+È possibile alternare il tipo spaziale **geography** e **Geometry** nel portale di Azure. È importante creare un [criterio di indicizzazione di geometria spaziale valido con un](#geometry-data-indexing-examples) rettangolo di selezione prima di passare al tipo spaziale geometry.
+
+Di seguito viene illustrato come impostare la **configurazione geospaziale** in **Esplora dati** all'interno del portale di Azure:
+
+![Impostazione della configurazione geospaziale](./media/sql-query-geospatial-index/geospatial-configuration.png)
+
+È anche possibile modificare `geospatialConfig` in .NET SDK per modificare la **configurazione geospaziale**:
+
+Se non specificato, per `geospatialConfig` impostazione predefinita viene impostato il tipo di dati geography. Quando si modifica la `geospatialConfig`, tutti i dati geospaziali esistenti nel contenitore verranno reindicizzati.
 
 Di seguito è riportato un esempio per modificare il tipo di `geometry` dati geospaziale in impostando la `geospatialConfig` proprietà e aggiungendo un **BoundingBox**:
 
@@ -112,7 +118,7 @@ Il rettangolo di delimitazione è costituito dalle proprietà seguenti:
 
 È necessario un rettangolo di delimitazione perché i dati geometrici occupano un piano che può essere infinito. Gli indici spaziali, tuttavia, richiedono uno spazio finito. Per il tipo di dati **geography** , la terra è il limite e non è necessario impostare un rettangolo di delimitazione.
 
-È necessario creare un rettangolo di delimitazione contenente tutti i dati (o la maggior parte). Solo le operazioni calcolate sugli oggetti interamente all'interno del rettangolo di delimitazione saranno in grado di utilizzare l'indice spaziale. Non è consigliabile rendere il riquadro delimitatore significativamente più grande del necessario perché questo influirà negativamente sulle prestazioni delle query.
+Creare un rettangolo di delimitazione che contenga tutti (o più) i dati. Solo le operazioni calcolate sugli oggetti interamente all'interno del rettangolo di delimitazione saranno in grado di utilizzare l'indice spaziale. Se il riquadro delimitatore è più grande del necessario, avrà un impatto negativo sulle prestazioni delle query.
 
 Ecco un esempio di criterio di indicizzazione che indicizza i dati **Geometry** con `geometry` **geospatialConfig** impostato su:
 

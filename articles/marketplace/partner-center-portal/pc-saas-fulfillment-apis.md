@@ -1,26 +1,25 @@
 ---
-title: API di evasione SaaS | Azure Marketplace
-description: Introduce le versioni delle API di evasione che consentono di integrare le offerte SaaS con Azure Marketplace.
+title: API di evasione SaaS in Microsoft Commercial Marketplace
+description: Introduzione alle API di evasione che consentono di integrare le offerte SaaS in Microsoft AppSource e in Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275731"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858082"
 ---
-# <a name="saas-fulfillment-apis"></a>API di evasione ordini SaaS
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API di evasione SaaS in Microsoft Commercial Marketplace
 
-Le API di evasione SaaS consentono ai fornitori di software indipendenti (ISV) di integrare le applicazioni SaaS con Azure Marketplace. Queste API consentono alle applicazioni ISV di partecipare a tutti i canali abilitati per il commercio: diretto, partner-LED (rivenditore) e LED di campo.  Sono un requisito per elencare le offerte SaaS transazionali in Azure Marketplace.
+Le API di evasione SaaS consentono ai fornitori di software indipendenti (ISV) di integrare le applicazioni SaaS in Microsoft AppSource e in Azure Marketplace. Queste API consentono alle applicazioni ISV di partecipare a tutti i canali abilitati per il commercio: diretto, partner-LED (rivenditore) e LED di campo. Sono necessari per elencare le offerte SaaS transazionali in Microsoft AppSource e Azure Marketplace.
 
 > [!WARNING]
 > La versione corrente di questa API è la versione 2, che deve essere usata per tutte le nuove offerte SaaS.  La versione 1 dell'API è deprecata e viene mantenuta per supportare le offerte esistenti.
-
 
 ## <a name="business-model-support"></a>Supporto del modello aziendale
 
