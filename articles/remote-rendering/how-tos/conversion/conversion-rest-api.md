@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887045"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857799"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Usare l'API REST per la conversione di modelli
 
@@ -51,7 +51,7 @@ L'account di rendering remoto di Azure deve avere accesso all'account di archivi
 
 Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è "conversionId".
 
-#### <a name="request-body"></a>Testo della richiesta
+#### <a name="request-body"></a>Corpo della richiesta
 
 
 ```json
@@ -81,7 +81,7 @@ Se l'account ARR non è collegato all'account di archiviazione, questa interfacc
 
 Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è "conversionId".
 
-#### <a name="request-body"></a>Testo della richiesta
+#### <a name="request-body"></a>Corpo della richiesta
 
 Il corpo della richiesta è identico a quello della precedente chiamata REST, ma l'input e l'output contengono *token di firma di accesso condiviso (SAS)*. Questi token forniscono l'accesso all'account di archiviazione per la lettura dell'input e la scrittura del risultato della conversione.
 
@@ -120,6 +120,7 @@ Lo stato di una conversione in corso avviata con una delle chiamate REST sopra r
 
 Restituisce un documento JSON con un campo "status" che può avere i valori seguenti:
 
+- Creato
 - Esecuzione
 - "Esito positivo"
 - Errore

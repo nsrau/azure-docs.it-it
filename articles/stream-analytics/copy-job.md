@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 5c8f770855dd8d19a9d313f1b79f9bf8da4b2393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 258fc30f3e4a4ba374ada89c03b824ff5e27718e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771496"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612266"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiare o eseguire il backup dei processi di analisi di flusso di Azure
 
-È possibile copiare o eseguire il backup dei processi di analisi di flusso di Azure distribuiti usando Visual Studio Code o Visual Studio. 
+È possibile copiare o eseguire il backup dei processi di analisi di flusso di Azure distribuiti usando Visual Studio Code o Visual Studio. La copia di un processo in un'altra area non consente di copiare l'ora dell'ultimo output. Pertanto, non è possibile utilizzare l'opzione [**When Last Stopped**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) all'avvio del processo copiato.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).

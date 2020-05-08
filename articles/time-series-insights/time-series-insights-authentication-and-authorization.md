@@ -11,13 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: beefad41a270233336bb9134268c98341e81a7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: bf959a7ac8c1038c4306a45ba4519374c5d85f29
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380814"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612283"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
@@ -93,7 +93,7 @@ Al **passaggio 3**, la separazione delle credenziali dell'applicazione e dell'ut
 
    1. Il token può quindi essere passato nell'intestazione `Authorization` quando l'applicazione chiama l'API Time Series Insights.
 
-* In alternativa, gli sviluppatori possono scegliere di eseguire l'autenticazione con MSAL. Per altre informazioni, vedere la pagina relativa [alla migrazione a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) e vedere l'articolo [gestire i dati di riferimento di GA per un ambiente di Azure Time Series Insights con C#](time-series-insights-manage-reference-data-csharp.md) . 
+* In alternativa, gli sviluppatori possono scegliere di eseguire l'autenticazione con MSAL. Per altre informazioni, vedere la pagina relativa [alla migrazione a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) e vedere l'articolo [gestire i dati di riferimento di GA per un ambiente di Azure Time Series Insights con C#](time-series-insights-manage-reference-data-csharp.md) .
 
 ## <a name="common-headers-and-parameters"></a>Intestazioni e parametri comuni
 
@@ -102,9 +102,9 @@ Questa sezione descrive le intestazioni e i parametri della richiesta HTTP comun
 > [!TIP]
 > Vedere le informazioni di [riferimento sull'API REST di Azure](https://docs.microsoft.com/rest/api/azure/) per altre informazioni su come usare le API REST, effettuare richieste HTTP e gestire le risposte http.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
-Per eseguire query autenticate sulle [API REST di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), è necessario passare un bearer token OAuth 2,0 valido nell' [intestazione dell'autorizzazione](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) usando un client REST di propria scelta (poster, JavaScript, C#). 
+Per eseguire query autenticate sulle [API REST di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), è necessario passare un bearer token OAuth 2,0 valido nell' [intestazione dell'autorizzazione](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) usando un client REST di propria scelta (poster, JavaScript, C#).
 
 > [!TIP]
 > Leggere la visualizzazione di esempio di Hosted Azure Time Series Insights [client SDK](https://tsiclientsample.azurewebsites.net/) per informazioni su come eseguire l'autenticazione con le api di Time Series Insights a livello di codice usando [JavaScript client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) insieme a grafici e grafici.
@@ -115,7 +115,7 @@ Le intestazioni di richiesta richieste sono descritte di seguito.
 
 | Intestazione richiesta obbligatoria | Descrizione |
 | --- | --- |
-| Autorizzazione | Per eseguire l'autenticazione con Time Series Insights, è necessario passare un token di porta OAuth 2,0 valido nell'intestazione dell' **autorizzazione** . | 
+| Autorizzazione | Per eseguire l'autenticazione con Time Series Insights, è necessario passare un token di porta OAuth 2,0 valido nell'intestazione dell' **autorizzazione** . |
 
 > [!IMPORTANT]
 > Il token deve essere emesso esattamente con la `https://api.timeseries.azure.com/` risorsa, nota anche come "audience" del token.

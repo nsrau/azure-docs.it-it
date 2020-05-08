@@ -5,38 +5,43 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 02/07/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b9dfb2ee7e74f94bfc3e6d2c679cb7da3d6bc66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 196c4f692b425d2fc6592888ba89f2fa6dafd3de
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127395"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612504"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Panoramica della risoluzione dei problemi, feedback e supporto
 
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
+>
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Questo articolo fornisce una panoramica dei problemi che possono verificarsi durante la configurazione di un ambiente tenant di desktop virtuali Windows e fornisce modi per risolvere i problemi.
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="report-issues-during-public-preview"></a>Segnala problemi durante l'anteprima pubblica
 
-Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
+Per segnalare problemi o suggerire funzionalità durante l'anteprima pubblica per la versione Spring 2020, visitare la pagina relativa a [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). È possibile utilizzare la Community Tech per discutere le procedure consigliate o suggerire e votare le nuove funzionalità. Quando si segnala un problema relativo alla versione di anteprima pubblica, assicurarsi di etichettare il tipo di problema come **aggiornamento di Spring 2020 (anteprima)**.
+
+Quando si effettua un post che richiede assistenza o si propone una nuova funzionalità, assicurarsi di descrivere il proprio argomento nel modo più dettagliato possibile. Le informazioni dettagliate possono aiutare gli altri utenti a rispondere alla domanda o a comprendere la funzionalità a cui si sta proponendo un voto.
 
 ## <a name="escalation-tracks"></a>Tracce di escalation
 
-Usare la tabella seguente per identificare e risolvere i problemi che possono verificarsi durante la configurazione di un ambiente tenant usando Desktop remoto client. Una volta configurata la configurazione del tenant, è possibile usare il nuovo [servizio di diagnostica](diagnostics-role-service.md) per identificare i problemi per gli scenari comuni.
+Prima di eseguire altre operazioni, assicurarsi di controllare la [pagina stato di Azure](https://status.azure.com/status) e l' [integrità dei servizi di Azure](https://azure.microsoft.com/features/service-health/) per assicurarsi che il servizio di Azure venga eseguito correttamente.
 
->[!NOTE]
-> È disponibile un forum della community tecnica che è possibile visitare per discutere i problemi con il team del prodotto e i membri della community attiva. Per iniziare una discussione, visitare il [desktop virtuale di Windows Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) .
+Usare la tabella seguente per identificare e risolvere i problemi che possono verificarsi durante la configurazione di un ambiente tenant usando Desktop remoto client. Una volta configurata la configurazione del tenant, è possibile usare il nuovo [servizio di diagnostica](diagnostics-role-service.md) per identificare i problemi per gli scenari comuni.
 
 | **Problema**                                                            | **Soluzione suggerita**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Creazione di un tenant desktop virtuale Windows                                                    | Se si verifica un'interruzione di Azure, [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/). in caso contrario, [aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, selezionare **distribuzione** per il tipo di problema, quindi selezionare problemi durante la **creazione di un tenant desktop virtuale Windows** per il sottotipo di problema.|
-| Accesso ai modelli di Marketplace in portale di Azure       | Se si verifica un'interruzione di Azure, [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> I modelli di desktop virtuali Windows di Azure Marketplace sono disponibili gratuitamente.|
-| Accesso ai modelli di Azure Resource Manager da GitHub                                  | Vedere la sezione [creazione di VM host sessione desktop virtuale di Windows](troubleshoot-set-up-issues.md#creating-windows-virtual-desktop-session-host-vms) della creazione di [tenant e pool host](troubleshoot-set-up-issues.md). Se il problema non è ancora risolto, contattare il [team di supporto di GitHub](https://github.com/contact). <br> <br> Se l'errore si verifica dopo aver eseguito l'accesso al modello in GitHub, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/).|
+| Accesso ai modelli di Marketplace in portale di Azure       | I modelli di desktop virtuali Windows di Azure Marketplace sono disponibili gratuitamente.|
 | Pool host sessione-impostazioni della rete virtuale di Azure (VNET) e Express Route               | [Aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/), quindi selezionare il servizio appropriato (nella categoria rete). |
-| Creazione della macchina virtuale (VM) del pool host della sessione quando non vengono usati Azure Resource Manager modelli forniti con il desktop virtuale Windows | [Aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/), quindi selezionare la **macchina virtuale che esegue Windows** per il servizio. <br> <br> Per problemi relativi ai modelli di Azure Resource Manager forniti con desktop virtuale di Windows, vedere la sezione relativa alla creazione di un tenant desktop virtuale Windows per la [creazione di tenant e pool host](troubleshoot-set-up-issues.md). |
+| Creazione della macchina virtuale (VM) del pool host della sessione quando non vengono usati Azure Resource Manager modelli forniti con il desktop virtuale Windows | [Aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/), quindi selezionare la **macchina virtuale che esegue Windows** per il servizio. <br> <br> Per problemi relativi ai modelli di Azure Resource Manager forniti con desktop virtuale di Windows, vedere la sezione relativa alla creazione di un tenant di desktop virtuale Windows in [ambiente e creazione di pool host](troubleshoot-set-up-issues.md). |
 | Gestione dell'ambiente host sessione desktop virtuale Windows dal portale di Azure    | [Aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Per problemi di gestione quando si usa PowerShell per desktop virtuale Servizi Desktop remoto/Windows, vedere [PowerShell per desktop virtuale Windows](troubleshoot-powershell.md) o [aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, selezionare **configurazione e gestione** per il tipo di problema, quindi selezionare **problemi configurazione tenant con PowerShell** per il sottotipo di problema. |
 | Gestione della configurazione del desktop virtuale di Windows associata ai pool di host e ai gruppi di applicazioni (gruppi di app)      | Vedere [desktop virtuale di Windows PowerShell](troubleshoot-powershell.md)o [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, quindi selezionare il tipo di problema appropriato.|
 | Distribuzione e gestione di contenitori di profili FSLogix | Vedere la [Guida alla risoluzione dei problemi per i prodotti FSLogix](/fslogix/fslogix-trouble-shooting-ht/) e se il problema persiste, [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, selezionare **FSLogix** per il tipo di problema, quindi selezionare il sottotipo di problema appropriato. |
@@ -46,11 +51,12 @@ Usare la tabella seguente per identificare e risolvere i problemi che possono ve
 | Connessione dei client                                                                    | Vedere [connessioni al servizio desktop virtuale Windows](troubleshoot-service-connection.md) . se il problema persiste, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md). |
 | Velocità di risposta delle applicazioni remote o del desktop                                      | Se i problemi sono collegati a un'applicazione o a un prodotto specifico, contattare il team responsabile del prodotto. |
 | Messaggi di licenza o errori                                                          | Se i problemi sono collegati a un'applicazione o a un prodotto specifico, contattare il team responsabile del prodotto. |
-| Problemi relativi all'uso di strumenti desktop virtuali di Windows su GitHub (modelli di Azure Resource Manager, strumento di diagnostica, strumento di gestione) | Per la segnalazione di problemi, vedere [modelli di Azure Resource Manager per Servizi Desktop remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) . |
+| Problemi con i metodi di autenticazione di terze parti | Verificare che il provider di terze parti supporti scenari di desktop virtuale di Windows e che si avvicini a eventuali problemi noti. |
+| Problemi di utilizzo di Log Analytics per desktop virtuale di Windows | Per problemi con lo schema di diagnostica, [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Per le query, la visualizzazione o altri problemi in Log Analytics, selezionare il tipo di problema appropriato in Log Analytics. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente desktop virtuale Windows, vedere [creazione di tenant e pool host](troubleshoot-set-up-issues.md).
+- Per risolvere i problemi durante la creazione di un pool host in un ambiente desktop virtuale Windows, vedere la pagina relativa alla [creazione di ambienti e pool host](troubleshoot-set-up-issues.md).
 - Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
 - Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection.md).
 - Per risolvere i problemi relativi ai client di Desktop remoto, vedere [risoluzione dei problemi del client di desktop remoto](troubleshoot-client.md)

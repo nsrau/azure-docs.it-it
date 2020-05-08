@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254235"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612453"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Applicare la licenza di Windows alle macchine virtuali host sessione
 
@@ -23,7 +23,7 @@ Gestione licenze Desktop virtuali Windows consente di applicare una licenza a qu
 
 Esistono diversi modi per utilizzare la licenza per desktop virtuali di Windows:
 - È possibile creare un pool host e le relative macchine virtuali host sessione usando l' [offerta di Azure Marketplace](./create-host-pools-azure-marketplace.md). Per le macchine virtuali create in questo modo viene automaticamente applicata la licenza.
-- È possibile creare un pool host e le relative macchine virtuali host sessione usando il [modello di Azure Resource Manager di GitHub](./create-host-pools-arm-template.md). Per le macchine virtuali create in questo modo viene automaticamente applicata la licenza.
+- È possibile creare un pool host e le relative macchine virtuali host sessione usando il [modello di Azure Resource Manager di GitHub](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). Per le macchine virtuali create in questo modo viene automaticamente applicata la licenza.
 - È possibile applicare una licenza a una macchina virtuale host sessione esistente. A tale scopo, seguire prima le istruzioni in [creare un pool di host con PowerShell](./create-host-pools-powershell.md) per creare un pool host e le macchine virtuali associate, quindi tornare a questo articolo per apprendere come applicare la licenza.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Applicare una licenza Windows a una macchina virtuale host sessione

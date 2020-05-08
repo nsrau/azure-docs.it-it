@@ -10,12 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6b2cfa85ea412a5ef8bda47a7ff6e99970ba6b0e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283537"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611841"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per risorse e flussi di lavoro Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -125,7 +126,7 @@ Di seguito è riportato un esempio semplificato dell'output JSON dal comando. Pr
 }
 ```
 
-Usare quindi il comando seguente per assegnare all'entità servizio l'accesso all'area di lavoro di machine learning. Sono necessari il nome dell'area di lavoro e il nome del gruppo di `-w` risorse `-g` rispettivamente per i parametri e. Per il `--user` parametro, usare il `objectId` valore del passaggio precedente. Il `--role` parametro consente di impostare il ruolo di accesso per l'entità servizio e, in generale, si utilizzerà **proprietario** o **collaboratore**. Entrambi hanno accesso in scrittura a risorse esistenti, ad esempio cluster di calcolo e archivi dati, ma solo il **proprietario** può effettuare il provisioning di queste risorse. 
+Usare quindi il comando seguente per assegnare all'entità servizio l'accesso all'area di lavoro di machine learning. Sono necessari il nome dell'area di lavoro e il nome del gruppo di `-w` risorse `-g` rispettivamente per i parametri e. Per il `--user` parametro, usare il `objectId` valore del passaggio precedente. Il `--role` parametro consente di impostare il ruolo di accesso per l'entità servizio e, in generale, si utilizzerà **proprietario** o **collaboratore**. Entrambi hanno accesso in scrittura a risorse esistenti, ad esempio cluster di calcolo e archivi dati, ma solo il **proprietario** può effettuare il provisioning di queste risorse.
 
 ```azurecli-interactive
 az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
@@ -148,7 +149,7 @@ sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
 La `sp` variabile ora include un oggetto di autenticazione usato direttamente nell'SDK. In generale, è consigliabile archiviare gli ID e i segreti usati in precedenza nelle variabili di ambiente, come illustrato nel codice seguente.
 
 ```python
-import os 
+import os
 
 sp = ServicePrincipalAuthentication(tenant_id=os.environ['AML_TENANT_ID'],
                                     service_principal_id=os.environ['AML_PRINCIPAL_ID'],
@@ -160,7 +161,7 @@ Per i flussi di lavoro automatizzati eseguiti in Python e usano l'SDK principalm
 ```python
 from azureml.core import Workspace
 
-ws = Workspace.get(name="ml-example", 
+ws = Workspace.get(name="ml-example",
                    auth=sp,
                    subscription_id="your-sub-id")
 ws.get_details()
@@ -168,7 +169,7 @@ ws.get_details()
 
 ## <a name="azure-machine-learning-rest-api-auth"></a>Autenticazione API REST di Azure Machine Learning
 
-L'entità servizio creata nei passaggi precedenti può essere usata anche per l'autenticazione all' [API REST](https://docs.microsoft.com/rest/api/azureml/)di Azure Machine Learning. Si usa il [flusso di concessione delle credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)Azure Active Directory, che consente le chiamate da servizio a servizio per l'autenticazione non disponibile nei flussi di lavoro automatizzati. Gli esempi sono implementati con la [libreria adal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) in Python e node. js, ma è anche possibile usare qualsiasi libreria open source che supporta OpenID Connect 1,0. 
+L'entità servizio creata nei passaggi precedenti può essere usata anche per l'autenticazione all' [API REST](https://docs.microsoft.com/rest/api/azureml/)di Azure Machine Learning. Si usa il [flusso di concessione delle credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)Azure Active Directory, che consente le chiamate da servizio a servizio per l'autenticazione non disponibile nei flussi di lavoro automatizzati. Gli esempi sono implementati con la [libreria adal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) in Python e node. js, ma è anche possibile usare qualsiasi libreria open source che supporta OpenID Connect 1,0.
 
 > [!NOTE]
 > MSAL. js è una libreria più recente rispetto a ADAL, ma non è possibile eseguire l'autenticazione da servizio a servizio con le credenziali client con MSAL. js, perché si tratta principalmente di una libreria sul lato client destinata all'autenticazione interattiva/dell'interfaccia utente associata a un utente specifico. Si consiglia di usare ADAL come illustrato di seguito per creare flussi di lavoro automatizzati con l'API REST.
@@ -206,7 +207,7 @@ context.acquireTokenWithClientCredentials(
 La variabile `tokenResponse` è un oggetto che include il token e i metadati associati, ad esempio la data di scadenza. I token sono validi per 1 ora e possono essere aggiornati eseguendo la stessa chiamata per recuperare un nuovo token. Di seguito è riportata una risposta di esempio.
 
 ```javascript
-{ 
+{
     tokenType: 'Bearer',
     expiresIn: 3599,
     expiresOn: 2019-12-17T19:15:56.326Z,
@@ -214,13 +215,13 @@ La variabile `tokenResponse` è un oggetto che include il token e i metadati ass
     accessToken: "random-oauth-token",
     isMRRT: true,
     _clientId: 'your-client-id',
-    _authority: 'https://login.microsoftonline.com/your-tenant-id' 
+    _authority: 'https://login.microsoftonline.com/your-tenant-id'
 }
 ```
 
 Utilizzare la `accessToken` proprietà per recuperare il token di autenticazione. Per esempi su come usare il token per effettuare chiamate API, vedere la [documentazione dell'API REST](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) .
 
-### <a name="python"></a>Python 
+### <a name="python"></a>Python
 
 Usare la procedura seguente per generare un token di autenticazione con Python. Nell'ambiente in uso, `pip install adal`eseguire. Quindi, usare `tenantId`, `clientId`e `clientSecret` dall'entità servizio creata nei passaggi precedenti come valori per le variabili appropriate nello script seguente.
 
@@ -242,13 +243,13 @@ La variabile `token_response` è un dizionario che include il token e i metadati
 
 ```python
 {
-    'tokenType': 'Bearer', 
-    'expiresIn': 3599, 
-    'expiresOn': '2019-12-17 19:47:15.150205', 
-    'resource': 'https://management.azure.com/', 
-    'accessToken': 'random-oauth-token', 
-    'isMRRT': True, 
-    '_clientId': 'your-client-id', 
+    'tokenType': 'Bearer',
+    'expiresIn': 3599,
+    'expiresOn': '2019-12-17 19:47:15.150205',
+    'resource': 'https://management.azure.com/',
+    'accessToken': 'random-oauth-token',
+    'isMRRT': True,
+    '_clientId': 'your-client-id',
     '_authority': 'https://login.microsoftonline.com/your-tenant-id'
 }
 ```
@@ -314,9 +315,9 @@ print(token)
 > [!IMPORTANT]
 > È necessario richiedere un nuovo token dopo l' `refresh_by` ora del token. Se è necessario aggiornare i token all'esterno di Python SDK, un'opzione consiste nell'usare l'API REST con l'autenticazione dell'entità servizio per effettuare periodicamente la `service.get_token()` chiamata, come illustrato in precedenza.
 >
-> Si consiglia di creare l'area di lavoro Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes. 
+> Si consiglia di creare l'area di lavoro Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes.
 >
-> Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web, anche se il cluster si trova in un'area diversa dall'area di lavoro. Il risultato è che Autenticazione di Azure AD non è disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile. 
+> Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web, anche se il cluster si trova in un'area diversa dall'area di lavoro. Il risultato è che Autenticazione di Azure AD non è disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile.
 >
 > Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, più tempo sarà necessario per recuperare un token.
 

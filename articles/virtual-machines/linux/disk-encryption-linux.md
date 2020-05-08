@@ -8,17 +8,17 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b60ccc7a635e4b6071b43d7ff75e182aa96cd08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74a4c13197863d0d41e183826cafd64976b44431
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313616"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792582"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Linux
 
 
-Crittografia dischi di Azure per macchine virtuali Linux usa la funzionalità DM-Crypt di Linux per fornire la crittografia completa del disco del sistema operativo e dei dischi dati. Fornisce inoltre la crittografia del disco delle risorse effimere quando si usa la funzionalità EncryptFormatAll.
+Crittografia dischi di Azure per macchine virtuali Linux usa la funzionalità DM-Crypt di Linux per fornire la crittografia completa del disco del sistema operativo e dei dischi dati. Fornisce inoltre la crittografia del disco temporaneo quando si usa la funzionalità EncryptFormatAll.
 
 Crittografia dischi di Azure è [integrato con Azure Key Vault](disk-encryption-key-vault.md) per facilitare il controllo e la gestione dei segreti e delle chiavi di crittografia del disco. Per una panoramica del servizio, vedere [crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-overview.md).
 
@@ -209,9 +209,9 @@ Per altre informazioni sulla configurazione del modello di crittografia del disc
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Usare la funzionalità EncryptFormatAll per i dischi dati nelle macchine virtuali Linux
 
-Il parametro **EncryptFormatAll** riduce la durata per la crittografia dei dischi dati Linux. Le partizioni che soddisfano determinati criteri verranno formattate (con la file system corrente), quindi rimontate nella posizione in cui si trovava prima dell'esecuzione del comando. Se si desidera escludere un disco dati che soddisfa i criteri, è possibile smontarlo prima di eseguire il comando.
+Il parametro **EncryptFormatAll** riduce la durata per la crittografia dei dischi dati Linux. Le partizioni che soddisfano determinati criteri verranno formattate, insieme ai file System correnti, quindi rimontate nella posizione in cui si trovavano prima dell'esecuzione del comando. Se si desidera escludere un disco dati che soddisfa i criteri, è possibile smontarlo prima di eseguire il comando.
 
- Dopo aver eseguito questo comando, tutte le unità montate in precedenza verranno formattate e il livello di crittografia verrà avviato sopra l'unità ora vuota. Quando questa opzione è selezionata, viene crittografato anche il disco risorse temporaneo collegato alla macchina virtuale. Se l'unità temporanea viene reimpostata, viene riformattata e crittografata di nuovo per la macchina virtuale dalla soluzione Crittografia dischi di Azure alla successiva opportunità. Una volta crittografato il disco delle risorse, l' [agente Linux Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) non sarà in grado di gestire il disco delle risorse e di abilitare il file di scambio, ma è possibile configurare manualmente il file di scambio.
+ Dopo aver eseguito questo comando, tutte le unità montate in precedenza verranno formattate e il livello di crittografia verrà avviato sopra l'unità ora vuota. Quando questa opzione è selezionata, verrà crittografato anche il disco temporaneo collegato alla macchina virtuale. Se il disco temporaneo viene reimpostato, verrà riformattato e ricrittografato per la VM dalla soluzione crittografia dischi di Azure alla prossima opportunità. Una volta crittografato il disco delle risorse, l' [agente Linux Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) non sarà in grado di gestire il disco delle risorse e di abilitare il file di scambio, ma è possibile configurare manualmente il file di scambio.
 
 >[!WARNING]
 > EncryptFormatAll non deve essere usato quando i volumi di dati di una macchina virtuale contengono dati necessari. Per escludere i dischi dalla crittografia, è possibile smontarli. È innanzitutto necessario provare EncryptFormatAll in una macchina virtuale di test, poi comprendere il parametro della funzione e la sua implicazione prima di provarlo nella macchina virtuale di produzione. L'opzione EncryptFormatAll formatta il disco dati e tutti i dati che contiene andranno persi. Prima di procedere, verificare che i dischi da escludere siano smontati correttamente. </br></br>
@@ -320,7 +320,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 
  Se la macchina virtuale è stata precedentemente crittografata con "All", il parametro--volume-Type deve rimanere "All". Tale parametro include il disco del sistema operativo e il disco dati. Se la macchina virtuale è stata precedentemente crittografata con un tipo di volume "sistema operativo", il parametro--volume-Type deve essere impostato su "All" in modo che sia il sistema operativo sia il nuovo disco dati verranno inclusi. Se la macchina virtuale è stata crittografata solo con il tipo di volume "Data", è possibile lasciare invariato il parametro "Data", come illustrato di seguito. L'aggiunta e il collegamento di un nuovo disco dati a una macchina virtuale non sono condizioni sufficienti alla preparazione per la crittografia. Il disco appena collegato deve anche essere formattato e montato in modo corretto nella macchina virtuale prima dell'abilitazione della crittografia. In Linux il disco deve essere montato in /etc/fstab con un [nome del dispositivo a blocchi permanente](troubleshoot-device-names-problems.md).  
 
-A differenza della sintassi di PowerShell, l'interfaccia della riga di comando non richiede all'utente di specificare una versione di sequenza univoca quando si abilita la crittografia. L'interfaccia della riga di comando genera e usa automaticamente uno specifico valore di versione di sequenza univoco.
+A differenza della sintassi di PowerShell, l'interfaccia della riga di comando non richiede all'utente di specificare una versione di sequenza univoca quando si Abilita la crittografia. L'interfaccia della riga di comando genera e usa automaticamente uno specifico valore di versione di sequenza univoco.
 
 -  **Crittografare i volumi di dati di una macchina virtuale in esecuzione:**
 
@@ -408,9 +408,10 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - Crittografia dei file system condivisi/distribuiti, ad esempio (ma non limitati): DFS, GFS, DRDB e CephFS.
 - Trasferimento di una macchina virtuale crittografata in un'altra sottoscrizione.
 - Dump di arresto anomalo del kernel (kdump).
-- Oracle ACFS (file System del cluster ASM)
-- Macchine virtuali Gen2 (vedere: [supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- VM serie Lsv2 (vedere: [serie Lsv2](../lsv2-series.md))
+- Oracle ACFS (file System del cluster ASM).
+- VM Gen2 (vedere: [supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
+- VM serie Lsv2 (vedere: [serie Lsv2](../lsv2-series.md)).
+- Una macchina virtuale con "punti di montaggio annidati"; ovvero più punti di montaggio in un singolo percorso (ad esempio "/1stmountpoint/data/2stmountpoint").
 
 ## <a name="next-steps"></a>Passaggi successivi
 
