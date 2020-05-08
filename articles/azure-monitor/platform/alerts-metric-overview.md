@@ -4,12 +4,12 @@ description: È disponibile una panoramica delle operazioni eseguibili con gli a
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397981"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855048"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -26,7 +26,7 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
 - Tipo di condizione: static
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono min, Max, AVG, Total, count): Average
+- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le [aggregazioni temporali supportate](metrics-charts.md#changing-aggregation) sono min, Max, AVG, Total, count): Average
 - Periodo (la finestra di ricerca su cui sono controllati i valori delle metriche): negli ultimi 5 minuti
 - Frequenza (la frequenza con cui l'avviso della metrica controlla se le condizioni sono soddisfatte): 1 minuto
 - Operatore: maggiore di
@@ -43,7 +43,7 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
 - Tipo di condizione: Dynamic
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono min, Max, AVG, Total, count): Average
+- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le [aggregazioni temporali supportate](metrics-charts.md#changing-aggregation) sono min, Max, AVG, Total, count): Average
 - Periodo (la finestra di ricerca su cui sono controllati i valori delle metriche): negli ultimi 5 minuti
 - Frequenza (la frequenza con cui l'avviso della metrica controlla se le condizioni sono soddisfatte): 1 minuto
 - Operatore: maggiore di
@@ -126,7 +126,7 @@ Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usat
 
 Questa funzionalità è attualmente supportata per le metriche della piattaforma (non per le metriche personalizzate) per i servizi seguenti nei cloud di Azure seguenti:
 
-| Servizio | Public Azure (Azure pubblico) | Government | Cina |
+| Service | Public Azure (Azure pubblico) | Government | Cina |
 |:--------|:--------|:--------|:--------|
 | Macchine virtuali  | **Sì** | No | No |
 | Database di SQL Server | **Sì** | **Sì** | No |

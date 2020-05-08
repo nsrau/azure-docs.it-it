@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426306"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598148"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Sviluppare .NET Standard funzioni definite dall'utente per i processi di analisi di flusso di Azure (anteprima)
 
@@ -42,17 +42,29 @@ Vi sono tre modi per implementare le funzioni definite dall'utente:
 Il formato del pacchetto di una qualsiasi funzione definita dall'utente presenta il percorso `/UserCustomCode/CLR/*`. Le librerie di collegamento dinamico (DLL) e le risorse vengono copiate nella cartella `/UserCustomCode/CLR/*`, che consente di isolare le DLL dell'utente dal sistema e dalle DLL di Analisi di flusso di Azure. Questo percorso del pacchetto viene usato per tutte le funzioni, indipendentemente dal metodo usato per queste.
 
 ## <a name="supported-types-and-mapping"></a>Mapping e tipi supportati
+Per usare i valori di analisi di flusso di Azure in C#, è necessario eseguirne il marshalling da un ambiente all'altro. Il marshalling si verifica per tutti i parametri di input di una funzione definita dall'utente. Ogni tipo di analisi di flusso di Azure ha un tipo corrispondente in C# indicato nella tabella seguente:
 
-|**Tipo di funzione definita dall'utente (C#)**  |**Tipo di Analisi di flusso di Azure**  |
+|**Tipo di Analisi di flusso di Azure** |**Tipo C#** |
+|---------|---------|
+|bigint | long |
+|float | double |
+|nvarchar(max) | string |
+|Datetime | Datetime |
+|Record | Stringa\<del dizionario, oggetto> |
+|Array | >\<oggetto matrice |
+
+Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad analisi di flusso di Azure, che si verifica sul valore di output di una funzione definita dall'utente. La tabella seguente illustra i tipi supportati:
+
+|**Tipo C#**  |**Tipo di Analisi di flusso di Azure**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  double   |
-|stringa  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|oggetto  |  IRecord   |
-|>\<oggetto matrice  |  IArray   |
-|dizionario <stringa, oggetto>  |  IRecord   |
+|double  |  float   |
+|string  |  nvarchar(max)   |
+|Datetime  |  dateTime   |
+|struct  |  Record   |
+|object  |  Record   |
+|>\<oggetto matrice  |  Array   |
+|Stringa\<del dizionario, oggetto>  |  Record   |
 
 ## <a name="codebehind"></a>CodeBehind
 È possibile scrivere funzioni definite dall'utente nel CodeBehind **Script.asql**. Gli strumenti di Visual Studio compileranno automaticamente il file CodeBehind in un file di assembly. Gli assembly sono inclusi in un pacchetto come file ZIP e caricati nell'account di archiviazione quando si invia il processo ad Azure. È possibile imparare a scrivere una funzione C# definita dall'utente con CodeBehind seguendo l'esercitazione [Funzione C# definita dall'utente per i processi di Analisi di flusso di Azure in IoT Edge](stream-analytics-edge-csharp-udf.md). 
