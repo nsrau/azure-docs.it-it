@@ -8,8 +8,6 @@
       href: overview.md
     - name: Confrontare i servizi di messaggistica
       href: compare-messaging-services.md
-    - name: Livelli Premium e Basic
-      href: premium-basic-tiers.md
 - name: Avvi rapidi
   expanded: true
   items:
@@ -149,6 +147,8 @@
           href: event-filtering.md
         - name: Recapito e nuovo tentativo
           href: delivery-and-retry.md
+        - name: Recapito eventi webhook
+          href: webhook-event-delivery.md
     - name: Ripristino di emergenza
       items:
         - name: Ripristino di emergenza geografico
@@ -161,20 +161,18 @@
           href: security-authorization.md
         - name: Sicurezza di rete
           href: network-security.md
+    - name: Monitorare e risolvere i problemi
+      items:
+        - name: Log di diagnostica
+          href: diagnostic-logs.md
+        - name: Metriche
+          href: metrics.md
 - name: Guide pratiche
   items:
-    - name: Configurare gli endpoint privati (anteprima)
-      href: configure-private-endpoints.md
-    - name: Configurare il firewall IP (anteprima)
-      href: configure-firewall.md
-    - name: Aggiornare il piano tariffario
-      href: update-tier.md
     - name: Inserire post sull'argomento personalizzato
       href: post-to-custom-topic.md
     - name: Ricevere eventi in un endpoint HTTP
       href: receive-events.md
-    - name: Proteggere WebHook con AAD
-      href: secure-webhook-delivery.md
     - name: Messaggi non recapitabili e ripetizione dei tentativi
       href: manage-event-delivery.md
     - name: Filtrare gli eventi
@@ -191,12 +189,24 @@
       href: how-to-event-domains.md
     - name: Implementare il failover lato client
       href: custom-disaster-recovery.md
+    - name: Tenere traccia di operazioni REST asincrone
+      href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Sicurezza
+      items:
+        - name: Configurare gli endpoint privati (anteprima)
+          href: configure-private-endpoints.md
+        - name: Configurare il firewall IP (anteprima)
+          href: configure-firewall.md
+        - name: Proteggere WebHook con AAD
+          href: secure-webhook-delivery.md
     - name: Risolvere problemi
       items:
-        - name: Abilitare i log di diagnostica per un argomento
+        - name: Abilitare i log di diagnostica
           href: enable-diagnostic-logs-topic.md
         - name: Risolvere gli errori
           href: troubleshoot-errors.md
+        - name: Risolvere i problemi di convalida della sottoscrizione
+          href: troubleshoot-subscription-validation.md
         - name: Monitorare il recapito di eventi
           href: monitor-event-delivery.md
 - name: Informazioni di riferimento

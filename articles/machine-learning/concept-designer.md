@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 945a27da874071d22952207b7be5add79ce7e2ec
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79037634"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872628"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è Finestra di progettazione di Azure Machine Learning (anteprima)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -82,7 +82,7 @@ Un modulo può avere un set di parametri che è possibile usare per configurare 
 
 ![Proprietà del modulo](./media/concept-designer/properties.png)
 
-Per informazioni sull'esplorazione della libreria di algoritmi di machine learning disponibili, vedere [Cenni preliminari sui moduli di & algoritmi](algorithm-module-reference/module-reference.md)
+Per informazioni sull'esplorazione della libreria di algoritmi di machine learning disponibili, vedere [Cenni preliminari sui moduli di algoritmi &](algorithm-module-reference/module-reference.md). Per informazioni sulla scelta di un algoritmo, vedere il foglio informativo sull' [algoritmo Azure Machine Learning](algorithm-cheat-sheet.md).
 
 ## <a name="compute-resources"></a><a name="compute"></a>Risorse di calcolo
 
@@ -91,11 +91,12 @@ Usare le risorse di calcolo dall'area di lavoro per eseguire la pipeline e ospit
 | Destinazione del calcolo | Formazione | Distribuzione |
 | ---- |:----:|:----:|
 | Ambiente di calcolo di Azure Machine Learning | ✓ | |
+| Istanza di calcolo di Azure Machine Learning | ✓ | |
 | Servizio Azure Kubernetes | | ✓ |
 
-Le destinazioni di calcolo sono collegate all' [area di lavoro Azure Machine Learning](concept-workspace.md). È possibile gestire le destinazioni di calcolo nell'area di lavoro in [Azure Machine Learning Studio (classico)](https://ml.azure.com).
+Le destinazioni di calcolo sono collegate all' [area di lavoro Azure Machine Learning](concept-workspace.md). È possibile gestire le destinazioni di calcolo nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="deploy"></a>Distribuisci
+## <a name="deploy"></a>Distribuire
 
 Per eseguire l'inferenza in tempo reale, è necessario distribuire una pipeline come **endpoint in tempo reale**. L'endpoint in tempo reale crea un'interfaccia tra un'applicazione esterna e il modello di assegnazione dei punteggi. Una chiamata a un endpoint in tempo reale restituisce i risultati della stima all'applicazione in tempo reale. Per effettuare una chiamata a un endpoint in tempo reale, passare la chiave API creata al momento della distribuzione dell'endpoint. L'endpoint è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
@@ -103,7 +104,7 @@ Gli endpoint in tempo reale devono essere distribuiti in un cluster del servizio
 
 Per informazioni su come distribuire il modello, vedere [esercitazione: distribuire un modello di Machine Learning con la finestra di progettazione](tutorial-designer-automobile-price-deploy.md).
 
-## <a name="publish"></a>Pubblica
+## <a name="publish"></a>Pubblicazione
 
 È anche possibile pubblicare una pipeline in un **endpoint della pipeline**. Analogamente a un endpoint in tempo reale, un endpoint della pipeline consente di inviare le nuove esecuzioni di pipeline da applicazioni esterne usando le chiamate REST. Tuttavia, non è possibile inviare o ricevere dati in tempo reale tramite un endpoint della pipeline.
 

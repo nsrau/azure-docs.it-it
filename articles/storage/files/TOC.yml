@@ -35,6 +35,10 @@
       href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Snapshot di condivisioni file di Azure
       href: storage-snapshots-files.md
+    - name: Ridondanza dei dati
+      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Ripristino di emergenza e failover
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Obiettivi di scalabilità e prestazioni
       href: storage-files-scale-targets.md
     - name: Autenticazione e autorizzazione basate su identità
@@ -114,10 +118,18 @@
           href: storage-sync-files-server-endpoint.md
         - name: Gestire le risorse di archiviazione nei cloud indipendenti di Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Cambiare la modalità di replica dei dati
-          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Avviare il failover di un account
-          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Gestire la ridondanza dei dati
+          items:
+            - name: Cambiare la modalità di replica dei dati
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Progettare applicazioni a disponibilità elevata
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Gestire il ripristino di emergenza
+          items:
+            - name: Controllare la proprietà Ora ultima sincronizzazione
+              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Avviare il failover di un account
+              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Monitorare
       items:
         - name: Monitorare Sincronizzazione file di Azure
@@ -188,8 +200,6 @@
           href: storage-sync-files-troubleshoot.md
         - name: Risolvere i problemi relativi all'eliminazione di File di Azure
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
-        - name: consente di ripristinare un account di archiviazione eliminato
-          href: storage-how-to-recover-deleted-account.md
 - name: Informazioni di riferimento
   items:
     - name: Azure PowerShell (Storage)

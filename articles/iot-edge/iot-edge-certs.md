@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: d3e456d57d98b796fb1aea2e82de51f9fae40c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733170"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982729"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Informazioni sul modo in cui Azure IoT Edge usa i certificati
 
@@ -36,7 +36,7 @@ L'autorità di certificazione, o CA, è un'entità che emette i certificati digi
 
 ### <a name="root-ca-certificate"></a>Certificato CA radice
 
-Un certificato CA radice è la base per l'attendibilità dell'intero processo. Negli scenari di produzione, in genere è presente un certificato CA acquistato da un'autorità di certificazione commerciale attendibile, ad esempio Baltimore, Verisign o DigiCert. Chi ha il controllo completo dei dispositivi che si connettono ai dispositivi IoT Edge può usare un'autorità di certificazione di livello aziendale. In entrambi i casi, l'intera catena di certificati dell'hub di IoT Edge fa capo a questo, pertanto i dispositivi IoT foglia devono considerare attendibile il certificato radice. È possibile archiviare il certificato CA radice nell'archivio dell'autorità per i certificati radice attendibili o specificare i dettagli del certificato nel codice dell'applicazione.
+Un certificato CA radice è la base per l'attendibilità dell'intero processo. Negli scenari di produzione, in genere è presente un certificato CA acquistato da un'autorità di certificazione commerciale attendibile, ad esempio Baltimore, Verisign o DigiCert. Chi ha il controllo completo dei dispositivi che si connettono ai dispositivi IoT Edge può usare un'autorità di certificazione di livello aziendale. In entrambi i casi, viene eseguito il rollback dell'intera catena di certificati dall'hub IoT Edge, quindi i dispositivi foglia devono considerare attendibile il certificato radice. È possibile archiviare il certificato CA radice nell'archivio dell'autorità per i certificati radice attendibili o specificare i dettagli del certificato nel codice dell'applicazione.
 
 ### <a name="intermediate-certificates"></a>Certificati intermedi
 

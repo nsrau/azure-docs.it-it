@@ -7,19 +7,21 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: 9c43b141608e5a9051499fdfb2adb5d8b0b593df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/07/2020
+ms.openlocfilehash: 805b51bf4e6d8feab9539f660dfc72ca78b82d5c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232472"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982633"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Trasformazione EXISTS nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 La trasformazione EXISTS è una trasformazione filtro di riga che controlla se i dati esistono in un'altra origine o in un altro flusso. Il flusso di output include tutte le righe nel flusso a sinistra che esistono o non esistono nel flusso di destra. La trasformazione EXISTS è simile ```SQL WHERE EXISTS``` a ```SQL WHERE NOT EXISTS```e.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
 
 ## <a name="configuration"></a>Configurazione
 

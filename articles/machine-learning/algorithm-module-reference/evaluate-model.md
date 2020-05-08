@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129839"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983364"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -34,9 +34,13 @@ Utilizzare questo modulo per misurare l'accuratezza di un modello sottoposto a t
 
 
 ## <a name="how-to-use-evaluate-model"></a>Come usare Evaluate Model
-1. Connettere l'output del **set di dati con punteggio** del modello di [Punteggio](./score-model.md) alla porta di input sinistra di **Evaluate Model**. 
+1. Connettere l'output del set di dati con **Punteggio** dell'output del [modello di Punteggio](./score-model.md) o del set di dati dei risultati della assegnazione dei [dati ai cluster](./assign-data-to-clusters.md) alla porta di input sinistra di **Evaluate Model**. 
+  > [!NOTE] 
+  > Se si usano moduli come "Seleziona colonne nel set di dati" per selezionare una parte del set di dati di input, verificare che la colonna di etichette effettiva (usata nel training), la colonna ' scored Probabilities ' e la colonna ' scored labels ' esistano per calcolare le metriche come l'AUC, l'accuratezza per la classificazione binaria/anomalia
+  > Colonna di etichetta effettiva, colonna ' scored labels ' esistente per calcolare le metriche per la classificazione o la regressione multiclasse.
+  > Colonna ' assegnazioni ', colonne ' DistancesToClusterCenter No. X ' (X è l'indice centrale, compreso tra 0,..., numero di centroidi-1) esistente per calcolare le metriche per il clustering.
 
-2. Opzionale Connettere l'output del **set di dati con punteggio** del modello di [Punteggio](./score-model.md) per il secondo modello all'input di **destra** di **Evaluate Model**. È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono avere lo stesso tipo di algoritmo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
+2. Opzionale Connettere l'output del set di dati con **Punteggio** dell'output del [modello di Punteggio](./score-model.md) o del set di dati dei risultati di assegna i dati ai cluster per il secondo modello alla porta di input **destra** di **Evaluate Model**. È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono avere lo stesso tipo di algoritmo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
 
     > [!NOTE]
     > Il tipo di algoritmo fa riferimento a' classificazione a due classi ',' classificazione multiclasse ',' regressione ',' clustering ' in ' Machine Learning algoritmi '. 

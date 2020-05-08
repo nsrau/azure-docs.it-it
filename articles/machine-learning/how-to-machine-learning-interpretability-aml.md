@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39d2bf0e527d43e2a5fb9437720f249e54b4dff3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769799"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983636"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python
 
@@ -85,7 +85,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                  classes=classes)
     ```
 
-    o
+    oppure
 
     ```python
 
@@ -111,7 +111,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                classes=classes)
     ```
 
-    o
+    oppure
 
     ```python
     from interpret.ext.blackbox import PFIExplainer
@@ -238,10 +238,10 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare `Explanation
 * Utilizzare il `ExplanationClient` nell'esecuzione remota per caricare il contesto di interpretazione.
 * Scaricare il contesto in un secondo momento in un ambiente locale.
 
-1. Installare `azureml-interpret` i `azureml-interpret-contrib` pacchetti di e.
+1. Installare `azureml-interpret` i `azureml-contrib-interpret` pacchetti di e.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 1. Creare uno script di training in un'istanza di Jupyter Notebook locale. Ad esempio: `train_explain.py`.
 

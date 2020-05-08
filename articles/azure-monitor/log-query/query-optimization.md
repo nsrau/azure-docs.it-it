@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411439"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864250"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -108,7 +108,7 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-### <a name="use-effective-aggregation-commands-and-dimmentions-in-summarize-and-join"></a>Usare i comandi di aggregazione effettivi e dimmentions in riepilogo e join
+### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Usare comandi e dimensioni di aggregazione efficaci in riepilogo e join
 
 Mentre alcuni comandi di aggregazione come [Max ()](/azure/kusto/query/max-aggfunction), [Sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)e [AVG ()](/azure/kusto/query/avg-aggfunction) hanno un basso effetto sulla CPU dovuti alla logica, altri sono più complessi e includono euristiche e stime che ne consentono l'esecuzione in modo efficiente. [DCount ()](/azure/kusto/query/dcount-aggfunction) , ad esempio, usa l'algoritmo HyperLogLog per fornire una stima di chiusura per il conteggio distinto di set di dati di grandi dimensioni senza contare effettivamente ogni valore. le funzioni percentile eseguono approssimazioni simili usando l'algoritmo percentile di rango più vicino. Molti dei comandi includono parametri facoltativi per ridurne l'effetto. Ad esempio, la funzione [maket ()](/azure/kusto/query/makeset-aggfunction) dispone di un parametro facoltativo per definire la dimensione massima del set, che influiscono significativamente sulla CPU e sulla memoria.
 

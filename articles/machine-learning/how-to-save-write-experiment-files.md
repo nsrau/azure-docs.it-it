@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0938888b7343b441725faace7a5f20d8f50674c8
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79078428"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872057"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dove salvare e scrivere file per esperimenti di Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Per correggere l'errore, archiviare i file dell'esperimento in un archivio dati.
 Descrizione&nbsp;esperimento|Soluzione limite di archiviazione
 ---|---
 Meno di 2000 file & non possono usare un archivio dati| Sostituisci limite dimensioni snapshot con <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Questa operazione può richiedere alcuni minuti a seconda del numero e delle dimensioni dei file.
-Deve usare una directory di script specifica| Creare un `.amlignore` file per escludere i file dallo snapshot dell'esperimento che non fanno parte del codice sorgente. Aggiungere i nomi `.amlignore` file al file e posizionarlo nella stessa directory dello script di training. Il `.amlignore` file utilizza la stessa [sintassi e](https://git-scm.com/docs/gitignore) gli stessi modelli `.gitignore` di un file.
+Deve usare una directory di script specifica| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Pipeline|Usare una sottodirectory diversa per ogni passaggio
 Jupyter Notebook| Creare un `.amlignore` file o spostare il notebook in una nuova sottodirectory vuota, quindi eseguire di nuovo il codice.
 

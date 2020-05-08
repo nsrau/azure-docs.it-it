@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453065"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982803"
 ---
 # <a name="microsoft-global-network"></a>Rete globale Microsoft
 
-Microsoft possiede e gestisce una delle più grandi reti backbone del mondo. Questa architettura globale e sofisticata, che si estende su più di 100.000 chilometri, connette i nostri data center e i clienti. 
+Microsoft possiede e gestisce una delle più grandi reti backbone del mondo. Questa architettura globale e sofisticata, che si estende su più di 160.000 chilometri, connette i nostri data center e i clienti. 
  
 Ogni giorno, i clienti di tutto il mondo si connettono e passano trilioni di richieste a Microsoft Azure, Bing, Dynamics 365, Office 365, XBox e molti altri. Indipendentemente dal tipo, i clienti si aspettano l'affidabilità immediata e la velocità di risposta dei nostri servizi. 
  
@@ -32,7 +32,7 @@ Ogni giorno, i clienti di tutto il mondo si connettono e passano trilioni di ric
  
 ## <a name="get-the-premium-cloud-network"></a>Ottenere la rete cloud Premium
  
-Optare per la [migliore esperienza possibile](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) è facile quando si usa Microsoft Cloud. Dal momento in cui il traffico dei clienti passa alla rete globale tramite i nodi perimetrali posizionati in modo strategico, i dati passano attraverso itinerari ottimizzati in prossimità della velocità della luce. Ciò garantisce una latenza ottimale per ottenere prestazioni ottimali. Questi nodi perimetrali, tutti interconnessi a più di 3500 partner Internet esclusivi (peer) con migliaia di connessioni in più di 145 località, costituiscono la base della strategia di interconnessione. 
+Optare per la [migliore esperienza possibile](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) è facile quando si usa Microsoft Cloud. Dal momento in cui il traffico dei clienti passa alla rete globale tramite i nodi perimetrali posizionati in modo strategico, i dati passano attraverso itinerari ottimizzati in prossimità della velocità della luce. Ciò garantisce una latenza ottimale per ottenere prestazioni ottimali. Questi nodi perimetrali, tutti interconnessi a più di 3500 partner Internet esclusivi (peer) con migliaia di connessioni in più di 165 località, costituiscono la base della strategia di interconnessione. 
  
 Se ci si connette da Londra a Tokyo o da Washington DC a Los Angeles, le prestazioni di rete vengono quantificate e interessate da elementi come latenza, jitter, perdita di pacchetti e velocità effettiva.  In Microsoft si preferisce e si usano le interconnessioni dirette invece dei collegamenti di transito, in questo modo il traffico di risposta è simmetrico e consente di mantenere gli hop, le parti del peering e i percorsi il più breve e semplice possibile. 
 

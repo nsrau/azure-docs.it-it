@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 45045cb1360658d394e5469d022ac03033d11aff
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: dd8706c1e95e6b1e4ca4a38d4a336f6186464696
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165791"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872194"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Onboarding Gestione aggiornamenti soluzione usando il modello di Azure Resource Manager
 
@@ -28,13 +28,16 @@ Il modello non automatizza l'onboarding di una o più macchine virtuali di Azure
 Se si dispone già di un'area di lavoro Log Analytics e di un account di automazione distribuiti in un'area supportata nella sottoscrizione, questi non sono collegati. Per l'area di lavoro non è già stata distribuita la soluzione Gestione aggiornamenti. Con questo modello viene creato il collegamento e viene distribuita la soluzione Gestione aggiornamenti. 
 
 >[!NOTE]
+>L'utente **nxautomation** caricato come parte del gestione aggiornamenti in Linux esegue solo manuali operativi con segno.
+
+>[!NOTE]
 >Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](automation-update-azure-modules.md).
 
 ## <a name="api-versions"></a>Versioni dell'API
 
 La tabella seguente elenca le versioni API per le risorse usate in questo modello.
 
-| Risorsa | Tipo di risorsa | Versione dell'API |
+| Resource | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
 | Area di lavoro | aree di lavoro | 2017-03-15-preview |
 | Account di Automazione | automation | 2015-10-31 | 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9ffa10726c1ca838f00b713e6640f609c122975a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: b85846419ce5f6cd4093e198d83240817c95754a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735097"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983058"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Creare una nuova offerta SaaS nel Marketplace commerciale
 
@@ -77,7 +77,6 @@ Per elencare le offerte SaaS (software as a Service) con Marketplace commerciale
 
 - L'offerta deve usare [Azure Active Directory (Azure ad)](https://azure.microsoft.com/services/active-directory/) per la gestione delle identità e l'autenticazione.
 - L'offerta deve usare [API di evasione Saas](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) per l'integrazione con Azure Marketplace.
-- Per requisiti più estesi, vedere la [Guida alla pubblicazione dell'offerta SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 #### <a name="saas-pricing-and-billing-options"></a>Opzioni di fatturazione e prezzi SaaS
 
@@ -110,11 +109,11 @@ Promuovere la propria azienda con Microsoft creando un elenco di Marketplace. Se
 
 #### <a name="get-it-now-free"></a>Ottieni ora (gratuito)
 
-Elencare gratuitamente l'offerta ai clienti fornendo un indirizzo valido (a partire da *http* o *https*), in cui è possibile ottenere una versione di valutazione tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Ad esempio, `https://contoso.com/saas-app`
+Elencare gratuitamente l'offerta ai clienti fornendo un indirizzo valido (a partire da *http* o *https*), in cui è possibile ottenere una versione di valutazione tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Ad esempio: `https://contoso.com/saas-app`.
 
 #### <a name="free-trial-listing"></a>Versione di valutazione gratuita (elenco)
 
-Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un indirizzo valido (a partire da *http* o *https*), in cui è possibile ottenere una versione di valutazione tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Ad esempio, `https://contoso.com/trial/saas-app` Le versioni di valutazione gratuite dell'elenco di offerte vengono create, gestite e configurate dal servizio e non hanno sottoscrizioni gestite da Microsoft.
+Elencare l'offerta ai clienti con un collegamento a una versione di valutazione gratuita fornendo un indirizzo valido (a partire da *http* o *https*), in cui è possibile ottenere una versione di valutazione tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). Ad esempio: `https://contoso.com/trial/saas-app`. Le versioni di valutazione gratuite dell'elenco di offerte vengono create, gestite e configurate dal servizio e non hanno sottoscrizioni gestite da Microsoft.
 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure AD per automatizzare la creazione di account nell'app. Gli account Microsoft (MSA) non sono supportati per l'autenticazione con questo token.
@@ -156,7 +155,7 @@ Selezionare **Salva bozza** prima di continuare.
 
 Questa pagina richiede di definire le categorie e i settori usati per raggruppare l'offerta nei Marketplace, i contratti legali che supportano l'offerta e la versione dell'app.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare almeno una e fino a tre categorie per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. Descrive il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta.
 

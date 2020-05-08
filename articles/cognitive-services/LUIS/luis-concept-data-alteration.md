@@ -2,13 +2,13 @@
 title: Modifica dei dati-LUIS
 description: Informazioni su come modificare i dati prima delle previsioni in Language Understanding (LUIS)
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: b3b36351a64a4e1a0bd13d5785a4e0609a80901d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 3a88739caa9b35679f10b0cb63a804e9464c871c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292068"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872241"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modificare i dati delle espressioni prima e durante la stima
 LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. Che includono la [correzione dell'ortografia](luis-tutorial-bing-spellcheck.md)e la correzione dei problemi di fuso orario per [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefiniti.
@@ -28,7 +28,7 @@ Per correggere gli errori di ortografia nell'espressione, LUIS usa l'[API Contro
 
 L'endpoint richiede due parametri per il funzionamento delle correzioni ortografiche:
 
-|Param|Valore|
+|Param|valore|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Chiave endpoint [API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
@@ -75,42 +75,27 @@ L'API controllo ortografico Bing utilizzata in LUIS non supporta un elenco di pa
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Cambiare il fuso orario dell'entità datetimeV2 predefinita
 Quando un'app LUIS USA l'entità [datetimeV2](luis-reference-prebuilt-datetimev2.md) predefinita, nella risposta di stima può essere restituito un valore DateTime. Il fuso orario della richiesta viene utilizzato per determinare il valore datatime corretto da restituire. Se la richiesta proviene da un bot o da un'altra applicazione centralizzata prima di passare a LUIS, occorre correggere il fuso orario usato da LUIS.
 
-### <a name="endpoint-querystring-parameter"></a>Parametro queryString dell'endpoint
-Per correggere il fuso orario aggiungere il fuso orario dell'utente all'[endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) mediante il parametro `timezoneOffset`. Il valore di `timezoneOffset` deve essere il numero positivo o negativo che, in minuti, modifica l'ora.
+### <a name="v3-prediction-api-to-alter-timezone"></a>API di stima V3 per modificare il fuso orario
 
-|Param|Valore|
-|--|--|
-|`timezoneOffset`|numero positivo o negativo, in minuti|
+In V3, il `datetimeReference` determina l'offset del fuso orario. Altre informazioni sulle [stime V3](luis-migration-api-v3.md#v3-post-body).
 
-### <a name="daylight-savings-example"></a>Esempio di ora legale
-Se è necessario che l'entità datetimeV2 predefinita restituita sia regolata in base all'ora legale, occorre usare il `timezoneOffset`parametro querystring con un valore +/- in minuti per la query [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356).
+### <a name="v2-prediction-api-to-alter-timezone"></a>V2 API di stima per modificare il fuso orario
+Il fuso orario viene corretto aggiungendo il fuso orario dell'utente all'endpoint usando il `timezoneOffset` parametro in base alla versione dell'API. Il valore del parametro deve essere il numero positivo o negativo, in minuti, per modificare l'ora.
 
-#### <a name="v2-prediction-endpoint-request"></a>[Richiesta dell'endpoint di previsione V2](#tab/V2)
+#### <a name="v2-prediction-daylight-savings-example"></a>V2 stima dell'ora legale di stima
+Se è necessario che la datetimeV2 predefinita restituita venga modificata per l'ora legale, è consigliabile usare il parametro QueryString con un valore +/-in minuti per la query dell' [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) .
 
 Aggiungere 60 minuti:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
 Sottrarre 60 minuti:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=-60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
-#### <a name="v3-prediction-endpoint-request"></a>[Richiesta dell'endpoint di previsione V3](#tab/V3)
+#### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>V2 il codice C# di stima determina il valore corretto del parametro
 
-Aggiungere 60 minuti:
-
-`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
-
-Sottrarre 60 minuti:
-
-`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
-
-Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
-
-* * *
-
-## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>Il codice C# determina il valore corretto di timezoneOffset
-Il seguente codice C# usa il metodo [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) della classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) per determinare il corretto `timezoneOffset` basato sull'ora di sistema:
+Il codice C# seguente usa il metodo [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) della classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) per determinare il valore di offset corretto in base all'ora di sistema:
 
 ```csharp
 // Get CST zone id
@@ -122,8 +107,8 @@ DateTime utcDatetime = DateTime.UtcNow;
 // Get Central Standard Time value of Now
 DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 
-// Find timezoneOffset
-int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
+// Find timezoneOffset/datetimeReference
+int offset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f592a7f5a4af38988bcf433f0adc89d9be7579cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082010"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983466"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Che cos'è automatizzato Machine Learning (AutoML)?
 
@@ -130,11 +130,72 @@ Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad
 
 + Python SDK: specifica `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` per la [ `AutoMLConfig` classe](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
+
+
+## <a name="ensemble-models"></a><a name="ensemble"></a>Modelli di ensemble
+
+Machine Learning automatizzato supporta i modelli di Ensemble, che sono abilitati per impostazione predefinita. Ensemble Learning migliora i risultati di machine learning e le prestazioni predittive combinando più modelli anziché l'uso di singoli modelli. Le iterazioni insieme vengono visualizzate come le iterazioni finali dell'esecuzione. Il Machine Learning automatico usa i metodi Ensemble di voto e di stacking per combinare i modelli:
+
+* **Voto**: stima in base alla media ponderata delle probabilità della classe stimata (per le attività di classificazione) o alle destinazioni di regressione stimate (per le attività di regressione).
+* **Stacking**: lo stacking combina i modelli eterogeneo e addestra un metamodello in base all'output dei singoli modelli. I metadati predefiniti correnti sono LogisticRegression per le attività di classificazione e ElasticNet per le attività di regressione/previsione.
+
+L' [algoritmo di selezione dell'ensemble di Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inizializzazione dell'insieme ordinato viene usato per decidere quali modelli usare nell'insieme. A un livello elevato, questo algoritmo Inizializza l'insieme con un massimo di cinque modelli con i punteggi individuali migliori e verifica che questi modelli siano entro il 5% di soglia del punteggio migliore per evitare un insieme iniziale scadente. Per ogni iterazione di ensemble viene quindi aggiunto un nuovo modello all'insieme esistente e il punteggio risultante viene calcolato. Se un nuovo modello ha migliorato il Punteggio di ensemble esistente, l'insieme viene aggiornato in modo da includere il nuovo modello.
+
+Vedere le [procedure](how-to-configure-auto-train.md#ensemble) per modificare le impostazioni di ensemble predefinite in Machine Learning automatico.
+
+## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a><a name="local-remote"></a>Linee guida per le destinazioni di calcolo locali e remote gestite da ML
+
+L'interfaccia Web per Machine Learning machine learning usa sempre una [destinazione di calcolo](concept-compute-target.md)remota.  Tuttavia, quando si usa Python SDK, scegliere una destinazione di calcolo locale o remota per il training di Machine Learning automatico.
+
+* **Calcolo locale**: il training viene eseguito sul computer portatile locale o sul calcolo della macchina virtuale. 
+* **Calcolo remoto**: il training si verifica nei cluster di calcolo Machine Learning.  
+
+### <a name="choose-compute-target"></a>Scegliere la destinazione di calcolo
+Prendere in considerazione questi fattori quando si sceglie la destinazione di calcolo:
+
+ * **Scegliere un calcolo locale**: se lo scenario riguarda le esplorazioni iniziali o le demo che usano piccoli dati e treni brevi, ovvero secondi o un paio di minuti per ogni esecuzione, il training sul computer locale potrebbe essere la scelta migliore.  Non sono disponibili tempi di installazione, le risorse dell'infrastruttura (PC o VM) sono direttamente disponibili.
+ * **Scegliere un cluster di elaborazione ml remoto**: se si esegue il training con set di impostazioni di dimensioni maggiori, ad esempio nel training di produzione, creazione di modelli che richiedono treni più lunghi, il calcolo remoto fornirà `AutoML` prestazioni ottimali per l'ora end-to-end perché parallelizzare i treni tra i nodi del cluster. In un calcolo remoto, il tempo di avvio per l'infrastruttura interna aggiungerà circa 1,5 minuti per ogni esecuzione, oltre a minuti aggiuntivi per l'infrastruttura cluster se le macchine virtuali non sono ancora in esecuzione.
+
+### <a name="pros-and-cons"></a>Vantaggi e svantaggi
+Considerare questi vantaggi e svantaggi quando si sceglie di usare local e remote.
+
+|  | Vantaggi (vantaggi)  |Svantaggi (handicap)  |
+|---------|---------|---------|---------|
+|**Destinazione di calcolo locale** |  <li> Nessun orario di avvio dell'ambiente   | <li>  Subset di funzionalità<li>  Non è possibile eseguire parallelizzare <li> Peggiore per i dati di grandi dimensioni. <li>Nessun flusso di dati durante il training <li>  Nessun conteggi basato su DNN <li> Solo Python SDK |
+|**Cluster di calcolo di ML remoti**|  <li> Set completo di funzionalità <li> Esecuzioni figlio parallelizzare <li>   Supporto dati di grandi dimensioni<li>  Conteggi basato su DNN <li>  Scalabilità dinamica del cluster di elaborazione su richiesta <li> È disponibile anche l'esperienza senza codice (interfaccia utente Web)  |  <li> Tempo di avvio per i nodi del cluster <li> Tempo di avvio per ogni esecuzione figlio    |
+
+### <a name="feature-availability"></a>Disponibilità delle funzionalità 
+
+ Quando si usa il calcolo remoto, sono disponibili altre funzionalità, come illustrato nella tabella seguente. Alcune di queste funzionalità sono disponibili solo in un'area di lavoro aziendale.
+
+| Funzionalità                                                    | Remoto | Locale | Richiede <br>Area di lavoro aziendale |
+|------------------------------------------------------------|--------|-------|-------------------------------|
+| Streaming dei dati (supporto per dati di grandi dimensioni, fino a 100 GB)          | ✓      |       | ✓                             |
+| DNN-conteggi del testo basato su BERT e formazione             | ✓      |       | ✓                             |
+| Supporto GPU predefinito (formazione e inferenza)        | ✓      |       | ✓                             |
+| Supporto per la classificazione delle immagini e l'assegnazione di etichette                  | ✓      |       | ✓                             |
+| Modelli ARIMA, Prophet e ForecastTCN automatici per la previsione | ✓      |       | ✓                             |
+| Più esecuzioni/iterazioni in parallelo                       | ✓      |       | ✓                             |
+| Creare modelli con l'interpretazione nell'interfaccia utente di AutoML Studio Web Experience      | ✓      |       | ✓                             |
+| Personalizzazione della progettazione delle funzionalità nell'interfaccia utente dell'esperienza Web di studio                        | ✓      |       | ✓                              |
+| Ottimizzazione di iperparametri di Azure ML                             | ✓      |       |                               |
+| Supporto del flusso di lavoro della pipeline di Azure ML                         | ✓      |       |                               |
+| Continua un'esecuzione                                             | ✓      |       |                               |
+| Previsione                                                | ✓      | ✓     | ✓                             |
+| Creazione ed esecuzione di esperimenti nei notebook                    | ✓      | ✓     |                               |
+| Registrare e visualizzare le informazioni e le metriche dell'esperimento nell'interfaccia utente | ✓      | ✓     |                               |
+| Guardrails dati                                            | ✓      | ✓     |                               |
+
+
+## <a name="automated-ml-in-azure-machine-learning"></a>ML automatizzato in Azure Machine Learning
+
+Azure Machine Learning offre due esperienze per l'uso di ML automatizzato
+
+* Per i clienti con esperienza di codice, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+
+* Per i clienti con esperienza limitata o senza codice, Azure Machine Learning Studio alle[https://ml.azure.com](https://ml.azure.com/)  
+
 <a name="parity"></a>
-
-## <a name="the-studio-vs-sdk"></a>Visual Studio SDK
-
-Informazioni sulla parità e sulle differenze tra le funzionalità di Machine Learning automatiche di livello superiore disponibili tramite Python SDK e lo studio in Azure Machine Learning. 
 
 ### <a name="experiment-settings"></a>Impostazioni esperimento 
 
@@ -181,17 +242,6 @@ Queste impostazioni consentono di esaminare e controllare le esecuzioni dell'esp
 |Ottenere Guardrails| ✓|✓|
 |Sospendere & riprendere le esecuzioni| ✓| |
 
-## <a name="ensemble-models"></a><a name="ensemble"></a>Modelli di ensemble
-
-Machine Learning automatizzato supporta i modelli di Ensemble, che sono abilitati per impostazione predefinita. Ensemble Learning migliora i risultati di machine learning e le prestazioni predittive combinando più modelli anziché l'uso di singoli modelli. Le iterazioni insieme vengono visualizzate come le iterazioni finali dell'esecuzione. Il Machine Learning automatico usa i metodi Ensemble di voto e di stacking per combinare i modelli:
-
-* **Voto**: stima in base alla media ponderata delle probabilità della classe stimata (per le attività di classificazione) o alle destinazioni di regressione stimate (per le attività di regressione).
-* **Stacking**: lo stacking combina i modelli eterogeneo e addestra un metamodello in base all'output dei singoli modelli. I metadati predefiniti correnti sono LogisticRegression per le attività di classificazione e ElasticNet per le attività di regressione/previsione.
-
-L' [algoritmo di selezione dell'ensemble di Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) con inizializzazione dell'insieme ordinato viene usato per decidere quali modelli usare nell'insieme. A un livello elevato, questo algoritmo Inizializza l'insieme con un massimo di cinque modelli con i punteggi individuali migliori e verifica che questi modelli siano entro il 5% di soglia del punteggio migliore per evitare un insieme iniziale scadente. Per ogni iterazione di ensemble viene quindi aggiunto un nuovo modello all'insieme esistente e il punteggio risultante viene calcolato. Se un nuovo modello ha migliorato il Punteggio di ensemble esistente, l'insieme viene aggiornato in modo da includere il nuovo modello.
-
-Vedere le [procedure](how-to-configure-auto-train.md#ensemble) per modificare le impostazioni di ensemble predefinite in Machine Learning automatico.
-
 <a name="use-with-onnx"></a>
 
 ## <a name="automl--onnx"></a>AutoML & ONNX
@@ -202,20 +252,19 @@ Vedere come convertire il formato ONNX [in questo esempio di Jupyter notebook](h
 
 Il runtime di ONNX supporta anche C#, quindi è possibile usare il modello creato automaticamente nelle app C# senza dover ricodificare o una delle latenze di rete introdotte dagli endpoint REST. Altre informazioni sull' [inferenza dei modelli ONNX con l'API C# di ONNX Runtime](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere gli esempi e informazioni su come creare modelli usando Machine Learning automatico:
-
-+ Seguire l' [esercitazione: eseguire automaticamente il training di un modello di regressione con Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configurare le impostazioni per l'esperimento di training automatico:
   + In Azure Machine Learning Studio [usare questa procedura](how-to-use-automated-ml-for-ml-models.md).
   + Con Python SDK, [seguire questa procedura](how-to-configure-auto-train.md).
 
++ Informazioni su come usare una [destinazione di calcolo remota](how-to-auto-train-remote.md)
+
++ Seguire l' [esercitazione: eseguire automaticamente il training di un modello di regressione con Azure Machine Learning](tutorial-auto-train-models.md) 
+
 + Per informazioni su come eseguire il training automatico usando i dati delle serie temporali, [seguire questa procedura](how-to-auto-train-forecast.md).
 
 + Prova [Jupyter notebook esempi per Machine Learning automatizzato](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
-
 * Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft, ad esempio [ml.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

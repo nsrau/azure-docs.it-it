@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 2f67079938ddcf4a65e01ef50ab7e5cdf7078b73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260939"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871267"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
 Hub di eventi di Azure è un servizio di ingresso dati altamente scalabile che può inserire milioni di eventi al secondo in modo che è possibile elaborare e analizzare enormi quantità di dati generati per i dispositivi connessi e le applicazioni. Gli hub di eventi fungono da "porta principale" per una pipeline di eventi e una volta che i dati vengono raccolti in un hub di eventi, possono essere trasformati e archiviati con qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Gli hub di eventi separano la produzione di un flusso di eventi dal consumo di questi eventi, in modo che i consumer di eventi può accedere agli eventi in base a una pianificazione.
@@ -34,9 +34,9 @@ Dopo aver creato un hub eventi, è necessario configurare un [Logger](https://do
 
 I logger di Gestione API vengono configurati mediante l' [API REST Gestione API](https://aka.ms/apimapi). Per esempi di richiesta dettagliati, vedere [come creare logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
-## <a name="configure-log-to-eventhubs-policies"></a>Configurare i criteri log-to-eventhubs
+## <a name="configure-log-to-eventhub-policies"></a>Configurare i criteri log-to-eventhub
 
-Dopo la configurazione del logger in Gestione API, è possibile configurare i criteri log-to-eventhubs in modo da registrare gli eventi desiderati. I criteri log-to-eventhubs possono essere usati nella sezione relativa ai criteri in ingresso o in quella relativa ai criteri in uscita.
+Dopo la configurazione del logger in gestione API, è possibile configurare i criteri log-to-eventhub per registrare gli eventi desiderati. Il criterio log-to-eventhub può essere usato nella sezione dei criteri in ingresso o nei criteri in uscita.
 
 1. Passare all'istanza di Gestione API.
 2. Selezionare la scheda API.
@@ -49,15 +49,32 @@ Dopo la configurazione del logger in Gestione API, è possibile configurare i cr
 9. Nella finestra a destra selezionare **criteri** > avanzati**Accedi a EventHub**. In questo modo viene inserito il modello di istruzione del criterio `log-to-eventhub`.
 
 ```xml
-<log-to-eventhub logger-id ='logger-id'>
-  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+<log-to-eventhub logger-id="logger-id">
+    @{
+        return new JObject(
+            new JProperty("EventTime", DateTime.UtcNow.ToString()),
+            new JProperty("ServiceName", context.Deployment.ServiceName),
+            new JProperty("RequestId", context.RequestId),
+            new JProperty("RequestIp", context.Request.IpAddress),
+            new JProperty("OperationName", context.Operation.Name)
+        ).ToString();
+    }
 </log-to-eventhub>
 ```
-Sostituire `logger-id` con il valore usato per `{new logger name}` nell'URL per creare il logger nel passaggio precedente.
+Sostituire `logger-id` con il valore usato per `{loggerId}` nell'URL della richiesta per creare il logger nel passaggio precedente.
 
-È possibile usare qualsiasi espressione che restituisce una stringa come valore dell'elemento `log-to-eventhub` . In questo esempio viene registrata una stringa contenente data e ora, nome del servizio, ID richiesta, indirizzo IP della richiesta e nome dell'operazione.
+È possibile usare qualsiasi espressione che restituisce una stringa come valore dell'elemento `log-to-eventhub` . In questo esempio viene registrata una stringa in formato JSON che contiene la data e l'ora, il nome del servizio, l'ID della richiesta, l'indirizzo IP della richiesta e il nome dell'operazione.
 
 Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il criterio risulta attivo immediatamente dopo il salvataggio e gli eventi vengono registrati nell'hub eventi designato.
+
+## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Visualizzare in anteprima il log in hub eventi usando analisi di flusso di Azure
+
+È possibile visualizzare in anteprima il log in hub eventi usando le [query di analisi di flusso di Azure](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+
+1. Nella portale di Azure passare all'hub eventi a cui il logger invia gli eventi. 
+2. In **funzionalità**selezionare la scheda **elabora dati** .
+3. Nella scheda **Abilita informazioni dettagliate in tempo reale da eventi** selezionare **Esplora**.
+4. Dovrebbe essere possibile visualizzare l'anteprima del log nella scheda **Anteprima input** . Se i dati visualizzati non sono aggiornati, selezionare **Aggiorna** per visualizzare gli eventi più recenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull'Hub eventi di Azure
