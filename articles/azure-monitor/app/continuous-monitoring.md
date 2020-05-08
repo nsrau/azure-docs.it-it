@@ -2,13 +2,13 @@
 title: Monitoraggio continuo della pipeline di rilascio di DevOps con Azure Pipelines e applicazione Azure Insights | Microsoft Docs
 description: Vengono fornite istruzioni per configurare rapidamente il monitoraggio continuo con Application Insights
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655396"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652759"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Aggiungere un monitoraggio continuo alla pipeline di versione
 
@@ -51,17 +51,19 @@ In modalità predefinita, il modello **di distribuzione del servizio app Azure c
 
 Per modificare le impostazioni delle regole di avviso:
 
-1. Nel riquadro sinistro della pagina pipeline di rilascio selezionare **configura Application Insights avvisi**.
+Nel riquadro sinistro della pagina pipeline di rilascio selezionare **configura Application Insights avvisi**.
 
-1. Nel riquadro **avvisi di monitoraggio di Azure** selezionare i puntini di sospensione **...** accanto a **regole di avviso**.
-   
-1. Nella finestra di dialogo **regole di avviso** selezionare il simbolo a discesa accanto a una regola di avviso, ad esempio **disponibilità**. 
-   
-1. Modificare la **soglia** e altre impostazioni per soddisfare i requisiti.
-   
-   ![Modifica avviso](media/continuous-monitoring/003.png)
-   
-1. Selezionare **OK**e quindi fare clic su **Salva** nella parte superiore destra della finestra di Azure DevOps. Immettere un commento descrittivo e quindi fare clic su **OK**.
+Le quattro regole di avviso predefinite vengono create tramite uno script inline:
+
+```bash
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
+
+È possibile modificare lo script e aggiungere altre regole di avviso, modificare le condizioni di avviso o rimuovere le regole di avviso che non hanno senso per la distribuzione.
 
 ## <a name="add-deployment-conditions"></a>Aggiungere le condizioni di distribuzione
 

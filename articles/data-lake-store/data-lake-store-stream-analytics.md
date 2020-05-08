@@ -1,26 +1,20 @@
 ---
-title: Trasmettere i dati da Analisi di flusso ad Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Usare Analisi di flusso di Azure per trasmettere i dati in Azure Data Lake Storage Gen1
-services: data-lake-store,stream-analytics
-documentationcenter: ''
+title: Trasmettere i dati da analisi di flusso a Data Lake Storage Gen1-Azure
+description: Usare analisi di flusso di Azure per trasmettere i dati in Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60194945"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690972"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB del servizio di archiviazione di Azure a Data Lake Storage Gen1 usando Analisi di flusso di Azure
-In questo articolo viene descritto come usare Azure Data Lake Storage Gen1 come output per un processo di Analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB del servizio di archiviazione di Azure (input) e scritti in Data Lake Storage Gen1 (output).
+Questo articolo illustra come usare Azure Data Lake Storage Gen1 come output per un processo di analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB del servizio di archiviazione di Azure (input) e scritti in Data Lake Storage Gen1 (output).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
@@ -29,7 +23,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Account di archiviazione di Azure**. Per l'input dei dati per un processo di Analisi di flusso viene usato un contenitore BLOB da questo account. Per questa esercitazione, si supponga di disporre di un account di archiviazione **storageforasa** e di un contenitore incluso nell'account denominato **storageforasacontainer**. Dopo aver creato il contenitore, caricare un file di dati di esempio. 
   
-* **Un account data Lake storage Gen1**. Seguire le istruzioni [riportate in Introduzione all'Azure Data Lake storage Gen1 usando il portale di Azure](data-lake-store-get-started-portal.md). Si supponga di avere un account Data Lake Storage Gen1 denominato **myadlsg1**. 
+* **Un account data Lake storage Gen1**. Seguire le istruzioni fornite in [Introduzione ad Azure Data Lake Storage Gen1 con il portale di Azure](data-lake-store-get-started-portal.md). Si supponga di avere un account Data Lake Storage Gen1 denominato **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso
 Iniziare creando un processo di Analisi di flusso che include un'origine di input e una destinazione di output. Per questa esercitazione, l'origine è un contenitore BLOB di Azure e la destinazione è Data Lake Storage Gen1.
@@ -118,5 +112,5 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
     Nel riquadro Esplora dati l'output viene scritto in un percorso di cartella come specificato nelle impostazioni di output di Data Lake Storage Gen1 (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Creare un cluster HDInsight per usare Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

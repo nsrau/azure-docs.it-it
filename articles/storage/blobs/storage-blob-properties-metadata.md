@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137663"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692456"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gestire le proprietà e i metadati dei BLOB con .NET
 
@@ -24,6 +24,11 @@ Oltre ai dati che contengono, i BLOB supportano le proprietà di sistema e i met
 - **Proprietà di sistema**: sono presenti proprietà di sistema in ogni risorsa di archiviazione BLOB. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure per .NET gestisce queste proprietà.
 
 - **Metadati definiti dall'utente**: i metadati definiti dall'utente sono costituiti da una o più coppie nome/valore specificate per una risorsa di archiviazione BLOB. È possibile usare i metadati per archiviare valori aggiuntivi con la risorsa. I valori dei metadati sono solo per i propri scopi e non influiscono sul comportamento della risorsa.
+
+> [!NOTE]
+> I tag dell'indice BLOB consentono anche di archiviare attributi chiave/valore definiti dall'utente arbitrari insieme a una risorsa di archiviazione BLOB. Sebbene simili ai metadati, solo i tag degli indici BLOB vengono automaticamente indicizzati e resi disponibili per query dal servizio BLOB nativo. I metadati non possono essere indicizzati e sottoposti a query in modo nativo a meno che non si utilizzi un servizio separato, ad esempio ricerca di Azure.
+>
+> Per altre informazioni su questa funzionalità, vedere [gestire e trovare i dati nell'archivio BLOB di Azure con indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 Il recupero dei metadati e dei valori delle proprietà per una risorsa di archiviazione BLOB è un processo in due passaggi. Prima di poter leggere questi valori, è necessario recuperarli in modo esplicito chiamando `FetchAttributes` il `FetchAttributesAsync` metodo o. L'eccezione a questa regola è che i `Exists` metodi `ExistsAsync` e chiamano il metodo `FetchAttributes` appropriato dietro le quinte. Quando si chiama uno di questi metodi, non è necessario chiamare `FetchAttributes`anche.
 
