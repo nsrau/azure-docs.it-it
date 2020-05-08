@@ -1010,6 +1010,8 @@
         - name: Panoramica della sicurezza
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: Baseline di sicurezza
+          href: security-baseline.md
         - name: Controllo di accesso
           items:
             - name: Panoramica del controllo di accesso
@@ -1622,16 +1624,16 @@
                   maintainContext: true
                 - name: Token di Azure Active Directory (AAD)
                   items:
-                    - name: Panoramica dell'autenticazione con token AAD
+                    - name: Panoramica dell'autenticazione con token di AAD
                       href: /azure/databricks/dev-tools/api/latest/aad/index
                       maintainContext: true
-                    - name: Ottenere un token AAD con la libreria di autenticazione di AAD
+                    - name: Ottenere un token di AAD con AAD Authentication Library
                       href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
                       maintainContext: true
-                    - name: Ottenere un token AAD con un'entità servizio
+                    - name: Ottenere un token di AAD con un'entità servizio
                       href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
                       maintainContext: true
-                    - name: Risolvere i problemi relativi ai token di accesso AAD
+                    - name: Risolvere i problemi relativi ai token di accesso di AAD
                       href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
                       maintainContext: true
             - name: Cluster

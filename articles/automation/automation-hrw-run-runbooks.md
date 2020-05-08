@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 276ad52424fd0a835012a48411b3e9365f55b0fe
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a86139c7becaae996e343166088b416dd8d6404f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787635"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855646"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Eseguire runbook in un ruolo di lavoro ibrido per runbook
 
@@ -252,7 +252,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Quando un Runbook è stato firmato, è necessario importarlo nell'account di automazione e pubblicarlo con il blocco della firma. Per informazioni su come importare i runbook,vedere [Importazione di un runbook da un file in Automazione di Azure](manage-runbooks.md#importing-a-runbook).
+Quando un Runbook è stato firmato, è necessario importarlo nell'account di automazione e pubblicarlo con il blocco della firma. Per informazioni su come importare manuali operativi, vedere [importare un Runbook](manage-runbooks.md#import-a-runbook).
 
 ## <a name="work-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Usare manuali operativi firmato in un ruolo di lavoro ibrido per Runbook di Linux
 

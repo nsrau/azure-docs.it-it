@@ -56,6 +56,8 @@
       href: use-key-vault-references-spring-boot.md
     - name: Integrare una pipeline CI/CD
       href: integrate-ci-cd-pipeline.md
+    - name: Integrare la distribuzione di Kubernetes con Helm
+      href: integrate-kubernetes-deployment-helm.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -72,7 +74,7 @@
       href: concept-github-action.md
     - name: Gestione degli eventi
       href: concept-app-configuration-event.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Crittografare con chiavi gestite dal cliente
           href: concept-customer-managed-keys.md

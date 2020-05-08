@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 94cdeff36553268d691fc968036c5264e77fddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13d7e0bfd3c7061d9dec68a1d14ff2a5e2c05fcd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188808"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791256"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Ridimensionare in modo elastico un account di API Cassandra Azure Cosmos DB
 
@@ -58,9 +58,9 @@ Uno svantaggio di questo approccio può essere dovuto al fatto che non è possib
 
 Il vantaggio di questo approccio è che consente di rispondere in modo dinamico alle esigenze di scalabilità e in modo personalizzato per l'applicazione. Con questo approccio è comunque possibile sfruttare i costi e le tariffe standard di Ur/s. Se le esigenze di scalabilità del sistema sono prevedibili (circa il 70% o più), l'uso dell'SDK con CQL può essere un metodo più conveniente per la scalabilità automatica rispetto all'uso della scalabilità automatica. Lo svantaggio di questo approccio è che può essere piuttosto complesso implementare nuovi tentativi mentre la limitazione della frequenza può aumentare la latenza.
 
-## <a name="use-autoscale"></a><a id="use-autoscale"></a>Usare la scalabilità automatica
+## <a name="use-autoscale-provisioned-throughput"></a><a id="use-autoscale"></a>Usare la velocità effettiva con provisioning con scalabilità automatica
 
-Oltre al modo manuale o programmatico di provisioning della velocità effettiva, è anche possibile configurare i contenitori di Azure Cosmos in modalità di scalabilità automatica. La modalità di ridimensionamento automatico si adatta automaticamente alle esigenze di consumo entro gli intervalli di ur specificati senza compromettere i contratti di contratto. Per altre informazioni, vedere l'articolo [creare contenitori e database di Azure Cosmos in modalità di scalabilità](provision-throughput-autoscale.md) automatica.
+Oltre alla modalità standard (manuale) o a livello di codice per il provisioning della velocità effettiva, è anche possibile configurare i contenitori di Azure Cosmos nella velocità effettiva con provisioning automatico. La scalabilità automatica verrà automaticamente ridimensionata in base alle esigenze di consumo entro gli intervalli di ur specificati senza compromettere i contratti di contratto. Per altre informazioni, vedere l'articolo [creare contenitori di Azure Cosmos e database in scalabilità](provision-throughput-autoscale.md) automatica.
 
 Il vantaggio di questo approccio è che è il modo più semplice per gestire le esigenze di scalabilità nel sistema. Garantisce di non applicare **la limitazione della frequenza negli intervalli di ur configurati**. Lo svantaggio è che, se le esigenze di ridimensionamento nel sistema sono prevedibili, la scalabilità automatica può essere un modo meno conveniente per gestire le esigenze di scalabilità rispetto all'uso del piano di controllo o degli approcci a livello di SDK indicati in precedenza.
 
