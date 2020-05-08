@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: ae80b49c3bfb40743665768622d3f4a8a6990c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 286c9329be38055808571d8d32c724d27a61cbf3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311856"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855868"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Panoramica della terminazione TLS e del TLS end-to-end con il gateway applicazione
 
@@ -28,6 +28,10 @@ Il gateway applicazione supporta la terminazione TLS nel gateway, dopo il quale 
 - **Gestione dei certificati** : è necessario acquistare e installare solo i certificati nel gateway applicazione e non in tutti i server back-end. Questo consente di risparmiare tempo e denaro.
 
 Per configurare la terminazione TLS, è necessario aggiungere un certificato TLS/SSL al listener per consentire al gateway applicazione di derivare una chiave simmetrica in base alla specifica del protocollo TLS/SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato TLS/SSL deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
+
+> [!IMPORTANT] 
+> Si noti che il certificato nel listener richiede il caricamento dell'intera catena di certificati. 
+
 
 > [!NOTE] 
 >
