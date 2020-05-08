@@ -9,36 +9,39 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: dadfe0022cfb99703222ba7a91ca3ec6f5fce645
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836632"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927973"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Risolvere i problemi dell'agente di aggiornamento di Linux
 
-Ci possono essere molti motivi per cui il computer non viene visualizzato come pronto (integro) nella soluzione Gestione aggiornamenti di automazione di Azure. In Gestione aggiornamenti, è possibile verificare l'integrità di un agente di lavoro ibrido per Runbook per determinare il problema sottostante. Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per i computer Azure dalla portale di Azure e dai computer non Azure nello [scenario offline](#troubleshoot-offline). 
+Ci possono essere diversi motivi per cui il computer non viene visualizzato come pronto (integro) in Gestione aggiornamenti. È possibile verificare l'integrità di un agente di lavoro ibrido per Runbook di Linux per determinare il problema sottostante. Di seguito sono riportati i tre stati di conformità per un computer:
 
-Un computer può essere in tre stati di conformità:
-
-* **Pronto**: il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato meno di un'ora fa.
-* **Disconnesso**: il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato più di un'ora fa.
-* **Non configurato**: il ruolo di lavoro ibrido per Runbook non è stato trovato o non è stato completato il caricamento.
+* Pronto: il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato meno di un'ora fa.
+* Disconnesso: il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato più di un'ora fa.
+* Non configurato: il ruolo di lavoro ibrido per Runbook non è stato trovato o non è stato completato il caricamento.
 
 > [!NOTE]
 > È possibile che si verifichi un lieve ritardo tra il portale di Azure visualizzato e lo stato corrente di un computer.
 
+Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per i computer Azure dalla portale di Azure e dai computer non Azure nello [scenario offline](#troubleshoot-offline). 
+
+> [!NOTE]
+> Lo script di risoluzione dei problemi non instrada attualmente il traffico attraverso un server proxy, se ne è stato configurato uno.
+
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Per le macchine virtuali di Azure, selezionare il collegamento **risoluzione dei problemi** nella colonna **Aggiorna conformità agente** nel portale per aprire la pagina **risoluzione dei problemi dell'agente di aggiornamento** . Per i computer non Azure, il collegamento riporta a questo articolo. Per risolvere i problemi relativi a un computer non Azure, vedere le istruzioni nella sezione "risoluzione dei problemi offline".
+Per le macchine virtuali di Azure, selezionare il collegamento **risoluzione dei problemi** nella colonna **Aggiorna conformità agente** nel portale per aprire la pagina risoluzione dei problemi dell'agente di aggiornamento. Per i computer non Azure, il collegamento riporta a questo articolo. Per risolvere i problemi relativi a un computer non Azure, vedere le istruzioni nella sezione "risoluzione dei problemi offline".
 
 ![Pagina elenco VM](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > I controlli richiedono che la macchina virtuale sia in esecuzione. Se la macchina virtuale non è in esecuzione, viene visualizzata **l'opzione avvia la macchina virtuale** .
 
-Nella pagina **risoluzione dei problemi dell'agente di aggiornamento** selezionare **Esegui controlli** per avviare lo strumento di risoluzione dei problemi. Lo strumento di risoluzione dei problemi usa il [comando Run](../../virtual-machines/linux/run-command.md) per eseguire uno script nel computer per verificare le dipendenze. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
+Nella pagina risoluzione dei problemi dell'agente di aggiornamento selezionare **Esegui controlli** per avviare lo strumento di risoluzione dei problemi. Lo strumento di risoluzione dei problemi usa il [comando Run](../../virtual-machines/linux/run-command.md) per eseguire uno script nel computer per verificare le dipendenze. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
 
 ![Pagina della risoluzione dei problemi](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -84,6 +87,9 @@ Questo controllo verifica se l'agente di Log Analytics per Linux ha il pacchetto
 ### <a name="hybrid-runbook-worker-status"></a>Stato del ruolo di lavoro ibrido per runbook
 
 Questo controllo garantisce che il ruolo di lavoro ibrido per runbook sia in esecuzione nel computer. I processi seguenti devono essere presenti se il ruolo di lavoro ibrido per runbook è correttamente in esecuzione. Per altre informazioni, vedere [risoluzione dei problemi relativi all'agente log Analytics per Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+
+> [!NOTE]
+> Se il ruolo di lavoro ibrido per Runbook non è in esecuzione e l'endpoint operativo non è riuscito, l'aggiornamento potrebbe non riuscire. Gestione aggiornamenti Scarica i pacchetti del ruolo di lavoro ibrido dall'endpoint Operations.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

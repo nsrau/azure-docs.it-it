@@ -5,54 +5,71 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b390c0beb20b7557294c18f889a0f41023513e2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 474eb4f5247aeb77edce0ebfde1611bf2deef493
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80246960"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930404"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
-I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
+>
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Ogni pool di host può essere associato a più gruppi RemoteApp, a un gruppo di app desktop e a più host di sessione.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Questo articolo presuppone che sia già stata seguita la procedura [illustrata in configurare il modulo PowerShell](powershell-module.md).
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Usare il client di PowerShell per creare un pool di host
 
-Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](/powershell/windows-virtual-desktop/overview/) da usare nella sessione di PowerShell, se non è già stato fatto.
-
-Eseguire il cmdlet seguente per accedere all'ambiente desktop virtuale di Windows
+Eseguire il cmdlet seguente per accedere all'ambiente di Desktop virtuale Windows:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> 
 ```
 
-Eseguire quindi questo cmdlet per creare un nuovo pool di host nel tenant del desktop virtuale Windows:
-
-```powershell
-New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
-```
+Questo cmdlet creerà il pool host, l'area di lavoro e il gruppo di app desktop. Inoltre, registrerà il gruppo di app desktop nell'area di lavoro. È possibile creare un'area di lavoro con questo cmdlet o usare un'area di lavoro esistente. 
 
 Eseguire il cmdlet Next per creare un token di registrazione per autorizzare un host sessione ad aggiungere il pool host e salvarlo in un nuovo file nel computer locale. È possibile specificare il periodo di validità del token di registrazione utilizzando il parametro-ExpirationHours.
 
+>[!NOTE]
+>La data di scadenza del token non può essere inferiore a un'ora e non più di un mese. Se si imposta *-expirationTime* al di fuori di tale limite, il cmdlet non creerà il token.
+
 ```powershell
-New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
+New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
+```
+
+Se ad esempio si vuole creare un token che scade tra due ore, eseguire questo cmdlet: 
+
+```powershell
+New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ')) 
 ```
 
 Eseguire questo cmdlet per aggiungere Azure Active Directory utenti al gruppo di app desktop predefinito per il pool host.
 
 ```powershell
-Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
-Il cmdlet **Add-RdsAppGroupUser** non supporta l'aggiunta di gruppi di sicurezza e aggiunge un solo utente alla volta al gruppo di app. Se si desidera aggiungere più utenti al gruppo di app, eseguire di nuovo il cmdlet con i nomi dell'entità utente appropriati.
+Eseguire questo cmdlet successivo per aggiungere Azure Active Directory gruppi di utenti al gruppo di app desktop predefinito per il pool host:
+
+```powershell
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+“-DAG”> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
+```
 
 Eseguire il cmdlet seguente per esportare il token di registrazione in una variabile, che sarà utilizzata più avanti in [registrare le macchine virtuali nel pool host del desktop virtuale di Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
-$token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
+$token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> 
 ```
 
 ## <a name="create-virtual-machines-for-the-host-pool"></a>Creazione di macchine virtuali per il pool host
@@ -66,7 +83,7 @@ A questo punto è possibile creare una macchina virtuale di Azure che può esser
 - [Creare una macchina virtuale da un'immagine non gestita](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-user-image-data-disks)
 
 >[!NOTE]
->Se si distribuisce una macchina virtuale usando Windows 7 come sistema operativo host, il processo di creazione e distribuzione sarà leggermente diverso. Per ulteriori informazioni, vedere [la pagina relativa alla distribuzione di una macchina virtuale Windows 7 sul desktop virtuale di Windows](deploy-windows-7-virtual-machine.md).
+>Se si distribuisce una macchina virtuale usando Windows 7 come sistema operativo host, il processo di creazione e distribuzione sarà leggermente diverso. Per ulteriori informazioni, vedere [la pagina relativa alla distribuzione di una macchina virtuale Windows 7 sul desktop virtuale di Windows](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
 Dopo aver creato le macchine virtuali host sessione, [applicare una licenza Windows a una VM host sessione](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) per eseguire le macchine virtuali Windows o Windows Server senza pagare per un'altra licenza. 
 
@@ -97,15 +114,13 @@ Per registrare gli agenti desktop virtuali Windows, eseguire le operazioni segue
 1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
 2. Scaricare e installare l'agente desktop virtuale di Windows.
    - Scaricare l' [agente desktop virtuale di Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Fare clic con il pulsante destro del mouse sul programma di installazione scaricato, scegliere **Proprietà**, selezionare **Sblocca**e quindi fare clic su **OK**. Questo consentirà al sistema di considerare attendibile il programma di installazione.
    - Eseguire il programma di installazione. Quando il programma di installazione richiede il token di registrazione, immettere il valore ottenuto dal cmdlet **Export-RdsRegistrationInfo** .
 3. Scaricare e installare il bootloader dell'agente desktop virtuale di Windows.
    - Scaricare il [bootloader dell'agente desktop virtuale di Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
-   - Fare clic con il pulsante destro del mouse sul programma di installazione scaricato, scegliere **Proprietà**, selezionare **Sblocca**e quindi fare clic su **OK**. Questo consentirà al sistema di considerare attendibile il programma di installazione.
    - Eseguire il programma di installazione.
 
 >[!IMPORTANT]
->Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](../security-center/security-center-just-in-time.md).
+>Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile non aprire la porta 3389 in ingresso nelle macchine virtuali. Desktop virtuale Windows non richiede una porta in ingresso 3389 per permettere agli utenti di accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare l'[accesso Just-In-Time alla VM](../security-center/security-center-just-in-time.md). Si consiglia anche di non assegnare le VM a un indirizzo IP pubblico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
