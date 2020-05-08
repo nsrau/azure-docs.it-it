@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72299665"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857875"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
 Questo articolo illustra le procedure consigliate e alcune considerazioni sul funzionamento di Azure Data Lake Storage Gen2. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Storage Gen2. Prima di Data Lake Storage Gen2, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Storage Gen2 supporta le dimensioni dei singoli file, ad esempio 5 TB, e la maggior parte dei limiti rigidi per le prestazioni sono stati rimossi. Tuttavia, in questo articolo sono comunque illustrate alcune considerazioni che aiutano a ottenere prestazioni ottimali con Data Lake Storage Gen2.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Azure Data Lake Storage Gen2 offre controlli di accesso POSIX per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e directory esistenti. I controlli di accesso possono essere usati anche per creare autorizzazioni predefinite che possono essere applicate automaticamente a nuovi file o directory. Altri dettagli sugli elenchi di controllo di accesso di Data Lake Storage Gen2 sono disponibili in [Controllo di accesso di Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 
@@ -49,7 +49,7 @@ Quando si progetta un sistema con Data Lake Storage Gen2 o con qualsiasi servizi
 
 ### <a name="high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
 
-La disponibilità elevata e il ripristino di emergenza possono talvolta essere combinati, anche se ognuno prevede una strategia leggermente diversa, in particolare quando si tratta di dati. Data Lake Storage Gen2 esegue la replica 3 volte in background per garantire protezione in caso di errori hardware localizzati. Inoltre, altre opzioni di replica, ad esempio ZRS o GZRS (anteprima), migliorano la disponibilità elevata, mentre GRS & RA-GRS migliora il ripristino di emergenza. Quando si prepara un piano per la disponibilità elevata, in caso di interruzione del servizio il carico di lavoro deve poter accedere ai dati più recenti nel più breve tempo possibile, passando a un'istanza replicata separatamente in locale o in una nuova area.
+La disponibilità elevata e il ripristino di emergenza possono talvolta essere combinati, anche se ognuno prevede una strategia leggermente diversa, in particolare quando si tratta di dati. Data Lake Storage Gen2 esegue la replica 3 volte in background per garantire protezione in caso di errori hardware localizzati. Inoltre, altre opzioni di replica, ad esempio ZRS o GZRS, migliorano la disponibilità elevata, mentre GRS & RA-GRS migliora il ripristino di emergenza. Quando si prepara un piano per la disponibilità elevata, in caso di interruzione del servizio il carico di lavoro deve poter accedere ai dati più recenti nel più breve tempo possibile, passando a un'istanza replicata separatamente in locale o in una nuova area.
 
 In una strategia di ripristino di emergenza, per prepararsi all'improbabile eventualità di un errore irreversibile di un'area è anche importante replicare i dati in un'area diversa con l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. È anche necessario considerare i requisiti per i casi limite, ad esempio il danneggiamento dei dati, per cui potrebbe essere utile creare snapshot periodici a cui eseguire il fallback. A seconda dell'importanza e delle dimensioni dei dati, prendere in considerazione snapshot delta in sequenza in periodi di 1, 6 e 24 ore, in base alla tolleranza di rischio.
 

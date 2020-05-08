@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73494594"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857427"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)
 
-Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDInsight in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) per eseguire le applicazioni di **debug degli errori di Spark** .
+Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDInsight in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) per eseguire le applicazioni di **debug degli errori di Spark** .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,7 +26,7 @@ Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDIn
   
 * IntelliJ IDEA. Questo articolo usa [INTELLIJ idea community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
-* Azure Toolkit for IntelliJ. Vedere [Installazione di Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ. Vedere [Installazione di Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * Connettersi al cluster HDInsight. Vedere [connettersi al cluster HDInsight](apache-spark-intellij-tool-plugin.md).
 

@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416630"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857684"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -67,7 +67,7 @@ Usare la procedura seguente per creare un runtime di integrazione self-hosted us
 1. Nella pagina di **installazione di Integration Runtime** selezionare **Azure, self-hosted**e quindi selezionare **continue (continua**). 
 
 1. Nella pagina seguente selezionare **self-hosted** per creare un runtime di integrazione self-hosted e quindi selezionare **continue (continua**).
-   ![Creare un selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Creare un selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Immettere un nome per il runtime di integrazione e selezionare **Crea**.
 
@@ -107,7 +107,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 Ecco i dettagli dei parametri e delle proprietà dell'applicazione: 
 
-| Proprietà                                                    | Descrizione                                                  | Obbligatoria |
+| Proprietà                                                    | Descrizione                                                  | Necessario |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione specificata. | No       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione e il nome del nodo specificati. | No       |
@@ -119,7 +119,7 @@ Ecco i dettagli dei parametri e delle proprietà dell'applicazione:
 | **ImportBackupFile** "`<filePath>`" "`<password>`"              | Ripristinare il nodo da un file di backup.                          | No       |
 | **Riavvia**                                                     | Riavviare il servizio host del runtime di integrazione self-hosted.   | No       |
 | **Inizia**                                                       | Avviare il servizio host del runtime di integrazione self-hosted.     | No       |
-| **Arresta**                                                        | Arrestare il servizio host del runtime di integrazione self-hosted.        | No       |
+| **Stop**                                                        | Arrestare il servizio host del runtime di integrazione self-hosted.        | No       |
 | **StartUpgradeService**                                         | Avviare il servizio di aggiornamento del runtime di integrazione self-hosted.       | No       |
 | **StopUpgradeService**                                          | Arrestare il servizio di aggiornamento del runtime di integrazione self-hosted.        | No       |
 | **TurnOnAutoUpdate**                                            | Attivare l'aggiornamento automatico del runtime di integrazione self-hosted.        | No       |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 820fe016d630e63660368c9065acbcda9b514921
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605993"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858621"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -102,7 +102,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
   
     Assicurarsi inoltre che il traffico di rete in uscita verso l'endpoint KMS con la porta 1688 non sia bloccato dal firewall nella macchina virtuale.
 
-5. Verificare usando [Network Watcher hop successivo](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) che il tipo di hop successivo dalla macchina virtuale in questione all'indirizzo IP di destinazione 23.102.135.246 (per KMS.Core.Windows.NET) o l'indirizzo IP dell'endpoint del servizio di gestione delle chiavi appropriato che si applica alla propria area è **Internet**.  Se il risultato è VirtualAppliance o VirtualNetworkGateway, è probabile che esista una route predefinita.  Contattare la rete amministratore e collaborare per determinare la linea di condotta corretta.  Potrebbe trattarsi di una [Route personalizzata](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) se tale soluzione è coerente con i criteri dell'organizzazione.
+5. Verificare usando [Network Watcher hop successivo](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) che il tipo di hop successivo dalla macchina virtuale in questione all'indirizzo IP di destinazione 23.102.135.246 (per KMS.Core.Windows.NET) o l'indirizzo IP dell'endpoint del servizio di gestione delle chiavi appropriato che si applica alla propria area è **Internet**.  Se il risultato è VirtualAppliance o VirtualNetworkGateway, è probabile che esista una route predefinita.  Contattare l'amministratore di rete e collaborare per determinare la linea di condotta corretta.  Potrebbe trattarsi di una [Route personalizzata](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) se tale soluzione è coerente con i criteri dell'organizzazione.
 
 6. Dopo avere verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
 

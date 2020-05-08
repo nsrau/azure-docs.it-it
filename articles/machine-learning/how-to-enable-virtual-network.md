@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 6cf89790ee125d8d09d9bdead2f6e34dcb73e8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e4f811d39c75742f11c52de5c178fbf4063000d
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188124"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864641"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -150,7 +150,7 @@ Per usare un'istanza di calcolo Azure Machine Learning o un cluster di calcolo i
 > Queste risorse sono limitate in base alle [quote delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) della sottoscrizione.
 
 
-### <a name="required-ports"></a><a id="mlcports"></a> Porte richieste
+### <a name="required-ports"></a><a id="mlcports"></a>Porte obbligatorie
 
 L'ambiente di calcolo di Machine Learning attualmente usa il servizio Azure Batch per effettuare il provisioning delle machine virtuali nella rete virtuale specificata. La subnet deve consentire la comunicazione in ingresso dal servizio Batch. Usare questa comunicazione per pianificare esecuzioni nei nodi ambiente di calcolo di Machine Learning e per comunicare con archiviazione di Azure e altre risorse. Il servizio batch aggiunge gruppi di sicurezza di rete (gruppi) al livello delle interfacce di rete (NIC) collegati alle macchine virtuali. Questi gruppi di sicurezza di rete configurano automaticamente le regole in ingresso e in uscita per consentire il traffico seguente:
 
@@ -359,7 +359,7 @@ Per usare una macchina virtuale o un cluster Azure HDInsight in una rete virtual
 Per aggiungere AKS in una rete virtuale all'area di lavoro, seguire questa procedura:
 
 > [!IMPORTANT]
-> Prima di iniziare la procedura seguente, attenersi ai prerequisiti descritti in How to [Advanced Networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) e pianificare gli indirizzi IP per il cluster.
+> Prima di iniziare la procedura seguente, attenersi ai prerequisiti descritti in How to [Advanced Networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) e pianificare gli indirizzi IP per il cluster.
 >
 > L'istanza di AKS e la rete virtuale di Azure devono trovarsi nella stessa area. Se si proteggono gli account di archiviazione di Azure usati dall'area di lavoro in una rete virtuale, è necessario che si trovino nella stessa rete virtuale dell'istanza di AKS.
 
@@ -506,7 +506,7 @@ Per usare ACI in una rete virtuale per l'area di lavoro, seguire questa procedur
 
 
 
-## <a name="use-azure-firewall"></a>Usare il firewall di Azure
+## <a name="use-azure-firewall"></a>Usare Firewall di Azure
 
 Per informazioni sull'uso di Azure Machine Learning con il firewall di Azure, vedere [usare Azure machine learning area di lavoro dietro il firewall di Azure](how-to-access-azureml-behind-firewall.md).
 
@@ -557,7 +557,7 @@ Per informazioni sull'uso di Azure Machine Learning con il firewall di Azure, ve
     
     Per ulteriori informazioni, vedere il riferimento al metodo [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
 
-1. Se si usa un collegamento privato per l'area di lavoro di Azure Machine Learning e si inserisce il Container Registry di Azure per l'area di lavoro in una rete virtuale, è necessario applicare anche il modello di Azure Resource Manager seguente. Questo modello consente all'area di lavoro di comunicare con ACR tramite il collegamento privato.
+1. È necessario applicare il modello di Azure Resource Manager seguente. Questo modello consente all'area di lavoro di comunicare con ACR.
 
     ```json
     {
