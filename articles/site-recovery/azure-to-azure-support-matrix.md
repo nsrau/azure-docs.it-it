@@ -4,12 +4,12 @@ description: Riepiloga il supporto per il ripristino di emergenza di macchine vi
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 2fc2a32c47991b9b3615417dfb8f50ca3e7c988f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864573"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983500"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali di Azure tra aree di Azure
 
@@ -84,7 +84,7 @@ Site Recovery supporta la replica di macchine virtuali di Azure che eseguono i s
 --- | ---
 Windows Server 2019 | Supportato per Server Core, server con esperienza desktop.
 Windows Server 2016  | Server Core supportato, server con esperienza desktop.
-R2 per Windows Server 2012 | Supportato.
+Windows Server 2012 R2 | Supportato.
 Windows Server 2012 | Supportato.
 Windows Server 2008 R2 con SP1/SP2 | Supportato.<br/><br/> Dalla versione [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'estensione del servizio Mobility per le macchine virtuali di Azure, è necessario installare un aggiornamento di Windows [servicing stack (SSU)](https://support.microsoft.com/help/4490628) e un [aggiornamento SHA-2](https://support.microsoft.com/help/4474419) nei computer che eseguono Windows Server 2008 R2 SP1/SP2.  SHA-1 non è supportato dal 2019 settembre e se la firma del codice SHA-2 non è abilitata, l'estensione dell'agente non verrà installata o aggiornata come previsto. Altre informazioni sull' [aggiornamento e sui requisiti di SHA-2](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Supportato.
@@ -215,9 +215,9 @@ Archiviazione ad accesso frequente e sporadico | Non supportato | I dischi delle
 Spazi di archiviazione | Supportato |
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.
 Crittografia inattiva (CMK) | Supportato | Per Managed Disks sono supportati sia il software che le chiavi HSM
-Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi protette da HSM non sono supportate. |
-Crittografia dischi di Azure (ADE) per sistema operativo Linux | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi protette da HSM non sono supportate. |
-Aggiunta a caldo    | Supportato | L'abilitazione della replica per un disco dati aggiunto a una macchina virtuale di Azure replicata è supportata per le macchine virtuali che usano dischi gestiti.
+Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi protette da HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un singolo disco non è supportata. |
+Crittografia dischi di Azure (ADE) per sistema operativo Linux | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi protette da HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un singolo disco non è supportata. |
+Aggiunta a caldo    | Supportato | L'abilitazione della replica per un disco dati aggiunto a una macchina virtuale di Azure replicata è supportata per le macchine virtuali che usano dischi gestiti. <br/><br/> È possibile aggiungere a caldo un solo disco a una macchina virtuale di Azure alla volta. L'aggiunta parallela di più dischi non è supportata. |
 Disco di rimozione a caldo    | Non supportato | Se si rimuove un disco dati nella macchina virtuale, è necessario disabilitare la replica e abilitare di nuovo la replica per la macchina virtuale.
 Esclusione disco | Supporto. Per configurare, è necessario usare [PowerShell](azure-to-azure-exclude-disks.md) . |    Per impostazione predefinita, i dischi temporanei sono esclusi.
 Spazi di archiviazione diretta  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
