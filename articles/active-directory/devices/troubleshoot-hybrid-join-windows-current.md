@@ -11,14 +11,15 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331779"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611314"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi ai dispositivi ibridi Azure Active Directory aggiunti 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi ai dispositivi ibridi Azure Active Directory aggiunti
 
 Il contenuto di questo articolo è applicabile ai dispositivi che eseguono Windows 10 o Windows Server 2016.
 
@@ -28,15 +29,15 @@ Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all
 
 - Accesso condizionale basato sul dispositivo
 - [Roaming aziendale delle impostazioni](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
+- [Windows Hello for business](../active-directory-azureadjoin-passport-deployment.md)
 
-Questo documento fornisce indicazioni sulla risoluzione dei problemi per risolvere potenziali problemi. 
+Questo documento fornisce indicazioni sulla risoluzione dei problemi per risolvere potenziali problemi.
 
 Per Windows 10 e Windows Server 2016, l'aggiunta all'identità ibrida di Azure Active Directory supporta l'aggiornamento di Windows del 10 novembre 2015 e versioni successive.
 
 ## <a name="troubleshoot-join-failures"></a>Risolvere gli errori di join
 
-### <a name="step-1-retrieve-the-join-status"></a>Passaggio 1: Recuperare lo stato delle aggiunte 
+### <a name="step-1-retrieve-the-join-status"></a>Passaggio 1: Recuperare lo stato delle aggiunte
 
 **Per recuperare lo stato delle aggiunte:**
 
@@ -88,22 +89,22 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>Passaggio 2: Valutare lo stato delle aggiunte 
+### <a name="step-2-evaluate-the-join-status"></a>Passaggio 2: Valutare lo stato delle aggiunte
 
 Esaminare i campi seguenti e assicurarsi che siano presenti i valori previsti:
 
-#### <a name="domainjoined--yes"></a>DomainJoined: YES  
+#### <a name="domainjoined--yes"></a>DomainJoined: YES
 
-Questo campo mostra se il dispositivo è aggiunto a un dominio Active Directory locale. Se il valore è **NO**, il dispositivo non riesce a eseguire un'aggiunta all'identità ibrida di Azure AD.  
+Questo campo mostra se il dispositivo è aggiunto a un dominio Active Directory locale. Se il valore è **NO**, il dispositivo non riesce a eseguire un'aggiunta all'identità ibrida di Azure AD.
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined: NO  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined: NO
 
 Questo campo mostra se il dispositivo è registrato con Azure AD come dispositivo personale, contrassegnato come *aggiunto correttamente* all'area di lavoro. Questo valore deve essere **NO** per un computer aggiunto al dominio che è anche aggiunto all'identità ibrida di Azure AD. Se il valore è **YES**, è stato aggiunto un account aziendale o dell'istituto di istruzione prima del completamento dell'aggiunta all'identità ibrida di Azure AD. In questo caso l'account viene ignorato quando si usa la versione anniversario dell'aggiornamento di Windows 10 (1607).
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined: YES  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined: YES
 
 Questo campo indica se il dispositivo è unito in join. Il valore sarà **Sì** se il dispositivo è un dispositivo Azure ad aggiunto o un dispositivo ibrido Azure ad aggiunto.
-Se il valore è **NO**, l'aggiunta ad Azure AD non è ancora completata. 
+Se il valore è **NO**, l'aggiunta ad Azure AD non è ancora completata.
 
 Per ulteriori operazioni di risoluzione dei problemi, procedere con i passaggi successivi.
 
@@ -155,7 +156,7 @@ Possibili cause dell'errore:
    - È necessario un oggetto SCP valido nella foresta AD a cui appartiene il dispositivo, che punta a un nome di dominio verificato in Azure AD.
    - I dettagli sono disponibili nella sezione [configurare un punto di connessione del servizio](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Errore durante la connessione e il recupero dei metadati di individuazione dall'endpoint di individuazione.
-   - Il dispositivo deve essere in grado di `https://enterpriseregistration.windows.net`accedere al contesto di sistema per individuare gli endpoint di registrazione e autorizzazione. 
+   - Il dispositivo deve essere in grado di `https://enterpriseregistration.windows.net`accedere al contesto di sistema per individuare gli endpoint di registrazione e autorizzazione.
    - Se l'ambiente locale richiede un proxy in uscita, l'amministratore IT deve assicurarsi che l'account computer del dispositivo sia in grado di individuare e autenticare automaticamente il proxy in uscita.
 - Errore di connessione all'endpoint dell'area di autenticazione utente ed esecuzione dell'individuazione dell'area di autenticazione. (Solo Windows 10 versione 1809 e successive)
    - Il dispositivo deve essere in grado di `https://login.microsoftonline.com`accedere, nel contesto di sistema, per eseguire l'individuazione dell'area di autenticazione per il dominio verificato e determinare il tipo di dominio (gestito/federato).
@@ -173,7 +174,7 @@ Possibili cause dell'errore:
    - Motivo: si è verificato il timeout dell'operazione durante l'esecuzione dell'individuazione.
    - Soluzione: assicurarsi che `https://enterpriseregistration.windows.net` sia accessibile nel contesto di sistema. Per ulteriori informazioni, vedere la sezione [requisiti di connettività di rete](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
-   - Motivo: errore di individuazione dell'area di autenticazione generica. Impossibile determinare il tipo di dominio (gestito/federato) dal servizio token di servizio. 
+   - Motivo: errore di individuazione dell'area di autenticazione generica. Impossibile determinare il tipo di dominio (gestito/federato) dal servizio token di servizio.
    - Soluzione: trovare l'errore suberror riportato di seguito per approfondire l'analisi.
 
 **Codici di errore comuni:**
@@ -260,7 +261,7 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Motivo: il protocollo di autenticazione non è WS-Trust.
-   - Soluzione: il provider di identità locale deve supportare WS-Trust 
+   - Soluzione: il provider di identità locale deve supportare WS-Trust
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Motivo: il servizio federativo locale non ha restituito una risposta XML.
    - Soluzione: verificare che l'endpoint MEX restituisca un codice XML valido. Verificare che il proxy non interferisca e restituisca risposte non XML.
@@ -278,7 +279,7 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
    - Soluzione: riprovare tra qualche minuto o provare a partecipare da un percorso di rete stabile alternativo.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
    - Motivo: non è stato possibile convalidare il Transport Layer Security (TLS), precedentemente noto come Secure Sockets Layer (SSL), il certificato inviato dal server.
-   - Soluzione: controllare lo sfasamento dell'ora del client. Riprovare tra qualche minuto o provare a partecipare da un percorso di rete stabile alternativo. 
+   - Soluzione: controllare lo sfasamento dell'ora del client. Riprovare tra qualche minuto o provare a partecipare da un percorso di rete stabile alternativo.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Motivo: tentativo di connessione a `https://login.microsoftonline.com` non riuscito.
    - Soluzione: verificare la connessione di `https://login.microsoftonline.com`rete a.
@@ -293,11 +294,11 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
    - Soluzione: controllare le impostazioni del server federativo. Cercare il codice di errore del server nei log di autenticazione.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Motivo: è stato ricevuto un errore durante il tentativo di ottenere il token di accesso dall'endpoint del token.
-   - Soluzione: cercare l'errore sottostante nel log ADAL. 
+   - Soluzione: cercare l'errore sottostante nel log ADAL.
 - **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
    - Motivo: errore generale di ADAL
    - Soluzione: cercare il codice di errore o il codice di errore del server nei log di autenticazione.
-    
+
 #### <a name="join-phase"></a>Fase di join
 
 Motivi dell'errore:
@@ -337,7 +338,7 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
    - Motivo: ricevuta una risposta di errore da DRS con ErrorCode: "DirectoryError"
    - Soluzione: per possibili motivi e soluzioni, vedere il codice di errore del server.
 - **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
-   - Motivo: ricevuta una risposta di errore da DRS con ErrorCode: "AuthenticationError" e ErrorSubCode non è "DeviceNotFound". 
+   - Motivo: ricevuta una risposta di errore da DRS con ErrorCode: "AuthenticationError" e ErrorSubCode non è "DeviceNotFound".
    - Soluzione: per possibili motivi e soluzioni, vedere il codice di errore del server.
 - **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
    - Motivo: ricevuta una risposta di errore da DRS con ErrorCode: "DirectoryError"
@@ -349,7 +350,7 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
    - Motivo: operazione TPM non riuscita o non valida
    - Soluzione: probabilmente a causa di un'immagine Sysprep non valida. Verificare che il computer da cui è stata creata l'immagine Sysprep non sia Azure AD aggiunto, ibrido Azure AD aggiunto o Azure AD registrato.
 - **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
-   - Motivo: errore TPM generico. 
+   - Motivo: errore TPM generico.
    - Soluzione: disabilitare TPM nei dispositivi con questo errore. Windows 10 versione 1809 e successive rileva automaticamente gli errori del TPM e completa il join Azure AD ibrido senza usare il TPM.
 - **TPM_E_NOTFIPS** (0x80280036/-2144862154)
    - Motivo: TPM in modalità FIPS attualmente non supportato.
@@ -372,13 +373,13 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ##### <a name="federated-join-server-errors"></a>Errori del server join federato
 
-| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Risoluzione |
+| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
 | --- | --- | --- | --- |
 | DirectoryError | La richiesta è limitata temporaneamente. Provare dopo 300 secondi. | Errore previsto. Probabilmente a causa dell'esecuzione di più richieste di registrazione in rapida successione. | Riprova join dopo il periodo di ricarica |
 
 ##### <a name="sync-join-server-errors"></a>Errori del server di sincronizzazione join
 
-| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Risoluzione |
+| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: il <UUID> tenant non è stato trovato. Questo errore può verificarsi se non sono presenti sottoscrizioni attive per il tenant. Rivolgersi all'amministratore della sottoscrizione. | L'ID tenant nell'oggetto SCP non è corretto | Verificare che l'oggetto SCP sia configurato con l'ID tenant Azure AD corretto e con le sottoscrizioni attive e presenti nel tenant. |
 | DirectoryError | L'oggetto dispositivo in base all'ID specificato non è stato trovato. | Errore previsto per Sync join. L'oggetto dispositivo non è stato sincronizzato da AD Azure AD | Attendere il completamento della sincronizzazione del Azure AD Connect e il successivo tentativo di join dopo il completamento della sincronizzazione risolverà il problema |
@@ -386,28 +387,32 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Passaggio 5: raccogliere i log e contattare supporto tecnico Microsoft
 
-Ottenere gli script pubblici qui: [ https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+Scaricare il file auth. zip da[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Aprire un prompt dei comandi di amministrazione `start_ngc_tracing_public.cmd`ed eseguire.
-2. Eseguire i passaggi per riprodurre il problema.
-3. Arrestare l'esecuzione dello script di registrazione eseguendo `stop_ngc_tracing_public.cmd`.
-4. Zip e inviare i log in `%SYSTEMDRIVE%\TraceDJPP\*` per l'analisi.
+1. Decomprimere i file e rinominare i file inclusi **Start-auth. txt** e **Stop-auth. txt** in **Start-auth. cmd** e **Stop-auth. cmd**.
+1. Da un prompt dei comandi con privilegi elevati eseguire **Start-auth. cmd**.
+1. Usare switch account per passare a un'altra sessione con l'utente del problema.
+1. Riprodurre il problema.
+1. Usare switch account per passare di nuovo alla sessione di amministrazione che esegue la traccia.
+1. Da un prompt dei comandi con privilegi elevati eseguire **Stop-auth. cmd**.
+1. Zip e inviare la cartella **Authlogs** dalla cartella da cui sono stati eseguiti gli script.
 
 ## <a name="troubleshoot-post-join-issues"></a>Risolvere i problemi relativi a post-join
 
-### <a name="retrieve-the-join-status"></a>Recuperare lo stato delle aggiunte 
+### <a name="retrieve-the-join-status"></a>Recuperare lo stato delle aggiunte
 
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: Sì e AzureADPrt: Sì
-  
-Questi campi indicano se l'utente è autenticato correttamente in Azure AD durante l'accesso al dispositivo. Se i valori sono **NO**, il motivo potrebbe essere:
+
+Questi campi indicano se l'utente è autenticato correttamente in Azure AD durante l'accesso al dispositivo.
+Se i valori sono **NO**, il motivo potrebbe essere:
 
 - Chiave di archiviazione non valida nel TPM associato al dispositivo durante la registrazione. controllare KeySignTest durante l'esecuzione di con privilegi elevati.
 - ID di accesso alternativo
 - Proxy HTTP non trovato
 
 ## <a name="known-issues"></a>Problemi noti
-- In Impostazioni-account >-> accedi all'azienda o all'Istituto di istruzione, Azure AD ibrido dispositivi aggiunti possono visualizzare due account diversi, uno per Azure AD e uno per AD locale, quando si è connessi a hotspot mobili o a reti Wi-Fi esterne. Si tratta solo di un problema dell'interfaccia utente e non ha alcun effetto sulla funzionalità. 
- 
+- In Impostazioni-account >-> accedi all'azienda o all'Istituto di istruzione, Azure AD ibrido dispositivi aggiunti possono visualizzare due account diversi, uno per Azure AD e uno per AD locale, quando si è connessi a hotspot mobili o a reti Wi-Fi esterne. Si tratta solo di un problema dell'interfaccia utente e non ha alcun effetto sulla funzionalità.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Continuare [la risoluzione dei problemi dei dispositivi tramite il comando dsregcmd](troubleshoot-device-dsregcmd.md)

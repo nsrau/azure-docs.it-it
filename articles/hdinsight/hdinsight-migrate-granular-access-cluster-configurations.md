@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/20/2020
+ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546348"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598471"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -24,14 +24,14 @@ In precedenza, i segreti potevano essere ottenuti tramite l'API HDInsight dagli 
 
 A partire dal 3 settembre 2019, per accedere a questi segreti sarà necessaria `Microsoft.HDInsight/clusters/configurations/action` l'autorizzazione, ovvero non sarà più possibile accedervi dagli utenti con il ruolo lettore. I ruoli che dispongono di questa autorizzazione sono collaboratore, proprietario e nuovo ruolo Operatore cluster HDInsight (altre informazioni sono disponibili di seguito).
 
-Viene inoltre introdotto un nuovo ruolo [operatore cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) che sarà in grado di recuperare i segreti senza concedere le autorizzazioni amministrative di collaboratore o proprietario. Per riepilogare:
+Viene inoltre introdotto un nuovo ruolo [operatore cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) che sarà in grado di recuperare i segreti senza concedere le autorizzazioni amministrative di collaboratore o proprietario. Per concludere:
 
 | Ruolo                                  | In precedenza                                                                                        | In futuro       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Lettore                                | -Accesso in lettura, inclusi i segreti                                                                   | -Accesso in lettura, **esclusi** i segreti |           |   |   |
+| Lettore                                | -Accesso in lettura, inclusi i segreti.                                                                   | -Accesso in lettura, **esclusi** i segreti |           |   |   |
 | Operatore cluster HDInsight<br>(Nuovo ruolo) | N/D                                                                                              | -Accesso in lettura/scrittura, inclusi i segreti         |   |   |
-| Collaboratore                           | -Accesso in lettura/scrittura, inclusi i segreti<br>-Creare e gestire tutti i tipi di risorse di Azure.     | Nessuna modifica |
-| Proprietario                                 | -Accesso in lettura/scrittura, inclusi i segreti<br>-Accesso completo a tutte le risorse<br>-Delegare l'accesso ad altri utenti | Nessuna modifica |
+| Collaboratore                           | -Accesso in lettura/scrittura, inclusi i segreti.<br>-Creare e gestire tutti i tipi di risorse di Azure.<br>-Eseguire azioni script.     | Nessuna modifica |
+| Proprietario                                 | -Accesso in lettura/scrittura, inclusi i segreti.<br>-Accesso completo a tutte le risorse<br>-Delegare l'accesso ad altri utenti.<br>-Eseguire azioni script. | Nessuna modifica |
 
 Per informazioni su come aggiungere l'assegnazione di ruolo Operatore cluster HDInsight a un utente per concedere loro l'accesso in lettura/scrittura ai segreti del cluster, vedere la sezione seguente [aggiungere l'assegnazione di ruolo Operatore cluster HDInsight a un utente](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user).
 

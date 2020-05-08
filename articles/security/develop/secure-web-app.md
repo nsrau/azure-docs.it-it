@@ -16,12 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 690cb37df4a5d195bfce6ee792f7565a6f7f1768
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686799"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612776"
 ---
 # <a name="develop-a-secure-web-app"></a>Sviluppare un'app Web sicura
 
@@ -104,7 +105,7 @@ Questa applicazione USA:
 - [Interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per la distribuzione.
 - [Hub Docker](https://hub.docker.com/) come registro contenitori.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 ### <a name="network"></a>Rete
 
