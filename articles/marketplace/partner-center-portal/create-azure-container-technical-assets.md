@@ -1,29 +1,29 @@
 ---
-title: Creare un asset tecnico per macchine virtuali di Azure
-description: Questo articolo descrive i passaggi e i requisiti per la configurazione di un'offerta di contenitore in Azure Marketplace.
+title: Concetti tecnici per le offerte di contenitori di Azure-Marketplace commerciale Microsoft
+description: Risorse tecniche e linee guida per la configurazione di un'offerta di contenitori in Azure Marketplace.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c6f88df151cc497f0de670d5d78a05c7477459
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730631"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791885"
 ---
-# <a name="create-an-azure-vm-technical-asset"></a>Creare un asset tecnico per macchine virtuali di Azure
+# <a name="create-an-azure-container-offer"></a>Creare un'offerta di contenitore di Azure
 
 > [!IMPORTANT]
 > La gestione delle offerte del contenitore di Azure viene trasferita dal portale Cloud Partner al centro per i partner. Fino a quando non viene eseguita la migrazione delle offerte, seguire le istruzioni riportate in [preparare le risorse tecniche del contenitore](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) per portale cloud partner per gestire le offerte.
 
-Questo articolo descrive i passaggi e i requisiti per la configurazione di un'offerta di contenitore in Azure Marketplace.
+Questo articolo fornisce risorse tecniche e consigli per la creazione di un'offerta di contenitori in Azure Marketplace.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per le guide introduttive, le esercitazioni e gli esempi, vedere [istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances).
+Per le guide introduttive, le esercitazioni e gli esempi, vedere la [documentazione relativa alle istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances).
 
 ## <a name="fundamental-technical-knowledge"></a>Conoscenze tecniche fondamentali
 
@@ -61,6 +61,6 @@ Per ulteriori informazioni, vedere le esercitazioni seguenti:
 - [Esercitazione: creare un'immagine del contenitore per la distribuzione in istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
 - [Esercitazione: creare e distribuire immagini del contenitore nel cloud con le attività di container Registry di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare l'offerta del contenitore](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).

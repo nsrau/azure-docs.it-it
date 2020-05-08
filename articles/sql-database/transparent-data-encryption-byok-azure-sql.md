@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: d72a1057c359127eb70f0a82fbf2637409535dce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131174"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792038"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption SQL di Azure con chiave gestita dal cliente
 
@@ -93,7 +93,7 @@ Se la registrazione è abilitata, i revisori possono usare monitoraggio di Azure
 
 ### <a name="recommendations-when-configuring-akv"></a>Suggerimenti per la configurazione di AKV
 
-- Associare al massimo 500 per utilizzo generico o 200 business critical database in totale con un insieme di credenziali delle chiavi in una singola sottoscrizione per garantire la disponibilità elevata quando il server accede alla protezione Transparent Data Encryption nell'insieme di credenziali delle chiavi. Queste cifre sono basate sull'esperienza e documentate nei [limiti del servizio Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). L'intenzione è di evitare problemi dopo il failover del server, in quanto attiverà il numero di operazioni chiave sull'insieme di credenziali in quanto sono presenti database in tale server.
+- Associare al massimo 500 per utilizzo generico o 200 business critical database in totale con un insieme di credenziali delle chiavi in una singola sottoscrizione per garantire la disponibilità elevata quando il server accede alla protezione Transparent Data Encryption nell'insieme di credenziali delle chiavi. Queste cifre sono basate sull'esperienza e documentate nei [limiti del servizio Key Vault](https://docs.microsoft.com/azure/key-vault/general/service-limits). L'intenzione è di evitare problemi dopo il failover del server, in quanto attiverà il numero di operazioni chiave sull'insieme di credenziali in quanto sono presenti database in tale server.
 
 - Impostare un blocco di risorsa nell'insieme di credenziali delle chiavi per controllare gli utenti che possono eliminare questa risorsa critica e impedire l'eliminazione accidentale o non autorizzata. Altre informazioni sui [blocchi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
