@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399676"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929248"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi a Azure Machine Learning servizio Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
 
@@ -24,12 +24,12 @@ Informazioni su come risolvere gli errori comuni di distribuzione di Docker con 
 
 Quando si distribuisce un modello in Azure Machine Learning, il sistema esegue una serie di attività.
 
-L'approccio consigliato e quello più aggiornato per la distribuzione del modello è tramite l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) che usa un oggetto [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) come parametro di input. In questo caso il servizio creerà un'immagine Docker di base per l'utente durante la fase di distribuzione e monterà tutti i modelli richiesti in un'unica chiamata. Le attività di distribuzione di base sono:
+L'approccio consigliato e quello più aggiornato per la distribuzione del modello è tramite l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) che usa un oggetto [Environment](how-to-use-environments.md) come parametro di input. In questo caso il servizio creerà un'immagine Docker di base per l'utente durante la fase di distribuzione e monterà tutti i modelli richiesti in un'unica chiamata. Le attività di distribuzione di base sono:
 
 1. Registrare il modello nel registro dei modelli dell'area di lavoro.
 
 2. Definire la configurazione dell'inferenza:
-    1. Creare un oggetto [ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) in base alle dipendenze specificate nel file YAML dell'ambiente o usare uno degli ambienti di approvvigionamento.
+    1. Creare un oggetto [ambiente](how-to-use-environments.md) in base alle dipendenze specificate nel file YAML dell'ambiente o usare uno degli ambienti di approvvigionamento.
     2. Creare una configurazione di inferenza (oggetto InferenceConfig) in base all'ambiente e allo script di assegnazione dei punteggi.
 
 3. Distribuire il modello nel servizio istanza di contenitore di Azure (ACI) o in Azure Kubernetes Service (AKS).
@@ -50,7 +50,7 @@ Per altre informazioni su questa procedura, vedere [Gestire e distribuire modell
 
 Se si verifica un problema, la prima cosa da fare è suddividere l'attività di distribuzione (descritta in precedenza) in singoli passaggi per isolare il problema.
 
-Supponendo che si stia usando il metodo di distribuzione nuovo/consigliato tramite l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un oggetto [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) come parametro di input, il codice può essere suddiviso in tre passaggi principali:
+Supponendo che si stia usando il metodo di distribuzione nuovo/consigliato tramite l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un oggetto [Environment](how-to-use-environments.md) come parametro di input, il codice può essere suddiviso in tre passaggi principali:
 
 1. Registrare il modello. Ecco un esempio di codice:
 

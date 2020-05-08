@@ -25,6 +25,9 @@
       href: powershell-samples.md
     - name: Soluzioni di applicazioni gestite
       href: sample-projects.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Artefatto di definizione delle visualizzazioni

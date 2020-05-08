@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 477a5ffa971120d1a98c09ac4ae8ebda1c82b770
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3ec7021e63257a3c9f8cf84c6ddc0c3707fbf3bc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209027"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928618"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configurazione DNS dell'endpoint privato di Azure
 
@@ -36,57 +36,58 @@ Le applicazioni non devono modificare l'URL di connessione. Quando si tenta di r
 
 Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella tabella seguente:
 
-|Tipo di risorsa collegamento privato   |Sottorisorsa  |Nome zona  |
-|---------|---------|---------|
-|DATABASE SQL (Microsoft. SQL/Servers)    |  SQL Server (sqlServer)        |   privatelink.database.windows.net       |
-|Analisi delle sinapsi di Azure (Microsoft. SQL/Servers)    |  SQL Server (sqlServer)        | privatelink.database.windows.net |
-|Account di archiviazione (Microsoft. storage/storageAccounts)    |  BLOB (BLOB, blob_secondary)        |    privatelink.blob.core.windows.net      |
-|Account di archiviazione (Microsoft. storage/storageAccounts)    |    Tabella (tabella, table_secondary)      |   privatelink.table.core.windows.net       |
-|Account di archiviazione (Microsoft. storage/storageAccounts)    |    Coda (coda, queue_secondary)     |   privatelink.queue.core.windows.net       |
-|Account di archiviazione (Microsoft. storage/storageAccounts)   |    File (file, file_secondary)      |    privatelink.file.core.windows.net      |
-|Account di archiviazione (Microsoft. storage/storageAccounts)     |  Web (Web, web_secondary)        |    privatelink.web.core.windows.net      |
-|Data Lake file System Gen2 (Microsoft. storage/storageAccounts)  |  Data Lake file System Gen2 (DFS, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|SQL    |privatelink.documents.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB    |privatelink.mongo.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin    |privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabella|privatelink.table.cosmos.azure.com|
-|Database di Azure per PostgreSQL-server singolo (Microsoft. DBforPostgreSQL/Servers)|postgresqlServer|privatelink.postgres.database.azure.com|
-|Database di Azure per MySQL (Microsoft. DBforMySQL/Servers)|mysqlServer|privatelink.mysql.database.azure.com|
-|Database di Azure per MariaDB (Microsoft. DBforMariaDB/Servers)|mariadbServer|privatelink.mariadb.database.azure.com|
-|Azure Key Vault (Microsoft. Vault/Vaults)|insieme di credenziali|privatelink.vaultcore.azure.net|
-|Servizio Azure Kubernetes-API Kubernetes (Microsoft. servizio contenitore/managedClusters)    | managedCluster | {GUID}. privatelink. {Region}. azmk8s. io|
-|Ricerca di Azure (Microsoft. search/searchServices)|searchService|privatelink.search.windows.net|   
-|Azure Container Registry (Microsoft. ContainerRegistry/registri) | Registro di sistema | privatelink.azurecr.io |
-|Configurazione di app Azure (Microsoft. Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|
-|Backup di Azure (Microsoft. RecoveryServices/Vaults)| insieme di credenziali |privatelink. {Region}. backup. WindowsAzure. com|
-|Hub eventi di Azure (Microsoft. EventHub/namespaces)| namespace |privatelink.servicebus.windows.net|
-|Bus di servizio di Azure (Microsoft. ServiceBus/namespaces) | namespace |privatelink.servicebus.windows.net|
-|Inoltro di Azure (Microsoft. Relay/namespaces) | namespace |privatelink.servicebus.windows.net|
-|Griglia di eventi di Azure (Microsoft. EventGrid/topics)     | argomento | argomento. {Region}. privatelink. eventgrid. Azure. NET|
-|Griglia di eventi di Azure (Microsoft. EventGrid/domains) | dominio | dominio. {Region}. privatelink. eventgrid. Azure. NET |
-|App Web di Azure (Microsoft. Web/sites)    | site | privatelink.azurewebsites.net |
-|Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)    | area di lavoro | privatelink.api.azureml.ms |
+| Tipo di risorsa collegamento privato/sottorisorsa |Nome zona DNS privato | Nome della zona DNS pubblica |
+|---|---|---|---|
+| DATABASE SQL (Microsoft. SQL/Servers)/SQL Server | privatelink.database.windows.net | database.windows.net |
+| Analisi delle sinapsi di Azure (Microsoft. SQL/Servers)/SQL Server  | privatelink.database.windows.net | database.windows.net |
+| Account di archiviazione (Microsoft. storage/storageAccounts)/BLOB (BLOB, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
+| Account di archiviazione (Microsoft. storage/storageAccounts)/table (tabella, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
+| Account di archiviazione (Microsoft. storage/storageAccounts)/Queue (Queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
+| Account di archiviazione (Microsoft. storage/storageAccounts)/file (file, file_secondary) | privatelink.file.core.windows.net | file.core.windows.net |
+| Account di archiviazione (Microsoft. storage/storageAccounts)/Web (Web, web_secondary) | privatelink.web.core.windows.net | web.core.windows.net |
+| Data Lake file System Gen2 (Microsoft. storage/storageAccounts)/Data Lake file System Gen2 (DFS, dfs_secondary) | privatelink.dfs.core.windows.net | dfs.core.windows.net |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/SQL | privatelink.documents.azure.com | documents.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/tabella | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+| Database di Azure per PostgreSQL-server singolo (Microsoft. DBforPostgreSQL/Servers)/postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
+| Database di Azure per MySQL (Microsoft. DBforMySQL/Servers)/sqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
+| Database di Azure per MariaDB (Microsoft. DBforMariaDB/Servers)/mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
+| Azure Key Vault (Microsoft. insieme di credenziali/insiemi di credenziali)/insieme di credenziali | privatelink.vaultcore.azure.net | vault.azure.net |
+| Servizio Azure Kubernetes-API Kubernetes (Microsoft. servizio contenitore/managedClusters)/managedCluster | privatelink. {Region}. azmk8s. io | {Region}. azmk8s. io |
+| Ricerca di Azure (Microsoft. search/searchServices)/searchService | privatelink.search.windows.net | search.windows.net |
+| Azure Container Registry (Microsoft. ContainerRegistry/registri)/registro di sistema | privatelink.azurecr.io | azurecr.io |
+| Configurazione di app Azure (Microsoft. AppConfiguration/configurationStores)/configurationStore | privatelink.azconfig.io | azconfig.io |
+| Backup di Azure (Microsoft. RecoveryServices/Vaults)/insieme di credenziali | privatelink. {Region}. backup. WindowsAzure. com | {Region}. backup. WindowsAzure. com |
+| Hub eventi di Azure (Microsoft. EventHub/namespaces)/spazio dei nomi | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Bus di servizio di Azure (Microsoft. ServiceBus/namespaces)/spazio dei nomi | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Inoltro di Azure (Microsoft. Relay/namespaces)/spazio dei nomi | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Griglia di eventi di Azure (Microsoft. EventGrid/topics)/argomento | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+| Griglia di eventi di Azure (Microsoft. EventGrid/domains)/Domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+| App Web di Azure (Microsoft. Web/sites)/sito | privatelink.azurewebsites.net | azurewebsites.net |
+| Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/area di lavoro | privatelink.api.azureml.ms | api.azureml.ms |
+
  
 
 
 ## <a name="dns-configuration-scenarios"></a>Scenari di configurazione DNS
 
-Il nome di dominio completo dei servizi risolve un indirizzo IP pubblico, quindi è necessario modificare la configurazione DNS per risolvere l'indirizzo IP privato dell'endpoint privato.
+Il nome di dominio completo (FQDN) dei servizi viene risolto automaticamente in un indirizzo IP pubblico. Pertanto, per risolvere l'indirizzo IP privato dell'endpoint privato, è necessario modificare di conseguenza la configurazione DNS.
 
 DNS è un componente fondamentale per garantire il corretto funzionamento dell'applicazione risolvendo in modo corretto l'indirizzo IP dell'endpoint privato.
 
 In base alle proprie preferenze, per la risoluzione DNS integrata sono disponibili gli scenari seguenti:
 
 - [Carichi di lavoro della rete virtuale senza server DNS personalizzato](#virtual-network-workloads-without-custom-dns-server)
-
+- [Carichi di lavoro locali che usano un server di un server d'invio DNS](#on-premises-workloads-using-a-dns-forwarder)
 
 ## <a name="virtual-network-workloads-without-custom-dns-server"></a>Carichi di lavoro della rete virtuale senza server DNS personalizzato
 
 Questa configurazione è appropriata per i carichi di lavoro della rete virtuale senza server DNS personalizzato. In questo scenario il client esegue una query per l'indirizzo IP dell'endpoint privato per [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)DNS fornito da Azure. Il servizio DNS di Azure sarà responsabile della risoluzione DNS delle zone DNS private.
 
 
- > [!NOTE]
+> [!NOTE]
 > Questo scenario usa la zona DNS privato consigliata del database SQL di Azure. Per altri servizi è possibile modificare il modello usando la configurazione di [zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration)di riferimento riportata di seguito.
 
 Per la configurazione corretta, è necessario disporre delle risorse seguenti:
@@ -99,16 +100,60 @@ Per la configurazione corretta, è necessario disporre delle risorse seguenti:
 
 Il diagramma seguente illustra la sequenza di risoluzione DNS dei carichi di lavoro della rete virtuale che usa la zona DNS privata
 
-:::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="rete virtuale singola e DNS fornito da Azure":::
+:::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
 
 Questo modello può essere esteso a più reti virtuali con peering associate allo stesso endpoint privato. Questa operazione può essere eseguita [aggiungendo nuovi collegamenti di rete virtuale](../dns/private-dns-virtual-network-links.md) alla zona DNS privata per tutte le reti virtuali con peering.
 
- > [!IMPORTANT]
+> [!IMPORTANT]
 >  Per questa configurazione è necessaria una singola zona DNS privata. per creare più zone con lo stesso nome per reti virtuali diverse è necessario eseguire operazioni manuali per unire i record DNS
 
 In questo scenario è presente una topologia di rete di [hub & spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) con le reti spoke che condividono un endpoint privato comune e la rete virtuale spoke è collegata alla stessa zona DNS privata. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub e spoke con il DNS fornito da Azure":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub e spoke con DNS fornito da Azure":::
+
+## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Carichi di lavoro locali che usano un server di un server d'invio DNS
+ 
+Affinché i carichi di lavoro locali siano in grado di risolvere un nome di dominio completo (FQDN) di un endpoint privato nell'indirizzo IP privato, è necessario usare un server di un server di un server di un server d'utilità per eseguire la risoluzione della [zona DNS pubblica](#azure-services-dns-zone-configuration) del servizio Azure distribuita in Azure.
+
+
+Lo scenario seguente è adatto a una rete locale che dispone di un server di un server d'esecuzione DNS in Azure, che a sua volta è responsabile della risoluzione di tutte le [query DNS tramite](../virtual-network/what-is-ip-address-168-63-129-16.md) un server di un server d'un server di un server d'un server di un server di livello superiore per il DNS 
+
+> [!NOTE]
+> Questo scenario usa la zona DNS privato consigliata del database SQL di Azure.Per altri servizi è possibile modificare il modello usando la configurazione di [zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration)di riferimento riportata di seguito.
+
+Per la configurazione corretta, è necessario disporre delle risorse seguenti:
+
+- Rete locale
+- Rete virtuale [connessa a locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Server di distribuzione DNS distribuito in Azure 
+- DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md) con [record di tipo a](../dns/dns-zones-records.md#record-types)
+- Informazioni sull'endpoint privato (nome del record FQDN e indirizzo IP privato)
+
+Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale che usa un server di distribuzione DNS distribuito in Azure, in cui la risoluzione viene eseguita da una zona DNS privata collegata a una rete virtuale.
+
+:::image type="content" source="media/private-endpoint-dns/on-premise-using-azure-dns.png" alt-text="Locale con DNS di Azure":::
+
+Questa configurazione può essere estesa per una rete locale in cui è già presente una soluzione DNS. 
+La soluzione DNS locale deve essere configurata per l'invio del traffico DNS al DNS di Azure tramite un [Server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) d'istruzione locale che fa riferimento al server di distribuzione DNS distribuito in Azure.
+
+> [!NOTE]
+> Questo scenario usa la zona DNS privato consigliata del database SQL di Azure.Per altri servizi è possibile modificare il modello usando la configurazione di [zona DNS dei servizi di Azure](#azure-services-dns-zone-configuration)di riferimento riportata di seguito.
+
+Per la configurazione corretta, è necessario disporre delle risorse seguenti:
+
+
+- Rete locale con una soluzione DNS personalizzata 
+- Rete virtuale [connessa a locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Server di distribuzione DNS distribuito in Azure
+- DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)  con [record di tipo a](../dns/dns-zones-records.md#record-types)
+- Informazioni sull'endpoint privato (nome del record FQDN e indirizzo IP privato)
+
+Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale che invia in modo condizionale il traffico DNS ad Azure, in cui la risoluzione viene eseguita da una zona DNS privata collegata a una rete virtuale
+
+> [!IMPORTANT]
+> L'invio condizionale deve essere eseguito alla  [zona DNS pubblica](#azure-services-dns-zone-configuration), ad esempio `database.windows.net` :, anziché **privatelink**. database.Windows.NET
+
+:::image type="content" source="media/private-endpoint-dns/on-premise-forwarding-to-azure.png" alt-text="L'invio locale al servizio DNS di Azure":::
 
 
 ## <a name="next-steps"></a>Passaggi successivi
