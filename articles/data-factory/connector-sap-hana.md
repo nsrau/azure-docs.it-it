@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 74462b68bea38e4d84219adeedb7c3bb0893bbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/22/2020
+ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417229"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890623"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiare dati da SAP HANA usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -46,7 +46,7 @@ In particolare, il connettore SAP HANA supporta:
 - Copia parallela da un'origine SAP HANA. Per informazioni dettagliate, vedere la sezione [copia parallela da SAP Hana](#parallel-copy-from-sap-hana) .
 
 > [!TIP]
-> Per copiare dati **in** un archivio dati SAP HANA, usare il connettore ODBC generico. Per i dettagli, vedere [Sink SAP HANA](connector-odbc.md#sap-hana-sink). Si noti che i servizi collegati per i connettori SAP HANA e ODBC sono associati a tipi diversi e pertanto non possono essere riusati.
+> Per copiare dati **in** un archivio dati SAP HANA, usare il connettore ODBC generico. Vedere la sezione [SAP Hana sink](#sap-hana-sink) con i dettagli. Si noti che i servizi collegati per i connettori SAP HANA e ODBC sono associati a tipi diversi e pertanto non possono essere riusati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,7 +55,7 @@ Per usare questo connettore SAP HANA, è necessario:
 - Configurare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo relativo alla [Integration Runtime self-hosted](create-self-hosted-integration-runtime.md) .
 - Installare il driver ODBC di SAP HANA nel computer del runtime di integrazione. È possibile scaricare il driver ODBC di SAP HANA dall'[area per il download di software SAP](https://support.sap.com/swdc). Per cercare il driver, usare la parola chiave **SAP HANA CLIENT for Windows**.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -271,33 +271,61 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 
 | Tipo di dati di SAP HANA | Tipo di dati provvisori di Data Factory |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | Stringa                         |
+| ALPHANUM           | string                         |
 | bigint             | Int64                          |
 | BINARY             | Byte[]                         |
-| Bintext            | Stringa                         |
+| Bintext            | string                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | Stringa                         |
+| CLOB               | string                         |
 | DATE               | Datetime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | Stringa                         |
-| NVARCHAR           | Stringa                         |
+| NCLOB              | string                         |
+| NVARCHAR           | string                         |
 | real               | Single                         |
 | SECONDDATE         | Datetime                       |
-| SHORTTEXT          | Stringa                         |
+| SHORTTEXT          | string                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
-| TEXT               | Stringa                         |
+| TEXT               | string                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | string                         |
 | timestamp          | Datetime                       |
 | VARBINARY          | Byte[]                         |
+
+### <a name="sap-hana-sink"></a>Sink SAP HANA
+
+Attualmente, il connettore SAP HANA non è supportato come sink, mentre è possibile usare il connettore ODBC generico con SAP HANA driver per scrivere i dati in SAP HANA. 
+
+Attenersi ai [prerequisiti](#prerequisites) per configurare Integration Runtime self-hosted e installare prima SAP Hana driver ODBC. Creare un servizio collegato ODBC per connettersi all'archivio dati SAP HANA come illustrato nell'esempio seguente, quindi creare il set di dati e l'attività di copia sink con il tipo ODBC di conseguenza. Per altre informazioni, vedere [connettore ODBC](connector-odbc.md) .
+
+```json
+{
+    "name": "SAPHANAViaODBCLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 

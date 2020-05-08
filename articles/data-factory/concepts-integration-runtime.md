@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: ffa348c796a4d9d4e3bdb8e7ce18ba0eb82e17ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418384"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890744"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory 
 
@@ -128,6 +128,10 @@ La località del runtime di integrazione definisce la località del calcolo back
 
 ### <a name="azure-ir-location"></a>Località del runtime di integrazione di Azure
 
+È possibile impostare un determinato percorso di un Azure IR, nel qual caso l'esecuzione o l'invio dell'attività avverrà in tale area specifica.
+
+Se si sceglie di usare la Azure IR di risoluzione automatica, che è l'impostazione predefinita,
+
 - Per l'attività di copia, ADF effettuerà il massimo sforzo per rilevare automaticamente il percorso dell'archivio dati sink, quindi usare il runtime di integrazione nella stessa area, se disponibile o quello più vicino nella stessa area geografica; Se l'area dell'archivio dati sink non è rilevabile, viene usato il runtime di integrazione nell'area data factory come alternativa.
 
   Ad esempio, è stata creata la Factory negli Stati Uniti orientali, 
@@ -135,7 +139,8 @@ La località del runtime di integrazione definisce la località del calcolo back
   - Quando si copiano i dati nel BLOB di Azure negli Stati Uniti occidentali, se ADF ha rilevato che il BLOB si trova negli Stati Uniti occidentali, l'attività di copia viene eseguita su IR negli Stati Uniti occidentali; Se il rilevamento dell'area ha esito negativo, l'attività di copia viene eseguita su IR negli Stati Uniti orientali.
   - Quando si copiano dati in Salesforce di cui l'area non è rilevabile, l'attività di copia viene eseguita su IR negli Stati Uniti orientali.
 
-- Per l'attività di copia, ADF tenta di rilevare automaticamente il sink e l'archivio dati di origine per scegliere la posizione migliore, nella stessa area (se disponibile) o nella stessa area geografica, oppure se non rilevabili per l'uso dell'area data factory come alternativa.
+  >[!TIP] 
+  >Se sono presenti requisiti di conformità rigorosi per i dati e si deve garantire che i dati non lascino una certa area geografica, è possibile creare esplicitamente un runtime di integrazione di Azure in una determinata area e puntare il servizio collegato a questo runtime di integrazione tramite la proprietà ConnectVia. Se ad esempio si vogliono copiare i dati da un BLOB nel Regno Unito meridionale a un'istanza di SQL Data Warehouse nel Regno Unito meridionale e si vuole garantire che i dati non lascino il Regno Unito, creare un runtime di integrazione di Azure nel Regno Unito meridionale e collegare entrambi i servizi collegati a questo runtime di integrazione.
 
 - Per l'esecuzione dell'attività Lookup/GetMetadata/Delete (nota anche come attività Pipeline), l'invio di attività di trasformazione (note anche come attività esterne) e la creazione di operazioni (test connection, browse Folder List e Table list, data Preview), ADF usa il runtime di integrazione nell'area data factory.
 

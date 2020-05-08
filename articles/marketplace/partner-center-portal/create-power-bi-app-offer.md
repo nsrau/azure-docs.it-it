@@ -1,274 +1,276 @@
 ---
-title: Creare un'offerta di app Power BI - Azure MarketplaceCreate a Power BI app offer - Azure Marketplace
-description: Informazioni su come creare e pubblicare un'offerta di app Power BI in Microsoft AppSource.
+title: Creare un'offerta di app Power BI in Microsoft Commercial Marketplace
+description: Informazioni su come creare e pubblicare un'offerta di app Power BI per Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.date: 05/01/2020
+ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81867593"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839148"
 ---
-# <a name="create-a-power-bi-app"></a>Creare un'app di Power BI
+# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Creare un'app Power BI per Microsoft AppSource
 
-> [!IMPORTANT]
-> Stiamo spostando la gestione delle offerte dell'app Power BI dal portale per i partner cloud al Centro per i partner. Fino alla migrazione delle offerte, seguire le istruzioni in [Creare un'offerta](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) di app Power BI per il portale per i partner cloud per gestire le offerte.
+Questo articolo descrive come creare e pubblicare un'offerta di app Power BI a Microsoft [AppSource](https://appsource.microsoft.com/).
 
-In questo articolo viene descritto come creare e pubblicare un'offerta di app Power BI in Microsoft [AppSource.](https://appsource.microsoft.com/)
-
-Prima di poter creare un'offerta di app Power BI, è necessario disporre di un account marketplace commerciale nel Centro per i partner. Se non ne hai ancora creato uno, vedi [Creare un account Marketplace commerciale nell'account del Centro per i partner.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
+Prima di iniziare, [creare un account Marketplace commerciale nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma Commercial Marketplace.
 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
-1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento a sinistra selezionare**Panoramica** **Marketplace** > commerciale .
+1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/home).
+2. Nel menu di navigazione a sinistra selezionare **Commercial Marketplace** > **Overview**.
+3. Nella pagina Panoramica selezionare **+ nuova offerta** > **Power bi servizio app**.
 
-    :::image type="content" source="media/power-bi-menu-overview.png" alt-text="panoramica del menu del mercato commerciale" border="false":::
+   ![Viene illustrato il menu di spostamento a sinistra.](./media/new-offer-pbi-app.png)
 
-3. Selezionare **Nuova offerta** > **Power BI App**. Viene visualizzata la finestra di dialogo **Nuova offerta.**
+> [!NOTE]
+> Dopo la pubblicazione di un'offerta, le modifiche apportate al centro per i partner vengono visualizzate solo nelle vetrine dopo la ripubblicazione dell'offerta. Assicurarsi di ripubblicare sempre dopo avere apportato modifiche.
 
 > [!IMPORTANT]
-> Se l'opzione **Power BI App** non viene visualizzata&#39;non è visualizzata o non è abilitata&#39;, l'account non&#39;dispone dell'autorizzazione per creare questo tipo di offerta. Verifica di aver soddisfatto&#39;tutti i [requisiti](create-power-bi-app-overview.md) per questo tipo di offerta, inclusa la registrazione per un account sviluppatore
+> Se **Power bi app del servizio** non viene visualizzata o abilitata, l'account non è autorizzato a creare questo tipo di offerta. Verificare di aver soddisfatto tutti i [requisiti](create-power-bi-app-overview.md) per questo tipo di offerta, inclusa la registrazione per un account per sviluppatore.
 
-### <a name="offer-id-and-alias"></a>ID e alias dell'offerta
+## <a name="new-offer"></a>Nuova offerta
 
-Immettere un **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nel tuo account.
+Immettere un **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
 
-- Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
-- Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi, ed è limitato a 50 caratteri. Ad esempio, se si immette **test-offer-1** , `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`l'indirizzo Web dell'offerta sarà .
+- Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta Marketplace e Azure Resource Manager modelli, se applicabile.
+- Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi e con un limite di 50 caratteri. Se ad esempio si immette **test-offer-1** qui, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
-- L'ID offerta non può essere modificato dopo aver selezionato **Crea**.
+Immettere un **alias dell'offerta**. Questo è il nome usato per l'offerta nel centro per i partner.
 
-Immettere un **alias di offerta**. Questo è il nome usato per fare riferimento all'offerta nel Centro per i partner.
+- Questo nome non viene usato nel Marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati per i clienti.
+- Non è possibile modificare l'alias dell'offerta dopo aver selezionato **Crea**.
 
-- Questo nome non viene utilizzato nel marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati ai clienti.
-- Questa operazione non può essere modificata dopo aver selezionato **Crea**.
-
-Dopo aver immesso questi due valori, selezionare **Crea** per passare alla pagina Panoramica offerta.
+Selezionare **Crea** per generare l'offerta e continuare.
 
 ## <a name="offer-overview"></a>Panoramica dell'offerta
 
-La pagina **Panoramica dell'offerta** mostra una rappresentazione visiva dei passaggi necessari per pubblicare questa offerta (sia completata che successiva) e della durata del completamento di ogni passaggio.
+Questa pagina mostra una rappresentazione visiva dei passaggi necessari per pubblicare l'offerta (completa e imminente) e il tempo necessario per completare ogni passaggio.
 
-Include collegamenti per eseguire operazioni su questa offerta in base alla selezione effettuata. Ad esempio:
+Sono inclusi i collegamenti per eseguire operazioni su questa offerta in base alla selezione effettuata. Ad esempio:
 
-- Se l'offerta è una bozza - [Elimina bozza di offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Se l'offerta è in diretta - [Smetti di vendere l'offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Se l'offerta è in anteprima - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Se non hai completato la disconnessione del publisher - [Annulla pubblicazione](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Se l'offerta è un'offerta bozza di [eliminazione](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
+- Se l'offerta è Live- [stop selling the offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
+- Se l'offerta è in anteprima- [Go-Live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
+- Se il server di pubblicazione non è stato completato, [annullare la pubblicazione](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
-## <a name="offer-setup"></a>Configurazione dell'offerta
+## <a name="offer-setup"></a>Installazione dell'offerta
 
-Segui questi passaggi per configurare la tua offerta.
+### <a name="connect-lead-management"></a>Gestione dei lead di connessione
 
-### <a name="connect-lead-management"></a>Gestione dei lead di Connect
+Quando si pubblica l'offerta nel Marketplace con il centro per i partner, è necessario connetterla al sistema CRM (Customer Relationship Management). In questo modo è possibile ricevere le informazioni di contatto del cliente non appena un utente esprime l'interesse o usa il prodotto.
 
-Quando pubblichi l'offerta nel marketplace con il Centro per i partner, devi connetterla al sistema CRM (Customer Relationship Management). Ciò consente di ricevere le informazioni di contatto del cliente non appena qualcuno esprime interesse o utilizza il prodotto.
+1. Selezionare la destinazione a cui si desidera che vengano inviati i lead. Il centro per i partner supporta i sistemi CRM seguenti:
 
-1. Selezionare la destinazione a cui si desidera che vengano inviati i lead. Il Centro per i partner supporta i seguenti sistemi CRM:
-
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) per coinvolgimento dei clienti
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) per il coinvolgimento dei clienti
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
     - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Se il sistema CRM non è elencato in precedenza, usare [Tabella di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) o Endpoint [https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) per archiviare i dati dei lead dei clienti. Esportare quindi i dati nel sistema CRM.
+    > Se il sistema CRM non è elencato sopra, usare la [tabella di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) o l' [endpoint HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) per archiviare i dati dei clienti. Esportare quindi i dati nel sistema CRM.
 
-2. Collegare l'offerta alla destinazione lead durante la pubblicazione nel Centro per i partner.
-3. Verificare che la connessione alla destinazione del lead sia configurata correttamente. Dopo averla pubblicata nel Centro per i partner, convalideremo la connessione e ti invieremo un responsabile di test. Durante l'anteprima dell'offerta prima che venga messa in diretta, puoi anche testare la connessione lead provando ad acquistare l'offerta nell'ambiente di anteprima.
-4. Assicurati che la connessione alla destinazione lead rimanga aggiornata in modo da non perdere alcun lead.
+2. Connetti l'offerta alla destinazione principale durante la pubblicazione nel centro per i partner.
+3. Verificare che la connessione alla destinazione principale sia configurata correttamente. Dopo la pubblicazione nel centro per i partner, la connessione verrà convalidata e verrà inviato un lead di test. Quando si visualizza l'anteprima dell'offerta prima che venga attivata, è anche possibile testare la connessione del lead provando ad acquistare l'offerta nell'ambiente di anteprima.
+4. Assicurarsi che la connessione alla destinazione principale rimanga aggiornata in modo da non perdere i lead.
 
-Di seguito sono riportate alcune risorse aggiuntive per la gestione dei lead:Here are some additional lead management resources:
+Di seguito sono riportate alcune risorse di gestione lead aggiuntive:
 
 - [Panoramica della gestione dei lead](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Domande frequenti sulla gestione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Errori comuni di configurazione dei lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Panoramica della gestione dei lead](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (assicurarsi che il blocco popup sia disattivato)
 
-Selezionare **Salva bozza** prima di continuare con la sezione successiva, Proprietà.
+Selezionare **Salva bozza** prima di continuare.
 
 ## <a name="properties"></a>Proprietà
 
-Questa pagina ti consente di definire le categorie e i settori utilizzati per raggruppare la tua offerta sul marketplace, la versione dell'app e i contratti legali che supportano la tua offerta.
+Questa pagina consente di definire le categorie e i settori usati per raggruppare l'offerta nel Marketplace, la versione dell'app e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Category
+### <a name="category"></a>Categoria
 
-Selezionare un minimo di una e un massimo di tre categorie. Queste categorie vengono utilizzate per inserire l'offerta nelle aree di ricerca del marketplace appropriate e vengono visualizzate nella pagina dei dettagli dell'offerta. Nella descrizione dell'offerta, spiega come la tua offerta supporta queste categorie.
+Selezionare un minimo di uno e un massimo di tre categorie. Queste categorie vengono usate per inserire l'offerta nelle aree di ricerca del Marketplace appropriate e vengono visualizzate nella pagina dei dettagli dell'offerta. Nella descrizione dell'offerta, spiegare in che modo l'offerta supporta queste categorie.
 
 ### <a name="industry"></a>Settore
 
-Facoltativamente, selezionare fino a due settori e due verticali in ogni settore. Mentre le categorie vengono utilizzate per la visualizzazione dell'offerta, il settore e i verticali vengono utilizzati nei filtri di ricerca e vengono applicati nello Storefront. Se la tua offerta è destinata a un settore e/o verticale specifico, utilizza la descrizione dell'offerta per spiegare in che modo la tua offerta supporta i settori o i verticali selezionati. Se l'offerta non è&#39;specifica del settore, lasciare vuota questa sezione.
+Facoltativamente, selezionare fino a due settori e due verticali in ogni settore. Mentre le categorie vengono usate per la visualizzazione dell'offerta, il settore e le verticali vengono usati nei filtri di ricerca e vengono applicati nella vetrina. Se l'offerta è destinata a un settore specifico e/o verticale, usare la descrizione dell'offerta per spiegare in che modo l'offerta supporta i settori selezionati o verticali. Se l'offerta non è specifica del settore, lasciare vuota questa sezione.
 
 > [!NOTE]
-> Mentre lavoriamo per introdurre nuove industrie e verticali per migliorare l'esperienza di scoperta dell'offerta, alcuni settori o verticali potrebbero non essere ancora visibili sullo Storefront. Le industrie e i verticali contrassegnati con un simbolo di canceltura saranno disponibili in una data futura. Tutte le offerte pubblicate sono individuabili tramite la ricerca per parole chiave.
+> Quando lavoriamo per introdurre nuovi settori e verticali per migliorare l'esperienza di individuazione dell'offerta, alcuni settori o verticali potrebbero non essere ancora visibili nella vetrina. I settori e i verticali contrassegnati con (*) saranno disponibili in una data futura. Tutte le offerte pubblicate sono individuabili tramite la ricerca di parole chiave.
 <p>&nbsp;
 
-| **Settore** | **Settore secondario** |
+| **Settore** | **Sottosettore** |
 | --- | --- |
-| -Automotive | -Automotive |
-| Agricoltura | - Altro - Non segmentato |
-| Distribuzione | - Vendita all'ingrosso<br>Spedizione di pacchi e pacchi |
-| Formazione | *Istruzione<br> superiore* Istruzione primaria e secondaria / K-12<br>Librerie e Musei |
-| Servizi finanziari | *Mercati bancari<br> e dei capitali* Assicurazione |
-| Government | *Difesa e intelligence (usato per essere<br> chiamato Sicurezza Nazionale e Pubblica)* Sicurezza pubblica e giustizia<br>- Governo civile |
-| Sanità (usato per essere chiamato Salute) | *Pagatore<br> della salute* Fornitore di servizi sanitari<br>Prodotti farmaceutici |
-| Produzione e Risorse (utilizzate per essere chiamate Produzione) | *Chimica e agrochimica<br> * Produzione discreta<br>Energia |
-| Vendita al dettaglio e beni di consumo (utilizzato per essere chiamato vendita al dettaglio) | *Beni<br> di consumo* Rivenditori |
-| Media e comunicazioni (usati per supporti e intrattenimento) | *Media e<br> intrattenimento* Telecomunicazioni |
-| Servizi professionali | *Legale<br> * Servizi professionali per i partner |
-| Architettura e costruzione (usato per essere chiamato Ingegneria dell'Architettura) | - Altro - Non segmentato |
-| - Ospitalità e viaggi | *Alberghi e<br> tempo libero* Viaggi e trasporti<br>Ristoranti e servizi alimentari |
-| Altre industrie del settore pubblico | *La silvicoltura e la pesca<br> * Nonprofits |
-| - Immobili | - Altro - Non segmentato |
+| * Automotive | * Automotive |
+| Agricoltura | * Altro-non segmentato |
+| Distribuzione | * Ingrosso<br>Spedizione pacchetti e pacchetti |
+| Education | *Istruzione<br> superiore* Educazione primaria e secondaria/K-12<br>* Librerie e musei |
+| Servizi finanziari | *Servizi bancari e mercati<br> finanziari* Insurance |
+| Government | *Difesa e Intelligence (per la sicurezza nazionale e pubblica)<br> * Sicurezza pubblica e giustizia<br>* Governo civile |
+| Healthcare (chiamato Health) | *Pagante<br> di integrità* Provider di integrità<br>* Farmaci |
+| Produzione e risorse (chiamate produzione) | *Chemical e agrochimica<br> * Produzione discreta<br>* Energia |
+| Vendita al dettaglio e beni di consumo (da chiamare al dettaglio) | *Beni<br> di consumo* Rivenditori |
+| * Supporti e comunicazioni (chiamati supporti e intrattenimento) | *Media e intrattenimento<br> * Telecomunicazioni |
+| Servizi professionali | *Note<br> legali* Servizi professionali per i partner |
+| * Architettura e costruzione (denominata progettazione dell'architettura) | * Altro-non segmentato |
+| * Ospitalità e viaggi | *Alberghi e svago<br> * Viaggi e trasporti<br>* Ristoranti e servizi alimentari |
+| * Altri settori pubblici | *Silvicoltura e pesca<br> * Organizzazioni no profit |
+| * Immobiliare | * Altro-non segmentato |
 
 ### <a name="legal"></a>Note legali
 
 #### <a name="terms-and-conditions"></a>Termini e condizioni
 
-Per fornire termini e condizioni personalizzati, inserisci fino a 10.000 caratteri nella casella **Termini e condizioni.** Se i termini e le condizioni richiedono una descrizione più lunga, inserisci un singolo link web a cui sono reperibili. Verrà visualizzato ai clienti come collegamento attivo.
+Per specificare i termini e le condizioni personalizzati, immettere fino a 10.000 caratteri nella casella **termini e condizioni** . Se i termini e le condizioni richiedono una descrizione più lunga, immettere un solo collegamento Web per la posizione in cui possono essere trovati. Verrà visualizzato come collegamento attivo ai clienti.
 
-I clienti devono accettare questi termini prima di poter provare la tua offerta.
+I clienti devono accettare questi termini prima di poter provare l'offerta.
 
-Seleziona **Salva bozze** prima di continuare con la sezione successiva, Offerta.
+Selezionare **Salva bozza** prima di continuare con la sezione successiva, ad elenco offerte.
 
-## <a name="offer-listing"></a>Inserzione dell'offerta
+## <a name="offer-listing"></a>Elenco offerte
 
-Qui definirai i dettagli dell'offerta che vengono visualizzati nel marketplace. Sono inclusi il nome, la descrizione, le immagini e così via.
+Qui verranno definiti i dettagli dell'offerta visualizzati nel Marketplace. Sono inclusi il nome dell'offerta, la descrizione, le immagini e così via.
 
-### <a name="language"></a>Linguaggio
+### <a name="language"></a>Lingua
 
-Seleziona la lingua in cui verrà elencata la tua offerta. Attualmente, **English (Stati Uniti)** è l'unica opzione disponibile.
+Selezionare la lingua in cui verrà elencata l'offerta. Attualmente, l' **inglese (Stati Uniti)** è l'unica opzione disponibile.
 
-Definire i dettagli del marketplace (ad esempio il nome, la descrizione e le immagini dell'offerta) per ogni lingua/mercato. Selezionare la lingua/nome del mercato per fornire queste informazioni.
+Definire i dettagli del Marketplace, ad esempio il nome, la descrizione e le immagini dell'offerta, per ogni lingua/mercato. Selezionare il nome del mercato/lingua per fornire queste informazioni.
 
 > [!NOTE]
-> I dettagli dell'offerta non sono necessari per essere &quot;in inglese se la descrizione dell'offerta inizia con la frase, Questa applicazione è disponibile solo in [lingua non in lingua inglese]. &quot; E '&#39;anche bene fornire un link utile per offrire contenuti in una lingua che&#39;s diverso da quello utilizzato nella lista offerta.
+> I dettagli dell'offerta non devono essere in inglese se la descrizione dell'offerta inizia con la frase "questa applicazione è disponibile solo in [lingua non inglese]". È anche possibile fornire un collegamento utile per offrire contenuti in una lingua diversa da quella usata nell'elenco di offerte.
 
 ### <a name="name"></a>Nome
 
-Il nome che inserisci qui viene visualizzato come titolo dell'offerta. Questo campo è precompilato con il testo immesso nella casella **Alias offerta** al momento della creazione dell'offerta. Il nome può essere modificato successivamente.
+Il nome immesso qui viene visualizzato come titolo dell'offerta. Questo campo è già compilato con il testo immesso nella casella **alias offerta** al momento della creazione dell'offerta. Il nome può essere modificato successivamente.
 
-Il nome:
+Nome:
 
-- Può essere registrato (e l'utente può includere simboli di marchio o copyright).
-- Non può essere lungo più di 50 caratteri.
-- Non è possibile includere emoji.
+- Può essere registrato (e possono essere inclusi marchi o simboli di copyright).
+- Non può contenere più di 50 caratteri.
+- Non può includere emoji.
 
-### <a name="search-results-summary"></a>Riepilogo dei risultati della ricerca
+### <a name="search-results-summary"></a>Riepilogo risultati ricerca
 
-Fornisci una breve descrizione della tua offerta. Può essere lungo fino a 100 caratteri e viene utilizzato nei risultati di ricerca del marketplace.
+Fornire una breve descrizione dell'offerta. Questo può avere una lunghezza di 100 caratteri e viene usato nei risultati della ricerca nel Marketplace.
 
 ### <a name="description"></a>Descrizione
 
-Fornisci una descrizione più lunga della tua offerta, fino a 3.000 caratteri. Viene visualizzato dai clienti nella panoramica dell'elenco dei marketplace.
+Fornire una descrizione più lunga dell'offerta, fino a 3.000 caratteri. Viene visualizzato ai clienti nella panoramica dell'elenco del Marketplace.
 
-Includere una o più delle seguenti opzioni nella descrizione:
+Includere uno o più dei seguenti elementi nella descrizione:
 
-- Il valore e i vantaggi principali offerti dalla tua offerta.
-- Associazioni di categoria o di settore, o entrambi.
+- Il valore e i vantaggi principali offerti dall'offerta.
+- Categoria o associazioni di settore o entrambi.
 - Opportunità di acquisto in-app.
 - Eventuali divulgazioni obbligatorie.
 
-Ecco alcuni suggerimenti per scrivere la tua descrizione:
+Ecco alcuni suggerimenti per scrivere la descrizione:
 
-- Descrivi chiaramente il valore della tua offerta nelle prime frasi della tua descrizione. Includere i seguenti elementi:
+- Descrivere chiaramente il valore dell'offerta nelle prime frasi della descrizione. Includere gli elementi seguenti:
   - Descrizione dell'offerta.
-  - Il tipo di utente che beneficia dell'offerta.
-  - Il cliente ha bisogno o emette gli indirizzi dell'offerta.
-- Ricorda che le prime frasi potrebbero essere visualizzate nei risultati della ricerca.
-- Non fare affidamento su caratteristiche e funzionalità per vendere il tuo prodotto. Concentrati invece sul valore offerto dalla tua offerta.
-- Prova a usare il vocabolario specifico del settore o la formulazione basata sui vantaggi.
+  - Tipo di utente che trae vantaggio dall'offerta.
+  - Esigenze dei clienti o problemi relativi agli indirizzi dell'offerta.
+- Tenere presente che le prime frasi potrebbero essere visualizzate nei risultati della ricerca.
+- Non fare affidamento sulle funzionalità e sulle funzionalità per la vendita del prodotto. Concentrarsi invece sul valore fornito dall'offerta.
+- Provare a usare il vocabolario specifico del settore o il wording basato sui vantaggi.
 
-Per rendere **Description** la descrizione dell'offerta più coinvolgente, usa l'editor RTF per formattare la descrizione. L'editor RTF consente di aggiungere numeri, punti elenco, grassetto, corsivo e rientri per rendere la descrizione più leggibile.
+Per rendere più accattivante la descrizione dell'offerta, usare l'editor di testo RTF per applicare la formattazione.
 
-:::image type="content" source="media/power-bi-rich-text-editor.png" alt-text="illustra l'editor di testo RTF" border="false":::
+![Uso dell'editor di testo RTF](./media/rich-text-editor.png)
+
+| <center>Modificare il formato del testo | <center>Aggiungi elenchi puntati o numerati | <center>Aggiungere o rimuovere il rientro del testo |
+| --- | --- | --- |
+| <center>![Utilizzo dell'editor di testo RTF per modificare il formato del testo](./media/text-editor3.png) |  <center>![Uso dell'editor di testo RTF per aggiungere elenchi](./media/text-editor4.png) |  <center>![Utilizzo dell'editor di testo RTF per rientrare](./media/text-editor5.png) |
 
 ### <a name="search-keywords"></a>Search Keywords (Parole chiave di ricerca)
 
-Inserisci fino a tre parole chiave di ricerca facoltative per aiutare i clienti a trovare la tua offerta nel marketplace. Per ottenere risultati ottimali, utilizza anche queste parole chiave nella descrizione.
+Immettere fino a tre parole chiave di ricerca facoltative per aiutare i clienti a trovare l'offerta nel Marketplace. Per ottenere risultati ottimali, usare anche queste parole chiave nella descrizione.
 
-### <a name="helpprivacy-web-addresses"></a>Indirizzo Web Guida/Privacy
+### <a name="helpprivacy-web-addresses"></a>Indirizzi Web della guida/privacy
 
-Fornisci collegamenti per aiutare i clienti a comprendere meglio la tua offerta.
+Fornire i collegamenti per aiutare i clienti a comprendere meglio l'offerta.
 
-#### <a name="help-link"></a>Collegamento alla Guida
+#### <a name="help-link"></a>Collegamento alla guida
 
-Inserisci l'indirizzo web dove i clienti possono saperne di più sulla tua offerta.
+Immettere l'indirizzo Web in cui i clienti possono ottenere ulteriori informazioni sull'offerta.
 
-#### <a name="privacy-policy-url"></a>URL dell'informativa sulla privacy
+#### <a name="privacy-policy-url"></a>URL informativa sulla privacy
 
-Immettere l'indirizzo Web dell'informativa sulla privacy dell'organizzazione. Hai la responsabilità di garantire che la tua offerta sia conforme alle leggi e ai regolamenti sulla privacy. Sei anche responsabile per la pubblicazione di una politica sulla privacy valida sul tuo sito web.
+Immettere l'indirizzo Web dell'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'offerta sia conforme alle leggi e alle normative sulla privacy. L'utente è anche responsabile dell'invio di un criterio di privacy valido nel sito Web.
 
 ### <a name="contact-information"></a>Informazioni sul contatto
 
-È necessario fornire il nome, l'indirizzo e-mail e il numero di telefono per un **contatto di supporto** e un contatto **Engineering**. Queste informazioni non vengono&#39;mostrate ai clienti. È disponibile per Microsoft e può essere fornito ai partner Cloud Solution Provider (CSP).
+È necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per un **contatto di supporto** e un **contatto tecnico**. Queste informazioni non vengono visualizzate ai clienti. È disponibile per Microsoft e può essere fornita ai partner Cloud Solution Provider (CSP).
 
-- Contatto di supporto (obbligatorio): per domande generali sul supporto tecnico.
+- Contatto per il supporto tecnico (obbligatorio): per domande di supporto generale.
 - Contatto tecnico (obbligatorio): per domande tecniche e problemi di certificazione.
-- Contatto del programma CSP (facoltativo): per le domande dei rivenditori relative al programma CSP.
+- Contatto del programma CSP (facoltativo): per domande sul rivenditore correlate al programma CSP.
 
-Nella sezione **Contatto supporto** specificare l'indirizzo Web del sito Web del **supporto tecnico** in cui i partner possono trovare supporto per l'offerta.
+Nella sezione **contatto del supporto tecnico** , fornire l'indirizzo Web del **sito Web di supporto** in cui i partner possono trovare il supporto per l'offerta.
 
 ### <a name="supporting-documents"></a>Documenti di supporto
 
-Fornisci almeno uno e fino a tre documenti di marketing correlati in formato PDF. Ad esempio, white paper, brochure, elenchi di controllo o presentazioni.
+Fornire almeno uno e tre documenti di marketing correlati in formato PDF. Ad esempio, white paper, brochure, elenchi di controllo o presentazioni.
 
 ### <a name="marketplace-images"></a>Immagini del Marketplace
 
-Fornisci loghi e immagini da utilizzare con la tua offerta. Tutte le immagini devono essere in formato PNG. Le immagini sfocate verranno rifiutate.
+Fornire i logo e le immagini da usare con l'offerta. Tutte le immagini devono essere in formato png. Le immagini sfocate verranno rifiutate.
 
->[!Note]
->Se si verifica un problema durante il caricamento dei https://upload.xboxlive.com file, assicurarsi che la rete locale non blocchi il servizio utilizzato dal Centro per i partner.
+>[!NOTE]
+>Se si verifica un problema durante il caricamento dei file, assicurarsi che la rete locale non blocchi il https://upload.xboxlive.com servizio usato dal centro per i partner.
 
-#### <a name="store-logos"></a>Loghi del Negozio
+#### <a name="store-logos"></a>Logo dello Store
 
-Fornisci i file .png dell'offerta&#39;logo s in due dimensioni: **Piccolo** (48 x 48 pixel) e **Grande** (216 x 216 pixel).
+Fornire file con estensione png del logo dell'offerta in due dimensioni in pixel:
+- **Piccolo** (48 x 48)
+- **Grande** (216 x 216)
 
-Entrambi i loghi sono obbligatori e vengono utilizzati in luoghi diversi nella presentazione del marketplace.
+Entrambi i logo sono obbligatori e vengono usati in posizioni diverse nell'inserzione del Marketplace.
 
 #### <a name="screenshots"></a>Screenshots (Schermate)
 
-Aggiungi almeno uno e fino a cinque screenshot che mostrano come funziona la tua offerta. Ciascuno deve avere dimensioni 1280 x 720 pixel e in formato PNG.
+Aggiungere almeno una e fino a cinque schermate che mostrano il funzionamento dell'offerta. Ogni deve avere una dimensione di 1280 x 720 pixel e in formato png.
 
-#### <a name="videos-optional"></a>Video (opzionale)
+#### <a name="videos-optional"></a>Video (facoltativo)
 
-Aggiungi fino a cinque video che dimostrano la tua offerta. Inserisci il video&#39;s nome, il suo indirizzo web e l'immagine in miniatura .png del video a 1280 x 720 pixel.
+È possibile aggiungere fino a cinque video che illustrano l'offerta. Immettere il nome del video, il relativo indirizzo Web e l'immagine thumbnail. png del video con dimensioni di 1280 x 720 pixel.
 
-#### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per la presentazione del marketplace
+#### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per l'elenco del Marketplace
 
-Per ulteriori informazioni sulla creazione di inserzioni di offerte, consulta Best practice per [l'inserzione di offerte.](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+Per ulteriori informazioni sulla creazione di elenchi di offerte, vedere l'articolo relativo alle [procedure consigliate](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)per l'elenco.
 
 ## <a name="technical-configuration"></a>Configurazione tecnica
 
-Promuovere l'app nel servizio Power BI all'ambiente di produzione e fornire il collegamento di installazione dell'app Power BI che consente ai clienti di installare l'app. Per altre informazioni, vedere [Pubblicare app con dashboard e report in Power BI.](https://docs.microsoft.com/power-bi/service-create-distribute-apps)
+Alzare di livello l'app nel servizio Power BI alla produzione e fornire il collegamento Power BI App Installer che consente ai clienti di installare l'app. Per altre informazioni, vedere [pubblicare app con dashboard e report in Power bi](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
 
-## <a name="supplemental-content"></a>Contenuti supplementari
+## <a name="supplemental-content"></a>Contenuto supplementare
 
-Fornisci ulteriori informazioni sulla tua offerta per aiutarci a convalidarla. Queste informazioni non vengono&#39;mostrate ai clienti o pubblicate nel marketplace.
+Fornire informazioni aggiuntive sull'offerta per consentirne la convalida. Queste informazioni non vengono visualizzate ai clienti o pubblicate sul Marketplace.
 
-### <a name="validation-assets"></a>Risorse di convalida
+### <a name="validation-assets"></a>Asset di convalida
 
-Facoltativamente, aggiungi istruzioni (fino a 3.000 caratteri) per consentire al team di convalida Microsoft di configurare, connettere e testare l'app. Includere impostazioni di configurazione, account, parametri o altre informazioni tipiche che possono essere utilizzate per testare l'opzione Connetti dati. Queste informazioni sono visibili solo al team di convalida e vengono utilizzate solo a scopo di convalida.
+Facoltativamente, aggiungere istruzioni (fino a 3.000 caratteri) per consentire al team di convalida Microsoft di configurare, connettere e testare l'app. Includere le impostazioni di configurazione, gli account, i parametri o altre informazioni tipiche che è possibile utilizzare per testare l'opzione Connetti dati. Queste informazioni sono visibili solo al team di convalida e vengono utilizzate solo a scopo di convalida.
 
-## <a name="review-and-publish"></a>Revisione e pubblicazione
+## <a name="review-and-publish"></a>Esaminare e pubblicare
 
-Dopo aver completato&#39;tutte le sezioni obbligatorie dell'offerta, puoi inviare l'offerta per la revisione e la pubblicazione.
+Una volta completate tutte le sezioni obbligatorie dell'offerta, è possibile inviare l'offerta per la revisione e la pubblicazione.
 
-Nell'angolo superiore destro del portale selezionare **Revisione e pubblicazione**.
+Nell'angolo superiore destro del portale selezionare **revisione e pubblicazione**.
 
-Nella pagina di revisione è possibile:
+Nella pagina verifica è possibile:
 
-- Vedi lo stato di completamento per ogni sezione dell'offerta. Non è possibile&#39;pubblicare fino a quando tutte le sezioni dell'offerta non sono contrassegnate come complete.
-  - **Non avviato:** la sezione non è stata avviata e deve essere completata.
-  - **Incompleto:** la sezione contiene errori che devono essere corretti o richiede di fornire ulteriori informazioni. Per istruzioni, vedere le sezioni precedenti in questo documento.
-  - **Completo** - La sezione contiene tutti i dati richiesti e non ci sono errori. Tutte le sezioni dell'offerta devono essere complete prima di poter inviare l'offerta.
-- Fornisci istruzioni di test al team di certificazione per assicurarti che l'app venga testata correttamente. Inoltre, fornisci eventuali note supplementari utili per comprendere la tua offerta.
+- Vedere lo stato di completamento di ogni sezione dell'offerta. Non è possibile pubblicare fino a quando tutte le sezioni dell'offerta non vengono contrassegnate come complete.
+  - **Non avviato** : la sezione non è stata avviata e deve essere completata.
+  - **Incompleto** . nella sezione sono presenti errori che devono essere corretti oppure è necessario fornire altre informazioni. Per informazioni aggiuntive, vedere le sezioni precedenti di questo documento.
+  - **Completato** : la sezione contiene tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere completate prima di poter inviare l'offerta.
+- Fornire istruzioni di test al team di certificazione per assicurarsi che l'app venga testata correttamente. Inoltre, fornire eventuali note supplementari utili per comprendere l'offerta.
 
-Per inviare l'offerta per la pubblicazione, selezionare **Pubblica**.
+Per inviare l'offerta per la pubblicazione, selezionare **pubblica**.
 
-Ti invieremo un'email per comunicarti quando è disponibile una versione di anteprima dell'offerta per la revisione e l'approvazione. Per pubblicare l'offerta al pubblico (o se un'offerta privata, a un pubblico privato), vai al Centro per i partner e seleziona **Go-live**.
+Ti invieremo un messaggio di posta elettronica per informare l'utente quando sarà disponibile una versione di anteprima dell'offerta da rivedere e approvare. Per pubblicare l'offerta al pubblico (o, se un'offerta privata, per un pubblico privato), accedere al centro per i partner e selezionare **Go-Live**.

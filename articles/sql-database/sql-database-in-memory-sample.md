@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff4647682f5f4d688f3b581b96715e01976a387
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528205"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891164"
 ---
 # <a name="in-memory-sample"></a>Esempio in memoria
 
@@ -24,7 +24,7 @@ Le tecnologie in memoria del database SQL di Azure consentono di migliorare le p
 
 In questo articolo verranno esaminati due esempi che illustrano l'uso di OLTP in memoria e degli indici columnstore nel database SQL di Azure.
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 - [Panoramica e scenari di utilizzo](https://msdn.microsoft.com/library/mt774593.aspx), inclusi riferimenti a casi di studio sui clienti e informazioni introduttive
 - [OLTP in memoria](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Guida agli indici columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
@@ -179,10 +179,10 @@ Per creare la versione *_ondisk* dello script T-SQL precedente per ostress.exe, 
 
 Installare nella macchina virtuale o nell'host scelto le utilità RML (Replay Markup Language), che includono ostress.exe.
 
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 - La discussione su ostress.exe nell'articolo relativo ai [database di esempio per OLTP in memoria](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Database di esempio per OLTP in memoria](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Blog sull'installazione di ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- [Blog sull'installazione di ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 
 
