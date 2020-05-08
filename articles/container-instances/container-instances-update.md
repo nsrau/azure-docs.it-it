@@ -3,16 +3,16 @@ title: Aggiornamento del gruppo di contenitori
 description: Informazioni su come aggiornare i contenitori in esecuzione nei gruppi di contenitori in Istanze di Azure Container.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854442"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928721"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di Azure Container
 
-Durante il normale funzionamento delle istanze di contenitore, può risultare necessario aggiornare i contenitori in esecuzione in un [gruppo di contenitori](container-instances-container-groups.md). Ad esempio, potrebbe essere necessario aggiornare una proprietà, ad esempio una versione dell'immagine, un nome DNS o una variabile di ambiente, oppure aggiornare una proprietà in un contenitore con l'arresto anomalo dell'applicazione.
+Durante il normale funzionamento delle istanze di contenitore, può risultare necessario aggiornare i contenitori in esecuzione in un [gruppo di contenitori](./container-instances-container-groups.md). Ad esempio, potrebbe essere necessario aggiornare una proprietà, ad esempio una versione dell'immagine, un nome DNS o una variabile di ambiente, oppure aggiornare una proprietà in un contenitore con l'arresto anomalo dell'applicazione.
 
 Aggiornare i contenitori in un gruppo di contenitori in esecuzione ridistribuendo un gruppo esistente con almeno una proprietà modificata. Quando si aggiorna un gruppo di contenitori, tutti i contenitori in esecuzione nel gruppo vengono riavviati sul posto, in genere nello stesso host contenitore sottostante.
 
@@ -28,7 +28,7 @@ Per aggiornare un gruppo di contenitori esistente:
 * Impostare altre proprietà con i valori specificati in precedenza. Se non si imposta un valore per una proprietà, viene ripristinato il valore predefinito.
 
 > [!TIP]
-> Un [file YAML](container-instances-container-groups.md#deployment) consente di mantenere la configurazione di distribuzione di un gruppo di contenitori e fornisce un punto di partenza per la distribuzione di un gruppo aggiornato. Se è stato usato un metodo diverso per creare il gruppo, è possibile esportare la configurazione in YAML usando [AZ container Export][az-container-export], 
+> Un [file YAML](./container-instances-container-groups.md#deployment) consente di mantenere la configurazione di distribuzione di un gruppo di contenitori e fornisce un punto di partenza per la distribuzione di un gruppo aggiornato. Se è stato usato un metodo diverso per creare il gruppo, è possibile esportare la configurazione in YAML usando [AZ container Export][az-container-export], 
 
 ### <a name="example"></a>Esempio
 
@@ -80,7 +80,7 @@ Quando si elimina un gruppo di contenitori e lo si ricrea, questo non viene "rid
 
 In questo articolo è menzionato più volte il **gruppo di contenitori**. Ogni contenitore di Istanze di Azure Container viene distribuito in un gruppo di contenitori, che può contenere più contenitori.
 
-[Gruppi di contenitori in Istanze di Azure Container](container-instances-container-groups.md)
+[Gruppi di contenitori in Istanze di Azure Container](./container-instances-container-groups.md)
 
 [Distribuire un gruppo multi-contenitore](container-instances-multi-container-group.md)
 

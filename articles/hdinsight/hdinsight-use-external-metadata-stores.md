@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: e53164d1e25f8a8d0a14d21c0544d95cf912fe9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313948"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929333"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -41,6 +41,8 @@ Per impostazione predefinita, HDInsight crea un metastore con ogni tipo di clust
 * Il metastore predefinito usa il database SQL di Azure di base, che ha un limite di 5 DTU (unità di trasmissione database).
 Questo Metastore predefinito viene usato in genere per carichi di lavoro relativamente semplici. Carichi di lavoro che non richiedono più cluster e che non necessitano di metadati conservati oltre il ciclo di vita del cluster.
 
+* Per i carichi di lavoro di produzione, è consigliabile eseguire la migrazione a un Metastore esterno. Per ulteriori informazioni, vedere la sezione seguente.
+
 ## <a name="custom-metastore"></a>Metastore personalizzato
 
 HDInsight supporta inoltre i metastore personalizzati, che sono consigliati per i cluster di produzione:
@@ -64,6 +66,8 @@ HDInsight supporta inoltre i metastore personalizzati, che sono consigliati per 
 Creare o disporre di un database SQL di Azure esistente prima di configurare un metastore Hive personalizzato per un cluster HDInsight.  Per altre informazioni, vedere [Guida introduttiva: creare un database singolo nel database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
 Durante la creazione del cluster, il servizio HDInsight deve connettersi al Metastore esterno e verificare le credenziali. Configurare le regole del firewall del database SQL di Azure per consentire ai servizi e alle risorse di Azure di accedere al server. Abilitare questa opzione nel portale di Azure selezionando **imposta firewall server**. Selezionare quindi **No** sotto **Nega accesso alla rete pubblica**e **Sì** sottostante **Consenti ai servizi e alle risorse di Azure di accedere al server** per il database o il server di database SQL di Azure. Per altre informazioni, vedere [creare e gestire regole del firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+Gli endpoint privati per gli archivi SQL non sono supportati.
 
 ![pulsante Imposta firewall del server](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
@@ -94,6 +98,8 @@ Durante la creazione del cluster, il servizio HDInsight deve connettersi al Meta
 * Se un metastore è condiviso da più cluster, assicurarsi che tutti i cluster abbiano la stessa versione HDInsight. Versioni Hive diverse usano schemi di database del metastore diversi. Ad esempio, non è possibile condividere un Metastore nei cluster hive 2,1 e hive 3,1 con versione.
 
 * In HDInsight 4,0, Spark e hive usano cataloghi indipendenti per accedere alle tabelle SparkSQL o hive. Una tabella creata da Spark vive nel catalogo Spark. Una tabella creata da hive si trova nel catalogo hive. Questo comportamento è diverso da quello di HDInsight 3,6 in cui hive e Spark condividono il catalogo comune. L'integrazione di hive e Spark in HDInsight 4,0 si basa sul connettore di hive warehouse (HWC). HWC funziona come un bridge tra Spark e hive. Informazioni [sul connettore del warehouse di hive](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
+
+* In HDInsight 4,0 se si vuole condividere il Metastore tra hive e Spark, è possibile modificare la proprietà Metastore. Catalog. default in hive nel cluster Spark. Questa proprietà è reperibile in Ambari Advanced spark2-hive-site-override. È importante comprendere che la condivisione del Metastore funziona solo per le tabelle hive esterne. questa operazione non funzionerà se sono presenti tabelle hive interne/gestite o tabelle ACID.  
 
 ## <a name="apache-oozie-metastore"></a>Metastore Apache OOZIE
 
