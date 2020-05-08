@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509823"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980899"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -137,9 +137,6 @@ Una volta configurati i grafici, alle linee del grafico viene assegnato automati
 Per modificare il colore di una linea del grafico, fare clic sulla barra colorata nella legenda che corrisponde al grafico. Viene visualizzata la finestra di dialogo Selezione colori. Utilizzare la selezione colori per configurare il colore per la riga.
 
 Una volta configurati, i colori del grafico rimarranno in questo modo quando si aggiunge il grafico a un dashboard. Nella sezione seguente viene illustrato come aggiungere un grafico.
-
-> [!NOTE]
-> A causa dei vincoli della pianificazione del rilascio e della pubblicazione, la modifica dei colori delle linee del grafico richiede temporaneamente il passaggio di un parametro speciale **? feature. ColorPicker = true** all'avvio portale di Azure [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). Questa limitazione verrà rimossa a breve. 
 
 ![Immagine di metrica](./media/metrics-charts/018.png)
 
