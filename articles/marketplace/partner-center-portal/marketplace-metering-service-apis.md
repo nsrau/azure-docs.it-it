@@ -1,18 +1,18 @@
 ---
-title: API del servizio di misurazione del Marketplace | Azure Marketplace
-description: Evento di utilizzo per le offerte SaaS in Azure Marketplace.
+title: API del servizio di misurazione-Marketplace commerciale Microsoft
+description: L'API dell'evento Usage consente di generare eventi di utilizzo per le offerte SaaS in Microsoft AppSource e in Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275748"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857858"
 ---
 # <a name="marketplace-metering-service-apis"></a>API del servizio di misurazione di Marketplace
 
@@ -194,7 +194,7 @@ OK
 
 Descrizione del codice di stato a cui `BatchUsageEvent` si fa riferimento nella risposta API:
 
-| Codice di stato  | Descrizione |
+| Codice stato  | Descrizione |
 | ---------- | -------------------- |
 | `Accepted` | Codice accettato. |
 | `Expired` | Utilizzo scaduto. |

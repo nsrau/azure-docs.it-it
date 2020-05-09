@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74872112"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871015"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definire chiavi univoche per un contenitore di Azure Cosmos
 
@@ -39,7 +39,9 @@ Questo articolo presenta i diversi modi per definire [chiavi univoche](unique-ke
 
 Per creare un contenitore con chiavi univoche, vedere [creare un contenitore di Azure Cosmos con chiave univoca e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
-## <a name="use-the-net-sdk-v2"></a>Usare .NET SDK v2
+## <a name="use-the-net-sdk"></a>Usare .NET SDK
+
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 Quando si crea un nuovo contenitore usando [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), è possibile usare un oggetto `UniqueKeyPolicy` per definire vincoli di chiave univoca.
 
@@ -59,7 +61,7 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Usare .NET SDK V3
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 Quando si crea un nuovo contenitore con [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), usare l'API Fluent dell'SDK per dichiarare chiavi univoche in modo conciso e leggibile.
 
@@ -75,6 +77,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## <a name="use-the-java-sdk"></a>Usare Java SDK
 

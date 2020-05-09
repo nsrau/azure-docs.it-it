@@ -13,16 +13,16 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154594"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889985"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nuova esperienza di registrazione delle app portale di Azure
 
-Sono stati apportati numerosi miglioramenti alla nuova esperienza [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Se si ha familiarità con l'esperienza del portale di registrazione delle applicazioni (apps.dev.microsoft.com) per la registrazione o la gestione di applicazioni convergenti, denominate esperienza precedente, questa guida alla formazione consente di iniziare a usare la nuova esperienza.
+Sono stati apportati numerosi miglioramenti alla nuova esperienza [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Se si ha familiarità con il portale di registrazione delle applicazioni (apps.dev.microsoft.com) per la registrazione o la gestione delle applicazioni, in questa guida verrà illustrata la procedura per iniziare a usare la nuova esperienza.
 
 ## <a name="whats-not-changing"></a>Cosa non cambia?
 
@@ -37,7 +37,7 @@ Sono stati apportati numerosi miglioramenti alla nuova esperienza [registrazioni
 
 ## <a name="key-changes"></a>Modifiche principali
 
--   Nell'esperienza precedente, le app sono state registrate per impostazione predefinita come app convergenti che supportano tutti gli account aziendali (multi-tenant) e gli account Microsoft personali. Questa operazione non può essere modificata tramite la vecchia esperienza, rendendo difficile la creazione di app che supportano solo account aziendali (multi-tenant o tenant singolo).
+-   Nell'esperienza precedente, le app sono state registrate per impostazione predefinita come app *convergenti* , ovvero app che supportano tutti gli account aziendali (multi-tenant) e gli account Microsoft personali. Questa operazione non può essere modificata tramite la vecchia esperienza, rendendo difficile la creazione di app che supportano solo account aziendali (multi-tenant o tenant singolo).
     La nuova esperienza consente di registrare le app che supportano tutte queste opzioni. [Altre informazioni sui tipi di app](active-directory-v2-registration-portal.md).
 
 -   Nella nuova esperienza, se il account Microsoft personale si trova anche in un tenant Azure AD, vengono visualizzate tre schede, tutte le applicazioni nel tenant, le applicazioni di proprietà del tenant e le applicazioni dell'account personale. Quindi, se si ritiene che le app registrate con i account Microsoft personali risultano mancanti, controllare le **applicazioni dalla scheda dell'account personale** .
@@ -52,28 +52,23 @@ Sono stati apportati numerosi miglioramenti alla nuova esperienza [registrazioni
 
 ## <a name="new-app-registration"></a>Registrazione nuova applicazione
 
-Nell'esperienza precedente, per registrare un'app convergente, è necessario specificare solo un nome. Le app create sono state registrate come app convergenti che supportano tutte le directory dell'organizzazione (multi-tenant) e gli account Microsoft personali.  Questa operazione non può essere modificata tramite la vecchia esperienza, rendendo difficile la creazione di app che supportano solo account aziendali (multi-tenant o tenant singolo). [Altre informazioni sui tipi di account supportati](v2-supported-account-types.md)
+Nella vecchia esperienza, per registrare un'app era necessario solo specificare un nome. Le app create sono state registrate come app *convergenti* -app che supportano tutte le directory organizzative (multi-tenant) e gli account Microsoft personali.  Questa operazione non può essere modificata tramite la vecchia esperienza, rendendo difficile la creazione di app che supportano solo account aziendali (a singolo o multi-tenant). [Altre informazioni sui tipi di account supportati](v2-supported-account-types.md)
 
 Nella nuova esperienza è necessario fornire un nome per l'app e scegliere i tipi di conto supportati. Facoltativamente, è possibile specificare un URI di reindirizzamento.
 Se si specifica un URI di reindirizzamento, è necessario specificare se è Web/pubblico (nativo/mobile e desktop). Per altre informazioni su come registrare un'app usando la nuova esperienza di registrazione delle app, vedere [questa Guida introduttiva](quickstart-register-app.md).
 
 ## <a name="app-management-page"></a>Pagina di gestione delle app
 
-L'esperienza precedente aveva una singola pagina di gestione delle app per le app con convergenza con le sezioni seguenti: proprietà, segreti dell'applicazione, piattaforme, proprietari, autorizzazioni Microsoft Graph, profilo e opzioni avanzate.
+L'esperienza precedente aveva un'unica pagina di gestione delle app per le app con le sezioni seguenti: proprietà, segreti dell'applicazione, piattaforme, proprietari, autorizzazioni Microsoft Graph, profilo e opzioni avanzate.
 
-La nuova esperienza nell'portale di Azure rappresenta queste funzionalità in pagine separate. Qui è possibile trovare la funzionalità equivalente:
+La nuova esperienza nella portale di Azure presenta queste funzionalità in pagine separate. Qui è possibile trovare la funzionalità equivalente:
 
--   Properties: il nome e l'ID applicazione si trova nella pagina Overview.
-
--   I segreti dell'applicazione si trova nella pagina certificati & segreti
-
--   La configurazione delle piattaforme si trova nella pagina di autenticazione
-
--   Microsoft Graph autorizzazioni si trova nella pagina autorizzazioni API insieme ad altre autorizzazioni
-
--   Il profilo è nella pagina Personalizzazione
-
--   Opzione avanzata-il supporto Live SDK si trova nella pagina di autenticazione.
+- Properties: il nome e l'ID applicazione si trova nella pagina Overview.
+- I segreti dell'applicazione si trova nella pagina certificati & segreti
+- La configurazione delle piattaforme si trova nella pagina di autenticazione
+- Microsoft Graph autorizzazioni si trova nella pagina autorizzazioni API insieme ad altre autorizzazioni
+- Il profilo è nella pagina Personalizzazione
+- Opzione avanzata-il supporto Live SDK si trova nella pagina di autenticazione.
 
 ## <a name="application-secretscertificates--secrets"></a>Segreti dell'applicazione/certificati & segreti
 
@@ -111,7 +106,7 @@ Nella pagina manifesto della nuova esperienza è possibile modificare e aggiorna
 
 -   Gli ambiti definiti da questa API (oauth2Permissions) e dalle applicazioni client autorizzate (preAuthorizedApplications) possono essere configurati tramite la pagina esporre un'API. Per altre informazioni su come configurare un'app in modo che sia un'API Web ed esporre le autorizzazioni e gli ambiti, vedere [questa Guida introduttiva](quickstart-configure-app-expose-web-apis.md).
 
--   Il dominio del server di pubblicazione (visualizzato agli utenti [nella\'richiesta di consenso dell'applicazione](application-consent-experience.md)) è disponibile nella pagina del pannello personalizzazione. Per ulteriori informazioni su come configurare un dominio del server di pubblicazione, vedere [questa procedura](howto-configure-publisher-domain.md).
+-   Il dominio del server di pubblicazione (visualizzato agli utenti [nella\'richiesta di consenso dell'applicazione](application-consent-experience.md)) è disponibile nella pagina personalizzazione. Per ulteriori informazioni su come configurare un dominio del server di pubblicazione, vedere [questa procedura](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -125,3 +120,7 @@ La nuova esperienza presenta le limitazioni seguenti:
 
    > [!NOTE]
    > Se si è un utente account Microsoft personale in Azure AD tenant e l'amministratore del tenant ha accesso limitato ai portale di Azure, è possibile che venga negato l'accesso. Tuttavia, se si passa attraverso il collegamento digitando Registrazioni app nella barra di ricerca o aggiungendola, sarà possibile accedere alla nuova esperienza.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per iniziare a usare la nuova esperienza di registrazione delle app, vedere [Guida introduttiva: registrare un'applicazione con la piattaforma di identità Microsoft](quickstart-register-app.md).

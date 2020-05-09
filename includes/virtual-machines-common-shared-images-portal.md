@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,37 +8,31 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73903656"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788995"
 ---
-## <a name="sign-in-to-azure"></a>Accedere ad Azure 
-
-Accedere al portale di Azure all'indirizzo https://portal.azure.com.
-
-> [!NOTE]
-> Se è stata eseguita la registrazione per usare le raccolte di immagini condivise durante l'anteprima, potrebbe essere necessario `Microsoft.Compute` registrare nuovamente il provider. Aprire [cloud Shell](https://shell.azure.com/bash) e digitare:`az provider register -n Microsoft.Compute`
-
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini
 
 Una raccolta di immagini è la risorsa principale usata per l'abilitazione della condivisione di immagini. I caratteri consentiti per i nomi delle raccolte sono lettere maiuscole o minuscole, numeri e punti. Il nome della raccolta non può contenere trattini.  I nomi di raccolta devono essere univoci all'interno della sottoscrizione. 
 
 L'esempio seguente crea una raccolta denominata *myGallery* nel gruppo di risorse *myGalleryRG*.
 
-1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 1. Usare il tipo **raccolta immagini condivise** nella casella di ricerca e selezionare **raccolta immagini condivise** nei risultati.
-1. Nella pagina **raccolta immagini condivise** fare clic su **Crea**.
-1. Selezionare la sottoscrizione corretta.
+1. Nella pagina **raccolta immagini condivise** fare clic su **Aggiungi**.
+1. Nella pagina **Crea raccolta immagini condivise** selezionare la sottoscrizione corretta.
 1. In **gruppo di risorse**selezionare **Crea nuovo** e digitare *myGalleryRG* per nome.
 1. In **nome** *digitare raccolta* per il nome della raccolta.
 1. Lasciare l'impostazione predefinita per **Region**.
 1. È possibile digitare una breve descrizione della raccolta, ad esempio la *raccolta immagini per i test.* e quindi fare clic su **Verifica + crea**.
 1. Al termine della convalida, selezionare **Crea**.
 1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
-   
+
+
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
 
 Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono utilizzati per gestire le informazioni sulle versioni delle immagini create al suo interno. I nomi delle definizioni di immagine possono essere costituiti da lettere maiuscole o minuscole, cifre, punti, trattini e punti. Per ulteriori informazioni sui valori che è possibile specificare per la definizione di un'immagine, vedere [definizioni di immagine](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
@@ -46,8 +40,9 @@ Le definizioni di immagine creano un raggruppamento logico per le immagini. Veng
 Creare la definizione dell'immagine della raccolta all'interno della raccolta. In questo esempio l'immagine della raccolta è denominata *myImageDefinition*.
 
 1. Nella pagina relativa alla nuova raccolta immagini selezionare **Aggiungi nuova definizione immagine** nella parte superiore della pagina. 
+1. In **Aggiungi nuova definizione immagine a raccolta immagini condivise**per **area**selezionare *Stati Uniti orientali*.
 1. Per **nome definizione immagine**digitare *myImageDefinition*.
-1. Per **sistema operativo**, selezionare l'opzione corretta in base alla VM di origine.
+1. Per **sistema operativo**, selezionare l'opzione corretta in base alla VM di origine.  
 1. Per la **generazione di macchine virtuali**, selezionare l'opzione in base alla VM di origine. Nella maggior parte dei casi, si tratta di *generazione 1*. Per altre informazioni, vedere [supporto per le macchine virtuali di seconda generazione](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 1. Per **lo stato del sistema operativo**, selezionare l'opzione in base alla VM di origine. Per ulteriori informazioni, vedere [generalizzato e specializzato](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. Per **Publisher digitare Server**di *pubblicazione*. 
