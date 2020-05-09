@@ -1,23 +1,32 @@
 ---
 title: Espansione disco gestito
-description: Informazioni sul picchi di disco e sul relativo funzionamento per le unità SSD Premium di Azure.
-author: roygara
-ms.author: rogarana
-ms.date: 03/28/2019
+description: Informazioni sul picco del disco per i dischi di Azure e il picchi del disco per le macchine virtuali di Azure
+author: albecker1
+ms.author: albecker
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 1693e7f1916f6941f6aa19748a38b03bb4cec77e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082680"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594445"
 ---
-# <a name="premium-ssd-bursting"></a>SSD Premium in sequenza
-
+# <a name="disk-bursting"></a>Bursting del disco
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="virtual-machine-level-bursting"></a>Espansione a livello di macchina virtuale
+Il supporto per l'espansione a livello di macchina virtuale è abilitato in tutte le aree nel cloud pubblico su queste dimensioni supportate: 
+- [Serie Lsv2](../lsv2-series.md)
 
-[Collegare un disco dati gestito a una macchina virtuale Windows usando il portale di Azure](attach-managed-disk-portal.md)
+Per impostazione predefinita, l'espansione è abilitata per le macchine virtuali che lo supportano.
+
+## <a name="disk-level-bursting"></a>Espansione a livello di disco
+L'espansione è disponibile anche nelle unità [SSD Premium](disks-types.md#premium-ssd) per le dimensioni dei dischi P20 e più piccole in tutte le aree. Per impostazione predefinita, l'espansione del disco è abilitata nelle nuove distribuzioni delle dimensioni dei dischi che la supportano. Le dimensioni dei dischi esistenti, se supportano la modalità di espansione del disco, possono consentire l'espansione tramite uno dei metodi seguenti: 
+- **Riavviare la macchina virtuale** 
+- **Scollegare e riconnettere il disco**
+
+
+[!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting-2.md)]

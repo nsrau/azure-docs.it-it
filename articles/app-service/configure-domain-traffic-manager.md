@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8322c12669e41fc7c9aa88e99f95cf1b26ea87d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944154"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610242"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurare un nome di dominio personalizzato in app Azure servizio con l'integrazione di gestione traffico
 
@@ -66,12 +66,18 @@ Quando l'app del servizio app si trova in un piano tariffario supportato, viene 
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Sebbene le specifiche di ogni provider di dominio variano, è possibile eseguire il mapping *dal* nome di dominio personalizzato (ad esempio **contoso.com**) *al* nome di dominio di Traffic Manager (**contoso.trafficmanager.NET**) integrato con l'app.
+Sebbene le specifiche di ogni provider di dominio variano, è possibile eseguire il mapping *da* un [nome di dominio personalizzato non radice](#what-about-root-domains) (ad esempio **www.contoso.com**) *al* nome di dominio di Traffic Manager (**contoso.trafficmanager.NET**) integrato con l'app. 
 
 > [!NOTE]
 > Se un record è già in uso ed è necessario associare le app in modalità preemptive, è possibile creare un altro record CNAME. Ad esempio, per associare preventivamente **www\.contoso.com** all'app, creare un record CNAME da **awverify. www** a **contoso.trafficmanager.NET**. È quindi possibile aggiungere "www\.contoso.com" all'app senza la necessità di modificare il record CNAME "www". Per altre informazioni, vedere [eseguire la migrazione di un nome DNS attivo al servizio app Azure](manage-custom-dns-migrate-domain.md).
 
 Dopo aver completato l'aggiunta o la modifica di record DNS presso il provider di dominio, salvare le modifiche.
+
+### <a name="what-about-root-domains"></a>Per quanto riguarda i domini radice?
+
+Poiché Gestione traffico supporta solo il mapping del dominio personalizzato con record CNAME e poiché gli standard DNS non supportano i record CNAME per il mapping dei domini radice (ad esempio, **contoso.com**), gestione traffico non supporta il mapping ai domini radice. Per risolvere questo problema, usare un reindirizzamento URL da a livello di app. In ASP.NET Core, ad esempio, è possibile usare la [riscrittura degli URL](/aspnet/core/fundamentals/url-rewriting). Usare quindi Gestione traffico per bilanciare il carico del sottodominio (**www.contoso.com**).
+
+Per gli scenari di disponibilità elevata, è possibile implementare una configurazione DNS a tolleranza di errore senza gestione traffico creando più *record a* che puntano dal dominio radice a ogni indirizzo IP della copia dell'app. Eseguire quindi [il mapping dello stesso dominio radice a tutte le copie dell'app](app-service-web-tutorial-custom-domain.md#map-an-a-record). Poiché non è possibile eseguire il mapping dello stesso nome di dominio a due diverse app nella stessa area, questa configurazione funziona solo quando le copie dell'app si trovano in aree diverse.
 
 ## <a name="enable-custom-domain"></a>Abilita dominio personalizzato
 Dopo la propagazione dei record per il nome di dominio, usare il browser per verificare che il nome di dominio personalizzato venga risolto nell'app del servizio app.

@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b9b27bb142cb729536a3b7a561ed8b8ff5e0ccf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2c2a1d817dbe88bebc36f66b441e609b5faea2a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731313"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629355"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT SDK per dispositivi per C
 
@@ -88,7 +88,7 @@ Lo strumento Device Explorer usa le librerie del servizio IoT di Azure per esegu
 
 Se non si ha familiarità con lo strumento Device Explorer, la procedura seguente descrive come usarlo per aggiungere un dispositivo e ottenere una stringa di connessione del dispositivo.
 
-1. Per installare lo strumento Device Explorer, vedere [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) (Come usare Device Explorer per i dispositivi dell'hub IoT).
+1. Per installare lo strumento Device Explorer, vedere [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) (Come usare Device Explorer per i dispositivi dell'hub IoT).
 
 1. Durante l'esecuzione del programma, viene visualizzata l'interfaccia seguente:
 

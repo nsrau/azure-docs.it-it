@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: mimart
-ms.reviewer: arvinh
-ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201687"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626191"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Uso di SCIM e Microsoft Graph insieme per eseguire il provisioning degli utenti e arricchire l'applicazione con i dati necessari
 
@@ -103,8 +103,8 @@ L'applicazione è incorporata in Microsoft teams e si basa sui dati dei messaggi
 È necessario essere in grado di tenere traccia delle modifiche apportate ai team e ai messaggi di Outlook e di reagire in tempo reale. Come è possibile eseguire il push di queste modifiche nell'applicazione?
 
 **Raccomandazione:** Il Microsoft Graph fornisce le [notifiche delle modifiche](https://docs.microsoft.com/graph/webhooks) e il rilevamento delle [modifiche](https://docs.microsoft.com/graph/delta-query-overview) per le varie risorse. Tenere presenti le seguenti limitazioni delle notifiche di modifica:
-- Se un ricevitore di eventi riconosce un evento, ma non è in grado di intervenire su di esso per qualsiasi motivo, è possibile che l'evento venga perso
-- Se un ricevitore di eventi riconosce un evento, ma non è in grado di intervenire su di esso per qualsiasi motivo, è possibile che l'evento venga perso
+- Se un ricevitore di eventi riconosce un evento, ma non è in grado di intervenire per qualsiasi motivo, l'evento potrebbe andare perduto.
+- L'ordine in cui vengono ricevute le modifiche non è necessariamente cronologico.
 - Le notifiche di modifica non sempre contengono i [dati della risorsa](https://docs.microsoft.com/graph/webhooks-with-resource-data) per i motivi precedenti, gli sviluppatori spesso utilizzano le notifiche di modifica insieme al rilevamento delle modifiche per gli scenari di sincronizzazione. 
 
 ## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>Scenario 6: effettuare il provisioning di utenti e gruppi in Azure AD

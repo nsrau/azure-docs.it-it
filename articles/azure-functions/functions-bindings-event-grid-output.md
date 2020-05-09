@@ -6,16 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e7a2611312ffc33703dd5cc9d0a2d7142ddb0532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368948"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627688"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Associazione di output di griglia di eventi di Azure per funzioni di Azure
 
-Usare l'associazione di output di griglia di eventi per scrivere eventi in un argomento personalizzato. È necessario disporre di una [chiave di accesso valida per l'argomento personalizzato](../event-grid/security-authentication.md#custom-topic-publishing).
+Usare l'associazione di output di griglia di eventi per scrivere eventi in un argomento personalizzato. È necessario disporre di una [chiave di accesso valida per l'argomento personalizzato](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
 
 Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-event-grid.md).
 

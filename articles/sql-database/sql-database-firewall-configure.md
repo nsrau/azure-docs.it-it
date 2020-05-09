@@ -1,28 +1,27 @@
 ---
 title: Regole del firewall IP
-description: Configurare le regole del firewall IP a livello di server per un database SQL o un firewall SQL Data Warehouse. Gestire l'accesso e configurare le regole del firewall IP a livello di database per un database singolo o in pool.
+description: Configurare le regole del firewall IP a livello di server per un database SQL o un firewall di Azure sinapsi Analytics. Gestire l'accesso e configurare le regole del firewall IP a livello di database per un database singolo o in pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.custom: ''
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe0881a7e6c624ea1104d1ebace307e6cf4e337
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606099"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629236"
 ---
-# <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regole del firewall IP del database SQL di Azure e Azure SQL Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-ip-firewall-rules"></a>Regole del firewall IP del database SQL di Azure e di Azure sinapsi Analytics
 
 > [!NOTE]
-> Questo articolo si applica ai server SQL di Azure e al database SQL di Azure e Azure SQL Data Warehouse database in un server SQL di Azure. Per semplicità, il *database SQL* viene usato per fare riferimento a database sql e SQL data warehouse.
+> Questo articolo si applica ai server SQL di Azure e al database SQL di Azure e ai database di analisi delle sinapsi di Azure in un server SQL di Azure. Per semplicità, il *database SQL* viene usato per fare riferimento sia al database SQL che alla sinapsi di Azure.
 
 > [!IMPORTANT]
 > Le informazioni di questo articolo *non* sono valide per *Istanza gestita di database SQL di Azure*. Per informazioni sulla configurazione di rete, vedere [connettere l'applicazione a istanza gestita di database SQL di Azure](sql-database-managed-instance-connect-app.md).
@@ -30,7 +29,7 @@ ms.locfileid: "81606099"
 Quando si crea un nuovo server SQL di Azure denominato *SqlServer*, ad esempio, il firewall del database SQL blocca tutti gli accessi all'endpoint pubblico per il server (accessibile in *MySQLServer.database.Windows.NET*).
 
 > [!IMPORTANT]
-> SQL Data Warehouse supporta solo le regole del firewall IP a livello di server. Non supporta le regole del firewall IP a livello di database.
+> La sinapsi di Azure supporta solo le regole del firewall IP a livello di server. Non supporta le regole del firewall IP a livello di database.
 
 ## <a name="how-the-firewall-works"></a>Funzionamento del firewall
 I tentativi di connessione da Internet e Azure devono passare attraverso il firewall prima che raggiungano il database SQL Server o SQL, come illustrato nella figura seguente.
@@ -253,7 +252,7 @@ Quando l'accesso al servizio del database SQL non si comporta come previsto, con
 
 - **L'account di accesso non è autorizzato oppure è stata usata una password errata:**
 
-  Se un account di accesso non dispone delle autorizzazioni per il server di database SQL o la password non è corretta, la connessione al server viene negata. La creazione di un'impostazione del firewall consente solo ai *client di provare* a connettersi al server. Il client deve comunque fornire le credenziali di sicurezza necessarie. Per ulteriori informazioni sulla preparazione degli account di accesso, vedere [controllo e concessione dell'accesso al database SQL e SQL data warehouse](sql-database-manage-logins.md).
+  Se un account di accesso non dispone delle autorizzazioni per il server di database SQL o la password non è corretta, la connessione al server viene negata. La creazione di un'impostazione del firewall consente solo ai *client di provare* a connettersi al server. Il client deve comunque fornire le credenziali di sicurezza necessarie. Per ulteriori informazioni sulla preparazione degli account di accesso, vedere [controllo e concessione dell'accesso al database SQL e alla sinapsi di Azure](sql-database-manage-logins.md).
 
 - **Indirizzo IP dinamico:**
 
