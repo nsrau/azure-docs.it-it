@@ -77,7 +77,7 @@ La finestra di progettazione supporta i set di impostazioni tabulari creati dall
 
 La finestra di progettazione riconosce internamente i tipi di dati seguenti:
 
-* Stringa
+* string
 * Integer
 * Decimal
 * Boolean
