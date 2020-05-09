@@ -122,11 +122,11 @@ La tabella seguente è un riepilogo delle attività Azure Machine Learning e del
 
 | Attività | Ambito a livello di sottoscrizione | Ambito a livello di gruppo di risorse | Ambito a livello di area di lavoro |
 |---|---|---|---|
-| Creare una nuova area di lavoro | Facoltativo | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
-| Crea nuovo cluster di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
-| Creare una nuova macchina virtuale notebook | Facoltativo | Proprietario o collaboratore | Non consentita |
-| Crea nuova istanza di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
-| Attività del piano dati come l'invio dell'esecuzione, l'accesso ai dati, la distribuzione del modello o della pipeline di pubblicazione | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/*/write` <br/> Si noti che è necessario anche un archivio dati registrato nell'area di lavoro per consentire l'accesso di MSI ai dati nell'account di archiviazione. |
+| Creare una nuova area di lavoro | Non richiesto | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
+| Crea nuovo cluster di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
+| Creare una nuova macchina virtuale notebook | Non richiesto | Proprietario o collaboratore | Non consentita |
+| Crea nuova istanza di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/computes/write` |
+| Attività del piano dati come l'invio dell'esecuzione, l'accesso ai dati, la distribuzione del modello o della pipeline di pubblicazione | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`workspaces/*/write` <br/> Si noti che è necessario anche un archivio dati registrato nell'area di lavoro per consentire l'accesso di MSI ai dati nell'account di archiviazione. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Ricerca per categorie elencare tutti i ruoli personalizzati nella sottoscrizione?

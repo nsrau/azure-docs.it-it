@@ -2,14 +2,14 @@
 title: Disponibilità delle risorse per area
 description: Disponibilità delle risorse di calcolo e memoria per il servizio Istanze di Azure Container in aree di Azure differenti.
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 04/27/2020
 ms.author: danlep
-ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 119c1202fe59e02a1b6ff802e3dbdc4d52133abe
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399395"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583890"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
@@ -26,7 +26,7 @@ Per informazioni su quote e altri limiti nelle distribuzioni, vedere [Quote e li
 
 Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenitori con Linux e i contenitori basati su Windows Server 2016 [supportati](container-instances-faq.md#what-windows-base-os-images-are-supported) .
 
-| Regioni | Sistema operativo | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
+| Regioni | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 | Linux | 4 | 16 | 50 |
 | Australia orientale, Giappone orientale | Linux | 2 | 8 | 50 |
@@ -39,7 +39,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 
 Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenitori con i contenitori basati su Windows Server 2019 (anteprima).
 
-| Regioni | Sistema operativo | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
+| Regioni | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Australia orientale, Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale | Windows | 4 | 16 | 20 |
 | Stati Uniti orientali 2, Stati Uniti occidentali 2 | Windows | 2 | 3,5 | 20 |

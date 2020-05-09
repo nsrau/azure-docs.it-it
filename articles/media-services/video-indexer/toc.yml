@@ -15,6 +15,8 @@
   items:
     - name: Usare l'API Video Indexer
       href: video-indexer-use-apis.md
+    - name: Connettore per App per la logica
+      href: logic-apps-connector-tutorial.md
 - name: Esempi
   items:
     - name: Esempi di Video Indexer

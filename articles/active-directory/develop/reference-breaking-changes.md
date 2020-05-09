@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a60b927f7239818b582ffcd85ddb4b7d69594482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535962"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871528"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione
 
@@ -37,13 +37,31 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 Nessun aggiornamento pianificato in questo momento.  Vedere di seguito per le modifiche apportate o destinate alla produzione.
 
+## <a name="may-2020"></a>Maggio 2020
+
+### <a name="azure-government-endpoints-are-changing"></a>Gli endpoint di Azure per enti pubblici cambiano
+
+**Data di validità**: 5 maggio (fine giugno 2020) 
+
+Gli **endpoint sono interessati**: tutti
+
+**Influisce sul protocollo**: tutti i flussi
+
+Il 1 giugno 2018, l'autorità ufficiale Azure Active Directory (AAD) per Azure Government è cambiata `https://login-us.microsoftonline.com` da `https://login.microsoftonline.us`a. Questa modifica è stata applicata anche a Microsoft 365 GCC High e DoD, che Azure Government AAD ha anche servizi. Se si è proprietari di un'applicazione in un tenant del governo degli Stati Uniti, è necessario aggiornare l'applicazione per `.us` consentire agli utenti di accedere all'endpoint.  
+
+A partire dal 5 maggio, Azure AD inizierà a applicare la modifica dell'endpoint, bloccando l'accesso degli utenti del governo alle app ospitate nei tenant del governo`microsoftonline.com`degli Stati Uniti usando l'endpoint pubblico ().  Le app interessate inizieranno a visualizzare un `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`errore. Questo errore indica che l'app sta tentando di accedere a un utente del governo degli Stati Uniti nell'endpoint del cloud pubblico. Se l'app si trova in un tenant cloud pubblico ed è destinata a supportare gli utenti del governo degli Stati Uniti, sarà necessario [aggiornare l'app per supportarli in modo esplicito](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Questa operazione potrebbe richiedere la creazione di una nuova registrazione dell'app nel cloud per il governo degli Stati Uniti. 
+
+L'imposizione di questa modifica verrà eseguita usando un'implementazione graduale in base alla frequenza con cui gli utenti del cloud degli Stati Uniti possono accedere alle app per la firma degli utenti del governo degli Stati Uniti raramente vedranno l'imposizione e le app usate di frequente dagli utenti del governo degli Stati Uniti avranno infine l'applicazione dell'applicazione. Si prevede che l'applicazione venga completata in tutte le app del 2020 giugno. 
+
+Per altri dettagli, vedere il [post del Blog di Azure per enti pubblici sulla migrazione](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/). 
+
 ## <a name="march-2020"></a>Marzo 2020
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>Le password utente saranno limitate a 256 caratteri.
 
 **Data di validità**: 13 marzo 2020
 
-**Endpoint interessati**: sia la versione 1.0 che la versione 2.0
+Gli **endpoint sono interessati**: tutti
 
 **Influisce sul protocollo**: tutti i flussi utente.
 

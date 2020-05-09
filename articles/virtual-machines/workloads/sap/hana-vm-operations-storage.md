@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0d8228586c0e20e4314331339aa2f2c46a38c9a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255618"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792157"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -281,11 +281,11 @@ I [limiti di velocità effettiva Azure NetApp files](https://docs.microsoft.com/
 - Livello di archiviazione Ultra-128 MiB/s  
 
 > [!IMPORTANT]
-> Indipendentemente dalla capacità che si distribuisce in un singolo volume NFS, la velocità effettiva è prevista per un livello di scalabilità compreso tra 1.2 e 1,4 GB/sec, sfruttato da un consumer in una macchina virtuale. Questa operazione deve essere eseguita con l'architettura sottostante dell'offerta e e con i limiti della sessione Linux correlati intorno a NFS. I numeri di prestazioni e velocità effettiva, come documentato nell'articolo [risultati dei test di benchmark delle prestazioni per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) sono stati eseguiti su un volume NFS condiviso con più macchine virtuali client e come risultato con più sessioni. Questo scenario è diverso dallo scenario misurato in SAP. Dove misuriamo la velocità effettiva da una singola macchina virtuale a un volume NFS. ospitata in e.
+> Indipendentemente dalla capacità che si distribuisce in un singolo volume NFS, la velocità effettiva è prevista per un livello di scalabilità compreso tra 1.2 e 1,4 GB/sec, sfruttato da un consumer in una macchina virtuale. Questa operazione deve essere eseguita con l'architettura sottostante dell'offerta e e con i limiti della sessione Linux correlati intorno a NFS. I numeri di prestazioni e velocità effettiva, come documentato nell'articolo [risultati dei test di benchmark delle prestazioni per Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) sono stati eseguiti su un volume NFS condiviso con più macchine virtuali client e come risultato con più sessioni. Questo scenario è diverso dallo scenario misurato in SAP. Dove misuriamo la velocità effettiva da una singola macchina virtuale a un volume NFS. ospitata in e.
 
 Per soddisfare i requisiti di velocità effettiva minima SAP per dati e log e, in base alle `/hana/shared`linee guida per, le dimensioni consigliate saranno simili alle seguenti:
 
-| Volume | Dimensioni<br /> Livello di archiviazione Premium | Dimensioni<br /> Livello di archiviazione Ultra | Protocollo NFS supportato |
+| Volume | Dimensione<br /> Livello di archiviazione Premium | Dimensione<br /> Livello di archiviazione Ultra | Protocollo NFS supportato |
 | --- | --- | --- |
 | /Hana/log | 4 TiB | 2 TiB | v 4.1 |
 | /hana/data | 6,3 TiB | 3,2 TiB | v 4.1 |
@@ -304,6 +304,6 @@ La documentazione su come distribuire una configurazione con scalabilità orizzo
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni, vedi:
+Per altre informazioni, vedere:
 
 - [SAP Hana guida alla disponibilità elevata per macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

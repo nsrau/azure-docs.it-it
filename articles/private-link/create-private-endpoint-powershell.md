@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af33e95c92cf51bdabe3325bd9249b4662b7d28
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430329"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583762"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creare un endpoint privato usando Azure PowerShell
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. 
@@ -137,7 +137,7 @@ $subnet = $virtualNetwork `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -Name "myPrivateEndpoint" `
   -Location "westcentralus" `
-  -Subnet  $subnet`
+  -Subnet  $subnet `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -198,9 +198,10 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla macchina virtuale
 
 1. Nel Desktop remoto di myVm1 aprire PowerShell.
-2. Immettere `nslookup myserver.database.windows.net`. 
+2. Immettere `nslookup myserver.database.windows.net`. Ricordarsi di `myserver` sostituire con il nome di SQL Server.
 
     Verrà visualizzato un messaggio simile al seguente:
+    
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -209,14 +210,21 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Installare SQL Server Management Studio
-4. In Connetti al server immettere o selezionare le informazioni seguenti: impostazione tipo di server valore selezionare motore di database.
-      Nome server selezionare myserver.database.windows.net nomeutente immettere un nome utente specificato durante la creazione.
-      Password immettere una password specificata durante la creazione.
-      Ricorda password selezionare Sì.
-5. Selezionare Connetti.
-6. Esplorare i database dal menu a sinistra. 
-7. Facoltativamente Creare o eseguire query sulle informazioni da database
+    
+3. Installare SQL Server Management Studio.
+4. In **Connetti a server** immettere o selezionare queste informazioni:
+
+    | Impostazione | valore |
+    | --- | --- |
+    | Tipo di server | Motore di database |
+    | Nome server | myserver.database.windows.net |
+    | Username | Immettere il nome utente specificato durante la creazione |
+    | Password | Immettere la password specificata durante la creazione |
+    | Memorizza password | Sì |
+    
+5. Selezionare **Connetti**.
+6. Esplorare i **database** dal menu a sinistra. 
+7. (Facoltativamente) Creare o eseguire query sulle informazioni di mydatabase.
 8. Chiudere la connessione Desktop remoto a *myVM*. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 

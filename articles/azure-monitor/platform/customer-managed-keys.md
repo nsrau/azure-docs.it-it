@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/07/2020
-ms.openlocfilehash: 068752b01170c2f0c6411ee470d32f3dfb887dea
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: c78d8d603b6686d382ec7edcccc24d5dacc4745a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901022"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982225"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di monitoraggio di Azure 
 
@@ -25,7 +25,7 @@ Prima della configurazione è consigliabile esaminare [limitazioni e vincoli](#l
 
 - La distribuzione di CMK descritta in questo articolo viene fornita in qualità di produzione e supportata come tale, sebbene si tratta di una funzionalità di accesso anticipato.
 
-- La funzionalità CMK viene fornita in un cluster Log Analytics dedicato, ovvero un cluster fisico e un archivio dati adatto per i clienti che inviano 1 TB al giorno o più
+- La funzionalità CMK viene distribuita in un cluster Log Analytics dedicato, ovvero un cluster fisico e un archivio dati adatto per i clienti che inviano 1 TB al giorno o più
 
 - Il modello di determinazione prezzi CMK non è attualmente disponibile e non è trattato in questo articolo. Nel secondo trimestre dell'anno di calendario (CY) 2020 è previsto un modello di determinazione dei prezzi per il cluster di Log Analytics dedicato, che verrà applicato a tutte le distribuzioni di CMK esistenti.
 
@@ -74,7 +74,7 @@ Sono applicabili le regole seguenti:
 
 1. Elenco elementi consentiti per la sottoscrizione: questa funzionalità è necessaria per questa funzionalità di accesso anticipato
 2. Creazione di Azure Key Vault e archiviazione della chiave
-3. Creazione di una risorsa *cluster* : effettua il provisioning di un cluster log Analytics dedicato, ovvero un cluster fisico e un archivio dati
+3. Creazione di una risorsa *cluster*
 5. Concessione delle autorizzazioni all'Key Vault
 6. Associazione di aree di lavoro Log Analytics
 
@@ -179,7 +179,8 @@ La proprietà *billingType* determina l'attribuzione della fatturazione per la r
 - *cluster* (impostazione predefinita): la fatturazione viene attribuita alla sottoscrizione che ospita la risorsa *cluster*
 - *aree di lavoro* : la fatturazione viene attribuita alle sottoscrizioni che ospitano le aree di lavoro in modo proporzionale 
 
-> [! INFORMAZIONI] dopo aver creato la risorsa *cluster* , è possibile aggiornarla con *SKU*, *keyVaultProperties* o *billingType* usando la richiesta patch Rest.
+> [!NOTE]
+> Dopo aver creato la risorsa *cluster* , è possibile aggiornarla con *SKU*, *keyVaultProperties* o *billingType* usando la richiesta patch Rest.
 
 **Crea**
 
@@ -278,7 +279,8 @@ Aggiornare la risorsa *cluster* KeyVaultProperties con i dettagli dell'identific
 
 Questa Gestione risorse richiesta è un'operazione asincrona quando si aggiornano i dettagli dell'identificatore di chiave, mentre è sincrono durante l'aggiornamento del valore della capacità.
 
-> [! INFORMAZIONI] è possibile fornire il corpo parziale nella risorsa *cluster* per aggiornare uno *SKU*, *keyVaultProperties* o *billingType*.
+> [!Note]
+> È possibile fornire il corpo parziale nella risorsa *cluster* per aggiornare uno *SKU*, *keyVaultProperties* o *billingType*.
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -299,7 +301,7 @@ Content-type: application/json
        KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
        KeyName: "<key-name>",
        KeyVersion: "<current-version>"
-       },
+       }
    },
    "location":"<region-name>"
 }
@@ -328,10 +330,10 @@ Una risposta alla richiesta GET sulla risorsa *cluster* dovrebbe avere un aspett
     "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
     },
   "properties": {
-    "KeyVaultProperties": {
-      KeyVaultUri: "https://key-vault-name.vault.azure.net",
-      KeyName: "key-name",
-      KeyVersion: "current-version"
+    "keyVaultProperties": {
+      keyVaultUri: "https://key-vault-name.vault.azure.net",
+      kyName: "key-name",
+      keyVersion: "current-version"
       },
     "provisioningState": "Succeeded",
     "clusterType": "LogAnalytics", 
@@ -435,7 +437,7 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
 
 - Il numero massimo di risorse *cluster* per area e sottoscrizione è 2
 
-- È possibile associare e deassociare le aree di lavoro nella risorsa *cluster* . Il numero di associazioni dell'area di lavoro in limitato a 2 per 30 giorni
+- È possibile associare un'area di lavoro alla risorsa *cluster* e quindi deassociarla quando CMK per i relativi dati non sono più necessari o altri motivi. Il numero di associazioni dell'area di lavoro che è possibile eseguire in un'area di lavoro in un periodo di 30 giorni è limitato a 2
 
 - L'associazione dell'area di lavoro alla risorsa *cluster* deve essere eseguita solo dopo aver verificato che il provisioning del cluster log Analytics dedicato è stato completato. I dati inviati all'area di lavoro prima del completamento verranno eliminati e non saranno recuperabili.
 
@@ -453,26 +455,9 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
 - L'associazione dell'area di lavoro alla risorsa *cluster* non riuscirà se è associata a un'altra risorsa *cluster*
 
 
-## <a name="troubleshooting-and-management"></a>Risoluzione dei problemi e gestione
+## <a name="management"></a>Gestione
 
-- Considerazioni sulla disponibilità Key Vault
-    - Durante il normale funzionamento--archiviazione memorizza nella cache l'AEK per brevi periodi di tempo e torna Key Vault per annullare il wrapping periodicamente.
-    
-    - Errori di connessione temporanei: l'archiviazione gestisce gli errori temporanei (timeout, errori di connessione, problemi relativi a DNS) consentendo alle chiavi di rimanere nella cache per un breve periodo di tempo e questo supera i piccoli tempi di disponibilità. Le funzionalità di query e inserimento continuano senza interruzioni.
-    
-    - Sito Live: la mancata disponibilità di circa 30 minuti comporterà la mancata disponibilità dell'account di archiviazione. La funzionalità di query non è disponibile e i dati inseriti vengono memorizzati nella cache per diverse ore usando la chiave Microsoft per evitare la perdita di dati. Quando viene ripristinato l'accesso Key Vault, la query diventa disponibile e i dati temporanei memorizzati nella cache vengono inseriti nell'archivio dati e crittografati con CMK.
-
-- Se si crea una risorsa *cluster* e si specifica immediatamente il KeyVaultProperties, l'operazione potrebbe non riuscire perché i criteri di accesso non possono essere definiti fino a quando non viene assegnata l'identità del sistema alla risorsa *cluster* .
-
-- Se si aggiorna la risorsa *cluster* esistente con KeyVaultProperties e i criteri di accesso alla chiave ' Get ' mancano nell'Key Vault, l'operazione avrà esito negativo.
-
-- Se si tenta di eliminare una risorsa *cluster* associata a un'area di lavoro, l'operazione di eliminazione avrà esito negativo.
-
-- Se si verifica un errore di conflitto durante la creazione di una risorsa *cluster* , è possibile che la risorsa *cluster* sia stata eliminata negli ultimi 14 giorni ed è in un periodo di eliminazione temporanea. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Il nome viene rilasciato dopo il periodo di eliminazione temporanea quando la risorsa *cluster* viene definitivamente eliminata.
-
-- Se si aggiorna la risorsa *cluster* mentre è in corso un'operazione, l'operazione avrà esito negativo.
-
-- Ottenere tutte le risorse *cluster* per un gruppo di risorse:
+- **Ottenere tutte le risorse *cluster* per un gruppo di risorse**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -515,7 +500,7 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
   }
   ```
 
-- Ottenere tutte le risorse *cluster* per una sottoscrizione:
+- **Ottenere tutte le risorse *cluster* per una sottoscrizione**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -526,9 +511,38 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
     
   Stessa risposta di ' risorse*cluster* per un gruppo di risorse ', ma nell'ambito della sottoscrizione.
 
-- Aggiornare la *prenotazione di capacità* nella risorsa *cluster* : quando il volume di dati nelle aree di lavoro associate cambia e si vuole aggiornare il livello di prenotazione della capacità per le considerazioni sulla fatturazione, seguire la [risorsa di aggiornamento *cluster* ](#update-cluster-resource-with-key-identifier-details) e fornire il nuovo valore di capacità. Il livello di prenotazione della capacità può essere compreso tra 1.000 e 2.000 GB al giorno e nei passaggi di 100. Per un livello superiore a 2.000 GB al giorno, raggiungi il contatto Microsoft per abilitarlo.
+- **Aggiornare la *prenotazione di capacità* nella risorsa *cluster***
 
-- Annullare l'associazione dell'area di lavoro: per eseguire questa operazione sono necessarie le autorizzazioni ' Write ' per l'area di lavoro e la risorsa *cluster* . È possibile annullare l'associazione di un'area di lavoro dalla risorsa *cluster* in qualsiasi momento. I nuovi dati inseriti dopo l'operazione di deassociazione vengono archiviati nella risorsa di archiviazione Log Analytics e crittografati con la chiave Microsoft. È possibile eseguire query sui dati inseriti nell'area di lavoro prima e dopo la deassociazione senza interruzioni fino a quando la risorsa *cluster* viene sottoposta a provisioning e configurata con una chiave di Key Vault valida.
+  Quando il volume di dati per le aree di lavoro associate cambia nel tempo e si desidera aggiornare il livello di prenotazione di capacità in modo appropriato. Seguire la [risorsa di aggiornamento *cluster* ](#update-cluster-resource-with-key-identifier-details) e fornire il nuovo valore di capacità. Può essere compreso tra 1.000 e 2.000 GB al giorno e nei passaggi di 100. Per un livello superiore a 2.000 GB al giorno, raggiungi il contatto Microsoft per abilitarlo. Si noti che non è necessario fornire il corpo completo della richiesta REST e includere lo SKU:
+
+  ```json
+  {
+    "sku": {
+      "name": "capacityReservation",
+      "Capacity": 1000
+    }
+  }
+  ``` 
+
+- **Aggiornare *billingType* nella risorsa *cluster***
+
+  La proprietà *billingType* determina l'attribuzione della fatturazione per la risorsa *cluster* e i relativi dati:
+  - *cluster* (impostazione predefinita): la fatturazione viene attribuita alla sottoscrizione che ospita la risorsa cluster
+  - *aree di lavoro* : la fatturazione viene attribuita alle sottoscrizioni che ospitano le aree di lavoro in modo proporzionale
+  
+  Seguire la [risorsa Aggiorna *cluster* ](#update-cluster-resource-with-key-identifier-details) e specificare il nuovo valore billingType. Si noti che non è necessario fornire il corpo completo della richiesta REST e includere il *billingType*:
+
+  ```json
+  {
+    "properties": {
+      "billingType": "cluster",
+      }  
+  }
+  ``` 
+
+- **Annulla associazione area di lavoro**
+
+  Per eseguire questa operazione, sono necessarie le autorizzazioni ' Write ' per l'area di lavoro e la risorsa *cluster* . È possibile annullare l'associazione di un'area di lavoro dalla risorsa *cluster* in qualsiasi momento. I nuovi dati inseriti dopo l'operazione di deassociazione vengono archiviati nella risorsa di archiviazione Log Analytics e crittografati con la chiave Microsoft. È possibile eseguire query sui dati inseriti nell'area di lavoro prima e dopo la deassociazione senza interruzioni fino a quando la risorsa *cluster* viene sottoposta a provisioning e configurata con una chiave di Key Vault valida.
 
   Questa Gestione risorse richiesta è un'operazione asincrona.
 
@@ -545,7 +559,10 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
   1. Copiare il valore di URL di Azure-AsyncOperation dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
   2. Inviare un' [area di lavoro: ottenere](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) la richiesta e osservare la risposta, l'area di lavoro deassociata non avrà il *clusterResourceId* in *funzionalità*.
 
-- Eliminare la risorsa *cluster* . per eseguire questa operazione, sono necessarie le autorizzazioni ' Write ' per la risorsa *cluster* . Viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino della risorsa *cluster* , inclusi i dati entro 14 giorni, se l'eliminazione è stata accidentale o intenzionale. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Dopo il periodo di eliminazione temporanea, viene rilasciato il nome della risorsa *cluster* , i dati e la risorsa *cluster* vengono eliminati definitivamente e non sono recuperabili. Tutte le aree di lavoro associate vengono deassociate dalla risorsa *cluster* durante l'operazione di eliminazione. I nuovi dati inseriti vengono archiviati nella risorsa di archiviazione Log Analytics e crittografati con la chiave Microsoft. L'operazione di deassociazione dell'area di lavoro è asincrona e può richiedere fino a 90 minuti.
+
+- **Eliminare la risorsa *cluster***
+
+  Per eseguire questa operazione, sono necessarie le autorizzazioni ' Write ' per la risorsa *cluster* . Viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino della risorsa *cluster* , inclusi i dati entro 14 giorni, se l'eliminazione è stata accidentale o intenzionale. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Dopo il periodo di eliminazione temporanea, viene rilasciato il nome della risorsa *cluster* , i dati e la risorsa *cluster* vengono eliminati definitivamente e non sono recuperabili. Tutte le aree di lavoro associate vengono deassociate dalla risorsa *cluster* durante l'operazione di eliminazione. I nuovi dati inseriti vengono archiviati nella risorsa di archiviazione Log Analytics e crittografati con la chiave Microsoft. L'operazione di deassociazione dell'area di lavoro è asincrona e può richiedere fino a 90 minuti.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -556,4 +573,25 @@ Tutti i dati sono accessibili dopo l'operazione di rotazione delle chiavi, inclu
 
   200 - OK
 
-- Ripristinare la risorsa *cluster* e i dati. una risorsa *cluster* eliminata negli ultimi 14 giorni è in stato di eliminazione temporanea e può essere ripristinata. Questa operazione viene eseguita manualmente dal gruppo di prodotti. Usare il canale Microsoft per le richieste di ripristino.
+- **Ripristinare la risorsa *cluster* e i dati** 
+  
+  Una risorsa *cluster* eliminata negli ultimi 14 giorni è in stato di eliminazione temporanea e può essere ripristinata. Questa operazione viene eseguita manualmente dal gruppo di prodotti. Usare il canale Microsoft per le richieste di ripristino.
+
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+- Comportamento con Key Vault disponibilità
+  - Durante il normale funzionamento--archiviazione memorizza nella cache l'AEK per brevi periodi di tempo e torna Key Vault per annullare il wrapping periodicamente.
+    
+  - Errori di connessione temporanei: l'archiviazione gestisce gli errori temporanei (timeout, errori di connessione, problemi relativi a DNS) consentendo alle chiavi di rimanere nella cache per un breve periodo di tempo e questo supera i piccoli tempi di disponibilità. Le funzionalità di query e inserimento continuano senza interruzioni.
+    
+  - Sito Live: la mancata disponibilità di circa 30 minuti comporterà la mancata disponibilità dell'account di archiviazione. La funzionalità di query non è disponibile e i dati inseriti vengono memorizzati nella cache per diverse ore usando la chiave Microsoft per evitare la perdita di dati. Quando viene ripristinato l'accesso Key Vault, la query diventa disponibile e i dati temporanei memorizzati nella cache vengono inseriti nell'archivio dati e crittografati con CMK.
+
+- Se si crea una risorsa *cluster* e si specifica immediatamente il KeyVaultProperties, l'operazione potrebbe non riuscire perché i criteri di accesso non possono essere definiti fino a quando non viene assegnata l'identità del sistema alla risorsa *cluster* .
+
+- Se si aggiorna la risorsa *cluster* esistente con KeyVaultProperties e i criteri di accesso alla chiave ' Get ' mancano nell'Key Vault, l'operazione avrà esito negativo.
+
+- Se si tenta di eliminare una risorsa *cluster* associata a un'area di lavoro, l'operazione di eliminazione avrà esito negativo.
+
+- Se si verifica un errore di conflitto durante la creazione di una risorsa *cluster* , è possibile che la risorsa *cluster* sia stata eliminata negli ultimi 14 giorni ed è in un periodo di eliminazione temporanea. Il nome della risorsa *cluster* rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Il nome viene rilasciato dopo il periodo di eliminazione temporanea quando la risorsa *cluster* viene definitivamente eliminata.
+
+- Se si aggiorna la risorsa *cluster* mentre è in corso un'operazione, l'operazione avrà esito negativo.
