@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: faaf4a9c4fe37bc184b9860390f1eb99eede035c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584285"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926579"
 ---
 # <a name="security-tokens"></a>Token di sicurezza
 
@@ -29,6 +29,9 @@ Un **token di accesso** è un token di sicurezza emesso da un [server di autoriz
 I token di accesso sono validi solo per un breve periodo di tempo, quindi i server di autorizzazione emetteranno a volte un **token di aggiornamento** nello stesso momento in cui viene emesso il token di accesso. Quando necessario, l'applicazione client può scambiare questo token di aggiornamento per un nuovo token di accesso. Per altre informazioni sul modo in cui la piattaforma di identità Microsoft usa i token di aggiornamento per revocare le autorizzazioni, vedere revoca dei [token](access-tokens.md#token-revocation).
 
 I **token ID** vengono inviati all'applicazione client come parte di un flusso di [OpenID Connect](v2-protocols-oidc.md) . Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente. Per altre informazioni sul modo in cui la piattaforma di identità Microsoft rilascia i token ID, vedere [token ID](id-tokens.md).
+
+> [!NOTE]
+> Questo articolo illustra i token di sicurezza per i protocolli OAuth2 e OpenID Connect. Molte applicazioni aziendali usano SAML per autenticare gli utenti. Per informazioni sulle asserzioni SAML, vedere [Azure ad riferimento al token SAML](reference-saml-tokens.md) .
 
 ## <a name="validating-security-tokens"></a>Convalida di token di sicurezza
 
@@ -45,7 +48,7 @@ I token di accesso vengono passati a un'API Web come bearer token nell' `Authori
 
 La piattaforma di identità Microsoft implementa i token di sicurezza come **token Web JSON (token JWT)** che contengono **attestazioni**.
 
-Un' [attestazione](developer-glossary.md#claim) fornisce asserzioni su un'entità, ad esempio un'applicazione client o un [proprietario della risorsa](developer-glossary.md#resource-owner), a un'altra entità, ad esempio un server di risorse.
+Un' [attestazione](developer-glossary.md#claim) fornisce asserzioni su un'entità, ad esempio un'applicazione client o un [proprietario della risorsa](developer-glossary.md#resource-owner), a un'altra entità, ad esempio un server di risorse. È anche possibile fare riferimento a un'attestazione come attestazione JWT o richiesta di token Web JSON.
 
 Le attestazioni sono coppie nome/valore che inoltrano informazioni sull'oggetto del token. Ad esempio, un'attestazione può contenere fact sull'entità di sicurezza autenticata dal server di autorizzazione. Le attestazioni presenti in un determinato token dipendono da molti elementi, tra cui il tipo di token, il tipo di credenziale usato per autenticare l'oggetto, la configurazione dell'applicazione e così via.
 

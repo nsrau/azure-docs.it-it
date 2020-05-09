@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266377"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582908"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Crea o aggiorna un gruppo dinamico in Azure Active Directory
 
@@ -46,7 +46,7 @@ Per esempi di sintassi, proprietà, operatori e valori supportati per una regola
 
 ## <a name="to-create-a-group-membership-rule"></a>Per creare una regola di appartenenza a un gruppo
 
-1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account che si trova nel ruolo amministratore globale, amministratore di Intune o amministratore utente nel tenant.
+1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account appartenente al ruolo amministratore globale, amministratore di Intune o amministratore utente nell'organizzazione Azure ad.
 1. Cercare e selezionare i **gruppi**.
 1. Selezionare **Tutti i gruppi** e selezionare **Nuovo gruppo**.
 
@@ -66,7 +66,7 @@ Se la regola immessa non è valida, una spiegazione del motivo per cui non è st
 
 ## <a name="to-update-an-existing-rule"></a>Per aggiornare una regola esistente
 
-1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account di amministratore globale, amministratore del gruppo, amministratore di Intune o ruolo di amministratore utente nel tenant.
+1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account appartenente al ruolo amministratore globale, amministratore gruppo, amministratore di Intune o amministratore utente nell'organizzazione Azure ad.
 1. Selezionare **gruppi** > **tutti i gruppi**.
 1. Selezionare un gruppo per aprirne il profilo.
 1. Nella pagina profilo per il gruppo selezionare regole di **appartenenza dinamica**. Il generatore regole supporta fino a cinque espressioni. Per aggiungere più di cinque espressioni, è necessario utilizzare la casella di testo.
@@ -102,7 +102,7 @@ I seguenti messaggi di stato possono essere visualizzati per lo stato dell'**Ult
 - **In corso**: aggiornamenti in corso.
 - **Sconosciuto**: non è possibile recuperare l'ora dell'ultimo aggiornamento. Il gruppo potrebbe essere nuovo.
 
-Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti di appartenenza dinamici in sospeso per tutti i gruppi nel tenant per più di 24 ore, viene visualizzato un avviso nella parte superiore di **tutti i gruppi**.
+Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti di appartenenza dinamici in sospeso per tutti i gruppi all'interno dell'organizzazione per più di 24 ore, viene visualizzato un avviso nella parte superiore di **tutti i gruppi**.
 
 ![elaborazione degli avvisi dei messaggi di errore](./media/groups-create-rule/processing-error.png)
 

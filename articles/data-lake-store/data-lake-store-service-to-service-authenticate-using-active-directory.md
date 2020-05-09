@@ -1,22 +1,17 @@
 ---
-title: 'Autenticazione da servizio a servizio: Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come ottenere l'autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 usando Azure Active Directory
-services: data-lake-store
-documentationcenter: ''
+title: Autenticazione da servizio a servizio-Data Lake Storage Gen1-Azure
+description: Informazioni su come ottenere l'autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 usando Azure Active Directory.
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 74ad40eb7f7483bb010cf8eb002776893c50a256
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "66241364"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688191"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 usando Azure Active Directory
 > [!div class="op_single_selector"]
@@ -73,7 +68,7 @@ Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicaz
     ![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Assegnare autorizzazioni a un gruppo")
    
     Per altre informazioni sulle autorizzazioni in Data Lake Storage Gen1 e gli ACL predefiniti/di accesso, vedere [Controllo di accesso in Data Lake Storage Gen1](data-lake-store-access-control.md).
-7. Nel pannello **Aggiungi accesso personalizzato** fare clic su **OK**. Il gruppo appena aggiunto, con le autorizzazioni associate, è ora elencato nel pannello di **Accesso**.
+7. Nel pannello **Aggiungi accesso personalizzato** fare clic su **OK**. I nuovi gruppi aggiunti, con le autorizzazioni associate, sono elencati nel pannello di **accesso** .
    
     ![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assegnare autorizzazioni a un gruppo")
 

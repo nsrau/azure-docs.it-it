@@ -1,10 +1,10 @@
 ---
 title: Controlli di accesso alla rete
-description: Panoramica dei controlli di accesso alla rete per il database SQL di Azure e data warehouse per gestire l'accesso e configurare un database singolo o in pool.
+description: Panoramica dei controlli di accesso alla rete per il database SQL di Azure e Azure sinapsi Analytics per gestire l'accesso e configurare un database singolo o in pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdeb8ee3fbb01ea007205e02eb247925fb3baea1
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414403"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629576"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e data warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e di Azure sinapsi Analytics
 
 > [!NOTE]
-> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
+> Questo articolo si applica al server SQL di Azure e ai database SQL e di analisi delle sinapsi di Azure creati nel server SQL di Azure. Per semplicità, il database SQL viene usato quando si fa riferimento sia al database SQL che ad Azure sinapsi Analytics.
 
 > [!IMPORTANT]
 > Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. Per ulteriori informazioni sulla configurazione di rete, vedere la pagina relativa [alla connessione a un istanza gestita](sql-database-managed-instance-connect-app.md) .

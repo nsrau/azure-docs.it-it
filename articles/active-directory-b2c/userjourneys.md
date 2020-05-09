@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78227000"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559610"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,7 +64,7 @@ L'elemento **OrchestrationStep** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | `Order` | Sì | Ordine dei passaggi di orchestrazione. |
-| `Type` | Sì | Tipo del passaggio di orchestrazione. Valori possibili: <ul><li>**ClaimsProviderSelection**: indica che il passaggio di orchestrazione mostra diversi provider di attestazioni all'utente per selezionarne uno.</li><li>**CombinedSignInAndSignUp**: indica che il passaggio di orchestrazione mostra una pagina combinata di accesso a provider di social network e iscrizione ad account locali.</li><li>**ClaimsExchange**: indica che il passaggio di orchestrazione scambia attestazioni con un provider di attestazioni.</li><li>**Getclaims** : indica che il passaggio di orchestrazione legge le attestazioni di input.</li><li>**SendClaims**: indica che il passaggio di orchestrazione invia le attestazioni alla relying party con un token emesso da un'autorità di certificazione delle attestazioni.</li></ul> |
+| `Type` | Sì | Tipo del passaggio di orchestrazione. Valori possibili: <ul><li>**ClaimsProviderSelection**: indica che il passaggio di orchestrazione mostra diversi provider di attestazioni all'utente per selezionarne uno.</li><li>**CombinedSignInAndSignUp**: indica che il passaggio di orchestrazione mostra una pagina combinata di accesso a provider di social network e iscrizione ad account locali.</li><li>**ClaimsExchange**: indica che il passaggio di orchestrazione scambia attestazioni con un provider di attestazioni.</li><li>**Getclaims** : specifica che il passaggio di orchestrazione deve elaborare i dati di attestazione inviati a Azure AD B2C `InputClaims` dal relying party tramite la relativa configurazione.</li><li>**SendClaims**: indica che il passaggio di orchestrazione invia le attestazioni alla relying party con un token emesso da un'autorità di certificazione delle attestazioni.</li></ul> |
 | ContentDefinitionReferenceId | No | Identificatore della [definizione del contenuto](contentdefinitions.md) associata a questo passaggio di orchestrazione. In genere l'identificatore di riferimento della definizione del contenuto viene definito nel profilo tecnico autocertificato. In alcuni casi, tuttavia, Azure AD B2C deve visualizzare un elemento senza un profilo tecnico. Esistono due esempi: se il tipo di passaggio dell'orchestrazione è uno dei seguenti: `ClaimsProviderSelection` o `CombinedSignInAndSignUp`, Azure ad B2C necessario visualizzare la selezione del provider di identità senza avere un profilo tecnico. |
 | CpimIssuerTechnicalProfileReferenceId | No | Il tipo del passaggio di orchestrazione è `SendClaims`. Questa proprietà definisce l'identificatore del profilo tecnico del provider di attestazioni che emette il token per la relying party.  Se assente, non viene creato alcun token di relying party. |
 

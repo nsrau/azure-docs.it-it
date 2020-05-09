@@ -1,14 +1,14 @@
 ---
 title: Tipi di risorse Gestione risorse supportati
 description: Fornire un elenco dei tipi di risorse Gestione risorse supportati da Azure Resource Graph e la cronologia delle modifiche.
-ms.date: 04/24/2020
+ms.date: 04/29/2020
 ms.topic: reference
-ms.openlocfilehash: 7092a6dccc2870c7fd7b6dc6feb3af16f0fd3b7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ab079bcd1e7e8558d754a413068ca9f0ae276c6
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82141888"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594254"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Riferimento al tipo di risorsa e alla tabella del grafico delle risorse di Azure
 
@@ -62,6 +62,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. appconfiguration/configurationstores
 - Microsoft. AppPlatform/Spring
 - Microsoft. Archive/Collections
+- Microsoft. Attestation/attestationproviders
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/configurazioni
 - Microsoft. Automation/automationaccounts/manuali operativi
@@ -75,6 +76,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. azuredata/SQLInstances
 - Microsoft. azuredata/SqlServerRegistrations
 - Microsoft. azurestack/registrazioni
+- Microsoft. azurestackhci/cluster
 - Microsoft. Baremetal/consoleconnections
 - Microsoft. Baremetal/crayservers
 - Microsoft. Baremetal/monitoringservers
@@ -146,6 +148,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. databricks/area di lavoro
 - Microsoft. datacatalog/cataloghi
 - Microsoft. datacatalog/datacatalogs
+- Microsoft. datadog/monitoraggi
 - Microsoft. DataFactory/datafactories
 - Microsoft. DataFactory/Factory
 - Microsoft. analisi data Lake/accounts
