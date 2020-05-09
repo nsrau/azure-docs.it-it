@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: 5781ade7b2f3cfc7514208861de025cc84944fcd
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: cd09bb7bde759c543b066070c5d2450404949610
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380641"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627110"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 
@@ -61,7 +61,7 @@ Per informazioni su come vengono applicati gli sconti a un servizio di Azure spe
 - [Piani software](understand-suse-reservation-charges.md)
 - [Storage](understand-storage-charges.md)
 - [Database SQL](understand-reservation-charges.md)
-- [SQL Data Warehouse](reservation-discount-azure-sql-dw.md)
+- [Azure Synapse Analytics](reservation-discount-azure-sql-dw.md)
 - [Macchine virtuali](../manage/understand-vm-reservation-charges.md)
 
 

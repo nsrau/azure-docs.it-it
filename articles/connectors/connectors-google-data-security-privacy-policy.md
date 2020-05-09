@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 8c2ef8d174e8449b88f2257074bee69c3f45c6d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 590ad6a52d768c7e59d8d97691e146205e43cadd
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181940"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628709"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Sicurezza dei dati e criteri di privacy per i connettori Google in app per la logica di Azure
 
@@ -34,7 +34,7 @@ Se sono presenti app per la logica che usano il connettore Gmail, si riceverà u
 
 Con questi criteri, quando si usa un account del consumer Gmail, è possibile usare il connettore Gmail solo con specifici servizi approvati da Google, soggetti a modifiche. I team di progettazione continuano a collaborare con Google per aggiungere altri servizi a questo elenco. Per il momento, di seguito sono riportati i trigger, le azioni e i connettori approvati da Google che è possibile usare nello stesso flusso di lavoro dell'app per la logica con il connettore Gmail quando si usa un account utente Gmail:
 
-* Trigger e azioni predefiniti per le app per la logica: batch, controllo, operazioni dati, data e ora, file flat, HTTP, liquido, richiesta, pianificazione, variabili e XML
+* Trigger e azioni predefiniti per le app per la logica: batch, controllo, operazioni dati, data e ora, file flat, liquido, richiesta, pianificazione, variabili e XML
 
 * Google Services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets e Google Task
 

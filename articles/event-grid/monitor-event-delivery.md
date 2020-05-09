@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 60c59fdd64297ec99922dcdba4c474d7ae37d27b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722136"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626855"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
 
@@ -36,7 +36,7 @@ Per gli argomenti le metriche sono:
 Per le sottoscrizioni le metriche sono:
 
 * **Delivery Succeeded** (Recapito riuscito): l'evento è stato recapitato all'endpoint della sottoscrizione ed è stato ricevuta una risposta 2xx.
-* **Delivery Failed** (Recapito non riuscito): l'evento è stato inviato all'endpoint della sottoscrizione, ma è stata ricevuta una risposta 4xx o 5xx.
+* **Recapito non riuscito**: ogni volta che il servizio tenta di recapitare e il gestore eventi non restituisce un codice 2xx di esito positivo, viene incrementato il contatore **recapito non riuscito** . Se si tenta di recapitare lo stesso evento più volte e si verifica un errore, il contatore **recapito non riuscito** viene incrementato per ogni errore.
 * **Expired Events** (Eventi scaduti): l'evento non è stato recapitato e sono inviati tutti i tentativi di ripetizione del recapito. L'evento è stato eliminato.
 * **Matched Events** (Eventi abbinati): l'evento nell'argomento è stato abbinato dalla sottoscrizione di eventi.
 

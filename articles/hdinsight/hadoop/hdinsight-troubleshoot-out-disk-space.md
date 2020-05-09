@@ -1,18 +1,18 @@
 ---
 title: Spazio su disco insufficiente nel nodo del cluster in Azure HDInsight
 description: Risoluzione Apache Hadoop dei problemi relativi allo spazio su disco del nodo cluster in HDInsight di Azure.
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/05/2019
-ms.openlocfilehash: fbfd82473b68f5032d19834ac809191d498a5a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 04/30/2020
+ms.openlocfilehash: ead79ca0a37a270f03a305064c80426553db59ca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894118"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628538"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>Scenario: il nodo del cluster esaurisce lo spazio su disco in Azure HDInsight
 
@@ -28,7 +28,7 @@ In alternativa, è possibile ricevere un avviso di Apache `local-dirs usable spa
 
 La cache dell'applicazione Apache Yarn potrebbe avere utilizzato tutto lo spazio su disco disponibile. È probabile che l'applicazione Spark venga eseguita in modo non efficiente.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 1. Usare l'interfaccia utente di Ambari per determinare il nodo che sta esaurendo lo spazio su disco.
 
@@ -36,7 +36,17 @@ La cache dell'applicazione Apache Yarn potrebbe avere utilizzato tutto lo spazio
 
 1. Per attenuare il problema, terminare l'applicazione, in modo da rilasciare lo spazio su disco utilizzato dall'applicazione.
 
-1. Per risolvere il problema, ottimizzare l'applicazione.
+1. Se il problema si verifica di frequente nei nodi del ruolo di lavoro, è possibile ottimizzare le impostazioni della cache locale YARN nel cluster.
+
+    Aprire l'interfaccia utente di Ambari passare a YARN--> configs--> Advanced.  
+    Aggiungere le due proprietà seguenti alla sezione Yarn-site. XML personalizzata e salvare:
+
+    ```
+    yarn.nodemanager.localizer.cache.target-size-mb=2048
+    yarn.nodemanager.localizer.cache.cleanup.interval-ms=300000
+    ```
+
+1. Se il problema non è risolto in modo permanente, ottimizzare l'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417658"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626684"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funzioni di trasformazione nell'attività del flusso di dati
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 La verifica del flusso di dati in Azure Data Factory ti permette di eseguire operazioni di preparazione dei dati agile senza codice e di litigare a livello di cloud. La verifica del flusso di dati si integra con [Power query online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) e rende disponibili le funzioni Power query M per data wrangling tramite l'esecuzione di Spark. 
 
@@ -85,7 +85,7 @@ Mantieni e Rimuovi top, Mantieni intervallo (funzioni M corrispondenti, solo con
 
 ## <a name="known-unsupported-functions"></a>Funzioni non supportate note
 
-| Funzione | Stato |
+| Function | Stato |
 | -- | -- |
 | Table.PromoteHeaders | Non supportata. Lo stesso risultato può essere ottenuto impostando la "prima riga come intestazione" nel set di dati. |
 | Table.CombineColumns | Si tratta di uno scenario comune che non è supportato direttamente, ma è possibile ottenerlo aggiungendo una nuova colonna che concatena due colonne specificate.  Ad esempio, Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |

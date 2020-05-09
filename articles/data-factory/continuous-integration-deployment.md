@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: 6aad01808ad155b745b614d8de6009386f0d2914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 87cb7c57aab048e1b7acf211d58c850a41afa5a2
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687951"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628226"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -26,9 +26,10 @@ ms.locfileid: "81687951"
 
 L'integrazione continua è la pratica di testare automaticamente le modifiche apportate alla codebase e il prima possibile.Il recapito continuo segue i test che si verificano durante l'integrazione continua e inserisce le modifiche in un sistema di gestione temporanea o di produzione.
 
-In Azure Data Factory, l'integrazione e il recapito continuo (CI/CD) implica lo sviluppo di pipeline Data Factory da un ambiente (sviluppo, test, produzione) a un altro. È possibile usare l'integrazione di Data Factory UX con i modelli Azure Resource Manager per eseguire CI/CD.
+In Azure Data Factory, l'integrazione e il recapito continuo (CI/CD) implica lo sviluppo di pipeline Data Factory da un ambiente (sviluppo, test, produzione) a un altro. Azure Data Factory utilizza i [modelli Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) per archiviare la configurazione delle varie entità ADF (pipeline, set di dati, flussi di dati e così via). Per innalzare di livello una data factory a un altro ambiente, sono disponibili due metodi:
 
-Nel Data Factory UX è possibile generare un modello di Gestione risorse dal menu a discesa **modello ARM** . Quando si seleziona **Esporta modello ARM**, il portale genera il modello di gestione risorse per il data factory e un file di configurazione che include tutte le stringhe di connessione e altri parametri. Si crea quindi un file di configurazione per ogni ambiente (sviluppo, test, produzione). Il file di modello di Resource Manager principale rimane lo stesso per tutti gli ambienti.
+-    Distribuzione automatizzata tramite l'integrazione di Data Factory con [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Caricare manualmente un modello di Gestione risorse usando l'integrazione con Data Factory UX con Azure Resource Manager.
 
 Per un'introduzione di nove minuti a questa funzionalità e a una dimostrazione, Guarda questo video:
 
@@ -42,45 +43,26 @@ Di seguito è riportata una panoramica di esempio del ciclo di vita CI/CD in un 
 
 1.  Un data factory di sviluppo viene creato e configurato con Azure Repos git. Tutti gli sviluppatori devono disporre dell'autorizzazione per creare risorse Data Factory come pipeline e set di impostazioni.
 
-1.  Quando gli sviluppatori apportano modifiche ai Branch delle funzionalità, eseguono il debug delle esecuzioni di pipeline con le modifiche più recenti. Per ulteriori informazioni su come eseguire il debug di un'esecuzione di pipeline, vedere [sviluppo iterativo e debug con Azure Data Factory](iterative-development-debugging.md).
+1.  Uno sviluppatore [Crea un ramo funzionalità](source-control.md#creating-feature-branches) per apportare una modifica. Eseguono il debug delle esecuzioni di pipeline con le modifiche più recenti. Per ulteriori informazioni su come eseguire il debug di un'esecuzione di pipeline, vedere [sviluppo iterativo e debug con Azure Data Factory](iterative-development-debugging.md).
 
-1.  Una volta soddisfatte le modifiche, gli sviluppatori creano una richiesta pull dal ramo della funzionalità al ramo master o di collaborazione per approvare le modifiche apportate dai peer.
+1.  Una volta soddisfatte le modifiche, uno sviluppatore crea una richiesta pull dal ramo della funzionalità al ramo master o di collaborazione per approvare le modifiche apportate dai peer.
 
-1.  Dopo che una richiesta pull è stata approvata e le modifiche sono state unite nel ramo master, è possibile pubblicare le modifiche nella Factory di sviluppo.
+1.  Dopo che una richiesta pull è stata approvata e le modifiche sono state unite nel ramo master, le modifiche vengono pubblicate nella Factory di sviluppo.
 
-1.  Quando il team è pronto per distribuire le modifiche alla Factory di test e quindi alla Factory di produzione, il team esporta il modello di Gestione risorse dal ramo master.
+1.  Quando il team è pronto a distribuire le modifiche in una factory di test o UAT, il team passa alla versione Azure Pipelines e distribuisce la versione desiderata della factory di sviluppo in UAT. Questa distribuzione viene applicata come parte di un'attività Azure Pipelines e usa Gestione risorse parametri di modello per applicare la configurazione appropriata.
 
-1.  Il modello di Gestione risorse esportato viene distribuito con diversi file di parametri nella Factory di test e nella Factory di produzione.
+1.  Una volta verificate le modifiche nella Factory di test, eseguire la distribuzione nella Factory di produzione usando l'attività successiva della versione delle pipeline.
 
-## <a name="create-a-resource-manager-template-for-each-environment"></a>Creare un modello di Resource Manager per ogni ambiente
+> [!NOTE]
+> Solo la factory di sviluppo è associata a un repository git. Ai factory di test e di produzione non deve essere associato un repository git e deve essere aggiornato solo tramite una pipeline DevOps di Azure o tramite un modello di gestione delle risorse.
 
-1. Nell'elenco **modello ARM** selezionare **Esporta modello ARM** per esportare il modello di gestione risorse per il data factory nell'ambiente di sviluppo.
+Nell'immagine seguente vengono evidenziati i diversi passaggi di questo ciclo di vita.
 
-   ![Esportare un modello di Gestione risorse](media/continuous-integration-deployment/continuous-integration-image1.png)
-
-1. Nelle data factory di test e di produzione selezionare **Importa modello ARM**. Questa azione consente di passare al portale di Azure, in cui è possibile importare il modello esportato. Selezionare **Compila un modello personalizzato nell'editor** per aprire l'editor del modello Gestione risorse.
-
-   ![Creazione di un modello personalizzato](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
-
-1. Selezionare **Carica file**e quindi selezionare il modello di gestione risorse generato. Si tratta del file **arm_template. JSON** che si trova nel file con estensione zip esportato nel passaggio 1.
-
-   ![Modifica del modello](media/continuous-integration-deployment/custom-deployment-edit-template.png)
-
-1. Nella sezione Impostazioni, immettere i valori di configurazione, ad esempio le credenziali del servizio collegato. Al termine, selezionare **Acquista** per distribuire il modello di gestione risorse.
-
-   ![Sezione Impostazioni](media/continuous-integration-deployment/continuous-integration-image5.png)
-
-### <a name="connection-strings"></a>Stringhe di connessione
-
-Per informazioni su come configurare le stringhe di connessione, vedere l'articolo del connettore. Ad esempio, per il database SQL di Azure, vedere [Copiare dati da o nel database SQL di Azure tramite Azure Data Factory](connector-azure-sql-database.md). Per verificare una stringa di connessione, è possibile aprire la visualizzazione codice per la risorsa nel Data Factory UX. Nella visualizzazione codice viene rimossa la parte della password o della chiave dell'account della stringa di connessione. Per aprire la visualizzazione codice, selezionare l'icona evidenziata qui:
-
-![Aprire la visualizzazione codice per visualizzare la stringa di connessione](media/continuous-integration-deployment/continuous-integration-codeview.png)
+![Diagramma dell'integrazione continua con Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ## <a name="automate-continuous-integration-by-using-azure-pipelines-releases"></a>Automatizzare l'integrazione continua con Azure Pipelines versioni
 
-Di seguito è riportata una guida per la configurazione di una versione Azure Pipelines, che consente di automatizzare la distribuzione di un data factory in più ambienti.
-
-![Diagramma dell'integrazione continua con Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
+Di seguito è riportata una guida per la configurazione di una versione Azure Pipelines che consente di automatizzare la distribuzione di un data factory in più ambienti.
 
 ### <a name="requirements"></a>Requisiti
 
@@ -106,7 +88,7 @@ Di seguito è riportata una guida per la configurazione di una versione Azure Pi
 
 1.  Nella casella **nome fase** immettere il nome dell'ambiente.
 
-1.  Selezionare **Aggiungi artefatto**, quindi selezionare il repository configurato con il data factory. Selezionare **adf_publish** per il **ramo predefinito**. Per la **versione predefinita**, selezionare **più recente dal ramo predefinito**.
+1.  Selezionare **Aggiungi artefatto**, quindi selezionare il repository git configurato con il data factory di sviluppo. Selezionare il [ramo Publish](source-control.md#configure-publishing-settings) del repository per il **ramo predefinito**. Per impostazione predefinita, questo ramo di `adf_publish`pubblicazione è. Per la **versione predefinita**, selezionare **più recente dal ramo predefinito**.
 
     ![Aggiungere un elemento](media/continuous-integration-deployment/continuous-integration-image7.png)
 
@@ -122,11 +104,11 @@ Di seguito è riportata una guida per la configurazione di una versione Azure Pi
 
     d.  Nell'elenco **azione** selezionare **Crea o Aggiorna gruppo di risorse**.
 
-    e.  Selezionare il pulsante con i puntini di sospensione (**...**) accanto alla casella **modello** . Cercare il modello di Azure Resource Manager creato usando il modello di **importazione ARM** nella sezione [creare un modello di gestione risorse per ogni ambiente](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) di questo articolo. Cercare questo file nella <FactoryName> cartella del ramo adf_publish.
+    e.  Selezionare il pulsante con i puntini di sospensione (**...**) accanto alla casella **modello** . Cercare il modello di Azure Resource Manager generato nel ramo di pubblicazione del repository git configurato. Cercare il file `ARMTemplateForFactory.json` nella <FactoryName> cartella del ramo adf_publish.
 
-    f.  Seleziona **...** accanto alla casella **parametri modello** per scegliere il file dei parametri. Il file scelto dipenderà dal fatto che sia stata creata una copia o che usi il file predefinito, ARMTemplateParametersForFactory. JSON.
+    f.  Seleziona **...** accanto alla casella **parametri modello** per scegliere il file dei parametri. Cercare il file `ARMTemplateParametersForFactory.json` nella <FactoryName> cartella del ramo adf_publish.
 
-    g.  Seleziona **...** accanto alla casella **Sostituisci parametri modello** e immettere le informazioni per la data factory di destinazione. Per le credenziali provenienti da Azure Key Vault, immettere il nome del segreto tra virgolette doppie. Se, ad esempio, il nome del segreto è cred1, immettere **"$ (cred1)"** per questo valore.
+    g.  Seleziona **...** accanto alla casella **Sostituisci parametri modello** e immettere i valori dei parametri desiderati per la data factory di destinazione. Per le credenziali provenienti da Azure Key Vault, immettere il nome del segreto tra virgolette doppie. Se, ad esempio, il nome del segreto è cred1, immettere **"$ (cred1)"** per questo valore.
 
     h. Selezionare **incrementale** per la **modalità di distribuzione**.
 
@@ -137,7 +119,7 @@ Di seguito è riportata una guida per la configurazione di una versione Azure Pi
 
 1.  Salvare la pipeline di versione.
 
-1. Per attivare una versione, selezionare **Crea versione**.
+1. Per attivare una versione, selezionare **Crea versione**. Per automatizzare la creazione di versioni, vedere [trigger della versione di Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![Selezionare Crea versione](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -185,7 +167,7 @@ Esistono due modi per gestire i segreti:
 
 L'attività Azure Key Vault potrebbe non riuscire con un errore di accesso negato se non sono impostate le autorizzazioni corrette. Scaricare i log per la versione e individuare il file con estensione ps1 che contiene il comando per concedere le autorizzazioni all'agente Azure Pipelines. È possibile eseguire il comando direttamente. In alternativa, è possibile copiare l'ID entità dal file e aggiungere manualmente i criteri di accesso nel portale di Azure. `Get`e `List` sono le autorizzazioni minime necessarie.
 
-### <a name="update-active-triggers"></a>Aggiornare i trigger attivi
+### <a name="updating-active-triggers"></a>Aggiornamento di trigger attivi
 
 La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. Per aggiornare i trigger attivi, è necessario arrestarli manualmente e quindi riavviarli dopo la distribuzione. A tale scopo, è possibile utilizzare un'attività Azure PowerShell:
 
@@ -203,7 +185,439 @@ La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. P
 
 È possibile completare passaggi simili (con la `Start-AzDataFactoryV2Trigger` funzione) per riavviare i trigger dopo la distribuzione.
 
-### <a name="sample-pre--and-post-deployment-script"></a>Script di pre-distribuzione e post-distribuzione di esempio
+Il team data factory ha fornito uno [script di pre-distribuzione e post-distribuzione di esempio](#script) disponibile alla fine di questo articolo. 
+
+## <a name="manually-promote-a-resource-manager-template-for-each-environment"></a>Innalzare di livello manualmente un modello di Gestione risorse per ogni ambiente
+
+1. Nell'elenco **modello ARM** selezionare **Esporta modello ARM** per esportare il modello di gestione risorse per il data factory nell'ambiente di sviluppo.
+
+   ![Esportare un modello di Gestione risorse](media/continuous-integration-deployment/continuous-integration-image1.png)
+
+1. Nelle data factory di test e di produzione selezionare **Importa modello ARM**. Questa azione consente di passare al portale di Azure, in cui è possibile importare il modello esportato. Selezionare **Compila un modello personalizzato nell'editor** per aprire l'editor del modello Gestione risorse.
+
+   ![Creazione di un modello personalizzato](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
+
+1. Selezionare **Carica file**e quindi selezionare il modello di gestione risorse generato. Si tratta del file **arm_template. JSON** che si trova nel file con estensione zip esportato nel passaggio 1.
+
+   ![Modifica del modello](media/continuous-integration-deployment/custom-deployment-edit-template.png)
+
+1. Nella sezione Impostazioni, immettere i valori di configurazione, ad esempio le credenziali del servizio collegato. Al termine, selezionare **Acquista** per distribuire il modello di gestione risorse.
+
+   ![Sezione Impostazioni](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usare i parametri personalizzati con il modello di Resource Manager
+
+Se la factory di sviluppo dispone di un repository git associato, è possibile sostituire i parametri predefiniti del modello di Gestione risorse del modello di Gestione risorse generato pubblicando o esportando il modello. In questi scenari potrebbe essere necessario eseguire l'override del modello di parametrizzazione predefinito:
+
+* Si utilizza l'integrazione continua/recapito continuo automatica e si desidera modificare alcune proprietà durante Gestione risorse distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita.
+* La Factory è talmente grande che il modello di Gestione risorse predefinito non è valido perché contiene un numero di parametri massimo consentito (256).
+
+Per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato **ARM-Template-Parameters-Definition. JSON** nella cartella radice del ramo git. È necessario usare il nome esatto del file.
+
+   ![File di parametri personalizzati](media/continuous-integration-deployment/custom-parameters.png)
+
+Quando si esegue la pubblicazione dal ramo collaborazione, Data Factory leggerà questo file e userà la relativa configurazione per generare le proprietà da ottenere con parametri. Se non viene trovato alcun file, viene usato il modello predefinito.
+
+Quando si esporta un modello di Gestione risorse, Data Factory legge questo file da qualsiasi ramo in cui si sta lavorando, non solo dal ramo di collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo collaborazione.
+
+> [!NOTE]
+> Un modello di parametrizzazione personalizzato non modifica il limite di parametri del modello ARM di 256. Consente di scegliere e diminuire il numero di proprietà con parametri.
+
+### <a name="custom-parameter-syntax"></a>Sintassi di parametri personalizzati
+
+Di seguito sono riportate alcune linee guida da seguire quando si crea il file di parametri personalizzati, **ARM-Template-Parameters-Definition. JSON**. Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, servizio collegato, set di dati, Runtime di integrazione e flusso di dati.
+
+* Immettere il percorso della proprietà nel tipo di entità pertinente.
+* L'impostazione di un nome `*` di proprietà su indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eccezioni a questa configurazione.
+* Impostando il valore di una proprietà come stringa, viene indicato che si desidera parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
+   *  `<action>` può essere uno di questi caratteri:
+      * `=` indica che il valore corrente viene mantenuto come valore predefinito per il parametro.
+      * `-` significa che non si mantiene il valore predefinito per il parametro.
+      * `|` è un caso speciale per i segreti Azure Key Vault per le stringhe di connessione o le chiavi.
+   * `<name>` nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un `-` carattere, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
+   * `<stype>` tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object`e `securestring`.
+* La specifica di una matrice nel file di definizione indica che la proprietà corrispondente nel modello è una matrice. Data Factory scorre tutti gli oggetti nella matrice utilizzando la definizione specificata nell'oggetto di Integration runtime della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
+* Una definizione non può essere specifica di un'istanza di risorsa. Qualsiasi definizione viene applicata a tutte le risorse di quel tipo.
+* Per impostazione predefinita, vengono parametrizzate tutte le stringhe protette, ad esempio Key Vault segreti e le stringhe protette, ad esempio le stringhe di connessione, le chiavi e i token.
+ 
+### <a name="sample-parameterization-template"></a>Modello di parametrizzazione di esempio
+
+Di seguito è riportato un esempio di come potrebbe essere un modello di parametrizzazione:
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+        "properties": {
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::number",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:number",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
+Ecco una spiegazione del modo in cui viene costruito il modello precedente, suddiviso per tipo di risorsa.
+
+#### <a name="pipelines"></a>Pipeline
+    
+* Qualsiasi proprietà nel percorso `activities/typeProperties/waitTimeInSeconds` è parametrizzata. Qualsiasi attività in una pipeline con una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l' `Wait` attività) viene parametrizzata come numero, con un nome predefinito. Ma non avrà un valore predefinito nel modello di Gestione risorse. Sarà un input obbligatorio durante la distribuzione del Gestione risorse.
+* Analogamente, una proprietà `headers` chiamata (ad esempio, in `Web` un'attività) è parametrizzata `object` con il tipo (JObject). Ha un valore predefinito, che è lo stesso valore di quello della factory di origine.
+
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
+
+* Tutte le proprietà sotto il `typeProperties` percorso sono parametrizzate con i rispettivi valori predefiniti. Sono ad esempio disponibili due proprietà nelle `IntegrationRuntimes` proprietà del tipo: `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (oggetto).
+
+#### <a name="triggers"></a>Trigger
+
+* In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito ed è di tipo`string`. Ha il nome `<entityName>_properties_typeProperties_maxConcurrency`del parametro predefinito.
+* Anche `recurrence` la proprietà è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è la `interval` proprietà, che è parametrizzata come `number`tipo. Il nome del parametro è con `<entityName>_properties_typeProperties_recurrence_triggerSuffix`suffisso. Analogamente, `freq` la proprietà è una stringa e viene parametrizzata come stringa. Tuttavia, la `freq` proprietà è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio, `<entityName>_freq`
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* I servizi collegati sono univoci. Poiché i servizi collegati e i set di impostazioni hanno un'ampia gamma di tipi, è possibile specificare una personalizzazione specifica del tipo. In questo esempio, per tutti i servizi collegati di `AzureDataLakeStore`tipo, verrà applicato un modello specifico. Per tutti gli altri ( `*`tramite) verrà applicato un modello diverso.
+* La `connectionString` proprietà verrà parametrizzata come `securestring` valore. Non avrà un valore predefinito. Avrà un nome di parametro abbreviato con `connectionString`suffisso.
+* La proprietà `secretAccessKey` è un oggetto `AzureKeyVaultSecret` (ad esempio, in un servizio collegato Amazon S3). Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
+
+#### <a name="datasets"></a>Set di dati
+
+* Sebbene la personalizzazione specifica del tipo sia disponibile per i set di impostazioni, è possibile fornire la configurazione senza \*avere una configurazione a livello esplicito. Nell'esempio precedente, tutte le proprietà del set `typeProperties` di dati in sono parametrizzate.
+
+### <a name="default-parameterization-template"></a>Modello di parametrizzazione predefinito
+
+Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se è necessario aggiungere solo alcuni parametri, la modifica diretta di questo modello potrebbe essere un'idea consigliata, perché non si perderà la struttura di parametrizzazione esistente.
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/dataflows": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    },
+                    "resourceId": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },  
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            },
+            "typeProperties": {
+                "scope": "="
+            }
+
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "poolName": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
+                    "connectionString": "|:-connectionString:secureString"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }}
+}
+```
+
+### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Esempio: parametrizzazione un ID cluster interattivo Azure Databricks esistente
+
+Nell'esempio seguente viene illustrato come aggiungere un singolo valore al modello di parametrizzazione predefinito. Si vuole solo aggiungere un ID cluster interattivo Azure Databricks esistente per un servizio collegato databricks al file dei parametri. Si noti che questo file corrisponde a quello del file precedente, ad eccezione dell'aggiunta `existingClusterId` di nel campo properties di `Microsoft.DataFactory/factories/linkedServices`.
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/dataflows": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    },
+                    "resourceId": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },  
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            },
+            "typeProperties": {
+                "scope": "="
+            }
+ 
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+            "poolName": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "existingClusterId": "-"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }}
+}
+```
+
+## <a name="linked-resource-manager-templates"></a>Modelli di Resource Manager collegati
+
+Se è stata configurata l'integrazione continua/distribuzione continua per le Data Factory, è possibile che vengano superati i limiti del modello Azure Resource Manager Man mano che le dimensioni della Factory aumentano Ad esempio, un limite è il numero massimo di risorse in un modello di Gestione risorse. Per ospitare grandi Factory durante la generazione del modello di Gestione risorse completo per una factory, Data Factory ora genera modelli di Gestione risorse collegati. Con questa funzionalità, l'intero payload della factory viene suddiviso in diversi file in modo da non vincolare i limiti.
+
+Se è stato configurato git, i modelli collegati vengono generati e salvati insieme ai modelli di Gestione risorse completi nel ramo di adf_publish in una nuova cartella denominata linkedTemplates:
+
+![Cartella dei modelli di Resource Manager collegati](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+
+I modelli di Gestione risorse collegati sono in genere costituiti da un modello master e da un set di modelli figlio collegati al database master. Il modello padre è denominato ArmTemplate_master. JSON e i modelli figlio vengono denominati con il modello ArmTemplate_0. JSON, ArmTemplate_1. JSON e così via. 
+
+Per usare i modelli collegati anziché il modello di Gestione risorse completo, aggiornare l'attività CI/CD in modo che punti a ArmTemplate_master. JSON anziché a ArmTemplateForFactory. JSON (modello di Gestione risorse completo). Gestione risorse anche necessario caricare i modelli collegati in un account di archiviazione in modo che Azure possa accedervi durante la distribuzione. Per altre informazioni, vedere [distribuzione di modelli di gestione risorse collegati con VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+
+Ricordarsi di aggiungere gli script di Data Factory nella pipeline CI/CD prima e dopo l'attività di distribuzione.
+
+Se Git non è configurato, è possibile accedere ai modelli collegati tramite **Esporta modello ARM** nell'elenco di **modelli ARM** .
+
+## <a name="hotfix-production-branch"></a>Ramo di produzione hotfix
+
+Se si distribuisce una factory in produzione e si comprende un bug che deve essere corretto immediatamente, ma non è possibile distribuire il ramo di collaborazione corrente, potrebbe essere necessario distribuire un hotfix. Questo approccio è noto come progettazione rapida o QFE.
+
+1.    In Azure DevOps passare alla versione che è stata distribuita in produzione. Trovare l'ultimo commit distribuito.
+
+2.    Dal messaggio di commit, ottenere l'ID commit del ramo collaborazione.
+
+3.    Creare un nuovo ramo dell'hotfix dal commit.
+
+4.    Passare al Azure Data Factory UX e passare al ramo hotfix.
+
+5.    Con il Azure Data Factory UX, correggere il bug. Testare le modifiche.
+
+6.    Dopo aver verificato la correzione, selezionare **Esporta modello ARM** per ottenere il modello di gestione risorse dell'hotfix.
+
+7.    Controllare manualmente questa compilazione nel ramo adf_publish.
+
+8.    Se la pipeline di rilascio è stata configurata in modo che venga attivata automaticamente in base alle archiviazioni di adf_publish, viene avviata automaticamente una nuova versione. In caso contrario, accodare manualmente una versione.
+
+9.    Distribuire la versione hotfix nelle factory di test e di produzione. Questa versione contiene il payload di produzione precedente e la correzione apportata nel passaggio 5.
+
+10.   Aggiungere le modifiche dall'hotfix al ramo Development in modo che le versioni successive non includano lo stesso bug.
+
+## <a name="best-practices-for-cicd"></a>Procedure consigliate per la pipeline CI/CD
+
+Se si usa l'integrazione git con il data factory e si ha una pipeline di integrazione continua/distribuzione continua che sposta le modifiche dallo sviluppo a test e quindi alla produzione, è consigliabile eseguire le procedure consigliate seguenti:
+
+-   **Integrazione di git**. Configurare solo la data factory di sviluppo con l'integrazione git. Le modifiche apportate ai test e alla produzione vengono distribuite tramite CI/CD e non richiedono l'integrazione di git.
+
+-   **Script di pre-distribuzione e post-distribuzione**. Prima del passaggio di distribuzione Gestione risorse in CI/CD, è necessario completare determinate attività, ad esempio l'arresto e il riavvio dei trigger e l'esecuzione della pulizia. Si consiglia di usare gli script di PowerShell prima e dopo l'attività di distribuzione. Per altre informazioni, vedere [Update Active Triggers](#updating-active-triggers). Il team data factory ha [fornito uno script](#script) da usare situato nella parte inferiore della pagina.
+
+-   **Runtime di integrazione e condivisione**. I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi dell'integrazione continua/recapito continuo. Quindi Data Factory si prevede di avere lo stesso nome e tipo di runtime di integrazione in tutte le fasi di CI/CD. Se si desidera condividere runtime di integrazione in tutte le fasi, è consigliabile utilizzare una factory ternaria per contenere solo i runtime di integrazione condivisi. È possibile usare questa factory condivisa in tutti gli ambienti come tipo di runtime di integrazione collegata.
+
+-   **Key Vault**. Quando si usano servizi collegati le cui informazioni di connessione vengono archiviate in Azure Key Vault, si consiglia di conservare insiemi di credenziali delle chiavi separate per ambienti diversi. È anche possibile configurare livelli di autorizzazione separati per ogni insieme di credenziali delle chiavi. Ad esempio, potrebbe non essere necessario che i membri del team dispongano delle autorizzazioni per i segreti di produzione. Se si segue questo approccio, si consiglia di proteggere gli stessi nomi di segreto in tutte le fasi. Se si mantengono gli stessi nomi di segreto, non è necessario parametrizzare ogni stringa di connessione negli ambienti CI/CD, perché l'unica cosa che cambia è il nome dell'insieme di credenziali delle chiavi, che è un parametro separato.
+
+## <a name="unsupported-features"></a>Funzionalità non supportate
+
+- Per impostazione predefinita, Data Factory non consente il cherry-picking di commit o la pubblicazione selettiva delle risorse. Le pubblicazioni includeranno tutte le modifiche apportate all'data factory.
+
+    - Le entità di data factory dipendono l'una dall'altra. Ad esempio, i trigger dipendono dalle pipeline e le pipeline dipendono da set di impostazioni e altre pipeline. La pubblicazione selettiva di un subset di risorse può causare comportamenti imprevisti ed errori.
+    - In rari casi in cui è necessaria la pubblicazione selettiva, provare a usare un hotfix. Per ulteriori informazioni, vedere la pagina relativa al [ramo di produzione degli hotfix](#hotfix-production-branch).
+
+-   Non è possibile pubblicare da rami privati.
+
+-   Attualmente non è possibile ospitare progetti in bitbucket.
+
+## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a>Script di pre-distribuzione e post-distribuzione di esempio
 
 Lo script di esempio seguente può essere usato per arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse. Salvare lo script in un repository git di Azure DevOps e farvi riferimento tramite un'attività Azure PowerShell usando la versione 4. *.
 
@@ -220,6 +634,7 @@ Quando si esegue uno script di post-distribuzione, è necessario specificare una
 
 Di seguito è riportato lo script che può essere usato per pre-e post-distribuzione. Questo account per le risorse eliminate e i riferimenti alle risorse.
 
+  
 ```powershell
 param
 (
@@ -481,406 +896,3 @@ else {
     }
 }
 ```
-
-## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usare i parametri personalizzati con il modello di Resource Manager
-
-Se si è in modalità GIT, è possibile eseguire l'override delle proprietà predefinite nel modello di Gestione risorse per impostare le proprietà con parametri nel modello e le proprietà hardcoded. In questi scenari potrebbe essere necessario eseguire l'override del modello di parametrizzazione predefinito:
-
-* Si utilizza l'integrazione continua/recapito continuo automatica e si desidera modificare alcune proprietà durante Gestione risorse distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita.
-* La Factory è talmente grande che il modello di Gestione risorse predefinito non è valido perché contiene un numero di parametri massimo consentito (256).
-
-In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato **ARM-Template-Parameters-Definition. JSON** nella cartella specificata come cartella radice per l'integrazione di git data factory. È necessario usare il nome esatto del file. Data Factory legge questo file da qualsiasi ramo attualmente attivo nel portale di Azure Data Factory, non solo dal ramo collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo collaborazione. Se non viene trovato alcun file, viene usato il modello predefinito.
-
-> [!NOTE]
-> Un modello di parametrizzazione personalizzato non modifica il limite di parametri del modello ARM di 256. Consente di scegliere e diminuire il numero di proprietà con parametri.
-
-### <a name="syntax-of-a-custom-parameters-file"></a>Sintassi di un file dei parametri personalizzati
-
-Di seguito sono riportate alcune linee guida da seguire quando si crea il file di parametri personalizzati. Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, servizio collegato, set di dati, Runtime di integrazione e così via.
-* Immettere il percorso della proprietà nel tipo di entità pertinente.
-* L'impostazione di un nome `*` di proprietà su indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eccezioni a questa configurazione.
-* Impostando il valore di una proprietà come stringa, viene indicato che si desidera parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
-   *  `<action>` può essere uno di questi caratteri:
-      * `=` indica che il valore corrente viene mantenuto come valore predefinito per il parametro.
-      * `-` significa che non si mantiene il valore predefinito per il parametro.
-      * `|` è un caso speciale per i segreti Azure Key Vault per le stringhe di connessione o le chiavi.
-   * `<name>` nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un `-` carattere, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
-   * `<stype>` tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object`e `securestring`.
-* La specifica di una matrice nel file di definizione indica che la proprietà corrispondente nel modello è una matrice. Data Factory scorre tutti gli oggetti nella matrice utilizzando la definizione specificata nell'oggetto di Integration runtime della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
-* Una definizione non può essere specifica di un'istanza di risorsa. Qualsiasi definizione viene applicata a tutte le risorse di quel tipo.
-* Per impostazione predefinita, vengono parametrizzate tutte le stringhe protette, ad esempio Key Vault segreti e le stringhe protette, ad esempio le stringhe di connessione, le chiavi e i token.
- 
-### <a name="sample-parameterization-template"></a>Modello di parametrizzazione di esempio
-
-Di seguito è riportato un esempio di come potrebbe essere un modello di parametrizzazione:
-
-```json
-{
-    "Microsoft.DataFactory/factories/pipelines": {
-        "properties": {
-            "activities": [{
-                "typeProperties": {
-                    "waitTimeInSeconds": "-::number",
-                    "headers": "=::object"
-                }
-            }]
-        }
-    },
-    "Microsoft.DataFactory/factories/integrationRuntimes": {
-        "properties": {
-            "typeProperties": {
-                "*": "="
-            }
-        }
-    },
-    "Microsoft.DataFactory/factories/triggers": {
-        "properties": {
-            "typeProperties": {
-                "recurrence": {
-                    "*": "=",
-                    "interval": "=:triggerSuffix:number",
-                    "frequency": "=:-freq"
-                },
-                "maxConcurrency": "="
-            }
-        }
-    },
-    "Microsoft.DataFactory/factories/linkedServices": {
-        "*": {
-            "properties": {
-                "typeProperties": {
-                    "accountName": "=",
-                    "username": "=",
-                    "connectionString": "|:-connectionString:secureString",
-                    "secretAccessKey": "|"
-                }
-            }
-        },
-        "AzureDataLakeStore": {
-            "properties": {
-                "typeProperties": {
-                    "dataLakeStoreUri": "="
-                }
-            }
-        }
-    },
-    "Microsoft.DataFactory/factories/datasets": {
-        "properties": {
-            "typeProperties": {
-                "*": "="
-            }
-        }
-    }
-}
-```
-Ecco una spiegazione del modo in cui viene costruito il modello precedente, suddiviso per tipo di risorsa.
-
-#### <a name="pipelines"></a>Pipeline
-    
-* Qualsiasi proprietà nel percorso `activities/typeProperties/waitTimeInSeconds` è parametrizzata. Qualsiasi attività in una pipeline con una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l' `Wait` attività) viene parametrizzata come numero, con un nome predefinito. Ma non avrà un valore predefinito nel modello di Gestione risorse. Sarà un input obbligatorio durante la distribuzione del Gestione risorse.
-* Analogamente, una proprietà `headers` chiamata (ad esempio, in `Web` un'attività) è parametrizzata `object` con il tipo (JObject). Ha un valore predefinito, che è lo stesso valore di quello della factory di origine.
-
-#### <a name="integrationruntimes"></a>IntegrationRuntimes
-
-* Tutte le proprietà sotto il `typeProperties` percorso sono parametrizzate con i rispettivi valori predefiniti. Sono ad esempio disponibili due proprietà nelle `IntegrationRuntimes` proprietà del tipo: `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (oggetto).
-
-#### <a name="triggers"></a>Trigger
-
-* In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito ed è di tipo`string`. Ha il nome `<entityName>_properties_typeProperties_maxConcurrency`del parametro predefinito.
-* Anche `recurrence` la proprietà è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è la `interval` proprietà, che è parametrizzata come `number`tipo. Il nome del parametro è con `<entityName>_properties_typeProperties_recurrence_triggerSuffix`suffisso. Analogamente, `freq` la proprietà è una stringa e viene parametrizzata come stringa. Tuttavia, la `freq` proprietà è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio: `<entityName>_freq`.
-
-#### <a name="linkedservices"></a>LinkedServices
-
-* I servizi collegati sono univoci. Poiché i servizi collegati e i set di impostazioni hanno un'ampia gamma di tipi, è possibile specificare una personalizzazione specifica del tipo. In questo esempio, per tutti i servizi collegati di `AzureDataLakeStore`tipo, verrà applicato un modello specifico. Per tutti gli altri ( `*`tramite) verrà applicato un modello diverso.
-* La `connectionString` proprietà verrà parametrizzata come `securestring` valore. Non avrà un valore predefinito. Avrà un nome di parametro abbreviato con `connectionString`suffisso.
-* La proprietà `secretAccessKey` è un oggetto `AzureKeyVaultSecret` (ad esempio, in un servizio collegato Amazon S3). Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
-
-#### <a name="datasets"></a>Set di dati
-
-* Sebbene la personalizzazione specifica del tipo sia disponibile per i set di impostazioni, è possibile fornire la configurazione senza \*avere una configurazione a livello esplicito. Nell'esempio precedente, tutte le proprietà del set `typeProperties` di dati in sono parametrizzate.
-
-### <a name="default-parameterization-template"></a>Modello di parametrizzazione predefinito
-
-Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se è necessario aggiungere solo alcuni parametri, la modifica diretta di questo modello potrebbe essere un'idea consigliata, perché non si perderà la struttura di parametrizzazione esistente.
-
-```json
-{
-    "Microsoft.DataFactory/factories/pipelines": {
-    },
-    "Microsoft.DataFactory/factories/dataflows": {
-    },
-    "Microsoft.DataFactory/factories/integrationRuntimes":{
-        "properties": {
-            "typeProperties": {
-                "ssisProperties": {
-                    "catalogInfo": {
-                        "catalogServerEndpoint": "=",
-                        "catalogAdminUserName": "=",
-                        "catalogAdminPassword": {
-                            "value": "-::secureString"
-                        }
-                    },
-                    "customSetupScriptProperties": {
-                        "sasToken": {
-                            "value": "-::secureString"
-                        }
-                    }
-                },
-                "linkedInfo": {
-                    "key": {
-                        "value": "-::secureString"
-                    },
-                    "resourceId": "="
-                }
-            }
-        }
-    },
-    "Microsoft.DataFactory/factories/triggers": {
-        "properties": {
-            "pipelines": [{
-                    "parameters": {
-                        "*": "="
-                    }
-                },  
-                "pipelineReference.referenceName"
-            ],
-            "pipeline": {
-                "parameters": {
-                    "*": "="
-                }
-            },
-            "typeProperties": {
-                "scope": "="
-            }
-
-        }
-    },
-    "Microsoft.DataFactory/factories/linkedServices": {
-        "*": {
-            "properties": {
-                "typeProperties": {
-                    "accountName": "=",
-                    "username": "=",
-                    "userName": "=",
-                    "accessKeyId": "=",
-                    "servicePrincipalId": "=",
-                    "userId": "=",
-                    "clientId": "=",
-                    "clusterUserName": "=",
-                    "clusterSshUserName": "=",
-                    "hostSubscriptionId": "=",
-                    "clusterResourceGroup": "=",
-                    "subscriptionId": "=",
-                    "resourceGroupName": "=",
-                    "tenant": "=",
-                    "dataLakeStoreUri": "=",
-                    "baseUrl": "=",
-                    "database": "=",
-                    "serviceEndpoint": "=",
-                    "batchUri": "=",
-                    "poolName": "=",
-                    "databaseName": "=",
-                    "systemNumber": "=",
-                    "server": "=",
-                    "url":"=",
-                    "aadResourceId": "=",
-                    "connectionString": "|:-connectionString:secureString"
-                }
-            }
-        },
-        "Odbc": {
-            "properties": {
-                "typeProperties": {
-                    "userName": "=",
-                    "connectionString": {
-                        "secretName": "="
-                    }
-                }
-            }
-        }
-    },
-    "Microsoft.DataFactory/factories/datasets": {
-        "*": {
-            "properties": {
-                "typeProperties": {
-                    "folderPath": "=",
-                    "fileName": "="
-                }
-            }
-        }}
-}
-```
-
-Nell'esempio seguente viene illustrato come aggiungere un singolo valore al modello di parametrizzazione predefinito. Si vuole solo aggiungere un ID cluster interattivo Azure Databricks esistente per un servizio collegato databricks al file dei parametri. Si noti che questo file corrisponde a quello del file precedente, ad eccezione dell'aggiunta `existingClusterId` di nel campo properties di `Microsoft.DataFactory/factories/linkedServices`.
-
-```json
-{
-    "Microsoft.DataFactory/factories/pipelines": {
-    },
-    "Microsoft.DataFactory/factories/dataflows": {
-    },
-    "Microsoft.DataFactory/factories/integrationRuntimes":{
-        "properties": {
-            "typeProperties": {
-                "ssisProperties": {
-                    "catalogInfo": {
-                        "catalogServerEndpoint": "=",
-                        "catalogAdminUserName": "=",
-                        "catalogAdminPassword": {
-                            "value": "-::secureString"
-                        }
-                    },
-                    "customSetupScriptProperties": {
-                        "sasToken": {
-                            "value": "-::secureString"
-                        }
-                    }
-                },
-                "linkedInfo": {
-                    "key": {
-                        "value": "-::secureString"
-                    },
-                    "resourceId": "="
-                }
-            }
-        }
-    },
-    "Microsoft.DataFactory/factories/triggers": {
-        "properties": {
-            "pipelines": [{
-                    "parameters": {
-                        "*": "="
-                    }
-                },  
-                "pipelineReference.referenceName"
-            ],
-            "pipeline": {
-                "parameters": {
-                    "*": "="
-                }
-            },
-            "typeProperties": {
-                "scope": "="
-            }
- 
-        }
-    },
-    "Microsoft.DataFactory/factories/linkedServices": {
-        "*": {
-            "properties": {
-                "typeProperties": {
-                    "accountName": "=",
-                    "username": "=",
-                    "userName": "=",
-                    "accessKeyId": "=",
-                    "servicePrincipalId": "=",
-                    "userId": "=",
-                    "clientId": "=",
-                    "clusterUserName": "=",
-                    "clusterSshUserName": "=",
-                    "hostSubscriptionId": "=",
-                    "clusterResourceGroup": "=",
-                    "subscriptionId": "=",
-                    "resourceGroupName": "=",
-                    "tenant": "=",
-                    "dataLakeStoreUri": "=",
-                    "baseUrl": "=",
-                    "database": "=",
-                    "serviceEndpoint": "=",
-                    "batchUri": "=",
-            "poolName": "=",
-                    "databaseName": "=",
-                    "systemNumber": "=",
-                    "server": "=",
-                    "url":"=",
-                    "aadResourceId": "=",
-                    "connectionString": "|:-connectionString:secureString",
-                    "existingClusterId": "-"
-                }
-            }
-        },
-        "Odbc": {
-            "properties": {
-                "typeProperties": {
-                    "userName": "=",
-                    "connectionString": {
-                        "secretName": "="
-                    }
-                }
-            }
-        }
-    },
-    "Microsoft.DataFactory/factories/datasets": {
-        "*": {
-            "properties": {
-                "typeProperties": {
-                    "folderPath": "=",
-                    "fileName": "="
-                }
-            }
-        }}
-}
-```
-
-## <a name="linked-resource-manager-templates"></a>Modelli di Resource Manager collegati
-
-Se è stata configurata l'integrazione continua/distribuzione continua per le Data Factory, è possibile che vengano superati i limiti del modello Azure Resource Manager Man mano che le dimensioni della Factory aumentano Ad esempio, un limite è il numero massimo di risorse in un modello di Gestione risorse. Per ospitare grandi Factory durante la generazione del modello di Gestione risorse completo per una factory, Data Factory ora genera modelli di Gestione risorse collegati. Con questa funzionalità, l'intero payload della factory viene suddiviso in diversi file in modo da non vincolare i limiti.
-
-Se è stato configurato git, i modelli collegati vengono generati e salvati insieme ai modelli di Gestione risorse completi nel ramo di adf_publish in una nuova cartella denominata linkedTemplates:
-
-![Cartella dei modelli di Resource Manager collegati](media/continuous-integration-deployment/linked-resource-manager-templates.png)
-
-I modelli di Gestione risorse collegati sono in genere costituiti da un modello master e da un set di modelli figlio collegati al database master. Il modello padre è denominato ArmTemplate_master. JSON e i modelli figlio vengono denominati con il modello ArmTemplate_0. JSON, ArmTemplate_1. JSON e così via. 
-
-Per usare i modelli collegati anziché il modello di Gestione risorse completo, aggiornare l'attività CI/CD in modo che punti a ArmTemplate_master. JSON anziché a ArmTemplateForFactory. JSON (modello di Gestione risorse completo). Gestione risorse anche necessario caricare i modelli collegati in un account di archiviazione in modo che Azure possa accedervi durante la distribuzione. Per altre informazioni, vedere [distribuzione di modelli di gestione risorse collegati con VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
-
-Ricordarsi di aggiungere gli script di Data Factory nella pipeline CI/CD prima e dopo l'attività di distribuzione.
-
-Se Git non è configurato, è possibile accedere ai modelli collegati tramite **Esporta modello ARM** nell'elenco di **modelli ARM** .
-
-## <a name="hotfix-production-branch"></a>Ramo di produzione hotfix
-
-Se si distribuisce una factory in produzione e si comprende un bug che deve essere corretto immediatamente, ma non è possibile distribuire il ramo di collaborazione corrente, potrebbe essere necessario distribuire un hotfix. Questo approccio è noto come progettazione rapida o QFE.
-
-1.    In Azure DevOps passare alla versione che è stata distribuita in produzione. Trovare l'ultimo commit distribuito.
-
-2.    Dal messaggio di commit, ottenere l'ID commit del ramo collaborazione.
-
-3.    Creare un nuovo ramo dell'hotfix dal commit.
-
-4.    Passare al Azure Data Factory UX e passare al ramo hotfix.
-
-5.    Con il Azure Data Factory UX, correggere il bug. Testare le modifiche.
-
-6.    Dopo aver verificato la correzione, selezionare **Esporta modello ARM** per ottenere il modello di gestione risorse dell'hotfix.
-
-7.    Controllare manualmente questa compilazione nel ramo adf_publish.
-
-8.    Se la pipeline di rilascio è stata configurata in modo che venga attivata automaticamente in base alle archiviazioni di adf_publish, viene avviata automaticamente una nuova versione. In caso contrario, accodare manualmente una versione.
-
-9.    Distribuire la versione hotfix nelle factory di test e di produzione. Questa versione contiene il payload di produzione precedente e la correzione apportata nel passaggio 5.
-
-10.    Aggiungere le modifiche dall'hotfix al ramo Development in modo che le versioni successive non includano lo stesso bug.
-
-## <a name="best-practices-for-cicd"></a>Procedure consigliate per la pipeline CI/CD
-
-Se si usa l'integrazione git con il data factory e si ha una pipeline di integrazione continua/distribuzione continua che sposta le modifiche dallo sviluppo a test e quindi alla produzione, è consigliabile eseguire le procedure consigliate seguenti:
-
--   **Integrazione di git**. È necessario configurare solo la data factory di sviluppo con l'integrazione git. Le modifiche apportate ai test e alla produzione vengono distribuite tramite CI/CD e non richiedono l'integrazione di git.
-
--   **Script di Data Factory in CI/CD**. Prima del passaggio di distribuzione Gestione risorse in CI/CD, è necessario completare determinate attività, ad esempio l'arresto e il riavvio dei trigger e l'esecuzione della pulizia. Si consiglia di usare gli script di PowerShell prima e dopo la distribuzione. Per altre informazioni, vedere [Update Active Triggers](#update-active-triggers).
-
--   **Runtime di integrazione e condivisione**. I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi dell'integrazione continua/recapito continuo. Quindi Data Factory si prevede di avere lo stesso nome e tipo di runtime di integrazione in tutte le fasi di CI/CD. Se si desidera condividere runtime di integrazione in tutte le fasi, è consigliabile utilizzare una factory ternaria per contenere solo i runtime di integrazione condivisi. È possibile usare questa factory condivisa in tutti gli ambienti come tipo di runtime di integrazione collegata.
-
--   **Key Vault**. Quando si usano servizi collegati basati su Azure Key Vault, è possibile sfruttarli ulteriormente mantenendo insiemi di credenziali delle chiavi distinti per ambienti diversi. È anche possibile configurare livelli di autorizzazione separati per ogni insieme di credenziali delle chiavi. Ad esempio, potrebbe non essere necessario che i membri del team dispongano delle autorizzazioni per i segreti di produzione. Se si segue questo approccio, si consiglia di proteggere gli stessi nomi di segreto in tutte le fasi. Se si mantengono gli stessi nomi, non è necessario modificare i modelli di Gestione risorse negli ambienti CI/CD, perché l'unica cosa che cambia è il nome dell'insieme di credenziali delle chiavi, che è uno dei parametri del modello di Gestione risorse.
-
-## <a name="unsupported-features"></a>Funzionalità non supportate
-
-- Per impostazione predefinita, Data Factory non consente il cherry-picking di commit o la pubblicazione selettiva delle risorse. Le pubblicazioni includeranno tutte le modifiche apportate all'data factory.
-
-    - Le entità di data factory dipendono l'una dall'altra. Ad esempio, i trigger dipendono dalle pipeline e le pipeline dipendono da set di impostazioni e altre pipeline. La pubblicazione selettiva di un subset di risorse può causare comportamenti imprevisti ed errori.
-    - In rari casi in cui è necessaria la pubblicazione selettiva, provare a usare un hotfix. Per ulteriori informazioni, vedere la pagina relativa al [ramo di produzione degli hotfix](#hotfix-production-branch).
-
--   Non è possibile pubblicare da rami privati.
-
--   Attualmente non è possibile ospitare progetti in bitbucket.
