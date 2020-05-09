@@ -38,6 +38,8 @@
           href: relay-authentication-and-authorization.md
         - name: Criteri di sicurezza integrati
           href: service-bus-relay-security-controls.md
+        - name: Sicurezza di rete
+          href: network-security.md
     - name: Protocollo per connessioni ibride
       href: relay-hybrid-connections-protocol.md
 - name: Procedure
@@ -59,6 +61,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Nodo
               href: relay-hybrid-connections-node-ws-api-overview.md
+    - name: Sicurezza
+      items:
+        - name: Configurare il firewall IP (anteprima)
+          href: ip-firewall-virtual-networks.md
+        - name: Configurare gli endpoint privati (anteprima)
+          href: private-link-service.md
     - name: Gestire e monitorare
       items:
         - name: Monitorare il servizio di inoltro di Azure con Monitoraggio di Azure
