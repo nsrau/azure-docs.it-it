@@ -12,12 +12,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 15578b6adc19eb3513e0d7e1d3d2c400c9170250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 713fa09319f1b95fe2bcc0d15c973a2096a250ec
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535979"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801154"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Esempi di codice della piattaforma Microsoft Identity (endpoint v 2.0)
 
@@ -42,9 +42,11 @@ Questi esempi illustrano come scrivere un'applicazione a singola pagina protetta
 | Piattaforma | Descrizione | Collegamento |
 | -------- | --------------------- | -------- |
 | ![Questa immagine mostra il logo](media/sample-v2-code/logo_js.png) JavaScript [JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Chiama Microsoft Graph |[javascript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
+| ![Questa immagine mostra il logo](media/sample-v2-code/logo_js.png) JavaScript [JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Chiama Microsoft Graph usando il flusso del codice di autenticazione w/PKCE |[JavaScript-V2](https://github.com/Azure-Samples/ms-identity-javascript-v2) |
 | ![Questa immagine mostra il logo](media/sample-v2-code/logo_js.png) JavaScript [JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Chiama B2C |[B2C-JavaScript-MSAL-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
-| ![Questa immagine mostra il logo](media/sample-v2-code/logo_js.png) JavaScript [JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Chiama l'API Web |[JavaScript-singlepageapp-DotNet-WebAPI-V2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
+| ![Questa immagine mostra il logo](media/sample-v2-code/logo_angular.png) angolare [JavaScript (angolare MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| Chiama l'API Web | [MS-Identity-JavaScript-angolare-Spa-aspnetcore-WebAPI](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi) |
 | ![Questa immagine mostra il logo](media/sample-v2-code/logo_angular.png) angolare [JavaScript (angolare MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| Chiama Microsoft Graph  | [Active-Directory-JavaScript-singlepageapp-angolare](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
+| ![Questa immagine mostra il logo](media/sample-v2-code/logo_react.png) React [JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| Chiama un'API Web personalizzata che a sua volta chiama Microsoft Graph  | [MS-Identity-JavaScript-React-Spa-dotnetcore-WebAPI-OBO](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
 | ![Questa immagine mostra il logo](media/sample-v2-code/logo_angular.png) angolare [JavaScript (angolare MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | Chiama B2C |[Active-Directory-B2C-JavaScript-angolare-Spa](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
 
 ## <a name="web-applications"></a>Applicazioni Web
@@ -53,7 +55,7 @@ Gli esempi seguenti illustrano le applicazioni Web che eseguono l'accesso degli 
 
 | Piattaforma | Esegue solo l'accesso degli utenti | Esegue l'accesso degli utenti e chiama Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Questa immagine mostra il logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | [Esercitazione sugli utenti di WebApp per l'accesso a ASP.NET Core](https://aka.ms/aspnetcore-webapp-sign-in) | Lo stesso esempio in [ASP.NET Core app Web chiama Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) fase |
+| ![Questa immagine mostra il logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [Esercitazione sugli utenti di WebApp per l'accesso a ASP.NET Core](https://aka.ms/aspnetcore-webapp-sign-in) | Lo stesso esempio in [ASP.NET Core app Web chiama Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) fase |
 | ![Questa immagine mostra il logo di ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Guida introduttiva di ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Questa immagine mostra il logo Java](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Questa immagine mostra il logo Python](media/sample-v2-code/logo_python.png)  |                   | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
@@ -63,7 +65,7 @@ Gli esempi seguenti illustrano le applicazioni Web che eseguono l'accesso degli 
 
 Gli esempi seguenti mostrano le applicazioni client pubbliche (applicazioni desktop o per dispositivi mobili) che accedono all'API Microsoft Graph o all'API Web nel nome di un utente. Tutte queste applicazioni client utilizzano Microsoft Authentication Library (MSAL).
 
-| Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph | Chiama un'API Web ASP.NET Core 2,0 |
+| Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph | Chiama un'API Web di ASP.NET Core |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Desktop (WPF)      | ![Questa immagine mostra il logo .NET/C#](media/sample-v2-code/logo_NET.png) | [interattiva](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Desktop (Console)   | ![Questa immagine mostra il logo .NET/C# (desktop)](media/sample-v2-code/logo_NET.png) | [Autenticazione integrata di Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -105,7 +107,7 @@ Gli esempi seguenti illustrano come proteggere un'API Web con l'endpoint della p
 
 | Piattaforma | Esempio |
 | -------- | ------------------- |
-| ![Questa immagine mostra il logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | ASP.NET Core API Web (servizio) di [DotNet-native-aspnetcore-V2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![Questa immagine mostra il logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core API Web (servizio) di [DotNet-native-aspnetcore-V2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Questa immagine mostra il logo di ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | API Web (servizio) di [MS-Identity-ASPNET-WebAPI-OnBehalfOf](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 | ![Questa immagine mostra il logo Java](media/sample-v2-code/logo_java.png) | API Web (servizio) di [MS-Identity-Java-WebAPI](https://github.com/Azure-Samples/ms-identity-java-webapi) |
 | ![Questa immagine mostra il logo node. js](media/sample-v2-code/logo_nodejs.png) | API Web (servizio) di [Active-Directory-JavaScript-NodeJS-WebAPI-V2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
@@ -117,7 +119,7 @@ Gli esempi seguenti illustrano come proteggere una funzione di Azure usando Http
 
 | Piattaforma | Esempio |
 | -------- | ------------------- |
-| ![Questa immagine mostra il logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | Funzione di Azure ASP.NET Core API Web (servizio) di [DotNet-native-aspnetcore-V2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![Questa immagine mostra il logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | Funzione di Azure ASP.NET Core API Web (servizio) di [DotNet-native-aspnetcore-V2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![Questa immagine mostra il logo node. js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API Web (servizio) di [NodeJS e Passport-Azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Questa immagine mostra il logo Python](media/sample-v2-code/logo_python.png)</p>Python | API Web (servizio) di [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![Questa immagine mostra il logo node. js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API Web (servizio) di [NodeJS e Passport-Azure-ad con per conto di](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |

@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026890"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582839"
 ---
-# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Guida introduttiva: Impostare la scadenza dei gruppi di Office 365 in Azure Active Directory
+# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Avvio rapido: Impostare la scadenza dei gruppi di Office 365 in Azure Active Directory
 
-In questa guida introduttiva si impostano i criteri di scadenza per i gruppi di Office 365. Quando gli utenti possono configurare gruppi personalizzati, i gruppi inutilizzati possono moltiplicarsi. Un modo per gestire i gruppi inutilizzati consiste nell'impostare la scadenza per tali gruppi, per ridurre le attività di manutenzione legate all'eliminazione manuale dei gruppi.
+In questa guida di avvio rapido si impostano i criteri di scadenza per i gruppi di Office 365. Quando gli utenti possono configurare gruppi personalizzati, i gruppi inutilizzati possono moltiplicarsi. Un modo per gestire i gruppi inutilizzati consiste nell'impostare la scadenza per tali gruppi, per ridurre le attività di manutenzione legate all'eliminazione manuale dei gruppi.
 
 I criteri di scadenza sono semplici:
 
@@ -63,17 +63,17 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 3. Specificare un indirizzo e-mail per l'invio delle notifiche di scadenza quando un gruppo non ha un proprietario.
 
-4. Per questa guida introduttiva, impostare **Abilita scadenza per questi gruppi di Office 365** su **Tutti**.
+4. Per questa guida di avvio rapido, impostare **Abilita scadenza per questi gruppi di Office 365** su **Tutti**.
 
 5. Al termine, selezionare **Salva** per salvare le impostazioni di scadenza.
 
-L'operazione è terminata. In questa guida introduttiva sono stati impostati criteri di scadenza per i gruppi di Office 365 selezionati.
+L'operazione è terminata. In questa guida di avvio rapido sono stati impostati criteri di scadenza per i gruppi di Office 365 selezionati.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 ### <a name="to-remove-the-expiration-policy"></a>Per rimuovere i criteri di scadenza
 
-1. Assicurarsi di accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per il tenant.
+1. Assicurarsi di accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per l'organizzazione di Azure AD.
 2. Selezionare **Azure Active Directory** > **Gruppi** > **Scadenza**.
 3. Impostare **Abilita scadenza per questi gruppi di Office 365** su **Nessuno**.
 

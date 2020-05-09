@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd18fd484ac456f0c38cd6d9b73a2395a08ad5d0
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672260"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883108"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installare e configurare l'estensione diagnostica di Microsoft Azure (WAD)
 L'estensione diagnostica di Azure è un agente di monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Questo articolo fornisce informazioni dettagliate sull'installazione e la configurazione dell'estensione di diagnostica Windows e una descrizione della modalità di archiviazione dei dati in un account di archiviazione di Azure.
@@ -35,7 +35,7 @@ L'estensione di diagnostica viene implementata come [estensione della macchina v
 
 È possibile modificare la configurazione predefinita dopo che l'estensione di diagnostica è stata abilitata. Nella tabella seguente vengono descritte le opzioni che è possibile modificare nelle diverse schede. Alcune opzioni hanno un comando **personalizzato** che consente di specificare una configurazione più dettagliata; per informazioni dettagliate sulle diverse impostazioni, vedere lo [schema dell'estensione diagnostica di Windows](diagnostics-extension-schema-windows.md) .
 
-| Scheda | Descrizione |
+| Scheda | Description |
 |:---|:---|
 | Panoramica | Visualizza la configurazione corrente con i collegamenti alle altre schede. |
 | Contatori delle prestazioni | Selezionare i contatori delle prestazioni da raccogliere e la frequenza di campionamento per ogni.  |
@@ -124,28 +124,28 @@ Di seguito è riportato un esempio minimo di un file di configurazione che Abili
     "PublicConfig": {
         "WadCfg": {
             "DiagnosticMonitorConfiguration": {
-                "overallQuotaInMB": 10000
-            },
-            "DiagnosticInfrastructureLogs": {
-                "scheduledTransferLogLevelFilter": "Error"
-            },
-            "PerformanceCounters": {
-                "scheduledTransferPeriod": "PT1M",
-                "PerformanceCounterConfiguration": [
-                    {
-                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                        "sampleRate": "PT3M",
-                        "unit": "percent"
-                    }
-                ]
-            },
-            "WindowsEventLog": {
-                "scheduledTransferPeriod": "PT1M",
-                    "DataSource": [
-                    {
-                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                    }
-                ]
+                "overallQuotaInMB": 10000,
+                "DiagnosticInfrastructureLogs": {
+                    "scheduledTransferLogLevelFilter": "Error"
+                },
+                "PerformanceCounters": {
+                    "scheduledTransferPeriod": "PT1M",
+                    "PerformanceCounterConfiguration": [
+                        {
+                            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                            "sampleRate": "PT3M",
+                            "unit": "percent"
+                        }
+                    ]
+                },
+                "WindowsEventLog": {
+                    "scheduledTransferPeriod": "PT1M",
+                        "DataSource": [
+                        {
+                            "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                        }
+                    ]
+                }
             }
         },
         "StorageAccount": "mystorageaccount",
@@ -165,7 +165,7 @@ Vedere anche [Usare PowerShell per abilitare la Diagnostica di Azure in una macc
 La tabella seguente elenca i diversi tipi di dati raccolti dall'estensione di diagnostica e se vengono archiviati come una tabella o un BLOB. I dati archiviati nelle tabelle possono anche essere archiviati in BLOB a seconda dell' [impostazione di StorageType](diagnostics-extension-schema-windows.md#publicconfig-element) nella configurazione pubblica.
 
 
-| Data | Tipo di archiviazione | Descrizione |
+| Data | Tipo di archiviazione | Description |
 |:---|:---|:---|
 | WADDiagnosticInfrastructureLogsTable | Tabella | Monitoraggio diagnostica e modifiche di configurazione. |
 | WADDirectoriesTable | Tabella | Directory monitorate dal monitor di diagnostica.  Sono inclusi i log di IIS, i log delle richieste non riuscite di IIS e le directory personalizzate.  La posizione del file di log dei BLOB è specificata nel campo Container e il nome del BLOB si trova nel campo RelativePath.  Il campo AbsolutePath indica la posizione e il nome del file esistente nella macchina virtuale di Azure. |

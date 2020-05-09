@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8f32f574a4ff7be0cc3cc7915b8203b53824c63
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279147"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792327"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Ripristino di emergenza di Azure Spring cloud
 
@@ -32,3 +32,32 @@ Per garantire la disponibilità elevata e la protezione dalle emergenze, è nece
 [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md) fornisce il bilanciamento del carico del traffico basato su DNS ed è in grado di distribuire il traffico di rete tra più aree.  Usare gestione traffico di Azure per indirizzare i clienti all'istanza del servizio cloud Spring di Azure più vicina.  Per prestazioni e ridondanza ottimali, indirizzare tutto il traffico delle applicazioni attraverso gestione traffico di Azure prima di inviarlo al servizio cloud Spring di Azure.
 
 Se si hanno applicazioni cloud Spring di Azure in più aree, usare gestione traffico di Azure per controllare il flusso del traffico verso le applicazioni in ogni area.  Definire un endpoint di gestione traffico di Azure per ogni servizio usando l'indirizzo IP del servizio. I clienti devono connettersi a un nome DNS di gestione traffico di Azure che punta al servizio cloud Spring di Azure.  Gestione traffico di Azure bilancia il carico del traffico tra gli endpoint definiti.  Se un'emergenza colpisce un data center, gestione traffico di Azure indirizza il traffico da tale area alla propria coppia, garantendo la continuità del servizio.
+
+## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Creare gestione traffico di Azure per il cloud Spring di Azure
+
+1. Creare il cloud Spring di Azure in due aree diverse.
+Sono necessarie due istanze del servizio del cloud Spring di Azure distribuite in due aree diverse (Stati Uniti orientali ed Europa occidentale). Avviare un'applicazione Azure Spring cloud esistente usando il portale di Azure per creare due istanze del servizio. Ogni funzione fungerà da endpoint primario e di failover per il traffico. 
+
+**Due informazioni sulle istanze del servizio:**
+
+| Nome servizio | Percorso | Applicazione |
+|--|--|--|
+| servizio-esempio-a | Stati Uniti orientali | Gateway/auth-servizio/account-servizio |
+| servizio-esempio-b | Europa occidentale | Gateway/auth-servizio/account-servizio |
+
+2. Configurare il dominio personalizzato per il servizio seguire il [documento di dominio personalizzato](spring-cloud-tutorial-custom-domain.md) per configurare il dominio personalizzato per queste due istanze del servizio esistenti. Una volta completata la configurazione, entrambe le istanze del servizio vengono associate a un dominio personalizzato: bcdr-test.contoso.com
+
+3. Creare una gestione traffico e due endpoint: [creare un profilo di gestione traffico usando il portale di Azure](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+
+Ecco il profilo di gestione traffico:
+* Nome DNS di gestione traffico:http://asc-bcdr.trafficmanager.net
+* Profili endpoint: 
+
+| Profilo | Type | Destinazione | Priorità | Impostazioni intestazione personalizzata |
+|--|--|--|--|--|
+| Profilo di un endpoint | Endpoint esterno | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
+| Profilo endpoint B | Endpoint esterno | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
+
+4. Creare un record CNAME nella zona DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+
+5. A questo punto, l'ambiente è completamente configurato. I clienti devono essere in grado di accedere all'app tramite: bcdr-test.contoso.com

@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 04/28/2020
-ms.openlocfilehash: 7d226cc916487c44b470e4ccc367831ac4766d43
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: 9bf17512d0b14c7106101d98598e2914020afc7a
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779247"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857945"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usare Machine Learning automatiche in una pipeline Azure Machine Learning in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -290,7 +290,7 @@ Il frammento di codice precedente `PipelineData` crea i due oggetti per le metri
 
 ### <a name="configure-and-create-the-automated-ml-pipeline-step"></a>Configurare e creare il passaggio automatizzato della pipeline ML
 
-Una volta definiti gli input e gli output, è possibile creare `AutoMLConfig` e. `AutoMLStep` I dettagli della configurazione dipenderanno dall'attività, come descritto in configurare gli esperimenti di Machine Learning [automatici in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train]). Per l'attività di classificazione di sopravvivenza Titanic, il frammento di codice seguente illustra una semplice configurazione.
+Una volta definiti gli input e gli output, è possibile creare `AutoMLConfig` e. `AutoMLStep` I dettagli della configurazione dipenderanno dall'attività, come descritto in configurare gli esperimenti di Machine Learning [automatici in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). Per l'attività di classificazione di sopravvivenza Titanic, il frammento di codice seguente illustra una semplice configurazione.
 
 ```python
 from azureml.train.automl import AutoMLConfig

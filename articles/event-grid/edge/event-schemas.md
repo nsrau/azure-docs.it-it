@@ -57,12 +57,12 @@ Tutti gli eventi hanno i dati di primo livello seguenti:
 | Proprietà | Type | Obbligatoria | Descrizione |
 | -------- | ---- | ----------- |-----------
 | argomento | stringa | No | Deve corrispondere all'argomento su cui è pubblicato. Griglia di eventi lo popola con il nome dell'argomento in cui viene pubblicato se non specificato. |
-| subject | stringa | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | stringa | Sì | Tipo di evento per questa origine evento, ad esempio BlobCreated. |
-| eventTime | stringa | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Sì | Tipo di evento per questa origine evento, ad esempio BlobCreated. |
+| eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | ID | stringa | No | Identificatore univoco dell'evento. |
-| data | oggetto | No | Utilizzato per acquisire i dati degli eventi specifici dell'entità di pubblicazione. |
-| dataVersion | stringa | Sì | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| data | object | No | Utilizzato per acquisire i dati degli eventi specifici dell'entità di pubblicazione. |
+| dataVersion | string | Sì | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | stringa | No | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 ### <a name="example--eventgrid-schema-event"></a>Esempio: evento dello schema EventGrid

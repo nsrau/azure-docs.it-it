@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: aahi
-ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 99a62daf6dced88efd9bda591a0ca44a8b259a75
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79203458"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195639"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedura: Rilevare il sentiment con l'API REST Analisi del testo
 
@@ -58,7 +58,9 @@ Analisi del sentiment V3 classifica il testo con le etichette del sentiment (des
 
 ### <a name="sentiment-labeling"></a>Assegnazione di etichette per la valutazione
 
-Analisi del sentiment versione 3 può restituire punteggi ed etichette a livello di frase e di documento. I punteggi e le etichette sono `positive`, `negative` e `neutral`. A livello di documento, l'etichetta del sentiment `mixed` può anche essere restituita senza punteggio. Il sentiment del documento è determinato di seguito:
+Analisi del sentiment v3 restituisce le etichette del sentiment a livello di frase e documento (`positive`, `negative`e `neutral`) insieme ai punteggi di attendibilità. L'etichetta del sentiment `mixed` può essere restituita anche a livello di documento. 
+
+Il sentiment del documento è determinato di seguito:
 
 | Valutazione della frase                                                                            | Etichetta di documento restituita |
 |-----------------------------------------------------------------------------------------------|-------------------------|
