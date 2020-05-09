@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ad6acbad57df24e5cd78c72c9d00bcd32a83219a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254365"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731578"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -29,7 +29,7 @@ Come illustrato nel funzionamento di [Gestione traffico](../traffic-manager/traf
 Gestione traffico non prevede quindi un endpoint o indirizzo IP per la connessione dei client. Se si intende avere un indirizzo IP statico per un servizio, è necessario configurarlo nel servizio, non in Gestione traffico.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?
-Come spiegato in [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), un endpoint di Gestione traffico può essere qualsiasi servizio con connessione Internet all'interno o all'esterno di Azure. Di conseguenza, Gestione traffico può indirizzare il traffico che ha origine da Internet pubblico a un set di endpoint anch'esso con connessione Internet. In caso di endpoint all'interno di una rete privata, ad esempio una versione interna di [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer), o se gli utenti effettuano richieste DNS da queste reti interne, non è possibile usare Gestione traffico per instradare il traffico.
+Come spiegato in [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), un endpoint di Gestione traffico può essere qualsiasi servizio con connessione Internet all'interno o all'esterno di Azure. Di conseguenza, Gestione traffico può indirizzare il traffico che ha origine da Internet pubblico a un set di endpoint anch'esso con connessione Internet. In caso di endpoint all'interno di una rete privata, ad esempio una versione interna di [Azure Load Balancer](../load-balancer/components.md#frontend-ip-configurations), o se gli utenti effettuano richieste DNS da queste reti interne, non è possibile usare Gestione traffico per instradare il traffico.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestione traffico supporta le sessioni "permanenti"?
 
@@ -385,10 +385,10 @@ Per i profili con metodo di routing diverso da Multivalore:
 |Richiesta query in ingresso|     Tipo di endpoint|     Risposta specificata|
 |--|--|--|
 |ANY |    A / AAAA / CNAME |    Endpoint di destinazione| 
-|Una |    A / CNAME |    Endpoint di destinazione|
-|Una |    AAAA |    NODATA |
+|Una  |    A / CNAME |    Endpoint di destinazione|
+|Una  |    AAAA |    NODATA |
 |AAAA |    AAAA / CNAME |    Endpoint di destinazione|
-|AAAA |    Una |    NODATA |
+|AAAA |    Una  |    NODATA |
 |CNAME |    CNAME |    Endpoint di destinazione|
 |CNAME     |A / AAAA |    NODATA |
 |
@@ -398,7 +398,7 @@ Per i profili con metodo di routing impostato su Multivalore:
 |Richiesta query in ingresso|     Tipo di endpoint |    Risposta specificata|
 |--|--|--|
 |ANY |    Combinazione di A e AAAA |    Endpoint di destinazione|
-|Una |    Combinazione di A e AAAA |    Solo endpoint di destinazione di tipo A|
+|Una  |    Combinazione di A e AAAA |    Solo endpoint di destinazione di tipo A|
 |AAAA    |Combinazione di A e AAAA|     Solo endpoint di destinazione di tipo AAAA|
 |CNAME |    Combinazione di A e AAAA |    NODATA |
 

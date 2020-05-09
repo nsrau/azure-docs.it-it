@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc08916967b4d64667065373cf2d0828a05069d0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398332"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890935"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
@@ -341,9 +341,9 @@ GO
 ### <a name="maintenance"></a>Manutenzione
 
 - **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare RLS in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
-- **Aggiunta di nuove tabelle**: aggiungere un predicato di FILTRO e di BLOCCO ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Aggiunta di nuove tabelle**: aggiungere un predicato di FILTRO e di BLOCCO ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Gli strumenti di database elastici e la sicurezza a livello di riga possono essere utilizzati insieme per scalare orizzontalmente il livello di dati di un'applicazione con supporto sia per le partizioni multi-tenant, sia per quelle con tenant singolo. Le partizioni multi-tenant possono essere usate per archiviare i dati in modo più efficiente, in particolar modo nei casi in cui un elevato numero di tenant dispone solo di poche righe di dati. Le partizioni a singolo tenant possono essere usate invece per supportare tenant "premium" con requisiti di prestazioni e isolamento più rigidi. Per altre informazioni, vedere [Sicurezza a livello di riga][rls].
 

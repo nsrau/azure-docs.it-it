@@ -3,34 +3,29 @@ title: Aumentare la priorità di ricerca usando i profili di Punteggio
 titleSuffix: Azure Cognitive Search
 description: Aumentare i punteggi di rango di ricerca per i risultati di ricerca cognitiva di Azure aggiungendo i profili di punteggio.
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231102"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890171"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure
 
 Il *Punteggio* calcola un punteggio di ricerca per ogni elemento in un set di risultati ordinato in ordine di priorità. A ogni elemento nel set di risultati della ricerca viene assegnato un punteggio di ricerca e quindi gli elementi vengono classificati dal maggiore al minore.
 
  Azure ricerca cognitiva usa il Punteggio predefinito per calcolare un punteggio iniziale, ma è possibile personalizzare il calcolo tramite un *profilo di Punteggio*. I profili di punteggio offrono maggiore controllo sulla classificazione degli elementi nei risultati della ricerca. Ad esempio, è possibile aumentare la priorità degli elementi in base al rispettivo potenziale di profitto, alzare di livello elementi più recenti o evidenziare elementi che sono rimasti troppo a lungo in magazzino.  
+
+ Il seguente segmento video consente di eseguire rapidamente il modo in cui i profili di Punteggio funzionano in Azure ricerca cognitiva.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## <a name="scoring-profile-definitions"></a>Definizioni del profilo di Punteggio
 
  Un profilo di punteggio fa parte della definizione dell'indice, costituita da campi ponderati, funzioni e parametri.  
 
@@ -232,12 +227,12 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 > [!NOTE]  
 >  La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.  
 
-|Attributo|Descrizione|  
+|Attributo|Description|  
 |---------------|-----------------|  
 |`name`|Obbligatorio. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata).|  
 |`text`|Contiene la proprietà Weights.|  
-|`weights`|Facoltativo. Contiene coppie nome-valore che specificano un nome di campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo.<br /><br /> I pesi vengono usati per indicare l'importanza di un campo ricercabile rispetto a un altro.|  
-|`functions`|Facoltativo. La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.|  
+|`weights`|Facoltativa. Contiene coppie nome-valore che specificano un nome di campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo.<br /><br /> I pesi vengono usati per indicare l'importanza di un campo ricercabile rispetto a un altro.|  
+|`functions`|Facoltativa. La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.|  
 |`type`|Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness, distance e tag. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.|  
 |`boost`|Obbligatorio per le funzioni di assegnazione di punteggio. Numero positivo usato come moltiplicatore per un punteggio non elaborato. Non può essere uguale a 1.|  
 |`fieldname`|Obbligatorio per le funzioni di assegnazione di punteggio. Una funzione di assegnazione di punteggio può essere applicata solo a campi che fanno parte della raccolta di campi dell'indice e che sono filtrabili. Ogni tipo di funzione introduce inoltre restrizioni aggiuntive (il valore freshness viene usato con campi datetime, il valore magnitude con campi di tipo Integer o Double e il valore distance con campi location). È possibile specificare solo un campo per ogni definizione di funzione. Ad esempio, per usare il valore magnitude due volte nello stesso profilo, sarà necessario includere due definizioni di magnitude, una per ogni campo.|  
@@ -253,7 +248,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 |`distance` &#124; `boostingDistance`|Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità.|  
 |`tag`|La funzione per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base ai tag nei documenti e nelle query di ricerca. La priorità di documenti con tag in comune con la query di ricerca verrà aumentata. I tag per la query di ricerca vengono specificati come parametro di assegnazione dei punteggi in ogni richiesta di ricerca (usando l'opzione stringa `scoringParameterquery`).|  
 |`tag` &#124; `tagsParameter`|Parametro da passare nelle query per specificare i tag per una particolare richiesta. `scoringParameter` è un parametro di query. Per le descrizioni dei parametri di query, vedere [cercare documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .|  
-|`functionAggregation`|Facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base dipende dal valore [tf-idf](http://www.tfidf.com/) calcolato dal documento e dalla query di ricerca.|  
+|`functionAggregation`|Facoltativa. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base dipende dal valore [tf-idf](http://www.tfidf.com/) calcolato dal documento e dalla query di ricerca.|  
 |`defaultScoringProfile`|Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo [tf-idf](http://www.tfidf.com/)).<br /><br /> Qui è possibile impostare un nome del profilo di Punteggio predefinito, in modo che Azure ricerca cognitiva usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo specifico.|  
 
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Imposta interpolazioni  
@@ -286,6 +281,6 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
 ## <a name="see-also"></a>Vedere anche  
 
-+ [Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Informazioni di riferimento sull'API REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Create index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
 + [Azure ricerca cognitiva .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

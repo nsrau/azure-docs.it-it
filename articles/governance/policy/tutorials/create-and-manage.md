@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare criteri per applicare la conformità'
 description: In questa esercitazione vengono usati i criteri per applicare gli standard, controllare i costi, mantenere la sicurezza e applicare principi di progettazione a livello aziendale.
 ms.date: 03/24/2020
 ms.topic: tutorial
-ms.openlocfilehash: 15a6c3df26938332d42ecbcfff43f958577062c4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239941"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190827"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: Creare e gestire i criteri per applicare la conformità
 
@@ -126,7 +126,7 @@ Dopo avere assegnato una definizione predefinita del criterio, è possibile eseg
 
    La proprietà _campo_ nella regola dei criteri deve essere costituita da un valore supportato. Un elenco completo dei valori è disponibile nei [campi della struttura delle definizioni di criteri](../concepts/definition-structure.md#fields). Un esempio di un alias potrebbe essere `"Microsoft.Compute/VirtualMachines/Size"`.
 
-   Per visualizzare altri esempi di criteri di Azure, vedere [Esempi di Criteri di Azure](../samples/index.md).
+   Per visualizzare altri esempi di Criteri di Azure, vedere [Esempi di Criteri di Azure](../samples/index.md).
 
 1. Selezionare **Salva**.
 

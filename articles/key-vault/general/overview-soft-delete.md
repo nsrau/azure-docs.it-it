@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 045c1d255ae380c722506615aae9cf5d22105747
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 347f8a4cf1fb95849bcf1008e91d17878f3d01f8
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133102"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598522"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -24,7 +24,7 @@ La funzionalità di eliminazione temporanea di Key Vault consente di recuperare 
 
 ## <a name="supporting-interfaces"></a>Supporto di interfacce
 
-La funzionalità di eliminazione temporanea è inizialmente disponibile attraverso le interfacce [Rest](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md) e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) .
+La funzionalità di eliminazione temporanea è inizialmente disponibile attraverso le interfacce [Rest](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , oltre ai [modelli ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scenari
 

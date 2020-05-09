@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 78c8750de7189bad33e9bbc766a3d7543a646f6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: a8a5914b51b56fbe8b4b7b7ba331f58ec451f975
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159354"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731884"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per MySQL con capacità riservata
 
@@ -19,7 +19,7 @@ Database di Azure per MySQL consente ora di risparmiare denaro prepagando le ris
 
 Non è necessario assegnare la prenotazione a specifici server di database di Azure per MySQL. Un database di Azure già in esecuzione per MySQL o uno appena distribuito, otterrà automaticamente il vantaggio dei prezzi riservati. Tramite l'acquisto di una prenotazione, si pagano in anticipo i costi di calcolo per un periodo di uno o tre anni. Non appena si acquista una prenotazione, per i costi di calcolo di database di Azure per MySQL che corrispondono agli attributi di prenotazione non vengono più addebitate le tariffe a consumo. Una prenotazione non copre il software, la rete o gli addebiti di archiviazione associati al server di database MySQL. Al termine del periodo di prenotazione, il vantaggio di fatturazione scadrà e il database di Azure per MySQL verrà fatturato in base al prezzo con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente. Per informazioni sui prezzi, vedere l' [offerta di capacità riservata per database di Azure per MySQL](https://azure.microsoft.com/pricing/details/mysql/). </br>
 
-È possibile acquistare la capacità riservata di database di Azure per MySQL nell' [portale di Azure](https://portal.azure.com/). Per acquistare la capacità riservata:
+È possibile acquistare la capacità riservata di database di Azure per MySQL nell' [portale di Azure](https://portal.azure.com/). Usare [pagamenti anticipati o mensili](../cost-management-billing/reservations/monthly-payments-reservations.md) per acquistare la prenotazione. Per acquistare la capacità riservata:
 
 * È necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise o singola con tariffe con pagamento in base al consumo.
 * Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore della sottoscrizione con contratto Enterprise.

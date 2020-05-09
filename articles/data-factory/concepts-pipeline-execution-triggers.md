@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418355"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562203"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 
@@ -281,13 +281,13 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
-| Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
+| Proprietà JSON | Type | Necessario | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | stringa | Sì | nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **ricorrenza** | oggetto | Sì | nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | Sì | Nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **ricorrenza** | object | Sì | Nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | d'acquisto | No | 1 | Da 1 a 1000 | `"interval":10` |
-| **endTime** | stringa | Sì | nessuno | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **pianificazione** | oggetto | No | nessuno | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | string | Sì | Nessuno | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **pianificazione** | object | No | Nessuno | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
 La tabella seguente illustra come la proprietà **startTime** controlla l'esecuzione di un trigger:
@@ -326,6 +326,9 @@ La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 I trigger di finestra a cascata vengono attivati in base a un intervallo di tempo periodico a partire da un'ora di inizio specificata, mantenendo al tempo stesso lo stato. Le finestre a cascata sono costituite da una serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti.
 
 Per ulteriori informazioni sui trigger di finestra a cascata e, per esempi, vedere [creare un trigger di finestra a cascata](how-to-create-tumbling-window-trigger.md).
+
+> [!NOTE]
+> L'esecuzione del trigger della finestra a cascata è in attesa del completamento *dell'esecuzione della pipeline attivata* . Lo stato di esecuzione rispecchia lo stato dell'esecuzione della pipeline attivata. Se, ad esempio, l'esecuzione di una pipeline attivata viene annullata, l'esecuzione del trigger della finestra a cascata corrispondente viene contrassegnata come annullata. Questo comportamento è diverso dal comportamento "Fire and Forget" del trigger di pianificazione, contrassegnato come completato fino a quando l'esecuzione di una pipeline è stata avviata.
 
 ## <a name="event-based-trigger"></a>Trigger basato su eventi
 
@@ -374,11 +377,11 @@ La tabella seguente contiene un confronto del trigger di finestra a cascata e de
 
 |  | Trigger di finestra a cascata | Trigger di pianificazione |
 |:--- |:--- |:--- |
-| **Scenari di recupero delle informazioni** | Supportato. Si possono pianificare esecuzioni della pipeline per finestre nel passato. | Non supportato. Le esecuzioni della pipeline possono essere eseguite solo in periodi di tempo compresi tra il momento corrente e il futuro. |
+| **Scenari di recupero delle informazioni** | Supportato. Si possono pianificare esecuzioni della pipeline per finestre nel passato. | Non supportata. Le esecuzioni della pipeline possono essere eseguite solo in periodi di tempo compresi tra il momento corrente e il futuro. |
 | **Affidabilità** | 100% di affidabilità. Le esecuzioni della pipeline possono essere pianificate per tutte le finestre da una data di inizio specificata senza intervalli. | Meno affidabile. |
-| **Funzionalità di ripetizione dei tentativi** | Supportato. Le esecuzioni non riuscite delle pipeline hanno un criterio di ripetizione predefinito pari a 0 oppure un criterio specificato dall'utente nella definizione di un trigger. Esegue automaticamente nuovi tentativi quando l'esecuzione della pipeline non riesce a causa di limiti di concorrenza/server/limitazione (ovvero codici di stato 400: errore utente, 429: numero eccessivo di richieste e 500: errore interno del server). | Non supportato. |
-| **Concorrenza** | Supportato. Gli utenti possono impostare in modo esplicito i limiti di concorrenza per il trigger. Consente un numero di esecuzioni di pipeline simultanee attivate compreso tra 1 e 50. | Non supportato. |
-| **Variabili di sistema** | Supporta l'uso delle variabili di sistema **WindowStart** e **WindowEnd**. Gli utenti possono accedere a `triggerOutputs().windowStartTime` e a `triggerOutputs().windowEndTime` come variabile di sistema del trigger nella definizione del trigger. I valori vengono usati rispettivamente come ora di inizio della finestra e ora di fine della finestra. Ad esempio, per un trigger di finestra a cascata che viene eseguito ogni ora, per la finestra compresa tra la 01:00 e le 02:00, la definizione è `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Non supportato. |
+| **Funzionalità di ripetizione dei tentativi** | Supportato. Le esecuzioni non riuscite delle pipeline hanno un criterio di ripetizione predefinito pari a 0 oppure un criterio specificato dall'utente nella definizione di un trigger. Esegue automaticamente nuovi tentativi quando l'esecuzione della pipeline non riesce a causa di limiti di concorrenza/server/limitazione (ovvero codici di stato 400: errore utente, 429: numero eccessivo di richieste e 500: errore interno del server). | Non supportata. |
+| **Concorrenza** | Supportato. Gli utenti possono impostare in modo esplicito i limiti di concorrenza per il trigger. Consente un numero di esecuzioni di pipeline simultanee attivate compreso tra 1 e 50. | Non supportata. |
+| **Variabili di sistema** | Supporta l'uso delle variabili di sistema **WindowStart** e **WindowEnd**. Gli utenti possono accedere a `triggerOutputs().windowStartTime` e a `triggerOutputs().windowEndTime` come variabile di sistema del trigger nella definizione del trigger. I valori vengono usati rispettivamente come ora di inizio della finestra e ora di fine della finestra. Ad esempio, per un trigger di finestra a cascata che viene eseguito ogni ora, per la finestra compresa tra la 01:00 e le 02:00, la definizione è `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Non supportata. |
 | **Relazione tra pipeline e trigger** | Supporta una relazione uno a uno. Può essere attivata una sola pipeline. | Supporta relazioni molti a molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline. |
 
 ## <a name="next-steps"></a>Passaggi successivi

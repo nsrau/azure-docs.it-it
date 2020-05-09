@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7feb6282f3a3551e08d1bb8db2cf6ad2fcd754a8
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461396"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626157"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -30,7 +30,7 @@ Il database SQL di Microsoft Azure assicura un servizio di database relazionale 
 
 ### <a name="ip-firewall-rules"></a>Regole del firewall IP
 
-Le regole del firewall IP concedono l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta. Per altre informazioni, vedere [Panoramica sulle regole del firewall per il database SQL di Azure e SQL Data Warehouse](sql-database-firewall-configure.md).
+Le regole del firewall IP concedono l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta. Per altre informazioni, vedere [Panoramica delle regole del firewall del database SQL di Azure e di Azure sinapsi Analytics](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtuale
 
@@ -46,7 +46,7 @@ Le [regole di rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md
 > [!IMPORTANT]
 > La gestione dei database e dei server di database in Azure è controllata dalle assegnazioni di ruolo dell'account del portale utenti. Per altre informazioni su questo articolo, vedere [Controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 L'autenticazione è il processo atto a dimostrare che l'utente sia effettivamente chi dichiara di essere. Il database SQL di Azure supporta due tipi di autenticazione:
 
@@ -56,7 +56,7 @@ L'autenticazione è il processo atto a dimostrare che l'utente sia effettivament
 
 - **Autenticazione Azure Active Directory**:
 
-    Azure Active Directory autenticazione è un meccanismo di connessione al [database SQL di Azure](sql-database-technical-overview.md) e [SQL data warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando le identità in Azure Active Directory (Azure ad). L'autenticazione di Azure AD consente agli amministratori di gestire centralmente le identità e le autorizzazioni degli utenti del database oltre ad altri servizi Microsoft. Ciò include la riduzione dell'archiviazione di password e abilita i criteri centralizzati di rotazione delle password.
+    Azure Active Directory autenticazione è un meccanismo di connessione al [database SQL di Azure](sql-database-technical-overview.md) e ad [Azure sinapsi Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando le identità in Azure Active Directory (Azure ad). L'autenticazione di Azure AD consente agli amministratori di gestire centralmente le identità e le autorizzazioni degli utenti del database oltre ad altri servizi Microsoft. Ciò include la riduzione dell'archiviazione di password e abilita i criteri centralizzati di rotazione delle password.
 
      Occorre creare un amministratore del server denominato **Amministratore di Active Directory Domain Services** per usare l'autenticazione di Azure AD con il database SQL. Per altre informazioni, vedere [Connessione al database SQL tramite l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md). L'autenticazione di Azure AD supporta sia gli account gestiti che quelli federati. Gli account federati supportano gli utenti di Windows e gruppi per un dominio utente federato con Azure AD.
 
@@ -97,7 +97,7 @@ Advanced Threat Protection sta analizzando i log di SQL Server per rilevare comp
 
 Il database SQL protegge i dati del cliente mediante la crittografia dei dati in movimento avvalendosi di [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Server impone sempre la crittografia (SSL/TLS) per tutte le connessioni. Ciò garantisce che tutti i dati siano crittografati in transito tra il client e il server indipendentemente dall'impostazione di **Encrypt** o **TrustServerCertificate** nella stringa di connessione.
+SQL Server impone la crittografia (TLS) in qualsiasi momento per tutte le connessioni. Ciò garantisce che tutti i dati siano crittografati in transito tra il client e il server indipendentemente dall'impostazione di **Encrypt** o **TrustServerCertificate** nella stringa di connessione.
 
 Come procedura consigliata, nella stringa di connessione dell'applicazione è consigliabile specificare una connessione crittografata e _**non**_ considerare attendibile il certificato del server. In questo modo, l'applicazione deve verificare il certificato del server e quindi impedire che l'applicazione venga vulnerabile agli attacchi di tipo intermedio.
 
