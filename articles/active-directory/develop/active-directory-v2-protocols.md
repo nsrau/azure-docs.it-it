@@ -1,5 +1,6 @@
 ---
-title: Protocolli OAuth 2,0 e OpenID Connect-piattaforma di identità Microsoft | Azure
+title: Protocolli OAuth 2,0 e OpenID Connect sulla piattaforma di identità Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Guida ai protocolli OAuth 2,0 e OpenID Connect supportati dall'endpoint della piattaforma di identità Microsoft.
 services: active-directory
 author: hpsin
@@ -8,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 80b93efb58d225c53a64fa044f51145b392460d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 12f5df9b644246092f0a5da2b30dc5a7187ca827
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690258"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926817"
 ---
-# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolli OAuth 2,0 e OpenID Connect nella piattaforma di identità Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocolli OAuth 2,0 e OpenID Connect sulla piattaforma di identità Microsoft
 
-Endpoint della piattaforma di identità Microsoft per l'identità come servizio con protocolli standard del settore, OpenID Connect e OAuth 2,0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli. Le informazioni in questo argomento sono utili se si sceglie di scrivere il codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti anziché usare una [libreria open source](reference-v2-libraries.md) di Microsoft.
+Endpoint della piattaforma di identità Microsoft per l'identità come servizio con protocolli standard del settore, OpenID Connect (OIDC) e OAuth 2,0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli. Le informazioni riportate di seguito saranno utili se si sceglie di scrivere il codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti, anziché usare una delle [librerie open source](reference-v2-libraries.md).
 
 ## <a name="the-basics"></a>Nozioni di base
 
@@ -69,13 +70,13 @@ Per informazioni su come interagire con questi endpoint, scegliere un tipo di ap
 
 ## <a name="tokens"></a>Tokens
 
-L'implementazione della piattaforma di identità Microsoft di OAuth 2,0 e OpenID Connect fanno ampio uso dei token di connessione, inclusi i token di connessione rappresentati come token JWT. Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Sebbene un'entità debba eseguire prima l'autenticazione con la piattaforma di identità Microsoft per ricevere il bearer token, se non vengono eseguite le operazioni necessarie per proteggere il token nella trasmissione e nell'archiviazione, è possibile intercettarlo e usarlo da parte di un'entità non intenzionale. Molti token di sicurezza hanno meccanismi integrati per prevenire l'uso non autorizzato, ma i token di connessione ne sono sprovvisti e devono essere trasportati su un canale protetto, ad esempio Transport Layer Security (HTTPS). Se un token di connessione viene trasmesso senza protezione, un utente malintenzionato può usare un attacco man-in-the-middle per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](https://tools.ietf.org/html/rfc6750).
+L'implementazione della piattaforma di identità Microsoft di OAuth 2,0 e OpenID Connect fanno ampio uso dei token di connessione, inclusi i token di connessione rappresentati come token JWT (token Web JSON). Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Sebbene un'entità debba eseguire prima l'autenticazione con la piattaforma di identità Microsoft per ricevere il bearer token, se non vengono eseguite le operazioni necessarie per proteggere il token nella trasmissione e nell'archiviazione, è possibile intercettarlo e usarlo da parte di un'entità non intenzionale. Molti token di sicurezza hanno meccanismi integrati per prevenire l'uso non autorizzato, ma i token di connessione ne sono sprovvisti e devono essere trasportati su un canale protetto, ad esempio Transport Layer Security (HTTPS). Se un token di connessione viene trasmesso senza protezione, un utente malintenzionato può usare un attacco man-in-the-middle per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](https://tools.ietf.org/html/rfc6750).
 
 Altre informazioni sui diversi tipi di token usati nell'endpoint della piattaforma Microsoft Identity sono disponibili nella Guida di [riferimento al token dell'endpoint della piattaforma di identità Microsoft](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocolli
 
-Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle esercitazioni di seguito. Ognuna corrisponde a uno scenario di autenticazione specifico. Se è necessario contribuire a determinare quale sia il flusso corretto, vedere [i tipi di app che è possibile compilare con la piattaforma di identità Microsoft](v2-app-types.md).
+Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle esercitazioni di seguito. Ognuna corrisponde a uno scenario di autenticazione specifico. Se è necessario assistenza per determinare quale sia il flusso corretto, vedere [i tipi di app che è possibile compilare con la piattaforma di identità Microsoft](v2-app-types.md).
 
 * [Creare un'applicazione mobile e nativa con OAuth 2,0](v2-oauth2-auth-code-flow.md)
 * [Creare app Web con OpenID Connect](v2-protocols-oidc.md)

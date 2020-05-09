@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
-ms.openlocfilehash: e0042960c25d58b72bc0ab884de5a2db62e566d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81413439"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890879"
 ---
 # <a name="data-flow-script-dfs"></a>Script del flusso di dati (DFS)
 
@@ -177,6 +177,21 @@ Utilizzare questo codice nello script del flusso di dati per creare una nuova co
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
+```
+
+È anche possibile usare lo script seguente per generare un hash di riga usando tutte le colonne presenti nel flusso, senza dover assegnare un nome a ogni colonna:
+
+```
+derive(DWhash = sha1(columns()))
+```
+
+### <a name="string_agg-equivalent"></a>Equivalente String_agg
+Questo codice agirà come la funzione T-SQL ```string_agg()``` e aggrega i valori stringa in una matrice. È quindi possibile eseguire il cast di tale matrice in una stringa da usare con le destinazioni SQL.
+
+```
+source1 aggregate(groupBy(year),
+    string_agg = collect(title)) ~> Aggregate1
+Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

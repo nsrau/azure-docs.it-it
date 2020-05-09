@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662520"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691119"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitoraggio del servizio di archiviazione con monitoraggio di Azure per l'archiviazione (anteprima)
 
@@ -67,7 +67,7 @@ Il riquadro contatore sotto gli elenchi a discesa esegue il rollup del numero to
 Selezionare un valore in colonne **disponibilità**, **latenza E2E**, **latenza server**e **tipo di errore transazione/errori** indirizzare l'utente a un report adattato al tipo specifico di metriche di archiviazione che corrispondono alla colonna selezionata per l'account di archiviazione. Per ulteriori informazioni sulle cartelle di lavoro per ogni categoria, vedere la sezione [cartelle di lavoro di archiviazione dettagliata](#detailed-storage-workbooks) di seguito. 
 
 >[!NOTE]
->Per informazioni dettagliate sugli errori che possono essere visualizzati nel report, vedere [schema del tipo di risposta](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) e cercare i tipi di risposta, ad esempio **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. A seconda degli account di archiviazione selezionati, in presenza di più di tre tipi di errori segnalati, tutti gli altri errori sono rappresentati nella categoria **altro**.
+>Per informazioni dettagliate sugli errori che possono essere visualizzati nel report, vedere [schema del tipo di risposta](../../storage/common/monitor-storage-reference.md#metrics-dimensions) e cercare i tipi di risposta, ad esempio **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. A seconda degli account di archiviazione selezionati, in presenza di più di tre tipi di errori segnalati, tutti gli altri errori sono rappresentati nella categoria **altro**.
 
 La soglia di **disponibilità** predefinita è:
 
