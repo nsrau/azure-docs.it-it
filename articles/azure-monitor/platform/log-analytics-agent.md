@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 08c80b0a37e21d53fc974bd878501b9326c9449b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: e85e41796d0fc4fb9ac72b4032de3143b26d890f
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207225"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871064"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente Log Analytics
 Azure Log Analytics Agent è stato sviluppato per una gestione completa tra macchine virtuali in qualsiasi cloud, computer locali e quelli monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro Log Analytics in monitoraggio di Azure, nonché a qualsiasi metrica o log univoco definito in una soluzione di monitoraggio. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in monitoraggio di Azure, ad esempio [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), il [Centro sicurezza di Azure](/azure/security-center/)e [automazione di Azure](../../automation/automation-intro.md).
@@ -39,7 +39,7 @@ Non è previsto alcun costo per Log Analytics Agent, ma è possibile che vengano
 ## <a name="data-collected"></a>Dati raccolti
 Nella tabella seguente sono elencati i tipi di dati che è possibile configurare un'area di lavoro di Log Analytics per la raccolta da tutti gli agenti connessi. Vedere [che cosa viene monitorato da monitoraggio di Azure?](../monitor-reference.md) per un elenco di informazioni dettagliate, soluzioni e altre soluzioni che usano l'agente di log Analytics per raccogliere altri tipi di dati.
 
-| origine dati | Descrizione |
+| origine dati | Description |
 | --- | --- |
 | [Registri eventi di Windows](data-sources-windows-events.md) | Informazioni inviate al sistema di registrazione eventi di Windows. |
 | [syslog](data-sources-syslog.md)                     | Informazioni inviate al sistema di registrazione eventi di Linux. |
@@ -72,7 +72,7 @@ Sono disponibili diversi metodi per installare l'agente di Log Analytics e conne
 
 |Source (Sorgente) | Metodo | Descrizione|
 |-------|-------------|-------------|
-|Macchina virtuale Azure| [Manualmente dalla portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Specificare le macchine virtuali da distribuire dall'area di lavoro Log Analytics. |
+|Macchina virtuale di Azure| [Manualmente dalla portale di Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Specificare le macchine virtuali da distribuire dall'area di lavoro Log Analytics. |
 | | Log Analytics estensione VM per [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) con l'interfaccia della riga di comando di Azure o con un modello di Azure Resource Manager | L'estensione installa l'agente di Log Analytics nelle macchine virtuali di Azure e le registra in un'area di lavoro di Log Analytics esistente. |
 | | [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md) | Quando si Abilita il monitoraggio con Monitoraggio di Azure per le macchine virtuali, vengono installate le estensioni Log Analytics e Agent. |
 | | [Provisioning automatico del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md) | Il Centro sicurezza di Azure può effettuare il provisioning dell'agente di Log Analytics in tutte le VM di Azure supportate e in quelle nuove che vengono create se si Abilita il monitoraggio di vulnerabilità e minacce alla sicurezza. Se abilitata, verrà eseguito il provisioning di qualsiasi macchina virtuale nuova o esistente senza un agente installato. |
@@ -130,7 +130,7 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
 
 La tabella seguente evidenzia i pacchetti necessari per le distribuzioni Linux supportate in cui verrà installato l'agente.
 
-|Pacchetto necessario |Descrizione |Versione minima |
+|Pacchetto necessario |Description |Versione minima |
 |-----------------|------------|----------------|
 |Glibc |    Libreria GNU C | 2.5-12 
 |Openssl    | Librerie OpenSSL | 1.0. x o 1.1. x |
@@ -147,7 +147,7 @@ Per garantire la sicurezza dei dati in transito nei log di monitoraggio di Azure
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Requisito del supporto per la firma del codice SHA-2 per Windows
-L'agente Windows inizierà a usare esclusivamente la firma SHA-2 del 18 maggio 2020. Questa modifica influirà sui clienti che usano l'agente di Log Analytics in un sistema operativo legacy come parte di qualsiasi servizio di Azure (monitoraggio di Azure, automazione di Azure, Azure Gestione aggiornamenti, Azure Rilevamento modifiche, Centro sicurezza di Azure, Azure Sentinel, Windows Defender ATP). La modifica non richiede alcuna azione da parte dei clienti, a meno che l'agente non venga eseguito in una versione legacy del sistema operativo (Windows 7, Windows Server 2008 R2 e Windows Server 2008). I clienti che eseguono una versione legacy del sistema operativo devono eseguire le azioni seguenti sui computer prima del 18 maggio 2020 o i relativi agenti smetteranno di inviare dati alle aree di lavoro Log Analytics:
+L'agente Windows inizierà a usare esclusivamente la firma SHA-2 del 17 agosto 2020. Questa modifica influirà sui clienti che usano l'agente di Log Analytics in un sistema operativo legacy come parte di qualsiasi servizio di Azure (monitoraggio di Azure, automazione di Azure, Azure Gestione aggiornamenti, Azure Rilevamento modifiche, Centro sicurezza di Azure, Azure Sentinel, Windows Defender ATP). La modifica non richiede alcuna azione da parte dei clienti, a meno che l'agente non venga eseguito in una versione legacy del sistema operativo (Windows 7, Windows Server 2008 R2 e Windows Server 2008). I clienti che eseguono una versione legacy del sistema operativo devono eseguire le azioni seguenti sui computer prima del 17 agosto 2020 o i relativi agenti smetteranno di inviare dati alle aree di lavoro Log Analytics:
 
 1. Installare il Service Pack più recente per il sistema operativo. Le versioni di Service Pack richieste sono:
     - Windows 7 SP1
@@ -199,7 +199,7 @@ Per l'agente di Linux, è possibile specificare il server proxy durante l'instal
 |proxyhost | Indirizzo o FQDN del server proxy/gateway Log Analytics |
 |port | Numero di porta facoltativo del server proxy/gateway Log Analytics |
 
-ad esempio `https://user01:password@proxy01.contoso.com:30443`
+Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Se si usano caratteri speciali, ad esempio\@"" nella password, viene visualizzato un errore di connessione del proxy perché il valore viene analizzato in modo errato.  Per aggirare il problema, codificare la password nell'URL usando uno strumento come [URLDecode](https://www.urldecoder.org/).  

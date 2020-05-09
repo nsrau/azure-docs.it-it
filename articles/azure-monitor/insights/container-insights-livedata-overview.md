@@ -3,12 +3,12 @@ title: Visualizzare i dati in tempo reale (anteprima) con monitoraggio di Azure 
 description: Questo articolo descrive la visualizzazione in tempo reale di log di Kubernetes, eventi e metriche Pod senza usare kubectl in monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216556"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872106"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Come visualizzare i log Kubernetes, gli eventi e le metriche pod in tempo reale
 
@@ -26,7 +26,7 @@ Per informazioni sulla configurazione o la risoluzione dei problemi relativi all
 
 ## <a name="live-data-preview-functionality-overview"></a>Panoramica della funzionalità dati in tempo reale (anteprima)
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
 ![Esempio di filtro del riquadro della console dati in tempo reale](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -42,7 +42,7 @@ Per sospendere lo scorrimento automatico e controllare il comportamento del riqu
 >È consigliabile sospendere o sospendere lo scorrimento automatico solo per un breve periodo di tempo durante la risoluzione di un problema. Queste richieste possono influisca sulla disponibilità e sulla limitazione dell'API Kubernetes nel cluster. 
 
 >[!IMPORTANT]
->Nessun dato viene archiviato in modo permanente durante il funzionamento di questa funzionalità. Tutte le informazioni acquisite durante la sessione vengono eliminate quando si chiude il browser o si esce dall'esplorazione. I dati rimangono presenti solo per la visualizzazione all'interno della finestra di cinque minuti della funzionalità metrica. verranno eliminate anche le metriche precedenti a cinque minuti. Le query sul buffer dei dati in tempo reale (anteprima) con limiti di utilizzo di memoria ragionevoli (devono essere più specifici in questo articolo, qual è il ragionevole?). 
+>Nessun dato viene archiviato in modo permanente durante il funzionamento di questa funzionalità. Tutte le informazioni acquisite durante la sessione vengono eliminate quando si chiude il browser o si esce dall'esplorazione. I dati rimangono presenti solo per la visualizzazione all'interno della finestra di cinque minuti della funzionalità metrica. verranno eliminate anche le metriche precedenti a cinque minuti. Le query del buffer dei dati in tempo reale (anteprima) sono limitate ai limiti di utilizzo della memoria.
 
 ## <a name="view-logs"></a>Visualizzare i log
 

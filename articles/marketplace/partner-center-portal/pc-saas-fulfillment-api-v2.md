@@ -1,22 +1,22 @@
 ---
-title: API di evasione SaaS V2 | Azure Marketplace
-description: Questo articolo illustra come creare e gestire un'offerta SaaS in AppSource e in Azure Marketplace usando le API di Fulfillment V2 associate.
+title: API di evasione SaaS V2 in Microsoft Commercial Marketplace
+description: Informazioni su come creare e gestire un'offerta SaaS in Microsoft AppSource e in Azure Marketplace usando le API di evasione versione 2.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
-ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f452349c0d636bc74a3722e2526623c955093f7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275765"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854200"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>API di evasione SaaS, versione 2 
+# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>API di evasione SaaS versione 2 in Microsoft Commercial Marketplace
 
-Questo articolo illustra in dettaglio le API che consentono ai partner di vendere le proprie applicazioni SaaS in AppSource Marketplace e in Azure Marketplace. Queste API sono un requisito per le offerte SaaS transazionali in AppSource e Azure Marketplace.
+Questo articolo illustra in dettaglio le API di evasione che consentono ai partner di vendere le proprie applicazioni SaaS in Microsoft AppSource e in Azure Marketplace. Queste API sono necessarie per le offerte SaaS transazionali.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gestione del ciclo di vita della sottoscrizione SaaS
 
@@ -70,7 +70,7 @@ Questo stato indica che non è stato ricevuto alcun pagamento da parte del clien
 Le sottoscrizioni raggiungono questo stato in risposta a una richiesta esplicita del cliente o al mancato pagamento delle quote. L'aspettativa del partner è che i dati del cliente vengono conservati per il ripristino su richiesta per un determinato numero di giorni e quindi eliminati. 
 
 
-## <a name="api-reference"></a>API (riferimento)
+## <a name="api-reference"></a>Informazioni di riferimento sulle API
 
 Questa sezione illustra l'API di *sottoscrizione* SaaS e l' *API per le operazioni*.  Il valore del parametro `api-version` per le API della versione 2 `2018-08-31`è.  
 

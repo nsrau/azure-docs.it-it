@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 509f9557a8128df12353ad02a7c7db02b7b42631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6e85ba5aafaad973d28f799a251b6f3aae548e3
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158463"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871951"
 ---
 # <a name="configure-rules"></a>Configurare le regole
-
-
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
@@ -36,6 +34,12 @@ Condizioni in base alle quali vengono attivate le regole. Attualmente, quando si
 Nello screenshot seguente, le condizioni verificano quando la temperatura è maggiore di 70&deg; F e l'umidità è minore di 10. Quando entrambe le istruzioni sono true, la regola restituisce true e attiva un'azione.
 
 ![Condizioni](media/howto-configure-rules/conditions.png)
+
+### <a name="use-a-cloud-property-in-a-value-field"></a>Usare una proprietà cloud in un campo valore
+
+È possibile fare riferimento a una proprietà cloud dal modello di dispositivo nel campo del **valore** per una condizione. Il valore della proprietà cloud e della telemetria deve avere tipi simili. Ad esempio, se **temperature** è un valore Double, solo le proprietà cloud di tipo Double Show As Options nell'elenco a discesa **value** .
+
+Se si sceglie un valore di telemetria del tipo di evento, l'elenco a discesa **valore** include l'opzione **any**. L'opzione **any** indica che la regola viene attivata quando l'applicazione riceve un evento di quel tipo, indipendentemente dal payload.
 
 ## <a name="use-aggregate-windowing"></a>Usa finestra di aggregazione
 

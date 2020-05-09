@@ -5,17 +5,17 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248450"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980814"
 ---
 # <a name="createuidefinition-functions"></a>Funzioni di CreateUiDefinition
 Questa sezione contiene le firme per tutte le funzioni supportate di CreateUiDefinition.
 
-Per usare una funzione, racchiudere la dichiarazione tra parentesi quadre. Ad esempio:
+Per usare una funzione, racchiudere la chiamata tra parentesi quadre. Ad esempio:
 
 ```json
 "[function()]"
@@ -446,7 +446,7 @@ L'esempio seguente restituisce `false`:
 "[and(equals(0, 0), greater(1, 2))]"
 ```
 
-### <a name="or"></a>o
+### <a name="or"></a>oppure
 Restituisce `true` se almeno uno dei parametri restituisce `true`. Questa funzione supporta solo due o più parametri di tipo booleano.
 
 L'esempio seguente restituisce `true`:
@@ -485,6 +485,45 @@ Si supponga che `element1` e `element2` non siano definiti. L'esempio seguente r
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
 
+Questa funzione è particolarmente utile nel contesto della chiamata facoltativa che si verifica a causa dell'azione dell'utente dopo il caricamento della pagina. Un esempio è se i vincoli posizionati su un campo nell'interfaccia utente dipendono dal valore attualmente selezionato di un altro campo **inizialmente non visibile** . In questo caso, `coalesce()` può essere usato per consentire alla funzione di essere sintatticamente valida in fase di caricamento della pagina, con l'effetto desiderato quando l'utente interagisce con il campo.
+
+Si consideri questo `DropDown`, che consente all'utente di scegliere tra diversi tipi di database:
+
+```
+{
+    "name": "databaseType",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Choose database type",
+    "toolTip": "Choose database type",
+    "defaultValue": "Oracle Database",
+    "visible": "[bool(steps('section_database').connectToDatabase)]"
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Azure Database for PostgreSQL",
+                "value": "postgresql"
+            },
+            {
+                "label": "Oracle Database",
+                "value": "oracle"
+            },
+            {
+                "label": "Azure SQL",
+                "value": "sqlserver"
+            }
+        ],
+        "required": true
+    },
+```
+
+Per condizionare l'azione di un altro campo sul valore selezionato corrente di questo campo, `coalesce()`usare, come illustrato di seguito:
+
+```
+"regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
+```
+
+Questa operazione è necessaria perché `databaseType` inizialmente non è visibile e pertanto non dispone di un valore. In questo modo l'intera espressione non viene valutata correttamente.
+
 ## <a name="conversion-functions"></a>Funzioni di conversione
 Queste funzioni possono essere usate per convertire i valori tra codifiche e tipi di dati JSON.
 
@@ -518,7 +557,7 @@ L'esempio seguente restituisce `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>stringa
+### <a name="string"></a>string
 Converte il parametro in una stringa. Questa funzione supporta parametri di tutti i tipi di dati JSON.
 
 L'esempio seguente restituisce `"1"`:
