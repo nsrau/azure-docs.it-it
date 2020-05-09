@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc86dd488ff9e8649ae80f4768941791dd37fce6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726774"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735335"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedure consigliate per RBAC di Azure
 
@@ -26,13 +26,13 @@ Questo articolo descrive alcune procedure consigliate per l'uso del controllo de
 
 ## <a name="only-grant-the-access-users-need"></a>Concedi solo agli utenti di accesso necessità
 
-Con il controllo degli accessi in base al ruolo di Azure, è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti necessari per svolgere i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni in un particolare ambito.
+Usando il controllo degli accessi in base al ruolo di Azure, è possibile separare le mansioni all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il loro lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni in un particolare ambito.
 
-Quando si pianifica la strategia di controllo degli accessi, è consigliabile concedere agli utenti almeno il privilegio per completare la propria sessione di lavoro. Il diagramma seguente mostra uno schema consigliato per l'uso del controllo degli accessi in base al ruolo.
+Quando si pianifica la strategia di controllo degli accessi, è consigliabile concedere agli utenti almeno il privilegio per completare la propria sessione di lavoro. Il diagramma seguente illustra un modello consigliato per l'uso di RBAC di Azure.
 
-![Controllo degli accessi in base al ruolo e privilegi minimi](./media/best-practices/rbac-least-privilege.png)
+![RBAC di Azure e privilegi minimi](./media/best-practices/rbac-least-privilege.png)
 
-Per informazioni su come aggiungere assegnazioni di ruolo, vedere [aggiungere o rimuovere assegnazioni di ruolo](role-assignments-portal.md).
+Per informazioni su come aggiungere assegnazioni di ruolo, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](role-assignments-portal.md).
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Limitare il numero di proprietari di sottoscrizioni
 

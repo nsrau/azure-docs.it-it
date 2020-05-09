@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77619f7bc24943b2b7051ff51f92cf96d439775e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064071"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628419"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Creare password di app dalla pagina info di sicurezza (anteprima)
 
@@ -45,7 +45,7 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 
 ### <a name="to-create-a-new-app-password"></a>Per creare una nuova password per l'app
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myaccount.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 
