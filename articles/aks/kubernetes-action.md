@@ -58,7 +58,7 @@ Seguire i passaggi per configurare i segreti:
 
     ![chiavi private](media/kubernetes-action/secrets.png)
 
-2. Incollare il contenuto del comando precedente `az cli` come valore della variabile segreta. Ad esempio: `AZURE_CREDENTIALS`.
+2. Incollare il contenuto del comando precedente `az cli` come valore della variabile segreta. Ad esempio, `AZURE_CREDENTIALS`
 
 3. Analogamente, definire i seguenti segreti aggiuntivi per le credenziali del registro contenitori e impostarli in azione Docker login. 
 
