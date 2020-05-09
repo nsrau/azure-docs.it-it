@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731739"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982140"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gestire le cartelle di lavoro a livello di codice
 
@@ -42,7 +42,7 @@ Esistono due tipi di risorse della cartella di lavoro che possono essere gestite
 2. Di seguito è riportato un esempio di Azure Resource Manager modello che consente di distribuire un modello di cartella di lavoro nella raccolta di cartelle di lavoro di monitoraggio Incollare il codice JSON copiato al posto di `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. Un modello di Azure Resource Manager di riferimento per la creazione di un modello di cartella di lavoro è disponibile [qui](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
 
     ```json
-          {
+    {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -114,7 +114,7 @@ Esistono due tipi di risorse della cartella di lavoro che possono essere gestite
 | Cartelle di lavoro nei gruppi di risorse                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
 | Cartelle di lavoro in Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
 | Informazioni dettagliate sulle VM in macchine virtuali                | `microsoft.compute/virtualmachines`                | `insights`    |
-| Informazioni dettagliate sulle VM nei set di scalabilità di macchine virtuali                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Informazioni dettagliate sulle VM nei set di scalabilità di macchine virtuali      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
 
 ## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Azure Resource Manager modello per la distribuzione di un'istanza di cartella di lavoro
 
@@ -203,7 +203,7 @@ Questo modello Mostra come distribuire una semplice cartella di lavoro in cui vi
 ### <a name="workbook-types"></a>Tipi di cartella di lavoro
 Tipi di cartella di lavoro specificare il tipo di raccolta di cartelle di lavoro in cui sarà visualizzata la nuova istanza della cartella Le opzioni includono:
 
-| Type | Località della raccolta |
+| Tipo | Località della raccolta |
 | :------------- |:-------------|
 | `workbook` | Il valore predefinito usato nella maggior parte dei report, inclusa la raccolta di cartelle di lavoro di Application Insights, monitoraggio di Azure e così via.  |
 | `tsg` | Raccolta Guide per la risoluzione dei problemi in Application Insights |

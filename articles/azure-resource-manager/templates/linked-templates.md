@@ -2,13 +2,13 @@
 title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 322797383ee865ceb66c44793387da827aeb8879
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: f71d8cc62daf68b158bed444da1446e016194b56
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131918"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609307"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -35,7 +35,7 @@ Per annidare un modello, aggiungere una [risorsa distribuzioni](/azure/templates
   "resources": [
     {
       "name": "nestedTemplate1",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
@@ -64,7 +64,7 @@ Nell'esempio seguente viene distribuito un account di archiviazione tramite un m
   "resources": [
     {
       "name": "nestedTemplate1",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
@@ -101,7 +101,7 @@ L'ambito viene impostato tramite la `expressionEvaluationOptions` proprietà. Pe
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2017-05-10",
+  "apiVersion": "2019-10-01",
   "name": "nestedTemplate1",
   "properties": {
   "expressionEvaluationOptions": {
@@ -124,7 +124,7 @@ Il modello seguente illustra come vengono risolte le espressioni di modello in b
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -208,7 +208,7 @@ Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segr
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -292,7 +292,7 @@ Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/template
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -326,7 +326,7 @@ Il servizio Resource Manager deve poter accedere al modello. È possibile inseri
 "resources": [
   {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2018-05-01",
+  "apiVersion": "2019-10-01",
   "name": "linkedTemplate",
   "properties": {
     "mode": "Incremental",
@@ -349,7 +349,7 @@ Per passare i valori dei parametri inline, utilizzare la proprietà **Parameters
 "resources": [
   {
    "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2018-05-01",
+   "apiVersion": "2019-10-01",
    "name": "linkedTemplate",
    "properties": {
      "mode": "Incremental",
@@ -367,7 +367,7 @@ Per passare i valori dei parametri inline, utilizzare la proprietà **Parameters
 
 Non è possibile usare i parametri inline e un collegamento a un file di parametri. La distribuzione ha esito negativo con un errore quando vengono specificati sia `parametersLink` che `parameters`.
 
-## `contentVersion`
+## <a name="contentversion"></a>contentVersion
 
 Non è necessario specificare la `contentVersion` proprietà per la `templateLink` proprietà o `parametersLink` . Se non si specifica un `contentVersion`oggetto, viene distribuita la versione corrente del modello. Se si specifica un valore per la versione del contenuto, questa deve corrispondere alla versione del modello collegato. In caso contrario, la distribuzione ha esito negativo con un errore.
 
@@ -412,7 +412,7 @@ Il modello di esempio seguente mostra come usare copy con un modello annidato.
 "resources": [
   {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2018-05-01",
+  "apiVersion": "2019-10-01",
   "name": "[concat('nestedTemplate', copyIndex())]",
   // yes, copy works here
   "copy":{
@@ -486,7 +486,7 @@ Il modello principale distribuisce il modello collegato e ottiene il valore rest
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -593,7 +593,7 @@ Per usare l'indirizzo IP pubblico del modello precedente quando si distribuisce 
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -666,7 +666,7 @@ Il modello seguente stabilisce un collegamento al modello precedente. Crea tre i
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -733,7 +733,7 @@ L'esempio seguente mostra come passare un token di firma di accesso condiviso qu
   "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
+    "apiVersion": "2019-10-01",
     "name": "linkedTemplate",
     "properties": {
     "mode": "Incremental",
