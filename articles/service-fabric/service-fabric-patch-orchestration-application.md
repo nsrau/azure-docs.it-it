@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 857a4da0b24d600ecc572933af578e2e8faf501a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366329"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608916"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -160,12 +160,12 @@ Per scaricare il pacchetto dell'applicazione, passare alla [pagina della version
 |MaxResultsToCache    |long                              | Numero massimo di Windows Update risultati che devono essere memorizzati nella cache. <br><br>Il valore predefinito è 3000, supponendo che: <br> &nbsp;&nbsp;-Il numero di nodi è 20. <br> &nbsp;&nbsp;-Il numero di aggiornamenti per un nodo al mese è 5. <br> &nbsp;&nbsp;-Il numero di risultati per ogni operazione può essere 10. <br> &nbsp;&nbsp;-I risultati degli ultimi tre mesi devono essere archiviati. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br><br>Di seguito sono elencati i valori consentiti: <br>*No,:* gli aggiornamenti di Windows vengono installati un nodo alla volta. <br> *UpgradeDomainWise*: gli aggiornamenti di Windows sono installati un dominio di aggiornamento alla volta. Al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono andare per un aggiornamento di Windows.<br><br> Per decidere quale criterio è più adatto per il cluster, vedere la sezione [domande frequenti](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |long  <br> (Valore predefinito: *1024*)               | Dimensioni massime dei log di patch Orchestration app in MB, che possono essere rese disponibili localmente nei nodi.
-| WUQuery               | stringa<br>(Impostazione predefinita: *disinstallato = 0*)                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+| WUQuery               | string<br>(Impostazione predefinita: *disinstallato = 0*)                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | *Boolean* <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
 | WUOperationTimeOutInMinutes | Int <br>(Valore predefinito: *90*)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
 | WURescheduleCount     | Int <br> (Valore predefinito: *5*)                  | Il numero massimo di volte in cui il servizio Ripianifica l'aggiornamento di Windows se un'operazione ha esito negativo in modo permanente.          |
 | WURescheduleTimeInMinutes | Int <br>(Valore predefinito: *30*) | Intervallo in base al quale il servizio Ripianifica gli aggiornamenti di Windows in caso di errore permanente. |
-| WUFrequency           | Stringa con valori delimitati da virgole (valore predefinito: *settimanale, mercoledì, 7:00:00*)     | Frequenza di installazione degli aggiornamenti di Windows. Il formato e i valori possibili sono: <br>&nbsp;&nbsp;-Mensile: DD, HH: MM: SS (ad esempio, *mensile, 5, 12:22:32*)<br>I valori consentiti per il campo GG (giorno) sono numeri compresi tra 1 e 28 e "ultimo". <br> &nbsp;&nbsp;-Weekly, DAY, HH: MM: SS (ad esempio, *Weekly, Tuesday, 12:22:32*)  <br> &nbsp;&nbsp;-Daily, HH: MM: SS (ad esempio, *ogni giorno, 12:22:32*)  <br> &nbsp;&nbsp;-  *None* indica che non è necessario eseguire gli aggiornamenti di Windows.  <br><br> Gli orari sono in formato UTC.|
+| WUFrequency           | Stringa con valori delimitati da virgole (valore predefinito: *settimanale, mercoledì, 7:00:00*)     | Frequenza di installazione degli aggiornamenti di Windows. Il formato e i valori possibili sono: <br>-Monthly, GG, HH: MM: SS (esempio: *mensile, 5, 12:22:32*). I valori consentiti per il campo _GG_ (giorno) sono numeri compresi tra 1 e 28 e _l'ultimo_. <br>-Weekly, Day, HH: MM: SS (esempio: *Weekly, Tuesday, 12:22:32*)  <br>-Daily, HH: MM: SS (ad esempio: *Daily, 12:22:32*)  <br>-Settimana, giorno, HH: MM: SS (esempio: *2, venerdì, 21:00:00* indica 9:00 PM UTC il venerdì della seconda settimana di ogni mese) <br>- *None* indica che non è necessario eseguire gli aggiornamenti di Windows.  <br><br> Gli orari sono in formato UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Valore predefinito: *true*) | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
 > [!TIP]

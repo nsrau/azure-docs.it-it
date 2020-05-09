@@ -3,20 +3,20 @@ title: Ricevere e rispondere alle chiamate tramite HTTPS
 description: Gestire le richieste HTTPS in ingresso da servizi esterni usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900941"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978570"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in app per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione di risposta o il trigger di richiesta incorporato è possibile creare attività e flussi di lavoro automatizzati che ricevono e rispondono alle richieste HTTPS in ingresso. Ad esempio, è possibile avere l'app per la logica:
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione di risposta e trigger di richiesta incorporata, è possibile creare attività e flussi di lavoro automatizzati che ricevono e rispondono alle richieste HTTPS in ingresso. Ad esempio, è possibile avere l'app per la logica:
 
 * Ricevere e rispondere a una richiesta HTTPS per i dati in un database locale.
 * Attiva un flusso di lavoro quando si verifica un evento del webhook esterno.
@@ -49,11 +49,11 @@ Il trigger request supporta [Azure Active Directory Open Authentication](../acti
 
 ## <a name="add-request-trigger"></a>Aggiungi trigger di richiesta
 
-Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che può ricevere *solo* le richieste HTTPS in ingresso. Quando si verifica questo evento, il trigger viene attivato ed esegue l'app per la logica.
+Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che può ricevere *solo* le richieste HTTPS in ingresso. Quando si verifica questo evento, il trigger viene attivato ed esegue l'app per la logica. Per altre informazioni sulla definizione JSON sottostante del trigger e su come chiamare questo trigger, vedere il [tipo di trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chiamare, attivare o annidare i flussi di lavoro con endpoint HTTPS in app per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
-1. Dopo l'apertura di progettazione app per la logica, nella casella di ricerca immettere "richiesta http" come filtro. Dall'elenco trigger selezionare il trigger **quando viene ricevuta una richiesta http** , che è il primo passaggio del flusso di lavoro dell'app per la logica.
+1. Dopo l'apertura di progettazione app per la logica, nella casella `http request` di ricerca immettere come filtro. Dall'elenco trigger selezionare il trigger **quando viene ricevuta una richiesta http** , che è il primo passaggio del flusso di lavoro dell'app per la logica.
 
    ![Seleziona trigger di richiesta](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -61,7 +61,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **URL POST HTTP** | {none} | Sì | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
    | **Schema JSON del corpo della richiesta** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
@@ -160,7 +160,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 1. Per specificare altre proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **Metodo** | `method` | No | Metodo che la richiesta in ingresso deve usare per chiamare l'app per la logica |
    | **Percorso relativo** | `relativePath` | No | Percorso relativo del parametro che l'URL dell'endpoint dell'app per la logica può accettare |
@@ -196,7 +196,7 @@ Per altre informazioni sulla definizione JSON sottostante del trigger e su come 
 
 Di seguito sono riportate altre informazioni sugli output del trigger di richiesta:
 
-| Nome proprietà JSON | Tipo di dati | Description |
+| Nome proprietà JSON | Tipo di dati | Descrizione |
 |--------------------|-----------|-------------|
 | `headers` | Oggetto | Oggetto JSON che descrive le intestazioni della richiesta |
 | `body` | Oggetto | Oggetto JSON che descrive il contenuto del corpo dalla richiesta |
@@ -251,10 +251,10 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto.
 
    Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta. 
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **Codice di stato** | `statusCode` | Sì | Codice di stato da restituire nella risposta |
-   | **Headers** | `headers` | No | Oggetto JSON che descrive una o più intestazioni da includere nella risposta |
+   | **Intestazioni** | `headers` | No | Oggetto JSON che descrive una o più intestazioni da includere nella risposta |
    | **Corpo** | `body` | No | Il corpo della risposta |
    |||||
 
