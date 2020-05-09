@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 3e0f6c78b6e5dd066cbfbac6805bb3c42068e66a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28870a197af07e964a50a06ffeef08f3b71451f4
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729589"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891720"
 ---
 # <a name="service-fabric-releases"></a>Versioni Service Fabric
 
@@ -27,7 +27,7 @@ Questo articolo fornisce altre informazioni sulle versioni più recenti e sugli 
 ### <a name="service-fabric-71"></a>Service Fabric 7,1
 A causa della crisi COVID-19 attuale e prendendo in considerazione le problematiche affrontate dai clienti, viene reso disponibile 7,1, ma non vengono aggiornati automaticamente i cluster impostati per la ricezione di aggiornamenti automatici. Gli aggiornamenti automatici verranno sospesi fino a un ulteriore avviso per garantire che i clienti possano applicare gli aggiornamenti quando sono più appropriati, in modo da evitare rotture impreviste.
 
-Sarà possibile eseguire l'aggiornamento a 7,1 tramite il portale di [Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) o tramite una [distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#set-the-upgrade-mode-using-a-resource-manager-template).
+Sarà possibile eseguire l'aggiornamento a 7,1 tramite il [portale di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) o tramite una distribuzione di [Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#set-the-upgrade-mode-using-a-resource-manager-template).
 
 Service Fabric cluster con aggiornamenti automatici abilitati inizierà a ricevere automaticamente l'aggiornamento 7,1 dopo la ripresa della procedura di implementazione standard. Si fornirà un altro annuncio prima dell'avvio dell'implementazione standard sul [sito della community di Service Fabric Tech](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 Sono stati pubblicati anche aggiornamenti della data di fine del supporto per le versioni [principali, a](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-versions)partire da 6,5 fino a 7,1. 
@@ -36,8 +36,8 @@ Sono stati pubblicati anche aggiornamenti della data di fine del supporto per le
 Siamo entusiasti di annunciare la prossima versione di Service Fabric. Questa versione è stata caricata con le funzionalità e i miglioramenti principali. Di seguito sono evidenziate alcune delle funzionalità principali:
 ## <a name="key-announcements"></a>Annunci chiave
 - **Disponibilità generale** delle [ **identità gestite Service Fabric per le applicazioni Service Fabric**](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
-- [**Supporto per Ubuntu 1804**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
- - [**Anteprima: supporto del disco del sistema operativo temporaneo vmss**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)* *: i dischi del sistema operativo temporaneo sono archiviazione creati nella macchina virtuale locale e non vengono salvati nell'archiviazione di Azure remota. Sono consigliate per tutti i tipi di nodo di Service Fabric (primario e secondario), perché rispetto ai dischi del sistema operativo persistenti tradizionali, i dischi del sistema operativo temporaneo:
+- [**Supporto per Ubuntu 18,04**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
+ - [**Anteprima: supporto del disco del sistema operativo temporaneo del set di scalabilità di macchine virtuali**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)* *: i dischi del sistema operativo temporaneo sono archiviazione creati nella macchina virtuale locale e non vengono salvati nell'archiviazione di Azure remota. Sono consigliate per tutti i tipi di nodo di Service Fabric (primario e secondario), perché rispetto ai dischi del sistema operativo persistenti tradizionali, i dischi del sistema operativo temporaneo:
       -  Ridurre la latenza di lettura/scrittura al disco del sistema operativo
       -  Abilitare operazioni di gestione del nodo di ripristino/ricreazione dell'immagine più veloci
       -  Riduci i costi complessivi (i dischi sono gratuiti e non comportano costi di archiviazione aggiuntivi)
@@ -61,7 +61,7 @@ Siamo entusiasti di annunciare la prossima versione di Service Fabric. Questa ve
        
  ### <a name="reliable-collections-improvements"></a>Miglioramenti alle raccolte Reliable Collections
 
-- [**Supporto per l'archiviazione solo in memoria per i servizi con stato usando Reliable Collections**](https://docs.microsoft.com/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections): le raccolte Reliable Reliable Collections consentono di salvare in modo permanente i dati su disco per la durabilità in caso di interruzioni su larga scala, che possono essere usati per i carichi di lavoro come cache replicata, ad esempio in cui è possibile tollerare una Basandosi sulle [limitazioni e restrizioni delle raccolte Reliable Collections volatili](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections), è consigliabile per i carichi di lavoro che non necessitano di persistenza per i servizi che gestiscono le rare occasioni di perdita del quorum.
+- [**Supporto per l'archiviazione solo in memoria per i servizi con stato usando Reliable Collections**](https://docs.microsoft.com/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections): le raccolte Reliable Reliable Collections consentono di salvare in modo permanente i dati su disco per la durabilità in caso di interruzioni su larga scala, che possono essere usati per i carichi di lavoro, ad esempio la cache replicata, in cui è possibile tollerare occasionali perdite Basandosi sulle [limitazioni e restrizioni delle raccolte Reliable Collections volatili](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections), è consigliabile per i carichi di lavoro che non necessitano di persistenza per i servizi che gestiscono le rare occasioni di perdita del quorum.
 - [**Anteprima: Service Fabric Backup Explorer**](https://github.com/microsoft/service-fabric-backup-explorer): per semplificare la gestione dei backup di raccolte affidabili per Service Fabric le applicazioni con stato, Service Fabric Backup Explorer consente agli utenti di
     - Controllare ed esaminare il contenuto delle raccolte Reliable Collections,
     - Aggiornare lo stato corrente a una visualizzazione coerente
@@ -89,9 +89,9 @@ Questa è la versione più recente di Service Fabric e viene caricata con le fun
   
 - [**Limiti delle risorse per i servizi utente**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services): gli utenti possono impostare i limiti delle risorse per i servizi utente in un nodo per evitare scenari come l'esaurimento delle risorse dei servizi di Service Fabric sistema. 
   
-- [**Costo di spostamento del servizio molto elevato**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) per un tipo di replica. Le repliche con un costo di spostamento molto elevato verranno spostate solo se si verifica una violazione del vincolo nel cluster che non può essere risolto in altro modo. Per ulteriori informazioni sui casi in cui l'utilizzo di un costo di spostamento molto elevato è ragionevole e per ulteriori considerazioni, consultare la documentazione.
+- [**Costo di spostamento del servizio molto elevato**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) per un tipo di replica. Le repliche con un costo di spostamento molto elevato verranno spostate solo se si verifica una violazione del vincolo nel cluster che non può essere risolto in altro modo. Per ulteriori informazioni sull'utilizzo di un costo di spostamento "molto elevato", vedere il documento collegato e per ulteriori considerazioni.
   
--  **Controlli di sicurezza aggiuntivi**per i cluster: in questa versione è stato introdotto un controllo di sicurezza quorum del nodo di inizializzazione configurabile. In questo modo è possibile personalizzare il numero di nodi di inizializzazione che devono essere disponibili durante gli scenari di gestione e ciclo di vita del cluster. Le operazioni che comportano il blocco del cluster al di sotto del valore configurato sono bloccate. Attualmente, il valore predefinito è sempre un quorum dei nodi di inizializzazione, ad esempio, se si dispone di 7 nodi di inizializzazione, un'operazione che richiederebbe meno di 5 nodi di inizializzazione verrebbe bloccata per impostazione predefinita. Con questa modifica, è possibile impostare il valore minimo di Safe 6, in modo da consentire un solo nodo di inizializzazione alla volta.
+-  **Controlli di sicurezza aggiuntivi del cluster**: in questa versione è stato introdotto un controllo di sicurezza del quorum del nodo di inizializzazione configurabile. In questo modo è possibile personalizzare il numero di nodi di inizializzazione che devono essere disponibili durante gli scenari di gestione e ciclo di vita del cluster. Le operazioni che comportano il blocco del cluster al di sotto del valore configurato sono bloccate. Attualmente, il valore predefinito è sempre un quorum dei nodi di inizializzazione, ad esempio, se si dispone di 7 nodi di inizializzazione, un'operazione che richiederebbe meno di 5 nodi di inizializzazione verrebbe bloccata per impostazione predefinita. Con questa modifica, è possibile impostare il valore minimo di Safe 6, in modo da consentire un solo nodo di inizializzazione alla volta.
    
 - Aggiunta del supporto per [**la gestione del servizio di backup e ripristino in Service Fabric Explorer**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). In questo modo è possibile eseguire le attività seguenti direttamente da SFX: individuazione del servizio di backup e ripristino, creazione di criteri di backup, abilitazione di backup automatici, esecuzione di backup ad hoc, attivazione di operazioni di ripristino ed esplorazione dei backup esistenti.
 

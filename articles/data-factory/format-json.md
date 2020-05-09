@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 05/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e26a2ed81ed215d7ef2029123349b39e6e67d25
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686273"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890932"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -90,16 +90,15 @@ Nella sezione *** \*sink\* *** dell'attività di copia sono supportate le propri
 | Proprietà      | Descrizione                                                  | Obbligatoria                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | Il tipo di formatSettings deve essere impostato su **JsonWriteSettings**. | Sì                                                   |
-| filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
+| filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** (righe JSON) e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
 
 ### <a name="json-file-patterns"></a>Modelli di file JSON
 
-L'attività di copia può rilevare e analizzare automaticamente i modelli di file JSON seguenti. 
+Quando si copiano dati da file JSON, l'attività di copia può rilevare e analizzare automaticamente i modelli di file JSON seguenti. Quando si scrivono dati in file JSON, è possibile configurare il modello di file nel sink dell'attività di copia.
 
 - **Tipo I: setOfObjects**
 
-    Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/concatenati. 
-    Quando questa opzione viene scelta in sink dell'attività di copia, l'attività di copia produce un singolo file JSON con ogni oggetto per riga (delimitato da riga).
+    Ogni file contiene un singolo oggetto, righe JSON o oggetti concatenati.
 
     * **Esempio di JSON a oggetto singolo**
 
@@ -114,7 +113,7 @@ L'attività di copia può rilevare e analizzare automaticamente i modelli di fil
         }
         ```
 
-    * **Esempio di JSON con delimitatori di riga**
+    * **Righe JSON (impostazione predefinita per sink)**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}

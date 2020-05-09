@@ -13,18 +13,18 @@ ms.date: 01/30/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 25c219bedbbbec9fbc0c5617c7bd9fc482faf49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db9937d87692a1221d72bd27cfd653d803b9a1c6
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050519"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883244"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
 Questo articolo descrive i diversi flussi di autenticazione forniti da Microsoft Authentication Library (MSAL).  Questi flussi possono essere utilizzati in diversi scenari di applicazione.
 
-| Flusso | Descrizione | Campo di utilizzo|  
+| Flusso | Description | Campo di utilizzo|  
 | ---- | ----------- | ------- | 
 | [Interactive (Interattivo)](#interactive) | Ottiene il token tramite un processo interattivo che richiede all'utente le credenziali tramite un browser o una finestra popup. | [App desktop](scenario-desktop-overview.md), [app per dispositivi mobili](scenario-mobile-overview.md) |
 | [Implicit grant (Concessione implicita)](#implicit-grant) | Consente all'app di ottenere i token senza eseguire uno scambio di credenziali del server back-end. Ciò consente all'app di eseguire l'accesso dell'utente, gestire la sessione e ottenere i token per altre API Web, tutto all'interno del codice JavaScript del client.| [Applicazione a pagina singola](scenario-spa-overview.md) |
@@ -232,4 +232,4 @@ Oltre ai [vincoli di autenticazione integrata di Windows](#integrated-windows-au
 
 ### <a name="azure-ad-b2c-specifics"></a>Specifiche di Azure AD B2C
 
-Per ulteriori informazioni sull'utilizzo di MSAL.NET e Azure AD B2C, vedere [utilizzo di ROPC con Azure ad B2C (MSAL.NET)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).
+Per altre informazioni sull'uso di ROPC in MSAL.NET e Azure AD B2C, vedere [uso di ROPC con Azure ad B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc).

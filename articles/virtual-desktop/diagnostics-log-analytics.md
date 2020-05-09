@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e76b100607c0ac39c1b05e44ac0d1e76a6129384
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 99a9e68a2e0c39364cc5105f230b00ffb90d867d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612674"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888805"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usare Log Analytics per la funzionalità di diagnostica
 
@@ -25,31 +25,19 @@ ms.locfileid: "82612674"
 
 Desktop virtuale di Windows USA monitoraggio di [Azure](../azure-monitor/overview.md) per il monitoraggio e gli avvisi come molti altri servizi di Azure. Ciò consente agli amministratori di identificare i problemi tramite un'unica interfaccia. Il servizio crea log attività per le azioni utente e amministrative. Ogni log attività rientra nelle categorie seguenti:  
 
-- Attività di gestione:  
-
-   - Verificare se i tentativi di modificare gli oggetti desktop virtuali di Windows tramite API o PowerShell hanno esito positivo. Ad esempio, un utente può creare correttamente un pool di host usando PowerShell?
-
+- Attività di gestione:
+    - Verificare se i tentativi di modificare gli oggetti desktop virtuali di Windows tramite API o PowerShell hanno esito positivo. Ad esempio, un utente può creare correttamente un pool di host usando PowerShell?
 - Feed 
-
-   - Gli utenti possono sottoscrivere correttamente le aree di lavoro? 
-
-   - Gli utenti visualizzano tutte le risorse pubblicate nel client di Desktop remoto?
-
+    - Gli utenti possono sottoscrivere correttamente le aree di lavoro? 
+    - Gli utenti visualizzano tutte le risorse pubblicate nel client di Desktop remoto?
 - Connessioni: 
-
-   - Quando gli utenti avviano e completano le connessioni al servizio. 
-
+    - Quando gli utenti avviano e completano le connessioni al servizio. 
 - Registrazione host: 
-
-   - L'host sessione è stato registrato correttamente con il servizio al momento della connessione?
-
+    - L'host sessione è stato registrato correttamente con il servizio al momento della connessione?
 - Errors: 
-
-   - Gli utenti riscontrano problemi con attività specifiche? Questa funzionalità consente di generare una tabella che tiene traccia dei dati di attività a condizione che le informazioni vengano unite alle attività.
-
+    - Gli utenti riscontrano problemi con attività specifiche? Questa funzionalità consente di generare una tabella che tiene traccia dei dati di attività a condizione che le informazioni vengano unite alle attività.
 - Checkpoint  
-
-   - Passaggi specifici del ciclo di vita di un'attività raggiunta. Ad esempio, durante una sessione, un utente è stato sottoposta a bilanciamento del carico in un particolare host, l'utente ha eseguito l'accesso durante una connessione e così via.
+    - Passaggi specifici del ciclo di vita di un'attività raggiunta. Ad esempio, durante una sessione, un utente è stato sottoposta a bilanciamento del carico in un particolare host, l'utente ha eseguito l'accesso durante una connessione e così via.
 
 Le connessioni che non raggiungono il desktop virtuale di Windows non verranno visualizzate nei risultati della diagnostica perché il servizio ruolo di diagnostica fa parte del desktop virtuale di Windows. Problemi di connessione di desktop virtuali Windows possono verificarsi quando l'utente riscontra problemi di connettività di rete.
 
@@ -146,7 +134,7 @@ Le query di esempio seguenti mostrano come la funzionalità di diagnostica gener
 
 Per ottenere un elenco delle connessioni effettuate dagli utenti, eseguire questo cmdlet:
 
-```powershell
+```kusto
 WVDConnections 
 | project-away TenantId,SourceSystem 
 | summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId 
@@ -169,45 +157,29 @@ WVDConnections
 
 Per visualizzare l'attività del feed degli utenti:
 
-```powershell
+```kusto
 WVDFeeds  
-
 | project-away TenantId,SourceSystem  
-
 | join kind=leftouter (  
-
     WVDErrors  
-
     |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId  
-
     ) on CorrelationId      
-
 | join kind=leftouter (  
-
    WVDCheckpoints  
-
    | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId  
-
    | mv-apply Checkpoints on  
-
     (  
-
         order by todatetime(Checkpoints['Time']) asc  
-
         | summarize Checkpoints=makelist(Checkpoints)  
-
     )  
-
    ) on CorrelationId  
-
 | project-away CorrelationId1, CorrelationId2  
-
 | order by  TimeGenerated desc 
 ```
 
 Per trovare tutte le connessioni per un singolo utente: 
 
-```powershell
+```kusto
 |where UserName == "userupn" 
 |take 100 
 |sort by TimeGenerated asc, CorrelationId 
@@ -216,7 +188,7 @@ Per trovare tutte le connessioni per un singolo utente:
 
 Per trovare il numero di volte in cui un utente si è connesso al giorno:
 
-```powershell
+```kusto
 WVDConnections 
 |where UserName == "userupn" 
 |take 100 
@@ -227,7 +199,7 @@ WVDConnections
 
 Per trovare la durata della sessione in base all'utente:
 
-```powershell
+```kusto
 let Events = WVDConnections | where UserName == "userupn" ; 
 Events 
 | where State == "Connected" 
@@ -242,15 +214,15 @@ on CorrelationId
 
 Per individuare gli errori per un utente specifico:
 
-```powershell
+```kusto
 WVDErrors
-| where UserName == "johndoe@contoso.com" 
+| where UserName == "userupn" 
 |take 100
 ```
 
 Per determinare se si è verificato un errore specifico:
 
-```powershell
+```kusto
 WVDErrors 
 | where CodeSymbolic =="ErrorSymbolicCode" 
 | summarize count(UserName) by CodeSymbolic 
@@ -258,7 +230,7 @@ WVDErrors
 
 Per trovare l'occorrenza di un errore in tutti gli utenti:
 
-```powershell
+```kusto
 WVDErrors 
 | where ServiceError =="false" 
 | summarize usercount = count(UserName) by CodeSymbolic 

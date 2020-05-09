@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 4d103001ba655ea6540c9dd00e937087b7b6311c
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
-ms.translationtype: HT
+ms.openlocfilehash: 27b433ba33d287a183d8ce6cc05d87649b2d0b00
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738312"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891505"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Abilitare il ripristino di emergenza da zona a zona per le macchine virtuali di Azure
 
@@ -106,16 +106,16 @@ Accedere al portale di Azure.
 
 ## <a name="faqs"></a>Domande frequenti
 
-1. Come funzionano i prezzi per il ripristino di emergenza da zona a zona?
+**1. come funzionano i prezzi per il ripristino di emergenza da zona a zona?**
 Il piano tariffario per il ripristino di emergenza da zona a zona è identico a quello del ripristino di emergenza da Azure ad Azure. Per ulteriori informazioni, vedere la pagina dei prezzi [qui](https://azure.microsoft.com/pricing/details/site-recovery/) e [qui](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/). Si noti che gli addebiti in uscita che verrebbero visualizzati nel ripristino di emergenza da zona a zona sarebbero inferiori al ripristino di emergenza da area ad area.
 
-2. Qual è il contratto di contratto per RTO e RPO?
-Il contratto di RTO è identico a quello per Site Recovery complessiva. Promettiamo RTO <= 2 ore. Non esiste alcun contratto di contratto per RPO.
+**2. Qual è il contratto di contratto per RTO e RPO?**
+Il contratto di RTO è identico a quello per Site Recovery complessiva. Si promettono RTO per un massimo di 2 ore. Non esiste alcun contratto di contratto per RPO.
 
-3. La capacità è garantita nella zona secondaria?
+**3. la capacità è garantita nella zona secondaria?**
 Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità di infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery verranno distribuite nell'area di destinazione.
 
-4. Quali sistemi operativi sono supportati?
+**4. quali sistemi operativi sono supportati?**
 Il ripristino di emergenza da zona a zona supporta gli stessi sistemi operativi di Azure per il ripristino di emergenza di Azure. Vedere la matrice di supporto [qui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
 ## <a name="next-steps"></a>Passaggi successivi

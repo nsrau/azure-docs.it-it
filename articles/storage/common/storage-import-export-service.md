@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282444"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872444"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -41,7 +41,7 @@ Il servizio Importazione/Esportazione usa i componenti seguenti:
 * **Strumento WAImportExport**: si tratta di uno strumento da riga di comando che esegue le operazioni seguenti:
   * Prepara l'unità disco da spedire per l'importazione.
   * Facilita la copia dei dati nell'unità.
-  * Crittografa i dati nell'unità con BitLocker a 128 bit AES. È possibile utilizzare una protezione con chiave esterna per proteggere la chiave di BitLocker.
+  * Crittografa i dati nell'unità con BitLocker a 256 bit AES. È possibile utilizzare una protezione con chiave esterna per proteggere la chiave di BitLocker.
   * Genera i file journal dell'unità usati durante la creazione dell'importazione.
   * Identifica i numeri di unità necessarie per i processi di esportazione.
 
@@ -131,7 +131,7 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 
 ## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
-I dati nell'unità vengono crittografati tramite Crittografia unità BitLocker AES a 128 bit. che protegge i dati mentre sono in transito.
+I dati nell'unità vengono crittografati tramite Crittografia unità BitLocker AES a 256 bit. che protegge i dati mentre sono in transito.
 
 Per i processi di importazione, le unità vengono crittografate in due modi.  
 
