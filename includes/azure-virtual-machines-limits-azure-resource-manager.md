@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 90dc5a067c05cadb3d5e102435b2e3d3de803e28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 651027ffd63a376ff0b8595636ece4c8f39c86e8
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335025"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82616060"
 ---
 | Risorsa | Limite |
 | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "80335025"
 | Numero totale di core della VM per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area. Per aumentare il limite, contattare il supporto tecnico. |
 | Totale core VM Azure spot per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area. Per aumentare il limite, contattare il supporto tecnico. |
 | VM per serie, ad esempio dv2 e F, Core per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area. Per aumentare il limite, contattare il supporto tecnico. |
-| [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione |2.000 per area. |
+| [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione |2.500 per area. |
 | Macchine virtuali per set di disponibilità | 200 |
 | Certificati per sottoscrizione |Illimitato<sup>2</sup> |
 
