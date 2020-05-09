@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 363dc4d469d912c14f5f89ef6ff433a2243587e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6a0a84050cb8f1b3ad0c04aa66c5b3797282f2e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428901"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983228"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Creare un endpoint privato gestito per l'origine dati (anteprima)
 
@@ -35,7 +35,7 @@ Consente di selezionare il tipo di origine dati. In questo caso, l'origine dati 
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Passaggio 4: immettere le informazioni sull'origine dati
 
-Nella finestra successiva immettere le informazioni sull'origine dati. In questo esempio viene creato un endpoint privato gestito in un account ADLS Gen2. Immettere un **nome** per l'endpoint privato gestito. Specificare una **sottoscrizione di Azure** e un **nome dell'account di archiviazione**. Selezionare **Crea**.
+Nella finestra successiva immettere le informazioni sull'origine dati. In questo esempio viene creato un endpoint privato gestito per un account ADLS Gen2. Immettere un **nome** per l'endpoint privato gestito. Specificare una **sottoscrizione di Azure** e un **nome dell'account di archiviazione**. Selezionare **Crea**.
 ![Immettere i dettagli dell'origine dati di destinazione](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-4.png)
 
 ## <a name="step-5-verify-that-your-managed-private-endpoint-was-successfully-created"></a>Passaggio 5: verificare che l'endpoint privato gestito sia stato creato correttamente

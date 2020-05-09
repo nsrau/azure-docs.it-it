@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido: Creare un cluster Interactive Query usando un modello - Azure HDInsight'
+title: 'Guida introduttiva: Creare un cluster Interactive Query usando un modello - Azure HDInsight'
 description: Questa guida di avvio rapido illustra come usare un modello di Resource Manager per creare un cluster Interactive Query in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
 ms.openlocfilehash: 74b1c25c8bab11c0b2a72510fd419df239e2c23a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81603570"
 ---
-# <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Guida di avvio rapido: Creare un cluster Interactive Query in Azure HDInsight con un modello di Resource Manager
+# <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Guida introduttiva: Creare un cluster Interactive Query in Azure HDInsight con un modello di Resource Manager
 
 In questa guida di avvio rapido si userà un modello di Azure Resource Manager per creare un cluster [Interactive Query](./apache-interactive-query-get-started.md) in Azure HDInsight. Interactive Query (chiamato anche Apache Hive LLAP o [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) è un [tipo di cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type) di Azure HDInsight.
 
@@ -35,7 +35,7 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 Nel modello sono definite due risorse di Azure:
 
 * [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts) per creare un account di archiviazione di Azure.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters) per creare un cluster HDInsight.
+* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): creare un cluster HDInsight.
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -62,7 +62,7 @@ Nel modello sono definite due risorse di Azure:
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
-Al termine della creazione del cluster, si riceverà una notifica con il messaggio **La distribuzione è riuscita** e un collegamento **Vai alla risorsa**. Nella pagina del gruppo di risorse saranno presenti il nuovo cluster HDInsight e l'archivio predefinito associato al cluster. Ogni cluster ha una dipendenza da un [account di archiviazione di Azure](../hdinsight-hadoop-use-blob-storage.md) o un [account Azure Data Lake Storage](../hdinsight-hadoop-use-data-lake-store.md). Viene indicato come account di archiviazione predefinito. Il cluster HDInsight e il relativo account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione.
+Al termine della creazione del cluster, si riceverà una notifica con il messaggio **La distribuzione è riuscita** e un collegamento **Vai alla risorsa**. Nella pagina del gruppo di risorse saranno presenti il nuovo cluster HDInsight e l'account di archiviazione predefinito associato. Ogni cluster ha una dipendenza da un [account di archiviazione di Azure](../hdinsight-hadoop-use-blob-storage.md) o un [account Azure Data Lake Storage](../hdinsight-hadoop-use-data-lake-store.md). Viene indicato come account di archiviazione predefinito. Il cluster HDInsight e il relativo account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

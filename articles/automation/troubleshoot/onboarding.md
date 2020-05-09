@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi relativi all'onboarding delle soluzioni di gestione di automazione di Azure
-description: Informazioni su come risolvere gli errori di caricamento della soluzione.
+description: Informazioni su come risolvere gli errori di onboarding della soluzione di automazione di Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,16 +8,16 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: da5152b459f54cbaae5ec168f103f23a237edebd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 371094ecba5168fd32a7af9fb81a71eb722efc91
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679223"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836530"
 ---
 # <a name="troubleshoot-solution-onboarding"></a>Risolvere i problemi di caricamento della soluzione
 
-È possibile che si verifichino errori durante l'onboarding della soluzione Gestione aggiornamenti o della soluzione Rilevamento modifiche e di inventario. Questo articolo descrive i vari errori che possono verificarsi e come risolverli.
+È possibile che vengano visualizzati messaggi di errore quando si esegue il caricamento della soluzione Gestione aggiornamenti di automazione di Azure o la soluzione Rilevamento modifiche e di inventario. Questo articolo descrive i vari errori che possono verificarsi e come risolverli.
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -29,17 +29,17 @@ Un nodo viene registrato in automazione di Azure e quindi il nome del computer d
 
 #### <a name="cause"></a>Causa
 
-La ridenominazione dei nodi registrati non aggiorna il nome del nodo in automazione di Azure.
+La ridenominazione dei nodi registrati non comporta l'aggiornamento del nome del nodo in automazione di Azure.
 
 #### <a name="resolution"></a>Soluzione
 
 Annullare la registrazione del nodo dalla configurazione dello stato di automazione di Azure e quindi registrarlo di nuovo. I report pubblicati nel servizio prima del momento non saranno più disponibili.
 
-### <a name="scenario-re-signing-certificates-via-https-proxy-is-not-supported"></a><a name="resigning-cert"></a>Scenario: la nuova firma dei certificati tramite il proxy HTTPS non è supportata
+### <a name="scenario-re-signing-certificates-via-https-proxy-isnt-supported"></a><a name="resigning-cert"></a>Scenario: la nuova firma dei certificati tramite il proxy HTTPS non è supportata
 
 #### <a name="issue"></a>Problema
 
-Quando si esegue la connessione tramite una soluzione proxy che termina il traffico HTTPS e quindi esegue di nuovo la crittografia del traffico con un nuovo certificato, il servizio non consente la connessione.
+Quando ci si connette tramite una soluzione proxy che termina il traffico HTTPS e quindi si crittografa di nuovo il traffico utilizzando un nuovo certificato, il servizio non consente la connessione.
 
 #### <a name="cause"></a>Causa
 
@@ -47,11 +47,11 @@ Automazione di Azure non supporta la ripetizione della firma dei certificati usa
 
 #### <a name="resolution"></a>Soluzione
 
-Attualmente non esiste una soluzione per questo problema.
+Attualmente non è disponibile alcuna soluzione per questo problema.
 
 ## <a name="general-errors"></a>Errori generali
 
-### <a name="scenario-onboarding-fails-with-the-message---the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenario: l'onboarding ha esito negativo con il messaggio. Impossibile abilitare la soluzione
+### <a name="scenario-onboarding-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenario: l'onboarding ha esito negativo con il messaggio "Impossibile abilitare la soluzione"
 
 #### <a name="issue"></a>Problema
 
@@ -71,9 +71,9 @@ Questo errore è causato da autorizzazioni errate o mancanti nella macchina virt
 
 #### <a name="resolution"></a>Soluzione
 
-Assicurarsi [di disporre delle autorizzazioni corrette necessarie per](../automation-role-based-access-control.md#onboarding-permissions) caricare i computer, quindi provare di nuovo a eseguire l'onboarding della soluzione. Se viene visualizzato l'errore `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assicurarsi di disporre dell' `Microsoft.OperationalInsights/workspaces/read` autorizzazione per poter individuare se la macchina virtuale è stata caricata in un'area di lavoro.
+Assicurarsi [di disporre delle autorizzazioni corrette necessarie per](../automation-role-based-access-control.md#onboarding-permissions)caricare i computer, quindi provare di nuovo a eseguire l'onboarding della soluzione. Se viene visualizzato il messaggio `The solution cannot be enabled on this VM because the permission to read the workspace is missing`di errore, assicurarsi di disporre dell' `Microsoft.OperationalInsights/workspaces/read` autorizzazione per essere in grado di verificare se la macchina virtuale è stata caricata in un'area di lavoro.
 
-### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: il caricamento ha esito negativo con il messaggio: non è stato possibile configurare l'account di automazione per la registrazione diagnostica
+### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: l'onboarding ha esito negativo con il messaggio "Impossibile configurare l'account di automazione per la registrazione diagnostica"
 
 #### <a name="issue"></a>Problema
 
@@ -85,7 +85,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Questo errore può essere causato se il piano tariffario non corrisponde al modello di fatturazione della sottoscrizione. Vedere [monitoraggio dell'utilizzo e dei costi stimati in monitoraggio di Azure](https://aka.ms/PricingTierWarning).
+Questo errore può essere causato se il piano tariffario non corrisponde al modello di fatturazione della sottoscrizione. Per altre informazioni, vedere [monitoraggio dell'utilizzo e dei costi stimati in monitoraggio di Azure](https://aka.ms/PricingTierWarning).
 
 #### <a name="resolution"></a>Soluzione
 
@@ -95,7 +95,7 @@ Creare manualmente l'area di lavoro Log Analytics e ripetere il processo di onbo
 
 #### <a name="issue"></a>Problema
 
-Questo codice di errore indica che la query del gruppo di computer di ricerca salvata utilizzata per la soluzione non è formattata correttamente. 
+Questo codice di errore indica che la query del gruppo di computer di ricerca salvata utilizzata come destinazione della soluzione non è formattata correttamente. 
 
 #### <a name="cause"></a>Causa
 
@@ -103,7 +103,7 @@ Questo codice di errore indica che la query del gruppo di computer di ricerca sa
 
 #### <a name="resolution"></a>Soluzione
 
-È possibile eliminare la query per la soluzione e quindi eseguire di nuovo l'onboarding della soluzione, che ricrea la query. È possibile trovare la query nell'area di lavoro in **ricerche salvate**. Il nome della query è **MicrosoftDefaultComputerGroup**e la categoria della query è il nome della soluzione associata. Se sono abilitate più soluzioni, la query **MicrosoftDefaultComputerGroup** viene visualizzata più volte in **ricerche salvate**.
+È possibile eliminare la query per la soluzione e quindi eseguire di nuovo l'onboarding della soluzione, che consente di ricreare la query. È possibile trovare la query nell'area di lavoro in **ricerche salvate**. Il nome della query è **MicrosoftDefaultComputerGroup**e la categoria della query è il nome della soluzione associata. Se sono abilitate più soluzioni, la query **MicrosoftDefaultComputerGroup** viene visualizzata più volte in **ricerche salvate**.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Scenario: PolicyViolation
 
@@ -121,16 +121,16 @@ Per distribuire correttamente la soluzione, è necessario valutare la possibilit
 
 * Rimuovere completamente il criterio.
 * Provare a caricare la soluzione in un gruppo di risorse diverso.
-* Riassegnare i criteri a una risorsa specifica, ad esempio un account di automazione.
+* Ridestinare i criteri a una risorsa specifica, ad esempio un account di automazione.
 * Rivedere il set di risorse che il criterio è configurato per negare.
 
-Controllare le notifiche nell'angolo superiore destro della portale di Azure o passare al gruppo di risorse contenente l'account di automazione e selezionare **distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni sui criteri di Azure, vedere [Panoramica di criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controllare le notifiche nell'angolo superiore destro della portale di Azure o andare al gruppo di risorse contenente l'account di automazione e selezionare **distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni sui criteri di Azure, vedere [Panoramica di criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ### <a name="scenario-errors-trying-to-unlink-a-workspace"></a><a name="unlink"></a>Scenario: errori durante il tentativo di scollegare un'area di lavoro
 
 #### <a name="issue"></a>Problema
 
-Quando si tenta di scollegare un'area di lavoro, viene visualizzato l'errore seguente:
+Quando si tenta di scollegare un'area di lavoro, viene visualizzato il messaggio di errore seguente:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -142,16 +142,16 @@ Questo errore si verifica quando le soluzioni sono ancora attive nell'area di la
 
 ### <a name="resolution"></a>Soluzione
 
-Se si usano, rimuovere le soluzioni seguenti dall'area di lavoro:
+Se vengono usate, rimuovere le soluzioni seguenti dall'area di lavoro:
 
 * Gestione degli aggiornamenti
 * Rilevamento modifiche e inventario
 * Avviare/arrestare VM durante gli orari di minore attività
 
-Una volta rimosse le soluzioni, è possibile scollegare l'area di lavoro. È importante pulire tutti gli artefatti esistenti da queste soluzioni dall'area di lavoro e dall'account di automazione 
+Dopo aver rimosso le soluzioni, è possibile scollegare l'area di lavoro. È importante pulire tutti gli artefatti esistenti da queste soluzioni dall'area di lavoro e dall'account di automazione:
 
-* Per Gestione aggiornamenti, rimuovere le distribuzioni di aggiornamenti (pianificazioni) dall'account di automazione.
-* Per avvio/arresto di macchine virtuali durante gli orari di minore attività, rimuovere tutti i blocchi sui componenti della soluzione nell'account di automazione in **Impostazioni** > **blocchi**. Vedere [rimuovere la soluzione avvio/arresto di macchine virtuali durante gli orari di minore attività](../automation-solution-vm-management.md#remove-the-solution).
+* Per Gestione aggiornamenti, rimuovere le **distribuzioni di aggiornamenti (pianificazioni)** dall'account di automazione.
+* Per avvio/arresto di macchine virtuali durante gli orari di minore attività, rimuovere tutti i blocchi sui componenti della soluzione nell'account di automazione in **Impostazioni** > **blocchi**. Per ulteriori informazioni, vedere [la pagina relativa alla rimozione della soluzione avvio/arresto di macchine virtuali durante gli orari di minore attività](../automation-solution-vm-management.md#remove-the-solution).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics per gli errori di estensione Windows
 
@@ -180,22 +180,22 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 #### <a name="cause"></a>Causa
 
-Alcune cause possibili di questo errore sono:
+Alcune possibili cause di questo errore sono:
 
 * Un proxy configurato nella VM consente solo porte specifiche.
 * Un'impostazione del firewall ha bloccato l'accesso alle porte e agli indirizzi necessari.
 
 #### <a name="resolution"></a>Soluzione
 
-Assicurarsi di avere le porte e gli indirizzi aperti per la comunicazione. Per un elenco di porte e indirizzi, vedere [Planning your network](../automation-hybrid-runbook-worker.md#network-planning) (Pianificazione della rete).
+Assicurarsi di avere le porte e gli indirizzi aperti per la comunicazione. Per un elenco di porte e indirizzi, vedere [pianificazione della rete](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="scenario-install-failed-because-of-a-transient-environment-issues"></a><a name="transient-environment-issue"></a>Scenario: installazione non riuscita a causa di problemi di ambiente temporanei
+### <a name="scenario-install-failed-because-of-transient-environment-issues"></a><a name="transient-environment-issue"></a>Scenario: installazione non riuscita a causa di problemi di ambiente temporanei
 
-L'installazione dell'estensione Log Analytics per Windows non è riuscita durante la distribuzione a causa di un'altra installazione o azione che blocca l'installazione
+L'installazione dell'estensione Log Analytics per Windows non è riuscita durante la distribuzione a causa di un'altra installazione o azione che blocca l'installazione.
 
 #### <a name="issue"></a>Problema
 
-Di seguito sono riportati esempi di messaggi di errore restituiti:
+Di seguito sono riportati alcuni esempi di messaggi di errore che potrebbero essere restituiti:
 
 ```error
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
@@ -211,7 +211,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 #### <a name="cause"></a>Causa
 
-Alcune cause possibili di questo errore sono:
+Alcune possibili cause di questo errore sono:
 
 * È in corso un'altra installazione.
 * Il sistema viene attivato per il riavvio durante la distribuzione del modello.
@@ -242,8 +242,8 @@ Provare a installare l'estensione Log Analytics Agent per Windows quando la macc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema non viene visualizzato in precedenza o non è possibile risolvere il problema, provare a usare uno dei canali seguenti per ottenere supporto aggiuntivo:
+Se il problema non viene visualizzato qui o non è possibile risolvere il problema, provare a usare uno dei canali seguenti per ottenere supporto aggiuntivo:
 
 * Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
-* Connettersi a [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
-* Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto tecnico di Azure connette la community di Azure a risposte, supporto ed esperti.
+* Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**.

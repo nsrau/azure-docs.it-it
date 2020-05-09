@@ -1,6 +1,6 @@
 ---
-title: Elencare le assegnazioni di rifiuto per le risorse di Azure con Azure PowerShell
-description: Informazioni su come elencare gli utenti, i gruppi, le entità servizio e le identità gestite a cui è stato negato l'accesso a specifiche azioni di risorse di Azure in determinati ambiti usando Azure PowerShell.
+title: Elencare le assegnazioni di Azure Deny usando Azure PowerShell-RBAC di Azure
+description: Informazioni su come elencare gli utenti, i gruppi, le entità servizio e le identità gestite a cui è stato negato l'accesso a specifiche azioni di risorse di Azure in determinati ambiti usando Azure PowerShell e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ba18b89bd37dbd55350321c503e37ab0590ab87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd852d19b284f97995855fe06c97ea0ea69be293
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137385"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733963"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Elencare le assegnazioni di rifiuto per le risorse di Azure usando Azure PowerShell
+# <a name="list-azure-deny-assignments-using-azure-powershell"></a>Elencare le assegnazioni di Azure Deny usando Azure PowerShell
 
-Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come elencare le assegnazioni Deny usando Azure PowerShell.
+Le [assegnazioni di rifiuto di Azure](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche delle risorse di Azure anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come elencare le assegnazioni Deny usando Azure PowerShell.
 
 > [!NOTE]
-> Non è possibile creare direttamente le assegnazioni di rifiuto. Per informazioni sul modo in cui vengono create le assegnazioni Deny, vedere [Deny assegnazioni](deny-assignments.md).
+> Non è possibile creare direttamente le assegnazioni di rifiuto. Per informazioni sul modo in cui vengono create le assegnazioni Deny, vedere le [assegnazioni di rifiuto di Azure](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per ottenere informazioni su un'assegnazione Deny, è necessario disporre di:
 
-- `Microsoft.Authorization/denyAssignments/read`autorizzazione, inclusa nella maggior parte dei [ruoli predefiniti per le risorse di Azure](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read`autorizzazione, inclusa nella maggior parte dei [ruoli predefiniti di Azure](built-in-roles.md)
 - [PowerShell in Azure cloud Shell](/azure/cloud-shell/overview) o [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-deny-assignments"></a>Visualizzare le assegnazioni di rifiuto
@@ -125,6 +125,6 @@ PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-11111
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](deny-assignments.md)
-- [Elencare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure](deny-assignments-portal.md)
-- [Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST](deny-assignments-rest.md)
+- [Informazioni sulle assegnazioni di rifiuto di Azure](deny-assignments.md)
+- [Elencare le assegnazioni di Azure Deny usando il portale di Azure](deny-assignments-portal.md)
+- [Elencare le assegnazioni di Azure Deny usando l'API REST](deny-assignments-rest.md)

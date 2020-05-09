@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare insiemi di credenziali dei ser
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80672855"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744934"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -121,7 +121,7 @@ Si consiglia vivamente di rivedere le impostazioni predefinite per il **tipo di 
 
 - Per impostazione predefinita, il **tipo di replica di archiviazione** è impostato su con **ridondanza geografica**. Dopo aver configurato il backup, l'opzione per la modifica è disabilitata. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) .
 
-- Per impostazione predefinita, l' **eliminazione** temporanea è **abilitata** negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) .
+- Per impostazione predefinita, l' **eliminazione** temporanea è **abilitata** negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose. Per esaminare e modificare le impostazioni, seguire questa [procedura](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

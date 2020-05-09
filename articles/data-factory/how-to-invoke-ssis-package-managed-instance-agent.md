@@ -1,6 +1,6 @@
 ---
-title: Eseguire pacchetti SSIS tramite Istanza gestita di database SQL di Azure Agent
-description: Informazioni su come eseguire pacchetti SSIS con Istanza gestita di database SQL di Azure Agent.
+title: Pianificare esecuzioni di pacchetti SSIS tramite Istanza gestita di database SQL di Azure Agent
+description: Informazioni su come pianificare le esecuzioni di pacchetti SSIS tramite Istanza gestita di database SQL di Azure Agent.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,14 +9,17 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: fcbfeb5ab3a3a80fdb8f7e355f290451d4afe804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f230e4d33686b006b20e856d5e8033847e3f3d67
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144797"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628487"
 ---
-# <a name="run-ssis-packages-by-using-azure-sql-database-managed-instance-agent"></a>Eseguire pacchetti SSIS tramite Istanza gestita di database SQL di Azure Agent
+# <a name="schedule-ssis-package-executions-by-using-azure-sql-database-managed-instance-agent"></a>Pianificare esecuzioni di pacchetti SSIS tramite Istanza gestita di database SQL di Azure Agent
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Questo articolo descrive come eseguire un pacchetto di SQL Server Integration Services (SSIS) usando Istanza gestita di database SQL di Azure Agent. Questa funzionalità fornisce comportamenti simili a quando si pianificano pacchetti SSIS usando SQL Server Agent nell'ambiente locale.
 
 Con questa funzionalità è possibile eseguire pacchetti SSIS archiviati in SSISDB in un'istanza gestita di database SQL di Azure o in un file system come File di Azure.
@@ -78,7 +81,7 @@ In questa procedura viene utilizzato Istanza gestita di database SQL di Azure Ag
 
         ![Opzioni per il tipo di origine file](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
       
-        Il percorso del pacchetto è ** \\ <storage account name>il\<nome della condivisione file \<. file.Core.Windows.NET>nome del pacchetto>. dtsx**.
+        Il percorso del pacchetto **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** è.
       
         In **credenziali di accesso al file del pacchetto**immettere il nome dell'account file di Azure e la chiave dell'account per accedere al file di Azure. Il dominio è impostato come **Azure**.
 
@@ -89,11 +92,14 @@ In questa procedura viene utilizzato Istanza gestita di database SQL di Azure Ag
         Immettere il dominio, il nome utente e la password corrispondenti per accedere al file del pacchetto di condivisione di rete.
    1. Se il file del pacchetto è crittografato con una password, selezionare **password di crittografia** e immettere la password.
 1. Nella scheda **configurazioni** immettere il percorso del file di configurazione se è necessario un file di configurazione per eseguire il pacchetto SSIS.
+   Se si archivia la configurazione in File di Azure, il percorso di configurazione sarà **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`**.
 1. Nella scheda **Opzioni di esecuzione** è possibile scegliere se usare l' **autenticazione di Windows** o il runtime a **32 bit** per eseguire il pacchetto SSIS.
-1. Nella scheda **registrazione** è possibile scegliere il percorso di registrazione e le credenziali di accesso di registrazione corrispondenti per archiviare i file di log. Per impostazione predefinita, il percorso di registrazione corrisponde al percorso della cartella del pacchetto e le credenziali di accesso alla registrazione sono le stesse delle credenziali di accesso al pacchetto.
+1. Nella scheda **registrazione** è possibile scegliere il percorso di registrazione e le credenziali di accesso di registrazione corrispondenti per archiviare i file di log. 
+   Per impostazione predefinita, il percorso di registrazione corrisponde al percorso della cartella del pacchetto e le credenziali di accesso alla registrazione sono le stesse delle credenziali di accesso al pacchetto.
+   Se si archiviano i log in File di Azure, il percorso di registrazione **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`** sarà.
 1. Nella scheda **Imposta valori** è possibile immettere il percorso e il valore della proprietà per eseguire l'override delle proprietà del pacchetto.
  
-   Ad esempio, per eseguire l'override del valore della variabile utente, immettere il percorso nel formato seguente: **\Pacchetto.variabili [user::<variable name>]. Valore**.
+   Ad esempio, per eseguire l'override del valore della variabile utente, immettere il percorso nel formato seguente: **`\Package.Variables[User::<variable name>].Value`**.
 1. Selezionare **OK** per salvare la configurazione del processo dell'agente.
 1. Avviare il processo di Agent per eseguire il pacchetto SSIS.
 

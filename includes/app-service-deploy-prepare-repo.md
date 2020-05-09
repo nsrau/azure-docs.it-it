@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: app-service
 author: cephalin
 ms.service: app-service

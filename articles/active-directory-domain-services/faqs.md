@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 86b68b794928900717bea25623e7eb833c23e86c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655344"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926970"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
@@ -91,6 +91,7 @@ Sì. Ogni dominio gestito Azure AD Domain Services include due controller di dom
 * [È possibile modificare o aggiungere record DNS nel domino gestito?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [Quali sono i criteri di durata delle password in un dominio gestito?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Azure AD Domain Services fornisce il blocco degli account Active Directory come metodo di protezione?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [È possibile configurare file system distribuito (DFS) e la replica all'interno di Azure AD Domain Services?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>È possibile connettersi al controller di dominio per il dominio gestito tramite Desktop remoto?
 No. Non si dispone delle autorizzazioni necessarie per connettersi ai controller di dominio per il dominio gestito utilizzando Desktop remoto. I membri del gruppo *AAD DC Administrators* possono amministrare il dominio gestito usando gli strumenti di amministrazione di ad, ad esempio Active Directory Administration Center (ADAC) o ad PowerShell. Questi strumenti vengono installati utilizzando la funzionalità *strumenti di amministrazione remota del server* in un server Windows aggiunto al dominio gestito. Per altre informazioni, vedere [creare una macchina virtuale di gestione per configurare e amministrare un Azure ad Domain Services dominio gestito](tutorial-create-management-vm.md).
@@ -118,6 +119,9 @@ La durata predefinita di una password in un dominio gestito di Azure AD Domain S
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Azure AD Domain Services fornisce il blocco degli account Active Directory come metodo di protezione?
 Sì. Dopo 5 tentativi di inserimento di password non valide in 2 minuti per il dominio gestito, l'account utente viene bloccato per 30 minuti. Dopo 30 minuti l'account utente viene sbloccato automaticamente. I tentativi di password non validi nel dominio gestito non bloccano l'account utente in Azure AD. L'account utente viene bloccato solo all'interno del dominio gestito di Azure AD Domain Services. Per ulteriori informazioni, vedere [criteri di blocco di password e account nei domini gestiti](password-policy.md).
+
+### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>È possibile configurare file system distribuito e la replica all'interno di Azure AD Domain Services?
+No. File system distribuito (DFS) e la replica non sono disponibili quando si usa Azure AD Domain Services.
 
 ## <a name="billing-and-availability"></a>Fatturazione e disponibilità
 

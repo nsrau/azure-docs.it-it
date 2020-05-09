@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 04/24/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3578cb1326ebd701c3f00618c19a501a1476372
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80332132"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143730"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Esercitazione: Abilitare il writeback della reimpostazione della password self-service di Azure Active Directory in un ambiente locale
 
@@ -57,7 +57,7 @@ Per usare correttamente il writeback della reimpostazione della password self-se
    * L'oggetto radice di *ogni dominio* in tale foresta
    * Le unità organizzative (OU) utente che si vuole siano nell'ambito per SSPR
 
-Se non si assegnano tali autorizzazioni, il writeback è configurato correttamente, ma gli utenti visualizzeranno errori durante il tentativo di gestione delle password locali dal cloud.
+Se non si assegnano tali autorizzazioni, il writeback è configurato correttamente, ma gli utenti visualizzeranno errori durante il tentativo di gestione delle password locali dal cloud. Per visualizzare "Password senza scadenza", è necessario applicare le autorizzazioni a **Questo oggetto e tutti i discendenti**.  
 
 Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle password, eseguire la procedura seguente:
 
@@ -67,7 +67,7 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 1. Nella scheda **Autorizzazioni** selezionare **Aggiungi**.
 1. Per **Entità di sicurezza** selezionare l'account a cui applicare le autorizzazioni, ovvero l'account usato da Azure AD Connect.
 1. Nell'elenco a discesa **Applica a** selezionare gli oggetti **Utente discendente**.
-1. In *Autorizzazioni* selezionare le caselle per le opzioni seguenti:
+1. In *Autorizzazioni* selezionare la casella per l'opzione seguente:
     * **Reimpostazione della password**
 1. In *Proprietà* selezionare le caselle per le opzioni seguenti. È necessario scorrere l'elenco per trovare le opzioni, che potrebbero essere già impostate:
     * **Scrittura di lockoutTime**
@@ -79,7 +79,7 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 
 Quando si aggiornano le autorizzazioni, la replica delle autorizzazioni in tutti gli oggetti nella directory potrebbe richiedere fino a un'ora o più.
 
-I criteri delle password nell'ambiente Active Directory Domain Services locale possono impedire la corretta elaborazione delle reimpostazioni delle password. Per il corretto funzionamento del writeback delle password, i criteri di gruppo per *Validità minima della password* devono essere impostati su 0. Questa impostazione è disponibile in **Configurazione computer > Criteri > Impostazioni di Windows > Impostazioni di sicurezza > Criteri account** in `gpedit.msc`. 
+I criteri delle password nell'ambiente Active Directory Domain Services locale possono impedire la corretta elaborazione delle reimpostazioni delle password. Per il corretto funzionamento del writeback delle password, i criteri di gruppo per *Validità minima della password* devono essere impostati su 0. Questa impostazione è disponibile in **Configurazione computer > Criteri > Impostazioni di Windows > Impostazioni di sicurezza > Criteri account** in `gpedit.msc`.
 
 Se si aggiornano i criteri di gruppo, attendere la replica del criterio aggiornato oppure usare il comando `gpupdate /force`.
 

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4dff48f909cd3febbbb7e92dcf96070020b8f57c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77083098"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82145144"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure  
 
@@ -72,9 +72,11 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Aprire l'invito
 
-1. Controllare la posta in arrivo per verificare di aver ricevuto un invito dal provider di dati. L'invito proviene da Microsoft Azure con l'oggetto **Azure Data Share invitation from<yourdataprovider@domain.com>** (Invito alla Condivisione dati di Azure da...). Prendere nota del nome condivisione per assicurarsi di accettare la condivisione corretta se sono presenti più inviti. 
+1. È possibile aprire l'invito da un messaggio di posta elettronica o direttamente dal portale di Azure. 
 
-1. Selezionare **Visualizza invito** per visualizzare l'invito in Azure. Verrà visualizzata la pagina Received Shares (Condivisioni ricevute).
+   Per aprire l'invito da un messaggio di posta elettronica, controllare la posta in arrivo per verificare di aver ricevuto un invito dal provider di dati. L'invito proviene da Microsoft Azure con l'oggetto **Azure Data Share invitation from<yourdataprovider@domain.com>** (Invito alla Condivisione dati di Azure da...). Fare clic su **Visualizza invito** per visualizzare l'invito in Azure. 
+
+   Per aprire direttamente l'invito dal portale di Azure, cercare **Inviti alla condivisione dati** nel portale di Azure. In questo modo viene visualizzato l'elenco di inviti alla condivisione dati.
 
    ![Inviti](./media/invitations.png "Elenco di inviti") 
 

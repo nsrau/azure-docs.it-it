@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78e01c854201e3c5253cd86aebcd85b62bf5568d
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481083"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629301"
 ---
 # <a name="vcore-model-overview"></a>Panoramica del modello vCore
 
@@ -102,7 +102,7 @@ Per abilitare l'hardware della serie M per una sottoscrizione e un'area, è nece
 |Quarta generazione     |-Processori Intel E5-2673 V3 (Haswell) a 2,4 GHz<br>-Provisioning fino a 24 Vcore (1 vCore = 1 core fisico)  |-7 GB per vCore<br>-Effettuare il provisioning fino a 168 GB|
 |Quinta generazione     |**Calcolo con provisioning**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake) *<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake) *<br>-Scalabilità automatica fino a 16 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 48 GB max|
 |Serie Fsv2     |-Processori Intel Xeon Platinum 8168 (SkyLake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Provisioning di 136 GB|
-|Serie M     |-Processori Intel Xeon E7-8890 V3 2,5 GHz<br>-Provisioning 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Provisioning 3,7 TB|
+|Serie M     |-Intel Xeon E7-8890 V3 2,5 GHz e processori Intel Xeon Platinum 8280M 2,7 GHz (Cascade Lake)<br>-Provisioning 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Provisioning 3,7 TB|
 
 \*Nella vista a gestione dinamica [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) la generazione hardware per i database quinta generazione con processori Intel SP-8160 (Skylake) viene visualizzata come Gen6. I limiti delle risorse per tutti i database quinta generazione sono gli stessi indipendentemente dal tipo di processore (Broadwell o Skylake).
 
@@ -199,7 +199,7 @@ Per abilitare la disponibilità della serie M in una sottoscrizione, è necessar
 ##### <a name="create-a-support-request-to-enable-m-series"></a>Creare una richiesta di supporto per abilitare la serie M: 
 
 1. Selezionare **Guida e supporto** nel portale.
-2. Selezionare **Nuova richiesta di supporto**.
+2. Selezionare **nuova richiesta di supporto**.
 
 Nella pagina **nozioni di base** , specificare quanto segue:
 

@@ -1,6 +1,6 @@
 ---
-title: Guida di avvio rapido di Configurazione app di Azure con .NET Framework | Microsoft Docs
-description: Guida di avvio rapido per l'uso di Configurazione app di Azure con le app .NET Framework
+title: Guida introduttiva di Configurazione app di Azure con .NET Framework | Microsoft Docs
+description: Guida introduttiva per l'uso di Configurazione app di Azure con le app .NET Framework
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -8,14 +8,14 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 1c56088a2c51c50c7f9cf1ff1e790d580fdb08d8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cfa89a7921751541d1044d697237946cd63cbfd8
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245396"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732054"
 ---
-# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app .NET Framework con Configurazione app di Azure
+# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app .NET Framework con Configurazione app di Azure
 
 In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app console basata su .NET Framework per centralizzare l'archiviazione e la gestione delle impostazioni dell'applicazione separatamente dal codice.
 
@@ -31,7 +31,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 6. Selezionare **Esplora configurazioni** > **Crea** > **Coppia chiave-valore** per aggiungere le coppie chiave-valore seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure |
 
@@ -49,11 +49,11 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
-1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere i pacchetti NuGet seguenti al progetto. Se non è possibile trovarli, selezionare la casella di controllo **Includi versione preliminare**.
+1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere i pacchetti NuGet seguenti al progetto.
 
     ```
-    Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
-    Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 or later
+    Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 or later
     System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 

@@ -145,7 +145,7 @@ Per abilitare la distribuzione git locale per l'app con Azure Pipelines (antepri
 
 Quando si usa Git per la pubblicazione in un'app del servizio app in Azure, è possibile che vengano visualizzati i messaggi di errore comuni seguenti:
 
-|Messaggio|Causa|Soluzione
+|Message|Causa|Soluzione
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|L'app non è in esecuzione.|avviare l'app nel portale di Azure. La distribuzione Git non è disponibile quando l'app Web è arrestata.|
 |`Couldn't resolve host 'hostname'`|Le informazioni sull'indirizzo per il controllo remoto ' Azure ' non sono corrette.|usare il comando `git remote -v` per elencare tutti i repository remoti, insieme agli URL associati. Verificare che l'URL del repository remoto 'azure' sia corretto. Se necessario, rimuovere e ricreare questo repository remoto usando l'URL corretto.|
