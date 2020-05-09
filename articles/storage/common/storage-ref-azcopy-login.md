@@ -97,7 +97,7 @@ Assicurarsi di considerare/Path/to/My/CERT come percorso di un file PEM o PKCS12
 
 --Certificate-Path è obbligatorio quando si esegue l'autenticazione dell'entità servizio basata su certificati.
 
-## <a name="options"></a>Options
+## <a name="options"></a>Opzioni
 
 |Opzione|Descrizione|
 |--|--|

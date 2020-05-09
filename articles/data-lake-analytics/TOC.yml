@@ -16,6 +16,11 @@
       href: data-lake-analytics-get-started-powershell.md
     - name: Interfaccia della riga di comando di Azure
       href: data-lake-analytics-get-started-cli.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Procedure
   items:
     - name: Gestire Data Lake Analytics
@@ -132,7 +137,7 @@
           href: runtime-troubleshoot.md
         - name: Risolvere i problemi di un aggiornamento di .NET
           href: dotnet-upgrade-troubleshoot.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.datalakeanalytics

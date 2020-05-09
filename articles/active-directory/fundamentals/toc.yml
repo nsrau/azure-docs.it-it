@@ -50,7 +50,7 @@
     - name: Guida alla distribuzione
       items:
         - name: 'Distribuzione 30, 90 e successive'
-      href: active-directory-deployment-checklist-p2.md
+          href: active-directory-deployment-checklist-p2.md
     - name: Archiviazione dei dati
       items:
         - name: Archiviazione dei dati relativi alle identità per l'Europa

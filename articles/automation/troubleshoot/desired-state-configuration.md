@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi relativi alla configurazione dello stato di automazione di Azure (DSC)
-description: Questo articolo fornisce informazioni sulla risoluzione dei problemi di Azure Automation state Configuration (DSC).
+title: Risoluzione dei problemi relativi alla configurazione dello stato di automazione di Azure
+description: Questo articolo fornisce informazioni sulla risoluzione dei problemi relativi alla configurazione dello stato di automazione di Azure.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,33 +9,33 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c045e110e21ed201278dcd84f38cb4a376ae8db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679318"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652818"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration-dsc"></a>Risolvere i problemi relativi alla configurazione dello stato di automazione di Azure (DSC)
+# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Risolvere i problemi relativi alla configurazione dello stato di automazione di Azure
 
-Questo articolo fornisce informazioni sulla risoluzione dei problemi che si verificano durante la compilazione o la distribuzione di configurazioni in Azure Automation state Configuration (DSC).
+Questo articolo fornisce informazioni sulla risoluzione dei problemi che si verificano durante la compilazione o la distribuzione di configurazioni nella configurazione dello stato di automazione di Azure.
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](../automation-update-azure-modules.md).
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente seguendo i passaggi descritti in [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md).
 
-## <a name="diagnosing-an-issue"></a>Diagnosi di un problema
+## <a name="diagnose-an-issue"></a>Diagnosticare un problema
 
 Quando si riceve un errore di compilazione o distribuzione per la configurazione, di seguito sono riportati alcuni passaggi che consentono di diagnosticare il problema.
 
 ### <a name="1-ensure-that-your-configuration-compiles-successfully-on-the-local-machine"></a>1. Assicurarsi che la configurazione venga compilata correttamente nel computer locale
 
-La configurazione dello stato di automazione di Azure (DSC) si basa su PowerShell DSC (Desired state Configuration). È possibile trovare la documentazione relativa alla sintassi e al linguaggio DSC in [PowerShell DSC docs](https://docs.microsoft.com/powershell/scripting/overview).
+La configurazione dello stato di automazione di Azure si basa su PowerShell DSC (Desired state Configuration). È possibile trovare la documentazione relativa alla sintassi e al linguaggio DSC in [PowerShell DSC docs](https://docs.microsoft.com/powershell/scripting/overview).
 
 Con la compilazione di una configurazione DSC nel computer locale, è possibile individuare e risolvere gli errori comuni, ad esempio:
 
-   - Moduli mancanti
-   - Errori di sintassi
-   - Errori di logica
+   - Moduli mancanti.
+   - Errori di sintassi.
+   - Errori logici.
 
 ### <a name="2-view-dsc-logs-on-your-node"></a>2. visualizzare i log DSC nel nodo
 
@@ -43,7 +43,7 @@ Se la configurazione viene compilata correttamente, ma ha esito negativo quando 
 
 Il modulo [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) può risultare utile per l'analisi di informazioni dettagliate dai log DSC. Se si contatta il supporto tecnico, questi registri sono necessari per diagnosticare il problema.
 
-È possibile installare il `xDscDiagnostics` modulo nel computer locale usando le istruzioni disponibili in [installare il modulo versione stabile](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+È possibile installare il `xDscDiagnostics` modulo nel computer locale seguendo le istruzioni riportate in [installare il modulo versione stabile](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
 Per installare il `xDscDiagnostics` modulo nel computer Azure, usare [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). È anche possibile usare l'opzione **Esegui comando** nella portale di Azure attenendosi alla procedura descritta in [eseguire script di PowerShell nella macchina virtuale Windows con il comando Esegui](../../virtual-machines/windows/run-command.md).
 
@@ -51,9 +51,9 @@ Per informazioni sull'uso di **xDscDiagnostics**, vedere [uso di xDscDiagnostics
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. Assicurarsi che i nodi e l'area di lavoro di automazione dispongano dei moduli necessari
 
-DSC dipende dai moduli installati nel nodo. Quando si usa la configurazione dello stato di automazione di Azure, importare tutti i moduli richiesti nell'account di automazione usando la procedura descritta in [importare i moduli](../shared-resources/modules.md#importing-modules). Le configurazioni possono anche avere una dipendenza da versioni specifiche dei moduli. Per altre informazioni, vedere [risolvere i problemi relativi ai moduli](shared-resources.md#modules).
+DSC dipende dai moduli installati nel nodo. Quando si usa la configurazione dello stato di automazione di Azure, importare tutti i moduli richiesti nell'account di automazione attenendosi alla procedura descritta in [importare i moduli](../shared-resources/modules.md#import-modules). Le configurazioni possono anche avere una dipendenza da versioni specifiche dei moduli. Per altre informazioni, vedere [risolvere i problemi relativi ai moduli](shared-resources.md#modules).
 
-## <a name="scenario-a-configuration-with-special-characters-cannot-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>Scenario: una configurazione con caratteri speciali non può essere eliminata dal portale
+## <a name="scenario-a-configuration-with-special-characters-cant-be-deleted-from-the-portal"></a><a name="unsupported-characters"></a>Scenario: una configurazione con caratteri speciali non può essere eliminata dal portale
 
 ### <a name="issue"></a>Problema
 
@@ -65,13 +65,13 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 ### <a name="cause"></a>Causa
 
-Questo errore è un problema temporaneo che è pianificato per essere risolto.
+Questo errore è un problema temporaneo pianificato per essere risolto.
 
 ### <a name="resolution"></a>Soluzione
 
 Usare il cmdlet [Remove-AzAutomationDscConfiguration]https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0 (per eliminare la configurazione.
 
-### <a name="scenario-failed-to-register-dsc-agent"></a><a name="failed-to-register-agent"></a>Scenario: non è stato possibile registrare l'agente DSC
+## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Scenario: non è stato possibile registrare l'agente DSC
 
 ### <a name="issue"></a>Problema
 
@@ -94,9 +94,9 @@ Questo errore è in genere causato da un firewall, dal computer che si trova die
 
 ### <a name="resolution"></a>Soluzione
 
-Verificare che il computer abbia accesso agli endpoint appropriati per DSC e riprovare. Per un elenco di porte e indirizzi necessari, vedere [pianificazione della rete](../automation-dsc-overview.md#network-planning)
+Verificare che il computer abbia accesso agli endpoint appropriati per DSC e riprovare. Per un elenco delle porte e degli indirizzi necessari, vedere [pianificazione della rete](../automation-dsc-overview.md#network-planning).
 
-## <a name="a-nameunauthorizedscenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>Scenario: i rapporti di stato restituiscono il codice di risposta non autorizzato
+## <a name="a-nameunauthorizedscenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"><a/>Scenario: i rapporti di stato restituiscono il codice di risposta non autorizzato
 
 ### <a name="issue"></a>Problema
 
@@ -118,21 +118,21 @@ Questo problema potrebbe essere causato anche da una configurazione proxy che no
 
 ### <a name="resolution"></a>Soluzione
 
-Attenersi alla procedura riportata di seguito per registrare nuovamente il nodo DSC che ha avuto esito negativo.
+Usare la procedura seguente per registrare nuovamente il nodo DSC che ha avuto esito negativo.
 
-Passaggio 1: annullare la registrazione del nodo.
+#### <a name="step-1-unregister-the-node"></a>Passaggio 1: annullare la registrazione del nodo
 
-1. In portale di Azure passare a **Home** -> **Automation accounts** -> (account di automazione)-> **state Configuration (DSC)**.
-2. Selezionare **Nodes (nodi**) e fare clic sul nodo con problemi.
-3. Fare clic su **Annulla registrazione** per annullare la registrazione del nodo.
+1. Nel portale di Azure passare a **Home** > **Automation accounts** > (account di automazione) > **state Configuration (DSC)**.
+1. Selezionare **nodi**e selezionare il nodo in cui si sono verificati problemi.
+1. Selezionare **Annulla registrazione** per annullare la registrazione del nodo.
 
-Passaggio 2: disinstallare l'estensione DSC dal nodo.
+#### <a name="step-2-uninstall-the-dsc-extension-from-the-node"></a>Passaggio 2: disinstallare l'estensione DSC dal nodo
 
-1. In portale di Azure passare a **Home** -> **macchina virtuale** -> (nodo in errore)-> **estensioni**.
-2. Selezionare **Microsoft. PowerShell. DSC**, l'estensione DSC PowerShell.
-3. Fare clic su **Disinstalla** per disinstallare l'estensione.
+1. Nel portale di Azure passare a **Home** > **macchina virtuale** > (nodo in errore) > **estensioni**.
+1. Selezionare **Microsoft. PowerShell. DSC**, l'estensione DSC PowerShell.
+1. Selezionare **Disinstalla** per disinstallare l'estensione.
 
-Passaggio 3: rimuovere tutti i certificati non validi o scaduti dal nodo.
+#### <a name="step-3-remove-all-bad-or-expired-certificates-from-the-node"></a>Passaggio 3: rimuovere tutti i certificati non validi o scaduti dal nodo
 
 Nel nodo in errore da un prompt di PowerShell con privilegi elevati eseguire questi comandi:
 
@@ -152,19 +152,19 @@ If (($certs.Count) -gt 0)
 }
 ```
 
-Passaggio 4: registrare nuovamente il nodo in errore.
+#### <a name="step-4-reregister-the-failing-node"></a>Passaggio 4: registrare nuovamente il nodo in errore
 
-1. Nel portale di Azure passare a **Home** -> **Automation accounts** -> (account di automazione)-> **state Configuration (DSC)**
-2. Selezionare i **nodi**.
-3. Fare clic su **Aggiungi**.
-4. Selezionare il nodo in errore.
-5. Fare clic su **Connetti** e selezionare le opzioni desiderate.
+1. Nel portale di Azure passare a **Home** > **Automation accounts** > (account di automazione) > **state Configuration (DSC)**.
+1. Selezionare i **nodi**.
+1. Selezionare **Aggiungi**.
+1. Selezionare il nodo in errore.
+1. Selezionare **Connetti**e selezionare le opzioni desiderate.
 
 ## <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a><a name="failed-not-found"></a>Scenario: Lo stato di Node risulta non riuscito con un errore "Non trovato"
 
 ### <a name="issue"></a>Problema
 
-Un report del nodo indica lo stato non riuscito e contiene l'errore seguente:
+Il nodo presenta un report con stato non riuscito e contiene l'errore:
 
 ```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
@@ -177,9 +177,9 @@ Questo errore si verifica in genere quando il nodo viene assegnato a un nome di 
 ### <a name="resolution"></a>Soluzione
 
 * Assicurarsi di assegnare il nodo con il nome della configurazione del nodo e non con il nome della configurazione.
-* È possibile assegnare a un nodo una configurazione di nodo usando il portale di Azure o un cmdlet di PowerShell.
+* È possibile assegnare una configurazione del nodo a un nodo usando il portale di Azure o con un cmdlet di PowerShell.
 
-  * Nel portale di Azure passare a **Home** -> **Automation accounts** -> (account di automazione)-> **state Configuration (DSC)**, quindi selezionare un nodo e fare clic su **Assegna configurazione nodo**.
+  * Nel portale di Azure passare a **Home** > **Automation accounts** > (account di automazione) > **state Configuration (DSC)**. Selezionare quindi un nodo e selezionare **Assegna configurazione nodo**.
   * Usare il cmdlet [set-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0) .
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Scenario: non sono state prodotte configurazioni di nodo (file MOF) durante la compilazione di una configurazione
@@ -203,7 +203,7 @@ Per risolvere il problema, usare una delle soluzioni seguenti:
 * Verificare che l'espressione accanto alla `Node` parola chiave nella definizione di configurazione non venga valutata come null.
 * Se si passa [configurationData](../automation-dsc-compile.md) durante la compilazione della configurazione, assicurarsi di passare i valori previsti dalla configurazione dai dati di configurazione.
 
-### <a name="scenario-the-dsc-node-report-becomes-stuck-in-the-in-progress-state"></a><a name="dsc-in-progress"></a>Scenario: il rapporto del nodo DSC diventa bloccato nello stato in corso
+## <a name="scenario-the-dsc-node-report-becomes-stuck-in-the-in-progress-state"></a><a name="dsc-in-progress"></a>Scenario: il rapporto del nodo DSC diventa bloccato nello stato in corso
 
 ### <a name="issue"></a>Problema
 
@@ -239,7 +239,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 Assicurarsi di passare l'oggetto appropriato `ConfigurationData` per impostare `PSDscAllowPlainTextPassword` su true per ogni configurazione del nodo indicata nella configurazione. Vedere [compilazione di configurazioni DSC in configurazione dello stato di automazione di Azure](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-dsc-extension"></a><a name="failure-processing-extension"></a>Scenario: errore dell'estensione per l'elaborazione degli errori durante l'onboarding dall'estensione DSC
+## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenario: errore dell'estensione per l'elaborazione degli errori durante l'onboarding da un'estensione DSC
 
 ### <a name="issue"></a>Problema
 
@@ -258,11 +258,11 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
 * Assicurarsi di assegnare il nodo con un nome che corrisponda esattamente al nome del servizio.
 * È possibile scegliere di non includere il nome della configurazione del nodo, il che comporta l'onboarding del nodo, ma non l'assegnazione di una configurazione del nodo.
 
-## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-using-powershell"></a><a name="cross-subscription"></a>Scenario: errore "si è verificato uno o più errori" durante la registrazione di un nodo con PowerShell
+## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Scenario: errore "si è verificato uno o più errori" durante la registrazione di un nodo tramite PowerShell
 
 ### <a name="issue"></a>Problema
 
-Quando si registra un nodo con [Register-AzAutomationDSCNode](https://docs.microsoft.com/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) o [Register-AzureRMAutomationDSCNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0), viene visualizzato l'errore seguente:
+Quando si registra un nodo tramite [Register-AzAutomationDSCNode](https://docs.microsoft.com/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) o [Register-AzureRMAutomationDSCNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0), viene visualizzato l'errore seguente:
 
 ```error
 One or more errors occurred.
@@ -277,9 +277,9 @@ Questo errore si verifica quando si tenta di registrare un nodo in una sottoscri
 Considerare il nodo tra sottoscrizioni come se fosse definito per un cloud separato o in locale. Registrare il nodo usando una di queste opzioni di onboarding:
 
 * Windows: [computer fisici/virtuali Windows locali o in un cloud diverso da Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux: [macchine virtuali Linux in locale o in un cloud diverso da Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Linux: [computer fisici/virtuali Linux in locale o in un cloud diverso da Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
 
-## <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>Scenario: messaggio di errore-"provisioning non riuscito"
+## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Scenario: messaggio di errore "provisioning non riuscito"
 
 ### <a name="issue"></a>Problema
 
@@ -315,7 +315,7 @@ Se il **percorso del** /o è `noexec`impostato su, la versione corrente di DSC n
 
 Rimuovere l' `noexec` opzione dal percorso/ **tmp** .
 
-## <a name="scenario-node-configuration-names-that-overlap-can-result-in-bad-release"></a><a name="compilation-node-name-overlap"></a>Scenario: i nomi di configurazione del nodo che si sovrappongono possono causare una versione non valida
+## <a name="scenario-node-configuration-names-that-overlap-can-result-in-a-bad-release"></a><a name="compilation-node-name-overlap"></a>Scenario: i nomi di configurazione del nodo che si sovrappongono possono causare una versione non valida
 
 ### <a name="issue"></a>Problema
 
@@ -345,8 +345,8 @@ Questo errore può essere causato da una configurazione DSC che richiede molto t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema non viene visualizzato in precedenza o non è possibile risolvere il problema, provare a usare uno dei canali seguenti per ottenere supporto aggiuntivo:
+Se il problema non viene visualizzato qui o non è possibile risolvere il problema, provare a usare uno dei canali seguenti per ottenere supporto aggiuntivo:
 
 * Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
-* Connettersi a [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
-* Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto tecnico di Azure connette la community di Azure a risposte, supporto ed esperti.
+* Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**.

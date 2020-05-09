@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878035"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160086"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
 Questa esercitazione illustra come abilitare il protocollo HTTPS per un dominio personalizzato associato alla frontdoor nella sezione degli host front-end. Usando il protocollo HTTPS nel dominio personalizzato (ad esempio, https:\//www.contoso.com), si assicura che i dati sensibili vengano recapitati in modo sicuro tramite crittografia TLS/SSL in caso di invio su Internet. Quando il Web browser è connesso a un sito Web tramite HTTPS, convalida il certificato di sicurezza del sito Web e verifica che sia emesso da un'autorità di certificazione legittima. Questo processo offre sicurezza e protezione delle applicazioni Web da attacchi.
 
-Il servizio Frontdoor di Azure supporta HTTPS per un nome host predefinito della frontdoor, per impostazione predefinita. Ad esempio, se si crea una frontdoor (ad esempio https:\//contoso.azurefd.net), HTTPS viene abilitato automaticamente per le richieste effettuate a https://contoso.azurefd.net. Tuttavia, dopo l'onboarding del dominio personalizzato 'www.contoso.com' sarà necessario inoltre abilitare HTTPS per questo host front-end.   
+Il servizio Frontdoor di Azure supporta HTTPS per un nome host predefinito della frontdoor, per impostazione predefinita. Ad esempio, se si crea una frontdoor (ad esempio `https://contoso.azurefd.net`), HTTPS viene abilitato automaticamente per le richieste effettuate a `https://contoso.azurefd.net`. Tuttavia, dopo l'onboarding del dominio personalizzato 'www.contoso.com' sarà necessario inoltre abilitare HTTPS per questo host front-end.   
 
 Di seguito sono riportati alcuni attributi chiave della funzionalità HTTPS personalizzato.
 
