@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: Informazioni sul supporto per la valutazione delle VM VMware con Azure Migrate server assessment.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: d378ece1eda906a30ec33e2cf27ad59df473b5c7
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a0d05c56670c54aca25232a86b5a0e89d2f0bcfd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779910"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983653"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per VMware Assessment 
 
@@ -53,7 +53,7 @@ Oltre a individuare i computer, server assessment può individuare app, ruoli e 
 **server vCenter** | I computer che si desidera individuare e valutare devono essere gestiti da server vCenter versione 5,5, 6,0, 6,5 o 6,7.
 **Autorizzazioni (valutazione)** | server vCenter account di sola lettura.
 **Autorizzazioni (app-Discovery)** | server vCenter account con accesso in sola lettura e privilegi abilitati per **le macchine virtuali > operazioni Guest**.
-**Autorizzazioni (visualizzazione dipendenze)** | Account del server Center con accesso in sola lettura e privilegi abilitati per > **le operazioni Guest**delle **macchine virtuali**.
+**Autorizzazioni (visualizzazione dipendenze)** | server vCenter account con accesso in sola lettura e privilegi abilitati per > **le operazioni Guest delle** **macchine virtuali**.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate

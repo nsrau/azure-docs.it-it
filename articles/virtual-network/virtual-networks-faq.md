@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244810"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791987"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -88,7 +88,7 @@ Sì. È possibile creare una tabella di route e associarla a una subnet. Per alt
 No. La distribuzione multicast o broadcast non è supportata.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Quali protocolli è possibile usare all'interno delle reti virtuali?
-All'interno delle reti virtuali è possibile usare i protocolli TCP, UDP e ICMP TCP/IP. Unicast è supportato all'interno delle reti virtuali, fatta eccezione per Dynamic Host Configuration Protocol (DHCP) tramite Unicast (porta di origine UDP/68/porta di destinazione UDP/67). I pacchetti incapsulati IP in IP, multicast e broadcast e i pacchetti Generic Routing Encapsulation (GRE) sono bloccati all'interno delle reti virtuali. 
+All'interno delle reti virtuali è possibile usare i protocolli TCP, UDP e ICMP TCP/IP. L'unicast è supportato all'interno di reti virtuali, ad eccezione di Dynamic Host Configuration Protocol (DHCP) tramite unicast (porta di origine UDP/68/porta di destinazione UDP/67) e la porta di origine UDP 65330 riservata per l'host. I pacchetti incapsulati IP in IP, multicast e broadcast e i pacchetti Generic Routing Encapsulation (GRE) sono bloccati all'interno delle reti virtuali. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>È possibile eseguire il ping dei router predefiniti all'interno di una rete virtuale?
 No.

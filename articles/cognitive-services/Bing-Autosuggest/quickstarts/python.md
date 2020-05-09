@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: 582e298bb291a66a6ec6b7300dffaa0fc18af4e0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80238914"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Python

@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408403"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854128"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory (anteprima pubblica)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory
 
 Azure Active Directory possibile fornire le informazioni sull'appartenenza a un gruppo di utenti nei token per l'utilizzo all'interno delle applicazioni.  Sono supportati due modelli principali:
 
-- Gruppi identificati in base al relativo attributo ID oggetto (OID) Azure Active Directory (disponibile a livello generale)
-- Gruppi identificati da attributi sAMAccountName o GroupSID per i gruppi e gli utenti di Active Directory (AD) sincronizzati (anteprima pubblica)
+- Gruppi identificati da un attributo OID (Azure Active Directory Object Identifier)
+- Gruppi identificati da attributi sAMAccountName o GroupSID per utenti e gruppi sincronizzati con Active Directory (AD)
 
 > [!IMPORTANT]
-> Per questa funzionalità di anteprima è necessario tenere presenti alcune avvertenze:
+> Per questa funzionalità è necessario tenere presenti alcune avvertenze:
 >
 >- Il supporto per l'utilizzo degli attributi sAMAccountName e ID di sicurezza (SID) sincronizzati dall'ambiente locale è progettato per consentire lo stato di trasferimento delle applicazioni esistenti da AD FS e altri provider di identità. I gruppi gestiti in Azure AD non contengono gli attributi necessari per emettere le attestazioni.
 >- Nelle organizzazioni più grandi il numero di gruppi di cui un utente è membro può superare il limite che Azure Active Directory aggiungerà a un token. 150 gruppi per un token SAML e 200 per un JWT. Questo può causare risultati imprevedibili. Se gli utenti hanno un numero elevato di appartenenze ai gruppi, è consigliabile usare l'opzione per limitare i gruppi emessi nelle attestazioni ai gruppi pertinenti per l'applicazione.  

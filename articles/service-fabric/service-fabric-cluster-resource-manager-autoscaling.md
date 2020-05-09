@@ -5,12 +5,12 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: edcf2774873cc23a74a47cc1c9a12e2daa2ed419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984538"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793092"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduzione alla scalabilità automatica
 La scalabilità automatica è una funzionalità aggiuntiva di Service Fabric che consente di applicare in modo dinamico la scalabilità ai servizi in base al carico che i servizi segnalano o in base all'utilizzo delle risorse. La scalabilità automatica offre grande elasticità e consente di eseguire il provisioning di istanze o partizioni aggiuntive del servizio su richiesta. L'intero processo di scalabilità è automatico e trasparente e, dopo aver configurato i criteri in un servizio, non è necessario eseguire manualmente le operazioni di scalabilità a livello di servizio. La funzione di scalabilità automatica può essere attivata al momento della creazione del servizio o in qualsiasi momento tramite l'aggiornamento del servizio.
@@ -130,7 +130,7 @@ Come per il meccanismo che usa la scalabilità per aggiungere o rimuovere istanz
 * Il _numero minimo di istanze_ definisce il limite inferiore per la scalabilità. Se il numero di partizioni del servizio raggiunge questo limite, non sarà possibile ridurre il servizio, indipendentemente dal carico.
 
 > [!WARNING] 
-> Quando AddRemoveIncrementalNamedPartitionScalingMechanism viene usata con i servizi con stato, Service Fabric aggiunge o rimuove partizioni **senza produrre notifiche o avvisi**. Quando viene attivato il meccanismo di ridimensionamento, il ripartizionamento dei dati non viene eseguito. Nel caso di un'operazione di aumento le nuove partizioni sono vuote, mentre nel caso di una riduzione **la partizione viene eliminata insieme a tutti i dati che contiene**.
+> Quando AddRemoveIncrementalNamedPartitionScalingMechanism viene usata con i servizi con stato, Service Fabric aggiunge o rimuove partizioni **senza produrre notifiche o avvisi**. Quando viene attivato il meccanismo di ridimensionamento, il ripartizionamento dei dati non viene eseguito. Nel caso di un'operazione di scalabilità orizzontale, le nuove partizioni saranno vuote e, in caso di operazione di ridimensionamento, **la partizione verrà eliminata insieme a tutti i dati in esso contenuti**.
 
 ## <a name="setting-auto-scaling-policy"></a>Impostazione dei criteri di scalabilità automatica
 

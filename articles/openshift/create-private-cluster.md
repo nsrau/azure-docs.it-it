@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: a0f726d32f2f63cf85101254fded005fc0b5a1db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfc28577f089ef22457e9f66ff08106969a5a4b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233551"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857384"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creare un cluster privato Azure Red Hat OpenShift 4
 
@@ -65,15 +65,21 @@ aro                                1.0.0
 ...
 ```
 
-### <a name="obtain-a-red-hat-pull-secret-optional"></a>Ottenere un segreto di pull Red Hat (facoltativo)
+### <a name="get-a-red-hat-pull-secret-optional"></a>Ottenere un segreto di pull Red Hat (facoltativo)
 
 Un Red Hat pull Secret consente al cluster di accedere ai registri contenitori di Red Hat insieme a contenuti aggiuntivi. Questo passaggio è facoltativo ma consigliato.
 
-Per ottenere il segreto di pull, passare https://cloud.redhat.com/openshift/install/azure/aro-provisioned a e fare clic su *Scarica segreto di pull*.
+1. **[Passare al portale di gestione cluster Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) e accedere.**
 
-Sarà necessario accedere all'account Red Hat o creare un nuovo account Red Hat con la posta elettronica aziendale e accettare i termini e le condizioni.
+   Sarà necessario accedere all'account Red Hat o creare un nuovo account Red Hat con la posta elettronica aziendale e accettare i termini e le condizioni.
+
+2. **Fare clic su Scarica segreto pull.**
 
 Conservare il file `pull-secret.txt` salvato in un luogo sicuro, che verrà usato in ogni creazione di cluster.
+
+Quando si esegue `az aro create` il comando, è possibile fare riferimento al segreto di `--pull-secret @pull-secret.txt` pull utilizzando il parametro. Eseguire `az aro create` dalla directory in cui è stato archiviato `pull-secret.txt` il file. In caso contrario `@pull-secret.txt` , `@<path-to-my-pull-secret-file`sostituire con.
+
+Se si copia il segreto di pull o vi si fa riferimento in altri script, il segreto di pull deve essere formattato come stringa JSON valida.
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Creare una rete virtuale contenente due subnet vuote
 
@@ -177,7 +183,10 @@ Successivamente, verrà creata una rete virtuale contenente due subnet vuote.
 
 ## <a name="create-the-cluster"></a>Creare il cluster
 
-Eseguire il comando seguente per creare un cluster. Si notino `apiserver-visibility` i `ingress-visibility` parametri e. Facoltativamente, è possibile passare un segreto pull che consente al cluster di accedere ai registri contenitori di Red Hat insieme a contenuti aggiuntivi. Accedere al segreto di pull passando a [Red Hat OpenShift cluster Manager](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) e facendo clic su Copy Secret pull.
+Eseguire il comando seguente per creare un cluster. Facoltativamente, è possibile [passare il segreto di pull di Red Hat](#get-a-red-hat-pull-secret-optional) , che consente al cluster di accedere ai registri contenitori di Red Hat insieme a contenuti aggiuntivi.
+
+>[!NOTE]
+> Se si stanno copiando e incollando i comandi e si usa uno dei parametri facoltativi, assicurarsi di eliminare gli hashtag iniziali e il testo del commento finale. Chiudere anche l'argomento nella riga precedente del comando con una barra rovesciata finale.
 
 ```azurecli-interactive
 az aro create \
@@ -185,15 +194,12 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet \
-  --apiserver-visibility Private \
-  --ingress-visibility Private
-  # --domain aro.example.com # [OPTIONAL] custom domain
-  # --pull-secret 'Pull secret from https://cloud.redhat.com/openshift/install/azure/installer-provisioned/' # [OPTIONAL]
+  --worker-subnet worker-subnet
+  # --domain foo.example.com # [OPTIONAL] custom domain
+  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
->[!NOTE]
-> La creazione di un cluster richiede in genere circa 35 minuti.
+Dopo aver eseguito il `az aro create` comando, in genere sono necessari circa 35 minuti per la creazione di un cluster.
 
 >[!IMPORTANT]
 > Se si sceglie di specificare un dominio personalizzato, ad esempio **foo.example.com**, la console di OpenShift sarà disponibile in un URL quale `https://console-openshift-console.apps.foo.example.com`, invece del dominio `https://console-openshift-console.apps.<random>.<location>.aroapp.io`predefinito.

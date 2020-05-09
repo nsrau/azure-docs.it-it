@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692622"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983211"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro sinapsi (anteprima)
 
@@ -145,7 +145,7 @@ Sinapsi studio si comporterà in modo diverso in base ai ruoli utente. Alcuni el
 | Apri sinapsi Studio | YES | YES | YES |
 | Visualizza Hub Home page | YES | YES | YES |
 | Visualizza hub dati | YES | YES | YES |
-| Hub dati/vedere gli account e i contenitori ADLSGen2 collegati | SÌ [1] | SÌ [1] | SÌ [1] |
+| Hub dati/vedere account ADLS Gen2 collegati e contenitori | SÌ [1] | SÌ [1] | SÌ [1] |
 | Hub dati/vedere database | YES | YES | YES |
 | Hub dati/Visualizza oggetti nei database | YES | YES | YES |
 | Data Hub/dati di accesso nei database del pool SQL | YES   | NO   | YES   |
@@ -179,8 +179,8 @@ Sinapsi studio si comporterà in modo diverso in base ai ruoli utente. Alcuni el
 
 
 > [!NOTE]
-> [1] l'accesso ai dati nei contenitori dipende dal controllo di accesso in ADLSGen2. </br>
-> [2] le tabelle SQL e le tabelle Spark archiviano i dati in ADLSGen2 e l'accesso richiede le autorizzazioni appropriate in ADLSGen2.
+> [1] l'accesso ai dati nei contenitori dipende dal controllo di accesso in ADLS Gen2. </br>
+> [2] le tabelle e le tabelle di Spark SQL e archiviano i dati in ADLS Gen2 e l'accesso richiede le autorizzazioni appropriate per ADLS Gen2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbd8e03b1f8af7802133c35ae4860116aaea0c3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430565"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982701"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Inserimento di dati in un pool SQL
 
@@ -39,7 +39,7 @@ In Azure sinapsi Analytics un servizio collegato è il punto in cui si definisco
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 
-Una pipeline contiene il flusso logico per l'esecuzione di un set di attività. In questa sezione si creerà una pipeline contenente un'attività di copia che inserisce i dati da ADLS gen 2 in un pool SQL.
+Una pipeline contiene il flusso logico per l'esecuzione di un set di attività. In questa sezione verrà creata una pipeline contenente un'attività di copia che inserisce i dati da ADLS Gen2 in un pool SQL.
 
 1. Passare alla scheda **orchestrazione** . fare clic sull'icona con il segno più accanto all'intestazione pipeline e selezionare **pipeline**.
 1. In **spostamento e trasformazione** nel riquadro attività trascinare **copia dati** nell'area di disegno della pipeline.

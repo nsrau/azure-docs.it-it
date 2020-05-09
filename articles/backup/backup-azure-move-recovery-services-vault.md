@@ -4,12 +4,12 @@ description: Istruzioni su come spostare l'insieme di credenziali di servizi di 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 3cfd442d49de2661d68de3c4e4b3575119504eb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93c3f2db6500023755796d50e71d44a427a2ce82
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804419"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597995"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -37,7 +37,7 @@ Francia centrale, Francia meridionale, Germania nord-orientale, Germania central
 - Per spostare una macchina virtuale con dischi gestiti, vedere questo [articolo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - Le opzioni per lo scorrimento delle risorse distribuite con il modello classico variano a seconda che si stiano migrando le risorse all'interno di una sottoscrizione o a una nuova sottoscrizione. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - I criteri di backup definiti per l'insieme di credenziali vengono conservati dopo che l'insieme di credenziali viene spostato tra le sottoscrizioni o in un nuovo gruppo di risorse.
-- Lo stato di archiviazione con File di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS tra sottoscrizioni e gruppi di risorse non è supportato.
+- È possibile spostare solo un insieme di credenziali se le macchine virtuali di Azure sono gli unici elementi di backup nell'insieme di credenziali.
 - Se si sposta un insieme di credenziali contenente i dati di backup delle VM, tra le sottoscrizioni, è necessario spostare le macchine virtuali nella stessa sottoscrizione e usare lo stesso nome del gruppo di risorse della VM di destinazione (come nella sottoscrizione precedente) per continuare i backup.
 
 > [!NOTE]

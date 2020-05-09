@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0058c0a0cedf2ea3f6c32f8f8368cca5b8dc6e3c
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 886ce03b6e107d871879ff40bdc5de9ceb97c7c3
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509007"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690746"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Usare Azure Automation Runbook Graphical SDK
 
@@ -18,7 +18,7 @@ ms.locfileid: "82509007"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Importare il `Microsoft.Azure.Management.Automation.GraphicalRunbook.Model` pacchetto nel progetto.
+Importare il `Orchestrator.GraphRunbook.Model.dll` pacchetto nel progetto.
 
 ## <a name="create-a-runbook-object-instance"></a>Creare un'istanza di un oggetto runbook
 
@@ -91,7 +91,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 
 Le attività vengono implementate dalle classi seguenti nello `Orchestrator.GraphRunbook.Model` spazio dei nomi.
 
-|Class  |Attività  |
+|Classe  |Attività  |
 |---------|---------|
 |CommandActivity     | Richiama un comando di PowerShell (cmdlet, funzioni e così via).        |
 |InvokeRunbookActivity     | Richiama un altro runbook inline.        |

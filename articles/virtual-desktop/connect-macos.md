@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac3ee8d44d68f5c7929c2f93f1a1182c7f6083b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca54c60d424722d31d195d10eb15751a2ec6c0eb
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891255"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612912"
 ---
 # <a name="connect-with-the-macos-client"></a>Connettersi con il client macOS
 
 > Si applica a: macOS 10,12 o versione successiva
+
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/connect-macos-2019.md).
+>
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile accedere alle risorse di desktop virtuali Windows dai dispositivi macOS con il client scaricabile. Questa guida illustra come configurare il client di.
 
@@ -33,7 +39,7 @@ Per sottoscrivere un feed:
 
 1. Selezionare **Aggiungi area di lavoro** nella pagina principale per connettersi al servizio e recuperare le risorse.
 2. Immetti un valore in Feed URL (URL del feed). Può essere un URL o un indirizzo e-mail:
-   - Se si usa un URL, usare quello che l'amministratore ha assegnato. In genere, l'URL <https://rdweb.wvd.microsoft.com>è.
+   - Se si usa un URL, usare quello che l'amministratore ha assegnato. In genere, l'URL <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>è.
    - Per usare la posta elettronica, immettere l'indirizzo di posta elettronica. Indica al client di cercare un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato il server in modo.
 3. Selezionare **Aggiungi**.
 4. Accedi con l'account utente quando richiesto.

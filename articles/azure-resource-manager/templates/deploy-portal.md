@@ -82,7 +82,7 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 
    ![Cercare la distribuzione del modello](./media/deploy-portal/search-template.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Vengono visualizzate diverse opzioni per la creazione di un modello:
 
     - **Compilare un modello personalizzato nell'editor**: creare un modello usando l'Editor modelli del portale.  L'editor è in grado di aggiungere uno schema del modello di risorsa.

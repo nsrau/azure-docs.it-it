@@ -5,17 +5,17 @@ description: Informazioni sui dati e sulle risorse raccolti per Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
-ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187597"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856027"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Azure Machine Learning
 
@@ -31,7 +31,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 |:--- |:---|
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
-| Category | Nome dell'evento del log, AmlComputeClusterNodeEvent |
+| Categoria | Nome dell'evento del log, AmlComputeClusterNodeEvent |
 | JobId | ID del processo inviato |
 | ExperimentId | ID dell'esperimento |
 | Experimentname | Nome dell'esperimento |
@@ -60,7 +60,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 |:--- |:--- |
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
-| Category | Nome dell'evento del log, AmlComputeClusterNodeEvent |
+| Categoria | Nome dell'evento del log, AmlComputeClusterNodeEvent |
 | ProvisioningState | Stato del provisioning del cluster |
 | ClusterName | Nome del cluster |
 | ClusterType | Tipo di cluster |
@@ -73,7 +73,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | MinimumNodeCount | Numero minimo di nodi del cluster |
 | MaximumNodeCount | Numero massimo di nodi del cluster |
 | NodeDeallocationOption | Come deallocare il nodo |
-| Pubblicazione | Server di pubblicazione del tipo di cluster |
+| Editore | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
@@ -103,13 +103,13 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 |:--- |:--- |
 | TimeGenerated | Ora di generazione della voce di log |
 | OperationName | Nome dell'operazione associata all'evento del log |
-| Category | Nome dell'evento del log, AmlComputeClusterNodeEvent |
+| Categoria | Nome dell'evento del log, AmlComputeClusterNodeEvent |
 | ClusterName | Nome del cluster |
 | NodeId | ID del nodo del cluster creato |
 | VmSize | Dimensioni della macchina virtuale del nodo |
 | VmFamilyName | Famiglia di macchine virtuali a cui appartiene il nodo |
 | VmPriority | Priorità del nodo creato/LowPriority dedicato |
-| Pubblicazione | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
+| Editore | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
@@ -176,7 +176,7 @@ Di seguito sono riportate le dimensioni che possono essere usate per filtrare le
 | Dimension | Descrizione |
 | ----- | ----- |
 | CreatedTime | |
-| deviceId | ID del dispositivo (GPU). Disponibile solo per GpuUtilization. |
+| DeviceId | ID del dispositivo (GPU). Disponibile solo per GpuUtilization. |
 | NodeId | ID del nodo creato in cui è in esecuzione il processo. |
 | RunId | ID dell'esecuzione/processo. |
 
