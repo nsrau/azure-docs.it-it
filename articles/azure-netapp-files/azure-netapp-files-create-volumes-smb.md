@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/30/2020
 ms.author: b-juche
-ms.openlocfilehash: c4e7566eeb28bc5709acd60ced9fcdffb7e8a725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668010"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625537"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -40,7 +40,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 * Le porte appropriate devono essere aperte nel server di Windows Active Directory (AD) applicabile.  
     Le porte necessarie sono le seguenti: 
 
-    |     Servizio           |     Porta     |     Protocollo     |
+    |     Service           |     Porta     |     Protocollo     |
     |-----------------------|--------------|------------------|
     |    Servizi Web Active Directory    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -102,7 +102,7 @@ Per trovare il nome del sito quando si usa l'aggiunta, è possibile contattare i
 
 Quando si configura una connessione AD per Azure NetApp Files, specificare il nome del sito nell'ambito del campo **nome sito Active Directory** .
 
-### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 
+### <a name="azure-active-directory-domain-services"></a>Servizi di dominio Azure Active Directory 
 
 Per informazioni sulla configurazione di Azure Active Directory Domain Services (AADDS), vedere la [documentazione di Azure ad Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
@@ -222,6 +222,23 @@ Questa impostazione è configurata nelle **connessioni Active Directory** sotto 
     Il volume creato verrà visualizzato nella pagina volumi. 
  
     Un volume eredita sottoscrizione, gruppo di risorse e attributi di posizione dal relativo pool di capacità. Per monitorare lo stato di distribuzione del volume, è possibile usare la scheda Notifiche.
+
+## <a name="control-access-to-an-smb-volume"></a>Controllare l'accesso a un volume SMB  
+
+L'accesso a un volume SMB viene gestito tramite le autorizzazioni.  
+
+### <a name="share-permissions"></a>Autorizzazioni di condivisione  
+
+Per impostazione predefinita, un nuovo volume dispone delle autorizzazioni di condivisione **Everyone/controllo completo** . I membri del gruppo Domain Admins possono modificare le autorizzazioni di condivisione utilizzando Gestione computer nell'account computer utilizzato per il volume Azure NetApp Files.
+
+![Autorizzazioni di condivisione](../media/azure-netapp-files/smb-mount-path.png) 
+![set del percorso di montaggio SMB](../media/azure-netapp-files/set-share-permissions.png) 
+
+### <a name="ntfs-file-and-folder-permissions"></a>Autorizzazioni per file e cartelle NTFS  
+
+È possibile impostare le autorizzazioni per un file o una cartella utilizzando la scheda **sicurezza** delle proprietà dell'oggetto nel client SMB di Windows.
+ 
+![Impostare le autorizzazioni per file e cartelle](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

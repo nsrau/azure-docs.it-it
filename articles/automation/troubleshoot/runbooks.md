@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08325c8163073c083e927f84fecbde9a9d104572
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 70f3c52adc10556c358ed75a75fd023ffb21a813
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652787"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855102"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Risolvere gli errori di Runbook
 
@@ -49,7 +49,7 @@ Quando si ricevono errori durante l'esecuzione di Runbook in automazione di Azur
     * [Rinnovare il webhook](../automation-webhooks.md#renew-a-webhook) se si sta provando a usare un webhook scaduto per avviare il Runbook.
     * [Controllare gli Stati dei processi](../automation-runbook-execution.md#job-statuses) per determinare gli Stati Runbook correnti e alcune possibili cause del problema.
     * [Aggiungere un output aggiuntivo](../automation-runbook-output-and-messages.md#message-streams) a Runbook per identificare cosa accade prima della sospensione del Runbook.
-    * [Gestire tutte le eccezioni](../automation-runbook-execution.md#handling-exceptions) generate dal processo.
+    * [Gestire tutte le eccezioni](../automation-runbook-execution.md#exceptions) generate dal processo.
 
 1. Eseguire questo passaggio se il processo Runbook o l'ambiente in Hybrid Runbook Worker non risponde.
 
@@ -65,7 +65,7 @@ Il Runbook ha esito negativo senza autorizzazione o errore 403 vietato o equival
 
 Gli account RunAs potrebbero non avere le stesse autorizzazioni per le risorse di Azure dell'account di automazione corrente. 
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Verificare che l'account RunAs disponga [delle autorizzazioni per accedere a tutte le risorse](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) utilizzate nello script.
 
@@ -87,7 +87,7 @@ No certificate was found in the certificate store with thumbprint
 
 Questi errori si verificano se il nome dell'asset delle credenziali non è valido. Potrebbero anche verificarsi se il nome utente e la password usati per configurare l'asset delle credenziali di automazione non sono validi.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per determinare il problema, attenersi alla seguente procedura:
 
@@ -147,7 +147,7 @@ Questo errore ha due cause principali:
 * Sono disponibili versioni diverse del modulo AzureRM o AZ.
 * Si sta provando ad accedere alle risorse in una sottoscrizione separata.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se questo errore viene visualizzato dopo l'aggiornamento di un modulo AzureRM o AZ, aggiornare tutti i moduli alla stessa versione.
 
@@ -202,7 +202,7 @@ Questo errore si verifica nei seguenti casi:
 * Il Azure AD utente che sta tentando di ottenere i dettagli della sottoscrizione non è configurato come amministratore della sottoscrizione.
 * Il cmdlet non è disponibile.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Seguire questa procedura per determinare se è stata eseguita l'autenticazione in Azure e si ha accesso alla sottoscrizione che si sta tentando di selezionare:
 
@@ -232,9 +232,9 @@ Quando si esegue manuali operativi, Runbook non riesce a gestire le risorse di A
 
 Il runbook non usa il contesto corretto durante l'esecuzione.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
-È possibile che il contesto della sottoscrizione vada perso quando un Runbook richiama più manuali operativi. Per assicurarsi che il contesto della sottoscrizione venga passato a manuali operativi, fare in modo che il client Runbook passi il `Start-AzureRmAutomationRunbook` contesto al cmdlet `AzureRmContext` nel parametro. Utilizzare il `Disable-AzureRmContextAutosave` cmdlet con il `Scope` parametro impostato su `Process` per assicurarsi che le credenziali specificate vengano utilizzate solo per il Runbook corrente. Per ulteriori informazioni, vedere [utilizzo di più sottoscrizioni](../automation-runbook-execution.md#working-with-multiple-subscriptions).
+È possibile che il contesto della sottoscrizione vada perso quando un Runbook richiama più manuali operativi. Per assicurarsi che il contesto della sottoscrizione venga passato a manuali operativi, fare in modo che il client Runbook passi il `Start-AzureRmAutomationRunbook` contesto al cmdlet `AzureRmContext` nel parametro. Utilizzare il `Disable-AzureRmContextAutosave` cmdlet con il `Scope` parametro impostato su `Process` per assicurarsi che le credenziali specificate vengano utilizzate solo per il Runbook corrente. Per altre informazioni, vedere [Sottoscrizioni](../automation-runbook-execution.md#subscriptions).
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -275,7 +275,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 Se si dispone dell'autenticazione a più fattori per l'account Azure, non è possibile usare un utente Azure Active Directory per l'autenticazione in Azure. È invece necessario usare un certificato o un'entità servizio per l'autenticazione.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per usare un certificato con i cmdlet del modello di distribuzione classica di Azure, vedere [creazione e aggiunta di un certificato per gestire i servizi di Azure](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere Creazione di un' [entità servizio mediante portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [autenticazione di un'entità servizio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -293,7 +293,7 @@ Exception: A task was canceled.
 
 Questo errore può essere causato dall'utilizzo di moduli di Azure non aggiornati.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 È possibile risolvere questo errore aggiornando i moduli di Azure alla versione più recente:
 
@@ -319,7 +319,7 @@ Questo errore può verificarsi per i motivi seguenti:
 * Il modulo che contiene il cmdlet non viene importato nell'account di automazione.
 * Il modulo che contiene il cmdlet viene importato ma non aggiornato.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per risolvere l'errore, eseguire una delle attività seguenti:
 
@@ -336,7 +336,7 @@ Quando un Runbook scrive direttamente un oggetto generato da PowerShell PnP nell
 
 Questo problema si verifica in genere quando automazione di Azure elabora manuali operativi che richiamano i cmdlet di PowerShell `add-pnplistitem`PNP, ad esempio, senza intercettare gli oggetti restituiti.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Modificare gli script per assegnare i valori restituiti alle variabili in modo che i cmdlet non tentino di scrivere interi oggetti nell'output standard. Uno script può reindirizzare il flusso di output a un cmdlet, come illustrato di seguito.
 
@@ -365,7 +365,7 @@ Il processo del runbook ha esito negativo con errore:
 
 Questo errore si verifica quando il motore di PowerShell non trova il cmdlet utilizzato nel runbook. È possibile che il modulo che contiene il cmdlet non sia presente nell'account, che si verifichi un conflitto di nomi con un nome Runbook o che il cmdlet esista anche in un altro modulo e che l'automazione non possa risolvere il nome.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per risolvere il problema, usare una delle soluzioni seguenti:
 
@@ -402,7 +402,7 @@ Object reference not set to an instance of an object
 
 Se il flusso contiene oggetti, `Start-AzAutomationRunbook` il flusso di output non viene gestito correttamente.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Implementare una logica di polling e usare il cmdlet [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) per recuperare l'output. Un esempio di questa logica è definito qui:
 
@@ -444,7 +444,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 Se il runbook è un flusso di lavoro di PowerShell, archivia gli oggetti complessi in un formato deserializzato per rendere persistente lo stato del runbook quando il flusso di lavoro viene sospeso.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per risolvere il problema, usare una delle soluzioni seguenti:
 
@@ -468,7 +468,7 @@ Quando si tenta di richiamare un webhook per un Runbook di automazione di Azure,
 
 Il webhook che si sta tentando di chiamare è disabilitato o scaduto. 
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se il webhook è disabilitato, è possibile riabilitarlo tramite il portale di Azure. Se il webhook è scaduto, è necessario eliminarlo e ricrearlo. Il [rinnovo di un webhook](../automation-webhooks.md#renew-a-webhook) è possibile solo se il webhook non è scaduto. 
 
@@ -486,7 +486,7 @@ Quando si esegue il cmdlet `Get-AzAutomationJobOutput` viene visualizzato il mes
 
 Questo errore può verificarsi durante il recupero dell'output del processo da un runbook con molti [flussi dettagliati](../automation-runbook-output-and-messages.md#verbose-stream).
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per risolvere l'errore, eseguire una delle operazioni seguenti:
 
@@ -507,7 +507,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 Questo errore si verifica quando l'esecuzione del processo supera la quota disponibile di 500 minuti per l'account. Questa quota si applica a tutti i tipi di attività di esecuzione di processi, Alcune di queste attività testano un processo, avviando un processo dal portale, eseguendo un processo usando webhook o pianificando un processo da eseguire usando il portale di Azure o il Data Center. Per altre informazioni sui prezzi relativi all'automazione, vedere [Prezzi di Automazione](https://azure.microsoft.com/pricing/details/automation/).
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se si vogliono usare più di 500 minuti di elaborazione al mese, modificare la sottoscrizione dal livello gratuito al livello Basic:
 
@@ -536,7 +536,7 @@ Questo errore si verifica a causa di uno dei problemi seguenti:
 * **Nessuna autenticazione con Active Directory per sandbox.** Il Runbook ha tentato di chiamare un eseguibile o un sottoprocesso eseguito in una sandbox di Azure. La configurazione di manuali operativi per l'autenticazione con Azure AD tramite la libreria di autenticazione Azure Active Directory (ADAL) non è supportata.
 * **Troppa quantità di dati di eccezione.** Il Runbook ha tentato di scrivere una quantità eccessiva di dati di eccezione nel flusso di output.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 * **Limite di memoria, socket di rete.** I modi consigliati per lavorare entro i limiti di memoria sono suddividere il carico di lavoro tra più manuali operativi, elaborare meno dati in memoria, evitare di scrivere output superfluo dalla manuali operativi e prendere in considerazione il numero di checkpoint scritti nel manuali operativi del flusso di lavoro PowerShell. Usare il metodo Clear, ad esempio `$myVar.clear`, per cancellare le variabili e usare `[GC]::Collect` per eseguire immediatamente Garbage Collection. in modo da ridurre il footprint della memoria durante l'esecuzione dei runbook.
 * **Il modulo non è compatibile.** Aggiornare i moduli di Azure seguendo i passaggi descritti in [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md).
@@ -560,7 +560,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 Questo errore potrebbe indicare che manuali operativi eseguiti in una sandbox di Azure non possono essere eseguiti in [modalità Full Language](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 È possibile risolvere questo problema in due modi:
 
@@ -585,7 +585,7 @@ Questo comportamento è progettato in sandbox di Azure a causa del monitoraggio 
 
 Il Runbook è stato eseguito nel limite di tre ore consentito dalla condivisione equa in una sandbox di Azure.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Una soluzione consigliata consiste nell'eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md). I ruoli di lavoro ibridi non sono limitati dal limite Runbook di tre ore per la condivisione equa. I manuali operativi eseguiti sui ruoli di lavoro ibridi per Runbook devono essere sviluppati per supportare i comportamenti di riavvio in caso di problemi di infrastruttura locale imprevisti.
 
@@ -618,7 +618,7 @@ At line:16 char:1
 
 Questo errore è probabilmente causato dall'uso di una migrazione incompleta da AzureRM a AZ Modules in Runbook. Questa situazione può far sì che automazione di Azure avvii un processo Runbook usando solo moduli AzureRM e quindi avviare un altro processo usando solo AZ Modules, che causa un arresto anomalo della sandbox.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Non è consigliabile usare i cmdlet AZ e AzureRM nella stessa Runbook. Per ulteriori informazioni sull'utilizzo corretto di questi moduli, vedere la pagina relativa alla [migrazione a AZ Modules](../shared-resources/modules.md#migrating-to-az-modules).
 
@@ -632,9 +632,9 @@ Quando il Runbook o l'applicazione tenta l'esecuzione in una sandbox di Azure, l
 
 Questo problema può verificarsi perché sandbox di Azure impedisce l'accesso a tutti i server COM out-of-process. Ad esempio, un'applicazione o un Runbook in modalità sandbox non può chiamare Strumentazione gestione Windows (WMI) o nel servizio di Windows Installer (MSIServer. exe). 
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
-Per informazioni dettagliate sull'uso di sandbox di Azure, vedere [esecuzione di Runbook in automazione di Azure](../automation-runbook-execution.md#where-to-run-your-runbooks).
+Per informazioni dettagliate sull'uso di sandbox di Azure, vedere [ambiente di esecuzione Runbook](../automation-runbook-execution.md#runbook-execution-environment).
 
 ## <a name="scenario-invalid-forbidden-status-code-when-using-key-vault-inside-a-runbook"></a>Scenario: codice di stato non consentito valido quando si usa Key Vault all'interno di un Runbook
 
@@ -653,7 +653,7 @@ Le possibili cause di questo problema sono:
 * Non usare un account RunAs.
 * Autorizzazioni insufficienti.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 #### <a name="not-using-a-run-as-account"></a>Non usare un account RunAs
 

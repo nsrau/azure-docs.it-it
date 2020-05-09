@@ -16,7 +16,7 @@
       href: service-fabric-quickstart-containers-linux.md
     - name: Distribuire un'applicazione contenitore Windows
       href: service-fabric-quickstart-containers.md
-    - name: Avvii rapidi di Java
+    - name: Guide introduttive su Java
       items:
         - name: Distribuire un'applicazione Spring Boot
           href: service-fabric-quickstart-java-spring-boot.md
@@ -655,7 +655,7 @@
             - name: Scalabilità
               items:
                 - name: Aumentare manualmente le prestazioni
-                  href: service-fabric-cluster-scale-up-down.md
+                  href: service-fabric-cluster-scale-in-out.md
                 - name: Aumentare le prestazioni a livello di programmazione
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Ridimensionare il tipo di nodo primario

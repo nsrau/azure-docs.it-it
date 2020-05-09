@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: bb23afff2b4b449897d8e420934d038938d20205
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f88857ea66f65ff90705bc1d1e3fb745cc33709
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79256757"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982752"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
 
@@ -88,45 +88,71 @@ Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 
 ### <a name="error"></a>Errore
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome metrica attuatore molla | Unità | Dettagli |
+>| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
->| Errore globale Tomcat | Tomcat. Global. Error | Conteggio | Numero di errori che si verificano nelle richieste elaborate |
+>| TomcatErrorCount<br><br>Errore globale di Tomcat (deprecato) | Tomcat. Global. Error | Conteggio | Numero di errori che si verificano nelle richieste elaborate |
+>| Tomcat. Global. Error | Tomcat. Global. Error | Conteggio | Numero di errori che si verificano nelle richieste elaborate |
 
 ### <a name="performance"></a>Prestazioni
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome metrica attuatore molla | Unità | Dettagli |
+>| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
->|Percentuale di utilizzo CPU di sistema | System. CPU. Usage | Percentuale | Utilizzo di CPU recente per l'intero sistema. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che tutte le CPU erano inattive durante il periodo di tempo recente osservato, mentre un valore pari a 1,0 indica che tutte le CPU stavano eseguendo attivamente il 100% del tempo durante l'osservazione del periodo recente.|
->| Percentuale di utilizzo della CPU dell'app | Percentuale di utilizzo della CPU dell'app | Percentuale | Utilizzo di CPU recente per il processo Java Virtual Machine. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
->| Memoria app assegnata | JVM. memory. commit | Byte | Rappresenta la quantità di memoria che deve essere disponibile per l'utilizzo da parte della JVM. JVM può rilasciare memoria al sistema e il commit potrebbe essere inferiore a init. il commit sarà sempre maggiore o uguale a quello usato. |
->| Memoria app utilizzata | JVM. memory. used | Byte | Rappresenta la quantità di memoria attualmente utilizzata in byte. |
->| Memoria app Max | JVM. memory. max | Byte | Rappresenta la quantità massima di memoria che può essere utilizzata per la gestione della memoria. La quantità di memoria utilizzata e di cui è stato eseguito il commit sarà sempre minore o uguale a max se è definito max. Un'allocazione di memoria potrebbe non riuscire se tenta di aumentare la memoria utilizzata, in modo da usare > eseguito il commit anche se utilizzata <= Max sarebbe ancora true (ad esempio, quando il sistema è insufficiente nella memoria virtuale). |
->| Dimensioni massime dei dati di generazione obsoleti disponibili | JVM. GC. max. Data. size | Byte | Utilizzo massimo della memoria del pool di memoria di generazione precedente dall'avvio della macchina virtuale Java. |
->| Dimensioni dati di generazione precedenti | JVM. GC. Live. Data. size | Byte | Dimensioni del pool di memoria di generazione precedente dopo un catalogo globale completo. |
->| Innalzamento di livello alle dimensioni dei dati di generazione precedente | JVM. GC. memory. promossi | Byte | Numero di aumenti positivi nelle dimensioni del pool di memoria precedente prima della GC dopo GC. |
->| Innalzamento di livello a dimensioni dati di generazione giovani | JVM. GC. memory. allocato | Byte | Incrementato per un aumento delle dimensioni del pool di memoria di generazione giovani dopo un GC a prima del successivo. |
->| Conteggio delle pause GC | JVM. GC. pause (Total-count) | Conteggio | Numero totale di GC dopo l'avvio di questo Giuseppe, incluso GC recente e vecchio. |
->| Tempo totale pausa GC | JVM. GC. pause (tempo totale) | Millisecondi | Tempo totale GC utilizzato dopo l'avvio di questo Giuseppe, inclusa la GC precedente e quella precedente. |
+>| SystemCpuUsagePercentage<br><br>Percentuale di utilizzo della CPU di sistema (deprecata) | System. CPU. Usage | Percentuale | Utilizzo di CPU recente per l'intero sistema. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che tutte le CPU erano inattive durante il periodo di tempo recente osservato, mentre un valore pari a 1,0 indica che tutte le CPU stavano eseguendo attivamente il 100% del tempo durante l'osservazione del periodo recente.|
+>| System. CPU. Usage | System. CPU. Usage | Percentuale | Utilizzo di CPU recente per l'intero sistema. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che tutte le CPU erano inattive durante il periodo di tempo recente osservato, mentre un valore pari a 1,0 indica che tutte le CPU stavano eseguendo attivamente il 100% del tempo durante l'osservazione del periodo recente.|
+>| AppCpuUsagePercentage<br><br>Percentuale di utilizzo della CPU dell'app (deprecata) | Percentuale di utilizzo della CPU dell'app | Percentuale | Utilizzo di CPU recente per il processo Java Virtual Machine. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
+>| Process. CPU. Usage | Percentuale di utilizzo della CPU dell'app | Percentuale | Utilizzo di CPU recente per il processo Java Virtual Machine. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
+>| AppMemoryCommitted<br><br>Memoria app assegnata (deprecata) | JVM. memory. commit | Byte | Rappresenta la quantità di memoria che deve essere disponibile per l'utilizzo da parte della JVM. JVM può rilasciare memoria al sistema e il commit potrebbe essere inferiore a init. il commit sarà sempre maggiore o uguale a quello usato. |
+>| JVM. memory. commit | JVM. memory. commit | Byte | Rappresenta la quantità di memoria che deve essere disponibile per l'utilizzo da parte della JVM. JVM può rilasciare memoria al sistema e il commit potrebbe essere inferiore a init. il commit sarà sempre maggiore o uguale a quello usato. |
+>| AppMemoryUsed <br><br>Memoria app utilizzata (deprecata) | JVM. memory. used | Byte | Rappresenta la quantità di memoria attualmente utilizzata in byte. |
+>| JVM. memory. used | JVM. memory. used | Byte | Rappresenta la quantità di memoria attualmente utilizzata in byte. |
+>| AppMemoryMax<br><br>Memoria app massima (deprecata) | JVM. memory. max | Byte | Rappresenta la quantità massima di memoria che può essere utilizzata per la gestione della memoria. La quantità di memoria utilizzata e di cui è stato eseguito il commit sarà sempre minore o uguale a max se è definito max. Un'allocazione di memoria potrebbe non riuscire se tenta di aumentare la memoria utilizzata, in modo da usare > eseguito il commit anche se utilizzata <= Max sarebbe ancora true (ad esempio, quando il sistema è insufficiente nella memoria virtuale). |
+>| JVM. memory. max | JVM. memory. max | Byte | Rappresenta la quantità massima di memoria che può essere utilizzata per la gestione della memoria. La quantità di memoria utilizzata e di cui è stato eseguito il commit sarà sempre minore o uguale a max se è definito max. Un'allocazione di memoria potrebbe non riuscire se tenta di aumentare la memoria utilizzata, in modo da usare > eseguito il commit anche se utilizzata <= Max sarebbe ancora true (ad esempio, quando il sistema è insufficiente nella memoria virtuale). |
+>| MaxOldGenMemoryPoolBytes<br><br>Dimensioni massime dei dati di generazione precedenti disponibili (deprecato) | JVM. GC. max. Data. size | Byte | Utilizzo massimo della memoria del pool di memoria di generazione precedente dall'avvio della macchina virtuale Java. |
+>| JVM. GC. max. Data. size | JVM. GC. max. Data. size | Byte | Utilizzo massimo della memoria del pool di memoria di generazione precedente dall'avvio della macchina virtuale Java. |
+>| OldGenMemoryPoolBytes<br><br>Dimensioni dati di generazione precedenti (deprecato) | JVM. GC. Live. Data. size | Byte | Dimensioni del pool di memoria di generazione precedente dopo un catalogo globale completo. |
+>| JVM. GC. Live. Data. size | JVM. GC. Live. Data. size | Byte | Dimensioni del pool di memoria di generazione precedente dopo un catalogo globale completo. |
+>| OldGenPromotedBytes<br><br>Innalzamento di livello alle dimensioni dei dati di generazione precedente (deprecato) | JVM. GC. memory. promossi | Byte | Numero di aumenti positivi nelle dimensioni del pool di memoria precedente prima della GC dopo GC. |
+>| JVM. GC. memory. promossi | JVM. GC. memory. promossi | Byte | Numero di aumenti positivi nelle dimensioni del pool di memoria precedente prima della GC dopo GC. |
+>| YoungGenPromotedBytes<br><br>Innalzamento di livello a dimensioni dati di generazione giovani (deprecato) | JVM. GC. memory. allocato | Byte | Incrementato per un aumento delle dimensioni del pool di memoria di generazione giovani dopo un GC a prima del successivo. |
+>| JVM. GC. memory. allocato | JVM. GC. memory. allocato | Byte | Incrementato per un aumento delle dimensioni del pool di memoria di generazione giovani dopo un GC a prima del successivo. |
+>| GCPauseTotalCount<br><br>Conteggio delle pause GC (deprecato) | JVM. GC. pause (Total-count) | Conteggio | Numero totale di GC dopo l'avvio di questo Giuseppe, incluso GC recente e vecchio. |
+>| JVM. GC. pause. Total. Count | JVM. GC. pause (Total-count) | Conteggio | Numero totale di GC dopo l'avvio di questo Giuseppe, incluso GC recente e vecchio. |
+>| GCPauseTotalTime<br><br>Tempo totale di sospensione GC (obsoleto) | JVM. GC. pause (tempo totale) | Millisecondi | Tempo totale GC utilizzato dopo l'avvio di questo Giuseppe, inclusa la GC precedente e quella precedente. |
+>| JVM. GC. pause. Total. Time | JVM. GC. pause (tempo totale) | Millisecondi | Tempo totale GC utilizzato dopo l'avvio di questo Giuseppe, inclusa la GC precedente e quella precedente. |
+>| Tomcat. Threads. config. max | Tomcat. Threads. config. max | Conteggio | Numero massimo thread di configurazione Tomcat |
+>| Tomcat. Threads. Current | Tomcat. Threads. Current | Conteggio | Conteggio thread correnti Tomcat |
+>| Tomcat. Global. Request. AVG. Time | Tomcat. Global. Request. AVG. Time | Millisecondi | Tempo medio richiesta Tomcat |
+
 
 ### <a name="request"></a>Richiesta
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome metrica attuatore molla | Unità | Dettagli |
+>| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
->| Totale byte inviati Tomcat | Tomcat. Global. Sent | Byte | Quantità di dati inviati dal server Web Tomcat |
->| Totale byte ricevuti Tomcat | Tomcat. Global. received | Byte | Quantità di dati ricevuti dal server Web Tomcat |
->| Tempo totale richiesta Tomcat | Tomcat. Global. Request (tempo totale) | Millisecondi | Tempo totale del server Web Tomcat per l'elaborazione delle richieste |
->| Conteggio totale richieste Tomcat | Tomcat. Global. Request (Totale-conteggio) | Conteggio | Numero totale di richieste elaborate dal server Web Tomcat |
->| Tempo massimo richiesta Tomcat | Tomcat. Global. Request. max | Millisecondi | Tempo massimo di elaborazione di una richiesta da server Web Tomcat |
+>| TomcatSentBytes<br><br>Totale byte inviati Tomcat (deprecati) | Tomcat. Global. Sent | Byte | Quantità di dati inviati dal server Web Tomcat |
+>| Tomcat. Global. Sent | Tomcat. Global. Sent | Byte | Quantità di dati inviati dal server Web Tomcat |
+>| TomcatReceivedBytes<br><br>Totale byte ricevuti Tomcat (deprecati) | Tomcat. Global. received | Byte | Quantità di dati ricevuti dal server Web Tomcat |
+>| Tomcat. Global. received | Tomcat. Global. received | Byte | Quantità di dati ricevuti dal server Web Tomcat |
+>| TomcatRequestTotalTime<br><br>Tempo totale richiesta Tomcat (obsoleto) | Tomcat. Global. Request (tempo totale) | Millisecondi | Tempo totale del server Web Tomcat per l'elaborazione delle richieste |
+>| TomcatRequestTotalCount<br><br>Conteggio totale richieste Tomcat (deprecato) | Tomcat. Global. Request (Totale-conteggio) | Conteggio | Numero totale di richieste elaborate dal server Web Tomcat |
+>| Tomcat. Global. Request. Total. Count | Tomcat. Global. Request (Totale-conteggio) | Conteggio | Numero totale di richieste elaborate dal server Web Tomcat |
+>| TomcatRequestMaxTime<br><br>Tempo massimo richiesta Tomcat (obsoleto) | Tomcat. Global. Request. max | Millisecondi | Tempo massimo di elaborazione di una richiesta da server Web Tomcat |
+>| Tomcat. Global. Request. max | Tomcat. Global. Request. max | Millisecondi | Tempo massimo di elaborazione di una richiesta da server Web Tomcat |
 
 ### <a name="session"></a>sessione
 >[!div class="mx-tdCol2BreakAll"]
->| Name | Nome metrica attuatore molla | Unità | Dettagli |
+>| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
->| Numero massimo attivo sessione Tomcat | Tomcat. Sessions. Active. max | Conteggio | Numero massimo di sessioni attive allo stesso tempo |
->| Tempo massimo attivo della sessione Tomcat | Tomcat. Sessions. Alive. max | Millisecondi | Tempo più lungo (in secondi) durante il quale una sessione scaduta è stata attiva |
->| Conteggio creazione sessione Tomcat | Tomcat. Sessions. created | Conteggio | Numero di sessioni create |
->| Conteggio scaduto sessione Tomcat | Tomcat. Sessions. scaduto | Conteggio | Numero di sessioni scadute |
->| Conteggio rifiutato sessione Tomcat | Tomcat. Sessions. rifiutato | Conteggio | Numero di sessioni che non sono state create perché è stato raggiunto il numero massimo di sessioni attive. |
+>| TomcatSessionActiveMaxCount<br><br>Numero massimo attivo sessione Tomcat (deprecato) | Tomcat. Sessions. Active. max | Conteggio | Numero massimo di sessioni attive allo stesso tempo |
+>| Tomcat. Sessions. Active. max | Tomcat. Sessions. Active. max | Conteggio | Numero massimo di sessioni attive allo stesso tempo |
+>| TomcatSessionAliveMaxTime<br><br>Tempo massimo attivo della sessione Tomcat (obsoleto) | Tomcat. Sessions. Alive. max | Millisecondi | Tempo più lungo (in secondi) durante il quale una sessione scaduta è stata attiva |
+>| Tomcat. Sessions. Alive. max | Tomcat. Sessions. Alive. max | Millisecondi | Tempo più lungo (in secondi) durante il quale una sessione scaduta è stata attiva |
+>| TomcatSessionCreatedCount<br><br>Conteggio creato sessione Tomcat (deprecato) | Tomcat. Sessions. created | Conteggio | Numero di sessioni create |
+>| Tomcat. Sessions. created | Tomcat. Sessions. created | Conteggio | Numero di sessioni create |
+>| TomcatSessionExpiredCount<br><br>Conteggio scaduto sessione Tomcat (deprecato) | Tomcat. Sessions. scaduto | Conteggio | Numero di sessioni scadute |
+>| Tomcat. Sessions. scaduto | Tomcat. Sessions. scaduto | Conteggio | Numero di sessioni scadute |
+>| TomcatSessionRejectedCount<br><br>Conteggio rifiutato sessione Tomcat (deprecato) | Tomcat. Sessions. rifiutato | Conteggio | Numero di sessioni che non sono state create perché è stato raggiunto il numero massimo di sessioni attive. |
+>| Tomcat. Sessions. rifiutato | Tomcat. Sessions. rifiutato | Conteggio | Numero di sessioni che non sono state create perché è stato raggiunto il numero massimo di sessioni attive. |
+>| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Conteggio | Conteggio attivo sessione Tomcat |
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione a Esplora metriche di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)

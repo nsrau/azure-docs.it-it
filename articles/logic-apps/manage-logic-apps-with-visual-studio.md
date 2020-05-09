@@ -3,16 +3,16 @@ title: Modificare e gestire app per la logica usando Visual Studio con Cloud Exp
 description: Modificare, aggiornare, gestire, aggiungere al controllo del codice sorgente e distribuire app per la logica usando Visual Studio con Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/29/2019
-ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803191"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598437"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -259,7 +259,11 @@ Per eliminare l'app per la logica dal portale di Azure, in Cloud Explorer aprire
 ![Eliminare l'app per la logica da portale di Azure](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
-> Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo. 
+> Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo.
+
+> [!NOTE]
+> Se si elimina e si ricrea un'app per la logica figlio, è necessario salvare di nuovo l'app per la logica padre. L'app figlio ricreata avrà metadati diversi.
+> Se non si salva di nuovo l'app per la logica padre dopo aver ricreato l'elemento figlio, le chiamate all'app per la logica figlio avranno esito negativo con un errore di "non autorizzato". Questo comportamento si applica alle app per la logica padre-figlio, ad esempio quelle che usano gli artefatti negli account di integrazione o chiamano funzioni di Azure.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

@@ -9,12 +9,19 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: 'Creare un database: portale'
-      href: quickstart-create-mysql-server-database-using-azure-portal.md
-    - name: 'Creare un database: interfaccia della riga di comando di Azure'
-      href: quickstart-create-mysql-server-database-using-azure-cli.md
-    - name: 'Creare un database: comando up dell''interfaccia della riga di comando di Azure'
-      href: quickstart-create-server-up-azure-cli.md
+    - name: Creare un database
+      items:
+        - name: 'Creare un database: portale'
+          href: quickstart-create-mysql-server-database-using-azure-portal.md
+        - name: 'Creare un database: interfaccia della riga di comando di Azure'
+          href: quickstart-create-mysql-server-database-using-azure-cli.md
+        - name: 'Creare un database: comando up dell''interfaccia della riga di comando di Azure'
+          href: quickstart-create-server-up-azure-cli.md
+        - name: Creare un database - Azure PowerShell
+          href: quickstart-create-mysql-server-database-using-azure-powershell.md
+        - name: Creare un database - Modello di Resource Manager
+          href: quickstart-create-mysql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
     - name: Connettersi ed eseguire query
       items:
         - name: PHP
@@ -43,6 +50,8 @@
           href: tutorial-design-database-using-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: tutorial-design-database-using-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
         - name: Modello di Azure Resource Manager
           href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
     - name: 2. Creare un'app Web
@@ -59,6 +68,9 @@
       href: sample-scripts-azure-cli.md
     - name: Pool di connessioni Java
       href: sample-scripts-java-connection-pooling.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Database e server
@@ -160,6 +172,8 @@
           href: howto-restore-server-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: Eseguire la migrazione di un database
       items:
         - name: Dump e ripristino
@@ -186,12 +200,16 @@
           href: howto-server-parameters.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-configure-server-parameters-using-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: Aumento automatico delle dimensioni di archiviazione
       items:
         - name: Portale di Azure
           href: howto-auto-grow-storage-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: Accesso ai log server
       items:
         - name: Log query lente
@@ -218,6 +236,8 @@
           href: howto-read-replicas-portal.md
         - name: Creare repliche in lettura con l'interfaccia della riga di comando di Azure e l'API REST
           href: howto-read-replicas-cli.md
+        - name: Creare repliche in lettura in Azure PowerShell
+          href: howto-read-replicas-powershell.md
     - name: Risolvere problemi
       items:
         - name: Risolvere gli errori di connessione
@@ -250,6 +270,8 @@
           href: howto-data-encryption-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-data-encryption-cli.md
+        - name: Convalida della crittografia dei dati
+          href: howto-data-encryption-validation.md
     - name: Integrazione di Azure AD
       items:
         - name: Configurare l'integrazione di Azure AD
@@ -264,6 +286,8 @@
           href: howto-restart-server-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
