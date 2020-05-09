@@ -7,12 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: affdbfba125b7e9b3f3fe250a56af30e9efe816e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758989"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611007"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagire con i cluster di Apache Kafka in Azure HDInsight usando un proxy REST
 
@@ -22,7 +23,7 @@ Il proxy REST Kafka consente di interagire con il cluster Kafka tramite un'API R
 
 Per le operazioni supportate dall'API REST Kafka, vedere informazioni di [riferimento sull'API del proxy REST di HDInsight Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
-## <a name="background"></a>Informazioni
+## <a name="background"></a>Background
 
 ![Progettazione del proxy REST Kafka](./media/rest-proxy/rest-proxy-architecture.png)
 
@@ -38,7 +39,7 @@ L'accesso al proxy REST Kafka viene gestito con Azure Active Directory gruppi di
 
 Per le richieste di endpoint proxy REST, le applicazioni client devono ottenere un token OAuth. Il token viene usato per verificare l'appartenenza ai gruppi di sicurezza. Trovare un [esempio di applicazione client](#client-application-sample) di seguito che Mostra come ottenere un token OAuth. L'applicazione client passa il token OAuth nella richiesta HTTP al proxy REST.
 
-> [!NOTE]  
+> [!NOTE]
 > Per altre informazioni sui gruppi di sicurezza di AAD, vedere [gestire l'accesso alle risorse e alle app usando gruppi di Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md). Per altre informazioni sul funzionamento dei token OAuth, vedere [autorizzare l'accesso alle applicazioni web Azure Active Directory usando il flusso di concessione del codice OAuth 2,0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 ## <a name="prerequisites"></a>Prerequisiti

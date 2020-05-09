@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: f4379a5149fff020eb532f0e17cc1c37fbdcd694
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232428"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612793"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al livello standard per la sicurezza avanzata
 
@@ -44,14 +44,17 @@ Per ottenere il livello standard:
 2. Selezionare la sottoscrizione che si desidera aggiornare a standard.
 3. Selezionare **Piano tariffario**.
 4. Selezionare **Standard** per eseguire l'aggiornamento.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 [![Prezzi del Centro sicurezza](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> Per abilitare tutte le funzionalità del Centro sicurezza, incluse le funzionalità di protezione avanzata dalle minacce, è necessario applicare il piano tariffario standard alla sottoscrizione contenente i carichi di lavoro applicabili. La configurazione dei prezzi per un'area di lavoro non Abilita l'accesso just-in-time alle macchine virtuali, i controlli delle applicazioni adattivi e i rilevamenti di rete per le risorse di Azure. 
+> Per abilitare tutte le funzionalità del Centro sicurezza, incluse le funzionalità di protezione dalle minacce, è necessario applicare il piano tariffario standard alla sottoscrizione contenente i carichi di lavoro applicabili. La configurazione dei prezzi per un'area di lavoro non Abilita l'accesso just-in-time alle macchine virtuali, i controlli delle applicazioni adattivi e i rilevamenti di rete per le risorse di Azure. 
 >
-> La protezione dalle minacce del Centro sicurezza per gli account di archiviazione e i server PaaS SQL/MySQL/PG sono attualmente gli unici carichi di lavoro che possono essere abilitati a livello di risorsa per proteggere i singoli carichi di lavoro di archiviazione/SQL.
+> È possibile abilitare la protezione dalle minacce per gli **account di archiviazione di Azure** a livello di sottoscrizione o di risorsa.
+> È possibile abilitare la protezione dalle minacce per **SQL Server del database SQL di Azure** a livello di sottoscrizione o di risorsa.
+> È possibile abilitare la protezione dalle minacce per il **database di Azure per MariaDB/MySQL/PostgreSQL** solo a livello di risorsa.
+
 
 ## <a name="why-upgrade-to-standard"></a>Perché eseguire l'aggiornamento al livello standard?
 Il Centro sicurezza offre maggiore sicurezza e protezione dalle minacce per i carichi di lavoro di cloud ibridi, tra cui:

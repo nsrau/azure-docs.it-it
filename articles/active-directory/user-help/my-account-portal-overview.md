@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 04/20/2020
 ms.author: curtand
-ms.openlocfilehash: 4c9d421fd9ac8305c27dfa798f2869e59a04f9fb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fd22f3b9d365bfee543712f680d504bb134f24d7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062456"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625698"
 ---
 # <a name="what-is-the-my-account-portal"></a>Che cos'è il portale Account personale?
 
 Il portale **Account personale** (anteprima) consente di gestire l'account aziendale o dell'istituto di istruzione configurando e gestendo le informazioni di sicurezza, gestendo le organizzazioni e i dispositivi connessi e visualizzando come vengono usati i dati nell'organizzazione.
 
-È possibile accedere al portale **Account personale** (https://myprofile.microsoft.com) ), dalla versione corrente di uno qualsiasi dei browser seguenti:
+È possibile accedere al portale **Account personale** (https://myaccount.microsoft.com) ), dalla versione corrente di uno qualsiasi dei browser seguenti:
 
 - Chrome
 - Microsoft Edge

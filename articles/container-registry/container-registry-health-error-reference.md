@@ -3,12 +3,12 @@ title: Riferimento di errore per i controlli di integrità
 description: Codici di errore e possibili soluzioni per i problemi rilevati mediante l'esecuzione del comando AZ ACR check-Health Diagnostic in Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289142"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978315"
 ---
 # <a name="health-check-error-reference"></a>Riferimento errore controllo integrità
 
@@ -58,7 +58,7 @@ Questo errore indica che il DNS per il server di accesso del registro di sistema
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Questo errore indica che l'endpoint di richiesta per il registro di sistema specificato ha risposto con uno stato HTTP non consentito 403. Questo errore indica che gli utenti non hanno accesso al registro di sistema, probabilmente a causa di una configurazione di rete virtuale. Per visualizzare le regole del firewall attualmente configurate, eseguire `az acr show --query networkRuleSet --name <registry>`.
+Questo errore indica che l'endpoint di richiesta per il registro di sistema specificato ha risposto con uno stato HTTP non consentito 403. Questo errore indica che gli utenti non hanno accesso al registro di sistema, probabilmente a causa di una configurazione di rete virtuale o perché non è consentito l'accesso all'endpoint pubblico del registro di sistema. Per visualizzare le regole del firewall attualmente configurate, eseguire `az acr show --query networkRuleSet --name <registry>`.
 
 *Possibili soluzioni*: rimuovere le regole della rete virtuale o aggiungere l'indirizzo IP del client corrente all'elenco degli indirizzi consentiti.
 

@@ -5,12 +5,13 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5b50906fac613a4e7470b0e13d6f068c3872f625
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136907"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613269"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -58,7 +59,7 @@ A tale scopo, seguire questa procedura:
 5. Passare alla Home Directory.
 
     ```azurepowershell-interactive 
-    cd  
+    cd
     ```
 
 6. Eseguire il comando seguente. Verrà scaricato uno script nella Home Directory.
@@ -73,7 +74,7 @@ A tale scopo, seguire questa procedura:
 
     ```azurepowershell-interactive 
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
@@ -92,7 +93,7 @@ A tale scopo, seguire questa procedura:
 - /**DeviceModel**: DeviceModel corrisponde ai metadati del dispositivo, ad esempio il produttore e il tipo di dispositivo, che può essere un gateway o un nodo.
 - /**Dispositivo**: il dispositivo corrisponde a un dispositivo fisico presente nella farm.
 - /**SensorModel**: SensorModel corrisponde ai metadati del sensore, ad esempio il produttore, il tipo di sensore, che può essere analogico o digitale, e la misura del sensore, ad esempio la temperatura e la pressione dell'ambiente.
-- /**Sensore**: il sensore corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.  
+- /**Sensore**: il sensore corrisponde a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.
 
 
 |        DeviceModel   |  Suggerimenti   |
@@ -101,16 +102,16 @@ A tale scopo, seguire questa procedura:
 |          Produttore            |         Nome del produttore    |
 |  ProductCode                    |  Codice prodotto del dispositivo o numero o nome del modello. Ad esempio, EnviroMonitor # 6800.  |
 |            Porte          |     Nome e tipo della porta, che è digitale o analogo.
-|     Name                 |  Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
+|     Nome                 |  Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
       Descrizione     | Fornire una descrizione significativa del modello.
 |    Proprietà          |    Proprietà aggiuntive del produttore.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID del modello di dispositivo associato.  |
 |  HardwareId          | ID univoco per il dispositivo, ad esempio l'indirizzo MAC.
 |  ReportingInterval        |   Intervallo di Reporting in secondi.
-|  Percorso            |  Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).   
+|  Location            |  Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).
 |ParentDeviceId       |    ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio, un nodo connesso a un gateway. Un nodo ha parentDeviceId come gateway.  |
-|    Name            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
+|    Nome            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
 |     Descrizione       |      Fornire una descrizione significativa. |
 |     Proprietà    |  Proprietà aggiuntive del produttore.
 |     **SensorModel**        |          |
@@ -122,16 +123,16 @@ A tale scopo, seguire questa procedura:
 |    Tipo > SensorMeasures    |Tipo di misura dei dati di telemetria del sensore. I tipi definiti dal sistema sono Temperaturaambiente, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione, PAR. Per aggiungere altre informazioni, vedere l'API/ExtendedType.|
 |        Unità > SensorMeasures              | Unità di dati di telemetria del sensore. Le unità definite dal sistema sono nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, millimetro, centimetro, metro, pollice, piedi, miglio, chilometro, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, percentuale, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, Millilitr, seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour per aggiungere altro, fare riferimento all'API/ExtendedType.|
 |    SensorMeasures > AggregationType    |  I valori possibili sono None, Average, Maximum, Minimum o StandardDeviation.  |
-|          Name            | Nome per identificare una risorsa. Ad esempio, il nome del modello o il nome del prodotto.  |
+|          Nome            | Nome per identificare una risorsa. Ad esempio, il nome del modello o il nome del prodotto.  |
 |    Descrizione        | Fornire una descrizione significativa del modello.|
 |   Proprietà       |  Proprietà aggiuntive del produttore.|
 |    **Sensore**      |          |
 | HardwareId          |   ID univoco per il sensore impostato dal produttore.|
 |  SensorModelId     |    ID del modello di sensore associato.|
-| Percorso          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
+| Location          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
 |   Nome > porta        |  Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo.|
 |    DeviceID  |    ID del dispositivo a cui è connesso il sensore. |
-| Name            |   Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
+| Nome            |   Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
 |    Descrizione      | Fornire una descrizione significativa.|
 |    Proprietà        |Proprietà aggiuntive del produttore.|
 
@@ -139,9 +140,9 @@ Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/Fa
 
 ### <a name="api-request-to-create-metadata"></a>Richiesta API per la creazione di metadati
 
-Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API e l'URI di una risorsa per eseguire query, inviare dati a, creare o eliminare una richiesta. Quindi si aggiungono una o più intestazioni della richiesta HTTP. L'URL del servizio API è l'endpoint API, ovvero l'URL datahub (https://\<yourdatahub>. azurewebsites.NET).  
+Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servizio API e l'URI di una risorsa per eseguire query, inviare dati a, creare o eliminare una richiesta. Quindi si aggiungono una o più intestazioni della richiesta HTTP. L'URL del servizio API è l'endpoint API, ovvero l'URL datahub (https://\<yourdatahub>. azurewebsites.NET).
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 FarmBeats datahub usa l'autenticazione della porta, che richiede le credenziali seguenti generate nella sezione precedente:
 
@@ -297,10 +298,10 @@ Sensore
 La richiesta di esempio seguente crea un dispositivo. Questa richiesta ha input JSON come payload con il corpo della richiesta.
 
 ```bash
-curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
+curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
-\"reportingInterval\": 900,  \"name\": \"Device123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",
+\"reportingInterval\": 900,  \"name\": \"Device123\",
 \"description\": \"Test Device 123\"}" *
 ```
 

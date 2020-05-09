@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54bff88e9650240a3703e18d583f603cafeb3022
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75431660"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611892"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
@@ -37,7 +37,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 | Richieste di funzioni      | Numero di chiamate alla funzione di Azure Machine Learning (se presente). |
 | Errori di deserializzazione dell'input       | Numero di eventi di input che non è stato possibile deserializzare.  |
 | Byte evento di input      | Quantità di dati ricevuta dal processo di Analisi di flusso, in termini di byte. Può essere usata per convalidare l'invio degli eventi all'origine di input. |
-| Eventi di input           | Numero di record deserializzati da eventi di input. Questo conteggio non include gli eventi in ingresso che generano errori di deserializzazione. |
+| Eventi di input           | Numero di record deserializzati da eventi di input. Questo conteggio non include gli eventi in ingresso che generano errori di deserializzazione. Gli stessi eventi possono essere inseriti più volte da analisi di flusso in scenari come i recuperi interni e i self join. È pertanto consigliabile non prevedere gli eventi di input e le metriche degli eventi di output in modo che corrispondano se il processo ha una semplice query "pass-through". |
 | Origini di input ricevute       | Numero di messaggi ricevuti dal processo. Per l'hub eventi, un messaggio è un singolo EventData. Per BLOB, un messaggio è un singolo BLOB. Si noti che le origini di input vengono conteggiate prima della deserializzazione. Se si verificano errori di deserializzazione, le origini di input possono essere maggiori degli eventi di input. In caso contrario, può essere minore o uguale agli eventi di input perché ogni messaggio può contenere più eventi. |
 | Ultimi eventi di input      | Eventi arrivati in un secondo momento rispetto alla finestra di tolleranza per arrivo in ritardo configurata. Altre informazioni sulle [Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure](stream-analytics-out-of-order-and-late-events.md). |
 | Eventi non ordinati    | Numero di eventi non ordinati ricevuti che sono stati eliminati o a cui è stato assegnato un timestamp modificato, in base ai Criteri di ordinamento eventi. Può essere influenzato dalla configurazione dell'impostazione della Finestra di tolleranza elementi non in ordine. |

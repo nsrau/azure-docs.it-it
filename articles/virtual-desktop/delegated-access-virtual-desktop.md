@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16b4fca475f91a8cb5b7f9a20ea5aa74b6b674a3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683905"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612861"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Accesso delegato in Desktop virtuale Windows
+
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
+>
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Desktop virtuale di Windows dispone di un modello di accesso delegato che consente di definire la quantità di accesso consentito a un determinato utente assegnando loro un ruolo. Un'assegnazione di ruolo dispone di tre componenti: entità di sicurezza, definizione del ruolo e ambito. Il modello di accesso delegato di desktop virtuale Windows è basato sul modello di controllo degli accessi in base al ruolo di Azure Per altre informazioni sulle assegnazioni di ruolo specifiche e sui relativi componenti, vedere [Panoramica del controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md).
 
@@ -23,48 +29,38 @@ Accesso delegato desktop virtuale Windows supporta i valori seguenti per ogni el
 
 * Entità di sicurezza
     * Utenti
+    * Gruppi di utenti
     * Entità servizio
 * Definizione di ruolo
     * Ruoli predefiniti
+    * Ruoli personalizzati
 * Scope
-    * Gruppi tenant
-    * Tenant
     * Pool host
     * Gruppi di app
-
-## <a name="built-in-roles"></a>Ruoli predefiniti
-
-Per l'accesso delegato nel desktop virtuale di Windows sono disponibili diverse definizioni di ruolo predefinite che è possibile assegnare a utenti ed entità servizio.
-
-* Un proprietario RDS può gestire tutto, incluso l'accesso alle risorse.
-* Un collaboratore RDS può gestire tutti gli elementi, ma non può accedere alle risorse.
-* Un lettore RDS può visualizzare tutti gli elementi, ma non può apportare alcuna modifica.
-* Un operatore RDS può visualizzare le attività di diagnostica.
+    * Aree di lavoro
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlet di PowerShell per le assegnazioni di ruolo
 
-Per creare, visualizzare e rimuovere assegnazioni di ruolo, è possibile eseguire i cmdlet seguenti:
+Prima di iniziare, assicurarsi di seguire le istruzioni riportate in [configurare il modulo PowerShell](powershell-module.md) per configurare il modulo PowerShell per desktop virtuale di Windows, se non è già stato fatto.
 
-* **Get-RdsRoleAssignment** Visualizza un elenco di assegnazioni di ruolo.
-* **New-RdsRoleAssignment** crea una nuova assegnazione di ruolo.
-* **Remove-RdsRoleAssignment** Elimina le assegnazioni di ruolo.
+Desktop virtuale Windows usa il controllo degli accessi in base al ruolo (RBAC) di Azure durante la pubblicazione di gruppi di app per utenti o gruppi di utenti. Il ruolo utente di virtualizzazione desktop viene assegnato all'utente o al gruppo di utenti e l'ambito è il gruppo di app. Questo ruolo concede all'utente l'accesso ai dati speciali per il gruppo di app.  
 
-### <a name="accepted-parameters"></a>Parametri accettati
+Eseguire il cmdlet seguente per aggiungere Azure Active Directory utenti a un gruppo di app:
 
-È possibile modificare i tre cmdlet di base con i parametri seguenti:
+```powershell
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'  
+```
 
-* **AadTenantId**: specifica il Azure Active Directory ID tenant da cui l'entità servizio è membro.
-* **AppGroupName**: nome del gruppo di app desktop remoto.
-* **Diagnostics**: indica l'ambito di diagnostica. (Deve essere abbinato ai parametri dell' **infrastruttura** o del **tenant** ).
-* **HostPoolName**: nome del pool di host desktop remoto.
-* **Infrastruttura**: indica l'ambito dell'infrastruttura.
-* **RoleDefinitionName**: nome del Servizi Desktop remoto ruolo di controllo degli accessi in base al ruolo assegnato all'utente, al gruppo o all'app. Ad esempio Servizi Desktop remoto proprietario, Servizi Desktop remoto Reader e così via.
-* **ServerPrincipleName**: nome dell'applicazione Azure Active Directory.
-* **SignInName**: indirizzo di posta elettronica dell'utente o nome dell'entità utente.
-* **TenantName**: nome del tenant desktop remoto.
+Eseguire il cmdlet seguente per aggiungere Azure Active Directory gruppo utenti a un gruppo di app:
+
+```powershell
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per un elenco più completo dei cmdlet di PowerShell che possono essere usati da ogni ruolo, vedere le informazioni di [riferimento su PowerShell](/powershell/windows-virtual-desktop/overview).
+
+Per un elenco completo dei ruoli supportati nel controllo degli accessi in base al ruolo di Azure, vedere [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md).
 
 Per le linee guida su come configurare un ambiente desktop virtuale Windows, vedere [ambiente desktop virtuale di Windows](environment-setup.md).

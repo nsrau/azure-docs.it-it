@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro
+ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc96c94152b39cc70cfc4553690faaa5b9cb8d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a6fab618280f1383e3840c67d85136edc095b9a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77111582"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610089"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a Power BI per dispositivi mobili con Azure AD Application Proxy
 
-Questo articolo illustra come usare Azure AD proxy di applicazione per abilitare l'app per dispositivi mobili Power BI a connettersi Server di report di Power BI (PBIRS) e SQL Server Reporting Services (SSRS) 2016 e versioni successive. Grazie a questa integrazione, gli utenti che si trovano fuori dalla rete aziendale possono accedere ai report Power BI dall'app Power BI per dispositivi mobili ed essere protetti da Azure AD l'autenticazione. Questa protezione include [vantaggi](application-proxy-security.md#security-benefits) per la sicurezza, ad esempio l'accesso condizionale e l'autenticazione a più fattori.  
+Questo articolo illustra come usare Azure AD proxy di applicazione per abilitare l'app per dispositivi mobili Power BI a connettersi Server di report di Power BI (PBIRS) e SQL Server Reporting Services (SSRS) 2016 e versioni successive. Grazie a questa integrazione, gli utenti che si trovano fuori dalla rete aziendale possono accedere ai report Power BI dall'app Power BI per dispositivi mobili ed essere protetti da Azure AD l'autenticazione. Questa protezione include [vantaggi](application-proxy-security.md#security-benefits) per la sicurezza, ad esempio l'accesso condizionale e l'autenticazione a più fattori.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che siano già stati distribuiti i servizi di report e il [proxy di applicazione abilitato](application-proxy-add-on-premises-application.md).
 
-- Per abilitare il proxy di applicazione è necessario installare un connettore in un server Windows e completare i [prerequisiti](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) in modo che il connettore possa comunicare con Azure ad servizi.  
+- Per abilitare il proxy di applicazione è necessario installare un connettore in un server Windows e completare i [prerequisiti](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) in modo che il connettore possa comunicare con Azure ad servizi.
 - Quando si pubblica Power BI, si consiglia di usare gli stessi domini interni ed esterni. Per ulteriori informazioni sui domini personalizzati, vedere [utilizzo di domini personalizzati nel proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
 - Questa integrazione è disponibile per l'applicazione **Power BI per dispositivi mobili iOS e Android** .
 
@@ -68,7 +68,7 @@ Configurare delega vincolata Kerberos in modo che il servizio proxy applicazione
 Per configurare delega vincolata Kerberos, ripetere i passaggi seguenti per ogni computer connettore:
 
 1. Accedere a un controller di dominio come amministratore di dominio e quindi aprire **Active Directory utenti e computer**.
-2. Trovare il computer in cui è in esecuzione il connettore.  
+2. Trovare il computer in cui è in esecuzione il connettore.
 3. Fare doppio clic sul computer e quindi selezionare la scheda **delega** .
 4. Impostare le impostazioni di delega per **considerare attendibile il computer per la delega solo ai servizi specificati**. Selezionare quindi **Usa un qualsiasi protocollo di autenticazione**.
 5. Selezionare **Aggiungi**, quindi selezionare **utenti o computer**.
@@ -95,7 +95,7 @@ A questo punto si è pronti per configurare Azure AD proxy di applicazione.
 
    b. Per **modalità Single Sign-on**, selezionare **autenticazione integrata di Windows**.
 
-   c. Impostare **SPN applicazione interna** sul valore impostato in precedenza.  
+   c. Impostare **SPN applicazione interna** sul valore impostato in precedenza.
 
    d. Scegliere l'**identità di accesso delegato** che il connettore userà per conto degli utenti. Per altre informazioni, vedere [uso di diverse identità locali e cloud](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
@@ -105,7 +105,7 @@ Per completare la configurazione dell'applicazione, passare alla sezione **utent
 
 ## <a name="step-3-modify-the-reply-uris-for-the-application"></a>Passaggio 3: modificare l'URI di risposta per l'applicazione
 
-Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere a servizi di report, è necessario configurare la registrazione dell'applicazione creata automaticamente nel passaggio 2. 
+Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere a servizi di report, è necessario configurare la registrazione dell'applicazione creata automaticamente nel passaggio 2.
 
 1. Nella pagina **panoramica** Azure Active Directory selezionare **registrazioni app**.
 2. Nella scheda **tutte le applicazioni** cercare l'applicazione creata nel passaggio 2.
@@ -117,11 +117,11 @@ Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere a s
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
-   
+
    Quando si configura l'app per Power BI mobile **Android**, aggiungere gli URI di reindirizzamento seguenti di tipo public client (mobile & desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
-   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D`
    - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
@@ -144,7 +144,7 @@ Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere a s
 1. Passare a **Azure Active Directory** e quindi a registrazioni per l' **app**.
 2. Selezionare l'applicazione configurata nel passaggio 3 durante la registrazione dell'applicazione client nativa.
 3. Nella pagina dell'applicazione selezionare **autorizzazioni API**.
-4. Fare clic su **Aggiungi un'autorizzazione**. 
+4. Fare clic su **Aggiungi un'autorizzazione**.
 5. In **API utilizzate dall'organizzazione**, cercare "Microsoft Mobile Application Management" e selezionarlo.
 6. Aggiungere l'autorizzazione **DeviceManagementManagedApps. ReadWrite** all'applicazione
 7. Fare clic su **Concedi consenso amministratore** per concedere l'autorizzazione di accesso all'applicazione.

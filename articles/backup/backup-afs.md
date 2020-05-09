@@ -3,12 +3,12 @@ title: Eseguire il backup di condivisioni file di Azure nel portale di Azure
 description: Informazioni su come usare la portale di Azure per eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101311"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978029"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Backup di condivisioni file di Azure in un insieme di credenziali di servizi di ripristino
 
@@ -50,35 +50,70 @@ Per modificare il tipo di replica di archiviazione:
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Individuare le condivisioni file e configurare il backup
 
-1. Nella [portale di Azure](https://portal.azure.com/)aprire l'insieme di credenziali di servizi di ripristino che si vuole usare per eseguire il backup della condivisione file.
+1. Nella [portale di Azure](https://portal.azure.com/)aprire l'insieme di credenziali di servizi di ripristino che si vuole usare per la configurazione del backup per la condivisione file.
 
-1. Nel dashboard dell'insieme di credenziali di **servizi di ripristino** selezionare **+ backup**.
+1. Nel riquadro dell'insieme di credenziali di **servizi di ripristino** selezionare **+ backup** dal menu in alto.
 
    ![Insieme di credenziali dei servizi di ripristino](./media/backup-afs/recovery-services-vault.png)
 
-    a. In **obiettivo di backup**impostare **il percorso in cui è in esecuzione il carico di lavoro?** in **Azure**.
+    1. Nel riquadro **obiettivo del backup** impostare il percorso in **cui è in esecuzione il carico di lavoro?** in **Azure** selezionando l'opzione **Azure** dall'elenco a discesa.
 
-    ![Scegliere la condivisione file di Azure come obiettivo del backup](./media/backup-afs/backup-goal.png)
+          ![Scegliere Azure come carico di lavoro](./media/backup-afs/backup-goal.png)
 
-    b.  In **che cosa si vuole eseguire il backup?** selezionare **condivisione file di Azure** dall'elenco a discesa.
+    2. In **che cosa si vuole eseguire il backup?** selezionare **condivisione file di Azure** dall'elenco a discesa.
 
-    c.  Selezionare **backup** per registrare l'estensione di condivisione file di Azure nell'insieme di credenziali.
+          ![Selezionare la condivisione file di Azure](./media/backup-afs/select-azure-file-share.png)
 
-    ![Selezionare Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-afs/register-extension.png)
+    3. Selezionare **backup** per registrare l'estensione di condivisione file di Azure nell'insieme di credenziali.
 
-1. Dopo aver selezionato **backup**, viene aperto il riquadro **backup** con la richiesta di selezionare un account di archiviazione da un elenco di account di archiviazione supportati individuati. Sono associati a questo insieme di credenziali o presenti nella stessa area dell'insieme di credenziali, ma non sono ancora associati ad alcun insieme di credenziali di servizi di ripristino.
+          ![Selezionare Backup per associare la condivisione file di Azure all'insieme di credenziali](./media/backup-afs/register-extension.png)
 
-1. Dall'elenco degli account di archiviazione individuati selezionare un account e fare clic su **OK**. Azure Cerca nell'account di archiviazione le condivisioni file di cui è possibile eseguire il backup. Se le condivisioni file sono state aggiunte di recente e non vengono visualizzate nell'elenco, attendere il tempo necessario per visualizzare le condivisioni file.
+1. Dopo aver selezionato **backup**, viene aperto il riquadro **backup** . Per selezionare l'account di archiviazione che ospita la condivisione file che si vuole proteggere, fare clic sul testo del collegamento **selezionare** sotto la casella di testo **account di archiviazione** .
 
-    ![Individuazione delle condivisioni file](./media/backup-afs/discovering-file-shares.png)
+   ![Scegliere il collegamento Seleziona](./media/backup-afs/choose-select-link.png)
 
-1. Dall'elenco **condivisioni file** selezionare una o più condivisioni file di cui si vuole eseguire il backup. Selezionare **OK**.
+1. Viene visualizzato il **riquadro Seleziona account di archiviazione** a destra, che elenca un set di account di archiviazione supportati individuati. Sono associati a questo insieme di credenziali o presenti nella stessa area dell'insieme di credenziali, ma non sono ancora associati ad alcun insieme di credenziali di servizi di ripristino.
+
+1. Dall'elenco degli account di archiviazione individuati selezionare un account e fare clic su **OK**.
+
+   ![Consente di selezionare gli account di archiviazione individuati](./media/backup-afs/select-discovered-storage-account.png)
+
+1. Il passaggio successivo consiste nel selezionare le condivisioni file di cui si vuole eseguire il backup. Fare clic sul pulsante **Aggiungi** nella sezione **fileshares to backup** .
+
+   ![Selezionare le condivisioni file di cui eseguire il backup](./media/backup-afs/select-file-shares-to-back-up.png)
+
+1. Si apre il riquadro del contesto **Seleziona condivisioni file** a destra. Azure Cerca nell'account di archiviazione le condivisioni file di cui è possibile eseguire il backup. Se le condivisioni file sono state aggiunte di recente e non vengono visualizzate nell'elenco, attendere il tempo necessario per visualizzare le condivisioni file.
+
+1. Dall'elenco **Seleziona condivisioni file** selezionare una o più condivisioni file di cui si vuole eseguire il backup. Selezionare **OK**.
 
    ![Selezionare le condivisioni file](./media/backup-afs/select-file-shares.png)
 
-1. Dopo aver scelto le condivisioni file, il menu **backup** passa a **criteri di backup**. Da questo menu selezionare un criterio di backup esistente o crearne uno nuovo. Selezionare quindi **Abilita backup**.
+1. Per scegliere un criterio di backup per la condivisione file, sono disponibili tre opzioni:
 
-    ![Selezionare il criterio di backup](./media/backup-afs/select-backup-policy.png)
+   * Scegliere i criteri predefiniti.<br>
+   Questa opzione consente di abilitare il backup giornaliero che verrà mantenuto per 30 giorni. Se non si dispone di un criterio di backup esistente nell'insieme di credenziali, viene aperto il riquadro backup con le impostazioni dei criteri predefinite. Se si desidera scegliere le impostazioni predefinite, è possibile fare clic direttamente su **Abilita backup**.
+
+   * Creare nuovi criteri <br>
+
+      1. Per creare un nuovo criterio di backup per la condivisione file, fare clic sul testo del collegamento sotto l'elenco a discesa nella sezione **criteri di backup** .<br>
+
+         ![Creare un nuovo criterio](./media/backup-afs/create-new-policy.png)
+
+      1. Si apre il riquadro del contesto dei **criteri di backup** a destra. Specificare un nome per i criteri nella casella di testo e scegliere il periodo di memorizzazione in base alle esigenze. Per impostazione predefinita, è abilitata solo l'opzione di conservazione giornaliera. Se si desidera disporre di un periodo di conservazione settimanale, mensile o annuale, selezionare la casella di controllo corrispondente e specificare il valore di memorizzazione desiderato.
+
+      1. Dopo aver specificato i valori di conservazione e un nome di criterio valido, fare clic su OK.<br>
+
+         ![Assegnare il nome dei criteri e i valori di conservazione](./media/backup-afs/policy-name.png)
+
+   * Scegliere uno dei criteri di backup esistenti <br>
+
+   Per scegliere uno dei criteri di backup esistenti per la configurazione della protezione, selezionare i criteri desiderati dall'elenco a discesa **criteri di backup** .<br>
+
+   ![Scegliere i criteri esistenti](./media/backup-afs/choose-existing-policy.png)
+
+1. Fare clic su **Abilita backup** per avviare la protezione della condivisione file.
+
+   ![Scegliere Abilita backup](./media/backup-afs/enable-backup.png)
 
 Dopo aver impostato un criterio di backup, viene eseguito uno snapshot delle condivisioni file all'orario pianificato. Il punto di ripristino viene inoltre mantenuto per il periodo scelto.
 

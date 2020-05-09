@@ -4,12 +4,12 @@ description: Informazioni su come l'agente MARS supporta gli scenari di backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78673283"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611484"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informazioni sull'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -39,19 +39,21 @@ L'agente MARS supporta gli scenari di ripristino seguenti:
 
 ## <a name="backup-process"></a>Processo di backup
 
-1. Dalla portale di Azure creare un insieme di credenziali [dei servizi di ripristino](install-mars-agent.md#create-a-recovery-services-vault)e scegliere file, cartelle e lo stato del sistema dagli obiettivi di backup.
+1. Dalla portale di Azure creare un insieme di credenziali [dei servizi di ripristino](install-mars-agent.md#create-a-recovery-services-vault)e scegliere file, cartelle e lo stato del sistema dagli **obiettivi di backup**.
 2. [Scaricare le credenziali dell'insieme di credenziali dei servizi di ripristino e il programma di installazione dell'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) in un computer locale.
 
-    Per proteggere il computer locale selezionando l'opzione backup, scegliere file, cartelle e lo stato del sistema, quindi scaricare l'agente MARS.
-
-3. Preparare l'infrastruttura:
-
-    a. Eseguire il programma di installazione per [installare l'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent).
-
-    b. Usare le credenziali dell'insieme di credenziali scaricate per registrare il computer nell'insieme di credenziali di servizi di ripristino.
-4. Dalla console agente sul client [configurare il backup](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy). Specificare i criteri di conservazione dei dati di backup per iniziare a proteggerli.
+3. [installare l'agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e usare le credenziali dell'insieme di credenziali scaricate per registrare il computer nell'insieme di credenziali di servizi di ripristino.
+4. Dalla console agente sul client, [configurare il backup](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) per specificare gli elementi di cui eseguire il backup, quando eseguire il backup (pianificazione), per quanto tempo i backup devono essere conservati in Azure (criteri di conservazione) e avviare la protezione.
 
 ![Diagramma dell'agente di backup di Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
+### <a name="additional-information"></a>Informazioni aggiuntive
+
+- Il **backup iniziale** (primo backup) viene eseguito in base alle impostazioni di backup.  L'agente MARS utilizza VSS per eseguire uno snapshot temporizzato dei volumi selezionati per il backup. L'agente utilizza solo l'operazione di scrittura del sistema Windows per acquisire lo snapshot. Non usa alcun writer VSS dell'applicazione e non acquisisce snapshot coerenti con l'app. Dopo l'acquisizione dello snapshot con VSS, l'agente MARS crea un disco rigido virtuale (VHD) nella cartella della cache specificata al momento della configurazione del backup. L'agente archivia inoltre i checksum per ogni blocco di dati.
+
+- I **backup incrementali** (backup successivi) vengono eseguiti in base alla pianificazione specificata. Durante i backup incrementali, vengono identificati i file modificati e viene creato un nuovo VHD. Il disco rigido virtuale viene compresso e crittografato, quindi viene inviato all'insieme di credenziali. Al termine del backup incrementale, il nuovo disco rigido virtuale viene unito al VHD creato dopo la replica iniziale. Questo VHD Unito fornisce lo stato più recente da usare per il confronto per il backup in corso.
+
+- L'agente MARS può eseguire il processo di backup in **modalità ottimizzata** usando il Journal delle modifiche USN (numero di sequenza di aggiornamento) o in **modalità non ottimizzata** controllando la presenza di modifiche in directory o file tramite l'analisi dell'intero volume. La modalità non ottimizzata è più lenta perché l'agente deve analizzare ogni file nel volume e confrontarlo con i metadati per determinare i file modificati.  Il **backup iniziale** viene sempre eseguito in modalità non ottimizzata. Se il backup precedente non è riuscito, il successivo processo di backup pianificato verrà eseguito in modalità non ottimizzata.
 
 ### <a name="additional-scenarios"></a>Scenari aggiuntivi
 
