@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294106"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983330"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -26,7 +26,7 @@ Questo articolo descrive l'architettura, i componenti e i processi usati per la 
 
 La tabella seguente riepiloga i componenti coinvolti nel ripristino di emergenza delle macchine virtuali di Azure.
 
-**Componente** | **Requirements**
+**Componente** | **Requisiti**
 --- | ---
 **Macchine virtuali nell'area di origine** | Una o più macchine virtuali di Azure in un'[area di origine supportata](azure-to-azure-support-matrix.md#region-support).<br/><br/> Le macchine virtuali possono eseguire qualsiasi [sistema operativo supportato](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Archiviazione macchine virtuali di origine** | Le macchine virtuali di Azure possono essere gestite o avere dischi non gestiti distribuiti fra gli account di archiviazione.<br/><br/>[Informazioni](azure-to-azure-support-matrix.md#replicated-machines---storage) sull'archiviazione di Azure supportata.
@@ -55,15 +55,14 @@ Quando si abilita la replica per una macchina virtuale, Site Recovery offre la p
 È possibile gestire le risorse di destinazione nei modi seguenti:
 
 - È possibile modificare le impostazioni di destinazione quando si abilita la replica.
-- È possibile modificare le impostazioni di destinazione quando la replica è già in funzione. L'eccezione è il tipo di disponibilità (singola istanza, set o zona). Per cambiare questa impostazione è necessario disabilitare la replica, modificare l'impostazione e quindi riabilitare la replica.
-
+- È possibile modificare le impostazioni di destinazione quando la replica è già in funzione. Si noti che lo SKU predefinito per la macchina virtuale dell'area di destinazione è lo stesso dello SKU della VM di origine (o il successivo SKU migliore disponibile rispetto allo SKU della VM di origine). Analogamente ad altre risorse, ad esempio il gruppo di risorse di destinazione, il nome di destinazione e altri, lo SKU della macchina virtuale dell'area di destinazione può essere aggiornato anche dopo l'esecuzione della replica. Una risorsa che non può essere aggiornata è il tipo di disponibilità (istanza singola, set o zona). Per cambiare questa impostazione è necessario disabilitare la replica, modificare l'impostazione e quindi riabilitare la replica. 
 
 
 ## <a name="replication-policy"></a>Criteri di replica 
 
 Quando si abilita la replica delle macchine virtuali di Azure, per impostazione predefinita Site Recovery crea nuovi criteri di replica con le impostazioni predefinite riepilogate nella tabella.
 
-**Impostazione di criteri** | **Dettagli** | **Predefinito**
+**Impostazione di criteri** | **Dettagli** | **Predefinita**
 --- | --- | ---
 **Conservazione del punto di ripristino** | Specifica per quanto tempo Site Recovery conserva i punti di ripristino | 24 ore
 **Frequenza snapshot coerenti con l'applicazione** | Specifica con quale frequenza Site Recovery accetta uno snapshot coerente con l'app. | Ogni quattro ore

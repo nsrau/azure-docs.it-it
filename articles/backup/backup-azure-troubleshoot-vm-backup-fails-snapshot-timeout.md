@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4f87f2de3747f55562d3f683e1738595624940dd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854643"
+ms.locfileid: "82864403"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -44,6 +44,8 @@ Dopo aver registrato e pianificato una macchina virtuale per il servizio backup 
 **Causa 3: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Motivo 4: le [Opzioni di configurazione dell'agente VM non sono impostate (per VM Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+
+**Causa 5: [la soluzione di controllo delle applicazioni blocca IaaSBcdrExtension. exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-lo stato di provisioning della macchina virtuale non è riuscito
 
@@ -202,6 +204,14 @@ Se è necessaria la registrazione dettagliata per waagent, attenersi alla proced
 
 Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. Estensioni per le opzioni del file di configurazione **. abilitare** deve essere impostato su **y** e sul **provisioning. Agent** deve essere impostato su **auto** per consentire il funzionamento del backup.
 Per un elenco completo delle opzioni del file di configurazione dell'agente VM, vedere<https://github.com/Azure/WALinuxAgent#configuration-file-options>
+
+### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>La soluzione di controllo delle applicazioni blocca IaaSBcdrExtension. exe
+
+Se si esegue [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (o un'altra soluzione di controllo delle applicazioni) e le regole sono basate su server di pubblicazione o percorso, possono impedire l'esecuzione del file eseguibile **IaaSBcdrExtension. exe** .
+
+#### <a name="solution"></a>Soluzione
+
+Escludere `/var/lib` il percorso o il file eseguibile **IaaSBcdrExtension. exe** da AppLocker (o da un altro software di controllo delle applicazioni).
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot
 

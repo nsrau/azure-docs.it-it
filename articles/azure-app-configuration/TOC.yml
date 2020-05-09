@@ -62,6 +62,9 @@
   items:
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Archivio chiave-valore

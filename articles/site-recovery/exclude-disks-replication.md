@@ -3,12 +3,12 @@ title: Escludere i dischi dalla replica con Azure Site Recovery
 description: Come escludere i dischi dalla replica in Azure con Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abecc19cac57a4a95d01b7a7ec076259088b101b
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281847"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900277"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Escludere dischi dal ripristino di emergenza
 
@@ -26,7 +26,7 @@ Questo articolo descrive come escludere i dischi dalla replica durante il ripris
 
 **Da Azure ad Azure** | **Da VMware ad Azure** | **Da Hyper-V ad Azure** 
 --- | --- | ---
-Sì (con PowerShell) | Sì | Sì 
+Sì | Sì | Sì 
 
 ## <a name="exclude-limitations"></a>Escludi limitazioni
 
@@ -35,7 +35,7 @@ Sì (con PowerShell) | Sì | Sì
 **Tipi di disco** | È possibile escludere dalla replica i dischi di base.<br/><br/> Non è possibile escludere dischi del sistema operativo o dischi dinamici. Per impostazione predefinita, i dischi temporanei sono esclusi. | È possibile escludere dalla replica i dischi di base.<br/><br/> Non è possibile escludere dischi del sistema operativo o dischi dinamici. | È possibile escludere dalla replica i dischi di base.<br/><br/> Non è possibile escludere dischi del sistema operativo e non è consigliabile escludere dischi dinamici. Site Recovery non è in grado di identificare quale VHS è di base o dinamico nella macchina virtuale guest. Se tutti i dischi del volume dinamico dipendenti non sono esclusi, il disco dinamico protetto diventa un disco danneggiato in una macchina virtuale di failover e i dati su tale disco non sono accessibili.
 **Disco di replica** | Non è possibile escludere un disco che sta eseguendo la replica.<br/><br/> Disabilitare e riabilitare la replica per la macchina virtuale. |  Non è possibile escludere un disco che sta eseguendo la replica. |  Non è possibile escludere un disco che sta eseguendo la replica.
 **Servizio Mobility (VMware)** | Non rilevante | È possibile escludere i dischi solo nelle macchine virtuali in cui è installato il servizio Mobility.<br/><br/> Ciò significa che è necessario installare manualmente il servizio Mobility nelle macchine virtuali per cui si vogliono escludere i dischi. Non è possibile usare il meccanismo di installazione push perché installa il servizio Mobility solo dopo l'abilitazione della replica. | Non pertinente.
-**Aggiungi/Rimuovi** | È possibile aggiungere e rimuovere dischi in macchine virtuali di Azure con Managed Disks. | Non è possibile aggiungere o rimuovere dischi dopo l'abilitazione della replica. Disabilitare e quindi riabilitare la replica per aggiungere un disco. | Non è possibile aggiungere o rimuovere dischi dopo l'abilitazione della replica. Disabilitare e riabilitare la replica.
+**Aggiungi/Rimuovi** | È possibile aggiungere dischi gestiti nelle VM di Azure abilitate per la replica con Managed Disks. Non è possibile rimuovere dischi nelle macchine virtuali di Azure abilitate per la replica. | Non è possibile aggiungere o rimuovere dischi dopo l'abilitazione della replica. Disabilitare e quindi riabilitare la replica per aggiungere un disco. | Non è possibile aggiungere o rimuovere dischi dopo l'abilitazione della replica. Disabilitare e riabilitare la replica.
 **Failover** | Se un'app richiede un disco che è stato escluso, dopo il failover è necessario creare manualmente il disco in modo che l'app replicata possa essere eseguita.<br/><br/> In alternativa, è possibile creare il disco durante il failover della macchina virtuale, integrando automazione di Azure in un piano di ripristino. | Se si esclude un disco necessario per un'app, crearlo manualmente in Azure dopo il failover. | Se si esclude un disco necessario per un'app, crearlo manualmente in Azure dopo il failover.
 **Failback locale-dischi creati manualmente** | Non rilevante | **Macchine virtuali Windows**: non è stato eseguito il failback dei dischi creati manualmente in Azure. Se, ad esempio, si esegue il failover di tre dischi e si creano due dischi direttamente in una macchina virtuale di Azure, viene eseguito il failback solo dei tre dischi di cui è stato eseguito il failover.<br/><br/> **VM Linux**: il failback dei dischi creati manualmente in Azure non è stato eseguito. Ad esempio, se si esegue il failover di tre dischi e si creano due dischi in una macchina virtuale di Azure, verrà eseguito il failback di tutti e cinque. Non è possibile escludere i dischi creati manualmente dall'operazione di failback. | Non viene eseguito il failback dei dischi creati manualmente in Azure. Se, ad esempio, si esegue il failover di tre dischi e si creano due dischi direttamente in una macchina virtuale di Azure, verrà eseguito il failback solo di tre dischi di cui è stato eseguito il failover.
 **Failback locale-dischi esclusi** | Non rilevante | Se si esegue il failback nel computer originale, la configurazione del disco della macchina virtuale di failback non include i dischi esclusi. I dischi esclusi dalla replica da VMware ad Azure non sono disponibili nella macchina virtuale di failback. | Quando il failback è il percorso originale di Hyper-V, la configurazione del disco della macchina virtuale di failback rimane identica a quella del disco della VM di origine originale. I dischi esclusi dalla replica dal sito Hyper-V ad Azure sono disponibili nella macchina virtuale di failback.

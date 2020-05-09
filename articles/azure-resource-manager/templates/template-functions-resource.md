@@ -3,12 +3,12 @@ title: Funzioni modello-risorse
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 4038d95942805ae26b5e82d5b766a80a92ae11bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 508933cbea3e21fdec63907cef73102866732bb1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231306"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891013"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funzioni di risorse per i modelli ARM
 
@@ -34,12 +34,12 @@ Restituisce l'ID di risorsa per una [risorsa di estensione](../management/extens
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sì |stringa |ID risorsa per la risorsa a cui viene applicata la risorsa di estensione. |
-| resourceType |Sì |stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |stringa |Nome della risorsa. |
-| resourceName2 |No |stringa |Segmento del nome di risorsa successivo, se necessario. |
+| resourceId |Sì |string |ID risorsa per la risorsa a cui viene applicata la risorsa di estensione. |
+| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |string |Nome della risorsa. |
+| resourceName2 |No |string |Segmento del nome di risorsa successivo, se necessario. |
 
 Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di risorsa include più segmenti.
 
@@ -112,11 +112,11 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sì |stringa |Identificatore univoco della risorsa. |
-| apiVersion |Sì |stringa |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
-| functionValues |No |oggetto | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. |
+| resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
+| apiVersion |Sì |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
+| functionValues |No |object | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. |
 
 ### <a name="valid-uses"></a>Usi validi
 
@@ -168,9 +168,9 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft. EventGrid/domini | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
-| Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
-| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
-| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
+| Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft. kusto/cluster/database | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
 | Microsoft. LabServices/Users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
@@ -358,10 +358,10 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sì |stringa |Spazio dei nomi del provider |
-| resourceType |No |stringa |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
+| providerNamespace |Sì |string |Spazio dei nomi del provider |
+| resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -433,11 +433,11 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sì |stringa |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza o quando il nome della risorsa è ambiguo, specificare l'ID risorsa. |
-| apiVersion |No |stringa |Versione dell'API della risorsa specificata. **Questo parametro è obbligatorio quando non viene eseguito il provisioning della risorsa nello stesso modello.** In genere il formato è **aaaa-mm-gg**. Per le versioni API valide per la risorsa, vedere [riferimento ai modelli](/azure/templates/). |
-| 'Full' |No |stringa |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
+| resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza o quando il nome della risorsa è ambiguo, specificare l'ID risorsa. |
+| apiVersion |No |string |Versione dell'API della risorsa specificata. **Questo parametro è obbligatorio quando non viene eseguito il provisioning della risorsa nello stesso modello.** In genere il formato è **aaaa-mm-gg**. Per le versioni API valide per la risorsa, vedere [riferimento ai modelli](/azure/templates/). |
+| 'Full' |No |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -746,13 +746,13 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. Fornire questo valore solo quando si esegue la distribuzione nell'ambito di un gruppo di risorse o di una sottoscrizione. |
-| resourceGroupName |No |stringa |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. Fornire questo valore solo quando si esegue la distribuzione nell'ambito di un gruppo di risorse. |
-| resourceType |Sì |stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |stringa |Nome della risorsa. |
-| resourceName2 |No |stringa |Segmento del nome di risorsa successivo, se necessario. |
+| resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. Fornire questo valore solo quando si esegue la distribuzione nell'ambito di un gruppo di risorse. |
+| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |string |Nome della risorsa. |
+| resourceName2 |No |string |Segmento del nome di risorsa successivo, se necessario. |
 
 Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di risorsa include più segmenti.
 
@@ -888,10 +888,10 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| sameRGOutput | Stringa | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Stringa | /subscriptions/{id-sott-corrente}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | Stringa | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Stringa | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | string | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>sottoscrizione
 
@@ -942,12 +942,12 @@ Restituisce l'identificatore univoco per una risorsa distribuita a livello di so
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
-| resourceType |Sì |stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |stringa |Nome della risorsa. |
-| resourceName2 |No |stringa |Segmento del nome di risorsa successivo, se necessario. |
+| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |string |Nome della risorsa. |
+| resourceName2 |No |string |Segmento del nome di risorsa successivo, se necessario. |
 
 Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di risorsa include più segmenti.
 
@@ -1024,11 +1024,11 @@ Restituisce l'identificatore univoco per una risorsa distribuita a livello di te
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sì |stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |stringa |Nome della risorsa. |
-| resourceName2 |No |stringa |Segmento del nome di risorsa successivo, se necessario. |
+| resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Sì |string |Nome della risorsa. |
+| resourceName2 |No |string |Segmento del nome di risorsa successivo, se necessario. |
 
 Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di risorsa include più segmenti.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c5d70e5a8784e88d3f2906d500768735dced1ee0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3c474b57533cb6165ce7fe77defccd4cb7042b06
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73828133"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82189923"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Informazioni sull'IoT industriale (IIoT)
 
@@ -23,12 +23,12 @@ IIoT è l'Internet delle cose per il settore industriale. Ottimizza l'efficienza
 
 Migliorare la redditività e la produttività operative con un acceleratore di soluzione di fabbrica connessa. Connettere e monitorare le apparecchiature industriali e i dispositivi sul cloud, inclusi i computer già in funzione in fabbrica. Analizzare i dati dell'IoT per ottenere informazioni dettagliate utili per migliorare le prestazioni dell'intera fabbrica.
 
-Ridurre le procedure lunghe e laboriose di accesso alle macchine della fabbrica OPC Twin e dedicare il tempo allo sviluppo di soluzioni IIoT. Semplificare la gestione dei certificati e l'integrazione di risorse aziendali con OPC Vault con la certezza che la connettività delle risorse sia protetta. Questi microservizi forniscono un'API di tipo REST in aggiunta ai [componenti dell'IoT industriale di Azure](https://github.com/Azure/azure-iiot-opc-ua). L'API di servizi offre il controllo della funzionalità dei moduli edge. 
+Ridurre le procedure lunghe e laboriose di accesso alle macchine della fabbrica OPC Twin e dedicare il tempo allo sviluppo di soluzioni IIoT. Semplificare la gestione dei certificati e l'integrazione di risorse aziendali con OPC Vault con la certezza che la connettività delle risorse sia protetta. Questi microservizi forniscono un'API di tipo REST in aggiunta ai [componenti dell'IoT industriale di Azure](https://github.com/Azure/Industrial-IoT). L'API di servizi offre il controllo della funzionalità dei moduli edge. 
 
 ![Panoramica dell'IoT industriale](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Per altre informazioni sui servizi di IoT industriale di Azure, vedere il [repository ](https://github.com/Azure/azure-iiot-services) GitHub.
+> Per altre informazioni sui servizi Azure IoT per il settore industriale, vedere il [repository](https://github.com/Azure/Industrial-IoT) e la [documentazione](https://azure.github.io/Industrial-IoT/) in GitHub.
 Se si ha poca familiarità con il funzionamento dei moduli IoT Edge di Azure, iniziare con gli articoli seguenti:
 - [Informazioni su Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Moduli IoT Edge di Azure](../iot-edge/iot-edge-modules.md)
@@ -41,7 +41,7 @@ Se si ha poca familiarità con il funzionamento dei moduli IoT Edge di Azure, in
 
 OPC Twin è un componente dell'IoT che automatizza l'individuazione e la registrazione dei dispositivi e offre il controllo remoto dei dispositivi industriali tramite API REST. OPC Twin usa Azure IoT Edge e l'hub IoT per connettere il cloud e la rete della fabbrica. OPC Twin consente agli sviluppatori di IIoT di concentrarsi sullo sviluppo di applicazioni IIoT senza preoccuparsi dell'accesso sicuro ai sistemi locali.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 OPC Vault è un'implementazione di GDS (Global Discovery Server) OPC UA che consente di configurare, registrare e gestire il ciclo di vita dei certificati per le applicazioni server e client OPC UA nel cloud. OPC Vault semplifica l'implementazione e la manutenzione della connettività sicura delle risorse negli ambienti industriali. Automatizzando la gestione dei certificati, OPC Vault libera gli operatori della fabbrica dai complessi processi manuali associati alla connettività e alla gestione dei certificati.
 

@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: HT
+ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801689"
+ms.locfileid: "82838485"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -93,12 +93,12 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
 |[@queryil parametro non è supportato in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|2019 aprile|Nessuna soluzione alternativa| |
 |[La replica transazionale deve essere riconfigurata dopo il failover geografico](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Nessuna soluzione alternativa| |
 |[Il database temporaneo viene usato durante l'operazione di ripristino](#temporary-database-is-used-during-restore-operation)||Con soluzione alternativa| |
-|[La struttura e il contenuto di TEMPDB vengono ricreati](#tempdb-structure-and-content-is-re-created)||Nessuna soluzione alternativa| |
-|[Superamento dello spazio di archiviazione con file di database di piccole dimensioni](#exceeding-storage-space-with-small-database-files)||Con soluzione alternativa| |
-|[Valori GUID visualizzati al posto dei nomi di database](#guid-values-shown-instead-of-database-names)||Con soluzione alternativa| |
+|[La struttura e il contenuto di TEMPDB vengono ricreati](#tempdb-structure-and-content-is-re-created)| |Nessuna soluzione alternativa| |
+|[Superamento dello spazio di archiviazione con file di database di piccole dimensioni](#exceeding-storage-space-with-small-database-files)| |Con soluzione alternativa| |
+|[Valori GUID visualizzati al posto dei nomi di database](#guid-values-shown-instead-of-database-names) ||Con soluzione alternativa| |
 |[I log degli errori non sono salvati in stato permanente](#error-logs-arent-persisted)||Nessuna soluzione alternativa| |
-|[L'ambito della transazione su due database all'interno della stessa istanza non è supportato](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Con soluzione alternativa|Mar 2020|
-|[I moduli CLR e i server collegati talvolta non possono fare riferimento a un indirizzo IP locale](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Con soluzione alternativa| |
+|[I moduli CLR e i server collegati talvolta non possono fare riferimento a un indirizzo IP locale](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)| |Con soluzione alternativa| |
+|[L'ambito della transazione su due database all'interno della stessa istanza non è supportato](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)| |Risolto|Mar 2020|
 |Coerenza del database non verificata con DBCC CHECKDB dopo il ripristino del database dall'archiviazione BLOB di Azure.| |Risolto|2019 novembre|
 |Il ripristino temporizzato del database dal livello business critical al livello per utilizzo generico non riuscirà se il database di origine contiene oggetti OLTP in memoria.| |Risolto|2019 ottobre|
 |Posta elettronica database funzionalità con server di posta elettronica esterni (non Azure) tramite connessione protetta| |Risolto|2019 ottobre|
