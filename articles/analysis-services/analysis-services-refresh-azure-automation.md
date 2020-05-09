@@ -4,14 +4,14 @@ description: Questo articolo descrive come codificare gli aggiornamenti dei mode
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871308"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926562"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
@@ -60,7 +60,7 @@ L'entità servizio creata deve avere le autorizzazioni di amministratore del ser
 
     ![Creare credenziali](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Immettere i dettagli per la credenziale.  Per **nome utente**, immettere il nome dell'entità servizio ( **SPN**) per la **password**, immettere il **segreto SPN**.
+2. Immettere i dettagli per la credenziale. In **nome utente**immettere l'ID applicazione dell'entità servizio (AppID) e quindi in **password**immettere il segreto dell'entità servizio.
 
     ![Creare credenziali](./media/analysis-services-refresh-azure-automation/7.png)
 

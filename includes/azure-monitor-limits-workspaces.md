@@ -35,21 +35,21 @@ ms.locfileid: "82161167"
 
 **Azure portal**
 
-| Category | Limite | Commenti |
+| Categoria | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di record restituiti da una query di log | 10,000 | Ridurre i risultati utilizzando l'ambito della query, l'intervallo di tempo e i filtri nella query. |
 
 
 **API dell'agente di raccolta dati**
 
-| Category | Limite | Commenti |
+| Categoria | Limite | Commenti |
 |:---|:---|:---|
 | Dimensioni massime per un singolo post | 30 MB | Suddividere i volumi più grandi in più post. |
 | Dimensioni massime per i valori dei campi  | 32 KB | I campi con una lunghezza superiore a 32 KB vengono troncati. |
 
 **API di ricerca**
 
-| Category | Limite | Commenti |
+| Categoria | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di record restituiti in una singola query | 500.000 | |
 | Dimensioni massime dei dati restituiti | 64 milioni byte (~ 61 MiB)| |
@@ -58,7 +58,7 @@ ms.locfileid: "82161167"
 
 **Limiti generali dell'area di lavoro**
 
-| Category | Limite | Commenti |
+| Categoria | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di colonne in una tabella         | 500 | |
 | Numero massimo di caratteri per il nome della colonna | 500 | |

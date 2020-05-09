@@ -7,14 +7,20 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767035"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612079"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura accelerazione GPU (Graphics Processing Unit) per desktop virtuale Windows
+
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Desktop virtuale Windows supporta il rendering e la codifica con accelerazione GPU per migliorare le prestazioni e la scalabilità delle app. L'accelerazione GPU è particolarmente importante per le app a elevato utilizzo di grafica.
 
@@ -26,7 +32,7 @@ Azure offre una serie di [dimensioni di macchine virtuali ottimizzate per GPU](/
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Creare un pool host, effettuare il provisioning della macchina virtuale e configurare un gruppo di app
 
-Creare un nuovo pool host usando una macchina virtuale di dimensioni selezionate. Per istruzioni, vedere [esercitazione: creare un pool di host con Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Creare un nuovo pool host usando una macchina virtuale di dimensioni selezionate. Per istruzioni, vedere [esercitazione: creare un pool di host con il portale di Azure](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
 Desktop virtuale Windows supporta il rendering e la codifica con accelerazione GPU nei sistemi operativi seguenti:
 
@@ -39,7 +45,7 @@ Desktop virtuale Windows supporta il rendering e la codifica con accelerazione G
 
 Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure in desktop virtuali Windows, è necessario installare i driver grafici appropriati. Seguire le istruzioni disponibili in [sistemi operativi e driver supportati](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) per installare i driver dal fornitore di grafica appropriato, manualmente o usando un'estensione di VM di Azure.
 
-Per desktop virtuale Windows sono supportati solo i driver distribuiti da Azure. Per le macchine virtuali di Azure con GPU NVIDIA sono supportati solo [driver NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) per desktop virtuale di Windows.
+Per desktop virtuale Windows sono supportati solo i driver distribuiti da Azure. Inoltre, per le macchine virtuali di Azure con GPU NVIDIA, solo [i driver NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) sono supportati per desktop virtuale di Windows.
 
 Dopo l'installazione del driver, è necessario riavviare la macchina virtuale. Utilizzare i passaggi di verifica nelle istruzioni sopra indicate per verificare che i driver grafici siano stati installati correttamente.
 

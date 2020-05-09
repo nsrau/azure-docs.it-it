@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72b6c1f86b18df172994827ec78eb109fe82454e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75913796"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82147757"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -33,11 +33,11 @@ I dischi gestiti vengono integrati con una maggiore affidabilità per i set di d
 
 ### <a name="integration-with-availability-zones"></a>Integrazione con zone di disponibilità
 
-Managed Disks supporta le [zone di disponibilità](../articles/availability-zones/az-overview.md), una soluzione a disponibilità elevata che permette di proteggere le applicazioni da eventuali problemi del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore.
+Managed Disks supporta le [zone di disponibilità](../articles/availability-zones/az-overview.md), una soluzione a disponibilità elevata che permette di proteggere le applicazioni da eventuali problemi del data center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza sono presenti almeno tre zone separate in tutte le aree abilitate. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore.
 
 ### <a name="azure-backup-support"></a>Supporto di Backup di Azure
 
-Per proteggersi da emergenze a livello di area, [Backup di Azure](../articles/backup/backup-overview.md) può essere usato per creare un processo di backup con backup pianificati e criteri di conservazione dei backup. Ciò consente di eseguire semplici operazioni di ripristino delle macchine virtuali in base alle esigenze. Attualmente Backup di Azure supporta dimensioni di disco fino a quattro tebibyte (TiB).  Backup di Azure supporta il backup e il ripristino di dischi gestiti. [Altre informazioni](../articles/backup/backup-support-matrix-iaas.md) sul supporto per il backup di macchine virtuali di Azure.
+Per proteggersi da emergenze a livello di area, [Backup di Azure](../articles/backup/backup-overview.md) può essere usato per creare un processo di backup con backup pianificati e criteri di conservazione dei backup. In questo modo è possibile eseguire operazioni di ripristino di macchine virtuali e dischi gestiti in base alle esigenze. Attualmente Backup di Azure supporta dimensioni di disco fino a 32 tebibyte (TiB). [Altre informazioni](../articles/backup/backup-support-matrix-iaas.md) sul supporto per il backup di macchine virtuali di Azure.
 
 ### <a name="granular-access-control"></a>Controllo di accesso granulare
 

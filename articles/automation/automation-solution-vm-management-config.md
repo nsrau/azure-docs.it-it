@@ -1,20 +1,20 @@
 ---
-title: Automazione di Azure configurazione di avvio/arresto di macchine virtuali durante gli orari di indisponibilità
+title: Configurazione Avvio/Arresto di macchine virtuali durante gli orari di minore attività soluzione di automazione di Azure
 description: Questo articolo descrive come configurare la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività per supportare diversi casi d'uso o scenari.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 4cceb0d5ada82de73bc74c0ed408f8eb988ea8ec
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604769"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864267"
 ---
-# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Come configurare la soluzione di avvio/arresto di macchine virtuali durante gli orari di indisponibilità
+# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Come configurare Avvio/Arresto di macchine virtuali durante gli orari di minore attività soluzione
 
-Con la soluzione **avvio/arresto di macchine virtuali durante gli orari** di indisponibilità, è possibile:
+Con la soluzione **avvio/arresto di macchine virtuali durante gli orari di minore attività** è possibile:
 
 - [Pianificare l'avvio e l'arresto delle macchine virtuali](#schedule).
 - Pianificare le macchine virtuali per l'avvio e l'arresto in ordine crescente [usando i tag di Azure](#tags) (non supportati per le macchine virtuali classiche).
@@ -125,7 +125,7 @@ Quando si esegue il **AutoStop_CreateAlert_Parent** Runbook, verifica che esista
 
 ### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Per specificare come destinazione l'azione di arresto autostop in un elenco di macchine virtuali
 
-1. Creare una nuova [pianificazione](shared-resources/schedules.md#creating-a-schedule) e collegarla all' **AutoStop_CreateAlert_Parent** Runbook, aggiungendo un elenco delimitato da virgole di nomi di VM `VMList` al parametro.
+1. Creare una nuova [pianificazione](shared-resources/schedules.md#create-a-schedule) e collegarla all' **AutoStop_CreateAlert_Parent** Runbook, aggiungendo un elenco delimitato da virgole di nomi di VM `VMList` al parametro.
 
 2. Facoltativamente, se si desidera escludere alcune macchine virtuali dalla chiusura automatica, è possibile aggiungere alla `External_ExcludeVMNames` variabile un elenco delimitato da virgole di nomi di VM.
 
