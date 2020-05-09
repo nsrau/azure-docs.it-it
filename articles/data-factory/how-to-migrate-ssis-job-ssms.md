@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81455088"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627586"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Eseguire la migrazione di processi SQL Server Agent ad ADF con SSMS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Quando si esegue la migrazione di [carichi di lavoro di SQL Server Integration Services (SSIS) locali a SSIS in ADF](scenario-ssis-migration-overview.md), dopo la migrazione dei pacchetti SSIS, è possibile eseguire la migrazione in batch di processi SQL Server Agent con il tipo di passaggio del processo di SQL Server Integration Services di pacchetti per Azure Data Factory (ADF) pipeline/attività/pianificazione dei trigger tramite la **migrazione guidata processi SSIS**di SQL Server Management Studio (SSMS).
 

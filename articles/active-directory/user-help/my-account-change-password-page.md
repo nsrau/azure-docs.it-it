@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 06e5abe04ed1ec75dcbf1b216bfaab1a7458ce72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064054"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625953"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Modificare la password dell'account aziendale o dell'Istituto di istruzione dalla pagina Cambia password
 
@@ -27,7 +27,7 @@ La pagina **Cambia password** del portale **account personale** consente di aggi
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Aggiornare una password dalla pagina Cambia password
 
-1. Accedere al proprio account aziendale o dell'Istituto di istruzione, usando la password esistente, quindi passare all' **account personale** (https://myprofile.microsoft.com/) pagina.
+1. Accedere al proprio account aziendale o dell'Istituto di istruzione, usando la password esistente, quindi passare all' **account personale** (https://myaccount.microsoft.com/) pagina.
 
 2. Selezionare **password** dal riquadro di spostamento a sinistra oppure selezionare il collegamento **Cambia password** dal blocco **password** .
 
