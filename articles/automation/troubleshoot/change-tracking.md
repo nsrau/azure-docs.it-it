@@ -9,19 +9,19 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 11c1fd05055922b07801c20d525d852d5360b069
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 4f230cd0965d58f690d333cd62f2c7c1d499e8d1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679344"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582156"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Risolvere i problemi di Rilevamento modifiche e inventario
 
-Questo articolo descrive come risolvere i problemi di Rilevamento modifiche e di inventario.
+Questo articolo descrive come risolvere i problemi relativi all'inventario e al Rilevamento modifiche di automazione di Azure.
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](../automation-update-azure-modules.md).
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md).
 
 ## <a name="windows"></a>Windows
 
@@ -35,12 +35,12 @@ Non viene visualizzato alcun Rilevamento modifiche e i risultati dell'inventario
 
 Questo errore può avere le seguenti cause:
 
-* L'agente di Log Analytics per Windows non è in esecuzione.
+* L'agente di Log Analytics di Azure per Windows non è in esecuzione.
 * Viene bloccata la comunicazione con l'account di automazione.
 * I Management Pack Rilevamento modifiche e Inventory non vengono scaricati.
 * La VM da caricare potrebbe provenire da un computer clonato che non è stato preparata con Sysprep con l'agente di Log Analytics per Windows installato.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Nel computer agente Log Analytics passare a **C:\Programmi\Microsoft Monitoring Agent\Agent\Tools** ed eseguire i comandi seguenti:
 
@@ -51,10 +51,10 @@ StartTracing.cmd VER
 net start healthservice
 ```
 
-Se è ancora necessaria assistenza, è possibile raccogliere informazioni di diagnostica e contattare il supporto tecnico. 
+Se è ancora necessaria assistenza, è possibile raccogliere informazioni di diagnostica e contattare il supporto tecnico.
 
 > [!NOTE]
-> Per impostazione predefinita, l'agente di log Analytics Abilita la traccia degli errori. Per abilitare i messaggi di errore dettagliati come nell'esempio precedente, usare `VER` il parametro. Per la traccia delle informazioni, usare `INF` quando si richiama `StartTracing.cmd`.
+> Per impostazione predefinita, l'agente di Log Analytics Abilita la traccia degli errori. Per abilitare i messaggi di errore dettagliati come nell'esempio precedente, usare `VER` il parametro. Per informazioni sulle tracce, `INF` usare quando si `StartTracing.cmd`richiama.
 
 ##### <a name="log-analytics-agent-for-windows-not-running"></a>Agente di Log Analytics per Windows non in esecuzione
 
@@ -62,9 +62,9 @@ Verificare che l'agente di Log Analytics per Windows (**HealthService. exe**) si
 
 ##### <a name="communication-to-automation-account-blocked"></a>Comunicazione con l'account di automazione bloccata
 
-Controllare Visualizzatore eventi nel computer e cercare gli eventi che contengono la parola `changetracking`.
+Controllare Visualizzatore eventi nel computer e cercare gli eventi che contengono la parola `changetracking` .
 
-Vedere [automatizzare le risorse nel Data Center o nel cloud usando il ruolo di lavoro ibrido per Runbook](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e sulle porte che devono essere consentiti per il funzionamento rilevamento modifiche e l'inventario.
+Per informazioni sugli indirizzi e sulle porte che devono essere consentiti per il funzionamento di Rilevamento modifiche e inventario, vedere [automatizzare le risorse nel Data Center o nel cloud usando Hybrid Runbook Workers](../automation-hybrid-runbook-worker.md#network-planning).
 
 ##### <a name="management-packs-not-downloaded"></a>Management Pack non scaricati
 
@@ -84,7 +84,7 @@ Se si usa un'immagine clonata, eseguire prima l'immagine Sysprep e quindi instal
 
 #### <a name="issue"></a>Problema
 
-Non vengono visualizzati i risultati di inventario e di Rilevamento modifiche per i computer Linux caricati per la soluzione. 
+Non viene visualizzato alcun Rilevamento modifiche e i risultati dell'inventario per i computer Linux caricati per la soluzione. 
 
 #### <a name="cause"></a>Causa
 Di seguito sono riportate alcune possibili cause specifiche di questo problema:
@@ -92,7 +92,7 @@ Di seguito sono riportate alcune possibili cause specifiche di questo problema:
 * L'agente di Log Analytics per Linux non è configurato correttamente.
 * Sono presenti conflitti di monitoraggio dell'integrità dei file (FIM).
 
-#### <a name="resolution"></a>Soluzione 
+#### <a name="resolution"></a>Risoluzione 
 
 ##### <a name="log-analytics-agent-for-linux-not-running"></a>Agente di Log Analytics per Linux non in esecuzione
 
@@ -103,7 +103,7 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-Se il computer non viene visualizzato nei risultati della query, non è stato archiviato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario reinstallare l'agente. Per informazioni sull'installazione e la configurazione, vedere [raccogliere dati di log con l'agente di log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Se il computer non viene visualizzato nei risultati della query, non è stato archiviato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario reinstallare l'agente. Per informazioni sull'installazione e la configurazione, vedere [raccogliere dati di log con l'agente di log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
 
 Se il computer viene visualizzato nei risultati della query, verificare la configurazione dell'ambito. Vedere [targeting Solutions Monitoring in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting).
 
@@ -119,8 +119,8 @@ La funzionalità FIM del Centro sicurezza di Azure può convalidare erroneamente
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema non viene visualizzato in precedenza o non è possibile risolvere il problema, provare a usare uno dei canali seguenti per ottenere supporto aggiuntivo:
+Se il problema non viene visualizzato qui o non è possibile risolvere il problema, provare a usare uno dei canali seguenti per ottenere supporto aggiuntivo:
 
 * Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
-* Connettersi a [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
-* Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
+* Connettersi con [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Il supporto tecnico di Azure connette la community di Azure a risposte, supporto ed esperti.
+* Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**.

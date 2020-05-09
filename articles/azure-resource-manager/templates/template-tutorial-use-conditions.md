@@ -2,15 +2,15 @@
 title: Usare una condizione nei modelli
 description: Informazioni su come distribuire risorse di Azure in base a condizioni. Mostra come distribuire una nuova risorsa oppure usarne una esistente.
 author: mumian
-ms.date: 05/21/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b73598da2b34847a38485db9952302f7c5b33c98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260641"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185031"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 
@@ -52,7 +52,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. In Visual Studio Code selezionare **File**>**Apri file**.
 1. In **Nome file** incollare l'URL seguente:
@@ -134,37 +134,45 @@ Di seguito è riportata la procedura per apportare le modifiche:
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Seguire le istruzioni in [Distribuire il modello](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) per aprire Cloud Shell e caricare il modello aggiornato, quindi eseguire lo script di PowerShell seguente per distribuire il modello.
+1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
-> [!IMPORTANT]
-> Il nome dell'account di archiviazione deve essere univoco in Azure. Il nome deve essere composto solo da lettere minuscole e numeri e non deve superare i 24 caratteri. Il nome dell'account di archiviazione è il nome del progetto a cui viene aggiunto "store". Assicurarsi che il nome del progetto e il nome dell'account di archiviazione generato soddisfino i requisiti per il nome dell'account di archiviazione.
+1. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (per l'interfaccia della riga di comando) nell'angolo in alto a sinistra.  Quando si cambia interfaccia, è necessario riavviare la shell.
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
-$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
-$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
-$vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
-$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+    ![Caricare file in Cloud Shell nel portale di Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-$resourceGroupName = "${projectName}rg"
-$storageAccountName = "${projectName}store"
+1. Selezionare **Carica/Scarica file** e quindi **Carica**. Vedere l'immagine sopra riportata. Selezionare il file salvato nella sezione precedente. Dopo aver caricato il file, è possibile usare i comandi **ls** e **cat** per verificare che il file sia stato caricato.
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin `
-    -adminPassword $vmPassword `
-    -dnsLabelPrefix $dnsLabelPrefix `
-    -storageAccountName $storageAccountName `
-    -newOrExisting $newOrExisting `
-    -TemplateFile "$HOME/azuredeploy.json"
+1. quindi eseguire lo script di PowerShell seguente per distribuire il modello.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    > [!IMPORTANT]
+    > Il nome dell'account di archiviazione deve essere univoco in Azure. Il nome deve essere composto solo da lettere minuscole e numeri e non deve superare i 24 caratteri. Il nome dell'account di archiviazione è il nome del progetto a cui viene aggiunto "store". Assicurarsi che il nome del progetto e il nome dell'account di archiviazione generato soddisfino i requisiti per il nome dell'account di archiviazione.
 
-> [!NOTE]
-> Se **newOrExisting** è **new**, ma l'account di archiviazione con il nome specificato esiste già, la distribuzione ha esito negativo.
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
+    $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+    $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+    $vmAdmin = Read-Host -Prompt "Enter the admin username"
+    $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+    $resourceGroupName = "${projectName}rg"
+    $storageAccountName = "${projectName}store"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -adminUsername $vmAdmin `
+        -adminPassword $vmPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -storageAccountName $storageAccountName `
+        -newOrExisting $newOrExisting `
+        -TemplateFile "$HOME/azuredeploy.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    > [!NOTE]
+    > Se **newOrExisting** è **new**, ma l'account di archiviazione con il nome specificato esiste già, la distribuzione ha esito negativo.
 
 Provare a ripetere la distribuzione con il parametro **newOrExisting** impostato su "existing" e specificare un account di archiviazione esistente. Per creare prima un account di archiviazione, vedere [Creare un account di archiviazione](../../storage/common/storage-account-create.md).
 

@@ -206,7 +206,11 @@
         - name: Pug-in di IoT Edge per Jenkins
           href: how-to-devops-plugins.md
     - name: Risolvere problemi
-      href: troubleshoot.md
+      items:
+        - name: Procedura di diagnostica standard
+          href: troubleshoot.md
+        - name: Risoluzioni di errori comuni
+          href: troubleshoot-common-errors.md
 - name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza

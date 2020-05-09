@@ -2,31 +2,27 @@
 title: Informazioni sul funzionamento del provisioning Azure AD | Microsoft Docs
 description: Informazioni sul funzionamento del provisioning Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884886"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593727"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
 Il provisioning automatico si riferisce alla creazione di identità e ruoli utente nelle applicazioni cloud a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Prima di iniziare una distribuzione, è possibile leggere questo articolo per informazioni sul funzionamento del provisioning di Azure AD e ottenere consigli sulla configurazione. 
 
-Il **servizio di provisioning Azure ad esegue il provisioning** degli utenti nelle app SaaS e in altri sistemi connettendosi a un endpoint dell'API di gestione utenti di gestione delle identità tra domini (SCIM) 2,0 fornito dal fornitore dell'applicazione. Questo endpoint SCIM consente Azure AD di creare, aggiornare e rimuovere gli utenti a livello di codice. Per le applicazioni selezionate, il servizio di provisioning può anche creare, aggiornare e rimuovere oggetti correlati all'identità aggiuntivi, ad esempio gruppi e ruoli. Il canale usato per il provisioning tra Azure AD e l'applicazione viene crittografato con la crittografia TLS HTTPS.
+Il **servizio di provisioning Azure ad esegue il provisioning** degli utenti nelle app SaaS e in altri sistemi connettendosi a un endpoint dell'API di gestione utenti di gestione delle identità tra domini (SCIM) 2,0 fornito dal fornitore dell'applicazione. Questo endpoint SCIM consente Azure AD di creare, aggiornare e rimuovere gli utenti a livello di codice. Per le applicazioni selezionate, il servizio di provisioning può anche creare, aggiornare e rimuovere oggetti correlati all'identità aggiuntivi, ad esempio gruppi e ruoli. Il canale usato per il provisioning tra Azure AD e l'applicazione viene crittografato con la crittografia HTTPS TLS 1,2.
 
 
 ![Servizio](./media/how-provisioning-works/provisioning0.PNG)

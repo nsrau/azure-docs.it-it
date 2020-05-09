@@ -90,7 +90,7 @@ Se non è più necessario, è possibile eliminare il server.
 
 1. Selezionare il server nella portale di Azure. Nella finestra **Panoramica** selezionare **Elimina**.
 
-    ![Elimina](./media/howto-create-manage-server-portal/overview-delete.png)
+    ![eliminare](./media/howto-create-manage-server-portal/overview-delete.png)
 
 2. Digitare il nome del server nella casella di input per confermare che si tratta del server che si desidera eliminare.
 

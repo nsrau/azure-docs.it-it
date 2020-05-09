@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: f2ebbf5a8628c5c0321f85fac9901c314048ad50
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: HT
+ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743796"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857662"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Creare, configurare e pubblicare un'offerta di modulo IoT Edge in Azure Marketplace
-
-> [!IMPORTANT]
-> Stiamo muovendo la gestione delle offerte del modulo IoT Edge dal portale Cloud Partner al centro per i partner. Fino a quando non viene eseguita la migrazione delle offerte, seguire le istruzioni riportate nella [Panoramica della pubblicazione dell'offerta IOT Edge modulo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) per portale cloud partner per gestire le offerte.
 
 Questo articolo descrive come creare e pubblicare un'offerta di modulo perimetrale di Internet delle cose per Azure Marketplace. Prima di iniziare, [creare un account Marketplace commerciale nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma Commercial Marketplace.
 
@@ -312,7 +309,7 @@ Nella casella **nome piano** immettere un nome per il piano. I clienti visualizz
 > [!NOTE]
 > Non è possibile modificare l'ID del piano dopo aver selezionato **Crea**.
 
-Selezionare **Crea**.
+Selezionare **Create** (Crea).
 
 ### <a name="plan-setup"></a>Pianificare l'installazione
 

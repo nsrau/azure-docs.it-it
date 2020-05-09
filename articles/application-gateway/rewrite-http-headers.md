@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: ced807b25cd1e829988a1e6b7621a5f73e0edfc2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: HT
+ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202431"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562237"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il gateway applicazione
 
@@ -157,6 +157,8 @@ Potrebbe essere necessario rimuovere le intestazioni che consentono di rivelare 
 ## <a name="limitations"></a>Limitazioni
 
 - Se una risposta ha più di un'intestazione con lo stesso nome, la riscrittura del valore di una di queste intestazioni comporterà la rimozione delle altre intestazioni nella risposta. Questo problema si verifica in genere con l'intestazione set-cookie poiché è possibile avere più di un'intestazione set-cookie in una risposta. Uno di questi scenari è quando si usa un servizio app con un gateway applicazione e si è configurata l'affinità di sessione basata su cookie nel gateway applicazione. In questo caso, la risposta conterrà due intestazioni set-cookie: una usata dal servizio app, ad esempio: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e un'altra per l'affinità del gateway applicazione, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`ad esempio. La riscrittura di una delle intestazioni set-cookie in questo scenario può causare la rimozione dell'altra intestazione set-cookie dalla risposta.
+
+- Le riscritture non sono supportate quando il gateway applicazione è configurato per reindirizzare le richieste o per visualizzare una pagina di errore personalizzata.
 
 - La riscrittura delle intestazioni di connessione, aggiornamento e host non è attualmente supportata.
 

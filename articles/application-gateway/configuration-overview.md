@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632181"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856066"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -101,18 +101,18 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
 
    È possibile creare un UDR per inviare il traffico 0.0.0.0/0 direttamente a Internet. 
 
-  **Scenario 3**: UdR per il servizio Kubernetes di Azure kubenet
+  **Scenario 3**: UdR per il servizio Kubernetes di Azure con kubenet
 
-  Se si usa kubenet con Azure Kubernetes Service (AKS) e il controller di ingresso del gateway applicazione (AGIC), è necessario configurare una tabella di route per consentire il routing del traffico ai pod al nodo corretto. Questa operazione non è necessaria se si usa Azure CNI. 
+  Se si usa kubenet con Azure Kubernetes Service (AKS) e il controller di ingresso del gateway applicazione (AGIC), è necessaria una tabella di route per consentire il routing del traffico ai pod dal gateway applicazione al nodo corretto. Questa operazione non è necessaria se si usa Azure CNI. 
 
-   Per configurare la tabella di route in modo da consentire il funzionamento di kubenet, attenersi alla procedura seguente:
+  Per usare la tabella di route per consentire il funzionamento di kubenet, attenersi alla procedura seguente:
 
-  1. Creare una risorsa della tabella di route in Azure. 
-  2. Una volta creato, passare alla pagina **Route** . 
-  3. Aggiungere una nuova route:
+  1. Passare al gruppo di risorse creato da AKS (il nome del gruppo di risorse deve iniziare con "MC_")
+  2. Trovare la tabella di route creata da AKS in tale gruppo di risorse. La tabella di route deve essere popolata con le seguenti informazioni:
      - Il prefisso dell'indirizzo deve essere l'intervallo IP dei pod che si vuole raggiungere in AKS. 
-     - Il tipo di hop successivo deve essere **appliance virtuale**. 
-     - L'indirizzo hop successivo deve essere l'indirizzo IP del nodo che ospita i pod nell'intervallo IP definito nel campo prefisso dell'indirizzo. 
+     - Il tipo di hop successivo deve essere appliance virtuale. 
+     - L'indirizzo hop successivo deve essere l'indirizzo IP del nodo che ospita i pod.
+  3. Associare la tabella di route alla subnet del gateway applicazione. 
     
   **V2 scenari non supportati**
 
@@ -283,7 +283,7 @@ Per ulteriori informazioni sul reindirizzamento, vedere:
 
 #### <a name="rewrite-the-http-header-setting"></a>Riscrivere l'impostazione dell'intestazione HTTP
 
-Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Per altre informazioni, vedi:
+Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Per altre informazioni, vedere:
 
  - [Panoramica delle intestazioni HTTP di riscrittura](rewrite-http-headers.md)
  - [Configurare la riscrittura dell'intestazione HTTP](rewrite-http-headers-portal.md)
