@@ -4,12 +4,12 @@ description: Procedura dettagliata per il ripristino dello stato del sistema di 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77602460"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610786"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -89,7 +89,7 @@ Include la terminologia utilizzata in questi passaggi:
 6. Nel riquadro Seleziona server di backup selezionare il *computer di origine* dall'elenco di computer visualizzati.
 7. Nel riquadro Seleziona modalità di ripristino scegliere **Stato del sistema** e quindi fare clic su **Avanti**.
 
-    ![Cerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Ricerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. Nel riquadro **Seleziona volume e data** del Calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere il punto di ripristino specifico dal menu a discesa **ora** .
 
@@ -124,7 +124,7 @@ Dopo avere ripristinato lo stato del sistema sotto forma di file tramite l'agent
 
 2. Dopo il riavvio aprire lo snap-in Windows Server Backup. Se non si conosce il percorso di installazione dello snap-in, cercare **Windows Server Backup** nel computer o nel server.
 
-    L'applicazione desktop viene visualizzata nei risultati della ricerca.
+    L'applicazione desktop viene visualizzata nei risultati della ricerca. Se non viene visualizzato o si verificano errori durante l'apertura dell'applicazione, è necessario installare le **funzionalità di Windows Server Backup**e i componenti dipendenti sottostanti, che sono disponibili nell' **Aggiunta guidata funzionalità** di **Server Manager**.
 
 3. Nello snap-in selezionare **Backup locale**.
 

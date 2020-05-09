@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53dfe07ebd4925c96290db140b6e613c38eef564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 163650a05bf47e6cb8a8832bb85477740d88b0cd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617338"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787363"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -51,15 +51,15 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Windows sono i s
 
 Per altri requisiti di rete per il ruolo di lavoro ibrido per runbook, vedere la sezione [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="server-onboarding-for-management-with-automation-dsc"></a>Onboarding del server per la gestione con Automation DSC
+### <a name="server-onboarding-for-management-with-state-configuration-dsc"></a>Onboarding del server per la gestione con configurazione dello stato (DSC)
 
-Per informazioni sui server di onboarding per la gestione con DSC, vedere Caricamento [di computer per la gestione con Azure Automation DSC](automation-dsc-onboarding.md).
+Per informazioni sui server di onboarding per la gestione con configurazione dello stato (DSC), vedere [onboarding machines for Management by state Configuration (DSC)](automation-dsc-onboarding.md).
 
-L'abilitazione della [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md) configura automaticamente qualsiasi computer Windows connesso all'area di lavoro di log Analytics come ruolo di lavoro ibrido per Runbook per supportare manuali operativi inclusi nella soluzione. Tuttavia, questo ruolo di lavoro non è registrato con alcun gruppo di lavoro ibrido per Runbook già definito nell'account di automazione.
+L'abilitazione di [Gestione aggiornamenti](automation-update-management.md) configura automaticamente qualsiasi computer Windows connesso all'area di lavoro di log Analytics come ruolo di lavoro ibrido per Runbook per supportare gli aggiornamenti di Runbook. Tuttavia, questo ruolo di lavoro non è registrato con alcun gruppo di lavoro ibrido per Runbook già definito nell'account di automazione.
 
 ### <a name="addition-of-the-computer-to-a-hybrid-runbook-worker-group"></a>Aggiunta del computer a un gruppo di ruolo di lavoro ibrido per Runbook
 
-È possibile aggiungere il computer di lavoro a un gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione. Si noti che è necessario supportare il manuali operativi di automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo di lavoro ibrido per Runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
+È possibile aggiungere il computer di lavoro a un gruppo di ruolo di lavoro ibrido per Runbook nell'account di automazione. Si noti che è necessario supportare manuali operativi di automazione, purché si usi lo stesso account sia per la funzionalità di automazione di Azure che per l'appartenenza al gruppo di lavoro ibrido per Runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
 ## <a name="automated-deployment"></a>Distribuzione automatizzata
 
@@ -81,7 +81,7 @@ Scaricare lo script **New-onpremisehybridworker. ps1** dal [PowerShell Gallery](
 | `WorkspaceName` | Facoltativo | Nome dell'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, lo script ne crea e configura una. |
 
 > [!NOTE]
-> Quando si abilitano le soluzioni, automazione di Azure supporta solo determinate aree per collegare un'area di lavoro Log Analytics e un account di automazione. Per un elenco delle coppie di mapping supportate, vedere [mapping delle aree per l'account di automazione e l'area di lavoro log Analytics](how-to/region-mappings.md).
+> Quando si abilitano le funzionalità, automazione di Azure supporta solo determinate aree per collegare un'area di lavoro Log Analytics e un account di automazione. Per un elenco delle coppie di mapping supportate, vedere [mapping delle aree per l'account di automazione e l'area di lavoro log Analytics](how-to/region-mappings.md).
 
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>Passaggio 2: aprire la shell della riga di comando di Windows PowerShell
 
@@ -115,9 +115,9 @@ Nel computer di destinazione eseguire i primi due passaggi una volta per l'ambie
 
 Se non si dispone già di un'area di lavoro Log Analytics, vedere le [indicazioni sulla progettazione dei log di monitoraggio di Azure](../azure-monitor/platform/design-logs-deployment.md) prima di creare l'area di lavoro.
 
-### <a name="step-2---add-the-automation-solution-to-the-log-analytics-workspace"></a>Passaggio 2: aggiungere la soluzione di automazione all'area di lavoro Log Analytics
+### <a name="step-2---add-an-azure-automation-feature-to-the-log-analytics-workspace"></a>Passaggio 2: aggiungere una funzionalità di automazione di Azure all'area di lavoro Log Analytics
 
-La soluzione di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si aggiunge la soluzione all'area di lavoro Log Analytics, viene automaticamente inoltrata al computer dell'agente i componenti di lavoro installati come descritto nel passaggio successivo.
+Una funzionalità di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per Runbook. Quando si aggiunge una soluzione all'area di lavoro Log Analytics, viene automaticamente inoltrata al computer dell'agente i componenti di lavoro installati come descritto nel passaggio successivo.
 
 Per aggiungere la soluzione di automazione all'area di lavoro, eseguire il cmdlet di PowerShell seguente.
 
@@ -177,13 +177,38 @@ Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
 I runbook possono usare tutte le attività e i cmdlet definiti nei moduli installati nell'ambiente di Automazione di Azure. Poiché questi moduli non vengono distribuiti automaticamente nei computer locali, è necessario installarli manualmente. L'eccezione è il modulo di Azure. Questo modulo viene installato per impostazione predefinita e fornisce l'accesso ai cmdlet per tutti i servizi e le attività di Azure per automazione di Azure.
 
-Poiché lo scopo principale della funzionalità Hybrid Runbook Worker è quello di gestire le risorse locali, è molto probabile che sia necessario installare i moduli che supportano queste risorse `PowerShellGet` , in particolare il modulo. Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Poiché lo scopo principale del ruolo di lavoro ibrido per Runbook è quello di gestire le risorse locali, è molto probabile che sia necessario installare i moduli che `PowerShellGet` supportano queste risorse, in particolare il modulo. Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
 
 I moduli installati devono trovarsi in un percorso a cui fa riferimento `PSModulePath` la variabile di ambiente in modo che il ruolo di lavoro ibrido possa importarli automaticamente. Per altre informazioni, vedere [Install modules in PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+
+## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-computer"></a><a name="remove-windows-hybrid-runbook-worker"></a>Rimuovere il ruolo di lavoro ibrido per Runbook da un computer Windows locale
+
+1. Nel portale di Azure passare all'account di Automazione.
+2. In **Impostazioni Account** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**.
+
+3. Aprire una sessione di PowerShell in modalità amministratore ed eseguire il comando seguente con i valori dell'URL e della chiave di accesso primaria. Usare il `Verbose` parametro per un log dettagliato del processo di rimozione. Per rimuovere le macchine non aggiornate dal gruppo di ruoli di lavoro ibridi, usare il parametro facoltativo `machineName`.
+
+```powershell-interactive
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
+```
+
+## <a name="remove-a-hybrid-worker-group"></a>Rimuovere un gruppo di ruoli di lavoro ibridi
+
+Per rimuovere un gruppo di ruolo di lavoro ibrido per Runbook, è necessario prima di tutto rimuovere il ruolo di lavoro ibrido per Runbook da ogni computer membro del gruppo. Per rimuovere il gruppo, attenersi alla procedura seguente:
+
+1. Nel portale di Azure aprire l'account di automazione.
+2. Selezionare **gruppi di lavoro ibridi** in **automazione processi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
+
+   ![Pagina Proprietà](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
+
+3. Nella pagina delle proprietà del gruppo selezionato selezionare **Elimina**. Compare un messaggio che chiede di confermare. Selezionare **Sì** se si è certi di voler continuare.
+
+   ![Messaggio di conferma](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
+
+   Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su come configurare i runbook per automatizzare i processi nel centro dati locale o un altro ambiente cloud, vedere [Eseguire runbook in un ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md).
-* Per istruzioni sulla rimozione di ruoli di lavoro ibridi per Runbook, vedere rimuovere i ruoli di [lavoro ibridi di automazione di Azure Runbook](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker)
-* Per informazioni su come risolvere i problemi relativi ai ruoli di lavoro ibridi per Runbook, vedere [Troubleshooting Runbook Hybrid Windows Workers](troubleshoot/hybrid-runbook-worker.md#windows).
-* Per ulteriori passaggi per la risoluzione dei problemi relativi alla gestione degli aggiornamenti, vedere [Gestione aggiornamenti: risoluzione dei](troubleshoot/update-management.md)problemi.
+* Per informazioni su come risolvere i problemi relativi ai ruoli di lavoro ibridi per Runbook, vedere [risolvere i problemi di Windows Hybrid Runbook](troubleshoot/hybrid-runbook-worker.md#windows).
+

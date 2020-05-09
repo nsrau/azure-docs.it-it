@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654348"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610650"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -45,7 +46,7 @@ Per configurare l'autenticazione basata su certificati, devono essere soddisfatt
 - È necessario che al client sia stato rilasciato un certificato client per l'autenticazione.
 
 >[!IMPORTANT]
->Le dimensioni massime di un CRL per Azure Active Directory per il download e la memorizzazione nella cache sono 20MB e il tempo necessario per scaricare il CRL non deve superare i 10 secondi.  Se Azure Active Directory non è in grado di scaricare un CRL, le autenticazioni basate su certificati che usano i certificati emessi dalla CA corrispondente avranno esito negativo. Le procedure consigliate per garantire che i file CRL rientrino nei vincoli di dimensione sono la conservazione delle durate dei certificati entro limiti ragionevoli e la pulizia dei certificati scaduti. 
+>Le dimensioni massime di un CRL per Azure Active Directory per il download e la memorizzazione nella cache sono 20MB e il tempo necessario per scaricare il CRL non deve superare i 10 secondi.  Se Azure Active Directory non è in grado di scaricare un CRL, le autenticazioni basate su certificati che usano i certificati emessi dalla CA corrispondente avranno esito negativo. Le procedure consigliate per garantire che i file CRL rientrino nei vincoli di dimensione sono la conservazione delle durate dei certificati entro limiti ragionevoli e la pulizia dei certificati scaduti.
 
 ## <a name="step-1-select-your-device-platform"></a>Passaggio 1: Selezionare la piattaforma del dispositivo
 

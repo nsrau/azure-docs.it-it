@@ -3,13 +3,12 @@ title: Monitorare le prestazioni dei servizi app di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Tempo di caricamento e di risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729803"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733449"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -71,7 +70,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 
     * Per modificare la percentuale di campionamento iniziale, ad esempio, è possibile creare un'impostazione dell' `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` applicazione: e un `100`valore di.
 
-    * Per l'elenco delle impostazioni del processore di telemetria del campionamento adattivo supportato, è possibile consultare il [codice](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) e la [documentazione associata](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * Per l'elenco delle impostazioni del processore di telemetria del campionamento adattivo supportato, è possibile consultare il [codice](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) e la [documentazione associata](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -399,7 +398,11 @@ Per informazioni aggiornate sull'Application Insights o sull'agente, vedere le [
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP e WordPress non sono supportati
 
-I siti PHP e WordPress non sono supportati. Attualmente non è disponibile un SDK/agente ufficialmente supportato per il monitoraggio lato server di questi carichi di lavoro. Tuttavia, la strumentazione manuale di transazioni sul lato client in un sito PHP o WordPress aggiungendo il codice JavaScript sul lato client alle pagine Web può essere eseguita tramite [JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
+I siti PHP e WordPress non sono supportati. Attualmente non è disponibile un SDK/agente ufficialmente supportato per il monitoraggio lato server di questi carichi di lavoro. Tuttavia, la strumentazione manuale di transazioni sul lato client in un sito PHP o WordPress aggiungendo il codice JavaScript sul lato client alle pagine Web può essere eseguita tramite [JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+### <a name="connection-string-and-instrumentation-key"></a>Stringa di connessione e chiave di strumentazione
+
+Quando si usa il monitoraggio senza codice, è necessaria solo la stringa di connessione. Tuttavia, è comunque consigliabile impostare la chiave di strumentazione in modo da mantenere la compatibilità con le versioni precedenti dell'SDK quando viene eseguita la strumentazione manuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire il profiler sull'app live](../app/profiler.md).
