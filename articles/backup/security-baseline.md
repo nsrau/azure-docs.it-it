@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: acc8ceaa96f6fddafdbf4aa74ab9e43a1a60714a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68453341defd2d359e69e0ecf8a821464fead0d3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195673"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744039"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -460,7 +460,7 @@ Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha impleme
 
 **Linee guida**: il traffico di backup dai server all'insieme di credenziali dei servizi di ripristino viene trasferito tramite un collegamento HTTPS sicuro e crittografato con Advanced Encryption Standard (AES) 256 se archiviato nell'insieme di credenziali.
 
-- [Informazioni sulla crittografia dei inattivi in backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Informazioni sulla crittografia dei inattivi in backup di Azure](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -508,7 +508,7 @@ Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di ges
 
 Quando si esegue il backup con l'agente MARS o si usa un insieme di credenziali di servizi di ripristino crittografato con una chiave gestita dal cliente, solo l'utente ha accesso alla chiave di crittografia. Microsoft non conserva mai una copia e non ha accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
 
-- [Informazioni sulla crittografia dei inattivi per backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Informazioni sulla crittografia dei inattivi per backup di Azure](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -902,7 +902,7 @@ Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
 - [Come eseguire il backup delle chiavi di Key Vault in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Informazioni sulla crittografia in backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys)
+- [Informazioni sulla crittografia in backup di Azure](https://docs.microsoft.com/azure/backup/backup-encryption#encryption-of-backup-data-using-customer-managed-keys)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 

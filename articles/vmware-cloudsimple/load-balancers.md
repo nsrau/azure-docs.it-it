@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fec54c19b9040e7cb44f1a5d2b7909510ab7313
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77014879"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734604"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Scegliere una soluzione di bilanciamento del carico per i cloud privati CloudSimple
 
@@ -37,7 +37,7 @@ Per altre informazioni su come configurare questa soluzione, vedere la guida all
 
 Se si sceglie di eseguire l'applicazione in una distribuzione ibrida in cui il livello front-end Web è in esecuzione in una vNet di Azure nella sottoscrizione di Azure e il livello di database dell'applicazione è in esecuzione in macchine virtuali VMware in CloudSimple cloud privato, è possibile usare il servizio di bilanciamento del carico interno di Azure (servizio di bilanciamento del carico L4) davanti alle macchine virtuali di livello database per la gestione
 
-Per altre informazioni, vedere la documentazione [interna di Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer) di Azure.
+Per altre informazioni, vedere la documentazione [interna di Load Balancer](../load-balancer/components.md#frontend-ip-configurations) di Azure.
 
 ## <a name="global-server-load-balancer"></a>Servizio di bilanciamento del carico globale del server
 

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 109bb6dd29ea9c4239e0abcfc668f1185f7e9783
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d3dbaad18f6acbe1ddf17d81f54e4232c838dd7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114531"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787414"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introduzione all'autenticazione in Automazione di Azure
 
@@ -25,7 +25,7 @@ Al primo avvio di Automazione di Azure sarà necessario creare almeno un account
 
 Le risorse di Automazione per ogni account di Automazione sono associate a una singola area di Azure, ma gli account di Automazione possono gestire tutte le risorse nella sottoscrizione. Il motivo principale per cui creare gli account di Automazione in aree diverse è la presenza di criteri che richiedono dati e risorse per essere isolati in un'area specifica.
 
-Tutte le attività eseguite sulle risorse con Azure Resource Manager e i cmdlet di Azure in Automazione di Azure devono eseguire l'autenticazione in Azure con l'autenticazione basata su credenziali dell'identità dell'organizzazione di Azure Active Directory. Gli account RunAs in automazione di Azure forniscono l'autenticazione per la gestione delle risorse in Azure usando i cmdlet di Azure. Quando si crea un account RunAs, viene creato un nuovo utente entità servizio in Azure Active Directory (AD) e viene assegnato a tale utente il ruolo Collaboratore a livello di sottoscrizione. Per i runbook che usano i ruoli di lavoro ibridi per runbook nelle macchine virtuali di Azure, è possibile usare [identità gestite per le risorse di Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) invece degli account RunAs per l'autenticazione con le risorse di Azure.
+Tutte le attività eseguite sulle risorse con Azure Resource Manager e i cmdlet di Azure in Automazione di Azure devono eseguire l'autenticazione in Azure con l'autenticazione basata su credenziali dell'identità dell'organizzazione di Azure Active Directory. Gli account RunAs in automazione di Azure forniscono l'autenticazione per la gestione delle risorse in Azure usando i cmdlet di Azure. Quando si crea un account RunAs, viene creato un nuovo utente entità servizio in Azure Active Directory (AD) e viene assegnato a tale utente il ruolo Collaboratore a livello di sottoscrizione. Per manuali operativi che usano i ruoli di lavoro ibridi per Runbook in macchine virtuali di Azure, è possibile usare [l'autenticazione runbook con le identità gestite](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) anziché gli account RunAs per l'autenticazione nelle risorse di Azure.
 
 L'entità servizio per un account RunAs non dispone delle autorizzazioni per leggere Azure AD per impostazione predefinita. Se si desidera aggiungere autorizzazioni per la lettura o la gestione di Azure AD, è necessario concedere le autorizzazioni per l'entità servizio in **autorizzazioni API**. Per altre informazioni, vedere [aggiungere autorizzazioni per accedere alle API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 

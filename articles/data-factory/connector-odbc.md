@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 04/22/2020
 ms.author: jingwang
-ms.openlocfilehash: da5c53f8953960c382070be658add2877fff3f8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71b05d8607c174dbe9298a1c02f4927ed2218374
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416888"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891410"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiare i dati da e verso archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -35,7 +35,7 @@ Questo connettore ODBC è supportato per le attività seguenti:
 
 È possibile copiare i dati da un'origine ODBC in qualsiasi archivio dati sink supportato o da qualsiasi archivio dati di origine supportato in un sink di ODBC. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-In particolare, il connettore ODBC supporta la copia dei dati da o verso **qualsiasi archivio dati compatibile con ODBC** tramite l'autenticazione di **base** o **anonima**. È necessario un **driver ODBC a 64 bit** .
+In particolare, il connettore ODBC supporta la copia dei dati da o verso **qualsiasi archivio dati compatibile con ODBC** tramite l'autenticazione di **base** o **anonima**. È necessario un **driver ODBC a 64 bit** . Per il sink ODBC, ADF supporta ODBC versione 2,0 standard.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,7 +44,7 @@ Per usare il connettore ODBC è necessario:
 - Configurare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo relativo alla [Integration Runtime self-hosted](create-self-hosted-integration-runtime.md) .
 - Installare il driver ODBC a 64 bit per l'archivio dati nel computer Integration Runtime.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -236,48 +236,9 @@ Per copiare i dati nell'archivio dati compatibile con ODBC, impostare il tipo di
 ]
 ```
 
-## <a name="sap-hana-sink"></a>Sink SAP HANA
-
->[!NOTE]
->Per copiare i dati dall'archivio dati di SAP HANA, fare riferimento al [connettore SAP HANA](connector-sap-hana.md) nativo. Per copiare dati in SAP HANA, seguire questa istruzione per usare il connettore ODBC. Si noti che i servizi collegati per i connettori SAP HANA e ODBC sono associati a tipi diversi e pertanto non possono essere riusati.
->
-
-È possibile copiare i dati dal database SAP HANA usando il connettore ODBC generico.
-
-Configurare un runtime di integrazione self-hosted in un computer con accesso all'archivio dati. Il runtime di integrazione usa il driver ODBC per SAP HANA per eseguire la connessione all'archivio dati. Installare quindi il driver se non è già installato nel computer. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites).
-
-Prima di usare il sink SAP HANA in una soluzione Data Factory, verificare che Integration Runtime sia in grado di connettersi all'archivio dati usando le istruzioni nella sezione [Risoluzione dei problemi di connettività](#troubleshoot-connectivity-issues).
-
-Creare un servizio collegato ODBC per collegare un archivio dati SAP HANA a una data factory di Azure come illustrato nell'esempio seguente:
-
-```json
-{
-    "name": "SAPHANAViaODBCLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Leggere l'articolo dall'inizio per avere una panoramica dettagliata dell'uso degli archivi dati ODBC come archivi dati di origine o sink in un'operazione di copia.
-
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
 Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
-
 
 ## <a name="troubleshoot-connectivity-issues"></a>Risoluzione dei problemi di connettività
 

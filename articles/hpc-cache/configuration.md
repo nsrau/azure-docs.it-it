@@ -4,14 +4,14 @@ description: Viene illustrato come configurare impostazioni aggiuntive per la ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7938fcc0819fc3e5e0762cc8c3c2931594ed1c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195061"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871423"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurare altre impostazioni della cache HPC di Azure
 
@@ -42,13 +42,15 @@ Per altre informazioni sulle impostazioni MTU nelle reti virtuali di Azure, vede
 ## <a name="configure-root-squash"></a>Configura squash radice
 <!-- linked from troubleshoot -->
 
-L'impostazione **Abilita squash radice** controlla il modo in cui la cache HPC di Azure consente l'accesso alla radice. Lo squash radice consente di impedire l'accesso a livello di radice da client non autorizzati.
+L'impostazione **Abilita squash radice** controlla il modo in cui cache HPC di Azure considera le richieste provenienti dall'utente root nei computer client.
 
-Questa impostazione consente agli utenti di controllare l'accesso alla radice a livello di cache, che può contribuire a ``no_root_squash`` compensare l'impostazione necessaria per i sistemi NAS usati come destinazioni di archiviazione. Per ulteriori informazioni sui [prerequisiti per l'archiviazione NFS](hpc-cache-prereqs.md#nfs-storage-requirements), vedere. Può anche migliorare la sicurezza quando viene usata con le destinazioni di archiviazione BLOB di Azure.
+Quando è abilitata la funzionalità di squash radice, viene automaticamente eseguito il mapping degli utenti radice di un client all'utente "Nobody" quando inviano richieste tramite la cache HPC di Azure. Impedisce inoltre alle richieste client di utilizzare i bit di autorizzazione set-UID.
+
+Se la zucca radice è disabilitata, una richiesta proveniente dall'utente radice del client (UID 0) viene passata a un sistema di archiviazione NFS back-end come radice. Questa configurazione potrebbe consentire l'accesso ai file non appropriato.
+
+L'impostazione dello squash radice nella cache può compensare l'impostazione necessaria ``no_root_squash`` nei sistemi NAS usati come destinazioni di archiviazione. Per ulteriori informazioni sui [prerequisiti per l'archiviazione NFS](hpc-cache-prereqs.md#nfs-storage-requirements), vedere. Può anche migliorare la sicurezza quando viene usata con le destinazioni di archiviazione BLOB di Azure.
 
 L'impostazione predefinita è **Sì**. (Le cache create prima del 2020 aprile potrebbero avere l'impostazione predefinita **No**).
-
-Se abilitata, questa funzionalità impedisce anche l'uso dei bit di autorizzazione set-UID nelle richieste client alla cache.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Visualizzare gli snapshot per le destinazioni di archiviazione BLOB
 

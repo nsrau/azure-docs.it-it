@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 0b869b73a79872d9263058bedfead018e18721c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bea9e163e9dde6c42de87048379d663222cb56e9
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71154990"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734621"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Dimensioni della cartella TEMP predefinita ridotte per un ruolo di lavoro/Web del servizio cloud
 La directory temporanea predefinita di un ruolo Web o di lavoro del servizio cloud ha una dimensione massima di 100 MB, che può esaurirsi. Questo articolo descrive come evitare l'esaurimento dello spazio della directory temporanea.
@@ -72,6 +72,6 @@ namespace WorkerRole1
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere il blog [How to increase the size of the Windows Azure Web Role ASP.NET Temporary Folder](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)(Come aumentare le dimensioni della cartella temporanea ASP.NET del ruolo Web di Azure).
 
-Altri [articoli sulla risoluzione dei problemi](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) per i servizi cloud.
+Altri [articoli sulla risoluzione dei problemi](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) per i servizi cloud.
 
 Per informazioni su come risolvere i problemi dei ruoli del servizio cloud usando i dati di diagnostica del computer Azure PaaS, vedere la [serie di blog di Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

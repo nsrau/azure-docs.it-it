@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 780f2774cb37e3d6d43ed5137c29119c0f63fd0a
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617515"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743704"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminazione TLS con certificati Key Vault
 
@@ -50,7 +50,21 @@ L'integrazione del gateway applicazione con Key Vault richiede un processo di co
    È quindi possibile importare un certificato esistente o crearne uno nuovo nell'insieme di credenziali delle chiavi. Il certificato verrà usato dalle applicazioni che vengono eseguite tramite il gateway applicazione. In questo passaggio, è anche possibile usare un segreto dell'insieme di credenziali delle chiavi archiviato come file PFX con codifica base-64 senza password. È consigliabile usare un tipo di certificato a causa della funzionalità di rinnovo automatico disponibile con gli oggetti tipo di certificato nell'insieme di credenziali delle chiavi. Dopo aver creato un certificato o un segreto, è necessario definire i criteri di accesso nell'insieme di credenziali delle chiavi per consentire all'identità di concedere *l'accesso al* segreto.
    
    > [!NOTE]
-   > Se si distribuisce il gateway applicazione tramite un modello ARM, usando l'interfaccia della riga di comando di Azure o PowerShell oppure tramite un applicazione Azure distribuito dal portale di Azure, il certificato SSL archiviato nell'insieme di credenziali delle chiavi come file PFX codificato in base 64 **deve essere senza password**. Inoltre, è necessario completare i passaggi descritti in [usare Azure Key Vault per passare il valore del parametro Secure durante la distribuzione](../azure-resource-manager/templates/key-vault-parameter.md). È particolarmente importante impostare `enabledForTemplateDeployment` su. `true`
+   > Se si distribuisce il gateway applicazione tramite un modello ARM tramite l'interfaccia della riga di comando di Azure o PowerShell oppure tramite un'applicazione Azure distribuita dalla portale di Azure, il certificato SSL viene archiviato nell'insieme di credenziali delle chiavi come file PFX con codifica Base64. È necessario completare i passaggi descritti in [usare Azure Key Vault per passare il valore del parametro sicuro durante la distribuzione](../azure-resource-manager/templates/key-vault-parameter.md). 
+   >
+   > È particolarmente importante impostare `enabledForTemplateDeployment` su. `true` Il certificato potrebbe essere privo di password o potrebbe avere una password. Nel caso di un certificato con una password, l'esempio seguente illustra una possibile configurazione per la `sslCertificates` voce in `properties` per la configurazione del modello ARM per un gateway applicazione. I valori di `appGatewaySSLCertificateData` e `appGatewaySSLCertificatePassword` vengono cercati dall'insieme di credenziali delle chiavi, come descritto nella sezione [segreti di riferimento con ID dinamico](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Seguire i riferimenti precedenti da `parameters('secretName')` per vedere come viene eseguita la ricerca. Se il certificato è privo di password, `password` omettere la voce.
+   >   
+   > ```
+   > "sslCertificates": [
+   >     {
+   >         "name": "appGwSslCertificate",
+   >         "properties": {
+   >             "data": "[parameters('appGatewaySSLCertificateData')]",
+   >             "password": "[parameters('appGatewaySSLCertificatePassword')]"
+   >         }
+   >     }
+   > ]
+   > ```
 
 1. **Configurare il gateway applicazione**
 
