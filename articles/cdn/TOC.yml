@@ -8,10 +8,10 @@
       href: cdn-features.md
 - name: Avvi rapidi
   items:
-    - name: Creare un profilo e un endpoint
-      href: cdn-create-new-endpoint.md
     - name: Integrare un account di archiviazione
       href: cdn-create-a-storage-account-with-cdn.md
+    - name: Creare un profilo e un endpoint
+      href: cdn-create-new-endpoint.md
     - name: Creare un profilo con un modello di Azure Resource Manager
       href: create-profile-resource-manager-template.md
 - name: Esercitazioni
@@ -85,7 +85,7 @@
           items:
             - name: Contenuto Web di Azure
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Archivio BLOB di Azure
+            - name: Archiviazione BLOB di Azure
               href: cdn-manage-expiration-of-blob-content.md
         - name: Autenticazione tramite token
           href: cdn-token-auth.md
@@ -136,7 +136,7 @@
           href: cdn-troubleshoot-compression.md
         - name: Autorità di certificazione consentite
           href: cdn-troubleshoot-allowed-ca.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sul motore regole standard
       href: cdn-standard-rules-engine-reference.md

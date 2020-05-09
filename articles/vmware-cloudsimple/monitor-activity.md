@@ -57,7 +57,7 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Descrizione | Descrizione dell'elemento che ha attivato l'avviso. |
 | Confermato | Indica se l'avviso è stato riconosciuto. |
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
 Eventi Mostra l'attività dell'utente e del sistema nel portale di CloudSimple. Nella pagina eventi sono elencate le attività associate a una risorsa specifica e la gravità dell'effetto.
 

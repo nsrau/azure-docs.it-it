@@ -72,6 +72,9 @@
   items:
     - name: Esempi relativi al bus di servizio
       href: service-bus-samples.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Messaggistica Premium
