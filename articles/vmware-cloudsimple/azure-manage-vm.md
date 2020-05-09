@@ -23,14 +23,14 @@ Per gestire le macchine virtuali [create per il cloud privato CloudSimple](azure
 
 I controlli seguenti sono disponibili nella pagina **Panoramica** relativa alla macchina virtuale selezionata.
 
-| Controllo | Descrizione |
+| Controllo | Description |
 | ------------ | ------------- |
 | Connessione | Connettersi alla macchina virtuale specificata.  |
 | Inizia | Avviare la macchina virtuale specificata.  |
 | Riavvia | Arrestare e quindi accendere la macchina virtuale specificata.  |
 | Arresto | Arrestare la macchina virtuale specifica.  |
 | Acquisizione | Acquisire un'immagine della macchina virtuale specificata in modo che possa essere usata come immagine per creare altre macchine virtuali. Vedere [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/classic/capture-image.md).   |
-| Sposta | Passare alla macchina virtuale specificata.  |
+| Spostamento | Passare alla macchina virtuale specificata.  |
 | Elimina | Rimuovere la macchina virtuale specificata.  |
 | Aggiorna | Aggiornare i dati nella visualizzazione.  |
 
@@ -49,12 +49,12 @@ Vengono visualizzati i grafici seguenti.
 
 ## <a name="manage-vm-disks"></a>Gestire i dischi delle macchine virtuali
 
-Per aggiungere un disco della macchina virtuale, aprire la pagina **dischi** per la macchina virtuale selezionata. Per aggiungere un disco, fare clic su **Aggiungi disco**. Per configurare ognuna delle impostazioni seguenti, immettere o selezionare un'opzione inline. Fare clic su **Save**.
+Per aggiungere un disco della macchina virtuale, aprire la pagina **dischi** per la macchina virtuale selezionata. Per aggiungere un disco, fare clic su **Aggiungi disco**. Per configurare ognuna delle impostazioni seguenti, immettere o selezionare un'opzione inline. Fare clic su **Salva**.
 
    | Item | Descrizione |
    | ------------ | ------------- |
    | Nome | Immettere un nome per identificare il disco.  |
-   | Dimensioni | Selezionare una delle dimensioni disponibili.  |
+   | Dimensione | Selezionare una delle dimensioni disponibili.  |
    | Controller SCSI | Selezionare un controller SCSI. I controller disponibili variano per i diversi sistemi operativi supportati.  |
    | Mode | Determina la modalità di partecipazione del disco negli snapshot. Scegliere una delle opzioni seguenti: <br> -Permanente indipendente: tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente, non persistente: le modifiche scritte nel disco vengono eliminate quando si spegne o si reimposta la macchina virtuale.  Questa modalità consente di riavviare sempre la macchina virtuale nello stesso stato. Per altre informazioni, vedere la [documentazione di VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
@@ -72,7 +72,7 @@ Per modificare la capacità della macchina virtuale, aprire la pagina **dimensio
 
 ## <a name="manage-network-interfaces"></a>Gestire le interfacce di rete
 
-Per aggiungere un'interfaccia, fare clic su **Aggiungi interfaccia di rete**. Configurare ognuna delle impostazioni seguenti immettendo o selezionando un'opzione inline. Fare clic su **Save**.
+Per aggiungere un'interfaccia, fare clic su **Aggiungi interfaccia di rete**. Configurare ognuna delle impostazioni seguenti immettendo o selezionando un'opzione inline. Fare clic su **Salva**.
 
    | Controllo | Descrizione |
    | ------------ | ------------- |

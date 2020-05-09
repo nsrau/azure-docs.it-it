@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78199717"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787134"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
 
@@ -26,7 +26,7 @@ La figura seguente illustra un cluster con due tipi di nodo *, denominato front*
 
 Come illustrato nella figura precedente, le istanze dei set di scalabilità iniziano con l'istanza 0 per poi aumentare di 1. I nomi dei nodi corrispondono alla numerazione. Ad esempio, il nodo BackEnd_0 è l'istanza 0 del set di scalabilità BackEnd. Questo particolare set di scalabilità ha cinque istanze, denominate BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
 
-Quando si aumenta un set di scalabilità, viene creata una nuova istanza. Il nome della nuova istanza del set di scalabilità sarà in genere il nome del set di scalabilità + il successivo numero di istanza. Nell'esempio sarà BackEnd_5.
+Quando si aumenta la scalabilità orizzontale di un set di scalabilità, viene creata una nuova istanza. Il nome della nuova istanza del set di scalabilità sarà in genere il nome del set di scalabilità + il successivo numero di istanza. Nell'esempio sarà BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Eseguire il mapping dei servizi di bilanciamento del carico dei set di scalabilità a tipi di nodo e set di scalabilità
 
@@ -74,19 +74,19 @@ Di seguito sono riportate le descrizioni delle proprietà:
 
 | **Nome** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-| name | stringa | Nome univoco per l'estensione |
+| name | string | Nome univoco per l'estensione |
 | type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | Identifica Service Fabric del sistema operativo per il bootstrap |
 | autoUpgradeMinorVersion | true o false | Abilita l'aggiornamento automatico delle versioni secondarie di runtime SF |
 | publisher | Microsoft. Azure. ServiceFabric | Nome del server di pubblicazione dell'estensione Service Fabric |
-| clusterEndpont | stringa | URI: porta per l'endpoint di gestione |
-| nodeTypeRef | stringa | Nome di nodeType |
+| clusterEndpont | string | URI: porta per l'endpoint di gestione |
+| nodeTypeRef | string | Nome di nodeType |
 | Durabilità | bronzo, argento, oro, platino | Tempo consentito per sospendere un'infrastruttura di Azure non modificabile |
 | enableParallelJobs | true o false | Abilitare ParallelJobs di calcolo, ad esempio rimuovere una macchina virtuale e riavviare la macchina virtuale nello stesso set di scalabilità in parallelo |
-| nicPrefixOverride | stringa | Prefisso della subnet, ad esempio "10.0.0.0/24" |
+| nicPrefixOverride | string | Prefisso della subnet, ad esempio "10.0.0.0/24" |
 | commonNames | string[] | Nomi comuni dei certificati del cluster installati |
-| x509StoreName | stringa | Nome dell'archivio in cui si trova il certificato del cluster installato |
+| x509StoreName | string | Nome dell'archivio in cui si trova il certificato del cluster installato |
 | typeHandlerVersion | 1.1 | Versione dell'estensione. 1,0 versione classica dell'estensione consigliata per l'aggiornamento a 1,1 |
-| Percorso dati | stringa | Percorso dell'unità utilizzata per salvare lo stato per Service Fabric i servizi di sistema e i dati dell'applicazione.
+| Percorso dati | string | Percorso dell'unità utilizzata per salvare lo stato per Service Fabric i servizi di sistema e i dati dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

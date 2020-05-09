@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: be76c665e1f5319b3e1ff1976e44fee9cd90ea6b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607199"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929214"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
 
@@ -58,7 +58,7 @@ Per espandere il pool di host aggiungendo macchine virtuali:
 
 7. Selezionare il gruppo di risorse in cui si vogliono creare le macchine virtuali, quindi selezionare l'area. È possibile scegliere l'area corrente che si sta usando o una nuova area.
    
-8. Immettere il nuovo numero totale di host di sessione che si desidera includere nel **numero di macchine virtuali**. Se, ad esempio, si espande il pool host da cinque host di sessione a otto, immettere **8**. 
+8. Immettere il numero di host di sessione che si desidera aggiungere al pool host in **numero di macchine virtuali**. Se, ad esempio, si espande il pool host di cinque host, immettere **5**.
    
     >[!NOTE]
     >Non è possibile modificare le dimensioni o l'immagine delle macchine virtuali perché è importante assicurarsi che tutte le macchine virtuali nel pool host abbiano le stesse dimensioni.

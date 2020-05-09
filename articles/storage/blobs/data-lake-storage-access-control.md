@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80992216"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793126"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2 implementa un modello di controllo di accesso che s
 
 <a id="azure-role-based-access-control-rbac" />
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="role-based-access-control"></a>Controllo di accesso in base ai ruoli
 
 RBAC usa le assegnazioni di ruolo per applicare in modo efficace i set di autorizzazioni alle *entità di sicurezza*. Un' *entità di sicurezza* è un oggetto che rappresenta un utente, un gruppo, un'entità servizio o un'identità gestita definita in Azure Active Directory (ad) che richiede l'accesso alle risorse di Azure.
 
@@ -287,7 +287,7 @@ Se lo spazio dei nomi gerarchico è disattivato, vengono applicate le regole di 
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Qual è il modo migliore per applicare gli elenchi di controllo di accesso?
 
-Usare sempre i gruppi di sicurezza di Azure AD come entità assegnate negli elenchi di controllo di accesso. Evitare di assegnare direttamente singoli utenti o entità servizio. L'uso di questa struttura consentirà di aggiungere e rimuovere utenti o entità servizio senza la necessità di riapplicare gli elenchi di controllo di accesso a un'intera struttura di directory. È invece sufficiente aggiungerli o rimuoverli dal gruppo di sicurezza di Azure AD appropriato. Tenere presente che gli elenchi di controllo di accesso non vengono ereditati e quindi per riapplicare gli elenchi di controllo di accesso, è necessario aggiornare l'elenco di controllo di accesso in ogni file e sottodirectory. 
+Usare sempre i gruppi di sicurezza di Azure AD come entità assegnate negli elenchi di controllo di accesso. Evitare di assegnare direttamente singoli utenti o entità servizio. L'uso di questa struttura consentirà di aggiungere e rimuovere utenti o entità servizio senza la necessità di riapplicare gli elenchi di controllo di accesso a un'intera struttura di directory. Al contrario, è sufficiente aggiungerle o rimuoverle dal gruppo di sicurezza Azure AD appropriato. Tenere presente che gli elenchi di controllo di accesso non vengono ereditati e quindi per riapplicare gli elenchi di controllo di accesso, è necessario aggiornare l'elenco di controllo di accesso in ogni file e sottodirectory. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quali autorizzazioni sono necessarie per eliminare in modo ricorsivo una directory e il relativo contenuto?
 

@@ -8,18 +8,18 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265402"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561044"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Note sulla versione di disponibilità generale Azure Data Box Edge/Azure Data Box Gateway
 
 ## <a name="overview"></a>Panoramica
 
-Le seguenti note sulla versione identificano i problemi critici aperti e i problemi risolti per la versione di disponibilità generale (GA) per Azure Data Box Edge e Azure Data Box Gateway.
+Le seguenti note sulla versione identificano i problemi critici aperti e i problemi risolti per la versione di disponibilità generale (GA) per Azure Data Box Edge e Azure Data Box Gateway. 
 
 Le note sulla versione vengono aggiornate continuamente e i problemi che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire il Data Box Edge/Data Box Gateway, esaminare attentamente le informazioni contenute nelle note sulla versione.
 
@@ -33,7 +33,7 @@ La versione GA corrisponde alle versioni del software:
 
 - **Nuove immagini del disco virtuale** : i nuovi VHDX e VMDK sono ora disponibili nella portale di Azure. Scaricare queste immagini per eseguire il provisioning, configurare e distribuire nuovi dispositivi Data Box Gateway GA. I dispositivi Data Box Gateway creati nelle versioni di anteprima precedenti non possono essere aggiornati a questa versione. Per ulteriori informazioni, andare all'articolo sulle [operazioni preliminari alla distribuzione di Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 - **Supporto per NFS** : il supporto per NFS è attualmente disponibile in anteprima e disponibile per i client v 3.0 e v 4.1 che accedono ai dispositivi Data Box Edge e data box gateway.
-- **Resilienza dell'archiviazione** : il dispositivo data box Edge può sopportare l'errore di un disco dati con la funzionalità di resilienza di archiviazione. Questa funzionalità è attualmente disponibile in anteprima. È possibile abilitare la resilienza dell'archiviazione selezionando l'opzione **resiliente** nelle **impostazioni di archiviazione** nell'interfaccia utente Web locale.
+- **Resilienza dell'archiviazione** : il dispositivo data box Edge può sopportare l'errore di un disco dati con la funzionalità di resilienza di archiviazione. Questa funzionalità è attualmente in anteprima. È possibile abilitare la resilienza dell'archiviazione selezionando l'opzione **resiliente** nelle **impostazioni di archiviazione** nell'interfaccia utente Web locale.
 
 
 ## <a name="known-issues-in-ga-release"></a>Problemi noti nella versione GA
@@ -50,4 +50,4 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti per il Data 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Preparare la distribuzione di Azure Data Box gateway](data-box-gateway-deploy-prep.md).
-- [Preparare la distribuzione di Azure Data Box Edge](data-box-edge-deploy-prep.md).
+- [Preparare la distribuzione di Azure Data Box Edge](azure-stack-edge-deploy-prep.md).

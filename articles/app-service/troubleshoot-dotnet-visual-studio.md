@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891063"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926851"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -634,7 +634,7 @@ Per altre informazioni sul debug remoto per app del Servizio app e per i process
 * [Introduzione al debug remoto del Servizio app di Azure parte 3 - Ambiente a istanza multipla e GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Debug di processi Web (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-Se l'app usa un back-end di Servizi mobili o di API Web di Azure di cui è necessario eseguire il debug, consultare [Debugging .NET Backend in Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx) (Debug di back-end .NET in Visual Studio).
+Se l'app usa un back-end di Servizi mobili o di API Web di Azure di cui è necessario eseguire il debug, consultare [Debugging .NET Backend in Visual Studio](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio) (Debug di back-end .NET in Visual Studio).
 
 ### <a name="tracing-in-aspnet-applications"></a>Traccia nelle applicazioni ASP.NET
 In Internet non sono disponibili introduzioni complete e approfondite per la traccia in ASP.NET. È consigliabile iniziare con i materiali introduttivi precedenti scritti per Web Form, perché MVC non esisteva ancora, e quindi integrare queste informazioni con i post di blog più recenti dedicati a specifici problemi. Altre risorse introduttive sono riportate di seguito:
@@ -647,7 +647,7 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
   Informazioni sui listener di traccia, ma senza riferimenti a [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Procedura detagliata: integrazione della traccia ASP.NET con la traccia System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Questo articolo non è molto recente, ma contiene informazioni aggiuntive non trattate nell'articolo introduttivo.
-* [Traccia nelle visualizzazioni Razor ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [Traccia nelle visualizzazioni Razor ASP.NET MVC](https://devblogs.microsoft.com/aspnet/tracing-in-asp-net-mvc-razor-views/)<br/>
    Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](/previous-versions/bb397417(v=vs.140)) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nell'esempio seguente:
 
     ```csharp

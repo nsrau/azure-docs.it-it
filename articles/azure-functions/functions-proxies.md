@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74849191"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562067"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -30,7 +30,7 @@ In questa sezione viene descritto come creare un proxy nel portale Funzioni.
 3. Dare un nome al proxy.
 4. Configurare l'endpoint esposto in questa app per le funzioni, specificando il **Modello di route** e i **Metodi HTTP**. Questi parametri si comportano in base alle regole dei [trigger HTTP].
 5. Impostare l'**URL di back-end** su un altro endpoint. Questo endpoint potrebbe essere una funzione in un'altra app per le funzioni oppure di qualsiasi altra API. Il valore non deve essere statico e può fare riferimento alle [impostazioni dell'applicazione] e ai [parametri della richiesta del client originale].
-6. Fare clic su **Crea**.
+6. Scegliere **Crea**.
 
 Il proxy è ora presente come un nuovo endpoint sull'app per le funzioni. Dalla prospettiva del client, è equivalente a un HttpTrigger nelle Funzioni di Azure. È possibile provare il nuovo proxy copiando l'URL del proxy ed eseguendo un test con il proprio client HTTP preferito.
 
@@ -184,8 +184,8 @@ I proxy leggono tutte le stringhe all'esterno di un file JSON, utilizzando \ com
 L'oggetto requestOverrides definisce le modifiche apportate alla richiesta quando viene chiamata la risorsa back-end. L'oggetto viene definito dalle proprietà seguenti:
 
 * **backend.request.method**: il metodo HTTP usato per chiamare il back-end.
-* **backend.request.querystring.\<ParameterName\>**: un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire * \<ParameterName\> * con il nome del parametro che si desidera impostare. Si noti che se viene specificata una stringa vuota, il parametro è ancora incluso nella richiesta back-end.
-* **backend.request.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la chiamata al back-end. Sostituire * \<headerName\> * con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
+* **backend.request.querystring.\<ParameterName\>**: un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire * \<ParameterName\> * con il nome del parametro che si desidera impostare. Si noti che se viene fornita una stringa vuota, il parametro è ancora incluso nella richiesta back-end.
+* **backend.request.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la chiamata al back-end. Sostituire * \<headerName\> * con il nome dell'intestazione che si desidera impostare. Si noti che se viene fornita una stringa vuota, il parametro è ancora incluso nella richiesta back-end.
 
 I valori possono fare riferimento alle impostazioni dell'applicazione e ai parametri della richiesta del client originale.
 

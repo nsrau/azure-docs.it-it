@@ -6,17 +6,20 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: c439ff8df95d759e96d2fc82356bda8551507e8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: d02ceda9dc2c6a822d45c2a31fe91a976610292b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084941"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610854"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montare o smontare un volume per macchine virtuali Windows o Linux 
 
 È possibile montare o smontare un volume per macchine virtuali Windows o Linux a seconda delle esigenze.  Le istruzioni di montaggio per le macchine virtuali Linux sono disponibili in Azure NetApp Files.  
+
+> [!IMPORTANT] 
+> È necessario disporre di almeno un criterio di esportazione per poter accedere a un volume NFS.
 
 1. Fare clic sul pannello **volumi** e quindi selezionare il volume per il quale si desidera montare. 
 2. Fare clic su **istruzioni di montaggio** dal volume selezionato, quindi seguire le istruzioni per montare il volume. 

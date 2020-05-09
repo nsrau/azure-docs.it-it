@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 1e63a6e57e1dc929c78e5278df6ef0e4ab2a17d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 871b1ba81f672459378b23705ad5b96213667a73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230847"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609069"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-powershell"></a>Come eseguire il backup e il ripristino di un server in database di Azure per MySQL con PowerShell
+# <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Come eseguire il backup e il ripristino di un database di Azure per il server MySQL con PowerShell
 
 Viene eseguito periodicamente il backup del database di Azure per i server MySQL per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
@@ -77,7 +77,7 @@ Il set di parametri **PointInTimeRestore** del `Restore-AzMySqlServer` cmdlet ri
 | Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
-| Name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
+| Nome | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selezionare un momento specifico per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. Ad esempio, è possibile usare il proprio fuso orario locale, ad esempio **2020-03-13T05:59:00-08:00**. È anche possibile usare il formato UTC Zulu, ad esempio **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Usare la modalità temporizzata per il ripristino. |
 
@@ -119,8 +119,8 @@ Il set di parametri **Georestore** del `Restore-AzMySqlServer` cmdlet richiede i
 | Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nome del gruppo di risorse a cui appartiene il nuovo server.|
-|Name | mydemoserver-georestored | Nome del nuovo server. |
-|Location | eastus | Posizione del nuovo server. |
+|Nome | mydemoserver-georestored | Nome del nuovo server. |
+|Percorso | eastus | Posizione del nuovo server. |
 |UseGeoRestore | `<SwitchParameter>` | Usare la modalità geografica per il ripristino. |
 
 Quando si crea un nuovo server con il ripristino geografico, esso eredita le stesse dimensioni di archiviazione e il piano tariffario del server di origine, a meno che non venga specificato il parametro **SKU** .
@@ -131,6 +131,5 @@ Il nuovo server creato durante un ripristino non dispone degli endpoint di servi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [backup](concepts-backup.md) del servizio
-- Informazioni sulle [repliche](concepts-read-replicas.md)
-- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)
+> [!div class="nextstepaction"]
+> [Personalizzare i parametri del server di database di Azure per MySQL con PowerShell](howto-configure-server-parameters-using-powershell.md)
