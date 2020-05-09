@@ -29,7 +29,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Cercare **Macchine virtuali CloudSimple**.
 
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 
     ![Creare una macchina virtuale CloudSimple](media/create-cloudsimple-virtual-machine.png)
 
@@ -44,7 +44,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     | ------------ | ------------- |
     | Subscription | Sottoscrizione di Azure associata al cloud privato.  |
     | Gruppo di risorse | Gruppo di risorse a cui verrà assegnata la macchina virtuale. È possibile selezionare un gruppo esistente o crearne uno nuovo. |
-    | Name | Nome per identificare la macchina virtuale.  |
+    | Nome | Nome per identificare la macchina virtuale.  |
     | Percorso | Area di Azure in cui è ospitata questa macchina virtuale.  |
     | Cloud privato | CloudSimple cloud privato in cui si vuole creare la macchina virtuale. |
     | Pool di risorse | Pool di risorse mappato per la macchina virtuale. Selezionare un pool di risorse tra quelli disponibili. |
@@ -74,7 +74,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     | Item | Descrizione |
     | ------------ | ------------- |
     | Nome | Immettere un nome per identificare il disco.  |
-    | Dimensioni | Selezionare una delle dimensioni disponibili.  |
+    | Dimensione | Selezionare una delle dimensioni disponibili.  |
     | Controller SCSI | Selezionare un controller SCSI per il disco.  |
     | Mode | Determina la modalità di partecipazione del disco negli snapshot. Scegliere una delle opzioni seguenti: <br> -Permanente indipendente: tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente non persistente: le modifiche scritte nel disco vengono eliminate quando si spegne o si reimposta la macchina virtuale.  La modalità indipendente non permanente consente di riavviare la macchina virtuale sempre nello stesso stato. Per altre informazioni, vedere la [documentazione di VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
 

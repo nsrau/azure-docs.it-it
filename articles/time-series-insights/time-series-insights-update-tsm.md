@@ -8,25 +8,26 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476655"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580595"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modello Time Series in Azure Time Series Insights Preview
 
 Questo articolo descrive il modello Time Series, le funzionalità e come iniziare a creare e aggiornare i propri modelli nell'ambiente di Azure Time Series Insights Preview.
 
 > [!TIP]
->  * Passare all'ambiente [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) per un esempio di modello Live Time Series.
+>
+> * Passare all'ambiente [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) per un esempio di modello Live Time Series.
 > * Per informazioni su come spostarsi nell'interfaccia utente del modello Time Series, vedere informazioni su [Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md) .
 > * Informazioni [su come usare il modello Time Series](time-series-insights-update-how-to-tsm.md) con esplora Web Time Series Insights.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La motivazione principale per il modello Time Series è semplificare la ricerca e l'analisi dei dati delle serie temporali o degli Internet. Questo obiettivo viene raggiunto consentendo la cura, la manutenzione e l'arricchimento dei dati relativi alle serie temporali per preparare i set di dati pronti per il consumo per l'analisi.
 
@@ -51,9 +52,9 @@ Il **modello Time Series rappresenta una soluzione pratica** per molti degli sce
 
 [![Esempio di grafico della serie temporale modello di Smart forno](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* Il modello Time Series gioca un ruolo fondamentale nelle query e nello spostamento perché contestualizzare i dati consentendo il disegno di confronti tra intervalli di tempo e tra i tipi di sensore e dispositivo. (**A**) 
+* Il modello Time Series gioca un ruolo fondamentale nelle query e nello spostamento perché contestualizzare i dati consentendo il disegno di confronti tra intervalli di tempo e tra i tipi di sensore e dispositivo. (**A**)
 * I dati sono ulteriormente contestuale perché i dati salvati in modo permanente nel modello Time Series conservano i calcoli delle query in serie temporali come variabili e li riutilizza in fase di query.
-* Il modello Time Series organizza e aggrega i dati per migliorare la visualizzazione e le funzionalità di gestione. (**B**) 
+* Il modello Time Series organizza e aggrega i dati per migliorare la visualizzazione e le funzionalità di gestione. (**B**)
 
 ### <a name="key-capabilities"></a>Funzionalità principali
 
@@ -290,7 +291,7 @@ I tipi di Time Series Insights potrebbero avere molte variabili che specificano 
 
 Ogni variabile può essere di uno dei tre *tipi*seguenti: *numeric*, *CATEGORICAL*e *Aggregate*.
 
-* I tipi **numerici** funzionano con valori continui. 
+* I tipi **numerici** funzionano con valori continui.
 * I tipi **categorici** funzionano con un set definito di valori discreti.
 * I valori di **aggregazione** combinano più variabili di un singolo tipo (tutti numerici o categorici).
 

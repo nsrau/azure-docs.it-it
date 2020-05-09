@@ -23,6 +23,9 @@
     - name: Eseguire la distribuzione con più indirizzi
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
+    - name: Eseguire la distribuzione con zone di disponibilità
+      displayName: Resource Manager
+      href: deploy-template.md
 - name: Esempi
   items:
     - name: Azure PowerShell
@@ -61,8 +64,6 @@
       href: tutorial-hybrid-ps.md
     - name: Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
       href: deploy-cli.md
-    - name: Eseguire la distribuzione usando un modello
-      href: deploy-template.md
     - name: Eseguire la distribuzione con più IP pubblici
       href: deploy-multi-public-ip-powershell.md
     - name: Eseguire la distribuzione con zone di disponibilità
@@ -75,6 +76,8 @@
       href: snat-private-range.md
     - name: Creare gruppi IP
       href: create-ip-group.md
+    - name: Proteggere Desktop virtuale Windows
+      href: protect-windows-virtual-desktop.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

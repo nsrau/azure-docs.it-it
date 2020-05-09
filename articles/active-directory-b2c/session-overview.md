@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f7be4d01dd930e9ff421b2a163f1648f1793da9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230912"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927038"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C sessione
 
@@ -99,22 +99,20 @@ In seguito a una richiesta di disconnessione, Azure AD B2C:
    - SAML: se i metadati del provider di identità `SingleLogoutService` contengono il percorso.
 1. Facoltativamente, si disconnette da altre applicazioni. Per altre informazioni, vedere la sezione [Single Sign-out](#single-sign-out) .
 
-> [!NOTE]
-> La disconnessione Cancella lo stato di Single Sign-On dell'utente con Azure AD B2C, ma potrebbe non disconnettersi l'utente dalla propria sessione del provider di identità di social networking. Se l'utente seleziona lo stesso provider di identità durante un accesso successivo, potrebbe eseguire nuovamente l'autenticazione senza immettere le credenziali. Se un utente vuole disconnettersi dall'applicazione, non significa necessariamente che voglia disconnettersi dal proprio account Facebook. Tuttavia, se vengono utilizzati account locali, la sessione dell'utente termina correttamente.
+La disconnessione Cancella lo stato di Single Sign-On dell'utente con Azure AD B2C, ma potrebbe non disconnettersi l'utente dalla propria sessione del provider di identità di social networking. Se l'utente seleziona lo stesso provider di identità durante un accesso successivo, potrebbe eseguire nuovamente l'autenticazione senza immettere le credenziali. Se un utente vuole disconnettersi dall'applicazione, non significa necessariamente che voglia disconnettersi dal proprio account Facebook. Tuttavia, se vengono utilizzati account locali, la sessione dell'utente termina correttamente.
 
-### <a name="single-sign-out"></a>Single Sign-Out
+### <a name="single-sign-out"></a>Single Sign-Out 
+
+
+> [!NOTE]
+> Questa funzionalità è limitata ai [criteri personalizzati](custom-policy-overview.md).
 
 Quando si reindirizza l'utente all'endpoint di disconnessione Azure AD B2C (per i protocolli OAuth2 e SAML), Azure AD B2C Cancella la sessione dell'utente dal browser. Tuttavia, l'utente potrebbe ancora essere connesso ad altre applicazioni che usano Azure AD B2C per l'autenticazione. Per consentire a tali applicazioni di disconnettersi l'utente contemporaneamente, Azure AD B2C invia una richiesta HTTP GET all'oggetto `LogoutUrl` registrato di tutte le applicazioni a cui l'utente è attualmente connesso.
 
-Le applicazioni devono rispondere a questa richiesta cancellando qualsiasi sessione che identifica l'utente e restituendo una risposta `200`. Se si vuole supportare l'accesso Single Sign-out nell'applicazione, è necessario implementare `LogoutUrl` nel codice dell'applicazione. È possibile impostare `LogoutUrl` nel portale di Azure:
 
-1. Passare al [portale di Azure](https://portal.azure.com).
-1. Scegliere la directory Active B2C facendo clic sull'account nell'angolo superiore destro della pagina.
-1. Nel pannello di navigazione a sinistra scegliere **Azure ad B2C**, selezionare **registrazioni app**, quindi selezionare l'applicazione.
-1. Selezionare **Impostazioni**, selezionare **Proprietà**e quindi trovare la casella di testo **URL di disconnessione** . 
-
+Le applicazioni devono rispondere a questa richiesta cancellando qualsiasi sessione che identifica l'utente e restituendo una risposta `200`. Se si vuole supportare l'accesso Single Sign-out nell'applicazione, è necessario implementare `LogoutUrl` nel codice dell'applicazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [configurare il comportamento della sessione nel flusso utente](session-behavior.md).
-- Informazioni su come [configurare il comportamento della sessione nei criteri personalizzati](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso).
+- Informazioni su come [configurare il comportamento della sessione nei criteri personalizzati](session-behavior-custom-policy.md).
