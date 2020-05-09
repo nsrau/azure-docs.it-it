@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaf51f6778d38d236808c3fd809082bc3b2d54b2
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189382"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863434"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster HDInsight di Azure con il firewall
 
 Questo articolo illustra la procedura per proteggere il traffico in uscita dal cluster HDInsight usando il firewall di Azure. La procedura seguente presuppone che si stia configurando un firewall di Azure per un cluster esistente. Se si sta distribuendo un nuovo cluster dietro un firewall, creare prima il cluster HDInsight e la subnet. Seguire quindi i passaggi descritti in questa guida.
 
-## <a name="background"></a>Informazioni
+## <a name="background"></a>Background
 
 I cluster HDInsight vengono in genere distribuiti in una rete virtuale. Il cluster ha dipendenze da servizi esterni a tale rete virtuale.
 
@@ -188,61 +188,7 @@ Dopo aver configurato correttamente il firewall, è possibile usare l'endpoint i
 
 Per usare l'endpoint pubblico (`https://CLUSTERNAME.azurehdinsight.net`) o l'endpoint ssh`CLUSTERNAME-ssh.azurehdinsight.net`(), assicurarsi di avere le route corrette nella tabella di route e le regole NSG per evitare il problema di routing asimmetrico illustrato [qui](../firewall/integrate-lb.md). In particolare, in questo caso, è necessario consentire l'indirizzo IP del client nelle regole del NSG in ingresso e aggiungerlo anche alla tabella di route definita dall'utente con il set di `internet`hop successivo come. Se il routing non è configurato correttamente, verrà visualizzato un errore di timeout.
 
-## <a name="configure-another-network-virtual-appliance"></a>Configurare un'altra appliance virtuale di rete
-
-> [!Important]
-> Le informazioni seguenti sono necessarie **solo** se si vuole configurare un'appliance virtuale di rete diversa dal firewall di Azure.
-
-Le istruzioni precedenti consentono di configurare il firewall di Azure per la limitazione del traffico in uscita dal cluster HDInsight. Il firewall di Azure viene configurato automaticamente per consentire il traffico per molti degli scenari importanti comuni. Se si usa un'altra appliance virtuale di rete, sarà necessario configurare una serie di funzionalità aggiuntive. Quando si configura l'appliance virtuale di rete, tenere presenti i seguenti fattori:
-
-* Con gli endpoint di servizio devono essere configurati servizi che supportano endpoint di servizio.
-* Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S (traffico TCP e UDP).
-* Gli endpoint HTTP/HTTPS FQDN possono essere inseriti nel dispositivo appliance virtuale di dispositivi.
-* Gli endpoint HTTP/HTTPS con caratteri jolly sono dipendenze che possono variare in base a un numero di qualificatori.
-* Assegnare la tabella di route creata alla subnet HDInsight.
-
-### <a name="service-endpoint-capable-dependencies"></a>Dipendenze con supporto per endpoint di servizio
-
-| **Endpoint** |
-|---|
-| SQL di Azure |
-| Archiviazione di Azure |
-| Azure Active Directory |
-
-#### <a name="ip-address-dependencies"></a>Dipendenze di indirizzi IP
-
-| **Endpoint** | **Dettagli** |
-|---|---|
-| \*:123 | Controllo dell'orologio NTP. Il traffico viene verificato in più endpoint sulla porta 123. |
-| Indirizzi IP pubblicati [qui](hdinsight-management-ip-addresses.md) | Questi indirizzi IP sono servizio HDInsight |
-| Indirizzi IP privati AAD-DS per i cluster ESP |
-| \*: 16800 per l'attivazione di Windows KMS |
-| \*12000 per Log Analytics |
-
-#### <a name="fqdn-httphttps-dependencies"></a>Dipendenze HTTP/HTTPS con nome di dominio completo
-
-> [!Important]
-> L'elenco seguente fornisce solo alcuni dei nomi di dominio completi più importanti. È possibile ottenere altri FQDN (principalmente archiviazione di Azure e il bus di servizio di Azure) per la configurazione dell'appliance virtuale [di sistema in questo file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
-
-| **Endpoint**                                                          |
-|---|
-| azure.archive.ubuntu.com:80                                           |
-| security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Architettura della rete virtuale di Azure HDInsight](hdinsight-virtual-network-architecture.md)
+* [Configurare appliance virtuale di rete](./network-virtual-appliance.md)

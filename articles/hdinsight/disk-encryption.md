@@ -106,7 +106,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Durante la creazione del cluster, specificare l' **identificatore di chiave**completo, inclusa la versione della chiave. Ad esempio: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
+Durante la creazione del cluster, specificare l' **identificatore di chiave**completo, inclusa la versione della chiave. Ad esempio, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4` È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
 
 ![Crea nuovo cluster](./media/disk-encryption/create-cluster-portal.png)
 

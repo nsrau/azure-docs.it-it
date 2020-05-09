@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9091d3bd6b57f14bd12083319595cb855a0d42ee
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755040"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858720"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -23,7 +23,7 @@ La serie StorSimple 8000 raggiungerà la [fine del ciclo di vita](https://suppor
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
 > [!IMPORTANT]
-> Microsoft si impegna a supportare i clienti nella migrazione. Email AzureFilesMigration@microsoft . com per un piano di migrazione personalizzato e assistenza durante la migrazione.
+> Microsoft si impegna a supportare i clienti nella migrazione. Inviare AzureFiles@microsoft.com un messaggio di posta elettronica per un piano di migrazione personalizzato e per assistenza durante la migrazione.
 
 Sincronizzazione file di Azure è un servizio cloud Microsoft basato su due componenti principali:
 
@@ -252,7 +252,7 @@ Durante questo processo di migrazione, sarà possibile montare diversi cloni di 
 > [!IMPORTANT]
 > Per il corretto funzionamento, è necessario impostare una chiave del registro di sistema sul server prima di configurare Sincronizzazione file di Azure.
 
-1. Creare una nuova directory nell'unità di sistema della macchina virtuale. Sincronizzazione file di Azure le informazioni devono essere salvate in modo permanente anziché nei cloni dei volumi montati. ad esempio `"C:\syncmetadata"`
+1. Creare una nuova directory nell'unità di sistema della macchina virtuale. Sincronizzazione file di Azure le informazioni devono essere salvate in modo permanente anziché nei cloni dei volumi montati. Ad esempio: `"C:\syncmetadata"`
 2. Aprire regedit e individuare l'hive del registro di sistema seguente:`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Creare una nuova chiave di tipo String, denominata: ***MetadataRootPath***
 4. Impostare il percorso completo della directory creata nel volume di sistema, ad esempio:`C:\syncmetadata"`

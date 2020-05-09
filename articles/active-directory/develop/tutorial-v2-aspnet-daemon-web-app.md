@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 0fb80b8a3fe9dd642b1574b35ff48b30272ce848
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b9c40d93c48bcf5959b5d9651510ce6076eb789e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533718"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201755"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Esercitazione: Creare un daemon multi-tenant che usa l'endpoint di Microsoft Identity Platform
 
@@ -224,7 +224,7 @@ Questo progetto include i progetti di app Web e API Web. Per distribuirli nei si
    1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e quindi scegliere **Pubblica**.
    1. Selezionare **Importa profilo** sulla barra inferiore e importare il profilo di pubblicazione scaricato in precedenza.
 1. Selezionare **Configura**.
-1. Nella scheda **Connessione** aggiornare l'URL di destinazione in modo che usi "https". Ad esempio, usare [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Selezionare **Avanti**.
+1. Nella scheda **Connessione** aggiornare l'URL di destinazione in modo che usi "https". Ad esempio, usare `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Selezionare **Avanti**.
 1. Nella scheda **Impostazioni** verificare che l'opzione **Abilita autenticazione a livello aziendale** sia deselezionata.
 1. Selezionare **Salva**. Selezionare **Pubblica** nella schermata principale.
 
