@@ -11,6 +11,9 @@
   items:
     - name: Replicare una macchina virtuale di Azure in un'altra area
       href: azure-to-azure-quickstart.md
+    - name: Creare un insieme di credenziali - Modello di Resource Manager
+      displayName: Resource Manager
+      href: quickstart-create-vault-template.md
 - name: Esercitazioni
   items:
     - name: Ripristino di emergenza di VM di Azure in Azure
