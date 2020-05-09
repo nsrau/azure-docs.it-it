@@ -25,7 +25,7 @@ Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
 ![Visualizzazione dei risultati](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
-## <a name="setup"></a>Configurazione
+## <a name="setup"></a>Installazione
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

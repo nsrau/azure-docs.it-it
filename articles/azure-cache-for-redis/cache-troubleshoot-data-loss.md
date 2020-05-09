@@ -116,7 +116,7 @@ Le cache nei livelli standard e Premium offrono una resilienza molto maggiore ri
 
 Si consiglia di usare la [persistenza dei dati Redis](https://redis.io/topics/persistence) e la [replica geografica](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) per migliorare la protezione dei dati in base a questi errori di infrastruttura.
 
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 
 - [Risolvere i problemi del lato server di cache di Azure per Redis](cache-troubleshoot-server.md)
 - [Quali offerte e dimensioni di Cache Redis di Azure è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
