@@ -1,26 +1,26 @@
 ---
-title: API di evasione SaaS-domande frequenti | Azure Marketplace
-description: Esperienza di individuazione e acquisto da parte dei clienti di un'offerta SaaS in Azure Marketplace.
+title: Domande frequenti sull'API di evasione SaaS-Marketplace commerciale Microsoft
+description: Informazioni sui requisiti di integrazione per Microsoft Commercial Marketplace per consentire ai clienti di Azure di sottoscrivere le offerte SaaS.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 6d3a84341d5221950da20f39456461dafc5d2e75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a1ba6f393eba257fcbe2757b8b4bced00bef8fe
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275697"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792905"
 ---
-# <a name="saas-fulfillment-apis---faq"></a>API di evasione ordini SaaS - domande frequenti
+# <a name="common-questions-about-saas-fulfillment-apis"></a>Domande frequenti sulle API di evasione SaaS
 
-Sono elencati i requisiti di integrazione con Azure Marketplace per consentire ai clienti di Azure di sottoscrivere l'offerta SaaS.
+Questo articolo descrive molti dei requisiti di integrazione per Microsoft Commercial Marketplace per consentire ai clienti di Azure di sottoscrivere le offerte SaaS.
 
 ## <a name="discovery-experience"></a>Esperienza di individuazione
 
-Una volta pubblicata l'offerta, gli utenti di Azure possono individuare l'offerta SaaS in Azure Marketplace. I clienti saranno in grado di filtrare le offerte in base al tipo di prodotto (SaaS) e a individuare i servizi SaaS a cui si è interessati.
+Dopo la pubblicazione di un'offerta SaaS, gli utenti di Azure possono individuarla in Azure Marketplace. I clienti possono filtrare le offerte in base al tipo di prodotto (SaaS) e individuare i servizi SaaS a cui si è interessati.
 
 ## <a name="purchase-experience"></a>Esperienza di acquisto
 
@@ -30,7 +30,7 @@ Quando un utente è interessato a un servizio SaaS specifico, l'utente può sott
 
 Questo significa che un utente può visualizzare le condizioni per l'utilizzo e l'informativa sulla privacy associate al servizio SaaS e accettare di pagare in base ai termini di fatturazione impostati dall'utente, l'editore dell'offerta SaaS, sulla fattura di Microsoft. Gli utenti possono usare il profilo di pagamento esistente in Azure per pagare l'utilizzo del servizio SaaS.
 
-Questa operazione è utile per molti motivi. I clienti possono ora individuare e sottoscrivere in un'unica posizione usando Microsoft Cloud piattaforma come fonte attendibile, senza dover controllare ogni software ISV che intende usare. Inoltre, i clienti possono utilizzare il proprio profilo di pagamento esistente senza dover pagare in modo esplicito ogni software ISV in modo indipendente.
+Questa possibilità è utile in diversi modi. I clienti possono ora individuare e sottoscrivere in un'unica posizione usando Microsoft Cloud piattaforma come fonte attendibile, senza dover controllare ogni software ISV che intende usare. Inoltre, i clienti possono utilizzare il proprio profilo di pagamento esistente senza dover pagare in modo esplicito ogni software ISV in modo indipendente.
 
 ### <a name="is-the-user-charged-automatically-when-the-offer-is-subscribed"></a>L'utente viene addebitato automaticamente quando l'offerta è stata sottoscritta?
 
@@ -38,15 +38,15 @@ Quando si sottoscrive l'offerta SaaS, l'utente ha accettato di pagare il consumo
 
 ### <a name="how-are-you-notified-when-a-user-subscribes-to-your-saas-offer"></a>Come si riceve una notifica quando un utente sottoscrive l'offerta SaaS?
 
-Dopo la sottoscrizione a un'offerta, l'utente di Azure può individuare e gestire tutte le offerte in Azure. Per impostazione predefinita, lo stato di una nuova offerta SaaS sottoscritta è **"provisioning, evasione in sospeso"**. In questo stato, all'utente di Azure verrà richiesta un'azione per **configurare l'account**, in modo da passare all'esperienza di gestione delle sottoscrizioni SaaS nell'portale di Azure.
+Dopo la sottoscrizione a un'offerta, l'utente di Azure può individuare e gestire tutte le offerte in Azure. Per impostazione predefinita, lo stato di una nuova offerta SaaS sottoscritta viene visualizzato come **provisioning, evasione in sospeso**. In questo stato, all'utente di Azure verrà richiesta un'azione per **configurare l'account**, per passare all'esperienza di gestione delle sottoscrizioni SaaS nell'portale di Azure.
 
-Quando l'utente fa clic su **"Configura account"**, viene reindirizzato al sito Web del servizio SaaS. L'URL a cui vengono spostati viene fornito dal server di pubblicazione al momento della pubblicazione dell'offerta. Questa pagina è indicata come pagina di destinazione dell'editore. Gli utenti di Azure dovrebbero essere in grado di accedere alla pagina di destinazione SaaS in base alle credenziali di AAD esistenti in Azure.
+Quando l'utente seleziona **Configura account**, viene reindirizzato al sito Web del servizio SaaS. Il server di pubblicazione ha configurato l'URL al momento della pubblicazione dell'offerta. Questa pagina è indicata come pagina di destinazione dell'editore. Gli utenti di Azure possono accedere alla pagina di destinazione SaaS in base alle credenziali di AAD esistenti in Azure.
 
 Quando l'utente di Azure viene reindirizzato alla pagina di destinazione, viene aggiunto un token all'URL della query. Questo token è di breve durata e è valido per un periodo di tempo di 24 ore. È quindi possibile rilevare la presenza di questo token e chiamare l'API Microsoft per ottenere un contesto associato al token.
 
 ![Flusso della sottoscrizione del cliente](media/saas-metering-service-integration-flow-a.png)
 
-Per ulteriori informazioni sul contratto API per la gestione di scenari Transact nel ciclo di vita di un'offerta SaaS, vedere il documento relativo all' [API di evasione Saas](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) .
+Per altre informazioni sul contratto API per la gestione di scenari Transact nel ciclo di vita di un'offerta SaaS, vedere [API di evasione Saas](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>Come si conosce l'offerta SaaS a cui l'utente sottoscrive Azure?
 
@@ -56,7 +56,7 @@ La risposta all' `Resolve` API include le informazioni sull'offerta e sul piano 
 
 * L'utente di Azure può modificare il piano associato alla sottoscrizione SaaS direttamente nell'esperienza SaaS o tramite la piattaforma Microsoft.
 
-* Le conversioni possono essere eseguite in qualsiasi momento nel ciclo di fatturazione. È necessario riconoscere qualsiasi conversione, che diventerà effettiva una volta confermata.
+* Le conversioni possono essere eseguite in qualsiasi momento nel ciclo di fatturazione. Viene richiesto di confermare qualsiasi conversione, che diventerà effettiva una volta confermata.
 
 * Le tariffe del piano prepagato (**mensile** o **annuale**) sono con classificazione Pro. Eventuali eccedenze emesse fino al momento della conversione verranno addebitate nella fattura successiva. Le nuove eccedenze verranno emesse in base al nuovo piano.
 
@@ -85,4 +85,4 @@ La sequenza seguente acquisisce il flusso quando l'utente di Azure Annulla la so
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni, vedere le [API del servizio di misurazione del Marketplace](./marketplace-metering-service-apis.md) .
+[API del servizio di misurazione di Marketplace](./marketplace-metering-service-apis.md)

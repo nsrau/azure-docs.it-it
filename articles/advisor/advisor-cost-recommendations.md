@@ -3,12 +3,12 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13e7b1d7c6b0fe342020c40e1bb4abeba97d18bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259695"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788094"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Ridurre i costi del servizio con Azure Advisor
 
@@ -49,6 +49,9 @@ Per risparmiare il 60% dei costi, è consigliabile archiviare gli snapshot in Ar
 
 ## <a name="utilize-lifecycle-management"></a>Usare la gestione del ciclo di vita
 Azure Advisor utilizzeranno informazioni relative al numero di oggetti di archiviazione BLOB di Azure, alle dimensioni totali e alle transazioni per rilevare se uno o più account di archiviazione sono più adatti per abilitare la gestione del ciclo di vita ai dati di livello. Verrà richiesto di creare regole di gestione del ciclo di vita per eseguire automaticamente il livello di archiviazione dei dati ad accesso sporadico o Archivio per ottimizzare i costi di archiviazione mantenendo i dati nell'archiviazione BLOB di Azure per la compatibilità delle applicazioni.
+
+## <a name="create-an-ephemeral-os-disk-recommendation"></a>Creare una raccomandazione del disco del sistema operativo temporanea
+Con il [disco del sistema operativo temporaneo](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks), i clienti ottengono questi vantaggi: risparmi sui costi di archiviazione per il disco del sistema operativo. Ottenere una latenza di lettura/scrittura più bassa per il disco del sistema operativo. Operazione di ricreazione dell'immagine della macchina virtuale più veloce reimpostando il sistema operativo e il disco temporaneo sullo stato originale. È preferibile usare un disco del sistema operativo temporaneo per macchine virtuali IaaS di breve durata o macchine virtuali con carichi di lavoro senza stato. Advisor offre consigli per le risorse che possono sfruttare i vantaggi del disco del sistema operativo temporaneo. 
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Come accedere ai consigli sui costi in Azure Advisor
 

@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686183"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857076"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -272,7 +272,7 @@ Usando l'interfaccia della riga di comando di Azure, impostare la sottoscrizione
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>Accesso non autorizzato, accesso negato, non consentito o errore simile
 
-L'entità di sicurezza usata non ha accesso alla risorsa a cui sta tentando di accedere. Concedere all'account utente o all'accesso "collaboratore" MSI del servizio app a una risorsa. Quale dipende dal fatto che l'esempio sia in esecuzione nel computer locale o distribuito in Azure al servizio app. Alcune risorse, ad esempio gli insiemi di credenziali delle chiavi, hanno anche [criteri di accesso](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) propri che si usano per concedere l'accesso alle entità, ad esempio utenti, app e gruppi.
+L'entità di sicurezza usata non ha accesso alla risorsa a cui sta tentando di accedere. Concedere all'account utente o all'accesso "collaboratore" MSI del servizio app a una risorsa. Quale dipende dal fatto che l'esempio sia in esecuzione nel computer locale o distribuito in Azure al servizio app. Alcune risorse, ad esempio gli insiemi di credenziali delle chiavi, hanno anche [criteri di accesso](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) propri che si usano per concedere l'accesso alle entità, ad esempio utenti, app e gruppi.
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problemi comuni durante la distribuzione nel servizio app Azure
 

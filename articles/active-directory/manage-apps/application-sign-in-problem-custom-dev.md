@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 01a424129abf88c18500c96bd1889fc6dcce2ec6
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65825229"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890711"
 ---
 # <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemi di accesso a un'applicazione personalizzata
 
@@ -41,6 +41,6 @@ Ci sono diversi errori che potrebbero impedire l'accesso a un'app. Il motivo pi√
 
 [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
-[Consenso e concessione delle autorizzazioni per le app con convergenza di Azure Active Directory v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [Azure AD in Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

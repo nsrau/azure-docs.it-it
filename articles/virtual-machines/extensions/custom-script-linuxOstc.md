@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: a3eae08510e57227b91deeeb7a7a608a6652cb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ca20f2c8cda84c241391f67ac542faa4a1f5ecd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535409"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594713"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 1 con macchine virtuali Linux
 
@@ -118,17 +118,17 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | Data |
-| publisher | Microsoft.OSTCExtensions | stringa |
-| type | CustomScriptForLinux | stringa |
+| publisher | Microsoft.OSTCExtensions | string |
+| type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | INT |
-| fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (es.) | python MyPythonScript.py \<my-param1\> | stringa |
+| fileUris (es.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
+| commandToExecute (es.) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
-| storageAccountName (es.) | examplestorageacct | stringa |
-| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | stringa |
+| storageAccountName (es.) | examplestorageacct | string |
+| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
 

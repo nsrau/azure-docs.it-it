@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295122"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690362"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurare un criterio di accesso condizionale in modalità solo report (anteprima)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurare un criterio di accesso condizionale in modalità solo report
 
 Per configurare un criterio di accesso condizionale in modalità solo report:
 
@@ -42,7 +42,7 @@ Per visualizzare il risultato di un criterio di solo report per un particolare a
 1. Accedere al **portale di Azure** come un lettore di report, un lettore di sicurezza, un amministratore della sicurezza o un amministratore globale.
 1. Passare a **Azure Active Directory** > **accessi**.
 1. Selezionare un accesso o aggiungere i filtri per restringere i risultati.
-1. Nel cassetto dei **Dettagli** selezionare la scheda **solo report (anteprima)** per visualizzare i criteri valutati durante l'accesso.
+1. Nel cassetto dei **Dettagli** selezionare la scheda **solo report** per visualizzare i criteri valutati durante l'accesso.
 
 > [!NOTE]
 > Quando si scaricano i log degli accessi, scegliere il formato JSON per includere solo i dati dei risultati del report di accesso condizionale.
@@ -62,7 +62,7 @@ Dopo aver integrato i log di Azure AD con monitoraggio di Azure, è possibile mo
 
 1. Accedere al **portale di Azure** come amministratore della sicurezza o amministratore globale.
 1. Passare a **Azure Active Directory** > **cartelle di lavoro**.
-1. Selezionare **informazioni dettagliate sull'accesso condizionale (anteprima)**.
+1. Selezionare **informazioni dettagliate sull'accesso condizionale**.
 1. Selezionare uno o più criteri dall'elenco a discesa **criteri di accesso condizionale** . Tutti i criteri abilitati sono selezionati per impostazione predefinita.
 1. Selezionare un intervallo di tempo (se l'intervallo di tempo supera il set di dati disponibile, il report visualizzerà tutti i dati disponibili). Dopo aver impostato i parametri di **criteri di accesso condizionale** e **intervallo di tempo** , il report viene caricato.
    1. Facoltativamente, cercare singoli **utenti** o **app** per restringere l'ambito del report.
