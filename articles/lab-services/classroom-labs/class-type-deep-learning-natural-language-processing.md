@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 889d0d1e98f5c9947588011774d02e54f05edca1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0dab5f3dcdfb6ddabbd94960dcf8a8bf2bce98af
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257760"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890764"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configurare un lab incentrato sul Deep Learning nell'elaborazione del linguaggio naturale con Azure Lab Services
 Questo articolo illustra come configurare un lab focalizzato sull'apprendimento avanzato nell'elaborazione del linguaggio naturale (PNL) con Azure Lab Services. L'elaborazione del linguaggio naturale è una forma di intelligenza artificiale che dota i computer di strumenti di traduzione, riconoscimento vocale e altre funzionalità di comprensione del linguaggio.  
@@ -40,11 +40,11 @@ Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nu
 | ------------ | ------------------ |
 | Dimensioni delle macchine virtuali (VM) | Small GPU (Compute). Queste dimensioni sono ideali per applicazioni a elevato utilizzo di calcolo e di rete, come l'intelligenza artificiale e l'apprendimento avanzato. |
 | Immagine VM | [Data Science Virtual Machine per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Questa immagine fornisce Framework e strumenti per Deep learning per Machine Learning e data science. Per visualizzare l'elenco completo degli strumenti installati in questa immagine, vedere l'articolo seguente: [cosa è incluso in DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
-| Abilita connessione Desktop remoto | Abilita. <p>L'abilitazione di questa impostazione consentirà agli insegnanti e agli studenti di connettersi alle macchine virtuali (VM) utilizzando Desktop remoto (RDP).</p><p>**Importante**: il protocollo RDP è già installato e configurato nell'immagine Data Science Virtual Machine per Linux. Di conseguenza, insegnanti e studenti possono connettersi alle macchine virtuali tramite RDP senza ulteriori passaggi. Inoltre, se è necessario connettersi al desktop con interfaccia grafica, in questa immagine è già installato il [Server x2go](https://wiki.x2go.org/doku.php/doc:newtox2go) nella macchina virtuale. Gli studenti devono installare il client di X2Go nei computer locali e devono usare il client per la connessione. Per ulteriori informazioni, vedere le guide seguenti: <ul><li>[Come accedere alla macchina virtuale per l'analisi scientifica dei dati per Linux](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)</li><li>[Connettersi alla macchina virtuale modello per installare i pacchetti RDP e GUI](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)</li></ul></p>   |
+| Abilita connessione Desktop remoto | <p>L'abilitazione di questa impostazione consentirà agli insegnanti e agli studenti di connettersi alle macchine virtuali (VM) utilizzando Desktop remoto (RDP).</p><p>**Importante**: l'abilitazione di questa impostazione apre solo la porta **RDP** nei computer Linux. Se RDP è già installato e configurato nell'immagine della macchina virtuale, gli studenti possono connettersi alle macchine virtuali tramite RDP senza seguire ulteriori passaggi. <p>Se l'immagine di macchina virtuale non dispone di RDP installato e configurato, è necessario connettersi al computer Linux usando SSH per la prima volta e installare i pacchetti RDP e GUI in modo che gli studenti possano connettersi al computer Linux usando RDP in un secondo momento. Per altre informazioni, vedere [installare e configurare Desktop remoto per connettersi a una macchina virtuale Linux in Azure](../../virtual-machines/linux/use-remote-desktop.md). Quindi, si pubblica l'immagine in modo che gli studenti possano usare il protocollo RDP per le macchine virtuali Linux per studenti.  |
 
 L'immagine Data Science Virtual Machine per Linux fornisce i Framework e gli strumenti di apprendimento avanzato necessari per questo tipo di classe. Di conseguenza, dopo la creazione del computer modello, non è necessario personalizzarlo ulteriormente. Può essere pubblicata per gli studenti da usare. Selezionare il pulsante **pubblica** nella pagina modello per pubblicare il modello nel Lab.  
 
-## <a name="cost"></a>Costi
+## <a name="cost"></a>Costo
 Se si desidera stimare il costo di questo Lab, è possibile utilizzare l'esempio seguente: 
 
 Per una classe di 25 studenti con 20 ore di tempo di classe pianificata e 10 ore di quota per il lavoro o le assegnazioni, il prezzo per il Lab sarà di-25 studenti * (20 + 10) ore * 139 unità Lab * 0,01 USD all'ora = 1042,5 USD

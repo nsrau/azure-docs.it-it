@@ -9,13 +9,13 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/08/2020
+ms.openlocfilehash: 2161a9e4460526113aaf89609b72250a09fc6af3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856991"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891210"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
 
@@ -63,7 +63,7 @@ Visualizzare i costi in grafici e tabelle per intervalli di tempo diversi. Alcun
 
 Non verrà visualizzata un'area di servizio separata per Machine Learning.  Verranno invece visualizzate le varie risorse aggiunte alle aree di lavoro Machine Learning.
 
-## <a name="use-amlcompute"></a>Usare AmlCompute
+## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Usare Azure Machine Learning cluster di calcolo (AmlCompute)
 
 Con i dati che cambiano continuamente, è necessario un training del modello veloce e semplificato e una ripetizione del training per mantenere modelli accurati. Tuttavia, il training continuo comporta un costo, soprattutto per i modelli di apprendimento avanzato sulle GPU. 
 
@@ -138,5 +138,7 @@ Azure Machine Learning calcolo supporta le istanze riservate intrinsecamente. Qu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla gestione dei costi con l' [analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Altre informazioni sulle [Azure Machine Learning di calcolo](how-to-set-up-training-targets.md#amlcompute).
+Altre informazioni su:
+* [Gestire e aumentare le quote di risorse](how-to-manage-quotas.md)
+* [Gestione dei costi con l' [analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Azure Machine Learning calcolo](how-to-set-up-training-targets.md#amlcompute).

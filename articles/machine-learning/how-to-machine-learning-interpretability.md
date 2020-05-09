@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
-ms.openlocfilehash: fcb837af85a54102e8c9eafc33249af9dba6b5ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631403"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982888"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretazione del modello in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -74,17 +74,17 @@ Per informazioni sulle tecniche di interpretazione supportate, sui modelli di ap
 
 |Tecnica di interpretazione|Descrizione|Type|
 |--|--|--------------------|
-|1. SHAP-Explainer Tree| [Shap](https://github.com/slundberg/shap)' s Tree Explainer, che è incentrato sull'algoritmo di stima del valore Shap del tempo polinomiale specifico per **alberi ed è costituito da alberi**.|Specifico del modello|
-|2. SHAP spiegazione approfondita| In base alla spiegazione fornita da [Shap](https://github.com/slundberg/shap), Deep Explainer "è un algoritmo di approssimazione ad alta velocità per i valori Shap nei modelli di apprendimento avanzato che si basa su una connessione a DeepLIFT descritta nel [documento Shap pin](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Sono supportati i modelli **TensorFlow** e i modelli **keras** usando il back-end TensorFlow (è disponibile anche il supporto preliminare per PyTorch) ".|Specifico del modello|
-|3. SHAP-spiegazione lineare| Il Explainer lineare di [Shap](https://github.com/slundberg/shap)calcola i valori Shap per un **modello lineare**, eventualmente tenendo conto delle correlazioni tra funzionalità.|Specifico del modello|
-|4. spiegazione del kernel SHAP| Il spiegatore kernel di [Shap](https://github.com/slundberg/shap)usa una regressione lineare locale ponderata in modo specifico per stimare i valori di Shap per **qualsiasi modello**.|Indipendente dal modello|
-|5. MIME Explainer (surrogato globale)| Mimic Explainer si basa sul concetto di training dei [modelli surrogati globali](https://christophm.github.io/interpretable-ml-book/global.html) per simulare i modelli blackbox. Un modello di surrogato globale è un modello interpretabile in modo intrinseco che viene sottoposto a training per approssimare le stime di **qualsiasi modello di Black Box** nel modo più accurato possibile. I data scientist possono interpretare il modello surrogato per trarre conclusioni sul modello di black box. È possibile usare uno dei modelli interpretabili seguenti come modello di surrogato: LightGBM (LGBMExplainableModel), regressione lineare (LinearExplainableModel), modello a discesa stocastica a gradiente (SGDExplainableModel) e albero delle decisioni (DecisionTreeExplainableModel).|Indipendente dal modello|
-|6. spiegazione dell'importanza della funzionalità di permutazione (PFI)| L'importanza della funzionalità di permutazione è una tecnica usata per spiegare i modelli di classificazione e regressione ispirati dalla [carta delle foreste casuali di Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (vedere la sezione 10). A un livello elevato, il modo in cui funziona è rimescolando in modo casuale i dati una funzionalità alla volta per l'intero set di dati e calcolando la metrica di prestazioni modificata. Maggiore è la modifica, maggiore è l'importanza della funzionalità. PFI può spiegare il comportamento complessivo di **qualsiasi modello sottostante** , ma non spiega le singole stime. |Indipendente dal modello|
+|Spiegazione dell'albero SHAP| [Shap](https://github.com/slundberg/shap)' s Tree Explainer, che è incentrato sull'algoritmo di stima del valore Shap del tempo polinomiale specifico per **alberi ed è costituito da alberi**.|Specifico del modello|
+|SHAP spiegazione approfondita| In base alla spiegazione fornita da SHAP, Deep Explainer "è un algoritmo di approssimazione ad alta velocità per i valori SHAP nei modelli di apprendimento avanzato che si basa su una connessione a DeepLIFT descritta nel [documento Shap pin](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Sono supportati i modelli **TensorFlow** e i modelli **keras** usando il back-end TensorFlow (è disponibile anche il supporto preliminare per PyTorch) ".|Specifico del modello|
+|SHAP Linear Explainer| Il Explainer lineare di SHAP calcola i valori SHAP per un **modello lineare**, eventualmente tenendo conto delle correlazioni tra funzionalità.|Specifico del modello|
+|Spiegazione del kernel SHAP| Il spiegatore kernel di SHAP usa una regressione lineare locale ponderata in modo specifico per stimare i valori di SHAP per **qualsiasi modello**.|Indipendente dal modello|
+|MIME Explainer (surrogato globale)| Mimic Explainer si basa sul concetto di training dei [modelli surrogati globali](https://christophm.github.io/interpretable-ml-book/global.html) per simulare i modelli blackbox. Un modello di surrogato globale è un modello interpretabile in modo intrinseco che viene sottoposto a training per approssimare le stime di **qualsiasi modello di Black Box** nel modo più accurato possibile. I data scientist possono interpretare il modello surrogato per trarre conclusioni sul modello di black box. È possibile usare uno dei modelli interpretabili seguenti come modello di surrogato: LightGBM (LGBMExplainableModel), regressione lineare (LinearExplainableModel), modello a discesa stocastica a gradiente (SGDExplainableModel) e albero delle decisioni (DecisionTreeExplainableModel).|Indipendente dal modello|
+|Spiegazione dell'importanza della funzionalità di permutazione (PFI)| L'importanza della funzionalità di permutazione è una tecnica usata per spiegare i modelli di classificazione e regressione ispirati dalla [carta delle foreste casuali di Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (vedere la sezione 10). A un livello elevato, il modo in cui funziona è rimescolando in modo casuale i dati una funzionalità alla volta per l'intero set di dati e calcolando la metrica di prestazioni modificata. Maggiore è la modifica, maggiore è l'importanza della funzionalità. PFI può spiegare il comportamento complessivo di **qualsiasi modello sottostante** , ma non spiega le singole stime. |Indipendente dal modello|
 
 
 
 
-Oltre alle tecniche di interpretazione descritte in precedenza, è supportato un altro [Explainer basato su Shap](https://github.com/slundberg/shap), denominato `TabularExplainer`. A seconda del modello, `TabularExplainer` usa uno dei Shap Explainer supportati:
+Oltre alle tecniche di interpretazione descritte in precedenza, è supportato un altro Explainer basato su SHAP `TabularExplainer`, denominato. A seconda del modello, `TabularExplainer` usa uno dei Shap Explainer supportati:
 
 * TreeExplainer per tutti i modelli basati su albero
 * DeepExplainer per modelli DNN
@@ -120,4 +120,6 @@ Il `azureml.interpret` pacchetto è progettato per funzionare sia con le destina
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [procedure](how-to-machine-learning-interpretability-aml.md) per abilitare l'interpretazione per i modelli di training sia localmente che su Azure Machine Learning risorse di calcolo remote. Per altri scenari, vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) .
+- Vedere le [procedure](how-to-machine-learning-interpretability-aml.md) per abilitare l'interpretazione per i modelli di training sia localmente che su Azure Machine Learning risorse di calcolo remote. 
+- Per altri scenari, vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) . 
+- Se si è interessati all'interpretazione per gli scenari di testo, vedere [interpretare il testo](https://github.com/interpretml/interpret-text), un repository Open Source correlato per [interpretare la community](https://github.com/interpretml/interpret-community/), per le tecniche di interpretazione per la PNL. `azureml.interpret`il pacchetto attualmente non supporta queste tecniche, ma è possibile iniziare con un [notebook di esempio sulla classificazione del testo](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).

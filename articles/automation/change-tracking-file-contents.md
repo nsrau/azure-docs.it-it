@@ -5,27 +5,27 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dc218416e3b91998a6f06a62670ff8d2158d533
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509142"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779298"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gestire il rilevamento modifiche e l'inventario
 
 Quando si aggiunge un nuovo file o una nuova chiave del registro di sistema da rilevare, automazione di Azure lo Abilita per la funzionalità di [rilevamento modifiche e inventario](change-tracking.md) . Questo articolo include procedure per l'utilizzo di questa funzionalità.
 
-## <a name="enable-the-full-change-tracking-and-inventory-solution"></a>Abilitare la soluzione di Rilevamento modifiche e inventario completa
+## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Abilitare la funzionalità di Rilevamento modifiche e inventario completa
 
-Se è stato abilitato il [monitoraggio dell'integrità dei file (FIM) del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), è possibile usare la soluzione di rilevamento modifiche e inventario completa, come descritto di seguito. Le impostazioni non vengono rimosse da questo processo.
+Se è stato abilitato il [monitoraggio dell'integrità dei file (FIM) del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), è possibile usare la funzionalità di rilevamento modifiche e inventario completa, come descritto di seguito. Le impostazioni non vengono rimosse da questo processo.
 
 > [!NOTE]
-> L'abilitazione della soluzione di Rilevamento modifiche e inventario completa potrebbe causare addebiti aggiuntivi. Vedere [prezzi di automazione](https://azure.microsoft.com/pricing/details/automation/).
+> L'abilitazione della funzionalità di Rilevamento modifiche e inventario completa potrebbe causare addebiti aggiuntivi. Vedere [prezzi di automazione](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Rimuovere la soluzione di monitoraggio passando all'area di lavoro e individuando l' [elenco delle soluzioni di monitoraggio installate](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Fare clic sul nome della soluzione per aprire la relativa pagina di riepilogo e quindi fare clic su **Elimina**, come descritto in [rimuovere una soluzione di monitoraggio](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Per abilitare di nuovo la soluzione, passare all'account di automazione e selezionare **rilevamento modifiche** in **Gestione configurazione**.
+3. Per abilitare di nuovo Rilevamento modifiche e inventario, passare all'account di automazione e selezionare **rilevamento modifiche** in **gestione della configurazione**.
 4. Scegliere l'area di lavoro Log Analytics e l'account di automazione, confermare le impostazioni dell'area di lavoro e fare clic su **Abilita**.
 
 ## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Eseguire l'onboarding di computer per Rilevamento modifiche e inventario
