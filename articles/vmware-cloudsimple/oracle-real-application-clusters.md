@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868067"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793041"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Ottimizzare il cloud privato di CloudSimple per l'installazione di Oracle RAC
 
@@ -46,7 +46,7 @@ Nell'esempio seguente vengono usati i dischi definiti nella tabella seguente.
 
 | Disco                                      | Scopo                                       | Disco condiviso |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| Sistema operativo                                        | Disco del sistema operativo                         | No          |
+| OS                                        | Disco del sistema operativo                         | No          |
 | GRIGLIA                                      | Percorso di installazione per il software Grid Oracle     | No          |
 | DATABASE                                  | Percorso di installazione per il software Oracle database | No          |
 | ORAHOME                                   | Percorso di base per i file binari del database Oracle    | No          |
@@ -244,7 +244,7 @@ Ripetere i passaggi da 2 a 7 per tutti i nuovi dischi necessari per i file di lo
 Le regole di affinità da macchina virtuale a host assicurano che la macchina virtuale venga eseguita nell'host desiderato.  È possibile definire regole in vCenter per assicurarsi che la macchina virtuale Oracle venga eseguita nell'host con risorse appropriate e soddisfi i requisiti di licenza specifici.
 
 1. Nel portale di CloudSimple, [inoltrare i privilegi](escalate-private-cloud-privileges.md) dell'utente cloudowner.
-2. [Accedere al client vSphere](https://docs.azure.cloudsimple.com/vsphere-access) del cloud privato.
+2. Accedere al client vSphere del cloud privato.
 3. Nel client di vSphere selezionare il cluster in cui vengono distribuite le macchine virtuali Oracle e fare clic su **Configura**.
 4. In Configure selezionare **VM/host groups**.
 5. Fare clic su **+** .

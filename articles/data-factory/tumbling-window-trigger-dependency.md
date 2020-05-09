@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: bbcbb19530aebe777a91cbe4c5487e1b50ace2e5
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559778"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870043"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creare una dipendenza del trigger di finestra a cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -90,7 +90,10 @@ La tabella seguente fornisce l'elenco degli attributi necessari per definire una
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Proprietà di auto-dipendenza in una finestra a cascata
 
-Negli scenari in cui il trigger non deve passare alla finestra successiva finché la finestra precedente non viene completata correttamente, compilare una dipendenza autonoma. Un trigger di autodipendenze che dipende dal successo delle esecuzioni precedenti di se stesso entro la data/ora precedente avrà le proprietà seguenti:
+Negli scenari in cui il trigger non deve passare alla finestra successiva finché la finestra precedente non viene completata correttamente, compilare una dipendenza autonoma. Un trigger di dipendenza autonoma che dipende dal successo delle esecuzioni precedenti di se stesso entro l'ora precedente avrà le proprietà indicate nel codice seguente.
+
+> [!NOTE]
+> Se la pipeline attivata si basa sull'output delle pipeline nelle finestre attivate in precedenza, è consigliabile usare solo la dipendenza del trigger di finestra a cascata. Per limitare le esecuzioni di trigger paralleli, impostare la concorrenza del trigger massimo.
 
 ```json
 {

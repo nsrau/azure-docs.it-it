@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77189093"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734825"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Microservizi della versione canary con Vamp in un cluster DC/OS del servizio Azure Container
 
@@ -129,11 +129,11 @@ Ora che Vamp è in esecuzione, è possibile distribuire un servizio da un proget
 
 Nella forma più semplice, un [progetto Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) descrive gli endpoint, ovvero i gateway, i cluster e i servizi da distribuire. Vamp usa i cluster per raggruppare diverse varianti dello stesso servizio in gruppi logici per la versione canary o i test A/B.  
 
-Questo scenario usa un'applicazione monolitica di esempio denominata [**sava**](https://github.com/magneticio/sava), che è alla versione 1.0. Il monolite viene compresso in un contenitore Docker, disponibile nell'hub Docker in magneticio/sava:1.0.0. L'app generalmente viene eseguita sulla porta 8080, ma in questo caso si desidera esporla nella porta 9050. Distribuire l'app tramite Vamp usando un progetto semplice.
+Questo scenario usa un'applicazione monolitica di esempio denominata [**sava**](https://github.com/magneticio/sava-product), che è alla versione 1.0. Il monolite viene compresso in un contenitore Docker, disponibile nell'hub Docker in magneticio/sava:1.0.0. L'app generalmente viene eseguita sulla porta 8080, ma in questo caso si desidera esporla nella porta 9050. Distribuire l'app tramite Vamp usando un progetto semplice.
 
 1. Andare in **Deployments** (Distribuzioni).
 
-2. Fare clic su **Aggiungi**.
+2. Scegliere **Aggiungi**.
 
 3. Incollare il progetto YAML seguente. Questo progetto contiene un cluster con solo una variante di servizio, che verrà modificata in un passaggio successivo:
 
