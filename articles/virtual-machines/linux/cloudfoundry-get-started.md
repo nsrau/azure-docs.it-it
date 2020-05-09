@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: ba0b4a636d8f785f1c169e4066c9cf6d25ba81db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8645afac5734cdbffb8df6f341529e688ca526d7
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970059"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891633"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry in Azure
 
@@ -57,5 +57,5 @@ Cloud Foundry è particolarmente adatto per Agile Software Development e l'uso d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Distribuire Pivotal Cloud Foundry da Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [Distribuire Pivotal Cloud Foundry da Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 - [Deploy an app to Cloud Foundry in Azure](./cloudfoundry-deploy-your-first-app.md) (Distribuire un'app a Cloud Foundry in Azure)

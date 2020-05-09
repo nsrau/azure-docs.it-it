@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271832"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778261"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Indirizzi IP di gestione di HDInsight
 
@@ -82,7 +82,7 @@ Consentire il traffico dagli indirizzi IP elencati per i servizi di gestione e i
 
 Per informazioni sugli indirizzi IP da usare per Azure per enti pubblici, vedere il documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Intelligence e Analisi di Azure per enti pubblici).
 
-Per ulteriori informazioni, vedere la sezione [controllo del traffico di rete](hdinsight-plan-virtual-network-deployment.md#networktraffic) .
+Per altre informazioni, vedere [controllare il traffico di rete](./control-network-traffic.md).
 
 Se si usano le route definite dall'utente (UDR), è necessario specificare una route e consentire il traffico in uscita dalla rete virtuale agli indirizzi IP precedenti con l'hop successivo impostato su "Internet".
 

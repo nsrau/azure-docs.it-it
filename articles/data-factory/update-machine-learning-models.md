@@ -11,23 +11,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409067"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927395"
 ---
-# <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
+# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Aggiornare i modelli ML Studio (classico) v usando l'attività Aggiorna risorsa
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo integra la versione principale di Azure Data Factory: articolo di integrazione di Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo.
+Questo articolo è complementare all'articolo principale sull'integrazione Azure Data Factory-ML Studio (classica): [creare pipeline predittive usando Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo.
 
 ## <a name="overview"></a>Panoramica
-Nell'ambito del processo di messa in funzione dei modelli di Azure Machine Learning, viene eseguito il training del modello, che viene quindi salvato. Lo si userà quindi per creare un servizio Web predicativo. Il servizio Web potrà quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili.
+Come parte del processo di operatività ML Studio (classico), il modello viene sottoposto a training e salvato. Lo si userà quindi per creare un servizio Web predicativo. Il servizio Web potrà quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili.
 
-I modelli creati con Machine Learning in genere non sono statici. Quando sono disponibili nuovi dati o quando il consumer dell'API ha i propri dati, è necessario ripetere il training del modello. Per informazioni dettagliate su come ripetere il training di un modello in Azure Machine Learning, fare riferimento a [Ripetere il training di un modello di Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md).
+I modelli creati con Machine Learning in genere non sono statici. Quando sono disponibili nuovi dati o quando il consumer dell'API ha i propri dati, è necessario ripetere il training del modello. 
 
 La ripetizione del training può avvenire di frequente. Con le attività Esecuzione batch e Aggiorna risorsa è possibile rendere operativo il modello di Azure Machine Learning ripetendo il training del servizio Web predittivo e aggiornando tale servizio tramite Data Factory.
 
@@ -35,9 +35,9 @@ L'immagine seguente illustra la relazione tra training e servizi Web predittivi.
 
 ![SERVIZI WEB](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Attività Aggiorna risorsa di Azure Machine Learning
+## <a name="ml-studio-classic-update-resource-activity"></a>Attività della risorsa di aggiornamento ML Studio (classica)
 
-Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Machine Learning.
+Il frammento di codice JSON seguente definisce un'attività di esecuzione batch ML Studio (classica).
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176601"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792072"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 
@@ -82,7 +82,7 @@ Si noti che se sono presenti endpoint privati collegati all'account di archiviaz
 
 **Linee guida**: Network Watcher acquisizione pacchetti consente di creare sessioni di acquisizione per tenere traccia del traffico tra l'account di archiviazione e una macchina virtuale. Sono disponibili filtri per la sessione di acquisizione per garantire che venga acquisito solo il traffico desiderato. Il servizio di acquisizione di pacchetti consente di individuare eventuali anomalie di rete in modo proattivo e reattivo. Altri usi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora. La possibilità di attivare da remoto l'acquisizione di pacchetti evita di dover eseguire manualmente questa operazione su una macchina virtuale desiderata, consentendo un notevole risparmio di tempo. 
 
-- [Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale](https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -240,7 +240,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 - [Come inviare un avviso sui dati del log di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -428,7 +428,7 @@ Un modo efficace per ridurre il rischio di accesso all'account utente non sospet
 
 Creare le impostazioni di diagnostica per Azure Active Directory account utente, inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics. Per monitorare gli errori di autenticazione negli account di archiviazione di Azure, è possibile creare avvisi per ricevere una notifica quando sono state raggiunte determinate soglie per le metriche delle risorse di archiviazione. Usare inoltre monitoraggio di Azure per avvertire l'accesso anonimo per gli account di archiviazione usando la condizione di autenticazione anonima.
 
-- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Come integrare i log attività di Azure in monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -574,7 +574,7 @@ Usare anche i criteri degli endpoint di servizio di rete virtuale per filtrare i
 
 - [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registrazione di Analisi di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Come configurare gli avvisi di metrica per gli account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
@@ -887,7 +887,7 @@ Usare le raccomandazioni del Centro sicurezza di Azure come linea di base di con
 
 Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per limitare l'effetto della perdita o della divulgazione delle chiavi dell'account di archiviazione.
 
-- [Crittografia di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
 
 - [Gestisci chiavi di accesso all'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 

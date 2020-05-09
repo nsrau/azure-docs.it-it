@@ -1,14 +1,14 @@
 ---
 title: Comprendere l'ordine della sequenza di distribuzione
 description: Informazioni sull'ordine predefinito in cui vengono distribuiti gli artefatti del progetto durante un'assegnazione di progetto e su come personalizzare l'ordine di distribuzione.
-ms.date: 08/22/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677569"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864522"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 
@@ -47,8 +47,7 @@ Quando si compongono definizioni di progetti di grandi dimensioni, potrebbe esse
 Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. La definizione del progetto, per i gruppi di risorse e gli oggetti artefatto supportano questa proprietà. `dependsOn` è una matrice di stringhe di nomi dell'elemento che deve essere creata prima che venga creato l'elemento specifico.
 
 > [!NOTE]
-> Quando si creano oggetti progetto, ogni risorsa artefatto ottiene il nome dal nome file, se si usa [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)o l'endpoint URL, se si usa l' [API REST](/rest/api/blueprints/artifacts/createorupdate).
-> i riferimenti _resourceGroup_ negli artefatti devono corrispondere a quelli definiti nella definizione del progetto.
+> Quando si creano oggetti progetto, ogni risorsa artefatto ottiene il nome dal nome file, se si usa [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)o l'endpoint URL, se si usa l' [API REST](/rest/api/blueprints/artifacts/createorupdate). i riferimenti _resourceGroup_ negli artefatti devono corrispondere a quelli definiti nella definizione del progetto.
 
 ### <a name="example---ordered-resource-group"></a>Esempio: gruppo di risorse ordinato
 
@@ -137,7 +136,8 @@ L'elemento del modello a livello di sottoscrizione a seconda del gruppo **di ris
 
 Durante il processo di creazione, un ordinamento topologico viene usato per creare il grafo delle dipendenze degli artefatti dei progetti. Il controllo garantisce il supporto per ogni livello di dipendenza tra gruppi di risorse e artefatti.
 
-Se si dichiara che la dipendenza di un artefatto non altera l'ordine predefinito, non viene apportata alcuna modifica. Un esempio è un gruppo di risorse che dipende da un criterio a livello di sottoscrizione. Un altro esempio è un'assegnazione di criteri del gruppo di risorse figlio "standard-rg" che dipende da un'assegnazione di ruolo del gruppo di risorse figlio "standard-rg". In entrambi i casi, il `dependsOn` non avrebbe modificato l'ordine sequenziale predefinito e non sarebbero state apportate modifiche.
+Se si dichiara che la dipendenza di un artefatto non altera l'ordine predefinito, non viene apportata alcuna modifica.
+Un esempio è un gruppo di risorse che dipende da un criterio a livello di sottoscrizione. Un altro esempio è un'assegnazione di criteri del gruppo di risorse figlio "standard-rg" che dipende da un'assegnazione di ruolo del gruppo di risorse figlio "standard-rg". In entrambi i casi, il `dependsOn` non avrebbe modificato l'ordine sequenziale predefinito e non sarebbero state apportate modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,14 +4,15 @@ description: Questo articolo descrive come creare nuovi account utente per inter
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/8/2019
-ms.openlocfilehash: 674fd4372bdf7c3782d18aaf04b48eb0067a9b2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484928"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584091"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -49,7 +50,7 @@ Come indicato in precedenza `citus` , l'account amministratore non dispone dell'
 
    ![Pagina ruoli](media/howto-hyperscale-create-users/1-role-page.png)
 
-2. Immettere il nome e la password del ruolo. Fare clic su **Save**.
+2. Immettere il nome e la password del ruolo. Fare clic su **Salva**.
 
    ![Aggiungi ruolo](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
