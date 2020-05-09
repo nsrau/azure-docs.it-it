@@ -4,12 +4,12 @@ description: Informazioni su come creare un cluster Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0d702a213c4c34024c043edc50d25e6696cbc1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398058"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610939"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creare un cluster di servizi Kubernetes di Azure privato
 
@@ -93,7 +93,7 @@ Come indicato in precedenza, il peering di VNet è un modo per accedere al clust
 
 3. Negli scenari in cui il VNet che contiene il cluster ha impostazioni DNS personalizzate (4), la distribuzione del cluster ha esito negativo a meno che la zona DNS privata non sia collegata al VNet che contiene i resolver DNS personalizzati (5). Questo collegamento può essere creato manualmente dopo la creazione della zona privata durante il provisioning del cluster o tramite automazione al rilevamento della creazione della zona usando criteri di Azure o altri meccanismi di distribuzione basati su eventi, ad esempio griglia di eventi di Azure e funzioni di Azure.
 
-## <a name="dependencies"></a>Dependencies  
+## <a name="dependencies"></a>Dipendenze  
 
 * Il servizio di collegamento privato è supportato solo su Azure Load Balancer standard. Il Azure Load Balancer di base non è supportato.  
 * Per usare un server DNS personalizzato, aggiungere il 168.63.129.16 IP DNS di Azure come server DNS upstream nel server DNS personalizzato.
@@ -101,7 +101,7 @@ Come indicato in precedenza, il peering di VNet è un modo per accedere al clust
 ## <a name="limitations"></a>Limitazioni 
 * Gli intervalli autorizzati IP non possono essere applicati all'endpoint server dell'API privata, ma si applicano solo al server API pubblico
 * Zone di disponibilità sono attualmente supportate per determinate aree, vedere l'inizio di questo documento. 
-* Le [limitazioni del servizio di collegamento privato di Azure][private-link-service] si applicano a cluster privati, endpoint privati di Azure e endpoint di servizio della rete virtuale, che non sono attualmente supportati nella stessa rete virtuale.
+* Le [limitazioni del servizio di collegamento privato di Azure][private-link-service] si applicano ai cluster privati.
 * Nessun supporto per i nodi virtuali in un cluster privato per la rotazione di istanze di contenitore di Azure private in una rete virtuale di Azure privata
 * Nessun supporto per l'integrazione di Azure DevOps con i cluster privati
 * Per i clienti che devono consentire a Azure Container Registry di lavorare con il servizio contenitore di Azure privato, è necessario eseguire il peering della rete virtuale Container Registry con la rete virtuale del cluster di agenti.
@@ -116,7 +116,7 @@ Come indicato in precedenza, il peering di VNet è un modo per accedere al clust
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview
+[private-link-service]: /azure/private-link/private-link-service-overview#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md

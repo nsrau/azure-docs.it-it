@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246474"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611782"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di archiviazione tabelle di Azure: tabelle scalabili ed efficienti
 
@@ -195,12 +195,12 @@ Negli esempi seguenti si presuppone che l'archiviazione tabelle memorizzi le ent
 
 | Nome colonna | Tipo di dati |
 | --- | --- |
-| `PartitionKey`(Nome del reparto) |Stringa |
-| `RowKey`(ID dipendente) |Stringa |
-| `FirstName` |Stringa |
-| `LastName` |Stringa |
+| `PartitionKey`(Nome del reparto) |string |
+| `RowKey`(ID dipendente) |string |
+| `FirstName` |string |
+| `LastName` |string |
 | `Age` |Integer |
-| `EmailAddress` |Stringa |
+| `EmailAddress` |string |
 
 Ecco alcune linee guida generali per la progettazione di query di archiviazione tabelle. La sintassi di filtro usata negli esempi seguenti è dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -208,7 +208,7 @@ Ecco alcune linee guida generali per la progettazione di query di archiviazione 
 * Il secondo migliore è una *query di intervallo*. USA i `PartitionKey`filtri, e su un intervallo di `RowKey` valori per restituire più di un'entità. Il `PartitionKey` valore identifica una partizione specifica e i `RowKey` valori identificano un subset delle entità in quella partizione. Ad esempio: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * La terza migliore è un' *analisi della partizione*. USA i `PartitionKey`filtri, e su un'altra proprietà non chiave e potrebbe restituire più di un'entità. Il `PartitionKey` valore identifica una partizione specifica e i valori di proprietà selezionano per un subset delle entità in quella partizione. Ad esempio: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Una *scansione di tabella* non include `PartitionKey`il e non è efficiente perché cerca tutte le partizioni che costituiscono la tabella per le entità corrispondenti. Esegue un'analisi della tabella indipendentemente dal fatto che il filtro usi o meno `RowKey`. Ad esempio: `$filter=LastName eq 'Jones'`.  
-* Le query di `PartitionKey` archiviazione tabelle di Azure che restituiscono più entità `RowKey` vengono ordinate e ordinate. Per evitare di ricorrere alle entità nel client, scegliere un `RowKey` oggetto che definisce l'ordinamento più comune. I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Le query di `PartitionKey` archiviazione tabelle di Azure che restituiscono più entità `RowKey` vengono ordinate e ordinate. Per evitare di ricorrere alle entità nel client, scegliere un `RowKey` oggetto che definisce l'ordinamento più comune. I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](table-api-faq.md#table-api-vs-table-storage).
 
 L'uso di un "**or**" per specificare un filtro `RowKey` in base ai valori produce un'analisi della partizione e non viene considerato come una query di intervallo. Evitare pertanto query che utilizzano filtri come: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
@@ -250,7 +250,7 @@ Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca 
 L'archiviazione tabelle restituisce i risultati della query ordinati in ordine crescente, `PartitionKey` in base a `RowKey`e quindi da.
 
 > [!NOTE]
-> I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](table-api-faq.md#table-api-vs-table-storage).
 
 Le chiavi nell'archivio tabelle sono valori di stringa. Per assicurarsi che i valori numerici siano ordinati correttamente, è necessario convertirli in una lunghezza fissa e riempirli con zeri. Se, ad esempio, il valore ID dipendente usato come `RowKey` è un valore intero, è necessario convertire l'id dipendente **123** in **00000123**. 
 
@@ -733,7 +733,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 Recuperare le entità *n* aggiunte più di recente a una partizione usando un `RowKey` valore che ordina in ordine di data e ora inverso.  
 
 > [!NOTE]
-> I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Pertanto, anche se questo modello è adatto per l'archiviazione tabelle, non è adatto per Azure Cosmos DB. Per un elenco dettagliato delle differenze tra le funzionalità, vedere [differenze tra API tabella in Azure Cosmos DB e nell'archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> I risultati della query restituiti dal API Tabella di Azure in Azure Cosmos DB non sono ordinati in base alla chiave di partizione o alla chiave di riga. Pertanto, anche se questo modello è adatto per l'archiviazione tabelle, non è adatto per Azure Cosmos DB. Per un elenco dettagliato delle differenze tra le funzionalità, vedere [differenze tra API tabella in Azure Cosmos DB e nell'archiviazione tabelle di Azure](table-api-faq.md#table-api-vs-table-storage).
 
 #### <a name="context-and-problem"></a>Contesto e problema
 Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query di tabella `$top` supportano un'operazione di query per restituire le prime *n* entità da un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime *n* entità di un set.  

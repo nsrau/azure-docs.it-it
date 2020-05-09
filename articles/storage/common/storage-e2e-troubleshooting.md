@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76314760"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610973"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 
@@ -161,7 +161,7 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Scaricare e installare Message Analyzer e le risorse per Archiviazione di Azure
 
-1. Scaricare [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) dall'Area download Microsoft ed eseguire il programma di installazione.
+1. Scaricare [Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer).
 2. Avviare Message Analyzer.
 3. Selezionare **Gestione asset** dal menu **Strumenti**. Nella finestra di dialogo **Gestione asset** selezionare **Download** e filtrare in base ad **Archiviazione di Azure**. Verranno visualizzate le risorse per Archiviazione di Azure, come mostrato nell'immagine seguente.
 4. Fare clic su **Sincronizza tutti gli elementi visualizzati** per installare le risorse per Archiviazione di Azure. Le risorse disponibili includono:
@@ -329,7 +329,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di archiviazione di Azure, vedere le risorse seguenti:
 
 * [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
-* [Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [di Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Guida operativa di Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)

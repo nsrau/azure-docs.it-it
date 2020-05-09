@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 20a82cbd7de4b5678648bac19ab9b59bf557b0ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128330"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612470"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurare la connessione all'app MSIX
 
 > [!IMPORTANT]
 > La connessione all'app MSIX è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo argomento descrive come configurare la connessione dell'app MSIX in un ambiente desktop virtuale Windows.
 
@@ -28,7 +28,7 @@ Questo argomento descrive come configurare la connessione dell'app MSIX in un am
 Prima di iniziare, è necessario configurare la connessione dell'app MSIX:
 
 - Accesso al portale di Windows Insider per ottenere la versione di Windows 10 con supporto per le API di collegamento delle app MSIX.
-- Una distribuzione desktop virtuale di Windows funzionante. Per informazioni, vedere [creare un tenant in un desktop virtuale di Windows](tenant-setup-azure-active-directory.md).
+- Una distribuzione desktop virtuale di Windows funzionante. Per informazioni, vedere [creare un tenant in un desktop virtuale di Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - Strumento per la creazione di pacchetti MSIX
 - Una condivisione di rete nella distribuzione di desktop virtuale Windows in cui verrà archiviato il pacchetto MSIX
 
@@ -207,7 +207,7 @@ Prima di aggiornare gli script di PowerShell, assicurarsi di disporre del GUID d
 
 4.  Aprire la cartella padre. Se viene espansa correttamente, verrà visualizzata una cartella con lo stesso nome del pacchetto. Aggiornare la variabile **$PackageName** in modo che corrisponda al nome di questa cartella.
 
-    Ad esempio: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
+    Ad esempio, `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`
 
 5.  Aprire un prompt dei comandi e immettere **mountvol**. Questo comando visualizzerà un elenco di volumi e i relativi GUID. Copiare il GUID del volume in cui la lettera di unità corrisponde all'unità in cui è stato montato il disco rigido virtuale nel passaggio 2.
 

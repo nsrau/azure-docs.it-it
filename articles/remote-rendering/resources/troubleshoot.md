@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681864"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792616"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -98,6 +98,10 @@ Se questi due passaggi non sono utili, è necessario verificare se i fotogrammi 
 
 ### <a name="common-client-side-issues"></a>Problemi comuni lato client
 
+**Il modello supera i limiti della macchina virtuale selezionata, in particolare il numero massimo di poligoni:**
+
+Vedere limitazioni specifiche delle [dimensioni della macchina virtuale](../reference/limits.md#overall-number-of-polygons).
+
 **Il modello non si trova all'interno della vista tronco:**
 
 In molti casi, il modello viene visualizzato correttamente ma si trova al di fuori della fotocamera tronco. Un motivo comune è che il modello è stato esportato con un pivot esterno al centro, in modo che venga ritagliato dal piano di ritaglio a distanza della fotocamera. Consente di eseguire una query del rettangolo di delimitazione del modello a livello di codice e di visualizzare la casella Unity come una casella a linee o di stamparne i valori nel log di debug.
@@ -139,8 +143,20 @@ Hook di rendering remoto di Azure nella pipeline di rendering Unity per eseguire
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Il codice Unity che usa l'API per il rendering remoto non viene compilato
 
+### <a name="use-debug-when-compiling-for-unity-editor"></a>Usare debug durante la compilazione per l'editor di Unity
+
 Cambiare il *tipo di compilazione* della soluzione Unity di cui eseguire il **debug**. Quando si esegue il test di ARR nell'editor `UNITY_EDITOR` di Unity, l'oggetto define è disponibile solo nelle compilazioni ' debug '. Si noti che questo non è correlato al tipo di compilazione usato per [le applicazioni distribuite](../quickstarts/deploy-to-hololens.md), in cui è preferibile eseguire le compilazioni "release".
 
+### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Errori di compilazione quando si compilano esempi di Unity per HoloLens 2
+
+Sono stati rilevati errori non corretti durante il tentativo di compilare esempi di Unity (avvio rapido, ShowCaseApp,..) per HoloLens 2. Visual Studio non è in grado di copiare alcuni file anche se sono presenti. Se si raggiunge questo problema:
+* Rimuovere tutti i file Unity temporanei dal progetto e riprovare.
+* Assicurarsi che i progetti si trovino in una directory su disco con un percorso ragionevolmente breve, perché il passaggio di copia talvolta sembra riscontrare problemi con nomi di file lunghi.
+* Se ciò non è utile, è possibile che MS Sense interferisca con il passaggio di copia. Per impostare un'eccezione, eseguire questo comando del registro di sistema dalla riga di comando (sono necessari i diritti di amministratore):
+    ```cmd
+    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
+    ```
+    
 ## <a name="unstable-holograms"></a>Ologrammi instabili
 
 Se gli oggetti di cui è stato eseguito il rendering sembrano essere spostati insieme ai movimenti Head, è possibile che si verifichino problemi con la *riproiezione in ritardo della fase* (LSR). Per istruzioni su come affrontare una situazione di questo tipo, fare riferimento alla sezione relativa alla [riproiezione tardiva delle fasi](../overview/features/late-stage-reprojection.md) .
