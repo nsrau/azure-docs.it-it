@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e7625ae95d5355ae1122a16ea4828eed5f78c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1840f4049f8450295e179a89b472d7710c5f61a0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682920"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993768"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-using-composite-resources"></a>Composizione di configurazioni DSC nella configurazione dello stato di automazione di Azure con risorse composite
 
@@ -34,9 +34,9 @@ Prima di poter assegnare una configurazione effettuata da risorse composite nell
 1. Nel passaggio **parametri** , il parametro per ogni risorsa composita viene esposto in modo che sia possibile fornire i valori. Se per il parametro esiste una descrizione, questa viene visualizzata accanto al campo del parametro. Se un parametro è di `PSCredential` tipo, l'elenco a discesa fornisce un elenco di oggetti **Credential** nell'account di automazione corrente. È disponibile anche un'opzione **+ Add an Credential** . Dopo aver specificato tutti i parametri necessari, fare clic su **Salva e compila**.
    ![Screenshot dei parametri nella pagina di creazione della configurazione](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-Dopo averla salvata, la configurazione viene inoltrata per essere compilata. Lo stato del processo di visualizzazione viene visualizzato come per una qualsiasi configurazione importata. Per altre informazioni, vedere [Visualizzazione di un processo di compilazione](automation-dsc-getting-started.md#viewing-a-compilation-job).
+Dopo averla salvata, la configurazione viene inoltrata per essere compilata. Lo stato del processo di visualizzazione viene visualizzato come per una qualsiasi configurazione importata. Per altre informazioni, vedere [Visualizzazione di un processo di compilazione](automation-dsc-getting-started.md#view-a-compilation-job).
 
-Quando la compilazione viene completata correttamente, la nuova configurazione viene visualizzata nella scheda **configurazioni compilate** . È quindi possibile assegnare la configurazione a un nodo gestito, usando la procedura descritta in [riassegnazione di un nodo a una configurazione del nodo diversa](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Quando la compilazione viene completata correttamente, la nuova configurazione viene visualizzata nella scheda **configurazioni compilate** . È quindi possibile assegnare la configurazione a un nodo gestito, usando la procedura descritta in [riassegnazione di un nodo a una configurazione del nodo diversa](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

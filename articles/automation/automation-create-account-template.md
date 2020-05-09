@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 19aee9d5fdf3f4a3d74484bb7cb2e609bc2807b4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 949b07a16b2c2b08891d721e46948481cfe572b2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927867"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996109"
 ---
 # <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Creare un account di automazione usando un modello di Azure Resource Manager
 
@@ -22,7 +22,7 @@ ms.locfileid: "82927867"
 * Automatizza la creazione di un account di automazione di Azure.
 * Collega l'account di automazione all'area di lavoro Log Analytics.
 
-Il modello non automatizza l'onboarding di macchine virtuali o soluzioni di Azure o non Azure. 
+Il modello non automatizza l'abilitazione di macchine virtuali di Azure o non di Azure. 
 
 >[!NOTE]
 >La creazione dell'account RunAs di automazione non è supportata quando si usa un modello di Azure Resource Manager. Per creare manualmente un account RunAs dal portale o con PowerShell, vedere [gestire gli account RunAs](manage-runas-account.md).

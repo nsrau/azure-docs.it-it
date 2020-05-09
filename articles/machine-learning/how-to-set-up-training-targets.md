@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0ac0352fbca73aca7cc8c19a851dad9149af14a1
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: fc5d2b8f7673488169ee3ae393efcb74ef0a27a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872093"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996459"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Con Azure Machine Learning, è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, chiamati collettivamente come [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Machine Learning, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
+Con Azure Machine Learning, è possibile eseguire il training del modello in un'ampia gamma di risorse o ambienti, chiamati collettivamente come [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, ad esempio un Azure Machine Learning calcolo, Azure HDInsight o una macchina virtuale remota.  È possibile anche creare destinazioni di calcolo per la distribuzione del modello, come descritto in ["Dove e come distribuire i modelli"](how-to-deploy-and-where.md).
 
 È possibile creare e gestire una destinazione di calcolo usando il Azure Machine Learning SDK, Azure Machine Learning Studio, l'interfaccia della riga di comando di Azure o l'estensione Azure Machine Learning VS Code. Se si dispone di destinazioni di calcolo create tramite un altro servizio, ad esempio un cluster HDInsight, è possibile usarle collegandosi all'area di lavoro Azure Machine Learning.
  
@@ -36,7 +36,7 @@ Questo articolo illustra come usare diverse destinazioni di calcolo per il train
 
 ## <a name="compute-targets-for-training"></a>Destinazioni di calcolo per il training
 
-Azure Machine Learning ha un supporto variabile tra destinazioni di calcolo diverse. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
+Azure Machine Learning ha un supporto variabile tra destinazioni di calcolo diverse. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando si aumenta il training su set di dati di dimensioni maggiori o si esegue un training distribuito, è consigliabile usare Azure Machine Learning calcolo per creare un cluster a nodo singolo o a più nodi che esegue la scalabilità automatica ogni volta che si invia un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -64,7 +64,7 @@ Per altre informazioni, vedere [training di modelli ml con estimatori](how-to-tr
 
 Con le pipeline ML è possibile ottimizzare il flusso di lavoro con semplicità, velocità, portabilità e riutilizzo. Quando si compilano pipeline con Azure Machine Learning, è possibile concentrarsi sulla propria esperienza, Machine Learning, anziché sull'infrastruttura e l'automazione.
 
-Le pipeline di ML sono costituite da più **passaggi**, ovvero unità di calcolo distinte nella pipeline. Ogni passaggio può essere eseguito in modo indipendente e usare risorse di calcolo isolate. In questo modo, più data scientist possono lavorare contemporaneamente sulla stessa pipeline senza dover sovraccaricare le risorse di calcolo e semplificare l'uso di diversi tipi/dimensioni di calcolo per ogni passaggio.
+Le pipeline di ML sono costituite da più **passaggi**, ovvero unità di calcolo distinte nella pipeline. Ogni passaggio può essere eseguito in modo indipendente e usare risorse di calcolo isolate. Questo approccio consente a più data scientist di lavorare contemporaneamente sulla stessa pipeline senza sovraccaricare le risorse di calcolo e semplifica l'uso di diversi tipi/dimensioni di calcolo per ogni passaggio.
 
 > [!TIP]
 > Le pipeline di ML possono usare la configurazione di esecuzione o gli estimatori durante il training di modelli.
@@ -101,9 +101,10 @@ Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limi
 
 > [!TIP]
 > I cluster possono in genere essere ridimensionati fino a 100 nodi, purché si disponga di una quota sufficiente per il numero di core richiesti. Per impostazione predefinita, i cluster sono impostati con la comunicazione tra nodi abilitata tra i nodi del cluster per supportare i processi MPI, ad esempio. Tuttavia, è possibile ridimensionare i cluster a migliaia di nodi semplicemente [generando un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)e richiedendo all'elenco elementi consentiti la sottoscrizione, o l'area di lavoro, o un cluster specifico per disabilitare la comunicazione tra i nodi. 
->
 
-Azure Machine Learning calcolo può essere riusato tra le esecuzioni. Il calcolo può essere condiviso con altri utenti nell'area di lavoro e mantenuto tra le esecuzioni, il ridimensionamento automatico dei nodi in base al numero di esecuzioni inviate e la max_nodes impostata nel cluster.
+Azure Machine Learning calcolo può essere riusato tra le esecuzioni. Il calcolo può essere condiviso con altri utenti nell'area di lavoro e mantenuto tra le esecuzioni, il ridimensionamento automatico dei nodi in base al numero di esecuzioni inviate e la max_nodes impostata nel cluster. L'impostazione min_nodes controlla il numero minimo di nodi disponibili.
+
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
 
 1. **Creare e aggiungere**: per creare una risorsa di calcolo Azure Machine Learning persistente in Python, specificare le proprietà **vm_size** e **max_nodes** . Azure Machine Learning quindi usa valori predefiniti intelligenti per le altre proprietà. Il calcolo viene ridimensionato automaticamente fino a zero nodi quando non viene usato.   Le macchine virtuali dedicate vengono create per eseguire i processi in base alle esigenze.
     
@@ -300,7 +301,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Compilare il modulo. Specificare i valori per le proprietà necessarie, in particolare la **famiglia di macchine virtuali**e il **numero massimo di nodi** da usare per creare rapidamente l'ambiente di calcolo.  
 
-1. Selezionare __Create__ (Crea).
+1. Selezionare __Crea__.
 
 
 1. Visualizzare lo stato dell'operazione di creazione selezionando la destinazione di calcolo dall'elenco:
@@ -483,7 +484,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Prendere nota della sezione degli *argomenti* in runconfig e nello *spazio dei parametri* nella configurazione di iperguida. Contengono gli argomenti della riga di comando da passare allo script di training. Il valore in runconfig rimane invariato per ogni iterazione, mentre l'intervallo nella configurazione di iperguida viene iterato. Non specificare lo stesso argomento in entrambi i file.
 
-Per ulteriori informazioni su questi ```az ml``` comandi dell'interfaccia della riga di comando e sul set completo di argomenti, vedere [la documentazione di riferimento](reference-azure-machine-learning-cli.md).
+Per ulteriori informazioni su questi ```az ml``` comandi dell'interfaccia della riga di comando, vedere [la documentazione di riferimento](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

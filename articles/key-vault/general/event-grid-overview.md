@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc12cc9a4828404e960aee239bd388af5b1ea3b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 854a489f6381514f80f16665f89042a0e8ed7470
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431904"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995768"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)
 
@@ -30,8 +30,6 @@ Per altre informazioni, vedere [Schema di eventi di Griglia di eventi di Azure p
 
 > [!WARNING]
 > Gli eventi di notifica vengono attivati solo per le nuove versioni di segreti, chiavi e certificati ed è prima necessario sottoscrivere l'evento nell'insieme di credenziali delle chiavi per ricevere queste notifiche.
-> 
-> Gli eventi di notifica per i certificati verranno ricevuti solo quando il certificato viene automaticamente rinnovato in base ai criteri specificati per il certificato.
 
 ## <a name="practices-for-consuming-events"></a>Procedure consigliate per l'utilizzo di eventi
 
@@ -46,7 +44,7 @@ Per le applicazioni che gestiscono gli eventi di Key Vault è consigliabile segu
 
 - [Panoramica di Azure Key Vault](overview.md)
 - [Panoramica di Griglia di eventi di Azure](../../event-grid/overview.md)
-- Procedura: [Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-tutorial.md).
+- Procedura: [indirizzare eventi di Key Vault ai Runbook di automazione (anteprima)](event-grid-tutorial.md).
 - Procedura: [Ricevere un messaggio di posta elettronica quando viene modificato un segreto dell'insieme di credenziali delle chiavi](event-grid-logicapps.md)
 - [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../../event-grid/event-schema-key-vault.md)
 - [Panoramica di Automazione di Azure](../../automation/index.yml)

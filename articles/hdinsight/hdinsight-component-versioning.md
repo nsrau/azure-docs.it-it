@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/09/2020
-ms.openlocfilehash: 87c3e2439d1b4bef4a58663e3ea06d8bb7cb9b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 98bb643e1a780754fcb3b9f4eb91d8f04dc4e90b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192536"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996395"
 ---
-# <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Apache Hadoop disponibili in HDInsight.
+# <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componenti e versioni di Apache disponibili per Azure HDInsight
 
 Informazioni sui componenti e le versioni dell'ambiente [Apache Hadoop](https://hadoop.apache.org/) in Microsoft Azure HDInsight e Enterprise Security Package. Informazioni su come controllare le versioni di componenti Hadoop in HDInsight.
 
-## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Componenti di Apache Hadoop disponibili con diverse versioni di HDInsight
+## <a name="apache-components-available-with-different-hdinsight-versions"></a>Componenti Apache disponibili con diverse versioni di HDInsight
 
 Azure HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. Il 4 aprile 2017, la versione predefinita del cluster usata da Azure HDInsight è 3,6.
 
@@ -53,7 +53,7 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 > [!NOTE]
 > A causa di considerazioni sulle prestazioni di sistema, il supporto per Kafka versione 0.10 è scaduto nel mese di marzo 2019.
 
-## <a name="check-for-current-hadoop-component-version-information"></a>Controllare le informazioni sulle versioni correnti dei componenti Hadoop
+## <a name="check-for-current-apache-component-version-information"></a>Verificare le informazioni sulla versione del componente Apache corrente
 
 Le versioni dei componenti dell'ambiente Hadoop associate alle versioni del cluster HDInsight possono cambiare con gli aggiornamenti di HDInsight. Per controllare i componenti Hadoop e verificare le versioni in uso per un cluster, usare l'API REST Ambari. Il comando **GetComponentInformation** recupera informazioni sui componenti del servizio. Per informazioni dettagliate, vedere la [documentazione di Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -104,50 +104,6 @@ La tabella seguente elenca le versioni di HDInsight che **non sono** disponibili
 > [!NOTE]  
 > I cluster ad alta disponibilità con due nodi head vengono distribuiti per impostazione predefinita per HDInsight versione 2.1 e successive. Non sono disponibili per i cluster HDInsight versione 1.6.
 
-## <a name="enterprise-security-package-for-hdinsight"></a>Pacchetto di sicurezza aziendale per HDInsight
-
-Si tratta di un pacchetto opzionale che è possibile aggiungere al cluster HDInsight come parte del flusso di lavoro di creazione del cluster. Il Pacchetto di sicurezza aziendale supporta:
-
-- Integrazione con Active Directory per l'autenticazione.
-
-    In passato è stato creato un cluster HDInsight con un utente amministratore locale e un utente SSH locale. L'utente amministratore locale poteva accedere a tutti i file, cartelle, tabelle e colonne.  Con Enterprise Security Package, è possibile abilitare il controllo degli accessi in base al ruolo integrando HDInsight con il Active Directory. Che include Active Directory locali, Azure Active Directory Domain Services. Oppure Active Directory nella macchina virtuale IaaS. L'amministratore di dominio nel cluster può concedere agli utenti l'uso del nome utente e della password aziendali (dominio).
-
-    Per altre informazioni, vedi:
-
-    - [Introduzione alla sicurezza Apache Hadoop con i cluster HDInsight aggiunti al dominio](./domain-joined/hdinsight-security-overview.md)
-    - [Pianificare cluster Apache Hadoop aggiunti a un dominio di Azure in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
-    - [Configurare l'ambiente sandbox aggiunto al dominio](./domain-joined/apache-domain-joined-configure.md)
-    - [Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
-
-- Autorizzazione per i dati
-
-  - Integrazione con Apache Ranger per l'autorizzazione per code Yarn, Hive e Spark SQL.
-  - È possibile impostare il controllo di accesso per file e cartelle.
-
-    Per altre informazioni, vedi:
-
-  - [Configurare criteri Apache Hive in HDInsight aggiunto al dominio](./domain-joined/apache-domain-joined-run-hive.md)
-
-- Visualizzare i log di controllo per monitorare gli accessi e i criteri configurati.
-
-### <a name="supported-cluster-types"></a>Tipi di cluster supportati
-
-Attualmente solo i tipi di cluster seguenti supportano il Pacchetto di sicurezza aziendale:
-
-- Hadoop (solo HDInsight 3.6)
-- Spark
-- Kafka
-- hbase
-- Interactive Query
-
-### <a name="support-for-azure-data-lake-storage"></a>Supporto per Azure Data Lake Storage
-
-Enterprise Security Package supporta l'uso di Azure Data Lake Storage come risorsa di archiviazione sia primaria che aggiuntiva.
-
-### <a name="pricing-and-service-level-agreement-sla"></a>Prezzi e contratto di servizio (SLA)
-
-Per informazioni su prezzi e contratto di servizio per il Pacchetto di sicurezza aziendale, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contratto di servizio per le versioni dei cluster HDInsight
 
 Il contratto di servizio (SLA) viene definito come _finestra di supporto_. La finestra di supporto è il periodo di tempo in cui è `Microsoft Customer Service and Support`supportata una versione di HDInsight. Se per la versione è stata passata una _Data di scadenza del supporto_, il cluster HDInsight si trova al di fuori della finestra di supporto. La scadenza del supporto per HDInsight versione X (dopo la disponibilità di una versione più recente di X + 1) è la seguente:  
@@ -166,3 +122,4 @@ Per altre informazioni sugli SKU di macchine virtuali da selezionare per il clus
 - [Configurazione del cluster per Apache Hadoop, Spark e altre informazioni su HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Lavorare da un computer Windows in Apache Hadoop su HDInsight](hdinsight-hadoop-windows-tools.md)
 - [Note sulla versione di Hortonworks associate alle versioni di Azure HDInsight](./hortonworks-release-notes.md)
+- [Enterprise Security Package](./enterprise-security-package.md)

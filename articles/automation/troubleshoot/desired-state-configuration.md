@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 4c9e7b6d93fb4bbc3e3b05d9346ec84197665a55
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652818"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995299"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Risolvere i problemi relativi alla configurazione dello stato di automazione di Azure
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Risolvere i problemi di configurazione dello stato di automazione di Azure
 
 Questo articolo fornisce informazioni sulla risoluzione dei problemi che si verificano durante la compilazione o la distribuzione di configurazioni nella configurazione dello stato di automazione di Azure.
-
->[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente seguendo i passaggi descritti in [come aggiornare i moduli Azure PowerShell in automazione di Azure](../automation-update-azure-modules.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnosticare un problema
 
@@ -112,7 +109,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Causa
 
-Questo problema è causato da un certificato non valido o scaduto. Vedere [scadenza e registrazione del certificato](../automation-dsc-onboarding.md#re-registering-a-node).
+Questo problema è causato da un certificato non valido o scaduto. Vedere [registrare nuovamente un nodo](../automation-dsc-onboarding.md#re-register-a-node).
 
 Questo problema potrebbe essere causato anche da una configurazione proxy che non consente l'accesso a ***. Azure-Automation.NET**. Per ulteriori informazioni, vedere [configurazione di reti private](../automation-dsc-overview.md#network-planning). 
 
@@ -239,11 +236,11 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 Assicurarsi di passare l'oggetto appropriato `ConfigurationData` per impostare `PSDscAllowPlainTextPassword` su true per ogni configurazione del nodo indicata nella configurazione. Vedere [compilazione di configurazioni DSC in configurazione dello stato di automazione di Azure](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenario: errore dell'estensione per l'elaborazione degli errori durante l'onboarding da un'estensione DSC
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenario: errore dell'estensione per l'elaborazione degli errori quando si Abilita un computer da un'estensione DSC
 
 ### <a name="issue"></a>Problema
 
-Quando si esegue l'onboarding usando un'estensione DSC, si verifica un errore che contiene l'errore:
+Quando si Abilita un computer usando un'estensione DSC, si verifica un errore che contiene l'errore:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -256,7 +253,7 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
 ### <a name="resolution"></a>Soluzione
 
 * Assicurarsi di assegnare il nodo con un nome che corrisponda esattamente al nome del servizio.
-* È possibile scegliere di non includere il nome della configurazione del nodo, il che comporta l'onboarding del nodo, ma non l'assegnazione di una configurazione del nodo.
+* È possibile scegliere di non includere il nome della configurazione del nodo, il che comporta l'abilitazione del nodo, ma non l'assegnazione di una configurazione del nodo.
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Scenario: errore "si è verificato uno o più errori" durante la registrazione di un nodo tramite PowerShell
 
@@ -274,10 +271,10 @@ Questo errore si verifica quando si tenta di registrare un nodo in una sottoscri
 
 ### <a name="resolution"></a>Soluzione
 
-Considerare il nodo tra sottoscrizioni come se fosse definito per un cloud separato o in locale. Registrare il nodo usando una di queste opzioni di onboarding:
+Considerare il nodo tra sottoscrizioni come se fosse definito per un cloud separato o in locale. Registrare il nodo usando una di queste opzioni per l'abilitazione dei computer:
 
-* Windows: [computer fisici/virtuali Windows locali o in un cloud diverso da Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux: [computer fisici/virtuali Linux in locale o in un cloud diverso da Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Windows: [computer fisici/virtuali Windows locali o in un cloud diverso da Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
+* Linux: [computer fisici/virtuali Linux in locale o in un cloud diverso da Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Scenario: messaggio di errore "provisioning non riuscito"
 

@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 03/31/2020
 ms.author: juliako
-ms.openlocfilehash: 99aeb5384b317d1b4d291c769b5402e829247b30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656181"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997694"
 ---
 > [!NOTE]
 > Per le risorse che non sono fisse, aprire un ticket di supporto per richiedere un aumento delle quote. Non creare altri account di servizi multimediali di Azure in un tentativo di ottenere limiti più elevati.
@@ -66,7 +66,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 | --- | --- | 
 | Eventi Live <sup>(4)</sup> per account di servizi multimediali |5|
 | Output Live per evento Live |3 <sup>(5)</sup> |
-| Durata max output Live | 25 ore |
+| Durata max output Live | [Dimensioni della finestra DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
 
 <sup>4</sup> per informazioni dettagliate sulle limitazioni degli eventi live, vedere [confronto e limitazioni dei tipi di eventi live](../articles/media-services/latest/live-event-types-comparison.md).
 

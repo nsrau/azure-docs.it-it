@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0b36651a40267ec3ea8bfe7285c5f6c5d5c31562
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: c02a61366b05fa2750c581a1dedefb0d6239dada
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871649"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994753"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -42,7 +42,7 @@ Il processo di installazione di un ruolo di lavoro ibrido per Runbook dipende da
 
 Il metodo di installazione consigliato prevede l'uso di un Runbook di automazione di Azure per automatizzare completamente il processo di configurazione di un computer Windows. Il secondo metodo consiste nel seguire una procedura dettagliata per installare e configurare manualmente il ruolo. Per i computer Linux si esegue uno script Python per installare l'agente nel computer.
 
-## <a name="network-configuration"></a><a name="network-planning"></a>Configurazione di rete
+## <a name="network-planning"></a><a name="network-planning"></a>Pianificazione della rete
 
 Per la connessione e la registrazione con automazione di Azure, il ruolo di lavoro ibrido per Runbook deve avere accesso al numero di porta e agli URL descritti in questa sezione. Il ruolo di lavoro deve inoltre avere accesso alle [porte e agli URL necessari per](../azure-monitor/platform/agent-windows.md) la connessione di log Analytics Agent all'area di lavoro log Analytics di monitoraggio di Azure.
 

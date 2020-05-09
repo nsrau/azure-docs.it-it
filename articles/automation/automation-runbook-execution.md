@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a9a503fd566c9b50f1503e0955bf12f69ac9960
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 1933688459cd02ee4da448d2e83b0a7a92a1d2c8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927922"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994749"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -68,7 +68,7 @@ Il manuali operativi deve includere la logica per gestire [le risorse](https://d
 
 ## <a name="security"></a>Sicurezza
 
-Automazione di Azure usa il [Centro sicurezza di Azure (ASC)](https://docs.microsoft.com/azure/security-center/security-center-introAzure) per garantire la sicurezza delle risorse e rilevare compromessi nei sistemi Linux. La sicurezza viene garantita tra i carichi di lavoro, indipendentemente dal fatto che le risorse siano in Azure o meno. Vedere [Introduzione all'autenticazione in automazione di Azure](automation-security-overview.md).
+Automazione di Azure usa il [Centro sicurezza di Azure (ASC)](../security-center/security-center-intro.md) per garantire la sicurezza delle risorse e rilevare compromessi nei sistemi Linux. La sicurezza viene garantita tra i carichi di lavoro, indipendentemente dal fatto che le risorse siano in Azure o meno. Vedere [Introduzione all'autenticazione in automazione di Azure](automation-security-overview.md).
 
 ASC pone vincoli sugli utenti che possono eseguire qualsiasi script, firmato o senza segno, in una macchina virtuale. Se si è un utente con accesso alla radice di una macchina virtuale, è necessario configurarlo in modo esplicito con una firma digitale o disattivarlo. In caso contrario, è possibile eseguire uno script solo per applicare gli aggiornamenti del sistema operativo dopo la creazione di un account di automazione e l'abilitazione della funzionalità appropriata.
 

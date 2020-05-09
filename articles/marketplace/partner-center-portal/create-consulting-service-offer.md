@@ -6,18 +6,15 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 7e85175cbee53bd5984a38a587a90b98eaf8dcad
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/08/2020
+ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791902"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994344"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creare un'offerta di un servizio di consulenza
-
-> [!IMPORTANT]
-> Stiamo muovendo la gestione delle offerte del servizio di consulenza dal portale Cloud Partner al centro per i partner. Fino a quando non viene eseguita la migrazione delle offerte, segui le istruzioni riportate nell' [offerta del servizio di consulenza Azure e Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) per portale cloud partner per gestire le tue offerte.
 
 Questo articolo descrive come pubblicare un'offerta del servizio di consulenza in [Microsoft AppSource](https://appsource.microsoft.com/) o in [Azure Marketplace](https://azuremarketplace.microsoft.com/). Elencare le offerte del servizio di consulenza basate su Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e Power Platform in AppSource. Elenca le offerte del servizio di consulenza basate su Microsoft Azure in Azure Marketplace. Prima di iniziare, [creare un account Marketplace commerciale nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma Commercial Marketplace.
 
@@ -99,10 +96,10 @@ Questa pagina consente di impostare il prodotto principale offerto dal servizio 
     - **Modello di verifica:** implementazione di ambito limitato per determinare se una soluzione soddisfa i requisiti del cliente.
     - **Workshop**: impegno interattivo condotto sulle sedi dei clienti. Può comportare training, briefing, valutazioni o demo basate sui dati o sull'ambiente del cliente.
 
-1. Se è stato selezionato un prodotto primario di **Azure**, selezionare fino a tre **aree della soluzione**. Che semplificano la ricerca dell'offerta da clienti in Azure Marketplace. Se non è stato scelto Azure, ignorare questo passaggio.
-2. Se è stato selezionato un prodotto primario _diverso_ da Azure, selezionare un massimo di tre **prodotti applicabili**. Per consentire ai clienti di AppSource di trovare l'offerta in modo più semplice. Per informazioni dettagliate, vedere le [linee guida per l'elenco di Microsoft AppSource Consulting Service](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
-3. Selezionare fino a sei **settori** a cui si applica l'offerta. In questo modo sarà più semplice per i clienti trovare l'offerta.
-4. Aggiungere fino a tre **competenze** che l'azienda ha guadagnato per visualizzare nell'elenco delle offerte di servizi di consulenza. Almeno una competenza è obbligatoria ad eccezione di MSPs di Azure e di rete MSPs di Azure.
+3. Se è stato selezionato un prodotto primario di **Azure**, selezionare fino a tre **aree della soluzione**. Che semplificano la ricerca dell'offerta da clienti in Azure Marketplace. Se non è stato scelto Azure, ignorare questo passaggio.
+4. Se è stato selezionato un prodotto primario _diverso_ da Azure, selezionare un massimo di tre **prodotti applicabili**. Per consentire ai clienti di AppSource di trovare l'offerta in modo più semplice. Per informazioni dettagliate, vedere le [linee guida per l'elenco di Microsoft AppSource Consulting Service](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+5. Selezionare fino a sei **settori** a cui si applica l'offerta. In questo modo sarà più semplice per i clienti trovare l'offerta.
+6. Aggiungere fino a tre **competenze** che l'azienda ha guadagnato per visualizzare nell'elenco delle offerte di servizi di consulenza. Almeno una competenza è obbligatoria ad eccezione di MSPs di Azure e di rete MSPs di Azure.
 
 Selezionare **Salva bozza** prima di continuare.
 

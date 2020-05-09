@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: dfe62c54bfb10d70f1dbf19daec90eec68e66431
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f871b406793e455c857ca14c83434c9ed3e004df
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406078"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993849"
 ---
 # <a name="remediate-noncompliant-dsc-servers"></a>Correggere i server DSC non conformi
 
@@ -37,7 +37,7 @@ Update-DscConfiguration -Wait -Verbose
 
 Funzionalità simili non è attualmente disponibile per i server Linux.
 L'unica opzione consiste nel ripetere il processo di registrazione.
-Per i nodi di Azure, è possibile correggere la deriva dalla portale di Azure o usando i cmdlet AZ Module. I dettagli di questo processo sono documentati in caricamento dei [computer per la gestione tramite la configurazione dello stato di automazione di Azure](automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal).
+Per i nodi di Azure, è possibile correggere la deriva dalla portale di Azure o usando i cmdlet AZ Module. I dettagli di questo processo sono documentati in caricamento dei [computer per la gestione tramite la configurazione dello stato di automazione di Azure](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
 Per i nodi ibridi è possibile correggere la tendenza usando gli script Python inclusi.
 Vedere il [repository PowerShell DSC per Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 

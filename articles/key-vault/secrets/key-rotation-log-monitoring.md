@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2981495a256ce5fb8f8f3584e68ac91541f9d62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430253"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995941"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi
 
@@ -85,23 +85,35 @@ Prima di tutto, è necessario registrare l'applicazione con Azure Active Directo
 > [!NOTE]
 > L'applicazione deve essere creata nello stesso tenant di Azure Active Directory dell'insieme di credenziali delle chiavi.
 
-1. Aprire **Azure Active Directory**.
-2. Selezionare **registrazioni app**. 
-3. Selezionare **registrazione nuova applicazione** per aggiungere un'applicazione a Azure Active Directory.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra. Impostare la sessione del portale sul tenant di Azure AD desiderato.
+1. Cercare e selezionare **Azure Active Directory**. In **Gestisci** selezionare **Registrazioni app**.
+1. Selezionare **Nuova registrazione**.
+1. In **Registra un'applicazione** immettere un nome di applicazione significativo da visualizzare agli utenti.
+1. Specificare chi può usare l'applicazione, come indicato di seguito:
 
-    ![Aprire applicazioni in Azure Active Directory](../media/keyvault-keyrotation/azure-ad-application.png)
+    | Tipi di account supportati | Descrizione |
+    |-------------------------|-------------|
+    | **Account solo in questa directory organizzativa** | Selezionare questa opzione se si sta creando un'applicazione line-of-business. Questa opzione non è disponibile se l'applicazione non viene registrata in una directory.<br><br>Questa opzione esegue il mapping solo a un tenant singolo di Azure AD.<br><br>È l'opzione predefinita a meno che non si registri l'app all'esterno di una directory. Nei casi in cui l'app viene registrata all'esterno di una directory, l'impostazione predefinita è costituita da account Microsoft personali e multi-tenant Azure AD. |
+    | **Account in qualsiasi directory organizzativa** | Selezionare questa opzione se si preferisce includere tutti i clienti aziendali o di istituti di istruzione.<br><br>Questa opzione esegue il mapping solo a multi-tenant Azure AD.<br><br>Un'app registrata solo come a tenant singolo di Azure AD può essere aggiornata a multi-tenant di Azure AD e di nuovo a tenant singolo tramite la pagina **Autenticazione**. |
+    | **Account in qualsiasi directory organizzativa e account Microsoft personali** | Selezionare questa opzione per includere il set più ampio possibile di clienti.<br><br>Questa opzione esegue il mapping ad account Microsoft personali e multi-tenant Azure AD.<br><br>Se l'app è stata registrata come multi-tenant di Azure AD e per account Microsoft personali, non è possibile cambiare questa impostazione nell'interfaccia utente. Per modificare i tipi di account supportati è necessario usare l'editor del manifesto dell'applicazione. |
 
-4. In **Crea**lasciare il tipo di applicazione come **app Web/API** e assegnare un nome all'applicazione. Assegnare all'applicazione un **URL di accesso**. Questo URL può essere qualsiasi elemento desiderato per questa demo.
+1. In **URI di reindirizzamento (facoltativo)** selezionare il tipo di app da creare: **Web** o **Client pubblico (per dispositivi mobili e desktop)** . Quindi immettere l'URI di reindirizzamento, o URL di risposta, per l'applicazione.
 
-    ![Creare una registrazione dell'applicazione](../media/keyvault-keyrotation/create-app.png)
+    * Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, `https://localhost:31544` potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web.
+    * Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio `myapp://auth`.
 
-5. Una volta aggiunta l'applicazione alla Azure Active Directory, viene visualizzata la pagina applicazione. Selezionare **Impostazioni**, quindi selezionare **Proprietà**. Copiare il valore **ID dell'applicazione**. Sarà necessario nei passaggi successivi.
+1. Al termine, selezionare **Registra**.
 
-Successivamente, generare una chiave per l'applicazione in modo che possa interagire con Azure Active Directory. Per creare una chiave, selezionare **chiavi** in **Impostazioni**. Prendere nota della chiave appena generata per l'applicazione Azure Active Directory. Saranno necessarie in un passaggio successivo. La chiave non sarà disponibile dopo l'uscita da questa sezione. 
+    ![Mostra la schermata per registrare una nuova applicazione nel portale di Azure](../media/new-app-registration.png)
 
-![Chiavi app Azure Active Directory](../media/keyvault-keyrotation/create-key.png)
+Azure AD assegna all'app un ID applicazione o client univoco. Il portale apre la pagina **Panoramica** dell'applicazione. Prendere nota del valore **ID dell'applicazione (client)** .
 
-Prima di stabilire chiamate dall'applicazione nell'insieme di credenziali delle chiavi, è necessario indicare all'insieme di credenziali delle chiavi l'applicazione e le relative autorizzazioni. Il comando seguente usa il nome dell'insieme di credenziali e l'ID applicazione dell'app Azure Active Directory per concedere **all'applicazione l'** accesso a Key Vault.
+Per aggiungere funzionalità all'applicazione, è possibile selezionare altre opzioni di configurazione, come Personalizzazione, Certificati e segreti, Autorizzazioni API e altro ancora.
+
+![Esempio di una pagina di panoramica dell'app appena registrata](../media//new-app-overview-page-expanded.png)
+
+Prima di stabilire chiamate dall'applicazione nell'insieme di credenziali delle chiavi, è necessario indicare all'insieme di credenziali delle chiavi l'applicazione e le relative autorizzazioni. Il comando seguente usa il nome dell'insieme di credenziali e l' **ID dell'applicazione (client)** dall'app Azure Active Directory per concedere **all'applicazione l'** accesso a Key Vault.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

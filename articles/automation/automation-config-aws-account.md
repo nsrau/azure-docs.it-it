@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bf60d17af1d9866de6a62ac538fa0bd9a15ce52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92919d2e0cc7ca685d2b60a8e7a8cf20433bbefc
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113392"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994703"
 ---
 # <a name="authenticate-azure-automation-runbooks-with-amazon-web-services"></a>Autenticare i runbook di Automazione di Azure con Amazon Web Services
 
@@ -33,4 +33,4 @@ Dopo aver creato e copiato le chiavi di sicurezza di AWS, è necessario creare u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere l'articolo della soluzione [Automazione della distribuzione di una macchina virtuale in Amazon Web Services](automation-scenario-aws-deployment.md) per informazioni su come creare runbook per automatizzare le attività in AWS.
+* Per informazioni su come creare manuali operativi per automatizzare le attività in AWS, vedere [automazione della distribuzione di una macchina virtuale in Amazon Web Services](automation-scenario-aws-deployment.md) .

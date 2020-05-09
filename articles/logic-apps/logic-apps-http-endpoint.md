@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: aa3733b1231b92f30f5fd36dab64794129e62b07
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983763"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995329"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTPS in app per la logica di Azure
 
@@ -140,17 +140,19 @@ Per impostazione predefinita, il trigger di richiesta prevede una richiesta POST
 
    ![Selezionare il metodo di richiesta previsto dal trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-## <a name="accept-parameters-in-endpoint-url"></a>Accetta parametri nell'URL dell'endpoint
+<a name="endpoint-url-parameters"></a>
 
-Quando si vuole che l'URL dell'endpoint accetti valori di parametro tramite l'URL dell'endpoint, sono disponibili le opzioni seguenti:
+## <a name="pass-parameters-through-endpoint-url"></a>Passare i parametri tramite l'URL dell'endpoint
+
+Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, sono disponibili le opzioni seguenti:
 
 * [Accettare i valori tramite i parametri Get](#get-parameters) o URL.
 
-  Questi valori vengono passati come coppie nome-valore quando si invia la richiesta all'URL dell'endpoint. Per questa opzione, è necessario usare il metodo GET nel trigger di richiesta. In un'azione successiva, è possibile ottenere i valori dei parametri come output del trigger tramite `triggerOutputs()` la funzione in un'espressione.
+  Questi valori vengono passati come coppie nome/valore nell'URL dell'endpoint. Per questa opzione, è necessario usare il metodo GET nel trigger di richiesta. In un'azione successiva, è possibile ottenere i valori dei parametri come output del trigger tramite `triggerOutputs()` la funzione in un'espressione.
 
 * [Accettare i valori tramite un percorso relativo](#relative-path) per i parametri nel trigger di richiesta.
 
-  Questi valori vengono passati quando si invia la richiesta all'URL dell'endpoint. È anche necessario selezionare in modo esplicito [il metodo](#select-method) previsto dal trigger. In un'azione successiva, è possibile ottenere i valori dei parametri come output del trigger facendo riferimento direttamente a questi output.
+  Questi valori vengono passati tramite un percorso relativo nell'URL dell'endpoint. È anche necessario selezionare in modo esplicito [il metodo](#select-method) previsto dal trigger. In un'azione successiva, è possibile ottenere i valori dei parametri come output del trigger facendo riferimento direttamente a questi output.
 
 <a name="get-parameters"></a>
 

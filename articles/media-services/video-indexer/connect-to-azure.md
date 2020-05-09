@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2093132abaa7aed06113b1856c85ac54fd7ae60d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097176"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995707"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
 Quando si crea un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si riceve un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (in cui la quota non è limitata). Con una versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita agli utenti del sito Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti dell'API. Con l'opzione a pagamento, è possibile creare un account di Video Indexer connesso alla sottoscrizione di Azure e a un account di servizi multimediali di Azure. Paghi per minuti indicizzati e per gli addebiti relativi all'account multimediale.
 
 Questo articolo illustra come creare un account di Video Indexer connesso a una sottoscrizione di Azure e a un account di Servizi multimediali di Azure. L'argomento illustra i passaggi per la connessione ad Azure usando il flusso automatico (impostazione predefinita). Viene anche descritto come connettersi ad Azure manualmente (impostazioni avanzate).
+
+Se si passa da una *versione di valutazione* a un account a *pagamento* video indexer, è possibile scegliere di copiare tutti i video e la personalizzazione del modello nel nuovo account, come descritto in [importare il contenuto dall'account di valutazione](#import-your-content-from-the-trial-account).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -59,7 +61,7 @@ Questo articolo illustra come creare un account di Video Indexer connesso a una 
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Connettiti ad Azure
+## <a name="connect-to-azure"></a>Connettersi ad Azure
 
 > [!NOTE]
 > Se la sottoscrizione di Azure usa l'autenticazione a più fattori basata su certificati, è fondamentale eseguire i passaggi seguenti in un dispositivo in cui sono installati i certificati necessari.

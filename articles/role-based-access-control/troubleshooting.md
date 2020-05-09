@@ -15,12 +15,12 @@ ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735565"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996603"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -28,7 +28,7 @@ Questo articolo risponde ad alcune domande comuni sul controllo degli accessi in
 
 ## <a name="azure-role-assignments-limit"></a>Limite assegnazioni di ruolo di Azure
 
-Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione. Se viene ricevuto il messaggio di errore "non è più possibile creare assegnazioni di ruolo (codice: RoleAssignmentLimitExceeded)" quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo nella sottoscrizione.
+Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione. Questo limite include le assegnazioni di ruolo a livello di sottoscrizione, gruppo di risorse e ambito delle risorse. Se viene ricevuto il messaggio di errore "non è più possibile creare assegnazioni di ruolo (codice: RoleAssignmentLimitExceeded)" quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo nella sottoscrizione.
 
 > [!NOTE]
 > Il limite di assegnazioni di ruolo **2000** per ogni sottoscrizione è fisso e non può essere aumentato.

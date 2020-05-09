@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598148"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994494"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Sviluppare .NET Standard funzioni definite dall'utente per i processi di analisi di flusso di Azure (anteprima)
 
@@ -51,7 +51,7 @@ Per usare i valori di analisi di flusso di Azure in C#, è necessario eseguirne 
 |nvarchar(max) | string |
 |Datetime | Datetime |
 |Record | Stringa\<del dizionario, oggetto> |
-|Array | >\<oggetto matrice |
+|Array | Oggetto [] |
 
 Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad analisi di flusso di Azure, che si verifica sul valore di output di una funzione definita dall'utente. La tabella seguente illustra i tipi supportati:
 
@@ -63,7 +63,7 @@ Lo stesso vale quando è necessario effettuare il marshalling dei dati da C# ad 
 |Datetime  |  dateTime   |
 |struct  |  Record   |
 |object  |  Record   |
-|>\<oggetto matrice  |  Array   |
+|Oggetto []  |  Array   |
 |Stringa\<del dizionario, oggetto>  |  Record   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -140,6 +140,43 @@ Espandere la sezione **Configurazione di codice definito dall'utente** e compila
    |Custom Code Storage Settings Container (Contenitore impostazioni di archiviazione codice personalizzato)|< contenitore di archiviazione >|
    |Origine assembly di codice personalizzato|Pacchetti di assembly esistenti dal cloud|
    |Origine assembly di codice personalizzato|UserCustomCode. zip|
+
+## <a name="user-logging"></a>Registrazione utente
+Il meccanismo di registrazione consente di acquisire informazioni personalizzate mentre un processo è in esecuzione. È possibile utilizzare i dati di log per eseguire il debug o valutare la correttezza del codice personalizzato in tempo reale.
+
+La `StreamingContext` classe consente di pubblicare informazioni di diagnostica utilizzando `StreamingDiagnostics.WriteError` la funzione. Il codice seguente illustra l'interfaccia esposta da analisi di flusso di Azure.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext`viene passato come parametro di input al metodo UDF e può essere usato all'interno della funzione definita dall'utente per pubblicare informazioni di log personalizzate. Nell'esempio `MyUdfMethod` seguente, definisce un input di **dati** , fornito dalla query, e un input di **contesto** come `StreamingContext`, fornito dal motore di Runtime. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+Il `StreamingContext` valore non deve essere passato dalla query SQL. Analisi di flusso di Azure fornisce automaticamente un oggetto di contesto se è presente un parametro di input. L'utilizzo di `MyUdfMethod` non cambia, come illustrato nella query seguente:
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+È possibile accedere ai messaggi di log tramite i [log di diagnostica](data-errors.md).
 
 ## <a name="limitations"></a>Limitazioni
 L'anteprima della funzione definita dall'utente attualmente presenta le limitazioni seguenti:
