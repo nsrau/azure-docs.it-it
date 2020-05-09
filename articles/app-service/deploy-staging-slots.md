@@ -3,14 +3,14 @@ title: Configurare gli ambienti di staging
 description: Informazioni su come distribuire le app in uno slot non di produzione e autoscambiare in produzione. Aumentare l'affidabilità ed eliminare i tempi di inattività delle app dalle distribuzioni.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78300861"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597918"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -58,11 +58,11 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
    
     ![Titolo dello slot di distribuzione](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    Lo slot di staging ha una pagina di gestione come qualsiasi altra app del servizio app. È possibile modificare la configurazione dello slot. Il nome dello slot è indicato all'inizio della pagina per ricordare all'utente che sta visualizzando lo slot di distribuzione.
+    Lo slot di staging ha una pagina di gestione come qualsiasi altra app del servizio app. È possibile modificare la configurazione dello slot. Per ricordare che si sta visualizzando lo slot di distribuzione, il nome dell'app viene visualizzato come ** \<nome app>/\<nome slot>** e il tipo di app è **servizio app (slot)**. È anche possibile visualizzare lo slot come app distinta nel gruppo di risorse, con le stesse designazioni.
 
 6. Selezionare l'URL dell'app nella pagina delle risorse dello slot. Lo slot di distribuzione ha un proprio nome host ed è anche un'app Live. Per limitare l'accesso pubblico allo slot di distribuzione, vedere [restrizioni IP del servizio app Azure](app-service-ip-restrictions.md).
 
-Il nuovo slot di distribuzione non ha contenuto, anche se si clonano le impostazioni da un altro slot. Ad esempio, è possibile [pubblicare in questo slot con git](app-service-deploy-local-git.md). È possibile distribuire lo slot da un ramo diverso del repository o da un repository diverso. 
+Il nuovo slot di distribuzione non ha contenuto, anche se si clonano le impostazioni da un altro slot. Ad esempio, è possibile [pubblicare in questo slot con git](app-service-deploy-local-git.md). È possibile distribuire lo slot da un ramo diverso del repository o da un repository diverso.
 
 <a name="AboutConfiguration"></a>
 
@@ -272,7 +272,7 @@ Per impostazione predefinita, ai nuovi slot viene assegnata una `0%`regola di ro
 
 ## <a name="delete-a-slot"></a>Eliminare uno slot
 
-Cercare e selezionare l'app. Selezionare **Deployment slots** >   >  **Overview***slot di distribuzione\<slot per eliminare>* panoramica. Selezionare **Elimina** sulla barra dei comandi.  
+Cercare e selezionare l'app. Selezionare **Deployment slots** >   >  **Overview***slot di distribuzione\<slot per eliminare>* panoramica. Il tipo di app viene visualizzato come **servizio app (slot)** per ricordare che si sta visualizzando uno slot di distribuzione. Selezionare **Elimina** sulla barra dei comandi.  
 
 ![Eliminare uno slot di distribuzione](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

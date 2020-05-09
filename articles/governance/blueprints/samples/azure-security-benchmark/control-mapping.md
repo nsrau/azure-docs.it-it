@@ -3,16 +3,16 @@ title: Controlli dell'esempio di progetto Azure Security Benchmark
 description: Mapping dei controlli dell'esempio di progetto Azure Security Benchmark in Criteri di Azure.
 ms.date: 04/16/2020
 ms.topic: sample
-ms.openlocfilehash: 0f2d24d7d8c9f7ce2568f11b15e65ed1fcd02afb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f80b72f06532adef28bf5e5afd1eb94c2e34ee2d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538663"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691297"
 ---
 # <a name="control-mapping-of-the-azure-security-benchmark-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Azure Security Benchmark
 
-L'articolo seguente illustra in dettaglio come viene eseguito il mapping dell'esempio di progetto Azure Security Benchmark di Azure Blueprints ai controlli di Azure Security Benchmark. Per altre informazioni sui controlli, vedere [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview).
+L'articolo seguente illustra in dettaglio come viene eseguito il mapping dell'esempio di progetto Azure Security Benchmark di Azure Blueprints ai controlli di Azure Security Benchmark. Per altre informazioni sui controlli, vedere [Azure Security Benchmark](../../../../security/benchmarks/overview.md).
 
 I mapping seguenti sono relativi ai controlli di **Azure Security Benchmark**. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. I controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Trovare e selezionare l'iniziativa dei criteri predefinita **\[Anteprima\]: Controlla le raccomandazioni per Azure Security Benchmark e implementa le estensioni macchina virtuale di supporto specifiche**.
 

@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi di installazione
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80421283"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598012"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -24,6 +24,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 - Verificare che MARS sia in esecuzione nella console del servizio. Se necessario, riavviare e ripetere l'operazione.
 - [Verificare che nel percorso della cartella dei file temporanei sia disponibile il 5% fino al 10% di spazio libero](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder).
 - [Controllare se un altro processo o software antivirus interferisce con backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
+- Se il processo di backup è stato completato con avvisi, vedere [processi di backup completati con avviso](#backup-jobs-completed-with-warning)
 - Se il backup pianificato non riesce ma il backup manuale funziona, vedere [backup non eseguiti in base alla pianificazione](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule).
 - Verificare che il sistema operativo disponga degli aggiornamenti più recenti.
 - [Verificare che le unità e i file non supportati con attributi non supportati siano esclusi dal backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup).
@@ -75,6 +76,32 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 | ---     | ---     | ---    |
 | <br /><ul><li>L'agente del servizio di ripristino Microsoft Azure non è riuscito a connettersi al Backup di Microsoft Azure. (ID: 100050) Controllare le impostazioni di rete e assicurarsi di essere in grado di connettersi a Internet.<li>(407) Necessaria autenticazione proxy. |Un proxy blocca la connessione. |  <ul><li>In Internet Explorer passare a **strumenti** > **Opzioni** > Internet**sicurezza** > **Internet**. Selezionare **livello personalizzato** e scorrere verso il basso fino alla sezione **download del file** . Selezionare **Abilita**.<p>Potrebbe inoltre essere necessario aggiungere [URL e indirizzi IP](install-mars-agent.md#verify-internet-access) ai siti attendibili in Internet Explorer.<li>Modificare le impostazioni per l'utilizzo di un server proxy. Indicare quindi i dettagli del server proxy.<li> Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano questi [URL e indirizzi IP](install-mars-agent.md#verify-internet-access). <li>Se nel server è installato un software antivirus, escludere questi file dall'analisi antivirus: <ul><li>CBengine.exe (anziché dpmra.exe).<li>CSC.exe (correlato a .NET Framework). È presente un file CSC. exe per ogni versione di .NET Framework installata nel server. Escludere i file CSC. exe per tutte le versioni di .NET Framework nel server interessato. <li>Percorso della cartella scratch o della cache. <br>Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch.<li>La cartella bin in C:\Programmi\Microsoft Azure Recovery Services Agent\Bin.
 
+## <a name="backup-jobs-completed-with-warning"></a>Processi di backup completati con avviso
+
+- Quando l'agente MARS esegue l'iterazione su file e cartelle durante il backup, potrebbero verificarsi varie condizioni che possono causare la contrassegnazione del backup come completato con avvisi. In queste condizioni, un processo viene visualizzato come completato con avvisi. Questo è un problema, ma significa che non è stato possibile eseguire il backup di almeno un file. Quindi, il processo ha ignorato il file, ma è stato eseguito il backup di tutti gli altri file in questione nell'origine dati.
+
+  ![Processo di backup completato con avvisi](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
+
+- Di seguito sono riportate le condizioni che possono causare l'omissione dei file di backup:
+  - Attributi di file non supportati (ad esempio, in una cartella OneDrive, flusso compresso, reparse point). Per l'elenco completo, fare riferimento alla [matrice di supporto](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#supported-file-types-for-backup).
+  - Un problema file system
+  - Un altro processo interferisce (ad esempio, il software antivirus che gestisce i file può impedire all'agente MARS di accedere ai file)
+  - File bloccati da un'applicazione  
+
+- Il servizio di backup contrassegnerà questi file come non riusciti nel file di log, con la convenzione di denominazione seguente: *LastBackupFailedFilesxxxx. txt* nella cartella *C:\Programmi\Microsoft Azure Recovery Service Agent\temp*
+- Per risolvere il problema, esaminare il file di log per comprendere la natura del problema:
+
+  | Codice errore             | Motivi                                             | Consigli                                              |
+  | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+  | 0x80070570             | Il file o la directory è danneggiato e illeggibile. | Eseguire **chkdsk** nel volume di origine.                             |
+  | 0x80070002, 0 x 80070003 | Il sistema non è in grado di trovare il file specificato.         | [Verificare che la cartella Scratch non sia piena](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)  <br><br>  Controllare se esiste un volume in cui è configurato lo spazio scratch (non eliminato)  <br><br>   [Assicurarsi che l'agente MARS sia escluso dall'antivirus installato nel computer](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070005             | Accesso negato                                    | [Verificare se l'accesso è bloccato da un software antivirus o da un altro software di terze parti](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
+  | 0x8007018b             | L'accesso al file Cloud è stato negato.                | File OneDrive, file git o qualsiasi altro file che può trovarsi nello stato offline del computer |
+
+- È possibile usare [Aggiungi regole di esclusione per i criteri esistenti](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#add-exclusion-rules-to-existing-policy) per escludere i file non supportati, mancanti o eliminati dal criterio di backup per garantire la riuscita dei backup.
+
+- Evitare di eliminare e ricreare cartelle protette con gli stessi nomi nella cartella di primo livello. Questa operazione potrebbe comportare il completamento del backup con avvisi con l'errore *: è stata rilevata un'incoerenza critica, pertanto non è possibile replicare le modifiche.*  Se è necessario eliminare e ricreare le cartelle, provare a eseguire questa operazione nelle sottocartelle della cartella di primo livello protetta.
+
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Impossibile impostare la chiave di crittografia per i backup protetti
 
 | Errore | Possibili cause | Azioni consigliate |
@@ -121,7 +148,7 @@ Se i backup pianificati non vengono attivati automaticamente, ma i backup manual
  Get-ExecutionPolicy -List
 
 Set-ExecutionPolicy Unrestricted
-```
+ ```
 
 - Assicurarsi che non siano presenti file MSOnlineBackup del modulo di PowerShell mancanti o danneggiati. Se sono presenti file danneggiati o mancanti, seguire questa procedura:
 
@@ -138,7 +165,6 @@ Set-ExecutionPolicy Unrestricted
 Errore | Possibili cause | Azioni consigliate
 --- | --- | ---
 L'operazione corrente non è riuscita a causa di un errore di servizio interno "Impossibile eseguire il provisioning della risorsa nel timbro del servizio". Ripetere l'operazione dopo alcuni minuti. (ID: 230006) | Il server protetto è stato rinominato. | <li> Rinominare nuovamente il server con il nome originale come registrato con l'insieme di credenziali. <br> <li> Registrare nuovamente il server nell'insieme di credenziali con il nuovo nome.
-
 
 ## <a name="troubleshoot-restore-problems"></a>Risolvere i problemi di ripristino
 
@@ -206,25 +232,25 @@ Questa sezione descrive gli errori comuni che si verificano durante l'uso dell'a
 
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
-Messaggio di errore | Azione consigliata |
+Messaggio di errore | Azione consigliata
 -- | --
 Agente di Servizi di ripristino di Microsoft Azure non è riuscito ad accedere al checksum di backup archiviato nell'area di lavoro | Per risolvere il problema, eseguire le operazioni seguenti e riavviare il server <br/> - [Controllare se è presente un antivirus o altri processi che bloccano i file del percorso dei file temporanei](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Controllare se il percorso dei file temporanei è valido e accessibile per l'agente Mars.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
-Messaggio di errore | Azione consigliata |
+Messaggio di errore | Azione consigliata
 -- | --
 Agente di Servizi di ripristino di Microsoft Azure non è riuscito ad accedere al percorso dei file temporanei per inizializzare VHD | Per risolvere il problema, eseguire le operazioni seguenti e riavviare il server <br/> - [Controllare se è presente un antivirus o altri processi che bloccano i file del percorso dei file temporanei](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Controllare se il percorso dei file temporanei è valido e accessibile per l'agente Mars.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
-Messaggio di errore | Azione consigliata |
+Messaggio di errore | Azione consigliata
 -- | --
 Il backup non è riuscito a causa di spazio di archiviazione insufficiente nel volume in cui si trova la cartella Scratch | Per risolvere questo problema, verificare i passaggi seguenti e ripetere l'operazione:<br/>- [Verificare che l'agente MARS sia più recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verificare e risolvere i problemi di archiviazione che incidono sull'area scratch di backup](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
-Messaggio di errore | Azione consigliata |
+Messaggio di errore | Azione consigliata
 -- | --
 Impossibile trovare le modifiche in un file. Il problema potrebbe essere legato a vari motivi. Ripetere l'operazione | Per risolvere questo problema, verificare i passaggi seguenti e ripetere l'operazione:<br/> - [Verificare che l'agente MARS sia più recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verificare e risolvere i problemi di archiviazione che incidono sull'area scratch di backup](#prerequisites)
 
