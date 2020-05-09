@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b1c19ed556a55dec8c84686e80ec988bc593a7a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583214"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996042"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -213,7 +213,7 @@ Le modifiche vengono applicate a livello di frase e lo stile varia in base alla 
 
 Usare questa tabella per determinare quali stili di pronuncia sono supportati per ogni voce neurale.
 
-| Chiamata vocale                   | Style                     | Descrizione                                                 |
+| Voce                   | Stile                     | Descrizione                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast"`        | Esprime un tono formale e professionale per la narrazione di notizie |
 |                         | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  |
@@ -331,7 +331,7 @@ Gli alfabeti fonetici sono costituiti da telefoni, che sono costituiti da letter
 | `alphabet` | Specifica l'alfabeto fonetico da usare quando si sintetizza la pronuncia della stringa nell' `ph` attributo. La stringa che specifica l'alfabeto deve essere specificata in lettere minuscole. Di seguito sono riportati gli alfabeti possibili che è possibile specificare.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonetico internazionale</a></li><li>`sapi`&ndash; [Alfabeto fonetico servizio vocale](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; Set di telefono universale</li></ul><br>L'alfabeto si applica solo a `phoneme` nell'elemento. | Facoltativo |
 | `ph` | Stringa contenente i telefoni che specificano la pronuncia della parola nell' `phoneme` elemento. Se la stringa specificata contiene telefoni non riconosciuti, il servizio di sintesi vocale rifiuta l'intero documento SSML e non genera alcun output vocale specificato nel documento. | Obbligatorio se si utilizzano fonemi. |
 
-**Esempi**
+**esempi**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -359,7 +359,10 @@ Gli alfabeti fonetici sono costituiti da telefoni, che sono costituiti da letter
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Usare un lessico personalizzato per migliorare la pronuncia
 
-In alcuni casi TTS non può pronunciare in modo accurato una parola, ad esempio, una società o un nome esterno. Gli sviluppatori possono definire la lettura di queste entità in SSML `phoneme` usando `sub` e tag oppure definire la lettura di più entità facendo riferimento a un file di lessico personalizzato con `lexicon` tag.
+A volte il servizio di sintesi vocale non può pronunciare una parola in modo accurato. Ad esempio, il nome di una società o un termine medico. Gli sviluppatori possono definire il modo in cui vengono lette le `phoneme` singole `sub` entità in SSML usando i tag e. Tuttavia, se è necessario definire il modo in cui vengono lette più entità, è possibile creare un lessico `lexicon` personalizzato usando il tag.
+
+> [!NOTE]
+> Il lessico personalizzato supporta attualmente la codifica UTF-8. 
 
 **Sintassi**
 
@@ -375,14 +378,10 @@ In alcuni casi TTS non può pronunciare in modo accurato una parola, ad esempio,
 
 **Utilizzo**
 
-Passaggio 1: definire un lessico personalizzato 
-
-È possibile definire la lettura delle entità mediante un elenco di elementi del lessico personalizzati, archiviati come file con estensione XML o pls.
-
-**Esempio**
+Per definire il modo in cui vengono lette più entità, è possibile creare un lessico personalizzato, archiviato come file con estensione XML o pls. Di seguito è riportato un file XML di esempio.
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -400,39 +399,61 @@ Passaggio 1: definire un lessico personalizzato
 </lexicon>
 ```
 
-Ogni `lexeme` elemento è un elemento del lessico. `grapheme`contiene testo che descrive la OrthoGraph di `lexeme`. Il form di lettura può essere `alias`fornito come. È possibile specificare la stringa telefono `phoneme` nell'elemento.
+L' `lexicon` elemento contiene almeno un `lexeme` elemento. Ogni `lexeme` `grapheme` elemento contiene almeno un elemento e uno o più `grapheme`elementi, `alias`e. `phoneme` L' `grapheme` elemento contiene testo che descrive l' <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Gli `alias` elementi vengono usati per indicare la pronuncia di un acronimo o un termine abbreviato. L' `phoneme` elemento fornisce il testo che descrive il `lexeme` modo in cui viene pronunciato.
 
-L' `lexicon` elemento contiene almeno un `lexeme` elemento. Ogni `lexeme` `grapheme` elemento contiene almeno un elemento e uno o più `grapheme`elementi, `alais`e. `phoneme` L' `grapheme` elemento contiene testo che descrive l' <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Gli `alias` elementi vengono usati per indicare la pronuncia di un acronimo o un termine abbreviato. L' `phoneme` elemento fornisce il testo che descrive il `lexeme` modo in cui viene pronunciato.
+È importante notare che non è possibile impostare direttamente la pronuncia di una parola usando il lessico personalizzato. Se è necessario impostare la pronuncia per un oggetto, fornire innanzitutto un `alias`oggetto, quindi associarlo `phoneme` a `alias`. Ad esempio:
 
-Per ulteriori informazioni sul file di lessico personalizzato, vedere la pagina relativa alla [specifica del lessico di pronuncia (pls) versione 1,0](https://www.w3.org/TR/pronunciation-lexicon/) sul sito Web W3C.
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>ScotlandMV</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme>ScotlandMV</grapheme> 
+    <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
 
-Passaggio 2: caricare il file del lessico personalizzato creato nel passaggio 1 online, è possibile archiviarlo in qualsiasi punto ed è consigliabile archiviarlo in Microsoft Azure, ad esempio [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+> [!IMPORTANT]
+> Quando `phoneme` si usa IPA, l'elemento non può contenere spazi vuoti.
 
-Passaggio 3: fare riferimento al file di lessico personalizzato in SSML
+Per ulteriori informazioni sul file di lessico personalizzato, vedere la pagina relativa alla [specifica del lessico di pronuncia (pls) versione 1,0](https://www.w3.org/TR/pronunciation-lexicon/).
+
+Successivamente, pubblicare il file del lessico personalizzato. Sebbene non siano presenti restrizioni per la posizione in cui è possibile archiviare il file, è consigliabile usare l' [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Dopo aver pubblicato il lessico personalizzato, è possibile farvi riferimento dal SSML.
+
+> [!NOTE]
+> L' `lexicon` elemento deve trovarsi all' `voice` interno dell'elemento.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-<lexicon uri="http://www.example.com/customlexicon.xml"/>
-BTW, we will be there probably 8:00 tomorrow morning.
-Could you help leave a message to Robert Benigni for me?
+    <voice name="en-US-AriaRUS">
+        <lexicon uri="http://www.example.com/customlexicon.xml"/>
+        BTW, we will be there probably at 8:00 tomorrow morning.
+        Could you help leave a message to Robert Benigni for me?
+    </voice>
 </speak>
 ```
-"BTW" verrà letto come "by the Way". "Benigno" verrà letto con l'IPA "bɛ ˈ ni ː nji" specificato.  
 
-**Limitazione**
+Quando si usa questo lessico personalizzato, "BTW" verrà letto come "by the Way". "Benigno" verrà letto con l'IPA "bɛ ˈ ni ː nji" specificato.  
+
+**Limitazioni**
 - Dimensioni file: il limite massimo delle dimensioni del file di lessico personalizzato è 100KB, se oltre questa dimensione, la richiesta di sintesi avrà esito negativo.
 - Aggiornamento della cache Lexicon: il lessico personalizzato verrà memorizzato nella cache con URI come chiave nel servizio TTS quando viene caricato per la prima volta. Il lessico con lo stesso URI non verrà ricaricato entro 15 minuti, quindi per rendere effettive le modifiche al lessico personalizzato è necessario attendere al massimo 15 minuti.
 
 **Set fonetici del servizio vocale**
 
-Nell'esempio precedente viene usato l'alfabeto fonetico internazionale, noto anche come set di telefoni IPA. Si consiglia agli sviluppatori di usare il pacchetto IPA, perché è lo standard internazionale. Considerato che l'IPA non è facile da ricordare, il servizio di riconoscimento vocale definisce un set fonetico per`en-US`sette `fr-FR`lingue `de-DE`( `es-ES`, `ja-JP`, `zh-CN`,, `zh-TW`, e).
+Nell'esempio precedente viene usato l'alfabeto fonetico internazionale, noto anche come set di telefoni IPA. Si consiglia agli sviluppatori di usare il pacchetto IPA, perché è lo standard internazionale. Per alcuni caratteri IPA, la versione è' precomposed ' è Decomposed ' quando viene rappresentata con Unicode. Il lessico personalizzato supporta solo le unicodifica decomposte.
+
+Considerato che l'IPA non è facile da ricordare, il servizio di riconoscimento vocale definisce un set fonetico per`en-US`sette `fr-FR`lingue `de-DE`( `es-ES`, `ja-JP`, `zh-CN`,, `zh-TW`, e).
 
 È possibile usare il `sapi` come vale per l' `alphabet` attributo con i lessico personalizzati, come illustrato di seguito:
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
