@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 37eabd4b2f61a82388b1c8d0aaf4aef2320f008e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79209525"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801808"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Creare avvisi per database SQL di Azure e database di analisi delle sinapsi di Azure usando portale di Azure
 
@@ -24,8 +24,8 @@ ms.locfileid: "79209525"
 
 Questo articolo illustra come configurare gli avvisi per i database singoli, in pool e data warehouse nel database SQL di Azure e in Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse) usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata. Questo articolo include anche le procedure consigliate per impostare i periodi di avviso.
 
-> [!IMPORTANT]
-> Questa funzionalità non è disponibile in Istanza gestita. Come alternativa è possibile usare SQL Agent per inviare avvisi tramite posta elettronica per alcune metriche basate su [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+> [!NOTE]
+> Per istruzioni specifiche dell'istanza gestita di SQL, vedere [creare avvisi per istanza gestita SQL di Azure](sql-database-managed-instance-alerts.md).
 
 È possibile ricevere avvisi basati su metriche di monitoraggio o eventi nei servizi Azure.
 

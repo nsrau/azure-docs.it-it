@@ -59,6 +59,11 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 - Aggiornare il cluster
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Cluster e carichi di lavoro

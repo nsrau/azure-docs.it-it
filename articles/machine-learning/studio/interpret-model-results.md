@@ -8,21 +8,18 @@ ms.subservice: studio
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23a201ef63a9a1a6bb5bd078867ccc1200893049
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218057"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982021"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretare i risultati dei modelli in Azure Machine Learning Studio (versione classica)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 In questo argomento viene illustrato come visualizzare e interpretare i risultati della stima in Azure Machine Learning Studio (classico). Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
-
-
 
 Sono disponibili quattro tipi principali di modelli di Machine Learning in Azure Machine Learning Studio (classico):
 
@@ -37,11 +34,11 @@ I moduli usati per eseguire stime sulla base di questi modelli sono:
 * Modulo [Assign to Clusters][assign-to-clusters] per il clustering
 * Modulo [Score Matchbox Recommender][score-matchbox-recommender] per i sistemi di raccomandazione
 
-Questo documento illustra come interpretare i risultati di stima per ognuno di questi moduli. Per una panoramica di questi moduli, vedere [come scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio (classico)](algorithm-parameters-optimize.md).
+Informazioni su come [scegliere i parametri per ottimizzare gli algoritmi in ml Studio (classico)](algorithm-parameters-optimize.md).
 
-Questo argomento illustra l'interpretazione delle stime, non la valutazione dei modelli. Per ulteriori informazioni su come valutare il modello, vedere [come valutare le prestazioni del modello in Azure Machine Learning Studio (classico)](evaluate-model-performance.md).
+Per informazioni su come valutare i modelli, vedere [come valutare le prestazioni del modello](evaluate-model-performance.md).
 
-Se non si ha familiarità con Azure Machine Learning Studio (classico) ed è necessario contribuire alla creazione di un esperimento semplice per iniziare, vedere [creare un esperimento semplice in Azure Machine Learning Studio (classico)](create-experiment.md).
+Se non si ha familiarità con ML Studio (classico), [scoprire come creare un esperimento semplice](create-experiment.md).
 
 ## <a name="classification"></a>Classificazione
 I problemi di classificazione possono essere suddivisi in:

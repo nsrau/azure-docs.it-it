@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204203"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780743"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -107,7 +107,7 @@ Per impostazione predefinita, l'hub IoT Edge è ottimizzato per le prestazioni, 
 
 Quando **OptimizeForPerformance** è impostato su **true**, l'intestazione del protocollo MQTT usa il PooledByteBufferAllocator, che offre prestazioni migliori ma alloca una maggiore quantità di memoria. L'allocatore non funziona bene nei sistemi operativi a 32 bit o nei dispositivi con memoria insufficiente. Inoltre, quando viene ottimizzato per le prestazioni, RocksDb alloca più memoria per il proprio ruolo come provider di archiviazione locale.
 
-Per altre informazioni, vedere [Problemi di stabilità nei dispositivi con risorse limitate](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+Per altre informazioni, vedere [problemi di stabilità nei dispositivi più piccoli](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
 #### <a name="disable-unused-protocols"></a>Disabilitare i protocolli non usati
 
@@ -200,7 +200,7 @@ Assicurarsi quindi di aggiornare i riferimenti all'immagine nel file Deployment.
 
 ### <a name="review-outboundinbound-configuration"></a>Verificare la configurazione in uscita e in entrata
 
-I canali di comunicazione tra Azure IoT Edge e hub IoT di Azure sono sempre configurati per essere in uscita. Per la maggior parte degli scenari di IoT Edge, sono necessarie solo tre connessioni. Il motore del contenitore deve connettersi con il registro contenitori (o i registri) che contiene le immagini del modulo. Il runtime IoT Edge deve connettersi all'hub IoT per recuperare le informazioni di configurazione del dispositivo e per inviare i messaggi e i dati di telemetria. E se si usa il provisioning automatico, il daemon di IoT Edge deve connettersi al servizio di provisioning di dispositivi. Per altre informazioni, vedere [Regole di configurazione del firewall e delle porte](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
+I canali di comunicazione tra Azure IoT Edge e hub IoT di Azure sono sempre configurati per essere in uscita. Per la maggior parte degli scenari di IoT Edge, sono necessarie solo tre connessioni. Il motore del contenitore deve connettersi con il registro contenitori (o i registri) che contiene le immagini del modulo. Il runtime IoT Edge deve connettersi all'hub IoT per recuperare le informazioni di configurazione del dispositivo e per inviare i messaggi e i dati di telemetria. E se si usa il provisioning automatico, il daemon di IoT Edge deve connettersi al servizio di provisioning di dispositivi. Per altre informazioni, vedere [Regole di configurazione del firewall e delle porte](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>Consenti connessioni da dispositivi IoT Edge
 

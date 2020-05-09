@@ -43,7 +43,7 @@ ms.locfileid: "79538831"
 |**SystemAlertId**|Identificatore univoco di questa istanza di avviso di sicurezza|
 |**TenantId**|identificatore del tenant di Azure Active Directory padre della sottoscrizione in cui risiede la risorsa analizzata.|
 |**TimeGenerated**|Timestamp UTC in cui è avvenuta la valutazione (tempo di analisi del Centro sicurezza) (identico a DiscoveredTimeUTC)|
-|**Type**|Constant (' SecurityAlert ')|
+|**Tipo**|Constant (' SecurityAlert ')|
 |**NomeFornitore**|Nome del fornitore che ha fornito l'avviso, ad esempio "Microsoft"|
 |**VendorOriginalId**|unused|
 |**WorkspaceResourceGroup**|Se l'avviso viene generato in una VM, un server, un set di scalabilità di macchine virtuali o un'istanza del servizio app che segnala a un'area di lavoro, contiene il nome del gruppo di risorse dell'area di lavoro|

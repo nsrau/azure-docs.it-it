@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 0525ee6d0ac5df61113e5a97c9812394323ffb3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32ec35094740f05a2c2a6f17ab5dafa29d30a0f1
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062354"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628811"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurare la messaggistica di testo come metodo di verifica
 
@@ -38,7 +38,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
 ### <a name="to-set-up-text-messages"></a>Per configurare SMS
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myaccount.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 

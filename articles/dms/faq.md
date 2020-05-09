@@ -51,7 +51,7 @@ Il servizio migrazione del database di Azure è il metodo preferito per la migra
 **D. come si confronta il servizio migrazione del database di Azure con la Azure Migrate offerta?**
 Azure Migrate facilita la migrazione di macchine virtuali locali in Azure IaaS. Il servizio valuta l'idoneità alla migrazione e il dimensionamento in base alle prestazioni e offre stime dei costi per l'esecuzione delle macchine virtuali locali in Azure. Azure Migrate è utile per le migrazioni in modalità lift-and-shift di carichi di lavoro basati su VM locali a VM IaaS di Azure. Tuttavia, a differenza del servizio migrazione del database di Azure, Azure Migrate non è un'offerta di servizio di migrazione del database specializzata per le piattaforme di database relazionali di Azure PaaS, ad esempio il database SQL di Azure o Istanza gestita di database SQL di Azure.
 
-## <a name="setup"></a>Configurazione
+## <a name="setup"></a>Installazione
 
 **D. quali sono i prerequisiti per l'utilizzo del servizio migrazione del database di Azure?**
 Sono necessari alcuni prerequisiti per garantire che il servizio migrazione del database di Azure venga eseguito senza problemi durante l'esecuzione delle migrazioni del database. Alcuni dei prerequisiti si applicano a tutti gli scenari (coppie di origine-destinazione) supportati dal servizio, mentre altri prerequisiti sono univoci per uno scenario specifico.
