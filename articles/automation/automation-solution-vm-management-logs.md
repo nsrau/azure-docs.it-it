@@ -1,27 +1,27 @@
 ---
-title: Come eseguire query sui log dalla soluzione di avvio/arresto di macchine virtuali
-description: Questo articolo descrive come eseguire query sui dati di log generati dalla soluzione di avvio/arresto di macchine virtuali da monitoraggio di Azure.
+title: Come eseguire query sui log da Avvio/Arresto di macchine virtuali durante gli orari di minore attività
+description: Questo articolo descrive come eseguire query sui dati di log generati dalla soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività da monitoraggio di Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604733"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864233"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Come eseguire query sui log dalla soluzione di avvio/arresto di macchine virtuali
+# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Come eseguire query sui log da Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
-Automazione di Azure invia due tipi di record all'area di lavoro di Log Analytics collegata: log del processo e flussi del processo. Questi dati sono disponibili per le [query](../azure-monitor/log-query/log-query-overview.md) in monitoraggio di Azure.
+Automazione di Azure invia due tipi di record all'area di lavoro di Log Analytics collegata: log del processo e flussi del processo. Questo articolo esamina i dati disponibili per le [query](../azure-monitor/log-query/log-query-overview.md) in monitoraggio di Azure.
 
 ## <a name="job-logs"></a>Log di processo
 
 |Proprietà | Descrizione|
 |----------|----------|
 |Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
-|Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
+|Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
 |CorrelationId | GUID che rappresenta l'ID di correlazione del processo del runbook.|
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
@@ -42,7 +42,7 @@ Automazione di Azure invia due tipi di record all'area di lavoro di Log Analytic
 |Proprietà | Descrizione|
 |----------|----------|
 |Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
-|Category | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
+|Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
 |JobId | GUID che rappresenta l'ID del processo del runbook.|
 |operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job.|
 |ResourceGroup | Specifica il nome del gruppo di risorse del processo del runbook.|

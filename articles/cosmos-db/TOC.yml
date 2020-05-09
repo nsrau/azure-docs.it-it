@@ -972,10 +972,14 @@
               href: sql-api-query-metrics.md
             - name: Suggerimenti sulle prestazioni per .NET SDK
               href: performance-tips.md
-            - name: Suggerimenti sulle prestazioni per Java SDK
-              href: performance-tips-java.md
-            - name: Suggerimenti sulle prestazioni per Async Java SDK
-              href: performance-tips-async-java.md
+            - name: Suggerimenti sulle prestazioni per Java SDK v4
+              href: performance-tips-java-sdk-v4-sql.md
+            - name: Suggerimenti sulle prestazioni per Java SDK meno recenti
+              items:
+                - name: Async Java SDK v2
+                  href: performance-tips-async-java.md
+                - name: Sync Java SDK v2
+                  href: performance-tips-java.md
             - name: Test delle prestazioni - App di esempio
               href: performance-testing.md
         - name: Operazioni di lettura e scrittura convenienti
@@ -984,8 +988,12 @@
       items:
         - name: Risoluzione dei problemi di prestazioni delle query
           href: troubleshoot-query-performance.md
-        - name: Risolvere i problemi di Java Async SDK
-          href: troubleshoot-java-async-sdk.md
+        - name: Risolvere i problemi di Java SDK v4
+          href: troubleshoot-java-sdk-v4-sql.md
+        - name: Risolvere i problemi di Java SDK meno recenti
+          items:
+            - name: Async Java SDK v2
+              href: troubleshoot-java-async-sdk.md
         - name: Risolvere i problemi di .NET SDK
           href: troubleshoot-dot-net-sdk.md
     - name: Feed di modifiche

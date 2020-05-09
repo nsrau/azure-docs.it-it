@@ -2,13 +2,13 @@
 title: Appliance Azure Migrate
 description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzata per la valutazione e la migrazione dei server.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 439f6d9c80a0b93f071d30d580facc4604cabbac
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106371"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780335"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -18,7 +18,7 @@ Questo articolo riepiloga i prerequisiti e i requisiti di supporto per la Azure 
 
 Il dispositivo Azure Migrate viene usato negli scenari seguenti.
 
-**Scenario** | **Strumento** | **Utilizzato per** 
+**Scenario** | **Strumento** | **Utilizzo** 
 --- | --- | ---
 **Valutazione VM VMware** | Azure Migrate: valutazione del server | Individuare le macchine virtuali VMware<br/><br/> Individuare le app e le dipendenze del computer<br/><br/> Raccolta dei metadati del computer e delle prestazioni per le valutazioni.
 **Migrazione senza agenti di macchine virtuali VMware** | Azure Migrate: migrazione del server | Individuare le macchine virtuali VMware <br/><br/> Eseguire la replica di macchine virtuali VMware con migrazione senza agenti.
@@ -42,12 +42,13 @@ La tabella seguente riepiloga i requisiti di Azure Migrate Appliance per VMware.
 
 **Requisito** | **VMware** 
 --- | ---
+**Autorizzazioni** | Per accedere all'app Web Appliance in locale o in remoto, è necessario essere un amministratore di dominio o un amministratore locale nel computer dell'appliance.
 **Componenti del dispositivo** | Il dispositivo include i componenti seguenti:<br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Aggiornamento automatico del servizio**: Aggiorna i componenti del dispositivo (viene eseguito ogni 24 ore).<br/>- **Agente DRA**: Orchestra la replica della macchina virtuale e coordina la comunicazione tra computer replicati e Azure. Usato solo quando si esegue la replica di macchine virtuali VMware in Azure usando la migrazione senza agente.<br/>- **Gateway**: Invia i dati replicati in Azure. Usato solo quando si esegue la replica di macchine virtuali VMware in Azure usando la migrazione senza agente.
 **Distribuzione supportata** | Distribuire come macchina virtuale VMware usando il modello OVA.<br/><br/> Distribuire come macchina virtuale VMware o macchina fisica usando lo script di installazione di PowerShell.
 **Supporto del progetto** |  Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
 **Limiti di individuazione** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una singola server vCenter.
 **Modello OVA** | Scaricare dal portale o da https://aka.ms/migrate/appliance/vmware.<br/><br/> Le dimensioni del download sono di 11,2 GB.<br/><br/> Il modello di appliance scaricato è disponibile con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
-**Script di PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112)dello script.<br/><br/> 
+**Script PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112)dello script.<br/><br/> 
 **Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in una VM VMware, è necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale che soddisfi i requisiti.<br/><br/> Se l'Appliance viene eseguita in un computer fisico, assicurarsi che esegua Windows Server 2016 e soddisfi i requisiti hardware. 
 **Requisiti di VMware** | Se si distribuisce l'appliance come macchina virtuale VMware, questa deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva.<br/><br/> server vCenter che esegue 5,5, 6,0, 6,5 o 6,7.
 **VDDK (migrazione senza agenti)** | Se si distribuisce l'appliance come macchina virtuale VMware e si esegue una migrazione senza agenti, è necessario installare il VMware vSphere VDDK nella macchina virtuale del dispositivo.
@@ -61,12 +62,13 @@ La tabella seguente riepiloga i requisiti di Azure Migrate Appliance per VMware.
 
 **Requisito** | **Hyper-V** 
 --- | ---
+**Autorizzazioni** | Per accedere all'app Web Appliance in locale o in remoto, è necessario essere un amministratore di dominio o un amministratore locale nel computer dell'appliance.
 **Componenti del dispositivo** | Il dispositivo include i componenti seguenti:<br/><br/>- **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Aggiornamento automatico del servizio**: Aggiorna i componenti del dispositivo (viene eseguito ogni 24 ore).
 **Distribuzione supportata** | Distribuire come macchina virtuale Hyper-V usando un modello VHD.<br/><br/> Eseguire la distribuzione come macchina virtuale o macchina fisica Hyper-V usando uno script di installazione di PowerShell.
 **Supporto del progetto** |  Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
 **Limiti di individuazione** | Un'appliance può individuare fino a 5000 macchine virtuali Hyper-V.<br/> Un appliance può connettersi a un massimo di 300 host Hyper-V.
 **Modello VHD** | Cartella compressa, incluso VHD. Scaricare dal portale o da https://aka.ms/migrate/appliance/hyperv.<br/><br/> Le dimensioni del download sono di 10 GB.<br/><br/> Il modello di appliance scaricato è disponibile con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
-**Script di PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112)dello script.<br/><br/> 
+**Script PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112)dello script.<br/><br/> 
 **Software/hardware***   |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance necessita di un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance come macchina virtuale Hyper-V, è necessario disporre di risorse sufficienti nell'host Hyper-V per allocare 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno per la macchina virtuale dell'appliance.<br/><br/> Se l'Appliance viene eseguita in un computer fisico, assicurarsi che esegua Windows Server 2016 e soddisfi i requisiti hardware. 
 **Requisiti di Hyper-V** | Se si distribuisce il dispositivo con il modello VHD, la macchina virtuale dell'appliance fornita da Azure Migrate è la macchina virtuale Hyper-V versione 5,0.<br/><br/> L'host Hyper-V deve eseguire Windows Server 2012 R2 o versione successiva. 
 **Valore hash-VHD** | [Verificare](tutorial-assess-hyper-v.md#verify-security) i valori hash del modello VHD.
@@ -77,12 +79,13 @@ La tabella seguente riepiloga i requisiti di Azure Migrate Appliance per VMware.
 
 **Requisito** | **Fisico** 
 --- | ---
+**Autorizzazioni** | Per accedere all'app Web Appliance in locale o in remoto, è necessario essere un amministratore di dominio o un amministratore locale nel computer dell'appliance.
 **Componenti del dispositivo** | Il dispositivo include i componenti seguenti: <br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. Usato durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Aggiornamento automatico del servizio**: Aggiorna i componenti del dispositivo (viene eseguito ogni 24 ore).
 **Distribuzione supportata** | Distribuire come computer fisico dedicato o una VM usando uno script di installazione di PowerShell. Lo script è disponibile per il download dal portale.
 **Supporto del progetto** |  Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
 **Limiti di individuazione** | Un'appliance può individuare fino a 250 di server fisici.
-**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller. ps1) in una cartella compressa dal portale. [Altre informazioni](tutorial-assess-physical.md#set-up-the-appliance) In alternativa, [scaricare direttamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Le dimensioni del download sono pari a 59,7 MB.
-**Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance necessita di un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se l'Appliance viene eseguita in un computer fisico, assicurarsi che esegua Windows Server 2016 e soddisfi i requisiti hardware. 
+**Script PowerShell** | Scaricare lo script (AzureMigrateInstaller. ps1) in una cartella compressa dal portale. [Altre informazioni](tutorial-assess-physical.md#set-up-the-appliance). In alternativa, [scaricare direttamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Le dimensioni del download sono pari a 59,7 MB.
+**Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance necessita di un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se l'Appliance viene eseguita in un computer fisico, assicurarsi che esegua Windows Server 2016 e soddisfi i requisiti hardware.<br/> L'esecuzione dell'appliance in un computer con Windows Server 2019 non è supportata.
 **Valore hash** | [Verificare](deploy-appliance-script.md#verify-file-security) i valori hash dello script di PowerShell.
 
 ## <a name="url-access"></a>accesso con URL
@@ -90,7 +93,8 @@ La tabella seguente riepiloga i requisiti di Azure Migrate Appliance per VMware.
 Il dispositivo Azure Migrate richiede la connettività a Internet.
 
 - Quando si distribuisce il dispositivo, Azure Migrate esegue un controllo della connettività agli URL richiesti.
-- Se si usa un proxy basato su URL per connettersi a Internet, è necessario consentire l'accesso a questi URL, assicurandosi che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
+- È necessario consentire l'accesso a tutti gli URL nell'elenco. Se si sta eseguendo solo la valutazione, è possibile ignorare gli URL contrassegnati come richiesti per la migrazione senza agenti di VMware.
+-  Se si usa un proxy basato su URL per connettersi a Internet, verificare che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
 
 ### <a name="public-cloud-urls"></a>URL del cloud pubblico
 
@@ -100,7 +104,7 @@ Il dispositivo Azure Migrate richiede la connettività a Internet.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Accedere alla sottoscrizione di Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Creare app Azure Active Directory (AD) per la comunicazione del dispositivo con Azure Migrate.
 management.azure.com | Creare app Azure AD per l'appliance per comunicare con il servizio Azure Migrate.
-dc.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
+*.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
 *.vault.azure.net | Gestisci i segreti nel Azure Key Vault.
 aka.ms/* | Consente l'accesso a collegamenti aka. Usato per gli aggiornamenti di Azure Migrate Appliance.
 download.microsoft.com/download | Consenti i download dal Download Microsoft.
@@ -176,7 +180,7 @@ Indirizzi IPv6 | vm.Guest.Net
 Velocità effettiva lettura (MB al secondo) | net.received.average
 Velocità effettiva scrittura (MB al secondo) | net.transmitted.average
 **Dettagli percorso inventario** | 
-Name | container.GetType().Name
+Nome | container.GetType().Name
 Tipo di oggetto figlio | container.ChildType
 Informazioni di riferimento | container.MoRef
 Dettagli elemento padre | Container.Parent
@@ -257,7 +261,7 @@ I metadati individuati dal dispositivo Azure Migrate consentono di determinare s
 
 Ecco l'elenco completo dei metadati della macchina virtuale Hyper-V che l'appliance raccoglie e Invia ad Azure.
 
-**DATI* | **CLASSE WMI** | **PROPRIETÀ DELLA CLASSE WMI**
+**DATI** | **CLASSE WMI** | **PROPRIETÀ DELLA CLASSE WMI**
 --- | --- | ---
 **Dettagli computer** | 
 Numero di serie del BIOS _ Msvm_BIOSElement | BIOSSerialNumber
@@ -271,7 +275,7 @@ Nome/versione/FQDN del sistema operativo | Msvm_KvpExchangeComponent | GuestIntr
 Stato di alimentazione della macchina virtuale | Msvm_ComputerSystem | EnabledState
 **Dettagli per disco** | 
 Identificatore disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Tipo
+Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Type
 Dimensioni del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Padre del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | ParentPath
 **Dettagli per NIC** | 
@@ -298,6 +302,84 @@ Scheda di rete virtuale Hyper-V | Byte inviati al secondo | Calcolo delle dimens
 - L'utilizzo della CPU è la somma di tutti i dati di utilizzo, per tutti i processori virtuali collegati a una macchina virtuale.
 - L'utilizzo della memoria è (pressione corrente * memoria fisica visibile Guest)/100.
 - I valori di utilizzo del disco e della rete vengono raccolti dai contatori delle prestazioni di Hyper-V elencati.
+
+
+## <a name="collected-data---physical"></a>Dati raccolti-fisico
+
+L'appliance raccoglie i metadati, i dati sulle prestazioni e i dati di analisi delle dipendenze (se si usa l' [analisi delle dipendenze](concepts-dependency-visualization.md) senza agenti).
+
+### <a name="windows-metadata"></a>Metadati di Windows
+
+I metadati individuati dal dispositivo Azure Migrate consentono di determinare se i computer e le app sono pronti per la migrazione ad Azure, le macchine virtuali e le app di dimensioni appropriate, i costi dei piani e l'analisi delle dipendenze dell'applicazione. Microsoft non usa questi dati in alcun controllo di conformità delle licenze.
+
+Ecco l'elenco completo dei metadati di Windows Server che l'appliance raccoglie e Invia ad Azure.
+
+**DATI** | **CLASSE WMI** | **PROPRIETÀ DELLA CLASSE WMI**
+--- | --- | ---
+Nome di dominio completo | Win32_ComputerSystem | Domain, Name, PartOfDomain
+Numero Core processore | Win32_PRocessor | NumberOfCores
+Memoria allocata | Win32_ComputerSystem | TotalPhysicalMemory
+Numero di serie BIOS | Win32_ComputerSystemProduct | IdentifyingNumber
+GUID BIOS | Win32_ComputerSystemProduct | UUID
+Tipo di avvio | Win32_DiskPartition | Verificare la presenza di una partizione con tipo = **GPT: System** for EFI/BIOS
+Nome sistema operativo | Win32_OperatingSystem | Sottotitolo
+Versione sistema operativo |Win32_OperatingSystem | Versione
+Architettura del sistema operativo | Win32_OperatingSystem | OSArchitecture
+Numero di dischi | Win32_DiskDrive | Modello, dimensioni, DeviceID, MediaType, nome
+Dimensioni disco | Win32_DiskDrive | Dimensione
+Elenco NIC | Win32_NetworkAdapterConfiguration | Descrizione, indice
+Indirizzo IP NIC | Win32_NetworkAdapterConfiguration | IPAddress
+Indirizzo MAC NIC | Win32_NetworkAdapterConfiguration | MACAddress
+
+### <a name="linux-metadata"></a>Metadati di Linux
+
+Ecco l'elenco completo dei metadati del server Linux che l'appliance raccoglie e Invia ad Azure.
+
+**DATI** | **LINUX** 
+--- | --- 
+Nome di dominio completo | cat/proc/sys/kernel/hostname, hostname-f
+Numero Core processore |  /proc/cpuinfo \| awk '/^ Processor/{Print $3}' \| wc-l
+Memoria allocata | cat/proc/meminfo \| grep MemTotal \| awk ' {printf "%. 0f", $2/1024}'
+Numero di serie BIOS | lshw \| grep "Serial:" \| Head-N1 \| awk ' {Print $2}' <br/> /usr/sbin/dmidecode-t 1 \| grep ' serial ' \| awk ' {$1 = ""; $2 = ""; Print}'
+GUID BIOS | Cat/sys/class/DMI/ID/product_uuid
+Tipo di avvio | [-d/sys/firmware/EFI]  && Echo EFI \| \| Echo BIOS
+Nome/versione del sistema operativo | Si accede a questi file per la versione e il nome del sistema operativo:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> debian_version/etc/
+Architettura del sistema operativo | Uname-m
+Numero di dischi | fdisk-l \| egrep ' disk. * bytes \| ' awk ' {Print $2} \| ' Cut-F1-d':'
+Disco di avvio | DF/boot \| sed-n 2P \| awk ' {Print $1}'
+Dimensioni disco | fdisk-l \| egrep ' disk. * bytes \| ' egrep $disk \| : awk ' {Print $5}'
+Elenco NIC | IP-o-4 addr Mostra \| awk ' {Print $2}'
+Indirizzo IP NIC | IP addr show $nic \| grep inet \| awk ' {Print $2}' \| Cut-F1-d "/" 
+Indirizzo MAC NIC | IP addr show $nic \| grep etere \| awk ' {Print $2}'
+
+### <a name="windows-performance-data"></a>Dati prestazioni Windows
+
+Ecco i dati sulle prestazioni di Windows Server che l'appliance raccoglie e Invia ad Azure.
+
+**Dati** | **classe WMI** | **Proprietà della classe WMI**
+--- | --- | ---
+Utilizzo della CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Utilizzo della memoria | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
+Conteggio NIC | Win32_PerfFormattedData_Tcpip_NetworkInterface | Ottenere il numero di dispositivi di rete.
+Dati ricevuti per NIC | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
+Dati trasmessi per NIC | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
+Numero di dischi | BWin32_PerfFormattedData_PerfDisk_PhysicalDisk | Numero di dischi
+Dettagli disco | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec, DiskWriteBytesPerSec, DiskReadsPerSec, DiskReadBytesPerSec.
+
+### <a name="linux-performance-data"></a>Dati prestazioni Linux
+
+Ecco i dati sulle prestazioni del server Linux che l'appliance raccoglie e Invia ad Azure.
+
+**Dati** | **Linux** 
+--- | --- 
+Utilizzo della CPU | cat/proc/stat/| /proc/stat ' CPU ' grep
+Utilizzo della memoria | ' \| {Print \| $3/$ 2 * 100,0}' della memoria grep gratuita
+Conteggio NIC | lshw-Class \| grep ETH [0-60] \| wc-l
+Dati ricevuti per NIC | Cat/sys/class/net/ETH $ NIC/Statistics/rx_bytes
+Dati trasmessi per NIC | Cat/sys/class/net/ETH $ NIC/Statistics/tx_bytes
+Numero di dischi | fdisk-l \| egrep ' disk. * bytes \| ' awk ' {Print $2} \| ' Cut-F1-d':'
+Dettagli disco | cat/proc/diskstats
+
 
 ## <a name="appliance-upgrades"></a>Aggiornamenti Appliance
 

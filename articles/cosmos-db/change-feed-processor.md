@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 4/29/2020
+ms.date: 05/06/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: aa9b090627b6f27a54b67c361b45b6f99e3a6338
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594152"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982378"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB
 
@@ -100,6 +100,7 @@ Vengono addebitati i costi per le UR utilizzate, in quanto lo spostamento dei da
 È ora possibile procedere ad acquisire altre informazioni sul processore di feed di modifiche negli articoli seguenti:
 
 * [Panoramica del feed di modifiche](change-feed.md)
+* [Modello di pull del feed di modifiche](change-feed-pull-model.md)
 * [Come eseguire la migrazione dalla libreria del processore dei feed delle modifiche](how-to-migrate-from-change-feed-library.md)
 * [Uso dello strumento di stima dei feed di modifiche](how-to-use-change-feed-estimator.md)
 * [Ora di avvio del processore dei feed di modifiche](how-to-configure-change-feed-start-time.md)

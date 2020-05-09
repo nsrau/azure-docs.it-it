@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970614"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792599"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Abilitare crittografia dischi di Azure con Azure AD nelle macchine virtuali Linux (versione precedente)
 
@@ -158,7 +158,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 ## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Usare la funzionalità EncryptFormatAll per i dischi dati in macchine virtuali IaaS Linux
 Il parametro EncryptFormatAll riduce la durata per la crittografia dei dischi dati Linux. Le partizioni che soddisfano determinati criteri vengono formattate (con la file system corrente). Quindi vengono rimontati nella posizione in cui si trovavano prima dell'esecuzione del comando. Se si vuole escludere un disco dati che soddisfa i criteri, è possibile smontarlo prima di eseguire il comando.
 
- Dopo aver eseguito questo comando, tutte le unità montate in precedenza vengono formattate. Quindi, il livello di crittografia viene avviato sopra l'unità ora vuota. Quando questa opzione è selezionata, viene crittografato anche il disco della risorsa temporanea collegato alla macchina virtuale. Se l'unità temporanea viene reimpostata, viene riformattata e ricrittografata per la macchina virtuale dalla soluzione crittografia dischi di Azure alla prossima opportunità.
+ Dopo aver eseguito questo comando, tutte le unità montate in precedenza vengono formattate. Quindi, il livello di crittografia viene avviato sopra l'unità ora vuota. Quando questa opzione è selezionata, viene crittografato anche il disco temporaneo collegato alla macchina virtuale. Se l'unità temporanea viene reimpostata, viene riformattata e ricrittografata per la macchina virtuale dalla soluzione crittografia dischi di Azure alla prossima opportunità.
 
 >[!WARNING]
 > EncryptFormatAll non deve essere usato quando sono presenti dati necessari nei volumi di dati di una macchina virtuale. È possibile escludere i dischi dalla crittografia smontando i dischi. Provare prima di tutto il parametro EncryptFormatAll in una macchina virtuale di test per comprendere il parametro della funzionalità e le relative implicazioni prima di provarlo nella macchina virtuale di produzione. L'opzione EncryptFormatAll formatta il disco dati, in modo che tutti i dati in esso contenuti andranno persi. Prima di procedere, verificare che tutti i dischi che si vuole escludere siano correttamente smontati. </br></br>

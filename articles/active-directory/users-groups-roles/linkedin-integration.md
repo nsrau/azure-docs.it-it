@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755112"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582639"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrare le connessioni dell'account LinkedIn in Azure Active Directory
 
@@ -30,8 +30,8 @@ ms.locfileid: "80755112"
 > Eccezioni:
 >
 > * L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per il US Gov, Microsoft Cloud per la Germania,oppure Azure e Office 365 gestito da 21Vianet in Cina.
-> * L'impostazione è disattivata per impostazione predefinita per i tenant sottoposti a provisioning in Germania. L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per la Germania.
-> * L'impostazione è disattivata per impostazione predefinita per i tenant sottoposti a provisioning in Francia.
+> * Per impostazione predefinita, l'impostazione è disattivata per le organizzazioni Azure AD provisioning in Germania. L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per la Germania.
+> * Per impostazione predefinita, l'impostazione è disattivata per le organizzazioni con provisioning in Francia.
 >
 > Una volta abilitate le connessioni dell'account LinkedIn per l'organizzazione, le connessioni dell'account funzionano dopo che gli utenti hanno concesso il consenso alle app che accedono ai dati aziendali per loro conto. Per informazioni sull'impostazione di consenso dell'utente, vedere [come rimuovere l'accesso di un utente a un'applicazione](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
@@ -94,10 +94,10 @@ Per usare il gruppo dal passaggio 2 come gruppo selezionato nell'impostazione de
 1. Creare un oggetto Criteri di gruppo con l'impostazione seguente: **configurazione** > utente**modelli amministrativi** > **Microsoft Office 2016** > **varie** > **Mostra le funzionalità di LinkedIn nelle applicazioni di Office**.
 1. Selezionare **Abilitato** o **Disabilitato**.
   
-   State | Effetto
+   Stato | Effetto
    ------ | ------
-   **Attivata** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è abilitata nelle Opzioni di Office 2016. Gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni Office 2016.
-   **Disattivata** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è disabilitata nelle Opzioni di Office 2016 e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016.
+   **Enabled** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è abilitata nelle Opzioni di Office 2016. Gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni Office 2016.
+   **Disabilitato** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è disabilitata nelle Opzioni di Office 2016 e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016.
 
 Questi Criteri di gruppo influiscono solo sulle app di Office 2016 per il computer locale. Se gli utenti disabilitano LinkedIn nelle app di Office 2016, possono comunque vedere le funzionalità di LinkedIn in Office 365.
 

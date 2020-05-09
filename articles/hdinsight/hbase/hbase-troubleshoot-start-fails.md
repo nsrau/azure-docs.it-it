@@ -30,7 +30,7 @@ Durante il processo di avvio, HMaster esegue molti passaggi di inizializzazione,
 
 HMaster esegue un comando list di base nelle cartelle WAL. Se in qualunque momento rileva un file imprevisto in una delle cartelle, HMaster genera un'eccezione e non viene avviato.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Controllare lo stack di chiamate e provare a determinare quale cartella potrebbe avere causato il problema (ad esempio, la cartella WAL o la cartella. tmp). In Cloud Explorer o con comandi HDFS provare quindi a individuare il file problematico, In genere, si tratta `*-renamePending.json` di un file. Il `*-renamePending.json` file è un file journal usato per implementare l'operazione di ridenominazione atomica nel driver WASB. A causa di bug in questa implementazione, questi file possono essere lasciati dopo gli arresti anomali del processo e così via. Forzare l'eliminazione di questo file in Cloud Explorer o usando i comandi HDFS.
 
@@ -50,7 +50,7 @@ Potrebbe essere visualizzato un messaggio che indica che la `hbase: meta` tabell
 
 Impossibile inizializzare HMaster dopo il riavvio di HBase.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Nella shell di HBase digitare i comandi seguenti, modificando i valori effettivi a seconda dei casi:
 
@@ -81,7 +81,7 @@ Si verifica il timeout di HMaster con un'eccezione `java.io.IOException: Timedou
 
 Questo problema potrebbe verificarsi se al riavvio dei servizi HMaster sono presenti diverse tabelle e aree che non sono state scaricate. Il timeout è un difetto noto con HMaster. Le attività di avvio generali del cluster possono richiedere molto tempo. HMaster viene arrestato se la tabella dello spazio dei nomi non è ancora assegnata. Le attività di avvio lunghe si verificano quando esiste una grande quantità di dati non scaricati e un timeout di cinque minuti non è sufficiente.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Dall'interfaccia utente di Apache Ambari, passare a **HBase** > **configs**. Nel file personalizzato `hbase-site.xml` aggiungere l'impostazione seguente:
 
@@ -109,7 +109,7 @@ I nodi vengono riavviati periodicamente. Nei log del server di area è possibile
 
 Pausa `regionserver` GC Long JVM. La sospensione `regionserver` provocherà la mancata risposta e non potrà inviare il battito del cuore a HMaster entro il timeout della sessione ZK. HMaster rileverà che `regionserver` è inattivo e `regionserver` interromperà e riavvierà.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Modificare il timeout della sessione Zookeeper, non `hbase-site` solo `zookeeper.session.timeout` l'impostazione ma `zoo.cfg` anche `maxSessionTimeout` l'impostazione Zookeeper deve essere modificata.
 
@@ -135,7 +135,7 @@ HMasters non è riuscito a trovare un cluster HBase.
 
 Impostazioni HDFS e HBase non configurate correttamente per un account di archiviazione secondario.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 impostare HBase. RootDir: wasb://@.blob.core.windows.net/hbase e riavviare i servizi su Ambari.
 

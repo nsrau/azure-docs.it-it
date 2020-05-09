@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/22/2020
+ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a920e58f1ffd4c3e3e9769bf6346100a8677b90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2eba47dede77f6d8dd19bde99a94de3ff5900f99
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76760054"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732802"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Esercitazione: Integrare l'accesso Single Sign-On (SSO) di Azure Active Directory con NetSuite
 
@@ -91,14 +91,14 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ||
     |-|
-    | `https://<Account ID>.NetSuite.com/saml2/acs`|
-    | `https://<Account ID>.na1.NetSuite.com/saml2/acs`|
-    | `https://<Account ID>.na2.NetSuite.com/saml2/acs`|
-    | `https://<Account ID>.sandbox.NetSuite.com/saml2/acs`|
-    | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
-    | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Instance ID>.NetSuite.com/saml2/acs`|
+    | `https://<Instance ID>.na1.NetSuite.com/saml2/acs`|
+    | `https://<Instance ID>.na2.NetSuite.com/saml2/acs`|
+    | `https://<Instance ID>.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Instance ID>.na1.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Instance ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
-    * Si otterrà il valore **<`Account ID`>** nella sezione relativa alla configurazione di NetSuite che viene descritta più avanti nel passaggio 8 dell'esercitazione, in NetSuite Configuration (Configurazione NetSuite). Si troverà il dominio esatto, in questo caso system.na0.netsuite.com.
+    * Si otterrà il valore **<`Instance ID`>** nella sezione relativa alla configurazione di NetSuite che viene descritta più avanti nel passaggio 8 dell'esercitazione, in NetSuite Configuration (Configurazione NetSuite). Si troverà il dominio esatto, in questo caso system.na0.netsuite.com.
 
         ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/domain-value.png)
 
