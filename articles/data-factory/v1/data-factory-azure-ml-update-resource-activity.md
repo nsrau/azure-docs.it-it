@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74978714"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930455"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Aggiornamento dei modelli di Azure Machine Learning con Attività della risorsa di aggiornamento
 
@@ -44,7 +44,7 @@ Nel corso del tempo è necessario ripetere il training dei modelli predittivi ne
 1. Creare un esperimento in [Azure Machine Learning Studio (classico)](https://studio.azureml.net).
 2. Quando si è soddisfatti del modello, usare Azure Machine Learning Studio (classico) per pubblicare i servizi Web sia per l' **esperimento di training** che per l'**esperimento predittivo**o di valutazione.
 
-La tabella seguente descrive i servizi Web usati in questo esempio.  Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](../../machine-learning/machine-learning-retrain-models-programmatically.md) .
+La tabella seguente descrive i servizi Web usati in questo esempio.  Per informazioni dettagliate, vedere ripetere il [training dei modelli di Machine Learning Studio (classico) a livello di codice](../../machine-learning/studio/retrain-machine-learning-model.md) .
 
 - **Servizio Web di training**: riceve dati di training e produce modelli sottoposti a training. L'output della ripetizione del training è un file con estensione ilearner in un archivio BLOB di Azure. L' **endpoint predefinito** viene creato automaticamente quando si pubblica l'esperimento di training come servizio Web. È possibile creare altri endpoint ma l'esempio usa solo l'endpoint predefinito.
 - **Servizio Web di assegnazione dei punteggi**: riceve esempi di dati non etichettati ed esegue previsioni. L'output della stima può avere diversi formati, ad esempio un file con estensione csv o righe in un database SQL di Azure, a seconda della configurazione dell'esperimento. L'endpoint predefinito viene creato automaticamente quando si pubblica l'esperimento predittivo come servizio Web. 

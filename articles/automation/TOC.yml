@@ -24,6 +24,11 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Creare un runbook di Python
       href: learn/automation-tutorial-runbook-textual-python2.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Panoramica dell'autenticazione di account di Automazione

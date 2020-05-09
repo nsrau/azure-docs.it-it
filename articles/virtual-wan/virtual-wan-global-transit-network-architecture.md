@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113168"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928279"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 
@@ -99,6 +99,9 @@ I rami possono essere connessi a un hub WAN virtuale di Azure usando circuiti Ex
 
 Questa opzione consente alle aziende di sfruttare la backbone di Azure per connettere i rami. Tuttavia, anche se questa funzionalità è disponibile, è necessario valutare i vantaggi della connessione dei rami sulla rete WAN virtuale di Azure rispetto all'uso di una rete WAN privata.  
 
+> [!NOTE]
+> La disabilitazione della connettività ramo a ramo nella rete WAN virtuale virtuale può essere configurata in modo da disabilitare la connettività da ramo a ramo. Questo configuation blocca la propagazione delle route tra VPN (S2S e P2S) e i siti connessi Express route. Questa configurazione non influisce sulle propagazione e sulla connettività da ramo a VNET e da VNET a vnet. Per configurare questa impostazione tramite il portale di Azure: in menu configurazione WAN virtuale scegliere impostazione: ramo-a-ramo-disabilitato. 
+
 ### <a name="remote-user-to-vnet-c"></a>Utente remoto-VNet (c)
 
 È possibile abilitare l'accesso remoto diretto e sicuro ad Azure tramite una connessione da punto a sito da un client utente remoto a una rete WAN virtuale. Gli utenti remoti aziendali non devono più eseguire il tornamento al cloud usando una VPN aziendale.
@@ -110,6 +113,15 @@ Il percorso remoto da utente a ramo consente agli utenti remoti che usano una co
 ### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>VNet-to-VNet Transit (e) e da VNet a VNet tra aree (h)
 
 Il transito da VNet a VNet consente a reti virtuali di connettersi tra loro per collegare applicazioni multilivello implementate in più reti virtuali. Facoltativamente, è possibile connettere reti virtuali tra loro tramite il peering VNet e questo potrebbe essere adatto per alcuni scenari in cui il transito tramite l'hub VWAN non è necessario.
+
+
+## <a name="force-tunneling-and-default-route-in-azure-virtual-wan"></a><a name="DefaultRoute"></a>Imponi tunneling e route predefinite nella rete WAN virtuale di Azure
+
+È possibile abilitare il tunneling forzato configurando la route predefinita in una connessione VPN, ExpressRoute o rete virtuale in una rete WAN virtuale.
+
+Un hub virtuale propaga una route predefinita acquisita a una connessione di rete virtuale/VPN da sito a sito se Abilita il flag predefinito è' Enabled ' nella connessione. 
+
+Questo flag è visibile quando l'utente modifica una connessione di rete virtuale, VPN o ExpressRoute. Per impostazione predefinita, questo flag è disabilitato quando un sito o un circuito ExpressRoute sono connessi a un hub. Questa funzionalità è abilitata per impostazione predefinita quando si aggiunge una connessione di rete virtuale per connettere una rete virtuale a un hub virtuale. La route predefinita non ha origine nell'hub della rete WAN virtuale; la route predefinita viene propagata se è già stata appresa dall'hub della rete WAN virtuale a seguito della distribuzione di un firewall nell'hub o se per un altro sito connesso è abilitato il tunneling forzato.
 
 ## <a name="security-and-policy-control"></a><a name="security"></a>Sicurezza e controllo dei criteri
 
@@ -137,6 +149,24 @@ Il transito protetto da VNet a Internet o di terze parti consente a reti virtual
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Da ramo a Internet o da un servizio di sicurezza di terze parti (j)
 Il transito sicuro da ramo a Internet o di terze parti consente ai Branch di connettersi a Internet o a servizi di sicurezza di terze parti supportati tramite il firewall di Azure nell'hub WAN virtuale.
+
+### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Ricerca per categorie abilitare la route predefinita (0.0.0.0/0) in un hub virtuale protetto
+
+Il firewall di Azure distribuito in un hub WAN virtuale (hub virtuale protetto) può essere configurato come router predefinito per Internet o provider di sicurezza attendibile per tutti i rami (connessi tramite VPN o Express Route), spoke reti virtuali e utenti (connessi tramite VPN P2S). Questa configurazione deve essere eseguita usando gestione firewall di Azure.  Vedere indirizzare il traffico all'hub per configurare tutto il traffico dai rami (inclusi gli utenti) e da reti virtuali a Internet tramite il firewall di Azure. 
+
+Si tratta di una configurazione in due passaggi:
+
+1. Configurare il routing del traffico Internet usando il menu di impostazione route dell'hub virtuale protetto. Configurare reti virtuali e Branch che possono inviare traffico a Internet tramite il firewall.
+
+2. Configurare le connessioni (VNET e Branch) in grado di instradare il traffico a Internet (0.0.0.0/0) tramite il FW di Azure nell'hub o nel provider di sicurezza attendibile. Questo passaggio garantisce che la route predefinita venga propagata a branch selezionati e reti virtuali collegati all'hub WAN virtuale tramite le connessioni. 
+
+### <a name="force-tunneling-traffic-to-on-premises-firewall-in-a-secured-virtual-hub"></a>Forzare il tunneling del traffico al firewall locale in un hub virtuale protetto
+
+Se è già stata appresa una route predefinita (tramite BGP) dall'hub virtuale da uno dei rami (siti VPN o ER), questa route predefinita viene sostituita dalla route predefinita appresa dall'impostazione di gestione firewall di Azure. In questo caso, tutto il traffico che entra nell'hub da reti virtuali e rami destinati a Internet viene indirizzato al firewall di Azure o a un provider di sicurezza attendibile.
+
+> [!NOTE]
+> Attualmente non è possibile selezionare un firewall locale o un firewall di Azure (e un provider di sicurezza attendibile) per il traffico associato a Internet originato da reti virtuali, rami o utenti. La route predefinita appresa dall'impostazione gestione firewall di Azure è sempre preferita rispetto alla route predefinita appresa da uno dei rami.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

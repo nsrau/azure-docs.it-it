@@ -9,9 +9,9 @@
 - name: Esercitazione
   items:
     - name: Regressione con Machine Learning automatizzato
-      href: /azure/machine-learning/service/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: /azure/machine-learning/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
     - name: Arricchire un modello di classificazione delle immagini
-      href: /azure/machine-learning/service/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: /azure/machine-learning/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
 - name: Guide pratiche
   items:
     - name: Set di dati in Azure Machine Learning
@@ -19,7 +19,7 @@
 - name: Esempi
   displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
   href: samples.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Python SDK
       displayName: api open datasets reference sdk
@@ -37,8 +37,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/open-datasets/'
-    - name: Disponibilità internazionale
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Disponibilità a livello di area
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=open-datasets&regions=non-regional'
     - name: Forum degli utenti
       href: 'https://aka.ms/open-datasets-forum'
     - name: Stack Overflow
