@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 60c59fdd64297ec99922dcdba4c474d7ae37d27b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: HT
+ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626855"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890861"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
 
@@ -27,18 +27,21 @@ Per informazioni sul recapito di eventi e sui nuovi tentativi, vedere [Recapito 
 
 Il portale visualizza le metriche per lo stato di recapito dei messaggi di evento.
 
-Per gli argomenti le metriche sono:
+Per gli argomenti, di seguito sono riportate alcune delle metriche:
 
 * **Publish Succeeded** (Pubblicazione riuscita): l'evento è stato inviato all'argomento ed elaborato con una risposta 2xx.
 * **Publish Failed** (Pubblicazione non riuscita): l'evento è stato inviato all'argomento, ma è stato rifiutato con un codice errore.
 * **Unmatched** (Non abbinato): l'evento è stato pubblicato nell'argomento, ma non abbinato a una sottoscrizione di eventi. L'evento è stato eliminato.
 
-Per le sottoscrizioni le metriche sono:
+Per le sottoscrizioni, di seguito sono riportate alcune delle metriche:
 
 * **Delivery Succeeded** (Recapito riuscito): l'evento è stato recapitato all'endpoint della sottoscrizione ed è stato ricevuta una risposta 2xx.
 * **Recapito non riuscito**: ogni volta che il servizio tenta di recapitare e il gestore eventi non restituisce un codice 2xx di esito positivo, viene incrementato il contatore **recapito non riuscito** . Se si tenta di recapitare lo stesso evento più volte e si verifica un errore, il contatore **recapito non riuscito** viene incrementato per ogni errore.
 * **Expired Events** (Eventi scaduti): l'evento non è stato recapitato e sono inviati tutti i tentativi di ripetizione del recapito. L'evento è stato eliminato.
 * **Matched Events** (Eventi abbinati): l'evento nell'argomento è stato abbinato dalla sottoscrizione di eventi.
+
+    > [!NOTE]
+    > Per l'elenco completo delle metriche, vedere [metriche supportate da griglia di eventi di Azure](metrics.md).
 
 ## <a name="event-subscription-status"></a>Stato della sottoscrizione di eventi
 
