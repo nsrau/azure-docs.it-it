@@ -2,23 +2,20 @@
 title: Monitorare le API pubblicate con Gestione API di Azure | Microsoft Docs
 description: Eseguire le procedure di questa esercitazione per monitorare le API con Gestione API di Azure.
 services: api-management
-documentationcenter: ''
 author: vladvino
 manager: cfowler
-editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79221928"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128851"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -28,7 +25,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Visualizzare log di attività
-> * Visualizzare i log di diagnostica
+> * Visualizzare i log risorse
 > * Visualizzare le metriche dell'API 
 > * Configurare una regola di avviso quando l'API riceve delle chiamate non autorizzate
 
@@ -36,11 +33,11 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
++ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -120,20 +117,20 @@ Per visualizzare i log di attività:
 
 3. Selezionare l'ambito di filtro desiderato e fare clic su **Applica**.
 
-## <a name="diagnostic-logs"></a>Log di diagnostica
+## <a name="resource-logs"></a>Log risorse
 
-I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli errori importanti per il controllo e per la risoluzione dei problemi. I log di diagnostica differiscono dai log attività. I log attività offrono informazioni approfondite sulle operazioni eseguite nelle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa.
+I log risorse offrono informazioni dettagliate sulle operazioni e gli errori importanti per il controllo e per la risoluzione dei problemi. I log risorse differiscono dai log attività. I log attività offrono dati analitici sulle operazioni eseguite nelle risorse di Azure. I log risorse offrono dati analitici sulle operazioni eseguite dalla risorsa.
 
-Per configurare i log di diagnostica:
+Per configurare i log risorse:
 
 1. Selezionare l'istanza del servizio Gestione API.
 2. Fare clic su **Impostazioni di diagnostica**.
 
-    ![Log di diagnostica](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    ![log risorse](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Fare clic su **Attiva diagnostica**. I log di diagnostica possono essere archiviati con le metriche in un account di archiviazione, trasmessi a un hub eventi o inviati ai log di Monitoraggio di Azure. 
+3. Fare clic su **Attiva diagnostica**. I log risorse possono essere archiviati con le metriche in un account di archiviazione, trasmessi a un hub eventi o inviati ai log di Monitoraggio di Azure. 
 
-Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole richieste API, dove ogni voce ha la struttura seguente:
+Attualmente Gestione API offre log risorse (in batch orari) sulle singole richieste API, dove ogni voce ha la struttura seguente:
 
 ```json
 {  
@@ -190,7 +187,7 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | callerIpAddress | string | Indirizzo IP del chiamante gateway immediato (può essere un intermediario) |
 | correlationId | string | Identificatore richiesta http univoco assegnato da Gestione API |
 | posizione | string | Nome dell'area di Azure in cui si trovava il gateway che ha elaborato la richiesta |
-| httpStatusCodeCategory | string | Categoria del codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
+| httpStatusCodeCategory | string | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
 | resourceId | string | ID della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Proprietà della richiesta corrente |
 | method | string | Metodo HTTP della richiesta in ingresso |
@@ -227,7 +224,7 @@ In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Visualizzare log di attività
-> * Visualizzare i log di diagnostica
+> * Visualizzare i log risorse
 > * Visualizzare le metriche dell'API
 > * Configurare una regola di avviso quando l'API riceve delle chiamate non autorizzate
 

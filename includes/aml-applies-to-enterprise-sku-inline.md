@@ -1,6 +1,6 @@
 ---
 title: includere il file
-description: File di inclusione
+description: Includere file
 services: machine-learning
 author: nibaccam
 ms.service: machine-learning

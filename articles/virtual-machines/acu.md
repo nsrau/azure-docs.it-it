@@ -13,16 +13,22 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: e344d09497a30dec546dfaedd3d78f30c7d214d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535698"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629100"
 ---
 # <a name="azure-compute-unit-acu"></a>Unità di calcolo di Azure
 
-Il concetto di unità di calcolo di Azure offre un modo per confrontare le prestazioni di calcolo (CPU) degli SKU di Azure. In questo modo, sarà più semplice identificare lo SKU più adatto a soddisfare le proprie esigenze di prestazioni. L'unità ACU adotta come standard una macchina virtuale Small (Standard_A1), a cui attribuisce il valore 100. Per tutte le altre SKU sarà quindi possibile valutare la maggiore velocità di elaborazione con cui sono in grado di eseguire un benchmark standard.
+Il concetto di unità di calcolo di Azure offre un modo per confrontare le prestazioni di calcolo (CPU) degli SKU di Azure. In questo modo, sarà più semplice identificare lo SKU più adatto a soddisfare le proprie esigenze di prestazioni. ACU è attualmente standardizzato in una macchina virtuale di piccole dimensioni (Standard_A1) 100, mentre tutti gli altri SKU rappresentano approssimativamente quanto più velocemente lo SKU può eseguire un benchmark standard
+
+*Le unità ACU usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità del miglioramento delle prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
+
+**Le unità ACU usano la tecnologia AMD® Boost per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità del miglioramento delle prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
+
+***Con hyperthreading e in grado di eseguire la virtualizzazione annidata
 
 > [!IMPORTANT]
 > L'unità ACU costituisce solo un'indicazione di riferimento. I risultati possono variare in base al carico di lavoro.
@@ -55,10 +61,6 @@ Il concetto di unità di calcolo di Azure offre un modo per confrontare le prest
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160-180 | 2:1\*\*\* |
-
-*Le unità ACU usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità del miglioramento delle prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
-**Le unità ACU usano la tecnologia AMD® Boost per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità del miglioramento delle prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
-***Con hyperthreading e in grado di eseguire la virtualizzazione annidata
 
 Per altre informazioni sulle diverse dimensioni, leggere quanto segue:
 

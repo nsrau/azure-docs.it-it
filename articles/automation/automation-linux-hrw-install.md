@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38e9134fdd6fb922fd9ed6efa9aa258a77487013
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: 82f6d9e56e5d5745077ef512cb3392c16b95961f
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787567"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872176"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -73,6 +73,9 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seg
 Per installare e configurare un ruolo di lavoro ibrido per Runbook nel computer Linux, seguire una procedura manuale semplice. È necessario abilitare la soluzione Ruolo di lavoro ibrido per runbook di Automazione nell'area di lavoro Log Analytics di Azure e quindi eseguire un set di comandi per registrare il computer come ruolo di lavoro e aggiungerlo a un gruppo.
 
 Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è collegato l'account di Automazione. Prendere anche nota della chiave primaria per l'account di Automazione. È possibile trovare entrambi nel portale di Azure, selezionando l'account di Automazione, **Area di lavoro** per l'ID dell'area di lavoro e selezionando **Chiavi** per la chiave primaria. Per informazioni sulle porte e sugli indirizzi necessari per il ruolo di lavoro ibrido per runbook, vedere [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
+
+>[!NOTE]
+> L' [account nxautomation](automation-runbook-execution.md#log-analytics-agent-for-linux) con le autorizzazioni sudo corrispondenti deve essere presente durante l'installazione del ruolo di lavoro ibrido per Linux. Se si tenta di installare il ruolo di lavoro e l'account non è presente o non dispone delle autorizzazioni appropriate, l'installazione non riesce.
 
 1. Abilitare la soluzione Ruolo di lavoro ibrido per runbook di Automazione in Azure usando uno dei metodi seguenti:
 

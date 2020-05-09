@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6574ccd7616ac1442b1c8c69b6218431ad912ab3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 47663072be0931961d0f2fded938322027148d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204220"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929282"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati di Windows
 
@@ -68,7 +68,7 @@ Il Jupyter Notebook offre un IDE basato sul browser per l'esplorazione e la mode
 
 Per avviare la Jupyter Notebook, selezionare l'icona **Jupyter notebook** dal menu **Start** o sul desktop. Al prompt dei comandi di DSVM è anche possibile eseguire il comando ```jupyter notebook``` dalla directory in cui sono presenti notebook o in cui si desidera creare nuovi notebook.  
 
-Dopo l'avvio di Jupyter, viene visualizzata una directory contenente alcuni notebook di esempio pre-assemblati in DSVM. A questo punto è possibile:
+Dopo l' `/notebooks` avvio di Jupyter, passare alla directory per i notebook di esempio pre-assemblati in DSVM. A questo punto è possibile:
 
 * Selezionare il notebook per visualizzare il codice.
 * Eseguire ogni cella selezionando MAIUSC + INVIO.
@@ -134,7 +134,7 @@ IrisPredictor(3,2,3,4)
 > 
 
 ### <a name="build-and-operationalize-r-models"></a>Compilare e rendere operativo i modelli R
-È possibile distribuire modelli R compilati nella Data Science Virtual Machine o altrove in Azure Machine Learning in modo analogo a come avviene per Python. I passaggi necessari sono i seguenti:
+È possibile distribuire modelli R compilati nella Data Science Virtual Machine o altrove in Azure Machine Learning in modo analogo a come avviene per Python. Seguire questa procedura:
 
 1. Creare un file Settings. JSON per fornire l'ID dell'area di lavoro e il token di autenticazione. 
 2. Scrivere un wrapper per la funzione Predict del modello.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 11942a08d46f4b46dc5478fca4b64796b9ce0a7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176125"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801317"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -213,7 +213,7 @@ Un endpoint server non può registrare l'attività di sincronizzazione per diver
 > [!Note]  
 > Se lo stato del server nel pannello Server registrati è "offline", eseguire i passaggi illustrati nell' [endpoint server con stato di integrità "nessuna attività" o "in sospeso" e lo stato del server nel pannello Server registrati è "visualizzato offline"](#server-endpoint-noactivity) .
 
-## <a name="sync"></a>Sincronizzazione
+## <a name="sync"></a>Sincronizza
 <a id="afs-change-detection"></a>**Se è stato creato un file direttamente nella condivisione file di Azure su SMB o tramite il portale, quanto tempo richiede la sincronizzazione del file nei server nel gruppo di sincronizzazione?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -807,12 +807,9 @@ Questo errore si verifica a causa di un problema interno con il database di sinc
 | **Stringa di errore** | ECS_E_INVALID_AAD_TENANT |
 | **Rimedio necessario** | Sì |
 
-Questo errore si verifica perché Sincronizzazione file di Azure non supporta attualmente il trasferimento della sottoscrizione a un tenant Azure Active Directory diverso.
+Assicurarsi di disporre della versione più recente di Sincronizzazione file di Azure Agent. A partire da Agent V10, Sincronizzazione file di Azure supporta lo stato di trasferimento della sottoscrizione a un tenant Azure Active Directory diverso.
  
-Per risolvere il problema, eseguire una delle procedure seguenti:
-
-- **Opzione 1 (scelta consigliata)**: spostare nuovamente la sottoscrizione nel tenant di Azure Active Directory originale
-- **Opzione 2**: eliminare e ricreare il gruppo di sincronizzazione corrente. Se è stata abilitata la suddivisione in livelli nel cloud nell'endpoint server, eliminare il gruppo di sincronizzazione e quindi eseguire i passaggi descritti nella [sezione Suddivisione in livelli cloud]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) per rimuovere i file a livelli orfani prima di ricreare i gruppi di sincronizzazione. 
+Dopo aver ottenuto la versione più recente dell'agente, è necessario concedere all'applicazione Microsoft. StorageSync l'accesso all'account di archiviazione. vedere [verificare che sincronizzazione file di Azure abbia accesso all'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot#troubleshoot-rbac).
 
 <a id="-2134364010"></a>**Sincronizzazione non riuscita a causa di un'eccezione di firewall e rete virtuale non configurata**  
 
@@ -998,7 +995,7 @@ if ($fileShare -eq $null) {
 
     Se il servizio **Microsoft. StorageSync** o **Hybrid sincronizzazione file** non è presente nell'elenco, seguire questa procedura:
 
-    - Fare clic su **Aggiungi**.
+    - Scegliere **Aggiungi**.
     - Nel campo **Ruolo** selezionare **Lettore e accesso ai dati**.
     - Nel campo **Seleziona** digitare **Microsoft. StorageSync**, selezionare il ruolo e fare clic su **Salva**.
 
@@ -1248,7 +1245,25 @@ Se si verificano problemi con Sincronizzazione file di Azure in un server, per p
 3. Verificare che i driver di filtro di Sincronizzazione file di Azure (StorageSync.sys e StorageSyncGuard.sys) siano in esecuzione:
     - Al prompt dei comandi con privilegi elevati. eseguire `fltmc`. Verificare che i driver di filtro del file system StorageSync.sys e StorageSyncGuard.sys siano presenti nell'elenco.
 
-Se il problema persiste, eseguire lo strumento AFSDiag:
+Se il problema non viene risolto, eseguire lo strumento AFSDiag e inviare l'output del file con estensione zip al tecnico del supporto assegnato al caso per un'ulteriore diagnosi.
+
+Per la versione dell'agente V11 e versioni successive:
+
+1. Aprire una finestra di PowerShell con privilegi elevati ed eseguire i comandi seguenti, premendo INVIO dopo ogni comando:
+
+    > [!NOTE]
+    >AFSDiag creerà la directory di output e una cartella temporanea al suo interno prima di raccogliere i log e eliminerà la cartella temporanea dopo l'esecuzione. Specificare un percorso di output che non contenga dati.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Riprodurre il problema. Al termine immettere **D**.
+3. Nella directory di output specificata verrà salvato un file con estensione zip contenente i log e i file di traccia. 
+
+Per Agent versione V10 e versioni precedenti:
 1. Creare una directory in cui verranno salvati i risultati di AFSDiag, ad esempio C:\Output.
     > [!NOTE]
     >AFSDiag eliminerà tutto il contenuto nella directory di output prima di raccogliere i log. Specificare un percorso di output che non contenga dati.

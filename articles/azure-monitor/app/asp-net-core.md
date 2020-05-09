@@ -2,19 +2,19 @@
 title: Applicazione Azure Insights per le applicazioni ASP.NET Core | Microsoft Docs
 description: Monitorare le applicazioni Web ASP.NET Core per identificare disponibilità, prestazioni e utilizzo.
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: e8ace92c39ed6b7bdcca0bae14cc0ae95aced2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 9c7c2e22d2befb503a388df1fa8a42c3d6eb07c5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145269"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652780"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
 Questo articolo descrive come abilitare Application Insights per un'applicazione [ASP.NET Core](https://docs.microsoft.com/aspnet/core) . Al termine delle istruzioni riportate in questo articolo, Application Insights raccoglierà richieste, dipendenze, eccezioni, contatori delle prestazioni, heartbeat e log dall'applicazione ASP.NET Core.
 
-L'esempio che verrà usato qui è un' [applicazione MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) destinata `netcoreapp2.2`a. È possibile applicare queste istruzioni a tutte ASP.NET Core applicazioni.
+L'esempio che verrà usato qui è un' [applicazione MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) destinata `netcoreapp3.0`a. È possibile applicare queste istruzioni a tutte ASP.NET Core applicazioni.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
@@ -28,7 +28,7 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 * **IDE**: Visual Studio, vs code o riga di comando.
 
 > [!NOTE]
-> Se si usa ASP.NET Core 3. X insieme a Application Insights, usare la versione [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o successiva. Questa è l'unica versione che supporta ASP.NET Core 3. X.
+> ASP.NET Core 3. X richiede [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o versione successiva.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -109,7 +109,9 @@ Il [Application Insights SDK per ASP.NET Core è in grado di](https://nuget.org/
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    In genere `APPINSIGHTS_INSTRUMENTATIONKEY` , specifica la chiave di strumentazione per le applicazioni distribuite in app Web di Azure.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY`viene in genere usato nelle [app Web di Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net), ma può essere usato anche in tutte le posizioni in cui questo SDK è supportato. Se si sta eseguendo il monitoraggio di app Web senza codice, questo formato è obbligatorio se non si usano stringhe di connessione.
+
+    Anziché impostare le chiavi di strumentazione, è ora possibile utilizzare anche le [stringhe di connessione](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net).
 
     > [!NOTE]
     > Una chiave di strumentazione specificata nel codice prevale sulla variabile `APPINSIGHTS_INSTRUMENTATIONKEY`di ambiente, che prevale su altre opzioni.
@@ -126,7 +128,7 @@ Eseguire l'applicazione e creare richieste. I dati di telemetria dovrebbero ora 
 
 I log emessi tramite `ILogger` un livello `Warning` di gravità o maggiore vengono acquisiti automaticamente. Seguire i [documenti di ILogger](ilogger.md#control-logging-level) per personalizzare i livelli di log acquisiti da Application Insights.
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 
 La raccolta delle dipendenze è abilitata per impostazione predefinita. [Questo](asp-net-dependencies.md#automatically-tracked-dependencies) articolo illustra le dipendenze che vengono raccolte automaticamente e contiene anche i passaggi per eseguire il rilevamento manuale.
 
@@ -209,7 +211,7 @@ Elenco completo delle impostazioni in`ApplicationInsightsServiceOptions`
 |EnableAzureInstanceMetadataTelemetryModule   |  Abilita/Disabilita`AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Abilita/Disabilita la funzionalità LiveMetrics | true
 |EnableAdaptiveSampling | Abilita/Disabilita il campionamento adattivo | true
-|EnableHeartbeat | Abilita/Disabilita la funzionalità heartbeat, che periodicamente (15 minuti per impostazione predefinita) Invia una metrica personalizzata denominata ' HeartBeatState ' con informazioni sul runtime come la versione .NET, le informazioni sull'ambiente di Azure, se applicabile e così via. | true
+|EnableHeartbeat | Abilita/Disabilita la funzionalità heartbeat, che periodicamente (15 minuti per impostazione predefinita) Invia una metrica personalizzata denominata ' HeartbeatState ' con informazioni sul runtime come la versione .NET, le informazioni sull'ambiente di Azure, se applicabile e così via. | true
 |AddAutoCollectedMetricExtractor | Abilita/Disabilita AutoCollectedMetrics Extractor, ovvero un TelemetryProcessor che invia metriche pre-aggregate relative a richieste/dipendenze prima che venga eseguita il campionamento. | true
 |RequestCollectionOptions.TrackExceptions | Abilitare/disabilitare la creazione di report per il rilevamento delle eccezioni non gestite da parte del modulo di raccolta della richiesta. | false in NETSTANDARD 2.0 (poiché le eccezioni vengono rilevate con ApplicationInsightsLoggerProvider); in caso contrario, true.
 

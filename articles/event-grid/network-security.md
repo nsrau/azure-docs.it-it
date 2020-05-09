@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79300154"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857055"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sicurezza di rete per le risorse di griglia di eventi di Azure
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con griglia di eventi di Azure: 
@@ -70,7 +70,7 @@ Quando viene risolto da VNet che ospita l'endpoint privato, l'argomento o l'URL 
 | Nome                                          | Type      | valore                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | Una         | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | Una          | 10.0.0.5
 
 Questo approccio consente di accedere all'argomento o al dominio usando la stessa stringa di connessione per i client in VNet che ospitano gli endpoint privati e i client esterni al VNet.
 
@@ -92,10 +92,9 @@ Nella tabella seguente vengono descritti i vari Stati della connessione all'endp
 Per la corretta pubblicazione, lo stato di connessione dell'endpoint privato deve essere **approvato**. Se una connessione viene rifiutata, non può essere approvata utilizzando la portale di Azure. L'unica possibilità consiste nell'eliminare la connessione e crearne una nuova.
 
 ## <a name="pricing-and-quotas"></a>Prezzi e quote
-Gli **endpoint privati** sono disponibili solo con argomenti e domini del livello Premium. Griglia di eventi consente di creare fino a 64 connessioni all'endpoint privato per ogni argomento o dominio. Per eseguire l'aggiornamento dal livello Basic al livello Premium, vedere l'articolo relativo all'aggiornamento del piano [tariffario](update-tier.md) .
+Gli **endpoint privati** sono disponibili sia nei livelli Basic che Premium di griglia di eventi. Griglia di eventi consente di creare fino a 64 connessioni all'endpoint privato per ogni argomento o dominio. 
 
 La funzionalità **firewall IP** è disponibile nei livelli Basic e Premium di griglia di eventi. È possibile creare fino a 16 regole del firewall IP per argomento o dominio.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile configurare il firewall IP per la risorsa di griglia di eventi per limitare l'accesso tramite la rete Internet pubblica solo da un set di indirizzi IP o intervalli di indirizzi IP selezionati. Per istruzioni dettagliate, vedere [configurare il firewall IP](configure-firewall.md).

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 350fd9c7057df96a4ad1abc0d9c8b5ec3871ef38
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b1c755176a62b7e362707da093a899ae96cfe69a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271659"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128881"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -230,7 +230,7 @@ Gli strumenti moderni per l'esplorazione e la visualizzazione dei dati come Powe
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 
-Azure Analysis Services, essendo integrato con le metriche di Azure, fornisce un numero elevato di metriche specifiche delle risorse, che consentono di monitorare le prestazioni e l'integrità dei server. Per altre informazioni, vedere [Monitorare le metriche dei server](analysis-services-monitor.md). Registrare le metriche con i [log di diagnostica di risorse di Azure](../azure-monitor/platform/platform-logs-overview.md). Monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/), che è un servizio di [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Per altre informazioni, vedere [Configurare la registrazione diagnostica](analysis-services-logging.md).
+Azure Analysis Services, essendo integrato con le metriche di Monitoraggio di Azure, fornisce un numero elevato di metriche specifiche delle risorse, che consentono di monitorare le prestazioni e l'integrità dei server. Per altre informazioni, vedere [Monitorare le metriche dei server](analysis-services-monitor.md). Registrare le metriche con i [log della piattaforma di risorse](../azure-monitor/platform/platform-logs-overview.md). Monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/), che è un servizio di [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Per altre informazioni, vedere [Configurare la registrazione diagnostica](analysis-services-logging.md).
 
 Azure Analysis Services supporta anche l'uso delle viste [DMV](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Le viste DMV, basate sulla sintassi SQL, interfacciano i set di righe dello schema che restituiscono metadati e informazioni di monitoraggio sull'istanza del server.
 

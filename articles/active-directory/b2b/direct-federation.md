@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 474d2e0c31eed852ba96780ca996eca632bd5842
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050889"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926987"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con AD FS e provider di terze parti per utenti Guest (anteprima)
 |     |
@@ -31,7 +31,7 @@ Quando si configura la Federazione diretta con l'IdP di un partner, i nuovi uten
 > Gli utenti guest di federazione diretta devono accedere usando un collegamento che includa il contesto del tenant ( `https://myapps.microsoft.com/?tenantid=<tenant id>` ad `https://portal.azure.com/<tenant id>`esempio, o o nel caso di un dominio verificato `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). È possibile usare anche collegamenti diretti alle applicazioni e alle risorse, purché includano tale contesto. Gli utenti di federazione diretta non sono attualmente in grado di eseguire l'accesso usando endpoint comuni senza contesto tenant. Ad esempio, se `https://myapps.microsoft.com`si `https://portal.azure.com`USA, `https://teams.microsoft.com` o verrà generato un errore.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quando un utente guest esegue l'autenticazione con la Federazione diretta?
-Dopo aver configurato la Federazione diretta con un'organizzazione, tutti i nuovi utenti Guest invitati verranno autenticati tramite federazione diretta. È importante notare che la configurazione della Federazione diretta non modifica il metodo di autenticazione per gli utenti guest che hanno già riscattato un invito da parte dell'utente. Di seguito sono riportati alcuni esempi:
+Dopo aver configurato la Federazione diretta con un'organizzazione, tutti i nuovi utenti Guest invitati verranno autenticati tramite federazione diretta. È importante notare che la configurazione della Federazione diretta non modifica il metodo di autenticazione per gli utenti guest che hanno già riscattato un invito da parte dell'utente. Ecco alcuni esempi:
  - Se gli utenti Guest hanno già riscattato gli inviti e successivamente si è configurata la Federazione diretta con l'organizzazione, gli utenti Guest continueranno a usare lo stesso metodo di autenticazione usato prima di configurare la Federazione diretta.
  - Se si configura la Federazione diretta con un'organizzazione partner e si invitano utenti guest e quindi l'organizzazione partner passa successivamente a Azure AD, gli utenti guest che hanno già riscattato gli inviti continueranno a usare la Federazione diretta, purché esistano i criteri di Federazione diretti nel tenant.
  - Se si elimina la Federazione diretta con un'organizzazione partner, gli utenti guest che attualmente usano la Federazione diretta non saranno in grado di eseguire l'accesso.
@@ -50,10 +50,13 @@ Il dominio con cui si vuole eseguire la federazione ***non*** deve essere verifi
 
 ### <a name="authentication-url"></a>URL di autenticazione
 La Federazione diretta è consentita solo per i criteri in cui il dominio dell'URL di autenticazione corrisponde al dominio di destinazione o in cui l'URL di autenticazione è uno dei provider di identità consentiti (questo elenco è soggetto a modifiche):
+
 -   accounts.google.com
 -   pingidentity.com
 -   login.pingone.com
 -   okta.com
+-   oktapreview.com
+-   okta-emea.com
 -   my.salesforce.com
 -   federation.exostar.com
 -   federation.exostartest.com
@@ -95,7 +98,7 @@ Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specific
 
 Attributi obbligatori per la risposta SAML 2,0 da IdP:
 
-|Attributo  |valore  |
+|Attributo  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Destinatari     |`urn:federation:MicrosoftOnline`         |
@@ -104,7 +107,7 @@ Attributi obbligatori per la risposta SAML 2,0 da IdP:
 
 Attestazioni necessarie per il token SAML 2,0 emesso da IdP:
 
-|Attributo  |valore  |
+|Attributo  |Value  |
 |---------|---------|
 |Formato NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -121,7 +124,7 @@ Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specific
 
 Attributi obbligatori nel messaggio WS-Fed dall'IdP:
  
-|Attributo  |valore  |
+|Attributo  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Destinatari     |`urn:federation:MicrosoftOnline`         |
@@ -129,7 +132,7 @@ Attributi obbligatori nel messaggio WS-Fed dall'IdP:
 
 Attestazioni necessarie per il token WS-Fed emesso da IdP:
 
-|Attributo  |valore  |
+|Attributo  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

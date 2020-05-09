@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 84846e642fa102045b89eb12dbc85b0995867a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: a13b860e01e7ef295df629d79dfa44700b5f0d02
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061588"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691598"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -48,13 +48,27 @@ La modifica del livello di servizio o delle dimensioni di calcolo di comporta pr
 
 ## <a name="latency"></a>Latenza 
 
-La latenza stimata per modificare il livello di servizio o ridimensionare le dimensioni di calcolo di un singolo database o di un pool elastico è parametrizzata come indicato di seguito:
+La latenza stimata per modificare il livello di servizio, ridimensionare le dimensioni di calcolo di un singolo database o di un pool elastico, spostare un database all'interno o all'esterno di un pool elastico oppure spostare un database tra pool elastici è parametrizzato come indicato di seguito:
 
 |Livello di servizio|Database singolo di base,</br>Standard (S0-S1)|Pool elastico di base,</br>Standard (S2-S12), </br>Con iperscalabilità </br>per utilizzo generico database singolo o il pool elastico|Premium o business critical database singolo o pool elastico|
 |:---|:---|:---|:---|
 |**Database singolo Basic,</br> standard (S0-S1)**|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
 |**Pool elastico Basic </br>, standard (S2-S12) </br>, iperscalabilità, </br>per utilizzo generico database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza temporale costante indipendente dallo spazio usato</br>&bull;&nbsp;In genere, meno di 5 minuti|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
 |**Premium o business critical database singolo o pool elastico**|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|&bull;&nbsp;Latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull;&nbsp;In genere, meno di 1 minuto per GB di spazio usato|
+
+> [!NOTE]
+> Inoltre, per i database standard (S2-S12) e per utilizzo generico, la latenza per lo stato di trasferimento di un database all'interno o all'esterno di un pool elastico o tra pool elastici sarà proporzionale alle dimensioni del database se il database utilizza l'archiviazione di condivisione file Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)).
+>
+> Per determinare se un database utilizza l'archiviazione PFS, eseguire la query seguente nel contesto del database. Se il valore nella colonna AccountType è `PremiumFileStorage`, il database utilizza l'archiviazione PFS.
+ 
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
 
 > [!TIP]
 > Per monitorare le operazioni in corso, vedere: [gestire le operazioni tramite l'API REST di SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gestire le operazioni tramite l'interfaccia](/cli/azure/sql/db/op)della riga di comando, [monitorare le operazioni usando T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e questi due comandi di PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).

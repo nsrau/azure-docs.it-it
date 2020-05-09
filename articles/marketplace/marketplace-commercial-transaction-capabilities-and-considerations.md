@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: f6684c7ea16b4d495bd7273742f585102a719d06
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: 4aeae69dd50e8c233a1903f6f2c7bd7795b8d7b9
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780384"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857226"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità Transact del Marketplace commerciale
 
@@ -145,34 +145,6 @@ Per determinati prodotti SaaS pubblicati sul Marketplace commerciale, Microsoft 
 **Enterprise Agreement** : se il metodo di fatturazione preferito del cliente è Microsoft Enterprise Agreement, i costi delle licenze software verranno fatturati usando questo metodo di fatturazione come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
 
 **Carte di credito e fattura mensile** : i clienti possono anche pagare usando una carta di credito e una fattura mensile. In questo caso, le tariffe della licenza software verranno fatturate come nello scenario Enterprise Agreement, ovvero come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
-
-Se ad esempio il cliente effettua un acquisto con la carta di credito:
-
-|Descrizione    |    Data  |
-|----------|----------|
-|Periodo dell'ordine   | 15 ago 2018 - 30 ago 2018 |
-|Fine periodo (mese)   | 30 ago 2018 |
-|Data di fatturazione | 1 set 2018 |
-|Data pagamento cliente | 1 set 2018 |
-|Periodo deposito (solo carte di credito, 30 giorni) | 1 settembre 2018-30 settembre, 2018 |
-|Inizio periodo riscossione | 1 set 2018 |
-|Fine periodo riscossione (massimo 30 giorni) | 30 set 2018 |
-|Data calcolo proventi (il giorno 15 di ogni mese) | 1 ott 2018 |
-|Payout Date | 15 ott 2018 |
-
-Se il cliente effettua un acquisto con un contratto Enterprise Agreement:
-
-| Descrizione |    Data  |
-|----------|----------|
-|Periodo dell'ordine | 15 ago 2018 - 30 ago 2018 |
-|Fine periodo (trimestre) | 30 set 2018 |
-|Data di fatturazione | 15 ott 2018 |
-|Periodo deposito (solo carte di credito, 30 giorni) | n/d |
-|Inizio periodo riscossione | 15 ott 2018 |
-|Fine periodo riscossione (massimo 90 giorni) | 15 gen 2019 |
-|Data pagamento cliente | 30 dic 2018 |
-|Data calcolo proventi (il giorno 15 di ogni mese) | 15 gen 2019 |
-|Payout Date | 15 feb 2019 |
 
 **Crediti gratuiti e impegno monetario** : alcuni clienti scelgono di pagare in anticipo Azure con un impegno monetario nel Enterprise Agreement o hanno fornito crediti gratuiti per l'uso con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
 

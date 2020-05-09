@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7b1fd34824bec9641edc94ce278fa21a1b57b2c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74107668"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202741"
 ---
 # <a name="import-soap-api"></a>Importare un'API SOAP
 
-Questo articolo illustra come importare una rappresentazione XML standard di un'API SOAP e come testare l'API di Gestione API.
+Questo articolo illustra come importare una rappresentazione XML standard di un'API SOAP Viene inoltre descritto come testare l'API di Gestione API.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -30,15 +30,15 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
+Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importare e pubblicare un'API back-end
 
-1. Selezionare **API** in **GESTIONE API**.
+1. Passare al servizio Gestione API nel portale di Azure e selezionare **API** dal menu.
 2. Selezionare **WSDL** nell'elenco **Add a new API** (Aggiungere una nuova API).
 
     ![API SOAP](./media/import-soap-api/wsdl-api.png)
@@ -50,7 +50,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
 
     Nei campi seguenti verranno inserite le informazioni dell'API SOAP: nome visualizzato, nome e descrizione.
 6. Aggiungere un suffisso dell'URL dell'API. Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.
-9. Pubblicare l'API associandola a un prodotto. In questo caso viene usato il prodotto "*Unlimited*".  Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.
+7. Pubblicare l'API associandola a un prodotto. In questo caso viene usato il prodotto "*Unlimited*".  Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.
 
     I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.
 
@@ -58,7 +58,8 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
 
     * **Starter**
     * **Illimitato**   
-10. Selezionare **Create** (Crea).
+8. Immettere altre impostazioni API. È possibile impostare i valori durante la creazione o configurarli successivamente passando alla scheda **Impostazioni**. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#-import-and-publish-a-backend-api).
+9. Selezionare **Create** (Crea).
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Testare la nuova API nel portale amministrativo
 

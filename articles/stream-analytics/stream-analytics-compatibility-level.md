@@ -125,7 +125,7 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**livello 1,1:** Il contenuto del messaggio contiene direttamente il flusso senza tag aggiuntivi. ad esempio `{ "SensorId":"1", "Temperature":64}`
+**livello 1,1:** Il contenuto del messaggio contiene direttamente il flusso senza tag aggiuntivi. Ad esempio: `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>Distinzione maiuscole/minuscole persistente nei nomi dei campi
 
