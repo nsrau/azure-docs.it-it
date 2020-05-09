@@ -9,18 +9,18 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: a0d5bf795e4759a105b9a235770f37aa10bd6751
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385545"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995029"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Training distribuito con Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulla formazione distribuita e sul modo in cui Azure Machine Learning lo supporta per i modelli di apprendimento avanzato. 
 
-Nel training distribuito, il carico di lavoro per il training di un modello viene suddiviso e condiviso tra più processori mini, detti nodi di lavoro. Questi nodi di lavoro funzionano in parallelo per velocizzare il training del modello. Il training distribuito può essere usato per i modelli di machine learning tradizionali, ma è più adatto per le attività di calcolo e a elevato utilizzo di tempo, come l' [apprendimento](concept-deep-learning-vs-machine-learning.md) avanzato per la formazione di reti neurali profonde.
+Nel training distribuito, il carico di lavoro per il training di un modello viene suddiviso e condiviso tra più processori mini, detti nodi di lavoro. Questi nodi di lavoro funzionano in parallelo per velocizzare il training del modello. Il training distribuito può essere usato per i modelli di machine learning tradizionali, ma è più adatto per le attività di calcolo e a elevato utilizzo di tempo, come l' [apprendimento](concept-deep-learning-vs-machine-learning.md) avanzato per la formazione di reti neurali profonde. 
 
 ## <a name="deep-learning-and-distributed-training"></a>Apprendimento avanzato e formazione distribuita 
 
@@ -36,7 +36,9 @@ Per i modelli ML che non richiedono la formazione distribuita, vedere eseguire i
 
 Il parallelismo dei dati è il più semplice da implementare dei due approcci di training distribuiti ed è sufficiente per la maggior parte dei casi d'uso.
 
-In questo approccio i dati vengono divisi in partizioni, in cui il numero di partizioni è uguale al numero totale di nodi disponibili nel cluster di calcolo. Il modello viene copiato in ognuno di questi nodi di lavoro e ogni thread di lavoro opera sul proprio subset di dati. Tenere presente che ogni nodo deve avere la capacità di supportare il modello di cui è in corso il training, ovvero che il modello deve adattarsi interamente a ogni nodo.
+In questo approccio i dati vengono divisi in partizioni, in cui il numero di partizioni è uguale al numero totale di nodi disponibili nel cluster di calcolo. Il modello viene copiato in ognuno di questi nodi di lavoro e ogni thread di lavoro opera sul proprio subset di dati. Tenere presente che ogni nodo deve avere la capacità di supportare il modello di cui è in corso il training, ovvero che il modello deve adattarsi interamente a ogni nodo. Il diagramma seguente fornisce una dimostrazione visiva di questo approccio.
+
+![Data-parallelism-Concept-Diagram](./media/concept-distributed-training/distributed-training.svg)
 
 Ogni nodo calcola in modo indipendente gli errori tra le stime per i relativi esempi di training e gli output con etichetta. A sua volta, ogni nodo aggiorna il modello in base agli errori e deve comunicare tutte le modifiche apportate agli altri nodi per aggiornare i modelli corrispondenti. Ciò significa che i nodi del ruolo di lavoro devono sincronizzare i parametri del modello, o le sfumature, alla fine del calcolo batch per assicurarsi che siano in grado di eseguire il training di un modello coerente. 
 
