@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67454139"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691326"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considerazioni sulle prestazioni per Azure NetApp Files
 
@@ -34,8 +34,6 @@ Considerazioni tipiche relative alle prestazioni di archiviazione, tra cui la co
 La velocità effettiva empirica massima osservata nel testing è 4.500 MiB/s.  Al livello di archiviazione Premium, una quota di volumi di 70,31 TiB effettuerà il provisioning di un limite di velocità effettiva sufficientemente elevato per ottenere questo livello di prestazioni.  
 
 Se si sta valutando di assegnare gli importi di quota del volume oltre 70,31 TiB, è possibile assegnare una quota aggiuntiva a un volume per l'archiviazione di dati aggiuntivi. Tuttavia, la quota aggiunta non comporterà un ulteriore aumento della velocità effettiva effettiva.  
-
-Per ulteriori informazioni, vedere [benchmark delle prestazioni per Azure NetApp files](azure-netapp-files-performance-benchmarks.md) .
 
 ## <a name="overprovisioning-the-volume-quota"></a>Overprovisioning della quota del volume
 
@@ -64,4 +62,4 @@ Se i requisiti di prestazioni sono di natura temporanea o se si hanno esigenze d
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Livelli di servizio per Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Benchmark delle prestazioni per Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Benchmark delle prestazioni per Linux](performance-benchmarks-linux.md)

@@ -1,22 +1,17 @@
 ---
-title: Autenticazione in Azure Data Lake Storage Gen1 tramite Azure Active Directory | Microsoft Docs
-description: Informazioni su come eseguire l'autenticazione con Azure Data Lake Storage Gen1 tramite Azure Active Directory
-services: data-lake-store
-documentationcenter: ''
+title: Autenticazione-Data Lake Storage Gen1 con Azure AD
+description: Informazioni su come eseguire l'autenticazione con Azure Data Lake Storage Gen1 usando Azure Active Directory.
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 49e6df417190071e06582be400575e1880f2543a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60193595"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692293"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticazione con Azure Data Lake Storage Gen1 tramite Azure Active Directory
 
