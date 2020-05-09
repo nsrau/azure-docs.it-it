@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4770b3ae7c52b9a05ff704915a3e9f401fd1741
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457876"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889616"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -237,7 +237,7 @@ Per altre informazioni sui webhook e su come usarli con gli avvisi, vedere [Conf
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Visualizzare i log contatori ed eventi usando i [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md).
-* Post di blog [Visualize your Azure activity log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizzare il log attività di Azure con Power BI).
+* Post di blog [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) (Visualizzare il log attività di Azure con Power BI).
 * Post di blog [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Visualizzare e analizzare i log attività di Azure in Power BI e altre opzioni).
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

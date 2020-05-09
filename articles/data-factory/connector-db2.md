@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/07/2020
 ms.author: jingwang
-ms.openlocfilehash: 2c2071e4b2a3daa528c7d01f64e38247b063e6f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f705a0a56975860cf07d8a9b09de9999a923501
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417428"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891432"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiare dati da DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -57,7 +57,7 @@ In particolare, il connettore DB2 supporta le piattaforme e le versioni di IBM D
 
 Il runtime di integrazione offre un driver per DB2 integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in DB2.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -70,6 +70,13 @@ Per il servizio collegato di DB2 sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Db2** | Sì |
+| connectionString | Specificare le informazioni necessarie per la connessione all'istanza di DB2.<br/> È anche possibile inserire la password in Azure Key Vault ed eseguire lo spostamento forzato dei dati della configurazione `password` all'esterno della stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+
+Proprietà tipiche all'interno della stringa di connessione:
+
+| Proprietà | Descrizione | Obbligatoria |
+|:--- |:--- |:--- |
 | server |Nome del server DB2. È possibile specificare il numero di porta dopo il nome del server delimitato da due punti, ad esempio `server:port`. |Sì |
 | database |Nome del database DB2. |Sì |
 | authenticationType |Tipo di autenticazione usato per connettersi al database DB2.<br/>Il valore consentito è: **Di base**. |Sì |
@@ -77,12 +84,56 @@ Per il servizio collegato di DB2 sono supportate le proprietà seguenti:
 | password |Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | packageCollection | Specificare in dove i pacchetti necessari vengono creati automaticamente da ADF quando si eseguono query sul database. | No |
 | certificateCommonName | Quando si usa la crittografia Secure Sockets Layer (SSL) o Transport Layer Security (TLS), è necessario immettere un valore per nome comune del certificato. | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!TIP]
 > Se viene visualizzato un messaggio di errore che `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`indica che il motivo è un pacchetto necessario non viene creato per l'utente. Per impostazione predefinita, ADF tenterà di creare un pacchetto in una raccolta denominata come utente usato per la connessione a DB2. Specificare la proprietà raccolta pacchetti per indicare in dove si desidera che ADF crei i pacchetti necessari durante l'esecuzione di query sul database.
 
 **Esempio:**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+**Esempio: archiviare la password in Azure Key Vault**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Se si usa il servizio collegato DB2 con il payload seguente, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+
+**Payload precedente:**
 
 ```json
 {
@@ -196,28 +247,28 @@ Quando si copiano dati da DB2, vengono usati i mapping seguenti tra i tipi di da
 | BigInt |Int64 |
 | Binary |Byte[] |
 | BLOB |Byte[] |
-| Char |Stringa |
-| Clob |Stringa |
+| Char |string |
+| Clob |string |
 | Data |Datetime |
-| DB2DynArray |Stringa |
-| DbClob |Stringa |
+| DB2DynArray |string |
+| DbClob |string |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |Stringa |
+| Graphic |string |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Stringa |
-| LongVarGraphic |Stringa |
+| LongVarChar |string |
+| LongVarGraphic |string |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
 | Tempo |TimeSpan |
 | Timestamp |Datetime |
 | VarBinary |Byte[] |
-| VarChar |Stringa |
-| VarGraphic |Stringa |
+| VarChar |string |
+| VarGraphic |string |
 | Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
