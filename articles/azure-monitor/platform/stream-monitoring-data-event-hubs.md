@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733094"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854611"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi
 Monitoraggio di Azure offre una soluzione completa per il monitoraggio completo dello stack per applicazioni e servizi in Azure, in altri cloud e in locale. Oltre a usare monitoraggio di Azure per analizzare i dati e sfruttarli per diversi scenari di monitoraggio, potrebbe essere necessario inviarli ad altri strumenti di monitoraggio nell'ambiente in uso. Il metodo più efficace per trasmettere i dati di monitoraggio agli strumenti esterni nella maggior parte dei casi consiste nell'usare [Hub eventi di Azure](/azure/event-hubs/). Questo articolo fornisce una breve descrizione di come è possibile trasmettere i dati di monitoraggio da origini diverse a un hub eventi e collegamenti a istruzioni dettagliate.
@@ -23,7 +23,7 @@ Monitoraggio di Azure offre una soluzione completa per il monitoraggio completo 
 Prima di configurare il flusso per qualsiasi origine dati, è necessario [creare uno spazio dei nomi di hub eventi e un hub eventi](../../event-hubs/event-hubs-create.md). Lo spazio dei nomi e l'hub eventi sono la destinazione di tutti i dati di monitoraggio. Uno spazio dei nomi di Hub eventi è un raggruppamento logico di hub eventi che condividono gli stessi criteri di accesso, così come un account di archiviazione contiene al suo interno singoli BLOB. Tenere presente i dettagli seguenti sullo spazio dei nomi di hub eventi e sugli hub eventi usati per lo streaming dei dati di monitoraggio:
 
 * Il numero di unità elaborate consente di aumentare la scala della velocità effettiva per gli hub eventi. In genere è necessaria una sola unità di velocità effettiva. Se è necessario aumentare le prestazioni man mano che aumenta l'utilizzo del log, è possibile aumentare manualmente il numero di unità di velocità effettiva per lo spazio dei nomi o abilitare l'inflazione automatica.
-* Il numero di partizioni consente di parallelizzare il consumo tra molti consumer. Una singola partizione può supportare fino a 20MBps o circa 20.000 messaggi al secondo. A seconda dello strumento che utilizza i dati, può essere supportato o meno il consumo di dati di più partizioni. Se non si è certi del numero di partizioni da impostare, è ragionevole avviare quattro partizioni.
+* Il numero di partizioni consente di parallelizzare il consumo tra molti consumer. Una singola partizione può supportare fino a 20MBps o circa 20.000 messaggi al secondo. A seconda dello strumento che utilizza i dati, può essere supportato o meno il consumo di dati di più partizioni. È ragionevole iniziare con quattro partizioni se non si è certi del numero di partizioni da impostare.
 * È possibile impostare la conservazione dei messaggi nell'hub eventi per almeno 7 giorni. Se lo strumento utilizzato diventa inattivo per più di un giorno, in questo modo si garantisce che lo strumento possa riprendersi dal punto in cui è stato interrotto per gli eventi fino a 7 giorni fa.
 * Usare il gruppo di consumer predefinito per l'hub eventi. Non è necessario creare altri gruppi di consumer o usare un gruppo di consumer distinto, a meno che non siano previsti due diversi strumenti che utilizzano gli stessi dati dello stesso hub eventi.
 * Per il log attività di Azure, si sceglie uno spazio dei nomi di hub eventi e monitoraggio di Azure crea un hub eventi all'interno di tale spazio dei nomi denominato _Insights-logs-Operational-logs_. Per altri tipi di log, è possibile scegliere un hub eventi esistente o fare in modo che monitoraggio di Azure crei un hub eventi per ogni categoria di log.

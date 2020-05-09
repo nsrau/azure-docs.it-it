@@ -8,16 +8,21 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7be56fa48887e2ee500f1b253c078bde16d91e6
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460722"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891238"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizzatori per l'elaborazione del testo in Azure ricerca cognitiva
 
 Un *analizzatore* è un componente del [motore di ricerca full-text](search-lucene-query-architecture.md) responsabile dell'elaborazione di testo in stringhe di query e documenti indicizzati. Analizzatori diversi modificano il testo in modi diversi a seconda dello scenario. Gli analizzatori del linguaggio elaborano il testo usando le regole linguistiche per migliorare la qualità della ricerca, mentre altri analizzatori eseguono attività più semplici, ad esempio la conversione dei caratteri in lettere minuscole. 
+
+Il segmento video seguente consente di eseguire rapidamente una spiegazione del funzionamento dell'elaborazione del testo in Azure ricerca cognitiva.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
+
 
 Gli analizzatori di linguaggio vengono usati più di frequente ed è disponibile l'analizzatore del linguaggio predefinito assegnato a ogni campo ricercabile in un indice di ricerca cognitiva di Azure. Le trasformazioni del linguaggio seguenti sono tipiche durante l'analisi del testo:
 
@@ -39,7 +44,7 @@ Viene usato automaticamente in ogni campo ricercabile. È possibile eseguire l'o
 
 Nell'elenco seguente vengono descritti gli analizzatori disponibili in Azure ricerca cognitiva.
 
-| Category | Descrizione |
+| Category | Description |
 |----------|-------------|
 | [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Valore predefinito. Non è necessaria alcun specifica o configurazione. Questo uso generale funziona correttamente per la maggior parte dei linguaggi e degli scenari.|
 | Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Azure ricerca cognitiva supporta gli analizzatori del linguaggio 35 Lucene e 50 gli analizzatori di elaborazione del linguaggio naturale Microsoft. |

@@ -27,13 +27,16 @@
   items:
     - name: Esempi di Cache Redis di Azure
       href: cache-redis-samples.md
-    - name: Azure PowerShell
+    - name: Azure
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concetti
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -63,7 +66,7 @@
           href: cache-migrate-to-redis.md
     - name: Automatizzare
       items:
-        - name: Distribuire e gestire con Azure Powershell
+        - name: Distribuire e gestire con Azure PowerShell
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Distribuire e gestire con l'interfaccia della riga di comando di Azure
           href: cli-samples.md
@@ -119,7 +122,7 @@
           href: cache-how-to-scale.md
         - name: Usare il cluster Redis per ridurre/aumentare il numero di istanze
           href: cache-how-to-premium-clustering.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=redis-cache'
@@ -130,7 +133,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.redis
     - name: Java
-      href: /java/api/com.microsoft.azure.management.redis._redis_cache
+      href: /java/api/com.microsoft.azure.management.redis.rediscache
     - name: Client Redis
       href: 'https://redis.io/clients'
     - name: Comandi di Redis

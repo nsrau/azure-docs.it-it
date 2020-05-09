@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 227aae23babbcd5d734a10821d9311f91532ea4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32b76687910b2bf028365cc6df2bc8272b393f32
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770987"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837465"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Copertura di rete CDN di Azure con Metro 
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Questo articolo elenca le Metro correnti che contengono le località POP (point 
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
 | America del Nord | Toronto, Canada<br />Vancouver, Canada<br />Montreal, Canada<br />Querétaro, Messico<br />San Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Newark, NJ, Stati Uniti<br />Phoenix, AZ, USA<br />Portland, o, Stati Uniti<br />San Antonio, TX, USA<br />San Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Mexico<br />Città del Messico, Messico<br />Puebla, Messico<br />Querétaro, Messico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, Stati Uniti<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA | Canada<br />Messico<br />USA |
-| America del Sud | Campinas, Brasile<br />Rio de Janeiro, Brasile<br />Sao Paulo, Brasile<br />Santiago, Cile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasile<br />San Paolo, Brasile<br />Valparaíso, Cile<br />Bogotà, Colombia<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Perù | Argentina<br />Brasile<br />Cile<br />Colombia<br />Ecuador<br />Perù<br />Uruguay |
+| America del Sud | Campinas, Brasile<br />Rio de Janeiro, Brasile<br />Sao Paulo, Brasile<br />Santiago, Cile<br />Bogotà, Colombia<br />Buenos Aires, Argentina | Buenos Aires, Argentina<br />Rio de Janeiro, Brasile<br />San Paolo, Brasile<br />Valparaíso, Cile<br />Bogotà, Colombia<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Perù | Argentina<br />Brasile<br />Cile<br />Colombia<br />Ecuador<br />Perù<br />Uruguay |
 | Europa | Vienna, Austria<br />Bruxelles, Belgio<br />Sofia, Bulgaria<br />Zagabria, Croazia<br />Praga, Repubblica Ceca<br />Copenhagen, Danimarca<br /> Helsinki, Finlandia<br /> Oslo, Norvegia<br />Marsiglia, Francia<br />Parigi, Francia<br />Berlino, Germania<br />Francoforte, Germania<br />Atene, Grecia<br />Budapest, Ungheria<br />Dublino, Irlanda<br />Milano, Italia<br />Amsterdam, Paesi Bassi<br />Varsavia, Polonia<br />Lisbona, Portogallo<br />Bucarest, Romania<br />Barcellona, Spagna<br />Madrid, Spagna<br />Stoccolma, Svezia<br />Zurigo, Svizzera<br />Londra, Regno Unito<br />Manchester, Regno Unito | Vienna, Austria<br />Copenhagen, Danimarca<br />Helsinki, Finlandia<br />Marsiglia, Francia<br />Parigi, Francia<br />Francoforte, Germania<br />Milano, Italia<br />Riga, Lettonia<br />Amsterdam, Paesi Bassi<br />Varsavia, Polonia<br />Madrid, Spagna<br />Stoccolma, Svezia<br />Londra, Regno Unito | Austria<br />Bulgaria<br />Danimarca<br />Finlandia<br />Francia<br />Germania<br />Grecia<br />Irlanda<br />Italia<br />Paesi Bassi<br />Polonia<br />Russia<br />Spagna<br />Svezia<br />Svizzera<br />Regno Unito |
 | Africa | Città del Capo, Sudafrica<br />Johannesburg, Sudafrica<br />Lagos, Nigeria<br />Nairobi, Kenya | Johannesburg, Sudafrica | Sud Africa |
 | Medio Oriente | Dubai, Emirati Arabi Uniti<br />Tel Aviv, Israele<br />Istanbul, Turchia | Muscat, Oman<br />Fujirah, Emirati Arabi Uniti | Qatar<br />Emirati Arabi Uniti |
