@@ -1,6 +1,6 @@
 ---
-title: Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'interfaccia della riga di comando Microsoft Docs
-description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo (RBAC) per le risorse di Azure tramite l'interfaccia della riga di comando di Azure.
+title: Creare o aggiornare i ruoli personalizzati di Azure usando l'interfaccia della riga di comando di Azure-RBAC
+description: Informazioni su come elencare, creare, aggiornare o eliminare i ruoli personalizzati di Azure usando l'interfaccia della riga di comando di Azure e il controllo degli accessi in base al ruolo di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44676f7b92c2bcd30612295840054ab2f0c0cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cac0116cf7a068e63cb54698f7273b8c063ff854
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062220"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734842"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'interfaccia della riga di comando
+# <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Creare o aggiornare ruoli personalizzati di Azure tramite l'interfaccia della riga di comando di Azure
 
 > [!IMPORTANT]
 > L'aggiunta di un gruppo `AssignableScopes` di gestione a è attualmente in fase di anteprima.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare i ruoli personalizzati usando l'interfaccia della riga di comando di Azure.
+Se i [ruoli predefiniti di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare i ruoli personalizzati usando l'interfaccia della riga di comando di Azure.
 
-Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [esercitazione: creare un ruolo personalizzato per le risorse di Azure usando l'interfaccia della](tutorial-custom-role-cli.md)riga di comando di Azure.
+Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [esercitazione: creare un ruolo personalizzato di Azure con l'interfaccia](tutorial-custom-role-cli.md)della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -244,6 +244,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un ruolo personalizzato per risorse di Azure con l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md)
-- [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
+- [Esercitazione: creare un ruolo personalizzato di Azure con l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md)
+- [Ruoli personalizzati di Azure](custom-roles.md)
 - [Operazioni del provider di risorse Azure Resource Manager](resource-provider-operations.md)

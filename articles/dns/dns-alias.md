@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 271770935cf4cb83d4abc6e82a4f4b13ffe865b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295498"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926232"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Panoramica dei record di alias DNS di Azure
 
@@ -20,14 +20,14 @@ I record di alias DNS di Azure sono qualifiche su un set di record DNS. Possono 
 
 Un set di record alias è supportato per i tipi di record seguenti in una zona DNS di Azure: 
 
-- Una
+- Una 
 - AAAA
 - CNAME
 
 > [!NOTE]
 > Se si prevede di usare un record alias per i tipi di record A o AAAA per puntare a un [profilo di Gestione traffico di Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) è necessario assicurarsi che il profilo di Gestione traffico disponga solo di [endpoint esterni](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). È necessario specificare gli indirizzi IPv4 o IPv6 per gli endpoint esterni in Gestione traffico. Non è possibile usare nomi di dominio completi (FQDN) negli endpoint. Idealmente, usare indirizzi IP statici.
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
 - **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias in modo che punti a una risorsa IP pubblica (standard o Basic). Il set di record DNS cambia automaticamente se l'indirizzo IP pubblico cambia o viene eliminato. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
 
@@ -66,7 +66,7 @@ Ad esempio, contoso.com e www\.contoso.com possono puntare allo stesso profilo d
 
 Analogamente a un profilo di gestione traffico, è anche possibile usare record alias per puntare il vertice della zona DNS agli endpoint della rete CDN di Azure. Questa operazione è utile quando si creano siti web statici usando archiviazione di Azure e la rete CDN di Azure. È quindi possibile accedere al sito Web senza anteporre "www" al nome DNS.
 
-Ad esempio, se il sito Web statico viene `www.contoso.com, your users can access your site using contoso.com` denominato senza dover anteporre www al nome DNS.
+Ad esempio, se il sito Web statico è `www.contoso.com`denominato, gli utenti possono accedere al sito `contoso.com` usando senza che sia necessario anteporre www al nome DNS.
 
 Come descritto in precedenza, i record CNAME non sono supportati nel vertice della zona. Non è quindi possibile usare un record CNAME per puntare contoso.com all'endpoint della rete CDN. In alternativa, è possibile usare un record alias per puntare direttamente il vertice della zona a un endpoint della rete CDN.
 

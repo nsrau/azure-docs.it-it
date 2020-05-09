@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/01/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee64f26d0ff685a83718c5d5e3d6f6eaf9230807
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443500"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691807"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Lab in aula in Azure Lab Services-domande frequenti
 Ottenere le risposte ad alcune delle domande più comuni sui Lab in Azure Lab Services. 
@@ -57,6 +57,9 @@ Vedere [Azure IP Ranges and Service Tags (cloud pubblico)](https://www.microsoft
 ### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Come autore del Lab, perché non è possibile abilitare opzioni aggiuntive per le immagini nell'elenco a discesa immagini macchina virtuale quando si crea un nuovo Lab?
 
 Quando un amministratore aggiunge l'utente come autore del Lab a un account Lab, vengono concesse le autorizzazioni per la creazione dei Lab. Tuttavia, non si dispone delle autorizzazioni per modificare le impostazioni all'interno dell'account Lab, incluso l'elenco delle immagini di macchine virtuali abilitate. Per abilitare immagini aggiuntive, contattare l'amministratore dell'account Lab per eseguire questa operazione o chiedere all'amministratore di aggiungere l'utente come ruolo Collaboratore all'account Lab. Il ruolo Collaboratore fornirà le autorizzazioni per modificare l'elenco di immagini della macchina virtuale nell'account Lab.
+
+### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>È possibile aggiungere altri dischi a una macchina virtuale?
+No. non è possibile aggiungere altri dischi a una macchina virtuale in un Lab della classe. 
 
 ## <a name="users"></a>Utenti
 

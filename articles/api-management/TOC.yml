@@ -51,7 +51,7 @@
           href: api-management-howto-policies.md
         - name: Indice delle informazioni di riferimento per i criteri
           href: api-management-policies.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Criteri di sicurezza integrati
           href: api-management-security-controls.md
@@ -101,10 +101,12 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Effettuare il provisioning di un gateway self-hosted
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Distribuire un gateway self-hosted nel servizio Azure Kubernetes
+          href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Distribuire un gateway self-hosted in Kubernetes
-          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+          href: how-to-deploy-self-hosted-gateway-kubernetes.md
         - name: Distribuire un gateway self-hosted in Docker
-          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+          href: how-to-deploy-self-hosted-gateway-docker.md
         - name: Configurare un dominio personalizzato per il gateway self-hosted
           href: api-management-howto-configure-custom-domain-gateway.md
     - name: Cache
@@ -209,12 +211,20 @@
           href: api-management-transformation-policies.md
     - name: Gestire l'ambiente di produzione
       items:
+        - name: Esportare le API in Power Platform
+          href: export-api-power-platform.md
         - name: Gestire i gruppi
           href: api-management-howto-create-groups.md
         - name: Recuperare gli indirizzi IP
           href: api-management-howto-ip-addresses.md
         - name: Registrare eventi in Hub eventi di Azure
           href: api-management-howto-log-event-hubs.md
+        - name: Registrare le richieste con Azure Application Insights
+          href: api-management-howto-app-insights.md
+        - name: Configurare le metriche e i log del cloud per il gateway self-hosted
+          href: how-to-configure-cloud-metrics-logs.md
+        - name: Configurare le metriche e i log locali per il gateway self-hosted
+          href: how-to-configure-local-metrics-logs.md
         - name: Registrare le richieste con Azure Application Insights
           href: api-management-howto-app-insights.md
         - name: Configurare il ripristino di emergenza con backup/ripristino
@@ -235,7 +245,7 @@
               href: ../service-fabric/service-fabric-api-management-overview.md
             - name: Esercitazione
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.apimanagement/?view=azps-2.6.0
@@ -251,7 +261,7 @@
       href: api-management-faq.md
     - name: Prezzi
       href: 'https://aka.ms/apimpricing'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Roadmap
       href: 'https://aka.ms/apimroadmap'

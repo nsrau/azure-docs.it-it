@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4778e9b2c0d3b442b214966ab69810d2f42b70b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7840daad02f679cad4c3b798d2add02c863a15
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732754"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651958"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gestire le variabili in automazione di Azure
 
@@ -30,7 +30,10 @@ Le variabili di automazione sono utili per gli scenari seguenti:
 
 Automazione di Azure Salva in modo permanente le variabili e le rende disponibili anche se la configurazione di Runbook o DSC ha esito negativo. Questo comportamento consente a una configurazione Runbook o DSC di impostare un valore che viene quindi usato da un altro Runbook o dalla stessa configurazione Runbook o DSC alla successiva esecuzione.
 
-Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Altre risorse protette includono credenziali, certificati e connessioni. Automazione di Azure crittografa questi asset e li archivia usando una chiave univoca generata per ogni account di automazione. La chiave viene archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, automazione di Azure carica la chiave dalla Key Vault e la usa per crittografare l'asset. 
+Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. 
+
+>[!NOTE]
+>Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in automazione di Azure usando una chiave univoca generata per ogni account di automazione. Automazione di Azure archivia la chiave nel Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, l'automazione carica la chiave da Key Vault e la usa per crittografare l'asset. 
 
 >[!NOTE]
 >Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](../automation-update-azure-modules.md).
@@ -39,13 +42,13 @@ Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quand
 
 Quando si crea una variabile con il portale di Azure, è necessario specificare un tipo di dati nell'elenco a discesa in modo che il portale possa visualizzare il controllo appropriato per immettere il valore della variabile. Di seguito sono riportati i tipi di variabili disponibili in automazione di Azure:
 
-* Stringa
+* string
 * Integer
 * Datetime
 * Boolean
 * Null
 
-La variabile non è limitata al tipo di dati designato. È necessario impostare la variabile utilizzando Windows PowerShell se si desidera specificare un valore di tipo diverso. Se si indica `Not defined`, il valore della variabile viene impostato su null. È necessario impostare il valore con il cmdlet [set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) o l' `Set-AutomationVariable` attività.
+La variabile non è limitata al tipo di dati specificato. È necessario impostare la variabile utilizzando Windows PowerShell se si desidera specificare un valore di tipo diverso. Se si indica `Not defined`, il valore della variabile viene impostato su null. È necessario impostare il valore con il cmdlet [set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) o il cmdlet `Set-AutomationVariable` Internal.
 
 Non è possibile usare la portale di Azure per creare o modificare il valore per un tipo di variabile complesso. Tuttavia, è possibile fornire un valore di qualsiasi tipo usando Windows PowerShell. I tipi complessi vengono recuperati come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
@@ -54,37 +57,37 @@ Non è possibile usare la portale di Azure per creare o modificare il valore per
 >[!NOTE]
 >Le variabili nome macchina virtuale possono avere una lunghezza massima di 80 caratteri. Le variabili del gruppo di risorse possono contenere un massimo di 90 caratteri. Vedere [regole di denominazione e restrizioni per le risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
 
-## <a name="powershell-cmdlets-that-create-and-manage-variable-assets"></a>Cmdlet di PowerShell per la creazione e la gestione di Asset variabili
+## <a name="powershell-cmdlets-to-access-variables"></a>Cmdlet di PowerShell per accedere alle variabili
 
-Per il modulo AZ, i cmdlet della tabella seguente vengono usati per creare e gestire asset di variabili di automazione con Windows PowerShell. Vengono forniti come parte del [modulo AZ. Automation](/powershell/azure/overview), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
+I cmdlet nella tabella seguente creano e gestiscono le variabili di automazione con PowerShell. Vengono forniti come parte dei [moduli AZ](modules.md#az-modules).
 
 | Cmdlet | Descrizione |
 |:---|:---|
-|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Recupera il valore di una variabile esistente. Non è possibile utilizzare questo cmdlet per recuperare il valore di una variabile crittografata. L'unico modo per eseguire questa operazione è usare l' `Get-AutomationVariable` attività in una configurazione RUNBOOK o DSC. |
+|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Recupera il valore di una variabile esistente. Se il valore è un tipo semplice, viene recuperato lo stesso tipo. Se si tratta di un tipo complesso, `PSCustomObject` viene recuperato un tipo. <br>**Nota:**  Non è possibile utilizzare questo cmdlet per recuperare il valore di una variabile crittografata. L'unico modo per eseguire questa operazione consiste nell'usare il `Get-AutomationVariable` cmdlet interno in una configurazione RUNBOOK o DSC. Vedere [cmdlet interni per accedere alle variabili](#internal-cmdlets-to-access-variables). |
 |[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Crea una nuova variabile e ne imposta il valore.|
 |[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Rimuove una variabile esistente.|
 |[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Imposta il valore di una variabile esistente. |
 
-## <a name="activities-to-access-variables-in-runbooks-and-dsc-configurations"></a>Attività per accedere alle variabili in manuali operativi e nelle configurazioni DSC
+## <a name="internal-cmdlets-to-access-variables"></a>Cmdlet interni per accedere alle variabili
 
-Le attività nella tabella seguente vengono usate per accedere alle variabili in manuali operativi e nelle configurazioni DSC. I cmdlet per queste attività sono dotati del modulo `Orchestrator.AssetManagement.Cmdlets`globale.
+I cmdlet interni della tabella seguente vengono usati per accedere alle variabili nei manuali operativi e nelle configurazioni DSC. Questi cmdlet sono dotati del modulo `Orchestrator.AssetManagement.Cmdlets`globale. Per ulteriori informazioni, vedere [cmdlet interni](modules.md#internal-cmdlets).
 
-| Attività | Descrizione |
+| Cmdlet interno | Descrizione |
 |:---|:---|
 |`Get-AutomationVariable`|Recupera il valore di una variabile esistente.|
 |`Set-AutomationVariable`|Imposta il valore di una variabile esistente.|
 
 > [!NOTE]
-> Evitare di usare le `Name` variabili nel parametro `Get-AutomationVariable` di in una configurazione Runbook o DSC. L'uso di questo parametro può complicare l'individuazione delle dipendenze tra manuali operativi o le configurazioni DSC e le variabili di automazione in fase di progettazione.
+> Evitare di usare le `Name` variabili nel parametro `Get-AutomationVariable` di in una configurazione Runbook o DSC. L'uso delle variabili può complicare l'individuazione delle dipendenze tra manuali operativi e le variabili di automazione in fase di progettazione.
 
-Si noti `Get-AutomationVariable` che non funziona in PowerShell, ma solo in una configurazione RUNBOOK o DSC. Ad esempio, per visualizzare il valore di una variabile crittografata, è possibile creare un Runbook per ottenere la variabile e quindi scriverla nel flusso di output:
+`Get-AutomationVariable`non funziona in PowerShell, ma solo in una configurazione Runbook o DSC. Ad esempio, per visualizzare il valore di una variabile crittografata, è possibile creare un Runbook per ottenere la variabile e quindi scriverla nel flusso di output:
  
 ```powershell
 $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## <a name="functions-to-access-variables-in-python-2-runbooks"></a>Funzioni per accedere alle variabili in Python 2 manuali operativi
+## <a name="python-2-functions-to-access-variables"></a>Funzioni di Python 2 per accedere alle variabili
 
 Le funzioni nella tabella seguente vengono usate per accedere alle variabili in un Runbook Python 2.
 
@@ -96,12 +99,12 @@ Le funzioni nella tabella seguente vengono usate per accedere alle variabili in 
 > [!NOTE]
 > È necessario importare il `automationassets` modulo nella parte superiore del Runbook Python per accedere alle funzioni di asset.
 
-## <a name="working-with-automation-variables"></a>Utilizzo delle variabili di automazione
+## <a name="create-and-get-a-variable"></a>Creare e ottenere una variabile
 
 >[!NOTE]
 >Se si desidera rimuovere la crittografia per una variabile, è necessario eliminare la variabile e ricrearla come non crittografata.
 
-### <a name="create-a-new-variable-using-the-azure-portal"></a>Crea una nuova variabile usando il portale di Azure
+### <a name="create-and-get-a-variable-using-the-azure-portal"></a>Creare e ottenere una variabile usando il portale di Azure
 
 1. Dall'account di automazione fare clic sul riquadro **Asset** , quindi sul pannello **Asset** e selezionare **variables (variabili**).
 2. Nel riquadro **Variabili** selezionare **Aggiungi variabile**.
@@ -110,16 +113,14 @@ Le funzioni nella tabella seguente vengono usate per accedere alle variabili in 
 > [!NOTE]
 > Una volta salvata, una variabile crittografata non può essere visualizzata nel portale. E può essere aggiornato.
 
-### <a name="create-and-use-a-variable-in-windows-powershell"></a>Creare e usare una variabile in Windows PowerShell
+### <a name="create-and-get-a-variable-in-windows-powershell"></a>Creare e ottenere una variabile in Windows PowerShell
 
-Uno script di PowerShell usa `New-AzAutomationVariable` il cmdlet o il relativo modulo AzureRM equivalente per creare una nuova variabile e impostarne il valore iniziale. Se la variabile è crittografata, la chiamata deve utilizzare `Encrypted` il parametro.
-
-Lo script recupera il valore della variabile utilizzando [Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0). Se il valore è un tipo semplice, il cmdlet recupera lo stesso tipo. Se si tratta di un tipo complesso, `PSCustomObject` viene recuperato un tipo.
+La configurazione di Runbook o DSC USA `New-AzAutomationVariable` il cmdlet per creare una nuova variabile e impostarne il valore iniziale. Se la variabile è crittografata, la chiamata deve utilizzare `Encrypted` il parametro. Lo script può recuperare il valore della variabile usando `Get-AzAutomationVariable`. 
 
 >[!NOTE]
->Uno script di PowerShell non è in grado di recuperare un valore crittografato. L'unico modo per eseguire questa operazione consiste nell'usare `Get-AutomationVariable` un'attività in una configurazione RUNBOOK o DSC.
+>Uno script di PowerShell non è in grado di recuperare un valore crittografato. L'unico modo per eseguire questa operazione consiste nell'usare il `Get-AutomationVariable` cmdlet Internal.
 
-Nell'esempio seguente viene illustrato come creare una variabile di tipo stringa e quindi restituirne il valore.
+Nell'esempio seguente viene illustrato come creare una variabile stringa e quindi restituirne il valore.
 
 ```powershell
 New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" 
@@ -141,18 +142,11 @@ $vmName = $vmValue.Name
 $vmIpAddress = $vmValue.IpAddress
 ```
 
-### <a name="create-and-use-a-variable-in-a-runbook-or-dsc-configuration"></a>Creare e usare una variabile in un Runbook o una configurazione DSC
+## <a name="textual-runbook-examples"></a>Esempi di Runbook testuali
 
-L'unico modo per creare una nuova variabile dall'interno di un Runbook o una configurazione DSC consiste nell' `New-AzAutomationVariable` usare il cmdlet o il relativo modulo AzureRM equivalente. Lo script utilizza questo cmdlet per impostare il valore iniziale della variabile. Lo script può quindi recuperare il valore usando `Get-AzAutomationVariable`. Se il valore è un tipo semplice, viene recuperato lo stesso tipo. Se è un tipo complesso, viene recuperato un `PSCustomObject` tipo.
+### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Recuperare e impostare un valore semplice da una variabile
 
->[!NOTE]
->L'unico modo per recuperare un valore crittografato consiste nell'usare `Get-AutomationVariable` l'attività nella configurazione RUNBOOK o DSC. 
-
-### <a name="textual-runbook-samples"></a>Esempi di runbook testuali
-
-#### <a name="set-and-retrieve-a-simple-value-from-a-variable"></a>Impostare e recuperare un valore semplice da una variabile
-
-I comandi di esempio seguenti mostrano come impostare e recuperare una variabile in un runbook testuale. In questo esempio si presuppone la creazione di variabili `NumberOfIterations` integer `NumberOfRunnings` denominate e e `SampleMessage`una variabile di stringa denominata.
+Nell'esempio seguente viene illustrato come impostare e recuperare una variabile in un Runbook testuale. In questo esempio si presuppone la creazione di variabili `NumberOfIterations` integer `NumberOfRunnings` denominate e e `SampleMessage`una variabile di stringa denominata.
 
 ```powershell
 $NumberOfIterations = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
@@ -167,9 +161,9 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-#### <a name="set-and-retrieve-a-variable-in-a-python-2-runbook"></a>Impostare e recuperare una variabile in un Runbook Python 2
+### <a name="retrieve-and-set-a-variable-in-a-python-2-runbook"></a>Recuperare e impostare una variabile in un Runbook Python 2
 
-L'esempio seguente illustra come usare una variabile, impostare una variabile e gestire un'eccezione per una variabile inesistente in un Runbook Python 2.
+Nell'esempio seguente viene illustrato come ottenere una variabile, impostare una variabile e gestire un'eccezione per una variabile inesistente in un Runbook Python 2.
 
 ```python
 import automationassets
@@ -191,19 +185,18 @@ except AutomationAssetNotFound:
     print "variable not found"
 ```
 
-### <a name="graphical-runbook-samples"></a>Esempi di Runbook grafici
+## <a name="graphical-runbook-examples"></a>Esempi di Runbook grafici
 
-In un Runbook grafico è possibile aggiungere l' `Get-AutomationVariable` attività o `Set-AutomationVariable` . È sufficiente fare clic con il pulsante destro del mouse sulla variabile nel riquadro libreria dell'editor grafico e selezionare l'attività desiderata.
+In un Runbook grafico è possibile aggiungere attività per i cmdlet interni `Get-AutomationVariable` o. `Set-AutomationVariable` È sufficiente fare clic con il pulsante destro del mouse su ogni variabile nel riquadro libreria dell'editor grafico e selezionare l'attività desiderata.
 
 ![Aggiungere una variabile al canvas](../media/variables/runbook-variable-add-canvas.png)
 
-#### <a name="set-values-in-a-variable"></a>Impostare i valori in una variabile
-
-La figura seguente illustra attività di esempio per aggiornare una variabile con un valore semplice in un runbook grafico. In questo esempio, `Get-AzVM` recupera una singola macchina virtuale di Azure e salva il nome del computer in una variabile di stringa di automazione esistente. Non è importante se il [collegamento è una pipeline o una sequenza](../automation-graphical-authoring-intro.md#links-and-workflow) perché il codice prevede solo un singolo oggetto nell'output.
+Nell'immagine seguente vengono illustrate le attività di esempio per aggiornare una variabile con un valore semplice in un Runbook grafico. In questo esempio l'attività per `Get-AzVM` recupera una singola macchina virtuale di Azure e salva il nome del computer in una variabile di stringa di automazione esistente. Non è importante se il [collegamento è una pipeline o una sequenza](../automation-graphical-authoring-intro.md#links-and-workflow) perché il codice prevede solo un singolo oggetto nell'output.
 
 ![Impostare una variabile semplice](../media/variables/runbook-set-simple-variable.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sulla connessione delle attività nella creazione grafica, vedere [collegamenti nella creazione grafica](../automation-graphical-authoring-intro.md#links-and-workflow).
-- Per iniziare a usare manuali operativi grafici, vedere [il primo Runbook grafico](../automation-first-runbook-graphical.md).
+* Per altre informazioni sui cmdlet usati per accedere alle variabili, vedere [gestire i moduli in automazione di Azure](modules.md).
+* Per informazioni generali su manuali operativi, vedere [esecuzione di Runbook in automazione di Azure](../automation-runbook-execution.md).
+* Per informazioni dettagliate sulle configurazioni DSC, vedere [Cenni preliminari sulla configurazione dello stato](../automation-dsc-overview.md).

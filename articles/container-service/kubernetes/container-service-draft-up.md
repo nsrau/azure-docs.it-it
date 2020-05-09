@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 039879cb725c20af3c40698947ea9abe189d08ad
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76271141"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731764"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(DEPRECATO) Usare Draft con il servizio Azure Container e il Registro Azure Container per compilare e distribuire un'applicazione in Kubernetes
 
@@ -102,7 +102,7 @@ Dopo aver creato un cluster, è possibile importare le credenziali usando il com
 
 
 1. Scaricare Draft per il proprio ambiente all'indirizzo https://github.com/Azure/draft/releases e installarlo in PATH in modo da poter usare il comando.
-2. Scaricare Helm per il proprio ambiente all'indirizzo https://github.com/kubernetes/helm/releases e [installarlo in PATH in modo da poter usare il comando](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+2. Scaricare Helm per il proprio ambiente all'indirizzo https://github.com/kubernetes/helm/releases e [installarlo in PATH in modo da poter usare il comando](https://helm.sh/docs/intro/quickstart#install-helm).
 3. Configurare Draft per usare il registro e creare sottodomini per ogni grafico Helm creato. Per configurare Draft sono necessari:
    - Il nome dell'istanza di Registro Azure Container (in questo esempio, `draftacsdemo`)
    - La chiave, o password, del registro da `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.

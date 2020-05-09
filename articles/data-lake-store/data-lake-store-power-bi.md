@@ -1,26 +1,20 @@
 ---
-title: Analizzare i dati in Azure Data Lake Storage Gen1 con Power BI | Microsoft Docs
-description: Usare Power BI per analizzare i dati presenti in Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Analizzare i dati in Azure Data Lake Storage Gen1-Power BI
+description: Usare Power BI per analizzare i dati archiviati nel Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65603203"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691663"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analizzare i dati in Azure Data Lake Storage Gen1 con Power BI
-Questo articolo spiega come usare Power BI Desktop per analizzare e visualizzare i dati presenti in Azure Data Lake Storage Gen1.
+Questo articolo illustra come usare Power BI Desktop per analizzare e visualizzare i dati archiviati nel Azure Data Lake Storage Gen1.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
@@ -96,6 +90,6 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 ## <a name="publish-report-to-power-bi-service"></a>Pubblicare report nel servizio Power BI
 Dopo aver creato le visualizzazioni in Power BI Desktop, è possibile condividerle con altri utenti pubblicandole nel servizio Power BI. Per istruzioni sulla procedura, vedere [Pubblicare da Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Analizzare i dati in Data Lake Storage Gen1 con Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

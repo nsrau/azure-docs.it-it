@@ -193,7 +193,7 @@
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Sicurezza
       items:
-        - name: Configurare gli endpoint privati (anteprima)
+        - name: Configurare gli endpoint privati
           href: configure-private-endpoints.md
         - name: Configurare il firewall IP (anteprima)
           href: configure-firewall.md

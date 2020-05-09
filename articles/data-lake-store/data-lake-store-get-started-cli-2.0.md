@@ -1,23 +1,19 @@
 ---
-title: Iniziare a usare Azure Data Lake Storage Gen1 tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Usare l'interfaccia della riga di comando di Azure per creare un account Data Lake Storage Gen1 ed eseguire operazioni di base
-services: data-lake-store
-documentationcenter: ''
+title: Gestire l'account Azure Data Lake Storage Gen1-interfaccia della riga di comando di Azure
+description: Usare l'interfaccia della riga di comando di Azure per creare un account di Data Lake Storage Gen1 ed eseguire operazioni di base.
 author: twooley
-manager: mtillman
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e278981ce7647a53d2e80c5b835c8ed666db541
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60885346"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688179"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Iniziare a usare Azure Data Lake Store tramite l'interfaccia della riga di comando di Azure
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Introduzione all'uso di Azure Data Lake Storage Gen1 con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 

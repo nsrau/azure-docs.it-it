@@ -10,24 +10,24 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 923fb90f7f0e8eefec650515ed2a3b9b75d2ae77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf8d461485cefd37b9508031f5cce7ae0a070ef5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617924"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653207"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedure consigliate per l'utilizzo di Key Vault
 
 ## <a name="control-access-to-your-vault"></a>Controllare l'accesso all'insieme di credenziali
 
-Azure Key Vault è un servizio cloud che protegge le chiavi di crittografia e i segreti, come certificati, stringhe di connessione e password. Poiché questi dati sono riservati e importanti per l'azienda, è necessario proteggere gli insiemi di credenziali delle chiavi consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo [articolo](secure-your-key-vault.md)fornisce una panoramica del modello di accesso key Vault. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso agli insiemi di credenziali delle chiavi.
+Azure Key Vault è un servizio cloud che protegge le chiavi di crittografia e i segreti, come certificati, stringhe di connessione e password. Poiché questi dati sono riservati e importanti per l'azienda, è necessario proteggere gli insiemi di credenziali delle chiavi consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo [articolo](secure-your-key-vault.md) fornisce una panoramica del modello di accesso key Vault. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso agli insiemi di credenziali delle chiavi.
 
 I suggerimenti per il controllo dell'accesso all'insieme di credenziali sono i seguenti:
 1. Bloccare l'accesso alla sottoscrizione, al gruppo di risorse e agli insiemi di credenziali delle chiavi (RBAC)
 2. Creare criteri di accesso per ogni insieme di credenziali
 3. Usare l'entità di accesso con privilegi minimi per concedere l'accesso
-4. Attivare gli endpoint di [servizio](overview-vnet-service-endpoints.md)firewall e VNET)
+4. Attivare gli endpoint di [servizio](overview-vnet-service-endpoints.md) firewall e VNET
 
 ## <a name="use-separate-key-vault"></a>USA Key Vault separate
 
@@ -39,9 +39,9 @@ Assicurarsi di eseguire backup regolari dell' [insieme di credenziali per l'](ht
 
 ## <a name="turn-on-logging"></a>Attivare la registrazione
 
-[Attivare la registrazione](logging.md)) per l'insieme di credenziali. Configurare anche gli avvisi.
+[Attivare la registrazione](logging.md) per l'insieme di credenziali. Configurare anche gli avvisi.
 
 ## <a name="turn-on-recovery-options"></a>Attiva opzioni di ripristino
 
-1. Attivare l' [eliminazione](overview-soft-delete.md)temporanea).
+1. Attivare l' [eliminazione](overview-soft-delete.md)temporanea.
 2. Attivare ripulitura protezione se si vuole evitare l'eliminazione forzata del segreto/insieme di credenziali anche dopo aver attivato l'eliminazione temporanea.

@@ -4,6 +4,11 @@
   items:
     - name: Che cos'è Azure Arc per server?
       href: ./servers/overview.md
+- name: Esempi
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md
 - name: Guide pratiche
   items:
     - name: Connessione ad Azure Arc

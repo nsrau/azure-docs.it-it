@@ -7,18 +7,18 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658405"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731739"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gestire le cartelle di lavoro a livello di codice
 
-I proprietari delle risorse hanno la possibilità di creare e gestire le cartelle di lavoro a livello di codice tramite Gestione risorse modelli. 
+I proprietari delle risorse hanno la possibilità di creare e gestire le cartelle di lavoro a livello di codice tramite Gestione risorse modelli.
 
 Questa operazione può essere utile in scenari come i seguenti:
 * Distribuzione di report di analisi specifici del dominio o dell'organizzazione, insieme alle distribuzioni di risorse. Ad esempio, è possibile distribuire cartelle di lavoro di prestazioni e di errore specifiche dell'organizzazione per le nuove app o macchine virtuali.
@@ -26,7 +26,98 @@ Questa operazione può essere utile in scenari come i seguenti:
 
 La cartella di lavoro verrà creata nel gruppo secondario/risorse desiderato e con il contenuto specificato nei modelli di Gestione risorse.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Modello di Azure Resource Manager per la distribuzione di cartelle di lavoro
+Esistono due tipi di risorse della cartella di lavoro che possono essere gestite a livello di codice:
+* [Modelli di cartella di lavoro](#azure-resource-manager-template-for-deploying-a-workbook-template)
+* [Istanze cartella di lavoro](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-template"></a>Modello Azure Resource Manager per la distribuzione di un modello di cartella di lavoro
+
+1. Aprire una cartella di lavoro che si desidera distribuire a livello di codice.
+2. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti _modifica_ .
+3. Aprire il _Editor avanzato_ usando il _</>_ pulsante sulla barra degli strumenti.
+4. Assicurarsi di essere nella scheda _modello della raccolta_ .
+
+    ![Scheda modello raccolta](./media/workbooks-automate/gallery-template.png)
+1. Copiare negli Appunti il codice JSON nel modello della raccolta.
+2. Di seguito è riportato un esempio di Azure Resource Manager modello che consente di distribuire un modello di cartella di lavoro nella raccolta di cartelle di lavoro di monitoraggio Incollare il codice JSON copiato al posto di `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. Un modello di Azure Resource Manager di riferimento per la creazione di un modello di cartella di lavoro è disponibile [qui](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+
+    ```json
+          {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "resourceName": {
+                "type": "string",
+                "defaultValue": "my-workbook-template",
+                "metadata": {
+                    "description": "The unique name for this workbook template instance"
+                }
+            }
+        },
+        "resources": [
+            {
+                "name": "[parameters('resourceName')]",
+                "type": "microsoft.insights/workbooktemplates",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2019-10-17-preview",
+                "dependsOn": [],
+                "properties": {
+                    "galleries": [
+                        {
+                            "name": "A Workbook Template",
+                            "category": "Deployed Templates",
+                            "order": 100,
+                            "type": "workbook",
+                            "resourceType": "Azure Monitor"
+                        }
+                    ],
+                    "templateData": <PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>
+                }
+            }
+        ]
+    }
+    ```
+1. Nell' `galleries` oggetto compilare le `name` chiavi e `category` con i valori. Ulteriori informazioni sui [parametri](#parameters) sono disponibili nella sezione successiva.
+2. Distribuire questo modello di Azure Resource Manager usando il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), l' [interfaccia della riga di comando](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)e così via.
+3. Aprire il portale di Azure e passare alla raccolta di cartelle di lavoro scelta nel modello di Azure Resource Manager. Nel modello di esempio passare alla raccolta di cartelle di lavoro di monitoraggio di Azure:
+    1. Aprire il portale di Azure e passare a monitoraggio di Azure
+    2. Apri `Workbooks` dal sommario
+    3. Trovare il modello nella raccolta in Category `Deployed Templates` (sarà uno degli elementi viola).
+
+### <a name="parameters"></a>Parametri
+
+|Parametri                |Spiegazione                                                                                             |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------|
+| `name`                   | Nome della risorsa del modello di cartella di lavoro in Azure Resource Manager.                                  |
+|`type`                    | Sempre Microsoft. Insights/workbooktemplates                                                            |
+| `location`               | Località di Azure in cui verrà creata la cartella di lavoro.                                               |
+| `apiVersion`             | Anteprima 2019-10-17                                                                                     |
+| `type`                   | Sempre Microsoft. Insights/workbooktemplates                                                            |
+| `galleries`              | Set di raccolte in cui visualizzare il modello di cartella di lavoro.                                                |
+| `gallery.name`           | Nome descrittivo del modello di cartella di lavoro nella raccolta.                                             |
+| `gallery.category`       | Gruppo della raccolta in cui inserire il modello.                                                     |
+| `gallery.order`          | Numero che decide l'ordine di visualizzazione del modello all'interno di una categoria della raccolta. L'ordine inferiore implica una priorità più elevata. |
+| `gallery.resourceType`   | Tipo di risorsa corrispondente alla raccolta. Si tratta in genere della stringa del tipo di risorsa corrispondente alla risorsa (ad esempio, Microsoft. operationalinsights/Workspaces). |
+|`gallery.type`            | Definito come tipo di cartella di lavoro, si tratta di una chiave univoca che differenzia la raccolta all'interno di un tipo di risorsa. Application Insights, ad esempio, disporre di `workbook` tipi `tsg` e corrispondenti a raccolte di cartelle di lavoro diverse. |
+
+### <a name="galleries"></a>Raccolte
+
+| Gallery                                        | Tipo di risorsa                                      | Tipo di cartella di lavoro |
+| :--------------------------------------------- |:---------------------------------------------------|:--------------|
+| Cartelle di lavoro di monitoraggio di Azure                     | `Azure Monitor`                                    | `workbook`    |
+| VM Insights in monitoraggio di Azure                   | `Azure Monitor`                                    | `vm-insights` |
+| Cartelle di lavoro nell'area di lavoro di log Analytics           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
+| Cartelle di lavoro in Application Insights              | `microsoft.insights/component`                     | `workbook`    |
+| Guide alla risoluzione dei problemi in Application Insights | `microsoft.insights/component`                     | `tsg`         |
+| Utilizzo in Application Insights                  | `microsoft.insights/component`                     | `usage`       |
+| Cartelle di lavoro nel servizio Kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
+| Cartelle di lavoro nei gruppi di risorse                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
+| Cartelle di lavoro in Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
+| Informazioni dettagliate sulle VM in macchine virtuali                | `microsoft.compute/virtualmachines`                | `insights`    |
+| Informazioni dettagliate sulle VM nei set di scalabilità di macchine virtuali                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Azure Resource Manager modello per la distribuzione di un'istanza di cartella di lavoro
+
 1. Aprire una cartella di lavoro che si desidera distribuire a livello di codice.
 2. Passare alla modalità di modifica della cartella di lavoro facendo clic sull'elemento della barra degli strumenti _modifica_ .
 3. Aprire il _Editor avanzato_ usando il _</>_ pulsante sulla barra degli strumenti.
@@ -112,7 +203,7 @@ Questo modello Mostra come distribuire una semplice cartella di lavoro in cui vi
 ### <a name="workbook-types"></a>Tipi di cartella di lavoro
 Tipi di cartella di lavoro specificare il tipo di raccolta di cartelle di lavoro in cui sarà visualizzata la nuova istanza della cartella Le opzioni includono:
 
-| Tipo | Località della raccolta |
+| Type | Località della raccolta |
 | :------------- |:-------------|
 | `workbook` | Il valore predefinito usato nella maggior parte dei report, inclusa la raccolta di cartelle di lavoro di Application Insights, monitoraggio di Azure e così via.  |
 | `tsg` | Raccolta Guide per la risoluzione dei problemi in Application Insights |
@@ -124,4 +215,3 @@ Per motivi tecnici, questo meccanismo non può essere utilizzato per creare ista
 ## <a name="next-steps"></a>Passaggi successivi
 
 Esplorare il modo in cui vengono usate le cartelle di lavoro per potenziare il nuovo [monitoraggio di Azure per l'esperienza di archiviazione](../insights/storage-insights-overview.md).
-

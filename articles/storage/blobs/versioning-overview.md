@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 64e0de153aa33bac17c2bed75b211ddca1bbd28c
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 77af321b74a47306a7202c1fddf6e81edc0ee02a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884397"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926069"
 ---
 # <a name="blob-versioning-preview"></a>Controllo delle versioni dei BLOB (anteprima)
 
@@ -176,7 +176,7 @@ Il controllo delle versioni del BLOB è progettato per proteggere i dati da elim
 
 La tabella seguente illustra le azioni RBAC che supportano l'eliminazione di un BLOB o di una versione BLOB.
 
-| Description | Operazione del servizio BLOB | Azione dati RBAC obbligatoria | Supporto del ruolo incorporato RBAC |
+| Descrizione | Operazione del servizio BLOB | Azione dati RBAC obbligatoria | Supporto del ruolo incorporato RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Eliminazione della versione corrente del BLOB | Delete Blob | **Microsoft. storage/storageAccounts/blobServices/Containers/Blobs/Delete/actionDeleting** | Collaboratore ai dati del BLOB di archiviazione |
 | Eliminazione di una versione | Delete Blob | **Microsoft. storage/storageAccounts/blobServices/Containers/Blobs/deleteBlobVersion/** | Proprietario dei dati del BLOB di archiviazione |
@@ -227,6 +227,9 @@ Per eseguire la registrazione con PowerShell, chiamare il comando [Get-AzProvide
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
+    
+# Refresh the Azure Storage provider namespace
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
@@ -251,9 +254,6 @@ Per verificare lo stato della registrazione con PowerShell, chiamare il comando 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)

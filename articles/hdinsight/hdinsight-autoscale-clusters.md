@@ -7,43 +7,30 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/07/2020
-ms.openlocfilehash: 7d741e2fc787c057ebfcdeceeab2ea096df3f9ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: f41a15fb52698eaa17d6f76b991cbd31a56ba14f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195214"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731974"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
-> [!Important]
-> La funzionalità di scalabilità automatica di Azure HDInsight è stata rilasciata per la disponibilità generale il 7 novembre 2019 per i cluster Spark e Hadoop e i miglioramenti inclusi non sono disponibili nella versione di anteprima della funzionalità. Se è stato creato un cluster Spark prima del 7 novembre 2019 e si vuole usare la funzionalità di scalabilità automatica nel cluster, il percorso consigliato consiste nel creare un nuovo cluster e abilitare la scalabilità automatica nel nuovo cluster.
->
-> La scalabilità automatica per i cluster Interactive query (LLAP) e HBase è ancora in anteprima. La scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive query e HBase.
-
-La funzionalità di scalabilità automatica del cluster di Azure HDInsight consente di ridimensionare automaticamente il numero di nodi del ruolo di lavoro in un cluster. Attualmente non è possibile ridimensionare altri tipi di nodi nel cluster.  Durante la creazione di un nuovo cluster HDInsight è possibile impostare un numero minimo e massimo di nodi del ruolo di lavoro. La scalabilità automatica monitora quindi i requisiti delle risorse del carico di analisi e ridimensiona il numero di nodi di lavoro verso l'alto o verso il basso. Non sono previsti costi aggiuntivi per questa funzionalità.
-
-## <a name="cluster-compatibility"></a>Compatibilità del cluster
-
-La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
-
-| Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
-|---|---|---|---|---|---|---|---|
-| HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
-| HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
-| HDInsight 3,6 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
-| HDInsight 4,0 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
-
-\*I cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
+La funzionalità di scalabilità automatica gratuita di Azure HDInsight può aumentare o ridurre automaticamente il numero di nodi del ruolo di lavoro nel cluster in base ai criteri impostati in precedenza. Si imposta un numero minimo e massimo di nodi durante la creazione del cluster, si stabiliscono i criteri di scalabilità usando una pianificazione giornaliera o metriche delle prestazioni specifiche e la piattaforma HDInsight esegue il resto.
 
 ## <a name="how-it-works"></a>Funzionamento
 
-È possibile scegliere il ridimensionamento basato sul carico o la scalabilità basata sulla pianificazione per il cluster HDInsight. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione.
+La funzionalità di scalabilità automatica usa due tipi di condizioni per attivare gli eventi di scalabilità: le soglie per diverse metriche delle prestazioni del cluster (denominate *scalabilità basata sul carico*) e i trigger basati sul tempo, denominati *scalabilità basata su pianificazione*. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione. La scalabilità basata sulla pianificazione modifica il numero di nodi nel cluster in base alle operazioni che si associano a date e ore specifiche.
 
-La scalabilità basata sulla pianificazione modifica il numero di nodi nel cluster in base a condizioni che hanno effetto in momenti specifici. Queste condizioni ridimensionano il cluster in base a un numero di nodi previsto.
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Scelta del ridimensionamento basato sul carico o sulla pianificazione
 
-### <a name="metrics-monitoring"></a>Monitoraggio delle metriche
+Quando si sceglie un tipo di scalabilità, tenere presenti i seguenti fattori:
+
+* Varianza del carico: il carico del cluster segue un modello coerente in momenti specifici, in giorni specifici? In caso contrario, la pianificazione basata sul carico è un'opzione migliore.
+* Requisiti del contratto di contratto: la scalabilità automatica è reattiva anziché predittiva. Si verifica un ritardo sufficiente tra il momento in cui il carico inizia ad aumentare e quando il cluster deve avere le dimensioni di destinazione? Se sono presenti requisiti rigorosi per il contratto di contratto e il carico è un modello noto fisso,' pianificazione basata ' è un'opzione migliore.
+
+### <a name="cluster-metrics"></a>Metriche del cluster
 
 La funzionalità di scalabilità automatica monitora continuamente il cluster e raccoglie le metriche seguenti:
 
@@ -56,7 +43,7 @@ La funzionalità di scalabilità automatica monitora continuamente il cluster e 
 |Memoria usata per nodo|carico su un nodo del ruolo di lavoro. Un nodo del ruolo di lavoro in cui sono utilizzati 10 GB di memoria è considerato come sottoposto a un carico superiore rispetto a un nodo del ruolo di lavoro con 2 GB di memoria utilizzata.|
 |Numero di Master applicazioni per nodo|numero di contenitori di master applicazioni in esecuzione su un nodo del ruolo di lavoro. Un nodo del ruolo di lavoro che ospita due contenitori AM è considerato più importante di un nodo del ruolo di lavoro che ospita zero contenitori.|
 
-Le metriche riportate sopra vengono controllate ogni 60 secondi. La scalabilità automatica consente di prendere decisioni in base a queste metriche.
+Le metriche riportate sopra vengono controllate ogni 60 secondi. È possibile configurare le operazioni di ridimensionamento per il cluster usando una di queste metriche.
 
 ### <a name="load-based-scale-conditions"></a>Condizioni di scalabilità basata sul carico
 
@@ -70,6 +57,24 @@ Quando vengono rilevate le condizioni seguenti, la scalabilità automatica emett
 Per la scalabilità verticale, la scalabilità automatica rilascia una richiesta di scalabilità verticale per aggiungere il numero di nodi necessario. La scalabilità verticale è basata sul numero di nuovi nodi del ruolo di lavoro necessari per soddisfare i requisiti di CPU e memoria correnti.
 
 Per il ridimensionamento automatico, la scalabilità automatica invia una richiesta di rimozione di un determinato numero di nodi. La scalabilità verticale è basata sul numero di contenitori AM per nodo. E i requisiti di CPU e memoria correnti. Il servizio rileva anche quali nodi sono candidati per la rimozione in base all'esecuzione del processo corrente. L'operazione di riduzione delle prestazioni consente innanzitutto di rimuovere le autorizzazioni dei nodi e quindi di rimuoverli dal cluster.
+
+### <a name="cluster-compatibility"></a>Compatibilità del cluster
+
+> [!Important]
+> La funzionalità di scalabilità automatica di Azure HDInsight è stata rilasciata per la disponibilità generale il 7 novembre 2019 per i cluster Spark e Hadoop e i miglioramenti inclusi non sono disponibili nella versione di anteprima della funzionalità. Se è stato creato un cluster Spark prima del 7 novembre 2019 e si vuole usare la funzionalità di scalabilità automatica nel cluster, il percorso consigliato consiste nel creare un nuovo cluster e abilitare la scalabilità automatica nel nuovo cluster.
+>
+> La scalabilità automatica per i cluster Interactive query (LLAP) e HBase è ancora in anteprima. La scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive query e HBase.
+
+La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
+
+| Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
+|---|---|---|---|---|---|---|---|
+| HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 3,6 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 4,0 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
+
+\*I cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -205,16 +210,35 @@ Usare i parametri appropriati nel payload della richiesta. Il payload JSON segue
 
 Vedere la sezione precedente sull' [Abilitazione della scalabilità automatica basata sul carico](#load-based-autoscaling) per una descrizione completa di tutti i parametri del payload.
 
-## <a name="guidelines"></a>Indicazioni
+## <a name="monitoring-autoscale-activities"></a>Monitoraggio delle attività di scalabilità automatica
 
-### <a name="choosing-load-based-or-schedule-based-scaling"></a>Scelta del ridimensionamento basato sul carico o sulla pianificazione
+### <a name="cluster-status"></a>Stato del cluster
 
-Prima di prendere una decisione sulla modalità da scegliere, considerare i fattori seguenti:
+Lo stato del cluster elencato nell'portale di Azure consente di monitorare le attività di ridimensionamento automatico.
 
-* Abilitare la scalabilità automatica durante la creazione del cluster.
-* Il numero minimo di nodi deve essere almeno tre.
-* Varianza del carico: il carico del cluster segue un modello coerente in momenti specifici, in giorni specifici. In caso contrario, la pianificazione basata sul carico è un'opzione migliore.
-* Requisiti del contratto di contratto: la scalabilità automatica è reattiva anziché predittiva. Si verifica un ritardo sufficiente tra il momento in cui il carico inizia ad aumentare e quando il cluster deve avere le dimensioni di destinazione? Se sono presenti requisiti rigorosi per il contratto di contratto e il carico è un modello noto fisso,' pianificazione basata ' è un'opzione migliore.
+![Abilitare lo stato del cluster di scalabilità automatica basato sul carico del nodo di lavoro](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+
+Tutti i messaggi di stato del cluster visualizzati potrebbero essere illustrati nell'elenco seguente.
+
+| Stato del cluster | Descrizione |
+|---|---|
+| In esecuzione | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
+| Aggiornamento  | È in corso l'aggiornamento della configurazione di scalabilità automatica del cluster.  |
+| Configurazione di HDInsight  | È in corso un'operazione di scalabilità verticale o verticale del cluster.  |
+| Errore di aggiornamento  | HDInsight ha soddisfatto i problemi durante l'aggiornamento della configurazione di scalabilità automatica. I clienti possono scegliere di ritentare l'aggiornamento o disabilitare la scalabilità automatica.  |
+| Errore  | Si è verificato un errore nel cluster e non è utilizzabile. Eliminare questo cluster e crearne uno nuovo.  |
+
+Per visualizzare il numero corrente di nodi nel cluster, passare al grafico delle **dimensioni del cluster** nella pagina **Panoramica** del cluster. In alternativa, selezionare **dimensioni del cluster** in **Impostazioni**.
+
+### <a name="operation-history"></a>Cronologia delle operazioni
+
+È possibile visualizzare la cronologia di scalabilità orizzontale e verticale del cluster come parte della metrica del cluster. È anche possibile elencare tutte le azioni di scalabilità nel giorno precedente, settimana o altro periodo di tempo.
+
+Selezionare le **metriche** in **monitoraggio**. Selezionare quindi **Aggiungi metrica** e **numero di thread di lavoro attivi** nella casella a discesa **metrica** . Selezionare il pulsante in alto a destra per modificare l'intervallo di tempo.
+
+![Abilitare la metrica di scalabilità automatica basata sulla pianificazione del nodo di lavoro](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+
+## <a name="other-considerations"></a>Altre considerazioni
 
 ### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Prendere in considerazione la latenza delle operazioni di scalabilità verticale o verticale
 
@@ -229,34 +253,6 @@ I processi in esecuzione continueranno. I processi in sospeso attendono la piani
 ### <a name="minimum-cluster-size"></a>Dimensioni minime del cluster
 
 Non ridimensionare il cluster fino a un massimo di tre nodi. Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente.  Per ulteriori informazioni, vedere la pagina relativa [all'inserimento in modalità provvisoria](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
-
-## <a name="monitoring"></a>Monitoraggio
-
-### <a name="cluster-status"></a>Stato del cluster
-
-Lo stato del cluster elencato nell'portale di Azure consente di monitorare le attività di ridimensionamento automatico.
-
-![Abilitare lo stato del cluster di scalabilità automatica basato sul carico del nodo di lavoro](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
-
-Tutti i messaggi di stato del cluster visualizzati potrebbero essere illustrati nell'elenco seguente.
-
-| Stato del cluster | Descrizione |
-|---|---|
-| In esecuzione | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
-| Updating  | È in corso l'aggiornamento della configurazione di scalabilità automatica del cluster.  |
-| Configurazione di HDInsight  | È in corso un'operazione di scalabilità verticale o verticale del cluster.  |
-| Errore di aggiornamento  | HDInsight ha soddisfatto i problemi durante l'aggiornamento della configurazione di scalabilità automatica. I clienti possono scegliere di ritentare l'aggiornamento o disabilitare la scalabilità automatica.  |
-| Errore  | Si è verificato un errore nel cluster e non è utilizzabile. Eliminare questo cluster e crearne uno nuovo.  |
-
-Per visualizzare il numero corrente di nodi nel cluster, passare al grafico delle **dimensioni del cluster** nella pagina **Panoramica** del cluster. In alternativa, selezionare **dimensioni del cluster** in **Impostazioni**.
-
-### <a name="operation-history"></a>Cronologia delle operazioni
-
-È possibile visualizzare la cronologia di scalabilità orizzontale e verticale del cluster come parte della metrica del cluster. È anche possibile elencare tutte le azioni di scalabilità nel giorno precedente, settimana o altro periodo di tempo.
-
-Selezionare le **metriche** in **monitoraggio**. Selezionare quindi **Aggiungi metrica** e **numero di thread di lavoro attivi** nella casella a discesa **metrica** . Selezionare il pulsante in alto a destra per modificare l'intervallo di tempo.
-
-![Abilitare la metrica di scalabilità automatica basata sulla pianificazione del nodo di lavoro](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
