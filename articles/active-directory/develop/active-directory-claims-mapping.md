@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8be2c8cc70db963252054a39cad558c4c1b5bd2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263192"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871213"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -44,7 +44,7 @@ I criteri di mapping delle attestazioni sono un tipo di oggetto **Criteri** che 
 
 Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 
-| Set di attestazioni | Descrizione |
+| Set di attestazioni | Description |
 |---|---|
 | Set di attestazioni core | Sono presenti in ogni token, indipendentemente dai criteri. Queste attestazioni sono anche considerate limitate e non possono essere modificate. |
 | Set di attestazioni di base | Include le attestazioni generate per impostazione predefinita per i token (oltre al set di attestazioni core). È possibile omettere o modificare le attestazioni di base usando i criteri di mapping delle attestazioni. |
@@ -321,7 +321,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | othermail | Posta elettronica alternativa |
 | Utente | country | Country |
 | Utente | city | city |
-| Utente | state | State |
+| Utente | state | Stato |
 | Utente | jobtitle | Posizione |
 | Utente | employeeid | ID dipendente |
 | Utente | facsimiletelephonenumber | Numero di telefono fax |
@@ -358,7 +358,7 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabella 4: Metodi di trasformazione e input/output previsti
 
-|TransformationMethod|Input previsto|Output previsto|Descrizione|
+|TransformationMethod|Input previsto|Output previsto|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Esegue il join di stringhe di input dividendole con un separatore. Ad esempio: stringa1: "foo@bar.com", stringa2: "sandbox", separatore: "." comporta in outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Estrae la parte locale di un indirizzo di posta elettronica. Ad esempio: mail:"foo@bar.com" comporta in outputClaim:"foo". Se non è presente un segno \@, la stringa di input originale viene restituita così come è.|
@@ -410,7 +410,7 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 | TransformationMethod | Restrizioni |
 | ----- | ----- |
-| ExtractMailPrefix | nessuno |
+| ExtractMailPrefix | Nessuno |
 | Join | Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse. |
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
@@ -484,7 +484,7 @@ In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai
    1. Per creare i criteri, eseguire questo comando:  
      
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
    2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando:

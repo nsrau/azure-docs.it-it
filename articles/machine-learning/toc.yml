@@ -86,7 +86,7 @@
     - name: Esempi end-to-end di MLOps
       href: 'https://github.com/microsoft/MLOps'
     - name: Set di dati aperti (pubblici)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concetti
   items:
     - name: Pianificare e gestire i costi
@@ -172,8 +172,6 @@
           href: how-to-setup-authentication.md
         - name: Monitorare Azure Machine Learning
           href: monitor-azure-machine-learning.md
-    - name: Integrazione di Griglia di eventi
-      href: concept-event-grid-integration.md
 - name: Guide pratiche
   items:
     - name: Creare e gestire aree di lavoro
@@ -343,7 +341,7 @@
               displayName: functions app
               href: how-to-deploy-functions.md
             - name: Dispositivi Azure IoT Edge
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
             - name: Inferenza di FPGA
               href: how-to-deploy-fpga-web-service.md
             - name: Immagini Docker personalizzate
@@ -384,7 +382,7 @@
           href: how-to-debug-pipelines-application-insights.md
         - name: Azure Pipelines per CI/CD
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
         - name: Trasformare i dati con la finestra di progettazione
           displayName: pipeline
           href: how-to-designer-transform-data.md
@@ -456,7 +454,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Confrontare i prodotti Machine Learning
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
     - name: Modifiche apportate al Workbench
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: da739df761d1d7881764f6ee296872fa02781a6f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.date: 05/05/2020
+ms.openlocfilehash: 8fab8c51655c860bc63715a5313c18ac72d4b0cd
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734961"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871613"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -80,42 +80,49 @@ Per assicurarsi che ISE sia accessibile e che le app per la logica di ISE siano 
 
 * Se è stata creata una nuova rete virtuale di Azure e le subnet senza vincoli, non è necessario configurare i [gruppi di sicurezza di rete (gruppi)](../virtual-network/security-overview.md#network-security-groups) nella rete virtuale per controllare il traffico tra le subnet.
 
-* In una rete virtuale esistente è possibile impostare *facoltativamente* gruppi [filtrando il traffico di rete tra le subnet](../virtual-network/tutorial-filter-network-traffic.md). Se si vuole passare a questa route o se si sta già usando gruppi, assicurarsi di [aprire le porte in questa tabella](#network-ports-for-ise) nella rete virtuale in cui si è gruppi o si vuole configurare gruppi.
+* Per una rete virtuale esistente, è possibile impostare *facoltativamente* i [gruppi di sicurezza di rete (gruppi)](../virtual-network/security-overview.md#network-security-groups) per [filtrare il traffico di rete tra le subnet](../virtual-network/tutorial-filter-network-traffic.md). Se si vuole passare a questa route o se si sta già usando gruppi, assicurarsi di [aprire le porte descritte in questa tabella](#network-ports-for-ise) per i gruppi.
 
-  > [!NOTE]
-  > Se si usano le [regole di sicurezza di NSG](../virtual-network/security-overview.md#security-rules), è necessario usare i protocolli TCP e UDP. *both* Le regole di sicurezza di NSG descrivono le porte che è necessario aprire per gli indirizzi IP che necessitano dell'accesso a tali porte. Assicurarsi che eventuali firewall, router o altri elementi presenti tra questi endpoint mantengano tali porte accessibili anche a tali indirizzi IP.
+  Quando si configurano [le regole di sicurezza di NSG](../virtual-network/security-overview.md#security-rules), è *necessario usare i* protocolli **TCP** e **UDP** oppure è possibile selezionare **qualsiasi** , in modo da non dover creare regole separate per ogni protocollo. Le regole di sicurezza di NSG descrivono le porte che è necessario aprire per gli indirizzi IP che necessitano dell'accesso a tali porte. Assicurarsi che eventuali firewall, router o altri elementi presenti tra questi endpoint mantengano tali porte accessibili anche a tali indirizzi IP.
 
 <a name="network-ports-for-ise"></a>
 
 ### <a name="network-ports-used-by-your-ise"></a>Porte di rete usate da ISE
 
-Questa tabella descrive le porte nella rete virtuale di Azure che ISE USA e in cui vengono usate le porte. Per ridurre la complessità quando si creano le regole di sicurezza, i [tag del servizio](../virtual-network/service-tags-overview.md) nella tabella rappresentano i gruppi di prefissi di indirizzi IP per un servizio di Azure specifico.
+Questa tabella descrive le porte necessarie per accedere a ISE e lo scopo di tali porte. Per ridurre la complessità quando si configurano le regole di sicurezza, nella tabella vengono usati i [tag di servizio](../virtual-network/service-tags-overview.md) che rappresentano gruppi di prefissi di indirizzi IP per un servizio di Azure specifico. Dove indicato, *ISE interno* ed *ISE esterno* fanno riferimento all' [endpoint di accesso selezionato durante la creazione di ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
 > [!IMPORTANT]
-> Le porte di origine sono effimere, quindi assicurarsi di impostarle su `*` per tutte le regole. Dove indicato, ISE interno ed ISE esterno fanno riferimento all' [endpoint selezionato al momento della creazione di ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Per ulteriori informazioni, vedere [endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
+> Per tutte le regole, assicurarsi di impostare le porte di origine `*` su perché le porte di origine sono effimere.
 
-| Scopo | Direction | Porte di destinazione | Tag del servizio di origine | Tag del servizio di destinazione | Note |
-|---------|-----------|-------------------|--------------------|-------------------------|-------|
-| Comunicazione tra subnet nella rete virtuale | In ingresso e in uscita | * | Lo spazio degli indirizzi per la rete virtuale con le subnet di ISE | Lo spazio degli indirizzi per la rete virtuale con le subnet di ISE | Necessaria per il flusso del traffico *tra* le subnet nella rete virtuale. <p><p>**Importante**: per il flusso del traffico tra i *componenti* in ogni subnet, assicurarsi di aprire tutte le porte all'interno di ogni subnet. |
-| Comunicazione con l'app per la logica | In ingresso | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE esterno: <br>Internet <br>(vedere la colonna **Note** ) | VirtualNetwork | Invece di usare il tag di servizio **Internet** , è possibile specificare l'indirizzo IP di origine per il computer o il servizio che chiama i trigger o i webhook di richiesta nell'app per la logica. <p><p>**Importante**: la chiusura o il blocco di questa porta impedisce le chiamate http alle app per la logica con trigger di richiesta. |
-| Cronologia di esecuzione dell'app per la logica | In ingresso | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE esterno: <br>Internet <br>(vedere la colonna **Note** ) | VirtualNetwork | Invece di usare il tag di servizio **Internet** , è possibile specificare l'indirizzo IP di origine per il computer o il servizio da cui si vuole visualizzare la cronologia di esecuzione dell'app per la logica. <p><p>**Importante**: Sebbene la chiusura o il blocco di questa porta non impedisca la visualizzazione della cronologia di esecuzione, non è possibile visualizzare gli input e gli output per ogni passaggio della cronologia di esecuzione. |
-| Progettazione di App per la logica - proprietà dinamiche | In ingresso | 454 | LogicAppsManagement | VirtualNetwork | Le richieste provengono dagli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) dell'endpoint di accesso delle app per la logica per tale area. |
-| Distribuzione dei connettori | In ingresso | 454 | AzureConnectors | VirtualNetwork | Obbligatorio per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
-| Controllo integrità rete | In ingresso | 454 | LogicApps | VirtualNetwork | Le richieste provengono dall'endpoint di accesso delle app per la logica per gli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) e in [uscita](../logic-apps/logic-apps-limits-and-config.md#outbound) per tale area. |
-| Dipendenza da Gestione del servizio app | In ingresso | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Comunicazione da Gestione traffico di Azure | In ingresso | ISE interno: 454 <p><p>ISE esterno: 443 | AzureTrafficManager | VirtualNetwork | |
-| Gestione API - endpoint di gestione | In ingresso | 3443 | APIManagement | VirtualNetwork | |
-| Distribuzione dei criteri del connettore | In ingresso | 3443 | APIManagement | VirtualNetwork | Obbligatorio per la distribuzione e l'aggiornamento dei connettori. La chiusura o il blocco di questa porta causa la mancata riuscita delle distribuzioni di ISE e impedisce aggiornamenti o correzioni del connettore. |
-| Comunicazione dall'app per la logica | In uscita | 80, 443 | VirtualNetwork | Varia in base alla destinazione | Endpoint per il servizio esterno con cui l'app per la logica deve comunicare. |
-| Azure Active Directory | In uscita | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Gestione delle connessioni | In uscita | 443 | VirtualNetwork  | AppService | |
-| Pubblicare i log di diagnostica e metriche | In uscita | 443 | VirtualNetwork  | AzureMonitor | |
-| Dipendenza da Archiviazione di Azure | In uscita | 80, 443, 445 | VirtualNetwork | Archiviazione | |
-| Dipendenza SQL di Azure | In uscita | 1433 | VirtualNetwork | SQL | |
-| Integrità risorse di Azure | In uscita | 1886 | VirtualNetwork | AzureMonitor | Obbligatorio per la pubblicazione dello stato di integrità Integrità risorse |
-| Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | In uscita | 5672 | VirtualNetwork | Hub eventi | |
-| Istanze di accesso Cache Azure per Redis tra Role Instances | In ingresso <br>In uscita | 6379-6383 | VirtualNetwork | VirtualNetwork | Inoltre, per usare ISE con cache di Azure per Redis, è necessario aprire le [porte in uscita e in ingresso descritte nelle domande frequenti su cache di Azure per Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-||||||
+#### <a name="inbound-security-rules"></a>Regole di sicurezza in ingresso
+
+| Scopo | Tag del servizio di origine o indirizzi IP | Porte di origine | Tag del servizio di destinazione o indirizzi IP | Porte di destinazione | Note |
+|---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+| Comunicazione tra subnet nella rete virtuale | Spazio degli indirizzi per la rete virtuale con subnet ISE | * | Spazio degli indirizzi per la rete virtuale con subnet ISE | * | Necessaria per il flusso del traffico *tra* le subnet nella rete virtuale. <p><p>**Importante**: per il flusso del traffico tra i *componenti* in ogni subnet, assicurarsi di aprire tutte le porte all'interno di ogni subnet. |
+| Both: <p>Comunicazione con l'app per la logica <p><p>Cronologia delle esecuzioni per l'app per la logica| ISE interno: <br>**VirtualNetwork** <p><p>ISE esterno: **Internet** o vedere **note** | * | **VirtualNetwork** | 443 | Anziché usare il tag di servizio **Internet** , è possibile specificare l'indirizzo IP di origine per questi elementi: <p><p>: Il computer o il servizio che chiama qualsiasi trigger o webhook di richiesta nell'app per la logica <p>-Il computer o il servizio da cui si vuole accedere alla cronologia delle esecuzioni dell'app per la logica <p><p>**Importante**: la chiusura o il blocco di questa porta impedisce le chiamate alle app per la logica con trigger di richiesta o webhook. È anche possibile impedire l'accesso a input e output per ogni passaggio nella cronologia esecuzioni. Tuttavia, non è consentito l'accesso alla cronologia delle esecuzioni dell'app per la logica.|
+| Progettazione app per la logica-proprietà dinamiche | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Le richieste provengono dagli [indirizzi IP in ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) dell'endpoint di accesso delle app per la logica per tale area. |
+| Distribuzione dei connettori | **AzureConnectors** | * | **VirtualNetwork** | 454 | Obbligatorio per distribuire e aggiornare i connettori. La chiusura o il blocco di questa porta causa l'esito negativo delle distribuzioni ISE e impedisce gli aggiornamenti e le correzioni del connettore. |
+| Controllo integrità rete | **LogicApps** | * | **VirtualNetwork** | 454 | Le richieste provengono dagli indirizzi [IP in ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) dell'endpoint di accesso delle app per la logica e dagli [indirizzi IP](../logic-apps/logic-apps-limits-and-config.md#outbound) in uscita per tale area. |
+| Dipendenza da Gestione del servizio app | **AppServiceManagement** | * | **VirtualNetwork** | 454, 455 ||
+| Comunicazione da Gestione traffico di Azure | **AzureTrafficManager** | * | **VirtualNetwork** | ISE interno: 454 <p><p>ISE esterno: 443 ||
+| Both: <p>Distribuzione dei criteri del connettore <p>Gestione API - endpoint di gestione | **APIManagement** | * | **VirtualNetwork** | 3443 | Per la distribuzione dei criteri del connettore, è necessario l'accesso alla porta per distribuire e aggiornare i connettori. La chiusura o il blocco di questa porta causa l'esito negativo delle distribuzioni ISE e impedisce gli aggiornamenti e le correzioni del connettore. |
+| Istanze di accesso Cache Azure per Redis tra Role Instances | **VirtualNetwork** | * | **VirtualNetwork** | 6379-6383, più vedere **Note**| Per usare ISE con cache di Azure per Redis, è necessario aprire le [porte in uscita e in ingresso descritte nelle domande frequenti su cache di Azure per Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+|||||||
+
+#### <a name="outbound-security-rules"></a>Regole di sicurezza in uscita
+
+| Scopo | Tag del servizio di origine o indirizzi IP | Porte di origine | Tag del servizio di destinazione o indirizzi IP | Porte di destinazione | Note |
+|---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+| Comunicazione tra subnet nella rete virtuale | Spazio degli indirizzi per la rete virtuale con subnet ISE | * | Spazio degli indirizzi per la rete virtuale con subnet ISE | * | Necessaria per il flusso del traffico *tra* le subnet nella rete virtuale. <p><p>**Importante**: per il flusso del traffico tra i *componenti* in ogni subnet, assicurarsi di aprire tutte le porte all'interno di ogni subnet. |
+| Comunicazione dall'app per la logica | **VirtualNetwork** | * | Varia in base alla destinazione | 80, 443 | La destinazione varia in base agli endpoint per il servizio esterno con cui l'app per la logica deve comunicare. |
+| Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
+| Dipendenza da Archiviazione di Azure | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
+| Gestione delle connessioni | **VirtualNetwork** | * | **AppService** | 443 ||
+| Pubblicare log di diagnostica & metriche | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
+| Dipendenza SQL di Azure | **VirtualNetwork** | * | **SQL** | 1433 ||
+| Integrità risorse di Azure | **VirtualNetwork** | * | **AzureMonitor** | 1886 | Obbligatorio per la pubblicazione dello stato di integrità Integrità risorse. |
+| Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | **VirtualNetwork** | * | **EventHub** | 5672 ||
+| Istanze di accesso Cache Azure per Redis tra Role Instances | **VirtualNetwork** | * | **VirtualNetwork** | 6379-6383, più vedere **Note**| Per usare ISE con cache di Azure per Redis, è necessario aprire le [porte in uscita e in ingresso descritte nelle domande frequenti su cache di Azure per Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+|||||||
 
 <a name="create-environment"></a>
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 6d0d05f13f592fc981d3df52d107b385bdbbb21e
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515287"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927905"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Raccolta di metriche personalizzate in .NET e .NET Core
 
@@ -20,7 +20,7 @@ Il monitoraggio di Azure Application Insights .NET e gli SDK di .NET Core hanno 
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric rispetto a getmetric
 
-`TrackMetric()`Invia dati di telemetria non elaborati che indicano una metrica. Non è efficiente inviare un singolo elemento di telemetria per ogni valore. `TrackMetric()`Invia dati di telemetria non elaborati che indicano una metrica. Non è efficiente inviare un singolo elemento di telemetria per ogni valore. `TrackMetric()`è anche inefficiente in termini di prestazioni, perché `TrackMetric(item)` ogni passa attraverso la pipeline SDK completa degli inizializzatori e dei processori di telemetria. A differenza `TrackMetric()`di `GetMetric()` , gestisce la pre-aggregazione locale per l'utente e quindi invia solo una metrica di riepilogo aggregata a un intervallo fisso di un minuto. Quindi, se è necessario monitorare attentamente alcune metriche personalizzate al secondo o anche al livello di millisecondo, è possibile eseguire questa operazione, mentre solo il costo del traffico di archiviazione e di rete è sufficiente per il monitoraggio ogni minuto. Questo consente anche di ridurre notevolmente il rischio di limitazione delle richieste poiché il numero totale di elementi di telemetria che devono essere inviati per una metrica aggregata è notevolmente ridotto.
+`TrackMetric()`Invia dati di telemetria non elaborati che indicano una metrica. Non è efficiente inviare un singolo elemento di telemetria per ogni valore. `TrackMetric()`è anche inefficiente in termini di prestazioni, perché `TrackMetric(item)` ogni passa attraverso la pipeline SDK completa degli inizializzatori e dei processori di telemetria. A differenza `TrackMetric()`di `GetMetric()` , gestisce la pre-aggregazione locale per l'utente e quindi invia solo una metrica di riepilogo aggregata a un intervallo fisso di un minuto. Quindi, se è necessario monitorare attentamente alcune metriche personalizzate al secondo o anche al livello di millisecondo, è possibile eseguire questa operazione, mentre solo il costo del traffico di archiviazione e di rete è sufficiente per il monitoraggio ogni minuto. Questo consente anche di ridurre notevolmente il rischio di limitazione delle richieste poiché il numero totale di elementi di telemetria che devono essere inviati per una metrica aggregata è notevolmente ridotto.
 
 In Application Insights la metrica personalizzata raccolta tramite `TrackMetric()` e `GetMetric()` non è soggetta al [campionamento](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Il campionamento di metriche importanti può causare scenari in cui l'invio di avvisi potrebbe essere stato inaffidabile. Se non si campionano mai le metriche personalizzate, in genere è possibile essere certi che, quando vengono violate le soglie di avviso, viene generato un avviso.  Tuttavia, poiché le metriche personalizzate non vengono campionate, è possibile che si verifichino alcune problematiche.
 
@@ -186,23 +186,11 @@ Si noterà tuttavia che non è possibile dividere la metrica in base alla nuova 
 
 ![Supporto per la suddivisione](./media/get-metric/splitting-support.png)
 
-Per impostazione predefinita, le metriche multidimensionali all'interno dell'esperienza di Esplora metriche non sono attivate in Application Insights risorse. Per attivare questo comportamento, passare alla scheda utilizzo e costo stimato selezionando ["Abilita avvisi sulle dimensioni metriche personalizzate"](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
-### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Come usare metricIdentifier quando sono presenti più di tre dimensioni
-
-Attualmente sono supportate 10 dimensioni, tuttavia, maggiori di tre dimensioni richiedono l'utente `metricIdentifier`:
-
-```csharp
-// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
-// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
-MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
-Metric computersSold  = _telemetryClient.GetMetric(id);
-computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
-```
+Per impostazione predefinita, le metriche multidimensionali all'interno dell'esperienza di Esplora metriche non sono attivate in Application Insights risorse.
 
 ### <a name="enable-multi-dimensional-metrics"></a>Abilitare le metriche multidimensionali
 
- > Per abilitare le metriche multidimensionali per una risorsa di Application Insights, selezionare **utilizzo e costi stimati****metriche** > **personalizzate Abilita avvisi sulle dimensioni** > metriche personalizzate**OK**.
+ > Per abilitare le metriche multidimensionali per una risorsa di Application Insights, selezionare **utilizzo e costi stimati****metriche** > **personalizzate Abilita avvisi sulle dimensioni** > metriche personalizzate**OK**. Altre informazioni su questo argomento sono disponibili [qui](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 Una volta apportata la modifica e inviato nuovi dati di telemetria multidimensionali, sarà possibile **applicare la suddivisione**.
 
@@ -214,6 +202,18 @@ Una volta apportata la modifica e inviato nuovi dati di telemetria multidimensio
 E visualizzare le aggregazioni delle metriche per ogni dimensione _FormFactor_ :
 
 ![Fattori di forma](./media/get-metric/formfactor.png)
+
+### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Come usare MetricIdentifier quando sono presenti più di tre dimensioni
+
+Attualmente sono supportate 10 dimensioni, tuttavia, maggiori di tre dimensioni richiedono l'uso `MetricIdentifier`di:
+
+```csharp
+// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
+// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
+MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
+Metric computersSold  = _telemetryClient.GetMetric(id);
+computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
+```
 
 ## <a name="custom-metric-configuration"></a>Configurazione metrica personalizzata
 

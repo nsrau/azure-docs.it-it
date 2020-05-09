@@ -1,21 +1,28 @@
 ---
 title: Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
 description: Usare funzionalità come la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi Azure Cosmos DB quando si usa .NET SDK.
-author: j82w
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 03/11/2020
-ms.author: jawilley
+ms.date: 05/06/2020
+ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e015c1ee335cbdfed7964d63b1f4600bc6a4cb77
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e389df7cfe0e228030d2d0f730fc5e671ad4c052
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208738"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927633"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
+
+> [!div class="op_single_selector"]
+> * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
+> * [.NET](troubleshoot-dot-net-sdk.md)
+> 
+
 Questo articolo descrive i problemi comuni, le soluzioni alternative, i passaggi di diagnostica e gli strumenti quando si usa [.NET SDK](sql-api-sdk-dotnet.md) con Azure Cosmos DB account API SQL.
 .NET SDK fornisce una rappresentazione logica sul lato client per accedere all'API SQL Azure Cosmos DB. Questo articolo descrive strumenti e approcci utili ad affrontare eventuali problemi.
 
@@ -119,7 +126,7 @@ Cause
  2. Il token di continuazione è cresciuto fino a grandi dimensioni. Diverse query avranno dimensioni diverse per i token di continuazione.
  3. È causata da una combinazione del token di sessione e del token di continuazione.
 
-Soluzione
+Soluzione:
    1. Seguire i [suggerimenti](performance-tips.md) per le prestazioni e convertire l'applicazione in modalità di connessione diretta + TCP. Direct + TCP non ha la restrizione delle dimensioni dell'intestazione, ad esempio HTTP, che evita questo problema.
    2. Se il token di sessione è la provocazione, una mitigazione temporanea prevede il riavvio dell'applicazione. Il riavvio dell'istanza dell'applicazione reimposterà il token di sessione. Se le eccezioni vengono interrotte dopo il riavvio, viene confermata la presenza del token di sessione. Fino alla dimensione che genererà l'eccezione.
    3. Se l'applicazione non può essere convertita in Direct + TCP e il token di sessione è la ragione, la mitigazione può essere eseguita modificando il [livello di coerenza](consistency-levels.md)del client. Il token di sessione viene usato solo per la coerenza di sessione, che è l'impostazione predefinita per Cosmos DB. Qualsiasi altro livello di coerenza non utilizzerà il token di sessione. 

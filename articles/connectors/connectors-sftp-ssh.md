@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393626"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927446"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -34,13 +34,13 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
 * Le azioni SFTP-SSH che supportano la [suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md) possono gestire file fino a 1 GB, mentre le azioni SFTP-SSH che non supportano la suddivisione in blocchi possono gestire file fino a 50 MB. Sebbene le dimensioni predefinite del blocco siano pari a 15 MB, questa dimensione può variare in modo dinamico, a partire da 5 MB e aumentando gradualmente fino al valore massimo di 50 MB, in base a fattori quali la latenza di rete, il tempo di risposta del server e così via.
 
   > [!NOTE]
-  > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+  > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), questa versione con etichetta ISE del connettore richiede la suddivisione in blocchi per usare invece i [limiti dei messaggi di ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
   È possibile eseguire l'override di questo comportamento adattivo quando si [specificano le dimensioni del blocco costante](#change-chunk-size) da usare. Questa dimensione può variare da 5 MB a 50 MB. Si supponga, ad esempio, di disporre di un file di 45 MB e di una rete in grado di supportare le dimensioni del file senza latenza. La suddivisione in blocchi adattiva comporta diverse chiamate, invece di una chiamata. Per ridurre il numero di chiamate, è possibile provare a impostare una dimensione di blocco di 50 MB. In uno scenario diverso, se l'app per la logica sta per scadere, ad esempio quando si usano 15 MB di blocchi, è possibile provare a ridurne le dimensioni a 5 MB.
 
   Le dimensioni del blocco sono associate a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
 
-  | Action | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
+  | Azione | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
   |--------|------------------|-----------------------------|
   | **Copia file** | No | Non applicabile |
   | **Crea file** | Sì | Sì |
@@ -103,7 +103,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
-| Client SFTP | Action |
+| Client SFTP | Azione |
 |-------------|--------|
 | Winscp | Vai a **Opzioni** > **Preferenze** > **trasferimento** > **Edit**modifica > **Mantieni**timestamp > **Disabilita** |
 | FileZilla | Vai al **trasferimento** > **Mantieni i timestamp dei file** > trasferiti**Disabilita** |
@@ -248,7 +248,7 @@ Se non è possibile evitare o ritardare lo spostamento del file, è possibile ig
 Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/sftpwithssh/).
 
 > [!NOTE]
-> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), questa versione con etichetta ISE del connettore richiede la suddivisione in blocchi per usare invece i [limiti dei messaggi di ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

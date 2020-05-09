@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/28/2019
-ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662485"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871254"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente SQL con la soluzione controllo integrità SQL Server in monitoraggio di Azure
 
@@ -34,8 +34,8 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard di *
 ## <a name="prerequisites"></a>Prerequisiti
 
 * La soluzione controllo integrità SQL richiede una versione supportata di .NET Framework 4.6.2 installato in ogni computer in cui è installato il Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, nonché da Monitoraggio di Azure.  
-* La soluzione supporta SQL Server versioni 2012, 2014 e 2016.
-* area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità SQL da Azure Marketplace al portale di Azure.  Per installare la soluzione, l'utente deve essere amministratore o collaboratore per la sottoscrizione di Azure.
+* La soluzione supporta SQL Server versione 2012, 2014, 2016, 2017 e 2019.
+* area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità SQL da Azure Marketplace al portale di Azure. Per installare la soluzione, l'utente deve essere amministratore o collaboratore per la sottoscrizione di Azure.
 
   > [!NOTE]
   > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati a Monitoraggio di Azure nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
@@ -85,7 +85,7 @@ Usare le informazioni seguenti per impostare l'account RunAs di Operations Manag
    > Il tipo dell'account RunAs deve essere Windows. L'account RunAs deve appartenere anche al gruppo Local Administrators in tutti i server Windows che ospitano istanze di SQL Server.
    >
    >
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 6. Modificare ed eseguire l'esempio T-SQL seguente in ogni istanza di SQL Server per concedere le autorizzazioni minime richieste dall'account RunAs per eseguire il controllo integrità. Non è tuttavia necessario farlo se l'account RunAs fa già parte del ruolo del server sysadmin nelle istanze di SQL Server.
 
 ```

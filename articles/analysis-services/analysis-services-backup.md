@@ -4,15 +4,15 @@ description: Questo articolo descrive come eseguire il backup e il ripristino de
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 02ca7f268f2998d3b7d73ab9fc00bbd688b5f50c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582520"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871290"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -24,7 +24,7 @@ Il backup dei database modello tabulare in Azure Analysis Services è molto simi
 > 
 
 > [!NOTE]
-> Se l'account di archiviazione si trova in un'area diversa, è necessario configurare le impostazioni del firewall per consentire l'accesso da **tutte le reti**. Le impostazioni del firewall configurate per le reti selezionate con indirizzi IP consentiti e Consenti eccezione dei servizi Microsoft attendibili non sono supportate.
+> Se l'account di archiviazione si trova in un'area diversa, configurare le impostazioni del firewall dell'account di archiviazione per consentire l'accesso dalle **reti selezionate**. In **intervallo di indirizzi**del firewall specificare l'intervallo di indirizzi IP per l'area in cui si trova il server Analysis Services. La configurazione delle impostazioni del firewall dell'account di archiviazione per consentire l'accesso da tutte le reti è supportata, tuttavia è preferibile scegliere le reti selezionate e specificare un intervallo di indirizzi IP. Per altre informazioni, vedere [domande frequenti sulla connettività di rete](analysis-services-network-faq.md#backup-and-restore).
 
 I backup vengono salvati con estensione abf. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
 
