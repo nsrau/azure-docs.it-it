@@ -11,19 +11,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e7e1f91cd4b647472e1899c3485d038f25b5b24
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414388"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651810"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint servizio e regole di rete virtuale per server di database
 
-Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza firewall che consente di definire se il server di database per i database singoli e il pool elastico nel [database SQL](sql-database-technical-overview.md) di Azure o per i database in [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzionalità relativa alle regole di rete virtuale rappresenti a volte la scelta ideale per consentire le comunicazioni con il database SQL di Azure e SQL Data Warehouse in modo sicuro.
+*Le regole della rete virtuale* sono una funzionalità di sicurezza del firewall che controlla se il server di database per i singoli database e il pool elastico nel [database SQL](sql-database-technical-overview.md) di Azure o per i database in [Azure sinapsi Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da specifiche subnet nelle reti virtuali. Questo articolo spiega perché la funzionalità della regola della rete virtuale è talvolta la scelta migliore per consentire in modo sicuro la comunicazione con il database SQL di Azure e l'analisi delle sinapsi di Azure.
 
 > [!IMPORTANT]
-> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. Le informazioni di questo articolo *non* sono valide per la distribuzione di un'**istanza gestita** nel database SQL di Azure perché non ha un endpoint di servizio associato.
+> Questo articolo si applica al server SQL di Azure e ai database SQL e di analisi delle sinapsi di Azure creati nel server SQL di Azure. Per semplicità, il database SQL viene usato quando si fa riferimento sia al database SQL che ad Azure sinapsi Analytics. Le informazioni di questo articolo *non* sono valide per la distribuzione di un'**istanza gestita** nel database SQL di Azure perché non ha un endpoint di servizio associato.
 
 Per creare una regola di rete virtuale, deve essere disponibile un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] al quale la regola possa fare riferimento.
 
@@ -105,11 +105,11 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure
 
-Archiviazione di Azure ha implementato la stessa funzionalità che consente di limitare la connettività all'account di archiviazione di Azure. Se si sceglie di usare questa funzionalità con un account di archiviazione di Azure usato da un server SQL Azure, possono verificarsi problemi. Di seguito sono riportati un elenco e una spiegazione delle funzionalità del database SQL di Azure e di Azure SQL Data Warehouse interessate.
+Archiviazione di Azure ha implementato la stessa funzionalità che consente di limitare la connettività all'account di archiviazione di Azure. Se si sceglie di usare questa funzionalità con un account di archiviazione di Azure usato da un server SQL Azure, possono verificarsi problemi. Di seguito è descritto un elenco e una discussione sulle funzionalità del database SQL di Azure e di Azure sinapsi Analytics interessate da questo problema.
 
-### <a name="azure-sql-data-warehouse-polybase"></a>PolyBase di Azure SQL Data Warehouse
+### <a name="azure-synapse-analytics-polybase"></a>Base di Azure sinapsi Analytics
 
-PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse dagli account di archiviazione di Azure. Se l'account di archiviazione di Azure da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. Per poter usare scenari sia di importazione che di esportazione di PolyBase con Azure SQL Data Warehouse che si connette ad Archiviazione di Azure protetta con la rete virtuale, seguire la procedura descritta di seguito.
+La polibase viene comunemente usata per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di Azure. Se l'account di archiviazione di Azure da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. Per abilitare gli scenari di importazione ed esportazione di polibase con Azure sinapsi Analytics che si connette ad archiviazione di Azure protetta per VNet, seguire la procedura indicata di seguito:
 
 #### <a name="prerequisites"></a>Prerequisiti
 
@@ -122,7 +122,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
 
 #### <a name="steps"></a>Passaggi
 
-1. In PowerShell **registrare il SQL Server di Azure** che ospita l'istanza di Azure SQL Data Warehouse con Azure Active Directory (AAD):
+1. In PowerShell **registrare il SQL Server di Azure** che ospita l'istanza di Azure sinapsi Analytics con Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -135,11 +135,11 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
    > [!NOTE]
    > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-
-1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di **collaboratore dei dati BLOB di archiviazione** al SQL Server di Azure che ospita i Azure SQL data warehouse registrati con Azure Active Directory (AAD) come nel passaggio 1.
+    
+1. Nell'account di archiviazione passare a **controllo di accesso (IAM)** e selezionare **Aggiungi assegnazione ruolo**. Selezionare il ruolo **collaboratore dati BLOB di archiviazione** dal elenco a discesa. Per **assegna accesso a** selezionare **Azure ad utente, gruppo o entità servizio**. Per **Select**Digitare il nome del server del SQL Server di Azure (server logico della data warehouse di analisi delle sinapsi di Azure) registrato con Azure Active Directory (AAD) come nel passaggio 1. Usare solo il nome del server non il nome DNS completo (**ServerName** senza. database.Windows.NET)
 
    > [!NOTE]
-   > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti per le risorse di Azure, fare riferimento a questa [guida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Solo i membri con privilegi di proprietario per l'account di archiviazione possono eseguire questo passaggio. Per i vari ruoli predefiniti per le risorse di Azure, fare riferimento a questa [guida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Connettività di Polybase all'account di archiviazione di Azure:**
 

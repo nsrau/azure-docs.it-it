@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 016a09432499c5fd2be8fd488c7ef7a644c00bca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062337"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628334"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurare una chiave di sicurezza come metodo di verifica
 
@@ -63,7 +63,7 @@ Prima di poter registrare la chiave di sicurezza, è necessario che siano soddis
 
 È necessario creare la chiave di sicurezza e assegnarle un PIN univoco prima di poter accedere all'account aziendale o dell'Istituto di istruzione usando la chiave. È possibile che si disponga di un massimo di 10 chiavi registrate con l'account. 
 
-1. Passare alla pagina **profilo personale** https://myprofile.microsoft.com e accedere se non è già stato fatto.
+1. Passare alla pagina **profilo personale** https://myaccount.microsoft.com e accedere se non è già stato fatto.
 
 2. Selezionare **info di sicurezza**, selezionare **Aggiungi metodo**, quindi selezionare **chiave di sicurezza** dall'elenco a discesa **Aggiungi un metodo** .
 

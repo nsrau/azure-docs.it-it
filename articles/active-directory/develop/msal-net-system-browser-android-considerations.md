@@ -13,13 +13,12 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad26a4d619a7984f08a8decc87f9339adae47cdd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e37d443d75dccae8704bc1ff7856e1d24131766
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77132606"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652708"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Novell Android System Browser considerazioni sull'uso di MSAL.NET
 
@@ -46,7 +45,7 @@ Nella tabella seguente sono elencati i dispositivi e i browser testati per la co
 | Dispositivo | Browser     |  Risultato  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/uno + | Chrome\* | Pass|
-| Huawei/uno + | Microsoft Edge\* | Pass|
+| Huawei/uno + | Bordo\* | Pass|
 | Huawei/uno + | Firefox\* | Pass|
 | Huawei/uno + | Incredibile\* | Pass|
 | Uno + | Ecosia\* | Pass|
