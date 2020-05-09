@@ -1,5 +1,6 @@
 ---
-title: Riferimento al token ID della piattaforma di identità Microsoft
+title: Token ID della piattaforma di identità Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come usare id_tokens emessi dagli endpoint Azure AD v 1.0 e Microsoft Identity Platform (v 2.0).
 services: active-directory
 author: hpsin
@@ -8,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 0d1a5ee3ae56e8b5c4886308624159853c52b52c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690175"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926715"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma Microsoft Identity
 
-Gli `id_tokens` vengono inviati all'applicazione client nell'ambito di un flusso di [OpenID Connect](v2-protocols-oidc.md). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
+`id_tokens`vengono inviati all'applicazione client come parte di un flusso [OpenID Connect](v2-protocols-oidc.md) (OIDC). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
 
 ## <a name="using-the-id_token"></a>Uso degli id_token
 
@@ -30,7 +31,7 @@ I token ID devono essere usati per convalidare che un utente è quello che attes
 
 ## <a name="claims-in-an-id_token"></a>Attestazioni in un id_token
 
-Per un'identità Microsoft, gli `id_tokens` sono token [JWT](https://tools.ietf.org/html/rfc7519), ovvero sono costituiti da un'intestazione, un payload e la parte della firma. L'intestazione e la firma consentono di verificare l'autenticità del token, mentre il payload contiene anche le informazioni sull'utente richieste dal client. Se non diversamente specificato, tutte le attestazioni elencate di seguito vengono visualizzate in entrambi i token v1.0 e v2.0.
+`id_tokens`per un'identità Microsoft sono [token JWT](https://tools.ietf.org/html/rfc7519) (token Web JSON), ovvero sono costituiti da un'intestazione, da un payload e da una parte della firma. L'intestazione e la firma consentono di verificare l'autenticità del token, mentre il payload contiene anche le informazioni sull'utente richieste dal client. Eccetto laddove specificato, tutte le attestazioni JWT elencate di seguito vengono visualizzate nei token v 1.0 e v 2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -59,7 +60,7 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
-Questo elenco Mostra le attestazioni nella maggior parte dei id_tokens per impostazione predefinita, ad eccezione di quanto indicato.  Tuttavia, l'app può usare le [attestazioni facoltative](active-directory-optional-claims.md) per richiedere altre attestazioni nel id_token.  Questi possono variare dall' `groups` attestazione alle informazioni sul nome dell'utente.
+Questo elenco Mostra le attestazioni JWT che si trovano nella maggior parte dei id_tokens per impostazione predefinita, ad eccezione di quanto indicato.  Tuttavia, l'app può usare le [attestazioni facoltative](active-directory-optional-claims.md) per richiedere altre attestazioni JWT nel id_token.  Questi possono variare dall' `groups` attestazione alle informazioni sul nome dell'utente.
 
 |Attestazione | Format | Descrizione |
 |-----|--------|-------------|
@@ -85,23 +86,23 @@ Questo elenco Mostra le attestazioni nella maggior parte dei id_tokens per impos
 |`uti` | Stringa opaca | Attestazione interna usata da Azure per riconvalidare i token. Deve essere ignorata. |
 |`ver` | Stringa, 1.0 o 2.0 | Indica la versione dell'id_token. |
 
-
 > [!NOTE]
-> I id_token V1 e V2 presentano differenze nella quantità di informazioni che verranno eseguite come illustrato negli esempi precedenti. La versione specifica essenzialmente l'endpoint della piattaforma Azure AD dal punto in cui è stato emesso. [Azure ad implementazione OAuth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) si è evoluta negli anni. Attualmente sono disponibili due endpoint oAuth diversi per le applicazioni AzureAD. È possibile usare uno qualsiasi dei nuovi endpoint categorizzati come v2 o quello precedente, detto come V1. Gli endpoint OAuth per entrambi sono diversi. L'endpoint V2 è quello più recente in cui si tenta di eseguire la migrazione di tutte le funzionalità dell'endpoint V1 e si consiglia ai nuovi sviluppatori di usare l'endpoint V2. 
+> I id_token V1 e V2 presentano differenze nella quantità di informazioni che verranno eseguite come illustrato negli esempi precedenti. La versione specifica essenzialmente l'endpoint della piattaforma Azure AD dal punto in cui è stato emesso. [Azure ad implementazione OAuth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) si è evoluta negli anni. Attualmente sono disponibili due endpoint oAuth diversi per le applicazioni AzureAD. È possibile usare uno qualsiasi dei nuovi endpoint categorizzati come v2 o quello precedente, detto come V1. Gli endpoint OAuth per entrambi sono diversi. L'endpoint V2 è quello più recente in cui si tenta di eseguire la migrazione di tutte le funzionalità dell'endpoint V1 e si consiglia ai nuovi sviluppatori di usare l'endpoint V2.
+>
 > - V1: Azure Active Directory endpoint:`https://login.microsoftonline.com/common/oauth2/authorize`
 > - V2: endpoint della piattaforma di identità Microsoft:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>Convalida di un id_token
 
-La convalida `id_token` di un è simile al primo passaggio della [convalida di un token di accesso](access-tokens.md#validating-tokens) . il client deve verificare che l'emittente corretto abbia inviato il token e che non sia stato alterato. Poiché gli `id_tokens` sono sempre token JWT, esistono molte librerie per la convalida dei token; è quindi consigliabile usare una di queste anziché crearla manualmente.
+La convalida `id_token` di un è simile al primo passaggio della [convalida di un token di accesso](access-tokens.md#validating-tokens) . il client deve verificare che l'emittente corretto abbia inviato il token e che non sia stato alterato. Poiché `id_tokens` si tratta sempre di un token JWT, sono disponibili molte librerie per convalidare questi token. si consiglia di usare uno di questi token anziché eseguirlo autonomamente.
 
-Per convalidare manualmente il token, vedere la procedura illustrata nella sezione [Convalida di un token di accesso](access-tokens.md#validating-tokens). Dopo aver convalidato la firma nel token, è necessario convalidare nell'id_token le attestazioni seguenti (questa operazione può essere eseguita anche mediante la libreria di convalida dei token):
+Per convalidare manualmente il token, vedere la procedura illustrata nella sezione [Convalida di un token di accesso](access-tokens.md#validating-tokens). Dopo aver convalidato la firma per il token, è necessario convalidare le seguenti attestazioni JWT nel id_token (è possibile che vengano eseguite anche dalla libreria di convalida dei token):
 
-* Timestamp: i timestamp `iat`, `nbf` e `exp` devono essere tutti registrati prima o dopo l'ora corrente, in base alle esigenze. 
+* Timestamp: i timestamp `iat`, `nbf` e `exp` devono essere tutti registrati prima o dopo l'ora corrente, in base alle esigenze.
 * Destinatario: l'attestazione `aud` deve corrispondere all'ID app della propria applicazione.
 * Nonce: l'attestazione `nonce` nel payload deve corrispondere al parametro nonce passato all'endpoint /authorize durante la richiesta iniziale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sui [token di accesso](access-tokens.md)
-* Personalizzare le attestazioni nel id_token usando [attestazioni facoltative](active-directory-optional-claims.md).
+* Personalizzare le attestazioni JWT nel id_token usando [attestazioni facoltative](active-directory-optional-claims.md).

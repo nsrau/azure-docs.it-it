@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260189"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562441"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema Azure Data Box Gateway
 
-Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Data Box Gateway e per i client che ci connettono ad Azure Data Box Gateway. Prima di distribuire Data Box Gateway è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
+Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Data Box Gateway e per i client che ci connettono ad Azure Data Box Gateway. Prima di distribuire Data Box Gateway è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento. 
 
 I requisiti di sistema per il dispositivo virtuale Data Box Gateway includono:
 

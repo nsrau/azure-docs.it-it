@@ -4,14 +4,14 @@ description: Informazioni su come gestire Azure Cosmos DB risorse usando i model
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247384"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82745034"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos
 
@@ -23,7 +23,7 @@ Questo articolo descrive come gestire varie attività relative a un account Azur
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>INTERFACCIA della riga di comando di Azure
+### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>Interfaccia della riga di comando di Azure
 
 Vedere [creare un account di Azure Cosmos DB con l'interfaccia della riga di comando di Azure](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
@@ -33,7 +33,7 @@ Vedere [creare un account Azure Cosmos DB con PowerShell](manage-with-powershell
 
 ### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modello di Azure Resource Manager
 
-Questo modello di Azure Resource Manager creerà un account Azure Cosmos per l'API SQL configurato con due aree e opzioni per selezionare il livello di coerenza, il failover automatico e il multimaster. Per distribuire il modello, fare clic su Deploy to Azure (Distribuisci in Azure) nella pagina README relativa alla [creazione di un account Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql).
+Vedere [creare un account di Azure Cosmos DB con modelli di Azure Resource Manager](manage-sql-with-resource-manager.md)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Aggiungere o rimuovere aree dall'account di database
 
@@ -55,7 +55,7 @@ In modalità di scrittura in una singola area non è possibile rimuovere l'area 
 
 In modalità di scrittura in più aree è possibile aggiungere o rimuovere qualsiasi area, purché resti almeno un'area.
 
-### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>INTERFACCIA della riga di comando di Azure
+### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>Interfaccia della riga di comando di Azure
 
 Vedere [aggiungere o rimuovere aree con l'interfaccia della riga di comando di Azure](manage-with-cli.md#add-or-remove-regions)
 
@@ -71,7 +71,7 @@ Aprire la scheda **Replica i dati a livello globale** e selezionare **Abilita** 
 
 ![Screenshot relativo alla configurazione della funzionalità multimaster per l'account Azure Cosmos](./media/how-to-manage-database-account/single-to-multi-master.png)
 
-### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>INTERFACCIA della riga di comando di Azure
+### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Interfaccia della riga di comando di Azure
 
 Vedere [abilitare aree con più scritture con l'interfaccia della riga di comando di Azure](manage-with-cli.md#enable-multiple-write-regions)
 
@@ -157,7 +157,7 @@ L'opzione di failover automatico consente ad Azure Cosmos DB di eseguire il fail
 
    ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
 
-### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>INTERFACCIA della riga di comando di Azure
+### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Interfaccia della riga di comando di Azure
 
 Vedere [abilitare il failover automatico con l'interfaccia della riga di comando di Azure](manage-with-cli.md#enable-automatic-failover)
 
@@ -188,7 +188,7 @@ Dopo aver configurato un account Cosmos per il failover automatico, è possibile
 
    ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
 
-### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>INTERFACCIA della riga di comando di Azure
+### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Interfaccia della riga di comando di Azure
 
 Vedere [impostare priorità di failover con l'interfaccia della riga di comando di Azure](manage-with-cli.md#set-failover-priority)
 
@@ -220,7 +220,7 @@ Il processo di esecuzione di un failover manuale prevede la modifica dell'area d
 
    ![Menu del portale Failover manuale](./media/how-to-manage-database-account/manual-failover.png)
 
-### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>INTERFACCIA della riga di comando di Azure
+### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Interfaccia della riga di comando di Azure
 
 Vedere [attivare il failover manuale con l'interfaccia della riga di comando di Azure](manage-with-cli.md#trigger-manual-failover)
 

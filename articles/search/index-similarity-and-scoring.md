@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9f9cc4c29b117c83595a36c4e28b1edb428c3cde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4b02039c86f43e6bebed58dfff475816f09a3da1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254122"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890134"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Somiglianza e assegnazione dei punteggi in Azure ricerca cognitiva
 
@@ -59,16 +59,9 @@ Azure ricerca cognitiva supporta due algoritmi di classificazione di somiglianza
 
 Per il momento, è possibile specificare quale algoritmo di classificazione di somiglianza si vuole usare. Per ulteriori informazioni, vedere [algoritmo di classificazione](index-ranking-similarity.md).
 
-## <a name="watch-this-video"></a>Guardare questo video
+Il seguente segmento video si avvicina rapidamente a una spiegazione degli algoritmi di classificazione usati in Azure ricerca cognitiva. È possibile guardare il video completo per informazioni più dettagliate.
 
-In questo video di 16 minuti il tecnico del software di Merouche descrive il processo di indicizzazione, query e creazione di profili di punteggio. Che ti offre un'idea di ciò che accade dietro le quinte durante l'indicizzazione e il recupero dei documenti.
-
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2-3 minuti per coprire l'indicizzazione: elaborazione del testo e analisi lessicale.
-+ 3-4 minuti per l'indicizzazione: indici invertiti.
-+ 4-6 minuti di esecuzione di query: recupero e classificazione.
-+ 7-16 minuti copre i profili di punteggio.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## <a name="see-also"></a>Vedere anche
 

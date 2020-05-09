@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3aecaf45a04c1428968791a71abece783c7eb7c0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188396"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891308"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -42,10 +42,10 @@ Per altre informazioni, vedere [configurare l'autenticazione per Azure Machine L
 
 Azure Machine Learning supporta due forme di autenticazione per i servizi Web: chiave e token. Ogni servizio Web può abilitare solo una forma di autenticazione alla volta.
 
-|Metodo di autenticazione|Descrizione|Istanze di Azure Container|Servizio Azure Kubernetes|
+|Metodo di autenticazione|Description|Istanze di Azure Container|Servizio Azure Kubernetes|
 |---|---|---|---|
 |Chiave|Le chiavi sono statiche e non è necessario aggiornarle. Le chiavi possono essere rigenerate manualmente.|Disattivata per impostazione predefinita| Abilitato per impostazione predefinita|
-|token|I token scadono dopo un periodo di tempo specificato ed è necessario aggiornarli.| Non disponibile| Disattivata per impostazione predefinita |
+|Token|I token scadono dopo un periodo di tempo specificato ed è necessario aggiornarli.| Non disponibile| Disattivata per impostazione predefinita |
 
 Per esempi di codice, vedere la [sezione autenticazione del servizio Web](how-to-setup-authentication.md#web-service-authentication).
 
@@ -105,29 +105,9 @@ Azure Machine Learning crea un'applicazione aggiuntiva (il nome inizia `aml-` co
 
 Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Le risorse di calcolo (destinazioni di calcolo) vengono usate per eseguire il training e la distribuzione dei modelli. È possibile creare queste destinazioni di calcolo in una rete virtuale. Ad esempio, è possibile usare Data Science Virtual Machine di Azure per eseguire il training di un modello e quindi distribuire il modello in AKS.  
 
-Per ulteriori informazioni, vedere [come eseguire esperimenti e inferenza in una rete virtuale](how-to-enable-virtual-network.md).
+Per ulteriori informazioni, vedere [come eseguire in modo sicuro gli esperimenti e l'inferenza in una rete virtuale isolata](how-to-enable-virtual-network.md).
 
 È anche possibile abilitare il collegamento privato di Azure per l'area di lavoro. Collegamento privato consente di limitare le comunicazioni all'area di lavoro da una rete virtuale di Azure. Per ulteriori informazioni, vedere [la pagina relativa alla modalità di configurazione del collegamento privato](how-to-configure-private-link.md).
-
-> [!TIP]
-> È possibile combinare congiuntamente rete virtuale e collegamento privato per proteggere le comunicazioni tra l'area di lavoro e altre risorse di Azure. Tuttavia, alcune combinazioni richiedono un'area di lavoro Enterprise Edition. Usare la tabella seguente per comprendere gli scenari che richiedono Enterprise Edition:
->
-> | Scenario | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | Nessuna rete virtuale o collegamento privato | ✔ | ✔ |
-> | Area di lavoro senza collegamento privato. Altre risorse (ad eccezione di Azure Container Registry) in una rete virtuale | ✔ | ✔ |
-> | Area di lavoro senza collegamento privato. Altre risorse con collegamento privato | ✔ | |
-> | Area di lavoro con collegamento privato. Altre risorse (ad eccezione di Azure Container Registry) in una rete virtuale | ✔ | ✔ |
-> | Area di lavoro e qualsiasi altra risorsa con collegamento privato | ✔ | |
-> | Area di lavoro con collegamento privato. Altre risorse senza collegamento privato o rete virtuale | ✔ | ✔ |
-> | Container Registry di Azure in una rete virtuale | ✔ | |
-> | Chiavi gestite dal cliente per l'area di lavoro | ✔ | |
-> 
-
-> [!WARNING]
-> Azure Machine Learning l'anteprima delle istanze di calcolo non è supportata in un'area di lavoro in cui è abilitato il collegamento privato.
-> 
-> Azure Machine Learning non supporta l'uso di un servizio Azure Kubernetes con collegamento privato abilitato. In alternativa, è possibile usare il servizio Kubernetes di Azure in una rete virtuale. Per altre informazioni, vedere [proteggere i processi di sperimentazione e inferenza di Azure ml in una rete virtuale di Azure](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Crittografia dei dati
 
@@ -265,7 +245,7 @@ A ogni area di lavoro è associata un'identità gestita assegnata dal sistema co
 
 Microsoft può raccogliere informazioni di identificazione non utente, come i nomi delle risorse, ad esempio il nome del set di dati o il nome dell'esperimento di Machine Learning, o le variabili di ambiente del processo per scopi diagnostici. Tutti questi dati vengono archiviati usando chiavi gestite da Microsoft nell'archiviazione ospitata in sottoscrizioni di proprietà di Microsoft e seguono [gli standard di gestione dei dati e l'informativa sulla privacy standard di Microsoft](https://privacy.microsoft.com/privacystatement).
 
-Microsoft consiglia inoltre di non archiviare informazioni riservate, ad esempio i segreti chiave dell'account, nelle variabili di ambiente. Le variabili di ambiente vengono registrate, crittografate e archiviate da Microsoft. Analogamente, quando si denomina [RunId](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evitare di includere informazioni riservate, ad esempio nomi utente o nomi di progetto segreti. Queste informazioni possono essere visualizzate nei log di telemetria accessibili ai tecnici supporto tecnico Microsoft.
+Microsoft consiglia inoltre di non archiviare informazioni riservate, ad esempio i segreti chiave dell'account, nelle variabili di ambiente. Le variabili di ambiente vengono registrate, crittografate e archiviate da Microsoft. Analogamente, quando si denomina [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evitare di includere informazioni riservate, ad esempio nomi utente o nomi di progetto segreti. Queste informazioni possono essere visualizzate nei log di telemetria accessibili ai tecnici supporto tecnico Microsoft.
 
 È possibile rifiutare esplicitamente la raccolta dei dati di diagnostica impostando `hbi_workspace` il `TRUE` parametro su durante il provisioning dell'area di lavoro. Questa funzionalità è supportata quando si usa AzureML Python SDK, l'interfaccia della riga di comando, le API REST o i modelli Azure Resource Manager.
 
