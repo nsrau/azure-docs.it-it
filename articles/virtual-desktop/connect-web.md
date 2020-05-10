@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70fd29944d31682de5a6a34f76fdf27e3ff7d3ff
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: f17d04d94546f31c5613fa9944c7399ea7db10ae
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607844"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006057"
 ---
 # <a name="connect-with-the-web-client"></a>Connettersi con il client Web
 
 >[!IMPORTANT]
 >Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md).
 >
-> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il client Web consente di accedere alle risorse del desktop virtuale di Windows da un Web browser senza il lungo processo di installazione.
@@ -43,6 +43,9 @@ Anche se qualsiasi browser compatibile con HTML5 dovrebbe funzionare, sono suppo
 ## <a name="access-remote-resources-feed"></a>Accedere al feed di risorse remote
 
 In un browser passare al [client Web desktop virtuale di Windows](https://rdweb.wvd.microsoft.com/arm/webclient) e accedere con l'account utente.
+
+>[!NOTE]
+>Se si usa la versione 2019 del desktop virtuale di Windows, usare il collegamento client Web in [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md) per connettersi alle risorse.
 
 >[!NOTE]
 >Se è già stato effettuato l'accesso con un account di Azure Active Directory diverso da quello che si vuole usare per desktop virtuale Windows, è necessario disconnettersi o usare una finestra del browser privata.

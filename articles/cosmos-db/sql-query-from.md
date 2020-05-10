@@ -4,22 +4,22 @@ description: Informazioni sulla sintassi SQL ed esempio per la clausola FROM per
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587686"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005865"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Clausola FROM in Azure Cosmos DB
 
 La clausola FROM`FROM <from_specification>`() è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Una query come `SELECT * FROM Families` enumera l'intero `Families` contenitore. È anche possibile usare la radice identificatore speciale per il contenitore invece di usare il nome del contenitore.
 
-La clausola FROM applica le regole seguenti per ogni query:
+La `FROM` clausola impone le regole seguenti per ogni query:
 
-* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Ecco `f` l'alias per `Families`. COME è una parola chiave facoltativa per l' [alias](sql-query-aliasing.md) dell'identificatore.  
+* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Ecco `f` l'alias per `Families`. COME è una parola chiave facoltativa per l' [alias](sql-query-working-with-json.md#aliasing) dell'identificatore.  
 
 * Una volta eseguito l'aliasing, non è possibile associare il nome di origine originale. Ad esempio, `SELECT Families.id FROM Families f` è sintatticamente non valido perché `Families` l'identificatore è stato associato a un alias e non è più possibile risolverlo.  
 
@@ -30,15 +30,15 @@ La clausola FROM applica le regole seguenti per ogni query:
 ```sql  
 FROM <from_specification>  
   
-<from_specification> ::=   
+<from_specification> ::=
         <from_source> {[ JOIN <from_source>][,...n]}  
   
-<from_source> ::=   
+<from_source> ::=
           <container_expression> [[AS] input_alias]  
         | input_alias IN <container_expression>  
   
-<container_expression> ::=   
-        ROOT   
+<container_expression> ::=
+        ROOT
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
@@ -51,9 +51,9 @@ FROM <from_specification>
   
   Specifica un'origine dati, con o senza un alias. Se non viene specificato, l'alias verrà dedotto da `<container_expression>` usando le seguenti regole:  
   
-  -  Se l'espressione è un nome di contenitore, come alias verrà usato il nome del contenitore.  
+-  Se l'espressione è un nome di contenitore, come alias verrà usato il nome del contenitore.  
   
-  -  Se l'espressione è `<container_expression>` seguito da un nome di proprietà, come alias verrà usato il nome della proprietà. Se l'espressione è un nome di contenitore, come alias verrà usato il nome del contenitore.  
+-  Se l'espressione è `<container_expression>` seguito da un nome di proprietà, come alias verrà usato il nome della proprietà. Se l'espressione è un nome di contenitore, come alias verrà usato il nome del contenitore.  
   
 - AS `input_alias`  
   
@@ -99,9 +99,9 @@ Se un'espressione di contenitore accede alle proprietà o agli elementi di matri
   
 Un'espressione di contenitore può avere come ambito un contenitore o un documento:  
   
--   Un'espressione ha un ambito contenitore se l'origine dell'espressione di contenitore sottostante è ROOT o `container_name`. Un'espressione di questo tipo rappresenta un set di documenti recuperati direttamente dal contenitore e non dipende dall'elaborazione di altre espressioni di contenitore.  
+- Un'espressione ha un ambito contenitore se l'origine dell'espressione di contenitore sottostante è ROOT o `container_name`. Un'espressione di questo tipo rappresenta un set di documenti recuperati direttamente dal contenitore e non dipende dall'elaborazione di altre espressioni di contenitore.  
   
--   Un'espressione ha un ambito documento se l'origine dell'espressione di contenitore sottostante è `input_alias` introdotta in precedenza nella query. Tale espressione rappresenta un set di documenti ottenuti dalla valutazione dell'espressione di contenitore nell'ambito di ogni documento appartenente al set associato al contenitore con alias.  Il set risultante sarà un'unione di set ottenuti dalla valutazione dell'espressione di contenitore per ogni documento del set sottostante. 
+- Un'espressione ha un ambito documento se l'origine dell'espressione di contenitore sottostante è `input_alias` introdotta in precedenza nella query. Tale espressione rappresenta un set di documenti ottenuti dalla valutazione dell'espressione di contenitore nell'ambito di ogni documento appartenente al set associato al contenitore con alias. Il set risultante sarà un'unione di set ottenuti dalla valutazione dell'espressione di contenitore per ogni documento del set sottostante.
 
 ## <a name="examples"></a>Esempi
 
@@ -165,6 +165,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva](sql-query-getting-started.md)
+- [Introduzione](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
 - [Clausola WHERE](sql-query-where.md)

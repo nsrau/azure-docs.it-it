@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 03/25/2020
+ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74786912"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004568"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Pianificare ed eseguire attività per dati contigui usando il trigger finestra temporale scorrevole in app per la logica di Azure
 
@@ -19,9 +19,9 @@ Per eseguire regolarmente attività, processi o processi che devono gestire i da
 
 Ecco alcuni modelli supportati da questo trigger:
 
-* Esecuzione immediata e ripetizione ogni *n* secondi, minuti o ore.
+* Esecuzione immediata e ripetizione ogni *n* secondi, minuti, ore, giorni, settimane o mesi.
 
-* Iniziare da una data e un'ora specifiche, quindi eseguire e ripetere ogni *n* secondi, minuti o ore. Con questo trigger è possibile specificare un'ora di inizio nel passato, che esegue tutte le ricorrenze precedenti.
+* Iniziare da una data e un'ora specifiche, quindi eseguire e ripetere ogni *n* secondi, minuti, ore, giorni, settimane o mesi. Con questo trigger è possibile specificare un'ora di inizio nel passato, che esegue tutte le ricorrenze precedenti.
 
 * Ritardare ogni ricorrenza per una durata specifica prima dell'esecuzione.
 
@@ -40,7 +40,7 @@ Per le differenze tra questo trigger e il trigger di ricorrenza o per altre info
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
-1. Dopo aver visualizzato Progettazione app per la logica, nella casella di ricerca immettere "finestra temporale scorrevole" come filtro. Dall'elenco trigger selezionare questo trigger come primo passaggio nel flusso di lavoro dell'app per la logica: **finestra temporale scorrevole**
+1. Quando viene visualizzata la finestra di progettazione dell'app per la logica, `sliding window` nella casella di ricerca immettere come filtro. Dall'elenco trigger selezionare il trigger **finestra temporale scorrevole** come primo passaggio del flusso di lavoro dell'app per la logica.
 
    ![Selezionare il trigger finestra temporale scorrevole](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
@@ -48,18 +48,17 @@ Per le differenze tra questo trigger e il trigger di ricorrenza o per altre info
 
    ![Impostare intervallo e frequenza](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Proprietà | Obbligatoria | Nome JSON | Type | Descrizione |
+   | Proprietà | Nome JSON | Obbligatoria | Type | Descrizione |
    |----------|----------|-----------|------|-------------|
-   | **Intervallo** | Sì | interval | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "hour", la ricorrenza è ogni 6 ore. |
-   | **Frequenza** | Sì | frequency | string | Unità di tempo per la ricorrenza: **secondo**, **minuto**o **ora** |
+   | **Intervallo** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi <br>-Settimana: 1-71 settimane <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
+   | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** |
    ||||||
 
    ![Opzioni di ricorrenza avanzate](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
 
-   Per altre opzioni di ricorrenza, aprire l'elenco **Aggiungi nuovo parametro** . 
-   Tutte le opzioni selezionate vengono visualizzate nel trigger dopo la selezione.
+   Per altre opzioni di ricorrenza, aprire l'elenco **Aggiungi nuovo parametro** . Tutte le opzioni selezionate vengono visualizzate nel trigger dopo la selezione.
 
-   | Proprietà | Obbligatoria | Nome JSON | Type | Descrizione |
+   | Proprietà | Obbligatoria | Nome JSON | Tipo | Descrizione |
    |----------|----------|-----------|------|-------------|
    | **Ritardo  ** | No | delay | string | Durata per ritardare ogni ricorrenza utilizzando la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Fuso orario** | No | timeZone | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |

@@ -8,20 +8,24 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74270512"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005518"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Creare un'esperienza di ancoraggio efficace usando gli ancoraggi spaziali di Azure
 
-Questo articolo fornisce linee guida e considerazioni per semplificare la creazione e l'individuazione di ancoraggi usando ancoraggi spaziali.
+Questo articolo fornisce linee guida e considerazioni per semplificare la creazione e l'individuazione di ancoraggi usando gli ancoraggi spaziali di Azure.
+
+## <a name="anchor-improvement-over-time"></a>Miglioramento dell'ancoraggio nel tempo
+
+Con gli ancoraggi spaziali di Azure, ogni volta che si individuano ancoraggi, si tenta di migliorare la qualità delle operazioni di individuazione future. Questa operazione viene eseguita usando i dati dell'ambiente raccolti per aumentare le informazioni visive sugli ancoraggi che si stanno cercando. Questo processo viene eseguito dietro le quinte ed è un'ottimizzazione offline eseguita dal servizio ancoraggi spaziali di Azure per ottimizzare l'ambiente. I dati aggiuntivi raccolti durante ogni operazione compilano una conoscenza più approfondita dell'ambiente. Ciò migliora la qualità e consente di individuare meglio i punti di ancoraggio attraverso la modifica dell'ambiente, il passaggio del tempo e per gli utenti che esaminano ancoraggi da diversi angoli e prospettive.
 
 ## <a name="good-anchors"></a>Ancoraggi validi
 
-Gli ancoraggi spaziali consentono di creare ancoraggi validi. È importante investire tempo nell'istruzione o nel guidare gli utenti nell'esperienza utente (UX) per creare ancoraggi efficaci. Investendo in anticipo la creazione di ancoraggi efficaci, è possibile aiutare gli utenti finali a trovare in modo affidabile gli ancoraggi:
+Mentre gli ancoraggi spaziali di Azure tentano di migliorare la qualità degli ancoraggi nel tempo, è anche importante investire tempo nell'istruzione o nel guidare gli utenti nell'esperienza utente (UX) per creare ancoraggi ottimali. Investendo in anticipo la creazione di ancoraggi efficaci, è possibile aiutare gli utenti finali a trovare in modo affidabile gli ancoraggi:
 
 - In dispositivi diversi.
 - In diversi momenti.
@@ -100,7 +104,7 @@ I sistemi di rilevamento visivi si basano sulle funzionalità visive di un ambie
 
 Seguire le linee guida generali in questa sezione per creare un'esperienza utente che incoraggi un'analisi utile dell'ambiente.
 
-Prima di tutto, se l'utente non individua un ancoraggio entro pochi secondi, l'app deve incoraggiare gli utenti a spostare il dispositivo per acquisire altre prospettive. L'app può anche incoraggiare gli utenti a spostarsi all'interno dell'ambiente per analizzare l'ancoraggio da più prospettive. Maggiore è il numero di prospettive della funzionalità visualizzate dal dispositivo.
+Prima di tutto, se l'utente non individua un ancoraggio entro pochi secondi, l'app deve incoraggiare gli utenti a spostare il dispositivo per acquisire altre prospettive. L'app può anche incoraggiare gli utenti a spostarsi all'interno dell'ambiente per analizzare l'ancoraggio da più prospettive. Maggiori sono le prospettive di funzionalità visualizzate dal dispositivo, migliore sarà la probabilità che venga individuato un ancoraggio e raccoglieranno anche più dati dell'ambiente che verranno usati per migliorare la qualità dell'ancoraggio.
 
 Per gli scenari di destinazione, chiedere all'utente di spostarsi sulla destinazione per visualizzarla da prospettive diverse. In altre parole, richiedere all'utente di acquisire la destinazione dalle nuove prospettive fino a quando non si trova l'ancoraggio.
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 7ce011a34aed39429884dc03285a0848776ac008
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983211"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006077"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro sinapsi (anteprima)
 
@@ -89,7 +89,7 @@ L'area di lavoro sinapsi deve accedere a STG1 e CNT1 in modo da poter eseguire l
 - Aprire il portale di Azure
 - Individuare STG1
 - Passare a CNT1
-- Assicurarsi che l'identità del servizio gestito (identità del servizio gestita) per WS1 sia assegnata al ruolo di **collaboratore dati BLOB di Azure** in CNT1
+- Assicurarsi che l'identità del servizio gestito (identità del servizio gestita) per WS1 sia assegnata al ruolo di **collaboratore dati BLOB di archiviazione** in CNT1
   - Se non viene visualizzato, assegnarlo.
   - Il nome dell'identità del servizio gestito è identico a quello dell'area di lavoro. In questo caso, sarebbe &quot;WS1.&quot;
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e42a4d738d375b4bceeb32f6159b4476843cf281
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612657"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005993"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Risolvere i problemi relativi al client di Desktop remoto
 
@@ -59,6 +59,12 @@ Se il browser inizia a funzionare o smette di funzionare mentre si usa il client
 2. Cancella i cookie del browser. Vedere [come eliminare i file dei cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 3. Cancellare la cache del browser. Vedere [Cancella cache del browser per il browser](https://binged.it/2RKyfdU).
 4. Aprire il browser in modalità privata.
+
+## <a name="web-client-does-not-show-my-resources"></a>Il client Web non Mostra risorse personali
+
+Prima di tutto, controllare l'account Azure Active Directory in uso. Se è già stato effettuato l'accesso con un account di Azure Active Directory diverso da quello che si vuole usare per il desktop virtuale del, è necessario firmare o usare una finestra del browser privata.
+
+Se si usa la versione 2019 del desktop virtuale di Windows, usare il collegamento client Web in [questo articolo](./virtual-desktop-fall-2019/connect-web-2019.md) per connettersi alle risorse.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Il client Web smette di rispondere o si disconnette
 

@@ -1,98 +1,99 @@
 ---
 title: Codificare o decodificare file flat
-description: Codificare o decodificare file flat per l'integrazione aziendale con App per la logica di Azure e Enterprise Integration Pack
+description: Codificare o decodificare file flat per l'integrazione aziendale in app per la logica di Azure usando il Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/08/2016
-ms.openlocfilehash: 2d6182ba01507c2fb361628e01bb52e1ea821f44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/09/2020
+ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152653"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005302"
 ---
-# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificare o decodificare file flat con App per la logica di Azure e Enterprise Integration Pack
+# <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificare e decodificare file flat in app per la logica di Azure usando il Enterprise Integration Pack
 
-In uno scenario B2B è consigliabile codificare i contenuti XML prima di inviarli a un partner commerciale. In un'app per la logica, è possibile usare a tale scopo il connettore di codifica file flat. L'app per la logica che viene creata può ottenere il relativo contenuto XML da varie origini, come un trigger di richiesta HTTP, un'altra applicazione o uno dei numerosi [connettori](../connectors/apis-list.md). Per altre informazioni sulle app per la logica, vedere la [documentazione relativa alle app](logic-apps-overview.md "Altre informazioni sulle app per la logica")per la logica.  
+Prima di inviare contenuto XML a un partner aziendale in uno scenario business-to-business (B2B), potrebbe essere necessario codificare prima il contenuto. Compilando un'app per la logica, è possibile codificare e decodificare i file flat usando il connettore **file flat** . L'app per la logica può ottenere questo contenuto XML da diverse origini, ad esempio il trigger di richiesta, un'altra app o altri [connettori supportati da app per la logica di Azure](../connectors/apis-list.md). Per altre informazioni, vedere [che cos'è app per la logica di Azure](logic-apps-overview.md)?
 
-## <a name="create-the-flat-file-encoding-connector"></a>Come creare il connettore di codifica flat file
-Per aggiungere un connettore di codifica file flat all'app per la logica, seguire questa procedura.
+## <a name="prerequisites"></a>Prerequisiti
 
-1. Creare un'app per la logica e [collegarla all'account di integrazione](logic-apps-enterprise-integration-accounts.md "Informazioni su come collegare un account di integrazione a un'app per la logica"). Questo account contiene lo schema che verrà usato per codificare i dati XML.  
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-1. Nella finestra di progettazione dell'app per la logica aggiungere il trigger **quando viene ricevuta una richiesta http** all'app per la logica.
+* App per la logica in cui si vuole usare il connettore **file flat** e un trigger che avvia il flusso di lavoro dell'app per la logica. Il connettore **file flat** fornisce solo azioni, non trigger. È possibile usare il trigger o un'altra azione per inserire il contenuto XML nell'app per la logica per la codifica o la decodifica. Se non si ha familiarità con le app per la logica, vedere [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Aggiungere l'azione di codifica file flat, come illustrato di seguito:
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associato alla sottoscrizione di Azure e [collegato all'app per la logica](logic-apps-enterprise-integration-accounts.md#link-account) in cui si prevede di usare il connettore **file flat** . Sia l'app per la logica che l'account di integrazione devono esistere nella stessa località o nell'area di Azure.
 
-   a. Selezionare il segno **più** .
+* Uno [schema](logic-apps-enterprise-integration-schemas.md) di file flat che è stato caricato nell'account di integrazione per codificare o decodificare il contenuto XML
 
-   b. Selezionare il collegamento **Aggiungi un'azione** che viene visualizzato dopo aver selezionato il segno più.
+* Almeno due [partner commerciali](logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione
 
-   c. Immettere *Flat* nella casella di ricerca per filtrare tutte le azioni su quella che si desidera usare.
+## <a name="add-flat-file-encode-action"></a>Aggiungere un'azione di codifica file flat
 
-   d. Selezionare l'opzione **Codifica file flat** nell'elenco.   
+1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
-      ![Screenshot dell'opzione Codifica file flat](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+1. Nel trigger o nell'azione nell'app per la logica selezionare **nuovo passaggio** > **Aggiungi un'azione**. Questo esempio usa il trigger request, denominato **quando viene ricevuta una richiesta http**, e gestisce le richieste in ingresso dall'esterno dell'app per la logica.
 
-1. Nella finestra di dialogo **Codifica file flat** selezionare la casella di testo **Contenuto**.  
+   > [!TIP]
+   > La specifica di uno schema JSON è facoltativa. Se si dispone di un payload di esempio dalla richiesta in ingresso, selezionare **USA payload di esempio per generare lo schema**, immettere il payload di esempio e fare clic su **fine**. Lo schema viene visualizzato nella casella **dello schema JSON del corpo della richiesta** .
 
-   ![Screenshot della casella di testo Contenuto](media/logic-apps-enterprise-integration-flatfile/flatfile-3.png)  
+1. In **scegliere un'azione**immettere `flat file`. Nell'elenco azioni selezionare questa azione: **codifica file flat**
 
-1. Selezionare il tag del corpo come contenuto che verrà codificato. Il tag body popolerà il campo del contenuto.     
+   ![Selezionare l'azione "codifica file flat"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-encoding.png)
 
-   ![Screenshot del tag body](media/logic-apps-enterprise-integration-flatfile/flatfile-4.png)  
+1. Fare clic all'interno della casella **contenuto** in modo che venga visualizzato l'elenco contenuto dinamico. Nell'elenco, nella sezione **quando viene ricevuta una richiesta http** , selezionare la proprietà **Body** , che contiene l'output del corpo della richiesta del trigger e il contenuto da codificare.
 
-1. Selezionare la casella di riepilogo **Nome schema** e scegliere lo schema da usare per codificare il contenuto di input.    
+   ![Selezionare il contenuto da codificare dall'elenco di contenuto dinamico](./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode.png)
 
-   ![Screenshot della casella di riepilogo Nome schema](media/logic-apps-enterprise-integration-flatfile/flatfile-5.png)  
+   > [!TIP]
+   > Se non viene visualizzata la proprietà **Body** nell'elenco di contenuto dinamico, selezionare **vedere altro** accanto all'etichetta della sezione **When a request http is received** .
+   > È anche possibile immettere direttamente il contenuto da decodificare nella casella **contenuto** .
 
-1. Salvare il lavoro.
+1. Dall'elenco **nome schema** selezionare lo schema che si trova nell'account di integrazione collegato da usare per la codifica, ad esempio:
 
-   ![Screenshot dell'icona Salva](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)  
+   ![Selezionare lo schema da usare per la codifica](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-encoding.png)
 
-A questo punto la configurazione del connettore di codifica del file flat è completa. Nel caso di un'applicazione reale è consigliabile archiviare i dati codificati in un'applicazione line-of-business, ad esempio Salesforce. In alternativa è possibile inviare i dati codificati a un partner commerciale. È possibile aggiungere facilmente un'azione per inviare l'output dell'azione di codifica a Salesforce oppure a un partner commerciale usando uno degli altri connettori forniti.
+   > [!NOTE]
+   > Se nell'elenco non è presente alcuno schema, l'account di integrazione non contiene alcun file di schema da utilizzare per la codifica. Caricare lo schema che si vuole usare per l'account di integrazione.
 
-Ora è possibile testare il connettore. A tale scopo, inviare una richiesta all'endpoint HTTP e includere il contenuto XML nel corpo della richiesta.  
+1. Salvare l'app per la logica. Per testare il connettore, effettuare una richiesta all'endpoint HTTPS, che viene visualizzato nella proprietà **URL post http** del trigger di richiesta e includere il contenuto XML che si vuole codificare nel corpo della richiesta.
 
-## <a name="create-the-flat-file-decoding-connector"></a>Come creare il connettore di decodifica flat file
+A questo punto è stata eseguita la configurazione dell'azione di codifica file flat. In un'app reale, potrebbe essere necessario archiviare i dati codificati in un'app line-of-business (LOB), ad esempio Salesforce. In alternativa, è possibile inviare i dati codificati a un partner commerciale. Per inviare l'output dall'azione di codifica a Salesforce o al partner commerciale, usare gli altri [connettori disponibili in app per la logica di Azure](../connectors/apis-list.md).
 
-> [!NOTE]
-> Per completare questi passaggi è necessario un file di schema già caricato nell'account di integrazione.
+## <a name="add-flat-file-decode-action"></a>Aggiungere un'azione di decodifica file flat
 
-1. Nella finestra di progettazione dell'app per la logica aggiungere il trigger **quando viene ricevuta una richiesta http** all'app per la logica.
+1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
-1. Aggiungere l'azione di decodifica file flat, come illustrato di seguito:
+1. Nel trigger o nell'azione nell'app per la logica selezionare **nuovo passaggio** > **Aggiungi un'azione**. Questo esempio usa il trigger request, denominato **quando viene ricevuta una richiesta http**, e gestisce le richieste in ingresso dall'esterno dell'app per la logica.
 
-   a. Selezionare il segno **più** .
+   > [!TIP]
+   > La specifica di uno schema JSON è facoltativa. Se si dispone di un payload di esempio dalla richiesta in ingresso, selezionare **USA payload di esempio per generare lo schema**, immettere il payload di esempio e fare clic su **fine**. Lo schema viene visualizzato nella casella **dello schema JSON del corpo della richiesta** .
 
-   b. Selezionare il collegamento **Aggiungi un'azione** che viene visualizzato dopo aver selezionato il segno più.
+1. In **scegliere un'azione**immettere `flat file`. Nell'elenco azioni selezionare questa azione: **decodifica file flat**
 
-   c. Immettere *Flat* nella casella di ricerca per filtrare tutte le azioni su quella che si desidera usare.
+   ![Selezionare l'azione "decodifica file flat"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
 
-   d. Selezionare l'opzione **Decodifica file flat** nell'elenco.   
+1. Fare clic all'interno della casella **contenuto** in modo che venga visualizzato l'elenco contenuto dinamico. Nell'elenco, nella sezione **quando viene ricevuta una richiesta http** , selezionare la proprietà **Body** , che contiene l'output del corpo della richiesta del trigger e il contenuto da decodificare.
 
-      ![Screenshot dell'opzione Decodifica file flat](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+   ![Selezionare il contenuto da decodificare dall'elenco di contenuto dinamico](./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png)
 
-1. Selezionare il controllo **Contenuto** . Verrà restituito un elenco del contenuto dai passaggi precedenti che è possibile usare come contenuto da decodificare. Si noti che il *Corpo* della richiesta HTTP in ingresso è disponibile per l'uso come contenuto da decodificare. Si noti che è possibile immettere anche il contenuto da decodificare direttamente nel controllo **Contenuto** .     
+   > [!TIP]
+   > Se non viene visualizzata la proprietà **Body** nell'elenco di contenuto dinamico, selezionare **vedere altro** accanto all'etichetta della sezione **When a request http is received** . È anche possibile immettere direttamente il contenuto da decodificare nella casella **contenuto** .
 
-1. Selezionare il tag *body* . Si noti che il tag body è ora nel controllo **Contenuto** .
+1. Dall'elenco **nome schema** selezionare lo schema che si trova nell'account di integrazione collegato da usare per la decodifica, ad esempio:
 
-1. Selezionare il nome dello schema da usare per decodificare il contenuto. La schermata seguente mostra che *OrderFile* è il nome di schema selezionato. Questo nome di schema era stato caricato in precedenza nell'account di integrazione.
+   ![Selezione dello schema da utilizzare per la decodifica](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-decoding.png)
 
-   ![Screenshot della finestra di dialogo Decodifica file flat](media/logic-apps-enterprise-integration-flatfile/flatfile-decode-1.png) 
+   > [!NOTE]
+   > Se nell'elenco non è presente alcuno schema, l'account di integrazione non contiene alcun file di schema da utilizzare per la decodifica. Caricare lo schema che si vuole usare per l'account di integrazione.
 
-1. Salvare il lavoro.  
+1. Salvare l'app per la logica. Per testare il connettore, effettuare una richiesta all'endpoint HTTPS, che viene visualizzato nella proprietà **URL post http** del trigger di richiesta e includere il contenuto XML che si vuole decodificare nel corpo della richiesta.
 
-   ![Screenshot dell'icona Salva](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)    
-
-A questo punto la configurazione del connettore di decodifica file flat è completa. Nel caso di un'applicazione reale è consigliabile archiviare i dati decodificati in un'applicazione line-of-business, ad esempio Salesforce. È possibile eseguire facilmente questa azione inviando l'output della decodifica a Salesforce.
-
-È ora possibile testare il connettore effettuando una richiesta all'endpoint HTTP e includendo il contenuto XML da decodificare nel corpo della richiesta.  
+A questo punto è possibile configurare l'azione di decodifica del file flat. In un'app reale, potrebbe essere necessario archiviare i dati decodificati in un'app line-of-business (LOB), ad esempio Salesforce. In alternativa, è possibile inviare i dati decodificati a un partner commerciale. Per inviare l'output dall'azione di decodifica a Salesforce o al partner commerciale, usare gli altri [connettori disponibili in app per la logica di Azure](../connectors/apis-list.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sul Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack").  
 
+* Scopri di più sulla [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

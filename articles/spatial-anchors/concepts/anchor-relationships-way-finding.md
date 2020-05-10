@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f2fd8f4b7d03be8822c3ec12e2be589054942ce3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74270609"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006026"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relazioni di ancoraggio e ricerca di metodi negli ancoraggi spaziali di Azure
 
@@ -73,7 +73,7 @@ Per connettere ancoraggi su più sessioni:
 
 ### <a name="verify-anchor-connections"></a>Verificare le connessioni di ancoraggio
 
-L'app può verificare che due ancoraggi siano connessi inviando una query per gli ancoraggi adiacenti. Quando il risultato della query contiene l'ancoraggio di destinazione, viene verificata la connessione di ancoraggio. Se gli ancoraggi non sono connessi, l'app può provare a connetterli nuovamente.
+L'app può verificare che due ancoraggi siano connessi inviando una query per gli ancoraggi adiacenti, operazione eseguita impostando `NearAnchorCriteria` su. `CloudSpatialAnchorWatcher` Quando il risultato della query contiene l'ancoraggio di destinazione, viene verificata la connessione di ancoraggio. Se gli ancoraggi non sono connessi, l'app può provare a connetterli nuovamente.
 
 Ecco alcuni motivi per cui i ancoraggi potrebbero non riuscire a connettersi:
 

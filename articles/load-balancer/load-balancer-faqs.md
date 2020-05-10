@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3648bb102d539156067cdc259c1cf9b6e73d6a49
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884488"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005147"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
 ## <a name="what-types-of-load-balancer-exist"></a>Quali sono i tipi di Load Balancer esistenti?
-Bilanciamento del carico interno che bilanciano il traffico all'interno di una VNET e di bilanciamento del carico esterno che bilanciano il traffico da e verso un endpoint connesso a Internet. Per ulteriori informazioni, vedere [tipi di Load Balancer]https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-types)(. 
+Bilanciamento del carico interno che bilanciano il traffico all'interno di una VNET e di bilanciamento del carico esterno che bilanciano il traffico da e verso un endpoint connesso a Internet. Per ulteriori informazioni, vedere [tipi di Load Balancer](components.md#frontend-ip-configurations). 
 
-Per entrambi questi tipi, Azure offre uno SKU di base e uno SKU standard con funzionalità diverse di rilevamento funzionale, prestazioni, sicurezza e integrità. Queste differenze sono illustrate nel [confronto SKU] (https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus) articolo.
+Per entrambi questi tipi, Azure offre uno SKU di base e uno SKU standard con funzionalità diverse di rilevamento funzionale, prestazioni, sicurezza e integrità. Queste differenze sono illustrate nell'articolo relativo al [confronto tra SKU](skus.md) .
 
  ## <a name="how-can-i-upgrade-from-a-basic-to-a-standard-load-balancer"></a>Come è possibile eseguire l'aggiornamento da una base a una Load Balancer Standard?
 Vedere l'articolo relativo all' [aggiornamento da Basic a standard](upgrade-basic-standard.md) per uno script automatizzato e istruzioni sull'aggiornamento di uno SKU Load Balancer.

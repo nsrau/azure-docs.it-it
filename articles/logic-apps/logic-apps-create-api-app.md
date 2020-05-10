@@ -3,15 +3,15 @@ title: Creare API Web & API REST per app per la logica di Azure
 description: Creare API Web e API REST per chiamare le API, i servizi o i sistemi per integrazioni di sistema in App per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, jehollan, logicappspm
-ms.topic: article
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270537"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005258"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
@@ -136,11 +136,13 @@ Per questo modello, configurare due endpoint sul controller: `subscribe` e `unsu
 
 ![Modello di azione webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-> [!NOTE]
-> Attualmente, Progettazione app per la logica non supporta l'individuazione di endpoint webhook con Swagger. Per questo modello è quindi necessario aggiungere un'[azione **webhook**](../connectors/connectors-native-webhook.md) e specificare l'URL, le intestazioni e il corpo per la richiesta. Vedere anche [Azioni e trigger del flusso di lavoro](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Per passare l'URL di callback, è possibile usare la funzione di flusso di lavoro `@listCallbackUrl()` in uno qualsiasi dei campi precedenti in base alle necessità.
+Attualmente, Progettazione app per la logica non supporta l'individuazione di endpoint webhook con Swagger. Per questo modello è quindi necessario aggiungere un'[azione **webhook**](../connectors/connectors-native-webhook.md) e specificare l'URL, le intestazioni e il corpo per la richiesta. Vedere anche [Azioni e trigger del flusso di lavoro](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Per un esempio di modello webhook, esaminare questo [esempio di trigger webhook in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Per un esempio di modello webhook, esaminare questo [esempio di trigger webhook in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Ecco alcuni altri suggerimenti e note:
+
+* Per passare l'URL di callback, è possibile usare la funzione di flusso di lavoro `@listCallbackUrl()` in uno qualsiasi dei campi precedenti in base alle necessità.
+
+* Se si è proprietari dell'app per la logica e del servizio sottoscritto, non è necessario chiamare `unsubscribe` l'endpoint dopo la chiamata dell'URL di callback. In caso contrario, il runtime di app per la `unsubscribe` logica deve chiamare l'endpoint per segnalare che non sono previste altre chiamate e per consentire la pulizia delle risorse sul lato server.
 
 <a name="triggers"></a>
 
@@ -198,13 +200,15 @@ I trigger webhook funzionano in modo molto simile alle [azioni webhook](#webhook
 
 ![Modello di trigger webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-> [!NOTE]
-> Attualmente, Progettazione app per la logica non supporta l'individuazione di endpoint webhook con Swagger. Per questo modello è quindi necessario aggiungere un [trigger **webhook**](../connectors/connectors-native-webhook.md) e specificare l'URL, le intestazioni e il corpo per la richiesta. Vedere anche [Trigger HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Per passare l'URL di callback, è possibile usare la funzione di flusso di lavoro `@listCallbackUrl()` in uno qualsiasi dei campi precedenti in base alle necessità.
->
-> Per evitare che gli stessi dati vengano elaborati più volte, il trigger deve pulire i dati che sono già stati letti e passati all'app per la logica.
+Attualmente, Progettazione app per la logica non supporta l'individuazione di endpoint webhook con Swagger. Per questo modello è quindi necessario aggiungere un [trigger **webhook**](../connectors/connectors-native-webhook.md) e specificare l'URL, le intestazioni e il corpo per la richiesta. Vedere anche [Trigger HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Per un esempio di modello webhook, esaminare questo [esempio di controller di trigger webhook in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Per un esempio di modello webhook, esaminare questo [esempio di controller di trigger webhook in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Ecco alcuni altri suggerimenti e note:
+
+* Per passare l'URL di callback, è possibile usare la funzione di flusso di lavoro `@listCallbackUrl()` in uno qualsiasi dei campi precedenti in base alle necessità.
+
+* Per evitare che gli stessi dati vengano elaborati più volte, il trigger deve pulire i dati che sono già stati letti e passati all'app per la logica.
+
+* Se si è proprietari dell'app per la logica e del servizio sottoscritto, non è necessario chiamare `unsubscribe` l'endpoint dopo la chiamata dell'URL di callback. In caso contrario, il runtime di app per la `unsubscribe` logica deve chiamare l'endpoint per segnalare che non sono previste altre chiamate e per consentire la pulizia delle risorse sul lato server.
 
 ## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Migliorare la sicurezza per le chiamate alle API da app per la logica
 

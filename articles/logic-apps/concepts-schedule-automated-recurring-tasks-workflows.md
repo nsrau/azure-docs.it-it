@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: 20f27ebc7b9712d440dc1c67c46cb0385a3f874a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/25/2020
+ms.openlocfilehash: 6d00c7d7cc88427a3500b28891ec70bb8a4bbb43
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234095"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005210"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure
 
@@ -48,13 +48,13 @@ Questo articolo descrive le funzionalità per la pianificazione di trigger e azi
 
 ## <a name="schedule-triggers"></a>Pianifica trigger
 
-È possibile avviare il flusso di lavoro dell'app per la logica usando il trigger di ricorrenza o il trigger della finestra temporale scorrevole, che non è associato ad alcun servizio o sistema specifico, ad esempio Office 365 Outlook o SQL Server. Questi trigger avviano ed eseguono il flusso di lavoro in base alla ricorrenza specificata, in cui si selezionano l'intervallo e la frequenza, ad esempio il numero di secondi, minuti e ore per entrambi i trigger o il numero di giorni, settimane o mesi per il trigger di ricorrenza. È anche possibile impostare la data e l'ora di inizio, nonché il fuso orario. Ogni volta che viene attivato un trigger, app per la logica crea ed esegue una nuova istanza del flusso di lavoro per l'app per la logica.
+È possibile avviare il flusso di lavoro dell'app per la logica usando il trigger di ricorrenza o il trigger della finestra temporale scorrevole, che non è associato ad alcun servizio o sistema specifico. Questi trigger avviano ed eseguono il flusso di lavoro in base alla ricorrenza specificata, in cui è possibile selezionare l'intervallo e la frequenza, ad esempio il numero di secondi, minuti, ore, giorni, settimane o mesi. È anche possibile impostare la data e l'ora di inizio, nonché il fuso orario. Ogni volta che viene attivato un trigger, app per la logica crea ed esegue una nuova istanza del flusso di lavoro per l'app per la logica.
 
 Ecco le differenze tra i trigger seguenti:
 
 * **Ricorrenza**: esegue il flusso di lavoro a intervalli di tempo regolari in base alla pianificazione specificata. Se le ricorrenze non vengono perse, il trigger di ricorrenza non elabora le ricorrenze perse ma riavvia le ricorrenze con l'intervallo pianificato successivo. È possibile specificare una data e un'ora di inizio, nonché il fuso orario. Se si seleziona "giorno", è possibile specificare le ore del giorno e i minuti dell'ora, ad esempio, ogni giorno alle 2:30. Se si seleziona "settimana", è anche possibile selezionare i giorni della settimana, ad esempio mercoledì e sabato. Per altre informazioni, vedere [creare, pianificare ed eseguire attività e flussi di lavoro ricorrenti con il trigger di ricorrenza](../connectors/connectors-native-recurrence.md).
 
-* **Finestra temporale scorrevole**: esegue il flusso di lavoro a intervalli di tempo regolari che gestiscono i dati in blocchi continui. Se le ricorrenze non vengono perse, il trigger della finestra temporale scorrevole torna indietro ed elabora le ricorrenze perse. È possibile specificare una data e un'ora di inizio, un fuso orario e una durata per ritardare ogni ricorrenza nel flusso di lavoro. Questo trigger non include opzioni per specificare i giorni, le settimane e i mesi, le ore del giorno, i minuti dell'ora e i giorni della settimana. Per altre informazioni, vedere [creare, pianificare ed eseguire attività e flussi di lavoro ricorrenti con il trigger della finestra temporale scorrevole](../connectors/connectors-native-sliding-window.md).
+* **Finestra temporale scorrevole**: esegue il flusso di lavoro a intervalli di tempo regolari che gestiscono i dati in blocchi continui. Se le ricorrenze non vengono perse, il trigger della finestra temporale scorrevole torna indietro ed elabora le ricorrenze perse. È possibile specificare una data e un'ora di inizio, un fuso orario e una durata per ritardare ogni ricorrenza nel flusso di lavoro. Questo trigger non supporta le pianificazioni avanzate, ad esempio ore specifiche del giorno, minuti dell'ora e giorni della settimana. Per altre informazioni, vedere [creare, pianificare ed eseguire attività e flussi di lavoro ricorrenti con il trigger della finestra temporale scorrevole](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 

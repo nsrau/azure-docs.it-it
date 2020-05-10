@@ -8,18 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74280976"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005499"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Come eseguire il mapping di campi arricchiti di intelligenza artificiale a un indice ricercabile
 
 In questo articolo si apprenderà come eseguire il mapping dei campi di input migliorati ai campi di output in un indice ricercabile. Dopo avere [definito un set di competenze](cognitive-search-defining-skillset.md), è necessario eseguire il mapping dei campi di output di qualsiasi competenza che contribuisce direttamente ai valori di un determinato campo nell'indice di ricerca. 
 
 I mapping dei campi di output sono necessari per lo trasferimento di contenuto da documenti arricchiti all'indice.  Il documento arricchito è effettivamente un albero di informazioni e anche se è disponibile il supporto per i tipi complessi nell'indice, a volte può essere necessario trasformare le informazioni dall'albero arricchito in un tipo più semplice, ad esempio una matrice di stringhe. I mapping dei campi di output consentono di eseguire trasformazioni di forme dati mediante l'appiattimento delle informazioni.
+
+> [!NOTE]
+> Di recente è stata abilitata la funzionalità di mapping di funzioni nei mapping dei campi di output. Per altri dettagli sulle funzioni di mapping, vedere [funzioni di mapping dei campi](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Usare outputFieldMappings
 Per eseguire il mapping dei campi, aggiungere `outputFieldMappings` alla definizione dell'indicizzatore, come illustrato di seguito:
@@ -50,7 +53,10 @@ Il corpo della richiesta è strutturato nel modo seguente:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

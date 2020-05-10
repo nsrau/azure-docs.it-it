@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4587909ad6fca6cdf21d54d11d89f797bbb29833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335843"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004735"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
@@ -71,12 +71,12 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     > I nomi di dominio con caratteri `*.contoso.com` jolly, ad esempio, sono supportati in tutti i livelli eccetto il livello di consumo.
 
     > [!TIP]
-    > Si consiglia di usare Azure Key Vault per gestire i certificati e impostarli per la rotazione.
+    > Si consiglia di usare [Azure Key Vault per la gestione dei certificati](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) e di impostarli per il rinnovo.
     > Se si usa Azure Key Vault per gestire il certificato TLS/SSL di dominio personalizzato, assicurarsi che il certificato venga inserito in Key Vault [come _certificato_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), non come _segreto_.
     >
     > Per recuperare un certificato TLS/SSL, gestione API deve avere le autorizzazioni List e Get Secrets per la Azure Key Vault che contiene il certificato. Quando si usa portale di Azure tutti i passaggi di configurazione necessari verranno completati automaticamente. Quando si usano gli strumenti da riga di comando o l'API di gestione, è necessario concedere queste autorizzazioni manualmente. Questa operazione si esegue in due passaggi. Per prima cosa, usare la pagina identità gestite nell'istanza di gestione API per assicurarsi che l'identità gestita sia abilitata e prendere nota dell'ID entità visualizzato nella pagina. In secondo luogo, concedere l'elenco di autorizzazioni e ottenere le autorizzazioni Secrets per questo ID entità nel Azure Key Vault contenente il certificato.
     >
-    > Se il certificato è impostato per la rotazione automatica, gestione API rileverà automaticamente la versione più recente senza tempi di inattività per il servizio (se il livello di gestione API ha SLA-i. e. in tutti i livelli eccetto il livello Developer).
+    > Se il certificato è impostato per il rinnovo automatico, gestione API rileverà automaticamente la versione più recente senza tempi di inattività per il servizio (se il livello di gestione API ha SLA-i. e. in tutti i livelli eccetto il livello Developer).
 
 1. Fare clic su Applica.
 
