@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927973"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997022"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Risolvere i problemi dell'agente di aggiornamento di Linux
 
@@ -82,14 +82,14 @@ Questo controllo determina se l'agente invia report a più aree di lavoro. Multi
 
 ### <a name="hybrid-runbook-worker"></a>Ruolo di lavoro ibrido per runbook
 
-Questo controllo verifica se l'agente di Log Analytics per Linux ha il pacchetto di lavoro ibrido per Runbook. Questo pacchetto è necessario per il funzionamento di Gestione aggiornamenti.
+Questo controllo verifica se l'agente di Log Analytics per Linux ha il pacchetto di lavoro ibrido per Runbook. Questo pacchetto è necessario per il funzionamento di Gestione aggiornamenti. Per altre informazioni, vedere [l'agente di log Analytics per Linux non è in esecuzione](hybrid-runbook-worker.md#oms-agent-not-running).
+
+Gestione aggiornamenti Scarica i pacchetti del ruolo di lavoro ibrido per Runbook dall'endpoint Operations. Pertanto, se il ruolo di lavoro ibrido per Runbook non è in esecuzione e l' [endpoint operativo](#operations-endpoint) non riesce, l'aggiornamento potrebbe non riuscire.
 
 ### <a name="hybrid-runbook-worker-status"></a>Stato del ruolo di lavoro ibrido per runbook
 
-Questo controllo garantisce che il ruolo di lavoro ibrido per runbook sia in esecuzione nel computer. I processi seguenti devono essere presenti se il ruolo di lavoro ibrido per runbook è correttamente in esecuzione. Per altre informazioni, vedere [risoluzione dei problemi relativi all'agente log Analytics per Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+Questo controllo garantisce che il ruolo di lavoro ibrido per runbook sia in esecuzione nel computer. I processi nell'esempio seguente dovrebbero essere presenti se il ruolo di lavoro ibrido per Runbook è in esecuzione correttamente.
 
-> [!NOTE]
-> Se il ruolo di lavoro ibrido per Runbook non è in esecuzione e l'endpoint operativo non è riuscito, l'aggiornamento potrebbe non riuscire. Gestione aggiornamenti Scarica i pacchetti del ruolo di lavoro ibrido dall'endpoint Operations.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -107,13 +107,13 @@ Questo controllo verifica che il computer abbia accesso a Internet.
 
 Questo controllo determina se il ruolo di lavoro ibrido per Runbook può comunicare correttamente con automazione di Azure nell'area di lavoro Log Analytics.
 
-Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con l'endpoint di registrazione. Per un elenco di indirizzi e porte da aprire, vedere [pianificazione della rete per i ruoli di lavoro ibridi](../automation-hybrid-runbook-worker.md#network-planning).
+Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con l'endpoint di registrazione. Per un elenco di indirizzi e porte da aprire, vedere [pianificazione della rete](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Endpoint delle operazioni
 
-Questo controllo determina se l'agente può comunicare correttamente con il servizio dati del processo di runtime.
+Questo controllo determina se l'agente di Log Analytics può comunicare correttamente con il servizio dati di runtime del processo.
 
-Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con il servizio dati del processo di runtime. Per un elenco di indirizzi e porte da aprire, vedere [pianificazione della rete per i ruoli di lavoro ibridi](../automation-hybrid-runbook-worker.md#network-planning).
+Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con il servizio dati del processo di runtime. Per un elenco di indirizzi e porte da aprire, vedere [pianificazione della rete](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="log-analytics-endpoint-1"></a>Endpoint di Log Analytics 1
 

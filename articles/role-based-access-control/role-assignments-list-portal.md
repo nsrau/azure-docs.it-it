@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983024"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996651"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Elencare le assegnazioni di ruolo di Azure usando il portale di Azure
 
@@ -130,7 +130,7 @@ Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identi
 
 ## <a name="list-number-of-role-assignments"></a>Elencare il numero di assegnazioni di ruolo
 
-È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Per tenere traccia di questo limite, nella scheda **assegnazioni di ruolo** è incluso un grafico che elenca il numero di assegnazioni di ruolo per la sottoscrizione corrente.
+È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Questo limite include le assegnazioni di ruolo a livello di sottoscrizione, gruppo di risorse e ambito delle risorse. Per tenere traccia di questo limite, nella scheda **assegnazioni di ruolo** è incluso un grafico che elenca il numero di assegnazioni di ruolo per la sottoscrizione corrente.
 
 ![Controllo di accesso-numero di assegnazioni di ruolo](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
