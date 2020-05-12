@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54fd8caef51a17148714d9cf90328572433c59db
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76717989"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115116"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Usare i Lab della classe per i corsi di formazione
-È possibile configurare un Lab per il training. I Lab della classe Azure Lab Services consentono di creare un Lab per il training in cui ogni partecipante USA ambienti identici e isolati per il training. È possibile applicare criteri per verificare che per ogni partecipante siano disponibili ambienti di training solo quando sono necessari e contengano un numero sufficiente di risorse, ad esempio macchine virtuali, per il training. 
+I servizi di Azure Labs consentono a docenti, istruttori o assistenti docenti di creare in modo rapido e semplice un Lab online per eseguire il provisioning di ambienti di apprendimento preconfigurati per i partecipanti. Ogni partecipante può utilizzare ambienti identici e isolati per il training. È possibile applicare i criteri per assicurarsi che gli ambienti di training siano disponibili per ogni partecipante solo quando sono necessari e contengono risorse sufficienti, ad esempio macchine virtuali, necessarie per il training. 
 
 ![Lab in aula](../media/classroom-labs-scenarios/classroom.png)
 

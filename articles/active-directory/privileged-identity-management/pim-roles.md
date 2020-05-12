@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/31/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6eaa50f57dd8037ef0ad96b69284f565bd3558f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d1d7ad27c43a0f8b4bbb763a1eb933a63cec58e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80607531"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115643"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Ruoli che non è possibile gestire in Privileged Identity Management
 
@@ -40,7 +40,7 @@ Per altre informazioni sui ruoli di amministratore sottoscrizione classico, vede
 Sono supportati tutti i ruoli Office365 nell'esperienza del portale degli amministratori e ruoli di Azure AD, ad esempio amministratore di Exchange e amministratore di SharePoint, ma non sono supportati ruoli specifici all'interno di Exchange RBAC o di SharePoint RBAC. Per altre informazioni su questi servizi di Office 365, vedere [Informazioni sui ruoli di amministratore di Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> Gli utenti idonei per il ruolo di amministratore di SharePoint, nonché i ruoli che tentano di accedere a Microsoft Security and Compliance Center potrebbero subire ritardi fino a poche ore dopo l'attivazione del ruolo. Microsoft sta collaborando con i team per risolvere i problemi.
+> Gli utenti idonei per il ruolo di amministratore di SharePoint, il ruolo di amministratore del dispositivo e tutti i ruoli che tentano di accedere a Microsoft Security and Compliance Center potrebbero subire ritardi di poche ore dopo l'attivazione del ruolo. Microsoft sta collaborando con i team per risolvere i problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

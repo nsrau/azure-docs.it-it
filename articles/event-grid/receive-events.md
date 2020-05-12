@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629593"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116969"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ricevere eventi in un endpoint HTTP
 
@@ -50,7 +50,7 @@ Fare clic sul collegamento "Visualizza file" nella funzione di Azure (riquadro p
 
 ## <a name="endpoint-validation"></a>Convalida degli endpoint
 
-La prima cosa da fare è gestire gli eventi `Microsoft.EventGrid.SubscriptionValidationEvent`. Ogni volta che qualcuno sottoscrive un evento, Griglia di eventi invia un evento di convalida all'endpoint con un `validationCode` nel payload dei dati. L'endpoint è tenuto a ripeterlo nel corpo della risposta per [dimostrare che l'endpoint è valido e di proprietà dell'utente](webhook-event-delivery.md). Se si usa un [Trigger griglia di eventi di Azure](../azure-functions/functions-bindings-event-grid.md) anziché una funzione attivata da WebHook, la convalida dell'endpoint viene gestita dall'utente. Se si usa un servizio API di terze parti, ad esempio [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), potrebbe non essere possibile ripetere a livello di programmazione il codice di convalida. Per questi servizi, è possibile convalidare manualmente la sottoscrizione usando un URL di convalida che viene inviato quando si verifica l'evento di convalida della sottoscrizione. Copiare l'URL nella proprietà `validationUrl` e inviare una richiesta GET tramite un client REST o un Web browser.
+La prima cosa da fare è gestire gli eventi `Microsoft.EventGrid.SubscriptionValidationEvent`. Ogni volta che qualcuno sottoscrive un evento, Griglia di eventi invia un evento di convalida all'endpoint con un `validationCode` nel payload dei dati. L'endpoint è tenuto a ripeterlo nel corpo della risposta per [dimostrare che l'endpoint è valido e di proprietà dell'utente](webhook-event-delivery.md). Se si usa un [Trigger griglia di eventi di Azure](../azure-functions/functions-bindings-event-grid.md) anziché una funzione attivata da WebHook, la convalida dell'endpoint viene gestita dall'utente. Se si usa un servizio API di terze parti, ad esempio [Zapier](https://zapier.com/home) o [IFTTT](https://ifttt.com/), potrebbe non essere possibile ripetere a livello di programmazione il codice di convalida. Per questi servizi, è possibile convalidare manualmente la sottoscrizione usando un URL di convalida che viene inviato quando si verifica l'evento di convalida della sottoscrizione. Copiare l'URL nella proprietà `validationUrl` e inviare una richiesta GET tramite un client REST o un Web browser.
 
 In C# la funzione `DeserializeEventGridEvents()` deserializza gli eventi di Griglia di eventi. Deserializza i dati dell'evento nel tipo appropriato, ad esempio StorageBlobCreatedEventData. Usare la classe `Microsoft.Azure.EventGrid.EventTypes` per ottenere i nomi e tipi di evento supportati.
 

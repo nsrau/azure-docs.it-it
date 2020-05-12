@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 56975cebbfe4f6dd6452c850c338d431faea27bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7c26780cdba37a2bddc201928dbcbd5f86e0170
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050490"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115898"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedure consigliate e raccomandazioni per la piattaforma di identità Microsoft
 
@@ -26,6 +26,9 @@ Questo articolo evidenzia le procedure consigliate, le raccomandazioni e le supe
 Se si è appena iniziato, consultare la documentazione della [piattaforma di identità Microsoft](index.yml) per informazioni sulle nozioni di base sull'autenticazione, gli scenari applicativi nella piattaforma di identità Microsoft e altro ancora.
 
 Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia integrata efficacemente con la [piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
+
+> [!TIP]
+> *Integration Assistant* nella portale di Azure può essere utile per applicare molti di questi consigli e procedure consigliate. Selezionare una delle registrazioni per l' [app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nel portale di Azure, quindi selezionare la voce di menu **Integration Assistant (anteprima)** per iniziare a usare l'assistente.
 
 ## <a name="basics"></a>Nozioni di base
 
@@ -56,7 +59,7 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 
 |   |   |
 |---|---|
-| ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Gestire gli URI di reindirizzamento: <ul><li>Mantenere la proprietà di tutti gli URI di reindirizzamento e mantenere aggiornati i record DNS.</li><li>Non usare i caratteri jolly (*) negli URI.</li><li>Per le app Web, assicurarsi che tutti gli URI siano protetti e crittografati, ad esempio usando gli schemi HTTPS.</li><li>Per i client pubblici, usare gli URI di reindirizzamento specifici della piattaforma, se applicabile (principalmente per iOS e Android). In caso contrario, usare gli URI di reindirizzamento con una quantità elevata di casualità per evitare conflitti quando si richiama l'app.</li><li>Se l'app viene usata da un agente Web isolato, è possibile usare `https://login.microsoftonline.com/common/oauth2/nativeclient`.</li><li>Esaminare e tagliare tutti gli URI di reindirizzamento non usati o non necessari a intervalli regolari.</li></ul> |
+| ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Gestire gli URI di reindirizzamento: <ul><li>Mantenere la proprietà di tutti gli URI di reindirizzamento e mantenere aggiornati i record DNS.</li><li>Non usare i caratteri jolly (*) negli URI.</li><li>Per le app Web, assicurarsi che tutti gli URI siano protetti e crittografati, ad esempio usando gli schemi HTTPS.</li><li>Per i client pubblici, usare gli URI di reindirizzamento specifici della piattaforma, se applicabile (principalmente per iOS e Android). In caso contrario, usare gli URI di reindirizzamento con una quantità elevata di casualità per evitare conflitti quando si richiama l'app.</li><li>Se l'app viene usata da un agente Web isolato, è possibile usare `https://login.microsoftonline.com/common/oauth2/nativeclient` .</li><li>Esaminare e tagliare tutti gli URI di reindirizzamento non usati o non necessari a intervalli regolari.</li></ul> |
 | ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Se l'app è registrata in una directory, minimizzare e monitorare manualmente l'elenco dei proprietari di registrazione delle app. |
 | ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Non abilitare il supporto per il [flusso di concessione implicita OAuth2](v2-oauth2-implicit-grant-flow.md) , a meno che non sia esplicitamente richiesto. Per informazioni sullo scenario valido, vedere [qui](v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) | Spostare oltre il nome utente/password. Non usare il [flusso di credenziali password del proprietario della risorsa (ROPC)](v2-oauth-ropc.md), che gestisce direttamente le password degli utenti. Questo flusso richiede un elevato livello di attendibilità e l'esposizione dell'utente e deve essere usato solo quando non è possibile usare altri flussi, più sicuri. Questo flusso è ancora necessario in alcuni scenari (ad esempio, DevOps), ma tenere presente che l'uso di questa funzione imporrà vincoli sull'applicazione.  Per approcci più moderni, vedere [flussi di autenticazione e scenari di applicazione](authentication-flows-app-scenarios.md).|

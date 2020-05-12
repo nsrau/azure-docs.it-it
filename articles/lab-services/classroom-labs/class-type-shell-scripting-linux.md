@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1199bca9e2ab7c85ccf5c90879fe5141a55a7bb5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443551"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115065"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurare un Lab per insegnare lo script della shell in Linux
 Questo articolo illustra come configurare un Lab per insegnare lo script della shell in Linux. Lo scripting è una parte utile dell'amministrazione del sistema che consente agli amministratori di evitare attività ripetitive. In questo scenario di esempio, la classe illustra gli script bash tradizionali e gli script avanzati. Gli script avanzati sono script che combinano i comandi bash e Ruby. Questo approccio consente a Ruby di passare dati e comandi bash per interagire con la shell. 
@@ -32,19 +32,19 @@ Dopo aver creato l'account Lab, abilitare le impostazioni seguenti nell'account 
 
 | Impostazione dell'account Lab | Istruzioni |
 | ----------- | ------------ |  
-| Immagini del Marketplace | Abilitare l'immagine di [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) per l'uso nell'account Lab. Per altre informazioni, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](specify-marketplace-images.md). | 
+| Immagini del Marketplace | Abilitare l'immagine di Ubuntu server 18,04 LTS per l'uso nell'account Lab. Per altre informazioni, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](specify-marketplace-images.md). | 
 
 Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nuovo Lab e applicare le impostazioni seguenti:
 
 | Impostazioni Lab | Valore/istruzioni | 
 | ------------ | ------------------ |
 | Dimensioni delle macchine virtuali (VM) | Piccolo  |
-| Immagine VM | [Ubuntu server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
+| Immagine VM | Ubuntu server 18,04 LTS |
 | Abilita connessione Desktop remoto | Abilita. <p>L'abilitazione di questa impostazione consentirà agli insegnanti e agli studenti di connettersi alle macchine virtuali tramite Desktop remoto (RDP). Per ulteriori informazioni, vedere [Enable Remote Desktop for Linux Virtual Machines in a Lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Installare desktop e xrdp
-Per impostazione predefinita, per l'immagine di [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) non è installato Server Desktop remoto. Seguire le istruzioni riportate nell'articolo [installare e configurare Desktop remoto per connettersi a una VM Linux in Azure](../../virtual-machines/linux/use-remote-desktop.md) per installare i pacchetti necessari nel computer modello per la connessione tramite Remote Desktop Protocol.
+Per impostazione predefinita, per l'immagine di Ubuntu server 18,04 LTS non è installato Server Desktop remoto. Seguire le istruzioni riportate nell'articolo [installare e configurare Desktop remoto per connettersi a una VM Linux in Azure](../../virtual-machines/linux/use-remote-desktop.md) per installare i pacchetti necessari nel computer modello per la connessione tramite Remote Desktop Protocol.
 
 ## <a name="install-ruby"></a>Installare Ruby
 Ruby è un linguaggio dinamico open source che può essere combinato con script bash. Questa sezione illustra come usare `apt-get` per installare la versione più recente di [Ruby](https://www.ruby-lang.org/).

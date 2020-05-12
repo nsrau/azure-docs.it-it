@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617083"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117122"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -90,7 +90,7 @@ Vedere i [white paper/le librerie di risorse](https://www.suse.com/products/sles
 Collegamenti aggiuntivi utili correlati a SAP in SUSE:
 
 - [Sito relativo a SAP HANA in SUSE Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [Best practices for SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113) (Procedure consigliate per SAP: replica di accodamento e SAP NetWeaver in SUSE Linux Enterprise 12)
+- [Best practices for SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/media/guide/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12_color_en.pdf) (Procedure consigliate per SAP: replica di accodamento e SAP NetWeaver in SUSE Linux Enterprise 12)
 - [ClamSAP: SLES Virus Protection for SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (ClamSAP: protezione da virus SLES per SAP), incluso SLES 12 for SAP Applications
 
 Note di supporto SAP applicabili all'implementazione di SAP HANA su SLES 12:
@@ -115,7 +115,7 @@ Note di supporto SAP applicabili all'implementazione di SAP HANA su Red Hat:
 - [SAP Support Note #2397039 - FAQ: SAP on RHEL](https://launchpad.support.sap.com/#/notes/2397039) (Nota di supporto SAP n. 2397039 - Domande frequenti: SAP in RHEL)
 - [Nota di supporto SAP #2002167-Red Hat Enterprise Linux 7. x: installazione e aggiornamento](https://launchpad.support.sap.com/#/notes/2002167)
 
-### <a name="time-synchronization"></a>Sincronizzazione degli orari
+### <a name="time-synchronization"></a>Sincronizzazione dell'ora
 
 Le applicazioni SAP basate su architettura SAP NetWeaver rilevano gli sfasamenti orari per i diversi componenti che costituiscono il sistema SAP. I dump SAP ABAP brevi con il titolo di errore ZDATE\_LARGE\_TIME\_DIFF sono probabilmente familiari perché vengono visualizzati quando l'ora di sistema di server o VM differenti è troppo sfasata.
 
@@ -136,7 +136,7 @@ Per altre informazioni sui dettagli Ethernet per l'architettura, vedere [Scenari
 
 ## <a name="storage"></a>Archiviazione
 
-Il layout di archiviazione per SAP HANA in Azure (istanze large) viene configurato da SAP HANA in `service management` Azure tramite le linee guida consigliate per SAP. come illustrato nel white paper [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti per le risorse di archiviazione di SAP HANA). 
+Il layout di archiviazione per SAP HANA in Azure (istanze large) viene configurato da SAP HANA in Azure `service management` tramite le linee guida consigliate per SAP. come illustrato nel white paper [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti per le risorse di archiviazione di SAP HANA). 
 
 Le dimensioni approssimative dei diversi volumi delle diverse SKU di istanze Large di HANA sono illustrate in [SAP HANA in Azure (istanze Large)](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -144,8 +144,8 @@ Le convenzioni di denominazione dei volumi di archiviazione sono elencate nella 
 
 | Utilizzo delle risorse di archiviazione | Nome del montaggio | Nome del volume | 
 | --- | --- | ---|
-| Dati HANA | /hana/data/SID/mnt0000\<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
-| Log HANA | /hana/log/SID/mnt0000\<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| Dati HANA | /hana/data/SID/mnt0000 \< m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| Log HANA | /hana/log/SID/mnt0000 \< m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
 | Backup dei log HANA | /hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | Condivisione HANA | /hana/shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -164,7 +164,7 @@ Il volume HANA/log/backup non è il volume in cui salvare i backup dei database.
 
 Oltre alle risorse di archiviazione offerte, è possibile acquistare capacità di archiviazione aggiuntiva per incrementi di 1 TB. Questo ulteriore spazio di archiviazione può essere aggiunto come nuovi volumi alle istanze Large di HANA.
 
-Durante l'onboarding con SAP HANA in `service management`Azure, il cliente specifica un ID utente (UID) e un ID gruppo (GID) per l'utente sidadm e il gruppo sapsys (ad esempio: 1.000.500). È necessario usare questi stessi valori durante l'installazione del sistema SAP HANA. Poiché si vogliono distribuire più istanze di HANA in un'unità, si ottengono più set di volumi, ovvero un set per ogni istanza. In fase di distribuzione è quindi necessario definire quanto segue:
+Durante l'onboarding con SAP HANA in Azure `service management` , il cliente specifica un ID utente (UID) e un ID gruppo (GID) per l'utente sidadm e il gruppo sapsys (ad esempio: 1.000.500). È necessario usare questi stessi valori durante l'installazione del sistema SAP HANA. Poiché si vogliono distribuire più istanze di HANA in un'unità, si ottengono più set di volumi, ovvero un set per ogni istanza. In fase di distribuzione è quindi necessario definire quanto segue:
 
 - SID delle diverse istanze di HANA, da cui viene derivato il valore sidadm.
 - Dimensioni della memoria delle diverse istanze di HANA. Le dimensioni della memoria per ogni istanza definiscono le dimensioni dei volumi nei singoli set di volumi.

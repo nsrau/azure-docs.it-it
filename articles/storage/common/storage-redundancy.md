@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 65d898112396755bb2518cade0ac94c21bc52685
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872007"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117717"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -102,7 +102,7 @@ L'archiviazione con ridondanza geografica (GZRS) combina la disponibilità eleva
 
 Con un account di archiviazione GZRS, è possibile continuare a leggere e scrivere dati se una zona di disponibilità diventa non disponibile o non è recuperabile. Inoltre, i dati sono anche durevoli in caso di un'interruzione completa dell'area o di un'emergenza in cui l'area primaria non è recuperabile. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno.
 
-Solo gli account di archiviazione per utilizzo generico V2 supportano GZRS e RA-GZRS. Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md). I BLOB in blocchi, i BLOB di pagine (ad eccezione dei dischi VHD), i file, le tabelle e le code sono supportati da GZRS e RA-GZRS. GZRS e RA-GZRS sono disponibili in tutte le aree di Azure.
+Solo gli account di archiviazione per utilizzo generico V2 supportano GZRS e RA-GZRS. Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md). I BLOB in blocchi, i BLOB di pagine (ad eccezione dei dischi VHD), i file, le tabelle e le code sono supportati da GZRS e RA-GZRS.
 
 GZRS e RA-GZRS sono supportati nelle aree seguenti:
 
@@ -126,7 +126,7 @@ Con l'archiviazione con ridondanza geografica, con GRS o GZRS, i dati vengono re
 
 Se l'account di archiviazione è configurato per l'accesso in lettura all'area secondaria, è possibile progettare le applicazioni in modo da passare facilmente alla lettura dei dati dall'area secondaria se l'area primaria non è più disponibile per qualsiasi motivo. L'area secondaria è sempre disponibile per l'accesso in lettura, quindi è possibile testare l'applicazione per assicurarsi che venga letta dal database secondario in caso di interruzione. Per altre informazioni su come progettare le applicazioni per la disponibilità elevata, vedere [usare la ridondanza geografica per progettare applicazioni a](geo-redundant-design.md)disponibilità elevata.
 
-Quando è abilitato l'accesso in lettura al database secondario, i dati possono essere letti dall'endpoint secondario e dall'endpoint primario per l'account di archiviazione. L'endpoint secondario aggiunge il suffisso *-secondario* al nome dell'account. Se ad esempio l'endpoint primario per l'archiviazione BLOB è `myaccount.blob.core.windows.net`, l'endpoint secondario sarà `myaccount-secondary.blob.core.windows.net`. Le chiavi di accesso dell'account per l'account di archiviazione sono le stesse per gli endpoint primario e secondario.
+Quando è abilitato l'accesso in lettura al database secondario, i dati possono essere letti dall'endpoint secondario e dall'endpoint primario per l'account di archiviazione. L'endpoint secondario aggiunge il suffisso *-secondario* al nome dell'account. Se ad esempio l'endpoint primario per l'archiviazione BLOB è `myaccount.blob.core.windows.net` , l'endpoint secondario sarà `myaccount-secondary.blob.core.windows.net` . Le chiavi di accesso dell'account per l'account di archiviazione sono le stesse per gli endpoint primario e secondario.
 
 ### <a name="check-the-last-sync-time-property"></a>Controllare la proprietà Ora ultima sincronizzazione
 

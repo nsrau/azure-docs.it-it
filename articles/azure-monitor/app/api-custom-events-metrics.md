@@ -2,13 +2,13 @@
 title: API di Application Insights per metriche ed eventi personalizzati | Microsoft Docs
 description: Inserire alcune righe di codice nell'app desktop o per dispositivi, nella pagina Web o nel servizio per tenere traccia dell'utilizzo e diagnosticare i problemi.
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.openlocfilehash: 74ca6d6a13967c2139d3d47dd425b6cb1a3ee31a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 05/11/2020
+ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927939"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115660"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -147,7 +147,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 I dati di telemetria sono disponibili nella tabella `customEvents` in [Analytics di Application Insights](analytics.md). Ogni riga rappresenta una chiamata a `trackEvent(..)` nell'app in uso.
 
-Se il [campionamento](../../azure-monitor/app/sampling.md) è attivo, la proprietà itemCount mostra un valore maggiore di 1. Per esempio itemCount==10 indica che su 10 chiamate a trackEvent(), il processo di campionamento ne trasmette solo una. Per ottenere un conteggio corretto degli eventi personalizzati, è pertanto necessario utilizzare codice come `customEvents | summarize sum(itemCount)`.
+Se il [campionamento](../../azure-monitor/app/sampling.md) è attivo, la proprietà itemCount mostra un valore maggiore di 1. Per esempio itemCount==10 indica che su 10 chiamate a trackEvent(), il processo di campionamento ne trasmette solo una. Per ottenere un conteggio corretto degli eventi personalizzati, è pertanto necessario utilizzare codice come `customEvents | summarize sum(itemCount)` .
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -931,7 +931,7 @@ L'[applicazione di filtri](../../azure-monitor/app/api-filtering-sampling.md#fil
 
 Il [campionamento](../../azure-monitor/app/api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 
-[Altre informazioni](../../azure-monitor/app/api-filtering-sampling.md).
+[Altre informazioni](../../azure-monitor/app/api-filtering-sampling.md)
 
 ## <a name="disabling-telemetry"></a>Disabilitazione della telemetria
 
@@ -991,7 +991,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.js*
 
-Per node. js, è possibile abilitare la modalità sviluppatore abilitando la registrazione `setInternalLogging` interna tramite `maxBatchSize` e impostando su 0, che fa sì che la telemetria venga inviata non appena viene raccolta.
+Per node. js, è possibile abilitare la modalità sviluppatore abilitando la registrazione interna tramite `setInternalLogging` e impostando `maxBatchSize` su 0, che fa sì che la telemetria venga inviata non appena viene raccolta.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1096,22 +1096,20 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 * [Riferimenti per Java](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [Informazioni di riferimento su JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-
 ## <a name="sdk-code"></a>Codice SDK
 
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [Pacchetti per Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
+* [Pacchetti per Windows Server](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-
 
 ## <a name="questions"></a>Domande
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](../../azure-monitor/app/export-power-bi.md ) e l'[esportazione continua](../../azure-monitor/app/export-telemetry.md).

@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1874a2f2cf96aaa905616bddcc6cb83c60c1d279
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261041"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115609"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizzare la gestione delle applicazioni con Azure AD
 
@@ -53,7 +53,7 @@ Per la maggior parte delle applicazioni è necessario eseguire il provisioning d
 
 |Funzionalità  |Descrizione|Recommendation |
 |---------|---------|---------|
-|Provisioning di SCIM|[Scim](https://aka.ms/SICMOverview) è una procedura consigliata di settore per l'automazione del provisioning degli utenti. Tutte le applicazioni conformi a SCIM possono essere integrate con Azure AD. Consente di creare, aggiornare ed eliminare automaticamente gli account utente senza dover gestire file CSV, script personalizzati o soluzioni locali.|Vedere l'elenco in continua crescita di app [preintegrate](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) nella raccolta di app Azure ad|
+|Provisioning di SCIM|[Scim](https://aka.ms/SCIMOverview) è una procedura consigliata di settore per l'automazione del provisioning degli utenti. Tutte le applicazioni conformi a SCIM possono essere integrate con Azure AD. Consente di creare, aggiornare ed eliminare automaticamente gli account utente senza dover gestire file CSV, script personalizzati o soluzioni locali.|Vedere l'elenco in continua crescita di app [preintegrate](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) nella raccolta di app Azure ad|
 |Microsoft Graph|Sfruttare il respiro e la profondità dei dati che Azure AD necessario per arricchire l'applicazione con i dati necessari.|Sfrutta [Microsoft Graph](https://developer.microsoft.com/graph/) per ottenere i dati da tutto l'ecosistema Microsoft. |
 
 

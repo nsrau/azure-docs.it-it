@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926579"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115796"
 ---
 # <a name="security-tokens"></a>Token di sicurezza
 
@@ -31,7 +31,7 @@ I token di accesso sono validi solo per un breve periodo di tempo, quindi i serv
 I **token ID** vengono inviati all'applicazione client come parte di un flusso di [OpenID Connect](v2-protocols-oidc.md) . Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente. Per altre informazioni sul modo in cui la piattaforma di identità Microsoft rilascia i token ID, vedere [token ID](id-tokens.md).
 
 > [!NOTE]
-> Questo articolo illustra i token di sicurezza per i protocolli OAuth2 e OpenID Connect. Molte applicazioni aziendali usano SAML per autenticare gli utenti. Per informazioni sulle asserzioni SAML, vedere [Azure ad riferimento al token SAML](reference-saml-tokens.md) .
+> Questo articolo illustra i token di sicurezza usati dai protocolli OAuth2 e OpenID Connect. Molte applicazioni aziendali usano SAML per autenticare gli utenti. Per informazioni sulle asserzioni SAML, vedere [Azure ad riferimento al token SAML](reference-saml-tokens.md) .
 
 ## <a name="validating-security-tokens"></a>Convalida di token di sicurezza
 
@@ -46,7 +46,7 @@ I token di accesso vengono passati a un'API Web come bearer token nell' `Authori
 
 ## <a name="json-web-tokens-jwts-and-claims"></a>Token Web JSON (token JWT) e attestazioni
 
-La piattaforma di identità Microsoft implementa i token di sicurezza come **token Web JSON (token JWT)** che contengono **attestazioni**.
+La piattaforma di identità Microsoft implementa i token di sicurezza come **token Web JSON (token JWT)** che contengono **attestazioni**. Poiché token JWT vengono usati come token di sicurezza, questa forma di autenticazione viene talvolta denominata **autenticazione JWT**.
 
 Un' [attestazione](developer-glossary.md#claim) fornisce asserzioni su un'entità, ad esempio un'applicazione client o un [proprietario della risorsa](developer-glossary.md#resource-owner), a un'altra entità, ad esempio un server di risorse. È anche possibile fare riferimento a un'attestazione come attestazione JWT o richiesta di token Web JSON.
 
@@ -82,7 +82,7 @@ A seconda del modo in cui viene compilato il client, può usare uno o più dei f
 |[Flusso per conto di](v2-oauth2-on-behalf-of-flow.md) | token di accesso| x| x| x| |
 |[Credenziali del client](v2-oauth2-client-creds-grant-flow.md) | | | x (solo app)| | |
 
-I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL, `response_mode` dove `query` è `fragment`o.  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Pertanto, questi token non dispongono `groups` di attestazioni `wids` o.
+I token emessi tramite la modalità implicita hanno una limitazione di lunghezza perché vengono passati di nuovo al browser tramite l'URL `response_mode` , dove è `query` o `fragment` .  Alcuni browser hanno un limite per le dimensioni dell'URL che possono essere inseriti nella barra del browser e hanno esito negativo quando è troppo lungo.  Pertanto, questi token non dispongono di `groups` `wids` attestazioni o.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

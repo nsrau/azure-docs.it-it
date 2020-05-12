@@ -3,16 +3,16 @@ title: Gestire messaggi di grandi dimensioni usando la suddivisione in blocchi
 description: Informazioni su come gestire dimensioni dei messaggi di grandi dimensioni usando la suddivisione in blocchi in attività e flussi di lavoro automatizzati creati con le app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-author: shae-hurst
-ms.author: shhurst
+author: DavidCBerry13
+ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456559"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117564"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 
@@ -41,7 +41,7 @@ I servizi che comunicano con App per la logica di Azure possono avere un proprio
 Per i connettori che supportano la suddivisione in blocchi, il protocollo di suddivisione in blocchi sottostante è invisibile agli utenti finali. Tuttavia, non tutti i connettori supportano la suddivisione in blocchi; pertanto, questi connettori generano errori di runtime quando i messaggi in arrivo superano i limiti di dimensione dei connettori.
 
 > [!NOTE]
-> Per le azioni che usano la suddivisione `@triggerBody()?['Content']` in blocchi, non è possibile passare il corpo del trigger o usare espressioni come in tali azioni. Al contrario, per il contenuto del file di testo o JSON, è possibile provare a usare l' [azione **compose** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) o [creare una variabile](../logic-apps/logic-apps-create-variables-store-values.md) per gestire tale contenuto. Se il corpo del trigger contiene altri tipi di contenuto, ad esempio i file multimediali, è necessario eseguire altri passaggi per gestire tale contenuto.
+> Per le azioni che usano la suddivisione in blocchi, non è possibile passare il corpo del trigger o usare espressioni come `@triggerBody()?['Content']` in tali azioni. Al contrario, per il contenuto del file di testo o JSON, è possibile provare a usare l' [azione **compose** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) o [creare una variabile](../logic-apps/logic-apps-create-variables-store-values.md) per gestire tale contenuto. Se il corpo del trigger contiene altri tipi di contenuto, ad esempio i file multimediali, è necessario eseguire altri passaggi per gestire tale contenuto.
 
 <a name="set-up-chunking"></a>
 
@@ -113,7 +113,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 1. L'app per la logica invia una richiesta HTTP POST o PUT iniziale con corpo del messaggio vuoto. L'intestazione della richiesta include queste informazioni sul contenuto di cui l'app per la logica eseguirà il caricamento in blocchi:
 
-   | Campo intestazione della richiesta di App per la logica di Azure | valore | Type | Description |
+   | Campo intestazione della richiesta di App per la logica di Azure | valore | Tipo | Description |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | suddiviso in blocchi | string | Indica che il contenuto viene caricato in blocchi |
    | **x-ms-content-length** | <*lunghezza del contenuto*> | Integer | Dimensioni dell'intero contenuto in byte prima della suddivisione in blocchi |
@@ -133,7 +133,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
    * Questa intestazione descrive in dettaglio il blocco di contenuto inviato in ogni messaggio PATCH:
 
-     | Campo intestazione della richiesta di App per la logica di Azure | valore | Type | Description |
+     | Campo intestazione della richiesta di App per la logica di Azure | valore | Tipo | Description |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*intervallo*> | string | Intervallo in byte del blocco di contenuto corrente, incluso il valore iniziale, il valore finale e le dimensioni totali del contenuto, ad esempio: "bytes=0-1023/10100" |
      | **Content-Type** | <*Content-Type*> | string | Tipo di contenuto in blocchi |

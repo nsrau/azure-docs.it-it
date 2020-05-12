@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: a8f32ad69d32844305c1cc785afc9f1df3c102b8
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006352"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117020"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Uso di JSON in Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Nell'API SQL (Core) di Azure Cosmos DB, gli elementi vengono archiviati come JSO
 
 Verranno riepilogati alcuni aspetti importanti dell'uso di JSON:
 
-- Gli oggetti JSON iniziano sempre con `{` una parentesi graffa sinistra e terminano `}` con una parentesi graffa destra
+- Gli oggetti JSON iniziano sempre con una `{` parentesi graffa sinistra e terminano con una `}` parentesi graffa destra
 - È possibile [annidare](#nested-properties) le proprietà JSON tra loro
 - I valori delle proprietà JSON possono essere matrici
 - I nomi delle proprietà JSON sono maiuscole/minuscole
@@ -45,9 +45,9 @@ Ecco un documento con JSON annidato:
 }
 ```
 
-In questo caso, le `state`proprietà `country`, e `city` sono tutte annidate all'interno `address` della proprietà.
+In questo caso, le `state` `country` proprietà, e `city` sono tutte annidate all'interno della `address` Proprietà.
 
-Nell'esempio seguente vengono proiettate due proprietà `f.address.state` annidate: e `f.address.city`.
+Nell'esempio seguente vengono proiettate due proprietà annidate: `f.address.state` e `f.address.city` .
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -141,9 +141,9 @@ WHERE EXISTS(
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Parole chiave riservate e caratteri speciali in JSON
 
-È possibile accedere alle proprietà usando l'operatore `[]`di proprietà tra virgolette. Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi è utile per eseguire l'escape di una proprietà che contiene spazi, caratteri speciali o ha lo stesso nome di una parola chiave SQL o di una parola riservata.
+È possibile accedere alle proprietà usando l'operatore di proprietà tra virgolette `[]` . Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi è utile per eseguire l'escape di una proprietà che contiene spazi, caratteri speciali o ha lo stesso nome di una parola chiave SQL o di una parola riservata.
 
-Ad esempio, di seguito è riportato un documento con una `order` proprietà denominata e `price($)` una proprietà che contiene caratteri speciali:
+Ad esempio, di seguito è riportato un documento con una proprietà denominata `order` e una proprietà `price($)` che contiene caratteri speciali:
 
 ```json
 {
@@ -160,7 +160,7 @@ Ad esempio, di seguito è riportato un documento con una `order` proprietà deno
 }
 ```
 
-Se si eseguono query che includono la proprietà `order` o `price($)` la proprietà, verrà visualizzato un errore di sintassi.
+Se si eseguono query che includono la `order` proprietà o la proprietà `price($)` , verrà visualizzato un errore di sintassi.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -208,7 +208,7 @@ I risultati sono:
     }]
 ```
 
-Nell'esempio precedente, la `SELECT` clausola deve creare un oggetto JSON e poiché l'esempio non fornisce alcuna chiave, la clausola usa il nome `$1`della variabile dell'argomento implicito. La query seguente restituisce due variabili di argomento `$1` implicite `$2`: e.
+Nell'esempio precedente, la `SELECT` clausola deve creare un oggetto JSON e poiché l'esempio non fornisce alcuna chiave, la clausola usa il nome della variabile dell'argomento implicito `$1` . La query seguente restituisce due variabili di argomento implicite: `$1` e `$2` .
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -237,7 +237,7 @@ I risultati sono:
 
 ### <a name="examples"></a>Esempi
 
-La `AS` parola chiave usata per l'aliasing è facoltativa, come illustrato nell'esempio seguente quando si proietta il secondo `NameInfo`valore come:
+La `AS` parola chiave usata per l'aliasing è facoltativa, come illustrato nell'esempio seguente quando si proietta il secondo valore come `NameInfo` :
 
 ```sql
     SELECT
@@ -270,13 +270,13 @@ Ad esempio:
 ```sql
     SELECT
            {"JSON expression with a space": { "state": f.address.state, "city": f.address.city }},
-           { "JSON expression with a special character": { "name": f.id }}
+           {"JSON expression with a special character!": { "name": f.id }}
     FROM Families f
     WHERE f.id = "AndersenFamily"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Guida introduttiva](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
 - [Clausola WHERE](sql-query-where.md)

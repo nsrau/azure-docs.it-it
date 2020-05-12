@@ -1,17 +1,20 @@
 ---
 title: Crittografia dischi di Azure e sequenza di estensioni di set di scalabilità di macchine virtuali di Azure
 description: Questo articolo offre informazioni sull'abilitazione di Crittografia dischi di Microsoft Azure per le macchine virtuali IaaS Linux.
-author: msmbaldwin
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.author: mbaldwin
+ms.subservice: disks
 ms.date: 10/10/2019
-ms.openlocfilehash: aa638b86b0788b8c274f9dcb3c04c1fc385b4ae1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279023"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117258"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Usare Crittografia dischi di Azure con sequenziazione delle estensioni del set di scalabilità di macchine virtuali
 
@@ -22,11 +25,11 @@ In generale, la crittografia deve essere applicata a un disco:
 - Dopo le estensioni o gli script personalizzati che preparano i dischi o i volumi.
 - Prima delle estensioni o degli script personalizzati che accedono o utilizzano i dati nei dischi o volumi crittografati.
 
-In entrambi i casi, `provisionAfterExtensions` la proprietà indica quale estensione deve essere aggiunta successivamente nella sequenza.
+In entrambi i casi, la `provisionAfterExtensions` proprietà indica quale estensione deve essere aggiunta successivamente nella sequenza.
 
 ## <a name="sample-azure-templates"></a>Modelli di Azure di esempio
 
-Se si vuole che crittografia dischi di Azure venga applicato dopo un'altra estensione, `provisionAfterExtensions` inserire la proprietà nel blocco di estensione AzureDiskEncryption. 
+Se si vuole che crittografia dischi di Azure venga applicato dopo un'altra estensione, inserire la `provisionAfterExtensions` proprietà nel blocco di estensione AzureDiskEncryption. 
 
 Di seguito è riportato un esempio che usa "CustomScriptExtension", uno script di PowerShell che Inizializza e formatta un disco di Windows, seguito da "AzureDiskEncryption":
 
@@ -84,7 +87,7 @@ Di seguito è riportato un esempio che usa "CustomScriptExtension", uno script d
 }
 ```
 
-Se si vuole che crittografia dischi di Azure venga applicato prima di un'altra estensione `provisionAfterExtensions` , inserire la proprietà nel blocco dell'estensione da seguire.
+Se si vuole che crittografia dischi di Azure venga applicato prima di un'altra estensione, inserire la `provisionAfterExtensions` proprietà nel blocco dell'estensione da seguire.
 
 Di seguito è riportato un esempio che usa "AzureDiskEncryption" seguito da "VMDiagnosticsSettings", un'estensione che fornisce funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows:
 

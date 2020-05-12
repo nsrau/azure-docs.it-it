@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e023e9c8c4c6f0021eabccad8783c27eba98d0d5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186251"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116527"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Esercitazione: personalizzare l'interfaccia delle esperienze utente in Azure Active Directory B2C
 
@@ -63,8 +63,8 @@ I file possono essere archiviati in diversi modi, ma per questa esercitazione si
  Il codice Azure AD B2C in un browser usa un approccio moderno e standard per caricare il contenuto personalizzato da un URL specificato in un flusso utente. La funzionalità Condivisione di risorse tra le origini (CORS) abilita la richiesta di un numero limitato di risorse in una pagina Web da parte di altri domini.
 
 1. Nel menu selezionare **CORS**.
-2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
-3. Per i **metodi consentiti**, selezionare `GET`,`PUT`e `OPTIONS`.
+2. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio, `https://fabrikam.b2clogin.com` È necessario usare solo lettere minuscole quando si immette il nome del tenant.
+3. Per i **metodi consentiti**, selezionare `GET` , `PUT` e `OPTIONS` .
 4. Per **Intestazioni consentite** immettere un asterisco (*).
 5. Per **Intestazioni esposte** immettere un asterisco (*).
 6. Per **Età massima** immettere 200.
@@ -75,9 +75,9 @@ I file possono essere archiviati in diversi modi, ma per questa esercitazione si
 
 ### <a name="create-the-customization-files"></a>Creare i file di personalizzazione
 
-Per personalizzare l'interfaccia utente dell'esperienza di iscrizione, creare innanzitutto un file HTML e un file CSS semplici. È possibile configurare l'HTML nel modo che si preferisce, purché abbia un elemento **div** con un identificatore `api`. Ad esempio: `<div id="api"></div>`. Azure AD B2C inserisce gli elementi nel contenitore `api` quando viene visualizzata la pagina.
+Per personalizzare l'interfaccia utente dell'esperienza di iscrizione, creare innanzitutto un file HTML e un file CSS semplici. È possibile configurare l'HTML nel modo che si preferisce, purché abbia un elemento **div** con un identificatore `api`. Ad esempio, `<div id="api"></div>` Azure AD B2C inserisce gli elementi nel contenitore `api` quando viene visualizzata la pagina.
 
-1. In una cartella locale creare il file seguente e sostituire `your-storage-account` con il nome dell'account di archiviazione e `your-container` con il nome del contenitore creato. Ad esempio: `https://store1.blob.core.windows.net/b2c/style.css`.
+1. In una cartella locale creare il file seguente e sostituire `your-storage-account` con il nome dell'account di archiviazione e `your-container` con il nome del contenitore creato. Ad esempio, `https://store1.blob.core.windows.net/b2c/style.css`
 
     ```html
     <!DOCTYPE html>
@@ -166,4 +166,4 @@ In questo articolo si è appreso come:
 > * Testare l'interfaccia utente personalizzata
 
 > [!div class="nextstepaction"]
-> [Personalizzazione della lingua in Azure AD B2C](user-flow-language-customization.md)
+> [Personalizzare l'interfaccia utente in Azure Active Directory B2C](customize-ui-overview.md)

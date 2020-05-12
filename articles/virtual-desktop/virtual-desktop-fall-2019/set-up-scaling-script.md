@@ -8,21 +8,25 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 28e76a93e309112d965c49f25be232ced789ad66
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983194"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117394"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Ridimensionare gli host di sessione usando automazione di Azure
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 
 È possibile ridurre il costo totale di distribuzione di desktop virtuali Windows scalando le macchine virtuali (VM). Ciò significa arrestare e deallocare le macchine virtuali host della sessione durante le ore di minore utilizzo, quindi riaccenderle e riallocarle durante le ore di picco.
 
 Questo articolo illustra lo strumento di ridimensionamento creato con automazione di Azure e app per la logica di Azure che scala automaticamente le macchine virtuali host della sessione nell'ambiente di desktop virtuale Windows. Per informazioni su come usare lo strumento di scalabilità, passare a [prerequisiti](#prerequisites).
+
+## <a name="report-issues"></a>Segnalare i problemi
+
+I report sui problemi per lo strumento di scalabilità sono attualmente gestiti in GitHub anziché supporto tecnico Microsoft. Se si verificano problemi con lo strumento di scalabilità, è possibile segnalarli Bu aprendo un problema di GitHub denominato "4a-WVD-scaling-logica" nella [pagina di GitHub di RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Funzionamento dello strumento di scalabilità
 
@@ -43,7 +47,7 @@ Durante il periodo di picco dell'utilizzo, il processo controlla il numero corre
 
 Durante il tempo di utilizzo inferiore, il processo determina quali macchine virtuali host sessione devono essere arrestate in base al parametro *MinimumNumberOfRDSH* . Il processo imposterà le VM host della sessione in modalità svuotamento per impedire che le nuove sessioni si connettano agli host. Se si imposta il parametro *LimitSecondsToForceLogOffUser* su un valore positivo diverso da zero, il processo invierà una notifica a tutti gli utenti attualmente connessi per salvare il lavoro, attendere la quantità di tempo configurata e quindi forzare la disconnessione degli utenti. Dopo la disconnessione di tutte le sessioni utente nella macchina virtuale host sessione, il processo arresterà la macchina virtuale.
 
-Se si imposta il parametro *LimitSecondsToForceLogOffUser* su zero, il processo consentirà l'impostazione di configurazione della sessione nei criteri di gruppo specificati per gestire la firma delle sessioni utente. Per visualizzare questi criteri di gruppo, passare a **configurazione** > **computer criteri** > **modelli amministrativi** > **componenti** > di Windows**Servizi** > Terminal**Terminal Server** > **limiti di tempo della sessione**. Se sono presenti sessioni attive in una macchina virtuale host sessione, il processo lascerà la macchina virtuale host sessione in esecuzione. Se non sono presenti sessioni attive, il processo arresterà la macchina virtuale host sessione.
+Se si imposta il parametro *LimitSecondsToForceLogOffUser* su zero, il processo consentirà l'impostazione di configurazione della sessione nei criteri di gruppo specificati per gestire la firma delle sessioni utente. Per visualizzare questi criteri di gruppo, passare a **Configurazione computer**  >  **criteri**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Servizi terminal**  >  **Terminal Server**  >  **limiti di tempo della sessione**. Se sono presenti sessioni attive in una macchina virtuale host sessione, il processo lascerà la macchina virtuale host sessione in esecuzione. Se non sono presenti sessioni attive, il processo arresterà la macchina virtuale host sessione.
 
 Il processo viene eseguito periodicamente in base a un intervallo di ricorrenza del set. È possibile modificare questo intervallo in base alle dimensioni dell'ambiente di desktop virtuale di Windows, ma tenere presente che l'avvio e l'arresto delle macchine virtuali possono richiedere del tempo, quindi ricordare di tenere conto del ritardo. È consigliabile impostare l'intervallo di ricorrenza su ogni 15 minuti.
 
@@ -258,6 +262,3 @@ Passare a Runbook (il nome predefinito è WVDAutoScaleRunbook) nel gruppo di ris
 
 ![Immagine della finestra di output per lo strumento di ridimensionamento.](../media/tool-output.png)
 
-## <a name="report-issues"></a>Segnalare i problemi
-
-Se si verificano problemi con lo strumento di scalabilità, è possibile segnalarli nella [pagina di GitHub di RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).

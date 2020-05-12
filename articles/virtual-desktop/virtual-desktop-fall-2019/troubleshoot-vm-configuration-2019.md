@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7f3eaa54ecb39922a155e2ea65e15d38f2b138e4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615305"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117428"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
 >[!IMPORTANT]
->Questo contenuto si applica alla versione 2019, che non supporta Azure Resource Manager oggetti desktop virtuali di Windows. Se si sta tentando di gestire Azure Resource Manager oggetti desktop virtuali Windows introdotti nell'aggiornamento di Spring 2020, vedere [questo articolo](../troubleshoot-vm-configuration.md).
+>Questo contenuto si applica alla versione Autunno 2019 che non supporta gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si sta tentando di gestire gli oggetti Azure Resource Manager di Desktop virtuale Windows introdotti nell'aggiornamento di Primavera 2020, vedere [questo articolo](../troubleshoot-vm-configuration.md).
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
@@ -84,7 +84,7 @@ Il modo consigliato per eseguire il provisioning di macchine virtuali consiste n
 
 Seguire queste istruzioni per confermare che i componenti sono installati e per verificare la presenza di messaggi di errore.
 
-1. Verificare che i due componenti siano installati tramite il **Pannello** > di controllo**programmi** > programmi**e funzionalità**. Se l' **agente desktop virtuale di Windows** e il **caricatore di avvio di Windows Virtual Desktop Agent** non sono visibili, non vengono installati nella macchina virtuale.
+1. Verificare che i due componenti siano installati tramite il **Pannello di controllo**  >  **programmi**programmi  >  **e funzionalità**. Se l' **agente desktop virtuale di Windows** e il **caricatore di avvio di Windows Virtual Desktop Agent** non sono visibili, non vengono installati nella macchina virtuale.
 2. Aprire **Esplora file** e passare a **C:\Windows\Temp\ScriptLog.log**. Se il file è mancante, significa che non è stato possibile eseguire PowerShell DSC che ha installato i due componenti nel contesto di sicurezza fornito.
 3. Se il file **C:\Windows\Temp\ScriptLog.log** è presente, aprirlo e verificare la presenza di messaggi di errore.
 
@@ -237,7 +237,7 @@ La macchina virtuale usata per eseguire la correzione deve trovarsi nella stessa
 Seguire queste istruzioni per eseguire il monitoraggio e l'aggiornamento dalla stessa subnet e dominio:
 
 1. Connettersi con Remote Desktop Protocol Standard (RDP) alla macchina virtuale da cui verrà applicata la correzione.
-2. Scaricare PsExec da https://docs.microsoft.com/sysinternals/downloads/psexec.
+2. Scaricare PsExec da https://docs.microsoft.com/sysinternals/downloads/psexec .
 3. Decomprimere il file scaricato.
 4. Avviare il prompt dei comandi come amministratore locale.
 5. Passare alla cartella in cui PsExec è stato decompresso.
@@ -313,7 +313,7 @@ Se viene visualizzato uno di questi messaggi, significa che nell'immagine non so
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disabilitare l'impostazione di criteri di gruppo Desktop remoto modalità di gestione licenze
 
-Per verificare l'impostazione di criteri di gruppo, aprire l'Editor criteri di gruppo nella macchina virtuale e passare a **modelli amministrativi** > **componenti** > di Windows**Servizi Desktop remoto** > **host sessione Desktop remoto** > **Licensing** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
+Per verificare l'impostazione di criteri di gruppo, aprire l'Editor criteri di gruppo nella macchina virtuale e passare a **modelli amministrativi**  >  **componenti di Windows**  >  **Servizi Desktop remoto**  >  **host sessione Desktop remoto**  >  **Licensing**  >  **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
 
 >[!NOTE]
 >Se si impostano i criteri di gruppo tramite il dominio, disabilitare questa impostazione nei criteri destinati a queste VM multisessione Enterprise di Windows 10.
@@ -338,6 +338,12 @@ Se il numero di versione indica "1809", installare [l'aggiornamento di KB4516077
 ### <a name="version-1903"></a>Versione 1903
 
 Ridistribuire il sistema operativo host con la versione più recente dell'immagine di Windows 10, versione 1903 dalla raccolta di Azure.
+
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>Non è stato possibile connettersi al PC remoto a causa di un errore di sicurezza
+
+Se gli utenti visualizzano un errore indicante che non è stato possibile connettersi al computer remoto a causa di un errore di sicurezza. Se il problema si verifica, rivolgersi all'amministratore o al supporto tecnico per la guida, "convalidare eventuali criteri esistenti che modificano le autorizzazioni RDP predefinite. Un criterio che può causare la visualizzazione di questo errore è "Consenti accesso tramite Servizi Desktop remoto Criteri di sicurezza".
+
+Per ulteriori informazioni su questi criteri, vedere [consentire l'accesso tramite Servizi Desktop remoto](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
