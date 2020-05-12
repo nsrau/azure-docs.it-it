@@ -7,21 +7,21 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/11/2020
+ms.date: 05/04/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e80ab6d5ed0076e03f5378cbe975b15d0a28f47
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c678965048a6437deb8cbf39f38f12dc116d39ab
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216109"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743939"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guida introduttiva: Creare un hub eventi con il portale di Azure
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Avvio rapido: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
 In questa guida introduttiva viene creato un hub eventi usando il [portale di Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva, assicurarsi di disporre di quanto segue:
 
@@ -58,21 +58,27 @@ Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, a 
 
    ![Pulsante Aggiungi](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Nella pagina **Crea spazio dei nomi** seguire questa procedura:
-    1. Immettere un **nome** per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-    2. Scegliere il **piano tariffario** (Basic o Standard).
-    3. Si noti che l'opzione **Abilita Kafka** viene abilitata automaticamente. Hub eventi di Azure fornisce un endpoint Kafka. che consente allo spazio dei nomi di Hub eventi di comprendere in modo nativo il protocollo del messaggio e le API [Apache Kafka](https://kafka.apache.org/intro). Con questa funzionalità è possibile comunicare con gli Hub eventi come si farebbe con gli argomenti Kafka senza modificare i client del protocollo o eseguire i propri cluster. Hub eventi supporta [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e versioni successive.
-    4. Selezionare la **sottoscrizione** in cui creare lo spazio dei nomi.
-    5. Selezionare un **gruppo di risorse** esistente o crearne uno nuovo. 
-    4. Selezionare una **località** per lo spazio dei nomi.
-    5. Selezionare **Create** (Crea). Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.
+    1. Selezionare la **sottoscrizione** in cui creare lo spazio dei nomi.
+    2. Selezionare il **gruppo di risorse** creato nel passaggio precedente. 
+    3. Immettere un **nome** per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
+    4. Selezionare una **località** per lo spazio dei nomi.    
+    5. Scegliere il **piano tariffario** (Basic o Standard).  
+    6. Lasciare invariate le impostazioni di **Unità elaborate**. Per informazioni sulle unità elaborate, vedere [Scalabilità di Hub eventi](event-hubs-scalability.md#throughput-units).  
+    5. Selezionare **Rivedi e crea** nella parte inferiore della pagina.
 
        ![Creare uno spazio dei nomi dell'hub eventi](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-5. Aggiornare la pagina **Hub eventi** per visualizzare lo spazio dei nomi dell'hub eventi. È possibile controllare lo stato della creazione dell'hub eventi negli avvisi. 
+   6. Nella pagina **Rivedi e crea** controllare le impostazioni e selezionare **Crea**. Attendere il completamento della distribuzione. 
 
-    ![Creare uno spazio dei nomi dell'hub eventi](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
-6. Selezionare lo spazio dei nomi. Verrà visualizzata la home page per lo **spazio dei nomi Hub eventi** nel portale. 
+       ![Pagina Rivedi e crea](./media/event-hubs-quickstart-portal/review-create.png)
+   7. Nella pagina **Distribuzione** selezionare **Vai alla risorsa** per passare alla pagina relativa allo spazio dei nomi. 
 
-   ![Home page dello spazio dei nomi](./media/event-hubs-quickstart-portal/namespace-home-page.png)
+      ![Distribuzione completata - Vai alla risorsa](./media/event-hubs-quickstart-portal/deployment-complete.png)
+   8. Verificare che la pagina the **Spazio dei nomi di Hub eventi** sia simile all'esempio seguente: 
+
+       ![Home page dello spazio dei nomi](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
+
+       > [!NOTE]
+       > Hub eventi di Azure fornisce un endpoint Kafka. che consente allo spazio dei nomi di Hub eventi di comprendere in modo nativo il protocollo del messaggio e le API [Apache Kafka](https://kafka.apache.org/intro). Con questa funzionalità è possibile comunicare con gli Hub eventi come si farebbe con gli argomenti Kafka senza modificare i client del protocollo o eseguire i propri cluster. Hub eventi supporta [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e versioni successive. Per altre informazioni, vedere [Usare Hub eventi di Azure da applicazioni Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
     
 ## <a name="create-an-event-hub"></a>Creare un hub eventi
 
@@ -88,8 +94,6 @@ Per creare un hub eventi all'interno dello spazio dei nomi, eseguire le azioni s
 4. È possibile controllare lo stato della creazione dell'hub eventi negli avvisi. Dopo aver creato l'hub eventi, è possibile visualizzarlo nell'elenco degli hub eventi come illustrato nell'immagine seguente:
 
     ![Hub eventi creato](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
-Congratulazioni! È stato usato il portale per creare uno spazio dei nomi di Hub eventi e un hub eventi nello spazio dei nomi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

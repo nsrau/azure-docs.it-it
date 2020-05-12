@@ -1,42 +1,50 @@
 ---
-title: 'Esercitazione: Creare immagini di VM personalizzate con Azure PowerShell'
-description: In questa esercitazione viene descritto come usare Azure PowerShell per creare un'immagine personalizzata della macchina virtuale in Azure
-documentationcenter: virtual-machines
+title: 'Esercitazione: Creare immagini di macchina virtuale personalizzate con Azure PowerShell'
+description: Questa esercitazione illustra come usare Azure PowerShell per creare un'immagine personalizzata della macchina virtuale Windows archiviata in un'istanza di Raccolta immagini condivise di Azure.
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/30/2018
+ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9061cbbae0b30881fffe1762208216cb8009594a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76274199"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791579"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Esercitazione: creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell
+# <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Esercitazione: Creare immagini di macchina virtuale Windows con Azure PowerShell
 
-Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. È possibile usare immagini personalizzate per eseguire il bootstrap delle distribuzioni e garantire la coerenza tra più VM. In questa esercitazione si crea un'immagine personalizzata di una macchina virtuale di Azure con PowerShell. Si apprenderà come:
+È possibile usare le immagini per eseguire il bootstrap delle distribuzioni e garantire la coerenza tra più macchine virtuali. In questa esercitazione viene creata un'immagine specializzata di una macchina virtuale di Azure con PowerShell e archiviarla in un'istanza di Raccolta immagini condivise. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Eseguire Sysprep e generalizzare le macchine virtuali
-> * Creare un'immagine personalizzata
-> * Creare una VM da un'immagine personalizzata
-> * Elencare tutte le immagini nella sottoscrizione
-> * Eliminare un'immagine
+> * Creare un'istanza di Raccolta immagini condivise
+> * Creare una definizione dell'immagine
+> * Creare una versione di immagine
+> * Creare una macchina virtuale da un'immagine 
+> * Condividere una raccolta di immagini
 
-È disponibile in anteprima pubblica il servizio [generatore di immagini di VM di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). È sufficiente descrivere le personalizzazioni in un modello, i passaggi per la creazione dell'immagine di questo articolo verranno gestiti dal servizio. [Provare il generatore di immagini di Azure (anteprima)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
+
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-La procedura riportata di seguito illustra come prendere una VM esistente e convertirla in un'immagine personalizzata riutilizzabile che è possibile usare per creare nuove istanze di VM.
+La procedura riportata di seguito illustra come convertire una macchina virtuale esistente in un'immagine personalizzata riutilizzabile che è possibile usare per creare nuove macchine virtuali.
 
-Per completare l'esempio contenuto in questa esercitazione è necessario disporre di una macchina virtuale esistente. Se necessario, questo [script di esempio](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) può crearne una appositamente. Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle VM dove necessario.
+Per completare l'esempio contenuto in questa esercitazione è necessario disporre di una macchina virtuale esistente. Se necessario, vedere l'[avvio rapido con PowerShell](quick-create-powershell.md) per creare una macchina virtuale da usare per questa esercitazione. Quando si esegue l'esercitazione, sostituire i nomi delle risorse dove necessario.
+
+## <a name="overview"></a>Panoramica
+
+La [raccolta di immagini condivise](shared-image-galleries.md) semplifica la condivisione di immagini personalizzate all'interno dell'organizzazione. Le immagini personalizzate sono come le immagini di marketplace, ma si possono creare autonomamente. Le immagini personalizzate possono essere usate per le configurazioni di avvio, ad esempio il precaricamento e le configurazioni di applicazioni e altre configurazioni del sistema operativo. 
+
+Raccolta immagini condivise consente di condividere le immagini di macchine virtuali personalizzate con altri utenti. Scegliere le immagini che si intende condividere, le aree nelle quali si vuole renderle disponibili e i destinatari. 
+
+La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
+
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -44,124 +52,173 @@ Azure Cloud Shell è una shell interattiva gratuita che può essere usata per es
 
 Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
-## <a name="prepare-vm"></a>Preparare la VM
+## <a name="get-the-vm"></a>Ottenere la macchina virtuale
 
-Per creare un'immagine di una macchina virtuale, è necessario preparare la VM di origine generalizzandola, eseguendone la deallocazione e quindi contrassegnandola come generalizzata con Azure.
-
-### <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizzare la macchina virtuale Windows con Sysprep
-
-Sysprep rimuove anche tutte le informazioni sull'account personale e prepara la VM da usare come immagine. Per altre informazioni su Sysprep, vedere [Come usare Sysprep: Introduzione](https://technet.microsoft.com/library/bb457073.aspx).
-
-
-1. Connettersi alla macchina virtuale.
-2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su *%windir%\system32\sysprep*, quindi eseguire `sysprep.exe`.
-3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
-4. In **Opzioni di arresto** selezionare **Arresta il sistema** e fare clic su **OK**.
-5. Al termine, Sysprep arresta la macchina virtuale. **Non riavviare la VM**.
-
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Deallocare e contrassegnare la macchina virtuale come generalizzata
-
-Per creare un'immagine, la VM deve essere deallocata e contrassegnata come generalizzata in Azure.
-
-Deallocare la VM con [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Per visualizzare un elenco di macchine virtuali disponibili in un gruppo di risorse, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Quando si conosce il nome della macchina virtuale e il gruppo di risorse in cui si trova, è possibile usare nuovamente `Get-AzVM` per ottenere l'oggetto macchina virtuale e archiviarlo in una variabile da usare in un secondo momento. Questo esempio mostra come ottenere una macchina virtuale denominata *sourceVM* dal gruppo di risorse "myResourceGroup" e assegnarla alla variabile *$vm*. 
 
 ```azurepowershell-interactive
-Stop-AzVM `
-   -ResourceGroupName myResourceGroup `
-   -Name myVM -Force
+$sourceVM = Get-AzVM `
+   -Name sourceVM `
+   -ResourceGroupName myResourceGroup
 ```
 
-Impostare lo stato della macchina virtuale su `-Generalized` con [Set-AzVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). 
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+
+Creare un gruppo di risorse con il comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
+
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Nell'esempio seguente viene creato un gruppo di risorse denominato *myGalleryRG* nell'area *EastUS*:
+
+```azurepowershell-interactive
+$resourceGroup = New-AzResourceGroup `
+   -Name 'myGalleryRG' `
+   -Location 'EastUS'
+```
+
+## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini 
+
+Una raccolta di immagini è la risorsa principale usata per l'abilitazione della condivisione di immagini. I caratteri consentiti per il nome della raccolta sono lettere maiuscole o minuscole, numeri e punti. Il nome della raccolta non può contenere trattini. I nomi di raccolta devono essere univoci all'interno della sottoscrizione. 
+
+Creare una raccolta di immagini usando [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). L'esempio seguente crea una raccolta denominata *myGallery* nel gruppo di risorse *myGalleryRG*.
+
+```azurepowershell-interactive
+$gallery = New-AzGallery `
+   -GalleryName 'myGallery' `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Location $resourceGroup.Location `
+   -Description 'Shared Image Gallery for my organization'  
+```
+
+
+## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
+
+Le definizioni di immagine creano un raggruppamento logico per le immagini. Vengono usate per gestire le informazioni sulle versioni di immagini create al loro interno. I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio l'immagine della raccolta è denominata *myGalleryImage* e viene creata per un'immagine specializzata. 
+
+```azurepowershell-interactive
+$galleryImage = New-AzGalleryImageDefinition `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Location $gallery.Location `
+   -Name 'myImageDefinition' `
+   -OsState specialized `
+   -OsType Windows `
+   -Publisher 'myPublisher' `
+   -Offer 'myOffer' `
+   -Sku 'mySKU'
+```
+
+
+## <a name="create-an-image-version"></a>Creare una versione di immagine
+
+Per creare una versione di immagine da una macchina virtuale, usare [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
+
+In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti orientali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, è necessario includere l'area *source* come destinazione per la replica.
+
+Per creare una versione di immagine dalla macchina virtuale, usare `$vm.Id.ToString()` per `-Source`.
+
+```azurepowershell-interactive
+   $region1 = @{Name='South Central US';ReplicaCount=1}
+   $region2 = @{Name='East US';ReplicaCount=2}
+   $targetRegions = @($region1,$region2)
+
+New-AzGalleryImageVersion `
+   -GalleryImageDefinitionName $galleryImage.Name`
+   -GalleryImageVersionName '1.0.0' `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Location $resourceGroup.Location `
+   -TargetRegion $targetRegions  `
+   -Source $vm.Id.ToString() `
+   -PublishingProfileEndOfLifeDate '2020-12-01'
+```
+
+La replica dell'immagine in tutte le aree di destinazione può richiedere tempo.
+
+
+## <a name="create-a-vm"></a>Creare una macchina virtuale 
+
+Ora che si dispone di un'immagine specializzata, è possibile usarla per creare una o più macchine virtuali nuove usando il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Per usare l'immagine, eseguire ``Set-AzVMSourceImage` and set the `-Id` specificando l'ID definizione dell'immagine (in questo caso $galleryImage.Id) in modo da usare sempre l'ultima versione dell'immagine. 
+
+Sostituire i nomi delle risorse di questo esempio secondo necessità. 
+
+```azurepowershell-interactive
+# Create some variables for the new VM.
+$resourceGroup = "myResourceGroup"
+$location = "South Central US"
+$vmName = "mySpecializedVM"
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Create the network resources.
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface -Name $vmName -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using $imageVersion.Id to specify the image version.
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
+Set-AzVMSourceImage -Id $galleryImage.Id | `
+Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+
+
+## <a name="share-the-gallery"></a>Condividere la raccolta
+
+È consigliabile condividere l'accesso a livello di raccolta immagini. Usare un indirizzo di posta elettronica e il cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) per ottenere l'ID oggetto per l'utente e quindi usare [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) per concedere l'accesso alla raccolta. Sostituire l'indirizzo di posta elettronica di esempio (in questo esempio alinne_montes@contoso.com) con quello personalizzato.
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```
    
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse e tutte le risorse correlate con il cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup):
+
 ```azurepowershell-interactive
-Set-AzVM `
-   -ResourceGroupName myResourceGroup `
-   -Name myVM -Generalized
+# Delete the gallery 
+Remove-AzResourceGroup -Name myGalleryRG
+
+# Delete the VM
+Remove-AzResourceGroup -Name myResoureceGroup
 ```
 
+## <a name="azure-image-builder"></a>Azure Image Builder
 
-## <a name="create-the-image"></a>Creare l'immagine
-
-A questo punto è possibile creare un'immagine della VM usando [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) e [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage). Nell'esempio seguente viene creata un'immagine denominata *myImage* dalla VM denominata *myVM*.
-
-Trovare la macchina virtuale. 
-
-```azurepowershell-interactive
-$vm = Get-AzVM `
-   -Name myVM `
-   -ResourceGroupName myResourceGroup
-```
-
-Creare la configurazione dell'immagine.
-
-```azurepowershell-interactive
-$image = New-AzImageConfig `
-   -Location EastUS `
-   -SourceVirtualMachineId $vm.ID 
-```
-
-Creare l'immagine.
-
-```azurepowershell-interactive
-New-AzImage `
-   -Image $image `
-   -ImageName myImage `
-   -ResourceGroupName myResourceGroup
-``` 
-
- 
-## <a name="create-vms-from-the-image"></a>Creare VM dall'immagine
-
-Ora che si dispone di un'immagine, è possibile creare una o più nuove VM dall'immagine. La creazione di una macchina virtuale da un'immagine personalizzata è un'operazione simile alla creazione di una macchina virtuale con un'immagine del Marketplace. Quando si usa un'immagine del Marketplace, è necessario immettere le informazioni sull'immagine, il provider dell'immagine, l'offerta, lo SKU e la versione. Usando il set di parametri semplificato per il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), è sufficiente specificare il nome dell'immagine personalizzata, a condizione che si trovi nello stesso gruppo di risorse. 
-
-Questo esempio crea una VM denominata *myVMfromImage* dall'immagine *myImage* in *myResourceGroup*.
-
-
-```azurepowershell-interactive
-New-AzVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myVMfromImage" `
-    -ImageName "myImage" `
-    -Location "East US" `
-    -VirtualNetworkName "myImageVnet" `
-    -SubnetName "myImageSubnet" `
-    -SecurityGroupName "myImageNSG" `
-    -PublicIpAddressName "myImagePIP" `
-    -OpenPorts 3389
-```
-
-È consigliabile limitare il numero delle distribuzioni simultanee a 20 macchine virtuali per singola immagine. Se si pianificano distribuzioni simultanee su larga scala di più di 20 macchine virtuali dalla stessa immagine personalizzata, è consigliabile usare una [Raccolta immagini condivise](shared-image-galleries.md) con più repliche di immagini. 
-
-
-## <a name="image-management"></a>Gestione delle immagini 
-
-Di seguito sono riportati alcuni esempi di attività comuni di immagini gestite e della relativa modalità di completamento tramite PowerShell.
-
-Elencare tutte le immagini per nome.
-
-```azurepowershell-interactive
-$images = Get-AzResource -ResourceType Microsoft.Compute/images 
-$images.name
-```
-
-Eliminare un'immagine. Questo esempio elimina l'immagine denominata *myImage* da *myResourceGroup*.
-
-```azurepowershell-interactive
-Remove-AzImage `
-    -ImageName myImage `
-    -ResourceGroupName myResourceGroup
-```
+Azure offre anche un servizio, basato su Packer, ovvero [Image Builder per macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). È sufficiente descrivere le personalizzazioni in un modello per gestire la creazione dell'immagine tramite questo servizio. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata creata un'immagine di macchina virtuale personalizzata. Si è appreso come:
+In questa esercitazione è stata creata un'immagine di macchina virtuale specializzata. Si è appreso come:
 
 > [!div class="checklist"]
-> * Eseguire Sysprep e generalizzare le macchine virtuali
-> * Creare un'immagine personalizzata
-> * Creare una VM da un'immagine personalizzata
-> * Elencare tutte le immagini nella sottoscrizione
-> * Eliminare un'immagine
+> * Creare un'istanza di Raccolta immagini condivise
+> * Creare una definizione dell'immagine
+> * Creare una versione di immagine
+> * Creare una macchina virtuale da un'immagine 
+> * Condividere una raccolta di immagini
 
 Passare all'esercitazione successiva per scoprire come creare macchine virtuali a disponibilità elevata.
 

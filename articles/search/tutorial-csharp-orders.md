@@ -1,21 +1,21 @@
 ---
 title: Esercitazione per C# sull'ordinamento dei risultati
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione illustra come ordinare i risultati della ricerca. Si basa su un progetto di hotel precedente, ordinando per proprietà primaria, proprietà secondaria e include un profilo di punteggio per aggiungere i criteri di aumento priorità.
+description: Questa esercitazione per C# illustra come ordinare i risultati della ricerca. Si basa su un progetto di hotel precedente, applicando l'ordine in base a proprietà primaria e proprietà secondaria, e include un profilo di assegnazione di punteggi per aggiungere i criteri di aumento priorità.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121555"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780607"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Esercitazione per C#: Ordinare i risultati - Ricerca cognitiva di Azure
+# <a name="tutorial-order-search-results-using-the-net-sdk"></a>Esercitazione: Ordinare i risultati della ricerca con .NET SDK
 
 Fino a questo punto nella serie di esercitazioni, i risultati vengono restituiti e visualizzati in base a un ordine predefinito. Può trattarsi dell'ordine in cui si trovano i dati o eventualmente di un _profilo di punteggio_ che è stato definito e che verrà usato quando non vengono specificati parametri di ordinamento. In questa esercitazione verrà illustrato come ordinare i risultati in base a una proprietà primaria e quindi, per i risultati con la stessa proprietà primaria, come ordinare tale selezione in base a una proprietà secondaria. In alternativa all'ordinamento basato su valori numerici, nell'esempio finale viene illustrato come ordinare i risultati in base a un profilo di punteggio personalizzato. Verrà anche illustrata in dettaglio la visualizzazione dei _tipi complessi_.
 
