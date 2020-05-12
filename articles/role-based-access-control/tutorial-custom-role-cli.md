@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: Creare un ruolo personalizzato per le risorse di Azure con l'interfaccia della riga di comando di Azure"
-description: Questa esercitazione descrive come creare un ruolo personalizzato per le risorse di Azure con l'interfaccia della riga di comando di Azure.
+title: "Esercitazione: Creare un ruolo personalizzato di Azure con l'interfaccia della riga di comando di Azure - Controllo degli accessi in base al ruolo Azure"
+description: Questa esercitazione illustra come creare un ruolo personalizzato di Azure con l'interfaccia della riga di comando di Azure e il controllo degli accessi in base al ruolo Azure.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3efe9670d03a754cc90689c4b66d0843de4e275f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224068"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735505"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Esercitazione: creare un ruolo personalizzato per le risorse di Azure tramite l'interfaccia della riga di comando di Azure
+# <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Esercitazione: Creare un ruolo personalizzato di Azure con l'interfaccia della riga di comando di Azure
 
-Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Per questa esercitazione viene creato un ruolo personalizzato denominato Reader Support Tickets con l'interfaccia della riga di comando di Azure. Il ruolo personalizzato consente all'utente di visualizzare tutti gli elementi nel piano di gestione di una sottoscrizione e anche di aprire ticket di supporto.
+Se i [ruoli predefiniti](built-in-roles.md) di Azure non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Per questa esercitazione viene creato un ruolo personalizzato denominato Reader Support Tickets con l'interfaccia della riga di comando di Azure. Il ruolo personalizzato consente all'utente di visualizzare tutti gli elementi nel piano di gestione di una sottoscrizione e anche di aprire ticket di supporto.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -61,7 +61,7 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
 
 1. Aprire ReaderSupportRole.json in un editor e aggiungere il codice JSON seguente.
 
-    Per informazioni sulle diverse proprietà, vedere [Ruoli personalizzati per le risorse di Azure](custom-roles.md).
+    Per informazioni sulle diverse proprietà, vedere [Ruoli personalizzati di Azure](custom-roles.md).
 
     ```json
     {
@@ -269,4 +269,4 @@ Per aggiornare il ruolo personalizzato, aggiornare il file JSON e quindi aggiorn
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare ruoli personalizzati per le risorse di Azure tramite l'interfaccia della riga di comando di Azure](custom-roles-cli.md)
+> [Creare o aggiornare ruoli personalizzati di Azure con l'interfaccia della riga di comando di Azure](custom-roles-cli.md)

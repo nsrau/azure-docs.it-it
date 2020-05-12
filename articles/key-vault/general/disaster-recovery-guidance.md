@@ -2,19 +2,19 @@
 title: Operazioni da eseguire in caso di interruzione di un servizio di Azure con impatto su Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Informazioni sulle operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sull'insieme di credenziali delle chiavi di Azure.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 96929dcbe3d51589b0c3c0df89671dadb20e37cc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/04/2020
+ms.author: sudbalas
+ms.openlocfilehash: 4796e6c555ca67794409fb1476f3c4fd0d760719
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425880"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780454"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
 
@@ -34,6 +34,8 @@ Esistono alcune limitazioni che è necessario tenere presenti:
 * Dopo il completamento del failover, l'insieme di credenziali delle chiavi è in modalità di sola lettura. Le richieste supportate in questa modalità sono le seguenti:
   * List key vaults
   * Get properties of key vaults
+   * List certificates
+  * Get certificates
   * List secrets
   * Get secrets
   * List keys
@@ -42,7 +44,7 @@ Esistono alcune limitazioni che è necessario tenere presenti:
   * Decrypt
   * Wrap
   * Unwrap
-  * Verifica
+  * Verify
   * Sign
   * Backup
 * Dopo il failback di un failover, tutti i tipi di richiesta, ad esempio le richieste di lettura *e* scrittura, risultano disponibili.

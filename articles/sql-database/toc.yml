@@ -127,6 +127,8 @@
               items:
                 - name: Valutazione della vulnerabilità
                   href: sql-vulnerability-assessment.md
+                - name: Regole di valutazione della vulnerabilità
+                  href: sql-database-vulnerability-assessment-rules.md
                 - name: Archiviazione delle analisi di valutazione della vulnerabilità dietro firewall e reti virtuali
                   href: sql-database-vulnerability-assessment-storage.md
             - name: Advanced Threat Protection

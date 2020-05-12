@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0ce8f3a447f1896ae6d96d343782f8cdb44d4c6f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4bedcc1f7375cb83131b00be93c785069a7d3e7d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425330"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692386"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Connettersi a Synapse SQL con Power BI Professional
 
@@ -57,10 +57,10 @@ Prima di usare gli esempi, è necessario eseguire due passaggi:
 
 ### <a name="create-database"></a>Creazione del database
 
-Poiché verrà usato l'ambiente demo, è necessario creare un database personalizzato a scopo dimostrativo. Il database è necessario per creare le visualizzazioni al suo interno. Questo database verrà usato in alcune delle query di esempio in questa documentazione.
+Per questo articolo di avvio rapido, è necessario creare un database da usare come demo. Per la creazione delle visualizzazioni occorre un database. Questo database verrà usato in alcune delle query di esempio in questa documentazione.
 
 > [!NOTE]
-> Si noti che i database vengono usati solo per i metadati delle visualizzazioni, non per i dati effettivi.
+> I database vengono usati solo per visualizzare i metadati, non per i dati effettivi.
 >
 > Prendere nota del nome del database usato, perché sarà necessario in un secondo momento.
 
@@ -73,7 +73,7 @@ DROP DATABASE IF EXISTS demo;
 Prima di poter eseguire le query, è necessario creare le credenziali. Queste credenziali verranno usate dal servizio SQL su richiesta per accedere ai file nella risorsa di archiviazione.
 
 > [!NOTE]
-> Tenere presente che è necessario creare le credenziali per l'accesso all'account di archiviazione. Sebbene SQL su richiesta possa accedere ad archivi di diverse aree, avere l'archivio e l'area di lavoro di Azure Synapse nella stessa area offrirà un'esperienza migliore in termini di prestazioni.
+> È necessario creare le credenziali per l'accesso all'account di archiviazione. Sebbene SQL su richiesta possa accedere ad account di archiviazione di aree diverse, la disponibilità dell'account e dell'area di lavoro di Azure Synapse nella stessa area offrirà un'esperienza migliore in termini di prestazioni.
 
 **Frammento di codice per la creazione di credenziali per i contenitori di dati del censimento**, eseguire:
 
@@ -92,12 +92,13 @@ GO
 
 ## <a name="creating-power-bi-desktop-report"></a>Creazione del report di Power BI Desktop
 
-Aprire l'applicazione Power BI Desktop e selezionare l'opzione "Recupera dati".
+Aprire l'applicazione Power BI Desktop e selezionare l'opzione **Recupera dati**.
+
 ![Aprire l'applicazione Power BI Desktop e selezionare Recupera dati.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Passaggio 1: Selezionare l'origine dati
 
-Scegliere "Azure" dal menu e quindi "Database SQL di Azure".
+Scegliere **Azure** dal menu e quindi **Database SQL di Azure**.
 ![Selezionare l'origine dati.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Passaggio 2: Selezionare il database

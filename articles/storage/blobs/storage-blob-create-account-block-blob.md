@@ -5,21 +5,22 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6303644ada5c6f093611dba94daf8006f8cc5819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536905"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007309"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Creare un account BlockBlobStorage
 
 Il tipo di account BlockBlobStorage consente di creare BLOB in blocchi con caratteristiche di prestazioni Premium. Questo tipo di account di archiviazione è ottimizzato per carichi di lavoro con percentuali di transazioni elevate o che richiedono tempi di accesso molto rapidi. Questo articolo illustra come creare un account BlockBlobStorage usando il portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+> [!NOTE]
+> La funzionalità spazio dei nomi gerarchico in un account di archiviazione BLOB in blocchi è in anteprima pubblica ed è disponibile nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Regno Unito meridionale, Canada centrale e Australia orientale. Per esaminare le limitazioni, vedere [funzionalità di archiviazione BLOB disponibili in Azure Data Lake storage Gen2](data-lake-storage-supported-blob-storage-features.md) e [problemi noti](data-lake-storage-known-issues.md). Per iscriversi all'anteprima, vedere [questo modulo](https://aka.ms/adlspremiumonboard).
 
 Per altre informazioni sugli account BlockBlobStorage, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
@@ -29,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nessuno.
+No.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -91,23 +92,23 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
 1. Nella portale di Azure selezionare tutti i **servizi** > la categoria **archiviazione** > **account di archiviazione**.
 
-1. In **account di archiviazione**selezionare **Aggiungi**.
+2. In **account di archiviazione**selezionare **Aggiungi**.
 
-1. Nel campo **sottoscrizione** selezionare la sottoscrizione in cui creare l'account di archiviazione.
+3. Nel campo **sottoscrizione** selezionare la sottoscrizione in cui creare l'account di archiviazione.
 
-1. Nel campo **gruppo di risorse** selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo**e immettere un nome per il nuovo gruppo di risorse.
+4. Nel campo **gruppo di risorse** selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo**e immettere un nome per il nuovo gruppo di risorse.
 
-1. Nel campo **nome account di archiviazione** immettere un nome per l'account. Tenere presenti le linee guida seguenti:
+5. Nel campo **nome account di archiviazione** immettere un nome per l'account. Tenere presenti le linee guida seguenti:
 
    - Il nome deve essere univoco in Azure.
    - Il nome deve avere una lunghezza compresa tra 3 e 24 caratteri.
    - Il nome può includere solo numeri e lettere minuscole.
 
-1. Nel campo **percorso** selezionare un percorso per l'account di archiviazione oppure usare il percorso predefinito.
+6. Nel campo **percorso** selezionare un percorso per l'account di archiviazione oppure usare il percorso predefinito.
 
-1. Per le altre impostazioni, configurare quanto segue:
+7. Per le altre impostazioni, configurare quanto segue:
 
-   |Campo     |valore  |
+   |Campo     |Valore  |
    |---------|---------|
    |**Prestazioni**    |  Selezionare **Premium**.   |
    |**Tipo di account**    | Selezionare **BlockBlobStorage**.      |
@@ -115,9 +116,18 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
    ![Mostra l'interfaccia utente del portale per creare un account di archiviazione BLOB in blocchi](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
-1. Selezionare **Verifica + crea** per verificare le impostazioni dell'account di archiviazione.
+8. Scegliere la scheda **Avanzate** .
 
-1. Selezionare **Create** (Crea).
+9. Se si vuole ottimizzare l'account di archiviazione per l'analisi dei dati, impostare **spazio dei nomi gerarchico** su **abilitato**. In caso contrario, lasciare questa opzione impostata sul valore predefinito.
+
+   Per altre informazioni, vedere [Introduzione a Azure Data Lake storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > La funzionalità spazio dei nomi gerarchico in un account di archiviazione BLOB in blocchi è in anteprima pubblica ed è disponibile nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Regno Unito meridionale, Canada centrale e Australia orientale. Per esaminare le limitazioni, vedere [funzionalità di archiviazione BLOB disponibili in Azure Data Lake storage Gen2](data-lake-storage-supported-blob-storage-features.md) e [problemi noti](data-lake-storage-known-issues.md). Per iscriversi all'anteprima, vedere [questo modulo](https://aka.ms/adlspremiumonboard).
+
+8. Selezionare **Verifica + crea** per verificare le impostazioni dell'account di archiviazione.
+
+9. Selezionare **Create** (Crea).
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -125,19 +135,19 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevati (Esegui come amministratore).
 
-1. Eseguire il comando seguente per verificare che sia installata la versione più `Az` recente del modulo di PowerShell.
+2. Eseguire il comando seguente per verificare che sia installata la versione più recente del `Az` modulo di PowerShell.
 
    ```powershell
    Install-Module -Name Az -AllowClobber
    ```
 
-1. Aprire una nuova console di PowerShell e accedere con l'account Azure.
+3. Aprire una nuova console di PowerShell e accedere con l'account Azure.
 
    ```powershell
    Connect-AzAccount -SubscriptionId <SubscriptionID>
    ```
 
-1. Se necessario, creare un nuovo gruppo di risorse. Sostituire i valori in Quotations ed eseguire il comando seguente.
+4. Se necessario, creare un nuovo gruppo di risorse. Sostituire i valori in Quotations ed eseguire il comando seguente.
 
    ```powershell
    $resourcegroup = "new_resource_group_name"
@@ -145,7 +155,7 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
    New-AzResourceGroup -Name $resourceGroup -Location $location
    ```
 
-1. Creare l'account BlockBlobStorage. Sostituire i valori in Quotations ed eseguire il comando seguente.
+5. Creare l'account BlockBlobStorage. Sostituire i valori in Quotations ed eseguire il comando seguente.
 
    ```powershell
    $resourcegroup = "resource_group_name"
@@ -154,6 +164,10 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
+   Se si vuole ottimizzare l'account di archiviazione per l'analisi dei dati, aggiungere `-EnableHierarchicalNamespace $True` al comando. Per altre informazioni, vedere [Introduzione a Azure Data Lake storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > La funzionalità spazio dei nomi gerarchico in un account di archiviazione BLOB in blocchi è in anteprima pubblica ed è disponibile nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Regno Unito meridionale, Canada centrale e Australia orientale. Per esaminare le limitazioni, vedere [funzionalità di archiviazione BLOB disponibili in Azure Data Lake storage Gen2](data-lake-storage-supported-blob-storage-features.md) e [problemi noti](data-lake-storage-known-issues.md). Per iscriversi all'anteprima, vedere [questo modulo](https://aka.ms/adlspremiumonboard).
 
 ## <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -165,7 +179,7 @@ Per creare un account BLOB in blocchi usando l'interfaccia della riga di comando
    az login
    ```
 
-1. Se necessario, creare un nuovo gruppo di risorse. Sostituire i valori tra parentesi quadre (incluse le parentesi quadre) ed eseguire il comando seguente.
+2. Se necessario, creare un nuovo gruppo di risorse. Sostituire i valori tra parentesi quadre (incluse le parentesi quadre) ed eseguire il comando seguente.
 
    ```azurecli
    az group create \
@@ -173,7 +187,7 @@ Per creare un account BLOB in blocchi usando l'interfaccia della riga di comando
     --location "<location>"
    ```
 
-1. Creare l'account BlockBlobStorage. Sostituire i valori tra parentesi quadre (incluse le parentesi quadre) ed eseguire il comando seguente.
+3. Creare l'account BlockBlobStorage. Sostituire i valori tra parentesi quadre (incluse le parentesi quadre) ed eseguire il comando seguente.
 
    ```azurecli
    az storage account create \
@@ -184,6 +198,11 @@ Per creare un account BLOB in blocchi usando l'interfaccia della riga di comando
     --sku "Premium_LRS"
    ```
 
+   Se si vuole ottimizzare l'account di archiviazione per l'analisi dei dati, aggiungere `--hierarchical-namespace true` al comando. Per altre informazioni, vedere [Introduzione a Azure Data Lake storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > La funzionalità spazio dei nomi gerarchico in un account di archiviazione BLOB in blocchi è in anteprima pubblica ed è disponibile nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Regno Unito meridionale, Canada centrale e Australia orientale. Per esaminare le limitazioni, vedere [funzionalità di archiviazione BLOB disponibili in Azure Data Lake storage Gen2](data-lake-storage-supported-blob-storage-features.md) e [problemi noti](data-lake-storage-known-issues.md). Per iscriversi all'anteprima, vedere [questo modulo](https://aka.ms/adlspremiumonboard).
+   
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi

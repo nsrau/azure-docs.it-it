@@ -1,21 +1,21 @@
 ---
-title: Completamento automatico e suggerimenti
+title: Esercitazione per C# su completamento automatico e suggerimenti
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione illustra come usare il completamento automatico e i suggerimenti per raccogliere l'input del termine di ricerca dagli utenti usando l'elenco a discesa. Si basa su un progetto di hotel esistente.
+description: Completamento automatico e suggerimenti per raccogliere l'input dei termini di ricerca dagli utenti usando l'elenco a discesa. Questa esercitazione si basa su un progetto di hotel esistente.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 63c098ccd42a438f8daab787afb54cf13cd053c3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641068"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780556"
 ---
-# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>Esercitazione per C#: Aggiungere completamento automatico e suggerimenti - Ricerca cognitiva di Azure
+# <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Esercitazione: Aggiungere il completamento automatico e i suggerimenti con .NET SDK
 
 In questa esercitazione viene spiegato come implementare il completamento automatico (query di completamento automatico e documenti suggeriti) quando un utente inizia a digitare nella casella di ricerca. In questa esercitazione le query di completamento automatico e i risultati dei suggerimenti vengono visualizzate prima separatamente e quindi insieme. È possibile che l'utente debba digitare solo due o tre caratteri per individuare tutti i risultati disponibili.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Indicizzare i dati dai database SQL di Azure in C# '
+title: Esercitazione per C# sull'indicizzazione di dati di Azure SQL
 titleSuffix: Azure Cognitive Search
 description: In questa esercitazione per C# si eseguirà la connessione al database SQL di Azure, si estrarranno i dati ricercabili e si caricheranno in un indice di Ricerca cognitiva di Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 7660c89032ea3ef8371655b94b75c1f60603ee32
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cab996eb7c0bfccf31ed49294c6aa4b3e8cefc8f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78193969"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780760"
 ---
-# <a name="tutorial-use-c-to-index-data-from-sql-databases-in-azure-cognitive-search"></a>Esercitazione: Usare C# per indicizzare i dati dai database SQL in Ricerca cognitiva di Azure
+# <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Esercitazione: Indicizzare i dati di Azure SQL con .NET SDK
 
 Configurare un [indicizzatore](search-indexer-overview.md) per estrarre i dati ricercabili dal database SQL di Azure e inviarli a un indice di ricerca in Ricerca cognitiva di Azure. 
 

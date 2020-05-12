@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Libreria client di Visione artificiale per .NET'
+title: 'Avvio rapido: Libreria client di Visione artificiale per .NET'
 description: Questo argomento di avvio rapido illustra come usare la libreria client di Visione artificiale per .NET.
 services: cognitive-services
 author: PatrickFarley
@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 522adc0f07f4ab21e391b952284dff97b089dccc
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 5a2de6cb4c7de6f789041d8df7ca562e97ee0863
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81791693"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595288"
 ---
 <a name="HOLTop"></a>
 
@@ -23,7 +23,7 @@ ms.locfileid: "81791693"
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* Versione più recente di [.NET Core SDK](https://dotnet.microsoft.com/download/).
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -42,13 +42,13 @@ Creare una nuova applicazione .NET Core nell'ambiente di sviluppo integrato o ne
 
 In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `computer-vision-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: *ComputerVisionQuickstart.cs*.
 
-```console
+```dotnetcli
 dotnet new console -n computer-vision-quickstart
 ```
 
 Spostarsi nella cartella dell'app appena creata. È possibile compilare l'applicazione con il comando seguente:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -74,7 +74,7 @@ Nella classe **Program** dell'applicazione creare le variabili per l'endpoint e 
 
 Nella directory dell'applicazione installare la libreria client di Visione artificiale per .NET con il comando seguente:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
 ```
 
@@ -253,7 +253,7 @@ Aggiungere il codice seguente per analizzare e visualizzare i dati di testo recu
 
 Eseguire l'applicazione dalla directory dell'applicazione con il comando `dotnet run`.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 

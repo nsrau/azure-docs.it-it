@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 8596b435ffa02da7daf4ef98bfe0fe7995b9270a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 1bc18788019c3ec97e06e3b01e823a0ba53541b8
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768183"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734757"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -27,9 +27,9 @@ Il *bilanciamento del carico* si riferisce alla distribuzione uniforme del caric
 
 Azure Load Balancer funziona a livello 4 del modello OSI (Open Systems Interconnection). Rappresenta l'unico punto di contatto per i client. Load Balancer distribuisce i flussi in ingresso che arrivano nel relativo front-end alle istanze del pool back-end. Questi flussi sono conformi alle regole di bilanciamento del carico e ai probe di integrità configurati. Le istanze del pool back-end possono essere macchine virtuali o istanze di Azure in un set di scalabilità di macchine virtuali.
 
-Un **[servizio Load Balancer pubblico](./concepts-limitations.md#publicloadbalancer)** può offrire connettività in uscita per le macchine virtuali all'interno della rete virtuale. Queste connessioni vengono stabilite convertendo i relativi indirizzi IP privati in indirizzi IP pubblici. I servizi Load Balancer pubblici vengono usati per bilanciare il carico del traffico Internet inviato alle VM.
+Un **[servizio Load Balancer pubblico](./components.md#frontend-ip-configurations)** può offrire connettività in uscita per le macchine virtuali all'interno della rete virtuale. Queste connessioni vengono stabilite convertendo i relativi indirizzi IP privati in indirizzi IP pubblici. I servizi Load Balancer pubblici vengono usati per bilanciare il carico del traffico Internet inviato alle VM.
 
-Un **[servizio Load Balancer interno (o privato)](./concepts-limitations.md#internalloadbalancer)** viene usato se gli indirizzi IP privati sono necessari solo sul front-end. I servizi Load Balancer interni vengono usati per bilanciare il carico all'interno di una rete virtuale. È possibile accedere al front-end di Load Balancer da una rete locale in uno scenario ibrido.
+Un **[servizio Load Balancer interno (o privato)](./components.md#frontend-ip-configurations)** viene usato se gli indirizzi IP privati sono necessari solo sul front-end. I servizi Load Balancer interni vengono usati per bilanciare il carico all'interno di una rete virtuale. È possibile accedere al front-end di Load Balancer da una rete locale in uno scenario ibrido.
 
 <p align="center">
   <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
@@ -37,12 +37,7 @@ Un **[servizio Load Balancer interno (o privato)](./concepts-limitations.md#inte
 
 *Figura: bilanciamento del carico di applicazioni multilivello tramite il servizio Load Balancer sia pubblico che interno*
 
-Per altre informazioni sui singoli componenti del servizio Load Balancer, vedere [Componenti e limiti di Azure Load Balancer](./concepts-limitations.md)
-
->[!NOTE]
-> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Se è necessario un bilanciamento del carico di livello 7 a elevate prestazioni e a bassa latenza, vedere [Cos'è il gateway applicazione di Azure?](../application-gateway/overview.md). Per il bilanciamento del carico DNS globale, vedere [Informazioni su Gestione traffico](../traffic-manager/traffic-manager-overview.md). Gli scenari end-to-end possono trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
->
-> Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+Per altre informazioni sui singoli componenti del servizio Load Balancer, vedere [Componenti di Azure Load Balancer](./components.md).
 
 ## <a name="why-use-azure-load-balancer"></a>Perché usare Azure Load Balancer?
 Load Balancer Standard consente di ridimensionare le applicazioni e di creare servizi a disponibilità elevata. Load Balancer supporta scenari in ingresso e in uscita. Load Balancer offre bassa latenza e velocità effettiva elevata, oltre a una scalabilità fino a milioni di flussi per tutte le applicazioni TCP e UDP.
@@ -74,7 +69,6 @@ I principali scenari in cui è possibile usare Load Balancer Standard includono:
 Alla base di Load Balancer Standard c'è il modello di sicurezza di rete Zero Trust. Load Balancer Standard è sicuro per impostazione predefinita ed è parte della rete virtuale. La rete virtuale è una rete privata e isolata.  Questo significa che le istanze di Load Balancer Standard e gli indirizzi IP pubblici standard sono chiusi ai flussi in ingresso, a meno che non vengano aperti da gruppi di sicurezza di rete. I gruppi di sicurezza di rete vengono usati per permettere esplicitamente il traffico consentito.  Se non si ha un gruppo di sicurezza di rete su una subnet o sulla scheda di rete della risorsa macchina virtuale, non è consentito al traffico di raggiungere questa risorsa. Per altre informazioni sui gruppi di sicurezza di rete e su come applicarli allo scenario, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 Load Balancer Basic è aperto a Internet per impostazione predefinita.
 
-
 ## <a name="pricing-and-sla"></a>Prezzi e contratto di servizio
 
 Per informazioni sui prezzi di Load Balancer Standard, vedere [Prezzi di Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
@@ -86,4 +80,6 @@ Vedere [Aggiornare Load Balancer Basic](upgrade-basic-standard.md) per aggiornar
 
 Per iniziare a usare il servizio Load Balancer, vedere [Creare un servizio Load Balancer Standard pubblico](quickstart-load-balancer-standard-public-portal.md).
 
-Per altre informazioni su componenti e limiti di Azure Load Balancer, vedere [Componenti e limiti di Azure Load Balancer](./concepts-limitations.md)
+Per altre informazioni su componenti e limiti di Azure Load Balancer, vedere [Componenti di Azure Load Balancer](./components.md) e [Concetti di Azure Load Balancer](./concepts.md).
+
+Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).

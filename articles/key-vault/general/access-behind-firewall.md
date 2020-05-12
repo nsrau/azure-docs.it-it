@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: e24684063e73b8f8b659304987f46632f3601e8c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426120"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732326"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accedere a Insieme di credenziali delle chiavi di Azure protetto da firewall
 
@@ -25,7 +25,7 @@ Per accedere a un insieme di credenziali delle chiavi, l'applicazione client del
 
 * Autenticazione tramite Azure Active Directory (Azure AD).
 * Gestione di Insieme di credenziali delle chiavi di Azure, inclusa la creazione, la lettura, l'aggiornamento, l'eliminazione e l'impostazione dei criteri di accesso tramite Azure Resource Manager.
-* Accesso e gestione di oggetti (chiavi e segreti) archiviati in Key Vault, eseguiti tramite l'endpoint specifico di Key Vault, ad esempio [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net).  
+* Accesso e gestione di oggetti (chiavi e segreti) archiviati in Key Vault, eseguiti tramite l'endpoint specifico di Key Vault, ad esempio `https://yourvaultname.vault.azure.net`.  
 
 Esistono alcune varianti a seconda della configurazione e dell'ambiente.
 
@@ -39,8 +39,8 @@ Le applicazioni client dell'insieme di credenziali delle chiavi dovrà accedere 
 
 | Tipo di entità | Endpoint:porta |
 | --- | --- |
-| Utente che usa un account Microsoft<br> (ad esempio, user@hotmail.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
-| Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443 |
+| Utente che usa un account Microsoft<br> (ad esempio, user@hotmail.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br>  login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
+| Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br>  login.microsoftonline.de:443 |
 | Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione oltre ad Active Directory Federation Services (AD FS) o un altro endpoint federato (ad esempio, user@contoso.com) |Tutti gli endpoint per un account aziendale o dell'istituto di istruzione oltre ad AD FS o altri endpoint federati |
 
 Esistono altri possibili scenari complessi. Per altre informazioni, vedere [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-scenarios.md) (Flussi di autenticazione di Azure Active Directory), [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) e [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) (Protocolli di autenticazione di Active Directory Authentication).  
@@ -51,8 +51,8 @@ Per la gestione dell'insieme di credenziali delle chiavi (CRUD e impostazione de
 
 | Tipo di operazione | Endpoint:porta |
 | --- | --- |
-| Operazioni del piano di controllo dell'insieme di credenziali delle chiavi<br> tramite Azure Resource Manager |**Globale:**<br> management.azure.com:443<br><br> **Azure per la Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 |
-| API Microsoft Graph |**Globale:**<br> graph.microsoft.com:443<br><br> **Azure per la Cina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> graph.microsoft.com:443<br><br> **Azure per la Germania:**<br> graph.cloudapi.de:443 |
+| Operazioni del piano di controllo dell'insieme di credenziali delle chiavi<br>  tramite Azure Resource Manager |**Globale:**<br> management.azure.com:443<br><br> **Azure per la Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 |
+| API Microsoft Graph |**Globale:**<br> graph.microsoft.com:443<br><br> **Azure per la Cina:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> graph.microsoft.com:443<br><br> **Azure per la Germania:**<br>  graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operazioni dell'insieme di credenziali delle chiavi
 
@@ -64,7 +64,13 @@ Per tutte le operazioni di gestione e crittografia degli oggetti (chiavi e segre
 
 ## <a name="ip-address-ranges"></a>Intervalli di indirizzi IP
 
-Il servizio Insieme di credenziali delle chiavi usa altre risorse di Azure come l'infrastruttura PaaS. Non è quindi possibile fornire uno specifico intervallo di indirizzi IP disponibile per gli endpoint del servizio Insieme di credenziali delle chiavi in un determinato momento. Se il firewall supporta solo gli intervalli di indirizzi IP, vedere il documento [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli di indirizzi IP del data center di Azure). Autenticazione e identità (Azure Active Directory) è un servizio globale e può eseguire il failover in altre aree o spostare il traffico senza preavviso. In questo scenario, tutti gli intervalli IP elencati in [Indirizzi IP di autenticazione e identità](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) devono essere aggiunti al firewall.
+Il servizio Insieme di credenziali delle chiavi usa altre risorse di Azure come l'infrastruttura PaaS. Non è quindi possibile fornire uno specifico intervallo di indirizzi IP disponibile per gli endpoint del servizio Insieme di credenziali delle chiavi in un determinato momento. Se il firewall supporta solo gli intervalli di indirizzi IP, vedere il documento sugli indirizzi IP dei data center di Microsoft Azure disponibile all'indirizzo:
+* [Pubblica](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+* [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
+* [Germania](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
+* [Cina](https://www.microsoft.com/en-us/download/details.aspx?id=57062)
+
+Autenticazione e identità (Azure Active Directory) è un servizio globale e può eseguire il failover in altre aree o spostare il traffico senza preavviso. In questo scenario, tutti gli intervalli IP elencati in [Indirizzi IP di autenticazione e identità](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) devono essere aggiunti al firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

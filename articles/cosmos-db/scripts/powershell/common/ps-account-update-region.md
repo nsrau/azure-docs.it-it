@@ -4,14 +4,14 @@ description: Esempio di script di Azure PowerShell - Aggiornare le aree di un ac
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4a8e24b4445e2bf29b35e87600de260c523d4376
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: c58f59a08b99c3ce9f69e0c6b0633ac8d0d9c00b
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367174"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652003"
 ---
 # <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Aggiornare le aree di un account Azure Cosmos con PowerShell
 
@@ -42,8 +42,10 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-|**Risorse di Azure**| |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Aggiornare una risorsa. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Elenca gli account Cosmos DB o ottiene un account Cosmos DB specificato. |
+| [New-AzCosmosDBLocationObject](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) | Crea un oggetto di tipo PSLocation da usare come parametro per Update-AzCosmosDBAccountRegion. |
+| [Update-AzCosmosDBAccountRegion](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) | Aggiornare le aree di un account Cosmos DB. |
 |**Gruppi di risorse di Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||

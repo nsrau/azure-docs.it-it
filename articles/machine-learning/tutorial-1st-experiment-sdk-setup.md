@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 820332b0692c0c863ed23912fe9913c419769155
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273002"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779008"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning con Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,11 +47,7 @@ Per creare un'area di lavoro è necessario usare il portale di Azure, una consol
 
 Questa esercitazione usa il server notebook cloud nell'area di lavoro per un'esperienza preconfigurata senza installazioni. Se si preferisce avere il controllo sull'ambiente, sui pacchetti e sulle dipendenze, usare il [proprio ambiente](how-to-configure-environment.md#local).
 
-Seguire questo video oppure usare la procedura dettagliata seguente per clonare ed eseguire l'esercitazione dall'area di lavoro. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ Seguire la procedura dettagliata seguente per clonare ed eseguire l'esercitazione dall'area di lavoro. 
 
 ### <a name="clone-a-notebook-folder"></a>Clonare una cartella del notebook
 
@@ -63,7 +59,7 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
 1. Selezionare **Notebook** a sinistra.
 
-1. Aprire la cartella **Samples**.
+1. Selezionare la scheda **Esempi** nella parte superiore.
 
 1. Aprire la cartella **Python**.
 
@@ -71,26 +67,33 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
 1. Selezionare **"..."** a destra della cartella **tutorials** e quindi scegliere **Clone** (Clona).
 
-    ![Clonare la cartella](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Clonare la cartella tutorials":::
 
 1. Viene visualizzato un elenco di cartelle che mostra ogni utente che accede all'area di lavoro.  Selezionare la propria cartella per clonare la cartella **tutorials** al suo interno.
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Aprire il notebook clonato
+### <a name="open-the-cloned-notebook"></a><a name="open"></a>Aprire il notebook clonato
 
-1. In **User Files** (File utente) aprire la propria cartella e quindi la cartella **tutorials** clonata.
-
-    ![Aprire la cartella tutorials](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Aprire la cartella **tutorials** appena clonata nella sezione **File utente**.
 
     > [!IMPORTANT]
     > Nella cartella di **esempi** è possibile visualizzare i notebook ma non eseguirli.  Per eseguire un notebook, assicurarsi di aprirne la versione clonata nella sezione **User Files** (File utente).
     
 1. Selezionare il file **tutorial-1st-experiment-sdk-train.ipynb** nella cartella **tutorials/create-first-ml-experiment**.
 
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Aprire la cartella tutorials":::
+
+
 1. Sulla barra superiore selezionare un'istanza di calcolo da usare per eseguire il notebook. Queste macchine virtuali sono preconfigurate con [tutti i componenti necessari per eseguire Azure Machine Learning](concept-compute-instance.md#contents). 
 
 1. Se non sono disponibili macchine virtuali, selezionare **+ Aggiungi** per creare una macchina virtuale per l'istanza di calcolo. 
 
-    1. Quando si crea una VM, specificare il nome,  che deve essere composto da un numero di caratteri compreso tra 2 e 16. I caratteri validi sono lettere, numeri e il carattere - ed è necessario che il nome sia univoco nella sottoscrizione di Azure.
+    1. Quando si crea una macchina virtuale, attenersi alle regole seguenti:  
+        + Il nome è obbligatorio e non può essere vuoto.
+        + Il nome deve essere univoco (senza distinzione tra maiuscole e minuscole) in tutte le istanze di calcolo esistenti nell'area di Azure dell'istanza dell'area di lavoro o di calcolo. Si riceverà un avviso se il nome scelto non è univoco.
+        + I caratteri validi includono lettere minuscole e maiuscole, numeri (da 0 a 9) e il trattino (-).
+        + La lunghezza del nome deve essere compresa tra 3 e 24 caratteri.
+        + Il nome deve iniziare con una lettera (non un numero o un trattino).
+        + Se si usa il trattino, deve essere seguito da almeno una lettera. Esempio: Test-, test-0, test-01 non sono validi, mentre test-a0, test-0a sono istanze valide.
 
     1.  Selezionare le dimensioni della macchina virtuale dalle opzioni disponibili.
 

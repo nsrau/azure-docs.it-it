@@ -1,21 +1,21 @@
 ---
 title: Esercitazione per C# sull'uso di facet per semplificare l'esplorazione
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure", per aggiungere l'esplorazione basata su facet. Come usare i facet per limitare facilmente una ricerca.
+description: Continua da "Paginazione dei risultati" per l'aggiunta dell'esplorazione in base a facet. Come usare i facet per limitare facilmente una ricerca.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc25ba6d95fe58a80c90881c6ad60cdb8801cce4
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121576"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780590"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>Esercitazione per C#: Usare facet per semplificare l'esplorazione - Ricerca cognitiva di Azure
+# <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Esercitazione: Aggiungere l'esplorazione in base a facet con .NET SDK
 
 I facet vengono usati per semplificare l'esplorazione e offrono all'utente un set di collegamenti da usare per contestualizzare la ricerca. I facet sono attributi dei dati, ad esempio la categoria, o una caratteristica specifica, di un hotel nei dati di esempio.
 

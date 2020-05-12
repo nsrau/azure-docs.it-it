@@ -37,6 +37,8 @@
       items:
         - name: Istruzione COPY
           href: quickstart-bulk-load-copy-tsql.md
+        - name: Esempi di istruzioni COPY
+          href: quickstart-bulk-load-copy-tsql-examples.md
     - name: Scalabilità
       items:
         - name: Portale

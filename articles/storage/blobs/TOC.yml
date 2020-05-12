@@ -59,6 +59,8 @@
               href: storage-quickstart-blobs-php.md
             - name: Ruby
               href: storage-quickstart-blobs-ruby.md
+            - name: Xamarin
+              href: storage-quickstart-blobs-xamarin.md
     - name: Esercitazioni
       items:
         - name: Caricare ed elaborare un'immagine
@@ -700,8 +702,10 @@
       items:
         - name: Create
           items:
-            - name: Creare un account di archiviazione per utilizzo generico v2
+            - name: Creare un account di archiviazione (utilizzo generico v2)
               href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Creare un account di archiviazione (BLOB in blocchi)
+              href: storage-blob-create-account-block-blob.md
         - name: Migrazione
           items:
             - name: Eseguire la migrazione da Data Lake Storage Gen1

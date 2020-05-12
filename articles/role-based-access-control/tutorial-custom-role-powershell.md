@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Creare un ruolo personalizzato per le risorse di Azure con Azure PowerShell'
-description: Questa esercitazione descrive come creare un ruolo personalizzato per le risorse di Azure con Azure PowerShell.
+title: 'Esercitazione: Creare un ruolo personalizzato di Azure con Azure PowerShell - Controllo degli accessi in base al ruolo Azure'
+description: Questa esercitazione illustra come creare un ruolo personalizzato di Azure usando Azure PowerShell e il controllo degli accessi in base al ruolo Azure.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138272"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735590"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Esercitazione: creare un ruolo personalizzato per le risorse di Azure tramite Azure PowerShell
+# <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Esercitazione: Creare un ruolo personalizzato di Azure con Azure PowerShell
 
-Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Per questa esercitazione viene creato un ruolo personalizzato denominato Reader Support Tickets con Azure PowerShell. Il ruolo personalizzato consente all'utente di visualizzare tutti gli elementi nel piano di gestione di una sottoscrizione e anche di aprire ticket di supporto.
+Se i [ruoli predefiniti](built-in-roles.md) di Azure non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Per questa esercitazione viene creato un ruolo personalizzato denominato Reader Support Tickets con Azure PowerShell. Il ruolo personalizzato consente all'utente di visualizzare tutti gli elementi nel piano di gestione di una sottoscrizione e anche di aprire ticket di supporto.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -73,7 +73,7 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
 
 1. Aprire il file **ReaderSupportRole.json** in un editor.
 
-    Di seguito è riportato l'output JSON. Per informazioni sulle diverse proprietà, vedere [Ruoli personalizzati](custom-roles.md).
+    Di seguito è riportato l'output JSON. Per informazioni sulle diverse proprietà, vedere [Ruoli personalizzati di Azure](custom-roles.md).
 
     ```json
     {
@@ -277,4 +277,4 @@ Per aggiornare il ruolo personalizzato, è possibile aggiornare il file JSON o u
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare ruoli personalizzati per le risorse di Azure tramite Azure PowerShell](custom-roles-powershell.md)
+> [Creare o aggiornare ruoli personalizzati di Azure con Azure PowerShell](custom-roles-powershell.md)

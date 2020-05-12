@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a29fd66cf264b09cc5e0db7ac1a329be3f297bb8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096334"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692432"
 ---
-# <a name="quickstart-using-synapse-studio-preview"></a>Avvio rapido: Uso di Synapse Studio (anteprima)
+# <a name="quickstart-using-synapse-studio-preview"></a>Guida introduttiva: Uso di Synapse Studio (anteprima)
 
 In questa guida di avvio rapido verrà illustrato come eseguire query sui file con Synapse Studio.
 
@@ -56,7 +56,7 @@ Per creare nuove cartelle e caricare i file, usare i collegamenti nella barra de
 
    ![Eseguire query sui file nello spazio di archiviazione](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
-3. Eseguire la query o il notebook generato per visualizzare il contenuto del file:
+3. Eseguire la query o il notebook generato per visualizzare il contenuto del file.
 
    ![Visualizzare il contenuto del file](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
@@ -64,7 +64,7 @@ Per creare nuove cartelle e caricare i file, usare i collegamenti nella barra de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Consentire agli utenti di Azure AD di eseguire query sui file [assegnando le autorizzazioni **Ruolo con autorizzazioni di lettura per i dati dei BLOB di archiviazione** o **Collaboratore ai dati dei BLOB di archiviazione** di Controllo degli accessi in base al ruolo in Archiviazione di Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Consentire agli utenti di Azure AD di eseguire query sui file assegnando le autorizzazioni [**Ruolo con autorizzazioni di lettura per i dati dei BLOB di archiviazione** o **Collaboratore ai dati dei BLOB di archiviazione** di Controllo degli accessi in base al ruolo in Archiviazione di Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Eseguire query su file in Archiviazione di Azure con SQL su richiesta](sql/on-demand-workspace-overview.md)
-- [Creare il pool di Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Creare un pool di Apache Spark con il portale di Azure](quickstart-create-apache-spark-pool.md)
 - [Creare il report di Power BI sui file archiviati in Archiviazione di Azure](sql/tutorial-connect-power-bi-desktop.md)

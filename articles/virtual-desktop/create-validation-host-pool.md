@@ -8,14 +8,20 @@ ms.topic: tutorial
 ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2b51213dfc6d7e55f76e78b92d12111f84736be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b74b7f0b79ad4064d7133a19316d6aec6bd5ba3a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79365390"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611569"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi
+
+>[!IMPORTANT]
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
+>
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant di Desktop virtuale Windows. Prima di distribuire i pool di host nell'ambiente di produzione, si consiglia di creare un pool di host di convalida. Gli aggiornamenti vengono prima applicati nel pool di host di convalida, consentendo all'utente di monitorare gli aggiornamenti del servizio prima di distribuirlo nell'ambiente di produzione. Senza un pool di host di convalida, si potrebbero non notare i cambiamenti che presentano errori, il che può provocare tempi di inattività per gli utenti nell'ambiente di produzione.
 
@@ -26,53 +32,51 @@ Per garantire il funzionamento delle app con gli aggiornamenti più recenti, il 
 >[!NOTE]
 > È consigliabile conservare il pool di host di convalida per testare tutti gli aggiornamenti futuri.
 
-Prima di iniziare, [scaricare e importare il modulo PowerShell del Desktop virtuale Windows](/powershell/windows-virtual-desktop/overview/), se non è già stato fatto. Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
+>[!IMPORTANT]
+>La versione Primavera 2020 di Desktop virtuale Windows presenta attualmente problemi di abilitazione e disabilitazione dell'ambiente di convalida. Questo articolo verrà aggiornato dopo la risoluzione del problema.
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+## <a name="prerequisites"></a>Prerequisiti
+
+Prima di iniziare, seguire le istruzioni riportate in [Configurare il modulo PowerShell di Desktop virtuale Windows](powershell-module.md) per configurare il modulo PowerShell e accedere ad Azure.
 
 ## <a name="create-your-host-pool"></a>Creare il pool di host
 
 È possibile creare un pool di host seguendo le istruzioni di uno dei seguenti articoli:
 - [Esercitazione: Creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Creare un pool di host con un modello di Azure Resource Manager](create-host-pools-arm-template.md)
 - [Creare un pool di host con PowerShell](create-host-pools-powershell.md)
 
 ## <a name="define-your-host-pool-as-a-validation-host-pool"></a>Definire il pool di host come un pool di host di convalida
 
-Eseguire i seguenti comandi cmdlet di PowerShell per definire il nuovo pool di host come pool di host di convalida. Sostituire i valori tra virgolette con i valori relativi alla sessione:
+Eseguire i seguenti comandi cmdlet di PowerShell per definire il nuovo pool di host come pool di host di convalida. Sostituire i valori tra parentesi con i valori relativi alla sessione:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -ValidationEnvironment:$true
 ```
 
-Eseguire il seguente comando cmdlet di PowerShell per verificare di aver impostato la proprietà di convalida. Sostituire i valori tra virgolette con i valori relativi alla sessione.
+Eseguire il seguente comando cmdlet di PowerShell per verificare di aver impostato la proprietà di convalida. Sostituire i valori tra parentesi con i valori relativi alla sessione.
 
 ```powershell
-Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | Format-List
 ```
 
 I risultati del comando cmdlet dovrebbero essere simili a questo output:
 
-```
-    TenantName          : contoso 
-    TenantGroupName     : Default Tenant Group
-    HostPoolName        : contosoHostPool
+```powershell
+    HostPoolName        : hostpoolname
     FriendlyName        :
     Description         :
     Persistent          : False 
-    CustomRdpProperty    : use multimon:i:0;
+    CustomRdpProperty   : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
-    ValidationEnv       : True
-    Ring                :
+    ValidationEnvironment : True
 ```
 
 ## <a name="update-schedule"></a>Aggiornare la pianificazione
 
 Gli aggiornamenti del servizio vengono eseguiti mensilmente. Se sono presenti problemi importanti, gli aggiornamenti critici saranno forniti a cadenza più frequente.
+
+Se sono presenti aggiornamenti del servizio, assicurarsi di avere almeno un piccolo gruppo di utenti che accedono ogni giorno per convalidare l'ambiente. È consigliabile visitare regolarmente il [sito TechCommunity](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=wvdupdate&location=forum-board:WindowsVirtualDesktop&sort_by=-topicPostDate&collapse_discussion=true) e seguire gli eventuali post con WVDUPdate per rimanere informati sugli aggiornamenti dei servizi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

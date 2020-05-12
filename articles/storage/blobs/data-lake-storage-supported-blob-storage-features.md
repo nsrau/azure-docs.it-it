@@ -5,50 +5,53 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cfc7e12efb0e5e4613bb4cc5f2f9a35383f37546
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: ab704f53e608e7021f53a5d4b0a3e06c2ab807a1
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857248"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007460"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
 
 Le funzionalità di archiviazione BLOB come la [registrazione diagnostica](../common/storage-analytics-logging.md), i [livelli di accesso](storage-blob-storage-tiers.md)e i criteri di gestione del ciclo di vita dell' [archiviazione BLOB](storage-lifecycle-management-concepts.md) ora funzionano con gli account che hanno uno spazio dei nomi gerarchico. Pertanto, è possibile abilitare gli spazi dei nomi gerarchici negli account di archiviazione BLOB senza perdere l'accesso a queste funzionalità.
 
-Questa tabella elenca le funzionalità di archiviazione BLOB che è possibile usare con Azure Data Lake Storage Gen2. Gli elementi visualizzati in queste tabelle verranno modificati nel corso del tempo poiché il supporto continua ad espandersi.
+Questa tabella elenca le funzionalità di archiviazione BLOB che è possibile usare con Azure Data Lake Storage Gen2. Gli elementi visualizzati in queste tabelle verranno modificati nel corso del tempo poiché il supporto continua ad espandersi. Per ulteriori informazioni sui problemi specifici associati allo stato di anteprima di una funzionalità, vedere l'articolo relativo ai [problemi noti](data-lake-storage-known-issues.md) .
 
 ## <a name="supported-blob-storage-features"></a>Funzionalità di archiviazione BLOB supportate
 
 > [!NOTE]
-> Il livello di supporto si riferisce solo al modo in cui la funzionalità è supportata con Data Lake Storage Gen2.
+> Il livello di supporto si riferisce solo al modo in cui la funzionalità è supportata con Data Lake Storage Gen2. 
+>
+> Gli [account di archiviazione BLOB in blocchi a prestazioni Premium](storage-blob-create-account-block-blob.md) per data Lake storage Gen2 sono attualmente in anteprima pubblica. Supporto: i livelli per questi tipi di account vengono visualizzati nella colonna **account di archiviazione BLOB in blocchi Premium** .
 
-|Funzionalità di archiviazione BLOB |Livello di supporto |Articoli correlati |
+|Funzionalità di archiviazione BLOB |Account di archiviazione per utilizzo generico V2|Account di archiviazione BLOB in blocchi Premium |Articoli correlati |
 |---------------|-------------------|---|
-|Livello di accesso frequente|Disponibile a livello generale|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
-|Livello di accesso sporadico|Disponibile a livello generale|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
-|Eventi|Disponibile a livello generale|[Reazione a eventi di archiviazione BLOB](storage-blob-event-overview.md)|
-|Metriche (versione classica)|Disponibile a livello generale|[Metriche di analisi archiviazione di Azure (versione classica)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Metriche in Monitoraggio di Azure|Disponibile a livello generale|[Metriche di Archiviazione di Azure in Monitoraggio di Azure](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Comandi di PowerShell per l'archiviazione BLOB|Disponibile a livello generale|[Guida introduttiva: caricare, scaricare ed elencare BLOB con PowerShell](storage-quickstart-blobs-powershell.md)|
-|Comandi dell'interfaccia della riga di comando di Azure archiviazione BLOB|Disponibile a livello generale|[Guida introduttiva: creare, scaricare ed elencare BLOB con interfaccia della riga di comando di Azure](storage-quickstart-blobs-cli.md)|
-|Api di archiviazione BLOB|Disponibile a livello generale|[Guida introduttiva: libreria client di archiviazione BLOB di Azure V12 per .NET](storage-quickstart-blobs-dotnet.md)<br>[Guida introduttiva: gestire i BLOB con Java V12 SDK](storage-quickstart-blobs-java.md)<br>[Guida introduttiva: gestire i BLOB con Python V12 SDK](storage-quickstart-blobs-python.md)<br>[Guida introduttiva: gestire i BLOB con JavaScript V12 SDK in node. js](storage-quickstart-blobs-nodejs.md)|
-|Livello di accesso archivio|Anteprima|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
-|Criteri di gestione del ciclo di vita|Anteprima|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
-|Log di diagnostica|Disponibile a livello generale|[Registrazione di Analisi di archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Feed delle modifiche|Non ancora supportato|[Supporto del feed delle modifiche nell'archiviazione BLOB di Azure](storage-blob-change-feed.md)|
-|Failover dell'account|Non ancora supportato|[Ripristino di emergenza e failover dell'account di archiviazione](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|ACL del contenitore BLOB|Non ancora supportato|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
-|Domini personalizzati|Non ancora supportato|[Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure](storage-custom-domain-name.md)|
-|Archiviazione non modificabile|Non ancora supportato|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
-|Snapshot|Non ancora supportato|[Creare e gestire uno snapshot BLOB in .NET](storage-blob-snapshots.md)|
-|Eliminazione temporanea|Non ancora supportato|[Eliminazione temporanea per i BLOB di Archiviazione di Azure ](storage-blob-soft-delete.md)|
-|Siti Web statici|Non ancora supportato|[Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)|
-|Registrazione in monitoraggio di Azure|Non ancora supportato|Non ancora disponibile|
-|BLOB in blocchi Premium|Non ancora supportato|[Creare un account BlockBlobStorage](storage-blob-create-account-block-blob.md)|
+|Livello di accesso frequente|Disponibile a livello generale|Non supportato|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
+|Livello di accesso sporadico|Disponibile a livello generale|Non supportato|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
+|Events|Disponibile a livello generale|Anteprima|[Reazione a eventi di archiviazione BLOB](storage-blob-event-overview.md)|
+|Metriche (versione classica)|Disponibile a livello generale|Non supportato|[Metriche di analisi archiviazione di Azure (versione classica)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Metriche in Monitoraggio di Azure|Disponibile a livello generale|Anteprima|[Metriche di Archiviazione di Azure in Monitoraggio di Azure](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Comandi di PowerShell per l'archiviazione BLOB|Disponibile a livello generale|Anteprima|[Guida introduttiva: caricare, scaricare ed elencare BLOB con PowerShell](storage-quickstart-blobs-powershell.md)|
+|Comandi dell'interfaccia della riga di comando di Azure archiviazione BLOB|Disponibile a livello generale|Anteprima|[Guida introduttiva: creare, scaricare ed elencare BLOB con interfaccia della riga di comando di Azure](storage-quickstart-blobs-cli.md)|
+|Api di archiviazione BLOB|Disponibile a livello generale|Anteprima|[Guida introduttiva: libreria client di archiviazione BLOB di Azure V12 per .NET](storage-quickstart-blobs-dotnet.md)<br>[Guida introduttiva: gestire i BLOB con Java V12 SDK](storage-quickstart-blobs-java.md)<br>[Guida introduttiva: gestire i BLOB con Python V12 SDK](storage-quickstart-blobs-python.md)<br>[Guida introduttiva: gestire i BLOB con JavaScript V12 SDK in node. js](storage-quickstart-blobs-nodejs.md)|
+|Log di diagnostica|Disponibile a livello generale|Anteprima <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Registrazione di Analisi di archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Livello di accesso archivio|Anteprima|Non supportato|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
+|Criteri di gestione del ciclo di vita|Anteprima|Non ancora supportato|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
+|Feed delle modifiche|Non ancora supportato|Non ancora supportato|[Supporto del feed delle modifiche nell'archiviazione BLOB di Azure](storage-blob-change-feed.md)|
+|Failover dell'account|Non ancora supportato|Non ancora supportato|[Ripristino di emergenza e failover degli account](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|ACL del contenitore BLOB|Non ancora supportato|Non ancora supportato|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|Domini personalizzati|Non ancora supportato|Non ancora supportato|[Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure](storage-custom-domain-name.md)|
+|Archiviazione non modificabile|Non ancora supportato|Non ancora supportato|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
+|Snapshot|Non ancora supportato|Non ancora supportato|[Creare e gestire uno snapshot BLOB in .NET](storage-blob-snapshots.md)|
+|Eliminazione temporanea|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB di Archiviazione di Azure ](storage-blob-soft-delete.md)|
+|Siti Web statici|Non ancora supportato|Non ancora supportato|[Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)|
+|Registrazione in monitoraggio di Azure|Non ancora supportato|Non ancora supportato|Non ancora disponibile|
+
+<div id="diagnostic-logging"><sup>1</sup> Per gli account di archiviazione BLOB in blocchi Premium, i log di diagnostica (versione classica) non possono essere abilitati usando il portale di Azure. Abilitarli usando PowerShell.</div>
 
 ## <a name="see-also"></a>Vedere anche
 

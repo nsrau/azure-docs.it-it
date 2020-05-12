@@ -1,17 +1,17 @@
 ---
-title: "Guida introduttiva: Creare un'app Node.js in Linux"
+title: "Avvio rapido: Creare un'app Node.js in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Node.js in un contenitore Linux nel servizio app.
 author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 52466bac083f78002a8208ba52ca7d1b951c4064
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74688981"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801485"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Creare un'app Node.js in Azure
 
@@ -23,7 +23,7 @@ Se non si ha un account Azure [iscriversi](https://azure.microsoft.com/free/?utm
 
 È necessario che sia installato [Visual Studio Code](https://code.visualstudio.com/) insieme a [Node.js e npm](https://nodejs.org/en/download), lo strumento di gestione dei pacchetti Node.js.
 
-È anche necessario installare l'[estensione del servizio app di Azure](vscode:extension/ms-azuretools.vscode-azureappservice), che è possibile usare per creare, gestire e distribuire app Web Linux nella piattaforma distribuita come servizio (PaaS) di Azure.
+È anche necessario installare l'[estensione del servizio app di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), che è possibile usare per creare, gestire e distribuire app Web Linux nella piattaforma distribuita come servizio (PaaS) di Azure.
 
 ### <a name="sign-in"></a>Accesso
 
@@ -83,7 +83,7 @@ Assicurarsi quindi che l'applicazione venga eseguita correttamente. Dal terminal
 npm start
 ```
 
-Aprire quindi il browser e passare a [http://localhost:3000](http://localhost:3000), dove dovrebbe venire visualizzato un contenuto simile al seguente:
+Aprire quindi il browser e passare a `http://localhost:3000`, dove verrà visualizzato un contenuto simile al seguente:
 
 ![Esecuzione dell'applicazione Express](./media/quickstart-nodejs/express.png)
 
@@ -151,7 +151,7 @@ In questa sezione si è appreso come visualizzare i log dell'app del Servizio ap
 
 Trovare l'app nello strumento di esplorazione dei **servizi app di Azure**, fare clic su di essa con il pulsante destro del mouse e scegliere **Visualizza log in streaming**.
 
-Quando viene richiesto, scegliere di abilitare la registrazione e riavviare l'applicazione. Una volta riavviata l'app, verrà aperta la finestra di output di VS Code con una connessione al flusso di log.
+Verrà aperta la finestra di output di VS Code con una connessione al flusso di log.
 
 ![Comando Visualizza log in streaming](./media/quickstart-nodejs/view-logs.png)
 
@@ -159,12 +159,12 @@ Quando viene richiesto, scegliere di abilitare la registrazione e riavviare l'ap
 
 Dopo alcuni secondi verrà visualizzato un messaggio che indica che si è connessi al servizio di streaming di log. Aggiornare la pagina alcune volte per visualizzare altre attività.
 
-    ```bash
-    2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
-    2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
-    2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
-    2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
-    ```
+<pre>
+2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
+2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
+2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
+2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
+</pre>
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)

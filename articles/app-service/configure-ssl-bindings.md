@@ -3,15 +3,15 @@ title: Proteggere un nome DNS personalizzato con un'associazione TLS/SSL
 description: Proteggere l'accesso HTTPS al dominio personalizzato creando un'associazione TLS/SSL con un certificato. Per migliorare la sicurezza del sito Web, è necessario applicare HTTPS o TLS 1.2.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811754"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597896"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure
 
@@ -83,7 +83,7 @@ Usare la tabella seguente per configurare l'associazione TLS nella finestra di d
 |-|-|
 | Dominio personalizzato | Nome di dominio per cui aggiungere l'associazione TLS/SSL. |
 | Identificazione personale del certificato privato | Certificato da associare. |
-| Tipo TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** : è possibile aggiungere più associazioni SSL SNI. Questa opzione consente di usare più certificati TLS/SSL per proteggere più domini nello stesso indirizzo IP. La maggior parte dei browser moderni (tra cui Internet Explorer, Chrome, Firefox e Opera) supporta SNI (per altre informazioni vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL**: è possibile aggiungere una sola associazione IP SSL. Questa opzione consente di usare solo un certificato TLS/SSL per proteggere un indirizzo IP pubblico dedicato. Dopo aver configurato l'associazione, seguire i passaggi descritti in [Eseguire un nuovo mapping di un record per IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL è supportato solo nei livelli Produzione o Isolato. </li></ul> |
+| Tipo TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** : è possibile aggiungere più associazioni SSL SNI. Questa opzione consente di usare più certificati TLS/SSL per proteggere più domini nello stesso indirizzo IP. La maggior parte dei browser moderni (tra cui Internet Explorer, Chrome, Firefox e Opera) supporta SNI (per altre informazioni vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL**: è possibile aggiungere una sola associazione IP SSL. Questa opzione consente di usare solo un certificato TLS/SSL per proteggere un indirizzo IP pubblico dedicato. Dopo aver configurato l'associazione, seguire i passaggi descritti in [Modificare il mapping dei record per IP SSL](#remap-records-for-ip-ssl).<br/>IP SSL è supportato solo nel livello **Standard** o superiore. </li></ul> |
 
 Al termine dell'operazione, lo stato TLS/SSL del dominio personalizzato passa a **Protetto**.
 
@@ -92,15 +92,17 @@ Al termine dell'operazione, lo stato TLS/SSL del dominio personalizzato passa a 
 > [!NOTE]
 > Lo stato **Protetto** nei **domini personalizzati** indica che i domini sono protetti con un certificato, ma, ad esempio, il Servizio app non verifica se il certificato è autofirmato o scaduto e questo può causare la visualizzazione di un errore o di un avviso nei browser.
 
-## <a name="remap-a-record-for-ip-ssl"></a>Eseguire nuovamente il mapping di un record A per IP SSL
+## <a name="remap-records-for-ip-ssl"></a>Modificare il mapping dei record per IP SSL
 
 Se non si usa il protocollo IP SSL nell'app, passare alla sezione [Testare HTTPS per il dominio personalizzato](#test-https).
 
-Per impostazione predefinita, l'app usa un indirizzo IP pubblico condiviso. Quando si associa un certificato con il protocollo IP SSL, il servizio app crea un nuovo indirizzo IP dedicato per l'app.
+È potenzialmente necessario apportare due modifiche:
 
-Se si è eseguito il mapping di un record A all'app, aggiornare il Registro di sistema del dominio con questo nuovo indirizzo IP dedicato.
+- Per impostazione predefinita, l'app usa un indirizzo IP pubblico condiviso. Quando si associa un certificato con il protocollo IP SSL, il servizio app crea un nuovo indirizzo IP dedicato per l'app. Se si è eseguito il mapping di un record A all'app, aggiornare il Registro di sistema del dominio con questo nuovo indirizzo IP dedicato.
 
-La pagina **Dominio personalizzato** dell'app viene aggiornata con il nuovo indirizzo IP dedicato. [Copiare questo indirizzo IP](app-service-web-tutorial-custom-domain.md#info), quindi [eseguire nuovamente il mapping del record A](app-service-web-tutorial-custom-domain.md#map-an-a-record) a questo indirizzo IP.
+    La pagina **Dominio personalizzato** dell'app viene aggiornata con il nuovo indirizzo IP dedicato. [Copiare questo indirizzo IP](app-service-web-tutorial-custom-domain.md#info), quindi [eseguire nuovamente il mapping del record A](app-service-web-tutorial-custom-domain.md#map-an-a-record) a questo indirizzo IP.
+
+- Se è presente un binding SNI SSL a `<app-name>.azurewebsites.net`, [modificare tutti i mapping CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record) in modo che puntino a `sni.<app-name>.azurewebsites.net` (aggiungere il prefisso `sni`).
 
 ## <a name="test-https"></a>Testare HTTPS
 

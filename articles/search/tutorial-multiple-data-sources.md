@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione per C#: Indicizzare più origini dati'
+title: Esercitazione per C# sull'indicizzazione di più origini dati di Azure
 titleSuffix: Azure Cognitive Search
 description: Informazioni su come importare i dati da più origini dati in un singolo indice di Ricerca cognitiva di Azure tramite gli indicizzatori. Questa esercitazione e il codice di esempio usano C#.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78271490"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780522"
 ---
-# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Esercitazione: Indicizzare i dati da più origini dati in C#
+# <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Esercitazione: Indicizzazione da più origini dati con .NET SDK
 
 Ricerca cognitiva di Azure consente di importare, analizzare e indicizzare i dati da più origini dati in un singolo indice di ricerca consolidato. Questa funzionalità supporta situazioni in cui i dati strutturati vengono aggregati in dati meno strutturati o anche in testo normale di altre origini, come documenti di testo, HTML o JSON.
 

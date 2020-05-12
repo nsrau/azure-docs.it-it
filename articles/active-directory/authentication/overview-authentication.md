@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4c2fa8488490561e8f11746e8e737718ee9f37
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c2a6b5c22e2988ed33e6dc15a4729e7bfe938c5f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76261263"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786918"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Che cos'è l'autenticazione di Azure Active Directory?
 
@@ -24,7 +24,7 @@ Una delle principali funzionalità di una piattaforma di gestione delle identit�
 
 * Reimpostazione della password self-service
 * Azure Multi-Factor Authentication
-* Integrazione ibrida per il wiriteback delle modifiche delle password nell'ambiente locale
+* Integrazione ibrida per il writeback delle modifiche delle password nell'ambiente locale
 * Integrazione ibrida per l'applicazione di criteri di protezione delle password per un ambiente locale
 * Autenticazione senza password
 
@@ -86,14 +86,14 @@ Azure AD offre la possibilità di eseguire l'autenticazione nativa usando metodi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, vedere l'argomento di [avvio rapido sulla reimpostazione della password self-service][quickstart-sspr] e l'esercitazione su [Azure Multi-Factor Authentication][tutorial-mfa-applications].
+Per iniziare, vedere l'[esercitazione sulla reimpostazione della password self-service][tutorial-sspr] e [Azure Multi-Factor Authentication][tutorial-azure-mfa].
 
 Per altre informazioni sui concetti di reimpostazione della password self-service, vedere [Come funziona la reimpostazione della password self-service di Azure AD][concept-sspr].
 
 Per altre informazioni sui concetti dell'autenticazione a più fattori, vedere [Come funziona Azure Multi-Factor Authentication][concept-mfa].
 
 <!-- INTERNAL LINKS -->
-[quickstart-sspr]: quickstart-sspr.md
-[tutorial-mfa-applications]: tutorial-mfa-applications.md
+[tutorial-sspr]: tutorial-enable-sspr.md
+[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [concept-sspr]: concept-sspr-howitworks.md
 [concept-mfa]: concept-mfa-howitworks.md

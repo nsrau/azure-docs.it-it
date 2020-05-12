@@ -4,12 +4,12 @@ description: Informazioni su come creare, testare e distribuire modelli di Azure
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: dacbdbcbebbbd696c14745e055ed9f7bd7905b1d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084329"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731935"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con Azure Pipelines
 
@@ -57,7 +57,7 @@ Se non si dispone di un account GitHub, vedere [Prerequisiti](#prerequisites).
 
 1. Fare clic su **New** (Nuovo), un pulsante di colore verde.
 1. In **Repository name** (Nome repository) immettere un nome per il repository.  Ad esempio, **AzureRmPipeline-repo**. Ricordarsi di sostituire tutte le occorrenze di **AzureRmPipeline** con il nome del proprio progetto. È possibile selezionare **Public** (Pubblico) o **Private** (Privato) per procedere in questa esercitazione e quindi fare clic su **Create repository** (Crea repository).
-1. Prendere nota dell'URL. Il formato dell'URL del repository è il seguente: **https://github.com/ [NomeAccount]/[NomeRepository]** .
+1. Prendere nota dell'URL. Il formato dell'URL del repository è il seguente: **`https://github.com/[YourAccountName]/[YourRepositoryName]`** .
 
 Questo repository viene indicato come *repository remoto*. Ogni sviluppatore dello stesso progetto può clonare il rispettivo *repository locale* e unire le modifiche al repository remoto.
 
@@ -104,7 +104,7 @@ Il file azuredeploy.json è stato aggiunto al repository locale. È quindi neces
     ```
 
     È possibile che venga visualizzato un avviso relativo all'avanzamento riga. Tale avviso può essere ignorato. **master** è il ramo master.  In genere si crea un ramo per ogni aggiornamento. Per semplificare l'esercitazione, viene usato direttamente il ramo master.
-1. Accedere al repository GitHub da un browser.  L'URL è **https://github.com/ [NomeAccount]/[RepositoryGitHub]** . Verranno visualizzati la cartella **CreateWebApp** e i tre file all'interno della cartella.
+1. Accedere al repository GitHub da un browser.  L'URL è **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** . Verranno visualizzati la cartella **CreateWebApp** e i tre file all'interno della cartella.
 1. Selezionare **linkedStorageAccount.json** per aprire il modello.
 1. Selezionare il pulsante **Non elaborato**. L'URL viene avviato con **raw.githubusercontent.com**.
 1. Copiare l'URL.  È necessario fornire questo valore quando si configura la pipeline più avanti nell'esercitazione.

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 4e7e9ea61d74eb38f3c225d66a39906bc18fe6d2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200521"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791154"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
@@ -50,6 +50,7 @@ Per trasferire altre sottoscrizioni da un partner CSP a qualunque altra offerta 
 
 1. Creare sottoscrizioni di Azure di destinazione.
 1. Verificare che le sottoscrizioni di origine e di destinazione si trovino nello stesso tenant di Azure Active Directory (Azure AD). Per altre informazioni sulla modifica di un tenant Azure AD, vedere [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    Si noti che la directory da modificare non è la sottoscrizione CSP. Ad esempio, se si esegue il trasferimento da una sottoscrizione CSP a una sottoscrizione con pagamento in base al consumo, è necessario modificare la directory della sottoscrizione con pagamento in base al consumo affinché corrisponda.
 
     > [!IMPORTANT]
     >  - Quando si associa una sottoscrizione a una directory diversa, gli utenti che dispongono di ruoli assegnati che usano il [controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) perdono l'accesso. Anche gli amministratori delle sottoscrizioni classiche, tra cui l'amministratore del servizio e i coamministratori, perdono l'accesso.

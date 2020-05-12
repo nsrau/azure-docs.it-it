@@ -3,19 +3,19 @@ title: Esercitazione per C# su come creare la prima app
 titleSuffix: Azure Cognitive Search
 description: Esercitazione passo passo per creare la prima app di ricerca per C#. L'esercitazione fornisce sia un collegamento a un'app funzionante su GitHub che il processo completo per creare l'app da zero. Informazioni sui componenti fondamentali di Ricerca cognitiva di Azure.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a105766b713ce44d800391e2e943f2ac864fa0df
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121580"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780624"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Esercitazione per C#: Creare la prima app - Ricerca cognitiva di Azure
+# <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Esercitazione: Creare la prima app di ricerca con .NET SDK
 
 Informazioni su come creare un'interfaccia Web per eseguire query e presentare i risultati della ricerca da un indice con Ricerca cognitiva di Azure. Questa esercitazione inizia con un indice ospitato già esistente in modo da potersi concentrare sulla creazione di una pagina di ricerca. L'indice contiene dati di hotel fittizi. Dopo aver creato una pagina di base, è possibile migliorarla nelle lezioni successive e includere l'impaginazione, i facet e un'esperienza di completamento automatico.
 

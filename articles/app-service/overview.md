@@ -3,14 +3,14 @@ title: Panoramica
 description: Informazioni sul modo in cui il Servizio app di Azure semplifica lo sviluppo e l'hosting di applicazioni Web
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 01/04/2017
+ms.date: 04/30/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7db55a420a9789ef15a5296a6b0200d6b8910ec6
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535639"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597859"
 ---
 # <a name="app-service-overview"></a>Panoramica del Servizio app di Azure
 
@@ -25,6 +25,7 @@ Il servizio app permette di pagare solo le risorse di calcolo di Azure usate. La
 Ecco alcune delle funzionalità principali del servizio app:
 
 * **Più linguaggi e framework**: il servizio app offre un supporto eccellente per ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP o Python. È anche possibile eseguire [PowerShell e altri script o eseguibili](webjobs-create.md) come servizi in background.
+* **Ambiente di produzione gestito**: il servizio app [applica automaticamente le patch e mantiene i framework del sistema operativo e del linguaggio](overview-patch-os-runtime.md). In questo modo è possibile dedicarsi alla scrittura di app senza preoccuparsi della piattaforma.
 * **Ottimizzazione della metodologia DevOps**: è possibile configurare [l'integrazione continua e la distribuzione continua](deploy-continuous-deployment.md) con Azure DevOps, GitHub, BitBucket, Hub Docker o Registro Azure Container, alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](deploy-staging-slots.md), e gestire le app nel servizio app con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](/cli/azure/install-azure-cli).
 * **Scalabilità globale con disponibilità elevata**: è possibile [aumentare le prestazioni](manage-scale-up.md) o il [numero di istanze](../monitoring-and-diagnostics/insights-how-to-scale.md) manualmente o automaticamente. Le app possono essere ospitate ovunque nell'infrastruttura globale di data center Microsoft e il [contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) per il servizio app assicura disponibilità elevata.
 * **Connessioni a piattaforme SaaS e dati locali**: è possibile scegliere tra oltre 50 [connettori](../connectors/apis-list.md) per sistemi aziendali (come SAP), servizi SaaS (come Salesforce) e servizi Internet (come Facebook), nonché accedere ai dati locali con [connessioni ibride](app-service-hybrid-connections.md) e [reti virtuali di Azure](web-sites-integrate-with-vnet.md).

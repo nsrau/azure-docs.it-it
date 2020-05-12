@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 462185feb2b9cbebd17ce9cba54c2b23deea6c75
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dd7666bb9f22214fb4701e6be9edc171912d9bf9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421645"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691855"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Archiviare i risultati delle query nell'archiviazione usando SQL su richiesta (anteprima) con Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Il primo passaggio consiste nel leggere gli articoli seguenti e assicurarsi di a
 È possibile usare l'istruzione CREATE EXTERNAL TABLE AS SELECT (CETAS) per archiviare i risultati della query nell'archiviazione.
 
 > [!NOTE]
-> Cambiare la prima riga della query, ossia [mydbname], in modo da usare il database creato. Se non è stato creato un database, leggere [Prima configurazione](query-data-storage.md#first-time-setup).
+> Cambiare la prima riga della query, ossia [mydbname], in modo da usare il database creato. Se non è stato creato un database, leggere [Prima configurazione](query-data-storage.md#first-time-setup). È necessario modificare il parametro LOCATION per l'origine dati esterna MyDataSource in modo che punti alla posizione per cui si dispone dell'autorizzazione di scrittura. 
 
 ```sql
 USE [mydbname];
@@ -58,7 +58,7 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://showdemoweu.dfs.core.windows.net/data/population_csv/population.csv',
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
         FORMAT='CSV'
     ) WITH (
         CountryCode varchar(4),

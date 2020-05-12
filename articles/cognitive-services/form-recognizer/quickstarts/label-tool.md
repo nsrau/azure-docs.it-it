@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Etichettare moduli, eseguire il training di un modello e analizzare un modulo usando lo strumento di etichettatura campioni - Riconoscimento modulo'
+title: 'Avvio rapido: Etichettare moduli, eseguire il training di un modello e analizzare un modulo usando lo strumento di etichettatura campioni - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà lo strumento di etichettatura campioni di Riconoscimento modulo per etichettare manualmente documenti modulo. Con i documenti etichettati, verrà quindi eseguito il training di un modello personalizzato, che verrà usato per estrarre coppie chiave-valore.
 author: PatrickFarley
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 790e2a148385f9da54df82f597c2ca52124dc2be
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529868"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691328"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -37,7 +37,7 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Docker. Per configurare il contenitore Docker, seguire questa procedura. Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
 
 > [!TIP]
-> È inoltre disponibile lo strumento OCR Form Labeling Tool come progetto open source in GitHub. Si tratta di un'applicazione Web creata con React + Redux e scritta in TypeScript. Per altre informazioni o per contribuire, vedere [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> È inoltre disponibile lo strumento OCR Form Labeling Tool come progetto open source in GitHub. Si tratta di un'applicazione Web TypeScript creata con React + Redux. Per altre informazioni o per contribuire, vedere il repository dello [strumento OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application). Per provare lo strumento online, visitare il [sito Web di FOTT](https://fott.azurewebsites.net/).   
 
 1. Installare prima di tutto Docker in un computer host. Questa guida illustra come usare un computer locale come host. Se si vuole usare un servizio di hosting Docker in Azure, vedere la guida pratica [Distribuire lo strumento di etichettatura di esempio](../deploy-label-tool.md). 
 
@@ -61,7 +61,7 @@ Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Dock
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   Questo comando rende disponibile lo strumento di etichettatura campioni tramite un Web browser. Passare a [http://localhost:3000](http://localhost:3000).
+   Questo comando rende disponibile lo strumento di etichettatura campioni tramite un Web browser. Passare a `http://localhost:3000`.
 
 > [!NOTE]
 > È anche possibile etichettare i documenti ed eseguire il training dei modelli usando l'API REST Riconoscimento modulo. Per eseguire il training e l'analisi con l'API REST, vedere [Eseguire il training con le etichette usando l'API REST e Python](./python-labeled-data.md).

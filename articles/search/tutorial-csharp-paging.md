@@ -1,21 +1,21 @@
 ---
 title: Esercitazione per C# sulla paginazione dei risultati della ricerca
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione illustra la paginazione dei risultati della ricerca. Si basa su un progetto di hotel esistente, con pulsanti di paginazione per prima pagina, pagina successiva, pagina precedente, ultima pagina e paginazione numerata. Un secondo sistema di paginazione usa lo scorrimento infinito, attivato dallo spostamento di una barra di scorrimento verticale fino al limite inferiore.
+description: Aggiungere i pulsanti di paginazione e spostamento ai risultati della ricerca, in base a un progetto hotels esistente, per aggiungere i pulsanti per passare alla prima pagina, a quella successiva, a quella precedente e all'ultima, oltre ai pulsanti numerati. Un secondo sistema di paginazione usa lo scorrimento infinito, attivato dallo spostamento di una barra di scorrimento verticale fino al limite inferiore.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121511"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780573"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure
+# <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Esercitazione: Aggiungere la paginazione ai risultati della ricerca con .NET SDK
 
 Informazioni su come implementare due diversi sistemi di paginazione, il basato sui numeri di pagina e il secondo sullo scorrimento infinito. Entrambi i sistemi di paginazione sono ampiamente diffusi. Per selezionare quello più adatto, è necessario considerare l'esperienza utente che si intende ottenere con i risultati. Questa esercitazione consente di creare i sistemi di paginazione nel progetto creato in [Esercitazione per C#: Creare la prima app - Ricerca cognitiva di Azure](tutorial-csharp-create-first-app.md).
 

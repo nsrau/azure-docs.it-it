@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Visualizzare l'accesso di un utente alle risorse di Azure"
-description: Questo argomento di avvio rapido illustra come visualizzare l'accesso di un utente o di un'altra entità di sicurezza alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure.
+title: "Avvio rapido: Visualizzare l'accesso di un utente alle risorse di Azure - Controllo degli accessi in base al ruolo di Azure"
+description: Questa guida di avvio rapido illustra come visualizzare l'accesso di un utente o di un'altra entità di sicurezza alle risorse di Azure usando il controllo degli accessi in base al ruolo di Azure e il portale di Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74419609"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734162"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Guida introduttiva: Visualizzare l'accesso di un utente alle risorse di Azure
 
-È possibile usare il pannello **Controllo di accesso (IAM)** in [Controllo degli accessi in base al ruolo](overview.md) per visualizzare l'accesso di un utente o di un'altra entità di sicurezza alle risorse di Azure. Tuttavia, a volte può essere necessario visualizzare rapidamente l'accesso di un singolo utente o di un'altra entità di sicurezza. Il modo più semplice per eseguire questa operazione è usare la funzionalità **Verifica l'accesso** nel portale di Azure.
+È possibile usare il pannello **Controllo di accesso (IAM)** in [Controllo degli accessi in base al ruolo di Azure](overview.md) per visualizzare l'accesso di un utente o di un'altra entità di sicurezza alle risorse di Azure. Tuttavia, a volte può essere necessario visualizzare rapidamente l'accesso di un singolo utente o di un'altra entità di sicurezza. Il modo più semplice per eseguire questa operazione è usare la funzionalità **Verifica l'accesso** nel portale di Azure.
 
 ## <a name="view-role-assignments"></a>Visualizzare le assegnazioni di ruolo
 
@@ -54,4 +54,4 @@ ms.locfileid: "74419609"
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](quickstart-assign-role-user-portal.md)
+> [Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il portale di Azure](quickstart-assign-role-user-portal.md)

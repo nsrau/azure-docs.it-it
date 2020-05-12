@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: Concedere a un gruppo l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e Azure PowerShell"
-description: Questa esercitazione descrive come concedere a un gruppo l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell.
+title: "Esercitazione: Concedere a un gruppo l'accesso alle risorse di Azure con Azure PowerShell - Controllo degli accessi in base al ruolo Azure"
+description: Questa esercitazione descrive come concedere a un gruppo l'accesso alle risorse di Azure usando Azure PowerShell e il controllo degli accessi in base al ruolo Azure.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d72ea23b74137e7e57f892b831b0be1b4a89de5
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138248"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735522"
 ---
-# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Esercitazione: concedere l'accesso alle risorse di Azure a un gruppo usando il controllo degli accessi in base al ruolo e Azure PowerShell
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Esercitazione: Concedere a un gruppo l'accesso alle risorse di Azure con Azure PowerShell
 
-Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. In questa esercitazione si consente a un gruppo di visualizzare tutte le aree di una sottoscrizione e di gestire tutti gli elementi in un gruppo di risorse con Azure PowerShell.
+Per gestire l'accesso alle risorse di Azure, si usa il [controllo degli accessi in base al ruolo Azure](overview.md). In questa esercitazione si consente a un gruppo di visualizzare tutte le aree di una sottoscrizione e di gestire tutti gli elementi in un gruppo di risorse con Azure PowerShell.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -44,7 +44,7 @@ Per completare questa esercitazione è necessario quanto segue:
 
 ## <a name="role-assignments"></a>Assegnazioni di ruoli
 
-Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito. Di seguito sono indicate le due assegnazioni di ruolo che verranno eseguite in questa esercitazione:
+Per concedere l'accesso mediante il controllo degli accessi in base al ruolo Azure, si crea un'assegnazione di ruolo. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito. Di seguito sono indicate le due assegnazioni di ruolo che verranno eseguite in questa esercitazione:
 
 | Entità di sicurezza | Definizione di ruolo | Scope |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ Per assegnare un ruolo sono necessari un utente, un gruppo o un entità servizio
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Se non si hanno le autorizzazioni per creare gruppi, è possibile provare l'[Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-user-powershell.md).
+Se non si hanno le autorizzazioni per creare gruppi, è possibile provare l'[Esercitazione: Concedere a un utente l'accesso alle risorse di Azure con Azure PowerShell](tutorial-role-assignments-user-powershell.md).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -294,4 +294,4 @@ Per pulire le risorse create con questa esercitazione, eliminare il gruppo di ri
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell](role-assignments-powershell.md)
+> [Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](role-assignments-powershell.md)

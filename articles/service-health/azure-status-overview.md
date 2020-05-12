@@ -3,12 +3,12 @@ title: Panoramica dello stato di Azure | Microsoft Docs
 description: Visualizzazione globale dell'integrità dei servizi di Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6e0813ad5fde19069662c13fcba7bd81b055de2a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898333"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732551"
 ---
 # <a name="azure-status-overview"></a>Panoramica di Stato di Azure
 
@@ -24,9 +24,7 @@ La pagina relativa allo stato di Azure viene aggiornata in tempo reale quando l'
 
 ## <a name="azure-status-history"></a>Cronologia dello stato di Azure
 
-Mentre la pagina relativa allo stato di Azure mostra sempre i dati sull'integrità più recenti, è possibile visualizzare gli eventi meno recenti usando la [pagina della cronologia dello stato di Azure](https://status.azure.com/status/history/).
-
-A partire dagli eventi pubblicati a novembre 2019, nella pagina Cronologia stato vengono visualizzati eventi risalenti fino a 365 giorni prima, tra cui informazioni preliminari sulla causa radice e sulla mitigazione, oltre ai passaggi successivi per Azure.
+Mentre la pagina relativa allo stato di Azure mostra sempre i dati sull'integrità più recenti, è possibile visualizzare gli eventi meno recenti usando la [pagina della cronologia dello stato di Azure](https://status.azure.com/status/history/). La pagina della cronologia contiene tutte le analisi della causa radice per incidenti verificatisi il 20 novembre 2019 o una data successiva e, da quella data in poi, fornirà una cronologia delle analisi della causa radice di 5 anni. Analisi della causa radice precedenti al 20 novembre 2019 non sono disponibili.
 
 ## <a name="rss-feed"></a>Feed RSS
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/17/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 346795b79a78589d949b035a803a67a9e5a2e8e5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b6dd1aab4c0ce6c656600d7cc7c71233d256aa0b
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77470735"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780539"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Guida introduttiva: Analizzare i dati con Databricks
 
@@ -78,7 +78,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
 Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Creare un cluster Spark in Azure Databricks).
 
-## <a name="create-storage-account-container"></a>Creare un contenitore dell'account di archiviazione
+## <a name="create-notebook"></a>Creare un notebook
 
 In questa sezione viene creato un notebook nell'area di lavoro di Azure Databricks e quindi vengono eseguiti frammenti di codice per configurare l'account di archiviazione.
 

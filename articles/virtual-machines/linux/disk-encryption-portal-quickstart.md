@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 9f09f28dc63e7f061946a66beb59bd4c62be70aa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6e32bfdf8c4b2dd7ce61393ab545770cafc73cf5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78970566"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792531"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale con il portale di Azure
 
@@ -34,8 +34,19 @@ Accedere al [portale di Azure](https://portal.azure.com).
 1. Per **Area** selezionare la stessa area usata in precedenza durante la creazione dell'insieme di credenziali delle chiavi, ad esempio **Stati Uniti orientali**.
 1. Assicurarsi che l'opzione **Dimensioni** sia impostata su *D2s Standard v3*.
 1. In **Account amministratore** selezionare **Password**. Immettere un nome utente e una password.
-    ![Schermata di creazione del gruppo di risorse](./media/disk-encryption/portal-qs-vm-creation.png)
-1. Selezionare la scheda "Gestione" e verificare di avere un account di archiviazione di diagnostica. Se non si ha tale account, selezionare "Crea nuovo", specificare il nome del nuovo account e fare clic su "OK" ![Schermata di creazione del gruppo di risorse](./media/disk-encryption/portal-qs-vm-creation-storage.png)
+
+    :::image type="content" source="./media/disk-encryption/portal-qs-vm-creation.png" alt-text="Schermata di creazione del gruppo di risorse":::
+
+
+    > [!WARNING]
+    > La scheda "Dischi" include un campo "Tipo di crittografia" in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](managed-disks-overview.md) + CMK, non per Crittografia dischi di Azure. 
+    >
+    > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione. 
+
+1. Selezionare la scheda "Gestione" e verificare di avere un account di archiviazione di diagnostica. Se non si ha tale account, selezionare "Crea nuovo", specificare il nome del nuovo account e fare clic su "OK".
+
+    :::image type="content" source="./media/disk-encryption/portal-qs-vm-creation-storage.png" alt-text="Schermata di creazione del gruppo di risorse":::
+
 1. Fare clic su "Rivedi e crea".
 1. Nella pagina **Crea macchina virtuale** è possibile visualizzare i dettagli sulla macchina virtuale che si sta creando. Quando si è pronti, selezionare **Crea**.
 
@@ -47,19 +58,19 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
 1. Sulla barra laterale sinistra selezionare **Dischi**.
 1. Nella schermata Dischi selezionare **Crittografia**. 
 
-    ![Selezione di dischi e crittografia](../media/disk-encryption/portal-qs-disks-to-encryption.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-disks-to-encryption.png" alt-text="Selezione di dischi e crittografia":::
 
 1. Nella schermata Crittografia, in **Disks to encrypt** (Dischi da crittografare) scegliere **Dischi dati e sistema operativo**.
 1. In **Impostazioni di crittografia** scegliere **Selezionare l'insieme di credenziali delle chiavi e la chiave per la crittografia**.
 1. Nella schermata **Selezionare chiave da Azure Key Vault** selezionare **Crea nuovo**.
 
-    ![Selezione di dischi e crittografia](../media/disk-encryption/portal-qs-keyvault-create.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Selezione di dischi e crittografia":::
 
 1. Nella schermata **Crea nuovo Key Vault** assicurarsi che il gruppo di risorse corrisponda a quello usato per creare la VM.
 1. Assegnare un nome all'insieme di credenziali delle chiavi.  Ogni insieme di credenziali delle chiavi in Azure deve avere un nome univoco.
 1. Nella scheda **Criteri di accesso** selezionare la casella **Crittografa dischi di Azure per la crittografia dei volumi**.
 
-    ![Selezione di dischi e crittografia](../media/disk-encryption/portal-qs-keyvault-enable.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-enable.png" alt-text="Selezione di dischi e crittografia":::
 
 1. Selezionare **Rivedi e crea**.  
 1. Dopo che l'insieme di credenziali delle chiavi ha superato la convalida, selezionare **Crea**. Si tornerà nella schermata **Selezionare chiave da Azure Key Vault**.
@@ -68,7 +79,7 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non serve più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare Elimina e quindi confermare il nome del gruppo di risorse da eliminare.
+Quando non servono più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare Elimina e quindi confermare il nome del gruppo di risorse da eliminare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

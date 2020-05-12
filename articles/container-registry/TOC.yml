@@ -32,6 +32,11 @@
               href: container-registry-tutorial-deploy-app.md
             - name: '3: Aggiornare l''applicazione Web'
               href: container-registry-tutorial-deploy-update.md
+    - name: Esempi
+      items:
+        - name: Criteri di Azure predefiniti
+          displayName: 'samples, policies, definitions'
+          href: ./policy-samples.md
     - name: Concetti
       expanded: false
       items:
@@ -39,7 +44,7 @@
           items:
             - name: Baseline di sicurezza
               href: security-baseline.md
-        - name: SKU di Registro Container e limiti
+        - name: Livelli e limiti del registro contenitori
           href: container-registry-skus.md
         - name: 'Registri, repository e immagini'
           href: container-registry-concepts.md
@@ -68,6 +73,8 @@
               href: container-registry-repositories.md
             - name: Importare immagini del contenitore
               href: container-registry-import-images.md
+            - name: Trasferire gli artefatti (anteprima)
+              href: container-registry-transfer-images.md
             - name: Bloccare le immagini del contenitore
               href: container-registry-image-lock.md
             - name: Eliminare immagini del contenitore
@@ -82,10 +89,14 @@
               href: container-registry-webhook.md
         - name: Sicurezza e autenticazione
           items:
-            - name: Limitare l'accesso con la rete virtuale (anteprima)
-              href: container-registry-vnet.md
-            - name: Integrazione con Collegamento privato di Azure (anteprima)
+            - name: Limitare l'accesso tramite endpoint privato
               href: container-registry-private-link.md
+            - name: Configurare le regole del firewall del servizio
+              href: container-registry-access-selected-networks.md
+            - name: Limitare l'accesso con l'endpoint servizio (anteprima)
+              href: container-registry-vnet.md
+            - name: Crittografare con la chiave gestita dal cliente
+              href: container-registry-customer-managed-keys.md
             - name: Accedere dietro a un firewall
               href: container-registry-firewall-access-rules.md
             - name: Authentication
@@ -102,16 +113,14 @@
                   href: container-registry-auth-kubernetes.md
                 - name: Eseguire l'autenticazione dal servizio Azure Kubernetes
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+                - name: Eseguire l'autenticazione con un token con ambito repository (anteprima)
+                  href: container-registry-repository-scoped-permissions.md
             - name: Controllo degli accessi in base al ruolo
               href: container-registry-roles.md
-            - name: Autorizzazioni con ambito repository (anteprima)
-              href: container-registry-repository-scoped-permissions.md
             - name: Attendibilità del contenuto
               href: container-registry-content-trust.md
             - name: Analisi di immagini con il Centro sicurezza
               href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-            - name: Crittografare i dati dei registri (anteprima)
-              href: container-registry-customer-managed-keys.md
         - name: Registri e altri servizi di Azure
           expanded: false
           items:
