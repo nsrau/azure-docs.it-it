@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 12/05/2019
-  ms.openlocfilehash: 46afc139f240b46b9512360e79411a5bc8b03ec4
-  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+  ms.date: 05/07/2020
+  ms.openlocfilehash: 73d36c795ca4be905ac6e9bab31cfe00374bfa13
+  ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/03/2020
-  ms.locfileid: "82732989"
+  ms.lasthandoff: 05/08/2020
+  ms.locfileid: "82930625"
 landingContent:
 - title: Informazioni su Load Balancer
   linkLists:
@@ -28,11 +28,13 @@ landingContent:
       url: concepts.md
     - text: Componenti di Load Balancer
       url: components.md
+    - text: SKU di Load Balancer
+      url: skus.md
 - title: Introduzione
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle VM
+    - text: Creare un'istanza di Load Balancer per bilanciare il carico delle macchine virtuali
       url: quickstart-load-balancer-standard-public-portal.md
   - linkListType: tutorial
     links:
@@ -54,25 +56,27 @@ landingContent:
       url: load-balancer-multivip-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Configurare le regole in uscita e il bilanciamento del carico in Load Balancer Standard usando l'interfaccia della riga di comando di Azure
+    - text: Configurare le regole in uscita e il bilanciamento del carico in Load Balancer (interfaccia della riga di comando di Azure)
       url: configure-load-balancer-outbound-cli.md
-    - text: Creare un servizio di bilanciamento del carico Internet con IPv6 tramite PowerShell
+    - text: Creare un servizio di bilanciamento del carico Internet con IPv6 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: Configurare la modalità di distribuzione
       url: load-balancer-distribution-mode.md
+    - text: Eseguire l'aggiornamento da Basic a Standard
+      url: upgrade-basic-standard.md
 - title: Distribuire
   linkLists:
   - linkListType: concept
     links:
     - text: Load Balancer Standard e zone di disponibilità
       url: load-balancer-standard-availability-zones.md
-    - text: Load Balancer con TCP Reset per inattività (anteprima pubblica)
+    - text: Load Balancer con TCP Reset per inattività
       url: load-balancer-tcp-reset.md
   - linkListType: how-to-guide
     links:
-    - text: Creare un'istanza di Load Balancer Standard con un front-end con ridondanza della zona
+    - text: Creare un'istanza di Load Balancer con un front-end con ridondanza della zona
       url: load-balancer-get-started-internet-az-portal.md
-    - text: Creare un'istanza di Load Balancer Standard con un front-end di zona
+    - text: Creare un'istanza di Load Balancer con un front-end di zona
       url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
     - text: Bilanciamento del carico in più configurazioni IP
       url: load-balancer-multiple-ip.md
@@ -94,3 +98,7 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
     - text: Interfaccia della riga di comando di Azure
       url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+    - text: Modelli di Gestione risorse di Azure
+      url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+    - text: Domande frequenti su Load Balancer
+      url: load-balancer-faqs.md

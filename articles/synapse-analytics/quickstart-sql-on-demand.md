@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d543abc88c1e45f2c1f5503473d8e92566fc582
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457383"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692162"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Guida introduttiva: Uso di SQL su richiesta
 
@@ -48,12 +48,11 @@ Prima di usare gli esempi:
 
 ### <a name="create-database"></a>Creazione del database
 
-Creare un database personalizzato a scopo dimostrativo. È il database in cui si creeranno le viste. Usare questo database nelle query di esempio di questo articolo.
+Creare un database personalizzato a scopo dimostrativo. Questo database verrà usato per creare le viste e per le query di esempio in questo articolo.
 
 > [!NOTE]
 > I database vengono usati solo per visualizzare i metadati, non i dati effettivi.
->
-> Prendere nota del nome del database per usarlo successivamente nella guida di avvio rapido.
+>Prendere nota del nome del database per usarlo successivamente nella guida di avvio rapido.
 
 Usare la query seguente, sostituendo `mydbname` con un nome a scelta:
 
@@ -66,9 +65,15 @@ CREATE DATABASE mydbname
 Per eseguire query con SQL su richiesta, creare le credenziali per SQL su richiesta da usare per accedere ai file nell'archiviazione.
 
 > [!NOTE]
-> Tenere presente che è necessario creare le credenziali per l'accesso all'account di archiviazione. Sebbene SQL su richiesta possa accedere ad account di archiviazione di aree diverse, la disponibilità dell'account e dell'area di lavoro di Azure Synapse nella stessa area offrirà un'esperienza migliore in termini di prestazioni.
+> Per eseguire correttamente gli esempi illustrati in questa sezione, è necessario usare un token di firma di accesso condiviso.
+>
+> Per iniziare a usare i token di firma di accesso condiviso, è necessario eliminare l'oggetto UserIdentity descritto nell'[articolo](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through) seguente.
+>
+> Per impostazione predefinita, SQL su richiesta usa sempre il pass-through di AAD.
 
-Modificare il frammento di codice seguente per creare le credenziali per i contenitori CSV, JSON e Parquet:
+Per altre informazioni su come gestire il controllo di accesso alle risorse di archiviazione, vedere l'articolo[Controllare l'accesso all'account di archiviazione per SQL su richiesta](sql/develop-storage-files-storage-access-control.md).
+
+Eseguire il frammento di codice seguente per creare le credenziali usate negli esempi di questa sezione:
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -90,7 +95,7 @@ L'immagine seguente è un'anteprima del file su cui eseguire le query:
 
 ![Prime 10 righe del file CSV senza intestazione, nuova riga in stile Windows.](./sql/media/query-single-csv-file/population.png)
 
-La query seguente mostra come leggere un file CSV che non contiene una riga di intestazione, con nuova riga in stile Windows e colonne delimitate da virgole:
+La query seguente mostra come leggere un file CSV che non contiene una riga di intestazione, con il carattere di nuova riga in stile Windows e colonne delimitate da virgole:
 
 ```sql
 SELECT TOP 10 *
@@ -155,7 +160,7 @@ I file sono archiviati nella cartella *books* del contenitore *json* e contengon
 
 ### <a name="querying-json-files"></a>Esecuzione di query sui file JSON
 
-La query seguente mostra come usare [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare valori scalari (titolo, autore) da un libro intitolato *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+La query seguente mostra come usare [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare valori scalari (titolo, editore) da un libro intitolato *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```sql
 SELECT
@@ -177,13 +182,13 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> L'intero file JSON viene letto come singola riga/colonna, quindi FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR sono impostati su 0x0b perché non ci si aspetta di trovarli nel file.
+> L'intero file JSON viene letto come singola riga/colonna, quindi FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR sono impostati su 0x0b perché non è previsto trovarli nel file.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto si è pronti per passare agli articoli di avvio rapido seguenti:
+A questo punto è possibile continuare con gli articoli seguenti:
 
-- [Eseguire query su file CSV](sql/query-single-csv-file.md)
+- [Eseguire query su un singolo file CSV](sql/query-single-csv-file.md)
 - [Eseguire query su cartelle e più file CSV](sql/query-folders-multiple-csv-files.md)
 - [Eseguire query su file specifici](sql/query-specific-files.md)
 - [Eseguire query su file Parquet](sql/query-parquet-files.md)
@@ -192,7 +197,4 @@ A questo punto si è pronti per passare agli articoli di avvio rapido seguenti:
 - [Creazione e uso delle viste](sql/create-use-views.md)
 - [Creazione e uso di tabelle esterne](sql/create-use-external-tables.md)
 - [Archiviare i risultati delle query in Archiviazione di Azure](sql/create-external-table-as-select.md)
-
-Per informazioni su come eseguire query su un singolo file CSV, passare al prossimo articolo.
-> [!div class="nextstepaction"]
-> [Eseguire query su file CSV](sql/query-single-csv-file.md)
+- [Eseguire query su un singolo file CSV](sql/query-single-csv-file.md)
