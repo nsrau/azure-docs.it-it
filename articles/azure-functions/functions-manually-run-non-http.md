@@ -3,14 +3,14 @@ title: Eseguire manualmente una funzione di Azure non attivata da HTTP
 description: Usare una richiesta HTTP per l'esecuzione di una funzione di Azure non attivata da HTTP
 author: craigshoemaker
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 6571482d738549d2708fd8ab23eaf8c9f6fb1f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892360"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121766"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Eseguire manualmente una funzione non attivata da HTTP
 
@@ -37,11 +37,17 @@ Utilizzare questo percorso di richiesta in Postman insieme alla chiave master de
 
 ## <a name="get-the-functions-master-key"></a>Ottenere la chiave master della funzione
 
-Passare alla funzione nel portale di Azure e fare clic su **Gestisci** e trovare la sezione **chiavi Host**. Fare clic sul pulsante **copia** nella riga *_master* per copiare la chiave master negli Appunti.
+1. Passare alla funzione nell'portale di Azure e selezionare **tasti funzione**. Quindi, selezionare il tasto funzione che si desidera copiare. 
 
-![Copiare la chiave master dalla schermata di gestione delle funzioni](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Individuare la chiave master da copiare." border="true":::
 
-Dopo aver copiato la chiave master, fare clic sul nome della funzione per tornare alla finestra del file di codice. Quindi, fare clic sulla scheda **Log**. Verranno visualizzati i messaggi dalla funzione registrati in questa posizione quando si esegue manualmente la funzione da Postman.
+1. Nella sezione **modifica chiave** copiare il valore della chiave negli Appunti e quindi fare clic su **OK**.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copiare la chiave master negli Appunti." border="true":::
+
+1. Dopo aver copiato la chiave di *_master* , selezionare **codice + test**, quindi selezionare **log**. Verranno visualizzati i messaggi dalla funzione registrati in questa posizione quando si esegue manualmente la funzione da Postman.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Visualizzare i log per visualizzare i risultati del test della chiave master." border="true":::
 
 > [!CAUTION]  
 > Date le autorizzazioni elevate concesse dalla chiave master nell'app per le funzioni, è consigliabile non condividere questa chiave con terze parti o distribuirla in un'applicazione.
@@ -51,27 +57,27 @@ Dopo aver copiato la chiave master, fare clic sul nome della funzione per tornar
 Aprire Postman e seguire questa procedura:
 
 1. Immettere il **percorso della richiesta nella casella di testo dell'URL**.
-2. Assicurarsi che il metodo HTTP sia impostato su **POST**.
-3. **Fare clic** sulla scheda **Intestazioni**.
-4. Immettere **x-functions-key** come prima **chiave** e incollare la chiave master (dagli appunti) nella casella **valore**.
-5. Immettere **Content-Type** come seconda **chiave** e immettere **application/json** come **valore**.
+1. Assicurarsi che il metodo HTTP sia impostato su **POST**.
+1. Selezionare la scheda **Intestazioni**.
+1. Digitare **x-Functions-Key** come prima chiave e incollare la chiave master (dagli Appunti) come valore.
+1. Digitare **Content-Type** come seconda chiave e digitare **Application/JSON** come valore.
 
-    ![Impostazioni delle intestazioni di Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Impostazioni delle intestazioni del post." border="true":::
 
-6. **Fare clic** sulla scheda **Corpo**.
-7. Immettere **{"input": "test"}** come corpo della richiesta.
+1. Selezionare la scheda **Corpo**.
+1. Digitare **{"input": "test"}** come corpo della richiesta.
 
-    ![Impostazioni dei corpi di Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Impostazioni del corpo del post." border="true":::
 
-8. Fare clic su **Send**.
+1. Selezionare **Invia**.
+        
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Invia una richiesta con postazione." border="true":::
 
-    ![Inviare una richiesta con Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    Postman indica quindi uno stato **202-Accettato**.
 
-Postman indica quindi uno stato **202-Accettato**.
+1. Quindi, ritornare alla funzione nel portale di Azure. Esaminare i log per visualizzare i messaggi provenienti dalla chiamata manuale alla funzione.
 
-Quindi, ritornare alla funzione nel portale di Azure. Individuare la finestra *Log* e verranno visualizzati i messaggi provenienti dalla chiamata manuale alla funzione.
-
-![Risultati del registro delle funzioni da una chiamata manuale](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Visualizzare i log per visualizzare i risultati del test della chiave master." border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
