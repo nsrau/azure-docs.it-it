@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/10/2020
+ms.date: 05/11/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 50c1d7e35b1c4e92664d810836fe1213183fbf83
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5099cc2ce2228bcdbf49d3484e488e7373883ec0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927344"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119048"
 ---
 # <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Proteggi i cicli di vita di Machine Learning con reti virtuali private
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,8 +29,9 @@ Questo articolo illustra come isolare i processi di sperimentazione/formazione e
 > - Interfaccia utente per Machine Learning automatizzato
 > - Interfaccia utente per l'assegnazione di etichette ai dati
 > - Interfaccia utente per set di dati
+> - Notebook
 > 
->  Se si prova, verrà visualizzato un errore durante la visualizzazione dei dati da un account di archiviazione all'interno di una rete virtuale simile a:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+> Se si prova, verrà visualizzato un messaggio simile all'errore seguente:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## <a name="what-is-a-vnet"></a>Che cos'è un VNET?
 
@@ -176,7 +177,7 @@ Se si usa il tunneling forzato con il ambiente di calcolo di Machine Learning, a
 
 * Definire un UDR per ogni indirizzo IP usato dal servizio Azure Batch nell'area in cui si trovano le risorse. Questi UdR consentono al servizio batch di comunicare con i nodi di calcolo per la pianificazione delle attività. Aggiungere anche l'indirizzo IP per il servizio Azure Machine Learning in cui si trovano le risorse, in quanto questa operazione è necessaria per l'accesso alle istanze di calcolo. Per ottenere un elenco di indirizzi IP del servizio batch e del servizio Azure Machine Learning, usare uno dei metodi seguenti:
 
-    * Scaricare gli [intervalli IP e i tag di servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) e cercare `BatchNodeManagement.<region>` nel `AzureMachineLearning.<region>`file e `<region>` , dove è l'area di Azure.
+    * Scaricare gli [intervalli IP e i tag di servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) e cercare nel file `BatchNodeManagement.<region>` e `AzureMachineLearning.<region>` , dove `<region>` è l'area di Azure.
 
     * Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per scaricare le informazioni. L'esempio seguente Scarica le informazioni relative all'indirizzo IP e filtra le informazioni per l'area Stati Uniti orientali 2:
 
@@ -185,7 +186,7 @@ Se si usa il tunneling forzato con il ambiente di calcolo di Machine Learning, a
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
 
-* Il traffico in uscita verso archiviazione di Azure non deve essere bloccato dal dispositivo di rete locale. In particolare, gli URL hanno il formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`e `<account>.blob.core.windows.net`.
+* Il traffico in uscita verso archiviazione di Azure non deve essere bloccato dal dispositivo di rete locale. In particolare, gli URL hanno il formato `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net` .
 
 Quando si aggiunge il UDR, definire la route per ogni prefisso dell'indirizzo IP del batch correlato e impostare __tipo hop successivo__ su __Internet__. Nell'immagine seguente viene illustrato un esempio di questo UDR nel portale di Azure:
 
@@ -201,7 +202,7 @@ Per creare un cluster di ambiente di calcolo di Machine Learning, attenersi alla
 
 1. Selezionare __Calcolo__ a sinistra.
 
-1. Selezionare __Training Clusters__ dal centro e quindi selezionare __+__.
+1. Selezionare __Training Clusters__ dal centro e quindi selezionare __+__ .
 
 1. Nella finestra di dialogo __New Training cluster__ espandere la sezione __Advanced Settings__ .
 
@@ -288,7 +289,7 @@ Per usare un account di archiviazione di Azure per l'area di lavoro in una rete 
 >
 > Quando si crea un'area di lavoro, viene eseguito automaticamente il provisioning dell'account di archiviazione predefinito.
 >
-> Per gli account di archiviazione non predefiniti, `storage_account` il parametro nella [ `Workspace.create()` funzione](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) consente di specificare un account di archiviazione personalizzato in base all'ID risorsa di Azure.
+> Per gli account di archiviazione non predefiniti, il `storage_account` parametro nella [ `Workspace.create()` funzione](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) consente di specificare un account di archiviazione personalizzato in base all'ID risorsa di Azure.
 
 
 <a id="aksvnet"></a>
@@ -309,7 +310,7 @@ Per aggiungere Azure Kubernetes Service (AKS) in una rete virtuale all'area di l
 
 1. Selezionare __Calcolo__ a sinistra.
 
-1. Selezionare __inferenza cluster__ dal centro e quindi selezionare __+__.
+1. Selezionare __inferenza cluster__ dal centro e quindi selezionare __+__ .
 
 1. Nella finestra di dialogo __New inferenza cluster__ selezionare __Advanced__ in __configurazione di rete__.
 
@@ -330,7 +331,7 @@ Per aggiungere Azure Kubernetes Service (AKS) in una rete virtuale all'area di l
 
    [![Una regola di sicurezza in ingresso](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
-È anche possibile usare Azure Machine Learning SDK per aggiungere il servizio Kubernetes di Azure in una rete virtuale. Se si dispone già di un cluster AKS in una rete virtuale, collegarlo all'area di lavoro come descritto in [How to Deploy to AKS](how-to-deploy-and-where.md). Il codice seguente crea una nuova istanza di AKS nella `default` subnet di una rete virtuale denominata `mynetwork`:
+È anche possibile usare Azure Machine Learning SDK per aggiungere il servizio Kubernetes di Azure in una rete virtuale. Se si dispone già di un cluster AKS in una rete virtuale, collegarlo all'area di lavoro come descritto in [How to Deploy to AKS](how-to-deploy-and-where.md). Il codice seguente crea una nuova istanza di AKS nella `default` subnet di una rete virtuale denominata `mynetwork` :
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -439,9 +440,9 @@ Per usare ACI in una rete virtuale per l'area di lavoro, seguire questa procedur
 1. Per abilitare la delega della subnet nella rete virtuale, usare le informazioni contenute nell'articolo [aggiungere o rimuovere una subnet](../virtual-network/manage-subnet-delegation.md) per la delega. È possibile abilitare la delega durante la creazione di una rete virtuale o aggiungerla a una rete esistente.
 
     > [!IMPORTANT]
-    > Quando si Abilita la delega `Microsoft.ContainerInstance/containerGroups` , utilizzare come __subnet del delegato per__ il valore del servizio.
+    > Quando si Abilita la delega, utilizzare `Microsoft.ContainerInstance/containerGroups` come __subnet del delegato per__ il valore del servizio.
 
-2. Distribuire il modello usando [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), usare i `vnet_name` parametri `subnet_name` e. Impostare questi parametri sul nome e sulla subnet della rete virtuale in cui è stata abilitata la delega.
+2. Distribuire il modello usando [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), usare i `vnet_name` `subnet_name` parametri e. Impostare questi parametri sul nome e sulla subnet della rete virtuale in cui è stata abilitata la delega.
 
 ## <a name="azure-firewall"></a>Firewall di Azure
 
@@ -469,7 +470,7 @@ Per informazioni sull'uso di Azure Machine Learning con il firewall di Azure, ve
 
     __Interfaccia della riga di comando di Azure__
 
-    Se è stata [installata l'estensione Machine Learning per l'interfaccia](reference-azure-machine-learning-cli.md)della riga di comando di `az ml workspace show` Azure, è possibile usare il comando per visualizzare le informazioni sull'area di lavoro.
+    Se è stata [installata l'estensione Machine Learning per l'interfaccia](reference-azure-machine-learning-cli.md)della riga di comando di Azure, è possibile usare il `az ml workspace show` comando per visualizzare le informazioni sull'area di lavoro.
 
     ```azurecli-interactive
     az ml workspace show -w yourworkspacename -g resourcegroupname --query 'containerRegistry'
@@ -558,7 +559,7 @@ Per usare Data Lake Storage generazione 2 nella rete virtuale dell'area di lavor
 
 Quando si usa Azure Machine Learning con Data Lake Storage generazione 2 all'interno di una rete virtuale, usare le linee guida seguenti:
 
-* Se si usa l' __SDK per creare un set di dati__e il sistema che esegue il codice __non si trova nella rete virtuale__, `validate=False` usare il parametro. Questo parametro ignora la convalida, che ha esito negativo se il sistema non si trova nella stessa rete virtuale dell'account di archiviazione. Per ulteriori informazioni, vedere il metodo [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
+* Se si usa l' __SDK per creare un set di dati__e il sistema che esegue il codice __non si trova nella rete virtuale__, usare il `validate=False` parametro. Questo parametro ignora la convalida, che ha esito negativo se il sistema non si trova nella stessa rete virtuale dell'account di archiviazione. Per ulteriori informazioni, vedere il metodo [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
 
 * Quando si usa Azure Machine Learning istanza di calcolo o un cluster di calcolo per eseguire il training di un modello usando il set di dati, questo deve trovarsi nella stessa rete virtuale dell'account di archiviazione.
 
@@ -618,7 +619,7 @@ Per usare una macchina virtuale o un cluster Azure HDInsight in una rete virtual
 
     * Nell'elenco a discesa __tag servizio di origine__ selezionare __AzureMachineLearning__.
 
-    * Nell'elenco a discesa __intervalli di porte di origine__ selezionare. __*__
+    * Nell'elenco a discesa __intervalli di porte di origine__ selezionare __*__ .
 
     * Nell'elenco a discesa __destinazione__ selezionare __any__.
 

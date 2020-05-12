@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: e80d1a05765d224dc4682c6f64faccc8c81f8ebd
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007482"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119893"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -65,7 +65,6 @@ I dischi delle macchine virtuali non gestiti non sono supportati negli account c
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Supporto del file System in SDK, PowerShell e l'interfaccia della riga di comando di Azure
 
 - Le operazioni get e set ACL non sono attualmente ricorsive.
-- Il supporto dell'interfaccia della riga di comando di [Azure](data-lake-storage-directory-file-acl-cli.md) è in anteprima pubblica
 
 
 ## <a name="lifecycle-management-policies"></a>Criteri di gestione del ciclo di vita

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: ba268e623a2858c2863ffc86eacfe25284a1e37a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722960"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118159"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio archiviazione di Azure
 
@@ -44,7 +44,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 | ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 | IndexCapacity     | Quantità di memoria usata dall'indice gerarchico di ADLS Gen2 <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 
-#### <a name="table-storage"></a>Archiviazione tabelle
+#### <a name="table-storage"></a>Archiviazione - Tabelle
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
@@ -52,7 +52,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 | TableCount   | Numero di tabelle nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 | TableEntityCount | Numero di entità tabella nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 
-#### <a name="queue-storage"></a>Archiviazione code
+#### <a name="queue-storage"></a>Archiviazione - Code
 
 | Metrica | Descrizione |
 | ------------------- | ----------------- |
@@ -131,18 +131,18 @@ La tabella seguente elenca le proprietà dei log delle risorse di archiviazione 
 |:--- |:---|
 |**time** | Ora UTC (Universal Time coordinata) in cui la richiesta è stata ricevuta dalla risorsa di archiviazione. Ad esempio: `2018/11/08 21:09:36.6900118`.|
 |**resourceId** | ID risorsa dell'account di archiviazione. Ad esempio: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
-|**category** | Categoria dell'operazione richiesta. Ad esempio: `StorageRead`, `StorageWrite`o `StorageDelete`.|
+|**category** | Categoria dell'operazione richiesta. Ad esempio: `StorageRead` , `StorageWrite` o `StorageDelete` .|
 |**operationName** | Tipo di operazione REST eseguita. <br> Per un elenco completo delle operazioni, vedere l' [argomento analisi archiviazione operazioni registrate e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 |**operationVersion** | La versione del servizio di archiviazione specificata quando è stata effettuata la richiesta. Equivale al valore dell'intestazione **x-ms-version** . Ad esempio: `2017-04-17`.|
 |**schemaVersion** | Versione dello schema del log. Ad esempio: `1.0`.|
-|**statusCode** | Codice di stato HTTL della richiesta. Se la richiesta viene interrotta, questo valore potrebbe essere impostato `Unknown`su. <br> Ad esempio: `206` |
-|**statusText** | Stato dell'operazione richiesta.  Per un elenco completo dei messaggi di stato, vedere l' [argomento analisi archiviazione operazioni registrate e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Nella versione 2017-04-17 e successive, il messaggio `ClientOtherError` di stato non viene utilizzato. Al contrario, questo campo contiene un codice di errore. Ad esempio: `SASSuccess`  |
+|**statusCode** | Codice di stato HTTL della richiesta. Se la richiesta viene interrotta, questo valore potrebbe essere impostato su `Unknown` . <br> Ad esempio: `206` |
+|**statusText** | Stato dell'operazione richiesta.  Per un elenco completo dei messaggi di stato, vedere l' [argomento analisi archiviazione operazioni registrate e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Nella versione 2017-04-17 e successive, il messaggio di stato `ClientOtherError` non viene utilizzato. Al contrario, questo campo contiene un codice di errore. Ad esempio: `SASSuccess`  |
 |**durationMs** | Tempo totale, espresso in millisecondi, per eseguire l'operazione richiesta. È incluso il tempo necessario per leggere la richiesta in ingresso e inviare la risposta al richiedente. Ad esempio: `12`.|
 |**callerIpAddress** | Indirizzo IP del richiedente, incluso il numero di porta. Ad esempio: `192.100.0.102:4362`. |
 |**correlationId** | ID utilizzato per correlare i log tra le risorse. Ad esempio: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**location** | Percorso dell'account di archiviazione. Ad esempio: `North Europe`. |
-|**protocol**|Protocollo utilizzato nell'operazione. Ad esempio: `HTTP`, `HTTPS` `SMB`, o`NFS`|
-| **URI** | URI (Uniform Resource Identifier) richiesto. Ad esempio: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
+|**protocol**|Protocollo utilizzato nell'operazione. Ad esempio: `HTTP` , `HTTPS` , `SMB` o`NFS`|
+| **URI** | URI (Uniform Resource Identifier) richiesto. Ad esempio: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>Campi che descrivono come è stata autenticata l'operazione
 
@@ -177,7 +177,7 @@ La tabella seguente elenca le proprietà dei log delle risorse di archiviazione 
 
 | Proprietà | Descrizione |
 |:--- |:---|
-|**identità/tipo** | Tipo di autenticazione utilizzato per effettuare la richiesta. Ad esempio: `OAuth`, `SAS Key` `Account Key`, o`Anonymous` |
+|**identità/tipo** | Tipo di autenticazione utilizzato per effettuare la richiesta. Ad esempio: `OAuth` , `SAS Key` , `Account Key` o`Anonymous` |
 |**Identity/tokenHash**|Questo campo è riservato solo per uso interno. |
 |**autorizzazione/azione** | Azione assegnata alla richiesta. Ad esempio: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 |**autorizzazione/roleAssignmentId** | ID dell'assegnazione di ruolo. Ad esempio: `4e2521b7-13be-4363-aeda-111111111111`.|
@@ -240,7 +240,7 @@ La tabella seguente elenca le proprietà dei log delle risorse di archiviazione 
 |**ETag** | Identificatore ETag per l'oggetto restituito, tra virgolette. Ad esempio: `0x8D101F7E4B662C4`.  |
 |**serverLatencyMs** | Tempo totale espresso in millisecondi per eseguire l'operazione richiesta. Questo valore non include la latenza di rete (il tempo per leggere la richiesta in ingresso e inviare la risposta al richiedente). Ad esempio: `22`. |
 |**serviceType** | Servizio associato alla richiesta. ad esempio `blob`, `table`, `files` o `queue`. |
-|**operationCount** | Numero di tutte le operazioni registrate incluse nella richiesta. Questo conteggio inizia con un indice di `0`. Alcune richieste richiedono più di un'operazione, ad esempio una richiesta di copia di un BLOB. La maggior parte delle richieste esegue una sola operazione. Ad esempio: `1`. |
+|**operationCount** | Numero di tutte le operazioni registrate incluse nella richiesta. Questo conteggio inizia con un indice di `0` . Alcune richieste richiedono più di un'operazione, ad esempio una richiesta di copia di un BLOB. La maggior parte delle richieste esegue una sola operazione. Ad esempio: `1`. |
 |**requestHeaderSize** | Dimensione dell'intestazione della richiesta espressa in byte. Ad esempio: `578`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto. |
 |**requestBodySize** | Dimensioni dei pacchetti di richiesta, espressi in byte, letti dal servizio di archiviazione. <br> Ad esempio: `0`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto.  |
 |**responseHeaderSize** | Dimensione dell'intestazione della risposta espressa in byte. Ad esempio: `216`. <br>Se una richiesta ha esito negativo, questo valore potrebbe essere vuoto.  |

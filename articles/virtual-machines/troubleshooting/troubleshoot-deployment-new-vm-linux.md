@@ -3,7 +3,7 @@ title: Risolvere i problemi di distribuzione della macchina virtuale Linux | Mic
 description: Risolvere i problemi della distribuzione Resource Manager quando si crea una nuova macchina virtuale Linux in Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
-ms.author: cjiang
-ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: f85389d8fc2269b346df22854bb7ddce08844a88
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981410"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118227"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Linux in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -74,7 +74,7 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 * Ripetere la richiesta usando una VM di dimensioni inferiori.
 * Se le dimensioni della VM richieste non possono essere modificate:
   * Arrestare tutte le VM nel set di disponibilità.
-    Fare clic su **gruppi** > di risorse*il gruppo* > di risorse**risorse** > il*set* > di disponibilità**macchine** > virtuali > **arresto**della*macchina virtuale*.
+    Fare clic su **gruppi**di risorse  >  *il gruppo*di risorse  >  **risorse**il  >  *set di disponibilità*  >  **macchine virtuali**  >  arresto della*macchina virtuale*  >  **Stop**.
   * Dopo l'arresto di tutte le VM, creare la nuova VM con le dimensioni desiderate.
   * Avviare prima la nuova VM, quindi selezionare tutte le VM arrestate e fare clic su **Avvia**.
 

@@ -1,24 +1,30 @@
 ---
-title: Abilitare l'eliminazione temporanea per i BLOB
+title: Abilitare e gestire l'eliminazione temporanea per i BLOB
 titleSuffix: Azure Storage
 description: Abilitare l'eliminazione temporanea per gli oggetti BLOB per ripristinare i dati in modo più semplice quando vengono erroneamente modificati o eliminati.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26a16d0eeb81c12faede1c00bdf5a0d724f7a6c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884683"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120097"
 ---
-# <a name="enable-soft-delete-for-blobs"></a>Abilitare l'eliminazione temporanea per i BLOB
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Abilitare e gestire l'eliminazione temporanea per i BLOB
 
-La procedura seguente illustra come iniziare a usare l'eliminazione temporanea.
+L'eliminazione temporanea protegge i dati BLOB da modifiche accidentali o erroneamente o eliminati. Quando l'eliminazione temporanea è abilitata per un account di archiviazione, i BLOB, le versioni BLOB (anteprima) e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro il periodo di memorizzazione specificato.
+
+Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, Microsoft consiglia di attivare l'eliminazione temporanea.
+
+Questo articolo illustra come iniziare a usare l'eliminazione temporanea.
+
+## <a name="enable-soft-delete"></a>Abilitare l'eliminazione temporanea
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -71,6 +77,7 @@ Set-AzContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+
 Per verificare l'attivazione dell'eliminazione temporanea, usare questo comando:
 
 ```powershell
@@ -174,3 +181,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Eliminazione temporanea per l'archiviazione BLOB](soft-delete-overview.md)
+- [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)

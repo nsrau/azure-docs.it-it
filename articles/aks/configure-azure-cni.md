@@ -4,12 +4,12 @@ description: Informazioni su come configurare le funzionalità di rete avanzate 
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207497"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120930"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -22,7 +22,7 @@ Questo articolo illustra come usare le funzionalità di rete di *Azure CNI* per 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
-* I cluster AKS non possono usare `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`o `192.0.2.0/24` per l'intervallo di indirizzi del servizio Kubernetes.
+* I cluster AKS non possono usare `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` o `192.0.2.0/24` per l'intervallo di indirizzi del servizio Kubernetes.
 * L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -67,7 +67,9 @@ Il numero massimo di pod per nodo in un cluster AKS è 250. Il numero massimo *p
 
 ### <a name="configure-maximum---new-clusters"></a>Configurare il valore massimo - nuovi cluster
 
-È possibile configurare il numero massimo di pod per nodo *solo in fase di distribuzione del cluster*. Se si esegue la distribuzione con l'interfaccia della riga di comando di Azure o con un modello di Gestione risorse, è possibile impostare il numero massimo di pod per nodo su un valore massimo di 250.
+È possibile configurare il numero massimo di pod per nodo in fase di distribuzione del cluster o quando si aggiungono nuovi pool di nodi. Se si esegue la distribuzione con l'interfaccia della riga di comando di Azure o con un modello di Gestione risorse, è possibile impostare il numero massimo di pod per nodo su un valore massimo di 250.
+
+Se non si specifica maxPods durante la creazione di nuovi pool di nodi, si riceve un valore predefinito pari a 30 per Azure CNI.
 
 Un valore minimo per il numero massimo di pod per nodo viene applicato per garantire lo spazio per i pod di sistema critici per l'integrità del cluster. Il valore minimo che può essere impostato per il numero massimo di pod per nodo è 10 se e solo se la configurazione di ogni pool di nodi ha spazio per almeno 30 POD. Se ad esempio si imposta il numero massimo di pod per nodo su un minimo di 10, ogni singolo pool di nodi avrà un minimo di 3 nodi. Questo requisito si applica anche a ogni nuovo pool di nodi creato, pertanto se 10 è definito come numero massimo di pod per nodo, ogni pool di nodi successivi aggiunto deve contenere almeno 3 nodi.
 
@@ -85,7 +87,7 @@ Un valore minimo per il numero massimo di pod per nodo viene applicato per garan
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurare il valore massimo - cluster esistenti
 
-Non è possibile modificare il numero massimo di pod per ogni nodo in un cluster servizio Azure Kubernetes esistente. È possibile modificare il numero solo quando si distribuisce inizialmente il cluster.
+È possibile definire l'impostazione maxPod per nodo quando si crea un nuovo pool di nodi. Se è necessario aumentare l'impostazione di maxPod per nodo in un cluster esistente, aggiungere un nuovo pool di nodi con il nuovo numero di maxPod desiderato. Dopo aver eseguito la migrazione dei pod al nuovo pool, eliminare il pool precedente. Per eliminare un pool precedente in un cluster, assicurarsi di impostare le modalità del pool di nodi come definito nel [documento del pool di nodi di sistema[-nodo-]pool.
 
 ## <a name="deployment-parameters"></a>Parametri di distribuzione
 
@@ -100,7 +102,7 @@ Quando si crea un cluster servizio Azure Kubernetes, per la rete Azure CNI i par
 * Non deve essere compreso nell'intervallo di indirizzi IP della rete virtuale del cluster
 * Non deve sovrapporsi ad altre reti virtuali con cui la rete virtuale del cluster effettua il peering
 * Non deve sovrapporsi ad altri IP locali
-* Non devono essere compresi negli intervalli `169.254.0.0/16`, `172.30.0.0/16` `172.31.0.0/16`, o`192.0.2.0/24`
+* Non devono essere compresi negli intervalli `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` o`192.0.2.0/24`
 
 Sebbene sia tecnicamente possibile specificare un intervallo di indirizzi del servizio all'interno della stessa rete virtuale del cluster, tale operazione non è consigliata. Se vengono usati intervalli IP che si sovrappongono, si può verificare un comportamento imprevedibile. Per altre informazioni, vedere la sezione [Domande frequenti](#frequently-asked-questions) di questo articolo. Per altre informazioni sui servizi Kubernetes, vedere [Services][services] (Servizi) nella documentazione di Kubernetes.
 
@@ -212,3 +214,4 @@ I cluster Kubernetes creati con Azure Kubernetes Engine supportano entrambi i pl
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
+[System-node-pool]: use-system-pools.md

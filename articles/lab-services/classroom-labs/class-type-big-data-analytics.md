@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/15/2020
 ms.author: nicolela
-ms.openlocfilehash: c499b7a0f1cd16bf57fef21742b01bda71249916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3035b9debdd46c1a8ba246882312e28d1a2087e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538778"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118431"
 ---
 # <a name="set-up-a-lab-to-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Configurare un Lab per Big Data analisi usando la distribuzione Docker di HortonWorks Data Platform
 
@@ -102,7 +102,7 @@ In questa sezione si distribuirà HDP sandbox e si accederà anche a HDP sandbox
 1. Dopo la distribuzione e l'esecuzione dei contenitori Docker per HDP sandbox, è possibile accedere all'ambiente avviando il browser e seguendo le istruzioni di Cloudera per l'apertura della [pagina iniziale di sandbox](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) e l'avvio del dashboard HDP.
 
     > [!NOTE] 
-    > Queste istruzioni presuppongono che sia stato innanzitutto eseguito il mapping dell'indirizzo IP locale dell'ambiente sandbox a sandbox-hdp.hortonworks.com nel file host nella macchina virtuale del modello.  Se **non si esegue questo** mapping, è possibile accedere alla pagina iniziale di sandbox passando a. [http://localhost:8080](http://localhost:8080)
+    > Queste istruzioni presuppongono che sia stato innanzitutto eseguito il mapping dell'indirizzo IP locale dell'ambiente sandbox a sandbox-hdp.hortonworks.com nel file host nella macchina virtuale del modello.  Se **non si esegue questo** mapping, è possibile accedere alla pagina iniziale di sandbox passando a `http://localhost:8080` .
 
 ### <a name="automatically-start-docker-containers-when-students-log-in"></a>Avvia automaticamente i contenitori Docker al momento dell'accesso degli studenti
 

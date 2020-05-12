@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e53b6bdb041bfac5a82ed607b75b25ab0513f57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d8f2c747a4bc0ab2119c92e61188e3c57f2b212
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188005"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118363"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connettere la rete del Lab a una rete virtuale peer in Azure Lab Services
 
@@ -48,7 +48,7 @@ Durante la creazione di un nuovo [account Lab](tutorial-setup-lab-account.md), �
 
 È disponibile anche un'opzione per specificare l' **intervallo di indirizzi** per le macchine virtuali per i Lab.  La proprietà **intervallo di indirizzi** si applica solo se la **rete virtuale peer** è abilitata per il Lab.  Se viene specificato l'intervallo di indirizzi, tutte le macchine virtuali nei Lab sotto l'account Lab verranno create in tale intervallo di indirizzi. L'intervallo di indirizzi deve essere in notazione CIDR (ad esempio 10.20.0.0/20) e non sovrapporsi ad alcun intervallo di indirizzi esistente.  Quando si specifica un intervallo di indirizzi, è importante considerare il numero di *Lab* che verrà creato e fornire un intervallo di indirizzi per adattarlo. Lab Services presuppone un massimo di 512 macchine virtuali per Lab.  Ad esempio, un intervallo IP con "/23" può creare solo un Lab.  Un intervallo con '/21' consentirà la creazione di quattro Lab.
 
-Se l' **intervallo di indirizzi** non è specificato, Lab Services utilizzerà l'intervallo di indirizzi predefinito fornito da Azure quando si crea la rete virtuale di cui eseguire il peering con la rete virtuale.  L'intervallo è spesso un elemento come 10. x. 0,0/16.  Questo può comportare una sovrapposizione degli intervalli IP, quindi assicurarsi di specificare e l'intervallo di indirizzi nelle impostazioni del Lab o controllare l'intervallo di indirizzi della rete virtuale di cui si sta eseguendo il peering.
+Se l' **intervallo di indirizzi** non è specificato, Lab Services utilizzerà l'intervallo di indirizzi predefinito fornito da Azure quando si crea la rete virtuale di cui eseguire il peering con la rete virtuale.  L'intervallo è spesso un elemento come 10. x. 0,0/16.  Questo può comportare una sovrapposizione degli intervalli IP, quindi assicurarsi di specificare un intervallo di indirizzi nelle impostazioni del Lab o controllare l'intervallo di indirizzi della rete virtuale di cui si sta eseguendo il peering.
 
 ## <a name="configure-after-the-lab-is-created"></a>Configurare dopo la creazione del Lab
 

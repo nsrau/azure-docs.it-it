@@ -5,19 +5,18 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3b2b4e8868b73e22706c684d94371fe37885b9a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132353"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119255"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Monitoraggio dell'applicazione con zero strumentazione per applicazioni ospitate in Kubernetes
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Monitoraggio dell'applicazione con zero strumentazione per applicazioni ospitate in Kubernetes con Istio-DEPRECAto
 
 > [!IMPORTANT]
-> Questa funzionalità è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa funzionalità è attualmente deprecata e non sarà più supportata dopo il 1 ° agosto 2020.
+> La versione attualmente consigliata funziona solo per [Java tramite agente autonomo](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
 Monitoraggio di Azure sfrutta ora il servizio Mesh Tech nel cluster Kubernetes per fornire il monitoraggio delle applicazioni per qualsiasi app ospitata in Kubernetes. Con le funzionalità predefinite di Application Insight, come la [mappa delle applicazioni](../../azure-monitor/app/app-map.md) , per modellare le dipendenze, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) per il monitoraggio in tempo reale, visualizzazioni potenti con il [dashboard predefinito](../../azure-monitor/app/overview-dashboard.md), [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md)e [cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md). Questa funzionalità consentirà agli utenti di individuare i colli di bottiglia delle prestazioni e gli hotspot di errore in tutti i carichi di lavoro Kubernetes all'interno di uno spazio dei nomi Kubernetes selezionato. Grazie alla possibilità di sfruttare gli investimenti esistenti di mesh Service con tecnologie come Istio, monitoraggio di Azure consente il monitoraggio delle app con strumentazione automatica senza alcuna modifica al codice dell'applicazione.
 
@@ -131,7 +130,7 @@ Di seguito è riportato il flusso di risoluzione dei problemi da usare quando i 
 
 Per le informazioni più aggiornate per lo stato di avanzamento del progetto, visitare il [Application Insights Adapter per il progetto Istio mixer per GitHub](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
-## <a name="uninstall"></a>Disinstallazione
+## <a name="uninstall"></a>Uninstall
 
 Per disinstallare il prodotto, per *ogni* file YAML trovato in *src/kubernetes/* Run:
 

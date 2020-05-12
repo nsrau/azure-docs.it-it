@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521179"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119298"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guida alla configurazione di un computer modello Windows in Azure Lab Services
 
@@ -136,7 +136,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 Se il computer modello richiede Office, è consigliabile installare Office tramite lo [strumento di distribuzione di Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). È necessario creare un file di configurazione riutilizzabile usando il [servizio di configurazione client di office 365](https://config.office.com/) per scegliere l'architettura, le funzionalità necessarie per Office e la frequenza di aggiornamento.
 
 1. Passare al [servizio configurazione client di Office 365](https://config.office.com/) e scaricare il file di configurazione.
-2. Scaricare [lo strumento di distribuzione di Office](https://www.microsoft.com/download/details.aspx?id=49117).  Il file scaricato sarà `setup.exe`.
+2. Scaricare [lo strumento di distribuzione di Office](https://www.microsoft.com/download/details.aspx?id=49117).  Il file scaricato sarà `setup.exe` .
 3. Eseguire `setup.exe /download configuration.xml` per scaricare i componenti di Office.
 4. Eseguire `setup.exe /configure configuration.xml` per installare i componenti di Office.
 
@@ -211,11 +211,11 @@ Se sono necessarie altre lingue installate nella macchina virtuale, è possibile
 2. Cerca "Language Pack"
 3. Scegliere la lingua da installare
 
-Se è già stato effettuato l'accesso alla macchina virtuale modello, usare il [collegamento "installa il Language Pack"](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) per passare direttamente alla pagina delle impostazioni appropriate.
+Se è già stato effettuato l'accesso alla macchina virtuale modello, usare il collegamento "installa il Language Pack" ( `ms-settings:regionlanguage?activationSource=SMC-IA-4027670` ) per passare direttamente alla pagina delle impostazioni appropriate.
 
 ## <a name="remove-unneeded-built-in-apps"></a>Rimuovere le app predefinite non necessarie
 
-Windows 10 è dotato di molte applicazioni predefinite che potrebbero non essere necessarie per una classe specifica. Per semplificare l'immagine del computer per gli studenti, potrebbe essere necessario disinstallare alcune applicazioni dal computer modello.  Per visualizzare un elenco delle applicazioni installate, usare il cmdlet `Get-AppxPackage` di PowerShell.  Nell'esempio seguente vengono illustrate tutte le applicazioni installate che possono essere rimosse.
+Windows 10 è dotato di molte applicazioni predefinite che potrebbero non essere necessarie per una classe specifica. Per semplificare l'immagine del computer per gli studenti, potrebbe essere necessario disinstallare alcune applicazioni dal computer modello.  Per visualizzare un elenco delle applicazioni installate, usare il cmdlet di PowerShell `Get-AppxPackage` .  Nell'esempio seguente vengono illustrate tutte le applicazioni installate che possono essere rimosse.
 
 ```powershell
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name

@@ -1,20 +1,20 @@
 ---
 title: Aggiungere un marcatore HTML alla mappa | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come aggiungere un marcatore HTML a una mappa usando il Microsoft Azure Maps Web SDK.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2700d42c25d58911fb275ad9ce6c5610cd22624d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30d9cf9848a8d99505bf9f9c97bef5aaa31065ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536769"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119286"
 ---
 # <a name="add-html-markers-to-the-map"></a>Aggiungere indicatori HTML alla mappa
 
@@ -28,9 +28,9 @@ Questo articolo illustra come aggiungere un codice HTML personalizzato, ad esemp
 
 ## <a name="add-an-html-marker"></a>Aggiungere un indicatore HTML
 
-La classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe marcatore HTML è un modello SVG che include un `{color}` segnaposto e `{text}` . Impostare le proprietà colore e testo nelle opzioni del marcatore HTML per una personalizzazione rapida. 
+La classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) ha uno stile predefinito. È possibile personalizzare l'indicatore configurandone le impostazioni di colore e testo. Lo stile predefinito della classe marcatore HTML è un modello SVG che include un `{color}` `{text}` segnaposto e. Impostare le proprietà colore e testo nelle opzioni del marcatore HTML per una personalizzazione rapida. 
 
-Il codice seguente crea un marcatore HTML e imposta la proprietà Color su "DodgerBlue" e la proprietà Text su "10". Un popup viene collegato al marcatore e `click` l'evento viene usato per impostare la visibilità del popup.
+Il codice seguente crea un marcatore HTML e imposta la proprietà Color su "DodgerBlue" e la proprietà Text su "10". Un popup viene collegato al marcatore e l' `click` evento viene usato per impostare la visibilità del popup.
 
 ```javascript
 //Create an HTML marker and add it to the map.
@@ -82,7 +82,7 @@ Uno dei vantaggi degli indicatori HTML è la presenza di diverse eccezionali per
 
 ## <a name="draggable-html-markers"></a>Indicatori HTML trascinabili
 
-Questo esempio mostra come rendere trascinabile un indicatore HTML. I marcatori `drag`HTML `dragstart`supportano gli `dragend` eventi, e.
+Questo esempio mostra come rendere trascinabile un indicatore HTML. I marcatori HTML supportano `drag` `dragstart` `dragend` gli eventi, e.
 
 <br/>
 

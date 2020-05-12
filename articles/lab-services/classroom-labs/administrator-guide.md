@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 307ca08e733417efc9496415a09a0898fe10393e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af69b9105d55749267e6c54a6584566b499b4097
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183467"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118465"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Guida dell'amministratore di Azure Lab Services
 Gli amministratori IT che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account Lab per la propria scuola. Una volta configurato un account Lab, gli amministratori o gli educatori creano laboratori in aula contenuti nell'account Lab. Questo articolo fornisce una panoramica generale delle risorse di Azure e delle linee guida per la loro creazione.
@@ -124,16 +124,16 @@ Quando si inizia a usare Azure Lab Services, è consigliabile definire convenzio
 
 | Tipo di risorsa | Ruolo | Schema consigliato | Esempi |
 | ------------- | ---- | ----------------- | -------- | 
-| Resource group | Contiene uno o più account Lab e una o più raccolte immagini condivise | \<\>-\<ambiente\>nome breve organizzazione-RG<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente per la risorsa, ad esempio un progetto pilota o di produzione</li><li>**RG** sta per il tipo di risorsa: gruppo di risorse.</li></ul> | contosouniversitylabs-RG<br/>contosouniversitylabs-Pilot-RG<br/>contosouniversitylabs-prod-RG |
-| Account Lab | Contiene uno o più Lab | \<\>-\<ambiente\>nome breve organizzazione-la<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente per la risorsa, ad esempio un progetto pilota o di produzione</li><li>**La** sta per il tipo di risorsa: account Lab.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-Pilot-la<br/>sciencedeptlabs-prod-la |
-| Lab in aula | Contiene una o più macchine virtuali |\<Identificatore dell'\>-\<educatore temporale\>-\<nome classe\><ul><li>**Nome classe** identifica il nome della classe supportata dal Lab.</li><li>L' **intervallo** di tempo identifica l'intervallo di tempo in cui viene offerta la classe.</li>L' **identificatore dell'istruzione** identifica l'educatore proprietario del Lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| Raccolta immagini condivise | Contiene una o più versioni di immagini di macchina virtuale | \<raccolta nome\>breve organizzazione | contosouniversitylabsgallery |
+| Resource group | Contiene uno o più account Lab e una o più raccolte immagini condivise | \<ambiente nome breve organizzazione \> - \< \> -RG<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente per la risorsa, ad esempio un progetto pilota o di produzione</li><li>**RG** sta per il tipo di risorsa: gruppo di risorse.</li></ul> | contosouniversitylabs-RG<br/>contosouniversitylabs-Pilot-RG<br/>contosouniversitylabs-prod-RG |
+| Account Lab | Contiene uno o più Lab | \<ambiente nome breve organizzazione \> - \< \> -la<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente per la risorsa, ad esempio un progetto pilota o di produzione</li><li>**La** sta per il tipo di risorsa: account Lab.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-Pilot-la<br/>sciencedeptlabs-prod-la |
+| Lab in aula | Contiene una o più macchine virtuali |\<Identificatore dell' \> - \< \> - \< educatore temporale nome classe\><ul><li>**Nome classe** identifica il nome della classe supportata dal Lab.</li><li>L' **intervallo** di tempo identifica l'intervallo di tempo in cui viene offerta la classe.</li>L' **identificatore dell'istruzione** identifica l'educatore proprietario del Lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
+| Raccolta immagini condivise | Contiene una o più versioni di immagini di macchina virtuale | \<raccolta nome breve organizzazione \> | contosouniversitylabsgallery |
 
 Per altre informazioni sulla denominazione di altre risorse di Azure, vedere [convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="regionslocations"></a>Regions\locations
 
-Quando si configurano le risorse di Azure Lab Services, è necessario specificare un'area o un percorso del data center che ospiterà la risorsa. Di seguito sono riportate altre informazioni sul modo in cui l'area influisca su ognuna delle risorse riportate in relazione alla configurazione di un Lab.
+Quando si configurano le risorse di Azure Lab Services, è necessario specificare un'area o un percorso del data center che ospiterà la risorsa. Di seguito sono riportate altre informazioni sul modo in cui l'area influisca su ognuna delle risorse interessate dalla configurazione di un Lab.
 
 ### <a name="resource-group"></a>Resource group
 
@@ -178,7 +178,7 @@ Quando gli amministratori o i creatori di Lab creano un Lab per le aule, possono
 | Dimensione | Specifiche | Serie | Uso consigliato |
 | ---- | ----- | ------ | ------------- |
 | Piccolo| <ul><li>2 core</li><li>3,5 GB DI RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono ideali per la riga di comando, l'apertura del Web browser, i server Web con traffico ridotto, i database di piccole e medie dimensioni. |
-| Medio | <ul><li>4 core</li><li>7 GB DI RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi. |
+| Media | <ul><li>4 core</li><li>7 GB DI RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi. |
 | Media (virtualizzazione annidata) | <ul><li>4 core</li><li>16 GB DI RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi.  Questa dimensione supporta anche la virtualizzazione nidificata. |
 | large | <ul><li>8 core</li><li>32 GB DI RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni.  Questa dimensione supporta anche la virtualizzazione nidificata. |
 | GPU piccola (visualizzazione) | <ul><li>6 core</li><li>56 GB DI RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. |
