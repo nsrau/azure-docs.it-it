@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
-ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/11/2020
+ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732037"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117785"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su monitoraggio di Azure
 
@@ -196,11 +196,15 @@ Progettazione viste è disponibile solo per gli utenti assegnati con autorizzazi
 * [Diagnostica di Azure](platform/diagnostics-extension-to-application-insights.md)
 * [App Web Java](app/java-troubleshoot.md)
 
-*Non sono disponibili dati dal server*
+*Non ricevo dati dal server:*
 
 * [Impostare le eccezioni del firewall](app/ip-addresses.md)
 * [Configurare un server ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurare un server Java](app/java-agent.md)
+
+*Quanti Application Insights è necessario distribuire?:*
+
+* [Come progettare la distribuzione di Application Insights: uno rispetto a molte risorse Application Insights?](app/separate-resources.md)
 
 ### <a name="can-i-use-application-insights-with-"></a>Si può usare Application Insights con ...?
 
@@ -247,7 +251,7 @@ Dipende dal tipo di progetto. Per un'applicazione Web:
 * Inserire elementi in:
   * Web.config
   * packages.config
-* (Solo nuovi progetti: se si [aggiungono Application Insights a un progetto esistente][start], è necessario eseguire questa operazione manualmente). Inserisce frammenti nel codice client e server per inizializzarli con l'ID di risorsa Application Insights. Ad esempio, in un'app MVC, il codice viene inserito nella pagina master Views/Shared/\_layout. cshtml
+* (Solo nuovi progetti: se si [aggiungono Application Insights a un progetto esistente][start], è necessario eseguire questa operazione manualmente). Inserisce frammenti nel codice client e server per inizializzarli con l'ID di risorsa Application Insights. Ad esempio, in un'app MVC, il codice viene inserito nella pagina master Views/Shared/ \_ layout. cshtml
 
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>In che modo è possibile effettuare l'aggiornamento da versioni dell'SDK meno recenti?
 Vedere le [note sulla versione](app/release-notes.md) dell'SDK appropriato per il tipo di applicazione.
@@ -263,7 +267,7 @@ Non è consigliabile usare questo metodo per popolare la versione dell'API. La v
 
 Un'app desktop che è possibile usare nel server Web IIS per configurare Application Insights nelle app Web. Non raccoglie dati di telemetria: è possibile interromperlo se non si sta configurando un'app. 
 
-[Altre informazioni](app/monitor-performance-live-website-now.md#questions).
+[Altre informazioni](app/monitor-performance-live-website-now.md#questions)
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>Quali dati di telemetria vengono raccolti da Application Insights?
 
@@ -309,7 +313,7 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 * Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione in Application Insights fare riferimento a questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/)
 
 È possibile [usare Power BI](app/export-power-bi.md ) per visualizzare i dati di telemetria della richiesta in una mappa.
 
@@ -515,7 +519,7 @@ Si tratta di processi non in contenitori che vengono eseguiti nel nodo.
 
 Come si calcola questo?
 
-**Altri processi** = *utilizzo totale dall'* - *utilizzo di CAdvisor dal processo in contenitori*
+**Altri processi**  =  *Utilizzo totale da CAdvisor*  -  *Utilizzo dal processo in contenitori*
 
 Gli **altri processi** includono:
 
@@ -537,7 +541,7 @@ Per la versione dell'agente ciprod12042019 e versioni successive, per impostazio
 
 Unire le altre tabelle per includere i valori delle proprietà nei risultati.
 
-Modificare le query in modo da includere le proprietà Image e ```ContainerInventory``` ImageTag dalla tabella mediante l'Unione alla proprietà ContainerId. È possibile includere la proprietà Name, come in precedenza nella ```ContainerLog``` tabella, dal campo ContaineName della tabella KubepodInventory tramite join alla proprietà ContainerId. Questa è l'opzione consigliata.
+Modificare le query in modo da includere le proprietà Image e ImageTag dalla ```ContainerInventory``` tabella mediante l'Unione alla proprietà ContainerId. È possibile includere la proprietà Name, come in precedenza nella tabella, ```ContainerLog``` dal campo ContaineName della tabella KubepodInventory tramite join alla proprietà ContainerId. Questa è l'opzione consigliata.
 
 Nell'esempio seguente viene illustrata una query dettagliata di esempio in cui viene illustrato come ottenere questi valori di campo con join.
 
@@ -565,7 +569,7 @@ ContainerLog
 
 Abilitare di nuovo la raccolta per queste proprietà per ogni riga del log del contenitore.
 
-Se la prima opzione non è comoda a causa delle modifiche di query necessarie, è possibile riabilitare la raccolta di questi campi abilitando l'impostazione ```log_collection_settings.enrich_container_logs``` nella mappa di configurazione dell'agente come descritto nelle impostazioni di configurazione della [raccolta dati](insights/container-insights-agent-config.md).
+Se la prima opzione non è comoda a causa delle modifiche di query necessarie, è possibile riabilitare la raccolta di questi campi abilitando l'impostazione ```log_collection_settings.enrich_container_logs``` nella mappa di configurazione dell'agente come descritto nelle [impostazioni di configurazione della raccolta dati](insights/container-insights-agent-config.md).
 
 > [!NOTE]
 > La seconda opzione non è consigliata con cluster di grandi dimensioni con più di 50 nodi perché genera chiamate del server API da ogni nodo del cluster per eseguire questa operazione di arricchimento. Questa opzione consente anche di aumentare le dimensioni dei dati per ogni riga di log raccolta.
@@ -628,7 +632,7 @@ Per informazioni dettagliate sul problema, vedere il [collegamento di GitHub](ht
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Ricerca per categorie risolvere gli errori Azure AD quando si abilitano I log Live? 
 
-È possibile che venga visualizzato l'errore seguente: **l'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione:\>' <ID applicazione '**. La soluzione per risolverla è disponibile nell'articolo [come visualizzare i dati del contenitore in tempo reale con monitoraggio di Azure per i contenitori](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
+È possibile che venga visualizzato l'errore seguente: **l'URL di risposta specificato nella richiesta non corrisponde agli URL di risposta configurati per l'applicazione:' <ID applicazione \> '**. La soluzione per risolverla è disponibile nell'articolo [come visualizzare i dati del contenitore in tempo reale con monitoraggio di Azure per i contenitori](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Perché non è possibile aggiornare il cluster dopo l'onboarding?
 
