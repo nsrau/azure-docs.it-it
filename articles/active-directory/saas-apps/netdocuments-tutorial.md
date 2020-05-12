@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79038152dd40b213b92a379c4b50ddd840eb8e6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72035711"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732561"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con NetDocuments
 
@@ -89,7 +89,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     c. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `http://netdocuments.com/VAULT`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso Single Sign-On effettivi. L'ID repository è un valore che inizia con **CA-** seguito da un codice di 8 caratteri associato al repository NetDocuments. Per altre informazioni, è possibile esaminare il [documento di supporto identità federativa NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login). In alternativa, è possibile contattare il [team di supporto clienti di NetDocuments](https://support.netdocuments.com/hc/) per ottenere questi valori, in caso di difficoltà nella configurazione riscontrate usando le informazioni sopra riportate. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso Single Sign-On effettivi. L'ID repository è un valore che inizia con **CA-** seguito da un codice di 8 caratteri associato al repository NetDocuments. Per altre informazioni, è possibile esaminare il [documento del supporto relativo all'identità federata di NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login). In alternativa, è possibile contattare il [team di supporto clienti di NetDocuments](https://support.netdocuments.com/hc/) per ottenere questi valori, in caso di difficoltà nella configurazione riscontrate usando le informazioni sopra riportate. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. L'applicazione NetDocuments prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione NetDocuments prevede che **nameidentifier** sia mappato a **employeeid** o a qualsiasi altra attestazione applicabile all'organizzazione come **nameidentifier**, di conseguenza è necessario modificare il mapping dell'attributo. A tale scopo, fare clic sull'icona **Modifica** e modificare il mapping.
 
@@ -99,7 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-1. Nella sezione **Configura NetDocuments** copiare gli URL appropriati in base alle esigenze.
+1. Nella sezione **Configura NetDocuments** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -137,49 +137,48 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di NetDocuments come amministratore.
 
-2. Passare alla pagina **Admin**.
+2. Nell'angolo superiore destro selezionare il nome utente > **Admin** (Amministrazione).
 
-3. Fare clic su **Aggiungi e rimuovi utenti e gruppi**.
+3. Selezionare **Security Center** (Centro sicurezza).
    
-    ![Repository](./media/netdocuments-tutorial/ic795047.png "Archivio")
+    ![Repository](./media/netdocuments-tutorial/security-center.png "Centro sicurezza")
 
-4. Fare clic su **Configura opzioni di autenticazione avanzata**.
+4. Selezionare **Advanced Authentication** (Autenticazione avanzata).
     
-    ![Configure advanced authentication options](./media/netdocuments-tutorial/ic795048.png "Configura opzioni di autenticazione avanzata")
+    ![Configurazione delle opzioni di autenticazione avanzata](./media/netdocuments-tutorial/advance-authentication.png "Configurazione delle opzioni di autenticazione avanzata")
 
-5. Nella finestra di dialogo della **identità federata** eseguire la procedura seguente:
+5.  Nella scheda **Federated ID** (ID federato) seguire questa procedura:   
    
-    ![Identità federativa](./media/netdocuments-tutorial/ic795049.png "Identità federata")
+    ![Identità federata](./media/netdocuments-tutorial/federated-id.png "Identità federata")
    
     a. Come **Federated identity server type** (Tipo di server identità federata) selezionare **Active Directory Federation Services**.
-   
-    b. Fare clic su **Choose File** (Scegli file) per caricare il file di metadati scaricato dal portale di Azure.
-   
-    c. Fare clic su **OK**.
+    
+    b.  Selezionare **Choose File** (Scegli file) per caricare il file di metadati scaricato dal portale di Azure.
+    
+    c.  Selezionare **SAVE** (SALVA).
 
 ### <a name="create-netdocuments-test-user"></a>Creare l'utente di test di NetDocuments
 
-Per consentire agli utenti di Azure AD di accedere a NetDocuments, è necessario effettuarne il provisioning in NetDocuments.  
-Nel caso di NetDocuments, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a NetDocuments, è necessario effettuarne il provisioning in NetDocuments. Nel caso di NetDocuments, il provisioning è un'attività manuale.
 
 **Per eseguire il provisioning di un account utente, seguire questa procedura:**
 
 1. Accedere al sito aziendale di **NetDocuments** come amministratore.
 
-2. Nel menu in alto fare clic su **Admin**.
+2. Nell'angolo superiore destro selezionare il nome utente > **Admin** (Amministrazione).
    
-    ![Admin](./media/netdocuments-tutorial/ic795051.png "Amministrativi")
+    ![Admin](./media/netdocuments-tutorial/user-admin.png "Admin")
 
-3. Fare clic su **Aggiungi e rimuovi utenti e gruppi**.
+3. Selezionare **Utenti e gruppi**.
    
-    ![Repository](./media/netdocuments-tutorial/ic795047.png "Archivio")
+    ![Repository](./media/netdocuments-tutorial/users-groups.png "Repository")
 
 4. Nella casella di testo **Email Address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica di un account valido di Azure Active Directory di cui eseguire il provisioning, quindi fare clic su **Add User** (Aggiungi utente).
    
-    ![Indirizzo di posta elettronica](./media/netdocuments-tutorial/ic795053.png "Indirizzo di posta elettronica")
+    ![Indirizzo di posta elettronica](./media/netdocuments-tutorial/user-mail.png "Indirizzo di posta elettronica")
    
-    >[!NOTE]
-    >Il titolare dell'account di Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da NetDocuments per eseguire il provisioning degli account utente di Azure Active Directory.
+    > [!NOTE]
+    > Il titolare dell'account di Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da NetDocuments per eseguire il provisioning degli account utente di Azure Active Directory.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
@@ -196,4 +195,3 @@ Quando si fa clic sul riquadro di NetDocuments nel pannello di accesso, si dovre
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Provare NetDocuments con Azure AD](https://aad.portal.azure.com/)
-

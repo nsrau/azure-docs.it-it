@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e il portale di Azure "
-description: Questa esercitazione descrive come concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo nel portale di Azure.
+title: "Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il portale di Azure - Controllo degli accessi in base al ruolo Azure"
+description: Questa esercitazione descrive come concedere a un utente l'accesso alle risorse di Azure usando il portale di Azure e il controllo degli accessi in base al ruolo Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e70a3a1eedbc56754ad46fd99dddc0c7a3a6cf2f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138084"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735845"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il portale di Azure
 
-Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questa esercitazione illustra come concedere un accesso a un utente in modo che possa creare e gestire macchine virtuali in un gruppo di risorse.
+Per gestire l'accesso alle risorse di Azure, si usa il [controllo degli accessi in base al ruolo Azure](overview.md). Questa esercitazione illustra come concedere un accesso a un utente in modo che possa creare e gestire macchine virtuali in un gruppo di risorse.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -58,7 +58,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo.
+Per concedere l'accesso mediante il controllo degli accessi in base al ruolo Azure, si crea un'assegnazione di ruolo.
 
 1. Nell'elenco **Gruppi di risorse** fare clic sul nuovo gruppo di risorse **rbac-resource-group**.
 
@@ -88,7 +88,7 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
 ## <a name="remove-access"></a>Rimuovere un accesso
 
-Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, si rimuove un'assegnazione di ruolo.
+Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo Azure, si rimuove un'assegnazione di ruolo.
 
 1. Nell'elenco delle assegnazioni di ruolo, aggiungere un segno di spunta accanto all'utente con il ruolo di Collaboratore macchina virtuale.
 
@@ -115,4 +115,4 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure con Azure PowerShell](tutorial-role-assignments-user-powershell.md)

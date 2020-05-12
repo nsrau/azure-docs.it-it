@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68698983"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692449"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificare le metriche di velocità effettiva e latenza per un account di archiviazione
 
@@ -24,7 +24,7 @@ Nella quarta parte della serie si apprenderà come:
 > * Configurare grafici nel portale di Azure
 > * Verificare metriche di velocità effettiva e latenza
 
-Le [metriche di Archiviazione di Azure](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) usano Monitoraggio di Azure per offrire una visualizzazione unificata delle prestazioni e della disponibilità dell'account di archiviazione.
+Le [metriche di Archiviazione di Azure](../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) usano Monitoraggio di Azure per offrire una visualizzazione unificata delle prestazioni e della disponibilità dell'account di archiviazione.
 
 ## <a name="configure-metrics"></a>Configurare le metriche
 
@@ -34,7 +34,7 @@ Scegliere BLOB nell'elenco a discesa **SUB SERVICE** (SOTTOSERVIZIO).
 
 In **METRICA** selezionare una delle metriche riportate nella tabella seguente.
 
-Le metriche elencate di seguito consentono di conoscere la latenza e la velocità effettiva dell'applicazione. Le metriche configurate nel portale sono espresse in medie di 1 minuto. Se una transazione è stata completata a metà di un minuto, i dati di tale minuto sono dimezzati per la media. Nell'applicazione è stata calcolata la durata delle operazioni di caricamento e download ottenendo come output l'effettiva quantità di tempo necessaria per caricare e scaricare i file. Queste informazioni possono essere usate insieme alle metriche del portale per una conoscenza completa della velocità effettiva.
+Le metriche elencate di seguito consentono di conoscere la latenza e la velocità effettiva dell'applicazione. Le metriche configurate nel portale sono espresse in medie di 1 minuto. Se una transazione è stata completata a metà di un minuto, i dati di tale minuto sono dimezzati ai fini della media. Nell'applicazione è stata calcolata la durata delle operazioni di caricamento e download ottenendo come output l'effettiva quantità di tempo necessaria per caricare e scaricare i file. Queste informazioni possono essere usate insieme alle metriche del portale per una conoscenza completa della velocità effettiva.
 
 |Metrica|Definizione|
 |---|---|
@@ -52,7 +52,7 @@ Ai grafici possono essere assegnate più metriche, ma in tal caso non è possibi
 
 ## <a name="dimensions"></a>Dimensioni
 
-Le [dimensioni](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) vengono usate per esaminare in modo più approfondito i grafici e ottenere informazioni più dettagliate. Metriche diverse hanno dimensioni diverse. Una dimensione disponibile è **Nome API**, che suddivide il grafico per singola chiamata API separata. La prima immagine di seguito mostra un grafico di esempio delle transazioni totali per un account di archiviazione. La seconda immagine mostra lo stesso grafico con la dimensione Nome API selezionata. Come è possibile osservare, ogni transazione viene riportata con una maggiore quantità di dettagli sul numero di chiamate effettuate per nome API.
+Le [dimensioni](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) vengono usate per esaminare in modo più approfondito i grafici e ottenere informazioni più dettagliate. Metriche diverse hanno dimensioni diverse. Una dimensione disponibile è **Nome API**, che suddivide il grafico per singola chiamata API separata. La prima immagine di seguito mostra un grafico di esempio delle transazioni totali per un account di archiviazione. La seconda immagine mostra lo stesso grafico con la dimensione Nome API selezionata. Come è possibile osservare, ogni transazione viene riportata con una maggiore quantità di dettagli sul numero di chiamate effettuate per nome API.
 
 ![Metriche relative all'account di archiviazione: transazioni senza dimensioni](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 

@@ -3,20 +3,18 @@ title: Creare la prima funzione durevole in Azure usando JavaScript
 description: Creare e pubblicare una funzione durevole di Azure con Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80257649"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889659"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
 
 *Durable Functions* è un'estensione di [Funzioni di Azure](../functions-overview.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 Questo articolo spiega come l'estensione di Funzioni di Azure in Visual Studio Code per creare e testare una funzione durevole "hello world" in locale.  Questa funzione orchestrerà e concatenerà le chiamate ad altre funzioni. Il codice della funzione verrà quindi pubblicato in Azure.
 
@@ -61,7 +59,7 @@ Se necessario, Visual Studio Code installa Azure Functions Core Tools. Crea inol
 
 Viene inoltre creato un file package.json nella cartella radice.
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Abilitare la modalità di compatibilità per Funzioni di Azure v2
+### <a name="enable-compatibility-mode"></a>Abilitare la modalità di compatibilità
 
 Attualmente, per Durable Functions in JavaScript è necessario che sia abilitata la modalità di compatibilità per Funzioni di Azure V2.
 
@@ -204,7 +202,7 @@ Dopo aver verificato la corretta esecuzione della funzione nel computer locale, 
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Abilitare la modalità di compatibilità per Funzioni di Azure v2
+### <a name="enable-compatibility-mode"></a>Abilitare la modalità di compatibilità
 
 La stessa compatibilità con Funzioni di Azure v2 che è stata abilitata localmente deve essere abilitata nell'app in Azure.
 

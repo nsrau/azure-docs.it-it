@@ -15,7 +15,7 @@
           href: quick-setup-auto-provision-cli.md
         - name: Modello di Azure RM
           href: quick-setup-auto-provision-rm.md
-    - name: Effettuare il provisioning di un singolo dispositivo simulato
+    - name: Effettuare il provisioning di un singolo dispositivo
       items:
         - name: Attestazione con chiave simmetrica
           items:
@@ -93,7 +93,7 @@
       href: concepts-device-reprovision.md
     - name: Dispositivi
       href: concepts-device.md
-    - name: Security
+    - name: Sicurezza
       href: concepts-security.md
     - name: Service
       href: concepts-service.md

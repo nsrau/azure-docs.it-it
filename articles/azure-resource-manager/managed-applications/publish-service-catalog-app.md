@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391514"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609358"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Guida introduttiva: Creare e pubblicare una definizione di applicazione gestita
 
@@ -290,7 +290,7 @@ Ecco alcuni parametri usati nell'esempio precedente:
 
 * **Gruppo di risorse**: nome del gruppo di risorse in cui viene creata la definizione di applicazione gestita.
 * **Livello di blocco**: tipo di blocco inserito nel gruppo di risorse gestito. Impedisce al cliente di eseguire operazioni indesiderate su questo gruppo di risorse. ReadOnly è attualmente il solo livello di blocco supportato. Quando ReadOnly è specificato, il cliente può solo leggere le risorse presenti nel gruppo di risorse gestito. Le identità degli autori a cui è concesso l'accesso al gruppo di risorse gestito sono esenti dal blocco.
-* **authorizations**: indica l'ID dell'entità di sicurezza e l'ID di definizione del ruolo usati per concedere l'autorizzazione al gruppo di risorse gestito. Viene specificato nel formato `<principalId>:<roleDefinitionId>`. Se sono necessari più valori, specificarli nel formato `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. I valori sono separati da uno spazio.
+* **authorizations**: indica l'ID dell'entità di sicurezza e l'ID di definizione del ruolo usati per concedere l'autorizzazione al gruppo di risorse gestito. Viene specificato nel formato `<principalId>:<roleDefinitionId>`. Se sono necessari più valori, specificarli nel formato `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. I valori sono separati da una virgola.
 * **URI del file del pacchetto**: percorso di un pacchetto con estensione zip che include i file necessari.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Usare la propria risorsa di archiviazione per la definizione di applicazione gestita

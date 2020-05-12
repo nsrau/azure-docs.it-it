@@ -1,19 +1,17 @@
 ---
-title: "Guida introduttiva: Creare un'app Python in Linux"
+title: "Avvio rapido: Creare un'app Python in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app Python in un contenitore Linux nel servizio app.
 ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
-experimental: true
-experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 7f8d21cbccc1a6eec7f62ab5d129f3f0637b8d13
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 5b055c3ed93d5f093295b52c7a28a73e242bfe75
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085128"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690870"
 ---
-# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Guida introduttiva: Creare un'app Python nel Servizio app di Azure in Linux
+# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Python nel Servizio app di Azure in Linux
 
 In questa esercitazione dell'avvio rapido si distribuirà una semplice app Web Python nel [Servizio app in Linux](app-service-linux-intro.md), il servizio di hosting Web con scalabilità elevata e applicazione automatica di patch. Si userà l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) locale in un computer Mac, Linux o Windows. L'app Web configurata usa un livello di servizio app Gratuito, affinché l'esecuzione delle procedure in questo articolo non comporti l'addebito di costi.
 
@@ -104,6 +102,11 @@ Nella cartella *python-docs-hello-world* che contiene il codice di esempio esegu
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
+> [!CAUTION]
+> Se si usa l'**interfaccia della riga di comando di Azure versione 2.5.0**, in `az webapp up` è presente una regressione per cui determinati scenari non riusciranno se non si include il parametro `-l <location-name>`. Questo problema viene [segnalato qui](https://github.com/Azure/azure-cli/issues/13257).  
+> 
+>Per controllare la versione dell'interfaccia della riga di comando di Azure in uso, eseguire il comando `az --version`.
+>
 
 Con l'argomento `--sku F1` l'app Web viene creata nel piano tariffario Gratuito. È possibile omettere questo argomento per usare un livello Premium, che però comporta un costo orario.
 

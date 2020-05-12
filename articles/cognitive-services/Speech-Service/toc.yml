@@ -373,9 +373,11 @@
             - name: Speech SDK
               items:
                 - name: C++
-                  href: 'https://aka.ms/csspeech/cppref'
+                  href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
                 - name: 'C#'
-                  href: 'https://aka.ms/csspeech/csharpref'
+                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
+                - name: Java
+                  href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
 - name: Assistenti vocali
   items:
     - name: Documentazione degli assistenti vocali
@@ -424,13 +426,31 @@
           items:
             - name: Domande frequenti sugli assistenti vocali
               href: faq-voice-assistants.md
+    - name: Assistenti vocali in Windows
+      items:
+        - name: Panoramica degli assistenti vocali in Windows
+          href: windows-voice-assistants-overview.md
+        - name: Guide pratiche
+          items:
+            - name: Iniziare a sviluppare l'assistente con Windows
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: Abilitare l'attivazione vocale
+              href: windows-voice-assistants-implementation-guide.md
+        - name: Risorse
+          items:
+            - name: Requisiti e linee guida sulla privacy
+              href: windows-voice-assistants-automatic-enablement-guidelines.md
+            - name: Procedure consigliate per le esperienze di assistente
+              href: windows-voice-assistants-best-practices.md
+            - name: Esempi e domande frequenti
+              href: windows-voice-assistants-faq.md
     - name: Parola chiave personalizzata
       items:
         - name: Panoramica delle parole chiave personalizzate
           href: custom-keyword-overview.md
         - name: Linee guida per la denominazione delle parole chiave personalizzate
           href: speech-devices-sdk-kws-guidelines.md
-        - name: Individuazione di parole chiave personalizzate
+        - name: Riconoscimento delle parole chiave personalizzate
           href: speech-devices-sdk-create-kws.md
 - name: Hosting
   items:

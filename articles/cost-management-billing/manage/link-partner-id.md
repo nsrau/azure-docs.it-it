@@ -4,15 +4,15 @@ description: Tener traccia degli engagement con i clienti di Azure collegando un
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f0d45c9dd8dc33226ca75fe34467a8695c8aae4d
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204801"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778822"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
@@ -159,4 +159,5 @@ Sì, è possibile collegare l'ID partner per Azure Stack.
 
 **Come si collega il proprio ID partner se l'azienda usa [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) per accedere alle risorse dei clienti?**
 
-Se si esegue l'onboarding dei clienti nella gestione delle risorse delegata di Azure tramite la [pubblicazione di un'offerta di servizi gestiti in Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), l'ID MPN (Microsoft Partner Network) verrà associato automaticamente. Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi. Per semplicità, è consigliabile creare un account di entità servizio nel tenant associato all'ID MPN e concedergli l'accesso in lettura a tutti i clienti di cui è stato eseguito l'onboarding.
+Se si esegue l'onboarding dei clienti nella gestione delle risorse delegata di Azure tramite la [pubblicazione di un'offerta di servizi gestiti in Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), l'ID MPN (Microsoft Partner Network) verrà associato automaticamente. Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi. Per semplicità, è consigliabile creare un account di entità servizio nel tenant associato all'ID MPN e concedergli l'accesso in lettura a tutti i clienti di cui è stato eseguito l'onboarding. In questo esempio viene usato il ruolo Lettore del controllo degli accessi in base al ruolo, che è uno dei ruoli non sono idonei per il credito guadagnato dal partner. Per altre informazioni sui ruoli, vedere [Ruoli e autorizzazioni per il credito guadagnato dal partner](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+

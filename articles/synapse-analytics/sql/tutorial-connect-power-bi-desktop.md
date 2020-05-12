@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769488"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692401"
 ---
-# <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Esercitazione: Connettere SQL su richiesta (anteprima) a Power BI Desktop e creare report
+# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare SQL su richiesta (anteprima) con Power BI Desktop e creare un report
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -24,7 +24,7 @@ In questa esercitazione verranno illustrate le procedure per:
 >
 > - Creare un database demo
 > - Creare la visualizzazione usata per il report
-> - Connettersi a Power BI Desktop
+> - Connettere Power BI Desktop a SQL su richiesta
 > - Creare report in base alla visualizzazione
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -38,7 +38,7 @@ Valori per i parametri seguenti:
 
 | Parametro                                 | Descrizione                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Indirizzo dell'endpoint servizio di SQL su richiesta    | Usato come nome del server                                   |
+| Indirizzo dell'endpoint di servizio di SQL su richiesta    | Usato come nome del server                                   |
 | Area dell'endpoint servizio di SQL su richiesta     | Usato per determinare la risorsa di archiviazione usata negli esempi |
 | Nome utente e password per l'accesso all'endpoint | Usati per accedere all'endpoint                               |
 | Database che verrà usato per creare le visualizzazioni     | Database usato come punto di partenza negli esempi       |
@@ -130,11 +130,11 @@ Per creare il report per Power BI Desktop, seguire questa procedura:
 
     - Esempio per AAD 
   
-    ![Fare clic su Accedi.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Fare clic su Accedi.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Esempio per l'accesso SQL - Digitare il nome utente e la password.
 
-    ![Usare l'accesso SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
+        ![Usare l'accesso SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. Selezionare la visualizzazione `usPopulationView` e quindi selezionare **Carica**. 
