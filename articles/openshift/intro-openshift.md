@@ -5,20 +5,20 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 04/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 4be388eec3851154fd0f6af37d03a468fc52197b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76276064"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628521"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
 Il servizio Microsoft *Azure Red Hat OpenShift* consente di distribuire cluster [OpenShift](https://www.openshift.com/) completamente gestiti.
 
-Azure Red Hat OpenShift estende [Kubernetes](https://kubernetes.io/). L'esecuzione di contenitori in produzione con Kubernetes richiede risorse e strumenti aggiuntivi, ad esempio un registro immagini, funzionalità di gestione dell'archiviazione, soluzioni di networking e strumenti di registrazione e monitoraggio, tutti da sottoporre a controllo delle versioni e test. La creazione di applicazioni basate su contenitori richiede ancora più integrazione con il middleware, i framework, i database e gli strumenti di CI/CD. Azure Red Hat OpenShift riunisce tutto questo in un'unica piattaforma, semplificando le operazioni per i team IT e fornendo ai team delle applicazioni tutti gli elementi da eseguire.
+Azure Red Hat OpenShift estende [Kubernetes](https://kubernetes.io/). Per l'esecuzione di contenitori nell'ambiente di produzione con Kubernetes sono necessari strumenti e risorse aggiuntivi per la gestione dei registri delle immagini, la gestione delle risorse di archiviazione, nonché soluzioni di rete e strumenti di registrazione e monitoraggio, che devono essere sottoposti a controllo delle versioni e test tutti insieme. La creazione di applicazioni basate su contenitori richiede ancora più integrazione con il middleware, i framework, i database e gli strumenti di CI/CD. Azure Red Hat OpenShift riunisce tutto questo in un'unica piattaforma, semplificando le operazioni per i team IT e fornendo ai team delle applicazioni tutti gli elementi da eseguire.
 
 Azure Red Hat OpenShift viene progettato, gestito e supportato congiuntamente da Red Hat e Microsoft per garantire un'esperienza di supporto integrata. Non sono presenti macchine virtuali da gestire e non è necessaria l'applicazione di patch. I nodi master, infrastruttura e applicazione vengono aggiornati e monitorati per conto dell'utente da Red Hat e Microsoft, che provvedono anche ad applicare le patch. I cluster Azure Red Hat OpenShift vengono distribuiti nella sottoscrizione di Azure e inclusi nella fattura di Azure.
 
@@ -32,21 +32,11 @@ Per migliorare la sicurezza e la gestione, Azure Red Hat OpenShift consente l'in
 
 ## <a name="cluster-and-node"></a>Cluster e nodo
 
-I nodi Azure Red Hat OpenShift vengono eseguiti in macchine virtuali di Azure. È possibile connettere una risorsa di archiviazione a nodi e pod, aggiornare i componenti cluster e usare GPU.
-
-## <a name="virtual-networks-and-ingress"></a>Reti virtuali e ingresso
-
-È possibile [connettere un cluster Azure Red Hat OpenShift a una rete virtuale esistente](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) tramite peering. In questa configurazione i pod possono connettersi ad altri servizi in una rete virtuale con peering.
-
-Per informazioni dettagliate, vedere [Connettere la rete virtuale di un cluster a una rete virtuale esistente](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network).
-
-## <a name="kubernetes-certification"></a>Certificazione Kubernetes
-
-Il servizio Azure Red Hat OpenShift ha ottenuto la certificazione CNCF per la conformità a Kubernetes.
+I nodi Azure Red Hat OpenShift vengono eseguiti in macchine virtuali di Azure. È possibile connettere una risorsa di archiviazione a nodi e pod e aggiornare i componenti cluster.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere le informazioni relative ai prerequisiti per Azure Red Hat OpenShift:
 
 > [!div class="nextstepaction"]
-> [Configurare l'ambiente di sviluppo](howto-setup-environment.md)
+> [Configurare l'ambiente di sviluppo](tutorial-create-cluster.md)

@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 738be1361bfbd944575abceb08781b241336f6e8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472543"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608814"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Esercitazione: Creare un criterio WAF nella rete CDN di Azure usando il portale di Azure
 
@@ -22,7 +22,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un criterio WAF
-> * Associarlo a un endpoint rete CDN
+> * Associarlo a un endpoint rete CDN. È possibile associare un criterio di WAF solo agli endpoint ospitati nello SKU della **rete CDN di Azure Standard di Microsoft**.
 > * Configurare le regole per web application firewall
 
 ## <a name="prerequisites"></a>Prerequisiti

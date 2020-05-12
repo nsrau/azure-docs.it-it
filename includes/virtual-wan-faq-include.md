@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204585"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006457"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -49,7 +49,7 @@ Per aggiungere server DNS per i client da punto a sito, sono disponibili due opz
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Per la VPN utente (da punto a sito), quanti client sono supportati?
 
-Ogni gateway VPN utente da punto a sito include due istanze, ognuna delle quali supporta fino a un determinato numero di utenti in base all'unità di scala. L'unità di scala 1-3 supporta 500 connessioni, l'unità di scala 4-6 supporta 1000 connessioni, l'unità di scala 7-12 supporta 5000 connessioni e l'unità di scala 13-20 supporta fino a 10.000 connessioni. Si supponga, ad esempio, che l'utente scelga l'unità di scala 1. Ogni unità di scala implica la distribuzione di un gateway attivo-attivo e ognuna delle istanze (in questo caso 2) supporta fino a 500 connessioni. Anche se è possibile ottenere 500 connessioni x 2 per ogni gateway, questo non significa che si prevede di usarne 1000 invece delle 500 di questa unità di scala, perché può essere necessario eseguire interventi di manutenzione sulle istanze, durante i quali la connettività potrebbe essere interrotta per le 500 aggiuntive se si supera il numero di connessioni raccomandate.
+Ogni gateway VPN utente da punto a sito include due istanze, ognuna delle quali supporta fino a un determinato numero di utenti in base all'unità di scala. L'unità di scala 1-3 supporta 500 connessioni, l'unità di scala 4-6 supporta 1000 connessioni, l'unità di scala 7-12 supporta 5000 connessioni e l'unità di scala 13-20 supporta fino a 10.000 connessioni. Si supponga, ad esempio, che l'utente scelga l'unità di scala 1. Ogni unità di scala implica la distribuzione di un gateway attivo-attivo e ognuna delle istanze (in questo caso 2) supporta fino a 500 connessioni. Anche se è possibile ottenere 500 connessioni x 2 per ogni gateway, questo non significa che si prevede di usarne 1000 invece delle 500 di questa unità di scala, perché può essere necessario eseguire interventi di manutenzione sulle istanze, durante i quali la connettività potrebbe essere interrotta per le 500 aggiuntive se si supera il numero di connessioni raccomandate. Assicurarsi anche di pianificare i tempi di inattività nel caso in cui si decida di aumentare o ridurre l'unità di scala o di modificare la configurazione da punto a sito nel gateway VPN.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual è la differenza tra un gateway di rete virtuale di Azure (gateway VPN) e un gateway VPN di rete WAN virtuale di Azure?
 
@@ -190,8 +190,8 @@ La velocità effettiva totale della VPN di un hub non supera 20 Gbps in base all
 Passare al gateway VPN all'interno di un hub del portale e fare clic sull'unità di scala per eseguire la regolazione nell'impostazione appropriata.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>La rete WAN virtuale consente al dispositivo locale di usare più ISP in parallelo o si tratta sempre di un singolo tunnel VPN?
+Le soluzioni per dispositivi locali possono applicare criteri di traffico per distribuire il traffico tra più tunnel in Azure.
 
-Una connessione in ingresso a una VPN della rete WAN virtuale è sempre un tunnel attivo-attivo (per la resilienza nello stesso hub/area) che usa un collegamento disponibile nel ramo. Questo collegamento potrebbe essere un collegamento di ISP nel ramo locale. La rete WAN virtuale "VPNSite" consente di aggiungere informazioni di collegamento al sito. Se si dispone di più ISP sul ramo e ciascuno degli ISP ha fornito un collegamento, tali informazioni possono essere configurate nelle informazioni sul sito VPN in Azure. Tuttavia, la gestione del failover tra ISP nel ramo è completamente un'operazione di routing incentrata sul ramo.
 
 ### <a name="what-is-global-transit-architecture"></a>Che cos'è l'architettura di transito globale?
 

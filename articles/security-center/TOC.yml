@@ -74,6 +74,8 @@
           href: alerts-schemas.md
         - name: Gestire gli avvisi di sicurezza
           href: security-center-managing-and-responding-alerts.md
+        - name: Regole di eliminazione per gli avvisi di sicurezza
+          href: alerts-suppression-rules.md
         - name: Gestire gli eventi imprevisti della sicurezza
           href: security-center-incident.md
         - name: Correlazione tra avvisi intelligenti cloud (incidenti)

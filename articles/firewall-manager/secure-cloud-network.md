@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 05/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77443058"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691029"
 ---
 # <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Esercitazione: Proteggere la rete WAN virtuale con Gestione firewall di Azure (anteprima) 
 
@@ -38,27 +38,32 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Prima di tutto, creare una rete virtuale spoke in cui poter collocare i server.
 
-### <a name="create-a-spoke-vnet-and-subnets"></a>Creare una rete virtuale spoke e le subnet
+### <a name="create-a-spoke-virtual-network-and-subnets"></a>Creare una rete virtuale spoke e le subnet
 
 1. Dalla home page del portale di Azure selezionare **Crea una risorsa**.
 2. In **Rete** selezionare **Rete virtuale**.
-4. Per **Nome**, digitare **Spoke-01**.
-5. In **Spazio degli indirizzi** immettere **10.0.0.0/16**.
-6. In **Sottoscrizione** selezionare la propria sottoscrizione.
-7. Per **Gruppo di risorse**, selezionare **Crea nuovo**, digitare **FW-Manager** come nome e selezionare **OK**.
-8. In **Località** selezionare **(USA) Stati Uniti orientali**.
-9. In **Subnet**, per **Nome**, digitare **Workload-SN**.
-10. In **Intervallo indirizzi** immettere **10.0.1.0/24**.
-11. Accettare le altre impostazioni predefinite e quindi selezionare **Crea**.
+2. In **Sottoscrizione** selezionare la propria sottoscrizione.
+1. Per **Gruppo di risorse**, selezionare **Crea nuovo**, digitare **FW-Manager** come nome e selezionare **OK**.
+2. Per **Nome**, digitare **Spoke-01**.
+3. In **Area** selezionare **(Stati Uniti) Stati Uniti orientali**.
+4. Selezionare **Avanti: Indirizzi IP**.
+1. In **Spazio indirizzi** accettare il valore predefinito **10.0.0.0/16**.
+3. In **Nome subnet** selezionare **predefinito**.
+4. Modificare il nome della subnet in **Workload-SN**.
+5. In **Intervallo di indirizzi subnet** digitare **10.0.1.0/24**.
+6. Selezionare **Salva**.
 
 Creare quindi una subnet per un jump server.
 
-1. Nella home page del portale di Azure selezionare **Gruppi di risorse** > **FW-Manager**.
-2. Selezionare la rete virtuale **Spoke-01**.
-3. Selezionare **Subnet** >  **+Subnet**.
-4. Per **Nome**, digitare **Jump-SN**.
-5. In **Intervallo indirizzi** immettere **10.0.2.0/24**.
-6. Selezionare **OK**.
+1. Selezionare **Aggiungi subnet**.
+4. In **Nome subnet** digitare **Jump-SN**.
+5. In **Intervallo di indirizzi subnet** digitare **10.0.2.0/24**.
+6. Selezionare **Aggiungi**.
+
+Creare quindi la rete virtuale.
+
+1. Selezionare **Rivedi e crea**.
+2. Selezionare **Create** (Crea).
 
 ### <a name="create-the-secured-virtual-hub"></a>Creare l'hub virtuale protetto
 
@@ -66,36 +71,38 @@ Creare l'hub virtuale protetto usando Gestione firewall.
 
 1. Nella home page del portale di Azure selezionare **Tutti i servizi**.
 2. Nella casella di ricerca digitare **Gestione firewall**, quindi selezionare **Gestione firewall**.
-3. Nella pagina **Gestione firewall** selezionare **Crea un hub virtuale protetto**.
-4. Nella pagina **Crea nuovo hub virtuale protetto** selezionare la propria sottoscrizione e il gruppo di risorse **FW-Manager**.
-5. Per **Nome hub virtuale protetto**, digitare **Hub-01**.
-6. In **Località** selezionare **Stati Uniti orientali**.
-7. Per **Spazio indirizzi dell'hub**, digitare **10.1.0.0/16**.
-8. Per il nome della nuova rete WAN virtuale, digitare **vwan-01**.
-9. Lasciare deselezionata la casella di controllo **Includere il gateway VPN per abilitare i partner di sicurezza affidabili**.
-10. Selezionare **Avanti: Firewall di Azure**.
-11. Accettare l'impostazione predefinita **Firewall di Azure** **Abilitato** e quindi selezionare **Avanti: Partner di sicurezza affidabile**.
-12. Accettare l'impostazione predefinita **Partner di sicurezza affidabile** **Disabilitato** e selezionare **Avanti: Rivedi e crea**.
-13. Selezionare **Create** (Crea). La distribuzione richiederà circa 30 minuti.
+3. Nella pagina **Gestione firewall** selezionare **Visualizza hub virtuali protetti**.
+4. Nella pagina **Gestione firewall | Hub virtuali protetti** selezionare **Crea nuovo hub virtuale protetto**.
+5. In **Gruppo di risorse** selezionare **FW-Manager**.
+7. In **Area** selezionare **Stati Uniti orientali**.
+1. Per **Nome hub virtuale protetto**, digitare **Hub-01**.
+2. Per **Spazio indirizzi dell'hub**, digitare **10.1.0.0/16**.
+3. Come nome della nuova rete WAN virtuale digitare **Vwan-01**.
+4. Lasciare deselezionata la casella di controllo **Includere il gateway VPN per abilitare i partner di sicurezza affidabili**.
+5. Selezionare **Avanti: Firewall di Azure**.
+6. Accettare l'impostazione predefinita **Firewall di Azure** **Abilitato** e quindi selezionare **Avanti: Partner di sicurezza affidabile**.
+7. Accettare l'impostazione predefinita **Partner di sicurezza affidabile** **Disabilitato** e selezionare **Avanti: Rivedi e crea**.
+8. Selezionare **Create** (Crea). La distribuzione richiederà circa 30 minuti.
 
 ### <a name="connect-the-hub-and-spoke-vnets"></a>Connettere le reti virtuali hub e spoke
 
 Ora è possibile eseguire il peering tra le reti virtuali hub e spoke.
 
-1. Selezionare il gruppo di risorse **FW-Manager** e quindi selezionare la rete WAN virtuale **vwan-01**.
+1. Selezionare il gruppo di risorse **FW-Manager** e quindi selezionare la rete WAN virtuale **Vwan-01**.
 2. In **Connettività** selezionare **Connessioni rete virtuale**.
 3. Selezionare **Aggiungi connessione**.
 4. Per **Nome connessione**, digitare **hub-spoke**.
 5. Per **Hub**, selezionare **Hub-01**.
-6. Per **Rete virtuale**, selezionare **Spoke-01**.
-7. Selezionare **OK**.
+6. In **Gruppo di risorse** selezionare **FW-Manager**.
+7. Per **Rete virtuale**, selezionare **Spoke-01**.
+8. Selezionare **OK**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Creare un criterio firewall e proteggere l'hub
 
 Un criterio firewall definisce raccolte di regole per indirizzare il traffico su uno o più hub virtuali protetti. Sarà perciò necessario creare il criterio firewall e quindi proteggere l'hub.
 
-1. In Gestione firewall selezionare **Crea un criterio firewall di Azure**.
-2. Selezionare la propria sottoscrizione e quindi il gruppo di risorse **FW-Manager**.
+1. In Gestione firewall selezionare **Visualizza criteri firewall di Azure**.
+2. Selezionare **Crea criterio firewall di Azure**.
 3. In **Dettagli criteri**, per **Nome** digitare **Policy-01** e per **Area** selezionare **Stati Uniti orientali**.
 4. Selezionare **Avanti: Regole**.
 5. Nella scheda **Regole** selezionare **Aggiungi una raccolta regole**.
@@ -109,10 +116,11 @@ Un criterio firewall definisce raccolte di regole per indirizzare il traffico su
 13. Verificare che **Tipo di destinazione sia impostato su **FQDN**.
 14. Per **Destinazione**, digitare **\*.microsoft.com**.
 15. Selezionare **Aggiungi**.
-16. Selezionare **Avanti: Hub virtuali protetti**.
-17. Nella scheda **Hub virtuali protetti** selezionare **Hub-01**.
-19. Selezionare **Rivedi e crea**.
-20. Selezionare **Create** (Crea).
+16. Selezionare **Avanti: Hub**.
+17. Nella scheda **Hub** selezionare **Associa hub virtuali**.
+18. Selezionare **Hub-01** e quindi **Aggiungi**.
+1. Selezionare **Rivedi e crea**.
+2. Selezionare **Create** (Crea).
 
 Il completamento di questa operazione può richiedere circa cinque minuti.
 
@@ -126,10 +134,9 @@ A questo punto è necessario assicurarsi che il traffico di rete venga instradat
 4. In **Traffico Internet**, **Traffico dalle reti virtuali**, selezionare **Invia tramite Firewall di Azure**.
 5. In **Traffico privato di Azure**, **Traffico alle reti virtuali**, selezionare **Invia tramite Firewall di Azure**.
 6. Selezionare **Modifica prefisso/i indirizzi IP**.
-7. Selezionare **Aggiungi un prefisso di indirizzo IP**.
 8. Digitare **10.0.1.0/24** come indirizzo della subnet del carico di lavoro e selezionare **Salva**.
 9. In **Impostazioni** selezionare **Connessioni**.
-10. Selezionare la connessione **hub-spoke**, quindi **Proteggi traffico Internet** e infine **OK**.
+10. Verificare che **Traffico Internet** per le connessioni **hub-spoke** sia impostato su **Protetto**.
 
 
 ## <a name="test-your-firewall"></a>Testare il firewall
@@ -142,17 +149,16 @@ Per testare le regole del firewall, è necessario distribuire un paio di server.
 2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**.
 3. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |valore  |
+   |Impostazione  |Valore  |
    |---------|---------|
-   |Resource group     |**FW-Manager**|
+   |Gruppo di risorse     |**FW-Manager**|
    |Nome macchina virtuale     |**Jump-Srv**|
-   |Region     |**(USA) Stati Uniti orientali**|
-   |Nome utente amministratore     |**azureuser**|
-   |Password     |Digitare la password|
+   |Area     |**(USA) Stati Uniti orientali**|
+   |Nome utente amministratore     |digitare un nome utente|
+   |Password     |digitare una password|
 
 4. In **Regole porta in ingresso** selezionare **Consenti porte selezionate** per **Porte in ingresso pubbliche**.
 5. In **Selezionare le porte in ingresso** selezionare **RDP (3389)** .
-
 6. Accettare tutte le altre impostazioni predefinite e selezionare **Avanti: Dischi**.
 7. Accettare tutte le impostazioni predefinite del disco e selezionare **Avanti: Rete**.
 8. Assicurarsi che **Spoke-01** sia selezionata come rete virtuale e che la subnet sia **Jump-SN**.
@@ -163,7 +169,7 @@ Per testare le regole del firewall, è necessario distribuire un paio di server.
 
 Usare le informazioni nella tabella seguente per configurare un'altra macchina virtuale denominata **Workload-Srv**. Il resto della configurazione è uguale a quella della macchina virtuale Srv-Jump.
 
-|Impostazione  |valore  |
+|Impostazione  |Valore  |
 |---------|---------|
 |Subnet|**Workload-SN**|
 |IP pubblico|**Nessuno**|

@@ -9,12 +9,12 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 0c9329b46d096df1afab6f7e457d143f9c6504be
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 504e2f7c07d8d29e4fe4dad52dc008c895517a3d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085757"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609783"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Distribuire un'app Web Python (Django) con PostgreSQL nel Servizio app di Azure
 
@@ -133,7 +133,7 @@ Al termine del comando, trovare le righe di output che iniziano con `Ran Databas
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> Per specificare il percorso per il server Postgres, includere l'argomento `--location <location-name>`, dove `<location_name>` è una delle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). È possibile ottenere le aree disponibili per la sottoscrizione con il comando [`az account list-locations`](/cli/azure/account#az-account-list-locations).
+> `--location <location-name>`, può essere impostato su una delle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). È possibile ottenere le aree disponibili per la sottoscrizione con il comando [`az account list-locations`](/cli/azure/account#az-account-list-locations). Per le app di produzione, inserire il database e l'app nella stessa posizione.
 
 ## <a name="deploy-the-app-service-app"></a>Distribuire l'app del Servizio app
 
@@ -149,7 +149,7 @@ Assicurarsi di trovarsi nella radice del repository (`djangoapp`), perché l'app
 Creare un'app del Servizio app con il comando [`az webapp up`](/cli/azure/webapp#az-webapp-up), come illustrato nell'esempio seguente. Sostituire *\<app-name>* con un nome *univoco* (l'endpoint server è *https://\<app-name>.azurewebsites.net*). I caratteri consentiti per *\<app-name>* sono `A`-`Z`, `0`-`9` e `-`.
 
 ```azurecli
-az webapp up --plan myAppServicePlan --sku B1 --name <app-name>
+az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
 ```
 <!-- !!! without --sku creates PremiumV2 plan!! -->
 
@@ -183,10 +183,10 @@ Al termine della distribuzione, viene visualizzato un output JSON simile al segu
 Copiare il valore di *\<app-resource-group>* . È necessario per configurare l'app in un secondo momento. 
 
 > [!TIP]
-> È possibile usare lo stesso comando in un secondo momento per distribuire eventuali modifiche e abilitare immediatamente i log di diagnostica con:
+> Le impostazioni pertinenti vengono salvate in una directory *.azure* nascosta del repository. È possibile usare il comando semplice in un secondo momento per ridistribuire eventuali modifiche e abilitare immediatamente i log di diagnostica con:
 > 
 > ```azurecli
-> az webapp up --name <app-name>
+> az webapp up
 > ```
 
 Il codice di esempio è ora distribuito, ma l'app non si connette ancora al database Postgres in Azure. Questa operazione verrà eseguita più avanti.
@@ -219,8 +219,6 @@ cd site/wwwroot
 
 # Activate default virtual environment in App Service container
 source /antenv/bin/activate
-# Install requirements in environment
-pip install -r requirements.txt
 # Run database migrations
 python manage.py migrate
 # Create the super user (follow prompts)
@@ -358,7 +356,7 @@ python manage.py runserver
 Per ridistribuire le modifiche, eseguire il comando seguente dalla radice del repository:
 
 ```azurecli
-az webapp up --name <app-name>
+az webapp up
 ```
 
 Il Servizio app rileva l'esistenza dell'app e distribuisce il codice.

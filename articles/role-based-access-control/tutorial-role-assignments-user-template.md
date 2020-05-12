@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e il modello di Resource Manager"
-description: Questa esercitazione descrive come concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo tramite il modello di Azure Resource Manager.
+title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando un modello di Resource Manager - Controllo degli accessi in base al ruolo Azure"
+description: Questa esercitazione descrive come concedere a un utente l'accesso alle risorse di Azure usando un modello di Azure Resource Manager e il controllo degli accessi in base al ruolo Azure.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f98b1e9c57cf9f624c5af3e59c8afd56d073dd28
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138212"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735471"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il modello di Resource Manager
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-an-azure-resource-manager-template"></a>Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando un modello di Resource Manager
 
-Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questa esercitazione illustra come creare un gruppo di risorse e concede un accesso a un utente in modo che possa creare e gestire macchine virtuali nel gruppo di risorse. Questa esercitazione è incentrata sul processo di distribuzione di un modello di Resource Manager per concedere l'accesso. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Resource Manager](/azure/azure-resource-manager/) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.authorization/allversions
+Per gestire l'accesso alle risorse di Azure, si usa il [controllo degli accessi in base al ruolo Azure](overview.md). Questa esercitazione illustra come creare un gruppo di risorse e concede un accesso a un utente in modo che possa creare e gestire macchine virtuali nel gruppo di risorse. Questa esercitazione è incentrata sul processo di distribuzione di un modello di Resource Manager per concedere l'accesso. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Resource Manager](/azure/azure-resource-manager/) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.authorization/allversions
 ).
 
 In questa esercitazione verranno illustrate le procedure per:
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure con Azure PowerShell](tutorial-role-assignments-user-powershell.md)
