@@ -9,15 +9,15 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f83ae9c8290a52381c8087b46da959d4723d7f4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f36fb952b21b058fb50dc567f714e8bdb665d6c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745158"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200320"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Introduzione a Visual Studio 2019
 
@@ -38,15 +38,12 @@ Vedere [scaricare Visual studio 2019](https://visualstudio.microsoft.com/downloa
 
 In alcuni casi le versioni delle funzionalità per sinapsi SQL possono non includere il supporto per SSDT. Le funzionalità seguenti non sono attualmente supportate:
 
-- [Viste materializzate](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Indici columnstore cluster ordinati](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-)
-- [Istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+
 - [Gestione del carico di lavoro](sql-data-warehouse-workload-management.md) -gruppi e classificatori del carico di lavoro
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
   - Inviare un [ticket di supporto o votare](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) per ottenere la funzionalità supportata.
 - [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
    - Inviare un [ticket di supporto o votare](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) per ottenere la funzionalità supportata.
-- [Le tabelle con vincoli](sql-data-warehouse-table-constraints.md#table-constraints) non sono supportate. Per questi oggetti tabella, impostare l'azione di compilazione su "None".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

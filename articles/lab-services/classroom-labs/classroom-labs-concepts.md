@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a34af2ef779a41c19d4bfb831360948af1a66724
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77526230"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115048"
 ---
 # <a name="classroom-labs-concepts"></a>Concetti sui lab per le classi
 
@@ -50,7 +50,7 @@ Questo articolo descrive i diversi profili utente in Azure Lab Services.
 
 ### <a name="lab-account-owner"></a>Proprietario dell'account del lab
 
-L'amministratore IT delle risorse cloud aziendali che possiede la sottoscrizione di Azure in genere funge da proprietario dell'account del lab ed esegue le attività seguenti:
+In genere, un amministratore IT delle risorse cloud dell'organizzazione, che possiede la sottoscrizione di Azure, funge da proprietario dell'account Lab ed esegue le attività seguenti:
 
 - Configura un account del lab per l'organizzazione.
 - Gestisce e configura i criteri in tutti i lab.

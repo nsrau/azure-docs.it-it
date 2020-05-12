@@ -5,19 +5,20 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/25/2019
-ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/09/2019
+ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670257"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201113"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Espressione app() in una query di Monitoraggio di Azure
 
 L'espressione `app` viene usata in una query di Monitoraggio di Azure per recuperare dati da un'app Application Insights specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. È utile per includere dati dell'applicazione in una query di log di Monitoraggio di Azure e per eseguire query su dati di più applicazioni in una query di Application Insights.
 
-
+> [!IMPORTANT]
+> L'espressione app () non viene usata se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md) perché i dati di log vengono archiviati in un'area di lavoro di log Analytics. Usare l'espressione log () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,7 +31,7 @@ L'espressione `app` viene usata in una query di Monitoraggio di Azure per recupe
 
 | Identificatore | Descrizione | Esempio
 |:---|:---|:---|
-| Nome risorsa | Nome leggibile dell'app (anche noto come "nome componente") | app("fabrikamapp") |
+| Nome risorsa | Nome leggibile dell'app (noto anche come "nome componente") | app("fabrikamapp") |
 | Nome completo | Nome completo dell'app nel formato: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
 | ID | GUID dell'app | app("988ba129-363e-4415-8fe7-8cbab5447518") |
 | ID risorsa di Azure | Identificatore della risorsa di Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |

@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ee6df940dd36a325d3638c3ad29ebfd8dec713d8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801706"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196273"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -75,7 +75,7 @@ Sì.
 
 Backup di Azure supporta i sistemi operativi per il backup di file, cartelle e applicazioni protetti tramite server di Backup di Azure e DPM.
 
-**OS** | **SKU** | **Dettagli**
+**OS** | **SKU** | **Informazioni dettagliate**
 --- | --- | ---
 Workstation | |
 Windows 10 a 64 bit | Enterprise, Pro, Home | I computer devono eseguire i Service Pack e gli aggiornamenti più recenti.
@@ -107,13 +107,13 @@ Windows 8 o versione successiva | 54400 GB
 Windows 7 |1700 GB
 Windows Server 2012 o versioni successive | 54400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Macchina virtuale di Azure | 16 dischi dati<br/> Per iscriversi all'anteprima limitata delle VM con più di 16 dischi (fino a 32 dischi), scrivici all'indirizzoAskAzureBackupTeam@microsoft.com <br><br> Disco dati fino a 32 TB
+Macchina virtuale di Azure | Vedere la [matrice di supporto per il backup di macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>Come vengono determinate le dimensioni dell'origine dati?
 
 La tabella seguente illustra come vengono determinate le dimensioni di ogni origine dati.
 
-**Origine dati** | **Dettagli**
+**Origine dati** | **Informazioni dettagliate**
 --- | ---
 Volume |Quantità di dati sottoposti a backup della macchina virtuale a volume singolo sottoposta a backup.
 Database SQL Server |Dimensioni di un singolo database SQL di cui viene eseguito il backup.

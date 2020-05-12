@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: 2c8cc4c01b172cd11c13558cd195673d21499b41
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: cb645b5adfcd937758a950eaf596bc60e4d55f3f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983908"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115150"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Lab in aula in Azure Lab Services-domande frequenti
 Ottenere le risposte ad alcune delle domande più comuni sui Lab in Azure Lab Services. 
@@ -77,6 +77,6 @@ Sottoscrivere [gli aggiornamenti di Lab Services](https://azure.microsoft.com/up
 Se la domanda non è elencata, è possibile inviarla a Microsoft, per consentire di trovare una risposta.
 
 - Pubblicare una domanda alla fine di questo articolo di domande frequenti. 
-- Per raggiungere un pubblico più ampio, pubblicare una domanda nel [forum Azure Lab Services-stack overflow](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- Per raggiungere un pubblico più ampio, pubblicare una domanda nel [Forum della community di Azure Lab Services-Tech](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
 - Per le richieste di funzionalità, inviare le richieste e le idee a [Azure Lab Services-User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

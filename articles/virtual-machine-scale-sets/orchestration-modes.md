@@ -1,18 +1,20 @@
 ---
 title: Altre informazioni sulle modalità di orchestrazione per i set di scalabilità di macchine virtuali in Azure
 description: Altre informazioni sulle modalità di orchestrazione per i set di scalabilità di macchine virtuali in Azure.
-author: shandilvarun
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 10/23/2019
-ms.author: vashan
-ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279054"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198400"
 ---
 # <a name="orchestration-mode-preview"></a>Modalità orchestrazione (anteprima)
 
@@ -39,7 +41,7 @@ I set di scalabilità di macchine virtuali supporteranno due modalità di orches
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modello di configurazione della macchina virtuale      | nessuno                                       | Obbligatoria |
+| Modello di configurazione della macchina virtuale      | Nessuno                                       | Obbligatoria |
 | Aggiunta di una nuova macchina virtuale al set di scalabilità  | Al momento della creazione della macchina virtuale, le macchine virtuali vengono aggiunte esplicitamente al set di scalabilità. | Le VM vengono create in modo implicito e aggiunte al set di scalabilità in base al modello di configurazione della macchina virtuale, al numero di istanze e alle regole di scalabilità automatica | |
 | Eliminazione di una macchina virtuale                   | Le macchine virtuali devono essere eliminate singolarmente, il set di scalabilità non verrà eliminato se contiene macchine virtuali. | Le macchine virtuali possono essere eliminate singolarmente, eliminando il set di scalabilità verranno eliminate tutte le istanze di VM.  |
 | Connetti/scollega macchine virtuali           | Non supportato                              | Non supportate |
@@ -52,8 +54,8 @@ I set di scalabilità di macchine virtuali supporteranno due modalità di orches
 | Aggiornamenti del modello               | Non supportate                              | Supportato |
 | Controllo istanza            | Controllo completo della macchina virtuale. Le macchine virtuali hanno un URI completo che supporta la gamma completa di funzionalità di gestione delle macchine virtuali di Azure, ad esempio criteri di Azure, backup di Azure e Azure Site Recovery | Le macchine virtuali sono risorse dipendenti del set di scalabilità. È possibile accedere alle istanze per la gestione solo tramite il set di scalabilità. |
 | Modello di istanza              | Definizione del modello Microsoft. Compute/VirtualMachines. | Definizione del modello Microsoft. Compute/VirtualMachineScaleSets/VirtualMachines. |
-| Capacity                    | È possibile creare un set di scalabilità vuoto; è possibile aggiungere fino a 200 VM al set di scalabilità | I set di scalabilità possono essere definiti con un numero di istanze 0-1000 |
-| Sposta                        | Supportato                                  | Supportato |
+| Capacità                    | È possibile creare un set di scalabilità vuoto; è possibile aggiungere fino a 200 VM al set di scalabilità | I set di scalabilità possono essere definiti con un numero di istanze 0-1000 |
+| Spostamento                        | Supportato                                  | Supportato |
 | Gruppo di posizionamento singolo = = false | Non supportate                          | Supportato |
 
 

@@ -2,17 +2,19 @@
 title: Creare un set di scalabilità che usa VM di Azure spot
 description: Informazioni su come creare set di scalabilità di macchine virtuali di Azure che usano macchine virtuali spot per risparmiare sui costi.
 author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: spot
+ms.date: 03/25/2020
+ms.reviewer: jagaveer
+ms.custom: jagaveer
+ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545945"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125044"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VM di Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -26,7 +28,7 @@ La quantità di capacità disponibile può variare in base alle dimensioni, all'
 I prezzi per le istanze di spot sono variabili in base all'area e allo SKU. Per altre informazioni, vedere prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari statunitensi (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.98765`è un prezzo massimo di $0,98765 USD all'ora. Se si imposta il prezzo massimo `-1`, l'istanza non verrà rimossa in base al prezzo. Il prezzo per l'istanza sarà il prezzo corrente per spot o il prezzo di un'istanza standard, che sempre è inferiore, purché siano disponibili capacità e quota.
+Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari statunitensi (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.98765` è un prezzo massimo di $0,98765 USD all'ora. Se si imposta il prezzo massimo `-1` , l'istanza non verrà rimossa in base al prezzo. Il prezzo per l'istanza sarà il prezzo corrente per spot o il prezzo di un'istanza standard, che sempre è inferiore, purché siano disponibili capacità e quota.
 
 ## <a name="eviction-policy"></a>Criteri di rimozione
 
@@ -49,12 +51,12 @@ Per distribuire le VM spot nei set di scalabilità, è possibile impostare il nu
 
 ## <a name="portal"></a>Portale
 
-Il processo per creare un set di scalabilità che usa le VM spot è identico a quello descritto nell' [articolo introduttivo](quick-create-portal.md). Quando si distribuisce un set di scalabilità, è possibile scegliere di impostare il flag spot e i criteri di ![rimozione: creare un set di scalabilità con le VM spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+Il processo per creare un set di scalabilità che usa le VM spot è identico a quello descritto nell' [articolo introduttivo](quick-create-portal.md). Quando si distribuisce un set di scalabilità, è possibile scegliere di impostare il flag spot e i criteri di rimozione: ![ creare un set di scalabilità con le VM spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Il processo di creazione di un set di scalabilità con macchine virtuali spot è identico a quello descritto nell' [articolo introduttivo](quick-create-cli.md). È sufficiente aggiungere "--Priority spot" e aggiungere `--max-price`. In questo esempio viene usato `-1` per `--max-price` , quindi l'istanza non verrà rimossa in base al prezzo.
+Il processo di creazione di un set di scalabilità con macchine virtuali spot è identico a quello descritto nell' [articolo introduttivo](quick-create-cli.md). È sufficiente aggiungere "--Priority spot" e aggiungere `--max-price` . In questo esempio viene usato `-1` per, `--max-price` quindi l'istanza non verrà rimossa in base al prezzo.
 
 ```azurecli
 az vmss create \
@@ -71,7 +73,7 @@ az vmss create \
 ## <a name="powershell"></a>PowerShell
 
 Il processo di creazione di un set di scalabilità con macchine virtuali spot è identico a quello descritto nell' [articolo introduttivo](quick-create-powershell.md).
-È sufficiente aggiungere "-Priority spot" e fornire un `-max-price` oggetto a [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+È sufficiente aggiungere "-Priority spot" e fornire un oggetto `-max-price` a [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -87,7 +89,7 @@ $vmssConfig = New-AzVmssConfig `
 
 Il processo per creare un set di scalabilità che usa le VM spot è identico a quello descritto nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). 
 
-Per le distribuzioni di modelli di`"apiVersion": "2019-03-01"` spot, usare o versione successiva. Aggiungere le `priority`proprietà `evictionPolicy` , `billingProfile` e alla `"virtualMachineProfile":` sezione nel modello: 
+Per le distribuzioni di modelli di spot, usare `"apiVersion": "2019-03-01"` o versione successiva. Aggiungere le `priority` `evictionPolicy` proprietà, e `billingProfile` alla `"virtualMachineProfile":` sezione nel modello: 
 
 ```json
                 "priority": "Spot",
@@ -97,7 +99,7 @@ Per le distribuzioni di modelli di`"apiVersion": "2019-03-01"` spot, usare o ver
                 }
 ```
 
-Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy` parametro su `Delete`.
+Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy` parametro su `Delete` .
 
 ## <a name="faq"></a>Domande frequenti
 
@@ -123,12 +125,12 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il `evictionPolicy`
 
 **D:** È possibile convertire I set di scalabilità esistenti in set di scalabilità spot?
 
-**R:** No, l'impostazione `Spot` del flag è supportata solo in fase di creazione.
+**R:** No, l'impostazione del `Spot` flag è supportata solo in fase di creazione.
 
 
-**D:** Se si usa per `low` i set di scalabilità con priorità bassa, è necessario iniziare a `Spot` usare invece?
+**D:** Se si usa `low` per i set di scalabilità con priorità bassa, è necessario iniziare a usare `Spot` invece?
 
-**R:** Per il momento, `low` sia `Spot` che funzioneranno, ma è necessario iniziare a eseguire la `Spot`transizione a usando.
+**R:** Per il momento, sia che `low` `Spot` funzioneranno, ma è necessario iniziare a eseguire la transizione a usando `Spot` .
 
 
 **D:** È possibile creare un set di scalabilità con macchine virtuali normali e macchine virtuali spot?

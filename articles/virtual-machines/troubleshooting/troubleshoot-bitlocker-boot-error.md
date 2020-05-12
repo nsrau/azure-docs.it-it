@@ -12,12 +12,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 67a3ba99e29582c5681d69cd0c6db377a258020a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250010"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201338"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Problemi di avvio di BitLocker in una macchina virtuale di Azure
 
@@ -273,13 +274,13 @@ In uno scenario con chiave di crittografia della chiave, seguire questa procedur
 
 **Errore: Impossibile caricare il file o l'assembly**
 
-Questo errore si verifica perché i percorsi degli assembly ADAL sono errati. Se il modulo AZ è installato solo per l'utente corrente, gli assembly ADAL verranno posizionati in `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+Questo errore si verifica perché i percorsi degli assembly ADAL sono errati. Se il modulo AZ è installato solo per l'utente corrente, gli assembly ADAL verranno posizionati in `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>` .
 
-È anche possibile cercare la `Az.Accounts` cartella per trovare il percorso corretto.
+È anche possibile cercare `Az.Accounts` la cartella per trovare il percorso corretto.
 
 **Errore: Get-AzKeyVaultSecret o Get-AzKeyVaultSecret non è riconosciuto come nome di un cmdlet**
 
-Se si usa il vecchio modulo AZ PowerShell, è necessario modificare i due comandi in `Get-AzureKeyVaultSecret` e. `Get-AzureKeyVaultSecret`
+Se si usa il vecchio modulo AZ PowerShell, è necessario modificare i due comandi in `Get-AzureKeyVaultSecret` e `Get-AzureKeyVaultSecret` .
 
 **Esempi di parametri**
 
