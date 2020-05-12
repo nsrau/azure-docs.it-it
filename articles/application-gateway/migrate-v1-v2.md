@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57a49f9e1473f33eceba14591815415338aeecf4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312041"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198807"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Eseguire la migrazione di applicazione Azure gateway e del Web Application Firewall da V1 a V2
 
@@ -53,15 +53,15 @@ Sono disponibili due opzioni a seconda della configurazione e delle preferenze d
 * Se non si dispone di Azure AZ Modules installato o non si vuole disinstallare i moduli AZ di Azure, l'opzione migliore consiste nell'usare l' `Install-Script` opzione per eseguire lo script.
 * Se è necessario proteggere i moduli di Azure AZ, la scommessa migliore consiste nel scaricare lo script ed eseguirlo direttamente.
 
-Per determinare se Azure AZ Modules è installato, eseguire `Get-InstalledModule -Name az`. Se non vengono visualizzati i moduli AZ installati, è possibile usare il `Install-Script` metodo.
+Per determinare se Azure AZ Modules è installato, eseguire `Get-InstalledModule -Name az` . Se non vengono visualizzati i moduli AZ installati, è possibile usare il `Install-Script` metodo.
 
 ### <a name="install-using-the-install-script-method"></a>Eseguire l'installazione usando il metodo Install-script
 
 Per usare questa opzione, non è necessario che nel computer siano installati i moduli AZ di Azure. Se sono installati, il comando seguente visualizza un errore. È possibile disinstallare i moduli di Azure AZ oppure usare l'altra opzione per scaricare lo script manualmente ed eseguirlo.
   
-Eseguire lo script con il comando seguente:
+Eseguire lo script con il comando seguente per ottenere la versione più recente:
 
-`Install-Script -Name AzureAppGWMigration`
+`Install-Script -Name AzureAppGWMigration -Force`
 
 Questo comando installa anche i moduli AZ richiesti.  
 
@@ -162,7 +162,7 @@ Di seguito sono riportati alcuni scenari in cui il gateway applicazione corrente
 
   * Se si usano indirizzi IP pubblici nel gateway applicazione, è possibile eseguire una migrazione controllata e granulare usando un profilo di gestione traffico per instradare in modo incrementale il traffico (metodo di routing del traffico ponderato) al nuovo gateway V2.
 
-    A tale scopo, è possibile aggiungere le etichette DNS dei gateway applicazione V1 e V2 al [profilo di gestione traffico](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)e il record DNS personalizzato (ad esempio, `www.contoso.com`) per il dominio di Traffic Manager (ad esempio, contoso.trafficmanager.NET).
+    A tale scopo, è possibile aggiungere le etichette DNS dei gateway applicazione V1 e V2 al [profilo di gestione traffico](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)e il record DNS personalizzato (ad esempio, `www.contoso.com` ) per il dominio di Traffic Manager (ad esempio, contoso.trafficmanager.NET).
   * In alternativa, è possibile aggiornare il record DNS di dominio personalizzato in modo che punti all'etichetta DNS del nuovo gateway applicazione V2. A seconda della durata (TTL) configurata nel record DNS, potrebbe essere necessario un po' di tempo per eseguire la migrazione di tutto il traffico client al nuovo gateway V2.
 * I **client si connettono all'indirizzo IP front-end del gateway applicazione**.
 
@@ -196,7 +196,7 @@ No. Attualmente lo script non supporta i certificati nell'insieme di credenziali
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Si sono verificati alcuni problemi con l'uso di questo script. Come è possibile ottenere assistenza?
   
-È possibile inviare un messaggio di appgwmigrationsup@microsoft.composta elettronica a, aprire un caso di supporto con il supporto tecnico di Azure o eseguire entrambe le operazioni.
+È possibile contattare il supporto tecnico di Azure nell'argomento "configurazione e installazione/migrazione allo SKU V2". Altre informazioni sul [supporto tecnico di Azure](https://azure.microsoft.com/support/options/)sono disponibili qui.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

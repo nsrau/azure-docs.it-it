@@ -3,12 +3,12 @@ title: Ripristinare File di Azure con PowerShell
 description: Questo articolo illustra come ripristinare File di Azure usando il servizio backup di Azure e PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: bcd85635dbacceb7d1c125bb550feedbdb57e04a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63c318b66ec8f876a260b3c5b8db38bb088fb862
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097643"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201966"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Ripristinare File di Azure con PowerShell
 
@@ -17,7 +17,7 @@ Questo articolo illustra come ripristinare un'intera condivisione file o file sp
 È possibile ripristinare un'intera condivisione file o file specifici nella condivisione. È possibile eseguire il ripristino nel percorso originale o in un percorso alternativo.
 
 > [!WARNING]
-> Verificare che la versione PS sia aggiornata alla versione minima per "AZ. RecoveryServices 2.6.0" per i backup AFS. Per ulteriori informazioni, vedere [la sezione](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) relativa alla struttura del requisito per questa modifica.
+> Verificare che la versione PS sia aggiornata alla versione minima per "AZ. RecoveryServices 2.6.0" per i backup AFS. Per ulteriori informazioni, vedere [la sezione](backup-azure-afs-automation.md#important-notice-backup-item-identification) relativa alla struttura del requisito per questa modifica.
 
 >[!NOTE]
 >Backup di Azure supporta ora il ripristino di più file o cartelle nella posizione originale o alternativa usando PowerShell. Per informazioni, fare riferimento a [questa sezione](#restore-multiple-files-or-folders-to-original-or-alternate-location) del documento.

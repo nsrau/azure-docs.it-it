@@ -8,12 +8,13 @@ ms.topic: troubleshooting
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 62ad337646cf3fc0bbe4305dccad5adb56f8ee15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 50f76d9b4f3061e6e9a1e4a0b510146dbded422a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410235"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198998"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Risolvere i problemi dei connettori di Azure Data Factory
 
@@ -30,7 +31,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Causa**: l'operazione di archiviazione BLOB ha raggiunto un problema.
 
-- **Raccomandazione**: controllare l'errore in dettagli. Vedere il documento della Guida BLOB https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes:. Se serve assistenza, contattare il team di archiviazione.
+- **Raccomandazione**: controllare l'errore in dettagli. Vedere il documento della Guida BLOB: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes . Se serve assistenza, contattare il team di archiviazione.
 
 
 ### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>Codice di errore: AzureBlobServiceNotReturnExpectedDataLength
@@ -134,7 +135,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Motivo**: quando il messaggio di errore contiene ' Forbidden ', l'entità servizio o l'identità gestita utilizzata potrebbe non disporre di autorizzazioni sufficienti per accedere al ADLS Gen2.
 
-- **Raccomandazione**: fare riferimento al documento della Guida https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication:.
+- **Raccomandazione**: fare riferimento al documento della guida: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication .
 
 - **Motivo**: quando il messaggio di errore contiene ' InternalServerError ', l'errore viene restituito da ADLS Gen2.
 
@@ -198,11 +199,11 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Motivo**: se il messaggio di errore contiene "SqlException", il database SQL genera l'errore che indica che un'operazione specifica non è riuscita.
 
-- **Raccomandazione**: per altri dettagli, cercare il codice di errore SQL in questo documento di https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errorsriferimento. Per ulteriori informazioni, contattare il supporto SQL di Azure.
+- **Raccomandazione**: per altri dettagli, cercare il codice di errore SQL in questo documento di riferimento https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Per ulteriori informazioni, contattare il supporto SQL di Azure.
 
 - **Motivo**: se il messaggio di errore contiene "client con indirizzo IP"... " non è consentito accedere al server e si sta provando a connettersi al database SQL di Azure, in genere è causato da un problema del firewall del database SQL di Azure.
 
-- **Raccomandazione**: nella configurazione di Azure SQL Server Firewall abilitare l'opzione "Consenti ai servizi e alle risorse di Azure di accedere al server". Documentazione di riferimento https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure:.
+- **Raccomandazione**: nella configurazione di Azure SQL Server Firewall abilitare l'opzione "Consenti ai servizi e alle risorse di Azure di accedere al server". Documentazione di riferimento: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
 
 
 ### <a name="error-code--sqloperationfailed"></a>Codice di errore: SqlOperationFailed
@@ -211,8 +212,8 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Motivo**: se il messaggio di errore contiene "SqlException", il database SQL genera l'errore che indica che un'operazione specifica non è riuscita.
 
-- **Raccomandazione**: se l'errore SQL non è chiaro, provare a modificare il database con il livello di compatibilità più recente ' 150'. Può generare errori SQL più recenti della versione. Vedere la documentazione dettagliata: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
-        Per la risoluzione dei problemi relativi a SQL, eseguire una ricerca in base al codice di errore SQL in https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errorsquesto documento di riferimento per ulteriori informazioni:. Per ulteriori informazioni, contattare il supporto SQL di Azure.
+- **Raccomandazione**: se l'errore SQL non è chiaro, provare a modificare il database con il livello di compatibilità più recente ' 150'. Può generare errori SQL più recenti della versione. Vedere la documentazione dettagliata: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat .
+        Per la risoluzione dei problemi relativi a SQL, eseguire una ricerca in base al codice di errore SQL in questo documento di riferimento per ulteriori informazioni: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Per ulteriori informazioni, contattare il supporto SQL di Azure.
 
 - **Causa**: se il messaggio di errore contiene "PdwManagedToNativeInteropException", in genere è causato da una mancata corrispondenza tra le dimensioni delle colonne di origine e sink.
 
@@ -220,7 +221,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Causa**: se il messaggio di errore contiene "InvalidOperationException", in genere è causato da dati di input non validi.
 
-- **Raccomandazione**: per identificare la riga in cui si è verificato il problema, abilitare la funzionalità tolleranza di errore nell'attività di copia, che può reindirizzare le righe problematiche alla risorsa di archiviazione per un'analisi più approfondita. Documentazione di riferimento https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance:.
+- **Raccomandazione**: per identificare la riga in cui si è verificato il problema, abilitare la funzionalità tolleranza di errore nell'attività di copia, che può reindirizzare le righe problematiche alla risorsa di archiviazione per un'analisi più approfondita. Documentazione di riferimento: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Codice di errore: SqlUnauthorizedAccess
@@ -323,7 +324,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Causa**: la copia bulk di SQL non è riuscita a causa della ricezione di una lunghezza di colonna non valida dal client bcp.
 
-- **Raccomandazione**: per identificare la riga in cui si è verificato il problema, abilitare la funzionalità tolleranza di errore nell'attività di copia, che può reindirizzare le righe problematiche alla risorsa di archiviazione per un'analisi più approfondita. Documentazione di riferimento https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance:.
+- **Raccomandazione**: per identificare la riga in cui si è verificato il problema, abilitare la funzionalità tolleranza di errore nell'attività di copia, che può reindirizzare le righe problematiche alla risorsa di archiviazione per un'analisi più approfondita. Documentazione di riferimento: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
 
 
 ### <a name="error-code--sqlconnectionisclosed"></a>Codice di errore: SqlConnectionIsClosed
@@ -545,7 +546,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Motivo**: il formato parquet non è supportato in Azure Data Factory.
 
-- **Raccomandazione**: controllare i dati di origine. Vedere il documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+- **Raccomandazione**: controllare i dati di origine. Vedere il documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs .
 
 
 ### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Codice di errore: ParquetMissedDecimalPrecisionScale
@@ -581,7 +582,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Causa**: i dati non possono essere convertiti nel tipo specificato nei mapping. origine
 
-- **Raccomandazione**: controllare i dati di origine o specificare il tipo di dati corretto per la colonna nel mapping delle colonne dell'attività di copia. Vedere il documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+- **Raccomandazione**: controllare i dati di origine o specificare il tipo di dati corretto per la colonna nel mapping delle colonne dell'attività di copia. Vedere il documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs .
 
 
 ### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Codice di errore: ParquetDataCountNotMatchColumnCount

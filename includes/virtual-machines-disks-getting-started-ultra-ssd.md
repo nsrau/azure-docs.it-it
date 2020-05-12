@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10b3a6bb9592c955d16b070ae412374b8a1f4444
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008637"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196944"
 ---
 Azure ultra Disks offre velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per macchine virtuali IaaS di Azure. Questa nuova offerta fornisce prestazioni all'avanguardia con gli stessi livelli di disponibilità delle offerte di dischi esistenti. Uno dei vantaggi principali di ultra disks è la possibilità di modificare dinamicamente le prestazioni dell'unità SSD insieme ai carichi di lavoro senza dover riavviare le macchine virtuali. I dischi Ultra sono idonei per carichi di lavoro a elevato utilizzo di dati, come SAP HANA, database di alto livello e carichi di lavoro con numerose transazioni.
 
@@ -51,7 +51,7 @@ La risposta sarà simile a quella riportata di seguito, dove X è la zona da usa
 
 Mantenere il valore **Zones** , che rappresenta la zona di disponibilità e sarà necessario per distribuire un disco Ultra.
 
-|ResourceType  |Name  |Percorso  |Zone  |Restrizione  |Funzionalità  |valore  |
+|ResourceType  |Nome  |Location  |Zone  |Restrizione  |Funzionalità  |valore  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -62,7 +62,7 @@ Ora che si conosce la zona in cui eseguire la distribuzione, seguire i passaggi 
 
 ### <a name="vms-with-no-redundancy-options"></a>VM senza opzioni di ridondanza
 
-Per il momento, i dischi Ultra distribuiti negli Stati Uniti occidentali devono essere distribuiti senza opzioni di ridondanza. Tuttavia, non tutte le dimensioni del disco che supportano i dischi Ultra possono trovarsi in questa area. Per determinare quali di essi negli Stati Uniti occidentali supportano dischi Ultra, è possibile usare uno dei frammenti di codice seguenti. Assicurarsi di sostituire prima i `vmSize` valori `subscription` e:
+Per il momento, i dischi Ultra distribuiti negli Stati Uniti occidentali devono essere distribuiti senza opzioni di ridondanza. Tuttavia, non tutte le dimensioni del disco che supportano i dischi Ultra possono trovarsi in questa area. Per determinare quali di essi negli Stati Uniti occidentali supportano dischi Ultra, è possibile usare uno dei frammenti di codice seguenti. Assicurarsi di sostituire prima i `vmSize` `subscription` valori e:
 
 ```azurecli
 $subscription = "<yourSubID>"

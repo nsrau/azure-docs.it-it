@@ -5,21 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 05/11/2020
 ms.author: victorh
-ms.openlocfilehash: 858cfc9a8c15f1e33e688bb5086a58f194e7173f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28252b42264dc6c1be403e99689f845d7143b1f7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501506"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200460"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurare le regole dell'applicazione firewall di Azure con FQDN SQL
-
-> [!IMPORTANT]
-> Le regole dell'applicazione firewall di Azure con FQDN SQL sono attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È ora possibile configurare le regole dell'applicazione firewall di Azure con FQDN SQL. In questo modo è possibile limitare l'accesso dalle reti virtuali solo alle istanze di SQL Server specificate.
 
@@ -29,7 +24,7 @@ Con i nomi di dominio completi SQL è possibile filtrare il traffico:
 - Da locale a istanze gestite di SQL di Azure o IaaS SQL in esecuzione in reti virtuali.
 - Da spoke a spoke a istanze gestite di SQL di Azure o IaaS SQL in esecuzione in reti virtuali.
 
-Durante l'anteprima pubblica, il filtro FQDN SQL è supportato solo in [modalità proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (porta 1433). Se si usa SQL nella modalità di reindirizzamento predefinita, è possibile filtrare l'accesso usando il tag del servizio SQL come parte delle [regole di rete](overview.md#network-traffic-filtering-rules).
+Il filtro FQDN SQL è supportato solo in [modalità proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (porta 1433). Se si usa SQL nella modalità di reindirizzamento predefinita, è possibile filtrare l'accesso usando il tag del servizio SQL come parte delle [regole di rete](overview.md#network-traffic-filtering-rules).
 Se si usano porte non predefinite per il traffico IaaS SQL, è possibile configurare tali porte nelle regole dell'applicazione firewall.
 
 Le regole dell'applicazione con FQDN SQL sono attualmente disponibili in tutte le aree tramite il portale di Azure, l'interfaccia della riga di comando di Azure, REST e i modelli.

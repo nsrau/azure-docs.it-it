@@ -4,19 +4,19 @@ description: Informazioni su come connettersi a database SQL, istanza gestita e 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
+ms.custom: azure-synapse, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: 0e244ea185011bbb7d9f0facad399bb9b577bbc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60a1b0deda75c1fc30a9e3b8255106d2809856ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419858"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198602"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurare e gestire l'autenticazione di Azure Active Directory con SQL
 
@@ -187,8 +187,8 @@ Come procedura consigliata per gli amministratori di Azure AD esistenti per MI c
 
 ### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Problemi noti relativi all'accesso Azure AD GA per MI
 
-- Se nel database master è presente un account di accesso Azure AD per MI, creato con il comando `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`T-SQL, non può essere configurato come amministratore Azure ad per mi. Si verificherà un errore durante l'impostazione dell'account di accesso come amministratore Azure AD usando i comandi portale di Azure, PowerShell o CLI per creare l'account di accesso Azure AD.
-  - Per poter creare l'account come amministratore di Azure AD, è necessario `DROP LOGIN [myaadaccount]`che l'account di accesso venga eliminato nel database master utilizzando il comando.
+- Se nel database master è presente un account di accesso Azure AD per MI, creato con il comando T-SQL `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER` , non può essere configurato come amministratore Azure ad per mi. Si verificherà un errore durante l'impostazione dell'account di accesso come amministratore Azure AD usando i comandi portale di Azure, PowerShell o CLI per creare l'account di accesso Azure AD.
+  - Per poter `DROP LOGIN [myaadaccount]` creare l'account come amministratore di Azure ad, è necessario che l'account di accesso venga eliminato nel database master utilizzando il comando.
   - Configurare l'account amministratore Azure AD nel portale di Azure dopo che ha avuto `DROP LOGIN` esito positivo. 
   - Se non è possibile configurare l'account amministratore di Azure AD, archiviare il database master dell'istanza gestita per l'account di accesso. Usare il comando seguente: `SELECT * FROM sys.server_principals`
   - La configurazione di un amministratore Azure AD per MI creerà automaticamente un account di accesso nel database master per l'account. La rimozione dell'amministratore di Azure AD eliminerà automaticamente l'account di accesso dal database master.
@@ -309,9 +309,9 @@ Cmdlet usati per il provisioning e la gestione di Azure AD amministratore per il
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Rimuove un amministratore Azure Active Directory per il server di Azure SQL o la sinapsi di Azure. |
 | [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Restituisce informazioni su un amministratore Azure Active Directory attualmente configurato per il server di Azure SQL o la sinapsi di Azure. |
 
-Usare il comando Get-Help di PowerShell per visualizzare altre informazioni per ognuno di questi comandi. Ad esempio: `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
+Usare il comando Get-Help di PowerShell per visualizzare altre informazioni per ognuno di questi comandi. Ad esempio, `get-help Set-AzSqlServerActiveDirectoryAdministrator`
 
-Lo script seguente effettua il provisioning di **DBA_Group** un gruppo di amministratori `40b79501-b343-44ed-9ce7-da4c8cc7353f`Azure ad denominato DBA_Group (ID oggetto) per il server **demo_server** in un gruppo di risorse denominato **Group-23**:
+Lo script seguente effettua il provisioning di un gruppo di amministratori Azure AD denominato **DBA_Group** (ID oggetto `40b79501-b343-44ed-9ce7-da4c8cc7353f` ) per il server **demo_server** in un gruppo di risorse denominato **Group-23**:
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
@@ -366,7 +366,7 @@ Per ulteriori informazioni sui comandi dell'interfaccia della riga di comando, v
 
 In tutti i computer client, da cui le applicazioni o gli utenti si connettono al database SQL di Azure o a sinapsi di Azure usando Azure AD identità, è necessario installare il software seguente:
 
-- .NET Framework 4,6 o versione successiva [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx)da.
+- .NET Framework 4,6 o versione successiva da [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
 - Azure Active Directory libreria di autenticazione per SQL Server (*adal. DLL*). Di seguito sono riportati i collegamenti di download per installare la versione più recente di SSMS, ODBC e driver di OLE DB che contiene *adal. *Libreria di dll.
     1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
     1. [ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
@@ -471,7 +471,7 @@ Usare questo metodo per eseguire l'autenticazione al database SQL o a MI con Azu
 
 1. Avviare Management Studio o Data Tools e nella finestra di dialogo **Connetti al server** (o **Connetti a motore di database**), nella casella **autenticazione** selezionare **Azure Active Directory-password**.
 
-2. Nella casella **nome utente** Digitare il nome utente Azure Active Directory nel formato nome utente **\@Domain.com**. I nomi utente devono essere un account di Azure Active Directory o un account di un dominio gestito o federato con Azure Active Directory.
+2. Nella casella **nome utente** Digitare il nome utente Azure Active Directory nel formato nome utente ** \@ Domain.com**. I nomi utente devono essere un account di Azure Active Directory o un account di un dominio gestito o federato con Azure Active Directory.
 
 3. Nella casella **password** Digitare la password utente per l'account Azure Active Directory o per l'account di dominio gestito/federato.
 
@@ -498,7 +498,7 @@ Per usare l'autenticazione integrata di Windows, è necessario che il Active Dir
 
 L'applicazione client (o un servizio) che si connette al database deve essere in esecuzione in un computer aggiunto a un dominio con le credenziali di dominio di un utente.
 
-Per connettersi a un database usando l'autenticazione integrata e un'identità Azure AD, la parola chiave Authentication nella stringa di connessione del database deve `Active Directory Integrated`essere impostata su. L'esempio di codice C# seguente usa ADO .NET.
+Per connettersi a un database usando l'autenticazione integrata e un'identità Azure AD, la parola chiave Authentication nella stringa di connessione del database deve essere impostata su `Active Directory Integrated` . L'esempio di codice C# seguente usa ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -510,7 +510,7 @@ La parola chiave `Integrated Security=True` della stringa di connessione non è 
 
 ### <a name="active-directory-password-authentication"></a>Autenticazione della password di Active Directory
 
-Per connettersi a un database usando Azure AD account utente di identità solo cloud o quelli che usano Azure AD identità ibride, la parola chiave di autenticazione deve essere impostata `Active Directory Password`su. La stringa di connessione deve contenere le parole chiave e i valori User ID/UID e Password/PWD. L'esempio di codice C# seguente usa ADO .NET.
+Per connettersi a un database usando Azure AD account utente di identità solo cloud o quelli che usano Azure AD identità ibride, la parola chiave di autenticazione deve essere impostata su `Active Directory Password` . La stringa di connessione deve contenere le parole chiave e i valori User ID/UID e Password/PWD. L'esempio di codice C# seguente usa ADO .NET.
 
 ```csharp
 string ConnectionString =

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a1a33404982b16e458e97aaf9959ff5dd52d1cce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692154"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198891"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Procedure consigliate per SQL su richiesta (anteprima) in Azure sinapsi Analytics
 
@@ -44,7 +44,7 @@ Una volta rilevata la limitazione, SQL su richiesta dispone di una gestione inco
 
 Se possibile, è possibile preparare i file per ottenere prestazioni migliori:
 
-- Convertire CSV in parquet-parquet è un formato a colonne. Poiché è compresso, le dimensioni del file sono inferiori ai file CSV con gli stessi dati. SQL su richiesta richiede meno tempo e richieste di archiviazione per leggerlo.
+- Convertire CSV e JSON in parquet-parquet è un formato a colonne. Poiché è compresso, le dimensioni del file sono inferiori ai file CSV o JSON con gli stessi dati. SQL su richiesta richiede meno tempo e richieste di archiviazione per leggerlo.
 - Se una query è destinata a un singolo file di grandi dimensioni, è possibile suddividerla in più file più piccoli.
 - Provare a mantenere le dimensioni del file CSV al di sotto di 10 GB.
 - È preferibile disporre di file di dimensioni uguali per un singolo percorso OPENROWSET o una posizione di tabella esterna.
@@ -118,7 +118,14 @@ Per altre informazioni, vedere funzioni [filename](develop-storage-files-overvie
 > [!TIP]
 > Eseguire sempre il cast del risultato delle funzioni FilePath e FileInfo ai tipi di dati appropriati. Se si usano tipi di dati character, verificare che venga usata la lunghezza appropriata.
 
+> [!NOTE]
+> Le funzioni usate per l'eliminazione della partizione, FilePath e FileInfo, non sono attualmente supportate per le tabelle esterne diverse da quelle create automaticamente per ogni tabella creata in sinapsi Spark.
+
 Se i dati archiviati non sono partizionati, provare a partizionarlo per poter usare queste funzioni per ottimizzare le query destinate a tali file. Quando si [eseguono query su tabelle Spark partizionate](develop-storage-files-spark-tables.md) da SQL su richiesta, la query verrà destinata automaticamente solo ai file necessari.
+
+## <a name="use-parser_version-20-for-querying-csv-files"></a>Usare PARSER_VERSION 2,0 per eseguire query sui file CSV
+
+È possibile utilizzare il parser ottimizzato per le prestazioni quando si eseguono query sui file CSV. Per informazioni dettagliate, controllare [PARSER_VERSION](develop-openrowset.md) .
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Usare CETAS per migliorare le prestazioni di esecuzione delle query e i join
 
@@ -127,6 +134,12 @@ Se i dati archiviati non sono partizionati, provare a partizionarlo per poter us
 È possibile utilizzare CETAS per archiviare parti di query utilizzate di frequente, come le tabelle di riferimento Unite in join, a un nuovo set di file. A questo punto, è possibile aggiungere join a questa singola tabella esterna anziché ripetere i join comuni in più query.
 
 Quando CETAS genera file parquet, le statistiche vengono create automaticamente quando la prima query è destinata a questa tabella esterna, con conseguente miglioramento delle prestazioni.
+
+## <a name="aad-pass-through-performance"></a>Prestazioni pass-through di AAD
+
+SQL su richiesta consente di accedere ai file nell'archivio usando le credenziali pass-through o SAS di AAD. È possibile che si verifichino prestazioni più lente con il confronto tra AAD e la firma di accesso condiviso. 
+
+Per ottenere prestazioni migliori, provare a usare le credenziali di firma di accesso condiviso per accedere allo spazio di archiviazione fino a quando non si migliora le prestazioni di AAD
 
 ## <a name="next-steps"></a>Passaggi successivi
 

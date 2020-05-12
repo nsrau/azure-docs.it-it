@@ -3,12 +3,12 @@ title: Matrice di supporto per il backup di macchine virtuali di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto durante il backup di macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 86141532e0db80f75c6e79277b36060ecb939a53
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: b7201972811c5b9cc8187b671c9e688236667860
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801434"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199873"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -24,7 +24,7 @@ Altre matrici di supporto:
 
 Di seguito viene illustrato come è possibile eseguire il backup e il ripristino di macchine virtuali di Azure con il servizio Backup di Azure.
 
-**Scenario** | **Backup** | **Agente** |**Recupera**
+**Scenario** | **Backup** | **Agente** |**Restore**
 --- | --- | --- | ---
 backup diretto di macchine virtuali di Azure  | Eseguire il backup dell'intera VM.  | Nella macchina virtuale di Azure non è necessario alcun agente aggiuntivo. Backup di Azure installa e usa un'estensione per l' [agente di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) in esecuzione nella macchina virtuale. | È possibile eseguire il ripristino nel modo seguente:<br/><br/> - **Creare una VM di base**. Questa operazione è utile se la macchina virtuale non ha una configurazione speciale, ad esempio più indirizzi IP.<br/><br/> - **Ripristinare il disco della macchina virtuale**. Ripristinare il disco Quindi collegarlo a una macchina virtuale esistente o creare una nuova macchina virtuale dal disco usando PowerShell.<br/><br/> - **Sostituire il disco della macchina virtuale**. Se è presente una macchina virtuale che usa dischi gestiti (non crittografati), è possibile ripristinare un disco e usarlo per sostituire un disco esistente nella macchina virtuale.<br/><br/> - **Ripristinare cartelle e file specifici**. È possibile ripristinare file e cartelle da una macchina virtuale anziché dall'intera VM.
 Backup diretto di macchine virtuali di Azure (solo Windows)  | Eseguire il backup di file/cartelle/volumi specifici. | Installare l' [agente di servizi di ripristino di Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> È possibile eseguire l'agente di Servizi di ripristino di Microsoft Azure insieme all'estensione di backup per l'agente di macchine virtuali di Azure per eseguire il backup della macchina virtuale a livello di file o di cartella. | Ripristino di cartelle e file specifici.
@@ -103,7 +103,7 @@ Punti di ripristino su disco DPM/MABS | 64 per i file server e 448 per i server 
 
 ## <a name="supported-restore-methods"></a>Metodi di ripristino supportati
 
-**Opzione di ripristino** | **Dettagli**
+**Opzione di ripristino** | **Informazioni dettagliate**
 --- | ---
 **Creazione di una nuova macchina virtuale** | Crea e rende operativa rapidamente una macchina virtuale di base a partire da un punto di ripristino.<br/><br/> È possibile specificare un nome per la VM, selezionare il gruppo di risorse e la rete virtuale (VNet) in cui verrà inserito e specificare un account di archiviazione per la macchina virtuale ripristinata. La nuova VM deve essere creata nella stessa area della VM di origine.
 **Restore disk** (Ripristina disco) | Ripristina un disco della macchina virtuale, che può quindi essere usato per creare una nuova macchina virtuale.<br/><br/> Backup di Azure offre un modello che consente di personalizzare e creare una macchina virtuale. <br/><br> Il processo di ripristino genera un modello che può essere scaricato e usato per specificare impostazioni della macchina virtuale personalizzate e creare una macchina virtuale.<br/><br/> I dischi vengono copiati nel gruppo di risorse specificato.<br/><br/> In alternativa, è possibile collegare il disco a una macchina virtuale esistente o creare una nuova macchina virtuale usando PowerShell.<br/><br/> Questa opzione è utile se si vuole personalizzare la macchina virtuale, aggiungere impostazioni di configurazione non presenti al momento del backup o aggiungere impostazioni che devono essere configurate usando il modello o PowerShell.
@@ -112,7 +112,7 @@ Punti di ripristino su disco DPM/MABS | 64 per i file server e 448 per i server 
 
 ## <a name="support-for-file-level-restore"></a>Supporto per il ripristino a livello di file
 
-**Recupera** | **Supportato**
+**Restore** | **Supportato**
 --- | ---
 Ripristino dei file nei sistemi operativi | È possibile ripristinare i file in qualsiasi computer che abbia un sistema operativo uguale (o compatibile) a quello della macchina virtuale sottoposta a backup. Vedere la [tabella del sistema operativo compatibile](backup-azure-restore-files-from-vm.md#system-requirements).
 Ripristino dei file da macchine virtuali crittografate | Non supportata.
@@ -125,7 +125,7 @@ Ripristino dei file con impostazioni di rete speciali | Il ripristino nella stes
 
 La tabella seguente riepiloga il supporto per il backup durante le attività di gestione delle macchine virtuali, ad esempio l'aggiunta o la sostituzione dei dischi delle macchine virtuali.
 
-**Recupera** | **Supportato**
+**Restore** | **Supportato**
 --- | ---
 Ripristino a livello di sottoscrizione/area/zona. | Non supportata.
 Ripristino in una macchina virtuale esistente | Usare l'opzione relativa alla sostituzione del disco.
@@ -158,7 +158,7 @@ VM Gen2 | Supportato <br> Backup di Azure supporta il backup e il ripristino di 
 
 **Componente** | **Supporto tecnico**
 --- | ---
-Dischi di dati delle VM di Azure | Eseguire il backup di una macchina virtuale con un massimo di 16 dischi dati.<BR> Per iscriversi all'anteprima limitata delle VM con più di 16 dischi (fino a 32 dischi), scrivici all'indirizzoAskAzureBackupTeam@microsoft.com
+Dischi di dati delle VM di Azure | Il supporto per il backup di macchine virtuali di Azure con un massimo di 32 dischi è in anteprima pubblica in [queste aree](#backup-of-azure-virtual-machines-with-up-to-32-disks).<br><br> Il supporto per il backup di macchine virtuali di Azure con dischi non gestiti o VM classiche è costituito da un massimo di 16 dischi.
 Dimensioni del disco dati | Le dimensioni del disco singolo possono essere fino a 32 TB e un massimo di 256 TB combinati per tutti i dischi in una macchina virtuale.
 Tipo di archiviazione | HDD Standard, SDD Standard, SSD Premium.
 Dischi gestiti | Supportato.
@@ -169,6 +169,13 @@ Aggiunta di un disco a una macchina virtuale protetta | Supportato.
 Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
 Archiviazione condivisa| Il backup di macchine virtuali con Volume condiviso cluster (CSV) o File server di scalabilità orizzontale non è supportato. Probabilmente i writer CSV avranno esito negativo durante il backup. Durante il ripristino, i dischi contenenti volumi CSV potrebbero non essere disponibili.
 [Dischi condivisi](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Non supportata.
+
+### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Backup di macchine virtuali di Azure con fino a 32 dischi
+
+Backup di Azure supporta ora il backup di macchine virtuali di Azure con un massimo di 32 dischi collegati.  Questa funzionalità è in anteprima pubblica negli Stati Uniti centro-occidentali.  Se si è interessati a questa funzionalità in altre aree, iscriversi per l'anteprima limitata scrivendo all'indirizzo AskAzureBackupTeam@microsoft.com .  
+
+>[!NOTE]
+>Backup di Azure supporta un massimo di 16 dischi per le macchine virtuali di Azure con dischi non gestiti o macchine virtuali classiche.
 
 ## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali
 

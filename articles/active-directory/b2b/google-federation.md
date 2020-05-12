@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1ca4ff3ed35371fe7454c242da8c9107badc659
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79126677"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199540"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
@@ -37,16 +37,16 @@ Se viene visualizzato un errore a causa dell'intestazione troppo lunga, l'utente
 
 ## <a name="limitations"></a>Limitazioni
 
-Team supporta completamente gli utenti guest di Google su tutti i dispositivi. Gli utenti di Google possono accedere ai team da un endpoint comune `https://teams.microsoft.com`come.
+Team supporta completamente gli utenti guest di Google su tutti i dispositivi. Gli utenti di Google possono accedere ai team da un endpoint comune come `https://teams.microsoft.com` .
 
 Gli endpoint comuni di altre applicazioni potrebbero non supportare gli utenti di Google. Gli utenti guest di Google devono accedere usando un collegamento che include le informazioni del tenant. Di seguito vengono riportati alcuni esempi:
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
-   Se gli utenti guest di Google tentano di usare un `https://myapps.microsoft.com` collegamento `https://portal.azure.com`, ad esempio o, riceveranno un errore.
+   Se gli utenti guest di Google tentano di usare un collegamento, ad esempio `https://myapps.microsoft.com` o, riceveranno `https://portal.azure.com` un errore.
 
-È anche possibile assegnare agli utenti guest di Google un collegamento diretto a un'applicazione o a una risorsa, purché il collegamento includa le informazioni del `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`tenant, ad esempio. 
+È anche possibile assegnare agli utenti guest di Google un collegamento diretto a un'applicazione o a una risorsa, purché il collegamento includa le informazioni del tenant, ad esempio `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` . 
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Passaggio 1: Configurare un progetto di Google Developers
 Prima di tutto creare un nuovo progetto nella console di Google Developers per ottenere un ID client e un segreto client che sarà possibile aggiungere ad Azure AD in un secondo momento. 
@@ -81,7 +81,7 @@ Prima di tutto creare un nuovo progetto nella console di Google Developers per o
 
    ![Screenshot che mostra la sezione relativa agli URI di reindirizzamento autorizzati](media/google-federation/google-create-oauth-client-id.png)
 
-10. Selezionare **Crea**. Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
+10. Selezionare **Create** (Crea). Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
 
    ![Screenshot che mostra l'ID client OAuth e il segreto client](media/google-federation/google-auth-client-id-secret.png)
 
@@ -90,8 +90,8 @@ Si imposteranno ora l'ID client e il segreto client di Google immettendoli nel p
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Per configurare la federazione con Google nel portale di Azure AD 
 1. Accedere al [portale di Azure](https://portal.azure.com). Nel riquadro sinistro selezionare **Azure Active Directory**. 
-2. Selezionare **Relazioni aziendali**.
-3. Selezionare **Provider di identità** e quindi fare clic sul pulsante **Google**.
+2. Selezionare **relazioni organizzative** (o **identità esterne**).
+3. Selezionare **tutti i provider di identità**e quindi fare clic sul pulsante **Google** .
 4. Immettere un nome. Immettere quindi l'ID client e il segreto client ottenuti in precedenza. Selezionare **Salva**. 
 
    ![Screenshot che mostra la pagina Aggiungi provider di identità Google](media/google-federation/google-identity-provider.png)
@@ -112,8 +112,8 @@ Si imposteranno ora l'ID client e il segreto client di Google immettendoli nel p
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Per eliminare la federazione con Google nel portale di Azure AD: 
 1. Accedere al [portale di Azure](https://portal.azure.com). Nel riquadro sinistro selezionare **Azure Active Directory**. 
-2. Selezionare **Relazioni aziendali**.
-3. Selezionare **provider di identità**.
+2. Selezionare **relazioni organizzative** (o **identità esterne**).
+3. Selezionare **tutti i provider di identità**.
 4. Nella riga di **Google** selezionare il menu di scelta rapida (**...**) e quindi selezionare **Elimina**. 
    
    ![Screenshot che mostra l'opzione di eliminazione per il provider di identità basato su social network](media/google-federation/google-social-identity-providers.png)

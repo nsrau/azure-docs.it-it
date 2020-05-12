@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061771"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198565"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -61,6 +61,8 @@ Per eseguire un ripristino, vedere [Restore database from backups](sql-database-
 Il database SQL supporta la gestione self-service per il ripristino temporizzato (ripristino temporizzato) creando automaticamente backup completi, backup differenziali e backup del log delle transazioni. I backup completi del database vengono creati settimanalmente e i backup differenziali del database vengono in genere creati ogni 12 ore. I backup del log delle transazioni vengono in genere creati ogni 5-10 minuti. La frequenza dei backup del log delle transazioni è basata sulle dimensioni di calcolo e sulla quantità di attività del database. 
 
 Il primo backup completo viene pianificato subito dopo la creazione di un database. Questo backup viene in genere completato entro 30 minuti, ma può richiedere più tempo quando il database è di grandi dimensioni. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema. Non è possibile modificare o disabilitare i processi di backup.
+
+### <a name="default-backup-retention-period"></a>Periodo di conservazione dei backup predefinito
 
 I backup ripristino temporizzato sono protetti con archiviazione con ridondanza geografica. Per altre informazioni, vedere [Ridondanza di Archiviazione di Azure](../storage/common/storage-redundancy.md).
 
@@ -156,7 +158,7 @@ Se il database è crittografato con Transparent Data Encryption, i backup vengon
 
 Con cadenza continuativa, il team di progettazione del database SQL di Azure testa automaticamente il ripristino dei backup automatici dei database inseriti nei server logici e nei pool di database elastici. Questo test non è disponibile nell'istanza gestita. Al momento del ripristino temporizzato, i database ricevono anche i controlli di integrità di DBCC CHECKDB.
 
-Istanza gestita prende il backup iniziale automatico `CHECKSUM` con i database ripristinati con `RESTORE` il comando nativo o con il servizio migrazione dati di Azure al termine della migrazione.
+Istanza gestita prende il backup iniziale automatico con `CHECKSUM` i database ripristinati con il `RESTORE` comando nativo o con il servizio migrazione dati di Azure al termine della migrazione.
 
 Gli eventuali problemi rilevati durante la verifica dell'integrità determinano la generazione di un avviso per il team di progettazione. Per altre informazioni, vedere [integrità dei dati nel database SQL di Azure](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
@@ -212,7 +214,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 
-#### <a name="request-body"></a>Testo della richiesta
+#### <a name="request-body"></a>Corpo della richiesta
 
 ```json
 {

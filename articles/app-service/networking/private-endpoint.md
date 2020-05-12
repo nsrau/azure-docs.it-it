@@ -4,17 +4,17 @@ description: Connettersi privatamente a un'app Web usando un endpoint privato di
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 05/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756288"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198827"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso di endpoint privati per app Web di Azure (anteprima)
 
@@ -28,7 +28,7 @@ L'uso di un endpoint privato per l'app Web consente di:
 - Proteggere l'app Web configurando l'endpoint privato, eliminando l'esposizione pubblica.
 - Connettersi in modo sicuro all'app Web da reti locali che si connettono alla VNet usando un peering privato VPN o ExpressRoute.
 
-Se è necessaria una connessione sicura tra il VNet e l'app Web, un endpoint del servizio è la soluzione più semplice. Se è necessario anche raggiungere l'app Web dall'ambiente locale tramite un gateway di Azure, un VNet con peering a livello di area o un VNet con peering globale, endpoint privato è la soluzione.  
+Se è necessaria una connessione sicura tra il VNet e l'app Web, un endpoint del servizio è la soluzione più semplice. Se è necessario anche raggiungere l'app Web dall'ambiente locale tramite un gateway di Azure, una VNet con peering a livello di area o un VNet con peering globale, l'endpoint privato è la soluzione.  
 
 Per altre informazioni, vedere [endpoint del servizio][serviceendpoint].
 
@@ -63,13 +63,21 @@ Nei log HTTP Web dell'app Web è presente l'IP di origine del client. Questa ope
 ## <a name="dns"></a>DNS
 
 Poiché questa funzionalità è in anteprima, la voce DNS non viene modificata durante l'anteprima. È necessario gestire manualmente la voce DNS nel server DNS privato o nella zona privata di DNS di Azure.
-Se è necessario usare un nome DNS personalizzato, è necessario aggiungere il nome personalizzato nell'app Web. Durante l'anteprima, il nome personalizzato deve essere convalidato come qualsiasi nome personalizzato, usando la risoluzione DNS pubblica. Per ulteriori informazioni, vedere [convalida DNS personalizzata][dnsvalidation] .
+Se è necessario usare un nome DNS personalizzato, è necessario aggiungere il nome personalizzato nell'app Web. Durante l'anteprima, il nome personalizzato deve essere convalidato come qualsiasi nome personalizzato, usando la risoluzione DNS pubblica. Per altre informazioni, vedere [convalida DNS personalizzata][dnsvalidation].
+
+Se è necessario usare la console Kudu o l'API REST Kudu (distribuzione con gli agenti self-hosted di Azure DevOps, ad esempio), è necessario creare due record nella zona privata di DNS di Azure o nel server DNS personalizzato. 
+- Yourwebappname.azurewebsites.net PrivateEndpointIP 
+- Yourwebappname.scm.azurewebsites.net PrivateEndpointIP 
 
 ## <a name="pricing"></a>Prezzi
 
 Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato di Azure][pricing].
 
 ## <a name="limitations"></a>Limitazioni
+
+Quando si usa funzioni di Azure in un piano Premium elastico con endpoint privato, per eseguire o eseguire la funzione nel portale Web di Azure, è necessario avere accesso diretto alla rete oppure si riceverà un errore HTTP 403. In altre parole, il browser deve essere in grado di raggiungere l'endpoint privato per eseguire la funzione dal portale Web di Azure. 
+
+Durante l'anteprima solo lo slot di produzione viene esposto dietro l'endpoint privato, gli altri slot sono raggiungibili solo dall'endpoint pubblico.
 
 Sono state migliorate regolarmente le funzionalità di collegamento privato e l'endpoint privato. per informazioni aggiornate sulle limitazioni, vedere [questo articolo][pllimitations] .
 

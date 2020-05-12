@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269809"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201124"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi all'API di servizi multimediali V3-.NET
 
@@ -35,15 +36,15 @@ Questo articolo illustra come connettersi a servizi multimediali di Azure V3 .NE
 ## <a name="create-a-console-application"></a>Creare un'applicazione console
 
 1. Avviare Visual Studio. 
-1. Scegliere **nuovo** > **progetto**dal menu **file** . 
+1. Scegliere **nuovo**progetto dal menu **file**  >  **Project**. 
 1. Creare un'applicazione console **.NET Core** .
 
-L'app di esempio in questo argomento è `netcoreapp2.0`destinata a. Il codice USA ' Async Main ', disponibile a partire da C# 7,1. Per altri dettagli, vedere questo [Blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
+L'app di esempio in questo argomento è destinata a `netcoreapp2.0` . Il codice USA ' Async Main ', disponibile a partire da C# 7,1. Per altri dettagli, vedere questo [Blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
 
 ## <a name="add-required-nuget-packages"></a>Aggiungere i pacchetti NuGet necessari
 
-1. In Visual Studio selezionare **strumenti** > **gestione** > pacchetti NuGet**console di gestione NuGet**.
-2. Nella finestra **console di gestione pacchetti** usare `Install-Package` il comando per aggiungere i pacchetti NuGet seguenti. Ad esempio: `Install-Package Microsoft.Azure.Management.Media`.
+1. In Visual Studio selezionare **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione NuGet**.
+2. Nella finestra **console di gestione pacchetti** usare `Install-Package` il comando per aggiungere i pacchetti NuGet seguenti. Ad esempio, `Install-Package Microsoft.Azure.Management.Media`
 
 |Pacchetto|Descrizione|
 |---|---|
@@ -57,7 +58,7 @@ L'app di esempio in questo argomento è `netcoreapp2.0`destinata a. Il codice US
 
 ### <a name="create-appsettingsjson"></a>Creare appSettings. JSON
 
-1. Vai a **General** > **file di testo**generale.
+1. Vai a **General**  >  **file di testo**generale.
 1. Assegnare al file il nome "appSettings. JSON".
 1. Impostare la proprietà "copia in directory di output" del file JSON su "copia se più recente" (in modo che l'applicazione sia in grado di accedervi al momento della pubblicazione).
 
@@ -70,7 +71,7 @@ Eseguire il `az ams account sp create` comando come descritto in [accedere alle 
 Per praticità, aggiungere un file di configurazione responsabile della lettura dei valori da "appSettings. JSON".
 
 1. Aggiungere una nuova classe. cs al progetto. Denominarlo `ConfigWrapper`. 
-1. Incollare il codice seguente in questo file (in questo esempio si presuppone che lo spazio `ConsoleApp1`dei nomi sia).
+1. Incollare il codice seguente in questo file (in questo esempio si presuppone che lo spazio dei nomi sia `ConsoleApp1` ).
 
 ```csharp
 using System;

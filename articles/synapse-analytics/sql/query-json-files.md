@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0db022ff4fdf092c2286d2da333df2ea23406569
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 4c1fe9ac5d3b2470fb70231a83e57f3e08d0dfb1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692707"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197595"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file JSON con SQL su richiesta (anteprima) in Azure sinapsi Analytics
 
-Questo articolo illustra come scrivere una query usando SQL su richiesta (anteprima) in Azure sinapsi Analytics. L'obiettivo della query è leggere i file JSON.
+Questo articolo illustra come scrivere una query usando SQL su richiesta (anteprima) in Azure sinapsi Analytics. L'obiettivo della query è leggere i file JSON. I formati supportati sono elencati in [OPENROWSET](develop-openrowset.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

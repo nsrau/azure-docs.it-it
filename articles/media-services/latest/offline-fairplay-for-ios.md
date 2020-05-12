@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 41893c2460ecb2d17e3893f867bc460105d57bbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e65bf39db00f1277635d600da87346f19a881a6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887215"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197177"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming FairPlay offline per iOS con servizi multimediali V3
 
@@ -87,7 +87,7 @@ options.Add(
 
 ## <a name="enable-offline-mode"></a>Abilitare la modalità offline
 
-Per abilitare la modalità offline, creare un'entità StreamingPolicy personalizzata e usare il relativo nome quando si crea un'entità StreamingLocator in [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563).
+Per abilitare la modalità offline, creare un'entità StreamingPolicy personalizzata e usare il relativo nome quando si crea un'entità StreamingLocator in [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L561).
  
 ```csharp
 CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
@@ -96,23 +96,24 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
     {
         FairPlay = new StreamingPolicyFairPlayConfiguration()
         {
-            AllowPersistentLicense = true  //this enables offline mode
+            AllowPersistentLicense = true // This enables offline mode
         }
     },
     EnabledProtocols = new EnabledProtocols()
     {
         Hls = true,
-        Dash = true //Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
+        Dash = true // Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
     },
 
     ContentKeys = new StreamingPolicyContentKeys()
     {
-        //Default key must be specified if keyToTrackMappings is present
+        // Default key must be specified if keyToTrackMappings is present
         DefaultKey = new DefaultKey()
         {
             Label = "CBCS_DefaultKeyLabel"
         }
     }
+}
 
 ```
 
