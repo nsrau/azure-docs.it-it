@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 084b364f4a1414febb7b6f11c9cf70958ee823c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f28b660a2afc97cf9faf0f601e247a97e99098cd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176670"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853353"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduzione all'archiviazione BLOB di Azure
 
@@ -65,7 +65,7 @@ Per altre informazioni sui diversi tipi di BLOB, vedere [Informazioni sui BLOB i
 
 Esistono diverse soluzioni per la migrazione dei dati esistenti nell'archivio BLOB:
 
-- **AzCopy** è uno strumento da riga di comando facile da usare per Windows e Linux che copia i dati da e verso l’archivio BLOB, tra contenitori o tra account di archiviazione. Per altre informazioni su AzCopy, vedere [Trasferire dati con AzCopy v10 (Anteprima)](../common/storage-use-azcopy-v10.md).
+- **AzCopy** è uno strumento da riga di comando facile da usare per Windows e Linux che copia i dati da e verso l’archivio BLOB, tra contenitori o tra account di archiviazione. Per altre informazioni su AzCopy, vedere [Trasferire dati con AzCopy v10](../common/storage-use-azcopy-v10.md).
 - La **libreria di spostamento dei dati di archiviazione di Azure** è una libreria .NET per lo spostamento dei dati tra i servizi di archiviazione di Azure. L'utilità AzCopy viene compilata con la libreria di spostamento dei dati. Per ulteriori informazioni, vedere la [documentazione di riferimento](/dotnet/api/microsoft.azure.storage.datamovement) per la libreria di spostamento dei dati.
 - **Azure Data Factory** supporta la copia dei dati da e verso l'archivio BLOB tramite la chiave dell'account, una firma di accesso condiviso, un'entità servizio o identità gestite per le risorse di Azure. Per altre informazioni, vedere [Copiare dati da e verso l’archivio BLOB di Azure usando Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 - **Blobfuse** è un driver virtuale file system per l'archivio BLOB di Azure. È possibile usare blobfuse per accedere ai dati di BLOB in blocchi esistenti nell'account di archiviazione tramite il file system di Linux. Per altre informazioni, vedere [Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md).

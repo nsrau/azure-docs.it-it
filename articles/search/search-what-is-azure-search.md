@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: fee7c8eb73fe0bb7c9fd0bd9de9aa57bd8c40215
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77580652"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891547"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Che cos'è la ricerca cognitiva di Azure?
 
@@ -154,11 +154,6 @@ In alternativa, è possibile [attivare i vantaggi della sottoscrizione MSDN](htt
 
 I motori di ricerca sono i principali fautori del recupero delle informazioni nelle app per dispositivi mobili, sul Web e negli archivi dati aziendali. La Ricerca cognitiva di Azure offre gli strumenti per creare un'esperienza di ricerca simile a quella dei siti Web commerciali di grandi dimensioni.
 
-In questo video di 9 minuti prodotto dal program manager Liam Cavanagh, sono presenti informazioni su come l'app possa trarre vantaggio dall'integrazione di un motore di ricerca. Brevi demo riguardano le funzionalità principali in Ricerca cognitiva di Azure e l'aspetto di un tipico flusso di lavoro. 
+In questo video di 15 minuti, il Program Manager Luis Cabrera presenta Ricerca cognitiva di Azure. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ Da 0 a 3 minuti: funzionalità chiave e casi d'uso.
-+ Da 3 a 4 minuti: provisioning del servizio. 
-+ Da 4 a 6 minuti: procedura guidata di importazione dei dati per creare un indice usando il set di dati predefinito per il mercato immobiliare.
-+ Da 6 a 9 minuti: Esplora ricerche e varie query.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]
