@@ -13,20 +13,18 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1be7ceb9b0560b87d0917fdb57b2c21e0b050db9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839097"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199573"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
-Questo articolo elenca le operazioni disponibili per ogni provider di risorse di Azure Resource Manager. Queste operazioni possono essere usate nei [ruoli personalizzati di Azure](custom-roles.md) per fornire un controllo di accesso granulare alle risorse in Azure. Le stringhe di operazione hanno il formato `{Company}.{ProviderName}/{resourceType}/{action}`seguente:. Per un elenco delle modalità di mapping tra gli spazi dei nomi del provider di risorse e i servizi di Azure, vedere [associare il provider di risorse al servizio](../azure-resource-manager/management/azure-services-resource-providers.md).
+Questo articolo elenca le operazioni disponibili per ogni provider di risorse di Azure Resource Manager. Queste operazioni possono essere usate nei [ruoli personalizzati di Azure](custom-roles.md) per fornire un controllo di accesso granulare alle risorse in Azure. Le stringhe di operazione hanno il formato seguente: `{Company}.{ProviderName}/{resourceType}/{action}` . Per un elenco delle modalità di mapping tra gli spazi dei nomi del provider di risorse e i servizi di Azure, vedere [associare il provider di risorse al servizio](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 Le operazioni dei provider di risorse sono costantemente in evoluzione. Per ottenere le operazioni più recenti, usare [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) oppure [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
@@ -2137,7 +2135,7 @@ Servizio di Azure: [Servizi cognitivi](../cognitive-services/index.yml)
 > | DataAction | Microsoft. CognitiveServices/accounts/SpellCheck/SpellCheck/Action | Ottenere il risultato di una query di controllo ortografico tramite GET o POST. |
 > |  | **account/TextAnalytics** |  |
 > | DataAction | Microsoft. CognitiveServices/accounts/TextAnalytics/lingue/azione | L'API restituisce la lingua rilevata e un punteggio numerico compreso tra 0 e 1. I punteggi prossimi a 1 indicano con una certezza del 100% che la lingua identificata è true. È supportato un totale di 120 lingue. |
-> | DataAction | Microsoft. CognitiveServices/accounts/TextAnalytics/Entities/Action | L'API restituisce un elenco di entità note e entità denominate\"generali\"( \"persona\", \"località\" , organizzazione e così via) in un documento specificato. |
+> | DataAction | Microsoft. CognitiveServices/accounts/TextAnalytics/Entities/Action | L'API restituisce un elenco di entità note e entità denominate generali ( \" persona \" , \" località \" , \" organizzazione e \" così via) in un documento specificato. |
 > | DataAction | Microsoft. CognitiveServices/accounts/TextAnalytics/frasi chiave/azione | L'API restituisce un elenco di stringhe che indicano i punti principali di discussione nel testo di input. |
 > | DataAction | Microsoft. CognitiveServices/accounts/TextAnalytics/sentimento/azione | L'API restituisce un punteggio numerico compreso tra 0 e 1.<br>I valori prossimi a 1 indicano una valutazione positiva, mentre i valori prossimi a 0 indicano una valutazione negativa.<br>Il Punteggio 0,5 indica la mancanza di sentimenti, ad esempio<br>un'istruzione del controllo del controllo. |
 > |  | **account/VideoSearch** |  |
@@ -4695,7 +4693,7 @@ Servizio di Azure: [monitoraggio di Azure](../azure-monitor/index.yml)
 > | Azione | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | Consente di leggere le definizioni del log |
 > |  | **AutoscaleSettings/Providers/Microsoft. Insights/MetricDefinitions** |  |
 > | Azione | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Consente di leggere le definizioni della metrica |
-> |  | **Di base** |  |
+> |  | **Versione di base** |  |
 > | Azione | Microsoft. Insights/Baseline/lettura | Leggi una baseline metrica (anteprima) |
 > |  | **CalculateBaseline** |  |
 > | Azione | Microsoft. Insights/CalculateBaseline/lettura | Calcolare la baseline per i valori delle metriche (anteprima) |

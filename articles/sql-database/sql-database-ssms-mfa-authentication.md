@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse
-ms.custom: seoapril2019
+ms.custom: seoapril2019, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synapse
-ms.openlocfilehash: 137e1919f460d2f5631810edbc09b6e213bfe651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 611a238fd829d9b1beb391da967c0f6c6d3b46ed
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133200"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198527"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-synapse-analytics-ssms-support-for-mfa"></a>Uso dell'autenticazione di AAD a più fattori con il database SQL di Azure e Azure sinapsi Analytics (supporto di SSMS per l'autenticazione a più fattori)
 Il database SQL di Azure e la sinapsi di Azure supportano le connessioni da SQL Server Management Studio (SSMS) con *Active Directory l'autenticazione universale*. Questo articolo illustra le differenze tra le varie opzioni di autenticazione, oltre alle limitazioni associate all'uso dell'autenticazione universale. 
@@ -59,7 +59,7 @@ Se si esegue SSMS 18. x o versione successiva, l'ID tenant o il nome di dominio 
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Supporto per Azure AD business-to-business   
-Azure AD gli utenti supportati per Azure AD scenari B2B come utenti Guest (vedere informazioni su [collaborazione B2B di Azure](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) possono connettersi al database SQL e alla sinapsi di Azure solo come parte dei membri di un gruppo creato in Azure ad corrente e mappati manualmente usando l' `CREATE USER` istruzione Transact-SQL in un determinato database. Se `steve@gmail.com` , ad esempio, viene invitato a `contosotest` Azure ad (con il dominio `contosotest.onmicrosoft.com`Azure ad), è `usergroup` necessario creare un gruppo di Azure ad, ad esempio, nella Azure ad che `steve@gmail.com` contiene il membro. Questo gruppo deve quindi essere creato per un database specifico, ovvero MyDatabase, dall'amministratore del database SQL o dal DBO di Azure AD tramite un'istruzione Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER`. Dopo che è stato creato l'utente del database, l'utente `steve@gmail.com` può accedere a `MyDatabase` usando l'opzione di autenticazione `Active Directory – Universal with MFA support` di SSMS. Per impostazione predefinita, al gruppo di utenti è concessa solo l'autorizzazione di connessione. Per qualsiasi altro tipo di accesso ai dati l'autorizzazione deve essere concessa secondo la normale procedura. Si noti che `steve@gmail.com`, in qualità di utente guest, deve selezionare la casella e aggiungere il nome di dominio AD `contosotest.onmicrosoft.com` nella finestra di dialogo **Proprietà connessione** di SSMS. L'opzione **ID tenant o nome di dominio AD** è supportata solo per le opzioni di connessione Universale con supporto MFA. Negli altri casi non è disponibile.
+Azure AD gli utenti supportati per Azure AD scenari B2B come utenti Guest (vedere informazioni su [collaborazione B2B di Azure](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) possono connettersi al database SQL e alla sinapsi di Azure solo come parte dei membri di un gruppo creato in Azure ad corrente e mappati manualmente usando l'istruzione Transact-SQL `CREATE USER` in un determinato database. Se, ad esempio, `steve@gmail.com` viene invitato a Azure ad `contosotest` (con il dominio Azure ad `contosotest.onmicrosoft.com` ), è necessario creare un gruppo di Azure ad, ad esempio, `usergroup` nella Azure ad che contiene il `steve@gmail.com` membro. Questo gruppo deve quindi essere creato per un database specifico, ovvero MyDatabase, dall'amministratore del database SQL o dal DBO di Azure AD tramite un'istruzione Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER`. Dopo che è stato creato l'utente del database, l'utente `steve@gmail.com` può accedere a `MyDatabase` usando l'opzione di autenticazione `Active Directory – Universal with MFA support` di SSMS. Per impostazione predefinita, al gruppo di utenti è concessa solo l'autorizzazione di connessione. Per qualsiasi altro tipo di accesso ai dati l'autorizzazione deve essere concessa secondo la normale procedura. Si noti che `steve@gmail.com`, in qualità di utente guest, deve selezionare la casella e aggiungere il nome di dominio AD `contosotest.onmicrosoft.com` nella finestra di dialogo **Proprietà connessione** di SSMS. L'opzione **ID tenant o nome di dominio AD** è supportata solo per le opzioni di connessione Universale con supporto MFA. Negli altri casi non è disponibile.
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-azure-synapse"></a>Limitazioni dell'autenticazione universale per database SQL e sinapsi di Azure
 - SSMS e SqlPackage.exe sono gli unici strumenti attualmente abilitati per MFA tramite l'autenticazione universale di Active Directory.

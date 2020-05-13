@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 809fbe85a9783777d5dbef86357bd5a386bd6f81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: efb9e8b8abdcb442e2c5c4d8bfd1b2e1e60865ce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261242"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197843"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1,0 e 1,1 da usare con cache di Azure per Redis
 
@@ -19,7 +19,7 @@ ms.locfileid: "81261242"
 
 Come parte di questo sforzo, verranno apportate le modifiche seguenti alla cache di Azure per redis:
 
-* **Fase 1:** Verrà configurata la versione minima predefinita di TLS come 1,2 per le istanze di cache appena create. (Questo è stato usato come TLS 1,0). A questo punto le istanze di cache esistenti non verranno aggiornate. Se necessario, sarà possibile ripristinare [la versione minima di TLS](cache-configure.md#access-ports) a 1,0 o 1,1 per compatibilità con le versioni precedenti. Questa modifica può essere eseguita tramite la portale di Azure o altre API di gestione.
+* **Fase 1:** Verrà configurata la versione minima predefinita di TLS come 1,2 per le istanze di cache appena create (in precedenza TLS 1,0).  A questo punto le istanze di cache esistenti non verranno aggiornate. Se necessario, sarà possibile ripristinare [la versione minima di TLS](cache-configure.md#access-ports) a 1,0 o 1,1 per compatibilità con le versioni precedenti. Questa modifica può essere eseguita tramite la portale di Azure o altre API di gestione.
 * **Fase 2:** Verrà interrotto il supporto delle versioni di TLS 1,0 e 1,1. Dopo questa modifica, l'applicazione dovrà usare TLS 1,2 o versione successiva per comunicare con la cache.
 
 Inoltre, nell'ambito di questa modifica, verrà rimosso il supporto per i gruppi di crittografia meno recenti e non sicuri.  Quando la cache è configurata con una versione minima di TLS 1,2, i gruppi di crittografia supportati saranno limitati a quanto segue.
@@ -33,7 +33,7 @@ Le date in cui queste modifiche diventano effettive sono:
 
 | Cloud               | Data di inizio fase 1 | Data di inizio della fase 2      |
 |---------------------|--------------------|-------------------------|
-| Azure (globale)      |  13 gennaio 2020  | 11 maggio, 2020 (esteso) |
+| Azure (globale)      |  13 gennaio 2020  | 11 maggio 2020            |
 | Azure Government    |  13 marzo, 2020    | 11 maggio 2020            |
 | Azure Germania       |  13 marzo, 2020    | 11 maggio 2020            |
 | Azure Cina         |  13 marzo, 2020    | 11 maggio 2020            |

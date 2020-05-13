@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1edb0791e80a8503e5ecba3154d7b421206272c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189821"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198608"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai set di scalabilità di macchine virtuali, dai contenitori IaaS e dai computer non Azure (inclusi quelli locali) per monitorare le vulnerabilità e le minacce per la sicurezza. I dati vengono raccolti tramite l'agente di Log Analytics, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. L'agente Log Analytics inoltre copia i file di dump di arresto anomalo del sistema nell'area di lavoro
@@ -25,7 +25,7 @@ Questo articolo descrive come installare un agente di Log Analytics e impostare 
 > [!NOTE]
 > - La raccolta dei dati è necessaria solo per le risorse di calcolo (VM, set di scalabilità di macchine virtuali, contenitori IaaS e computer non Azure). È possibile usufruire dei vantaggi del Centro sicurezza di Azure anche se non si esegue il provisioning di agenti. La sicurezza sarà tuttavia limitata e le funzionalità sopra elencate non saranno supportate.  
 > - Per l'elenco delle piattaforme supportate, vedere [Supported platforms in Azure Security Center](security-center-os-coverage.md) (Piattaforme supportate nel Centro sicurezza di Azure).
-> - L'archiviazione dei dati in Log Analytics, sia che si usi un'area di lavoro nuova o esistente, potrebbe comportare costi aggiuntivi per l'archiviazione dei dati. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+> - L'archiviazione dei dati in Log Analytics, sia che si usi un'area di lavoro nuova o esistente, potrebbe comportare costi aggiuntivi per l'archiviazione dei dati. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Abilitare il provisioning automatico dell'agente di Log Analytics<a name="auto-provision-mma"></a>
 
@@ -79,7 +79,7 @@ Per selezionare un'area di lavoro creata dal Centro sicurezza:
 
 > [!NOTE]
 > Il piano tariffario di Log Analytics per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza. Questa è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro. Per il livello Gratuito, il Centro sicurezza abilita la soluzione *SecurityCenterFree* nell'area di lavoro predefinita. Per il livello Standard, il Centro sicurezza abilita la soluzione *Security* nell'area di lavoro predefinita.
-> L'archiviazione dei dati in Log Analytics potrebbe comportare costi aggiuntivi per l'archiviazione dei dati. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+> L'archiviazione dei dati in Log Analytics potrebbe comportare costi aggiuntivi per l'archiviazione dei dati. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 Per altre informazioni sugli account di log Analytics esistenti, vedere [Customers log Analytics](./faq-azure-monitor-logs.md).
 
@@ -91,7 +91,7 @@ Per usare l'area di lavoro Log Analytics esistente, è necessario disporre delle
 
 > [!NOTE]
 > Le soluzioni abilitate in questa area di lavoro verranno applicate alle macchine virtuali di Azure che sono ad essa connesse. Per le soluzioni a pagamento, ciò può comportare costi aggiuntivi. Per considerazioni sulla privacy dei dati, assicurarsi che l'area di lavoro selezionata si trovi nell'area geografica appropriata.
-> Per archiviare i dati in log Analytics potrebbero essere addebitati costi aggiuntivi per l'archiviazione dei dati. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+> Per archiviare i dati in log Analytics potrebbero essere addebitati costi aggiuntivi per l'archiviazione dei dati. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 Per selezionare l'area di lavoro Log Analytics esistente:
 
@@ -139,7 +139,7 @@ Quando si seleziona un'area di lavoro in cui archiviare i dati, sono disponibili
 ## <a name="data-collection-tier"></a>Livello della raccolta dati
 La selezione di un livello di raccolta dati nel Centro sicurezza di Azure avrà effetto soltanto sull'archiviazione degli eventi di sicurezza nell'area di lavoro Log Analytics. L'agente di Log Analytics continuerà a raccogliere e analizzare gli eventi di sicurezza necessari per la protezione dalle minacce del Centro sicurezza di Azure, indipendentemente dal livello di eventi di sicurezza che si sceglie di archiviare nell'area di lavoro Log Analytics (se presente). La scelta di archiviare gli eventi di sicurezza nell'area di lavoro consentirà l'esecuzione di operazioni di analisi, ricerca e controllo di tali eventi nell'area di lavoro. 
 > [!NOTE]
-> Per archiviare i dati in log Analytics potrebbero essere addebitati costi aggiuntivi per l'archiviazione dei dati. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+> Per archiviare i dati in log Analytics potrebbero essere addebitati costi aggiuntivi per l'archiviazione dei dati. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 > 
 > È possibile scegliere i criteri di filtro adatti alle sottoscrizioni e alle aree di lavoro da quattro set di eventi da archiviare nell'area di lavoro: 
 
@@ -166,7 +166,7 @@ Di seguito è riportata una suddivisione completa degli ID di eventi di sicurezz
 
 | Livello dati | Indicatori di eventi raccolti |
 | --- | --- |
-| Minime | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| Minimal | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
 | Comuni | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
@@ -223,9 +223,8 @@ Il Centro sicurezza installerà l'estensione Log Analytics Agent side-by-side co
 
 Quando il provisioning automatico è disabilitato (disattivato), la sezione di configurazione dell'area di lavoro predefinita non viene visualizzata.
 
-Se si disattiva il provisioning automatico precedentemente attivato:
--   Non verrà eseguito il provisioning degli agenti nelle nuove macchine virtuali.
--   Il Centro sicurezza interromperà la raccolta dei dati dall'area di lavoro predefinita.
+Se si disattiva il provisioning automatico dopo che in precedenza gli agenti non verranno sottoposti a provisioning nelle nuove macchine virtuali.
+
  
 > [!NOTE]
 >  La disabilitazione del provisioning automatico non comporta la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure in cui è stato effettuato il provisioning dell'agente. Per informazioni sulla rimozione dell'estensione OMS, vedere [How do I remove OMS extensions installed by Security Center](faq-data-collection-agents.md#remove-oms) (Come si rimuovono le estensioni OMS installate dal Centro sicurezza).

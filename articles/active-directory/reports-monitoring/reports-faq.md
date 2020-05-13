@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266507"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199383"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Domande frequenti sui report di Azure Active Directory
 
 Questo articolo include risposte alle domande frequenti sulla creazione di report in Azure Active Directory (Azure AD). Per altre informazioni, vedere [Creazione di report in Azure Active Directory](overview-reports.md). 
 
-## <a name="getting-started"></a>Guida introduttiva 
+## <a name="getting-started"></a>Introduzione 
 
 **D: attualmente si utilizzano le `https://graph.windows.net/<tenant-name>/reports/` API endpoint per eseguire il pull Azure ad i report di controllo e di utilizzo delle applicazioni integrati nei sistemi di report a livello di codice. Che cosa devo passare a?**
 
@@ -37,7 +37,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: attualmente si usano le `https://graph.windows.net/<tenant-name>/reports/` API dell'endpoint per estrarre i report di sicurezza Azure ad (tipi specifici di rilevamento, ad esempio le credenziali perse o gli accessi da indirizzi IP anonimi) nei sistemi di report a livello di programmazione. Che cosa devo passare a?**
 
-**R:** È possibile usare l' [API](../identity-protection/graph-get-started.md) di rilevamento dei rischi di Identity Protection per accedere ai rilevamenti di sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità nel modo in cui è possibile eseguire query sui dati, con filtri avanzati, selezione dei campi e altro ancora, e standardizza i rilevamenti dei rischi in un unico tipo per semplificare l'integrazione in SIEM e altri strumenti di raccolta dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), ovvero lo standard Microsoft per API come Office 365 o Azure AD. Il lavoro richiesto può quindi estendere gli attuali investimenti in Microsoft Graph o consentire di iniziare la transizione alla nuova piattaforma standard.
+**R:** È possibile usare l' [API di rilevamento dei rischi di Identity Protection](../identity-protection/graph-get-started.md)   per accedere ai rilevamenti di sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità nel modo in cui è possibile eseguire query sui dati, con filtri avanzati, selezione dei campi e altro ancora, e standardizza i rilevamenti dei rischi in un unico tipo per semplificare l'integrazione in SIEM e altri strumenti di raccolta dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), ovvero lo standard Microsoft per API come Office 365 o Azure AD. Il lavoro richiesto può quindi estendere gli attuali investimenti in Microsoft Graph o consentire di iniziare la transizione alla nuova piattaforma standard.
 
 ---
 
@@ -71,13 +71,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Qual è la conservazione dei dati per i log attività (controllo e accessi) nel portale di Azure?** 
 
-**R:** La tabella seguente indica il periodo di conservazione dei dati per i log attività. Per altre informazioni, vedere [Criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).
-
-| Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Log di controllo             | 7 giorni        | 30 giorni             | 30 giorni             |
-| Accessi               | N/D           | 30 giorni             | 30 giorni             |
-| Uso di Azure MFA        | 30 giorni       | 30 giorni             | 30 giorni             |
+**R:** Per ulteriori informazioni, vedere [criteri di conservazione dei dati per i report Azure ad](reference-reports-data-retention.md).
 
 ---
 

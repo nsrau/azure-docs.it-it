@@ -1,25 +1,25 @@
 ---
-title: Monitorare i servizi di archiviazione di Azure con monitoraggio di Azure per l'archiviazione (anteprima) | Microsoft Docs
+title: Monitorare i servizi di archiviazione di Azure con monitoraggio di Azure per l'archiviazione | Microsoft Docs
 description: Questo articolo descrive il monitoraggio di Azure per la funzionalità di archiviazione che offre agli amministratori dell'archiviazione una rapida comprensione dei problemi di prestazioni e utilizzo con gli account di archiviazione di Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/15/2019
-ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: b0fd0343e7a072c0da0a5af0fa2d39eb2284cb06
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691119"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199962"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitoraggio del servizio di archiviazione con monitoraggio di Azure per l'archiviazione (anteprima)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con monitoraggio di Azure per l'archiviazione
 
-Monitoraggio di Azure per l'archiviazione (anteprima) offre un monitoraggio completo degli account di archiviazione di Azure, fornendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di archiviazione di Azure. È possibile osservare la capacità di archiviazione e le prestazioni in due modi, visualizzare direttamente da un account di archiviazione o da una vista di monitoraggio di Azure per visualizzare tutti i gruppi di account di archiviazione. 
+Monitoraggio di Azure per l'archiviazione offre un monitoraggio completo degli account di archiviazione di Azure, fornendo una visualizzazione unificata delle prestazioni, della capacità e della disponibilità dei servizi di archiviazione di Azure. È possibile osservare la capacità di archiviazione e le prestazioni in due modi, visualizzare direttamente da un account di archiviazione o da una vista di monitoraggio di Azure per visualizzare tutti i gruppi di account di archiviazione. 
 
-Questo articolo illustra l'esperienza di monitoraggio di Azure per l'archiviazione (anteprima) per ottenere informazioni utili sull'integrità e sulle prestazioni degli account di archiviazione su larga scala, con una capacità di concentrarsi sugli hotspot e diagnosticare la latenza, la limitazione e i problemi di disponibilità.
+Questo articolo consentirà di comprendere l'esperienza di monitoraggio di Azure per l'archiviazione per ottenere informazioni di utilità pratica sull'integrità e sulle prestazioni degli account di archiviazione su larga scala, con una capacità di concentrarsi sugli hotspot e diagnosticare la latenza, la limitazione e i problemi di disponibilità.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introduzione a monitoraggio di Azure per l'archiviazione (anteprima)
+## <a name="introduction-to-azure-monitor-for-storage"></a>Introduzione a monitoraggio di Azure per l'archiviazione
 
 Prima di approfondire l'esperienza, è necessario comprenderne il modo in cui presenta e visualizza le informazioni. Se si seleziona la funzionalità di archiviazione direttamente da un account di archiviazione o da monitoraggio di Azure, monitoraggio di Azure per l'archiviazione offre un'esperienza coerente. 
 
@@ -48,7 +48,7 @@ Per visualizzare l'utilizzo e la disponibilità degli account di archiviazione i
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **monitoraggio** nel riquadro a sinistra nel portale di Azure e nella sezione **Insights** selezionare **account di archiviazione (anteprima)**.
+2. Selezionare **monitoraggio** dal riquadro a sinistra nel portale di Azure e nella sezione **Insights** selezionare **account di archiviazione**.
 
     ![Visualizzazione di più account di archiviazione](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -92,7 +92,7 @@ Per accedere Monitoraggio di Azure per le macchine virtuali direttamente da un a
 
 1. Nella portale di Azure selezionare account di archiviazione.
 
-2. Dall'elenco scegliere un account di archiviazione. Nella sezione monitoraggio scegliere Insights (anteprima).
+2. Dall'elenco scegliere un account di archiviazione. Nella sezione monitoraggio scegliere Insights.
 
     ![Pagina di panoramica dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
@@ -138,7 +138,7 @@ Le cartelle di lavoro della **Panoramica** o della **capacità** di più sottosc
 
 ![Esempio di risultati esportazione griglia cartella di lavoro](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>Personalizzare monitoraggio di Azure per l'archiviazione (anteprima)
+## <a name="customize-azure-monitor-for-storage"></a>Personalizzare monitoraggio di Azure per l'archiviazione
 
 Questa sezione illustra gli scenari comuni per la modifica della cartella di lavoro per personalizzare il supporto delle esigenze di analisi dei dati:
 
@@ -155,7 +155,7 @@ Le personalizzazioni vengono salvate in una cartella di lavoro personalizzata pe
 
 È possibile configurare le cartelle di lavoro della **capacità** e della **Panoramica** dell'account di archiviazione e della multisottoscrizione per definire l'ambito di una o più sottoscrizioni o account di archiviazione a ogni esecuzione, seguire questa procedura.
 
-1. Selezionare **monitoraggio** dal portale e quindi selezionare **account di archiviazione (anteprima)** nel riquadro a sinistra.
+1. Selezionare **monitoraggio** dal portale e quindi fare clic su **account di archiviazione** nel riquadro a sinistra.
 
 2. Nella cartella di lavoro **Panoramica** , dalla barra dei comandi, selezionare **modifica**.
 
@@ -176,7 +176,7 @@ In questo esempio, si sta lavorando con la cartella di lavoro di capacità dell'
 
 È possibile eseguire le stesse modifiche in una qualsiasi delle cartelle di lavoro di **errori**, **prestazioni**, **disponibilità**e **capacità** predefinite.
 
-1. Selezionare **monitoraggio** dal portale e quindi selezionare **account di archiviazione (anteprima)** nel riquadro a sinistra.
+1. Selezionare **monitoraggio** dal portale e quindi fare clic su **account di archiviazione** nel riquadro a sinistra.
 
 2. Selezionare **capacità** per passare alla cartella di lavoro capacità e dalla barra dei comandi, selezionare **modifica** dalla barra dei comandi.
 
@@ -210,7 +210,7 @@ In questo esempio si usa la cartella di lavoro di capacità dell'account di arch
 
 1. Selezionare **account di archiviazione** dal portale e quindi selezionare un account di archiviazione dall'elenco.
 
-2. Selezionare **Insights (anteprima)** nel riquadro a sinistra.
+2. Selezionare **Insights** nel riquadro a sinistra.
 
 3. Nella cartella di lavoro selezionare **disponibilità** per passare alla cartella di lavoro disponibilità, quindi scegliere **modifica** dalla barra dei comandi. 
 
@@ -228,11 +228,11 @@ In questo esempio si usa la cartella di lavoro di capacità dell'account di arch
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Questa sezione illustra la diagnosi e la risoluzione dei problemi comuni che possono verificarsi quando si usa monitoraggio di Azure per l'archiviazione (anteprima). Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
+Questa sezione illustra la diagnosi e la risoluzione dei problemi comuni che possono verificarsi quando si usa monitoraggio di Azure per l'archiviazione. Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Risoluzione dei problemi di prestazioni, capacità o disponibilità
 
-Per risolvere eventuali problemi correlati all'archiviazione identificati con monitoraggio di Azure per l'archiviazione (anteprima), vedere le indicazioni per la [risoluzione dei problemi](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)di archiviazione di Azure.  
+Per risolvere eventuali problemi correlati all'archiviazione identificati con monitoraggio di Azure per l'archiviazione, vedere le indicazioni per la [risoluzione dei problemi](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)di archiviazione di Azure.  
 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Perché è possibile visualizzare solo gli account di archiviazione 200?
 
@@ -311,8 +311,8 @@ Il titolo della cartella di lavoro o del passaggio della cartella di lavoro aggi
 
 Per modificare il nome di un passaggio nella cartella di lavoro salvata, selezionare modifica sotto il passaggio e quindi selezionare l'ingranaggio nella parte inferiore delle impostazioni.
 
-![Selezionare modifica nella parte inferiore di un passaggio della cartella di lavoro per aprire](./media/storage-insights-overview/fqa-edit.png)
-![le impostazioni in impostazioni selezionare l'ingranaggio in basso per poter modificare il nome del passaggio.](./media/storage-insights-overview/fqa-change-name.png)
+![Selezionare modifica nella parte inferiore di un passaggio della cartella di lavoro per aprire le impostazioni ](./media/storage-insights-overview/fqa-edit.png)
+ ![ in impostazioni selezionare l'ingranaggio in basso per poter modificare il nome del passaggio.](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

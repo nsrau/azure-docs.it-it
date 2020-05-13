@@ -12,12 +12,13 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512828"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197861"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
 
@@ -236,11 +237,11 @@ Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseg
 
 | Utente tipo| Ruoli | Ruolo Azure AD (se necessario) |
 |--------|-------|-----------------------------|
-| Amministratore del supporto tecnico | Supporto di livello 1 | nessuno |
+| Amministratore del supporto tecnico | Supporto di livello 1 | Nessuno |
 | Amministratore identità | Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD | Amministratore globale |
-| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
+| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 | Amministratori dell'infrastruttura | Proprietario del rollover del certificato | Amministratore globale |
-| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
+| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 
 È consigliabile usare [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 

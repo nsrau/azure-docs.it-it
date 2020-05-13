@@ -5,23 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 05/11/2020
 ms.author: victorh
-ms.openlocfilehash: e51f6de370a5340082f64a0ca15c61583f75962b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 463bccb29d59f06e7381d7d7123946029223a93a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597278"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199725"
 ---
-# <a name="azure-firewall-forced-tunneling-preview"></a>Tunneling forzato del firewall di Azure (anteprima)
+# <a name="azure-firewall-forced-tunneling"></a>Tunneling forzato del firewall di Azure
 
 È possibile configurare il firewall di Azure per instradare tutto il traffico associato a Internet a un hop successivo designato anziché passare direttamente a Internet. Ad esempio, è possibile che si disponga di un firewall perimetrale locale o di un'altra appliance virtuale di rete per elaborare il traffico di rete prima che venga passato a Internet.
-
-> [!IMPORTANT]
-> Il tunneling forzato del firewall di Azure è attualmente disponibile in anteprima pubblica.
->
-> L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Per impostazione predefinita, il tunneling forzato non è consentito nel firewall di Azure per garantire che vengano soddisfatte tutte le dipendenze di Azure in uscita. Le configurazioni di route definite dall'utente (UDR) nella *AzureFirewallSubnet* che hanno una route predefinita che non passano direttamente a Internet sono disabilitate.
 

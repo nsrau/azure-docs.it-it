@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263374"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199475"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticazione con passcode monouso tramite indirizzo di posta elettronica (anteprima)
 
@@ -56,7 +56,7 @@ Quando un utente guest riscatta un invito o usa un collegamento a una risorsa ch
 
 Al momento dell'invito non è presente alcuna indicazione del fatto che l'utente che si sta invitando userà l'autenticazione con passcode monouso. Tuttavia quando l'utente guest accede, l'autenticazione con passcode monouso sarà il metodo di fallback se non è possibile utilizzare altri metodi di autenticazione. 
 
-È possibile visualizzare gli utenti guest che eseguono l'autenticazione con i codici di accesso monouso nell'portale di Azure accedendo a **Azure Active Directory** > **relazioni** > **dell'organizzazione utenti di altre organizzazioni**.
+È possibile visualizzare gli utenti guest che eseguono l'autenticazione con i codici di accesso monouso nell'portale di Azure andando a **Azure Active Directory**  >  **utenti**.
 
 ![Screenshot che mostra un utente del codice di accesso monouso con il valore di origine OTP](media/one-time-passcode/otp-users.png)
 
@@ -72,8 +72,7 @@ Potrebbero volerci alcuni minuti affinché l'azione di consenso esplicito abbia 
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Per acconsentire esplicitamente tramite il portale di Azure AD
 1.  Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale di Azure AD.
 2.  Nel riquadro di spostamento selezionare **Azure Active Directory**.
-3.  In **Gestisci ** selezionare **Relazioni aziendali**.
-4.  Selezionare **Impostazioni**.
+3.  Selezionare **Impostazioni relazioni organizzative**  >  **Settings** o selezionare **identità esterne**  >  **impostazioni di collaborazione esterna**.
 5.  In **Abilita passcode monouso tramite posta elettronica per gli utenti guest (anteprima)** selezionare **Sì**.
  
 ### <a name="to-opt-in-using-powershell"></a>Per acconsentire esplicitamente tramite PowerShell
@@ -139,8 +138,7 @@ Potrebbero volerci alcuni minuti affinché l'azione di rifiuto esplicito abbia e
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Per disattivare l'anteprima tramite il portale di Azure AD
 1.  Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale di Azure AD.
 2.  Nel riquadro di spostamento selezionare **Azure Active Directory**.
-3.  In **Gestisci ** selezionare **Relazioni aziendali**.
-4.  Selezionare **Impostazioni**.
+3.  Selezionare **Impostazioni relazioni organizzative**  >  **Settings** o selezionare **identità esterne**  >  **impostazioni di collaborazione esterna**.
 5.  In **Abilita passcode monouso tramite posta elettronica per gli utenti guest (anteprima)** selezionare **No**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Per disattivare l'anteprima tramite PowerShell

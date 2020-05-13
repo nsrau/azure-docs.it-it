@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459033"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198496"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
 
@@ -55,7 +55,7 @@ Per esportare un modello utilizzando portale di Azure:
 
 2. Selezionare **tutte le risorse** e quindi selezionare l'account di archiviazione.
 
-3. Selezionare > **Impostazioni** > **Esporta modello**.
+3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 
 4. Scegliere **Scarica** nel pannello **Esporta modello** .
 
@@ -109,13 +109,13 @@ Per distribuire il modello utilizzando portale di Azure:
 
     ![Raccolta di modelli di Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 
 6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il file **template. JSON** scaricato nell'ultima sezione.
 
-7. Nel file **template. JSON** assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. Questo esempio Mostra come impostare il valore predefinito del nome dell'account `mytargetaccount`di archiviazione su.
+7. Nel file **template. JSON** assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. Questo esempio Mostra come impostare il valore predefinito del nome dell'account di archiviazione su `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Per distribuire il modello utilizzando portale di Azure:
          "location": "centralus"
          }]          
     ```
-    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** = **centrali.**
+    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti**centrali  =  **centralus**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per distribuire il modello usando PowerShell:
 
-1. Nel file **template. JSON** assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. Questo esempio Mostra come impostare il valore predefinito del nome dell'account `mytargetaccount`di archiviazione su.
+1. Nel file **template. JSON** assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. Questo esempio Mostra come impostare il valore predefinito del nome dell'account di archiviazione su `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +156,7 @@ Per distribuire il modello usando PowerShell:
     },
     ``` 
 
-2. Modificare la proprietà **location** nel file **template. JSON** nell'area di destinazione. In questo esempio l'area di destinazione `eastus`viene impostata su.
+2. Modificare la proprietà **location** nel file **template. JSON** nell'area di destinazione. In questo esempio l'area di destinazione viene impostata su `eastus` .
 
     ```json
     "resources": [{
@@ -176,7 +176,7 @@ Per distribuire il modello usando PowerShell:
 
 <a id="move" />
 
-## <a name="move"></a>Sposta
+## <a name="move"></a>Spostamento
 
 Distribuire il modello per creare un nuovo account di archiviazione nell'area di destinazione. 
 
@@ -232,25 +232,10 @@ La tabella seguente elenca queste funzionalità insieme alle indicazioni per agg
 
 ### <a name="move-data-to-the-new-storage-account"></a>Spostare i dati nel nuovo account di archiviazione
 
-Ecco alcuni modi per spostare i dati.
+AzCopy è lo strumento preferito per lo spostamento dei dati. È ottimizzato per le prestazioni.  Un modo più rapido è che i dati vengono copiati direttamente tra i server di archiviazione, quindi AzCopy non usa la larghezza di banda di rete del computer. Usare AzCopy nella riga di comando o come parte di uno script personalizzato. Vedere [Introduzione ad AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-: heavy_check_mark: **Azure Storage Explorer**
+È anche possibile usare Azure Data Factory per spostare i dati. Fornisce un'interfaccia utente intuitiva. Per usare Azure Data Factory, vedere i collegamenti seguenti:. 
 
-  È facile da usare e adatto per piccoli set di dati. È possibile copiare contenitori e condivisioni file e quindi incollarli nell'account di destinazione.
-
-  Vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
-
-: heavy_check_mark: **AzCopy**
-
-  Si tratta dell'approccio preferito. È ottimizzato per le prestazioni.  Un modo più rapido è che i dati vengono copiati direttamente tra i server di archiviazione, quindi AzCopy non usa la larghezza di banda di rete del computer. Usare AzCopy nella riga di comando o come parte di uno script personalizzato.
-
-  Vedere [Introduzione a AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-: heavy_check_mark: **Azure Data Factory** 
-
-  Usare questo strumento solo se sono necessarie funzionalità che non sono supportate nella versione corrente di AzCopy. Nella versione corrente di AzCopy, ad esempio, non è possibile copiare i BLOB tra gli account che hanno uno spazio dei nomi gerarchico. Inoltre, AzCopy non mantiene gli elenchi di controllo di accesso ai file o i timestamp dei file (ad esempio, creare e modificare i timestamp). 
-
-  Vedere i collegamenti seguenti:
   - [Copiare dati da e in archiviazione BLOB di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Copiare dati da e in Azure Data Lake Storage Gen2 tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Copiare dati da o ad Archiviazione file di Azure tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)

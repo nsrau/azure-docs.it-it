@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
-ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249594"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199018"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ambito della query di log e intervallo di tempo in monitoraggio di Azure Log Analytics
 Quando si esegue una [query di log](log-query-overview.md) in [log Analytics nel portale di Azure](get-started-portal.md), il set di dati valutato dalla query dipende dall'ambito e dall'intervallo di tempo selezionato. Questo articolo descrive l'ambito e l'intervallo di tempo e il modo in cui è possibile impostarli in base alle esigenze. Viene inoltre descritto il comportamento di diversi tipi di ambiti.
@@ -25,6 +25,9 @@ L'ambito viene sempre visualizzato in alto a sinistra della finestra di Log Anal
 ![Scope](media/scope/scope.png)
 
 L'ambito è determinato dal metodo usato per avviare Log Analytics e in alcuni casi è possibile modificare l'ambito facendo clic su di esso. Nella tabella seguente sono elencati i diversi tipi di ambito usati e i diversi dettagli per ognuno di essi.
+
+> [!IMPORTANT]
+> Se si utilizza APM 2,1, Application Insights le applicazioni vengono archiviate in un'area di lavoro Log Analytics con tutti gli altri dati di log e l'ambito Application Insights non è disponibile. Se si seleziona **log** dal menu Application Insights, il comportamento è uguale a quello dell' **altro ambito delle risorse di Azure** e sono disponibili solo i dati di tale applicazione nelle tabelle Application Insights.
 
 | Ambito delle query | Record nell'ambito | Selezione | Modifica dell'ambito |
 |:---|:---|:---|:---|
@@ -72,7 +75,7 @@ L'intervallo di tempo specifica il set di record che vengono valutati per la que
 
 Per impostare l'intervallo di tempo, selezionarlo dal selettore temporale nella parte superiore della finestra di Log Analytics.  È possibile selezionare un periodo predefinito oppure selezionare **personalizzato** per specificare un intervallo di tempo specifico.
 
-![Controllo di selezione di data e ora](media/scope/time-picker.png)
+![Selezione ora](media/scope/time-picker.png)
 
 Se nella query si imposta un filtro che usa la proprietà ora solare, come illustrato nella tabella precedente, il selettore di ora cambia in **set in query**e la selezione ora è disabilitata. In questo caso, è più efficiente inserire il filtro nella parte superiore della query in modo che qualsiasi elaborazione successiva debba solo funzionare con i record filtrati.
 

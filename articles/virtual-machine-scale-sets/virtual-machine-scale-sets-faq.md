@@ -2,18 +2,19 @@
 title: Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 description: Risposte alle domande più frequenti sui set di scalabilità di macchine virtuali in Azure.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: faq
+ms.date: 05/24/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611399"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200170"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -233,7 +234,7 @@ Per un esempio, vedere il [modello di avvio rapido 101-vm-sshkey di GitHub](http
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando si esegue `Update-AzVmss` dopo avere aggiunto più di un certificato dallo stesso insieme di credenziali delle chiavi, viene visualizzato il messaggio seguente:
 
->Update-AzVmss: l'elenco Secret contiene istanze ripetute\<di/subscriptions/My-Subscription-ID>/ResourceGroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, che non è consentito.
+>Update-AzVmss: l'elenco Secret contiene istanze ripetute di/subscriptions/ \< My-subscription-id>/ResourceGroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, che non è consentito.
 
 Questo problema si può verificare se si prova ad aggiungere di nuovo lo stesso insieme di credenziali invece di usare un nuovo certificato dell'insieme di credenziali per l'insieme di credenziali di origine esistente. Il comando `Add-AzVmssSecret` non funziona correttamente se si aggiungono altri segreti.
 

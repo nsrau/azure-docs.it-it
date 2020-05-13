@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272891"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199424"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i Guest
 
@@ -36,11 +36,9 @@ Per impostazione predefinita, tutti gli utenti, inclusi i guest, possono invitar
 ### <a name="to-configure-external-collaboration-settings"></a>Per configurare le impostazioni di collaborazione esterna:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore tenant.
-2. Selezionare **Azure Active Directory** > **Users** > **impostazioni utente**utenti.
-3. In **utenti esterni**selezionare **Gestisci impostazioni di collaborazione esterna**.
-   > [!NOTE]
-   > Le **Impostazioni di collaborazione esterna** sono inoltre disponibili dalla pagina **Relazioni aziendali**. In Azure Active Directory, da **Gestisci** passare a **Relazioni aziendali** > **Impostazioni**.
-4. Nella pagina **impostazioni di collaborazione esterna** selezionare i criteri che si desidera abilitare.
+2. Selezionare **Azure Active Directory**.
+3. Selezionare **Impostazioni relazioni organizzative**  >  **Settings** o selezionare **identità esterne**  >  **impostazioni di collaborazione esterna**.
+6. Nella pagina **impostazioni di collaborazione esterna** selezionare i criteri che si desidera abilitare.
 
    ![Impostazioni di collaborazione esterna](./media/delegate-invitations/control-who-to-invite.png)
 

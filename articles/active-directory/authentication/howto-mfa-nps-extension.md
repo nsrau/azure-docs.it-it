@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617669"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199544"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -76,15 +77,15 @@ Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le cr
 
 Il server NPS deve essere in grado di comunicare con gli URL seguenti sulle porte 80 e 443.
 
-- https:\//adnotifications.WindowsAzure.com
+- https: \/ /adnotifications.WindowsAzure.com
 - https:\//login.microsoftonline.com
-- https:\//Credentials.Azure.com
+- https: \/ /Credentials.Azure.com
 
 Inoltre, è necessaria la connettività agli URL seguenti per completare l' [installazione dell'adapter mediante lo script di PowerShell fornito](#run-the-powershell-script)
 
 - https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.NET
+- https: \/ /provisioningapi.microsoftonline.com
+- https: \/ /aadcdn.msauth.NET
 
 ## <a name="prepare-your-environment"></a>Preparare l'ambiente
 
@@ -110,7 +111,7 @@ La procedura per configurare i criteri di autenticazione RADIUS può variare a s
 Questo passaggio potrebbe essere già completato nel tenant, tuttavia è consigliabile verificare che Azure AD Connect abbia sincronizzato i database di recente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Selezionare **Azure Active Directory** > **Azure ad Connect**
+2. Selezionare **Azure Active Directory**  >  **Azure ad Connect**
 3. Verificare che lo stato della sincronizzazione sia **Abilitata** e che l'ultima sincronizzazione sia stata eseguita da meno di un'ora.
 
 Se si desidera avviare un nuovo ciclo di sincronizzazione, usare istruzioni presenti in [Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
@@ -223,7 +224,7 @@ Per i clienti che usano il cloud di Azure per enti pubblici, è necessario esegu
 
 Con la versione 1.0.1.32 dell'estensione NPS, è ora supportata la lettura di più certificati. Questa funzionalità consente di semplificare gli aggiornamenti del certificato in sequenza prima della scadenza. Se l'organizzazione esegue una versione precedente dell'estensione NPS, è necessario eseguire l'aggiornamento alla versione 1.0.1.32 o successiva.
 
-I `AzureMfaNpsExtnConfigSetup.ps1` certificati creati dallo script sono validi per 2 anni. Le organizzazioni IT dovrebbero monitorare i certificati per la scadenza. I certificati per l'estensione NPS vengono inseriti nell'archivio certificati del computer locale in personale e vengono rilasciati all'ID tenant fornito allo script.
+I certificati creati dallo `AzureMfaNpsExtnConfigSetup.ps1` script sono validi per 2 anni. Le organizzazioni IT dovrebbero monitorare i certificati per la scadenza. I certificati per l'estensione NPS vengono inseriti nell'archivio certificati del computer locale in personale e vengono rilasciati all'ID tenant fornito allo script.
 
 Quando un certificato si avvicina alla data di scadenza, è necessario creare un nuovo certificato per sostituirlo.  Questo processo viene eseguito eseguendo di `AzureMfaNpsExtnConfigSetup.ps1` nuovo e mantenendo lo stesso ID tenant quando richiesto. Questo processo deve essere ripetuto in ogni server NPS nell'ambiente in uso.
 
@@ -247,7 +248,7 @@ Dopo aver abilitato MFA per un client RADIUS utilizzando l'estensione di Server 
 
 Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire cosa succede quando questi tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema *REQUIRE_USER_MATCH* nel percorso del registro di sistema *HKLM\Software\Microsoft\AzureMFA* per controllare il comportamento della funzionalità. Questa impostazione non ha un'unica opzione di configurazione:
 
-| Chiave | valore | Impostazione predefinita |
+| Chiave | Valore | Impostazione predefinita |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 

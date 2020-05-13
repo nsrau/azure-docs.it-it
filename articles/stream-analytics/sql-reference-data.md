@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6feca8cc87eadb2be5f43cafaa82195a18c3c75
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426493"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200389"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usare i dati di riferimento di un database SQL per un processo di analisi di flusso di Azure
 
@@ -147,7 +147,7 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
    ```
 2. Creare la query snapshot. 
 
-   Usare il ** \@parametro snapshotTime** per indicare al runtime di analisi di flusso di ottenere il set di dati di riferimento dalla tabella temporale del database SQL valida all'ora di sistema. Se non si specifica questo parametro si rischia di ottenere un set di dati di riferimento di base non accurato, a causa degli sfasamenti di orario. Di seguito è riportata una query snapshot completa di esempio:
+   Usare il parametro ** \@ snapshotTime** per indicare al runtime di analisi di flusso di ottenere il set di dati di riferimento dalla tabella temporale del database SQL valida all'ora di sistema. Se non si specifica questo parametro si rischia di ottenere un set di dati di riferimento di base non accurato, a causa degli sfasamenti di orario. Di seguito è riportata una query snapshot completa di esempio:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,16 +156,16 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
  
 2. Creare la query delta. 
    
-   Questa query consente di recuperare tutte le righe nel database SQL inserite o eliminate entro un'ora di inizio, ** \@deltaStartTime**e un'ora ** \@** di fine deltaEndTime. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_**. Questa colonna definisce se la riga viene inserita o eliminata tra ** \@deltaStartTime** e ** \@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. 
+   Questa query consente di recuperare tutte le righe nel database SQL inserite o eliminate entro un'ora di inizio, ** \@ deltaStartTime**e un'ora di fine ** \@ deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_**. Questa colonna definisce se la riga viene inserita o eliminata tra ** \@ deltaStartTime** e ** \@ deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. La query deve anche aggiungere la **filigrana** dal lato SQL Server per assicurarsi che tutti gli aggiornamenti nel periodo delta vengano acquisiti in modo appropriato. L'uso della query Delta senza **filigrana** può produrre un set di dati di riferimento non corretto.  
 
    Per i record aggiornati, la tabella temporale registra un'operazione di inserimento ed eliminazione. Il runtime di Analisi di flusso applicherà quindi i risultati della query delta allo snapshot precedente per mantenere aggiornati i dati di riferimento. Un esempio di query delta è illustrato di seguito:
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as watermark 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as watermark 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```

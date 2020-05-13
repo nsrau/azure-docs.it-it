@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 027efd268ee80fbaf921b42d09cc424c8e8483ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9266f20d276b0b8d315cc83cd96fc235c79e773
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136924"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198947"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server di Azure Managed Disks
 
@@ -75,11 +75,11 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
 - Sono supportate solo le [chiavi RSA "soft" e "hard"](../../key-vault/keys/about-keys.md) di dimensioni 2048, senza altre chiavi o dimensioni.
 - I dischi creati da immagini personalizzate crittografate con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente e devono trovarsi nella stessa sottoscrizione.
 - Gli snapshot creati da dischi crittografati con la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente.
-- Le immagini personalizzate crittografate usando la crittografia lato server e le chiavi gestite dal cliente non possono essere usate nella raccolta di immagini condivise.
 - Tutte le risorse correlate alle chiavi gestite dal cliente (insiemi di credenziali delle chiavi di Azure, set di crittografia del disco, VM, dischi e snapshot) devono trovarsi nella stessa area e nella stessa sottoscrizione.
 - I dischi, gli snapshot e le immagini crittografati con chiavi gestite dal cliente non possono passare a un'altra sottoscrizione.
 - Se si usa il portale di Azure per creare il set di crittografia del disco, non è possibile usare gli snapshot per il momento.
 - I dischi gestiti crittografati con chiavi gestite dal cliente non possono anche essere crittografati con crittografia dischi di Azure.
+- Per informazioni sull'uso delle chiavi gestite dal cliente con le raccolte di immagini condivise, vedere [anteprima: usare chiavi gestite dal cliente per la crittografia delle immagini](../image-version-encryption.md).
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configurazione di Azure Key Vault e DiskEncryptionSet

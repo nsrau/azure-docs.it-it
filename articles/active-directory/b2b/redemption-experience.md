@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7917b63b86e4d103061a902f74c368dfd6c123b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160742"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199500"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -42,9 +42,9 @@ In alternativa al messaggio di posta elettronica di invito, è possibile assegna
 
 > [!IMPORTANT]
 > Il collegamento diretto deve essere specifico del tenant. In altre parole, deve includere un ID tenant o un dominio verificato, in modo che il Guest possa essere autenticato nel tenant, in cui si trova l'app condivisa. Un URL comune come https://myapps.microsoft.com non funzionerà per un guest perché verrà reindirizzato al tenant principale per l'autenticazione. Di seguito sono riportati alcuni esempi di collegamenti diretti con il contesto del tenant:
- > - Pannello di accesso per https://myapps.microsoft.com/?tenantid=&ltle app:; ID tenant&gt; 
- > - Pannello di accesso alle app per un dominio https://myapps.microsoft.com/&ltverificato:; dominio verificato&gt;
- > - Portale di Azure: https://portal.azure.com/&lt; ID tenant&gt;
+ > - Pannello di accesso per le app: https://myapps.microsoft.com/?tenantid=&lt ; ID tenant&gt; 
+ > - Pannello di accesso alle app per un dominio verificato: https://myapps.microsoft.com/&lt ; dominio verificato&gt;
+ > - Portale di Azure: https://portal.azure.com/&lt ; ID tenant&gt;
  > - App singola: vedere come usare un [collegamento di accesso diretto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 In alcuni casi, il messaggio di posta elettronica di invito è consigliato tramite un collegamento diretto. Se questi casi speciali sono importanti per la propria organizzazione, si consiglia di invitare gli utenti usando metodi che ancora inviano il messaggio di posta elettronica di invito:
@@ -99,7 +99,7 @@ Quando un Guest accede per la prima volta a risorse in un'organizzazione partner
 
    ![Screenshot che mostra le nuove condizioni per l'utilizzo](media/redemption-experience/terms-of-use-accept.png) 
 
-   È possibile configurare vedere [le condizioni](../governance/active-directory-tou.md) per l'utilizzo in **Gestisci** > **relazioni** > organizzative**condizioni per l'utilizzo**.
+   È possibile configurare [le condizioni](../governance/active-directory-tou.md) per l'utilizzo in **relazioni organizzative** (o **identità esterne**) > **condizioni per l'utilizzo**.
 
 3. Se non diversamente specificato, il Guest viene reindirizzato al pannello di accesso Apps, che elenca le applicazioni a cui il Guest può accedere.
 

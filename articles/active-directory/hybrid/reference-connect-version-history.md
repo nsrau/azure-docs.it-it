@@ -12,12 +12,13 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: has-adal-ref
+ms.openlocfilehash: bc3c572aeb72328bc4708d27052756623ccd7701
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981987"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200963"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -87,9 +88,9 @@ Questa build di hotfix corregge un problema relativo a Build 1.5.18.0 se è abil
 > Se è stato clonato il in dalla regola di sincronizzazione di **ad-gruppo join** e non è stato clonato il **in dal gruppo ad-** regola di sincronizzazione comune e si prevede di eseguire l'aggiornamento, completare i passaggi seguenti come parte dell'aggiornamento:
 > 1. Durante l'aggiornamento, deselezionare l'opzione **Avvia il processo di sincronizzazione al termine della configurazione**.
 > 2. Modificare la regola di sincronizzazione join clonato e aggiungere le due trasformazioni seguenti:
->     - Impostare flusso `objectGUID` diretto su `sourceAnchorBinary`.
->     - Impostare flusso `ConvertToBase64([objectGUID])` espressione su `sourceAnchor`.     
-> 3. Abilitare l'utilità di pianificazione `Set-ADSyncScheduler -SyncCycleEnabled $true`utilizzando.
+>     - Impostare flusso diretto `objectGUID` su `sourceAnchorBinary` .
+>     - Impostare flusso espressione `ConvertToBase64([objectGUID])` su `sourceAnchor` .     
+> 3. Abilitare l'utilità di pianificazione utilizzando `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 
 
@@ -209,7 +210,7 @@ In determinate circostanze, i server che sono stati aggiornati automaticamente a
 >[!IMPORTANT]
 >Si è verificato un problema noto relativo all'aggiornamento Azure AD Connect da una versione precedente a 1.3.21.0, in cui il portale di O365 non riflette la versione aggiornata anche se Azure AD Connect è stato aggiornato correttamente.
 >
-> Per risolvere questo problema, è necessario importare il modulo **AdSync** , quindi eseguire`Set-ADSyncDirSyncConfiguration` il cmdlet di PowerShell nel server Azure ad Connect.  È possibile seguire questa procedura:
+> Per risolvere questo problema, è necessario importare il modulo **AdSync** , quindi eseguire il `Set-ADSyncDirSyncConfiguration` cmdlet di PowerShell nel server Azure ad Connect.  È possibile seguire questa procedura:
 >
 >1. Aprire PowerShell in modalità amministratore.
 >2. Eseguire `Import-Module "ADSync"`.
@@ -566,7 +567,7 @@ Bloccare l'accesso all'account di Active Directory Domain Services implementando
 *   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 *   Assegnare le autorizzazioni specifiche seguenti:
 
-Tipo     | Nome                          | Accesso               | Si applica a
+Type     | Nome                          | Accesso               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
 Consenti    | SYSTEM                        | Controllo completo         | Questo oggetto  |
 Consenti    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
@@ -940,8 +941,8 @@ CBool(
 #### <a name="issues-fixed"></a>Problemi risolti
 
 * Gli URL seguenti sono nuovi endpoint di WS-Federation introdotti da Azure AD per migliorare la resilienza in caso di interruzione dell'autenticazione e verranno aggiunti alla configurazione locale del trust della relying party di AD FS:
-  * https:\//ESTs.login.microsoftonline.com/login.srf
-  * https:\//stamp2.login.microsoftonline.com/login.srf
+  * https: \/ /ESTs.login.microsoftonline.com/login.srf
+  * https: \/ /stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   
