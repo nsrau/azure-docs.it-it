@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80517933"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201440"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
 
@@ -22,11 +22,11 @@ L'opzione di co-selling nel centro per i partner è attualmente disponibile per 
 
 | **Tipo di offerta** | **Pagina di co-selling disponibile nel centro per i partner** |
 |    -----------------------    |    -----------------------------  |
-| SaaS (software as a Service) |     Disponibilità generale aprile 2020      |
+| SaaS (software as a Service) |      Ora disponibile      |
 | Dynamics 365 per Customer Engagement & PowerApps      |     Ora disponibile      |
 | Dynamics 365 for Operations     |     Ora disponibile       |
-| Dynamics 365 Business Central      |  Disponibilità generale aprile 2020     |
-| Applicazione di Azure     |     Disponibilità generale aprile 2020     |
+| Dynamics 365 Business Central      |   Ora disponibile     |
+| Applicazione di Azure     |      Ora disponibile     |
 | Macchina virtuale di Azure      |     In attesa di essere annunciato       |
 | Contenitore di Azure     |     In attesa di essere annunciato       |
 | Servizio di consulenza      |     In attesa di essere annunciato       |
@@ -51,7 +51,7 @@ I tipi di soluzioni consentono di definire gli scenari in cui l'offerta è proge
 | :------------------- | :-------------------|
 | Dispositivo (hardware) | Offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
 | IP (applicazione) | App o altro materiale con copyright concesso in licenza per l'uso da parte del cliente. Ad esempio, un programma CRM che può essere concesso in licenza e installato in locale. |
-| Servizio | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
+| Service | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
 | Servizio gestito | Esperienza pratica per un progetto basato sul cloud, in genere su base continuativa. Ad esempio: fornire una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continuativa fornita dal provider di servizi gestiti. |
 
 ### <a name="solution-areas"></a>Aree della soluzione

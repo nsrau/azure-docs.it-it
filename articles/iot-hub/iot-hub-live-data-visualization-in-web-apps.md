@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 138e077f7b47fa9f38a4710db95eb7208cef78e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78675326"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201537"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati del sensore in tempo reale dall'hub Azure Internet in un'applicazione Web
 
@@ -171,10 +171,10 @@ In questa sezione si esegue il provisioning di un'app Web nel servizio app e si 
    az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
-3. Aggiungere ora le impostazioni dell'applicazione per le variabili di ambiente che specificano la stringa di connessione dell'hub e il gruppo di consumer dell'hub eventi. Le singole impostazioni sono delimitate da spazi `-settings` nel parametro. Usare la stringa di connessione del servizio per l'hub e il gruppo di consumer creato in precedenza in questa esercitazione. Non racchiudere i valori.
+3. Aggiungere ora le impostazioni dell'applicazione per le variabili di ambiente che specificano la stringa di connessione dell'hub e il gruppo di consumer dell'hub eventi. Le singole impostazioni sono delimitate da spazi nel `-settings` parametro. Usare la stringa di connessione del servizio per l'hub e il gruppo di consumer creato in precedenza in questa esercitazione. Non racchiudere i valori.
 
    ```azurecli-interactive
-   az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=<your IoT hub connection string>
+   az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString="<your IoT hub connection string>"
    ```
 
 4. Abilitare il protocollo Web Sockets per l'app Web e impostare l'app Web in modo che riceva solo richieste HTTPS (le richieste HTTP vengono reindirizzate a HTTPS).
@@ -198,7 +198,7 @@ In questa sezione si esegue il provisioning di un'app Web nel servizio app e si 
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Aggiungere un oggetto remoto al clone che fa riferimento al repository Git per l'app Web nel servizio app. Per \<URL\>clone git, usare l'URL restituito nel passaggio precedente. Eseguire il comando seguente nella finestra di comando.
+7. Aggiungere un oggetto remoto al clone che fa riferimento al repository Git per l'app Web nel servizio app. Per \< URL clone git \> , usare l'URL restituito nel passaggio precedente. Eseguire il comando seguente nella finestra di comando.
 
    ```cmd
    git remote add webapp <Git clone URL>
@@ -251,9 +251,9 @@ Se si verificano problemi con questo esempio, provare a eseguire i passaggi nell
 
 * In portale di Azure passare all'app Web. In **monitoraggio** nel riquadro sinistro selezionare log del **servizio app**. Attivare **registrazione applicazioni (file System)** su on, impostare **livello** su errore, quindi selezionare **Salva**. Aprire quindi il **flusso di log** (in **monitoraggio**).
 
-* Dall'app Web in portale di Azure, in **strumenti di sviluppo** selezionare **console** e convalidare le versioni Node `node -v` e `npm -v`NPM con e.
+* Dall'app Web in portale di Azure, in **strumenti di sviluppo** selezionare **console** e convalidare le versioni node e NPM con `node -v` e `npm -v` .
 
-* Se viene visualizzato un errore relativo alla mancata ricerca di un pacchetto, è possibile che siano stati eseguiti i passaggi non in ordine. Quando il sito viene distribuito (con `git push`) viene eseguito `npm install`il servizio app, che viene eseguito in base alla versione corrente del nodo che è stato configurato. Se la configurazione viene modificata in un secondo momento, sarà necessario apportare una modifica non significativa al codice e premere nuovamente.
+* Se viene visualizzato un errore relativo alla mancata ricerca di un pacchetto, è possibile che siano stati eseguiti i passaggi non in ordine. Quando il sito viene distribuito (con `git push` ) viene eseguito il servizio app `npm install` , che viene eseguito in base alla versione corrente del nodo che è stato configurato. Se la configurazione viene modificata in un secondo momento, sarà necessario apportare una modifica non significativa al codice e premere nuovamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
