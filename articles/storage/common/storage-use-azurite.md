@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e20271e381f2e7023dca3c3382c9f329a5149a62
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872611"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195951"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Usare l'emulatore di azzurrite per lo sviluppo e il testing di archiviazione di Azure locale (anteprima)
 
@@ -70,7 +70,7 @@ Sono supportate le impostazioni seguenti:
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installare ed eseguire azzurrite usando NPM
 
-Per questo metodo di installazione è necessario che sia installato [node. js versione 8,0 o successiva](https://nodejs.org) . Node Package Manager (NPM) è lo strumento di gestione pacchetti incluso in ogni installazione di node. js. Dopo l'installazione di node. js, eseguire `npm` il comando seguente per installare azzurrite.
+Per questo metodo di installazione è necessario che sia installato [node. js versione 8,0 o successiva](https://nodejs.org) . Node Package Manager (NPM) è lo strumento di gestione pacchetti incluso in ogni installazione di node. js. Dopo l'installazione di node. js, eseguire il `npm` comando seguente per installare azzurrite.
 
 ```console
 npm install -g azurite
@@ -239,7 +239,7 @@ La porta in uso viene visualizzata durante l'avvio di azzurrite.
 
 ### <a name="workspace-path"></a>Percorso area di lavoro
 
-**Facoltativo** : azzurrite archivia i dati nel disco locale durante l'esecuzione. Utilizzare l' `-l` opzione `--location` o per specificare un percorso come percorso dell'area di lavoro. Per impostazione predefinita, verrà usata la directory di lavoro del processo corrente. Si noti il carattere minuscolo "l".
+**Facoltativo** : azzurrite archivia i dati nel disco locale durante l'esecuzione. Utilizzare l' `-l` `--location` opzione o per specificare un percorso come percorso dell'area di lavoro. Per impostazione predefinita, verrà usata la directory di lavoro del processo corrente. Si noti il carattere minuscolo "l".
 
 ```console
 azurite -l c:\azurite
@@ -265,15 +265,15 @@ azurite --debug path/debug.log
 
 ### <a name="loose-mode"></a>Modalità Loose
 
-**Facoltativo** : per impostazione predefinita, azzurrite applica la modalità Strict per bloccare le intestazioni di richiesta e i parametri non supportati. Disabilitare la modalità Strict utilizzando l' `-L` opzione `--loose` o. Prendere nota del capitale "L".
+**Facoltativo** : per impostazione predefinita, azzurrite applica la modalità Strict per bloccare le intestazioni di richiesta e i parametri non supportati. Disabilitare la modalità Strict utilizzando l' `-L` `--loose` opzione o. Prendere nota del capitale "L".
 
 ```console
 azurite -L
 azurite --loose
 ```
-### <a name="version"></a>Versione
+### <a name="version"></a>Version
 
-**Facoltativo** : consente di visualizzare il numero di versione di azzurrite `-v` installato `--version` utilizzando l'opzione o.
+**Facoltativo** : consente di visualizzare il numero di versione di azzurrite installato utilizzando l' `-v` `--version` opzione o.
 
 ```console
 azurite -v
@@ -282,15 +282,15 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Configurazione del certificato (HTTPS)
 
-**Facoltativo** : per impostazione predefinita, azzurrite usa il protocollo http. Abilitare la modalità HTTPS specificando il `--cert` percorso di un file di certificato di privacy Enhanced Mail (con estensione PEM) o di scambio di [informazioni personali (con estensione pfx](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) ) al commutatore.
+**Facoltativo** : per impostazione predefinita, azzurrite usa il protocollo http. Abilitare la modalità HTTPS specificando il percorso di un file di certificato di Privacy Enhanced Mail (con estensione PEM) o di [scambio di informazioni personali (con estensione pfx](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) ) al `--cert` commutatore.
 
-Quando `--cert` viene fornito per un file PEM, è necessario specificare un'opzione `--key` corrispondente.
+Quando `--cert` viene fornito per un file PEM, è necessario specificare un' `--key` opzione corrispondente.
 
 ```console
 azurite --cert path/server.pem --key path/key.pem
 ```
 
-Quando `--cert` viene fornito per un file PFX, è necessario specificare un'opzione `--pwd` corrispondente.
+Quando `--cert` viene fornito per un file PFX, è necessario specificare un' `--pwd` opzione corrispondente.
 
 ```console
 azurite --cert path/server.pfx --pwd pfxpassword
@@ -307,9 +307,9 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 ```
 
 > [!NOTE]
-> OAuth richiede un endpoint HTTPS. Verificare che HTTPS sia abilitato fornendo `--cert` switch insieme all' `--oauth` opzione.
+> OAuth richiede un endpoint HTTPS. Verificare che HTTPS sia abilitato fornendo `--cert` Switch insieme all' `--oauth` opzione.
 
-Azzurrite supporta l'autenticazione di base specificando il `basic` parametro `--oauth` per l'opzione. Azzurrite eseguirà l'autenticazione di base, ad esempio convalidando il bearer token in ingresso, controllando l'autorità emittente, il pubblico e la scadenza. Azzurrite non verificherà la firma del token o le autorizzazioni.
+Azzurrite supporta l'autenticazione di base specificando il `basic` parametro per l' `--oauth` opzione. Azzurrite eseguirà l'autenticazione di base, ad esempio convalidando il bearer token in ingresso, controllando l'autorità emittente, il pubblico e la scadenza. Azzurrite non verificherà la firma del token o le autorizzazioni.
 
 ## <a name="authorization-for-tools-and-sdks"></a>Autorizzazione per strumenti e SDK
 
@@ -326,7 +326,7 @@ Azzurrite accetta lo stesso account e la chiave noti usati dall'emulatore di arc
 
 ### <a name="custom-storage-accounts-and-keys"></a>Chiavi e account di archiviazione personalizzati
 
-Azzurrite supporta i nomi e le chiavi degli account di archiviazione `AZURITE_ACCOUNTS` personalizzati impostando la variabile di ambiente `account1:key1[:key2];account2:key1[:key2];...`nel formato seguente:.
+Azzurrite supporta i nomi e le chiavi degli account di archiviazione personalizzati impostando la `AZURITE_ACCOUNTS` variabile di ambiente nel formato seguente: `account1:key1[:key2];account2:key1[:key2];...` .
 
 Ad esempio, usare un account di archiviazione personalizzato con una chiave:
 
@@ -351,7 +351,7 @@ export AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 Azzurrite aggiorna i nomi e le chiavi degli account personalizzati dalla variabile di ambiente ogni minuto per impostazione predefinita. Con questa funzionalità è possibile ruotare dinamicamente la chiave dell'account o aggiungere nuovi account di archiviazione senza riavviare azzurrite.
 
 > [!NOTE]
-> L'account `devstoreaccount1` di archiviazione predefinito è disabilitato quando si impostano gli account di archiviazione personalizzati.
+> L' `devstoreaccount1` account di archiviazione predefinito è disabilitato quando si impostano gli account di archiviazione personalizzati.
 
 ### <a name="connection-strings"></a>Stringhe di connessione
 
@@ -393,7 +393,7 @@ Per utilizzare solo il servizio di Accodamento, la stringa di connessione HTTPS 
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
-Se è stato `dotnet dev-certs` usato per generare il certificato autofirmato, usare la stringa di connessione seguente.
+Se è stato usato `dotnet dev-certs` per generare il certificato autofirmato, usare la stringa di connessione seguente.
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;`
 
@@ -461,20 +461,22 @@ var client = new QueueClient(
 
 In Storage Explorer connettersi a azzurrite attenendosi alla procedura seguente:
 
- 1. Selezionare **l'icona Aggiungi un account**
+ 1. Selezionare l'icona **Gestisci account**
+ 1. Selezionare **Aggiungi un account**
  1. Selezionare **Connetti a un emulatore locale**
  1. Fare clic su **Avanti**.
+ 1. Modificare il campo **nome visualizzato** in un nome di propria scelta
  1. Fare di nuovo clic su **Avanti**
  1. Selezionare **Connetti**
 
 #### <a name="connect-to-azurite-using-https"></a>Connettersi a azzurrite tramite HTTPS
 
-Per impostazione predefinita Storage Explorer non apre un endpoint HTTPS che utilizza un certificato autofirmato. Se si esegue azzurrite con HTTPS, è probabile che si stia usando un certificato autofirmato. In Storage Explorer importare i certificati SSL tramite la finestra di dialogo **modifica** -> **certificati SSL** -> **Importa certificati** .
+Per impostazione predefinita Storage Explorer non apre un endpoint HTTPS che utilizza un certificato autofirmato. Se si esegue azzurrite con HTTPS, è probabile che si stia usando un certificato autofirmato. In Storage Explorer importare i certificati SSL tramite la finestra di dialogo **modifica**certificati  ->  **SSL**  ->  **Importa certificati** .
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Importa certificato in Storage Explorer
 
 1. Trovare il certificato nel computer locale.
-1. In Storage Explorer passare a **modifica** -> **certificati** -> SSL**Importa certificati** e importare il certificato.
+1. In Storage Explorer passare a **modifica**  ->  **certificati SSL**  ->  **Importa certificati** e importare il certificato.
 
 Se non si importa un certificato, viene ricevuto un errore:
 

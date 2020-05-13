@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/11/2020
 ms.author: apimpm
-ms.openlocfilehash: cf65cd757655b496ceb87fa1ff8121ac6209d869
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 93f66f3c030b9845b58083a992e1e1f11aa37f9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203200"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196976"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 <a name="required-ports"> </a> Quando un'istanza del servizio gestione API è ospitata in una VNET, vengono usate le porte nella tabella seguente.
 
-| Porte di origine/destinazione | Direction          | Protocollo di trasporto |   [Tag del servizio](../virtual-network/security-overview.md#service-tags) <br> Origine/Destinazione   | Scopo (\*)                                                 | Tipo di rete virtuale |
+| Porte di origine/destinazione | Direzione          | Protocollo di trasporto |   [Tag del servizio](../virtual-network/security-overview.md#service-tags) <br> Origine/Destinazione   | Scopo ( \* )                                                 | Tipo di rete virtuale |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | */[80], 443                  | In ingresso            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicazione tra client e Gestione API                      | Esterno             |
 | */3443                     | In ingresso            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Endpoint di gestione per portale di Azure e PowerShell         | Esterno e interno  |
@@ -136,22 +136,22 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
     | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net (**nuovo**)</li><li>prod.warmpath.msftcloudes.com (**da deprecare**)</li><li>shoebox2.metrics.microsoftmetrics.com (**nuovo**)</li><li>shoebox2.metrics.nsatc.net (**da deprecare**)</li><li>prod3.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod3-black.prod3.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3-black.prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod3-red.prod3.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3-red.prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com dove `East US 2` è eastus2.warm.ingestion.msftcloudes.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**nuovo**)</li><li>shoebox2.metrics.nsatc.net (**da deprecare**)</li><li>prod3.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
-    | 21Vianet per Azure Cina     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**nuovo**)</li><li>shoebox2.metrics.nsatc.net (**da deprecare**)</li><li>prod3.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net (**nuovo**)</li><li>prod.warmpath.msftcloudes.com (**da deprecare**)</li><li>shoebox2.metrics.microsoftmetrics.com (**nuovo**)</li><li>shoebox2.metrics.nsatc.net (**da deprecare**)</li><li>prod3.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod3-black.prod.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3-black.prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod3-red.prod.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3-red.prod3.metrics.nsatc.net (**da deprecare**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**nuovo**)</li><li>shoebox2.metrics.nsatc.net (**da deprecare**)</li><li>prod3.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | 21Vianet per Azure Cina     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**nuovo**)</li><li>shoebox2.metrics.nsatc.net (**da deprecare**)</li><li>prod3.metrics.microsoftmetrics.com (**nuovo**)</li><li>prod3.metrics.nsatc.net (**da deprecare**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > La modifica dei cluster sopra con la zona DNS **. nsatc.NET** a **. microsoftmetrics.com** è principalmente una modifica DNS. L'indirizzo IP del cluster non viene modificato.
 
 + **Tag di servizio a livello**di area: le regole NSG che consentono la connettività in uscita ai tag del servizio di archiviazione, SQL e hub eventi possono usare le versioni internazionali dei tag corrispondenti all'area che contiene l'istanza di gestione API, ad esempio storage. westus per un'istanza di gestione API nell'area Stati Uniti occidentali. Nelle distribuzioni in più aree, il NSG in ogni area deve consentire il traffico ai tag del servizio per l'area e l'area primaria.
 
-+ **Inoltro SMTP**: connettività di rete in uscita per l'inoltro SMTP, che viene risolto nell' `smtpi-co1.msn.com`host, `smtpi-ch1.msn.com` `smtpi-db3.msn.com`, e `smtpi-sin.msn.com``ies.global.microsoft.com`
++ **Inoltro SMTP**: connettività di rete in uscita per l'inoltro SMTP, che viene risolto nell'host `smtpi-co1.msn.com` ,, `smtpi-ch1.msn.com` `smtpi-db3.msn.com` `smtpi-sin.msn.com` e`ies.global.microsoft.com`
 
-+ **Portale per sviluppatori captcha**: connettività di rete in uscita per il captcha del portale per sviluppatori, che risolve gli host `client.hip.live.com` e `partner.hip.live.com`.
++ **Portale per sviluppatori captcha**: connettività di rete in uscita per il captcha del portale per sviluppatori, che risolve gli host `client.hip.live.com` e `partner.hip.live.com` .
 
 + **Diagnostica del portale di Azure**: per abilitare il flusso dei log di diagnostica dal portale di Azure quando si usa l'estensione di Gestione API dall'interno di una rete virtuale, è richiesto l'accesso in uscita a `dc.services.visualstudio.com` sulla porta 443. Ciò consente di risolvere eventuali problemi che potrebbero verificarsi quando si usa l'estensione.
 
-+ **Azure Load Balancer**: consentire la richiesta in ingresso dal tag `AZURE_LOAD_BALANCER` di servizio non è un requisito `Developer` per lo SKU, perché si distribuisce solo un'unità di calcolo sottostante. Tuttavia, in ingresso da [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) diventa fondamentale quando si esegue il ridimensionamento a uno SKU superiore, ad esempio `Premium`, in caso di errore del probe di integrità da Load Balancer, non viene eseguita
++ **Azure Load Balancer**: consentire la richiesta in ingresso dal tag di servizio `AZURE_LOAD_BALANCER` non è un requisito per lo `Developer` SKU, perché si distribuisce solo un'unità di calcolo sottostante. Tuttavia, in ingresso da [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) diventa fondamentale quando si esegue il ridimensionamento a uno SKU superiore, ad esempio `Premium` , in caso di errore del probe di integrità da Load Balancer, non viene eseguita
 
 + **Forzare il tunneling del traffico al firewall locale usando Express route o l'appliance virtuale di rete**: una configurazione comune del cliente consiste nel definire la propria route predefinita (0.0.0.0/0) che forza il flusso di tutto il traffico dalla subnet delegata di gestione API attraverso un firewall locale o a un'appliance virtuale di rete. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. Per la soluzione è necessario eseguire alcune operazioni:
 
@@ -192,7 +192,7 @@ Ogni unità di scala aggiuntiva di gestione API richiede altri due indirizzi IP.
 + Verranno usati un indirizzo IP di un intervallo IP di subnet (DIP) per accedere alle risorse all'interno della rete rituale e un indirizzo IP pubblico (VIP) per accedere alle risorse esterne alla rete virtuale.
 + L'indirizzo IP pubblico con bilanciamento del carico è disponibile nel pannello Panoramica/Informazioni di base del portale di Azure.
 
-## <a name="limitations"></a><a name="limitations"> </a>Limitazioni di
+## <a name="limitations"></a><a name="limitations"> </a>Limitazioni
 * Una subnet contenente le istanze di Gestione API non può contenere altri tipi di risorse di Azure.
 * La subnet e il servizio di Gestione API devono essere nella stessa sottoscrizione.
 * Una subnet contenente le istanze di gestione API non può essere spostata da una sottoscrizione all'altra.
@@ -264,7 +264,7 @@ Gli indirizzi IP sono divisi in base all' **ambiente di Azure**. Quando si abili
 | Azure Government| DOD Central| 52.182.32.132|
 | Azure Government| DOD est| 52.181.32.192|
 
-## <a name="related-content"></a><a name="related-content"> </a>Contenuti correlati
+## <a name="related-content"></a><a name="related-content"> </a>Contenuto correlato
 * [Connessione di una rete virtuale al back-end tramite Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Connessione di una rete virtuale da modelli di distribuzione differenti](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure](api-management-howto-api-inspector.md)

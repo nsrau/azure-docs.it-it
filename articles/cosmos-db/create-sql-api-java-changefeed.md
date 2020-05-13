@@ -1,19 +1,19 @@
 ---
 title: Creare un'applicazione di esempio end-to-end Azure Cosmos DB Java SDK v4 usando il feed delle modifiche
-description: Questa guida dettagliata illustra una semplice applicazione API SQL Java che inserisce documenti in un contenitore Azure Cosmos DB, mantenendo al tempo stesso una vista materializzata del contenitore con il feed delle modifiche.
-author: anfeldma
+description: Questa guida illustra una semplice applicazione API SQL Java che inserisce documenti in un contenitore Azure Cosmos DB, mantenendo al tempo stesso una vista materializzata del contenitore con il feed delle modifiche.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: 9e28eb4f766677ebbd5cfcc5f61fe54e53a45523
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 5e8656e891d250547174aa3deb27a94eebaa0ba3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996518"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125673"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Come creare un'applicazione Java che usa Azure Cosmos DB API SQL e il processore di feed di modifiche
 
@@ -33,11 +33,11 @@ Questa guida dettagliata illustra una semplice applicazione Java che usa l'API S
 
 ## <a name="background"></a>Background
 
-Il feed di modifiche di Azure Cosmos DB fornisce un'interfaccia basata su eventi per attivare le azioni in risposta all'inserimento di documenti e offre numerosi vantaggi. Nelle applicazioni con un numero elevato di operazioni di lettura e scrittura, ad esempio, l'uso principale del feed di modifiche consiste nel creare una **vista materializzata** in tempo reale di un contenitore durante l'inserimento di documenti. La vista materializzata del contenitore presenterà gli stessi dati, ma partizionati per letture efficienti, ottimizzando così l'applicazione sia in lettura che in scrittura.
+Il feed di modifiche Azure Cosmos DB fornisce un'interfaccia basata sugli eventi per attivare le azioni in risposta all'inserimento di documenti. e offre numerosi vantaggi. Ad esempio, nelle applicazioni che sono sia di lettura che di scrittura, un principale utilizzo del feed delle modifiche consiste nel creare una **vista materializzata** in tempo reale di un contenitore durante l'inserimento di documenti. La vista materializzata del contenitore presenterà gli stessi dati, ma partizionati per letture efficienti, ottimizzando così l'applicazione sia in lettura che in scrittura.
 
-L'attività di gestione degli eventi del feed di modifiche viene principalmente gestita dalla libreria del processore del feed di modifiche incorporata nell'SDK. Questa libreria è sufficientemente potente da distribuire gli eventi del feed di modifiche tra più ruoli di lavoro, se desiderato. È sufficiente fornire alla libreria del feed di modifiche un callback.
+Il lavoro di gestione degli eventi del feed di modifiche viene principalmente gestito dalla libreria del processore dei feed delle modifiche incorporata nell'SDK. Questa libreria è sufficientemente potente da distribuire gli eventi del feed di modifiche tra più ruoli di lavoro, se necessario. È sufficiente fornire alla libreria del feed di modifiche un callback.
 
-Questo semplice esempio illustra la libreria del processore del feed di modifiche con un singolo ruolo di lavoro che crea ed elimina documenti da una vista materializzata.
+Questo semplice esempio illustra la libreria del processore dei feed delle modifiche con un singolo ruolo di lavoro che crea ed Elimina documenti da una vista materializzata.
 
 ## <a name="setup"></a>Configurazione
 
@@ -75,7 +75,7 @@ mvn clean package
 
     * **InventoryContainer**: il record di inventario per il negozio di alimentari di esempio, partizionato sull'elemento ```id```, che è un UUID.
     * **InventoryContainer-PKType**: una vista materializzata del record di inventario, ottimizzata per le query sull'elemento ```type```
-    * **InventoryContainer-leases**: un contenitore di lease è sempre necessario per il feed delle modifiche. I lease tengono traccia dello stato dell'app durante la lettura del feed di modifiche.
+    * **InventoryContainer-leases** : il contenitore dei lease è sempre necessario per il feed delle modifiche. i lease tengono traccia dello stato dell'app durante la lettura del feed delle modifiche.
 
 
     ![Contenitori vuoti](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
@@ -87,7 +87,7 @@ mvn clean package
     Press enter to start creating the materialized view...
     ```
 
-    Premere INVIO. A questo punto, il blocco di codice seguente eseguirà e inizializzerà il processore del feed di modifiche in un altro thread: 
+    Premere INVIO. A questo punto, il seguente blocco di codice eseguirà e inizializza il processore del feed delle modifiche in un altro thread: 
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK v4 (Maven com. Azure:: Azure-Cosmos) API Async
 
@@ -100,7 +100,7 @@ mvn clean package
         })
         .subscribe();
 
-    while (!isProcessorRunning.get()); //Wait for Change Feed processor start
+    while (!isProcessorRunning.get()); //Wait for change feed processor start
     ```
 
     ```"SampleHost_1"``` è il nome del ruolo di lavoro del processore del feed di modifiche. ```changeFeedProcessorInstance.start()``` è l'elemento che avvia effettivamente il processore del feed di modifiche.
@@ -109,7 +109,7 @@ mvn clean package
 
     ![Lease](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
 
-1. Premere di nuovo INVIO nel terminale. Verranno attivati 10 documenti per l'inserimento in **InventoryContainer**. Ogni inserimento di documento viene visualizzato nel feed di modifiche come JSON. Il codice di callback seguente gestisce questi eventi eseguendo il mirroring dei documenti JSON in una vista materializzata:
+1. Premere di nuovo INVIO nel terminale. Verranno attivati 10 documenti per l'inserimento in **InventoryContainer**. Ogni inserimento di documenti viene visualizzato nel feed di modifiche come JSON; il codice di callback seguente gestisce questi eventi eseguendo il mirroring dei documenti JSON in una vista materializzata:
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK v4 (Maven com. Azure:: Azure-Cosmos) API Async
 
@@ -142,7 +142,7 @@ mvn clean package
 
     ![Contenitore feed](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
-1. A questo punto, in Esplora dati passare a **InventoryContainer-PKType > items** (InventoryContainer-pktype > elementi). Questa è la vista materializzata. È stato eseguito il mirroring degli elementi di **InventoryContainer** in questo contenitore perché sono stati inseriti a livello di codice dal feed di modifiche. Si noti la chiave di partizione (```type```). Questa vista materializzata è quindi ottimizzata per le query che filtrano in base a ```type```, operazione che non risulterebbe efficiente in **InventoryContainer** perché è partizionato su ```id```.
+1. A questo punto, in Esplora dati passare a **InventoryContainer-PKType > items** (InventoryContainer-pktype > elementi). Questa è la vista materializzata, ovvero gli elementi in questo mirror del contenitore **InventoryContainer** perché sono stati inseriti a livello di codice dal feed di modifiche. Si noti la chiave di partizione (```type```). Questa vista materializzata è quindi ottimizzata per le query che filtrano in base a ```type```, operazione che non risulterebbe efficiente in **InventoryContainer** perché è partizionato su ```id```.
 
     ![Vista materializzata](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
 
@@ -181,10 +181,10 @@ mvn clean package
     }    
     ```
 
-    Il feed di modifiche ```feedPollDelay``` è impostato su 100 ms, di conseguenza il feed di modifiche risponde quasi immediatamente a questo aggiornamento e chiama ```updateInventoryTypeMaterializedView()```, come illustrato in precedenza. L'ultima chiamata di funzione esegue l'upsert del nuovo documento con una durata TTL di 5 secondi in **InventoryContainer-pktype**.
+    Il feed delle modifiche ```feedPollDelay``` è impostato su 100 ms, pertanto il feed delle modifiche risponde quasi immediatamente a questo aggiornamento e chiama ```updateInventoryTypeMaterializedView()``` sopra. L'ultima chiamata di funzione esegue l'upsert del nuovo documento con una durata TTL di 5 secondi in **InventoryContainer-pktype**.
 
     L'effetto è che, dopo circa 5 secondi, il documento scadrà e verrà eliminato da entrambi i contenitori.
 
-    Questa procedura è necessaria perché il feed di modifiche rilascia solo gli eventi per l'inserimento o l'aggiornamento di un elemento, non per l'eliminazione di elementi.
+    Questa procedura è necessaria perché il feed delle modifiche rilascia solo gli eventi per l'inserimento o l'aggiornamento di un elemento, non per l'eliminazione di elementi.
 
 1. Premere INVIO ancora una volta per chiudere il programma e pulire le risorse.

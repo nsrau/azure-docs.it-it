@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 54501e7e00ba8a28dd7cb421232b9a9587604338
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653127"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195125"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurare il modulo PowerShell per desktop virtuale Windows
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows.
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows.
 >
-> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il modulo PowerShell per desktop virtuale di Windows è integrato nel modulo Azure PowerShell. Questo articolo illustra come configurare il modulo di PowerShell in modo da poter eseguire i cmdlet per desktop virtuale di Windows.
@@ -46,7 +46,7 @@ Eseguire quindi il cmdlet seguente per connettersi ad Azure:
 Connect-AzAccount
 ```
 
-Per accedere all'account Azure, è necessario un codice generato quando si esegue il cmdlet Connect. Per accedere, passare a <https://microsoft.com/devicelogin>, immettere il codice e quindi accedere con le credenziali di amministratore di Azure.
+Per accedere all'account Azure, è necessario un codice generato quando si esegue il cmdlet Connect. Per accedere, passare a <https://microsoft.com/devicelogin> , immettere il codice e quindi accedere con le credenziali di amministratore di Azure.
 
 ```powershell
 Account SubscriptionName TenantId Environment
@@ -63,7 +63,7 @@ Questa operazione consentirà di accedere direttamente alla sottoscrizione prede
 Se si vuole modificare la sottoscrizione predefinita dopo aver eseguito l'accesso, eseguire questo cmdlet:
 
 ```powershell
-Select-AzureSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
 ```
 
 Quando si seleziona una nuova sottoscrizione da usare, non è necessario specificare l'ID della sottoscrizione nei cmdlet eseguiti successivamente. Il cmdlet seguente, ad esempio, recupera un host sessione specifico senza che sia necessario l'ID sottoscrizione:

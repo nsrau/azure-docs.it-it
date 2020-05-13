@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/12/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2df89bc18ea5d0098ac5ebb0bc06b9df6728705
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ea289dbdf22f76c8ea716acf87b0b1a2da6ef0f9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993753"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196585"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di monitoraggio di Azure
 
@@ -40,15 +40,15 @@ Il piano tariffario predefinito per Log Analytics è un modello con **pagamento 
   
 Oltre al modello con pagamento in base al consumo, Log Analytics dispone di livelli di **prenotazione di capacità** che consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al consumo. I prezzi per la prenotazione della capacità ti permettono di acquistare una prenotazione a partire da 100 GB/giorno. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. I livelli di prenotazione della capacità hanno un periodo di impegno di 31 giorni. Durante il periodo di impegno, è possibile passare a un livello di prenotazione di capacità superiore, che riavvierà il periodo di impegno di 31 giorni, ma non sarà possibile tornare a un livello di prenotazione con pagamento in base al consumo o a un livello di prenotazione di capacità inferiore fino al termine del periodo dell'impegno. La fatturazione per i livelli di prenotazione della capacità viene eseguita su base giornaliera. [Scopri di più](https://azure.microsoft.com/pricing/details/monitor/) su log Analytics prezzi con pagamento in base al consumo e sulla prenotazione della capacità. 
 
-In tutti i piani tariffari, il volume di dati viene calcolato da una rappresentazione di stringa dei dati perché è pronto per essere archiviato. Diverse [Proprietà comuni a tutti i tipi di dati](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) non sono incluse nel calcolo delle dimensioni dell'evento, `_ResourceId`tra `_ItemId`cui `_IsBillable` , `_BilledSize`e.
+In tutti i piani tariffari, il volume di dati viene calcolato da una rappresentazione di stringa dei dati perché è pronto per essere archiviato. Diverse [Proprietà comuni a tutti i tipi di dati](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) non sono incluse nel calcolo delle dimensioni dell'evento, tra cui `_ResourceId` , `_ItemId` `_IsBillable` e `_BilledSize` .
 
 Si noti anche che alcune soluzioni, ad esempio il [Centro sicurezza di Azure](https://azure.microsoft.com/pricing/details/security-center/), la [gestione della configurazione](https://azure.microsoft.com/pricing/details/automation/) e di [Sentinel di Azure](https://azure.microsoft.com/pricing/details/azure-sentinel/) hanno i propri modelli tariffari. 
 
-### <a name="log-analytics-clusters"></a>Cluster Log Analytics
+### <a name="log-analytics-dedicated-clusters"></a>Log Analytics cluster dedicati
 
-I cluster Log Analytics sono raccolte di aree di lavoro in un singolo cluster di Azure Esplora dati gestito per supportare scenari avanzati quali [chiavi gestite dal cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  I cluster Log Analytics supportano solo un modello di prezzi per la prenotazione della capacità a partire da 1000 GB/giorno con uno sconto del 25% rispetto ai prezzi con pagamento in base al consumo. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. La prenotazione della capacità del cluster ha un periodo di impegno di 31 giorni dopo l'incremento del livello di prenotazione. Durante il periodo di impegno non è possibile ridurre il livello di prenotazione della capacità, ma è possibile aumentarlo in qualsiasi momento. Altre informazioni sulla [creazione di un cluster di log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e sull' [associazione di aree di lavoro](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
+Log Analytics cluster dedicati sono raccolte di aree di lavoro in un singolo cluster Azure Esplora dati gestito per supportare scenari avanzati quali [chiavi gestite dal cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Log Analytics cluster dedicati supportano solo un modello di prezzi per la prenotazione della capacità a partire da 1000 GB/giorno con uno sconto del 25% rispetto ai prezzi con pagamento in base al consumo. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. La prenotazione della capacità del cluster ha un periodo di impegno di 31 giorni dopo l'incremento del livello di prenotazione. Durante il periodo di impegno non è possibile ridurre il livello di prenotazione della capacità, ma è possibile aumentarlo in qualsiasi momento. Altre informazioni sulla [creazione di un cluster di log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e sull' [associazione di aree di lavoro](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
 
-Il livello di prenotazione della capacità del cluster viene configurato tramite a livello con `Capacity` Azure Resource Manager utilizzando `Sku`il parametro in. `Capacity` È specificato in unità di GB e può avere valori di 1000 GB/giorno o più in incrementi di 100 GB al giorno. Questa operazione è illustrata in dettaglio [qui](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Se il cluster necessita di una prenotazione superiore a 2000 GB/giorno, [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)contattaci all'indirizzo.
+Il livello di prenotazione della capacità del cluster viene configurato tramite a livello con Azure Resource Manager utilizzando il `Capacity` parametro in `Sku` . `Capacity`È specificato in unità di GB e può avere valori di 1000 GB/giorno o più in incrementi di 100 GB al giorno. Questa operazione è illustrata in dettaglio [qui](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Se il cluster necessita di una prenotazione superiore a 2000 GB/giorno, contattaci all'indirizzo [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
 Poiché la fatturazione per i dati inseriti viene eseguita a livello di cluster, le aree di lavoro associate a un cluster non hanno più un piano tariffario. Le quantità di dati inseriti da ogni area di lavoro associata a un cluster vengono aggregate per calcolare la fattura giornaliera per il cluster. Si noti che le allocazioni per nodo dal [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/) vengono applicate a livello di area di lavoro prima di questa aggregazione di dati aggregati in tutte le aree di lavoro del cluster. La conservazione dei dati viene comunque fatturata a livello di area di lavoro. Si noti che la fatturazione del cluster viene avviata quando viene creato il cluster, indipendentemente dal fatto che le aree di lavoro siano state associate al cluster. 
 
@@ -88,7 +88,7 @@ Per modificare il piano tariffario Log Analytics dell'area di lavoro,
 
 3. Dopo aver esaminato i costi stimati in base agli ultimi 31 giorni di utilizzo, se si decide di modificare il piano tariffario, fare clic su **Seleziona**.  
 
-È inoltre possibile [impostare il piano tariffario tramite Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) utilizzando `sku` il parametro`pricingTier` (nel modello di Azure Resource Manager). 
+È inoltre possibile [impostare il piano tariffario tramite Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) utilizzando il `sku` parametro ( `pricingTier` nel modello di Azure Resource Manager). 
 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
@@ -122,10 +122,12 @@ Per impostare il periodo di conservazione predefinito per l'area di lavoro,
 
 Quando il periodo di conservazione viene ridotto, è previsto un periodo di prova di diversi giorni prima che i dati meno recenti vengano rimossi. 
     
-Il periodo di memorizzazione può essere [impostato anche tramite Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) utilizzando il `retentionInDays` parametro. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando `immediatePurgeDataOn30Days` il parametro, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità viene esposta solo tramite Azure Resource Manager. 
+Il periodo di memorizzazione può essere [impostato anche tramite Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) utilizzando il `retentionInDays` parametro. Inoltre, se si imposta la conservazione dei dati su 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti utilizzando il `immediatePurgeDataOn30Days` parametro, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità viene esposta solo tramite Azure Resource Manager. 
 
-Per impostazione predefinita, i `Usage` due `AzureActivity` tipi di dati--e--vengono conservati per 90 giorni e non è previsto alcun addebito per questo periodo di conservazione di 90 giorni. Questi tipi di dati sono anche privi di addebiti per l'inserimento di dati. 
 
+Per impostazione predefinita, i due tipi di dati-- `Usage` e `AzureActivity` --vengono conservati per 90 giorni e non è previsto alcun addebito per questo periodo di conservazione di 90 giorni. Questi tipi di dati sono anche privi di addebiti per l'inserimento di dati. 
+
+I tipi di dati delle risorse Application Insights basate sull'area di lavoro ( `AppAvailabilityResults` ,, `AppBrowserTimings` `AppDependencies` , `AppExceptions` , `AppEvents` , `AppMetrics` , `AppPageViews` , `AppPerformanceCounters` , `AppRequests` `AppSystemEvents` e `AppTraces` ) vengono conservati anche per 90 giorni per impostazione predefinita e non è previsto alcun addebito per la conservazione di 90 giorni. La conservazione può essere regolata usando la funzionalità di conservazione per tipo di dati. 
 
 
 ### <a name="retention-by-data-type"></a>Conservazione per tipo di dati
@@ -160,9 +162,9 @@ Per impostare la conservazione di un determinato tipo di dati (in questo esempio
     }
 ```
 
-I valori validi `retentionInDays` per sono compresi tra 30 e 730.
+I valori validi per `retentionInDays` sono compresi tra 30 e 730.
 
-I `Usage` tipi `AzureActivity` di dati e non possono essere impostati con la conservazione personalizzata. Verranno accettati al massimo la conservazione predefinita dell'area di lavoro o 90 giorni. 
+I `Usage` `AzureActivity` tipi di dati e non possono essere impostati con la conservazione personalizzata. Verranno accettati al massimo la conservazione predefinita dell'area di lavoro o 90 giorni. 
 
 Un ottimo strumento per connettersi direttamente a Azure Resource Manager per impostare la conservazione in base al tipo di dati è lo strumento OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Altre informazioni su ARMclient sono disponibili negli articoli di [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Ecco un esempio di uso di ARMClient, che imposta i dati di SecurityEvent su un periodo di conservazione di 730 giorni:
 
@@ -261,7 +263,7 @@ Nella pagina **Utilizzo e costi stimati** il grafico *Inserimento dati per soluz
 
 ### <a name="data-volume-for-specific-events"></a>Volume di dati per eventi specifici
 
-Per esaminare le dimensioni dei dati inseriti per un determinato set di eventi, è possibile eseguire una query sulla tabella specifica (in questo esempio `Event`) e quindi limitare la query agli eventi di interesse (in questo esempio ID evento 5145 o 5156):
+Per esaminare le dimensioni dei dati inseriti per un determinato set di eventi, è possibile eseguire una query sulla tabella specifica (in questo esempio `Event` ) e quindi limitare la query agli eventi di interesse (in questo esempio ID evento 5145 o 5156):
 
 ```kusto
 Event
@@ -271,7 +273,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-Si noti che la `where IsBillable = true` clausola filtra i tipi di dati di determinate soluzioni per le quali non è previsto alcun addebito per l'inserimento. 
+Si noti che la clausola `where IsBillable = true` Filtra i tipi di dati di determinate soluzioni per le quali non è previsto alcun addebito per l'inserimento. 
 
 ### <a name="data-volume-by-solution"></a>Volume dati per soluzione
 
@@ -285,7 +287,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-La clausola con `TimeGenerated` è solo per assicurarsi che l'esperienza di query nel portale di Azure riguarderà oltre le 24 ore predefinite. Quando si usa il tipo di dati `StartTime` Usage `EndTime` e rappresentano i bucket temporali per i quali vengono presentati i risultati. 
+La clausola con `TimeGenerated` è solo per assicurarsi che l'esperienza di query nel portale di Azure riguarderà oltre le 24 ore predefinite. Quando si usa il tipo di dati Usage `StartTime` e `EndTime` rappresentano i bucket temporali per i quali vengono presentati i risultati. 
 
 ### <a name="data-volume-by-type"></a>Volume di dati per tipo
 
@@ -337,7 +339,6 @@ union withsource = tt *
 > [!TIP]
 > Usare queste `union  *` query in modo sporadico in quanto le analisi tra i tipi di dati richiedono un utilizzo [intensivo delle risorse](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Se non sono necessari risultati **per computer** , eseguire una query sul tipo di dati Usage.
 
-
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume di dati per risorsa di Azure, gruppo di risorse o sottoscrizione
 
 Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** dei dati inseriti __per computer__, usare la [proprietà](log-standard-properties.md#_resourceid)_ResourceId, che fornisce il percorso completo della risorsa:
@@ -349,7 +350,7 @@ union withsource = tt *
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** dei dati inseriti __per ogni sottoscrizione__di `_ResourceId` Azure, analizzare la proprietà come:
+Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** dei dati inseriti __per ogni sottoscrizione di Azure__, analizzare la `_ResourceId` proprietà come:
 
 ```kusto
 union withsource = tt * 
@@ -360,7 +361,7 @@ union withsource = tt *
 | summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-Se `subscriptionId` si `resourceGroup` modifica in, viene visualizzato il volume dei dati inseriti fatturabile per gruppo di risorse di Azure. 
+Se `subscriptionId` si modifica in, `resourceGroup` viene visualizzato il volume dei dati inseriti fatturabile per gruppo di risorse di Azure. 
 
 > [!TIP]
 > Usare queste `union  *` query in modo sporadico in quanto le analisi tra i tipi di dati richiedono un utilizzo [intensivo delle risorse](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Se non sono necessari i risultati per sottoscrizione, il nome del gruppo o della risorsa resouce, eseguire una query sul tipo di dati Usage.
@@ -368,10 +369,13 @@ Se `subscriptionId` si `resourceGroup` modifica in, viene visualizzato il volume
 > [!WARNING]
 > Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non verranno più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
 
+
 ### <a name="querying-for-common-data-types"></a>Esecuzione di query per i tipi di dati comuni
 
 Ecco alcune query di esempio utili per analizzare in maggiore profondità l'origine dei dati di un particolare tipo di dati:
 
++ Risorse **Application Insights basate sull'area di lavoro**
+  - Altre informazioni sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/app/pricing#data-volume-for-workspace-based-application-insights-resources)
 + Soluzione **Sicurezza**
   - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + Soluzione **Gestione log**
@@ -463,9 +467,9 @@ La decisione di determinare se le aree di lavoro con accesso al piano tariffario
 
 Per semplificare questa valutazione, è possibile usare la query seguente per formulare un suggerimento per il piano tariffario ottimale in base ai modelli di utilizzo di un'area di lavoro.  Questa query esamina i nodi monitorati e i dati inseriti in un'area di lavoro negli ultimi 7 giorni e per ogni giorno valuta il piano tariffario ottimale. Per usare la query, è necessario specificare
 
-1. indica se l'area di lavoro usa il Centro sicurezza `workspaceHasSecurityCenter` di `true` Azure `false`impostando su o, 
+1. indica se l'area di lavoro usa il Centro sicurezza di Azure impostando `workspaceHasSecurityCenter` su `true` o `false` , 
 2. aggiornare i prezzi se si dispone di sconti specifici e
-3. specificare il numero di giorni per cui eseguire la ricerca e l' `daysToEvaluate`analisi impostando. Questa operazione è utile se la query richiede troppo tempo per esaminare 7 giorni di dati. 
+3. specificare il numero di giorni per cui eseguire la ricerca e l'analisi impostando `daysToEvaluate` . Questa operazione è utile se la query richiede troppo tempo per esaminare 7 giorni di dati. 
 
 Di seguito è riportata la query di raccomandazione del piano tariffario:
 

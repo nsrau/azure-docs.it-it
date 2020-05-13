@@ -5,15 +5,13 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 04/15/2020
 ms.reviewer: mahender
-ms.custom:
-- seodec18
-- fasttrack-edit
-ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457859"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196445"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
 
@@ -52,7 +50,7 @@ Il modulo viene eseguito separatamente dal codice dell'applicazione e viene conf
 
 Per tutti i Framework di linguaggio, il servizio app rende disponibili al codice le attestazioni nel token in ingresso, sia che si tratti di un utente finale autenticato o di un'applicazione client, inserendole nelle intestazioni della richiesta. Per le app ASP.NET 4.6, il servizio app popola [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con le attestazioni dell'utente autenticato, quindi è possibile seguire il modello di codice .NET standard, incluso l'attributo `[Authorize]`. Analogamente, per le app PHP, il servizio app popola la variabile `_SERVER['REMOTE_USER']`. Per le app Java, le attestazioni sono [accessibili dal servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
-Per [funzioni](../azure-functions/functions-overview.md)di Azure `ClaimsPrincipal.Current` , non viene popolato per il codice .NET, ma è comunque possibile trovare le attestazioni utente nelle intestazioni della richiesta `ClaimsPrincipal` o ottenere l'oggetto dal contesto della richiesta o anche tramite un parametro di associazione. Per ulteriori informazioni, vedere [utilizzo delle identità client](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
+Per [funzioni di Azure](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` non viene popolato per il codice .NET, ma è comunque possibile trovare le attestazioni utente nelle intestazioni della richiesta o ottenere l' `ClaimsPrincipal` oggetto dal contesto della richiesta o anche tramite un parametro di associazione. Per ulteriori informazioni, vedere [utilizzo delle identità client](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
 
 Per altre informazioni, vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims).
 
@@ -142,9 +140,9 @@ Con questa opzione non è necessario scrivere codice di autenticazione nell'app.
 
 [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure per Linux](containers/tutorial-auth-aad.md)  
-[Personalizzare l'autenticazione e l'autorizzazione nell'](app-service-authentication-how-to.md)
-[integrazione .net core del servizio app di Azure AppService EasyAuth (terze parti)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-[acquisizione di app Azure autenticazione del servizio con .NET Core (terze parti)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+[Personalizzare l'autenticazione e l'autorizzazione nel servizio app](app-service-authentication-how-to.md) 
+ [Integrazione di .NET Core di Azure AppService EasyAuth (terze parti)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
+ [Come usare l'autenticazione del servizio app Azure con .NET Core (terze parti)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Guide alle procedure specifiche del provider:
 

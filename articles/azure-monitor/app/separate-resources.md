@@ -1,18 +1,18 @@
 ---
-title: Separazione della telemetria in applicazione Azure Insights
+title: 'Come progettare la distribuzione di Application Insights: uno rispetto a molte risorse?'
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 05/11/2020
+ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562152"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125690"
 ---
-# <a name="separating-telemetry-from-development-test-and-production"></a>Separazione della telemetria da sviluppo, test e produzione
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>Il numero di risorse Application Insights da distribuire
 
-Quando si sviluppa la versione successiva di un'applicazione Web, non è desiderabile combinare la telemetria di [Application Insights](../../azure-monitor/app/app-insights-overview.md) della nuova versione con quella della versione già rilasciata. Per evitare confusione, inviare i dati di telemetria da diverse fasi di sviluppo per separare le risorse di Application Insights, con chiavi di strumentazione separate (iKey). Per rendere più semplice la modifica della chiave di strumentazione man mano che una versione si sposta da una fase all'altra, può essere utile impostare il valore ikey nel codice anziché nel file di configurazione. 
+Quando si sviluppa la versione successiva di un'applicazione Web, non è desiderabile combinare la telemetria di [Application Insights](../../azure-monitor/app/app-insights-overview.md) della nuova versione con quella della versione già rilasciata. Per evitare confusione, inviare i dati di telemetria da diverse fasi di sviluppo per separare le risorse di Application Insights, con chiavi di strumentazione separate (iKey). Per rendere più semplice la modifica della chiave di strumentazione man mano che una versione si sposta da una fase all'altra, può essere utile impostare il valore ikey nel codice anziché nel file di configurazione.
 
 Se il sistema è un servizio cloud di Azure, è disponibile [un altro metodo di impostazione di valori iKey separati](../../azure-monitor/app/cloudservices.md).)
 
@@ -22,7 +22,7 @@ Quando si configura il monitoraggio di Application Insights per l'app Web, viene
 
 Ogni risorsa Application Insights viene fornita con le metriche disponibili. Se i componenti completamente separati segnalano alla stessa risorsa di Application Insights, queste metriche potrebbero non avere senso per Dashboard/avviso su.
 
-### <a name="use-a-single-application-insights-resource"></a>Usare una singola risorsa Application Insights
+### <a name="when-to-use-a-single-application-insights-resource"></a>Quando usare una singola risorsa Application Insights
 
 -   Per i componenti dell'applicazione distribuiti insieme. In genere sviluppato da un singolo team, gestito dallo stesso set di utenti DevOps/ITOps.
 -   Se è opportuno aggregare gli indicatori di prestazioni chiave (KPI), ad esempio le durate di risposta, le percentuali di errore nel dashboard e così via, per impostazione predefinita, è possibile scegliere di segmentare il nome del ruolo nell'esperienza Esplora metriche.

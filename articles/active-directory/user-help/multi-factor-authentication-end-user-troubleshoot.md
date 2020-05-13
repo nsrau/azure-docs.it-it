@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 555ba9a55a135bd38dcc46e1ff7a3d751083d47e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271693"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196424"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemi comuni con la verifica a due fattori e l'account aziendale o dell'Istituto di istruzione
 
@@ -32,7 +32,7 @@ Ci sono alcuni problemi comuni di verifica a due fattori che sembrano verificars
 >[!Important]
 >Se si è un amministratore, è possibile trovare altre informazioni su come configurare e gestire l'ambiente di Azure AD nella documentazione di [Azure ad](https://docs.microsoft.com/azure/active-directory).
 >
->Questo contenuto è destinato esclusivamente all'uso con l'account aziendale o dell'Istituto di istruzione, che corrisponde all'account fornito dall'organizzazione, ad esempio alain@contoso.com. Se si verificano problemi con la verifica a due fattori e la account Microsoft personale, ovvero un account configurato autonomamente (ad esempio, danielle@outlook.com), vedere [attivazione o disattivazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Questo contenuto è destinato esclusivamente all'uso con l'account aziendale o dell'Istituto di istruzione, che corrisponde all'account fornito dall'organizzazione, ad esempio alain@contoso.com . Se si verificano problemi con la verifica a due fattori e la account Microsoft personale, ovvero un account configurato autonomamente (ad esempio, danielle@outlook.com ), vedere [attivazione o disattivazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Non ho il mio dispositivo mobile con me
 
@@ -99,9 +99,9 @@ Le password dell'app sostituiscono la password normale per le applicazioni deskt
 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Non è possibile disattivare la verifica a due fattori
 
-Se si usa la verifica a due fattori con l'account aziendale o dell'Istituto di istruzione ( alain@contoso.comad esempio,), è molto probabile che l'organizzazione abbia deciso che è necessario usare questa funzionalità di sicurezza aggiuntiva. Poiché l'organizzazione ha deciso che è necessario usare questa funzionalità, non è possibile disattivarla individualmente. Se tuttavia si usa la verifica a due fattori con un account personale, ad esempio alain@outlook.com, è possibile attivare e disattivare la funzionalità. Per istruzioni su come controllare la verifica a due fattori per gli account personali, vedere [attivazione o disattivazione della verifica a due fattori per la account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+Se si usa la verifica a due fattori con l'account aziendale o dell'Istituto di istruzione (ad esempio, alain@contoso.com ), è molto probabile che l'organizzazione abbia deciso che è necessario usare questa funzionalità di sicurezza aggiuntiva. Poiché l'organizzazione ha deciso che è necessario usare questa funzionalità, non è possibile disattivarla individualmente. Se tuttavia si usa la verifica a due fattori con un account personale, alain@outlook.com ad esempio, è possibile attivare e disattivare la funzionalità. Per istruzioni su come controllare la verifica a due fattori per gli account personali, vedere [attivazione o disattivazione della verifica a due fattori per la account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-Se non è possibile disattivare la verifica a due fattori, è possibile che si verifichino anche le impostazioni predefinite di sicurezza applicate a livello di organizzazione. Per ulteriori informazioni sulle impostazioni predefinite di sicurezza, vedere [che cosa sono i defulta di sicurezza?](../fundamentals/concept-fundamentals-security-defaults.md)
+Se non è possibile disattivare la verifica a due fattori, è possibile che si verifichino anche le impostazioni predefinite di sicurezza applicate a livello di organizzazione. Per ulteriori informazioni sulle impostazioni predefinite di sicurezza, vedere [che cosa sono le impostazioni predefinite della sicurezza?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nessuna risposta al problema riscontrato
 

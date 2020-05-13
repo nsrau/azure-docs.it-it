@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 658543dc96f23fc86ea50f64d7a3265ba64150e7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0a29ee1536c7c808fe7d15c0abe26f27042bc962
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982208"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196255"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente Log Analytics
 Azure Log Analytics Agent è stato sviluppato per una gestione completa tra macchine virtuali in qualsiasi cloud, computer locali e quelli monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro Log Analytics in monitoraggio di Azure, nonché a qualsiasi metrica o log univoco definito in una soluzione di monitoraggio. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in monitoraggio di Azure, ad esempio [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), il [Centro sicurezza di Azure](/azure/security-center/)e [automazione di Azure](../../automation/automation-intro.md).
@@ -115,11 +115,11 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
 >Se si usa una distribuzione o una versione attualmente non supportata e non allineata al modello di supporto, è consigliabile creare una copia tramite fork del repository, nella consapevolezza che il supporto tecnico Microsoft non fornisce assistenza per versioni dell'agente con fork.
 
 * Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x86/x64) e 7 (x64)  
-* Oracle Linux 6 e 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 6 (x86/x64) e 7 (x64)
-* Debian GNU/Linux 8 e 9 (x86/x64)
-* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) e 18.04 LTS (x64)
+* CentOS Linux 6 (x64) e 7 (x64)  
+* Oracle Linux 6 e 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64) e 8 (x64)
+* Debian GNU/Linux 8 e 9 (x64)
+* Ubuntu 14,04 LTS (x86/x64), 16,04 LTS (x64) e 18,04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) e 15 (x64)
 
 >[!NOTE]
@@ -168,7 +168,7 @@ La tabella seguente elenca le informazioni di configurazione del proxy e del fir
 
 ### <a name="firewall-requirements"></a>Requisiti del firewall
 
-|Risorsa agente|Porte |Direction |Ignorare l'analisi HTTPS|
+|Risorsa agente|Porte |Direzione |Ignorare l'analisi HTTPS|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |Porta 443 |In ingresso e in uscita|Sì |  
 |*.oms.opinsights.azure.com |Porta 443 |In ingresso e in uscita|Sì |  
@@ -201,7 +201,7 @@ Per l'agente di Linux, è possibile specificare il server proxy durante l'instal
 Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Se si usano caratteri speciali, ad esempio\@"" nella password, viene visualizzato un errore di connessione del proxy perché il valore viene analizzato in modo errato.  Per aggirare il problema, codificare la password nell'URL usando uno strumento come [URLDecode](https://www.urldecoder.org/).  
+> Se si usano caratteri speciali, ad esempio " \@ " nella password, viene visualizzato un errore di connessione del proxy perché il valore viene analizzato in modo errato.  Per aggirare il problema, codificare la password nell'URL usando uno strumento come [URLDecode](https://www.urldecoder.org/).  
 
 
 

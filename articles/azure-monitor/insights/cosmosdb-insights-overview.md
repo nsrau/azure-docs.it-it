@@ -1,21 +1,21 @@
 ---
-title: Monitorare Azure Cosmos DB con monitoraggio di Azure per Cosmos DB (anteprima) | Microsoft Docs
+title: Monitorare Azure Cosmos DB con monitoraggio di Azure per Cosmos DB | Microsoft Docs
 description: Questo articolo descrive il monitoraggio di Azure per Cosmos DB funzionalità che fornisce ai proprietari Cosmos DB una rapida comprensione dei problemi di prestazioni e utilizzo con i propri account CosmosDB.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/27/2019
-ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.openlocfilehash: 68b1b8c92b5119da400b0ada0fe792c855dd1f33
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250684"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195406"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Esplora monitoraggio di Azure per Azure Cosmos DB (anteprima)
+# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Esplora monitoraggio di Azure per Azure Cosmos DB
 
-Monitoraggio di Azure per Azure Cosmos DB (anteprima) offre una panoramica delle prestazioni, degli errori, della capacità e dello stato operativo generali di tutte le risorse di Azure Cosmos DB in un'esperienza interattiva unificata. Questo articolo consente di comprendere i vantaggi di questa nuova esperienza di monitoraggio e di come è possibile modificare e adattare l'esperienza per soddisfare le esigenze specifiche dell'organizzazione.   
+Monitoraggio di Azure per Azure Cosmos DB offre una panoramica delle prestazioni, degli errori, della capacità e dello stato operativo generali di tutte le risorse di Azure Cosmos DB in un'esperienza interattiva unificata. Questo articolo consente di comprendere i vantaggi di questa nuova esperienza di monitoraggio e di come è possibile modificare e adattare l'esperienza per soddisfare le esigenze specifiche dell'organizzazione.   
 
 ## <a name="introduction"></a>Introduzione
 
@@ -44,7 +44,7 @@ Per visualizzare l'utilizzo e le prestazioni degli account di archiviazione in t
 
     ![Casella di ricerca con la parola "monitor" e un elenco a discesa che indica i servizi "monitoraggio" con un'immagine di stile tachimetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Selezionare **Cosmos DB (anteprima)**.
+3. Selezionare **Cosmos DB**.
 
     ![Screenshot della cartella di lavoro di Cosmos DB Overview](./media/cosmosdb-insights-overview/cosmos-db.png)
 
@@ -80,7 +80,7 @@ Selezionare **errori** nella parte superiore della pagina e viene visualizzata l
 
 Per un elenco completo dei codici di stato, vedere l' [articolo Azure Cosmos DB codice di stato http](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-### <a name="capacity"></a>Capacity
+### <a name="capacity"></a>Capacità
 
 Selezionare **capacità** nella parte superiore della pagina per aprire la parte relativa alla **capacità** del modello di cartella di lavoro. Mostra il numero di documenti disponibili, la crescita del documento nel tempo, l'utilizzo dei dati e la quantità totale di spazio di archiviazione disponibile.  Questa operazione può essere usata per identificare i potenziali problemi di archiviazione e di utilizzo dei dati.
 
@@ -110,9 +110,9 @@ Per espandere o comprimere tutte le visualizzazioni a discesa nella cartella di 
 
 ![Icona Espandi cartella di lavoro](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Personalizzare monitoraggio di Azure per Azure Cosmos DB (anteprima)
+## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Personalizzare monitoraggio di Azure per Azure Cosmos DB
 
-Poiché questa esperienza è basata sui modelli di cartella di lavoro di monitoraggio di Azure, è possibile **personalizzare** > la**modifica** e **salvare** una copia della versione modificata in una cartella di lavoro personalizzata. 
+Poiché questa esperienza è basata sui modelli di cartella di lavoro di monitoraggio di Azure, è possibile **personalizzare**la  >  **modifica** e **salvare** una copia della versione modificata in una cartella di lavoro personalizzata. 
 
 ![Personalizza barra](./media/cosmosdb-insights-overview/customize.png)
 

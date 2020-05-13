@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
-ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274476"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196241"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Proprietà standard nei log di monitoraggio di Azure
 I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](../log-query/logs-structure.md), ognuno con un particolare tipo di dati che dispone di un set univoco di proprietà. Molti tipi di dati hanno proprietà standard comuni a più tipi. Questo articolo descrive queste proprietà e contiene esempi di come usarle nelle query.
+
+> [!IMPORTANT]
+> Se si usa APM 2,1, Application Insights le applicazioni vengono archiviate in un'area di lavoro Log Analytics con tutti gli altri dati di log. Le tabelle sono state rinominate e ristrutturate, ma hanno le stesse informazioni delle tabelle nell'applicazione Application Insights. Queste nuove tabelle hanno le stesse proprietà standard di altre tabelle nell'area di lavoro Log Analytics.
 
 > [!NOTE]
 > Alcune delle proprietà standard non verranno visualizzate nella visualizzazione schema o in IntelliSense in Log Analytics e non verranno visualizzate nei risultati della query a meno che non si specifichi in modo esplicito la proprietà nell'output.
@@ -46,9 +49,9 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-La ** \_proprietà TimeReceived** contiene la data e l'ora in cui il record è stato ricevuto dal punto di inserimento del monitoraggio di Azure nel cloud di Azure. Questa operazione può essere utile per identificare i problemi di latenza tra l'origine dati e il cloud. Un esempio potrebbe essere un problema di rete che causa un ritardo con l'invio di dati da un agente. Per altri dettagli, vedere [tempo di inserimento dei dati del log in monitoraggio di Azure](data-ingestion-time.md) .
+La proprietà ** \_ TimeReceived** contiene la data e l'ora in cui il record è stato ricevuto dal punto di inserimento del monitoraggio di Azure nel cloud di Azure. Questa operazione può essere utile per identificare i problemi di latenza tra l'origine dati e il cloud. Un esempio potrebbe essere un problema di rete che causa un ritardo con l'invio di dati da un agente. Per altri dettagli, vedere [tempo di inserimento dei dati del log in monitoraggio di Azure](data-ingestion-time.md) .
 
-La query seguente restituisce la latenza media per ora per i record di eventi da un agente. Sono inclusi il tempo dall'agente al cloud e il tempo totale per la disponibilità del record per le query di log.
+La query seguente restituisce la latenza media per ora per i record di eventi da un agente. Sono inclusi il tempo dall'agente al cloud e il tempo totale per cui il record sarà disponibile per le query di log.
 
 ```Kusto
 Event
@@ -60,7 +63,7 @@ Event
 ``` 
 
 ## <a name="type-and-itemtype"></a>Digitare e itemType
-Il **tipo** (area di lavoro log Analytics) e le proprietà **ItemType** (Application Insights applicazione) contengono il nome della tabella da cui il record è stato recuperato, che può anche essere considerato come tipo di record. Questa proprietà è utile nelle query che consentono di combinare record da più tabelle, ad esempio quelle che usano l'operatore `search`, per distinguere tra record di diverso tipo. **$table** può essere usato al posto di **Type** in alcune posizioni.
+Il **tipo** (area di lavoro log Analytics) e le proprietà **ItemType** (Application Insights applicazione) contengono il nome della tabella da cui il record è stato recuperato, che può anche essere considerato come tipo di record. Questa proprietà è utile nelle query che combinano i record di più tabelle, ad esempio quelli che usano l' `search` operatore, per distinguere tra record di tipi diversi. **$table** può essere usato al posto di **Type** in alcune posizioni.
 
 ### <a name="examples"></a>Esempi
 La query seguente restituisce il numero di record in base al tipo raccolti nell'ultima ora.
@@ -72,11 +75,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ID elemento
-La ** \_proprietà ItemId** include un identificatore univoco per il record.
+La proprietà ** \_ ItemId** include un identificatore univoco per il record.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-La ** \_proprietà ResourceID** include un identificatore univoco per la risorsa a cui è associato il record. Si ottiene così una proprietà standard da utilizzare per definire l'ambito della query solo ai record di una determinata risorsa oppure per unire i dati correlati tra più tabelle.
+La proprietà ** \_ resourceId** include un identificatore univoco per la risorsa a cui è associato il record. Si ottiene così una proprietà standard da utilizzare per definire l'ambito della query solo ai record di una determinata risorsa oppure per unire i dati correlati tra più tabelle.
 
 Per le risorse di Azure, il valore di **_ResourceId** è l'[URL dell'ID risorsa di Azure](../../azure-resource-manager/templates/template-functions-resource.md). La proprietà è attualmente limitata alle risorse di Azure, ma verrà estesa alle risorse esterne ad Azure, ad esempio i computer locali.
 
@@ -122,7 +125,7 @@ union withsource = tt *
 Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose.
 
 ## <a name="_isbillable"></a>\_IsBillable
-La ** \_proprietà fatturabile** specifica se i dati inseriti sono fatturabili. I dati con ** \_fatturazione** uguale a _false_ vengono raccolti gratuitamente e non addebitati all'account Azure.
+La proprietà ** \_ fatturabile** specifica se i dati inseriti sono fatturabili. I dati con ** \_ fatturazione** uguale a `false` vengono raccolti gratuitamente e non addebitati all'account Azure.
 
 ### <a name="examples"></a>Esempi
 Per ottenere un elenco di computer che inviano i tipi di dati fatturati, usare la query seguente:
@@ -149,7 +152,7 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-La ** \_proprietà BilledSize** specifica le dimensioni in byte dei dati che verranno fatturate all'account Azure ** \_se è true** .
+La proprietà ** \_ BilledSize** specifica le dimensioni in byte dei dati che verranno fatturate all'account Azure ** \_ se è true** .
 
 
 ### <a name="examples"></a>Esempi

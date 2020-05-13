@@ -4,15 +4,15 @@ description: Informazioni su come creare, pubblicare e ridimensionare le app in 
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 3/26/2020
+ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80586125"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125809"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app
 
@@ -36,7 +36,7 @@ Se non si dispone di un ambiente del servizio app, è possibile crearne uno segu
 
 Per creare un'app in un ambiente del servizio app:
 
-1. Selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **app Web**.
+1. Selezionare **Crea una risorsa**  >  **Web e dispositivi mobili**  >  **app Web**.
 
 1. Immettere un nome per l'app. Se è già stato selezionato un piano di servizio app in un ambiente del servizio app, il nome di dominio per l'app riflette il nome di dominio dell'ambiente del servizio app:
 
@@ -104,14 +104,14 @@ Le risorse front-end sono gli endpoint HTTP/HTTPS per l'ambiente del servizio ap
 
 ## <a name="app-access"></a>Accesso all'app
 
-In un ambiente del servizio app esterno, il suffisso di dominio usato per la creazione dell'app è *.&lt; asename&gt;. p.azurewebsites.NET*. Se l'ambiente del servizio app è denominato _External-ASE_ e si ospita un'app denominata _Contoso_ in tale ambiente del servizio app, è possibile accedervi con questi URL:
+In un ambiente del servizio app esterno, il suffisso di dominio usato per la creazione dell'app è *. &lt; asename &gt; . p.azurewebsites.NET*. Se l'ambiente del servizio app è denominato _External-ASE_ e si ospita un'app denominata _Contoso_ in tale ambiente del servizio app, è possibile accedervi con questi URL:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
 Per informazioni su come creare un ambiente del servizio app esterno, vedere [creare un ambiente del servizio app][MakeExternalASE].
 
-In un ambiente del servizio app ILB, il suffisso di dominio usato per la creazione dell'app è *.&lt; asename&gt;. appserviceenvironment.NET*. Se l'ambiente del servizio app è denominato _ILB-ASE_ e si ospita un'app denominata _Contoso_ in tale ambiente del servizio app, è possibile accedervi con questi URL:
+In un ambiente del servizio app ILB, il suffisso di dominio usato per la creazione dell'app è *. &lt; asename &gt; . appserviceenvironment.NET*. Se l'ambiente del servizio app è denominato _ILB-ASE_ e si ospita un'app denominata _Contoso_ in tale ambiente del servizio app, è possibile accedervi con questi URL:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
@@ -122,19 +122,26 @@ L'URL SCM viene usato per accedere alla console Kudu o per pubblicare l'app usan
 
 ### <a name="dns-configuration"></a>Configurazione del DNS 
 
-Quando si usa un ambiente del servizio app esterno, le app eseguite nell'ambiente del servizio app vengono registrate con DNS di Azure. Con un ambiente del servizio app ILB è necessario gestire il proprio DNS. 
+Quando si usa un ambiente del servizio app esterno, le app eseguite nell'ambiente del servizio app vengono registrate con DNS di Azure. Non sono previsti passaggi aggiuntivi in un ambiente del servizio app esterno perché le app siano disponibili pubblicamente. Con un ambiente del servizio app ILB è necessario gestire il proprio DNS. Questa operazione può essere eseguita nel proprio server DNS o con le zone private di DNS di Azure.
 
-Per configurare DNS con l'ambiente del servizio app ILB:
+Per configurare DNS nel proprio server DNS con l'ambiente del servizio app ILB:
 
-    create a zone for <ASE name>.appserviceenvironment.net
-    create an A record in that zone that points * to the ILB IP address
-    create an A record in that zone that points @ to the ILB IP address
-    create a zone in <ASE name>.appserviceenvironment.net named scm
-    create an A record in the scm zone that points * to the ILB IP address
+1. creare una zona per <ASE name> . appserviceenvironment.NET
+1. creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
+1. creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
+1. creare una zona in <ASE name> . appserviceenvironment.NET denominata SCM
+1. creare un record A nella zona che punti * all'indirizzo IP del servizio ILB
 
-Le impostazioni DNS per il suffisso di dominio predefinito dell'ambiente del servizio app non limitano l'accesso delle app a tali nomi. È possibile impostare un nome di dominio personalizzato senza alcuna convalida per le app in un ambiente del servizio app ILB. Se quindi si vuole creare una zona denominata *contoso.NET*, è possibile fare in modo che punti all'indirizzo IP di ILB. Il nome di dominio personalizzato funziona per le richieste dell'app, ma non per il sito SCM. Il sito SCM è disponibile solo in * &lt;AppName&gt;. SCM.&lt; asename&gt;. appserviceenvironment.NET*. 
+Per configurare DNS in zone private di DNS di Azure:
 
-Area denominata *.&lt; asename&gt;. appserviceenvironment.NET* è univoco a livello globale. Prima del 2019 maggio, i clienti potevano specificare il suffisso del dominio dell'ambiente del servizio app ILB. Se si desidera utilizzare *. contoso.com* per il suffisso di dominio, è possibile eseguire questa operazione e includere il sito SCM. Si sono verificati problemi con questo modello, tra cui; gestione del certificato SSL predefinito, mancanza di Single Sign-On con il sito SCM e requisiti per l'utilizzo di un certificato con caratteri jolly. Il processo di aggiornamento del certificato predefinito dell'ambiente del servizio app ILB è stato anche di disturbo e ha causato il riavvio dell'applicazione. Per risolvere questi problemi, il comportamento dell'ambiente del servizio app ILB è stato modificato in modo da usare un suffisso di dominio basato sul nome dell'ambiente del servizio app e con un suffisso di proprietà di Microsoft. La modifica al comportamento dell'ambiente del servizio app ILB influiscono solo su ILB gli ambienti effettuati dopo il 2019 maggio. Gli ambienti ILB preesistenti devono comunque gestire il certificato predefinito dell'ambiente del servizio app e la relativa configurazione DNS.
+1. creare una zona privata di DNS di Azure denominata <ASE name> . appserviceenvironment.NET
+1. creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
+1. creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
+1. creare un record A in tale zona che punti *. scm all'indirizzo IP ILB
+
+Le impostazioni DNS per il suffisso di dominio predefinito dell'ambiente del servizio app non limitano l'accesso delle app a tali nomi. È possibile impostare un nome di dominio personalizzato senza alcuna convalida per le app in un ambiente del servizio app ILB. Se quindi si vuole creare una zona denominata *contoso.NET*, è possibile fare in modo che punti all'indirizzo IP di ILB. Il nome di dominio personalizzato funziona per le richieste dell'app, ma non per il sito SCM. Il sito SCM è disponibile solo in * &lt; appname &gt; . SCM. &lt; asename &gt; . appserviceenvironment.NET*. 
+
+Area denominata *. &lt; asename &gt; . appserviceenvironment.NET* è univoco a livello globale. Prima del 2019 maggio, i clienti potevano specificare il suffisso del dominio dell'ambiente del servizio app ILB. Se si desidera utilizzare *. contoso.com* per il suffisso di dominio, è possibile eseguire questa operazione e includere il sito SCM. Si sono verificati problemi con questo modello, tra cui; gestione del certificato SSL predefinito, mancanza di Single Sign-On con il sito SCM e requisiti per l'utilizzo di un certificato con caratteri jolly. Il processo di aggiornamento del certificato predefinito dell'ambiente del servizio app ILB è stato anche di disturbo e ha causato il riavvio dell'applicazione. Per risolvere questi problemi, il comportamento dell'ambiente del servizio app ILB è stato modificato in modo da usare un suffisso di dominio basato sul nome dell'ambiente del servizio app e con un suffisso di proprietà di Microsoft. La modifica al comportamento dell'ambiente del servizio app ILB influiscono solo su ILB gli ambienti effettuati dopo il 2019 maggio. Gli ambienti ILB preesistenti devono comunque gestire il certificato predefinito dell'ambiente del servizio app e la relativa configurazione DNS.
 
 ## <a name="publishing"></a>Pubblicazione
 
@@ -152,11 +159,11 @@ Con un ambiente del servizio app ILB, gli endpoint di pubblicazione sono disponi
 
 Senza modifiche aggiuntive, i sistemi CI basati su Internet come GitHub e Azure DevOps non funzionano con un ambiente del servizio app ILB perché l'endpoint di pubblicazione non è accessibile da Internet. È possibile abilitare la pubblicazione in un ambiente del servizio app ILB da Azure DevOps installando un agente di rilascio self-hosted nella rete virtuale che contiene l'ambiente del servizio app ILB. In alternativa, è anche possibile usare un sistema CI che usa un modello pull, ad esempio Dropbox.
 
-Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, È possibile visualizzarlo nel profilo di pubblicazione dell'app e nel riquadro del portale dell'app (in **Panoramica** > **Essentials** e anche in **Proprietà**).
+Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, È possibile visualizzarlo nel profilo di pubblicazione dell'app e nel riquadro del portale dell'app (in **Panoramica**  >  **Essentials** e anche in **Proprietà**).
 
 ## <a name="storage"></a>Archiviazione
 
-Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app nell'ambiente del servizio app. Per impostazione predefinita, un piano di servizio app nello SKU dei prezzi isolati ha un limite di 250 GB. Se si hanno cinque o più piani di servizio app, prestare attenzione a non superare il limite di 1 TB dell'ambiente del servizio app. Se è necessario più del limite di 250 GB in un piano di servizio app, contattare il supporto tecnico per modificare il limite del piano di servizio app fino a un massimo di 1 TB. Quando il limite del piano viene regolato, esiste comunque un limite di 1 TB in tutti i piani di servizio app nell'ambiente del servizio app.
+Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app nell'ambiente del servizio app. Un piano di servizio app nello SKU dei prezzi isolati ha un limite di 250 GB. In un ambiente del servizio app sono stati aggiunti 250 GB di spazio di archiviazione per ogni piano di servizio app fino al limite di 1 TB. È possibile avere più piani di servizio app rispetto a quattro, ma non è stata aggiunta alcuna risorsa di archiviazione oltre il limite di 1 TB.
 
 ## <a name="logging"></a>Registrazione
 
@@ -164,16 +171,16 @@ Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app
 
 | Situazione | Messaggio |
 |---------|----------|
-| Ambiente del servizio app non integro | L'ambiente del servizio app specificato non è integro a causa di una configurazione di rete virtuale non valida. L'ambiente del servizio app verrà sospeso se lo stato non integro continua. Verificare che siano seguite le linee guida definite https://docs.microsoft.com/azure/app-service/environment/network-infoin questo articolo:. |
-| La subnet dell'ambiente del servizio app è quasi esaurita | L'ambiente del servizio app specificato si trova in una subnet quasi esaurita. Sono {0} presenti indirizzi rimanenti. Una volta esauriti questi indirizzi, l'ambiente del servizio app non sarà in grado di eseguire la scalabilità.  |
+| Ambiente del servizio app non integro | L'ambiente del servizio app specificato non è integro a causa di una configurazione di rete virtuale non valida. L'ambiente del servizio app verrà sospeso se lo stato non integro continua. Verificare che siano seguite le linee guida definite in questo articolo: https://docs.microsoft.com/azure/app-service/environment/network-info . |
+| La subnet dell'ambiente del servizio app è quasi esaurita | L'ambiente del servizio app specificato si trova in una subnet quasi esaurita. Sono presenti {0} indirizzi rimanenti. Una volta esauriti questi indirizzi, l'ambiente del servizio app non sarà in grado di eseguire la scalabilità.  |
 | L'ambiente del servizio app si avvicina al limite totale di istanze | L'ambiente del servizio app specificato si avvicina al limite totale di istanze dell'ambiente del servizio app. Attualmente contiene {0} le istanze del piano di servizio app di un massimo di 201 istanze. |
-| L'ambiente del servizio app non riesce a raggiungere una dipendenza | L'ambiente del servizio app specificato non è {0}in grado di raggiungere.  Verificare che siano seguite le linee guida definite https://docs.microsoft.com/azure/app-service/environment/network-infoin questo articolo:. |
+| L'ambiente del servizio app non riesce a raggiungere una dipendenza | L'ambiente del servizio app specificato non è in grado di raggiungere {0} .  Verificare che siano seguite le linee guida definite in questo articolo: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | Ambiente del servizio app sospeso | L'ambiente del servizio app specificato è sospeso. La sospensione dell'ambiente del servizio app potrebbe essere dovuta a un deficit dell'account o a una configurazione di rete virtuale non valida. Risolvere la causa principale e riprendere l'ambiente del servizio app per continuare a servire il traffico. |
 | Aggiornamento dell'ambiente del servizio app avviato | È stato avviato un aggiornamento della piattaforma all'ambiente del servizio app specificato. Si prevede un ritardo nelle operazioni di ridimensionamento. |
 | Aggiornamento dell'ambiente del servizio app completato | Aggiornamento della piattaforma all'ambiente del servizio app specificato completato. |
-| Operazioni di ridimensionamento avviate | È iniziato il ridimensionamento{0}di un piano di servizio app (). Stato desiderato: {1} I{2} Worker.
-| Operazioni di ridimensionamento completate | Il ridimensionamento di un{0}piano di servizio app () è terminato. Stato corrente: {1} I{2} Worker. |
-| Operazioni di ridimensionamento non riuscite | Non è stato possibile ridimensionare un piano di servizio app ({0}). Stato corrente: {1} I{2} Worker. |
+| Operazioni di ridimensionamento avviate | È iniziato il ridimensionamento di un piano di servizio app ( {0} ). Stato desiderato: {1} I {2} Worker.
+| Operazioni di ridimensionamento completate | Il ridimensionamento di un piano di servizio app ( {0} ) è terminato. Stato corrente: {1} I {2} Worker. |
+| Operazioni di ridimensionamento non riuscite | {0}Non è stato possibile ridimensionare un piano di servizio app (). Stato corrente: {1} I {2} Worker. |
 
 Per abilitare la registrazione nell'ambiente del servizio app:
 
@@ -200,16 +207,16 @@ Per creare un avviso nei log, seguire le istruzioni riportate in [creare, visual
 
 ## <a name="upgrade-preference"></a>Preferenza di aggiornamento
 
-Se si dispone di più gli ambienti, potrebbe essere necessario aggiornare alcuni gli ambienti prima di altre. All'interno dell'oggetto **HostingEnvironment gestione risorse** dell'ambiente del servizio app, è possibile impostare un valore per **upgradePreference**. L'impostazione **upgradePreference** può essere configurata usando un modello, ARMClient o https://resources.azure.com. I tre valori possibili sono:
+Se si dispone di più gli ambienti, potrebbe essere necessario aggiornare alcuni gli ambienti prima di altre. All'interno dell'oggetto **HostingEnvironment gestione risorse** dell'ambiente del servizio app, è possibile impostare un valore per **upgradePreference**. L'impostazione **upgradePreference** può essere configurata usando un modello, ARMClient o https://resources.azure.com . I tre valori possibili sono:
 
 - **None**: Azure aggiornerà l'ambiente del servizio app in nessun batch specifico. Questo è il valore predefinito.
 - **Anticipatamente**: l'ambiente del servizio app verrà aggiornato nella prima metà degli aggiornamenti del servizio app.
 - **Tardi**: l'ambiente del servizio app verrà aggiornato nella seconda metà degli aggiornamenti del servizio app.
 
-Se si usa https://resources.azure.com, attenersi alla procedura seguente per impostare il valore di **upgradePreferences** :
+Se si usa https://resources.azure.com , attenersi alla procedura seguente per impostare il valore di **upgradePreferences** :
 
 1. Passare a resources.azure.com e accedere con l'account Azure.
-1. Passare attraverso le risorse al nome\/\[\]\/sottoscrizione sottoscrizioni\/\[resourceGroups nome gruppo\]\/di\/risorse provider Microsoft\/.\/\[Web hostingEnvironments\]ASE nome.
+1. Passare attraverso le risorse al \/ \[ nome sottoscrizione sottoscrizioni resourceGroups nome \] \/ \/ \[ gruppo di risorse \] \/ provider \/ Microsoft. Web \/ hostingEnvironments \/ \[ ASE nome \] .
 1. Selezionare **lettura/scrittura** nella parte superiore.
 1. Selezionare **Modifica**.
 1. Impostare **upgradePreference** su uno dei tre valori desiderati.

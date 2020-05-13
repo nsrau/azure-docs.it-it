@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128457"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196621"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 
@@ -21,18 +21,24 @@ ms.locfileid: "82128457"
 
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. 
 
-Questo articolo è un elenco completo di metriche di tutte le piattaforme (ovvero raccolte automaticamente) attualmente disponibili con la pipeline metrica consolidata di monitoraggio di Azure. L'ultimo aggiornamento dell'elenco è stato eseguito il 27 marzo 2020. Le metriche modificate o aggiunte dopo questa data potrebbero non essere visualizzate di seguito. Per eseguire una query e accedere all'elenco di metriche a livello di codice, usare la [versione api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Questo articolo è un elenco completo di metriche di tutte le piattaforme (ovvero raccolte automaticamente) attualmente disponibili con la pipeline metrica consolidata di monitoraggio di Azure. L'ultimo aggiornamento dell'elenco è stato eseguito il 27 marzo 2020. Le metriche modificate o aggiunte dopo questa data potrebbero non essere visualizzate di seguito. Per eseguire una query e accedere all'elenco di metriche a livello di codice, usare la [versione api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Altre metriche non presenti in questo elenco possono essere disponibili nel portale o usando le API legacy.
 
-Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy. Le metriche per il sistema operativo guest (sistema operativo guest) che viene eseguito in macchine virtuali di Azure, Service Fabric e servizi cloud **non** sono elencate qui. Questi devono essere raccolti tramite uno o più agenti che vengono eseguiti in o come parte del sistema operativo. È possibile inviare le metriche degli agenti nel database di metriche della piattaforma usando l'API [metrica personalizzata](metrics-custom-overview.md) , attualmente disponibile in anteprima pubblica. Sarà quindi possibile tracciare, avvisare e usare le metriche del sistema operativo guest come le metriche della piattaforma. Per altre informazioni, vedere [Panoramica degli agenti di monitoraggio](agents-overview.md).    
+Le metriche sono organizzate in base ai provider di risorse e al tipo di risorsa. Per un elenco dei servizi e dei provider di risorse appartenenti, vedere [provider di risorse per i servizi di Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei servizi e degli spazi dei nomi che li appartengono, vedere [provider di risorse per i servizi di Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-> [!NOTE]
-> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
->
-> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
->
-> Per un elenco delle metriche della piattaforma esportabili tramite le impostazioni di diagnostica, vedere [questo articolo](metrics-supported-export-diagnostic-settings.md).
+## <a name="guest-os-metrics"></a>Metriche del sistema operativo guest
+
+Le metriche per il sistema operativo guest (sistema operativo guest) che viene eseguito in macchine virtuali di Azure, Service Fabric e servizi cloud **non** sono elencate qui. Al contrario, le metriche delle prestazioni del sistema operativo Guest devono essere raccolte tramite uno o più agenti eseguiti in o come parte del sistema operativo guest.  Le metriche del sistema operativo guest includono contatori delle prestazioni che tengono traccia della percentuale di CPU Guest o dell'utilizzo della memoria, entrambi usati spesso per la scalabilità automatica o gli avvisi.  Usando l' [estensione diagnostica di Azure](diagnostics-extension-overview.md), è possibile inviare le metriche delle prestazioni del sistema operativo guest nello stesso database in cui sono archiviate le metriche della piattaforma. Instrada le metriche del sistema operativo guest tramite l'API [metrica personalizzata](metrics-custom-overview.md) . Sarà quindi possibile tracciare, avvisare e usare le metriche del sistema operativo guest come le metriche della piattaforma. Per altre informazioni, vedere [Panoramica degli agenti di monitoraggio](agents-overview.md).    
+
+## <a name="routing-platform-metrics-to-other-locations"></a>Metriche della piattaforma di routing in altre posizioni
+
+È possibile usare [le impostazioni di diagnostica](diagnostic-settings.md) per instradare le metriche della piattaforma ad archiviazione di Azure, i log di monitoraggio di Azure (e quindi log Analytics) e gli hub eventi.  
+
+Esistono alcune limitazioni per gli elementi che possono essere indirizzati e il modulo in cui sono archiviati. 
+- Non tutte le metriche sono esportabili in altre posizioni. Per un elenco delle metriche della piattaforma esportabili tramite le impostazioni di diagnostica, vedere [questo articolo](metrics-supported-export-diagnostic-settings.md).
+
+- L'invio di metriche multidimensionali ad altre posizioni tramite le impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
+*Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
@@ -99,15 +105,15 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |OtherRequests|Altre richieste del gateway (deprecate)|Conteggio|Totale|Numero di altre richieste del gateway: usare la metrica di richiesta MULTIDIMENSIONE con la dimensione GatewayResponseCodeCategory|Località, nome host|
 |Duration|Durata complessiva delle richieste del gateway|Millisecondi|Media|Durata complessiva delle richieste del gateway in millisecondi|Località, nome host|
 |BackendDuration|Durata delle richieste back-end|Millisecondi|Media|Durata delle richieste back-end in millisecondi|Località, nome host|
-|Capacity|Capacity|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Percorso|
-|EventHubTotalEvents|Totale eventi EventHub|Conteggio|Totale|Numero di eventi inviati a EventHub|Percorso|
-|EventHubSuccessfulEvents|Eventi EventHub riusciti|Conteggio|Totale|Numero di eventi EventHub riusciti|Percorso|
-|EventHubTotalFailedEvents|Eventi EventHub non riusciti|Conteggio|Totale|Numero di eventi EventHub non riusciti|Percorso|
-|EventHubRejectedEvents|Eventi EventHub rifiutati|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Percorso|
-|EventHubThrottledEvents|Eventi EventHub limitati|Conteggio|Totale|Numero di eventi EventHub limitati|Percorso|
-|EventHubTimedoutEvents|Timeout degli eventi di EventHub|Conteggio|Totale|Numero di eventi EventHub di timeout|Percorso|
-|EventHubDroppedEvents|Eventi EventHub eliminati|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Percorso|
-|EventHubTotalBytesSent|Dimensioni degli eventi di EventHub|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Percorso|
+|Capacità|Capacità|Percentuale|Media|Metrica di utilizzo per il servizio ApiManagement|Location|
+|EventHubTotalEvents|Totale eventi EventHub|Conteggio|Totale|Numero di eventi inviati a EventHub|Location|
+|EventHubSuccessfulEvents|Eventi EventHub riusciti|Conteggio|Totale|Numero di eventi EventHub riusciti|Location|
+|EventHubTotalFailedEvents|Eventi EventHub non riusciti|Conteggio|Totale|Numero di eventi EventHub non riusciti|Location|
+|EventHubRejectedEvents|Eventi EventHub rifiutati|Conteggio|Totale|Numero di eventi EventHub rifiutati (configurazione errata o non autorizzata)|Location|
+|EventHubThrottledEvents|Eventi EventHub limitati|Conteggio|Totale|Numero di eventi EventHub limitati|Location|
+|EventHubTimedoutEvents|Timeout degli eventi di EventHub|Conteggio|Totale|Numero di eventi EventHub di timeout|Location|
+|EventHubDroppedEvents|Eventi EventHub eliminati|Conteggio|Totale|Numero di eventi ignorati a causa del raggiungimento del limite delle dimensioni della coda|Location|
+|EventHubTotalBytesSent|Dimensioni degli eventi di EventHub|Byte|Totale|Dimensioni totali degli eventi EventHub in byte|Location|
 |Requests|Requests|Conteggio|Totale|Metriche delle richieste del gateway con più dimensioni|Location, hostname, LastErrorReason, BackendResponseCode, GatewayResponseCode, BackendResponseCodeCategory, GatewayResponseCodeCategory|
 |Problemidi|Stato connettività di rete delle risorse (anteprima)|Conteggio|Totale|Stato della connettività di rete dei tipi di risorsa dipendenti dal servizio gestione API|Località, ResourceType|
 
@@ -244,11 +250,11 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |---|---|---|---|---|---|
 |connectedclients|Client connessi|Conteggio|Massimo||ShardId|
 |totalcommandsprocessed|Totale operazioni|Conteggio|Totale||ShardId|
-|cachehits|Riscontri cache|Conteggio|Totale||ShardId|
+|cachehits|Riscontri nella cache|Conteggio|Totale||ShardId|
 |cachemisses|Mancati riscontri nella cache|Conteggio|Totale||ShardId|
 |cachemissrate|Frequenza di mancata memorizzazione nella cache|Percentuale|cachemissrate||ShardId|
 |getcommands|Operazioni Get|Conteggio|Totale||ShardId|
-|setcommands|Set|Conteggio|Totale||ShardId|
+|setcommands|Operazioni Set|Conteggio|Totale||ShardId|
 |operationsPerSecond|Operazioni al secondo|Conteggio|Massimo||ShardId|
 |evictedkeys|Chiavi rimosse|Conteggio|Totale||ShardId|
 |totalkeys|Totale chiavi|Conteggio|Massimo||ShardId|
@@ -261,7 +267,7 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |cacheRead|Lettura da cache|Byte al secondo|Massimo||ShardId|
 |percentProcessorTime|CPU|Percentuale|Massimo||ShardId|
 |cacheLatency|Microsecondi di latenza della cache (anteprima)|Conteggio|Media||ShardId|
-|errori|Errors|Conteggio|Massimo||ShardId, ErrorType|
+|errori|Errori|Conteggio|Massimo||ShardId, ErrorType|
 |connectedclients0|Client connessi (partizione 0)|Conteggio|Massimo||Nessuno|
 |totalcommandsprocessed0|Totale operazioni (partizione 0)|Conteggio|Totale||Nessuno|
 |cachehits0|Riscontri cache (partizione 0)|Conteggio|Totale||Nessuno|
@@ -732,9 +738,9 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |---|---|---|---|---|---|
 |NICReadThroughput|Velocità effettiva di lettura (rete)|Byte al secondo|Media|Velocità effettiva di lettura dell'interfaccia di rete nel dispositivo nel periodo di Reporting per tutti i volumi del gateway.|InstanceName|
 |NICWriteThroughput|Velocità effettiva scrittura (rete)|Byte al secondo|Media|Velocità effettiva di scrittura dell'interfaccia di rete nel dispositivo nel periodo di Reporting per tutti i volumi del gateway.|InstanceName|
-|CloudReadThroughputPerShare|Velocità effettiva di download del cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di download in Azure da una condivisione durante il periodo di Reporting.|Condividi|
-|CloudUploadThroughputPerShare|Velocità effettiva di caricamento cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di caricamento in Azure da una condivisione durante il periodo di Reporting.|Condividi|
-|BytesUploadedToCloudPerShare|Byte cloud caricati (condivisione)|Byte|Media|Il numero totale di byte caricati in Azure da una condivisione durante il periodo di Reporting.|Condividi|
+|CloudReadThroughputPerShare|Velocità effettiva di download del cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di download in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
+|CloudUploadThroughputPerShare|Velocità effettiva di caricamento cloud (condivisione)|Byte al secondo|Media|Velocità effettiva di caricamento in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
+|BytesUploadedToCloudPerShare|Byte cloud caricati (condivisione)|Byte|Media|Il numero totale di byte caricati in Azure da una condivisione durante il periodo di Reporting.|Condivisione|
 |Archiviazione|Capacità totale|Byte|Media|Capacità totale|Nessuno|
 |AvailableCapacity|Capacità disponibile|Byte|Media|Capacità disponibile in byte durante il periodo di Reporting.|Nessuno|
 |CloudUploadThroughput|Velocità effettiva di caricamento cloud|Byte al secondo|Media|La velocità effettiva di caricamento nel cloud in Azure durante il periodo di Reporting.|Nessuno|
@@ -953,7 +959,7 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |d2c.endpoints.latency.storage|Routing: latenza dei messaggi per l'archiviazione|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso dei messaggi all'hub IoT e l'ingresso dei messaggi di telemetria in un endpoint di archiviazione.|Nessuno|
 |d2c.endpoints.egress.storage.bytes|Routing: dati recapitati all'archiviazione|Byte|Totale|Quantità di dati (byte) che il routing dell'hub IoT ha recapitato agli endpoint di archiviazione.|Nessuno|
 |d2c.endpoints.egress.storage.blobs|Routing: BLOB recapitati all'archiviazione|Conteggio|Totale|Numero di volte in cui routing dell'hub IoT ha recapitato BLOB agli endpoint di archiviazione.|Nessuno|
-|EventGridDeliveries|Recapiti di griglia di eventi (anteprima)|Conteggio|Totale|Il numero di eventi dell'hub Internet pubblico pubblicati in griglia di eventi. Utilizzare la dimensione risultato per il numero di richieste riuscite e non riuscite. EventType Dimension indica il tipo di evento (https://aka.ms/ioteventgrid).|ResourceId, result, EventType|
+|EventGridDeliveries|Recapiti di griglia di eventi (anteprima)|Conteggio|Totale|Il numero di eventi dell'hub Internet pubblico pubblicati in griglia di eventi. Utilizzare la dimensione risultato per il numero di richieste riuscite e non riuscite. EventType Dimension indica il tipo di evento ( https://aka.ms/ioteventgrid) .|ResourceId, result, EventType|
 |EventGridLatency|Latenza griglia di eventi (anteprima)|Millisecondi|Media|Latenza media (in millisecondi) dal momento in cui è stato generato l'evento dell'hub Internet quando l'evento è stato pubblicato in griglia di eventi. Questo numero è una media tra tutti i tipi di evento. Utilizzare la dimensione EventType per visualizzare la latenza di un tipo specifico di evento.|ResourceId, EventType|
 |RoutingDeliveries|Recapito di routing (anteprima)|Millisecondi|Totale|Il numero di tentativi di recapito di messaggi a tutti gli endpoint tramite l'hub. Per visualizzare il numero di tentativi riusciti o non riusciti, utilizzare la dimensione risultato. Per visualizzare il motivo dell'errore, ad esempio non valido, eliminato o orfano, utilizzare la dimensione FailureReasonCategory. È anche possibile usare le dimensioni EndpointName e EndpointType per comprendere il numero di messaggi recapitati ai diversi endpoint. Il valore della metrica aumenta di uno per ogni tentativo di recapito, incluso se il messaggio viene recapitato a più endpoint o se il messaggio viene recapitato più volte allo stesso endpoint.|ResourceId, EndpointType, EndpointName, FailureReasonCategory, result, RoutingSource|
 |RoutingDeliveryLatency|Latenza recapito routing (anteprima)|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e il messaggio di telemetria in ingresso in un endpoint. È possibile usare le dimensioni EndpointName e EndpointType per comprendere la latenza per i diversi endpoint.|ResourceId, EndpointType, EndpointName, RoutingSource|
@@ -1170,7 +1176,7 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |CaptureBacklog|Backlog acquisiti.|Conteggio|Totale|Backlog acquisiti per Microsoft.EventHub.|EntityName|
 |CapturedMessages|Messaggi acquisiti.|Conteggio|Totale|Messaggi acquisiti per Microsoft.EventHub.|EntityName|
 |CapturedBytes|Byte acquisiti.|Byte|Totale|Byte acquisiti per Microsoft.EventHub.|EntityName|
-|Dimensioni|Dimensioni|Byte|Media|Dimensioni di un hub eventi in byte.|EntityName|
+|Dimensione|Dimensione|Byte|Media|Dimensioni di un hub eventi in byte.|EntityName|
 |INREQS|Richieste in ingresso (deprecate)|Conteggio|Totale|Totale richieste di invio in ingresso per uno spazio dei nomi (deprecato)|Nessuno|
 |SUCCREQ|Richieste riuscite (deprecate)|Conteggio|Totale|Totale richieste riuscite per uno spazio dei nomi (deprecato)|Nessuno|
 |FAILREQ|Richieste non riuscite (deprecate)|Conteggio|Totale|Totale richieste non riuscite per uno spazio dei nomi (deprecato)|Nessuno|
@@ -1211,7 +1217,7 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |CapturedBytes|Byte acquisiti.|Byte|Totale|Byte acquisiti per Microsoft.EventHub.|Nessuno|
 |CPU|CPU|Percentuale|Massimo|Uso CPU per il cluster dell'hub eventi in percentuale|Ruolo|
 |AvailableMemory|Memoria disponibile|Percentuale|Massimo|Memoria disponibile per il cluster di hub eventi come percentuale della memoria totale.|Ruolo|
-|Dimensioni|Dimensioni di un hub eventi in byte.|Byte|Media|Dimensioni di un hub eventi in byte.|Ruolo|
+|Dimensione|Dimensioni di un hub eventi in byte.|Byte|Media|Dimensioni di un hub eventi in byte.|Ruolo|
 
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
@@ -1414,8 +1420,8 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |Esecuzioni in coda|Esecuzioni in coda|Conteggio|Totale|Numero di esecuzioni accodate per l'area di lavoro|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Esecuzioni avviate|Esecuzioni avviate|Conteggio|Totale|Numero di esecuzioni avviate per l'area di lavoro|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
 |Avvio delle esecuzioni|Avvio delle esecuzioni|Conteggio|Totale|Numero di esecuzioni avviate per l'area di lavoro|Scenario, RunType, PublishedPipelineId, ComputeType, PipelineStepType|
-|Errors|Errors|Conteggio|Totale|Numero di errori di esecuzione in questa area di lavoro|Scenario|
-|Avvisi|Avvisi|Conteggio|Totale|Numero di avvisi di esecuzione in questa area di lavoro|Scenario|
+|Errori|Errori|Conteggio|Totale|Numero di errori di esecuzione in questa area di lavoro|Scenario|
+|avvisi|avvisi|Conteggio|Totale|Numero di avvisi di esecuzione in questa area di lavoro|Scenario|
 |Registrazione del modello completata|Registrazione del modello completata|Conteggio|Totale|Numero di registrazioni del modello riuscite in questa area di lavoro|Scenario|
 |Registrazione modello non riuscita|Registrazione modello non riuscita|Conteggio|Totale|Numero di registrazioni del modello non riuscite in questa area di lavoro|Scenario, StatusCode|
 |Distribuzione modello avviata|Distribuzione modello avviata|Conteggio|Totale|Numero di distribuzioni di modelli avviate in questa area di lavoro|Scenario|
@@ -1838,7 +1844,7 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |Average_Free Physical Memory|Free Physical Memory|Conteggio|Media|Average_Free Physical Memory|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
 |Average_Free Space in Paging Files|Free Space in Paging Files|Conteggio|Media|Average_Free Space in Paging Files|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
 |Average_Free Virtual Memory|Free Virtual Memory|Conteggio|Media|Average_Free Virtual Memory|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
-|Average_Processes|Processi|Conteggio|Media|Average_Processes|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
+|Average_Processes|Processes|Conteggio|Media|Average_Processes|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
 |Average_Size Stored In Paging Files|Size Stored In Paging Files|Conteggio|Media|Average_Size Stored In Paging Files|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
 |Average_Uptime|Uptime|Conteggio|Media|Average_Uptime|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
 |Average_Users|Utenti|Conteggio|Media|Average_Users|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
@@ -1851,7 +1857,7 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |Average_Processor Queue Length|Lunghezza coda processore|Conteggio|Media|Average_Processor Queue Length|Computer, ObjectName, NomeIstanza, CounterPath, SourceSystem|
 |Heartbeat|Heartbeat|Conteggio|Totale|Heartbeat|Computer, OSType, Version, SourceComputerId|
 |Aggiornamento|Aggiornamento|Conteggio|Media|Aggiornamento|Computer, prodotto, classificazione, UpdateState, facoltativo, approvato|
-|Event|Event|Conteggio|Media|Event|Source, EventLog, computer, EventCategory, EventLevel, EventLevelName, EventId|
+|Evento|Evento|Conteggio|Media|Evento|Source, EventLog, computer, EventCategory, EventLevel, EventLevelName, EventId|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. peering/peeringServices
 
@@ -1939,7 +1945,7 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |ActiveConnections|ActiveConnections|Conteggio|Totale|Totale connessioni attive per Microsoft.ServiceBus.|Nessuno|
 |ConnectionsOpened|Connessioni aperte.|Conteggio|Media|Connessioni aperte per Microsoft.ServiceBus.|EntityName|
 |ConnectionsClosed|Connessioni chiuse.|Conteggio|Media|Connessioni chiuse per Microsoft.ServiceBus.|EntityName|
-|Dimensioni|Dimensioni|Byte|Media|Dimensioni di una coda o di un argomento in byte.|EntityName|
+|Dimensione|Dimensione|Byte|Media|Dimensioni di una coda o di un argomento in byte.|EntityName|
 |Messaggi|Numero di messaggi contenuti in una coda o in un argomento.|Conteggio|Media|Numero di messaggi contenuti in una coda o in un argomento.|EntityName|
 |ActiveMessages|Numero di messaggi attivi contenuti in una coda o in un argomento.|Conteggio|Media|Numero di messaggi attivi contenuti in una coda o in un argomento.|EntityName|
 |DeadletteredMessages|Numero di messaggi non recapitabili in una coda o in un argomento.|Conteggio|Media|Numero di messaggi non recapitabili in una coda o in un argomento.|EntityName|
@@ -2257,7 +2263,7 @@ Le metriche sono organizzate in base allo spazio dei nomi. Per un elenco dei ser
 |LateInputEvents|Ultimi eventi di input|Conteggio|Totale|Ultimi eventi di input|LogicalName, PartitionId|
 |OutputEvents|Eventi di output|Conteggio|Totale|Eventi di output|LogicalName, PartitionId|
 |ConversionErrors|Errori di conversione dati|Conteggio|Totale|Errori di conversione dati|LogicalName, PartitionId|
-|Errors|Errori di runtime|Conteggio|Totale|Errori di runtime|LogicalName, PartitionId|
+|Errori|Errori di runtime|Conteggio|Totale|Errori di runtime|LogicalName, PartitionId|
 |DroppedOrAdjustedEvents|Eventi non in ordine|Conteggio|Totale|Eventi non in ordine|LogicalName, PartitionId|
 |AMLCalloutRequests|Richieste di funzioni|Conteggio|Totale|Richieste di funzioni|LogicalName, PartitionId|
 |AMLCalloutFailedRequests|Richieste di funzioni non riuscite|Conteggio|Totale|Richieste di funzioni non riuscite|LogicalName, PartitionId|

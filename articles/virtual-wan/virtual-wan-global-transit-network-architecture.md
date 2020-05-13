@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928279"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195671"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 
@@ -145,10 +145,10 @@ Il transito protetto da VNet a VNet consente a reti virtuali di connettersi tra 
 
 ### <a name="vnet-to-internet-or-third-party-security-service-i"></a>Servizio di sicurezza da VNet a Internet o di terze parti (i)
 
-Il transito protetto da VNet a Internet o di terze parti consente a reti virtuali di connettersi a Internet o a servizi di sicurezza di terze parti supportati tramite il firewall di Azure nell'hub WAN virtuale.
+VNet-to-Internet consente a reti virtuali di connettersi a Internet tramite il firewall di Azure nell'hub WAN virtuale. Il traffico verso Internet tramite i servizi di sicurezza di terze parti supportati non viene propagata attraverso il firewall di Azure. È possibile configurare il percorso da VNET a Internet tramite il servizio di sicurezza di terze parti supportato tramite gestione firewall di Azure.  
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Da ramo a Internet o da un servizio di sicurezza di terze parti (j)
-Il transito sicuro da ramo a Internet o di terze parti consente ai Branch di connettersi a Internet o a servizi di sicurezza di terze parti supportati tramite il firewall di Azure nell'hub WAN virtuale.
+Il ramo a Internet consente ai Branch di connettersi a Internet tramite il firewall di Azure nell'hub WAN virtuale. Il traffico verso Internet tramite i servizi di sicurezza di terze parti supportati non viene propagata attraverso il firewall di Azure. È possibile configurare il percorso da ramo a Internet tramite il servizio di sicurezza di terze parti supportato tramite gestione firewall di Azure. 
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Ricerca per categorie abilitare la route predefinita (0.0.0.0/0) in un hub virtuale protetto
 

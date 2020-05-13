@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeee7558aeeb0c1a3de291abc66578d7d955d842
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100278"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196189"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 
@@ -43,9 +43,7 @@ A livello generale, il processo di migrazione del database è simile a quello in
 
 Per prima cosa, determinare se l'istanza gestita è compatibile con i requisiti di database dell'applicazione. L'opzione di distribuzione dell'istanza gestita è progettata per consentire una facile migrazione in modalità lift-and-shift della maggior parte delle applicazioni che usano SQL Server in locale o in macchine virtuali. Tuttavia, talvolta è possibile richiedere caratteristiche o funzionalità non ancora supportate e il costo di implementazione di una soluzione alternativa è troppo elevato.
 
-Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora un'istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. Vedere [Funzionalità di database SQL di Azure](sql-database-features.md) per controllare se sono stati segnalati problemi di blocco non presenti nell'istanza gestita poiché la maggior parte dei problemi che impediscono la migrazione al database SQL di Azure è stata risolta con l'istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via.
-
-Se sono presenti problemi che causano un blocco che non sono stati risolti con l'opzione di distribuzione dell'istanza gestita, può essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Di seguito sono riportati alcuni esempi:
+Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). In caso di problemi di blocco segnalati, potrebbe essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server nelle macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Ecco alcuni esempi:
 
 - Se è necessario l'accesso diretto al sistema operativo o al file system, ad esempio per installare agenti personalizzati o di terze parti nella stessa macchina virtuale con SQL Server.
 - Se è presente una stretta dipendenza da funzionalità non ancora supportate, come FileStream/FileTable, PolyBase e le transazioni tra istanze.
@@ -53,6 +51,7 @@ Se sono presenti problemi che causano un blocco che non sono stati risolti con l
 - Se i requisiti di calcolo sono nettamente inferiori rispetto a quanto offerto dall'istanza gestita, ad esempio, un vCore, e il consolidamento di database non è un'opzione accettabile.
 
 Se sono stati risolti tutti i blocchi di migrazione identificati e si continua la migrazione a Istanza gestita, si noti che alcune delle modifiche potrebbero influire sulle prestazioni del carico di lavoro:
+
 - Il modello di recupero con registrazione completa obbligatoria e la pianificazione regolare dei backup automatici potrebbero influito sulle prestazioni del carico di lavoro o sulle azioni di manutenzione/ETL se è stato usato periodicamente un modello con registrazione minima o con registrazione minima delle operazioni bulk oppure è stato interrotto
 - Configurazioni a livello di server o di database diverse, ad esempio i flag di traccia o i livelli di compatibilità
 - Le nuove funzionalità di, ad esempio Transparent Database Encryption (Transparent Database Encryption) o i gruppi di failover automatico potrebbero avere un effetto sull'utilizzo di CPU e IO.
@@ -181,7 +180,7 @@ Apportare la modifica dei parametri o aggiornare i livelli di servizio per conve
 Istanza gestita offre numerosi strumenti avanzati per il monitoraggio e la risoluzione dei problemi ed è consigliabile usarli per monitorare le prestazioni dell'istanza. Alcuni dei parametri che devono essere monitorati sono:
 - Utilizzo della CPU nell'istanza di per determinare il numero di vcore di cui è stato effettuato il provisioning è la corrispondenza giusta per il carico di lavoro.
 - Permanenza presunta delle pagine nel Istanza gestita per determinare [se è necessaria memoria aggiuntiva](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Le statistiche di `INSTANCE_LOG_GOVERNOR` attesa `PAGEIOLATCH` come o che indicano se si verificano problemi di i/o di archiviazione, soprattutto nel livello per utilizzo generico in cui potrebbe essere necessario pre-allocare i file per ottenere migliori prestazioni di i/o.
+- Le statistiche di attesa come `INSTANCE_LOG_GOVERNOR` o che indicano se si verificano problemi di i/o di `PAGEIOLATCH` archiviazione, soprattutto nel livello per utilizzo generico in cui potrebbe essere necessario pre-allocare i file per ottenere migliori prestazioni di i/o.
 
 ## <a name="leverage-advanced-paas-features"></a>Sfruttare le funzionalità avanzate di PaaS
 

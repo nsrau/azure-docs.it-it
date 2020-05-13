@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9667d82551e169dcc4a4bfd3ac79b15390f58aa0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ae20a0372c5808cc2265a4fae63b79ef2bb71605
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609222"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125503"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -82,27 +82,7 @@ La ridondanza della zona è una *funzionalità aggiuntiva* per la funzionalità 
 
 Quando si configurano le Scritture in più aree per l'account Azure Cosmos, è possibile acconsentire esplicitamente alla ridondanza della zona senza costi aggiuntivi. In caso contrario, vedere la nota riportata di seguito relativa ai prezzi per il supporto della ridondanza della zona. È possibile abilitare la ridondanza della zona in un'area esistente dell'account Azure Cosmos rimuovendo l'area e aggiungendola nuovamente con la ridondanza della zona abilitata.
 
-Questa funzionalità è disponibile nelle aree di Azure seguenti:
-
-- Regno Unito meridionale
-
-- Asia sud-orientale
-
-- Stati Uniti orientali
-
-- Stati Uniti orientali 2
-
-- Stati Uniti centrali
-
-- Europa occidentale
-
-- Stati Uniti occidentali 2
-
-- Australia orientale
-
-- Giappone orientale
-
-- Europa settentrionale
+Questa funzionalità è disponibile in: *Regno Unito meridionale, Asia sudorientale, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale, Stati Uniti occidentali 2, Australia orientale, Giappone orientale, Europa settentrionale* , Paesi della Francia centrale.
 
 > [!NOTE]
 > L'abilitazione di zone di disponibilità per un account Azure Cosmos con una sola area comporterà addebiti equivalenti all'aggiunta di un'area aggiuntiva al proprio account. Per informazioni dettagliate sui prezzi, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) e il costo per più [aree in Azure Cosmos DB](optimize-cost-regions.md) articoli.
@@ -125,7 +105,7 @@ Nella tabella seguente sono riepilogate le funzionalità di disponibilità eleva
 > [!NOTE]
 > Per abilitare il supporto per la zona di disponibilità per un account Azure Cosmos a più aree, è necessario che nell'account siano abilitate le Scritture multimaster.
 
-È possibile abilitare la ridondanza della zona quando si aggiunge un'area a account Azure Cosmos nuovi o esistenti. Per abilitare la ridondanza della zona nell'account Azure Cosmos, è necessario impostare `isZoneRedundant` il flag `true` su per una posizione specifica. È possibile impostare questo flag nella proprietà Locations. Ad esempio, il frammento di codice PowerShell seguente abilita la ridondanza della zona per l'area Asia sud-orientale:
+È possibile abilitare la ridondanza della zona quando si aggiunge un'area a account Azure Cosmos nuovi o esistenti. Per abilitare la ridondanza della zona nell'account Azure Cosmos, è necessario impostare il `isZoneRedundant` flag su `true` per una posizione specifica. È possibile impostare questo flag nella proprietà Locations. Ad esempio, il frammento di codice PowerShell seguente abilita la ridondanza della zona per l'area Asia sud-orientale:
 
 ```powershell
 $locations = @(

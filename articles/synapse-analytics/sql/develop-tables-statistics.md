@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676931"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197580"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiche in sinapsi SQL
 
@@ -34,7 +34,7 @@ Se, ad esempio, Query Optimizer stima che la data in cui si sta filtrando la que
 
 ### <a name="automatic-creation-of-statistics"></a>Creazione automatica di statistiche
 
-Il pool SQL analizzerà le query utente in ingresso per le statistiche mancanti quando l'opzione database AUTO_CREATE_STATISTICS `ON`è impostata su.  Se le statistiche risultano mancanti, il Query Optimizer crea statistiche sulle singole colonne nel predicato di query o nella condizione di join. Questa funzione viene utilizzata per migliorare le stime della cardinalità per il piano di query.
+Il pool SQL analizzerà le query utente in ingresso per le statistiche mancanti quando l'opzione database AUTO_CREATE_STATISTICS è impostata su `ON` .  Se le statistiche risultano mancanti, il Query Optimizer crea statistiche sulle singole colonne nel predicato di query o nella condizione di join. Questa funzione viene utilizzata per migliorare le stime della cardinalità per il piano di query.
 
 > [!IMPORTANT]
 > Per impostazione predefinita, la creazione automatica di statistiche è attiva.
@@ -239,7 +239,7 @@ Per creare un oggetto statistiche a più colonne, usare gli esempi precedenti, m
 > [!NOTE]
 > L'istogramma, che viene usato per stimare il numero di righe nei risultato della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
-In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche tra le colonne vengono calcolate su Product *\_category* e *Product\_sub_category*:
+In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche tra le colonne vengono calcolate su Product * \_ Category* e *Product \_ sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -248,7 +248,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Poiché esiste una correlazione tra Product *\_Category* e *Product\_Sub\_Category*, un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
+Poiché esiste una correlazione tra Product * \_ Category* e *Product \_ Sub \_ Category*, un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Creare statistiche su tutte le colonne in una tabella
 
@@ -497,7 +497,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS() mostra i dati inclusi in un oggetto statistiche. Questi dati sono costituiti da tre parti:
 
-- Intestazione
+- Header
 - Vettore di densità
 - Istogramma
 
@@ -611,6 +611,8 @@ Negli esempi seguenti viene illustrato come utilizzare diverse opzioni per la cr
 
 > [!NOTE]
 > È possibile creare statistiche a colonna singola solo in questo momento.
+>
+> La sp_create_file_statistics delle procedure verrà rinominata sp_create_openrowset_statistics. Il ruolo server pubblico dispone dell'autorizzazione Amministrazione operazioni BULK concesse mentre il ruolo del database pubblico dispone delle autorizzazioni di esecuzione per sp_create_file_statistics e sp_drop_file_statistics. Questo potrebbe essere modificato in futuro.
 
 Per creare le statistiche, viene utilizzata la stored procedure seguente:
 
@@ -618,7 +620,7 @@ Per creare le statistiche, viene utilizzata la stored procedure seguente:
 sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 ```
 
-Arguments: @stmt [=] n'statement_text '-specifica un'istruzione Transact-SQL che restituirà i valori di colonna da utilizzare per le statistiche. È possibile usare TABLESAMPLE per specificare campioni di dati da usare. Se TABLESAMPLE non è specificato, verrà utilizzato FULLSCAN.
+Arguments: [ @stmt =] n'statement_text '-specifica un'istruzione Transact-SQL che restituirà i valori di colonna da utilizzare per le statistiche. È possibile usare TABLESAMPLE per specificare campioni di dati da usare. Se TABLESAMPLE non è specificato, verrà utilizzato FULLSCAN.
 
 ```syntaxsql
 <tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
@@ -696,7 +698,10 @@ Per aggiornare le statistiche, è necessario eliminare e creare le statistiche. 
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
 
-Arguments: @stmt [=] n'statement_text '-specifica la stessa istruzione Transact-SQL utilizzata per la creazione delle statistiche.
+> [!NOTE]
+> La sp_drop_file_statistics delle procedure verrà rinominata sp_drop_openrowset_statistics. Il ruolo server pubblico dispone dell'autorizzazione Amministrazione operazioni BULK concesse mentre il ruolo del database pubblico dispone delle autorizzazioni di esecuzione per sp_create_file_statistics e sp_drop_file_statistics. Questo potrebbe essere modificato in futuro.
+
+Arguments: [ @stmt =] n'statement_text '-specifica la stessa istruzione Transact-SQL utilizzata per la creazione delle statistiche.
 
 Per aggiornare le statistiche per la colonna Year nel set di dati, basata sul file population. csv, è necessario eliminare e creare le statistiche:
 

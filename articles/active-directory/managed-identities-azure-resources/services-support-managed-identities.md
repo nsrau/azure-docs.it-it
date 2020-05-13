@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45a248300cd61a0e57b9f35c8905d7c335069a27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72c4c3da193a1f61280a13ff1e2fa9eea2ff4823
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991280"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196413"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -71,6 +71,19 @@ Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app
 - [Interfaccia della riga di comando di Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Modello di Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+
+
+### <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
+
+| Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
+| --- | :-: | :-: | :-: | :-: |
+| Assegnata dal sistema | ![Disponibile][check] | - | - | - | 
+| Assegnata dall'utente | ![Disponibile][check] | - | - | - |
+
+
+Per altre informazioni, vedere [usare identità gestite nel servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/use-managed-identity).
+
+
 
 ### <a name="azure-blueprints"></a>Azure Blueprint
 

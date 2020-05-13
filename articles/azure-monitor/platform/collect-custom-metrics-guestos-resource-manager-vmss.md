@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733246"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125775"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per un set di scalabilità di macchine virtuali Windows
 
@@ -252,7 +252,7 @@ Per distribuire il modello di Resource Manager, usare Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Ricordarsi di usare un'area di Azure abilitata per le metriche personalizzate. Ricordarsi di usare un'[area di Azure abilitata per le metriche personalizzate](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
+   > Ricordarsi di usare un'area di Azure abilitata per le metriche personalizzate. Ricordarsi di usare un'[area di Azure abilitata per le metriche personalizzate](./metrics-custom-overview.md#supported-regions).
  
 1. Eseguire i comandi seguenti per distribuire la VM:  
 

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99a9e68a2e0c39364cc5105f230b00ffb90d867d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888805"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195915"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usare Log Analytics per la funzionalità di diagnostica
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 >
-> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Desktop virtuale di Windows USA monitoraggio di [Azure](../azure-monitor/overview.md) per il monitoraggio e gli avvisi come molti altri servizi di Azure. Ciò consente agli amministratori di identificare i problemi tramite un'unica interfaccia. Il servizio crea log attività per le azioni utente e amministrative. Ogni log attività rientra nelle categorie seguenti:  
@@ -124,9 +124,9 @@ Gli eventi di diagnostica vengono inviati al Log Analytics al termine dell'opera
 
 Log Analytics solo i report in questi stati intermedi per le attività di connessione:
 
-- Started
-- Connesso
-- Completi
+- Avviato: quando un utente seleziona e si connette a un'app o a un desktop nel client di Desktop remoto.
+- Connesso: quando l'utente si connette correttamente alla macchina virtuale in cui è ospitata l'app o il desktop.
+- Completato: quando l'utente o il server disconnette la sessione in cui ha avuto luogo l'attività.
 
 ## <a name="example-queries"></a>Query di esempio
 

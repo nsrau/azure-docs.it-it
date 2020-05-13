@@ -11,12 +11,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309201"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196381"
 ---
 # <a name="blocking-legacy-authentication"></a>Blocco dell'autenticazione legacy
  
@@ -31,10 +32,10 @@ Attualmente, la maggior parte di tutti i tentativi di accesso compromessa proven
 
 Prima di poter bloccare l'autenticazione legacy nella directory, è prima di tutto necessario comprendere se gli utenti hanno app che usano l'autenticazione legacy e come influiscono sulla directory complessiva. È possibile usare i log di accesso Azure AD per capire se si usa l'autenticazione legacy.
 
-1. Passare al **portale di Azure** > **Azure Active Directory** Azure Active Directory> **accessi**.
-1. Aggiungere la colonna **app client** se non viene visualizzata facendo clic su **colonne** > **client App**.
-1. Filtrare in base all' **app**   client> controllare tutte le opzioni dei **client di autenticazione legacy** presentate.
-1. Filtra per **stato** > **riuscito**. 
+1. Passare al **portale di Azure**   >  **Azure Active Directory**   >  **accessi**.
+1. Aggiungere la colonna **app client** se non viene visualizzata facendo clic su **colonne**   >  **client App**.
+1. Filtrare in base all' **app Client**  > controllare tutte le opzioni dei **client di autenticazione legacy** presentate.
+1. Filtra per **stato**  >  **riuscito**. 
 1. Espandere l'intervallo di date, se necessario, usando il filtro per la **Data** .
 
 Il filtro mostrerà solo i tentativi di accesso riusciti eseguiti dai protocolli di autenticazione legacy selezionati. Se si fa clic su ogni singolo tentativo di accesso, vengono visualizzati altri dettagli. La colonna app client o il campo app client nella scheda informazioni di base dopo aver selezionato una singola riga di dati indicherà quale protocollo di autenticazione legacy è stato usato. Questi log indicheranno quali utenti sono ancora a seconda dell'autenticazione legacy e quali applicazioni usano protocolli legacy per eseguire richieste di autenticazione. Per gli utenti che non sono presenti in questi registri e che non usano l'autenticazione legacy, implementare criteri di accesso condizionale o abilitare i criteri di base: bloccare l'autenticazione legacy solo per questi utenti.
@@ -49,8 +50,8 @@ Questa sezione fornisce una panoramica dettagliata su come aggiornare l'ambiente
 
 Il primo passaggio nell'abilitazione dell'autenticazione moderna è garantire che la directory supporti l'autenticazione moderna. Per impostazione predefinita, l'autenticazione moderna è abilitata per le directory create il 1 ° agosto 2017. Se la directory è stata creata prima di questa data, è necessario abilitare manualmente l'autenticazione moderna per la directory attenendosi alla procedura seguente:
 
-1. Verificare se la directory supporta già l'autenticazione moderna eseguendo `Get-CsOAuthConfiguration` dal [modulo di PowerShell per Skype for business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Se il comando restituisce una proprietà `OAuthServers` vuota, l'autenticazione moderna è disabilitata. Aggiornare l'impostazione per abilitare l'autenticazione moderna `Set-CsOAuthConfiguration`usando. Se la `OAuthServers` proprietà contiene una voce, è possibile iniziare.
+1. Verificare se la directory supporta già l'autenticazione moderna eseguendo  `Get-CsOAuthConfiguration`   dal [modulo di PowerShell per Skype for business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Se il comando restituisce una  `OAuthServers`   proprietà vuota, l'autenticazione moderna è disabilitata. Aggiornare l'impostazione per abilitare l'autenticazione moderna usando  `Set-CsOAuthConfiguration` . Se la  `OAuthServers`   proprietà contiene una voce, è possibile iniziare.
 
 Assicurarsi di completare questo passaggio prima di procedere. È fondamentale che le configurazioni di directory vengano modificate per prime perché stabiliscono quale protocollo verrà usato da tutti i client di Office. Anche se si usano i client di Office che supportano l'autenticazione moderna, per impostazione predefinita verranno usati i protocolli legacy se l'autenticazione moderna è disabilitata nella directory.
 
@@ -58,7 +59,7 @@ Assicurarsi di completare questo passaggio prima di procedere. È fondamentale c
 
 Dopo aver abilitato l'autenticazione moderna nella directory, è possibile avviare l'aggiornamento delle applicazioni abilitando l'autenticazione moderna per i client di Office. Per impostazione predefinita, i client Office 2016 o versioni successive supportano l'autenticazione moderna. Non sono necessari passaggi aggiuntivi.
 
-Se si usano client Windows Office 2013 o versioni precedenti, è consigliabile eseguire l'aggiornamento a Office 2016 o versione successiva. Anche dopo aver completato il passaggio precedente dell'abilitazione dell'autenticazione moderna nella directory, le applicazioni di Office precedenti continueranno a usare i protocolli di autenticazione legacy. Se si usano i client di Office 2013 e non è possibile eseguire immediatamente l'aggiornamento a Office 2016 o versione successiva, seguire la procedura illustrata nell'articolo seguente per [abilitare l'autenticazione moderna per Office 2013 nei dispositivi Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Per proteggere l'account mentre si usa l'autenticazione legacy, è consigliabile usare password complesse in tutta la directory. Controllare [Azure ad la protezione](../authentication/concept-password-ban-bad.md) delle password per vietare le password vulnerabili nella directory.
+Se si usano client Windows Office 2013 o versioni precedenti, è consigliabile eseguire l'aggiornamento a Office 2016 o versione successiva. Anche dopo aver completato il passaggio precedente dell'abilitazione dell'autenticazione moderna nella directory, le applicazioni di Office precedenti continueranno a usare i protocolli di autenticazione legacy. Se si usano i client di Office 2013 e non è possibile eseguire immediatamente l'aggiornamento a Office 2016 o versione successiva, seguire la procedura illustrata nell'articolo seguente per [abilitare l'autenticazione moderna per Office 2013 nei dispositivi Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Per proteggere l'account mentre si usa l'autenticazione legacy, è consigliabile usare password complesse in tutta la directory. Controllare [Azure ad la protezione delle password](../authentication/concept-password-ban-bad.md)   per vietare le password vulnerabili nella directory.
 
 Office 2010 non supporta l'autenticazione moderna. Sarà necessario aggiornare gli utenti con Office 2010 a una versione più recente di Office. È consigliabile eseguire l'aggiornamento a Office 2016 o versione successiva, perché blocca l'autenticazione legacy per impostazione predefinita.
 

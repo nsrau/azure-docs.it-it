@@ -2,20 +2,19 @@
 title: Ripristino automatico delle istanze con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come configurare i criteri di riparazione automatica per le istanze di macchine virtuali in un set di scalabilità
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603673"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197031"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Ripristino automatico delle istanze per i set di scalabilità di macchine virtuali di Azure
 
@@ -57,7 +56,7 @@ Questa funzionalità non è attualmente supportata per i set di scalabilità di 
 
 La funzionalità di ripristino automatico delle istanze si basa sul monitoraggio dello stato delle singole istanze in un set di scalabilità. Le istanze di VM in un set di scalabilità possono essere configurate per emettere lo stato di integrità dell'applicazione usando l' [estensione dell'integrità dell'applicazione](./virtual-machine-scale-sets-health-extension.md) o i [Probe di integrità del bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md) Se un'istanza risulta non integra, il set di scalabilità esegue un'azione di ripristino eliminando l'istanza non integra e creandone una nuova per sostituirla. Il modello di set di scalabilità di macchine virtuali più recente viene usato per creare la nuova istanza. Questa funzionalità può essere abilitata nel modello di set di scalabilità di macchine virtuali usando l'oggetto *automaticRepairsPolicy* .
 
-### <a name="batching"></a>Batch
+### <a name="batching"></a>Creazione di batch
 
 Le operazioni di ripristino automatico dell'istanza vengono eseguite in batch. In un determinato momento, non più del 5% delle istanze nel set di scalabilità viene ripristinato tramite i criteri di riparazione automatici. In questo modo è possibile evitare l'eliminazione e la ricreazione simultanee di un numero elevato di istanze, se non è stato trovato nello stesso momento.
 
@@ -154,7 +153,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 L'esempio precedente usa un servizio di bilanciamento del carico esistente e un probe di integrità per monitorare lo stato di integrità dell'applicazione delle istanze. Se invece si preferisce usare un'estensione per l'integrità dell'applicazione per il monitoraggio, è possibile creare un set di scalabilità, configurare l'estensione per l'integrità dell'applicazione e quindi abilitare i criteri di riparazione automatica dell'istanza usando il comando *AZ vmss Update*, come illustrato nella sezione successiva.
@@ -217,7 +216,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Visualizzazione e aggiornamento dello stato del servizio dei criteri di ripristino automatico delle istanze

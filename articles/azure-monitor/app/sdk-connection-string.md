@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410620"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125707"
 ---
 # <a name="connection-strings"></a>Stringhe di connessione
 
@@ -39,7 +39,7 @@ Scenari per i clienti in cui viene visualizzato questo comportamento con maggior
     Gli utenti possono inviare dati a un' [area di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definita.
     Le stringhe di connessione consentono di definire le impostazioni degli endpoint per i server Intranet o le impostazioni del cloud ibrido. 
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 ### <a name="finding-my-connection-string"></a>Trovare la stringa di connessione?
 
@@ -64,10 +64,10 @@ La stringa di connessione è costituita da un elenco di impostazioni rappresenta
 - `EndpointSuffix`(ad esempio: applicationinsights.azure.cn) L'impostazione del suffisso dell'endpoint indicherà all'SDK il cloud di Azure a cui connettersi. L'SDK assembla il resto dell'endpoint per i singoli servizi.
 - Endpoint espliciti.
   Qualsiasi servizio può essere sottoposto a override in modo esplicito nella stringa di connessione.
-   - `IngestionEndpoint`exhttps://dc.applicationinsights.azure.com)
-   - `LiveEndpoint`exhttps://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint`exhttps://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint`exhttps://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint`(ad esempio: `https://dc.applicationinsights.azure.com` )
+   - `LiveEndpoint`(ad esempio: `https://live.applicationinsights.azure.com` )
+   - `ProfilerEndpoint`(ad esempio: `https://profiler.applicationinsights.azure.com` )
+   - `SnapshotEndpoint`(ad esempio: `https://snapshot.applicationinsights.azure.com` )
 
 #### <a name="endpoint-schema"></a>Schema dell'endpoint
 
@@ -106,10 +106,10 @@ In questo esempio è stata impostata solo la chiave di strumentazione.
 - Per impostazione predefinita, lo schema di autorizzazione è "iKey" 
 - Chiave di strumentazione: 00000000-0000-0000-0000-000000000000
 - Gli URI del servizio regionale sono basati sulle [impostazioni predefinite dell'SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e si connetteranno all'Azure globale pubblico:
-   - Ingestionehttps://dc.services.visualstudio.com/
-   - Metriche attive:https://rt.services.visualstudio.com/
-   - Profilerhttps://agent.azureserviceprofiler.net/
-   - Debuggerhttps://agent.azureserviceprofiler.net/  
+   - Ingestione`https://dc.services.visualstudio.com/`
+   - Metriche attive:`https://rt.services.visualstudio.com/`
+   - Profiler`https://agent.azureserviceprofiler.net/`
+   - Debugger`https://agent.azureserviceprofiler.net/`
 
 
 
@@ -122,10 +122,10 @@ In questo esempio, questa stringa di connessione specifica il suffisso dell'endp
 - Per impostazione predefinita, lo schema di autorizzazione è "iKey" 
 - Chiave di strumentazione: 00000000-0000-0000-0000-000000000000
 - Gli URI del servizio regionale sono basati sul suffisso dell'endpoint fornito: 
-   - Ingestionehttps://dc.ai.contoso.com
-   - Metriche attive:https://live.ai.contoso.com
-   - Profilerhttps://profiler.ai.contoso.com 
-   - Debuggerhttps://snapshot.ai.contoso.com   
+   - Ingestione`https://dc.ai.contoso.com`
+   - Metriche attive:`https://live.ai.contoso.com`
+   - Profiler`https://profiler.ai.contoso.com`
+   - Debugger`https://snapshot.ai.contoso.com`  
 
 
 
@@ -138,10 +138,10 @@ In questo esempio, questa stringa di connessione specifica le sostituzioni espli
 - Per impostazione predefinita, lo schema di autorizzazione è "iKey" 
 - Chiave di strumentazione: 00000000-0000-0000-0000-000000000000
 - Gli URI del servizio regionale sono basati sui valori di override espliciti: 
-   - Inserimento: https:\//Custom.com:111/
-   - Metriche attive: https:\//Custom.com:222/
-   - Profiler:\/https:/Custom.com:333/ 
-   - Debugger: https:\//Custom.com:444/   
+   - Ingestione`https://custom.com:111/`
+   - Metriche attive:`https://custom.com:222/`
+   - Profiler`https://custom.com:333/`
+   - Debugger`https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Come impostare una stringa di connessione
