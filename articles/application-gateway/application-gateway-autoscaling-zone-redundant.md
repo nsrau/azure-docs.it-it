@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 74af3d14512018abc216b288a27dc54ed806d8c9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207261"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125231"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -132,8 +133,16 @@ Prezzo totale = $267,84 + $85,71 = $353,55
 
 Il gateway applicazione e WAF possono essere configurati per la scalabilità in due modalità:
 
-- **Scalabilità** automatica: con la scalabilità automatica abilitata, il gateway applicazione e gli SKU WAF V2 aumentano o riducono in base ai requisiti del traffico delle applicazioni. Questa modalità offre una migliore elasticità all'applicazione ed elimina la necessità di indovinare la dimensione o il numero di istanze del gateway applicazione. Questa modalità consente anche di risparmiare sui costi senza richiedere che il gateway venga eseguito al massimo della capacità con provisioning per il carico di traffico massimo previsto. È necessario specificare un numero minimo e facoltativo massimo di istanze. La capacità minima garantisce che il gateway applicazione e WAF V2 non scendano al di sotto del numero minimo di istanze specificato, anche in assenza di traffico. Ogni istanza viene conteggiata come 10 unità di capacità riservate aggiuntive. Zero indica che non è disponibile alcuna capacità riservata ed è esclusivamente la scalabilità automatica. Si noti che zero istanze aggiuntive minime garantisce comunque una disponibilità elevata del servizio sempre incluso con prezzo fisso. Facoltativamente, è anche possibile specificare un numero massimo di istanze, che garantisce che il gateway applicazione non venga ridimensionato oltre il numero specificato di istanze. Continuerà a essere addebitata la quantità di traffico servito dal gateway. Il numero di istanze può essere compreso tra 0 e 125. Il valore predefinito per il numero massimo di istanze è 20 se non è specificato.
+- **Scalabilità** automatica: con la scalabilità automatica abilitata, il gateway applicazione e gli SKU WAF V2 aumentano o riducono in base ai requisiti del traffico delle applicazioni. Questa modalità offre una migliore elasticità all'applicazione ed elimina la necessità di indovinare la dimensione o il numero di istanze del gateway applicazione. Questa modalità consente anche di risparmiare sui costi senza richiedere che il gateway venga eseguito al massimo della capacità con provisioning per il carico di traffico massimo previsto. È necessario specificare un numero minimo e facoltativo massimo di istanze. La capacità minima garantisce che il gateway applicazione e WAF V2 non scendano al di sotto del numero minimo di istanze specificato, anche in assenza di traffico. Ogni istanza è approssimativamente equivalente a 10 unità di capacità riservate aggiuntive. Zero indica che non è disponibile alcuna capacità riservata ed è esclusivamente la scalabilità automatica. Facoltativamente, è anche possibile specificare un numero massimo di istanze, che garantisce che il gateway applicazione non venga ridimensionato oltre il numero specificato di istanze. Verrà addebitata solo la quantità di traffico servito dal gateway. Il numero di istanze può essere compreso tra 0 e 125. Il valore predefinito per il numero massimo di istanze è 20 se non è specificato.
 - **Manuale** : in alternativa, è possibile scegliere la modalità manuale in cui il gateway non esegue la scalabilità automatica. In questa modalità, se è presente più traffico rispetto a quello che può essere gestito dal gateway applicazione o da WAF, potrebbe verificarsi una perdita di traffico. Con la modalità manuale, specificare il numero di istanze è obbligatorio. Il numero di istanze può variare da 1 a 125.
+
+## <a name="autoscaling-and-high-availability"></a>Scalabilità automatica e disponibilità elevata
+
+I gateway applicazione Azure vengono sempre distribuiti in modalità a disponibilità elevata. Il servizio è costituito da più istanze create come configurate (se la scalabilità automatica è disabilitata) o richiesta dal carico dell'applicazione (se la scalabilità automatica è abilitata). Si noti che, dal punto di vista dell'utente, non è necessariamente visibile per le singole istanze, ma solo nel servizio del gateway applicazione nel suo complesso. Se una determinata istanza presenta un problema e smette di funzionare, applicazione Azure gateway creerà in modo trasparente una nuova istanza.
+
+Si noti che anche se si configura la scalabilità automatica con zero istanze minime, il servizio sarà ancora a disponibilità elevata, che è sempre incluso con il prezzo fisso.
+
+La creazione di una nuova istanza può tuttavia richiedere del tempo (circa sei o sette minuti). Di conseguenza, se non si vuole far fronte a questo tempo di inattività, è possibile configurare un numero minimo di istanze pari a 2, idealmente con il supporto per la zona di disponibilità. In questo modo si avranno almeno due istanze all'interno del gateway applicazione Azure in circostanze normali, quindi se uno di essi presenta un problema l'altro tenterà di far fronte al traffico, durante il periodo in cui viene creata una nuova istanza. Si noti che un'istanza del gateway applicazione Azure può supportare circa 10 unità di capacità, quindi, a seconda della quantità di traffico in genere, potrebbe essere necessario configurare l'impostazione di scalabilità automatica dell'istanza minima su un valore superiore a 2.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Confronto tra le funzionalità dello SKU V1 e dello SKU V2
 

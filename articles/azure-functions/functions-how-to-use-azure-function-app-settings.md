@@ -3,14 +3,14 @@ title: Configurare le impostazioni dell'app per le funzioni in Azure
 description: Informazioni su come configurare le impostazioni dell'app per le funzioni di Azure.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276946"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122299"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
 
@@ -27,13 +27,15 @@ Questo articolo descrive come configurare e gestire le app per le funzioni.
 
 ## <a name="get-started-in-the-azure-portal"></a>Attività iniziali nel portale di Azure
 
-Innanzitutto passare al [portale di Azure] e accedere all'account di Azure. Nella barra di ricerca nella parte superiore del portale digitare il nome dell'app per le funzioni e selezionarla dall'elenco. Dopo aver selezionato l'app per le funzioni, viene visualizzata la pagina seguente:
+1. Innanzitutto passare al [portale di Azure] e accedere all'account di Azure. Nella barra di ricerca nella parte superiore del portale immettere il nome dell'app per le funzioni e selezionarlo dall'elenco. 
 
-![Panoramica dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+2. In **Impostazioni** nel riquadro a sinistra selezionare **configurazione**.
+
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Panoramica dell'app per le funzioni nel portale di Azure":::
 
 È possibile passare a tutti gli elementi necessari per gestire l'app per le funzioni dalla pagina Panoramica, in particolare le **[impostazioni dell'applicazione](#settings)** e le **[funzionalità della piattaforma](#platform-features)**.
 
-## <a name="application-settings"></a><a name="settings"></a>Impostazioni dell'applicazione
+## <a name="application-settings"></a><a name="settings"></a>Impostazioni applicazione
 
 La scheda **Impostazioni applicazione** mantiene le impostazioni usate dall'app per le funzioni. Queste impostazioni vengono archiviate crittografate ed è necessario selezionare **Mostra valori** per visualizzare i valori nel portale. È anche possibile accedere alle impostazioni dell'applicazione usando l'interfaccia della riga di comando di Azure.
 
@@ -52,7 +54,7 @@ az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-Il [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando aggiunge o aggiorna un'impostazione dell'applicazione. Nell'esempio seguente viene creata un'impostazione con una chiave `CUSTOM_FUNCTION_APP_SETTING` denominata e un valore `12345`:
+Il [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando aggiunge o aggiorna un'impostazione dell'applicazione. Nell'esempio seguente viene creata un'impostazione con una chiave denominata `CUSTOM_FUNCTION_APP_SETTING` e un valore `12345` :
 
 
 ```azurecli-interactive
@@ -69,9 +71,7 @@ Quando si sviluppa un'app per le funzioni in locale, è necessario mantenere le 
 
 ## <a name="platform-features"></a>Funzionalità della piattaforma
 
-![Scheda delle funzionalità della piattaforma per l'app per le funzioni.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
-
-Le app per le funzioni vengono eseguite e gestite dalla piattaforma Servizio app di Azure. Di conseguenza, le app per le funzioni hanno accesso alla maggior parte delle funzionalità di piattaforma di hosting Web di base di Azure. Nella scheda **Funzionalità della piattaforma** è possibile accedere a molte funzionalità della piattaforma del servizio app che è possibile usare nelle app per le funzioni. 
+Le app per le funzioni vengono eseguite in e vengono gestite da app Azure piattaforma del servizio. Di conseguenza, le app per le funzioni hanno accesso alla maggior parte delle funzionalità di piattaforma di hosting Web di base di Azure. Il riquadro sinistro consente di accedere alle numerose funzionalità della piattaforma del servizio app che è possibile usare nelle app per le funzioni. 
 
 > [!NOTE]
 > Non tutte le funzionalità del servizio app sono disponibili quando un'app per le funzioni viene eseguita nel piano di hosting a consumo.
@@ -87,7 +87,7 @@ Il resto di questo articolo è incentrato sulle funzionalità del servizio app s
 
 Per altre informazioni su come usare le impostazioni del servizio app, vedere [Configurare le impostazioni di del servizio app di Azure](../app-service/configure-common.md).
 
-### <a name="app-service-editor"></a><a name="editor"></a>editor del servizio app
+### <a name="app-service-editor"></a><a name="editor"></a>Editor del servizio app
 
 ![Editor del servizio app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -116,15 +116,15 @@ Quando si usa una soluzione di controllo del codice sorgente per sviluppare e ge
 
 ### <a name="cross-origin-resource-sharing"></a><a name="cors"></a>Condivisione di risorse tra le origini
 
-Per impedire l'esecuzione di codice dannoso sul client, i browser moderni bloccano le richieste dalle applicazioni Web alle risorse in esecuzione in un dominio separato. La [condivisione di risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) consente a un' `Access-Control-Allow-Origin` intestazione di dichiarare quali origini sono autorizzate a chiamare gli endpoint nell'app per le funzioni.
+Per impedire l'esecuzione di codice dannoso sul client, i browser moderni bloccano le richieste dalle applicazioni Web alle risorse in esecuzione in un dominio separato. La [condivisione di risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) consente `Access-Control-Allow-Origin` a un'intestazione di dichiarare quali origini sono autorizzate a chiamare gli endpoint nell'app per le funzioni.
 
 #### <a name="portal"></a>Portale
 
-Quando si configura l'elenco di **origini consentite** per l'app `Access-Control-Allow-Origin` per le funzioni, l'intestazione viene aggiunta automaticamente a tutte le risposte dagli endpoint HTTP nell'app per le funzioni. 
+Quando si configura l'elenco di **origini consentite** per l'app per le funzioni, l' `Access-Control-Allow-Origin` intestazione viene aggiunta automaticamente a tutte le risposte dagli endpoint HTTP nell'app per le funzioni. 
 
 ![Configurare l'elenco CORS dell'app per le funzioni](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-Quando si usa il`*`carattere jolly (), tutti gli altri domini vengono ignorati. 
+Quando si usa il carattere jolly ( `*` ), tutti gli altri domini vengono ignorati. 
 
 Usare il [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) comando per aggiungere un dominio all'elenco delle origini consentite. Nell'esempio seguente viene aggiunto il dominio contoso.com:
 
@@ -136,7 +136,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 Usare il [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) comando per elencare le origini consentite correnti.
 
-### <a name="authentication"></a><a name="auth"></a>Autenticazione
+### <a name="authentication"></a><a name="auth"></a>Authentication
 
 ![Configurare l'autenticazione per un'app per le funzioni](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

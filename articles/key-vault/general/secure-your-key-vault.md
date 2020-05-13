@@ -2,20 +2,20 @@
 title: Proteggere l'accesso a un insieme di credenziali delle chiavi - Azure Key Vault | Microsoft Docs
 description: Gestire le autorizzazioni di accesso per Azure Key Vault, chiavi e segreti. L'articolo riguarda il modello di autenticazione e autorizzazione per Key Vault e offre informazioni su come proteggere l'insieme di credenziali delle chiavi.
 services: key-vault
-author: amitbapat
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: ambapat
-ms.openlocfilehash: 0ae1b26bb2e01d388f3f91d94134bb9723a5a305
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 6a838455bfda47dee55e8726e5eab071d2dfe4f7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432021"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121151"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -135,7 +135,7 @@ Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruo
 
 Per altre informazioni su come distribuire certificati, chiavi di accesso e segreti a livello di codice, vedere queste risorse:
 - Vedere il post di blog su come [distribuire i certificati nelle macchine virtuali da un insieme di credenziali delle chiavi gestito dal cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).
-- Scaricare gli [esempi di Azure Key Vault Client](https://www.microsoft.com/download/details.aspx?id=45343). Questo contenuto illustra come usare un certificato bootstrap per eseguire l'autenticazione con Azure AD per l'accesso a un insieme di credenziali delle chiavi.
+- Visualizzare gli [esempi di Azure Key Vault Client](https://docs.microsoft.com/samples/browse/?term=Key%20Vault). Questo contenuto illustra come usare un certificato bootstrap per eseguire l'autenticazione con Azure AD per l'accesso a un insieme di credenziali delle chiavi.
 
 È possibile concedere la maggior parte delle autorizzazioni di accesso tramite il portale di Azure. Per concedere autorizzazioni granulari, è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -219,7 +219,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 
 * [Controllo di accesso per le chiavi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
 
-* [Controllo di accesso per i segreti](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+* [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl) (Controllo di accesso per i segreti)
 
 * [Impostare](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) e [rimuovere](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) i criteri di accesso dell'insieme di credenziali delle chiavi tramite PowerShell.
 

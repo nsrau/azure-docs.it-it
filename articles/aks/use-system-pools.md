@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire i pool di nodi di sistema in 
 services: container-service
 ms.topic: article
 ms.date: 04/28/2020
-ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790559"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125248"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gestire i pool di nodi di sistema in Azure Kubernetes Service (AKS)
 
@@ -50,6 +50,7 @@ Con i pool di nodi è possibile eseguire le operazioni seguenti:
 * Eliminare i pool di nodi utente.
 * È possibile eliminare i pool di nodi di sistema, purché si disponga di un altro pool di nodi di sistema per sostituirlo nel cluster AKS.
 * Un cluster AKS può avere più pool di nodi di sistema e richiede almeno un pool di nodi di sistema.
+* Se si desidera modificare diverse impostazioni non modificabili nei pool di nodi esistenti, è possibile creare nuovi pool di nodi per sostituirli. Un esempio consiste nell'aggiungere un nuovo pool di nodi con una nuova impostazione maxPods ed eliminare il vecchio pool di nodi.
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Creare un nuovo cluster AKS con un pool di nodi di sistema
 

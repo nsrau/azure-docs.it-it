@@ -1,20 +1,20 @@
 ---
 title: Visualizzare informazioni su una coordinata su una mappa | Mappe Microsoft Azure
 description: Informazioni su come visualizzare informazioni su un indirizzo sulla mappa quando un utente seleziona una coordinata.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 174bdc496e52a6ac8f2a2d631db92e0f21a819be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 274d1102649dade1b3295bd02feba03f64a26ad5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371428"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123990"
 ---
 # <a name="get-information-from-a-coordinate"></a>Ottenere informazioni su una coordinata
 
@@ -29,11 +29,11 @@ Esistono due modi per eseguire una ricerca di indirizzi inversa. Un modo consist
 
 Nel codice precedente il primo blocco costruisce un oggetto map e imposta il meccanismo di autenticazione per l'uso del token di accesso. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea `TokenCredential` un oggetto per autenticare le richieste HTTP per le mappe di Azure con il token di accesso. Passa quindi a `atlas.service.MapsURL.newPipeline()` e `TokenCredential` crea un'istanza della [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . `searchURL` rappresenta un URL per le operazioni di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Mappe di Azure.
+Il secondo blocco di codice crea un oggetto `TokenCredential` per autenticare le richieste HTTP per le mappe di Azure con il token di accesso. Passa quindi `TokenCredential` a `atlas.service.MapsURL.newPipeline()` e crea un'istanza della [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . `searchURL` rappresenta un URL per le operazioni di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Mappe di Azure.
 
 Il terzo blocco di codice aggiorna lo stile del cursore del mouse su un puntatore e crea un oggetto [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) . Per le istruzioni, è possibile vedere [Aggiungere un popup sulla mappa](./map-add-popup.md).
 
-Il quarto blocco di codice aggiunge un listener di [eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)click del mouse. Quando viene attivato, viene creata una query di ricerca con le coordinate del punto selezionato. USA quindi il metodo [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-)per eseguire una query sull' [API Reverse Get search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) per l'indirizzo delle coordinate. Una raccolta di funzionalità GeoJSON viene quindi estratta `geojson.getFeatures()` usando il metodo della risposta.
+Il quarto blocco di codice aggiunge un listener di [eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)click del mouse. Quando viene attivato, viene creata una query di ricerca con le coordinate del punto selezionato. USA quindi il metodo [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-)per eseguire una query sull' [API Reverse Get search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) per l'indirizzo delle coordinate. Una raccolta di funzionalità GeoJSON viene quindi estratta usando il `geojson.getFeatures()` metodo della risposta.
 
 Il quinto blocco di codice imposta il contenuto popup HTML per visualizzare l'indirizzo di risposta per la posizione della coordinata su cui è stato fatto clic.
 

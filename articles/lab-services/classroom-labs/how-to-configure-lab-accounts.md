@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: fa9dba62b3b58687ec6a2bfc29e8722f7016b679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14f66701d3a375807829493f866dcb91b131f2e5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284304"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121083"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurare gli account Lab in Azure Lab Services 
 In Azure Lab Services, un account Lab è un contenitore per i tipi Lab gestiti, ad esempio Lab in aula. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. 
@@ -38,6 +38,9 @@ Di seguito sono riportate alcune restrizioni per specificare l'intervallo di ind
 
 1. Nella pagina **account Lab** selezionare **impostazioni Lab** nel menu a sinistra.
 2. Per il campo **intervallo di indirizzi** specificare l'intervallo di indirizzi per le macchine virtuali che verranno create nel Lab. L'intervallo di indirizzi deve essere nella notazione CIDR (Inter-Domain Routing) di classe (ad esempio: 10.20.0.0/23). Le macchine virtuali nel lab verranno create in questo intervallo di indirizzi.
+
+    > [!NOTE]
+    > La proprietà intervallo di indirizzi si applica solo se la rete virtuale peer è abilitata per il Lab. 
 3. Sulla barra degli strumenti selezionare **Salva**. 
 
     ![Configura intervallo di indirizzi](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)

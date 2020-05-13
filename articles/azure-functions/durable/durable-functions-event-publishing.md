@@ -2,13 +2,13 @@
 title: Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 description: Informazioni su come configurare la pubblicazione automatica di Griglia di eventi di Azure per Funzioni durevoli.
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/25/2020
+ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535486"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124265"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
@@ -30,7 +30,7 @@ Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creare un argomento personalizzato di Griglia di eventi
 
-Creare un argomento di Griglia di eventi per l'invio di eventi da Funzioni durevoli. Le istruzioni seguenti illustrano come creare un argomento tramite l'interfaccia della riga di comando di Azure. Questa operazione può essere eseguita anche tramite [PowerShell](../../event-grid/custom-event-quickstart-powershell.md) o tramite [il portale di Azure](../../event-grid/custom-event-quickstart-portal.md).
+Creare un argomento di Griglia di eventi per l'invio di eventi da Funzioni durevoli. Le istruzioni seguenti illustrano come creare un argomento tramite l'interfaccia della riga di comando di Azure. È anche possibile creare l'argomento [usando PowerShell](../../event-grid/custom-event-quickstart-powershell.md) o [usando il portale di Azure](../../event-grid/custom-event-quickstart-portal.md).
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -83,7 +83,7 @@ Aggiungere `eventGridTopicEndpoint` e `eventGridKeySettingName` in una propriet�
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2. x
 
-Aggiungere una `notifications` sezione alla `durableTask` proprietà del file, sostituendo `<topic_name>` con il nome scelto. Se le `durableTask` proprietà `extensions` o non esistono, crearle come nell'esempio seguente:
+Aggiungere una `notifications` sezione alla `durableTask` proprietà del file, sostituendo `<topic_name>` con il nome scelto. Se le `durableTask` `extensions` proprietà o non esistono, è necessario crearle come nell'esempio seguente:
 
 ```json
 {
@@ -101,7 +101,7 @@ Aggiungere una `notifications` sezione alla `durableTask` proprietà del file, s
 }
 ```
 
-Le possibili proprietà di configurazione di griglia di eventi di Azure sono disponibili nella [documentazione di host. JSON](../functions-host-json.md#durabletask). Dopo aver configurato il `host.json` file, l'app per le funzioni Invia gli eventi del ciclo di vita all'argomento di griglia di eventi. Questa operazione funziona quando si esegue l'app per le funzioni sia localmente che in Azure.
+Le possibili proprietà di configurazione di griglia di eventi di Azure sono disponibili nella [documentazione di host. JSON](../functions-host-json.md#durabletask). Dopo aver configurato il `host.json` file, l'app per le funzioni Invia gli eventi del ciclo di vita all'argomento di griglia di eventi. Questa azione viene avviata quando si esegue l'app per le funzioni sia localmente che in Azure.
 
 Definire l'impostazione dell'app per la chiave dell'argomento nell'app per le funzioni e in `local.settings.json`. Il codice JSON seguente è un esempio di `local.settings.json` per il debug locale. Sostituire `<topic_key>` con la chiave dell'argomento.  
 
@@ -118,7 +118,7 @@ Definire l'impostazione dell'app per la chiave dell'argomento nell'app per le fu
 
 Se si usa l' [emulatore di archiviazione](../../storage/common/storage-use-emulator.md) (solo Windows), verificare che funzioni. È consigliabile usare il comando `AzureStorageEmulator.exe clear all` prima dell'esecuzione.
 
-Se si usa un account di archiviazione di `UseDevelopmentStorage=true` `local.settings.json` Azure esistente, sostituire con la relativa stringa di connessione.
+Se si usa un account di archiviazione di Azure esistente, `UseDevelopmentStorage=true` sostituire `local.settings.json` con la relativa stringa di connessione.
 
 ## <a name="create-functions-that-listen-for-events"></a>Creare funzioni che ascoltano gli eventi
 
@@ -126,58 +126,71 @@ Usando il portale di Azure, creare un'altra app per le funzioni per ascoltare gl
 
 ### <a name="create-an-event-grid-trigger-function"></a>Creare una funzione di trigger di Griglia di eventi
 
-Creare una funzione per ricevere gli eventi del ciclo di vita. Selezionare **Funzione personalizzata**.
+1. Nell'app per le funzioni selezionare **funzioni**e quindi selezionare **+ Aggiungi** . 
 
-![Selezionare Funzione personalizzata.](./media/durable-functions-event-publishing/functions-portal.png)
+   :::image type="content" source="./media/durable-functions-event-publishing/function-add-function.png" alt-text="Aggiungere una funzione nell'portale di Azure." border="true":::
 
-Scegliere trigger griglia di eventi e selezionare una lingua.
+1. Cercare **griglia di eventi**e quindi selezionare il modello di **trigger griglia di eventi di Azure** . 
 
-![Selezionare il trigger di Griglia di eventi.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Selezionare il modello di trigger griglia di eventi nel portale di Azure." border="true":::
 
-Immettere il nome della funzione e quindi selezionare `Create`.
+1. Denominare il nuovo trigger, quindi selezionare **Crea funzione**.
 
-![Creare il trigger di Griglia di eventi.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Denominare il trigger griglia di eventi nel portale di Azure." border="true":::
 
-Viene creata una funzione con il codice seguente:
 
-# <a name="c-script"></a>[Script C#](#tab/csharp-script)
+    Viene creata una funzione con il codice seguente:
 
-```csharp
-#r "Newtonsoft.Json"
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
+    # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-public static void Run(JObject eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-}
-```
+    ```csharp
+    #r "Newtonsoft.Json"
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+    public static void Run(JObject eventGridEvent, ILogger log)
+    {
+        log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+    }
+    ```
 
-```javascript
-module.exports = async function(context, eventGridEvent) {
-    context.log(typeof eventGridEvent);
-    context.log(eventGridEvent);
-}
-```
+   # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+   ```javascript
+   module.exports = async function(context, eventGridEvent) {
+       context.log(typeof eventGridEvent);
+       context.log(eventGridEvent);
+   }
+   ```
 
 ---
 
-Selezionare `Add Event Grid Subscription`. Questa operazione aggiunge una sottoscrizione di Griglia di eventi per l'argomento di Griglia di eventi creato. Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/concepts).
+### <a name="add-an-event-grid-subscription"></a>Aggiungere una sottoscrizione di griglia di eventi
 
-![Selezionare il collegamento del trigger di Griglia di eventi.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+È ora possibile aggiungere una sottoscrizione di griglia di eventi per l'argomento di griglia di eventi creato. Per altre informazioni, vedere [concetti in griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/concepts).
 
-Selezionare `Event Grid Topics` per il **tipo di argomento**. Selezionare il gruppo di risorse creato per l'argomento di Griglia di eventi. Selezionare quindi l'istanza dell'argomento di Griglia di eventi. Fare clic su `Create`.
+1. Nella nuova funzione selezionare **integrazione** , quindi selezionare **trigger griglia di eventi (eventGridEvent)**. 
 
-![Creare una sottoscrizione di Griglia di eventi.](./media/durable-functions-event-publishing/eventsubscription.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Selezionare il collegamento del trigger di Griglia di eventi." border="true":::
+
+1. Selezionare **creare una descrizione della griglia di eventi**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Creare la sottoscrizione di griglia di eventi." border="true":::
+
+1. Assegnare un nome alla sottoscrizione di eventi e selezionare il tipo di argomento **argomenti di griglia di eventi** . 
+
+1. Selezionare la sottoscrizione. Selezionare quindi il gruppo di risorse e la risorsa creati per l'argomento di griglia di eventi. 
+
+1. Selezionare **Create** (Crea).
+
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Creare una sottoscrizione di griglia di eventi." border="true":::
 
 Ora si è pronti a ricevere gli eventi del ciclo di vita.
 
 ## <a name="run-durable-functions-app-to-send-the-events"></a>Eseguire Durable Functions app per inviare gli eventi
 
-Nel progetto Durable Functions configurato in precedenza, avviare il debug nel computer locale e avviare un'orchestrazione. L'app pubblica Durable Functions eventi del ciclo di vita in griglia di eventi. Verificare che griglia di eventi inneschi la funzione listener creata controllando i relativi log nel portale di Azure.
+Nel progetto Durable Functions configurato in precedenza, avviare il debug nel computer locale e avviare un'orchestrazione. L'app pubblica Durable Functions eventi del ciclo di vita in griglia di eventi. Verificare che griglia di eventi attivi la funzione listener creata controllando i relativi log nell'portale di Azure.
 
 ```
 2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)

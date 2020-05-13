@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: f8c526148e37ba1b716aafd32dcc3f242358f1eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 454420d9b2f4e3cf834490da79f3571691f25bc1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427783"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121117"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell
 
@@ -47,7 +47,7 @@ Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azur
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Pubblico di Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Altri  | Qualsiasi | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Altro  | Qualsiasi | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Impostare variabili
 
-Per prima cosa, impostare le variabili che devono essere usate dai cmdlet di PowerShell nei passaggi seguenti. Assicurarsi di <YourResourceGroupName>aggiornare i <YourStorageAccountName> <YourKeyVaultName> segnaposto, e e impostare $keyVaultSpAppId su `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (come specificato in [ID applicazione dell'entità servizio](#service-principal-application-id), sopra).
+Per prima cosa, impostare le variabili che devono essere usate dai cmdlet di PowerShell nei passaggi seguenti. Assicurarsi di aggiornare i <YourResourceGroupName> segnaposto, e e <YourStorageAccountName> <YourKeyVaultName> impostare $keyVaultSpAppId su `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (come specificato in [ID applicazione dell'entità servizio](#service-principal-application-id), sopra).
 
 Si userà anche il Azure PowerShell cmdlet [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) e [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) per ottenere l'ID utente e il contesto dell'account di archiviazione di Azure.
 
@@ -84,14 +84,18 @@ $resourceGroupName = <YourResourceGroupName>
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093"
-$storageAccountKey = "key1"
+$storageAccountKey = "key1" #(key1 or key2 are allowed)
 
 # Get your User Id
 $userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+
 ```
+>[!Note]
+> Per l'account di archiviazione classico usare "Primary" e "Secondary" per $storageAccountKey <br>
+> Usare "Get-AzResource-Name" ClassicStorageAccountName "-ResourceGroupName $resourceGroupName" invece of'Get-AzStorageAccount "per l'account di archiviazione classico
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Concedere a Key Vault l'accesso all'account di archiviazione
 
@@ -160,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Abilitare la rigenerazione delle chiavi
 
-Se si desidera Key Vault rigenerare periodicamente le chiavi dell'account di archiviazione, è possibile utilizzare il Azure PowerShell cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) per impostare un periodo di rigenerazione. In questo esempio viene impostato un periodo di rigenerazione di tre giorni. Dopo tre giorni, Key Vault rigenererà' Key2' e scambierà la chiave attiva da' Key2' a' Key1'.
+Se si desidera Key Vault rigenerare periodicamente le chiavi dell'account di archiviazione, è possibile utilizzare il Azure PowerShell cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) per impostare un periodo di rigenerazione. In questo esempio viene impostato un periodo di rigenerazione di tre giorni. Dopo tre giorni, Key Vault rigenererà' Key2' e scambierà la chiave attiva da' Key2' a' Key1', sostituendo con ' Primary ' è Secondary ' per gli account di archiviazione classici.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -192,12 +196,12 @@ I comandi in questa sezione completano le azioni seguenti:
 
 - Impostare la definizione di una firma di accesso condiviso dell'account. 
 - Creare un token di firma di accesso condiviso dell'account per i servizi BLOB, file, tabelle e di Accodamento. Il token viene creato per i tipi di risorse Service, container e Object. Il token viene creato con tutte le autorizzazioni, su HTTPS e con le date di inizio e di fine specificate.
-- Impostare un Key Vault definizione di firma di accesso condiviso di archiviazione gestita nell'insieme di credenziali. La definizione ha l'URI del modello del token della firma di accesso condiviso che è stato creato. La definizione ha il tipo `account` di firma di accesso condiviso ed è valida per N giorni.
+- Impostare un Key Vault definizione di firma di accesso condiviso di archiviazione gestita nell'insieme di credenziali. La definizione ha l'URI del modello del token della firma di accesso condiviso che è stato creato. La definizione ha il tipo di firma di accesso condiviso `account` ed è valida per N giorni.
 - Verificare che la firma di accesso condiviso sia stata salvata nell'insieme di credenziali delle chiavi come segreto.
 - 
 ### <a name="set-variables"></a>Impostare variabili
 
-Per prima cosa, impostare le variabili che devono essere usate dai cmdlet di PowerShell nei passaggi seguenti. Assicurarsi di aggiornare i <YourStorageAccountName> segnaposto <YourKeyVaultName> e.
+Per prima cosa, impostare le variabili che devono essere usate dai cmdlet di PowerShell nei passaggi seguenti. Assicurarsi di aggiornare i <YourStorageAccountName> <YourKeyVaultName> segnaposto e.
 
 Si userà anche il Azure PowerShell cmdlet [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) per ottenere il contesto dell'account di archiviazione di Azure.
 
@@ -205,7 +209,7 @@ Si userà anche il Azure PowerShell cmdlet [New-AzStorageContext](/powershell/mo
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 
-$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1 #(or "Primary" for Classic Storage Account)
 ```
 
 ### <a name="create-a-shared-access-signature-token"></a>Creazione di un token di firma di accesso condiviso
@@ -252,7 +256,7 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-È ora possibile usare il cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e la proprietà `Name` Secret per visualizzare il contenuto del segreto.
+È ora possibile usare il cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e la `Name` Proprietà Secret per visualizzare il contenuto del segreto.
 
 ```azurepowershell-interactive
 $secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>

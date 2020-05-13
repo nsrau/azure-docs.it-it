@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086613"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125095"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione di errori e avvisi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -21,7 +21,7 @@ Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi co
 
 L'indicizzazione viene arrestata quando il numero di errori supera [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
-Se si vuole che gli indicizzatori ignorino questi errori (e ignorino i `maxFailedItems` "documenti non riusciti"), `maxFailedItemsPerBatch` è consigliabile aggiornare e come descritto di [seguito](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+Se si vuole che gli indicizzatori ignorino questi errori (e ignorino i "documenti non riusciti"), è consigliabile aggiornare `maxFailedItems` e `maxFailedItemsPerBatch` come descritto di [seguito](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
 > Ogni documento con errori insieme alla relativa chiave del documento (se disponibile) verrà visualizzato come errore nello stato di esecuzione dell'indicizzatore. È possibile utilizzare l' [API index](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per caricare manualmente i documenti in un secondo momento se l'indicizzatore è stato impostato in modo da tollerare gli errori.
@@ -30,14 +30,14 @@ Le informazioni sull'errore in questo articolo possono essere utili per risolver
 
 Gli avvisi non interrompono l'indicizzazione, ma indicano condizioni che potrebbero causare risultati imprevisti. Il fatto di intervenire o meno dipende dai dati e dallo scenario.
 
-A partire dalla versione `2019-05-06`dell'API, gli errori e gli avvisi dell'indicizzatore a livello di elemento sono strutturati per fornire maggiore chiarezza sulle cause e sui passaggi successivi. Sono incluse le proprietà seguenti:
+A partire dalla versione dell'API `2019-05-06` , gli errori e gli avvisi dell'indicizzatore a livello di elemento sono strutturati per fornire maggiore chiarezza sulle cause e sui passaggi successivi. Sono incluse le proprietà seguenti:
 
 | Proprietà | Descrizione | Esempio |
 | --- | --- | --- |
-| Key | ID del documento interessato dall'errore o dall'avviso. | https:\//coromsearch.blob.Core.Windows.NET/JFK-1K/docid-32112954.pdf |
+| Key | ID del documento interessato dall'errore o dall'avviso. | https: \/ /coromsearch.blob.Core.Windows.NET/JFK-1K/docid-32112954.pdf |
 | name | Nome dell'operazione che descrive la posizione in cui si è verificato l'errore o l'avviso. Questa operazione viene generata dalla struttura seguente: [Category]. [Subcategory]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName arricchimento. WebApiSkill. My SkillName Projection. SearchIndex. OutputFieldMapping. myOutputFieldName Projection. SearchIndex. MergeOrUpload. Setindexname Projection. KnowledgeStore. Table. TableName |
 | message | Descrizione di alto livello dell'errore o dell'avviso. | Non è stato possibile eseguire l'abilità perché la richiesta dell'API Web non è riuscita. |
-| dettagli | Eventuali dettagli aggiuntivi che possono essere utili per diagnosticare il problema, ad esempio la risposta WebApi se l'esecuzione di un'abilità personalizzata non è riuscita. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origine, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... Rest della traccia dello stack... |
+| dettagli | Eventuali dettagli aggiuntivi che possono essere utili per diagnosticare il problema, ad esempio la risposta WebApi se l'esecuzione di un'abilità personalizzata non è riuscita. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origine, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... Rest della traccia dello stack... |
 | documentationLink | Un collegamento alla documentazione pertinente con informazioni dettagliate per il debug e la risoluzione del problema. Questo collegamento spesso punterà a una delle sezioni seguenti in questa pagina. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -59,7 +59,7 @@ L'indicizzatore con un'origine dati BLOB non è riuscito a estrarre il contenuto
 
 | Motivo | Dettagli/esempio | Soluzione |
 | --- | --- | --- |
-| il BLOB supera il limite di dimensioni | Il documento `'150441598'` è byte, che supera i byte `'134217728'` delle dimensioni massime per l'estrazione dei documenti per il livello di servizio corrente. | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| il BLOB supera il limite di dimensioni | Il documento è `'150441598'` byte, che supera i byte delle dimensioni massime `'134217728'` per l'estrazione dei documenti per il livello di servizio corrente. | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | il tipo di contenuto del BLOB non è supportato | Il documento contiene un tipo di contenuto non supportato`'image/png'` | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | il BLOB è crittografato | Non è stato possibile elaborare il documento perché potrebbe essere crittografato o protetto da password. | È possibile ignorare il BLOB con [le impostazioni BLOB](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | problemi temporanei | "Errore durante l'elaborazione del BLOB: la richiesta è stata interrotta: la richiesta è stata annullata". "Timeout del documento durante l'elaborazione". | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
@@ -73,8 +73,13 @@ L'indicizzatore ha letto il documento dall'origine dati, ma si è verificato un 
 | --- | --- | --- |
 | Manca la chiave del documento | La chiave del documento non può essere mancante o vuota | Verificare che tutti i documenti dispongano di chiavi di documento valide |
 | La chiave del documento non è valida | La chiave del documento non può contenere più di 1024 caratteri | Modificare la chiave del documento per soddisfare i requisiti di convalida. |
-| Non è stato possibile applicare il mapping dei campi a un campo | Impossibile applicare la funzione `'functionName'` di mapping al `'fieldName'`campo. La matrice non può essere null. Nome parametro: bytes | Controllare i [mapping dei campi](search-indexer-field-mappings.md) definiti nell'indicizzatore e confrontarli con i dati del campo specificato del documento non riuscito. Potrebbe essere necessario modificare i mapping dei campi o i dati del documento. |
-| Impossibile leggere il valore del campo | Impossibile leggere il valore della colonna `'fieldName'` in corrispondenza dell' `'fieldIndex'`indice. si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: Provider TCP, errore: 0 - Connessione in corso interrotta forzatamente dall'host remoto). | Questi errori sono in genere causati da problemi di connettività imprevisti con il servizio sottostante dell'origine dati. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
+| Non è stato possibile applicare il mapping dei campi a un campo | Impossibile applicare la funzione `'functionName'` di mapping al campo `'fieldName'` . La matrice non può essere null. Nome parametro: bytes | Controllare i [mapping dei campi](search-indexer-field-mappings.md) definiti nell'indicizzatore e confrontarli con i dati del campo specificato del documento non riuscito. Potrebbe essere necessario modificare i mapping dei campi o i dati del documento. |
+| Impossibile leggere il valore del campo | Impossibile leggere il valore della colonna `'fieldName'` in corrispondenza dell'indice `'fieldIndex'` . si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: Provider TCP, errore: 0 - Connessione in corso interrotta forzatamente dall'host remoto). | Questi errori sono in genere causati da problemi di connettività imprevisti con il servizio sottostante dell'origine dati. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
+
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+
+## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>Errore: Impossibile eseguire il mapping del campo `xyz` di output '' all'indice di ricerca a causa di un problema di deserializzazione durante l'applicazione della funzione di mapping ' `abc` '
+Il mapping di output potrebbe non essere riuscito perché i dati di output non sono nel formato corretto per la funzione di mapping in uso. Se ad esempio si applica la funzione di mapping Base64Encode sui dati binari, viene generato questo errore. Per risolvere il problema, eseguire di nuovo l'indicizzatore senza specificare la funzione di mapping o assicurarsi che la funzione di mapping sia compatibile con il tipo di dati del campo di output. Per informazioni dettagliate, vedere [mapping dei campi di output](cognitive-search-output-field-mapping.md) .
 
 <a name="could-not-execute-skill"/>
 
@@ -110,7 +115,7 @@ Molte delle competenze cognitive predefinite, ad esempio il rilevamento della li
 Se si continua a visualizzare questo errore nello stesso documento per una competenza cognitiva incorporata, inviare un ticket di [supporto](https://ms.portal.azure.com/#create/Microsoft.Support) per ottenere assistenza, in quanto questa operazione non è prevista.
 
 ### <a name="custom-skills"></a>Competenze personalizzate
-Se si verifica un errore di timeout con un'abilità personalizzata creata, è possibile provare un paio di cose. Esaminare prima di tutto la propria abilità personalizzata e assicurarsi che non rimanga bloccata in un ciclo infinito e che restituisca un risultato coerente. Una volta confermata questa situazione, determinare il tempo di esecuzione delle proprie competenze. Se non è stato impostato in modo `timeout` esplicito un valore nella definizione di competenze personalizzate, `timeout` il valore predefinito è 30 secondi. Se la capacità di esecuzione non è sufficiente per 30 secondi, è possibile specificare un valore più `timeout` elevato nella definizione di competenze personalizzate. Di seguito è riportato un esempio di definizione di competenze personalizzate in cui il timeout è impostato su 90 secondi:
+Se si verifica un errore di timeout con un'abilità personalizzata creata, è possibile provare un paio di cose. Esaminare prima di tutto la propria abilità personalizzata e assicurarsi che non rimanga bloccata in un ciclo infinito e che restituisca un risultato coerente. Una volta confermata questa situazione, determinare il tempo di esecuzione delle proprie competenze. Se non è stato impostato in modo esplicito un `timeout` valore nella definizione di competenze personalizzate, il valore predefinito `timeout` è 30 secondi. Se la capacità di esecuzione non è sufficiente per 30 secondi, è possibile specificare un valore più elevato `timeout` nella definizione di competenze personalizzate. Di seguito è riportato un esempio di definizione di competenze personalizzate in cui il timeout è impostato su 90 secondi:
 
 ```json
   {
@@ -134,11 +139,11 @@ Se si verifica un errore di timeout con un'abilità personalizzata creata, è po
       }
 ```
 
-Il valore massimo che è possibile impostare per il `timeout` parametro è 230 secondi.  Se l'abilità personalizzata non è in grado di essere eseguita in modo coerente entro 230 secondi, `batchSize` è possibile valutare la possibilità di ridurre l'abilità personalizzata in modo da ottenere un numero minore di documenti da elaborare all'interno di una singola esecuzione.  Se è già stato impostato `batchSize` su 1, sarà necessario riscrivere la competenza per poter essere eseguita in meno di 230 secondi oppure suddividerla in più competenze personalizzate, in modo che il tempo di esecuzione per ogni singola skill personalizzata sia un massimo di 230 secondi. Per ulteriori informazioni, vedere la [documentazione relativa alle competenze personalizzate](cognitive-search-custom-skill-web-api.md) .
+Il valore massimo che è possibile impostare per il `timeout` parametro è 230 secondi.  Se l'abilità personalizzata non è in grado di essere eseguita in modo coerente entro 230 secondi, è possibile valutare la possibilità di ridurre l' `batchSize` abilità personalizzata in modo da ottenere un numero minore di documenti da elaborare all'interno di una singola esecuzione.  Se è già stato impostato `batchSize` su 1, sarà necessario riscrivere la competenza per poter essere eseguita in meno di 230 secondi oppure suddividerla in più competenze personalizzate, in modo che il tempo di esecuzione per ogni singola skill personalizzata sia un massimo di 230 secondi. Per ulteriori informazioni, vedere la [documentazione relativa alle competenze personalizzate](cognitive-search-custom-skill-web-api.md) .
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"/>
 
-## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Errore: non è stato`MergeOrUpload`possibile '' | documento`Delete`'' nell'indice di ricerca
+## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Errore: non è stato possibile ' `MergeOrUpload` ' | `Delete`documento '' nell'indice di ricerca
 
 Il documento è stato letto ed elaborato, ma l'indicizzatore non è stato in grado di aggiungerlo all'indice di ricerca. Questo problema può verificarsi a causa di:
 
@@ -146,7 +151,7 @@ Il documento è stato letto ed elaborato, ma l'indicizzatore non è stato in gra
 | --- | --- | --- |
 | Un campo contiene un termine troppo grande | Un termine nel documento è superiore al limite di [32 KB](search-limits-quotas-capacity.md#api-request-limits) | È possibile evitare questa restrizione assicurandosi che il campo non sia configurato come filtrabile, facet o ordinabile.
 | Il documento è troppo grande per essere indicizzato | Un documento è più grande delle [dimensioni massime delle richieste API](search-limits-quotas-capacity.md#api-request-limits) | [Come indicizzare set di dati di grandi dimensioni](search-howto-large-index.md)
-| Il documento contiene troppi oggetti nella raccolta | Una raccolta nel documento supera il [limite massimo di elementi in tutte le raccolte complesse](search-limits-quotas-capacity.md#index-limits) "il documento con `'1000052'` chiave `'4303'` contiene oggetti nelle raccolte (matrici JSON). Al massimo `'3000'` gli oggetti possono trovarsi in raccolte nell'intero documento. Rimuovere gli oggetti dalle raccolte e provare a indicizzare di nuovo il documento ". | Si consiglia di ridurre le dimensioni della raccolta complessa nel documento al di sotto del limite ed evitare un utilizzo elevato dello spazio di archiviazione.
+| Il documento contiene troppi oggetti nella raccolta | Una raccolta nel documento supera il [limite massimo di elementi in tutte le raccolte complesse](search-limits-quotas-capacity.md#index-limits) "il documento con chiave `'1000052'` contiene `'4303'` oggetti nelle raccolte (matrici JSON). Al massimo `'3000'` gli oggetti possono trovarsi in raccolte nell'intero documento. Rimuovere gli oggetti dalle raccolte e provare a indicizzare di nuovo il documento ". | Si consiglia di ridurre le dimensioni della raccolta complessa nel documento al di sotto del limite ed evitare un utilizzo elevato dello spazio di archiviazione.
 | Problemi di connessione all'indice di destinazione (persistente dopo i tentativi) perché il servizio è sottoposto ad altro carico, ad esempio l'esecuzione di query o l'indicizzazione. | Impossibile stabilire la connessione a Update index. Il servizio di ricerca è sottoposto a un carico elevato. | [Ridimensionare il servizio di ricerca](search-capacity-planning.md)
 | È in corso la correzione del servizio di ricerca per l'aggiornamento del servizio o durante la riconfigurazione della topologia. | Impossibile stabilire la connessione a Update index. Il servizio di ricerca è attualmente inattivo o il servizio di ricerca è in fase di transizione. | Configurare il servizio con almeno 3 repliche per la disponibilità del 99,9% per ogni [contratto](https://azure.microsoft.com/support/legal/sla/search/v1_0/) di servizio
 | Errore nella risorsa di calcolo/rete sottostante (rare) | Impossibile stabilire la connessione a Update index. Si è verificato un errore sconosciuto. | Configurare gli indicizzatori per [l'esecuzione in base a una pianificazione](search-howto-schedule-indexers.md) per riprendersi da uno stato di errore.
@@ -186,9 +191,9 @@ Questo errore si verifica quando l'indicizzatore tenta di [proiettare i dati in 
 
 | Motivo | Dettagli/esempio | Soluzione |
 | --- | --- | --- |
-| Non è stato possibile aggiornare `'blobUri'` il BLOB di proiezione nel contenitore`'containerName'` |Il contenitore specificato non esiste. | L'indicizzatore verificherà se il contenitore specificato è stato creato in precedenza e lo creerà se necessario, ma eseguirà solo questa verifica una volta per ogni esecuzione dell'indicizzatore. Questo errore indica che un elemento ha eliminato il contenitore dopo questo passaggio.  Per correggere l'errore, provare a eseguire questa operazione: lasciare invariate le informazioni dell'account di archiviazione, attendere il completamento dell'indicizzatore e quindi eseguire di nuovo l'indicizzatore. |
-| Non è stato possibile aggiornare `'blobUri'` il BLOB di proiezione nel contenitore`'containerName'` |Impossibile scrivere dati nella connessione di trasporto: una connessione esistente è stata chiusa forzatamente dall'host remoto. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
-| Non è stato possibile `'projectionRow'` aggiornare la riga nella tabella`'tableName'` | Il server è occupato. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
+| Non è stato possibile aggiornare il BLOB `'blobUri'` di proiezione nel contenitore`'containerName'` |Il contenitore specificato non esiste. | L'indicizzatore verificherà se il contenitore specificato è stato creato in precedenza e lo creerà se necessario, ma eseguirà solo questa verifica una volta per ogni esecuzione dell'indicizzatore. Questo errore indica che un elemento ha eliminato il contenitore dopo questo passaggio.  Per correggere l'errore, provare a eseguire questa operazione: lasciare invariate le informazioni dell'account di archiviazione, attendere il completamento dell'indicizzatore e quindi eseguire di nuovo l'indicizzatore. |
+| Non è stato possibile aggiornare il BLOB `'blobUri'` di proiezione nel contenitore`'containerName'` |Impossibile scrivere dati nella connessione di trasporto: una connessione esistente è stata chiusa forzatamente dall'host remoto. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
+| Non è stato possibile aggiornare la riga `'projectionRow'` nella tabella`'tableName'` | Il server è occupato. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
@@ -197,13 +202,13 @@ Input per l'abilità mancante, tipo errato o altrimenti non valido. Il messaggio
 1) Non è stato possibile eseguire skill
 2) Abilità eseguita ma potrebbe avere risultati imprevisti
 
-Le competenze cognitive hanno input obbligatori e input facoltativi. Ad esempio, l' [abilità di estrazione della frase chiave](cognitive-search-skill-keyphrases.md) ha `text`due `languageCode`input obbligatori,, e nessun input facoltativo. Gli input skill personalizzati sono tutti considerati input facoltativi.
+Le competenze cognitive hanno input obbligatori e input facoltativi. Ad esempio, l' [abilità di estrazione della frase chiave](cognitive-search-skill-keyphrases.md) ha due input obbligatori `text` , `languageCode` , e nessun input facoltativo. Gli input skill personalizzati sono tutti considerati input facoltativi.
 
 Se sono presenti input obbligatori mancanti o se un input non è il tipo corretto, l'abilità viene ignorata e viene generato un avviso. Le competenze ignorate non generano output, pertanto se altre competenze usano output della competenza ignorata, possono generare avvisi aggiuntivi.
 
 Se manca un input facoltativo, l'abilità verrà comunque eseguita, ma potrebbe produrre un output imprevisto a causa dell'input mancante.
 
-In entrambi i casi, questo avviso può essere previsto a causa della forma dei dati. Se, ad esempio, si dispone di un documento contenente informazioni sulle persone con `firstName`i `middleName`campi, `lastName`e, è possibile che siano presenti documenti per `middleName`i quali non è disponibile una voce. Se si passa `middleName` come input a una competenza nella pipeline, si prevede che questo input di competenze potrebbe mancare parte del tempo. È necessario valutare i dati e lo scenario per determinare se è necessaria o meno un'azione a seguito di questo avviso.
+In entrambi i casi, questo avviso può essere previsto a causa della forma dei dati. Se, ad esempio, si dispone di un documento contenente informazioni sulle persone con i campi `firstName` , `middleName` e `lastName` , è possibile che siano presenti documenti per i quali non è disponibile una voce `middleName` . Se si passa `middleName` come input a una competenza nella pipeline, si prevede che questo input di competenze potrebbe mancare parte del tempo. È necessario valutare i dati e lo scenario per determinare se è necessaria o meno un'azione a seguito di questo avviso.
 
 Se si vuole fornire un valore predefinito in caso di input mancante, è possibile usare l' [abilità condizionale](cognitive-search-skill-conditional.md) per generare un valore predefinito e quindi usare l'output della [competenza condizionale](cognitive-search-skill-conditional.md) come input di competenze.
 
@@ -223,18 +228,18 @@ Se si vuole fornire un valore predefinito in caso di input mancante, è possibil
 
 | Motivo | Dettagli/esempio | Soluzione |
 | --- | --- | --- |
-| Il tipo di input Skill è errato | "L'input di competenze obbligatorio non era del tipo `String`previsto. Nome: `text`, origine: `/document/merged_content`. "  "L'input di competenze obbligatorio non è del formato previsto. Nome: `text`, origine: `/document/merged_content`. "  "Impossibile eseguire l'iterazione su `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`un oggetto non di matrice".  "Impossibile selezionare `0` in non matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Determinate competenze prevedono input di determinati tipi, ad esempio la capacità `text` di valutazione del [sentimento](cognitive-search-skill-sentiment.md) si aspetta una stringa. Se l'input specifica un valore non stringa, l'abilità non viene eseguita e non genera alcun output. Verificare che il set di dati includa valori di input uniformi nel tipo o usare una [competenza personalizzata per l'API Web](cognitive-search-custom-skill-web-api.md) per la pre-elaborazione dell'input. Se si sta scorrendo la competenza su una matrice, verificare che il contesto di competenza `*` e l'input abbiano le posizioni corrette. In genere, il contesto e l'origine di input `*` devono terminare con per le matrici. |
-| Input skill mancante | "Manca l'input di competenze necessario. Nome: `text`, origine: `/document/merged_content`"" valore `/document/normalized_images/0/imageTags`mancante ".  "Impossibile selezionare `0` in una matrice `/document/pages` di lunghezza `0`". | Se tutti i documenti ricevono questo avviso, è probabile che si verifichi un errore di digitazione nei percorsi di input ed è necessario controllare la combinazione di `*` maiuscole e minuscole del nome della proprietà, supplementare o mancante nel percorso e verificare che i documenti dell'origine dati forniscano gli input necessari. |
-| Input codice lingua competenze non valido | L'input `languageCode` delle competenze dispone dei seguenti `X,Y,Z`codici di lingua, almeno uno dei quali non è valido. | Vedere altri dettagli di [seguito](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
+| Il tipo di input Skill è errato | "L'input di competenze obbligatorio non era del tipo previsto `String` . Nome: `text` , origine: `/document/merged_content` . "  "L'input di competenze obbligatorio non è del formato previsto. Nome: `text` , origine: `/document/merged_content` . "  "Impossibile eseguire l'iterazione su un oggetto non di matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ".  "Impossibile selezionare `0` in non matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` " | Determinate competenze prevedono input di determinati tipi, ad esempio la capacità di valutazione del [sentimento](cognitive-search-skill-sentiment.md) si aspetta `text` una stringa. Se l'input specifica un valore non stringa, l'abilità non viene eseguita e non genera alcun output. Verificare che il set di dati includa valori di input uniformi nel tipo o usare una [competenza personalizzata per l'API Web](cognitive-search-custom-skill-web-api.md) per la pre-elaborazione dell'input. Se si sta scorrendo la competenza su una matrice, verificare che il contesto di competenza e l'input abbiano `*` le posizioni corrette. In genere, il contesto e l'origine di input devono terminare con `*` per le matrici. |
+| Input skill mancante | "Manca l'input di competenze necessario. Nome: `text` , origine: `/document/merged_content` "" valore mancante " `/document/normalized_images/0/imageTags` .  "Impossibile selezionare `0` in una matrice `/document/pages` di lunghezza `0` ". | Se tutti i documenti ricevono questo avviso, è probabile che si verifichi un errore di digitazione nei percorsi di input ed è necessario controllare la combinazione di maiuscole e minuscole del nome della proprietà, supplementare o mancante `*` nel percorso e verificare che i documenti dell'origine dati forniscano gli input necessari. |
+| Input codice lingua competenze non valido | L'input delle competenze `languageCode` dispone dei seguenti codici `X,Y,Z` di lingua, almeno uno dei quali non è valido. | Vedere altri dettagli di [seguito](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Avviso: l'input skill ' codiceLingua ' ha i seguenti codici di lingua ' X, Y, Z ', almeno uno dei quali non è valido.
-Uno o più valori passati nell'input facoltativo `languageCode` di una competenza downstream non sono supportati. Questo problema può verificarsi se si passa l'output del [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) alle competenze successive e l'output è costituito da più lingue rispetto a quelle supportate nelle competenze downstream.
+Uno o più valori passati nell' `languageCode` input facoltativo di una competenza downstream non sono supportati. Questo problema può verificarsi se si passa l'output del [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) alle competenze successive e l'output è costituito da più lingue rispetto a quelle supportate nelle competenze downstream.
 
-Se si è certi che il set di dati si trova in una sola lingua, è [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) necessario rimuovere il `languageCode` LanguageDetectionSkill e l'input di `defaultLanguageCode` competenze e usare il parametro skill per tale skill, supponendo che la lingua sia supportata per tale competenza.
+Se si è certi che il set di dati si trova in una sola lingua, è necessario rimuovere il [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e l' `languageCode` input di competenze e usare il `defaultLanguageCode` parametro skill per tale skill, supponendo che la lingua sia supportata per tale competenza.
 
-Se si è certi che il set di dati contiene più lingue ed è quindi [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) necessario LanguageDetectionSkill `languageCode` e input, è consigliabile aggiungere un [ConditionalSkill](cognitive-search-skill-conditional.md) per filtrare il testo con lingue non supportate prima di passare il testo alla competenza downstream.  Di seguito è riportato un esempio di ciò che potrebbe essere simile a EntityRecognitionSkill:
+Se si è certi che il set di dati contiene più lingue ed è quindi necessario [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e `languageCode` input, è consigliabile aggiungere un [ConditionalSkill](cognitive-search-skill-conditional.md) per filtrare il testo con lingue non supportate prima di passare il testo alla competenza downstream.  Di seguito è riportato un esempio di ciò che potrebbe essere simile a EntityRecognitionSkill:
 
 ```json
 {
@@ -259,7 +264,7 @@ Di seguito sono riportati alcuni riferimenti per le lingue attualmente supportat
 ## <a name="warning-skill-input-was-truncated"></a>Avviso: l'input di competenze è stato troncato
 Le competenze cognitive hanno limiti alla lunghezza del testo che può essere analizzato in una sola volta. Se l'input di testo di queste competenze supera tale limite, il testo verrà troncato per soddisfare il limite e quindi verrà eseguito l'arricchimento del testo troncato. Ciò significa che l'abilità viene eseguita, ma non su tutti i dati.
 
-Nell'esempio LanguageDetectionSkill riportato di seguito, `'text'` il campo di input può attivare questo avviso se supera il limite di caratteri. È possibile trovare i limiti di input delle [competenze nella documentazione relativa alle competenze](cognitive-search-predefined-skills.md).
+Nell'esempio LanguageDetectionSkill riportato di seguito, il `'text'` campo di input può attivare questo avviso se supera il limite di caratteri. È possibile trovare i limiti di input delle [competenze nella documentazione relativa alle competenze](cognitive-search-predefined-skills.md).
 
 ```json
  {
@@ -289,9 +294,9 @@ Questo avviso viene generato solo per le origini dati Cosmos DB.
 
 L'avanzamento incrementale durante l'indicizzazione assicura che, in caso di interruzione dell'esecuzione dell'indicizzatore a causa di errori temporanei o del limite del tempo di esecuzione, l'indicizzatore possa riprendere dal punto in cui è stato interrotto all'esecuzione successiva, invece di dovere ripetere dall'inizio l'indicizzazione dell'intera raccolta. Questo approccio risulta particolarmente importante in caso di indicizzazione di raccolte di grandi dimensioni.
 
-La possibilità di riprendere un processo di indicizzazione non completata si basa sul fatto che i documenti siano `_ts` ordinati in base alla colonna. L'indicizzatore usa il timestamp per determinare quale documento scegliere successivamente. Se la `_ts` colonna è mancante o l'indicizzatore non è in grado di determinare se una query personalizzata è ordinata, l'indicizzatore inizia all'inizio e verrà visualizzato questo avviso.
+La possibilità di riprendere un processo di indicizzazione non completata si basa sul fatto che i documenti siano ordinati in base alla `_ts` colonna. L'indicizzatore usa il timestamp per determinare quale documento scegliere successivamente. Se la `_ts` colonna è mancante o l'indicizzatore non è in grado di determinare se una query personalizzata è ordinata, l'indicizzatore inizia all'inizio e verrà visualizzato questo avviso.
 
-È possibile eseguire l'override di questo comportamento, abilitando lo stato incrementale ed eliminando questo avviso `assumeOrderByHighWatermarkColumn` utilizzando la proprietà di configurazione.
+È possibile eseguire l'override di questo comportamento, abilitando lo stato incrementale ed eliminando questo avviso utilizzando la `assumeOrderByHighWatermarkColumn` proprietà di configurazione.
 
 Per ulteriori informazioni, vedere [avanzamento incrementale e query personalizzate](search-howto-index-cosmosdb.md#IncrementalProgress).
 
@@ -311,7 +316,12 @@ Per altre informazioni, vedere [limiti dell'indicizzatore](search-limits-quotas-
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Avviso: Impossibile eseguire il mapping del campo di output ' X ' all'indice di ricerca
-I mapping dei campi di output che fanno riferimento a dati inesistenti/null produrranno avvisi per ogni documento e restituiscono un campo di indice vuoto. Per aggirare questo problema, controllare i percorsi di origine del mapping dei campi di output per individuare possibili errori di digitazione o impostare un valore predefinito usando la [competenza condizionale](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+I mapping dei campi di output che fanno riferimento a dati inesistenti/null produrranno avvisi per ogni documento e restituiscono un campo di indice vuoto. Per aggirare questo problema, controllare i percorsi di origine del mapping dei campi di output per individuare possibili errori di digitazione o impostare un valore predefinito usando la [competenza condizionale](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Per informazioni dettagliate, vedere [mapping dei campi di output](cognitive-search-output-field-mapping.md) .
+
+| Motivo | Dettagli/esempio | Soluzione |
+| --- | --- | --- |
+| Non è possibile eseguire l'iterazione su una matrice non array | "Impossibile eseguire l'iterazione su un oggetto non di matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ". | Questo errore si verifica quando l'output non è una matrice. Se si ritiene che l'output sia una matrice, verificare la presenza di errori nel percorso del campo di origine di output indicato. Ad esempio, è possibile che `*` nel nome del campo di origine sia presente un valore mancante o aggiuntivo. È anche possibile che l'input per questa skill sia null, ottenendo una matrice vuota. Nella sezione [input skill non è stato](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) trovato un tipo di dati simile.    |
+| Non è possibile selezionare `0` in una matrice non di matrici | "Impossibile eseguire la selezione `0` in un non array `/document/pages` ". | Questo problema può verificarsi se l'output delle competenze non produce una matrice e il nome del campo di origine di output contiene un indice di matrice o `*` nel percorso. Controllare i percorsi specificati nei nomi dei campi di origine di output e il valore del campo per il nome del campo indicato. Nella sezione [input skill non è stato](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) trovato un tipo di dati simile.  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 

@@ -6,20 +6,20 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
-ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.date: 5/11/2020
+ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006162"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124075"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 
 I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato che è statico o a modifica lenta, usato per eseguire una ricerca o per aumentare i flussi di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento nel processo di analisi di flusso di Azure, in genere si usa un [join dei dati di riferimento](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. 
 
 ## <a name="example"></a>Esempio  
- Se un veicolo commerciale è registrato presso la società Toll Company, può attraversare il casello senza essere fermato per l'ispezione. Verrà usata una tabella di ricerca delle registrazioni dei veicoli commerciali per identificare tutti i veicoli la cui registrazione è scaduta.  
+È possibile avere un flusso in tempo reale degli eventi generati quando le automobili passano un casello. Il casello può acquisire la targa in tempo reale e partecipare a un set di dati statico con i dettagli di registrazione per identificare le targhe che sono scadute.  
   
 ```SQL  
 SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
@@ -57,14 +57,14 @@ Se non è previsto che i dati di riferimento cambino, viene abilitato il support
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Generare i dati di riferimento in base a una pianificazione
 
-Se i dati di riferimento sono costituiti da un set di dati che cambia lentamente, è possibile abilitare il supporto per l'aggiornamento dei dati di riferimento specificando un modello di percorso nella configurazione di input con i token di sostituzione {date} e {time}. Analisi di flusso seleziona le definizioni dei dati di riferimento aggiornate in base a questo modello di percorso. Ad esempio, un modello di `sample/{date}/{time}/products.csv` con formato di data **"aaaa-mm-gg"** e formato di ora **"hh-mm"** indica ad analisi di flusso di selezionare il BLOB `sample/2015-04-16/17-30/products.csv` aggiornato alle 5:30 del 16 aprile 2015 fuso orario UTC.
+Se i dati di riferimento sono costituiti da un set di dati che cambia lentamente, è possibile abilitare il supporto per l'aggiornamento dei dati di riferimento specificando un modello di percorso nella configurazione di input con i token di sostituzione {date} e {time}. Analisi di flusso seleziona le definizioni dei dati di riferimento aggiornate in base a questo modello di percorso. Ad esempio, un modello di `sample/{date}/{time}/products.csv` con formato di data **"aaaa-mm-gg"** e formato di ora **"hh-mm"** indica ad analisi di flusso di selezionare il BLOB aggiornato `sample/2015-04-16/17-30/products.csv` alle 5:30 del 16 aprile 2015 fuso orario UTC.
 
 Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di dati di riferimento aggiornati a intervalli di un minuto. Se un BLOB con timestamp 10:30:00 viene caricato con un breve ritardo (ad esempio, 10:30:30), si noterà un piccolo ritardo nel processo di analisi di flusso che fa riferimento a questo BLOB. Per evitare tali scenari, è consigliabile caricare il BLOB prima del tempo effettivo di destinazione (10:30:00 in questo esempio) per consentire al processo di analisi di flusso il tempo sufficiente per individuarlo e caricarlo in memoria ed eseguire operazioni. 
 
 > [!NOTE]
 > Attualmente i processi di analisi di flusso cercano l'aggiornamento del BLOB solo quando la data/ora del computer precede quella codificata nel nome del BLOB. Ad esempio, il processo cercherà `sample/2015-04-16/17-30/products.csv` non appena possibile ma non prima delle 17.30 del 16 aprile 2015 nel fuso orario UTC. Il processo non cercherà *mai* un BLOB con data/ora codificata precedente all'ultima individuata.
 > 
-> Ad esempio, quando il processo trova il BLOB `sample/2015-04-16/17-30/products.csv` , ignorerà tutti i file con una data codificata precedente alla 5:30 del 16 aprile 2015, quindi, se viene creato `sample/2015-04-16/17-25/products.csv` un BLOB in ritardo nello stesso contenitore, il processo non lo userà.
+> Ad esempio, quando il processo trova il BLOB, `sample/2015-04-16/17-30/products.csv` ignorerà tutti i file con una data codificata precedente alla 5:30 del 16 aprile 2015, quindi, se `sample/2015-04-16/17-25/products.csv` viene creato un BLOB in ritardo nello stesso contenitore, il processo non lo userà.
 > 
 > Analogamente, se il file `sample/2015-04-16/17-30/products.csv` viene generato solo alle 22.03 del 16 aprile 2015, ma nel contenitore non è presente alcun BLOB con data/ora precedente, il processo usa questo file a partire dalle 22.03 del 16 aprile 2015 e i dati di riferimento precedenti fino a quel momento.
 > 
@@ -111,15 +111,13 @@ Per configurare i dati di riferimento del database SQL, è prima di tutto necess
 
 ## <a name="size-limitation"></a>Limitazione delle dimensioni
 
-Analisi di flusso supporta i dati di riferimento con **dimensione massima di 300 MB**. È possibile ottenere un limite di dimensione massima per i dati di riferimento di 300 MB solo con query semplici. Man mano che aumenta la complessità della query per includere l'elaborazione con informazioni sullo stato, ad esempio aggregazioni finestra, join temporali e funzioni di analisi temporale, è previsto che la dimensione massima supportata dei dati di riferimento diminuisca. Se Analisi di flusso di Azure non può caricare i dati di riferimento ed eseguire operazioni complesse, il processo esaurisce la memoria e ha esito negativo. In questi casi, la metrica di utilizzo in percentuale dell'unità di streaming raggiungerà il 100%.    
+Per ottenere prestazioni ottimali, è consigliabile usare set di impostazioni di riferimento inferiori a 300 MB. L'utilizzo dei dati di riferimento maggiori di 300 MB è supportato nei processi con 6 o più unità di streaming. Questa funzionalità è in anteprima e non deve essere usata nell'ambiente di produzione. L'uso di dati di riferimento di grandi dimensioni può influito sulle prestazioni del processo. Man mano che aumenta la complessità della query per includere l'elaborazione con informazioni sullo stato, ad esempio aggregazioni finestra, join temporali e funzioni di analisi temporale, è previsto che la dimensione massima supportata dei dati di riferimento diminuisca. Se Analisi di flusso di Azure non può caricare i dati di riferimento ed eseguire operazioni complesse, il processo esaurisce la memoria e ha esito negativo. In questi casi, la metrica di utilizzo in percentuale dell'unità di streaming raggiungerà il 100%.    
 
-|**Numero di unità di streaming**  |**Dimensione massima approssimativa supportata (in MB)**  |
+|**Numero di unità di streaming**  |**Dimensioni consigliate**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 e oltre   |300   |
-
-L'aumento del numero di unità di streaming di un processo oltre 6 non comporta l'aumento della dimensione massima supportata dei dati di riferimento.
+|1   |50 MB o inferiore   |
+|3   |150 MB o inferiore   |
+|6 e oltre   |300 MB o inferiore. L'uso di dati di riferimento maggiori di 300 MB è supportato in anteprima e può influito sulle prestazioni del processo.    |
 
 Il supporto per la compressione non è disponibile per i dati di riferimento.
 

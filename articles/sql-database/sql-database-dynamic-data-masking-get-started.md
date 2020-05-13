@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synpase
-ms.openlocfilehash: e5b281d59245d8fbd32b18f4ac5fe577fc7ff309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2759644c68d65e76de222a0ac74f1d4900caddc0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78192915"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121253"
 ---
 # <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Maschera dati dinamica per il database SQL di Azure e Azure sinapsi Analytics
 
@@ -44,9 +44,9 @@ Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministrat
 
 | Funzione di mascheramento | Logica di mascheramento |
 | --- | --- |
-| **Predefinito** |**Mascheramento completo in base ai tipi di dati dei campi designati**<br/><br/>• Usare XXXX o un numero minore di X se la dimensione del campo è inferiore a 4 caratteri per i tipi di dati di stringa (nchar, ntext, nvarchar).<br/>• Usare un valore pari a zero per i tipi di dati numerici (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Usare 01-01-1900 per i tipi di dati data/ora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Per sql_variant viene usato il valore predefinito del tipo corrente.<br/>• Per XML viene usato \<il documento mascherato/>.<br/>• Usare un valore vuoto per i tipi di dati speciali (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
+| **Predefinita** |**Mascheramento completo in base ai tipi di dati dei campi designati**<br/><br/>• Usare XXXX o un numero minore di X se la dimensione del campo è inferiore a 4 caratteri per i tipi di dati di stringa (nchar, ntext, nvarchar).<br/>• Usare un valore pari a zero per i tipi di dati numerici (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Usare 01-01-1900 per i tipi di dati data/ora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Per sql_variant viene usato il valore predefinito del tipo corrente.<br/>• Per XML \< viene usato il documento mascherato/>.<br/>• Usare un valore vuoto per i tipi di dati speciali (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
 | **Carta di credito** |**Metodo di mascheramento che espone le ultime quattro cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di carta di credito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Indirizzo di posta elettronica** |**Metodo di mascheramento che espone la prima lettera e sostituisce il dominio con xxx.com** usando un prefisso di stringa costante sotto forma di indirizzo di posta elettronica.<br/><br/>aXX@XXXX.com |
+| **Posta elettronica** |**Metodo di mascheramento che espone la prima lettera e sostituisce il dominio con xxx.com** usando un prefisso di stringa costante sotto forma di indirizzo di posta elettronica.<br/><br/>aXX@XXXX.com |
 | **Numero casuale** |**Metodo di mascheramento che genera un numero casuale** secondo i limiti selezionati e i tipi di dati effettivi. Se i limiti designati sono uguali, la funzione maschera è un numero costante.<br/><br/>![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **Testo personalizzato** |**Metodo di mascheramento che espone il primo e l'ultimo carattere** e aggiunge una stringa di riempimento personalizzata al centro. Se la stringa originale è più corta del prefisso e del suffisso visibili, viene usata solo la stringa di riempimento. <br/>prefisso[riempimento]suffisso<br/><br/>![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
@@ -58,8 +58,28 @@ Il motore di raccomandazioni DDM evidenzia determinati campi del database come p
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurare la maschera dati dinamica per il database usando i cmdlet di PowerShell
 
-Vedere [Cmdlet del database SQL di Azure](https://docs.microsoft.com/powershell/module/az.sql).
+### <a name="data-masking-policy"></a>Criteri di maschera dati
+
+- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+
+### <a name="data-masking-rules"></a>Regole per la maschera dati
+
+- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configurare il mascheramento dei dati dinamici per il database usando l'API REST
 
-Vedere [Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) (Operazioni per i database SQL di Azure).
+È possibile usare l'API REST per gestire a livello di codice i criteri e le regole di maschera dati. L'API REST pubblicata supporta le operazioni seguenti:
+
+### <a name="data-masking-policies"></a>Criteri di maschera dati
+
+- [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): crea o aggiorna l'etichetta di riservatezza della colonna specificata.
+- [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): ottiene un criterio di maschera dati del database. 
+
+### <a name="data-masking-rules"></a>Regole per la maschera dati
+
+- [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): crea o aggiorna una regola di maschera dati del database.
+- [List by database](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): ottiene un elenco di regole di maschera dati del database.

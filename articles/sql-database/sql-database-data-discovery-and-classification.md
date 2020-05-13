@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/21/2020
 tags: azure-synapse
-ms.openlocfilehash: f05b4d4fec99aaa2fb79da46e2167d883d1f15ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27989687934719be5f1d18b85d3ead92f28b3f60
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81766947"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123854"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Individuazione dei dati & classificazione per il database SQL di Azure e Azure sinapsi Analytics
 
@@ -113,7 +113,7 @@ Dopo aver definito i criteri a livello di organizzazione, è possibile continuar
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Controllare l'accesso ai dati sensibili
 
-Un aspetto importante del paradigma di protezione delle informazioni è la possibilità di monitorare l'accesso ai dati sensibili. Il [controllo del database SQL di Azure](sql-database-auditing.md) è stato migliorato per includere un nuovo campo nel log di `data_sensitivity_information`controllo denominato. Questo campo registra le classificazioni di riservatezza (etichette) dei dati restituiti da una query. Ad esempio:
+Un aspetto importante del paradigma di protezione delle informazioni è la possibilità di monitorare l'accesso ai dati sensibili. Il [controllo del database SQL di Azure](sql-database-auditing.md) è stato migliorato per includere un nuovo campo nel log di controllo denominato `data_sensitivity_information` . Questo campo registra le classificazioni di riservatezza (etichette) dei dati restituiti da una query. Ad esempio:
 
 ![Log di controllo](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -152,18 +152,6 @@ Per informazioni sull'uso di T-SQL per le classificazioni, vedere i riferimenti 
 - Per rimuovere la classificazione da una o più colonne: [Elimina classificazione di riservatezza](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Per visualizzare tutte le classificazioni nel database: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="use-the-rest-api"></a>Usare l'API REST
-
-È possibile usare l'API REST per gestire le classificazioni e le raccomandazioni a livello di codice. L'API REST pubblicata supporta le operazioni seguenti:
-
-- [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o aggiorna l'etichetta di riservatezza della colonna specificata.
-- [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): Elimina l'etichetta di riservatezza della colonna specificata.
-- [Disabilita Raccomandazione: Disabilita](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation)le raccomandazioni di riservatezza per la colonna specificata.
-- [Enable recommendation: Abilita](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation)le raccomandazioni di riservatezza nella colonna specificata. (Le indicazioni sono abilitate per impostazione predefinita in tutte le colonne).
-- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): Ottiene l'etichetta di riservatezza della colonna specificata.
-- [List Current by database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): ottiene le etichette di riservatezza correnti del database specificato.
-- [Elenco consigliato per database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): ottiene le etichette di riservatezza consigliate del database specificato.
-
 ### <a name="use-powershell-cmdlets"></a>Usare i cmdlet di PowerShell
 È possibile usare PowerShell per gestire le classificazioni e le raccomandazioni per il database SQL di Azure e le istanze gestite.
 
@@ -185,6 +173,17 @@ Per informazioni sull'uso di T-SQL per le classificazioni, vedere i riferimenti 
 - [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
+### <a name="use-the-rest-api"></a>Usare l'API REST
+
+È possibile usare l'API REST per gestire le classificazioni e le raccomandazioni a livello di codice. L'API REST pubblicata supporta le operazioni seguenti:
+
+- [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o aggiorna l'etichetta di riservatezza della colonna specificata.
+- [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): Elimina l'etichetta di riservatezza della colonna specificata.
+- [Disabilita Raccomandazione: Disabilita](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation)le raccomandazioni di riservatezza per la colonna specificata.
+- [Enable recommendation: Abilita](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation)le raccomandazioni di riservatezza nella colonna specificata. (Le indicazioni sono abilitate per impostazione predefinita in tutte le colonne).
+- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): Ottiene l'etichetta di riservatezza della colonna specificata.
+- [List Current by database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): ottiene le etichette di riservatezza correnti del database specificato.
+- [Elenco consigliato per database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): ottiene le etichette di riservatezza consigliate del database specificato.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Passaggi successivi
 

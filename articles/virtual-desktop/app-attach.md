@@ -5,21 +5,21 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 94ec85ae658ca6012cd1f1594b431d12bb73013d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612470"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121066"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurare la connessione all'app MSIX
 
 > [!IMPORTANT]
 > La connessione all'app MSIX è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo argomento descrive come configurare la connessione dell'app MSIX in un ambiente desktop virtuale Windows.
 
@@ -41,7 +41,7 @@ In primo luogo, è necessario ottenere l'immagine del sistema operativo da usare
      >[!NOTE]
      >Per accedere al portale di Windows Insider, è necessario essere membri del programma Windows Insider. Per ulteriori informazioni sul programma Windows Insider, consultare la [documentazione di Windows Insider](/windows-insider/at-home/).
 
-2. Scorrere verso il basso fino alla sezione **Select Edition** e selezionare **Windows 10 Insider Preview Enterprise (Fast) – Build 19035** o versione successiva.
+2. Scorrere verso il basso fino alla sezione **Select Edition** e selezionare **Windows 10 Insider Preview Enterprise (Fast) – Build 19041** o versione successiva.
 
 3. Selezionare **conferma**, quindi selezionare la lingua che si vuole usare e quindi fare di nuovo clic su **conferma** .
     
@@ -73,6 +73,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+
+Dopo aver disabilitato gli aggiornamenti automatici, è necessario abilitare Hyper-V perché si userà il comando Mound-VHD per eseguire il staging e smontare il disco rigido virtuale per la fase di disinstallazione. 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>Questa modifica richiede il riavvio della macchina virtuale.
 
 Preparare quindi il VHD della macchina virtuale per Azure e caricare il disco VHD risultante in Azure. Per altre informazioni, vedere [preparare e personalizzare un'immagine del disco rigido virtuale Master](set-up-customize-master-image.md).
 
@@ -211,7 +219,7 @@ Prima di aggiornare gli script di PowerShell, assicurarsi di disporre del GUID d
 
 5.  Aprire un prompt dei comandi e immettere **mountvol**. Questo comando visualizzerà un elenco di volumi e i relativi GUID. Copiare il GUID del volume in cui la lettera di unità corrisponde all'unità in cui è stato montato il disco rigido virtuale nel passaggio 2.
 
-    Ad esempio, in questo output di esempio per il comando mountvol, se il disco rigido virtuale è stato montato sull'unità C, è necessario copiare il `C:\`valore precedente:
+    Ad esempio, in questo output di esempio per il comando mountvol, se il disco rigido virtuale è stato montato sull'unità C, è necessario copiare il valore precedente `C:\` :
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -257,7 +265,7 @@ Prima di aggiornare gli script di PowerShell, assicurarsi di disporre del GUID d
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 

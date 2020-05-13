@@ -3,22 +3,20 @@ title: Creare una funzione che viene eseguita in una pianificazione in Azure
 description: Informazioni su come creare una funzione in Azure eseguita in base a una pianificazione definita.
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
-ms.date: 03/28/2018
+ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: e100a2d3a3718b302a44cbdecf462a99d9c823e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756507"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123433"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Creare una funzione in Azure attivata da un timer
 
 Informazioni su come usare Funzioni di Azure per creare una funzione [serverless](https://azure.microsoft.com/solutions/serverless/) eseguita in base a una pianificazione definita.
 
-![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -28,46 +26,54 @@ Per completare questa esercitazione:
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![App per le funzioni creata correttamente.](./media/functions-create-first-azure-function/function-app-create-success.png)
+La nuova app per le funzioni è pronta per essere usata. Successivamente, verrà creata una funzione nella nuova app per le funzioni.
 
-Si creerà ora una funzione nella nuova app per le funzioni.
+:::image type="content" source="./media/functions-create-scheduled-function/function-app-create-success.png" alt-text="App per le funzioni creata correttamente." border="true":::
 
 <a name="create-function"></a>
 
 ## <a name="create-a-timer-triggered-function"></a>Creare una funzione attivata da un timer
 
-1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Nel portale** e quindi **Continua**. In caso contrario, andare direttamente al passaggio 3.
+1. Nell'app per le funzioni selezionare **funzioni**e quindi selezionare **+ Aggiungi** . 
 
-   ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
+   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Aggiungere una funzione nell'portale di Azure." border="true":::
 
-2. Scegliere **Altri modelli** e quindi **Termina e visualizza i modelli**.
+1. Selezionare il modello di **trigger timer** . 
 
-    ![Selezione di altri modelli nella guida introduttiva di Funzioni](./media/functions-create-scheduled-function/add-first-function.png)
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Selezionare il trigger timer nell'portale di Azure." border="true":::
 
-3. Nel campo di ricerca digitare `timer` e configurare il nuovo trigger con le impostazioni indicate nella tabella sotto l'immagine.
+1. Configurare il nuovo trigger con le impostazioni specificate nella tabella sotto l'immagine e quindi selezionare **Crea funzione**.
 
-    ![Creare una funzione attivata da un timer nel portale di Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
-
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Selezionare il trigger timer nell'portale di Azure." border="true":::
+    
     | Impostazione | Valore consigliato | Descrizione |
     |---|---|---|
-    | **Nome** | Predefinito | Definisce il nome della funzione attivata dal timer. |
-    | **Pianificare** | 0 \*/1 \* \* \* \* | [Espressione CRON](functions-bindings-timer.md#ncrontab-expressions) a sei campi che pianifica la funzione in modo che venga eseguita ogni minuto. |
+    | **Nome** | Valore predefinito | Definisce il nome della funzione attivata dal timer. |
+    | **Pianificazione** | 0 \* /1 \* \* \*\* | [Espressione CRON](functions-bindings-timer.md#ncrontab-expressions) a sei campi che pianifica la funzione in modo che venga eseguita ogni minuto. |
 
-4. Fare clic su **Crea**. Viene creata una funzione nel linguaggio scelto che verrà eseguita ogni minuto, al minuto.
+## <a name="test-the-function"></a>Testare la funzione
 
-5. Verificare l'esecuzione visualizzando le informazioni di traccia scritte nei log.
+1. Nella funzione selezionare **codice + test** ed espandere i log.
 
-    ![Visualizzatore log di Funzioni nel portale di Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Testare il trigger timer nell'portale di Azure." border="true":::
+
+1. Verificare l'esecuzione visualizzando le informazioni scritte nei log.
+
+    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Visualizzare il trigger timer nell'portale di Azure." border="true":::
 
 È ora possibile modificare la pianificazione della funzione in modo che venga eseguita ogni ora invece che ogni minuto.
 
 ## <a name="update-the-timer-schedule"></a>Aggiornare la pianificazione del timer
 
-1. Espandere la funzione e fare clic su **Integrazione**. È a questo punto che si definiscono i binding di input e di output e si imposta la pianificazione. 
+1. Nella funzione selezionare **integrazione**. Qui è possibile definire le associazioni di input e output per la funzione e impostare anche la pianificazione. 
 
-2. Nel campo **Pianificazione** immettere il nuovo valore `0 0 */1 * * *` per la pianificazione oraria e quindi fare clic su **Salva**.  
+1. Selezionare **Timer (timeout)**.
 
-![Pianificazione del timer di aggiornamento di Funzioni nel portale di Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Aggiornare la pianificazione del timer nell'portale di Azure." border="true":::
+
+1. Aggiornare il valore di **pianificazione** a `0 0 */1 * * *` , quindi selezionare **Salva**.  
+
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Pianificazione del timer di aggiornamento di Funzioni nel portale di Azure." border="true":::
 
 È ora disponibile una funzione che viene eseguita ogni ora, all'ora.
 
@@ -77,6 +83,6 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata creata una funzione eseguita in base a una pianificazione. Per altre informazioni sui trigger timer, vedere [Pianificare l'esecuzione di codice con Funzioni di Azure](functions-bindings-timer.md).
+È stata creata una funzione che viene eseguita in base a una pianificazione. Per altre informazioni sui trigger timer, vedere [Pianificare l'esecuzione di codice con Funzioni di Azure](functions-bindings-timer.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

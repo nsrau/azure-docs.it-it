@@ -1,20 +1,20 @@
 ---
 title: Gestire gli eventi della mappa | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come creare una mappa di SDK Web interattiva con eventi di mapping usando il Microsoft Azure Maps Web SDK.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b97371d1b63ad4abfe1635e426df1449ab5f3f14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79534899"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124007"
 ---
 # <a name="interact-with-the-map"></a>Interazione con la mappa
 
@@ -57,8 +57,8 @@ Nella tabella seguente sono elencati tutti gli eventi della classe Map supportat
 | `close`             | Generato quando il popup viene chiuso manualmente o a livello.|
 | `contextmenu`       | Generato quando si fa clic sul pulsante destro del mouse.|
 | `data`              | Generato quando vengono caricati o modificati dati della mappa. |
-| `dataadded`         | Generato quando vengono aggiunte forme a `DataSource`.|
-| `dataremoved`       | Generato quando le `DataSource`forme vengono rimosse da.|
+| `dataadded`         | Generato quando vengono aggiunte forme a `DataSource` .|
+| `dataremoved`       | Generato quando le forme vengono rimosse da `DataSource` .|
 | `datasourceupdated` | Generato quando l' `DataSource` oggetto viene aggiornato.|
 | `dblclick`          | Generato quando si fa doppio clic su un dispositivo di puntamento nello stesso punto sulla mappa.|
 | `drag`              | Generato ripetutamente durante un'interazione di "trascinamento della panoramica" sulla mappa, il popup o il marcatore HTML.|
@@ -94,8 +94,8 @@ Nella tabella seguente sono elencati tutti gli eventi della classe Map supportat
 | `rotatestart`       | Generato quando viene avviata l'interazione "trascina per ruotare".|
 | `shapechanged`      | Generato quando viene modificata una proprietà dell'oggetto Shape.|
 | `sourcedata`        | Generato quando una delle origini della mappa viene caricata o modificata, incluso se un riquadro appartenente a un'origine viene caricato o modificato. |
-| `sourceadded`       | Generato quando un `DataSource` oggetto `VectorTileSource` o viene aggiunto alla mappa.|
-| `sourceremoved`     | Generato quando un `DataSource` oggetto `VectorTileSource` o viene rimosso dalla mappa.|
+| `sourceadded`       | Generato quando un oggetto `DataSource` o `VectorTileSource` viene aggiunto alla mappa.|
+| `sourceremoved`     | Generato quando un oggetto `DataSource` o `VectorTileSource` viene rimosso dalla mappa.|
 | `styledata`         | Generato quando lo stile della mappa viene caricato o modificato.|
 | `styleimagemissing` | Generato quando un livello tenta di caricare un'immagine dallo sprite dell'immagine che non esiste |
 | `tokenacquired`     | Generato quando si ottiene un token di accesso di AAD.|

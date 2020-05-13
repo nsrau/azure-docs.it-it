@@ -3,14 +3,14 @@ title: Slot di distribuzione di funzioni di Azure
 description: Informazioni su come creare e usare gli slot di distribuzione con funzioni di Azure
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cfbd533921ba4d1757e7415a3bb8f70aeb71251
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769218"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122595"
 ---
 # <a name="azure-functions-deployment-slots"></a>Slot di distribuzione di funzioni di Azure
 
@@ -29,7 +29,7 @@ Di seguito viene illustrato il modo in cui le funzioni sono interessate dallo sw
 L'uso degli slot di distribuzione presenta diversi vantaggi. Negli scenari seguenti vengono descritti gli utilizzi comuni per gli slot:
 
 - **Ambienti diversi per scopi diversi**: l'uso di slot diversi offre la possibilità di distinguere le istanze dell'app prima di effettuare lo scambio in produzione o in uno slot di staging.
-- **Preriscaldamento**: la distribuzione in uno slot invece che direttamente in produzione consente all'app di scaldarsi prima di andare in tempo reale. Inoltre, l'uso di slot riduce la latenza per i carichi di lavoro attivati da HTTP. Le istanze vengono riscaldate prima della distribuzione, riducendo l'avvio a freddo per le funzioni appena distribuite.
+- **Preriscaldamento**: la distribuzione in uno slot invece che direttamente in produzione consente all'app di scaldarsi prima di andare in tempo reale. Inoltre, l'uso di slot riduce la latenza per i carichi di lavoro attivati da HTTP. Le istanze vengono riscaldate prima della distribuzione, riducendo l'avvio a freddo delle funzioni appena distribuite.
 - **Fallback semplici**: dopo uno scambio con la produzione, lo slot con un'app precedentemente preparata ha ora l'app di produzione precedente. Se le modifiche scambiate nello slot di produzione non sono quelle desiderate, è possibile invertire immediatamente lo scambio per riportare l'ultima istanza di una nota.
 
 ## <a name="swap-operations"></a>Operazioni di scambio
@@ -45,11 +45,11 @@ Durante uno scambio, uno slot viene considerato l'origine e l'altro la destinazi
 
 1. **Routing degli aggiornamenti:** Se tutte le istanze dello slot di origine sono state attivate correttamente, i due slot completano lo scambio cambiando le regole di routing. Dopo questo passaggio, lo slot di destinazione (ad esempio, lo slot di produzione) dispone dell'app precedentemente riscaldata nello slot di origine.
 
-1. **Ripetere l'operazione:** Ora che lo slot di origine ha l'app pre-swap nello slot di destinazione, eseguire la stessa operazione applicando tutte le impostazioni e riavviando le istanze per lo slot di origine.
+1. **Ripetere l'operazione:** Ora che lo slot di origine ha l'app pre-swap nello slot di destinazione, completare la stessa operazione applicando tutte le impostazioni e riavviando le istanze per lo slot di origine.
 
 Tenere presente quanto segue:
 
-- In qualsiasi momento dell'operazione di scambio, l'inizializzazione delle app scambiate viene eseguita nello slot di origine. Lo slot di destinazione rimane online mentre è in corso la preparazione dello slot di origine, indipendentemente dal fatto che lo scambio abbia esito positivo o negativo.
+- In qualsiasi momento dell'operazione di scambio, l'inizializzazione delle app scambiate viene eseguita nello slot di origine. Lo slot di destinazione rimane online mentre viene preparato lo slot di origine, indipendentemente dal fatto che lo scambio abbia esito positivo o negativo.
 
 - Per scambiare uno slot di staging con lo slot di produzione, assicurarsi che lo slot di produzione sia *sempre* lo slot di destinazione. In questo modo, l'operazione di scambio non influisce sull'app di produzione.
 
@@ -61,21 +61,27 @@ Tenere presente quanto segue:
 
 ### <a name="create-a-deployment-setting"></a>Creare un'impostazione di distribuzione
 
-È possibile contrassegnare le impostazioni come un'impostazione di distribuzione che lo rende "appiccicoso". Un'impostazione appiccicosa non scambia con l'istanza dell'app.
+È possibile contrassegnare le impostazioni come impostazione di distribuzione, rendendola "appiccicosa". Un'impostazione appiccicosa non viene scambiata con l'istanza dell'app.
 
-Se si crea un'impostazione di distribuzione in uno slot, assicurarsi di creare la stessa impostazione con un valore univoco in qualsiasi altro slot associato a uno scambio. In questo modo, quando il valore di un'impostazione non cambia, i nomi delle impostazioni rimangono coerenti tra gli slot. Questa coerenza del nome garantisce che il codice non tenti di accedere a un'impostazione definita in uno slot ma non in un'altra.
+Se si crea un'impostazione di distribuzione in uno slot, assicurarsi di creare la stessa impostazione con un valore univoco in qualsiasi altro slot che è associato a uno scambio. In questo modo, quando il valore di un'impostazione non cambia, i nomi delle impostazioni rimangono coerenti tra gli slot. Questa coerenza del nome garantisce che il codice non tenti di accedere a un'impostazione definita in uno slot ma non in un'altra.
 
 Per creare un'impostazione di distribuzione, attenersi alla procedura seguente:
 
-- Passare a *slot* nell'app per le funzioni
-- Fare clic sul nome dello slot
-- In *funzionalità della piattaforma > impostazioni generali*fare clic su **configurazione** .
-- Fare clic sul nome dell'impostazione che si vuole usare con lo slot corrente
-- Fare clic sulla casella di controllo **Impostazioni slot di distribuzione**
-- Fare clic su **OK**.
-- Quando l'impostazione del pannello scompare, fare clic su **Salva** per conservare le modifiche
+1. Passare a **slot di distribuzione** nell'app per le funzioni e quindi selezionare il nome dello slot.
 
-![Impostazione dello slot di distribuzione](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
+
+1. Selezionare **configurazione**, quindi selezionare il nome dell'impostazione che si vuole usare con lo slot corrente.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configurare l'impostazione dell'applicazione per uno slot nel portale di Azure." border="true":::
+
+1. Selezionare **impostazione dello slot di distribuzione**e quindi fare clic su **OK**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configurare l'impostazione dello slot di distribuzione." border="true":::
+
+1. Dopo che la sezione dell'impostazione non è più visualizzata, selezionare **Salva** per conservare le modifiche.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Salvare l'impostazione dello slot di distribuzione." border="true":::
 
 ## <a name="deployment"></a>Distribuzione
 
@@ -92,22 +98,28 @@ Tutti gli slot si adattano allo stesso numero di ruoli di lavoro dello slot di p
 
 È possibile aggiungere uno slot tramite l' [interfaccia](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) della riga di comando o tramite il portale. I passaggi seguenti illustrano come creare un nuovo slot nel portale:
 
-1. Passare all'app per le funzioni e fare clic sul **segno più** accanto a *slot*.
+1. Passare all'app per le funzioni.
 
-    ![Aggiungi slot di distribuzione di funzioni di Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+1. Selezionare **slot di distribuzione**e quindi selezionare **+ Aggiungi slot**.
 
-1. Immettere un nome nella casella di testo e fare clic sul pulsante **Crea** .
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Aggiungere lo slot di distribuzione di funzioni di Azure." border="true":::
 
-    ![Nome slot di distribuzione di funzioni di Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+1. Digitare il nome dello slot e selezionare **Aggiungi**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Assegnare un nome allo slot di distribuzione di funzioni di Azure." border="true":::
 
 ## <a name="swap-slots"></a>Scambia slot
 
 È possibile scambiare gli slot tramite l' [interfaccia](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) della riga di comando o tramite il portale. I passaggi seguenti illustrano come scambiare gli slot nel portale:
 
-1. Passare all'app per le funzioni
-1. Fare clic sul nome dello slot di origine che si desidera scambiare
-1. Dalla scheda *Panoramica* fare clic sul pulsante ![ **Scambia** per scambiare lo slot di distribuzione di funzioni di Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Verificare le impostazioni di configurazione per lo scambio e fare clic su **Scambia** ![scambio funzioni di Azure slot di distribuzione](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Passare all'app per le funzioni.
+1. Selezionare **slot di distribuzione**e quindi fare clic su **swap**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Scambiare lo slot di distribuzione." border="true":::
+
+1. Verificare le impostazioni di configurazione per lo scambio e selezionare **swap**
+    
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Scambiare lo slot di distribuzione." border="true":::
 
 Durante l'esecuzione dell'operazione di scambio, l'operazione potrebbe richiedere qualche istante.
 
@@ -119,11 +131,21 @@ Se uno scambio genera un errore o si vuole semplicemente annullare uno scambio, 
 
 È possibile rimuovere uno slot tramite l' [interfaccia](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) della riga di comando o tramite il portale. La procedura seguente illustra come rimuovere uno slot nel portale:
 
-1. Passare all'app per le funzioni panoramica
+1. Passare a **slot di distribuzione** nell'app per le funzioni e quindi selezionare il nome dello slot.
 
-1. Fare clic sul pulsante **Elimina**
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
 
-    ![Aggiungi slot di distribuzione di funzioni di Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+1. Selezionare **Elimina**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Eliminare lo slot di distribuzione nel portale di Azure." border="true":::
+
+1. Digitare il nome dello slot di distribuzione che si desidera eliminare, quindi selezionare **Elimina**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Eliminare lo slot di distribuzione nel portale di Azure." border="true":::
+
+1. Chiudere il riquadro di conferma dell'eliminazione.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Conferma di eliminazione dello slot di distribuzione." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatizzare la gestione degli slot
 
@@ -144,27 +166,24 @@ Con un'app per le funzioni in esecuzione in un piano di servizio app, è possibi
 
 Per modificare il piano di servizio app di uno slot, attenersi alla procedura seguente:
 
-1. Passa a uno slot
+1. Passare a **slot di distribuzione** nell'app per le funzioni e quindi selezionare il nome dello slot.
 
-1. In *funzionalità della piattaforma*fare clic su **tutte le impostazioni**
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Trovare gli slot nel portale di Azure." border="true":::
 
-    ![Modificare il piano di servizio app](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+1. In **piano di servizio app**selezionare **modifica piano di servizio app**.
 
-1. Fare clic su **piano di servizio app**
+1. Selezionare il piano a cui si desidera eseguire l'aggiornamento oppure creare un nuovo piano.
 
-1. Selezionare un nuovo piano di servizio app o crearne uno nuovo
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Modificare il piano di servizio app nella portale di Azure." border="true":::
 
-1. Fare clic su **OK**.
-
-    ![Modificare il piano di servizio app](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
-
+1. Selezionare **OK**.
 
 ## <a name="limitations"></a>Limitazioni
 
 Gli slot di distribuzione di funzioni di Azure presentano le limitazioni seguenti:
 
 - Il numero di slot disponibili per un'app dipende dal piano. Il piano a consumo è consentito solo uno slot di distribuzione. Sono disponibili slot aggiuntivi per le app in esecuzione nel piano di servizio app.
-- Lo scambio di uno slot Reimposta le chiavi per le app che `AzureWebJobsSecretStorageType` hanno un'impostazione dell' `files`app uguale a.
+- Lo scambio di uno slot Reimposta le chiavi per le app che hanno un' `AzureWebJobsSecretStorageType` impostazione dell'app uguale a `files` .
 - Gli slot non sono disponibili per il piano a consumo Linux.
 
 ## <a name="support-levels"></a>Livelli di supporto

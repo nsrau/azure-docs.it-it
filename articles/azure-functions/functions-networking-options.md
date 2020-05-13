@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419582"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121347"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -50,7 +50,7 @@ Per altre informazioni, vedere [restrizioni di accesso statico del servizio app 
 L'accesso al sito privato si riferisce a rendere l'app accessibile solo da una rete privata, ad esempio una rete virtuale di Azure.
 
 * L'accesso al sito privato è disponibile nei piani di [servizio app](functions-scale.md#app-service-plan) , a [consumo](functions-scale.md#consumption-plan)e [Premium](./functions-premium-plan.md)quando sono configurati gli endpoint di servizio.
-    * Gli endpoint di servizio possono essere configurati in base alle singole app in **funzionalità** > della piattaforma**rete** > **configurare restrizioni** > di accesso**Aggiungi regola**. È ora possibile selezionare le reti virtuali come tipo di regola.
+    * Gli endpoint di servizio possono essere configurati in base alle singole app in **funzionalità della piattaforma**  >  **rete**  >  **configurare restrizioni di accesso**  >  **Aggiungi regola**. È ora possibile selezionare le reti virtuali come tipo di regola.
     * Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
     * Tenere presente che con gli endpoint di servizio, la funzione ha ancora l'accesso in uscita completo a Internet, anche con l'integrazione della rete virtuale configurata.
 * L'accesso al sito privato è disponibile anche all'interno di un ambiente del servizio app configurato con un servizio di bilanciamento del carico interno (ILB). Per altre informazioni, vedere [creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app](../app-service/environment/create-ilb-ase.md).
@@ -102,9 +102,9 @@ Attualmente, è possibile usare funzioni trigger non HTTP da una rete virtuale i
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Piano Premium con trigger di rete virtuale
 
-Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP ai servizi in esecuzione all'interno di una rete virtuale. A tale scopo, è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di supporto per il **trigger della rete virtuale** si trova nel [portale di Azure](https://portal.azure.com) in **impostazioni app**per le funzioni.
+Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP ai servizi in esecuzione all'interno di una rete virtuale. A tale scopo, è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di supporto per il **trigger della rete virtuale** si trova nel [portale di Azure](https://portal.azure.com) in **Configuration**  >  **impostazioni runtime funzione**di configurazione.
 
-![Interruttore rete virtuale](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 È anche possibile abilitare i trigger della rete virtuale usando il comando dell'interfaccia della riga di comando di Azure seguente:
 
@@ -146,7 +146,7 @@ Per altre informazioni, vedere la [documentazione del servizio app per connessio
 
 Le restrizioni IP in uscita sono disponibili in un piano Premium, in un piano di servizio app o in ambiente del servizio app. È possibile configurare le restrizioni in uscita per la rete virtuale in cui è distribuita la ambiente del servizio app.
 
-Quando si integra un'app per le funzioni in un piano Premium o un piano di servizio app con una rete virtuale, per impostazione predefinita l'app può comunque effettuare chiamate in uscita a Internet. Aggiungendo l'impostazione `WEBSITE_VNET_ROUTE_ALL=1`dell'applicazione, si forza l'invio di tutto il traffico in uscita nella rete virtuale, in cui è possibile usare le regole del gruppo di sicurezza di rete per limitare il traffico.
+Quando si integra un'app per le funzioni in un piano Premium o un piano di servizio app con una rete virtuale, per impostazione predefinita l'app può comunque effettuare chiamate in uscita a Internet. Aggiungendo l'impostazione dell'applicazione `WEBSITE_VNET_ROUTE_ALL=1` , si forza l'invio di tutto il traffico in uscita nella rete virtuale, in cui è possibile usare le regole del gruppo di sicurezza di rete per limitare il traffico.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

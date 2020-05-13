@@ -1,21 +1,20 @@
 ---
 title: Distribuire set di scalabilità di macchine virtuali tramite Visual Studio
 description: Distribuire set di scalabilità di macchine virtuali tramite Visual Studio e un modello di Resource Manager
-ms.custom: vs-azure, H1Hack27Feb2017
-ms.workload: azure-vs
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: visual-studio
 ms.date: 09/09/2019
-ms.author: mimckitt
-ms.openlocfilehash: adc91d5f4f79be8a85dfed7d10a882493f6427b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273342"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124364"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Come creare un set di scalabilità di macchine virtuali con Visual Studio
 
@@ -65,7 +64,7 @@ Il servizio di bilanciamento del carico consente di connettersi alle istanze di 
 
 Distribuire il modello di Azure Resource Manager per creare la risorsa del set di scalabilità di macchine virtuali:
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Distribuisci** > **nuovo**.
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Distribuisci**  >  **nuovo**.
 
     ![Distribuire il progetto](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
@@ -85,7 +84,7 @@ Distribuire il modello di Azure Resource Manager per creare la risorsa del set d
 
 ## <a name="explore-your-virtual-machine-scale-set"></a>Esplorare il set di scalabilità di macchine virtuali<a name="exploring-your-virtual-machine-scale-set"></a>
 
-Selezionare **Visualizza** > **Cloud Explorer** per visualizzare il nuovo set di scalabilità di macchine virtuali. Se necessario, utilizzare **Refresh all**.
+Selezionare **Visualizza**  >  **Cloud Explorer** per visualizzare il nuovo set di scalabilità di macchine virtuali. Se necessario, utilizzare **Refresh all**.
 
 ![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 

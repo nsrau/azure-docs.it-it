@@ -1,18 +1,20 @@
 ---
 title: Usare la sequenziazione delle estensioni con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come eseguire la sequenziazione del provisioning delle estensioni durante la distribuzione di più estensioni in set di scalabilità di macchine virtuali.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 01/30/2019
-ms.author: mimckitt
-ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273750"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121032"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Eseguire la sequenziazione del provisioning delle estensioni in set scalabilità di macchine virtuali
 Le estensioni di macchine virtuali di Azure offrono funzionalità come la configurazione e la gestione post-distribuzione, il monitoraggio, la sicurezza e altro ancora. In genere, le distribuzioni di produzione usano una combinazione di più estensioni configurate per le istanze di macchine virtuali per ottenere risultati desiderati.

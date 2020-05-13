@@ -1,101 +1,102 @@
 ---
 title: Creare una funzione in Azure attivata dall'archiviazione BLOB
-description: Usare Funzioni di Azure per creare una funzione senza server che viene richiamata da elementi aggiunti all'archiviazione BLOB di Azure.
+description: Usare funzioni di Azure per creare una funzione senza server che viene richiamata da elementi aggiunti a un contenitore di archiviazione BLOB.
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: d3e90decad217afc1c8d9a43ef585fdfbeca5eb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf6865d2756579f457dded90b247326d2eec137c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756555"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123122"
 ---
-# <a name="create-a-function-triggered-by-azure-blob-storage"></a>Creare una funzione attivata dall'archiviazione BLOB di Azure
+# <a name="create-a-function-in-azure-thats-triggered-by-blob-storage"></a>Creare una funzione in Azure attivata dall'archiviazione BLOB
 
-Informazioni su come creare una funzione attivata nel momento in cui vengono caricati o aggiornati file nell'archiviazione BLOB di Azure.
+Informazioni su come creare una funzione attivata quando i file vengono caricati o aggiornati in un contenitore di archiviazione BLOB.
 
-![Visualizzare il messaggio nei log.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
-
-+ Scaricare e installare [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 + Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="create-an-azure-function-app"></a>Creare un'app per le funzioni di Azure
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![App per le funzioni creata correttamente.](./media/functions-create-first-azure-function/function-app-create-success.png)
+La creazione della nuova app per le funzioni è stata completata.
+
+:::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-create-success.png" alt-text="App per le funzioni creata correttamente." border="true":::
 
 Si creerà ora una funzione nella nuova app per le funzioni.
 
 <a name="create-function"></a>
 
-## <a name="create-a-blob-storage-triggered-function"></a>Creare una funzione attivata dall'archiviazione BLOB
+## <a name="create-an-azure-blob-storage-triggered-function"></a>Creare una funzione attivata dall'archiviazione BLOB di Azure
 
-1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Nel portale** e quindi **Continua**. In caso contrario, andare direttamente al passaggio 3.
+1. Selezionare **funzioni**e quindi selezionare **+ Aggiungi** per aggiungere una nuova funzione.
 
-   ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
+   :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png" alt-text="Scegliere un modello di funzione nella portale di Azure." border="true":::
 
-1. Scegliere **Altri modelli** e quindi **Termina e visualizza i modelli**.
-
-    ![Selezione di altri modelli nella guida introduttiva di Funzioni](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
-
-1. Nel campo di ricerca digitare `blob` e quindi scegliere il modello **Trigger BLOB**.
-
-1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure ed eventuali dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
-
-    ![Installare le estensioni di binding](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+1. Scegliere il modello di **trigger di archiviazione BLOB di Azure** .
 
 1. Usare le impostazioni specificate nella tabella disponibile sotto l'immagine.
 
-    ![Creare una funzione attivata dall'archiviazione BLOB.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png" alt-text="Assegnare un nome e configurare la funzione attivata dall'archiviazione BLOB." border="true":::
 
     | Impostazione | Valore consigliato | Descrizione |
     |---|---|---|
-    | **Nome** | Univoco nell'app per le funzioni | Nome della funzione attivata dal BLOB. |
+    | **Nuova funzione** | Univoco nell'app per le funzioni | Nome della funzione attivata dal BLOB. |
     | **Percorso**   | samples-workitems/{name}    | Percorso da monitorare nell'archiviazione BLOB. Il nome file del BLOB viene passato nel binding come parametro _name_.  |
     | **Connessione dell'account di archiviazione** | AzureWebJobsStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
 
-1. Fare clic su **Crea** per creare la funzione.
+1. Selezionare **Crea funzione** per creare la funzione.
 
-Connettersi quindi all'account di archiviazione di Azure e creare il contenitore **samples-workitems**.
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-3.png" alt-text="Creare una funzione attivata dall'archiviazione BLOB." border="true":::
+
+Creare quindi il contenitore **Samples-WorkItems** .
 
 ## <a name="create-the-container"></a>Creare il contenitore
 
-1. Nella funzione fare clic su **Integrazione**, espandere **Documentazione** e copiare sia **Nome account** sia **Chiave account**. Usare queste credenziali per connettersi all'account di archiviazione. Se si è già connessi all'account di archiviazione, andare al passaggio 4.
+1. Nella pagina **Panoramica** della funzione selezionare il gruppo di risorse.
 
-    ![Ottenere le credenziali per la connessione all'account di archiviazione.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png" alt-text="Selezionare il gruppo di risorse portale di Azure." border="true":::
 
-1. Eseguire lo strumento [Microsoft Azure Storage Explorer](https://storageexplorer.com/), fare clic sull'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e fare clic su **Avanti**.
+1. Trovare e selezionare l'account di archiviazione del gruppo di risorse.
 
-    ![Eseguire lo strumento di esplorazione dell'account di archiviazione.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png" alt-text="Accedere all'account di archiviazione." border="true":::
 
-1. Immettere i valori **Nome account** e **Chiave account** definiti nel passaggio 1, fare clic su **Avanti** e quindi su **Connetti**. 
+1. Scegliere **contenitori**e quindi scegliere **+ contenitore**. 
 
-    ![Immettere le credenziali di archiviazione ed eseguire la connessione.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png" alt-text="Aggiungere il contenitore all'account di archiviazione nell'portale di Azure." border="true":::
 
-1. Espandere l'account di archiviazione associato, fare doppio clic su **Contenitori BLOB**, fare clic su **Crea contenitore BLOB**, digitare `samples-workitems` e quindi premere INVIO.
+1. Nel campo **nome** Digitare `samples-workitems` , quindi selezionare **Crea**.
 
-    ![Creare una coda di archiviazione.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-name-blob-container.png" alt-text="Assegnare un nome al contenitore di archiviazione." border="true":::
 
 Dopo aver creato un contenitore BLOB, è possibile ora testare la funzione caricando un file nel contenitore.
 
 ## <a name="test-the-function"></a>Testare la funzione
 
-1. Tornare al portale di Azure, selezionare la funzione, espandere i **log** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non sia stato interrotto.
+1. Tornare alla portale di Azure, passare alla funzione espandere i **log** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non sia sospeso.
 
-1. In Storage Explorer espandere l'account di archiviazione, **Contenitori BLOB** e **samples-workitems**. Fare clic su **Carica** e quindi su **Carica file...** .
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-log-expander.png" alt-text="Espandere il log nel portale di Azure." border="true":::
 
-    ![Caricare un file nel contenitore BLOB.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
+1. In una finestra del browser separata andare al gruppo di risorse nel portale di Azure e selezionare l'account di archiviazione.
 
-1. Nella finestra di dialogo **Carica file** fare clic sul campo **File**. Identificare un file nel computer locale, ad esempio un file di immagine, selezionarlo e fare clic su **Apri** e quindi su **Carica**.
+1. Selezionare **contenitori**, quindi selezionare il contenitore **Samples-WorkItems** .
+
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-container.png" alt-text="Passare al contenitore Samples-WorkItems nel portale di Azure." border="true":::
+
+1. Selezionare **carica**, quindi selezionare l'icona della cartella per scegliere un file da caricare.
+
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png" alt-text="Caricare un file nel contenitore BLOB." border="true":::
+
+1. Individuare un file nel computer locale, ad esempio un file di immagine, scegliere il file. Selezionare **Apri** e quindi **carica**.
 
 1. Tornare ai log di funzione e verificare che il BLOB sia stato letto.
 
-   ![Visualizzare il messaggio nei log.](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
+    :::image type="content" source="./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png" alt-text="Visualizzare il messaggio nei log." border="true":::
 
     >[!NOTE]
     > Se l'app per le funzioni viene eseguita nel piano a consumo predefinito, è possibile che si verifichi un ritardo di alcuni minuti tra il momento in cui il BLOB viene aggiunto o aggiornato e il momento in cui viene attivata la funzione. Se nelle funzioni attivate dal BLOB è necessaria una bassa latenza, valutare l'opportunità di eseguire l'app per le funzioni in un piano di servizio app.

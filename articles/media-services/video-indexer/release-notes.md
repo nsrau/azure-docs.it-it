@@ -12,16 +12,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131199"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124585"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
->Consente di ricevere notifiche su quando rivisitare la pagina per gli aggiornamenti copiando e incollando questo `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` URL: nel lettore di feed RSS.
+>Consente di ricevere notifiche su quando rivisitare la pagina per gli aggiornamenti copiando e incollando questo URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` nel lettore di feed RSS.
 
 Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
 
@@ -34,9 +34,9 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 
 ### <a name="new-widget-parameters-capabilities"></a>Nuove funzionalità dei parametri widget
 
-Il widget **Insights** include nuovi parametri: `language` e. `control`
+Il widget **Insights** include nuovi parametri: `language` e `control` .
 
-Il widget **Player** ha un nuovo `locale` parametro. Entrambi `locale` i `language` parametri e controllano la lingua del lettore.
+Il widget **Player** ha un nuovo `locale` parametro. Entrambi `locale` `language` i parametri e controllano la lingua del lettore.
 
 Per ulteriori informazioni, vedere la sezione [tipi di widget](video-indexer-embed-widgets.md#widget-types) . 
 
@@ -53,19 +53,19 @@ Nuova interfaccia del lettore avviata con una progettazione aggiornata.
     * [Get-accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
     * [Get-accounts-with-token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
  
-    L'oggetto account dispone di `Url` un campo che punta al percorso del [sito web video Indexer](https://www.videoindexer.ai/).
-Per gli account a `Url` pagamento, il campo punta attualmente a un URL interno anziché al sito Web pubblico.
+    L'oggetto account dispone di un `Url` campo che punta al percorso del [sito web video Indexer](https://www.videoindexer.ai/).
+Per gli account a pagamento `Url` , il campo punta attualmente a un URL interno anziché al sito Web pubblico.
 Nelle prossime settimane verrà modificato e restituito l'URL del [sito web video Indexer](https://www.videoindexer.ai/) per tutti gli account (versione di valutazione e a pagamento).
 
     Non usare gli URL interni, ma è necessario usare le [api video Indexer pubbliche](https://api-portal.videoindexer.ai/).
-* Se si incorporano Video Indexer URL nelle applicazioni e gli URL non puntano al [sito Web di video Indexer](https://www.videoindexer.ai/) o all' [endpoint API video Indexer](https://api.videoindexer.ai) , ma piuttosto a un endpoint a livello di area ( `https://wus2.videoindexer.ai`ad esempio,), rigenerare gli URL.
+* Se si incorporano Video Indexer URL nelle applicazioni e gli URL non puntano al [sito Web di video Indexer](https://www.videoindexer.ai/) o all'endpoint API video Indexer ( `https://api.videoindexer.ai` ), ma piuttosto a un endpoint a livello di area (ad esempio, `https://wus2.videoindexer.ai` ), rigenerare gli URL.
 
    È possibile eseguire questa operazione in uno dei seguenti casi:
 
     * Sostituzione dell'URL con un URL che punta alle API widget Video Indexer (ad esempio, il [widget Insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Uso del sito Web Video Indexer per generare un nuovo URL incorporato:
          
-         Premere **Play** per accedere alla pagina del video > fare clic sul ** &lt; / &gt; pulsante Embed (incorpora** ) > copiare l'URL nell'applicazione:
+         Premere **Play** per accedere alla pagina del video > fare clic sul pulsante ** &lt; / &gt; Embed (incorpora** ) > copiare l'URL nell'applicazione:
    
     Gli URL locali non sono supportati e verranno bloccati nelle prossime settimane.
 
@@ -73,7 +73,7 @@ Nelle prossime settimane verrà modificato e restituito l'URL del [sito web vide
  
 ### <a name="custom-language-support-for-additional-languages"></a>Supporto del linguaggio personalizzato per lingue aggiuntive
 
-Video Indexer supporta ora modelli di lingua personalizzati `ar-SY` per `en-UK`, e `en-AU` (solo API).
+Video Indexer supporta ora modelli di lingua personalizzati per `ar-SY` , `en-UK` e `en-AU` (solo API).
  
 ### <a name="delete-account-timeframe-action-update"></a>Elimina l'aggiornamento dell'azione dell'intervallo di tempo dell'account
 
@@ -127,7 +127,7 @@ Il codice di stato 409 verrà ora restituito da [reindicizzare video](https://ap
  
 * Supporto per modelli di linguaggio personalizzati coreano
 
-    Video Indexer supporta ora modelli di lingua personalizzati in coreano`ko-KR`() sia nell'API che nel portale. 
+    Video Indexer supporta ora modelli di lingua personalizzati in coreano ( `ko-KR` ) sia nell'API che nel portale. 
 * Nuove lingue supportate per la sintesi vocale (STT)
 
     Le API di Video Indexer supportano ora STT in arabo Levantina (ar-SY), dialetto inglese (en-GB) e dialetto australiano inglese (en-AU).

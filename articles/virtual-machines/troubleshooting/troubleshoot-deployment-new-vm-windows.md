@@ -3,7 +3,7 @@ title: Risolvere i problemi di distribuzione di macchine virtuali Windows in Azu
 description: Risolvere i problemi della distribuzione Resource Manager quando si crea una nuova macchina virtuale Windows in Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981397"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120964"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -51,7 +51,7 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 **N<sup>2</sup>:** se il sistema operativo è Windows specializzato e viene caricato come generalizzato, si verificherà un errore di provisioning con la VM bloccata nella schermata di Configurazione guidata perché la nuova VM è in esecuzione con nome computer, nome utente e password originali.
 
-**Risoluzione**
+**Soluzione**
 
 Per risolvere entrambi gli errori, usare [Add-AzVhd per caricare il disco rigido virtuale originale](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima sysprep.
 
@@ -61,7 +61,7 @@ Per risolvere entrambi gli errori, usare [Add-AzVhd per caricare il disco rigido
 
 **N<sup>4</sup>:** se il sistema operativo è Windows specializzato e viene acquisito come generalizzato, si verificherà un errore di provisioning perché la nuova VM è in esecuzione con nome computer, nome utente e password originali. La VM originale, inoltre, non può essere usata perché è contrassegnata come specializzata.
 
-**Risoluzione**
+**Soluzione**
 
 Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](../windows/create-vm-specialized.md) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
 
@@ -75,7 +75,7 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 * Ripetere la richiesta usando una VM di dimensioni inferiori.
 * Se le dimensioni della VM richieste non possono essere modificate:
   * Arrestare tutte le VM nel set di disponibilità.
-    Fare clic su **gruppi** > di risorse*il gruppo* > di risorse**risorse** > il*set* > di disponibilità**macchine** > virtuali > **arresto**della*macchina virtuale*.
+    Fare clic su **gruppi**di risorse  >  *il gruppo*di risorse  >  **risorse**il  >  *set di disponibilità*  >  **macchine virtuali**  >  arresto della*macchina virtuale*  >  **Stop**.
   * Dopo l'arresto di tutte le VM, creare la nuova VM con le dimensioni desiderate.
   * Avviare prima la nuova VM, quindi selezionare tutte le VM arrestate e fare clic su **Avvia**.
 

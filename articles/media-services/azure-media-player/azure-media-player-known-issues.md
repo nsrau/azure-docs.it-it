@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
-ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692251"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124636"
 ---
 # <a name="known-issues"></a>Problemi noti #
 
@@ -41,6 +41,7 @@ La versione corrente presenta i seguenti problemi noti:
 
 - Per gli annunci è possibile che vengano inseriti problemi (su richiesta o in tempo reale) quando nel browser è installato un blocco ad
 - I dispositivi mobili possono avere problemi di riproduzione degli annunci.
+- Gli annunci MP4 midroll non sono attualmente supportati da Azure Media Player.
 
 ## <a name="azurehtml5js"></a>AzureHtml5JS ##
 
@@ -62,7 +63,7 @@ La versione corrente presenta i seguenti problemi noti:
 
 - Funzionalità mancanti
 - Errori tecnici e http (ad esempio, i timeout di rete 404), il giocatore riprenderà più tempo per il ripristino rispetto ad altri tecnici.
-- Per la riproduzione di Safari e Firefox su Mac con Silverlight è `"http://` necessario `https://` definire in modo esplicito o per l'origine.
+- Per la riproduzione di Safari e Firefox su Mac con Silverlight è necessario definire in modo esplicito `"http://` o `https://` per l'origine.
 - Se per questa tecnologia manca un'API, in genere verrà restituito null.
 - Se l'utente ha installato Flash ma non concede l'autorizzazione per caricarlo nel sito, può verificarsi una rotazione infinita. Questo perché il lettore ritiene che il plug-in sia installato e disponibile e ritiene che il plug-in esegua il contenuto. Il codice JavaScript è stato inviato, ma le impostazioni del browser hanno impedito l'esecuzione del plug-in fino a quando l'utente non accetta il prompt per consentire il plug-in. Questa situazione può verificarsi in tutti i browser.  
 

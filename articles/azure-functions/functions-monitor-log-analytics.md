@@ -3,14 +3,14 @@ title: Monitoraggio di funzioni di Azure con i log di monitoraggio di Azure
 description: Informazioni su come usare i log di monitoraggio di Azure con funzioni di Azure per monitorare le esecuzioni di funzioni.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b21912de95ccba1d97d187922bfada4d9dc2c56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649875"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121637"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitoraggio di funzioni di Azure con i log di monitoraggio di Azure
 
@@ -25,17 +25,23 @@ Monitoraggio di Azure usa una versione del [linguaggio di query Kusto](/azure/ku
 
 ## <a name="setting-up"></a>Configurazione
 
-Nella sezione **monitoraggio** selezionare impostazioni di **diagnostica** e quindi fare clic su **Aggiungi impostazione di diagnostica**.
+1. Dalla sezione **monitoraggio** dell'app per le funzioni nella [portale di Azure](https://portal.azure.com)selezionare impostazioni di **diagnostica**e quindi selezionare Aggiungi impostazioni di **diagnostica**.
 
-![Aggiungere un'impostazione di diagnostica](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+   :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Selezionare le impostazioni di diagnostica":::
 
-Nella pagina **impostazioni di diagnostica** scegliere **Invia a log Analytics**, quindi selezionare l'area di lavoro log Analytics. In **log** scegliere **FunctionAppLogs**, questa tabella contiene i log desiderati.
+1. Nella pagina **impostazioni di diagnostica** , in **Dettagli categoria** e **log**, scegliere **FunctionAppLogs**.
 
-![Aggiungere un'impostazione di diagnostica](media/functions-monitor-log-analytics/choose-table.png)
+   La tabella **FunctionAppLogs** contiene i log desiderati.
+
+1. In **Dettagli destinazione**scegliere **Invia a log Analytics**e quindi selezionare l'area di **lavoro log Analytics**. 
+
+1. Immettere un **nome per le impostazioni di diagnostica**e quindi fare clic su **Salva**.
+
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Aggiungere un'impostazione di diagnostica":::
 
 ## <a name="user-generated-logs"></a>Log generati dall'utente
 
-Per generare log personalizzati, è possibile usare l'istruzione di registrazione specifica a seconda del linguaggio. di seguito sono riportati i frammenti di codice di esempio:
+Per generare log personalizzati, utilizzare l'istruzione di registrazione specifica del linguaggio. Ecco i frammenti di codice di esempio:
 
 
 # <a name="c"></a>[C#](#tab/csharp)
@@ -72,11 +78,19 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>Esecuzione di query sui log
 
-Per eseguire una query sui log generati, passare all'area di lavoro Log Analytics configurata per l'invio dei log delle funzioni e fare clic su **log**.
+Per eseguire una query sui log generati:
+ 
+1. Dall'app per le funzioni selezionare **impostazioni di diagnostica**. 
 
-![Finestra query nell'area di lavoro LA](media/functions-monitor-log-analytics/querying.png)
+1. Dall'elenco **impostazioni di diagnostica** selezionare l'area di lavoro log Analytics configurata per l'invio dei log di funzione. 
 
-Funzioni di Azure scrive tutti i log nella tabella **FunctionAppLogs** . di seguito sono riportate alcune query di esempio.
+1. Nella pagina **area di lavoro log Analytics** selezionare **log**.
+
+   Funzioni di Azure scrive tutti i log nella tabella **FunctionAppLogs** in **LogManagement**. 
+
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Finestra query nell'area di lavoro Log Analytics":::
+
+Ecco alcune query di esempio:
 
 ### <a name="all-logs"></a>Tutti i log
 
@@ -87,7 +101,7 @@ FunctionAppLogs
 
 ```
 
-### <a name="a-specific-function-logs"></a>Log di funzione specifici
+### <a name="specific-function-logs"></a>Log di funzione specifici
 
 ```
 
@@ -108,6 +122,6 @@ FunctionAppLogs
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di funzioni di Azure](functions-overview.md)
-- Altre informazioni sui [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md)
+- Vedere [Panoramica di funzioni di Azure](functions-overview.md).
+- Altre informazioni sui [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md).
 - Altre informazioni sul [linguaggio di query](../azure-monitor/log-query/get-started-queries.md).

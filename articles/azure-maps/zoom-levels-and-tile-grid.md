@@ -1,19 +1,19 @@
 ---
 title: Livelli di zoom e griglia affiancata | Mappe Microsoft Azure
 description: In questo articolo vengono illustrati i livelli di zoom e la griglia dei riquadri nelle mappe Microsoft Azure.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530292"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123905"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Livelli di zoom e griglia riquadri
 
@@ -140,12 +140,12 @@ Di seguito è illustrata la griglia di zoom per il livello di zoom 1:
 
 ## <a name="quadkey-indices"></a>Indici quadkey
 
-Per alcune piattaforme di mapping `quadkey` viene usata una convenzione di denominazione di indicizzazione che combina le coordinate di un elemento `quadtree` di tipo `quadkeys` di elemento in una stringa unidimensionale denominata chiavi o per brevità. Ogni `quadkey` identifica in modo univoco un singolo riquadro a un particolare livello di dettaglio e può essere usato come chiave negli indici albero B di database comuni. Azure Maps SDK supporta la sovrapposizione dei livelli di sezione che usano `quadkey` la convenzione di denominazione oltre ad altre convenzioni di denominazione, come illustrato nel documento [aggiungere un livello sezione](map-add-tile-layer.md) .
+Per alcune piattaforme di mapping viene usata una `quadkey` convenzione di denominazione di indicizzazione che combina le coordinate di un elemento di tipo di elemento in una stringa unidimensionale denominata `quadtree` chiavi o `quadkeys` per brevità. Ogni `quadkey` identifica in modo univoco un singolo riquadro a un particolare livello di dettaglio e può essere usato come chiave negli indici albero B di database comuni. Azure Maps SDK supporta la sovrapposizione dei livelli di sezione che usano la `quadkey` convenzione di denominazione oltre ad altre convenzioni di denominazione, come illustrato nel documento [aggiungere un livello sezione](map-add-tile-layer.md) .
 
 > [!NOTE]
 > La `quadkeys` convenzione di denominazione funziona solo per i livelli di zoom di uno o più. Il livello di zoom del supporto di Azure Maps SDK è costituito da una singola tessera mappa per l'intero mondo. 
 
-Per convertire le coordinate del riquadro `quadkey`in un oggetto, i bit delle coordinate Y e X sono con interfoliazione e il risultato viene interpretato come numero in base 4 (con zeri iniziali conservati) e convertito in una stringa. Ad esempio, date le `quadkey` coordinate XY del riquadro (3, 5) al livello 3, viene determinato come segue:
+Per convertire le coordinate del riquadro in un oggetto `quadkey` , i bit delle coordinate Y e X sono con interfoliazione e il risultato viene interpretato come numero in base 4 (con zeri iniziali conservati) e convertito in una stringa. Ad esempio, date le coordinate XY del riquadro (3, 5) al livello 3, `quadkey` viene determinato come segue:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -155,13 +155,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`hanno diverse proprietà interessanti. In primo luogo, la lunghezza `quadkey` di un valore (il numero di cifre) è uguale al livello di zoom del riquadro corrispondente. In secondo luogo `quadkey` , l'oggetto di qualsiasi riquadro `quadkey` inizia con la proprietà del riquadro padre (il riquadro che lo contiene al livello precedente). Come illustrato nell'esempio seguente, il riquadro 2 è l'elemento padre dei riquadri da 20 a 23:
+`Qquadkeys`hanno diverse proprietà interessanti. In primo luogo, la lunghezza di un `quadkey` valore (il numero di cifre) è uguale al livello di zoom del riquadro corrispondente. In secondo luogo, l'oggetto `quadkey` di qualsiasi riquadro inizia con la proprietà `quadkey` del riquadro padre (il riquadro che lo contiene al livello precedente). Come illustrato nell'esempio seguente, il riquadro 2 è l'elemento padre dei riquadri da 20 a 23:
 
 <center>
 
 ![Piramide del riquadro quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Infine, `quadkeys` fornire una chiave di indice unidimensionale che in genere conserva la prossimità dei riquadri nello spazio XY. In altre parole, due riquadri con coordinate XY vicine hanno `quadkeys` in genere un aspetto relativamente simile. Questa operazione è importante per l'ottimizzazione delle prestazioni del database, perché i riquadri adiacenti sono spesso richiesti in gruppi ed è consigliabile mantenerli negli stessi blocchi del disco, in modo da ridurre al minimo il numero di letture del disco.
+Infine, `quadkeys` fornire una chiave di indice unidimensionale che in genere conserva la prossimità dei riquadri nello spazio XY. In altre parole, due riquadri con coordinate XY vicine hanno in genere un aspetto `quadkeys` relativamente simile. Questa operazione è importante per l'ottimizzazione delle prestazioni del database, perché i riquadri adiacenti sono spesso richiesti in gruppi ed è consigliabile mantenerli negli stessi blocchi del disco, in modo da ridurre al minimo il numero di letture del disco.
 
 ## <a name="tile-math-source-code"></a>Codice sorgente Math del riquadro
 

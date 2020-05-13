@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607249"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125115"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
 >[!IMPORTANT]
->Questo contenuto si applica all'aggiornamento di Spring 2020 con Azure Resource Manager oggetti desktop virtuali di Windows. Se si usa la versione 2019 del desktop virtuale di Windows senza Azure Resource Manager oggetti, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+>Questo contenuto si applica all'aggiornamento di Primavera 2020 con gli oggetti Azure Resource Manager di Desktop virtuale Windows. Se si usa la versione Autunno 2019 di Desktop virtuale Windows senza gli oggetti Azure Resource Manager, vedere [questo articolo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
 >
-> L'aggiornamento di Spring 2020 per desktop virtuale di Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile usarla per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
+> L'aggiornamento di Primavera 2020 di Desktop virtuale Windows è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. 
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
@@ -87,7 +87,7 @@ Il modo consigliato per eseguire il provisioning delle macchine virtuali consist
 
 Seguire queste istruzioni per confermare che i componenti sono installati e per verificare la presenza di messaggi di errore.
 
-1. Verificare che i due componenti siano installati tramite il **Pannello** > di controllo**programmi** > programmi**e funzionalità**. Se l' **agente desktop virtuale di Windows** e il **caricatore di avvio di Windows Virtual Desktop Agent** non sono visibili, non vengono installati nella macchina virtuale.
+1. Verificare che i due componenti siano installati tramite il **Pannello di controllo**  >  **programmi**programmi  >  **e funzionalità**. Se l' **agente desktop virtuale di Windows** e il **caricatore di avvio di Windows Virtual Desktop Agent** non sono visibili, non vengono installati nella macchina virtuale.
 2. Aprire **Esplora file** e passare a **C:\Windows\Temp\ScriptLog.log**. Se il file è mancante, significa che non è stato possibile eseguire PowerShell DSC che ha installato i due componenti nel contesto di sicurezza fornito.
 3. Se il file **C:\Windows\Temp\ScriptLog.log** è presente, aprirlo e verificare la presenza di messaggi di errore.
 
@@ -234,7 +234,7 @@ La macchina virtuale usata per eseguire la correzione deve trovarsi nella stessa
 Seguire queste istruzioni per eseguire il monitoraggio e l'aggiornamento dalla stessa subnet e dominio:
 
 1. Connettersi con Remote Desktop Protocol Standard (RDP) alla macchina virtuale da cui verrà applicata la correzione.
-2. Scaricare PsExec da https://docs.microsoft.com/sysinternals/downloads/psexec.
+2. Scaricare PsExec da https://docs.microsoft.com/sysinternals/downloads/psexec .
 3. Decomprimere il file scaricato.
 4. Avviare il prompt dei comandi come amministratore locale.
 5. Passare alla cartella in cui PsExec è stato decompresso.
@@ -310,7 +310,7 @@ Se viene visualizzato uno di questi messaggi, significa che nell'immagine non so
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disabilitare l'impostazione di criteri di gruppo Desktop remoto modalità di gestione licenze
 
-Per verificare l'impostazione di criteri di gruppo, aprire l'Editor criteri di gruppo nella macchina virtuale e passare a **modelli amministrativi** > **componenti** > di Windows**Servizi Desktop remoto** > **host sessione Desktop remoto** > **Licensing** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
+Per verificare l'impostazione di criteri di gruppo, aprire l'Editor criteri di gruppo nella macchina virtuale e passare a **modelli amministrativi**  >  **componenti di Windows**  >  **Servizi Desktop remoto**  >  **host sessione Desktop remoto**  >  **Licensing**  >  **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
 
 >[!NOTE]
 >Se si impostano i criteri di gruppo tramite il dominio, disabilitare questa impostazione nei criteri destinati a queste VM multisessione Enterprise di Windows 10.
@@ -335,6 +335,12 @@ Se il numero di versione indica "1809", installare [l'aggiornamento di KB4516077
 ### <a name="version-1903"></a>Versione 1903
 
 Ridistribuire il sistema operativo host con la versione più recente dell'immagine di Windows 10, versione 1903 dalla raccolta di Azure.
+
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>Non è stato possibile connettersi al PC remoto a causa di un errore di sicurezza
+
+Se gli utenti visualizzano un errore indicante che non è stato possibile connettersi al computer remoto a causa di un errore di sicurezza. Se il problema si verifica, rivolgersi all'amministratore o al supporto tecnico per la guida, "convalidare eventuali criteri esistenti che modificano le autorizzazioni RDP predefinite. Un criterio che può causare la visualizzazione di questo errore è "Consenti accesso tramite Servizi Desktop remoto Criteri di sicurezza".
+
+Per ulteriori informazioni su questi criteri, vedere [consentire l'accesso tramite Servizi Desktop remoto](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

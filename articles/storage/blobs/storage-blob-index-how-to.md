@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f4c9fab3caf1089b97265d93db7d945604a59fd3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9ba151aa1ddc7f4b14d5f4ec7f1990e2fd760602
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723012"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121236"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Usare i tag degli indici BLOB (anteprima) per gestire e trovare i dati nell'archiviazione BLOB di Azure
 
@@ -182,7 +182,7 @@ static async Task BlobIndexTagsExample()
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-All'interno del portale di Azure, il filtro tag indice BLOB applica automaticamente `@container` il parametro per definire l'ambito del contenitore selezionato. Per filtrare e trovare i dati contrassegnati nell'intero account di archiviazione, usare l'API REST, gli SDK o gli strumenti.
+All'interno del portale di Azure, il filtro tag indice BLOB applica automaticamente il `@container` parametro per definire l'ambito del contenitore selezionato. Per filtrare e trovare i dati contrassegnati nell'intero account di archiviazione, usare l'API REST, gli SDK o gli strumenti.
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare l'account di archiviazione. 
 
@@ -204,6 +204,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
+      // Blob Index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -254,9 +255,9 @@ static async Task FindBlobsByTagsExample()
           Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
 
           List<FilterBlobItem> blobs = new List<FilterBlobItem>();
-          foreach (Page<FilterBlobItem> page in serviceClient.FindBlobsByTags(queryToUse).AsPages())
+          await foreach (FilterBlobItem filterBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
           {
-              blobs.AddRange(page.Values);
+              blobs.Add(filterBlobItem);
           }
 
           foreach (var filteredBlob in blobs)
@@ -284,9 +285,9 @@ static async Task FindBlobsByTagsExample()
 
 3. Selezionare *Aggiungi regola* e quindi compilare i campi del modulo del set di azioni
 
-4. Selezionare il set di filtri per aggiungere un filtro facoltativo per la corrispondenza del ![prefisso e la corrispondenza dell'indice BLOB aggiungere i filtri dei tag di indice BLOB per la gestione](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Selezionare il set di filtri per aggiungere un filtro facoltativo per la corrispondenza del prefisso e la corrispondenza dell'indice BLOB ![ aggiungere i filtri dei tag di indice BLOB per la gestione](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
-5. Selezionare **Verifica + Aggiungi** per esaminare la regola di ![gestione del ciclo di vita delle impostazioni regola con l'esempio di filtro tag di indice BLOB](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+5. Selezionare **Verifica + Aggiungi** per esaminare la regola di gestione del ciclo di vita delle impostazioni regola ![ con l'esempio di filtro tag di indice BLOB](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
 6. Selezionare **Aggiungi** per applicare la nuova regola ai criteri di gestione del ciclo di vita
 

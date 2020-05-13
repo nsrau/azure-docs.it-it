@@ -2,21 +2,20 @@
 title: Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure che usano la configurazione di scalabilità automatica per gestire il numero di istanze
 services: virtual-machine-scale-sets
-author: avirishuv
-manager: vashan
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 02/26/2020
-ms.author: avverma
-ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919839"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125163"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
 
@@ -24,7 +23,7 @@ Una distribuzione del set di scalabilità di macchine virtuali può essere scala
 
 La funzionalità per i criteri di scalabilità consente agli utenti di configurare l'ordine in cui le macchine virtuali vengono ridimensionate in base a tre configurazioni con scalabilità orizzontale: 
 
-1. Predefinito
+1. Valore predefinito
 2. NewestVM
 3. OldestVM
 
@@ -209,7 +208,7 @@ Gli esempi seguenti illustrano come un set di scalabilità di macchine virtuali 
 
 ### <a name="oldestvm-scale-in-policy"></a>Criteri di ridimensionamento OldestVM
 
-| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
+| Evento                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Ridimensionamento              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Scegliere tra Zona 1 e 2, anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM2 da Zona 2 perché si tratta della macchina virtuale meno recente in tale zona.   |
@@ -223,7 +222,7 @@ Per i set di scalabilità di macchine virtuali non di zona, il criterio selezion
 
 ### <a name="newestvm-scale-in-policy"></a>Criteri di ridimensionamento NewestVM
 
-| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
+| Evento                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Ridimensionamento              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Scegliere tra Zona 1 e 2. Eliminare da VM11 da Zona 2 perché è la macchina virtuale più recente tra le due zone.                                |

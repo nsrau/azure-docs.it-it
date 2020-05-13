@@ -3,15 +3,15 @@ title: Integrare funzioni di Azure con una rete virtuale di Azure
 description: Esercitazione dettagliata che illustra come connettere una funzione a una rete virtuale di Azure
 author: alexkarcher-msft
 ms.topic: article
-ms.date: 5/03/2019
+ms.date: 4/23/2020
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1babfa188a29e79cb52cd14af19d552123345f1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75433220"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122676"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Esercitazione: Integrare Funzioni con una rete virtuale di Azure
 
@@ -50,7 +50,7 @@ In primo luogo, si crea un'app per le funzioni nel [piano Premium]. Questo piano
 
 Successivamente, creare una macchina virtuale preconfigurata che esegue WordPress all'interno di una rete virtuale ([Wordpress LEMP7 max performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by Jetware). Viene usata una macchina virtuale WordPress a causa del costo e della convenienza ridotti. Questo stesso scenario funziona con tutte le risorse in una rete virtuale, ad esempio le API REST, gli ambienti del servizio app e altri servizi di Azure. 
 
-1. Nel portale scegliere **+ Crea una risorsa** nel riquadro di spostamento a sinistra, nel campo di ricerca digitare `WordPress LEMP7 Max Performance`e premere INVIO.
+1. Nel portale scegliere **+ Crea una risorsa** nel riquadro di spostamento a sinistra, nel campo di ricerca digitare `WordPress LEMP7 Max Performance` e premere INVIO.
 
 1. Scegliere **Wordpress Lemp max performance** nei risultati della ricerca. Selezionare un piano software di **Wordpress Lemp max performance per CentOS** come **piano software** e selezionare **Crea**.
 
@@ -61,7 +61,7 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
     | Impostazione      | Valore consigliato  | Descrizione      |
     | ------------ | ---------------- | ---------------- |
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui vengono create le risorse. | 
-    | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Scegliere `myResourceGroup`o il gruppo di risorse creato con l'app per le funzioni. L'uso dello stesso gruppo di risorse per l'app per le funzioni, la macchina virtuale WordPress e il piano di hosting rende più semplice la pulizia delle risorse al termine dell'esercitazione. |
+    | **[Gruppo di risorse](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Scegliere `myResourceGroup` o il gruppo di risorse creato con l'app per le funzioni. L'uso dello stesso gruppo di risorse per l'app per le funzioni, la macchina virtuale WordPress e il piano di hosting rende più semplice la pulizia delle risorse al termine dell'esercitazione. |
     | **Nome macchina virtuale** | VNET-Wordpress | Il nome della macchina virtuale deve essere univoco nel gruppo di risorse |
     | **[Region](https://azure.microsoft.com/regions/)** | Europa Europa occidentale | Scegliere un'area vicina o vicina alle funzioni che accedono alla macchina virtuale. |
     | **Dimensione** | B1S | Scegliere **modifica dimensioni** , quindi selezionare l'immagine standard B1S, che include 1 vCPU e 1 GB di memoria. |
@@ -100,17 +100,15 @@ A questo punto si dispone di un sito WordPress distribuito interamente nella ret
 
 Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtuale, è ora possibile connettere l'app per le funzioni a tale rete virtuale.
 
-1. Nella nuova app per le funzioni selezionare **funzionalità** > piattaforma**rete**.
-
-    ![Scegliere la rete nell'app per le funzioni](./media/functions-create-vnet/networking-0.png)
+1. Nella nuova app per le funzioni selezionare **rete** nel menu a sinistra.
 
 1. In **integrazione VNet**selezionare **fare clic qui per configurare**.
 
-    ![Stato per la configurazione di una funzionalità di rete](./media/functions-create-vnet/Networking-1.png)
+    :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Scegliere la rete nell'app per le funzioni":::
 
-1. Nella pagina di integrazione della rete virtuale selezionare **Aggiungi VNet (anteprima)**.
+1. Nella pagina **integrazione rete virtuale** selezionare **Aggiungi VNET**.
 
-    ![Aggiungere l'anteprima dell'integrazione VNet](./media/functions-create-vnet/networking-2.png)
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Aggiungere l'anteprima dell'integrazione VNet":::
 
 1. In **stato funzionalità di rete**usare le impostazioni nella tabella sotto l'immagine:
 
@@ -124,7 +122,7 @@ Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtual
     | **Blocco di indirizzi della rete virtuale** | 10.10.0.0/16 | Scegliere lo stesso blocco di indirizzi usato dal sito WordPress. È necessario definire un solo blocco di indirizzi. |
     | **Intervallo di indirizzi** | 10.10.2.0/24   | Le dimensioni della subnet limitano il numero totale di istanze per le quali l'app per le funzioni del piano Premium può essere scalata. Questo esempio usa una `/24` subnet con 254 indirizzi host disponibili. Questa subnet viene sottoposta a provisioning eccessivo, ma facile da calcolare. |
 
-1. Selezionare **OK** per aggiungere la subnet. Chiudere le pagine di integrazione VNet e di stato della funzionalità di rete per tornare alla pagina dell'app per le funzioni.
+1. Selezionare **OK** per aggiungere la subnet. Chiudere le pagine di **integrazione VNet** e di **stato della funzionalità di rete** per tornare alla pagina dell'app per le funzioni.
 
 L'app per le funzioni può ora accedere alla rete virtuale in cui è in esecuzione il sito WordPress. Usare quindi [proxy di funzioni di Azure](functions-proxies.md) per restituire un file dal sito WordPress.
 
@@ -132,9 +130,9 @@ L'app per le funzioni può ora accedere alla rete virtuale in cui è in esecuzio
 
 Con l'integrazione di VNet abilitata, è possibile creare un proxy nell'app per le funzioni per inviare le richieste alla macchina virtuale in esecuzione nella rete virtuale.
 
-1. Nell'app per le funzioni selezionare **proxy** > **+** e quindi usare le impostazioni proxy nella tabella sotto l'immagine:
+1. Nell'app per le funzioni selezionare **proxy** dal menu a sinistra e quindi selezionare **Aggiungi**. Usare le impostazioni proxy nella tabella sotto l'immagine:
 
-    ![Definire le impostazioni del proxy](./media/functions-create-vnet/create-proxy.png)
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definire le impostazioni del proxy":::
 
     | Impostazione  | Valore consigliato  | Descrizione      |
     | -------- | ---------------- | ---------------- |
@@ -144,7 +142,7 @@ Con l'integrazione di VNet abilitata, è possibile creare un proxy nell'app per 
 
 1. Selezionare **Crea** per aggiungere il proxy all'app per le funzioni.
 
-## <a name="try-it-out"></a>Provare il servizio
+## <a name="try-it-out"></a>Procedura
 
 1. Nel browser provare ad accedere all'URL usato come **URL back-end**. Come previsto, si verifica il timeout della richiesta. Si verifica un timeout perché il sito WordPress è connesso solo alla rete virtuale e non a Internet.
 

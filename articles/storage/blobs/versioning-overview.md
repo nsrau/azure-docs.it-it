@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fa28e07c28c36c03ab9e85d8436e3f1a2b36ad1c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993952"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123837"
 ---
 # <a name="blob-versioning-preview"></a>Controllo delle versioni dei BLOB (anteprima)
 
@@ -167,7 +167,7 @@ Il diagramma seguente mostra cosa accade quando si crea uno snapshot di un BLOB 
 È possibile autorizzare l'accesso alle versioni BLOB usando uno degli approcci seguenti:
 
 - Utilizzando il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza Azure Active Directory (Azure AD). Microsoft consiglia di usare Azure AD per una maggiore sicurezza e semplicità d'uso. Per altre informazioni sull'uso di Azure AD con le operazioni BLOB, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](../common/storage-auth-aad.md).
-- Usando una firma di accesso condiviso (SAS) per delegare l'accesso alle versioni BLOB. Specificare l'ID versione per il tipo `bv`di risorsa firmato, che rappresenta una versione BLOB, per creare un token SAS per le operazioni in una versione specifica. Per altre informazioni sulle firme di accesso condiviso, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md).
+- Usando una firma di accesso condiviso (SAS) per delegare l'accesso alle versioni BLOB. Specificare l'ID versione per il tipo di risorsa firmato `bv` , che rappresenta una versione BLOB, per creare un token SAS per le operazioni in una versione specifica. Per altre informazioni sulle firme di accesso condiviso, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md).
 - Utilizzando le chiavi di accesso dell'account per autorizzare le operazioni sulle versioni dei BLOB con la chiave condivisa. Per altre informazioni, vedere [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
 
 Il controllo delle versioni del BLOB è progettato per proteggere i dati da eliminazioni accidentali o dannose. Per migliorare la protezione, l'eliminazione di una versione BLOB richiede autorizzazioni speciali. Le sezioni seguenti descrivono le autorizzazioni necessarie per eliminare una versione BLOB.
@@ -183,7 +183,7 @@ La tabella seguente illustra le azioni RBAC che supportano l'eliminazione di un 
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametri della firma di accesso condiviso (SAS)
 
-La risorsa firmata per una versione BLOB `bv`è. Per altre informazioni, vedere [creare una](/rest/api/storageservices/create-service-sas) firma di accesso condiviso del servizio o [creare una firma di accesso condiviso dell'utente](/rest/api/storageservices/create-user-delegation-sas).
+La risorsa firmata per una versione BLOB è `bv` . Per altre informazioni, vedere [creare una](/rest/api/storageservices/create-service-sas) firma di accesso condiviso del servizio o [creare una firma di accesso condiviso dell'utente](/rest/api/storageservices/create-user-delegation-sas).
 
 La tabella seguente illustra l'autorizzazione necessaria per una firma di accesso condiviso per eliminare una versione BLOB.
 
@@ -224,9 +224,10 @@ Per eseguire la registrazione nell'anteprima del controllo delle versioni dei BL
 Per eseguire la registrazione con PowerShell, chiamare il comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
 ```powershell
+# Register for blob versioning (preview)
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-    
+
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
@@ -308,7 +309,7 @@ Nello scenario 3, il BLOB è stato aggiornato, ma la versione non lo è. Il bloc
 
 #### <a name="scenario-4"></a>Scenario 4
 
-Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi &mdash; univoci quattro nel BLOB di base e quattro nella versione precedente. Questo scenario può verificarsi se si scrive in un BLOB con l'operazione Put Blob, perché sostituisce l'intero contenuto del BLOB di base.
+Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci &mdash; quattro nel BLOB di base e quattro nella versione precedente. Questo scenario può verificarsi se si scrive in un BLOB con l'operazione Put Blob, perché sostituisce l'intero contenuto del BLOB di base.
 
 ![Risorse di archiviazione di Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 

@@ -1,18 +1,20 @@
 ---
 title: Usare l'estensione integrità dell'applicazione con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come usare l'estensione Integrità applicazione per monitorare l'integrità delle applicazioni distribuite nei set di scalabilità di macchine virtuali.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 05/06/2020
-ms.author: mimckitt
-ms.openlocfilehash: 30f68d22a228e6de596e6999490ea7789ab21547
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864369"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124109"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
 Il monitoraggio dell'integrità delle applicazioni è un elemento importante per la gestione e l'aggiornamento della distribuzione. I set di scalabilità di macchine virtuali di Azure supportano gli [aggiornamenti in sequenza](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), inclusi gli [aggiornamenti automatici dell'immagine del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), che si basano sul monitoraggio dell'integrità delle singole istanze per l'aggiornamento della distribuzione. È anche possibile usare l'estensione per l'integrità per monitorare lo stato di integrità dell'applicazione di ogni istanza nel set di scalabilità ed eseguire le riparazioni delle istanze usando le [riparazioni automatiche dell'istanza](virtual-machine-scale-sets-automatic-instance-repairs.md)
@@ -67,8 +69,8 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 | Nome | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
 | protocol | `http` o `https` o `tcp` | string |
-| port | Facoltativo quando il protocollo `http` è `https`o, obbligatorio quando il protocollo è`tcp` | INT |
-| requestPath | Obbligatoria quando il protocollo `http` è `https`o, non è consentito quando il protocollo è`tcp` | string |
+| port | Facoltativo quando il protocollo è `http` o `https` , obbligatorio quando il protocollo è`tcp` | INT |
+| requestPath | Obbligatoria quando il protocollo è `http` o `https` , non è consentito quando il protocollo è`tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuire l'estensione Integrità applicazione
 Esistono diversi modi per distribuire l'estensione Integrità applicazione nei set di scalabilità, come descritto in dettaglio negli esempi seguenti.

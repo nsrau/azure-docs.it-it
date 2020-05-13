@@ -1,17 +1,17 @@
 ---
 title: Configurare e gestire il time to Live in Azure Cosmos DB
 description: Informazioni su come configurare e gestire la durata (TTL) in un contenitore e un elemento in Azure Cosmos DB
-author: markjbrown
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 3019e9f78a51a991d5c6e96655f5dbae1f224620
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 11f5615d44cef4b6717dc9fe2004a64cf2f800ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869892"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124126"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
@@ -201,7 +201,7 @@ Oltre a impostare una durata (TTL) predefinita per un contenitore, è possibile 
 
 * Se la durata (TTL) è disabilitata a livello di contenitore, il campo TTL dell'elemento viene ignorato finché la durata (TTL) non viene abilitata nuovamente per il contenitore.
 
-### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portale di Azure
+### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>portale di Azure
 
 Usare la procedura seguente per abilitare la durata (TTL) in un elemento:
 

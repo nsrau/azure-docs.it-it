@@ -5,16 +5,16 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: a96d2ede80b4c57e7b85048379a4bfb66cacfd52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 030af8a289daaf03d17f8402e8d603e893657853
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754856"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123617"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
 
-Funzioni di Azure consente di eseguire il codice in un ambiente serverless senza dover prima creare una macchina virtuale (VM) o pubblicare un'applicazione Web. Questo articolo illustra come usare Funzioni di Azure per creare una funzione "hello world" attivata tramite HTTP nel portale di Azure.
+Funzioni di Azure consente di eseguire il codice in un ambiente serverless senza dover prima creare una macchina virtuale (VM) o pubblicare un'applicazione Web. Questo articolo illustra come usare funzioni di Azure per creare una funzione trigger HTTP "Hello World" nel portale di Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,29 +32,31 @@ Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. U
 
 Creare quindi una funzione nella nuova app per le funzioni.
 
-## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Creare una funzione attivata tramite HTTP
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Creare una funzione trigger HTTP
 
-1. Espandere la nuova app per le funzioni, selezionare il pulsante **+** accanto a **Funzioni**, scegliere **Nel portale** e quindi selezionare **Continua**.
+1. Dal menu a sinistra della finestra **funzioni** selezionare **funzioni**, quindi scegliere **Aggiungi** dal menu in alto. 
+ 
+1. Dalla finestra **nuova funzione** selezionare **trigger http**.
 
-    ![Avvio rapido di Funzioni per la scelta di una piattaforma.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Scegliere la funzione trigger HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Scegliere **WebHook e API** e quindi selezionare **Crea**.
+1. Nella finestra **nuova funzione** accettare il nome predefinito per la **nuova funzione**oppure immettere un nuovo nome. 
 
-    ![Guida di avvio rapido di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+1. Scegliere **Anonimo** dall'elenco a discesa **livello di autorizzazione** e quindi selezionare **Crea funzione**.
 
-   Viene creata una funzione usando il modello specifico del linguaggio per una funzione attivata tramite HTTP.
-
-Ora è possibile eseguire la nuova funzione inviando una richiesta HTTP.
+    Azure crea la funzione trigger HTTP. Ora è possibile eseguire la nuova funzione inviando una richiesta HTTP.
 
 ## <a name="test-the-function"></a>Testare la funzione
 
-1. Nella nuova funzione selezionare **</> Recupera URL della funzione** in alto a destra. 
+1. Nella nuova funzione trigger HTTP selezionare **codice + test** dal menu a sinistra, quindi selezionare **Ottieni URL funzione** dal menu in alto.
 
-1. Nella finestra di dialogo **Recupera URL della funzione** selezionare **default (Function key)** (valore predefinito - chiave funzione) nell'elenco a discesa e quindi **Copia**. 
+    ![Selezionare Ottieni URL funzione](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. Nella finestra di dialogo **Ottieni URL funzione** selezionare **predefinito** dall'elenco a discesa, quindi selezionare l'icona **copia negli Appunti** . 
 
     ![Creare l'URL della funzione dal portale di Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere il valore della stringa di query `&name=<your_name>` alla fine dell'URL e premere INVIO per eseguire la richiesta. 
+1. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere il valore della stringa `?name=<your_name>` di query alla fine dell'URL e premere INVIO per eseguire la richiesta. 
 
     L'esempio seguente mostra la risposta nel browser:
 
@@ -62,7 +64,7 @@ Ora è possibile eseguire la nuova funzione inviando una richiesta HTTP.
 
     L'URL della richiesta include una chiave necessaria per impostazione predefinita per accedere a una funzione tramite HTTP.
 
-1. Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia dell'esecuzione precedente, tornare alla funzione nel portale e selezionare la freccia nella parte inferiore della schermata per espandere **Log**.
+1. Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia, tornare alla pagina **codice + test** nel portale ed espandere la freccia **log** nella parte inferiore della pagina.
 
    ![Visualizzatore log di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
