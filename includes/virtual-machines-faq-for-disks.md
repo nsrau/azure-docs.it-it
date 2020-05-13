@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e87b6ee4739818e25ee069986e299f8205d44a2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595298"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343304"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -25,15 +25,15 @@ Managed Disks è una funzionalità che semplifica la gestione dei dischi per le 
 
 **Se si crea un disco gestito Standard da un disco rigido virtuale esistente da 80 GB, qual è il costo?**
 
-Un disco gestito Standard creato da un disco rigido virtuale da 80 GB viene considerato come il disco Standard immediatamente successivo in termini di dimensioni, ovvero un disco S10. Il costo addebitato corrisponde al prezzo del disco S10. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
+Un disco gestito Standard creato da un disco rigido virtuale da 80 GB viene considerato come il disco Standard immediatamente successivo in termini di dimensioni, ovvero un disco S10. Il costo addebitato corrisponde al prezzo del disco S10. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
 
 **Sono previsti costi di transazione per i dischi gestiti Standard?**
 
-Sì. Sì, ogni transazione prevede un addebito. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
+Sì. Sì, ogni transazione prevede un addebito. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
 
 **Per un disco gestito Standard, si riceverà un addebito per le dimensioni effettive dei dati su disco o per la capacità con provisioning del disco?**
 
-L'addebito viene effettuato in base alla capacità con provisioning del disco. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
+L'addebito viene effettuato in base alla capacità con provisioning del disco. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
 
 **In che modo il prezzo della versione Premium dei dischi gestiti è diverso da quello dei dischi non gestiti?**
 
@@ -257,32 +257,6 @@ Tutte le aree di Azure supportano ora i dischi SSD Standard.
 **Backup di Azure è disponibile quando si usano unità SSD Standard?**
 Sì, Backup di Azure è ora disponibile.
 
-**Come si creano i dischi SSD Standard?**
-È possibile creare dischi SDD Standard usando Azure Resource Manager modelli, SDK, PowerShell o l'interfaccia della riga di comando. Di seguito sono elencati i parametri necessari nel modello di Resource Manager per creare dischi SSD Standard:
-
-* *apiVersion* per Microsoft.Computer deve essere impostato su `2018-04-01` (o versioni successive)
-* Specificare *managedDisk.storageAccountType* come `StandardSSD_LRS`
-
-L'esempio seguente mostra la sezione *properties.storageProfile.osDisk* per una macchina virtuale che usa dischi SSD Standard:
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-Per un esempio di modello completo di come creare un disco SSD standard con un modello, vedere [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/) (Creare una macchina virtuale da un'immagine Windows con dischi dati SSD standard).
-
-**È possibile convertire i dischi esistenti in unità SSD Standard?**
-Sì, Per le linee guida generali per la conversione di Azure Managed Disks fare riferimento a [Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Usare anche il valore seguente per aggiornare il tipo di disco in SSD Standard.
--AccountType StandardSSD_LRS
-
 **Quali sono i vantaggi offerti dall'uso dei dischi SSD Standard rispetto ai dischi HDD?**
 I dischi SDD Standard offrono latenza, coerenza, disponibilità e affidabilità migliori rispetto ai dischi HDD. Per questo motivo, i carichi di lavoro delle applicazioni vengono eseguiti in modo molto più efficiente su unità SSD Standard. Si noti che i dischi SSD Premium rappresentano la soluzione consigliata per la maggior parte dei carichi di lavoro di produzione con I/O intensivo.
 
@@ -332,9 +306,9 @@ Sì
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione
 
-**La crittografia del servizio di archiviazione è abilitata per impostazione predefinita quando si crea un nuovo disco gestito?**
+**La crittografia lato server è abilitata per impostazione predefinita quando si crea un disco gestito?**
 
-Sì.
+Sì. Managed Disks vengono crittografati con la crittografia lato server con chiavi gestite dalla piattaforma. 
 
 **Il volume di avvio è crittografato per impostazione predefinita in un disco gestito?**
 
@@ -342,30 +316,27 @@ Sì. Per impostazione predefinita, tutti i dischi gestiti sono crittografati, in
 
 **chi gestisce le chiavi di crittografia?**
 
-Le chiavi di crittografia sono gestite da Microsoft.
+Le chiavi gestite dalla piattaforma sono gestite da Microsoft. È anche possibile usare e gestire le proprie chiavi archiviate in Azure Key Vault. 
 
-**È possibile disabilitare la crittografia del servizio di archiviazione per i dischi gestiti?**
+**È possibile disabilitare la crittografia lato server per i dischi gestiti?**
 
 No.
 
-**La crittografia del servizio di archiviazione è disponibile solo in aree specifiche?**
+**La crittografia lato server è disponibile solo in aree specifiche?**
 
-No. È disponibile in tutte le aree in cui è disponibile Managed Disks. Managed Disks è disponibile in tutte le aree pubbliche e in Germania. È disponibile anche in Cina, ma solo per le chiavi gestite da Microsoft e non per quelle gestite dal cliente.
+No. La crittografia lato server con chiavi gestite da piattaforma e cliente è disponibile in tutte le aree in cui sono disponibili Managed Disks. 
 
-**Come si può determinare se un disco gestito è crittografato?**
+**Azure Site Recovery supporta la crittografia lato server con la chiave gestita dal cliente per gli scenari di ripristino di emergenza da sito locale ad Azure e da Azure ad Azure?**
 
-Si può scoprire quando è stato creato il disco gestito tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Se è stato creato dopo il 9 giugno 2017, il disco è crittografato.
+Sì. 
 
-**Come è possibile crittografare i dischi esistenti creati prima del 10 giugno 2017?**
+**È possibile eseguire il backup Managed Disks crittografato con la crittografia lato server con la chiave gestita dal cliente usando il servizio backup di Azure?**
 
-A partire dal 10 giugno 2017, i nuovi dati scritti nei dischi gestiti esistenti vengono crittografati automaticamente. È anche prevista l'implementazione della crittografia dei dati esistenti, che verrà eseguita in modo asincrono in background. Se è necessario crittografare i dati esistenti adesso, creare una copia del disco. I nuovi dischi verranno crittografati.
-
-* [Copiare i dischi gestiti tramite l'interfaccia della riga di comando di Azure](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copiare i dischi gestiti tramite PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Sì.
 
 **Le immagini e gli snapshot gestiti vengono crittografati?**
 
-Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengono crittografati automaticamente. 
+Sì. Tutti gli snapshot gestiti e le immagini vengono crittografati automaticamente. 
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
@@ -391,7 +362,7 @@ Un disco dati Premium creato da un disco rigido virtuale da 80 GB viene consider
 
 **Sono previsti costi per transazione per usare i dischi SSD Premium?**
 
-È previsto un costo fisso per ogni dimensione di disco con provisioning di un certo numero di IOPS e di una certa velocità effettiva. Gli altri costi sono la larghezza di banda in uscita e la capacità di snapshot, se applicabile. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
+È previsto un costo fisso per ogni dimensione di disco con provisioning di un certo numero di IOPS e di una certa velocità effettiva. Gli altri costi sono la larghezza di banda in uscita e la capacità di snapshot, se applicabile. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
 
 **Quali sono i limiti per IOPS e velocità effettiva che è possibile ottenere dalla cache del disco?**
 
