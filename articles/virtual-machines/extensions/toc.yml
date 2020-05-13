@@ -64,6 +64,10 @@
           href: hpccompute-gpu-linux.md
         - name: Windows
           href: hpccompute-gpu-windows.md
+    - name: Driver per la GPU AMD
+      items:
+        - name: Windows
+          href: hpccompute-amd-gpu-windows.md
     - name: Monitoraggio di Azure
       items:
         - name: Estensione di Diagnostica

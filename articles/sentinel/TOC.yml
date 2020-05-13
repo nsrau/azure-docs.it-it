@@ -94,11 +94,11 @@
                   items:
                     - name: Punto di controllo
                       href: connect-checkpoint.md
-                    - name: Cisco
+                    - name: Cisco ASA
                       href: connect-cisco.md
                     - name: ExtraHop Reveal(x)
                       href: connect-extrahop.md
-                    - name: F5
+                    - name: F5 ASM
                       href: connect-f5.md
                     - name: Prodotti Forcepoint
                       href: connect-forcepoint-casb-ngfw.md
@@ -118,8 +118,10 @@
           href: connect-threat-intelligence.md
         - name: Connettere le VM di Azure Stack
           href: connect-azure-stack.md
-    - name: Più tenant (MSSP)
+    - name: Usare più tenant (MSSP)
       href: multiple-tenants-service-providers.md
+    - name: Gestire eventi imprevisti in più aree di lavoro
+      href: multiple-workspace-view.md
     - name: Configurare le chiavi gestite dal cliente
       href: customer-managed-keys.md
     - name: Creare eventi imprevisti dagli avvisi
@@ -145,3 +147,5 @@
       href: 'https://blogs.msdn.com/b/azuresecurity/'
     - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/'

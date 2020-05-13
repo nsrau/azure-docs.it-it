@@ -675,15 +675,15 @@
                   href: mongodb-samples.md
                 - name: App Node.js e Angular
                   items:
-                    - name: 'Parte 1: Introduzione'
+                    - name: Parte 1 - Introduzione
                       href: tutorial-develop-mongodb-nodejs.md
-                    - name: 'Parte 2: Creare l''app Node'
+                    - name: Parte 2 - Creare l'app Node
                       href: tutorial-develop-mongodb-nodejs-part2.md
                     - name: Parte 3 - Aggiungere l'interfaccia utente con Angular
                       href: tutorial-develop-mongodb-nodejs-part3.md
                     - name: Parte 4 - Creare un account
                       href: tutorial-develop-mongodb-nodejs-part4.md
-                    - name: 'Parte 5: Connettersi a Cosmos DB'
+                    - name: Parte 5 - Connettersi a Cosmos DB
                       href: tutorial-develop-mongodb-nodejs-part5.md
                     - name: Parte 6 - Eseguire operazioni CRUD
                       href: tutorial-develop-mongodb-nodejs-part6.md
@@ -1018,7 +1018,7 @@
           href: how-to-use-change-feed-estimator.md
         - name: Eseguire la migrazione dalla libreria del processore dei feed di modifiche
           href: how-to-migrate-from-change-feed-library.md
-        - name: Creare un'applicazione Java SQL con il feed di modifiche
+        - name: Feed di modifiche - Esempio di Async Java
           href: create-sql-api-java-changefeed.md
     - name: Analisi predefinita con Apache Spark
       items:
@@ -1080,6 +1080,8 @@
               href: monitor-server-side-latency.md
             - name: Monitorare l'utilizzo delle unità richiesta
               href: monitor-request-unit-usage.md
+            - name: Monitorare l'utilizzo delle unità richiesta normalizzate
+              href: monitor-normalized-request-units.md
         - name: Usare i log di Monitoraggio di Azure
           items:
             - name: Monitorare con i log di diagnostica

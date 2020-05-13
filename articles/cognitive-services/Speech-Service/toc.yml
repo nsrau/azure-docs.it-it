@@ -24,7 +24,7 @@
           href: batch-transcription.md
         - name: Nozioni di base sul riconoscimento vocale
           href: speech-to-text-basics.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Riconoscimento vocale con input del microfono
           href: quickstarts/speech-to-text-from-microphone.md
@@ -115,7 +115,7 @@
           href: text-to-speech.md
         - name: Nozioni di base sulla sintesi vocale
           href: text-to-speech-basics.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Sintetizzare la voce in un altoparlante
           href: quickstarts/text-to-speech.md
@@ -216,7 +216,7 @@
           href: speech-translation.md
         - name: Nozioni di base sulla traduzione vocale
           href: speech-translation-basics.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Tradurre la voce in testo
           href: quickstarts/translate-speech-to-text.md
@@ -265,7 +265,7 @@
   items:
     - name: Documentazione di Riconoscimento finalità
       href: index-intent-recognition.yml
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: 'Riconoscere la voce, le finalità e le entità'
           displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
@@ -364,7 +364,7 @@
           items:
             - name: Che cos'è la conversazione per più dispositivi?
               href: multi-device-conversation.md
-        - name: Guida introduttiva
+        - name: Avvio rapido
           items:
             - name: Avviare a una conversazione e parteciparvi
               href: quickstarts/multi-device-conversation.md
@@ -482,7 +482,7 @@
           href: speech-sdk.md
         - name: Disponibilità di scenari
           href: scenario-availability.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Configurare Speech SDK
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
@@ -545,7 +545,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md
@@ -557,6 +557,20 @@
       items:
         - name: Note sulla versione di Speech Devices SDK
           href: devices-sdk-release-notes.md
+- name: Strumenti
+  items:
+    - name: SPX
+      items:
+        - name: Che cos'è SPX?
+          href: spx-overview.md
+        - name: Nozioni di base su SPX
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: Che cos'è Speech Studio?
+          href: 'https://speech.microsoft.com'
+        - name: Creare un'app Comandi personalizzati con Speech Studio
+          href: quickstart-custom-speech-commands-create-new.md
 - name: Migrazione
   items:
     - name: Da Riconoscimento vocale Bing

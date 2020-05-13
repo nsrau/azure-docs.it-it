@@ -44,7 +44,7 @@
       href: tutorial-azure-security.md
     - name: 14 - Installare uno stack SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: '15: Proteggere il server Web con SSL'
+    - name: 15 - Proteggere il server Web con SSL
       href: tutorial-secure-web-server.md
 - name: Esempi
   items:
@@ -392,6 +392,101 @@
           href: migration-classic-resource-manager-community-tools.md
         - name: Domande frequenti
           href: migration-classic-resource-manager-faq.md
+    - name: Usare immagini
+      displayName: 'SIG, AMI, image'
+      items:
+        - name: Creare e condividere immagini
+          items:
+            - name: PowerShell
+              items:
+                - name: Creare una raccolta
+                  href: ../shared-images-powershell.md
+                - name: Creare un'immagine
+                  items:
+                    - name: Da una VM
+                      href: ../image-version-vm-powershell.md
+                    - name: Eseguire la migrazione da un'immagine gestita
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Copiare da un'altra raccolta
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Creare una macchina virtuale
+                  items:
+                    - name: Generalizzata
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Specializzata
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Aggiornare le risorse immagini
+                  href: ../update-image-resources-powershell.md
+            - name: CLI
+              items:
+                - name: Creare una raccolta
+                  href: ../linux/shared-images.md
+                - name: Creare un'immagine
+                  items:
+                    - name: Da una VM
+                      href: ../image-version-vm-cli.md
+                    - name: Eseguire la migrazione da un'immagine gestita
+                      href: ../image-version-managed-image-cli.md
+                    - name: Copiare da un'altra raccolta
+                      href: ../image-version-another-gallery-cli.md
+                    - name: Copiare da un'altra raccolta
+                      href: ../image-version-another-gallery-cli.md
+                - name: Creare una macchina virtuale
+                  items:
+                    - name: Generalizzata
+                      href: ../vm-generalized-image-version-cli.md
+                - name: Aggiornare le risorse immagini
+                  href: ../update-image-resources-cli.md
+            - name: Portale
+              items:
+                - name: 'Creare una raccolta, un''immagine e una VM'
+                  href: shared-images-portal.md
+            - name: Modelli di Resource Manager
+              items:
+                - name: Creare una Raccolta immagini condivise
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Creare una definizione di immagine in una raccolta di immagini condivise
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Creare una versione di immagine in una raccolta di immagini condivise
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Creare una VM da una versione di immagine
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+            - name: Risolvere i problemi relativi alle immagini condivise
+              href: troubleshooting-shared-images.md
+            - name: Uso delle chiavi gestite dal cliente
+              displayName: 'SSE, CMK, encrypt'
+              href: ../image-version-encryption.md
+        - name: Generatore di immagini (anteprima)
+          items:
+            - name: Panoramica
+              href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Utilizzare l'interfaccia della riga di comando di Azure
+              href: image-builder.md
+            - name: Creare immagini per le raccolte
+              href: image-builder-gallery.md
+            - name: Aggiornare un'immagine esistente
+              href: image-builder-gallery-update-image-version.md
+            - name: Script per l'archiviazione
+              href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Informazioni di riferimento sui modelli di Azure Resource Manager
+              displayName: Azure Resource Manager
+              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Risolvere problemi
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+        - name: Trovare e usare immagini
+          href: cli-ps-findimage.md
+        - name: Preparare la macchina virtuale per il caricamento
+          href: prepare-for-upload-vhd-image.md
+        - name: Acquisire la macchina virtuale in un'immagine
+          href: capture-image-resource.md
+        - name: Usare un'immagine generalizzata
+          href: create-vm-generalized-managed.md
+        - name: Creare un'immagine con Packer
+          href: build-image-with-packer.md
+        - name: Usare immagini client Windows
+          href: client-images.md
+        - name: Scaricare un disco esistente
+          href: download-vhd.md
     - name: Proteggere le macchine virtuali
       items:
         - name: Consigli
@@ -528,98 +623,6 @@
           href: ../../azure-monitor/platform/alerts-log.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Ottenere le metriche di utilizzo con REST
           href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Usare immagini
-      displayName: 'SIG, AMI, image'
-      items:
-        - name: Creare e condividere immagini
-          items:
-            - name: PowerShell
-              items:
-                - name: Creare una raccolta
-                  href: ../shared-images-powershell.md
-                - name: Creare un'immagine
-                  items:
-                    - name: Da una VM
-                      href: ../image-version-vm-powershell.md
-                    - name: Eseguire la migrazione da un'immagine gestita
-                      href: ../image-version-managed-image-powershell.md
-                    - name: Copiare da un'altra raccolta
-                      href: ../image-version-another-gallery-powershell.md
-                - name: Creare una macchina virtuale
-                  items:
-                    - name: Generalizzata
-                      href: ../vm-generalized-image-version-powershell.md
-                    - name: Specializzata
-                      href: ../vm-specialized-image-version-powershell.md
-                - name: Aggiornare le risorse immagini
-                  href: ../update-image-resources-powershell.md
-            - name: CLI
-              items:
-                - name: Creare una raccolta
-                  href: ../linux/shared-images.md
-                - name: Creare un'immagine
-                  items:
-                    - name: Da una VM
-                      href: ../image-version-vm-cli.md
-                    - name: Eseguire la migrazione da un'immagine gestita
-                      href: ../image-version-managed-image-cli.md
-                    - name: Copiare da un'altra raccolta
-                      href: ../image-version-another-gallery-cli.md
-                    - name: Copiare da un'altra raccolta
-                      href: ../image-version-another-gallery-cli.md
-                - name: Creare una macchina virtuale
-                  items:
-                    - name: Generalizzata
-                      href: ../vm-generalized-image-version-cli.md
-                - name: Aggiornare le risorse immagini
-                  href: ../update-image-resources-cli.md
-            - name: Portale
-              items:
-                - name: 'Creare una raccolta, un''immagine e una VM'
-                  href: shared-images-portal.md
-            - name: Modelli di Resource Manager
-              items:
-                - name: Creare una Raccolta immagini condivise
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
-                - name: Creare una definizione di immagine in una raccolta di immagini condivise
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
-                - name: Creare una versione di immagine in una raccolta di immagini condivise
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
-                - name: Creare una VM da una versione di immagine
-                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
-            - name: Risolvere i problemi relativi alle immagini condivise
-              href: troubleshooting-shared-images.md
-        - name: Generatore di immagini (anteprima)
-          items:
-            - name: Panoramica
-              href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Utilizzare l'interfaccia della riga di comando di Azure
-              href: image-builder.md
-            - name: Creare immagini per le raccolte
-              href: image-builder-gallery.md
-            - name: Aggiornare un'immagine esistente
-              href: image-builder-gallery-update-image-version.md
-            - name: Script per l'archiviazione
-              href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Informazioni di riferimento sui modelli di Azure Resource Manager
-              displayName: Azure Resource Manager
-              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Risolvere problemi
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
-        - name: Trovare e usare immagini
-          href: cli-ps-findimage.md
-        - name: Preparare la macchina virtuale per il caricamento
-          href: prepare-for-upload-vhd-image.md
-        - name: Acquisire la macchina virtuale in un'immagine
-          href: capture-image-resource.md
-        - name: Usare un'immagine generalizzata
-          href: create-vm-generalized-managed.md
-        - name: Creare un'immagine con Packer
-          href: build-image-with-packer.md
-        - name: Usare immagini client Windows
-          href: client-images.md
-        - name: Scaricare un disco esistente
-          href: download-vhd.md
     - name: Disponibilità e scalabilità
       items:
         - name: Set di scalabilità di macchine virtuali

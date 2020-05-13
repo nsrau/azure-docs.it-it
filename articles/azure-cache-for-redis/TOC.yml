@@ -7,18 +7,26 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: App ASP.NET
-      href: cache-web-app-howto.md
-    - name: App .NET Core
-      href: cache-dotnet-core-quickstart.md
-    - name: App .NET
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: App Java
-      href: cache-java-get-started.md
-    - name: App Node.js
-      href: cache-nodejs-get-started.md
-    - name: App Python
-      href: cache-python-get-started.md
+    - name: Creare una cache
+      items:
+        - name: 'Livelli Basic, Standard e Premium'
+          href: quickstart-create-redis.md
+        - name: Livelli Enterprise
+          href: quickstart-create-redis-enterprise.md
+    - name: Usare una cache
+      items:
+        - name: App ASP.NET
+          href: cache-web-app-howto.md
+        - name: App .NET Core
+          href: cache-dotnet-core-quickstart.md
+        - name: App .NET
+          href: cache-dotnet-how-to-use-azure-redis-cache.md
+        - name: App Java
+          href: cache-java-get-started.md
+        - name: App Node.js
+          href: cache-nodejs-get-started.md
+        - name: App Python
+          href: cache-python-get-started.md
 - name: Esercitazioni
   items:
     - name: Usare la memorizzazione nella cache con i tabelloni punteggi
