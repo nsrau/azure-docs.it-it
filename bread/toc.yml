@@ -605,7 +605,7 @@
         - name: Messaggistica del bus di servizio
           tocHref: /azure/service-bus-messaging/
           topicHref: /azure/service-bus-messaging/
-        - name: Inoltro del bus di servizio
+        - name: Servizio di inoltro di Azure
           tocHref: /azure/service-bus-relay/
           topicHref: /azure/service-bus-relay/
     - name: Migrazione

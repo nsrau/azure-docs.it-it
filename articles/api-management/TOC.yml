@@ -227,8 +227,6 @@
           href: how-to-configure-cloud-metrics-logs.md
         - name: Configurare le metriche e i log locali per il gateway self-hosted
           href: how-to-configure-local-metrics-logs.md
-        - name: Registrare le richieste con Azure Application Insights
-          href: api-management-howto-app-insights.md
         - name: Configurare il ripristino di emergenza con backup/ripristino
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Gestire gli account utente
