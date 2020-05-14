@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79371223"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202084"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurare le reti virtuali dei servizi cognitivi di Azure
 
@@ -55,7 +55,7 @@ Il supporto per la rete virtuale per servizi cognitivi elencati di seguito è li
 
 Il supporto per la rete virtuale per servizi cognitivi elencati di seguito è limitato alle aree di Azure *Stati Uniti centrali*, Stati Uniti *centro-meridionali*, *Stati Uniti orientali*, *stati Uniti occidentali 2*, *globali*e *US gov Virginia* .
 > [!div class="checklist"]
-> * [Traduzione testuale](./translator/index.yml)
+> * [Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Tag di servizio
 Oltre a supportare gli endpoint servizio di rete virtuale per i servizi precedenti, servizi cognitivi supporta anche un tag di servizio per la configurazione delle regole di rete in uscita. I servizi seguenti sono inclusi nel tag del servizio CognitiveServicesManagement.
@@ -339,12 +339,12 @@ La risorsa Servizi cognitivi e le reti virtuali a cui è stato concesso l'access
 
 È possibile configurare le risorse di servizi cognitivi per consentire l'accesso da intervalli di indirizzi IP Internet pubblici specifici. Questa configurazione concede l'accesso a servizi specifici e a reti locali, bloccando in modo efficace il traffico Internet generale.
 
-Specificare gli intervalli di indirizzi Internet consentiti usando la `16.17.18.0/24` [notazione CIDR](https://tools.ietf.org/html/rfc4632) nel form o come `16.17.18.19`singoli indirizzi IP, ad esempio.
+Specificare gli intervalli di indirizzi Internet consentiti usando la [notazione CIDR](https://tools.ietf.org/html/rfc4632) nel form `16.17.18.0/24` o come singoli indirizzi IP, ad esempio `16.17.18.19` .
 
    > [!Tip]
    > Gli intervalli di indirizzi di piccole dimensioni con dimensioni di prefisso "/31" o "/32" non sono supportati. Questi intervalli vanno configurati con le regole usate per gli indirizzi IP singoli.
 
-Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica**. Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono indirizzi che iniziano `10.*`con `172.16.*`  -  `172.31.*`, e `192.168.*`.
+Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica**. Gli intervalli di indirizzi IP riservati per le reti private (come definito nell'[RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP. Le reti private includono indirizzi che iniziano con `10.*` , `172.16.*`  -  `172.31.*` e `192.168.*` .
 
    > [!NOTE]
    > Le regole di rete IP non hanno effetto sulle richieste provenienti dalla stessa area di Azure della risorsa Servizi cognitivi. Usare le [regole di rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area.
@@ -369,11 +369,11 @@ Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md) in locale
 
 1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
-1. Per concedere l'accesso a un intervallo IP Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in [formato CIDR](https://tools.ietf.org/html/rfc4632)) nell'**intervallo di indirizzi**del **Firewall** > . Sono accettati solo indirizzi IP pubblici (non riservati) validi.
+1. Per concedere l'accesso a un intervallo IP Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in [formato CIDR](https://tools.ietf.org/html/rfc4632)) nell'intervallo di indirizzi del **Firewall**  >  **Address Range**. Sono accettati solo indirizzi IP pubblici (non riservati) validi.
 
    ![Aggiungi intervallo IP](media/vnet/virtual-network-add-ip-range.png)
 
-1. Per rimuovere una regola di rete IP, selezionare l' <span class="docon docon-delete x-hidden-focus"></span> icona del cestino accanto all'intervallo di indirizzi.
+1. Per rimuovere una regola di rete IP, selezionare l'icona del cestino <span class="docon docon-delete x-hidden-focus"></span> accanto all'intervallo di indirizzi.
 
    ![Elimina intervallo IP](media/vnet/virtual-network-delete-ip-range.png)
 

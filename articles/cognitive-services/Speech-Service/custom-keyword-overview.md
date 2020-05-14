@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: dd5748cf8afe19a49e5ea406aea9b558432eeaf3
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82802181"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202038"
 ---
 # <a name="what-is-a-keyword"></a>Che cos'è una parola chiave?
 
@@ -31,26 +31,15 @@ Con le funzionalità di personalizzazione, prestazioni e integrazione delle paro
 | Verifica parole chiave | Quando la parola chiave viene rilevata localmente in modo sicuro, l'audio viene inviato al cloud per un'ulteriore verifica che un utente abbia detto la parola chiave. La verifica delle parole chiave offre un ulteriore livello di sicurezza, riducendo l'effetto di un rilevamento locale errato e la protezione della privacy degli utenti.
 | Assistente vocale & l'integrazione dell'SDK vocale | Le parole chiave generate dalla parola chiave Custom in speech studio possono essere integrate facilmente all'interno del dispositivo o dell'applicazione tramite l'SDK di riconoscimento vocale. È sufficiente puntare l'SDK al modello di parola chiave fornito da speech studio e il prodotto sarà attivato tramite Voice, supportato dalla verifica delle parole chiave. Per completare l'esperienza vocale del prodotto, è possibile creare un proprio [Assistente vocale](voice-assistants.md).
 
-## <a name="sample-code"></a>Codice di esempio
+## <a name="get-started-with-custom-keywords"></a>Introduzione alle parole chiave personalizzate
 
-Il codice di esempio per l'integrazione di un modello di parola chiave è disponibile su GitHub. Questi esempi coprono l'applicazione client per l'integrazione della parola chiave in diversi linguaggi di programmazione più diffusi.
-
-* [Esercitazione: attivare la voce del prodotto con l'SDK di riconoscimento vocale, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples) (Esempi di assistente vocale - SDK)
-
-## <a name="tutorial"></a>Esercitazione
-
-* Come [creare una parola chiave personalizzata usando speech studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
-* Come [attivare l'attivazione vocale del prodotto tramite Speech SDK](tutorial-voice-enable-your-bot-speech-sdk.md).
-
-## <a name="reference-docs"></a>Documentazione di riferimento
-
-* [Linee guida per la denominazione delle parole chiave personalizzate](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-kws-guidelines)
-* [Speech SDK](speech-sdk-reference.md)
+* Esercitazione: come [creare una parola chiave personalizzata usando speech studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
+* Esercitazione: [attivare l'attivazione vocale del prodotto con l'SDK di riconoscimento vocale usando C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* Guida introduttiva: [riconoscere parole chiave con l'SDK di riconoscimento vocale, su piattaforma UWP (Universal Windows Platform) con C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* Guida introduttiva: [riconoscere parole chiave con l'SDK di riconoscimento vocale su Android con Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
-* [Creare una parola chiave personalizzata](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
 * [Ottenere Speech SDK](speech-sdk.md)
 * [Altre informazioni sugli assistenti vocali](voice-assistants.md)
