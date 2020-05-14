@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 3ccc9820f38a8c32d0b390663eb6b4430b42e8f0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372359"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198662"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per il servizio vocale
 
@@ -42,13 +42,10 @@ Per richiedere l'accesso all'archiviazione, compilare e inviare il [modulo di 
 > [!IMPORTANT]
 > Se si disabilitano le identità gestite assegnate dal sistema, l'accesso all'account di archiviazione verrà rimosso. In questo modo, le parti del servizio di riconoscimento vocale che richiedono l'accesso all'account di archiviazione smetteranno di funzionare.  
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+Il servizio di riconoscimento vocale attualmente non supporta Customer Lockbox. Tuttavia, i dati dei clienti possono essere archiviati usando BYOS, consentendo di ottenere controlli dati simili per [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md). Tenere presente che i dati del servizio vocale rimangono e vengono elaborati nell'area in cui è stata creata la risorsa di riconoscimento vocale. Questo vale per tutti i dati inattivi e i dati in transito. Quando si usano le funzionalità di personalizzazione, come Riconoscimento vocale personalizzato e la voce personalizzata, tutti i dati dei clienti vengono trasferiti, archiviati ed elaborati nella stessa area in cui risiedono le risorse di BYOS (se usate) e del servizio di riconoscimento vocale.
 
-BYOS è attualmente disponibile nelle aree geografiche seguenti:
-
-* Stati Uniti centro-meridionali
-* Stati Uniti occidentali 2
-* Stati Uniti orientali
+> [!IMPORTANT]
+> Microsoft **non** usa i dati dei clienti per migliorare i propri modelli di riconoscimento vocale. Inoltre, se la registrazione dell'endpoint è disabilitata e non vengono utilizzate personalizzazioni, non vengono archiviati dati del cliente. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

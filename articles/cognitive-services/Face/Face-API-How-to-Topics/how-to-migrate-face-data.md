@@ -3,19 +3,19 @@ title: Eseguire la migrazione dei dati viso tra sottoscrizioni-Face
 titleSuffix: Azure Cognitive Services
 description: In questa guida viene illustrato come eseguire la migrazione dei dati del viso archiviati da una sottoscrizione faccia a un'altra.
 services: cognitive-services
-author: lewlu
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.author: lewlu
-ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: nitinme
+ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76169818"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120811"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa
 
@@ -62,7 +62,7 @@ Immettere i valori delle chiavi di sottoscrizione e gli URL degli endpoint per l
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Preparare un oggetto PersonGroup per la migrazione
 
-È necessario l'ID del PersonGroup nella sottoscrizione di origine per eseguirne la migrazione nella sottoscrizione di destinazione. Usare il metodo [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) per recuperare un elenco di oggetti gruppo. Ottenere quindi la proprietà [gruppo. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Questo processo ha un aspetto diverso a seconda degli oggetti gruppo. In questa guida, l'ID gruppo di origine viene archiviato `personGroupId`in.
+È necessario l'ID del PersonGroup nella sottoscrizione di origine per eseguirne la migrazione nella sottoscrizione di destinazione. Usare il metodo [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) per recuperare un elenco di oggetti gruppo. Ottenere quindi la proprietà [gruppo. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Questo processo ha un aspetto diverso a seconda degli oggetti gruppo. In questa guida, l'ID gruppo di origine viene archiviato in `personGroupId` .
 
 > [!NOTE]
 > Il [codice di esempio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) crea ed esegue il training di un nuovo gruppo per la migrazione. Nella maggior parte dei casi, è necessario avere già un gruppo da usare.
@@ -85,14 +85,14 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperare l'ID dello snapshot
 
-Il metodo utilizzato per creare gli snapshot è asincrono, pertanto è necessario attenderne il completamento. Impossibile annullare le operazioni di snapshot. In questo codice, il `WaitForOperation` metodo monitora la chiamata asincrona. Controlla lo stato ogni 100 ms. Al termine dell'operazione, recuperare un ID operazione analizzando il `OperationLocation` campo. 
+Il metodo utilizzato per creare gli snapshot è asincrono, pertanto è necessario attenderne il completamento. Impossibile annullare le operazioni di snapshot. In questo codice, il `WaitForOperation` Metodo monitora la chiamata asincrona. Controlla lo stato ogni 100 ms. Al termine dell'operazione, recuperare un ID operazione analizzando il `OperationLocation` campo. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
 var operationStatus = await WaitForOperation(FaceClientEastAsia, takeOperationId);
 ```
 
-Un valore `OperationLocation` tipico è simile al seguente:
+Un valore tipico è `OperationLocation` simile al seguente:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
@@ -127,13 +127,13 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-Una volta visualizzato `Succeeded`lo stato dell'operazione, ottenere l'ID dello snapshot analizzando il `ResourceLocation` campo dell'istanza di OperationStatus restituita.
+Una volta visualizzato lo stato dell'operazione `Succeeded` , ottenere l'ID dello snapshot analizzando il `ResourceLocation` campo dell'istanza di OperationStatus restituita.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 ```
 
-Un valore `resourceLocation` tipico è simile al seguente:
+Un valore tipico è `resourceLocation` simile al seguente:
 
 ```csharp
 "/snapshots/e58b3f08-1e8b-4165-81df-aa9858f233dc"
@@ -158,7 +158,7 @@ Una richiesta di applicazione snapshot restituisce un altro ID operazione. Per o
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-Il processo dell'applicazione snapshot è anche asincrono, quindi è `WaitForOperation` necessario usarlo di nuovo per attendere il completamento.
+Il processo dell'applicazione snapshot è anche asincrono, quindi è necessario usarlo `WaitForOperation` di nuovo per attendere il completamento.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
@@ -220,7 +220,7 @@ A questo punto è possibile usare il nuovo gruppo nella sottoscrizione di destin
 
 Per aggiornare il gruppo di destinazione in futuro, creare un nuovo gruppo per ricevere lo snapshot. A tale scopo, attenersi alla procedura descritta in questa guida. A un singolo oggetto gruppo può essere applicato uno snapshot solo una volta.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Al termine della migrazione dei dati volti, eliminare manualmente l'oggetto snapshot.
 
