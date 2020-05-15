@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e304841d09913aac59f5e6ba082d3e76ec791e81
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7973ef9c56b70b6b43256db947e7f6f7210c178f
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81869353"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930438"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Macchine virtuali Windows in Azure
 
@@ -67,7 +67,7 @@ Ogni sottoscrizione di Azure ha [limiti di quota](../../azure-resource-manager/m
 ### <a name="operating-system-disks-and-images"></a>Immagini e dischi del sistema operativo
 Le macchine virtuali usano [dischi rigidi virtuali (VHD)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per archiviare il sistema operativo e i dati. Tali dischi vengono usati anche per le immagini che è possibile scegliere per installare un sistema operativo. 
 
-Azure fornisce molte [immagini Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) da usare con diverse versioni e differenti tipi di sistemi operativi Windows Server. Le immagini Marketplace sono identificate dall'editore di immagini, dall'offerta, dalla SKU e dalla versione (in genere la versione viene specificata alla fine). Sono supportati solo i sistemi operativi a 64 bit. Per altre informazioni sui sistemi operativi guest, i ruoli e le funzionalità supportati, vedere [Supporto di software server Microsoft per le macchine virtuali di Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+Azure fornisce molte [immagini Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1) da usare con diverse versioni e differenti tipi di sistemi operativi Windows Server. Le immagini Marketplace sono identificate dall'editore di immagini, dall'offerta, dalla SKU e dalla versione (in genere la versione viene specificata alla fine). Sono supportati solo i sistemi operativi a 64 bit. Per altre informazioni sui sistemi operativi guest, i ruoli e le funzionalità supportati, vedere [Supporto di software server Microsoft per le macchine virtuali di Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 Questa tabella illustra alcuni metodi per ottenere informazioni relative a un'immagine.
 

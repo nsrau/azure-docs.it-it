@@ -1,21 +1,20 @@
 ---
 title: Panoramica della scalabilità automatica con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni sui diversi metodi con cui è possibile scalare automaticamente un set di scalabilità di macchine virtuali in base alle prestazioni o a una pianificazione fissa
-author: ju-shim
-tags: azure-resource-manager
-ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
+author: avirishuv
+ms.author: avverma
+ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 05/29/2018
-ms.author: jushiman
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b3af40de107fd9273ec50425c58afc9772ea426
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 90777b8303f2d31168e489c8e2a7ca3a779a11e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010342"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124959"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Panoramica della scalabilità automatica con i set di scalabilità di macchine virtuali di Azure
 Un set di scalabilità di macchine virtuali di Azure può aumentare o diminuire automaticamente il numero di istanze di macchine virtuali che eseguono l'applicazione. Questo comportamento automatico ed elastico riduce il sovraccarico di gestione per monitorare e ottimizzare le prestazioni dell'applicazione. Creare regole che definiscono le prestazioni accettabili per un'esperienza positiva del cliente. Quando vengono soddisfatte le soglie definite, le regole di scalabilità automatica intervengono per regolare la capacità del set di scalabilità. È possibile anche pianificare eventi per aumentare o ridurre automaticamente la capacità del set di scalabilità a intervalli fissi. Questo articolo offre una panoramica delle metriche delle prestazioni disponibili e delle azioni che la scalabilità automatica può eseguire.
@@ -124,7 +123,7 @@ Per altre informazioni su Application Insights, vedere [Informazioni su Azure Ap
 
 Di seguito sono riportati alcuni scenari di esempio che possono trarre vantaggio dall'utilizzo di regole di scalabilità automatica basate su pianificazione:
 
-- Scalare automaticamente il numero di istanze di macchine virtuali all'inizio della giornata di lavoro quando aumentano le richieste dei clienti. Al termine della giornata lavorativa ridurre automaticamente il numero di istanze di macchine virtuali per ridurre al minimo i costi delle risorse nelle ore notturne quando l'utilizzo delle applicazioni è inferiore.
+- Aumentare automaticamente il numero di istanze di macchine virtuali all'inizio della giornata lavorativa quando si verifica un incremento delle richieste dei clienti. Al termine della giornata lavorativa ridurre automaticamente il numero di istanze di macchine virtuali per ridurre al minimo i costi delle risorse nelle ore notturne quando l'utilizzo delle applicazioni è inferiore.
 - Se un reparto usa un'applicazione in modo intensivo in specifici periodi del ciclo fiscale o mensile, ridimensionare automaticamente il numero di istanze di macchine virtuali per soddisfare queste richieste aggiuntive.
 - Quando si verifica un evento di marketing, una promozione o in periodo di saldi, è possibile ridimensionare automaticamente il numero di istanze di macchine virtuali in anticipo rispetto all'esigenza del cliente. 
 
@@ -136,7 +135,7 @@ Di seguito sono riportati alcuni scenari di esempio che possono trarre vantaggio
 - [Interfaccia della riga di comando di Azure](tutorial-autoscale-cli.md)
 - [Modello di Azure](tutorial-autoscale-template.md)
 
-Questa panoramica ha descritto in dettaglio come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche scalare verticalmente per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per altre informazioni, vedere [scalabilità automatica verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Questa panoramica ha descritto in dettaglio come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche scalare verticalmente per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per altre informazioni, vedere [Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Per informazioni su come gestire le istanze di macchine virtuali, vedere [Gestire set di scalabilità di macchine virtuali con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

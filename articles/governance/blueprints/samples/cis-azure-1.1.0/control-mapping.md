@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark
 description: Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark in Criteri di Azure.
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656956"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863961"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapping di raccomandazioni del progetto di esempio CIS Microsoft Azure Foundations Benchmark
 
@@ -25,7 +25,7 @@ Molte raccomandazioni mappate vengono implementate con un'iniziativa di [Criteri
 Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) che permettono di monitorare quando l'autenticazione a più fattori non è abilitata negli account Azure Active Directory con privilegi.
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
-- L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di scrittura per la sottoscrizione
+- L'autenticazione MFA deve essere abilitata per gli account con autorizzazioni di scrittura per la sottoscrizione
 
 ## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1.2 Assicurarsi che la funzionalità di autenticazione a più fattori sia abilitata per tutti gli utenti senza privilegi
 
@@ -37,9 +37,9 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che permette di monitorare gli account guest che devono essere rimossi.
 
-- Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
 - Gli account esterni con autorizzazioni di scrittura devono essere rimossi dalla sottoscrizione
+- Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
 
 ## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Assicurarsi che non siano stati creati ruoli di proprietario della sottoscrizione personalizzati
 
@@ -51,7 +51,7 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le reti e le macchine virtuali in cui non è abilitato il livello Standard del Centro sicurezza.
 
- - È consigliabile selezionare il piano tariffario Standard del Centro sicurezza
+- È consigliabile selezionare il piano tariffario Standard del Centro sicurezza
 
 ## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 Assicurarsi che il 'Provisioning automatico dell'agente di monitoraggio' sia impostato su 'Sì'
 
@@ -87,20 +87,14 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di proteggere le macchine virtuali con connessione Internet.
 
-- Le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet devono essere rafforzate
-
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora web application firewall" non sia disabilitata
-
-Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di proteggere le macchine virtuali che eseguono applicazioni Web.
-
-- Le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate
+- Le raccomandazioni di Protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali con connessione Internet
 
 ## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Abilita monitoraggio firewall di nuova generazione" non sia disabilitata
 
 Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) che consentono di proteggere le subnet e le macchine virtuali dalle minacce limitando l'accesso. Il criterio del Centro sicurezza a cui fa riferimento questa raccomandazione di CIS Microsoft Azure Foundations Benchmark è stato sostituito da due nuove raccomandazioni. I criteri indicati sotto fanno riferimento alle nuove raccomandazioni.
 
 - Le subnet devono essere associate a un gruppo di sicurezza di rete
-- Le macchine virtuali devono essere associate a un gruppo di sicurezza di rete
+- Le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete
 
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora la valutazione della vulnerabilità" non sia disabilitata
 
@@ -128,7 +122,7 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che il controllo del server SQL sia abilitato.
 
-- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
+- È consigliabile abilitare il controllo in SQL Server
 
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora crittografia SQL" non sia disabilitata
 
@@ -182,7 +176,7 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che il controllo del server SQL sia abilitato. 
 
-- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
+- È consigliabile abilitare il controllo in SQL Server
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 Assicurarsi che "AuditActionGroups" nel criterio "controllo" per un server SQL sia impostato correttamente
 
@@ -200,8 +194,8 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che la soluzione Sicurezza dei dati avanzata sia abilitata nei server SQL e nelle istanze gestite di SQL.
 
-- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
+- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 assicurarsi che "Tipi di rilevamento minacce" sia impostato su "Tutti"
 
@@ -214,15 +208,15 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che le notifiche di Sicurezza dei dati avanzata siano abilitate correttamente.
 
-- Le impostazioni avanzate di sicurezza dei dati per l'istanza gestita di SQL devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
 - Le impostazioni avanzate di sicurezza dei dati per SQL Server devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
+- Le impostazioni avanzate di sicurezza dei dati per l'istanza gestita di SQL devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 Assicurarsi che "Invio di un messaggio di posta elettronica al servizio e ai coamministratori" sia "Abilitato"
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che le notifiche di Sicurezza dei dati avanzata siano abilitate correttamente.
 
-- Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL
 - Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata del server SQL
+- Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Assicurarsi che l'amministratore di Azure Active Directory sia configurato
 
@@ -240,8 +234,8 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/overview.md) che consentono di garantire che la protezione TPE di SQL Server e delle istanze gestite di SQL sia crittografata con una chiave personalizzata
 
-- È consigliabile che la protezione TDE dell'istanza gestita di SQL sia crittografata con una chiave personalizzata
 - È consigliabile che la protezione TDE di SQL Server sia crittografata con una chiave personalizzata
+- È consigliabile che la protezione TDE dell'istanza gestita di SQL sia crittografata con una chiave personalizzata
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Assicurarsi che il criterio 'Imponi connessione SSL' sia abilitato per il server di database MySQL
 
@@ -315,11 +309,83 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 - Monitoraggio di Azure deve raccogliere i log attività da tutte le aree
 
+## <a name="516-ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>5.1.6 Assicurarsi che l'account di archiviazione contenente il contenitore con i log attività sia crittografato con BYOK (Bring Your Own Key)
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che gli account di archiviazione contenenti i log attività siano crittografati con BYOK.
+
+- L'account di archiviazione contenente il contenitore con i log attività deve essere crittografato con BYOK
+
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Assicurarsi che la registrazione per l'insieme di credenziali delle credenziali di Azure sia abilitata
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che i log di diagnostica siano abilitati per gli insieme di credenziali delle chiavi.
 
 - I log di diagnostica in Key Vault devono essere abilitati
+
+## <a name="521-ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>5.2.1 Assicurarsi che esista un avviso del log attività per l'assegnazione di criteri di creazione
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni dei criteri specifiche deve esistere un avviso del log attività
+
+## <a name="522-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>5.2.2 Assicurarsi che esista un avviso del log attività per la creazione o l'aggiornamento del gruppo di sicurezza di rete
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni amministrative specifiche deve esistere un avviso del log attività
+
+## <a name="523-ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>5.2.3 Assicurarsi che esista un avviso del log attività per l'eliminazione del gruppo di sicurezza di rete
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni amministrative specifiche deve esistere un avviso del log attività
+
+## <a name="524-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>5.2.4 Assicurarsi che esista un avviso del log attività per la creazione o l'aggiornamento di una regola del gruppo di sicurezza di rete
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni amministrative specifiche deve esistere un avviso del log attività
+
+## <a name="525-ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>5.2.5 Assicurarsi che esista un avviso del log attività per l'eliminazione di una regola del gruppo di sicurezza di rete
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni amministrative specifiche deve esistere un avviso del log attività
+
+## <a name="526-ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>5.2.6 Assicurarsi che esista un avviso del log attività per la creazione o l'aggiornamento di una soluzione di sicurezza
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni di sicurezza specifiche deve esistere un avviso del log attività
+
+## <a name="527-ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>5.2.7 Assicurarsi che esista un avviso del log attività per l'eliminazione di una soluzione di sicurezza
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni di sicurezza specifiche deve esistere un avviso del log attività
+
+## <a name="528-ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>5.2.8 Assicurarsi che esista un avviso del log attività per la creazione, l'aggiornamento o l'eliminazione di una regola del firewall di SQL Server
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni amministrative specifiche deve esistere un avviso del log attività
+
+## <a name="529-ensure-that-activity-log-alert-exists-for-update-security-policy"></a>5.2.9 Assicurarsi che esista un avviso del log attività per l'aggiornamento dei criteri di sicurezza
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) per assicurarsi che specifici avvisi del log attività esistano.
+
+- Per operazioni di sicurezza specifiche deve esistere un avviso del log attività
+
+## <a name="61-ensure-that-rdp-access-is-restricted-from-the-internet"></a>6.1 Assicurarsi che l'accesso RDP sia limitato da Internet
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che l'accesso RDP sia con restrizioni.
+
+- L'accesso RDP da Internet deve essere bloccato
+
+## <a name="62-ensure-that-ssh-access-is-restricted-from-the-internet"></a>6.2 Assicurarsi che l'accesso SSH sia limitato da Internet
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che l'accesso SSH sia con restrizioni.
+
+- L'accesso SSH da Internet deve essere bloccato
 
 ## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Assicurarsi che Network Watcher sia abilitato
 
@@ -349,7 +415,7 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi siano installate solo le estensione macchina virtuale approvate. Questo criterio richiede una matrice di parametri che specifichi tutte le estensioni macchina virtuale approvate. Questa definizione di iniziativa dei criteri contiene valori predefiniti suggeriti che i clienti devono convalidare. 
 
- - Devono essere installate solo le estensioni macchina virtuale approvate
+- Devono essere installate solo le estensioni macchina virtuale approvate
 
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 Assicurarsi che vengano applicate le patch più recenti del sistema operativo per tutte le macchine virtuali
 
@@ -373,7 +439,15 @@ Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/ov
 
 Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di garantire che venga usato il controllo degli accessi in base al ruolo per gestire le autorizzazioni nei cluster del servizio Kubernetes
 
-- \[Anteprima\]: il controllo degli accessi in base al ruolo deve essere usato con il servizio Azure Kubernetes
+- il controllo degli accessi in base al ruolo deve essere usato con il servizio Azure Kubernetes
+
+## <a name="91-ensure-app-service-authentication-is-set-on-azure-app-service"></a>9.1 Assicurarsi che l'autenticazione del servizio app sia impostata nel servizio app di Azure
+
+Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di assicurarsi che le richieste alle app del servizio app siano autenticate.
+
+- L'autenticazione deve essere abilitata nell'app per le API
+- L'autenticazione deve essere abilitata nell'app per le funzioni
+- L'autenticazione deve essere abilitata nell'app Web
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Assicurarsi che l'app Web reindirizzi tutto il traffico HTTP a HTTPS nel servizio app Azure
 
@@ -444,7 +518,6 @@ Questo progetto assegna le definizioni di [Criteri di Azure](../../../policy/ove
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le API
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le funzioni
 - Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app Web
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

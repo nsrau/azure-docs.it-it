@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: e58414fa94a4ef54eb2f288b2cd636c10611460d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308925"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122749"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Guida introduttiva: Creare la prima funzione in Azure con Visual Studio
 
@@ -58,7 +58,7 @@ Per poter pubblicare il progetto, è prima necessario che la sottoscrizione di A
 
 1. Copiare l'URL di base dell'app per le funzioni dalla pagina del profilo **Pubblica**. Sostituire la parte `localhost:port` dell'URL usato per testare la funzione in locale con il nuovo URL di base. Aggiungere la stringa di query `?name=<YOUR_NAME>` a questo URL ed eseguire la richiesta.
 
-    L'URL che chiama la funzione attivata tramite HTTP ha il formato seguente:
+    Il formato dell'URL che chiama la funzione attivata tramite HTTP è il seguente:
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
 
@@ -72,7 +72,7 @@ Per poter pubblicare il progetto, è prima necessario che la sottoscrizione di A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è usato Visual Studio per creare e pubblicare un'app per le funzioni C# in Azure con una semplice funzione attivata tramite HTTP. 
+In questa guida di avvio rapido è stato usato Visual Studio per creare e pubblicare un'app per le funzioni C# in Azure con una semplice funzione attivata tramite HTTP. 
 
 Passare all'articolo successivo per informazioni su come aggiungere un'associazione alla coda di archiviazione di Azure alla funzione:
 > [!div class="nextstepaction"]

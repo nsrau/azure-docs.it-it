@@ -1,14 +1,14 @@
 ---
 title: Controlli degli esempi di progetti UK OFFICIAL e UK NHS
 description: Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74851367"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005607"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS
 
@@ -27,9 +27,6 @@ Il progetto consente di assicurarsi che il trasferimento di informazioni con i s
 - Il trasferimento sicuro negli account di archiviazione deve essere abilitato
 - Mostra i risultati del controllo dai server Web Windows che non usano protocolli di comunicazione sicuri
 - Distribuisci i prerequisiti per controllare i server Web Windows che non usano protocolli di comunicazione sicuri
-- Nell'app per le API è necessario usare la versione più recente di TLS
-- Nell'app Web è necessario usare la versione più recente di TLS
-- Nell'app per le funzioni è necessario usare la versione più recente di TLS
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Protezione dei dati inattivi
 
@@ -129,8 +126,8 @@ Questo progetto consente inoltre di controllare l'accesso alle risorse di Azure 
 
 - \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
 - \[Anteprima\]: Distribuisci requisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
-- \[Anteprima\]: Controlla le macchine virtuali Linux in cui sono presenti account senza password
-- \[Anteprima\]: Controlla le macchine virtuali Linux che non consentono connessioni remote da account senza password
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
 - È consigliabile eseguire la migrazione degli account di archiviazione alle nuove risorse di Azure Resource Manager
 - È consigliabile eseguire la migrazione delle macchine virtuali alle nuove risorse di Azure Resource Manager
 - Controlla macchine virtuali che non usano dischi gestiti
@@ -141,12 +138,10 @@ Invece di usare più di 25 criteri per la gestione appropriata e sicura degli ut
 
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
-- Le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate
 - L'accesso tramite endpoint con connessione Internet deve essere limitato
-- Le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet devono essere rafforzate
+- Le raccomandazioni di Protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali con connessione Internet
 - La soluzione Endpoint Protection deve essere installata nei set di scalabilità di macchine virtuali
 - Alle macchine virtuali deve essere applicato il controllo di accesso alla rete JIT
-- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - Il debug remoto deve essere disattivato per l'app per le funzioni
 - Il debug remoto deve essere disattivato per l'applicazione Web
 - Il debug remoto deve essere disattivato per l'app per le API
@@ -179,13 +174,13 @@ Questo progetto assegna inoltre definizioni di Criteri di Azure per controllare 
 
 Questo progetto assegna inoltre una definizione di Criteri di Azure che controlla le autorizzazioni per il file delle password delle VM Linux per avvisare se non sono impostate correttamente. Questa configurazione consente di adottare azioni correttive per assicurare che gli autenticatori non vengano compromessi.
 
-- \[Anteprima\]: Controllare che le autorizzazioni file etc/passwd della VM Linux siano impostate su 0644
+- \[Anteprima\]: Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
 
 ## <a name="13-audit-information-for-users"></a>13 Informazioni di controllo per gli utenti
 
 Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le impostazioni dei log nelle risorse di Azure. Un criterio assegnato controlla inoltre se le macchine virtuali non inviano i log a un'area di lavoro di analisi dei log specificata.
 
-- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
+- Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows

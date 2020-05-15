@@ -2,15 +2,15 @@
 title: 'Esercitazione: Creare e distribuire un modello'
 description: Creare il primo modello di Azure Resource Manager. L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 05/12/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: c07f587b8b200a6f9d686c77e5ffefa399c6e179
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411716"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199918"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
@@ -92,6 +92,24 @@ az login
 ```
 
 ---
+
+Se si dispone di più sottoscrizioni di Azure, selezionare quella da usare:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Select-AzSubscription [SubscriptionID/SubscriptionName]
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli
+az account set --subscription [SubscriptionID/SubscriptionName]
+```
+
+---
+
+
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
 Quando si distribuisce un modello, si specifica un gruppo di risorse che conterrà le risorse. Prima di eseguire il comando di distribuzione, creare il gruppo di risorse usando l'interfaccia della riga di comando di Azure oppure Azure PowerShell. Selezionare le schede nella sezione di codice seguente per scegliere tra Azure PowerShell e l'interfaccia della riga di comando di Azure. Gli esempi dell'interfaccia della riga di comando in questo articolo sono scritti per la shell Bash.
@@ -125,7 +143,7 @@ $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile 
+  -TemplateFile $templateFile
 ```
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
