@@ -1,0 +1,24 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 05/05/2020
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: d7759dbf1377cb46a9868dbcf01c61e20a7a2144
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82941178"
+---
+|Nome |Descrizione |Effetto/i |Versione |GitHub |
+|---|---|---|---|---|
+|[Gestisci i tipi di chiavi consentiti per i certificati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f) |Questo criterio gestisce i tipi di chiavi consentiti per i certificati. |Audit, Deny, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_AllowedKeyTypes.json) |
+|[Gestisci i nomi delle curve consentiti per i certificati di crittografia a curva ellittica (ECC)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf) |Questo criterio gestisce i nomi delle curve ellittiche consentiti per i certificati di crittografia a curva ellittica (ECC). |Audit, Deny, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_EC_AllowedCurveNames.json) |
+|[Gestisci trigger delle azioni di durata del certificato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12ef42cb-9903-4e39-9c26-422d29570417) |Questo criterio gestisce la configurazione dei trigger delle azioni di durata del certificato prima della scadenza del certificato. |Audit, Deny, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_LifetimeAction.json) |
+|[Gestisci periodo di validità del certificato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a075868-4c26-42ef-914c-5bc007359560) |Questo criterio gestisce il periodo massimo di validità dei certificati in mesi. |Audit, Deny, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_ValidityPeriod.json) |
+|[Gestisci certificati rilasciati da un'autorità di certificazione non integrata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) |Questo criterio gestisce i certificati rilasciati da un'autorità di certificazione non integrata specificata. |Audit, Deny, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_Issuers_CustomCAs.json) |
+|[Gestisci certificati rilasciati da un'autorità di certificazione integrata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82) |Questo criterio gestisce i certificati rilasciati da un'autorità di certificazione integrata dell'insieme di credenziali delle chiavi specificata. |Audit, Deny, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_Issuers_SupportedCAs.json) |
+|[Gestisci i certificati che si trovano entro un numero di giorni specificato dalla scadenza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) |Questo criterio gestisce i certificati compresi entro un determinato numero di giorni dalla data di scadenza. |Audit, Deny, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_Expiry_ByDays.json) |
+|[Gestisci dimensioni minime della chiave per i certificati RSA](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) |Questo criterio gestisce le dimensioni minime della chiave per i certificati RSA. |Audit, Deny, Disabled |1.0.0-preview |[Collegamento](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_RSA_MinimumKeySize.json) |

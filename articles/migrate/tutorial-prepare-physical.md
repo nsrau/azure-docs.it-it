@@ -4,12 +4,12 @@ description: Informazioni su come preparare la valutazione e la migrazione di se
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535282"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901420"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure
 
@@ -105,10 +105,9 @@ Preparare Azure per la migrazione dei server fisici tramite Migrazione server.
 ### <a name="assign-azure-account-permissions"></a>Assegnare le autorizzazioni all'account Azure
 
 Assegnare il ruolo Collaboratore Macchina virtuale all'account Azure. Questo ruolo fornisce le autorizzazioni per:
-
-    - Creare una macchina virtuale nel gruppo di risorse selezionato.
-    - Creare una macchina virtuale nella rete virtuale selezionata.
-    - Scrivere in un disco gestito di Azure. 
+  - Creare una macchina virtuale nel gruppo di risorse selezionato.
+  - Creare una macchina virtuale nella rete virtuale selezionata.
+  - Scrivere in un disco gestito di Azure. 
 
 ### <a name="create-an-azure-network"></a>Creare una rete di Azure
 

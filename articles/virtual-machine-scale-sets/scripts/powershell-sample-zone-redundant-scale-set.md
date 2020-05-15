@@ -1,19 +1,20 @@
 ---
 title: Esempi di Azure PowerShell - Set di scalabilità con ridondanza della zona
 description: Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 in più zone di disponibilità.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 04/05/2018
-ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 902233025f8d98a8e0966fca869634ed132976b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 57dfbb7ebdb2ca8d323dadfca570360211a16484
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81008440"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197529"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Creare un set di scalabilità di macchine virtuali con ridondanza della zona con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 in più zone di disponibilità. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite RDP.

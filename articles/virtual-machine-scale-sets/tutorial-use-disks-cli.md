@@ -2,18 +2,19 @@
 title: "Esercitazione: Creare e usare dischi per set di scalabilità con l'interfaccia della riga di comando di Azure"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare e usare dischi gestiti con un set di scalabilità di macchine virtuali e come aggiungere, preparare, elencare e rimuovere dischi.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 3759fa426a712308e1956376d559c1ac84eadbd7
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
+ms.date: 03/27/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008829"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198264"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:

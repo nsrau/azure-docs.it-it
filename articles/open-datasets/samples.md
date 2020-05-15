@@ -6,13 +6,13 @@ ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
-ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/06/2020
+ms.openlocfilehash: a25f0ddeb35aaf880682780fd61bcbc3cedbad08
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73606138"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930319"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>I Jupyter Notebook di esempio illustrano come arricchire i dati con i set di dati aperti 
 I Jupyter Notebook di esempio per Azure Open Datasets illustrano come caricare set di dati aperti e usarli per arricchire i dati demo. Le tecniche includono l'uso di Apache Spark e Pandas per elaborare i dati.
@@ -40,6 +40,6 @@ I Jupyter Notebook di esempio per Azure Open Datasets illustrano come caricare s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Creare un modello di regressione con Machine Learning automatizzato e un set di dati aperto](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
+* [Esercitazione: Creare un modello di regressione con Machine Learning automatizzato e un set di dati aperto](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Python SDK per Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
 * [Catalogo di Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/)

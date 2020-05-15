@@ -1,20 +1,20 @@
 ---
 title: Esempi dell'interfaccia della riga di comando di Azure - Collegare e usare i dischi dati
 description: Questo script crea un set di scalabilità di macchine virtuali di Azure, quindi collega e prepara i dischi dati tramite l'interfaccia della riga di comando di Azure.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.devlang: azurecli
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
 ms.date: 03/27/2018
-ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 7f8f84639095e4c495bfd24c534ee7c9a64136e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 0f2a05f6d7268bea3c5ccdaccc9ac99863aaf5fe
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010427"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198188"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Collegare e usare dischi dati con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali e collega e prepara dischi dati.
