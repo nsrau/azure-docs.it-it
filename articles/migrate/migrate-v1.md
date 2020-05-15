@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c9cea52e04a991e6e3ac64426f0443939f8aaa3a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7b02560d1e7b7c34a4d87dbdc468a85362aca4f7
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77914382"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993814"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -216,7 +216,7 @@ Dopo aver configurato un'area di lavoro, è necessario scaricare e installare gl
 4. Copiare l'ID e la chiave dell'area di lavoro. Questi dati sono necessari quando si installa MMA nel computer locale.
 
 > [!NOTE]
-> Per automatizzare l'installazione degli agenti è possibile usare uno strumento di distribuzione come Configuration Manager o uno strumento di partner come [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), che offre una soluzione di distribuzione degli agenti per Azure Migrate.
+> Per automatizzare l'installazione degli agenti è possibile usare uno strumento di distribuzione come Configuration Manager o uno strumento di partner come [Intigua](https://www.intigua.com/intigua-for-azure-migration), che offre una soluzione di distribuzione degli agenti per Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Installare l'agente MMA in un computer Windows
