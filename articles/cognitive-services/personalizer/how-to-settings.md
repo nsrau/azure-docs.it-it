@@ -2,13 +2,13 @@
 title: Configurare Personalizza esperienze
 description: La configurazione del servizio include il modo in cui vengono trattate le ricompense, la frequenza delle esplorazioni, la frequenza di ripetizione del training del modello e la quantità di dati archiviati.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/29/2020
+ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219357"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584655"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configurare il ciclo di apprendimento della personalizzazione
 
@@ -18,6 +18,23 @@ Configurare il ciclo di apprendimento nella pagina di **configurazione** nel por
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## <a name="planning-configuration-changes"></a>Pianificazione delle modifiche di configurazione
+
+Poiché alcune modifiche [alla configurazione reimpostano il modello](#settings-that-include-resetting-the-model), è necessario pianificare le modifiche alla configurazione.
+
+Se si prevede di usare la [modalità Apprentice](concept-apprentice-mode.md), assicurarsi di rivedere la configurazione di personalizzazione prima di passare alla modalità apprendista.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## <a name="settings-that-include-resetting-the-model"></a>Impostazioni che includono la reimpostazione del modello
+
+Le azioni seguenti attivano una ripetizione del training del modello usando i dati disponibili fino agli ultimi 2 giorni.
+
+* Benefici
+* Esplorazione
+
+Per [cancellare](how-to-manage-model.md) tutti i dati, usare la pagina **Impostazioni modello e apprendimento** .
 
 ## <a name="configure-rewards-for-the-feedback-loop"></a>Configurare i premi per il ciclo di feedback
 
@@ -66,16 +83,7 @@ Dopo avere modificato questo valore, assicurarsi di selezionare **Salva**.
 
 Dopo avere modificato questo valore, assicurarsi di selezionare **Salva**.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## <a name="settings-that-include-resetting-the-model"></a>Impostazioni che includono la reimpostazione del modello
-
-Le azioni seguenti includono una ripetizione immediata del training del modello con gli ultimi 2 giorni di dati.
-
-* Benefici
-* Esplorazione
-
-Per [cancellare](how-to-manage-model.md) tutti i dati, usare la pagina * * Impostazioni modello e apprendimento * *.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

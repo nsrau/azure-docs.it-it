@@ -1,5 +1,5 @@
 ---
-title: Report di Collaborative Translation Framework (CTF) - API Traduzione testuale
+title: Report CTF (Collaborative Translation Framework)-Translator
 titleSuffix: Azure Cognitive Services
 description: Come usare i report di Collaborative Translation Framework (CTF).
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 0c099584642de1939df5e1e7d9785006e8d25235
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 1bf6fefbe7d2ea3fccc393f4445fceec44ed4117
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732343"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584672"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
 
 > [!NOTE]
-> Questo metodo è deprecato. Non è disponibile nella versione 3.0 dell'API Traduzione testuale.
+> Questo metodo è deprecato. Non è disponibile nella versione 3.0 di Translator.
 > 
-> Collaborative Translations Framework (CTF), precedentemente disponibile per la versione 2.0 dell'API Traduzione testuale, è stato deprecato a partire dal 1 febbraio 2018. Le funzioni AddTranslation e AddTranslationArray consentono agli utenti di attivare le correzioni tramite Collaborative Translation Framework. Dal 31 gennaio 2018, queste due funzioni non accettano più l'invio di nuove frasi e gli utenti ricevono un messaggio di errore. Queste funzioni sono state ritirate e non verranno sostituite.
+> Il Framework CTF (Collaborative translations Framework), disponibile in precedenza per la versione 2.0 di translator, è stato deprecato a partire dall'1 febbraio 2018. Le funzioni AddTranslation e AddTranslationArray consentono agli utenti di attivare le correzioni tramite Collaborative Translation Framework. Dal 31 gennaio 2018, queste due funzioni non accettano più l'invio di nuove frasi e gli utenti ricevono un messaggio di errore. Queste funzioni sono state ritirate e non verranno sostituite.
 
 L'API di creazione report di Collaborative Translation Framework (CTF) restituisce statistiche e il contenuto effettivo dell'archivio CTF. Questa API è diversa dal metodo GetTranslations() in quanto:
 * Restituisce il contenuto tradotto e il conteggio totale solo per lo specifico account (appId o account di Azure Marketplace).
@@ -30,11 +30,10 @@ L'API di creazione report di Collaborative Translation Framework (CTF) restituis
 * Non restituisce la traduzione automatica.
 
 ## <a name="endpoint"></a>Endpoint
-L'endpoint dell'API di creazione report di CTF è https://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-
+L'endpoint dell'API di creazione report CTF è https://api.microsofttranslator.com/v2/beta/ctfreporting.svc .
 
 ## <a name="methods"></a>Metodi
-| Nome |    Descrizione|
+| Nome | Descrizione|
 |:---|:---|
 | Metodo GetUserTranslationCounts | Ottiene i conteggi delle traduzioni create dall'utente. |
 | Metodo GetUserTranslations | Recupera le traduzioni create dall'utente. |
@@ -108,7 +107,7 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 | Eccezione | Messaggio | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
-| TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|
+| TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Una quota oraria e giornaliera limita il numero di caratteri accettati dal convertitore.</li></ul>|
 | TranslateApiException | AppId is over the quota (AppId oltre la quota).| L'ID applicazione ha superato la quota oraria o giornaliera.|
 
 > [!NOTE]
@@ -181,7 +180,7 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 | Eccezione | Messaggio | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
-| TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|
+| TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Una quota oraria e giornaliera limita il numero di caratteri accettati dal convertitore.</li></ul>|
 | TranslateApiException | AppId is over the quota (AppId oltre la quota).| L'ID applicazione ha superato la quota oraria o giornaliera.|
 
 > [!NOTE]

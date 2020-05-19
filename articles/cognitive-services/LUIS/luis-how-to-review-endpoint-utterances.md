@@ -9,28 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c976d3b74badc4eeb5978af352fe425089f2fbfb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219852"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584968"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Come migliorare l'app LUIS esaminando gli enunciati degli endpoint
 
 Il processo di revisione degli enunciati degli endpoint per le stime corrette è denominato [apprendimento attivo](luis-concept-review-endpoint-utterances.md). L'apprendimento attivo acquisisce le query dell'endpoint e seleziona le espressioni dell'endpoint dell'utente che non sono sicure. Si esaminano queste espressioni per selezionare le entità Intent e Mark per queste espressioni di lettura. Accettare queste modifiche nelle espressioni di esempio, quindi eseguire il training e la pubblicazione. LUIS identifica quindi le espressioni in modo più accurato.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## <a name="enable-active-learning"></a>Abilita apprendimento attivo
 
-Per abilitare l'apprendimento attivo, è necessario registrare le query utente. Questa operazione viene eseguita chiamando la [query dell'endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con `log=true` il parametro e il valore QueryString.
+Per abilitare l'apprendimento attivo, è necessario registrare le query utente. Questa operazione viene eseguita chiamando la [query dell'endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con il `log=true` parametro e il valore QueryString.
 
 Usare il portale LUIS per costruire la query dell'endpoint corretta.
 
-1. Nel [portale di anteprima Luis](https://preview.luis.ai/)selezionare l'app dall'elenco di app.
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Passare alla sezione **Gestisci** e quindi selezionare **risorse di Azure**.
 1. Per la risorsa di stima assegnata, selezionare **modifica parametri query**.
 
@@ -64,7 +63,7 @@ Se non si è certi che sia necessario eliminare l'espressione, spostarla nella f
 
 ## <a name="disable-active-learning"></a>Disabilitare l'apprendimento attivo
 
-Per disabilitare l'apprendimento attivo, non registrare le query utente. Questa operazione viene eseguita impostando la [query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) dell'endpoint `log=false` con il parametro e il valore QueryString oppure non usando il valore QueryString perché il valore predefinito è false.
+Per disabilitare l'apprendimento attivo, non registrare le query utente. Questa operazione viene eseguita impostando la [query dell'endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) con il `log=false` parametro e il valore QueryString oppure non usando il valore QueryString perché il valore predefinito è false.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

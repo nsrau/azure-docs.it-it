@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 252759139de7f53cd7875efeb7f477219092aa0b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837443"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584697"
 ---
 # <a name="unsupported-language-deployments"></a>Distribuzioni in lingue non supportate
 
@@ -32,7 +32,7 @@ Affinché i modelli siano candidati per la distribuzione, è necessario che sodd
 * Il modello deve trovarsi nello stato distribuito quando viene eseguita la migrazione.  
 * La coppia di lingue del modello deve essere una coppia di lingue non supportata nel convertitore personalizzato.  Le coppie di lingue in cui una lingua è supportata da o verso l'inglese, ma la coppia non include l'inglese, sono candidati per le distribuzioni di linguaggio non supportate.  Ad esempio, un modello di hub per una coppia di lingua francese-tedesca viene considerato una coppia di lingue non supportata anche se la coppia di lingue è supportata da Francese a inglese e da inglese a tedesco.
 
-## <a name="process"></a>Process
+## <a name="process"></a>Processo
 Dopo aver eseguito la migrazione dei modelli dall'hub candidati per la distribuzione, è possibile trovarli nella pagina **Impostazioni** per l'area di lavoro e scorrere fino alla fine della pagina in cui verrà visualizzata una sezione **Training Hub di conversione non supportata** .  Questa sezione viene visualizzata solo se sono presenti progetti che soddisfano i prerequisiti menzionati in precedenza.
 
 ![Come eseguire la migrazione da Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
@@ -57,4 +57,4 @@ A differenza dei modelli di conversione personalizzati standard, i modelli di hu
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Eseguire [il training di un modello](how-to-train-model.md).
-- Iniziare a usare il modello di traduzione personalizzata distribuito tramite l'[API Traduzione testuale Microsoft V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Iniziare a usare il modello di traduzione personalizzata distribuito tramite [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

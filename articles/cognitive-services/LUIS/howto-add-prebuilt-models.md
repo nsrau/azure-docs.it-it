@@ -8,26 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 0a733aff14b71c6378971c0b72a9ca1f3cd4cfc3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 653882db4b62d7731123faf7b177da44dbd74e3f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74013540"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584995"
 ---
-# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Aggiungere modelli predefiniti per scenari di utilizzo comuni 
+# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Aggiungere modelli predefiniti per scenari di utilizzo comuni
 
-LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari utente comuni e di conversazione. Si tratta di un modo rapido e semplice per aggiungere funzionalità all'applicazione client di conversazione senza dover progettare i modelli per tali capacità. 
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari utente comuni e di conversazione. Si tratta di un modo rapido e semplice per aggiungere funzionalità all'applicazione client di conversazione senza dover progettare i modelli per tali capacità.
 
 ## <a name="add-a-prebuilt-domain"></a>Aggiungere un dominio predefinito
 
-1. Nella pagina **App personali** selezionare l'app. L'app viene aperta nella sezione **Build** (Compila) dell'app. 
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 
-1. Selezionare **domini predefiniti** dalla barra degli strumenti a sinistra. 
+1. Selezionare **domini predefiniti** dalla barra degli strumenti a sinistra.
 
 1. Trovare il dominio da aggiungere all'app e quindi fare clic sul pulsante **Aggiungi dominio** .
 
@@ -36,11 +35,12 @@ LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari ut
 
 ## <a name="add-a-prebuilt-intent"></a>Aggiungere una finalità predefinita
 
-1. Nella pagina **App personali** selezionare l'app. L'app viene aperta nella sezione **Build** (Compila) dell'app. 
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 
-1. Nella pagina **Intent** , selezionare **Aggiungi finalità del dominio predefinito** dalla barra degli strumenti sopra l'elenco Intent. 
+1. Nella pagina **Intent** , selezionare **Aggiungi finalità del dominio predefinito** dalla barra degli strumenti sopra l'elenco Intent.
 
-1. Selezionare la finalità **Utilities.Cancel** nella finestra di dialogo popup. 
+1. Selezionare la finalità **Utilities.Cancel** nella finestra di dialogo popup.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiunta della finalità predefinita](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
@@ -48,25 +48,26 @@ LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari ut
 1. Selezionare il pulsante **Done** (Fine).
 
 ## <a name="add-a-prebuilt-entity"></a>Aggiungere un'entità predefinita
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
+1. Selezionare **entità** sul lato sinistro.
 
-1. Aprire l'app facendo clic sul relativo nome nella pagina **App personali** e selezionare **Entità** nel riquadro sinistro. 
+1. Nella pagina **entità** selezionare **Aggiungi entità precompilata**.
 
-1. Nella pagina **Entità** fare clic su **Aggiungi entità predefinite**.
-
-1. Nella finestra di dialogo **Aggiungi entità predefinite** selezionare l'entità precompilata. 
+1. Nella finestra di dialogo **Aggiungi entità predefinite** selezionare l'entità precompilata.
 
     > [!div class="mx-imgBorder"]
     > ![Finestra di dialogo Add prebuilt entities (Aggiungi entità predefinite)](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
 
-1. Seleziona **Chiudi**. Dopo aver aggiunto l'entità, non è necessario eseguire il training dell'app. 
+1. Selezionare **Operazione completata**. Dopo aver aggiunto l'entità, non è necessario eseguire il training dell'app.
 
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Pubblicazione per la visualizzazione del modello predefinito dall'endpoint di stima
 
-Il modo più semplice per visualizzare il valore di un modello predefinito consiste nell'eseguire una query dall'endpoint pubblicato. 
+Il modo più semplice per visualizzare il valore di un modello predefinito consiste nell'eseguire una query dall'endpoint pubblicato.
 
 ## <a name="entities-containing-a-prebuilt-entity-token"></a>Entità contenenti un token di entità predefinito
- 
-Se si ha un'entità appresa dal computer che è vincolata da un'entità precompilata, aggiungere un sottocomponente all'entità appresa dal computer, quindi aggiungere un vincolo di un'entità precompilata.
+
+Se si dispone di un'entità appresa dal computer che necessita di una funzionalità obbligatoria di un'entità precompilata, aggiungere un sottocomponente all'entità appresa dal computer, quindi aggiungere una funzionalità _obbligatoria_ di un'entità precompilata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

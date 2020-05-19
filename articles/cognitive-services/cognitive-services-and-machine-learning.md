@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75531480"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584621"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
@@ -27,7 +27,7 @@ Servizi cognitivi fornisce funzionalità di machine learning per risolvere i pro
 |[Decisione](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.|
 |[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permetti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare il sentiment e riconoscere i desideri degli utenti.|
 |[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiungi le API di Ricerca Bing alle tue app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata all'API.|
-|[Sintesi vocale](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.|
+|[Funzionalità vocali](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.|
 |[Visione](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Riconosci, identifica, aggiungi sottotitoli, indicizza e modera immagini, video e contenuti di tipo input penna.|
 ||||
 
@@ -95,7 +95,7 @@ I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente
 |Ricerca Bing |x|||
 |[Visione artificiale](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Servizio visione artificiale personalizzato](./Custom-Vision-Service/home.md)||x||
+|[Visione personalizzata](./Custom-Vision-Service/home.md)||x||
 |[Viso](./Face/Overview.md)|x|x||
 |[Riconoscimento modulo](./form-recognizer/overview.md)||x||
 |[Strumento di lettura immersiva](./immersive-reader/overview.md)|x|||
@@ -107,9 +107,9 @@ I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente
 |[Sintesi vocale (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Riconoscimento vocale vocale (STT)](speech-service/speech-to-text.md)|x|x||
 |[Traduzione vocale](speech-service/speech-translation.md)|x|||
-|[Text Analytics](./text-analytics/overview.md)|x|||
-|[Traduzione testuale](./translator/translator-info-overview.md)|x|||
-|[Traduzione testuale-convertitore personalizzato](./translator/custom-translator/overview.md)||x||
+|[Analisi del testo](./text-analytics/overview.md)|x|||
+|[Traduttore](./translator/translator-info-overview.md)|x|||
+|[Translator-Traduttore personalizzato](./translator/custom-translator/overview.md)||x||
 
 * Il Personalizzatore necessita solo dei dati di training raccolti dal servizio (in quanto Funziona in tempo reale) per valutare i criteri e i dati. Il Personalizzatore non necessita di set di impostazioni cronologici di grandi dimensioni per il training iniziale o di batch. 
 
@@ -129,7 +129,7 @@ Servizi cognitivi che forniscono modelli esportati per altri strumenti di Machin
 
 |Servizio cognitivo|Informazioni sul modello|
 |--|--|
-|[Servizio visione artificiale personalizzato](./custom-vision-service/home.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per IOS11, ONNX per Windows ml|
+|[Visione personalizzata](./custom-vision-service/home.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per IOS11, ONNX per Windows ml|
 
 ## <a name="learn-more"></a>Altre informazioni
 

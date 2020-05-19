@@ -1,7 +1,7 @@
 ---
-title: Metodo Translate dell'API Traduzione testuale
+title: Translator translate (metodo)
 titleSuffix: Azure Cognitive Services
-description: Informazioni sui parametri, le intestazioni e i messaggi del corpo per i servizi cognitivi di Azure API Traduzione testuale metodo Translate per tradurre il testo.
+description: Comprendere i parametri, le intestazioni e i messaggi del corpo per il metodo translate del traduttore di servizi cognitivi di Azure per tradurre il testo.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 14d1f042240fd045925afe1725b32ddade490dfe
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 563f4693c358c570caa2566f58002ddfe6c7bc69
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858553"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584638"
 ---
-# <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
+# <a name="translator-30-translate"></a>Translator 3,0: Traduci
 
 Traduce il testo.
 
@@ -55,7 +55,7 @@ I parametri della richiesta inviati a una stringa di query sono:
   <th>Descrizione</th>
   <tr>
     <td>da</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la <code>from</code> funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro anziché il rilevamento automatico.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/><code>from</code>Quando si usa la funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro anziché il rilevamento automatico.</td>
   </tr>  
   <tr>
     <td>textType</td>
@@ -103,7 +103,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 Le intestazioni della richiesta includono:
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
@@ -111,7 +111,7 @@ Le intestazioni della richiesta includono:
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore accettato <code>application/json; charset=UTF-8</code>è.</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore accettato è <code>application/json; charset=UTF-8</code> .</td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -123,7 +123,7 @@ Le intestazioni della richiesta includono:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Corpo della richiesta
+## <a name="request-body"></a>Testo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un oggetto JSON con una proprietà di stringa denominata `Text`, che rappresenta la stringa da tradurre.
 
@@ -181,7 +181,7 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 ## <a name="response-headers"></a>Intestazioni della risposta
 
 <table width="100%">
-  <th width="20%">Headers</th>
+  <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
     <tr>
     <td>X-RequestId</td>
@@ -234,9 +234,9 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
 </table> 
 
-Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="translate-a-single-input"></a>Tradurre un singolo input
 
@@ -382,15 +382,15 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
     <td><code>Marked</code></td>
     <td>Le parole volgari vengono sostituite da un indicatore nell'output. L'indicatore dipende dal parametro <code>ProfanityMarker</code>.<br/><br/>
 Per <code>ProfanityMarker=Asterisk</code>, le parole volgari vengono sostituite con <code>***</code>:<br/>
-    <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>\* \*Esempio di \* 
-    <strong>traduzione (Inglese)</strong>: è.<br/><br/>
+    <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
+    <strong>Esempio di traduzione (Inglese)</strong>: è \* \* \* .<br/><br/>
 Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
     <strong>Traduzione di esempio (italiano)</strong>: è un &lt;profanity&gt;cretino&lt;/profanity&gt;.
   </tr>
 </table> 
 
-Ad esempio:
+ad esempio:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
