@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e01f3ddde96903716cf1fcff0426791ff3a90e07
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836571"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587664"
 ---
 # <a name="create-a-project"></a>Creare un progetto
 
@@ -52,7 +52,7 @@ La pagina di destinazione di Custom Translator mostra i primi 10 progetti nell'a
 
 Dopo aver selezionato un progetto, si noteranno le informazioni seguenti nella pagina del progetto:
 
-- Category ID (ID categoria): l'ID della categoria viene creato concatenando l'ID dell'area di lavoro, l'etichetta del progetto e il codice di categoria. Usare l'ID di categoria con l'API Traduzione testuale per ottenere traduzioni personalizzate.
+- Category ID (ID categoria): l'ID della categoria viene creato concatenando l'ID dell'area di lavoro, l'etichetta del progetto e il codice di categoria. Per ottenere traduzioni personalizzate, usare CategoryID con il convertitore di testo.
 
 - Pulsante per l'esecuzione del training: usare questo pulsante per avviare il [training di un modello](how-to-train-model.md).
 

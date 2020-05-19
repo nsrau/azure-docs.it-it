@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e3542b976921aa45794d62cad9517984c8348ce3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9d1b72eff3ffac37d2d10cd74c345eac8289b651
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875124"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585683"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Creare una risorsa dell'istanza di contenitore di Azure dall'interfaccia della riga di comando di Azure
 
@@ -24,7 +24,7 @@ Il YAML seguente definisce la risorsa dell'istanza di contenitore di Azure. Copi
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials: # This is required when pulling a non-public image
+imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -66,7 +66,7 @@ type: Microsoft.ContainerInstance/containerGroups
 > [!NOTE]
 > Non tutti i percorsi hanno la stessa disponibilità di CPU e memoria. Vedere la tabella [location and resources][location-to-resource] per l'elenco delle risorse disponibili per i contenitori per località e sistema operativo.
 
-Ci affidiamo al file YAML creato per il [`az container create`][azure-container-create] comando. Dall'interfaccia della riga di comando di `az container create` Azure, eseguire `<resource-group>` il comando sostituendo con il proprio. Inoltre, per proteggere i valori in una distribuzione YAML, fare riferimento a [valori sicuri][secure-values].
+Ci affidiamo al file YAML creato per il [`az container create`][azure-container-create] comando. Dall'interfaccia della riga di comando di Azure, eseguire il `az container create` comando sostituendo `<resource-group>` con il proprio. Inoltre, per proteggere i valori in una distribuzione YAML, fare riferimento a [valori sicuri][secure-values].
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml

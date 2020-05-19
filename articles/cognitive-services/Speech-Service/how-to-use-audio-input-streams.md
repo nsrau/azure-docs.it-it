@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 23a426bf8cc3f30516fff0a672d7118a49666433
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109943"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584927"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Informazioni sull'API del flusso di input audio di Speech SDK
 
@@ -25,14 +25,14 @@ Quando si usano flussi di input audio, sono necessari i passaggi riportati di se
 
 - Identificare il formato del flusso audio. Il formato deve essere supportato da Speech SDK e dal servizio Voce. Attualmente sono supportate solo le seguenti configurazioni:
 
-  Campioni audio in formato PCM, un canale, 16000 campioni al secondo, 32000 byte al secondo, due allineamenti in blocco (16 bit inclusa la spaziatura interna per un campione), 16 bit per campione.
+  Esempi di audio in formato PCM, un canale, 16 bit per campione, 8000 o 16000 campioni al secondo (16000 o 32000 byte al secondo), due blocchi align (a 16 bit, inclusa la spaziatura interna per un campione).
 
   Il codice corrispondente nell'SDK per creare il formato audio sarà simile al seguente:
 
   ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
-  int samplesPerSecond = 16000;
+  int samplesPerSecond = 16000; // or 8000
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 

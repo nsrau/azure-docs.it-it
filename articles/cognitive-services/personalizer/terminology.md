@@ -2,13 +2,13 @@
 title: Terminologia-personalizzatore
 description: Il Personalizzatore usa la terminologia dell'apprendimento per rinforzo. Questi termini vengono usati nell'portale di Azure e nelle API.
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: f75437c5afd5d3fd7f7570079be410d3db1ca8db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/23/2020
+ms.openlocfilehash: 3f819ff3305a7c7302eb56c83b98340946613a92
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624275"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586304"
 ---
 # <a name="terminology"></a>Terminologia
 
@@ -19,6 +19,15 @@ Il Personalizzatore usa la terminologia dell'apprendimento per rinforzo. Questi 
 * **Learning loop**: si crea una risorsa di personalizzazione, denominata _ciclo di apprendimento_, per ogni parte dell'applicazione che può trarre vantaggio dalla personalizzazione. Nel caso di più esperienze da personalizzare, creare un ciclo per ognuna.
 
 * **Modello**: un modello di personalizzatore acquisisce tutti i dati appresi sul comportamento dell'utente, recuperando i dati di training dalla combinazione degli argomenti inviati a chiamate di rango e premi e con un comportamento di training determinato dai criteri di apprendimento.
+
+* **Modalità online**: il [comportamento di apprendimento](#learning-behavior) predefinito per il Personalizzatore in cui il ciclo di apprendimento USA Machine Learning per compilare il modello che consente di stimare l' **azione principale** per il contenuto.
+
+* **Modalità Apprentice**: un [comportamento di apprendimento](#learning-behavior) che consente di avviare un modello di personalizzazione per eseguire il training senza alcun effetto sui risultati e sulle azioni delle applicazioni.
+
+## <a name="learning-behavior"></a>Comportamento di apprendimento:
+
+* **Modalità online**: restituisce l'azione migliore. Il modello risponderà alle chiamate di rango con l'azione migliore e utilizzerà le chiamate Reward per apprendere e migliorare le selezioni nel tempo.
+* **[Modalità apprendista](concept-apprentice-mode.md)**: Impara come apprendistato. Il modello apprenderà osservando il comportamento del sistema esistente. Le chiamate di rango restituiranno sempre l' **azione predefinita** dell'applicazione (baseline).
 
 ## <a name="personalizer-configuration"></a>Configurazione della personalizzazione
 
@@ -63,8 +72,21 @@ Il Personalizzatore viene configurato dal [portale di Azure](https://portal.azur
 
 * **Ricompensa**: una misura di come l'utente ha risposto all'ID dell'azione di ricompensa restituito dall'API di rango, come un punteggio compreso tra 0 e 1. Il valore da 0 a 1 viene impostato dalla logica di business in base all'efficacia della scelta per realizzare gli obiettivi aziendali della personalizzazione. Il ciclo di apprendimento non archivia questo premio come cronologia utente individuale.
 
-## <a name="offline-evaluations"></a>Valutazioni offline
+## <a name="evaluations"></a>Giudizi
 
-* **Valutazione**: una valutazione offline determina i criteri di apprendimento migliori per il ciclo in base ai dati del ciclo.
+### <a name="offline-evaluations"></a>Valutazioni offline
+
+* **Valutazione**: una valutazione offline determina i criteri di apprendimento migliori per il ciclo in base ai dati dell'applicazione.
 
 * **Criteri di apprendimento**: il modo in cui la personalizzazione del training di un modello su ogni evento verrà determinato da alcuni parametri che influiscono sul funzionamento dell'algoritmo di machine learning. Un nuovo ciclo di apprendimento inizia con un **criterio di apprendimento**predefinito, che può produrre prestazioni moderate. Quando si eseguono [valutazioni](concepts-offline-evaluation.md), il Personalizzatore crea nuovi criteri di apprendimento specificamente ottimizzati per i casi d'uso del ciclo. Il Personalizzatore offre prestazioni significativamente migliori con i criteri ottimizzati per ogni ciclo specifico, generato durante la valutazione. Il criterio di apprendimento è denominato _impostazioni di apprendimento_ sul **modello e le impostazioni di apprendimento** per la risorsa di personalizzazione nella portale di Azure.
+
+### <a name="apprentice-mode-evaluations"></a>Valutazioni della modalità Apprentice
+
+La modalità apprendista fornisce le **metriche di valutazione**seguenti:
+* **Baseline-ricompensa media**: vantaggi medi dell'impostazione predefinita dell'applicazione (baseline).
+* **Personalizzatore-ricompensa media**: è stata potenzialmente raggiunta la media del personalizzatore dei premi totali.
+* **Ricompensa in sequenza media**: rapporto tra la linea di base e la ricompensa del personalizzatore, normalizzato negli eventi 1000 più recenti.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Informazioni sull' [etica e sull'uso responsabile](ethics-responsible-use.md)

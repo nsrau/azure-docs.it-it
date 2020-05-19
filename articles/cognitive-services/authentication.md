@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d36961a12162a587def76b1ffeb2109f9ed63f4d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74423937"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587681"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
 
@@ -38,12 +38,12 @@ Per poter effettuare una richiesta, è necessario disporre di un account Azure e
 | Intestazione | Descrizione |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Usare questa intestazione per eseguire l'autenticazione con una chiave di sottoscrizione per un servizio specifico o una chiave di sottoscrizione multiservizio. |
-| Ocp-Apim-Subscription-Region | Questa intestazione è richiesta solo quando si usa una chiave di sottoscrizione multiservizio con l'[API Traduzione testuale](./Translator/reference/v3-0-reference.md). Usare questa intestazione per specificare l'area di sottoscrizione. |
+| Ocp-Apim-Subscription-Region | Questa intestazione è obbligatoria solo quando si utilizza una chiave di sottoscrizione multiservizio con il [servizio di conversione](./Translator/reference/v3-0-reference.md). Usare questa intestazione per specificare l'area di sottoscrizione. |
 | Autorizzazione | Usare questa intestazione se si usa un token di autenticazione. Le sezioni seguenti descrivono in dettaglio i passaggi per eseguire uno scambio di token. Il valore specificato segue questo formato: `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Eseguire l'autenticazione con una chiave di sottoscrizione a servizio singolo
 
-La prima opzione consiste nell'autenticare una richiesta con una chiave di sottoscrizione per un servizio specifico, ad esempio Traduzione testuale. Le chiavi sono disponibili nel portale di Azure per ogni risorsa creata. Per usare una chiave di sottoscrizione per autenticare una richiesta, la chiave deve essere passata insieme all'intestazione `Ocp-Apim-Subscription-Key`.
+La prima opzione consiste nell'autenticare una richiesta con una chiave di sottoscrizione per un servizio specifico, ad esempio Translator. Le chiavi sono disponibili nel portale di Azure per ogni risorsa creata. Per usare una chiave di sottoscrizione per autenticare una richiesta, la chiave deve essere passata insieme all'intestazione `Ocp-Apim-Subscription-Key`.
 
 Queste richieste di esempio mostrano come usare l'intestazione `Ocp-Apim-Subscription-Key`. Tenere presente che quando si usa questo esempio è necessario includere una chiave di sottoscrizione valida.
 
@@ -53,7 +53,7 @@ curl -X GET 'https://api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pem
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Questa è una chiamata di esempio per l'API Traduzione testuale:
+Si tratta di una chiamata di esempio al servizio di conversione:
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
@@ -78,7 +78,7 @@ La chiave di sottoscrizione viene specificata in ogni richiesta come intestazion
 
 Quando si usa la chiave di sottoscrizione multiservizio per effettuare una richiesta a `api.cognitive.microsoft.com`, è necessario includere l'area nell'URL. Ad esempio: `westus.api.cognitive.microsoft.com`.
 
-Quando si usa la chiave di sottoscrizione multiservizio con l'API Traduzione testuale, è necessario specificare l'area di sottoscrizione con l'intestazione `Ocp-Apim-Subscription-Region`.
+Quando si usa la chiave di sottoscrizione multiservizio con il servizio di conversione, è necessario specificare l'area di sottoscrizione con l' `Ocp-Apim-Subscription-Region` intestazione.
 
 L'autenticazione multiservizio è supportata nelle aree seguenti:
 
@@ -100,7 +100,7 @@ curl -X GET 'https://YOUR-REGION.api.cognitive.microsoft.com/bing/v7.0/search?q=
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Questa è una chiamata di esempio per l'API Traduzione testuale:
+Si tratta di una chiamata di esempio al servizio di conversione:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -150,7 +150,7 @@ Queste aree multiservizio supportano lo scambio del token:
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
 
-Dopo avere ottenuto un token di autenticazione, è necessario passarlo in ogni richiesta come intestazione `Authorization`. Questa è una chiamata di esempio per l'API Traduzione testuale:
+Dopo avere ottenuto un token di autenticazione, è necessario passarlo in ogni richiesta come intestazione `Authorization`. Si tratta di una chiamata di esempio al servizio di conversione:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \

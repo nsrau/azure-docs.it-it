@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 0b6fea381bd6b4aa8ad3e7061e6f632176c41033
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3fe1b999fbdc03157778a1329e05e8c342183528
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113834"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587375"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Supporto della lingua e della voce per il servizio di riconoscimento vocale
 
@@ -24,7 +24,7 @@ Il supporto della lingua varia in base alla funzionalità del servizio vocale. N
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-Sia Microsoft Speech SDK che l'API REST supportano le seguenti lingue (impostazioni locali). Per migliorare l'accuratezza, la personalizzazione viene offerta per un subset di lingue tramite il caricamento di trascrizioni audio e con etichetta umana o testo correlato: frasi. La personalizzazione della pronuncia è attualmente disponibile `en-US` solo `de-DE`per e. Altre informazioni sulla personalizzazione sono disponibili [qui](how-to-custom-speech.md).
+Sia Microsoft Speech SDK che l'API REST supportano le seguenti lingue (impostazioni locali). Per migliorare l'accuratezza, la personalizzazione viene offerta per un subset di lingue tramite il caricamento di trascrizioni audio e con etichetta umana o testo correlato: frasi. La personalizzazione della pronuncia è attualmente disponibile solo per `en-US` e `de-DE` . Altre informazioni sulla personalizzazione sono disponibili [qui](how-to-custom-speech.md).
 
 <!--
 To get the AM and ML bits:
@@ -80,7 +80,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
-Sia Microsoft Speech SDK che le API REST supportano queste voci, ognuna delle quali supporta una lingua e un dialetto specifici, identificati dalle impostazioni locali.
+Sia Microsoft Speech SDK che le API REST supportano queste voci, ognuna delle quali supporta una lingua e un dialetto specifici, identificati dalle impostazioni locali. È anche possibile ottenere un elenco completo di lingue e voci supportate per ogni area/endpoint specifico tramite l' [API Voices/list](rest-text-to-speech.md#get-a-list-of-voices). 
 
 > [!IMPORTANT]
 > I prezzi variano per voci standard, personalizzate e neurali. Per informazioni aggiuntive, visitare la pagina [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -93,124 +93,139 @@ Le voci neurali possono essere usate per rendere più naturali e accattivanti le
 
 Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
-| Impostazioni locali  | Linguaggio            | Sesso | Mapping completo del nome del servizio                                               | Nome breve vocale        |
-|---------|---------------------|--------|-------------------------------------------------------------------------|-------------------------|
-| `de-DE` | Tedesco (Germania)    | Female | "Voce Sintesi vocale vocale di Microsoft Server (de-DE, KatjaNeural)"     | "de-DE-KatjaNeural"     |
-| `en-US` | Inglese (Stati Uniti)        | Female | "Voce Sintesi vocale vocale di Microsoft Server (en-US, AriaNeural)"      | "en-US-AriaNeural"      |
-| `en-US` | Inglese (Stati Uniti)        | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)"       | "en-US-GuyNeural"       |
-| `it-IT` | Italiano (Italia)     | Female | "Voce Sintesi vocale vocale di Microsoft Server (it-IT, ElsaNeural)"      | "it-IT-ElsaNeural"      |
-| `pt-BR` | Portoghese (Brasile) | Female | "Voce Sintesi vocale vocale di Microsoft Server (PT-BR, FranciscaNeural)" | "PT-BR-FranciscaNeural" |
-| `zh-CN` | Cinese (mandarino, semplificato)  | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)"  | "zh-CN-XiaoxiaoNeural"  |
+|Impostazioni locali  | Linguaggio            | Sesso | Nome voce  | Supporto bi-lingue | Supporto dello stile |
+|--|--|--|--|--|--|
+| `de-DE` | Tedesco (Germania)    | Female | "de-DE-KatjaNeural" | Sì. Inglese (Stati Uniti) | Generale |
+| `en-AU` | Inglese (Australia) | Female |  "en-AU-NatashaNeural" | No | Generale |
+| `en-CA` | Inglese (Canada)    | Female |  "en-CA-ClaraNeural"| No | Generale |
+| `en-GB` | Inglese (Regno Unito)        | Female |  "en-GB-LibbyNeural"| No | Generale |
+|  |      | Female |  "en-GB-MiaNeural" | No | Generale |
+| `en-US` | Inglese (Stati Uniti)        | Female |  "en-US-AriaNeural"| No | Generale, più stili vocali disponibili |
+|  |      | Male   | "en-US-GuyNeural" | No | Generale |
+| `es-ES` | Spagnolo (Spagna)     | Female |  "es-ES-ElviraNeural"| Sì. Inglese (Stati Uniti) | Generale |
+| `es-MX` | Spagnolo (Messico)    | Female |  "es-MX-DaliaNeural" | Sì. Inglese (Stati Uniti) | Generale |
+| `fr-CA` | Francese (Canada)     | Female |  "fr-CA-SylvieNeural" | Sì. Inglese (Stati Uniti) | Generale |
+| `fr-FR` | Francese (Francia)     | Female | "fr-FR-DeniseNeural"  | Sì. Inglese (Stati Uniti) | Generale |
+| `it-IT` | Italiano (Italia)     | Female |  "it-IT-ElsaNeural"  | Sì. Inglese (Stati Uniti) | Generale |
+| `ja-JP` | Giapponese            | Female |  "ja-JP-NanamiNeural" | Sì. Inglese (Stati Uniti) | Generale |
+| `ko-KR` | Coreano              | Female |  "ko-KR-SunHiNeural" | Sì. Inglese (Stati Uniti) | Generale |
+| `nb-NO` | Norvegese           | Female | "nb-NO-IselinNeural" | No | Generale |
+| `pt-BR` | Portoghese (Brasile) | Female |  "PT-BR-FranciscaNeural" | No | Generale |
+| `tr-TR` | Turco             | Female | "tr-TR-EmelNeural" | No | Generale |
+| `zh-CN` | Cinese (mandarino, semplificato)  | Female |  "zh-CN-XiaoxiaoNeural"  | Sì. Inglese (Stati Uniti) | Generale, più stili vocali disponibili |
+|  |  | Female |  "zh-CN-XiaoyouNeural"  | Sì. Inglese (Stati Uniti) | Kid Voice, ottimizzato per la narrazione di storie |
+|  |  | Male |  "zh-CN-YunyangNeural"  | Sì. Inglese (Stati Uniti) | Ottimizzato per la lettura di notizie, più stili vocali disponibili |
+|  |  | Male |  "zh-CN-YunyeNeural"  | No | Ottimizzato per la narrazione di storie |
 
 > [!IMPORTANT]
-> La `en-US-JessaNeural` voce è stata modificata `en-US-AriaNeural`in. Se si usa "Jessa" prima, convertirlo in "aria".
+> La `en-US-JessaNeural` voce è stata modificata in `en-US-AriaNeural` . Se si usa "Jessa" prima, convertirlo in "aria".
 
 Per informazioni su come configurare e modificare le voci neurali, vedere [linguaggio di markup sintesi vocale](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!TIP]
-> È possibile usare il mapping del nome completo del servizio o il nome della voce breve nelle richieste di sintesi vocale.
+> È possibile continuare a usare il mapping del nome completo del servizio, ad esempio "Microsoft Server Speech Sintesi vocale Voice (en-US, AriaNeural)" nelle richieste di sintesi vocale.
 
 ### <a name="standard-voices"></a>Voci standard
 
 Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni locali, che consentono di convertire il testo in contenuto vocale sintetizzato. Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
-| Impostazioni locali | Linguaggio | Sesso | Mapping completo del nome del servizio | Nome breve |
-|--|--|--|--|--|
-| <sup>1</sup>`ar-EG` | Arabo (Egitto) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-un". |
-| `ar-SA` | Arabo (Arabia Saudita) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf" |
-| `bg-BG` | Bulgaro | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "BG-BG-Ivan" |
-| `ca-ES` | Catalano (Spagna) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS" |
-| `cs-CZ` | Ceco | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)" | "CS-CZ-Jakub" |
-| `da-DK` | Danese | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)" | "da-DK-HelleRus" |
-| `de-AT` | Tedesco (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)" | "de-AT-Michael" |
-| `de-CH` | Tedesco (Svizzera) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)" | "de-CH-Karsten" |
-| `de-DE` | Tedesco (Germania) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)" | "de-DE-Hedda" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, HeddaRUS)" | "de-DE-HeddaRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)" | "de-DE-Stefan-Apollo" |
-| `el-GR` | Greco | Male | "Microsoft Server Speech Text to Speech Voice (el-GR, Stefanos)" | "El-GR-Stefanos" |
-| `en-AU` | Inglese (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine)" | "en-AU-Catherine" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)" | "en-AU-HayleyRUS" |
-| `en-CA` | Inglese (Canada) | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, Linda)" | "en-CA-Linda" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRUS)" | "en-CA-HeatherRUS" |
-| `en-GB` | Inglese (Regno Unito) | Female | "Microsoft Server Speech Text to Speech Voice (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)" | "en-GB-HazelRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)" | "en-GB-George-Apollo" |
-| `en-IE` | Inglese (Irlanda) | Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)" | "en-IE-Sean" |
-| `en-IN` | Inglese (India) | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)" | "en-IN-si-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)" | "en-IN-PriyaRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)" | "en-IN-Ravi-Apollo" |
-| `en-US` | Inglese (Stati Uniti) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | "en-US-ZiraRUS" |
-|  |  | Female | "Voce Sintesi vocale vocale di Microsoft Server (en-US, AriaRUS)" | "en-US-AriaRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" | "en-US-BenjaminRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" | "en-US-Guy24kRUS" |
-| `es-ES` | Spagnolo (Spagna) | Female | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)" | "es-ES-Laura-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)" | "es-ES-HelenaRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)" | "es-ES-Pablo-Apollo" |
-| `es-MX` | Spagnolo (Messico) | Female | "Microsoft Server Speech Text to Speech Voice (es-MX, HildaRUS)" | "es-MX-HildaRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (es-MX, Raul, Apollo)" | "es-MX-Raul-Apollo" |
-| `fi-FI` | Finlandese | Female | "Microsoft Server Speech Text to Speech Voice (fi-FI, HeidiRUS)" | "fi-FI-HeidiRUS" |
-| `fr-CA` | Francese (Canada) | Female | "Microsoft Server Speech Text to Speech Voice (fr-CA, Caroline)" | "fr-CA-Caroline" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (fr-CA, HarmonieRUS)" | "fr-CA-HarmonieRUS" |
-| `fr-CH` | Francese (Svizzera) | Male | "Microsoft Server Speech Text to Speech Voice (fr-CH, Guillaume)" | "fr-CH-Guillaume" |
-| `fr-FR` | Francese (Francia) | Female | "Microsoft Server Speech Text to Speech Voice (fr-FR, Julie, Apollo)" | "fr-FR-Julie-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (fr-FR, HortenseRUS)" | "fr-FR-HortenseRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (fr-FR, Paul, Apollo)" | "fr-FR-Paul-Apollo" |
-| `he-IL` | Ebraico (Israele) | Male | "Microsoft Server Speech Text to Speech Voice (he-IL, Asaf)" | "he-IL-la |
-| `hi-IN` | Hindi (India) | Female | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana, Apollo)" | "Hi-IN-non-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana)" | "Hi-IN-le" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (hi-IN, Hemant)" | "Hi-IN-," |
-| `hr-HR` | Croato | Male | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)" | "HR-HR-Matej" |
-| `hu-HU` | Ungherese | Male | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)" | "hu-HU-se" |
-| `id-ID` | Indonesiano | Male | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)" | "ID-ID-Andika" |
-| `it-IT` | Italiano | Male | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)" | "it-IT-Cosimo-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (it-IT, LuciaRUS)" | "it-IT-LuciaRUS" |
-| `ja-JP` | Giapponese | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)" | "ja-JP-Ayumi-Apollo" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)" | "ja-JP-Ichiro-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)" | "ja-JP-HarukaRUS" |
-| `ko-KR` | Coreano | Female | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)" | "ko-KR-HeamiRUS" |
-| `ms-MY` | Malese | Male | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)" | "MS-MY-per" |
-| `nb-NO` | Norvegese | Female | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)" | "nb-NO-HuldaRUS" |
-| `nl-NL` | Olandese | Female | "Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)" | "nl-NL-HannaRUS" |
-| `pl-PL` | Polacco | Female | "Microsoft Server Speech Text to Speech Voice (pl-PL, PaulinaRUS)" | "pl-PL-PaulinaRUS" |
-| `pt-BR` | Portoghese (Brasile) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, HeloisaRUS)" | "PT-BR-HeloisaRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (pt-BR, Daniel, Apollo)" | "PT-BR-Daniel-Apollo" |
-| `pt-PT` | Portoghese (Portogallo) | Female | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS)" | "PT-PT-HeliaRUS" |
-| `ro-RO` | Rumeno | Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)" | "ro-RO-Andrei" |
-| `ru-RU` | Russo | Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)" | "ur-ur-Irina-Apollo" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)" | "ur-ur-Pavel-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)" | ur-ur-EkaterinaRUS |
-| `sk-SK` | Slovacco | Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)" | "sk-SK-Filip" |
-| `sl-SI` | Sloveno | Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)" | "SL-SI-lado" |
-| `sv-SE` | Svedese | Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)" | "sv-SE-HedvigRUS" |
-| `ta-IN` | Tamil (India) | Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)" | "TA-IN-Valluvar" |
-| `te-IN` | Telugu (India) | Female | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)" | "te-IN-Chitle" |
-| `th-TH` | Thai | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)" | "th-TH-Pattara" |
-| `tr-TR` | Turco (Turchia) | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS" |
-| `vi-VN` | Vietnamita | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)" | "vi-VN-an" |
-| `zh-CN` | Cinese (mandarino, semplificato) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)" | "zh-CN-Kangkang-Apollo" |
-| `zh-HK` | Cinese (cantonese, tradizionale) | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)" | "zh-HK-Tracy-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, TracyRUS)" | "zh-HK-TracyRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apollo)" | "zh-HK-Danny-Apollo" |
-| `zh-TW` | Cinese (mandarino taiwanese) | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)" | "zh-TW-Yating-Apollo" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS" |
-|  |  | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo" |
+| Impostazioni locali | Linguaggio | Sesso | Nome voce |
+|--|--|--|--|
+| <sup>1</sup>`ar-EG` | Arabo (Egitto) | Female | "ar-EG-un". |
+| `ar-SA` | Arabo (Arabia Saudita) | Male | "ar-SA-Naayf" |
+| `bg-BG` | Bulgaro | Male |  "BG-BG-Ivan" |
+| `ca-ES` | Catalano (Spagna) | Female |  "ca-ES-HerenaRUS" |
+| `cs-CZ` | Ceco | Male | "CS-CZ-Jakub" |
+| `da-DK` | Danese | Female |  "da-DK-HelleRus" |
+| `de-AT` | Tedesco (Austria) | Male | "de-AT-Michael" |
+| `de-CH` | Tedesco (Svizzera) | Male |  "de-CH-Karsten" |
+| `de-DE` | Tedesco (Germania) | Female |  "de-DE-Hedda" |
+|  |  | Female | "de-DE-HeddaRUS" |
+|  |  | Male |  "de-DE-Stefan-Apollo" |
+| `el-GR` | Greco | Male | "El-GR-Stefanos" |
+| `en-AU` | Inglese (Australia) | Female |  "en-AU-Catherine" |
+|  |  | Female |  "en-AU-HayleyRUS" |
+| `en-CA` | Inglese (Canada) | Female |  "en-CA-Linda" |
+|  |  | Female |  "en-CA-HeatherRUS" |
+| `en-GB` | Inglese (Regno Unito) | Female |  "en-GB-Susan-Apollo" |
+|  |  | Female |  "en-GB-HazelRUS" |
+|  |  | Male |  "en-GB-George-Apollo" |
+| `en-IE` | Inglese (Irlanda) | Male | "en-IE-Sean" |
+| `en-IN` | Inglese (India) | Female | "en-IN-si-Apollo" |
+|  |  | Female |  "en-IN-PriyaRUS" |
+|  |  | Male |  "en-IN-Ravi-Apollo" |
+| `en-US` | Inglese (Stati Uniti) | Female |  "en-US-ZiraRUS" |
+|  |  | Female | "en-US-AriaRUS" |
+|  |  | Male | "en-US-BenjaminRUS" |
+|  |  | Male |  "en-US-Guy24kRUS" |
+| `es-ES` | Spagnolo (Spagna) | Female |  "es-ES-Laura-Apollo" |
+|  |  | Female | "es-ES-HelenaRUS" |
+|  |  | Male | "es-ES-Pablo-Apollo" |
+| `es-MX` | Spagnolo (Messico) | Female |  "es-MX-HildaRUS" |
+|  |  | Male | "es-MX-Raul-Apollo" |
+| `fi-FI` | Finlandese | Female | "fi-FI-HeidiRUS" |
+| `fr-CA` | Francese (Canada) | Female | "fr-CA-Caroline" |
+|  |  | Female | "fr-CA-HarmonieRUS" |
+| `fr-CH` | Francese (Svizzera) | Male | "fr-CH-Guillaume" |
+| `fr-FR` | Francese (Francia) | Female |  "fr-FR-Julie-Apollo" |
+|  |  | Female |"fr-FR-HortenseRUS" |
+|  |  | Male |  "fr-FR-Paul-Apollo" |
+| `he-IL` | Ebraico (Israele) | Male |  "he-IL-la |
+| `hi-IN` | Hindi (India) | Female | "Hi-IN-non-Apollo" |
+|  |  | Female |  "Hi-IN-le" |
+|  |  | Male |  "Hi-IN-," |
+| `hr-HR` | Croato | Male | "HR-HR-Matej" |
+| `hu-HU` | Ungherese | Male |  "hu-HU-se" |
+| `id-ID` | Indonesiano | Male | "ID-ID-Andika" |
+| `it-IT` | Italiano | Male |  "it-IT-Cosimo-Apollo" |
+|  |  | Female |  "it-IT-LuciaRUS" |
+| `ja-JP` | Giapponese | Female |  "ja-JP-Ayumi-Apollo" |
+|  |  | Male | "ja-JP-Ichiro-Apollo" |
+|  |  | Female |  "ja-JP-HarukaRUS" |
+| `ko-KR` | Coreano | Female | "ko-KR-HeamiRUS" |
+| `ms-MY` | Malese | Male |  "MS-MY-per" |
+| `nb-NO` | Norvegese | Female |  "nb-NO-HuldaRUS" |
+| `nl-NL` | Olandese | Female |  "nl-NL-HannaRUS" |
+| `pl-PL` | Polacco | Female |  "pl-PL-PaulinaRUS" |
+| `pt-BR` | Portoghese (Brasile) | Female | "PT-BR-HeloisaRUS" |
+|  |  | Male |  "PT-BR-Daniel-Apollo" |
+| `pt-PT` | Portoghese (Portogallo) | Female | "PT-PT-HeliaRUS" |
+| `ro-RO` | Romeno | Male | "ro-RO-Andrei" |
+| `ru-RU` | Russo | Female |  "ur-ur-Irina-Apollo" |
+|  |  | Male | "ur-ur-Pavel-Apollo" |
+|  |  | Female |  ur-ur-EkaterinaRUS |
+| `sk-SK` | Slovacco | Male | "sk-SK-Filip" |
+| `sl-SI` | Sloveno | Male |  "SL-SI-lado" |
+| `sv-SE` | Svedese | Female | "sv-SE-HedvigRUS" |
+| `ta-IN` | Tamil (India) | Male |  "TA-IN-Valluvar" |
+| `te-IN` | Telugu (India) | Female |  "te-IN-Chitle" |
+| `th-TH` | Thai | Male |  "th-TH-Pattara" |
+| `tr-TR` | Turco (Turchia) | Female | "tr-TR-SedaRUS" |
+| `vi-VN` | Vietnamita | Male |  "vi-VN-an" |
+| `zh-CN` | Cinese (mandarino, semplificato) | Female |  "zh-CN-HuihuiRUS" |
+|  |  | Female | "zh-CN-Yaoyao-Apollo" |
+|  |  | Male | "zh-CN-Kangkang-Apollo" |
+| `zh-HK` | Cinese (cantonese, tradizionale) | Female |  "zh-HK-Tracy-Apollo" |
+|  |  | Female | "zh-HK-TracyRUS" |
+|  |  | Male |  "zh-HK-Danny-Apollo" |
+| `zh-TW` | Cinese (mandarino taiwanese) | Female |  "zh-TW-Yating-Apollo" |
+|  |  | Female | "zh-TW-HanHanRUS" |
+|  |  | Male |  "zh-TW-Zhiwei-Apollo" |
 
 **1** *ar-EG supporta l'arabo standard moderno (MSA).*
 
 > [!IMPORTANT]
-> La `en-US-Jessa` voce è stata modificata `en-US-Aria`in. Se si usa "Jessa" prima, convertirlo in "aria".
+> La `en-US-Jessa` voce è stata modificata in `en-US-Aria` . Se si usa "Jessa" prima, convertirlo in "aria".
 
 > [!TIP]
-> È possibile usare il mapping del nome completo del servizio o il nome della voce breve nelle richieste di sintesi vocale.
+> È possibile continuare a usare il mapping del nome completo del servizio, ad esempio "Microsoft Server Speech Sintesi vocale Voice (en-US, AriaRUS)" nelle richieste di sintesi vocale.
 
 ### <a name="customization"></a>Personalizzazione
 
-La personalizzazione vocale è disponibile `de-DE`per `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR`, e `zh-CN`. Selezionare le impostazioni locali corrette che corrispondono ai dati di training per il training di un modello vocale personalizzato. Se, ad esempio, i dati di registrazione sono pronunciati in inglese con un accento britannico, `en-GB`selezionare.
+La personalizzazione vocale è disponibile per `de-DE` , `en-GB` ,, `en-IN` `en-US` , `es-MX` , `fr-FR` , `it-IT` , `pt-BR` e `zh-CN` . Selezionare le impostazioni locali corrette che corrispondono ai dati di training per il training di un modello vocale personalizzato. Se, ad esempio, i dati di registrazione sono pronunciati in inglese con un accento britannico, selezionare `en-GB` .
 
 > [!NOTE]
-> Non è supportato il training del modello bilingue in una voce personalizzata, ad eccezione della lingua inglese cinese (BI). Per eseguire il training di una voce cinese in lingua inglese, selezionare "lingua inglese per il cinese". Il `en-US` training vocale in tutte le impostazioni locali inizia con un set di dati di 2000 + espressioni, ad eccezione `zh-CN` di e, in cui è possibile iniziare con qualsiasi dimensione dei dati di training.
+> Non è supportato il training del modello bilingue in una voce personalizzata, ad eccezione della lingua inglese cinese (BI). Per eseguire il training di una voce cinese in lingua inglese, selezionare "lingua inglese per il cinese". Il training vocale in tutte le impostazioni locali inizia con un set di dati di 2000 + espressioni, ad eccezione di e, in `en-US` `zh-CN` cui è possibile iniziare con qualsiasi dimensione dei dati di training.
 
 ## <a name="speech-translation"></a>Traduzione vocale
 
@@ -271,7 +286,7 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 | Portoghese (Portogallo)   | `pt-pt`       |
 | Punjabi                 | `pa`          |
 | Querétaro Otomi         | `otq`         |
-| Rumeno                | `ro`          |
+| Romeno                | `ro`          |
 | Russo                 | `ru`          |
 | Samoano                  | `sm`          |
 | Serbo (alfabeto cirillico)      | `sr-Cyrl`     |

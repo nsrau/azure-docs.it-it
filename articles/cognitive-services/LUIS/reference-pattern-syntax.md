@@ -4,19 +4,19 @@ description: Creare entità per estrarre i dati chiave da espressioni utente nel
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382154"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585573"
 ---
 # <a name="pattern-syntax"></a>Sintassi dei criteri
 
 La sintassi dei criteri è un modello per un'espressione. Il modello deve contenere parole ed entità per le quali si desidera trovare una corrispondenza, oltre a parole e [punteggiatura](luis-reference-application-settings.md#punctuation-normalization) che si desidera ignorare. **Non** si tratta di un'espressione regolare.
 
 > [!CAUTION]
-> I modelli includono solo elementi padre di entità apprese dal computer, non sottocomponenti.
+> I modelli includono solo gli elementi padre di entità apprese dal computer, non le sottoentità.
 
 Le entità nei criteri sono racchiuse tra parentesi graffe, `{}`. I criteri possono includere entità ed entità con ruoli. [Pattern. any](luis-concept-entity-types.md#patternany-entity) è un'entità usata solo nei modelli.
 
@@ -25,9 +25,9 @@ La sintassi del modello supporta la sintassi seguente:
 |Funzione|Sintassi|Livello di nidificazione|Esempio|
 |--|--|--|--|
 |Entità| {}-parentesi graffe|2|Dove è il formato {nome-entità}?|
-|facoltativo|[]-parentesi quadre<BR><BR>È previsto un limite di 3 per i livelli di nidificazione di qualsiasi combinazione di facoltativo e raggruppamento |2|Il punto interrogativo è facoltativo [?]|
+|facoltative|[]-parentesi quadre<BR><BR>È previsto un limite di 3 per i livelli di nidificazione di qualsiasi combinazione di facoltativo e raggruppamento |2|Il punto interrogativo è facoltativo [?]|
 |raggruppamento|()-parentesi|2|is (a \| b)|
-|o| \|-barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})|
+|oppure| \|-barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})|
 |inizio e/o fine dell'espressione|^-punto di inserimento|-|^ iniziare il enunciato<br>l'espressione è stata eseguita ^<br>^ corrispondenza letterale Strict dell'intero enunciato con {Number} entità ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Annidamento della sintassi nei modelli
@@ -117,7 +117,7 @@ Nelle espressioni seguenti le entità **subject** e **person** vengono estratte 
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-Nella tabella precedente, l'oggetto deve essere `the man from La Mancha` (titolo del libro), ma poiché l'oggetto include la parola `from`facoltativa, il titolo viene stimato in modo errato.
+Nella tabella precedente, l'oggetto deve essere `the man from La Mancha` (titolo del libro), ma poiché l'oggetto include la parola facoltativa `from` , il titolo viene stimato in modo errato.
 
 Per risolvere questa eccezione nel criterio, aggiungere `the man from la mancha` come corrispondenza dell'elenco esplicito per l'entità {subject} usando l'[API di creazione per l'elenco esplicito](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -129,7 +129,7 @@ Contrassegnare il testo facoltativo nell'espressione usando la sintassi tra pare
 |`[find] email about {subject} [from {person}]`|`find`e `from {person}` sono facoltativi|
 |' Posso aiutarmi [?]|Il segno di punteggiatura è facoltativo|
 
-I segni di punteggiatura `!`( `.``?`,,) devono essere ignorati ed è necessario ignorarli usando la sintassi tra parentesi quadre nei modelli.
+I segni di punteggiatura ( `?` , `!` , `.` ) devono essere ignorati ed è necessario ignorarli usando la sintassi tra parentesi quadre nei modelli.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

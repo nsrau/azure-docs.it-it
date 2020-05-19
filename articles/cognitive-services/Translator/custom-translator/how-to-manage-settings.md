@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219511"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587239"
 ---
 # <a name="how-to-manage-settings"></a>Come gestire le impostazioni
 
@@ -29,11 +29,11 @@ Per accedere alla pagina delle impostazioni:
 
 ## <a name="associating-microsoft-translator-subscription"></a>Associazione della sottoscrizione di Microsoft Translator
 
-È necessario disporre di una chiave di sottoscrizione per l'API Traduzione testuale di Microsoft Translator associata all'area di lavoro per il training o la distribuzione dei modelli.
+Per eseguire il training o la distribuzione di modelli, è necessario disporre di una chiave di sottoscrizione di traduzione associata all'area di lavoro.
 
 Se non è disponibile una sottoscrizione, seguire questa procedura:
 
-1. Sottoscrivere l'API Traduzione testuale di Microsoft Translator. Questo articolo illustra come creare una sottoscrizione per l'API Traduzione testuale di Microsoft Translator.
+1. Sottoscrivere il traduttore. Questo articolo illustra come eseguire la sottoscrizione per il traduttore.
 2. Prendere nota della chiave per la sottoscrizione di Microsoft Translator. Sono accettabili sia Key1 che Key2.
 3. Tornare al portale di Custom Translator.
 

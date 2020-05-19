@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446772"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586999"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
 
@@ -141,9 +141,9 @@ Questa tabella mette a confronto le funzionalità di Microsoft Translator Hub co
 
 ## <a name="new-languages"></a>Nuove lingue
 
-Se si è una community o un'organizzazione che lavora alla creazione di un nuovo sistema di linguaggio per Microsoft Translator [custommt@microsoft.com](mailto:custommt@microsoft.com) , rivolgersi a per altre informazioni.
+Se si è una community o un'organizzazione che lavora alla creazione di un nuovo sistema di linguaggio per Microsoft Translator, rivolgersi a [custommt@microsoft.com](mailto:custommt@microsoft.com) per altre informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Eseguire [il training di un modello](how-to-train-model.md).
-- Iniziare a usare il modello di traduzione personalizzata distribuito tramite l'[API Traduzione testuale Microsoft V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Iniziare a usare il modello di traduzione personalizzata distribuito tramite [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

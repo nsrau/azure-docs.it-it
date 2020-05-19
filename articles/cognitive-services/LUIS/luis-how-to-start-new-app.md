@@ -9,39 +9,37 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: d3f8696388a33a8ea112aae438c6bbe9af520c61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220831"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585624"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale LUIS o tramite le [API](developer-reference-resource.md) di creazione di LUIS.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## <a name="using-the-luis-portal"></a>Usare il portale LUIS
 
-È possibile creare una nuova app nel portale di anteprima in diversi modi:
+È possibile creare una nuova app nel portale in diversi modi:
 
 * Iniziare con un'applicazione vuota e creare finalità, espressioni ed entità.
 * Iniziare con un'applicazione vuota e aggiungere un [dominio predefinito](luis-how-to-use-prebuilt-domains.md).
-* Importare un'app LUIS da un `.lu` file `.json` o che contiene già Intent, espressioni ed entità.
+* Importare un'app LUIS da un `.lu` `.json` file o che contiene già Intent, espressioni ed entità.
 
 ## <a name="using-the-authoring-apis"></a>Usare le API di creazione
 È possibile creare una nuova app con le API di creazione in due modi:
 
 * [Aggiungere un'applicazione](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) : iniziare con un'app vuota e creare Intent, espressioni ed entità.
-* [Aggiungere un'applicazione predefinita](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) : iniziare con un dominio predefinito, inclusi Intent, espressioni ed entità.  
+* [Aggiungere un'applicazione predefinita](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) : iniziare con un dominio predefinito, inclusi Intent, espressioni ed entità.
 
 
 <a name="export-app"></a>
 <a name="import-new-app"></a>
 <a name="delete-app"></a>
- 
+
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
@@ -52,17 +50,17 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
     ![Elenco di app di Language Understanding](./media/create-app-in-portal.png)
 
 
-1. Nella finestra di dialogo immettere il nome dell'applicazione, ad esempio `Pizza Tutorial`.
+1. Nella finestra di dialogo immettere il nome dell'applicazione, ad esempio `Pizza Tutorial` .
 
     ![Creare una nuova finestra di dialogo dell'applicazione](./media/create-pizza-tutorial-app-in-portal.png)
 
 1. Scegliere le impostazioni cultura dell'applicazione e quindi **fare**clic su fine. A questo punto, la descrizione e la risorsa di stima sono facoltative. È possibile impostare in qualsiasi momento nella sezione **Gestisci** del portale.
 
     > [!NOTE]
-    > Le impostazioni cultura non possono essere modificate dopo la creazione dell'applicazione. 
+    > Le impostazioni cultura non possono essere modificate dopo la creazione dell'applicazione.
 
-    Dopo la creazione dell'app, il portale di LUIS Mostra l'elenco degli **Intent** con `None` lo scopo già creato. È ora disponibile un'app vuota. 
-    
+    Dopo la creazione dell'app, il portale di LUIS Mostra l'elenco degli **Intent** con lo `None` scopo già creato. È ora disponibile un'app vuota.
+
     > [!div class="mx-imgBorder"]
     > ![Elenco Intent senza finalità create senza espressioni di esempio.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
@@ -72,11 +70,11 @@ La barra degli strumenti del contesto fornisce altre azioni:
 
 * Rinominare l'applicazione
 * Importa da file usando `.lu` o`.json`
-* Esporta app come `.lu` (per [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json`o `.zip` (per il [contenitore Luis](luis-container-howto.md))
+* Esporta app come `.lu` (per [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json` o `.zip` (per il [contenitore Luis](luis-container-howto.md))
 * Importare i log degli endpoint del contenitore per esaminare le espressioni dell'endpoint
-* Esportare i log degli endpoint, `.csv`come per l'analisi offline
+* Esportare i log degli endpoint, come `.csv` per l'analisi offline
 * Eliminare l'applicazione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se la progettazione dell'app include il rilevamento preventivo, [creare nuovi Intent](luis-how-to-add-intents.md)e aggiungere espressioni di esempio. Se la progettazione dell'app è solo l'estrazione dei dati, aggiungere espressioni di esempio alla finalità None, quindi [creare entità](luis-how-to-add-example-utterances.md)ed etichettare le espressioni di esempio con tali entità. 
+Se la progettazione dell'app include il rilevamento preventivo, [creare nuovi Intent](luis-how-to-add-intents.md)e aggiungere espressioni di esempio. Se la progettazione dell'app è solo l'estrazione dei dati, aggiungere espressioni di esempio alla finalità None, quindi [creare entità](luis-how-to-add-example-utterances.md)ed etichettare le espressioni di esempio con tali entità.

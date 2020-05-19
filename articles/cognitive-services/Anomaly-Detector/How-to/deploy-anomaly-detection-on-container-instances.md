@@ -10,24 +10,18 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: a4973254c8a53917d99daf38b0d11e5dbecbb731
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 975efa9fdaff9175317794d8b6df7afbfc73cba8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875123"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585684"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuire un contenitore di rilevatori di anomalie in istanze di contenitore di Azure
 
 Informazioni su come distribuire il contenitore [Rilevamento anomalie](../anomaly-detector-container-howto.md) dei servizi cognitivi in [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Questa procedura illustra la creazione di una risorsa del rilevatore di anomalie. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
-
-## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
-
-È necessario prima completare e inviare il [modulo di richiesta del contenitore del rilevatore di anomalie](https://aka.ms/adcontainer) per richiedere l'accesso al contenitore.
-
-[!INCLUDE [Request access](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Create a Cognitive Services Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
 
