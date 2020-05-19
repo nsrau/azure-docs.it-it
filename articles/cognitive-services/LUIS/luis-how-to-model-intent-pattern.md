@@ -9,35 +9,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 21afb12bf2464218119ebf52ebd980745e3d731d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 077e29856842972fae2c723d4a2c368cbb80df06
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76311717"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593257"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Come aggiungere modelli per migliorare l'accuratezza della stima
 Dopo la ricezione di espressioni di endpoint da un'app LUIS, usare un [modello](luis-concept-patterns.md) per migliorare l'accuratezza della stima per le espressioni che rivelano un modello in Word Order e Word Choice. I modelli usano una [sintassi](luis-concept-patterns.md#pattern-syntax) specifica per indicare la posizione di: [entità](luis-concept-entity-types.md), [ruoli](luis-concept-roles.md)di entità e testo facoltativo.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 > [!CAUTION]
-> I modelli includono solo elementi padre di entità apprese dal computer, non sottocomponenti.
+> I modelli includono solo gli elementi padre di entità apprese dal computer, non le sottoentità.
 
 ## <a name="adding-example-utterances-as-pattern"></a>Aggiunta di espressioni di esempio come modello
 
 Se si desidera aggiungere un modello per un'entità, il modo _più semplice_ consiste nel creare il modello dalla pagina Dettagli finalità. Ciò garantisce che la sintassi corrisponda all'espressione di esempio.
 
-1. Nel [portale di anteprima Luis](https://preview.luis.ai)selezionare l'app dalla pagina **app personali** .
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella pagina dell'elenco **Intents** selezionare il nome dell'espressione di esempio da cui si vuole creare un modello di espressione.
 1. Nella pagina Dettagli finalità selezionare la riga per l'espressione di esempio che si vuole usare come espressione modello, quindi selezionare **+ Aggiungi come modello** dalla barra degli strumenti del contesto.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot della selezione dell'espressione di esempio come modello modello nella pagina Dettagli finalità.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
 
-1. Nella casella popup selezionare **fatto** nella pagina **conferma modelli** . Non è necessario definire i sottocomponenti, i vincoli o i descrittori delle entità. È sufficiente elencare l'entità Machine-Learned.
+1. Nella casella popup selezionare **fatto** nella pagina **conferma modelli** . Non è necessario definire le sottoentità o le funzionalità delle entità. È sufficiente elencare l'entità Machine-Learned.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot della conferma dell'espressione di esempio come modello modello nella pagina Dettagli finalità.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
@@ -47,8 +46,9 @@ Se si desidera aggiungere un modello per un'entità, il modo _più semplice_ con
 1. Nella barra di spostamento selezionare **Train** per eseguire il training dell'app con il nuovo modello.
 
 ## <a name="add-template-utterance-using-correct-syntax"></a>Aggiungere un'espressione modello usando la sintassi corretta
-
-1. Apri l'applicazione selezionando il corrispettivo nome nella pagina **App personali** e quindi seleziona **Criteri** nel riquadro sinistro, nella sezione **Migliora le prestazioni dell'applicazione**.
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
+1. Selezionare **modelli** nel riquadro sinistro, in **migliorare le prestazioni dell'app**.
 
     > [!div class="mx-imgBorder"]
     > ![Schermata dell'elenco dei criteri](./media/luis-how-to-model-intent-pattern/patterns-1.png)
@@ -60,7 +60,7 @@ Se si desidera aggiungere un modello per un'entità, il modo _più semplice_ con
     > [!div class="mx-imgBorder"]
     > ![Schermata dell'entità per il criterio](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un solo segno di `:`due punti,, dopo il nome dell' `{Location:Origin}`entità, ad esempio. I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio.
+    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un solo segno di due punti, `:` , dopo il nome dell'entità, ad esempio `{Location:Origin}` . I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio.
 
     > [!div class="mx-imgBorder"]
     > ![Schermata dell'entità con un ruolo](./media/luis-how-to-model-intent-pattern/patterns-4.png)
