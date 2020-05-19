@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 838b759f6b175b478dcd9b0559784975b5d24f70
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879344"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593334"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installare ed eseguire i contenitori di lettura (anteprima)
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -87,9 +87,9 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i `{ENDPOINT_URI}` valori e `{API_KEY}` , vedere raccolta dei [parametri obbligatori](#gathering-required-parameters) .
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori e, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) `{ENDPOINT_URI}` `{API_KEY}` .
 
-[Examples](computer-vision-resource-container-config.md#example-docker-run-commands) Sono disponibili esempi `docker run` di comando.
+[Examples](computer-vision-resource-container-config.md#example-docker-run-commands) `docker run` Sono disponibili esempi di comando.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -125,9 +125,9 @@ Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 ### <a name="asynchronous-read"></a>Lettura asincrona
 
-È possibile usare le `POST /vision/v2.0/read/core/asyncBatchAnalyze` operazioni `GET /vision/v2.0/read/operations/{operationId}` e in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un `operationId` oggetto che viene usato come identificatore per la richiesta HTTP Get.
+È possibile usare le `POST /vision/v2.0/read/core/asyncBatchAnalyze` `GET /vision/v2.0/read/operations/{operationId}` operazioni e in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un oggetto `operationId` che viene usato come identificatore per la richiesta HTTP Get.
 
-Dall'interfaccia utente di spavalderia selezionare il `asyncBatchAnalyze` per espanderlo nel browser. Quindi selezionare **try it out** > **Choose file**. In questo esempio si userà l'immagine seguente:
+Dall'interfaccia utente di spavalderia selezionare il `asyncBatchAnalyze` per espanderlo nel browser. Quindi selezionare **try it out**  >  **Choose file**. In questo esempio si userà l'immagine seguente:
 
 ![tabulazioni e spazi](media/tabs-vs-spaces.png)
 
@@ -140,7 +140,7 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
  server: Kestrel
 ```
 
-`operation-location` È l'URL completo a cui è possibile accedere tramite HTTP Get. Ecco la risposta JSON dall'esecuzione dell' `operation-location` URL dall'immagine precedente:
+`operation-location`È l'URL completo a cui è possibile accedere tramite HTTP Get. Ecco la risposta JSON dall'esecuzione dell' `operation-location` URL dall'immagine precedente:
 
 ```json
 {
@@ -194,7 +194,7 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
 }
 ```
 
-L'oggetto di risposta JSON ha lo stesso oggetto grafico della versione asincrona. Se si è un utente JavaScript e si vuole l'indipendenza dai tipi, è possibile usare i tipi seguenti per eseguire il cast `AnalyzeResult` della risposta JSON come oggetto.
+L'oggetto di risposta JSON ha lo stesso oggetto grafico della versione asincrona. Se si è un utente JavaScript e si vuole l'indipendenza dai tipi, è possibile usare i tipi seguenti per eseguire il cast della risposta JSON come `AnalyzeResult` oggetto.
 
 ```typescript
 export interface AnalyzeResult {
@@ -265,7 +265,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./c
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori Visione artificiale. In sintesi:
 
