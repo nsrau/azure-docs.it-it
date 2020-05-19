@@ -2,19 +2,17 @@
 title: Testare l'app nel portale di LUIS
 description: Usare il servizio LUIS (Language Understanding) per lavorare continuamente sull'applicazione allo scopo di perfezionarla e migliorarne l'apprendimento del linguaggio.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/07/2020
+ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219819"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591863"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 
 [Il test](luis-concept-test.md) di un'app costituisce un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -24,13 +22,16 @@ ms.locfileid: "79219819"
 
 ## <a name="train-before-testing"></a>Esegui il training prima del test
 
-Per eseguire il test con la versione più recente dell'app attiva, selezionare **Train** dal menu in alto, prima del test.
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
+1. Per eseguire il test con la versione più recente dell'app attiva, selezionare **Train** dal menu in alto, prima del test.
 
 ## <a name="test-an-utterance"></a>Eseguire il test di un'espressione
 
 L'espressione di test non deve essere esattamente identica a qualsiasi espressione di esempio nell'app. L'espressione di test deve includere la scelta di parole, la lunghezza delle frasi e l'utilizzo dell'entità previsti per un utente.
 
-1. Accedere all'app selezionando il relativo nome nella pagina **My Apps** (App personali).
+1. Accedere al [portale Luis](https://www.luis.ai)e selezionare la **sottoscrizione** e la risorsa di **creazione** per visualizzare le app assegnate a tale risorsa di creazione.
+1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 
 1. Per accedere al pannello della diapositiva di **test** , selezionare **test** nel pannello superiore dell'applicazione.
 

@@ -2,14 +2,14 @@
 title: Domande frequenti-LUIS
 description: Questo articolo contiene risposte alle domande frequenti su LUIS.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101111"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592849"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -66,7 +66,7 @@ Per trasferire un'app LUIS in un'altra sottoscrizione di Azure, esportare l'app 
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita è contrassegnata con un enunciato di esempio invece che con l'entità personalizzata. Com'è possibile risolvere il problema?
 
-Nel portale LUIS è possibile etichettare il testo per l'entità esatta a cui si è interessati per l'estrazione. Se il portale LUIS non Visualizza la stima dell'entità corretta, potrebbe essere necessario aggiungere più espressioni ed etichettare l'entità all'interno del testo o aggiungere un descrittore (ad esempio una funzionalità).
+Nel portale LUIS è possibile etichettare il testo per l'entità esatta a cui si è interessati per l'estrazione. Se il portale LUIS non Visualizza la stima dell'entità corretta, potrebbe essere necessario aggiungere più espressioni ed etichettare l'entità all'interno del testo o aggiungere una funzionalità.
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Si è tentato di importare un'app o un file di versione, ma si è verificato un errore?
 

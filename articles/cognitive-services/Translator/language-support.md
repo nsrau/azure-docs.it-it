@@ -1,7 +1,7 @@
 ---
-title: Supporto per la lingua - API Traduzione testuale
+title: Supporto per la lingua-Translator
 titleSuffix: Azure Cognitive Services
-description: Il API Traduzione testuale supporta le seguenti lingue per la traduzione da testo a testo tramite Neural Machine Translation (NMT).
+description: Il convertitore di servizi cognitivi supporta le seguenti lingue per la traduzione da testo a testo tramite la traduzione di Neural Machine (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81684834"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592730"
 ---
-# <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
+# <a name="language-and-region-support-for-translator"></a>Supporto per lingua e area geografica per Translator
 
-L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo a testo. La traduzione automatica neurale è il nuovo standard per traduzioni automatiche di alta qualità supportate dall'intelligenza artificiale ed è disponibile per impostazione predefinita quando si usa la versione V3 dell'API Traduzione testuale, se è disponibile un sistema neurale.
+Il convertitore supporta le seguenti lingue per la traduzione da testo a testo. La conversione di macchine neurali (NMT) è il nuovo standard per le traduzioni di macchine basate su intelligenza artificiale di alta qualità ed è disponibile come impostazione predefinita con V3 di Translator quando è disponibile un sistema neurale.
 
 [Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
 ## <a name="translation"></a>Traduzione
 
-**API Traduzione V2**
+**Traduttore V2**
 
 > [!NOTE]
 > V2 è stato deprecato il 30 aprile 2018. Eseguire la migrazione delle applicazioni a V3 per sfruttare i vantaggi delle nuove funzionalità disponibili esclusivamente in V3.
@@ -35,7 +35,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 * Impostazione predefinita neurale: neurale è il sistema di conversione predefinito. Usare il parametro `category=smt` per accedere al sistema statistico per l'uso con l'Hub di Microsoft Translator.
 * Solo neurale: è disponibile solo la traduzione neurale.
 
-**API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale.
+**Convertitore V3** Il convertitore V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo se non esiste alcun sistema neurale.
 
 > [!NOTE]
 > Attualmente, un sottoinsieme di linguaggi neurali è disponibile nel convertitore personalizzato e l'aggiunta di altri. [Visualizza le lingue attualmente disponibili nel convertitore personalizzato](#customization).
@@ -94,7 +94,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Portoghese (Portogallo)| `pt-pt` | Neurale
 |Punjabi|`pa`|Neurale
 |Querétaro Otomi|   `otq`   |   Statistica|
-|Rumeno|  `ro`    |   Neurale|
+|Romeno|  `ro`    |   Neurale|
 |Russo|   `ru`    |   Neurale|
 |Samoano|    `sm`    |   Statistica|
 |Serbo (alfabeto cirillico)|    `sr-Cyrl`|  Statistica|
@@ -116,13 +116,13 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Yucatec Maya|  `yua`   |   Statistica|
 
 > [!NOTE]
-> Il codice `pt` lingua predefinito è `pt-br`, portoghese (Brasile).
+> Il codice lingua `pt` predefinito è `pt-br` , portoghese (Brasile).
 
 ## <a name="transliteration"></a>Traslitterazione
 
 Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il simbolo "<-->" indica che la lingua può essere traslitterata da o verso entrambi gli alfabeti elencati. Il simbolo "-->" indica che la lingua può essere traslitterata solo da un alfabeto all'altro.
 
-| Linguaggio    | Codice lingua | Script | Verso/Da | Script|
+| Linguaggio    | Codice lingua | Script | A/da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
 |Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
@@ -187,7 +187,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Persiano      | `fa`          |
 | Polacco      | `pl`          |
 | Portoghese (Brasile)     | `pt-br`          |
-| Rumeno      | `ro`          |
+| Romeno      | `ro`          |
 | Russo      | `ru`          |
 | Serbo (alfabeto latino)      | `sr-Latn`          |
 | Slovacco     | `sk`          |
@@ -204,12 +204,12 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 
 ## <a name="detect"></a>Detect
 
-API Traduzione testuale rileva tutte le lingue disponibili per la conversione e la traslitterazione.
+Translator rileva tutte le lingue disponibili per la conversione e la traslitterazione.
 
 
-## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accedere all'elenco di lingue dell'API Traduzione testuale a livello di codice
+## <a name="access-the-translator-language-list-programmatically"></a>Accesso all'elenco di lingue di conversione a livello di codice
 
-È possibile recuperare l'elenco delle lingue supportate per l'API Traduzione testuale v3.0 usando il metodo Languages. È possibile visualizzare l'elenco in base alla funzionalità, al codice della lingua, nonché al nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato automaticamente dal servizio Microsoft Translator quando diventano disponibili nuove lingue.
+È possibile recuperare un elenco di lingue supportate per Translator v 3.0 usando il metodo languages. È possibile visualizzare l'elenco in base alla funzionalità, al codice della lingua, nonché al nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato automaticamente dal servizio Microsoft Translator quando diventano disponibili nuove lingue.
 
 [Visualizzare la documentazione di riferimento dell'operazione Languages](reference/v3-0-languages.md)
 
@@ -253,7 +253,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Persiano      | `fa`          |
 | Polacco      | `pl`          |
 | Portoghese (Brasile) | `pt-br` |
-| Rumeno      | `ro`          |
+| Romeno      | `ro`          |
 | Russo      | `ru`          |
 | Samoano|   `sm`    |
 | Serbo (alfabeto latino)      | `sr-Latn`          |
@@ -269,6 +269,6 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web Microsoft Translator
 
-Per una rapida panoramica delle lingue, il sito Web Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
+Per una rapida panoramica delle lingue, il sito Web Microsoft Translator Mostra tutte le lingue supportate dalle API di traduzione e sintesi vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
 
 [Visualizzare l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)

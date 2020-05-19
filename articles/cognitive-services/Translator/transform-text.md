@@ -1,7 +1,7 @@
 ---
-title: Trasformare il testo - API Traduzione testuale
+title: Trasforma testo-traduttore
 titleSuffix: Azure Cognitive Services
-description: Trasformare il testo usando l'API Traduzione testuale.
+description: Trasforma il testo usando il traduttore.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,17 +10,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ba8cf9a25a12ecc261845477c4e32a86f585906e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68594899"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592203"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Come usare il metodo TransformText
 
 > [!NOTE]
-> Questo metodo è deprecato. Non è disponibile nella versione 3.0 dell'API Traduzione testuale.
+> Questo metodo è deprecato. Non è disponibile nella versione 3.0 del traduttore.
 
 Il metodo TransformText è una funzione di normalizzazione del testo per social media, che restituisce una forma normalizzata dell'input. Il metodo può essere usato come un passaggio di pre-elaborazione della traduzione automatica o altre applicazioni che prevedono un testo di input normale che non si trova in genere nei social media o nel contenuto generato dall'utente. La funzione attualmente funziona solo con l'input in lingua inglese.
 

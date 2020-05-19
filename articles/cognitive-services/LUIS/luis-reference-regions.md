@@ -3,12 +3,12 @@ title: Aree di pubblicazione & endpoint-LUIS
 description: L'area specificata nella portale di Azure è la stessa in cui verrà pubblicata l'app LUIS e viene generato un URL dell'endpoint per la stessa area.
 ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: a7709d15a51637772d7a4775cd71c307dc21c52b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 680887ecda0843bf770c62a4b9a4d88305ea9e73
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292093"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590911"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creazione e pubblicazione di aree e chiavi associate
 
@@ -21,9 +21,9 @@ Sono disponibili tre portali per la creazione di LUIS, in base all'area. La crea
 
 |LUIS|Regione di creazione|Nome dell'area di Azure|
 |--|--|--|
-|[www.luis.ai][www.luis.ai] <br>[preview.luis.ai](https://preview.luis.ai)|U.S.<br>non Europa<br>non Australia| `westus`|
-|[au.luis.ai][au.luis.ai] <br>[preview.au.luis.ai](https://preview.au.luis.ai)|Australia| `australiaeast`|
-|[au.luis.ai][eu.luis.ai] <br>[preview.eu.luis.ai](https://preview.eu.luis.ai)|Europa|`westeurope`|
+|[www.luis.ai][www.luis.ai] <br>[previous.luis.ai](https://previous.luis.ai)|U.S.<br>non Europa<br>non Australia| `westus`|
+|[au.luis.ai][au.luis.ai] <br>[previous.au.luis.ai](https://previous.au.luis.ai)|Australia| `australiaeast`|
+|[au.luis.ai][eu.luis.ai] <br>[previous.eu.luis.ai](https://previous.eu.luis.ai)|Europa|`westeurope`|
 
 Per le aree di creazione sono state [associate aree di failover](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
@@ -45,7 +45,7 @@ Le app LUIS create in https://www.luis.ai possono essere pubblicate in tutti gli
 
 ## <a name="publishing-to-europe"></a>Pubblicazione in Europa
 
-Per pubblicare nelle regioni Europae, creare le app LUIS solo in https://eu.luis.ai. Se si tenta di pubblicare in qualsiasi altra regione usando una chiave nella regione Europa, viene visualizzato un messaggio di avviso. Usare invece https://eu.luis.ai. Le app LUIS create [https://eu.luis.ai][eu.luis.ai] in non vengono migrate automaticamente ad altre aree. Esportare e importare l'app LUIS per eseguirne la migrazione.
+Per pubblicare nelle regioni Europae, creare le app LUIS solo in https://eu.luis.ai. Se si tenta di pubblicare in qualsiasi altra regione usando una chiave nella regione Europa, viene visualizzato un messaggio di avviso. Usare invece https://eu.luis.ai. Le app LUIS create in [https://eu.luis.ai][eu.luis.ai] non vengono migrate automaticamente ad altre aree. Esportare e importare l'app LUIS per eseguirne la migrazione.
 
 ## <a name="europe-publishing-regions"></a>Aree di pubblicazione Europa
 
@@ -58,7 +58,7 @@ Per pubblicare nelle regioni Europae, creare le app LUIS solo in https://eu.luis
 
 ## <a name="publishing-to-australia"></a>Pubblicazione in Australia
 
-Per pubblicare nelle regioni australiane, creare le app LUIS solo in https://au.luis.ai. Se si tenta di pubblicare in qualsiasi altra regione usando una chiave nella regione australiana, viene visualizzato un messaggio di avviso. Usare invece https://au.luis.ai. Le app LUIS create [https://au.luis.ai][au.luis.ai] in non vengono migrate automaticamente ad altre aree. Esportare e importare l'app LUIS per eseguirne la migrazione.
+Per pubblicare nelle regioni australiane, creare le app LUIS solo in https://au.luis.ai. Se si tenta di pubblicare in qualsiasi altra regione usando una chiave nella regione australiana, viene visualizzato un messaggio di avviso. Usare invece https://au.luis.ai. Le app LUIS create in [https://au.luis.ai][au.luis.ai] non vengono migrate automaticamente ad altre aree. Esportare e importare l'app LUIS per eseguirne la migrazione.
 
 ## <a name="australia-publishing-regions"></a>Aree di pubblicazione dell'Australia
 
@@ -68,7 +68,7 @@ Per pubblicare nelle regioni australiane, creare le app LUIS solo in https://au.
 
 ## <a name="publishing-to-other-regions"></a>Pubblicazione in altre aree
 
-Per eseguire la pubblicazione in altre aree, è possibile creare app [https://www.luis.ai](https://www.luis.ai) Luis solo all'indirizzo.
+Per eseguire la pubblicazione in altre aree, è possibile creare app LUIS solo all'indirizzo [https://www.luis.ai](https://www.luis.ai) .
 
 ## <a name="other-publishing-regions"></a>Altre aree di pubblicazione
 

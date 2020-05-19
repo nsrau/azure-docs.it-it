@@ -1,136 +1,48 @@
 ---
 title: Progettare con i modelli-LUIS
-titleSuffix: Azure Cognitive Services
 description: La comprensione del linguaggio offre diversi tipi di modelli. Alcuni modelli possono essere usati in più modi.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.author: diberry
-ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/30/2020
+ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219995"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591880"
 ---
-# <a name="design-with-intent-and-entity-models"></a>Progettazione con modelli di entità e finalità 
+# <a name="design-with-intent-and-entity-models"></a>Progettazione con modelli di entità e finalità
 
-La comprensione del linguaggio offre diversi tipi di modelli. Alcuni modelli possono essere usati in più modi. 
+La comprensione del linguaggio fornisce due tipi di modelli per definire lo schema dell'app. Lo schema dell'app determina quali informazioni vengono ricevute dalla stima di un nuovo enunciato utente.
 
-## <a name="v3-authoring-uses-machine-teaching"></a>La creazione di V3 usa l'insegnamento del computer
+Lo schema dell'app è creato con i modelli creati usando l' [insegnamento del computer](#authoring-uses-machine-teaching):
+* Gli [Intent](#intents-classify-utterances) classificano le espressioni utente
+* Le [entità](#entities-extract-data) estraggono i dati da un enunciato
 
-LUIS consente agli utenti di insegnare facilmente i concetti a un computer. Il computer può quindi compilare modelli, ovvero approssimazioni funzionali di concetti quali i classificatori e gli estrattori, che possono essere usati per potenziare le applicazioni intelligenti. Mentre LUIS è basato sull'apprendimento automatico, non è necessario conoscere l'apprendimento automatico per usarlo. Al contrario, gli insegnanti del computer comunicano i concetti con LUIS mostrando esempi positivi e negativi del concetto e spiegano come un concetto deve essere modellato usando altri concetti correlati. Gli insegnanti possono inoltre migliorare il modello di LUIS in modo interattivo identificando e correggendo gli errori di stima. 
+## <a name="authoring-uses-machine-teaching"></a>La creazione usa l'insegnamento del computer
 
-## <a name="v3-authoring-model-decomposition"></a>Versione V3 creazione di un modello di scomposizione
+La metodologia di apprendimento automatico di LUIS consente di insegnare facilmente i concetti a un computer. Non è necessario comprendere l' _apprendimento automatico_ per l'uso di Luis. Al contrario, l'insegnante comunica un concetto di LUIS fornendo esempi del concetto e spiegando come un concetto deve essere modellato usando altri concetti correlati. L'insegnante può inoltre migliorare in modo interattivo il modello di LUIS identificando e correggendo gli errori di stima.
 
-LUIS supporta la _scomposizione dei modelli_ con le API di creazione V3, suddividendo il modello in parti più piccole. In questo modo è possibile compilare i modelli in tutta sicurezza per la costruzione e la stima delle varie parti.
-
-La scomposizione dei modelli include le parti seguenti:
-
-* [Intent](#intents-classify-utterances)
-    * [descrittori](#descriptors-are-features) forniti dalle funzionalità
-* [entità apprese dal computer](#machine-learned-entities)
-    * [sottocomponenti](#entity-subcomponents-help-extract-data) (anche entità apprese dal computer)
-        * [descrittori](#descriptors-are-features) forniti dalle funzionalità 
-        * [vincoli](#constraints-are-text-rules) forniti da entità non apprese dal computer, ad esempio espressioni regolari ed elenchi
-
-## <a name="v2-authoring-models"></a>V2 modelli di creazione
-
-LUIS supporta le entità composite con le API di creazione V2. Questa operazione fornisce una scomposizione del modello simile, ma non corrisponde alla scomposizione dei modelli V3. L'architettura del modello consigliata consiste nel passare alla scomposizione dei modelli nelle API di creazione di V3. 
+<a name="v3-authoring-model-decomposition"></a>
 
 ## <a name="intents-classify-utterances"></a>Espressioni di classificazione degli Intent
 
 Una finalità classifica le espressioni di esempio per insegnare a LUIS lo scopo. Le espressioni di esempio all'interno di un preventivo vengono usate come esempi positivi dell'espressione. Queste stesse espressioni vengono usate come esempi negativi in tutti gli altri Intent.
 
-Si consideri un'app che deve determinare l'intenzione di un utente di ordinare un libro e un'app che richiede l'indirizzo di spedizione del cliente. Questa app è costituita da due `OrderBook` Intent `ShippingLocation`: e.
+Si consideri un'app che deve determinare l'intenzione di un utente di ordinare un libro e un'app che richiede l'indirizzo di spedizione del cliente. Questa app è costituita da due Intent: `OrderBook` e `ShippingLocation` .
 
-Il seguente enunciato è un **esempio positivo** per `OrderBook` lo scopo e un **esempio negativo** per `ShippingLocation` gli `None` Intent e: 
+Il seguente enunciato è un **esempio positivo** per lo `OrderBook` scopo e un **esempio negativo** per gli Intent `ShippingLocation` e `None` :
 
 `Buy the top-rated book on bot architecture.`
 
-Il risultato di un progetto ben progettato, con le espressioni di esempio, è una stima ad alta finalità. 
-
 ## <a name="entities-extract-data"></a>Entità Estrai dati
 
-Un'entità rappresenta un'unità di dati che si desidera estrarre dall'espressione. 
-
-### <a name="machine-learned-entities"></a>Entità apprese dal computer
-
-Un'entità appresa dal computer è un'entità di primo livello che contiene sottocomponenti, che sono anche entità apprese dal computer. 
-
-**Usare un'entità appresa dal computer**:
-
-* Quando i sottocomponenti sono necessari per l'applicazione client
-* per consentire all'algoritmo di Machine Learning di scomporre le entità
-
-Ogni sottocomponente può avere:
-
-* sottocomponenti
-* vincoli (entità di espressioni regolari o entità elenco)
-* descrittori (funzionalità come un elenco di frasi) 
+Un'entità rappresenta un'unità di dati che si desidera estrarre dall'espressione. Un'entità appresa dal computer è un'entità di primo livello che contiene sottoentità, che sono anche entità apprese dal computer.
 
 Un esempio di entità appresa dal computer è un ordine per un ticket del piano. Concettualmente si tratta di una singola transazione con molte unità di dati più piccole, ad esempio data, ora, quantità di sedili, tipo di posto, ad esempio prima classe o allenatore, posizione di origine, posizione di destinazione e scelta pasto.
 
-
-### <a name="entity-subcomponents-help-extract-data"></a>I sottocomponenti dell'entità consentono di estrarre i dati
-
-Un sottocomponente è un'entità figlio acquisita dal computer all'interno di un'entità padre appresa dal computer. 
-
-**Usare il sottocomponente per**:
-
-* scomporre le parti dell'entità appresa dal computer (entità padre).
-
-Di seguito viene rappresentata un'entità appresa dal computer con tutte le parti di dati separate:
-
-* TravelOrder (entità Machine-learned)
-    * DateTime (datetimeV2 predefinito)
-    * Località (entità appresa dal computer)
-        * Origin (Role trovato tramite il `from`contesto, ad esempio)
-        * Destinazione (Role trovato tramite il `to`contesto, ad esempio)
-    * Posto di seduta (entità appresa dal computer)
-        * Quantity (numero predefinito)
-        * Qualità (entità appresa dal computer con descrittore dell'elenco di frasi)
-    * Pasti (entità appresa dal computer con vincolo dell'entità di elenco come scelte alimentari)
-
-Alcuni di questi dati, ad esempio la posizione di origine e la posizione di destinazione, devono essere appresi dal contesto dell'enunciato, forse con tale `from` formulazione come e `to`. È possibile estrarre altre parti di dati con corrispondenze di stringa`Vegan`esatte () o entità predefinite (geographyV2 `Seattle` di `Cairo`and). 
-
-Si progetta il modo in cui i dati vengono confrontati ed estratti con i modelli scelti e come vengono configurati.
-
-### <a name="constraints-are-text-rules"></a>I vincoli sono regole di testo
-
-Un vincolo è una regola di corrispondenza del testo, fornita da un'entità non appresa dal computer, ad esempio l'entità di espressioni regolari o un'entità elenco. Il vincolo viene applicato in fase di stima per limitare la stima e fornire la risoluzione dell'entità richiesta dall'applicazione client. Queste regole vengono definite durante la creazione del sottocomponente. 
-
-**Usare un vincolo**:
-* Quando si conosce il testo esatto da estrarre.
-
-I vincoli includono:
-
-* entità di [espressioni regolari](reference-entity-regular-expression.md)
-* [Elenca](reference-entity-list.md) entità 
-* entità [predefinite](luis-reference-prebuilt-entities.md)
-
-Continuando con l'esempio del ticket aereo, i codici aeroportuali possono trovarsi in un'entità di elenco per le corrispondenze esatte del testo. 
-
-Per un elenco di aeroporti, la voce dell'elenco per Seattle è il nome `Seattle` della città e i sinonimi per Seattle includono il codice aeroportuale per Seattle insieme alle città e alle città circostanti:
-
-|`Seattle`Elencare i sinonimi di entità|
-|--|
-|`Sea`|
-|`seatac`|
-|`Bellevue`|
-
-Se si desidera riconoscere solo 3 codici letterali per i codici aeroportuali, utilizzare un'espressione regolare come vincolo. 
-
-`/^[A-Z]{3}$/`
-
 ## <a name="intents-versus-entities"></a>Intent rispetto a entità
 
-Uno scopo è il risultato desiderato dell' _intero_ enunciato, mentre le entità sono parti di dati estratte dall'espressione. In genere gli Intent sono collegati alle azioni che l'applicazione client deve prendere e le entità sono necessarie per eseguire questa azione. Dal punto di vista della programmazione, un'intenzione attiverà una chiamata al metodo e le entità verrebbero utilizzate come parametri per la chiamata al metodo.
+Uno scopo è il risultato desiderato dell' _intero_ enunciato, mentre le entità sono parti di dati estratte dall'espressione. In genere gli Intent sono collegati a azioni, che devono essere eseguite dall'applicazione client. Le entità sono le informazioni necessarie per eseguire questa azione. Dal punto di vista della programmazione, un'intenzione attiverà una chiamata al metodo e le entità verrebbero utilizzate come parametri per la chiamata al metodo.
 
 Questo enunciato _deve_ avere un preventivo e _può_ avere entità:
 
@@ -145,16 +57,36 @@ Questo enunciato _può_ avere diverse entità:
 * Località di Seattle (Origin) e Cairo (Destination)
 * Quantità di un singolo ticket
 
-## <a name="descriptors-are-features"></a>I descrittori sono funzionalità
+## <a name="entity-model-decomposition"></a>Scomposizione del modello di entità
 
-Un descrittore è una funzionalità applicata a un modello in fase di training, inclusi elenchi di frasi ed entità. 
+LUIS supporta la _scomposizione dei modelli_ con le API di creazione, suddividendo un concetto in parti più piccole. In questo modo è possibile compilare i modelli in tutta sicurezza per la costruzione e la stima delle varie parti.
 
-**Utilizzare un descrittore quando si desidera**:
+La scomposizione dei modelli include le parti seguenti:
 
-* aumentare il significato di parole e frasi identificate dal descrittore
-* fare in modo che LUIS suggerisca nuovo testo o frasi da consigliare per il descrittore
-* correggere un errore nei dati di training
+* [Intent](#intents-classify-utterances)
+    * [funzionalità](#features)
+* [entità apprese dal computer](reference-entity-machine-learned-entity.md)
+    * sottoentità (anche entità apprese dal computer)
+        * [funzionalità](#features)
+            * [elenco frasi](luis-concept-feature.md)
+            * [entità non apprese dal computer](luis-concept-feature.md) , ad [esempio espressioni regolari](reference-entity-regular-expression.md), [elenchi](reference-entity-list.md)e [entità predefinite](luis-reference-prebuilt-entities.md)
+
+<a name="entities-extract-data"></a>
+<a name="machine-learned-entities"></a>
+
+## <a name="features"></a>Funzionalità
+
+Una [funzionalità](luis-concept-feature.md) è un tratto di distinzione o un attributo di dati osservato dal sistema. Le funzionalità di Machine Learning offrono a LUIS importanti indicazioni per la posizione in cui cercare gli elementi che distinguono un concetto. Sono suggerimenti che LUIS può usare, ma non regole rigide. Questi hint vengono usati insieme alle etichette per trovare i dati.
+
+## <a name="patterns"></a>Modelli
+
+I [modelli](luis-concept-patterns.md) sono progettati per migliorare l'accuratezza quando più espressioni sono molto simili. Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
+
+## <a name="extending-the-app-at-runtime"></a>Estensione dell'app in fase di esecuzione
+
+Lo schema dell'app (modelli e funzionalità) viene sottoposto a training e pubblicato nell'endpoint di stima. Per aumentare la stima, è possibile [passare nuove informazioni](schema-change-prediction-runtime.md)insieme all'espressione dell'utente all'endpoint di stima.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su [Intent](luis-concept-intent.md) ed [entità](luis-concept-entity-types.md). 
+* Informazioni su [Intent](luis-concept-intent.md) ed [entità](luis-concept-entity-types.md).
+* Altre informazioni sulle [funzionalità](luis-concept-feature.md)

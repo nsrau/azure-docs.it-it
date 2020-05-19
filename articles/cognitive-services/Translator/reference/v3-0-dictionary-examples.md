@@ -1,7 +1,7 @@
 ---
-title: Metodo Dictionary Examples dell'API Traduzione testuale
+title: Metodo degli esempi di Translator Dictionary
 titleSuffix: Azure Cognitive Services
-description: Il metodo API Traduzione testuale Dictionary examples fornisce esempi che illustrano il modo in cui i termini nel dizionario vengono usati nel contesto.
+description: Il metodo di esempio Translator Dictionary fornisce esempi che illustrano il modo in cui i termini nel dizionario vengono usati nel contesto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548068"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592509"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>API Traduzione testuale 3.0: Dictionary Examples
+# <a name="translator-30-dictionary-examples"></a>Translator 3,0: esempi di dizionario
 
 Fornisce esempi che illustrano come vengono usati nel contesto i termini nel dizionario. Questa operazione viene usata in parallelo con [Ricerca nel dizionario](./v3-0-dictionary-lookup.md).
 
@@ -41,7 +41,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 Le intestazioni della richiesta includono:
 
-| Headers  | Descrizione |
+| Intestazioni  | Descrizione |
 | ------ | ----------- |
 | Intestazione/e di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
 | Content-Type | **Intestazione della richiesta obbligatoria**.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`. |
@@ -94,7 +94,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
     > [!NOTE]
     > Se non ci sono esempi nel dizionario, la risposta è 200 (OK) ma l'elenco `examples` è vuoto.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Questo esempio illustra come ricercare esempi per la coppia formata dal termine inglese `fly` e la sua traduzione in spagnolo `volar`.
 

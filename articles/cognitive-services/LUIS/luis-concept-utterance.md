@@ -2,13 +2,13 @@
 title: Espressioni di esempio valide-LUIS
 description: Le espressioni sono gli input dell'utente che l'app ha bisogno di interpretare. Raccogliere le frasi che si ritiene verranno immesse dagli utenti. Includere espressioni con lo stesso significato ma con una costruzione diversa in termini di lunghezza e posizione delle parole.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382281"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592866"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
@@ -68,11 +68,27 @@ LUIS compila modelli efficaci con espressioni selezionate con attenzione dall'au
 
 ## <a name="utterance-normalization"></a>Normalizzazione dell'espressione
 
-La normalizzazione delle espressioni è il processo di ignorare gli effetti della punteggiatura e dei segni diacritici durante il training e la stima. Utilizzare [le impostazioni dell'applicazione](luis-reference-application-settings.md) per controllare la normalizzazione dell'espressione.
+La normalizzazione delle espressioni è il processo di ignorare gli effetti dei tipi di testo, ad esempio la punteggiatura e i segni diacritici, durante il training e la stima.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalizzazione dell'espressione per segni diacritici e punteggiatura
+Per impostazione predefinita, le impostazioni di normalizzazione dell'espressione sono disattivate. Queste impostazioni includono:
 
-La normalizzazione dell'espressione viene definita quando si crea o si importa l'app perché si tratta di un'impostazione nel file JSON dell'app. Per impostazione predefinita, le impostazioni di normalizzazione dell'espressione sono disattivate.
+* Moduli di Word
+* Diacritici
+* Punteggiatura
+
+Se si attiva un'impostazione di normalizzazione, i punteggi nel riquadro di **test** , i test batch e le query di endpoint cambiano per tutte le espressioni per l'impostazione di normalizzazione.
+
+Quando si clona una versione nel portale LUIS, le impostazioni della versione continuano con la nuova versione clonata.
+
+Impostare le impostazioni della versione tramite il portale LUIS, nella sezione **Gestisci** nella pagina **Impostazioni applicazione** o nell' [API Aggiorna impostazioni versione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Per ulteriori informazioni su queste modifiche di normalizzazione, vedere il [riferimento](luis-reference-application-settings.md).
+
+### <a name="word-forms"></a>Moduli di Word
+
+La normalizzazione di **Word form** ignora le differenze nelle parole che si espandono oltre la radice. Ad esempio, le parole `run` , `running` e `runs` cambiano in base al verbo teso.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### <a name="diacritics"></a>Diacritici
 
 I segni diacritici sono contrassegni o segni all'interno del testo, ad esempio:
 
@@ -80,24 +96,8 @@ I segni diacritici sono contrassegni o segni all'interno del testo, ad esempio:
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Se l'app attiva la normalizzazione, i punteggi nel riquadro di **test** , i test batch e le query di endpoint cambiano per tutte le espressioni che usano segni diacritici o segni di punteggiatura.
-
-Attivare la normalizzazione dell'espressione per i segni diacritici o la `settings` punteggiatura del file dell'app Luis JSON nel parametro.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
-
-Normalizzare la **punteggiatura** significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni.
-
-La normalizzazione dei **segni diacritici** sostituisce i caratteri con segni diacritici in espressioni con caratteri regolari. Ad esempio: `Je parle français` diventa `Je parle francais`.
-
-La normalizzazione non significa che la punteggiatura e i segni diacritici non verranno visualizzati nelle espressioni di esempio o nelle risposte di stima, semplicemente che verranno ignorate durante il training e la stima.
-
 ### <a name="punctuation-marks"></a>Segni di punteggiatura
+Normalizzare la **punteggiatura** significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni.
 
 Punteggiatura è un token separato in LUIS. Un enunciato contenente un punto alla fine rispetto a un enunciato che non contiene un punto alla fine è costituito da due espressioni separate e può ottenere due stime diverse.
 
@@ -109,9 +109,11 @@ Se la punteggiatura non ha un significato specifico nell'applicazione client, co
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorare parole e punteggiatura
 
-Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi _Ignore_ delle parentesi quadre, `[]`.
+Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi _Ignore_ delle parentesi quadre, `[]` .
 
-## <a name="training-utterances"></a>Eseguire il training sulle espressioni
+<a name="training-utterances"></a>
+
+## <a name="training-with-all-utterances"></a>Formazione con tutti gli enunciati
 
 In genere, il training non è determinante, in quanto la previsione delle espressioni potrebbe variare leggermente a seconda delle versioni o delle app.
 È possibile rimuovere il training non deterministico aggiornando l'[API delle impostazioni della versione ](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con la coppia nome/valore `UseAllTrainingData` in modo da usare tutti i dati di training.

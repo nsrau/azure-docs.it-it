@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690831"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592186"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi cognitivi di Azure
 
@@ -22,16 +22,7 @@ ms.locfileid: "82690831"
 
 **D: che cos'è disponibile?**
 
-**R:** il [supporto dei contenitori nei servizi cognitivi di Azure](../cognitive-services-container-support.md) consente agli sviluppatori di usare le stesse API intelligenti disponibili in Azure, ma con i [vantaggi](../cognitive-services-container-support.md#features-and-benefits) della contenitori. Il supporto dei contenitori è attualmente disponibile in anteprima per un sottoinsieme di servizi cognitivi di Azure, incluse le parti di:
-
-> [!div class="checklist"]
-> * [Rilevamento anomalie][ad-containers]
-> * [Visione artificiale][cv-containers]
-> * [Viso][fa-containers]
-> * [Riconoscimento modulo][fr-containers]
-> * [Language Understanding (LUIS)][lu-containers]
-> * [API servizio Voce][sp-containers]
-> * [Text Analytics][ta-containers]
+**R:** I contenitori di servizi cognitivi di Azure consentono agli sviluppatori di usare le stesse API intelligenti disponibili in Azure, ma con i [vantaggi](../cognitive-services-container-support.md#features-and-benefits) della contenitori. Alcuni contenitori sono disponibili come [Anteprima gestita](../cognitive-services-gating-process.md), che può richiedere l'accesso a un'applicazione. Altri contenitori sono disponibili pubblicamente come anteprima non gestita oppure sono disponibili a livello generale. Per un elenco completo dei contenitori e della relativa disponibilità, vedere l'articolo supporto dei contenitori [in Servizi cognitivi di Azure](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
 
 **D: esiste una differenza tra il cloud di servizi cognitivi e i contenitori?**
 
@@ -62,7 +53,7 @@ Sfortunatamente, i contenitori di servizi cognitivi *non* sono supportati in mod
 
 **D: in che modo i contenitori vengono aggiornati alla versione più recente?**
 
-**R:** I clienti possono scegliere quando aggiornare i contenitori che hanno distribuito. I contenitori verranno contrassegnati con i [tag Docker](https://docs.docker.com/engine/reference/commandline/tag/) standard, `latest` ad esempio per indicare la versione più recente. Invitiamo i clienti a eseguire il pull della versione più recente dei contenitori non appena vengono rilasciati, per informazioni dettagliate su come ricevere una notifica quando viene aggiornata un'immagine, vedere i [webhook di Azure container Registry](../../container-registry/container-registry-webhook.md) .
+**R:** I clienti possono scegliere quando aggiornare i contenitori che hanno distribuito. I contenitori verranno contrassegnati con i [tag Docker](https://docs.docker.com/engine/reference/commandline/tag/) standard, ad esempio `latest` per indicare la versione più recente. Invitiamo i clienti a eseguire il pull della versione più recente dei contenitori non appena vengono rilasciati, per informazioni dettagliate su come ricevere una notifica quando viene aggiornata un'immagine, vedere i [webhook di Azure container Registry](../../container-registry/container-registry-webhook.md) .
  
 **D: quali versioni saranno supportate?**
 
@@ -80,7 +71,7 @@ Sfortunatamente, i contenitori di servizi cognitivi *non* sono supportati in mod
 
 **D: questi contenitori sono compatibili con OpenShift?** 
 
-I contenitori non vengono testati con OpenShift, ma in genere i contenitori di servizi cognitivi devono essere eseguiti su qualsiasi piattaforma che supporta le immagini docker. Se si usa OpenShift, è consigliabile eseguire i contenitori come `root-user`.
+I contenitori non vengono testati con OpenShift, ma in genere i contenitori di servizi cognitivi devono essere eseguiti su qualsiasi piattaforma che supporta le immagini docker. Se si usa OpenShift, è consigliabile eseguire i contenitori come `root-user` .
 
 **D: Ricerca per categorie fornire suggerimenti sul prodotto e suggerimenti sulle funzionalità?**
 
@@ -117,7 +108,7 @@ Esaminare i seguenti tag per individuare le domande e le risposte che si allinea
 * [Riconoscimento modulo][fr-containers-billing]
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [API servizio Voce][sp-containers-billing]
-* [Text Analytics][ta-containers-billing]
+* [Analisi del testo][ta-containers-billing]
 
 > [!IMPORTANT]
 > I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti a Microsoft.
@@ -144,7 +135,7 @@ Esaminare i seguenti tag per individuare le domande e le risposte che si allinea
 * [Riconoscimento modulo][fr-containers-recommendations]
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [API servizio Voce][sp-containers-recommendations]
-* [Text Analytics][ta-containers-recommendations]
+* [Analisi del testo][ta-containers-recommendations]
  
 **D: questi contenitori sono attualmente supportati in Windows?**
 

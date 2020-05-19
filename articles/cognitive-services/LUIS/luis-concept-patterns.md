@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 86f4eab266aabccd25e1269e1942e535f6af5436
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75890281"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591838"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
-I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni. 
+I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
 
 ## <a name="patterns-solve-low-intent-confidence"></a>I criteri risolvono il problema dell'attendibilità ridotta della finalità
 Si consideri un'app di risorse umane che genera report nel grafico aziendale su un dipendente. Dato un nome e una relazione dipendente, LUIS restituisce i dipendenti coinvolti. Si consideri un dipendente, Tom, con un manager di nome Alice, e un team di sottoposti che si chiamano Michael, Rebecca e Carl.
@@ -31,42 +31,46 @@ Si consideri un'app di risorse umane che genera report nel grafico aziendale su 
 |Chi è il sottoposto di Tom?|GetOrgChart|.30|
 |Come si chiama il sottoposto di Tom?|GetOrgChart|.30|
 
-Se un'app ha tra le 10 e le 20 espressioni con diverse lunghezze di frase, diverso ordine di parole e persino diverse parole (sinonimi di "sottoposto", "gestire", "report"), LUIS può restituire un punteggio corrispondente a un'attendibilità bassa. Creare un modello per aiutare LUIS a comprendere l'importanza dell'ordine delle parole. 
+Se un'app ha tra le 10 e le 20 espressioni con diverse lunghezze di frase, diverso ordine di parole e persino diverse parole (sinonimi di "sottoposto", "gestire", "report"), LUIS può restituire un punteggio corrispondente a un'attendibilità bassa. Creare un modello per aiutare LUIS a comprendere l'importanza dell'ordine delle parole.
 
-I criteri risolvono le situazioni seguenti: 
+I criteri risolvono le situazioni seguenti:
 
 * Il Punteggio preventivo è basso
 * Lo scopo corretto non è il punteggio superiore ma troppo vicino al punteggio superiore. 
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>I criteri non sono una garanzia della finalità
-I criteri usano una combinazione di tecnologie di stima. L'impostazione di una finalità per l'espressione di un modello in un criterio non è una garanzia per la stima della finalità ma è un segnale. 
+I criteri usano una combinazione di tecnologie di stima. L'impostazione di una finalità per l'espressione di un modello in un criterio non è una garanzia per la stima della finalità ma è un segnale.
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>I modelli non migliorano il rilevamento delle entità acquisite dal computer
 
-Un modello è concepito principalmente per aiutare la stima di Intent e ruoli. _Modello. qualsiasi_ entità viene utilizzata per estrarre le entità in formato libero. Sebbene i modelli usino le entità, un modello non consente di rilevare un'entità appresa dal computer.  
+Un modello è concepito principalmente per aiutare la stima di Intent e ruoli. _Modello. qualsiasi_ entità viene utilizzata per estrarre le entità in formato libero. Sebbene i modelli usino le entità, un modello non consente di rilevare un'entità appresa dal computer.
 
 Non aspettarsi un miglioramento della stima delle entità se si comprimono più espressioni in un singolo criterio. Per l'attivazione di entità semplici, è necessario aggiungere espressioni o usare le entità dell'elenco altrimenti il modello non viene attivato.
 
 ## <a name="patterns-use-entity-roles"></a>I criteri usano i ruoli delle entità
-Se due o più entità in un criterio hanno una relazione di tipo contestuale, i criteri usano i [ruoli](luis-concept-roles.md) delle entità per estrarre informazioni contestuali sull'entità.  
+Se due o più entità in un criterio hanno una relazione di tipo contestuale, i criteri usano i [ruoli](luis-concept-roles.md) delle entità per estrarre informazioni contestuali sull'entità.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Punteggi di stima con e senza criteri
-Con un numero sufficiente di espressioni di esempio, LUIS dovrebbe poter aumentare l'attendibilità delle stime anche senza criteri. I criteri aumentano il punteggio di attendibilità senza dovere specificare un numero così elevato di espressioni.  
+Con un numero sufficiente di espressioni di esempio, LUIS dovrebbe poter aumentare l'attendibilità delle stime anche senza criteri. I criteri aumentano il punteggio di attendibilità senza dovere specificare un numero così elevato di espressioni.
 
 ## <a name="pattern-matching"></a>Criteri di ricerca
-Per cercare una corrispondenza tra criteri, prima vengono rilevate le entità all'interno del criterio, poi vengono convalidate le parole restanti e l'ordine delle parole del criterio. Le entità nel criterio sono necessarie perché venga individuata una corrispondenza del criterio. Il criterio viene applicato a livello di token, non a livello di carattere. 
+Per cercare una corrispondenza tra criteri, prima vengono rilevate le entità all'interno del criterio, poi vengono convalidate le parole restanti e l'ordine delle parole del criterio. Le entità nel criterio sono necessarie perché venga individuata una corrispondenza del criterio. Il criterio viene applicato a livello di token, non a livello di carattere.
 
 ## <a name="pattern-only-apps"></a>App solo modello
-È possibile compilare un'app con Intent senza espressioni di esempio, purché esista un modello per ogni finalità. Per un'app solo modello, il modello non deve contenere entità apprese dal computer perché queste richiedono espressioni di esempio. 
+È possibile compilare un'app con Intent senza espressioni di esempio, purché esista un modello per ogni finalità. Per un'app solo modello, il modello non deve contenere entità apprese dal computer perché queste richiedono espressioni di esempio.
+
+## <a name="patternany-entity"></a>Entità pattern.any
+
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ## <a name="best-practices"></a>Procedure consigliate
 Apprendere le [procedure consigliate](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Sintassi dei criteri
 
-Informazioni sulla sintassi dei modelli dalla Guida di [riferimento alla sintassi](reference-pattern-syntax.md). 
+Informazioni sulla sintassi dei modelli dalla Guida di [riferimento alla sintassi](reference-pattern-syntax.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

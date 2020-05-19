@@ -1,7 +1,7 @@
 ---
-title: Dizionario dinamico - API Traduzione testuale
+title: Dizionario dinamico-traduttore
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra come usare la funzionalità di dizionario dinamico dei servizi cognitivi di Azure API Traduzione testuale.
+description: Questo articolo illustra come usare la funzionalità dizionario dinamico del traduttore di servizi cognitivi di Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 944bca8644da6127e73af04eb75d01697cd34399
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3ef881efc417a6c3816a92d9af7d77bba74355aa
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446704"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592543"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Come usare un dizionario dinamico
 
@@ -27,7 +27,7 @@ Se si conosce già la traduzione che si vuole applicare a una parola o una frase
 
 **Requisiti:**
 
-* Le `From` lingue `To` e devono includere l'inglese e un'altra lingua supportata. 
+* Le `From` `To` lingue e devono includere l'inglese e un'altra lingua supportata. 
 * È necessario includere il `From` parametro nella richiesta di traduzione dell'API invece di usare la funzionalità di rilevamento automatico. 
 
 **Esempio: en-de:**
@@ -38,4 +38,4 @@ Output di destinazione:`Das Wort "wordomatic" ist ein Wörterbucheintrag.`
 
 Questa funzionalità funziona allo stesso modo con o senza la modalità HTML.
 
-Utilizzare la funzionalità con moderazione. Un modo migliore per personalizzare la traduzione consiste nell'usare un convertitore personalizzato. Custom Translator fa un ampio uso delle probabilità statistiche e di contesto. Se si hanno o si possono creare dati di training che mostrano l'azienda o una frase nel contesto, si otterranno certamente risultati migliori. Per ulteriori informazioni sul convertitore personalizzato [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator), vedere.
+Utilizzare la funzionalità con moderazione. Un modo migliore per personalizzare la traduzione consiste nell'usare un convertitore personalizzato. Custom Translator fa un ampio uso delle probabilità statistiche e di contesto. Se si hanno o si possono creare dati di training che mostrano l'azienda o una frase nel contesto, si otterranno certamente risultati migliori. Per ulteriori informazioni sul convertitore personalizzato [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator) , vedere.

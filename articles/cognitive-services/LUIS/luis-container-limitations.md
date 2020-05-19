@@ -10,24 +10,24 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 7fe773b35c5aba31b2fea66bd2be7b2745eac3ee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879242"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592900"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitazioni del contenitore Language Understanding (LUIS)
 
 I contenitori LUIS presentano alcune limitazioni rilevanti. Da dipendenze non supportate, a un sottoinsieme di lingue supportate, questo articolo illustra in dettaglio queste restrizioni.
 
-## <a name="supported-dependencies-for-latest-container"></a>Dipendenze supportate `latest` per il contenitore
+## <a name="supported-dependencies-for-latest-container"></a>Dipendenze supportate per il `latest` contenitore
 
-Il più recente contenitore LUIS, rilasciato a [conferenza//build/2019](https://news.microsoft.com/build2019/), supporterà:
+Il contenitore LUIS più recente supporta:
 
 * [Nuovi domini predefiniti](luis-reference-prebuilt-domains.md): questi domini aziendali includono entità, espressioni di esempio e modelli. Estendere questi domini per uso personale.
 
-## <a name="unsupported-dependencies-for-latest-container"></a>Dipendenze non supportate per `latest` il contenitore
+## <a name="unsupported-dependencies-for-latest-container"></a>Dipendenze non supportate per il `latest` contenitore
 
 Per [esportare per il contenitore](luis-container-howto.md#export-packaged-app-from-luis), è necessario rimuovere le dipendenze non supportate dall'app Luis. Quando si tenta di esportare per il contenitore, il portale LUIS segnala le funzionalità non supportate che è necessario rimuovere.
 
@@ -35,9 +35,9 @@ Per [esportare per il contenitore](luis-container-howto.md#export-packaged-app-f
 
 Configurazioni dell'app non supportate|Dettagli|
 |--|--|
-|Impostazioni cultura del contenitore non supportate| Olandese (`nl-NL`)<br>Giapponese (`ja-JP`)<br>Il tedesco è supportato solo con la [Tokenizer 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
+|Impostazioni cultura del contenitore non supportate| Olandese ( `nl-NL` )<br>Giapponese ( `ja-JP` )<br>Il tedesco è supportato solo con la [Tokenizer 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
 |Entità non supportate per tutte le impostazioni cultura|Entità [KeyPhrase](luis-reference-prebuilt-keyphrase.md) predefinita per tutte le impostazioni cultura|
-|Entità non supportate per la lingua inglese`en-US`()|Entità [GeographyV2](luis-reference-prebuilt-geographyV2.md) predefinite|
+|Entità non supportate per la lingua inglese ( `en-US` )|Entità [GeographyV2](luis-reference-prebuilt-geographyV2.md) predefinite|
 |Priming del riconoscimento vocale|Le dipendenze esterne non sono supportate nel contenitore.|
 |Analisi del sentiment|Le dipendenze esterne non sono supportate nel contenitore.|
 |Controllo ortografico Bing|Le dipendenze esterne non sono supportate nel contenitore.|

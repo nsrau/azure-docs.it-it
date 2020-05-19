@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80744154"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591047"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -24,7 +24,7 @@ LUIS ha un'ampia gamma di funzionalità all'interno del servizio. Non tutte le f
 
 ## <a name="multi-language-luis-apps"></a>Applicazioni LUIS multilingue
 
-Se occorre un'applicazione client LUIS multilingue come una chatbot, sono disponibili alcune opzioni. Se LUIS supporta tutte le lingue, viene sviluppata un'app LUIS per ogni lingua. Ogni app LUIS ha un ID univoco dell'app e un registro di endpoint. Se è necessario fornire il riconoscimento linguistico per una lingua non supportata da LUIS, è possibile utilizzare l’[API Microsoft Translator](../Translator/translator-info-overview.md) per tradurre l'espressione in una lingua supportata, inviarla all'endpoint LUIS e ricevere i punteggi risultanti.
+Se occorre un'applicazione client LUIS multilingue come una chatbot, sono disponibili alcune opzioni. Se LUIS supporta tutte le lingue, viene sviluppata un'app LUIS per ogni lingua. Ogni app LUIS ha un ID univoco dell'app e un registro di endpoint. Se è necessario fornire informazioni sulla lingua per un linguaggio LUIS non supporta, è possibile usare il [servizio di conversione](../Translator/translator-info-overview.md) per tradurre l'espressione in una lingua supportata, inviare l'espressione all'endpoint Luis e ricevere i punteggi risultanti.
 
 ## <a name="languages-supported"></a>Lingue supportate
 
@@ -113,9 +113,9 @@ Le impostazioni cultura seguenti includono versioni Tokenizer personalizzate:
 
 |Impostazioni cultura|Versione|Scopo|
 |--|--|--|
-|Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in `Ich fahre einen kranken wagen`. Consentire il contrassegno di `kranken` e `wagen` in modo indipendente come entità diverse.|
+|Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in `Ich fahre einen kranken wagen` . Consentire il contrassegno di `kranken` e `wagen` in modo indipendente come entità diverse.|
 |Tedesco<br>`de-de`|1.0.2|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come espressione, rimane un singolo token. Pertanto `krankenwagen` è contrassegnato come una singola entità. |
-|Olandese<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ik ga naar de kleuterschool` come espressione, viene convertito in `Ik ga naar de kleuter school`. Consentire il contrassegno di `kleuter` e `school` in modo indipendente come entità diverse.|
+|Olandese<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ik ga naar de kleuterschool` come espressione, viene convertito in `Ik ga naar de kleuter school` . Consentire il contrassegno di `kleuter` e `school` in modo indipendente come entità diverse.|
 |Olandese<br>`de-de`|1.0.1|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ik ga naar de kleuterschool` come espressione, rimane un singolo token. Pertanto `kleuterschool` è contrassegnato come una singola entità. |
 
 

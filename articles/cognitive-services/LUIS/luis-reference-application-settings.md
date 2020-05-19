@@ -2,34 +2,29 @@
 title: Impostazioni dell'applicazione-LUIS
 description: Le impostazioni delle applicazioni per i servizi cognitivi di Azure informazioni sulle app vengono archiviate nell'app e nel portale.
 ms.topic: reference
-ms.date: 04/14/2020
-ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382194"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590987"
 ---
-# <a name="application-settings"></a>Impostazioni dell'applicazione
+# <a name="app-and-version-settings"></a>Impostazioni dell'app e della versione
 
-Queste impostazioni dell'applicazione vengono archiviate nell'app [esportata](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e [aggiornate](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con le API REST. Modificando le impostazioni della versione dell'app si reimposta lo stato di training dell'app su non sottoposto a training.
+Queste impostazioni vengono archiviate nell'app [esportata](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e aggiornate con le API REST o il portale Luis.
 
-Informazioni sui [concetti](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) di segni diacritici e punteggiatura.
+Modificando le impostazioni della versione dell'app si reimposta lo stato di training dell'app su non sottoposto a training.
 
-|Impostazione|Valore predefinito|Note|
-|--|--|--|
-|NormalizePunctuation|True|Rimuove la punteggiatura.|
-|NormalizeDiacritics|True|Rimuove i segni diacritici.|
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+
+
+Gli esempi e i riferimenti testuali includono:
+
+* [Punteggiatura](#punctuation-normalization)
+* [Diacritici](#diacritics-normalization)
 
 ## <a name="diacritics-normalization"></a>Normalizzazione segni diacritici
-
-Attivare la normalizzazione dell'espressione per i segni diacritici nel file dell' `settings` app Luis JSON nel parametro.
-
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
 
 Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei segni diacritici influisca sulle espressioni:
 
@@ -40,7 +35,7 @@ Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei 
 
 ### <a name="language-support-for-diacritics"></a>Supporto della lingua per i segni diacritici
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Segni diacritici `pt-br` del Portoghese brasiliano
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Segni diacritici del Portoghese brasiliano `pt-br`
 
 |Segni diacritici impostati su false|Segni diacritici impostati su true|
 |-|-|
@@ -58,7 +53,7 @@ Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei 
 |`ú`|`u`|
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Segni `nl-nl` diacritici olandesi
+#### <a name="dutch-nl-nl-diacritics"></a>`nl-nl`Segni diacritici olandesi
 
 |Segni diacritici impostati su false|Segni diacritici impostati su true|
 |-|-|
@@ -75,7 +70,7 @@ Negli enunciati seguenti viene illustrato il modo in cui la normalizzazione dei 
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Segni `fr-` diacritici francesi
+#### <a name="french-fr--diacritics"></a>`fr-`Segni diacritici francesi
 
 Sono incluse sia le impostazioni cultura di lingua francese sia quelle canadesi.
 
@@ -96,7 +91,7 @@ Sono incluse sia le impostazioni cultura di lingua francese sia quelle canadesi.
 |`ü`|`u`|
 |`ÿ`|`y`|
 
-#### <a name="german-de-de-diacritics"></a>Segni `de-de` diacritici tedeschi
+#### <a name="german-de-de-diacritics"></a>`de-de`Segni diacritici tedeschi
 
 |Segni diacritici impostati su false|Segni diacritici impostati su true|
 |--|--|
@@ -104,7 +99,7 @@ Sono incluse sia le impostazioni cultura di lingua francese sia quelle canadesi.
 |`ö`|`o`|
 |`ü`|`u`|
 
-#### <a name="italian-it-it-diacritics"></a>Segni `it-it` diacritici italiani
+#### <a name="italian-it-it-diacritics"></a>`it-it`Segni diacritici italiani
 
 |Segni diacritici impostati su false|Segni diacritici impostati su true|
 |--|--|
@@ -119,7 +114,7 @@ Sono incluse sia le impostazioni cultura di lingua francese sia quelle canadesi.
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Segni `es-` diacritici in spagnolo
+#### <a name="spanish-es--diacritics"></a>`es-`Segni diacritici in spagnolo
 
 Sono inclusi sia spagnolo che messicano.
 
@@ -133,16 +128,7 @@ Sono inclusi sia spagnolo che messicano.
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## <a name="punctuation-normalization"></a>Normalizzazione punteggiatura
-
-Attivare la `settings` normalizzazione dell'espressione per la punteggiatura al file dell'app Luis JSON nel parametro.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-]
-```
 
 Negli enunciati seguenti viene illustrato il modo in cui la punteggiatura influisca sulle espressioni:
 
@@ -153,7 +139,7 @@ Negli enunciati seguenti viene illustrato il modo in cui la punteggiatura influi
 
 ### <a name="punctuation-removed"></a>Segni di punteggiatura rimossi
 
-La punteggiatura seguente viene rimossa `NormalizePunctuation` con la è impostata su true.
+La punteggiatura seguente viene rimossa con la `NormalizePunctuation` è impostata su true.
 
 |Punteggiatura|
 |--|

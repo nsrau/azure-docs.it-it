@@ -1,7 +1,7 @@
 ---
-title: Riferimenti per l'API Traduzione testuale v3.0
+title: Guida di riferimento a Translator V 3.0
 titleSuffix: Azure Cognitive Services
-description: Documentazione di riferimento per l'API Traduzione testuale v3.0. La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su JSON.
+description: Documentazione di riferimento per Translator V 3.0. La versione 3 di Translator fornisce un'API Web moderna basata su JSON.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857302"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592271"
 ---
-# <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
+# <a name="translator-v30"></a>Traduttore v 3.0
 
-## <a name="whats-new"></a>Novità
+## <a name="whats-new"></a>Quali sono le novità?
 
-La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su JSON. Migliora l'usabilità e le prestazioni consolidando le funzionalità esistenti in un minor numero di operazioni e offre nuove funzionalità.
+La versione 3 di Translator fornisce un'API Web moderna basata su JSON. Migliora l'usabilità e le prestazioni consolidando le funzionalità esistenti in un minor numero di operazioni e offre nuove funzionalità.
 
  * Traslitterazione per convertire il testo in una lingua da un carattere all'altro.
  * Traduzione in più lingue in una sola richiesta.
@@ -37,7 +37,7 @@ Microsoft Translator è accessibile da più posizioni di data center. Attualment
 * **Asia Pacifico:** Corea meridionale, Giappone orientale, Asia sudorientale e Australia orientale
 * **Europa:** Europa settentrionale ed Europa occidentale
 
-Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsoft vengono gestite dal data center più vicino all'area di origine della richiesta. In caso di errore di un Data Center, la richiesta può essere instradata al di fuori della geografia di Azure.
+Le richieste a Microsoft Translator sono nella maggior parte dei casi gestiti dal Data Center più vicino alla posizione in cui ha avuto origine la richiesta. In caso di errore di un Data Center, la richiesta può essere instradata al di fuori della geografia di Azure.
 
 Per forzare la gestione della richiesta da parte di una specifica area geografica di Azure, impostare l'endpoint globale nella richiesta dell'API sull'endpoint di area desiderato:
 
@@ -50,13 +50,13 @@ Per forzare la gestione della richiesta da parte di una specifica area geografic
 
 ## <a name="authentication"></a>Authentication
 
-Sottoscrivere la [funzionalità multiservizio di API traduzione testuale o servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi di Azure e usare la chiave di sottoscrizione (disponibile nella portale di Azure) per l'autenticazione. 
+Sottoscrivere il [multiservizio](https://azure.microsoft.com/pricing/details/cognitive-services/) di servizi cognitivi o Translator in Servizi cognitivi di Azure e usare la chiave di sottoscrizione (disponibile nella portale di Azure) per l'autenticazione. 
 
 Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella descrive il modo in cui viene usato ogni:
 
-|Headers|Descrizione|
+|Intestazioni|Descrizione|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
+|Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione a Translator.|
 |Autorizzazione|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Usare con servizi cognitivi e la risorsa di conversione regionale.*<br/>Il valore è l'area della risorsa per più servizi o per la conversione a livello di area. Questo valore è facoltativo quando si usa una risorsa di conversione globale.|
 
@@ -65,13 +65,13 @@ La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `
 
 #### <a name="authenticating-with-a-global-resource"></a>Autenticazione con una risorsa globale
 
-Quando si usa una [risorsa di conversione globale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), è necessario includere un'intestazione per chiamare l'API di conversione.
+Quando si usa una [risorsa di conversione globale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), è necessario includere un'intestazione per chiamare il traduttore.
 
-|Headers|Descrizione|
+|Intestazioni|Descrizione|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
+|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione a Translator.|
 
-Di seguito è riportato un esempio di richiesta per chiamare l'API Translator usando la risorsa di conversione globale
+Ecco una richiesta di esempio per chiamare il traduttore usando la risorsa di conversione globale
 
 ```curl
 // Pass secret key using headers
@@ -84,14 +84,14 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 #### <a name="authenticating-with-a-regional-resource"></a>Autenticazione con una risorsa a livello di area
 
 Quando si usa una [risorsa di conversione regionale](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-Sono disponibili 2 intestazioni che è necessario chiamare l'API di conversione.
+È necessario chiamare il convertitore per due intestazioni.
 
-|Headers|Descrizione|
+|Intestazioni|Descrizione|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
+|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione a Translator.|
 |Ocp-Apim-Subscription-Region| Il valore è l'area della risorsa di conversione. |
 
-Ecco una richiesta di esempio per chiamare l'API di conversione con la risorsa di conversione regionale
+Ecco una richiesta di esempio per chiamare il traduttore usando la risorsa di conversione regionale
 
 ```curl
 // Pass secret key and region using headers
@@ -106,16 +106,16 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 Quando si usa una risorsa multiservizio di un servizio cognitivo. In questo modo è possibile usare una singola chiave privata per autenticare le richieste per più servizi. 
 
-Quando si usa una chiave privata a più servizi, è necessario includere due intestazioni di autenticazione con la richiesta. Sono disponibili 2 intestazioni che è necessario chiamare l'API di conversione.
+Quando si usa una chiave privata a più servizi, è necessario includere due intestazioni di autenticazione con la richiesta. È necessario chiamare il convertitore per due intestazioni.
 
-|Headers|Descrizione|
+|Intestazioni|Descrizione|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la risorsa multiservizio.|
 |Ocp-Apim-Subscription-Region| Il valore è l'area della risorsa multiservizio. |
 
 L'area è obbligatoria per la sottoscrizione dell'API del testo multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione di testo quando si usa la chiave di sottoscrizione multiservizio e deve essere la stessa area selezionata al momento dell'iscrizione per la sottoscrizione multiservizio tramite il portale di Azure.
 
-Le aree disponibili `australiaeast`sono `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, e `southafricanorth`.
+Le aree disponibili sono `australiaeast` ,, `brazilsouth` `canadacentral` , `centralindia` , `centralus` , `centraluseuap` , `eastasia` , `eastus` , `eastus2` , `francecentral` , `japaneast` , `japanwest` , `koreacentral` , `northcentralus` , `northeurope` , `southcentralus` , `southeastasia` , `uksouth` , `westcentralus` , `westeurope` , `westus` , `westus2` e `southafricanorth` .
 
 Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
 
@@ -143,22 +143,22 @@ Una richiesta con esito positivo restituisce il token di accesso codificato come
 Authorization: Bearer <Base64-access_token>
 ```
 
-Un token di autenticazione è valido per 10 minuti. Il token deve essere riutilizzato quando si effettuano più chiamate alle API di conversione. Tuttavia, se il programma effettua richieste all'API di traduzione in un periodo di tempo prolungato, il programma deve richiedere un nuovo token di accesso a intervalli regolari, ad esempio ogni 8 minuti.
+Un token di autenticazione è valido per 10 minuti. Il token deve essere riutilizzato quando si effettuano più chiamate al convertitore. Tuttavia, se il programma effettua richieste al traduttore in un periodo di tempo prolungato, il programma deve richiedere un nuovo token di accesso a intervalli regolari, ad esempio ogni 8 minuti.
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale
 
-Il servizio Translator è ora disponibile con le funzionalità di rete virtuale in`WestUS2`aree `EastUS`limitate `SouthCentralUS`( `WestUS`, `CentralUSEUAP`, `global`,,,). Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Il servizio Translator è ora disponibile con le funzionalità di rete virtuale in aree limitate ( `WestUS2` ,, `EastUS` `SouthCentralUS` , `WestUS` , `CentralUSEUAP` , `global` ). Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
-Una volta attivata questa funzionalità, è necessario usare l'endpoint personalizzato per chiamare l'API di conversione. Non è possibile usare l'endpoint di conversione globale ("api.cognitive.microsofttranslator.com") e non è possibile eseguire l'autenticazione con un token di accesso.
+Una volta attivata questa funzionalità, è necessario utilizzare l'endpoint personalizzato per chiamare il traduttore. Non è possibile usare l'endpoint di conversione globale ("api.cognitive.microsofttranslator.com") e non è possibile eseguire l'autenticazione con un token di accesso.
 
 È possibile trovare l'endpoint personalizzato dopo aver creato la [risorsa di conversione](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 
-|Headers|Descrizione|
+|Intestazioni|Descrizione|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
+|Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione a Translator.|
 |Ocp-Apim-Subscription-Region| Il valore è l'area della risorsa di conversione. Questo valore è facoltativo se la risorsa è`global`|
 
-Ecco una richiesta di esempio per chiamare l'API di conversione usando l'endpoint personalizzato
+Ecco una richiesta di esempio per chiamare il traduttore usando l'endpoint personalizzato
 
 ```curl
 // Pass secret key and region using headers
@@ -169,7 +169,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
      -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>Errori
 
 Una risposta di errore standard è un oggetto JSON con coppia nome/valore denominato `error`. Il valore è anche un oggetto JSON con proprietà:
 
@@ -218,7 +218,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 400079| Il sistema personalizzato richiesto per la traduzione da/verso la lingua non esiste.|
 | 400080| La traslitterazione non è supportata per il linguaggio o lo script.|
 | 401000| La richiesta non è autorizzata perché le credenziali mancano o non sono valide.|
-| 401015| "Le credenziali specificate si riferiscono a Speech API. Per questa richiesta sono necessarie le credenziali per l'API Testo. Usare una sottoscrizione per API Traduzione testuale ".|
+| 401015| "Le credenziali specificate si riferiscono a Speech API. Per questa richiesta sono necessarie le credenziali per l'API Testo. Usare una sottoscrizione di Translator ".|
 | 403000| L'operazione non è consentita.|
 | 403001| L'operazione non è consentita perché la sottoscrizione ha superato la quota gratuita.|
 | 405000| Il metodo della richiesta non è supportato per la risorsa richiesta.|
